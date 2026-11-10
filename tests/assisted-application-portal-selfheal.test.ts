@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, clickButton, hasApplicationSurface, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
@@ -433,6 +433,33 @@ describe('portal runner self-correction', () => {
 
     expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager 80-100%'))
       .toBe('https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html');
+  });
+
+  it('uses accessible labels when a Stadt Zürich control has no visible text', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [],
+      buttons: [{ text: '', label: 'Suche' }],
+      links: [{ text: '', labelledBy: 'Application Manager', href: 'https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html' }],
+    };
+
+    expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager'))
+      .toBe('https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html');
+    expect(isStadtZurichPublicSearchButton(snapshot.buttons[0])).toBe(true);
+  });
+
+  it('keeps same-path Stadt Zürich matches with different query strings unresolved', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [],
+      buttons: [],
+      links: [
+        { text: 'Application Manager', href: 'https://www.stadt-zuerich.ch/jobs/de/role-123.html?job=1' },
+        { text: 'Application Manager', href: 'https://www.stadt-zuerich.ch/jobs/de/role-123.html?job=2' },
+      ],
+    };
+
+    expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager')).toBe('');
   });
 
   it('keeps a Stadt Zürich listing unresolved when two role links match', () => {

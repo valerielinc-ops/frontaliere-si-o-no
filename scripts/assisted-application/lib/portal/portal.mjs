@@ -859,10 +859,15 @@ function isStadtZurichPublicJobDetailRoute(value) {
     && STADT_ZUERICH_PUBLIC_JOB_DETAIL_RE.some((pattern) => pattern.test(url.pathname));
 }
 
-function stadtZurichPostingCandidateText(candidate) {
-  return [candidate?.text, candidate?.label, candidate?.title, candidate?.ariaLabel]
+function stadtZurichAccessibleControlName(control) {
+  return [control?.labelledBy, control?.label, control?.ariaLabel, control?.text, control?.title]
     .map((value) => String(value || '').replace(/\s+/g, ' ').trim())
-    .filter(Boolean);
+    .find(Boolean) || '';
+}
+
+function stadtZurichPostingCandidateText(candidate) {
+  const name = stadtZurichAccessibleControlName(candidate);
+  return name ? [name] : [];
 }
 
 /**
@@ -884,10 +889,15 @@ export function stadtZurichPublicPostingTarget(snapshot = {}, title = '', curren
     const url = parsedSafeStadtZurichUrl(href, currentUrl);
     if (!url || !isStadtZurichPublicJobDetailRoute(url.href)) continue;
     if (!stadtZurichPostingCandidateText(control).some((text) => isRoleHeading(text, roleTitle))) continue;
-    const key = `${url.origin}${url.pathname.replace(/\/+$/, '')}`;
+    const key = `${url.origin}${url.pathname.replace(/\/+$/, '')}${url.search}`;
     if (!candidates.has(key)) candidates.set(key, url.href);
   }
   return candidates.size === 1 ? [...candidates.values()][0] : '';
+}
+
+export function isStadtZurichPublicSearchButton(button = {}) {
+  return !button?.chrome && !button?.disabled
+    && /^(?:search|suche)\b/iu.test(stadtZurichAccessibleControlName(button));
 }
 
 /**
@@ -1486,7 +1496,7 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
   }
   const publicActions = buttons
     .filter(button => !button?.chrome && !button?.disabled)
-    .map(button => String(button.text || '').replace(/\s+/g, ' ').trim())
+    .map(stadtZurichAccessibleControlName)
     .filter(text => PUBLIC_JOB_ACTION_RE.test(text));
   const hasSearchControls = publicActions.some(text => /^(?:search|suche|reset|zurücksetzen)\b/iu.test(text));
   const hasResultsControls = publicActions.some(text => /^(?:mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu.test(text));
@@ -1494,7 +1504,7 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
     || ['email', 'password'].includes(String(field.inputType || '').toLowerCase())
     || APPLICATION_IDENTITY_FIELD_RE.test(fieldText(field)));
   const hasApplicationButton = buttons.some(button => !button?.chrome && !button?.disabled
-    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
+    && (NEXT_RE.test(stadtZurichAccessibleControlName(button)) || SUBMIT_RE.test(stadtZurichAccessibleControlName(button))));
   return keywordField && filterKinds.size >= 2 && hasSearchControls && hasResultsControls
     && !hasCandidateField && !hasApplicationButton && !applicationEvidence;
 }
@@ -3011,10 +3021,13 @@ async function visibleStadtZurichPostingLinks(page) {
       })
       .slice(0, 200)
       .map((element) => ({
+        labelledBy: (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map((id) => document.getElementById(id)?.innerText || document.getElementById(id)?.textContent || '')
+          .join(' ').replace(/\s+/g, ' ').trim(),
         text: String(element.innerText || element.textContent || '').replace(/\s+/g, ' ').trim(),
         label: String(element.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim(),
         title: String(element.getAttribute('title') || '').replace(/\s+/g, ' ').trim(),
-        ariaLabel: String(element.getAttribute('aria-labelledby') || '').replace(/\s+/g, ' ').trim(),
+        ariaLabel: String(element.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim(),
         href: element.href || '',
       }))).catch(() => []);
     links.push(...(Array.isArray(found) ? found : []));
@@ -3045,8 +3058,7 @@ async function recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
     const text = [field?.label, field?.name, field?.id, field?.context, field?.section].filter(Boolean).join(' ');
     return field?.kind === 'text' && !field?.disabled && !field?.readOnly && PUBLIC_JOB_KEYWORD_RE.test(text);
   });
-  const searchButtons = (Array.isArray(snapshot.buttons) ? snapshot.buttons : []).filter((button) =>
-    !button?.chrome && !button?.disabled && /^(?:search|suche)\b/iu.test(String(button.text || '').replace(/\s+/g, ' ').trim()));
+  const searchButtons = (Array.isArray(snapshot.buttons) ? snapshot.buttons : []).filter(isStadtZurichPublicSearchButton);
   if (keywordFields.length !== 1 || searchButtons.length !== 1) return { snapshot, searched, target: '' };
   const keywordField = keywordFields[0];
   const searchButton = searchButtons[0];
