@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "commit": "9dd9d29de9deae37e693b200cb105abe83ce995e",
+  "commit": "6fea24c3b5aaf044a1a88f8ab594391af530f752",
   "files": {
-    "data/discovery-articles.json": 1380
+    "data/discovery-articles.json": 2815
   },
   "counts": {
-    "discoveryArticles": 1
+    "discoveryArticles": 2
   },
   "routeReadiness": {
     "schema": 1,
@@ -19,6 +19,13 @@
           "en",
           "fr",
           "it"
+        ]
+      },
+      "pamini-contributi-salari-svizzera": {
+        "signature": "5c40d0c1a89e4bed3e17bfcc9ea0ad34cb8badb4924ab47969089f8ac2df7e91",
+        "verifiedAt": "2026-11-10T13:41:10.670Z",
+        "locales": [
+          "fr"
         ]
       }
     }

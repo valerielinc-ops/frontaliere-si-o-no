@@ -58,9 +58,23 @@ const HARD_EXPIRED_PATTERNS = [
   /(offerta|annuncio) scadut[oa]/i,
   /candidature (chiuse|non piu accettate)/i,
   /(diese )?stelle (ist )?(leider )?nicht mehr (verfugbar|aktiv|ausgeschrieben|online)/i,
-  /(stelle|inserat|stellenanzeige|ausschreibung) (ist |wurde )?(bereits )?(abgelaufen|geschlossen|deaktiviert)/i,
+  /(stelle|inserat|stellenanzeige|ausschreibung) (ist |wurde )?(bereits )?(abgelaufen|geschlossen|deaktiviert|geloscht)/i,
   /bewerbungsfrist (ist )?abgelaufen/i,
   /die stelle wurde (bereits )?besetzt/i,
+  // A portal's own page for a posting it no longer shows (SuccessFactors, Stadt Zürich 2026-11-10: «Diese
+  // Stelle kann zurzeit nicht angezeigt werden. Sie wurde entweder gelöscht, oder man kann sich nicht länger
+  // darauf bewerben.»), and the same statement in the other languages: always about this posting, never a
+  // sentence an open posting prints.
+  // «kann nicht angezeigt werden» alone may be a passing display failure: only with its deletion or
+  // no-longer-apply clause is it the closure.
+  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
+  /(?:kann|konnen) sich nicht (?:mehr|langer) (?:darauf |dafur |auf diese stelle )?bewerben/i,
+  /non e piu possibile (?:candidarsi|candidarti|inviare (?:la (?:tua |sua )?)?candidatura)/i,
+  /(?:l')?(?:annuncio|offerta) (?:e stat[ao] )?(?:rimoss[ao]|eliminat[ao])\b/i,
+  /il n'est plus possible de (?:postuler|candidater)/i,
+  /(?:offre|annonce) (?:a ete )?(?:supprimee|retiree)\b/i,
+  /\b(?:job|position|role|posting|vacancy|opening|requisition) (?:has been|was|is now) (?:closed|removed|deleted|withdrawn)\b/i,
+  /\byou can no longer apply\b/i,
 ];
 
 const LISTING_PAGE_PATTERNS = [/\d+\s+jobs?\s+found/i, /\d+\s+(offerte|stellen|offres) (trovate|gefunden|trouvees)/i];

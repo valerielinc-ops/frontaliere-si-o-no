@@ -91,6 +91,44 @@ export function pendingAccountForCode(accounts, senderHost, { receivedAt } = {})
     && typeof createdAt === 'number' && Number.isFinite(createdAt) && createdAt <= receivedAt ? sole : null;
 }
 
+/**
+ * Life-cycle notices that prove the portal holds the account: what the runner
+ * may read as an accepted OTP. A changed password proves nothing of the kind.
+ */
+export const PORTAL_ACCOUNT_NOTICES_CONFIRMING = Object.freeze(['created', 'activated']);
+
+/**
+ * The order's portal account (pending or verified, never a discarded one) that
+ * a life-cycle notice is about. The notice is only recorded and kept from the
+ * candidate, its link is never opened: its sole link on the account's exact
+ * host binds it; else, as for a code, the sender's registrable domain, else the
+ * order's sole account that provably existed before the message. Two records
+ * for one host, or two candidate accounts, bind nothing.
+ */
+export function portalAccountForNotice(accounts, { link = '', senderHost = '', receivedAt } = {}) {
+  const entries = Object.values(accounts || {}).filter((entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
+    && typeof entry.host === 'string' && entry.host && entry.status !== 'discarded');
+  const byHost = new Map();
+  for (const entry of entries) {
+    const host = entry.host.toLowerCase();
+    byHost.set(host, [...(byHost.get(host) || []), entry]);
+  }
+  const managed = [...byHost.entries()].filter(([, list]) => list.length === 1).map(([host, [entry]]) => ({ host, entry }));
+  if (link) {
+    const exact = managed.filter(({ host }) => exactPortalVerificationUrl(link, host));
+    if (exact.length === 1) return exact[0].host;
+  }
+  const sender = String(senderHost || '').toLowerCase();
+  if (!sender) return '';
+  const named = managed.filter(({ host }) => registrable(host) === registrable(sender));
+  if (named.length === 1) return named[0].host;
+  if (named.length > 0 || managed.length !== 1) return '';
+  const [{ host, entry }] = managed;
+  const { createdAt } = entry;
+  return typeof receivedAt === 'number' && Number.isFinite(receivedAt)
+    && typeof createdAt === 'number' && Number.isFinite(createdAt) && createdAt <= receivedAt ? host : '';
+}
+
 /** A verification link on the portal's own site (or its ATS family), over https. */
 export function sameSite(url, portalHost) {
   let target;
