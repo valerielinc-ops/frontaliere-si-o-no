@@ -44,7 +44,8 @@ const HEALTH_HISTORY_LIMIT = 60;
  *
  * Anchored on path SEGMENTS rather than substrings: a bare /jobs/ test also
  * matches `/blog/jobs-report-2026`, and at index scale that noise would
- * dominate the yield.
+ * dominate the yield. Static page suffixes such as `.html` stay part of the
+ * same segment and must not hide a careers page from the index sweep.
  */
 const CAREER_PATH_RX = new RegExp(
   '(^|/)('
@@ -52,7 +53,7 @@ const CAREER_PATH_RX = new RegExp(
   + '|jobs?|careers?|join-us|work-with-us|vacancies'
   + '|karriere|offene-stellen|stellenangebote|stellen|jobangebote|arbeiten-bei'
   + '|emplois?|carrieres?|nous-rejoindre|postes-vacants|offres-d-emploi'
-  + ')(/|$|\\?)',
+  + ')(?:\\.[a-z0-9]{1,8})?(?:/|$|\\?)',
   'i',
 );
 
