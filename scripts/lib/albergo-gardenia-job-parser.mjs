@@ -15,7 +15,7 @@ import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
 import { NAMED, decodeEntities } from './prospector/entities.mjs';
 import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
-import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
+import { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
 export const ALBERGO_GARDENIA_KEY = 'albergo-gardenia';
 export const ALBERGO_GARDENIA_COMPANY_NAME = 'Albergo Gardenia';
@@ -651,12 +651,14 @@ function gardeniaInventoryHasWafResponse(snapshot) {
  * a two-hop CNAME chain and has intermittently timed out from GitHub Actions.
  * Give the slow origin an explicit per-attempt budget and, only after a pure
  * connection-level exhaustion (status 0), retry the byte-identical apex/www
- * host alias. HTTP responses, robots denials and URL-policy failures never
- * cross the alias boundary: those are authoritative failures, not transport
- * noise. An IP-reputation WAF response uses the bounded browser fallback
- * instead, because the alternate transport is specifically meant to change
- * egress identity. The caller still validates resource identity and source
- * content.
+ * host alias. Transient server/gateway responses use that same proven alias
+ * boundary after the shared retry budget is exhausted: a 503 from one Gardenia
+ * edge must not turn a complete authoritative inventory into a missing receipt.
+ * Permanent HTTP responses, robots denials and URL-policy failures never cross
+ * the alias boundary. An IP-reputation WAF response uses the bounded browser
+ * fallback instead, because the alternate transport is specifically meant to
+ * change egress identity. The caller still validates resource identity and
+ * source content.
  *
  * @param {string} rawUrl
  * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, transportState?: { preferred?: 'browser', preferredHost?: string }, deadlineAt?: number, nowImpl?: () => number }} [runtime]
@@ -704,10 +706,14 @@ export async function fetchAlbergoGardeniaSourcePage(
     const connectionFailure = responseStatus === 0
       && !response?.blockedByRobots
       && !response?.policyBlocked;
+    const transientServerResponse = responseStatus >= 500
+      && RETRYABLE_STATUS.has(responseStatus)
+      && !response?.blockedByRobots
+      && !response?.policyBlocked;
     const wafBlock = WAF_IP_BLOCK_STATUS.has(responseStatus)
       && !response?.blockedByRobots
       && !response?.policyBlocked;
-    if (!connectionFailure && !wafBlock) return response;
+    if (!connectionFailure && !transientServerResponse && !wafBlock) return response;
     if (wafBlock) {
       if (!browserFetchPage) return response;
       if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
@@ -718,16 +724,24 @@ export async function fetchAlbergoGardeniaSourcePage(
       return browserResponse;
     }
     if (index < candidates.length - 1) {
-      console.warn(`  ⚠️ Gardenia origin connection exhausted for ${candidateUrl}; trying the canonical host alias.`);
+      const reason = transientServerResponse
+        ? `transient HTTP ${responseStatus}`
+        : 'origin connection exhaustion';
+      console.warn(`  ⚠️ Gardenia ${reason} for ${candidateUrl}; trying the canonical host alias.`);
     }
   }
 
   const connectionFailure = Number(last?.status || 0) === 0
     && !last?.blockedByRobots
     && !last?.policyBlocked;
-  if (connectionFailure && browserFetchPage) {
+  const transientServerResponse = Number(last?.status || 0) >= 500
+    && RETRYABLE_STATUS.has(Number(last?.status || 0))
+    && !last?.blockedByRobots
+    && !last?.policyBlocked;
+  if ((connectionFailure || transientServerResponse) && browserFetchPage) {
     if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
-    console.warn(`  ⚠️ Gardenia HTTP aliases exhausted for ${rawUrl}; trying bounded Chromium transport.`);
+    const reason = transientServerResponse ? 'transient HTTP aliases exhausted' : 'HTTP aliases exhausted';
+    console.warn(`  ⚠️ Gardenia ${reason} for ${rawUrl}; trying bounded Chromium transport.`);
     const response = await browserFetchPage(rawUrl, fetchOptions);
     if (nowImpl() >= deadlineAt) throw gardeniaDeadlineError(rawUrl);
     if (response?.ok && transportState) transportState.preferred = 'browser';
