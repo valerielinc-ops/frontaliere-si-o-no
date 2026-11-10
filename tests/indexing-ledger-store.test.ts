@@ -7,7 +7,7 @@
  * been sent on 2026-11-07.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { generateKeyPairSync } from 'node:crypto';
+import { generateKeyPairSync, randomBytes } from 'node:crypto';
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -15,7 +15,12 @@ import {
   CHUNK_BYTES,
   CHUNK_DOC_PREFIX,
   LEDGER_DOC,
+  MAX_CHUNKS,
+  MAX_COMMIT_REQUEST_BYTES,
+  assertCommitFits,
   buildCommitWrites,
+  commitRequestBytes,
+  parseCli,
   decodeLedger,
   encodeLedger,
   receiptPath,
@@ -48,6 +53,48 @@ describe('encode/decode', () => {
     const a = encodeLedger(bigLedger(10));
     const b = encodeLedger(bigLedger(11));
     expect(() => decodeLedger(b.chunks, a.sha256)).toThrow(/sha256 mismatch/);
+  });
+});
+
+/** A ledger whose gzip needs `chunks` chunks: random bytes do not compress. */
+function incompressibleLedger(chunks: number) {
+  // base64 of random bytes gzips to ~76% of its length.
+  const pad = randomBytes(Math.ceil((chunks - 0.5) * CHUNK_BYTES)).toString('base64');
+  return JSON.stringify({ version: 1, createdAt: '2026-11-01', days: {}, urls: {}, notifications: {}, pad });
+}
+
+describe('Firestore commit size limit (10 MiB per request)', () => {
+  it('a commit with the maximum number of full chunks fits the request limit', () => {
+    const full = randomBytes(CHUNK_BYTES).toString('base64');
+    const encoded = { chunks: Array.from({ length: MAX_CHUNKS }, () => full), sha256: 'a'.repeat(64), rawBytes: 1, gzBytes: 1 };
+    const writes = buildCommitWrites({
+      projectId: PROJECT, encoded, previousChunks: MAX_CHUNKS, precondition: { exists: false }, writer: 'w', urlCount: 1,
+    });
+    expect(MAX_COMMIT_REQUEST_BYTES).toBeLessThan(10 * 1024 * 1024);
+    expect(commitRequestBytes(writes)).toBeLessThanOrEqual(MAX_COMMIT_REQUEST_BYTES);
+    expect(() => assertCommitFits(writes)).not.toThrow();
+  });
+
+  it('12 chunks (over 10 MiB once base64 + JSON) are refused by the size guard', () => {
+    const full = randomBytes(CHUNK_BYTES).toString('base64');
+    const encoded = { chunks: Array.from({ length: 12 }, () => full), sha256: 'a'.repeat(64), rawBytes: 1, gzBytes: 1 };
+    const writes = buildCommitWrites({
+      projectId: PROJECT, encoded, previousChunks: 0, precondition: { exists: false }, writer: 'w', urlCount: 1,
+    });
+    expect(() => assertCommitFits(writes)).toThrow(/above .*10 MiB/);
+  });
+
+  it('encodeLedger refuses a ledger that needs 12 chunks', () => {
+    expect(() => encodeLedger(incompressibleLedger(12))).toThrow(/need 12 chunks .*max 10/);
+  });
+});
+
+describe('CLI arguments', () => {
+  it('accepts exactly one --ledger and rejects duplicates, unknown options and a missing path', () => {
+    expect(parseCli(['pull', '--ledger', '/tmp/a.json'])).toMatchObject({ command: 'pull', ledger: '/tmp/a.json', error: null });
+    expect(parseCli(['pull', '--ledger', '/tmp/a.json', '--ledger', '/tmp/b.json']).error).toMatch(/more than once/);
+    expect(parseCli(['push', '--ledgr', '/tmp/a.json']).error).toMatch(/unknown option/);
+    expect(parseCli(['push', '--ledger']).error).toMatch(/needs a path/);
   });
 });
 
@@ -170,6 +217,29 @@ describe('pull / push CLI against Firestore', () => {
     const before = google.commits.length;
     expect(await runCli(['push', '--ledger', ledgerPath()], env)).toBe(0);
     expect(google.commits.length).toBe(before);
+  });
+
+  it('a ledger needing 12 chunks is refused locally: exit 1, a size error, no Firestore call at all', async () => {
+    await runCli(['pull', '--ledger', ledgerPath()], env);
+    google.fetchImpl.mockClear();
+    writeFileSync(ledgerPath(), incompressibleLedger(12));
+    expect(await runCli(['push', '--ledger', ledgerPath()], env)).toBe(1);
+    expect(google.fetchImpl).not.toHaveBeenCalled();
+    expect(google.commits).toHaveLength(0);
+    const logged = (console.log as unknown as { mock: { calls: unknown[][] } }).mock.calls.flat().join('\n');
+    expect(logged).toMatch(/refused before any Firestore call: ledger too large/);
+  });
+
+  it('a truncated pull receipt is an ::error:: exit 1, not an unhandled exception', async () => {
+    writeFileSync(ledgerPath(), bigLedger(3));
+    writeFileSync(receiptPath(ledgerPath()), '{"exists":tr');
+    expect(await runCli(['push', '--ledger', ledgerPath()], env)).toBe(1);
+    expect(google.fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('a duplicated --ledger is a usage error before any network call', async () => {
+    expect(await runCli(['pull', '--ledger', ledgerPath(), '--ledger', join(dir, 'x.json')], env)).toBe(2);
+    expect(google.fetchImpl).not.toHaveBeenCalled();
   });
 
   it('missing credentials are a configuration error (exit 2), not a silent skip', async () => {

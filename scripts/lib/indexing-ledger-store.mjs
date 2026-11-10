@@ -62,14 +62,40 @@ export const LEDGER_DOC = 'ci_state/indexing-api-jobs-ledger';
 export const CHUNK_DOC_PREFIX = `${LEDGER_DOC}-chunk-`;
 /** Raw bytes per chunk document: well under the 1 MiB document limit. */
 export const CHUNK_BYTES = 700_000;
-/** Hard ceiling: a ledger this large is a bug (it would be ~15x today's size). */
-export const MAX_CHUNKS = 20;
+/**
+ * Firestore rejects a `documents:commit` request body above 10 MiB, and a push
+ * is ONE commit carrying every chunk. A chunk travels as base64 (4/3 of its
+ * raw bytes: 700,000 → 933,336 characters) inside the JSON of its write, so 12
+ * chunks already exceed the limit. 10 chunks are ~9.3 MB of base64; the
+ * request itself is measured against MAX_COMMIT_REQUEST_BYTES before any call.
+ * 10 chunks = 7 MB of gzipped ledger, ~10x today's size: reaching it is a bug.
+ */
+export const MAX_CHUNKS = 10;
+/** Firestore's commit request limit (10 MiB) minus headroom for headers/meta. */
+export const MAX_COMMIT_REQUEST_BYTES = 10 * 1024 * 1024 - 256 * 1024;
 export const FIRESTORE_SCOPE = 'https://www.googleapis.com/auth/datastore';
 const FIRESTORE_API = 'https://firestore.googleapis.com/v1';
 const REQUEST_TIMEOUT_MS = 30_000;
 const PULL_ATTEMPTS = 3;
 
 export class StoreConfigError extends Error {}
+export class LedgerTooLargeError extends Error {}
+
+/** Size in bytes of the `documents:commit` request body for these writes. */
+export function commitRequestBytes(writes) {
+  return Buffer.byteLength(JSON.stringify({ writes }), 'utf8');
+}
+
+/** Throws LedgerTooLargeError when the commit would exceed Firestore's request limit. */
+export function assertCommitFits(writes) {
+  const bytes = commitRequestBytes(writes);
+  if (bytes > MAX_COMMIT_REQUEST_BYTES) {
+    throw new LedgerTooLargeError(
+      `ledger commit request is ${bytes} bytes, above ${MAX_COMMIT_REQUEST_BYTES} (Firestore limit 10 MiB)`,
+    );
+  }
+  return bytes;
+}
 
 export function sha256Hex(buf) {
   return createHash('sha256').update(buf).digest('hex');
@@ -86,7 +112,10 @@ export function encodeLedger(json) {
   for (let off = 0; off < gz.length; off += CHUNK_BYTES) chunks.push(gz.subarray(off, off + CHUNK_BYTES).toString('base64'));
   if (chunks.length === 0) chunks.push('');
   if (chunks.length > MAX_CHUNKS) {
-    throw new Error(`ledger too large: ${gz.length} gzipped bytes need ${chunks.length} chunks (max ${MAX_CHUNKS})`);
+    throw new LedgerTooLargeError(
+      `ledger too large: ${gz.length} gzipped bytes need ${chunks.length} chunks of ${CHUNK_BYTES} `
+      + `(max ${MAX_CHUNKS}, so one Firestore commit stays under 10 MiB)`,
+    );
   }
   return { chunks, sha256: sha256Hex(raw), rawBytes: raw.length, gzBytes: gz.length };
 }
@@ -235,8 +264,12 @@ export async function pullLedger(conn) {
   throw lastErr;
 }
 
-export async function pushLedger(conn, json, receipt, { writer, urlCount }) {
-  const encoded = encodeLedger(json);
+/**
+ * @param {{projectId: string, base: string, request: Function}} conn
+ * @param {ReturnType<typeof encodeLedger>} encoded encode BEFORE connecting:
+ *   a ledger too large to commit must fail without any Firestore call
+ */
+export async function pushLedger(conn, encoded, receipt, { writer, urlCount }) {
   if (receipt.exists && receipt.sha256 === encoded.sha256) return { written: false, encoded };
   const writes = buildCommitWrites({
     projectId: conn.projectId,
@@ -246,6 +279,7 @@ export async function pushLedger(conn, json, receipt, { writer, urlCount }) {
     writer,
     urlCount,
   });
+  assertCommitFits(writes);
   await conn.request(`${conn.base}:commit`, { method: 'POST', body: JSON.stringify({ writes }) });
   return { written: true, encoded };
 }
@@ -254,10 +288,17 @@ export function receiptPath(ledgerPath) {
   return `${ledgerPath}.store.json`;
 }
 
-function parseCli(argv) {
+/** Strict: exactly one `--ledger <path>`, nothing else (a typo must not pick another file). */
+export function parseCli(argv) {
   const [command, ...rest] = argv;
-  const args = { command, ledger: null };
-  for (let i = 0; i < rest.length; i++) if (rest[i] === '--ledger') args.ledger = rest[++i];
+  const args = { command, ledger: null, error: null };
+  for (let i = 0; i < rest.length; i++) {
+    if (rest[i] !== '--ledger') { args.error = `unknown option ${JSON.stringify(rest[i])}`; break; }
+    if (args.ledger !== null) { args.error = '--ledger given more than once'; break; }
+    const value = rest[++i];
+    if (!value || value.startsWith('--')) { args.error = '--ledger needs a path'; break; }
+    args.ledger = value;
+  }
   return args;
 }
 
@@ -275,12 +316,12 @@ function writer(env = process.env) {
 
 export async function runCli(argv, env = process.env) {
   const args = parseCli(argv);
-  if (!['pull', 'push'].includes(args.command) || !args.ledger) {
-    console.log('::error::usage: indexing-ledger-store.mjs pull|push --ledger <path>');
+  if (!['pull', 'push'].includes(args.command) || !args.ledger || args.error) {
+    console.log(`::error::usage: indexing-ledger-store.mjs pull|push --ledger <path>${args.error ? ` (${args.error})` : ''}`);
     return 2;
   }
   let receipt = null;
-  let json = null;
+  let encoded = null;
   let urlCount = 0;
   if (args.command === 'push') {
     // Checked before any network: a push without the receipt of a successful
@@ -293,10 +334,20 @@ export async function runCli(argv, env = process.env) {
       console.log('ℹ️ No local ledger to push (nothing was bootstrapped or changed)');
       return 0;
     }
-    receipt = JSON.parse(fs.readFileSync(receiptPath(args.ledger), 'utf8'));
-    json = fs.readFileSync(args.ledger, 'utf8');
+    try {
+      receipt = JSON.parse(fs.readFileSync(receiptPath(args.ledger), 'utf8'));
+      if (!receipt || typeof receipt.exists !== 'boolean') throw new Error('missing `exists`');
+    } catch (err) {
+      console.log(`::error::Pull receipt ${receiptPath(args.ledger)} is unreadable (${err.message}) — not pushed`);
+      return 1;
+    }
+    const json = fs.readFileSync(args.ledger, 'utf8');
     try { urlCount = Object.keys(JSON.parse(json).urls || {}).length; } catch {
       console.log(`::error::Local ledger ${args.ledger} is not JSON — not pushed`);
+      return 1;
+    }
+    try { encoded = encodeLedger(json); } catch (err) {
+      console.log(`::error::Indexing API ledger push refused before any Firestore call: ${err.message}`);
       return 1;
     }
   }
@@ -314,7 +365,7 @@ export async function runCli(argv, env = process.env) {
         : `📥 No Indexing API ledger in Firestore ${LEDGER_DOC} yet — the job submitter bootstraps it`);
       return 0;
     }
-    const { written, encoded } = await pushLedger(conn, json, receipt, { writer: writer(env), urlCount });
+    const { written } = await pushLedger(conn, encoded, receipt, { writer: writer(env), urlCount });
     console.log(written
       ? `📤 Indexing API ledger pushed to Firestore ${LEDGER_DOC}: ${urlCount} URLs, ${encoded.gzBytes} gzipped bytes in ${encoded.chunks.length} chunk(s)`
       : '📤 Indexing API ledger unchanged — nothing to push');
