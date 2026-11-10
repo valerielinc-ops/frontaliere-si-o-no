@@ -32,7 +32,11 @@ export function isExpiredJobGa4EvidenceUsable(evidence, nowMs = Date.now()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(startDate) || !/^\d{4}-\d{2}-\d{2}$/.test(endDate)) return false;
   const startDateMs = Date.parse(`${startDate}T00:00:00Z`);
   const endDateMs = Date.parse(`${endDate}T00:00:00Z`);
-  if (!Number.isFinite(startDateMs) || !Number.isFinite(endDateMs) || startDateMs > endDateMs) return false;
+  // Date.parse normalizes impossible dates (for example, February 30) into
+  // the following month. Round-trip the UTC calendar date before comparing.
+  if (!Number.isFinite(startDateMs) || new Date(startDateMs).toISOString().slice(0, 10) !== startDate
+    || !Number.isFinite(endDateMs) || new Date(endDateMs).toISOString().slice(0, 10) !== endDate
+    || startDateMs > endDateMs) return false;
   const currentUtcDate = new Date(nowMs).toISOString().slice(0, 10);
   if (endDate > currentUtcDate) return false;
 

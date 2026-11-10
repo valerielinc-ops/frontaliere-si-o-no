@@ -91,6 +91,7 @@ describe('expired job edge selection', () => {
     expect(isExpiredJobGa4EvidenceUsable(evidence({ coverage: { complete: true, returnedRows: 0, reportedRows: 1 } }), NOW)).toBe(false);
     expect(isExpiredJobGa4EvidenceUsable(evidence({ dateRange: { startDate: 'bad', endDate: '2026-11-09' } }), NOW)).toBe(false);
     expect(isExpiredJobGa4EvidenceUsable(evidence({ dateRange: { startDate: '2026-99-99', endDate: '2026-11-09' } }), NOW)).toBe(false);
+    expect(isExpiredJobGa4EvidenceUsable(evidence({ dateRange: { startDate: '2026-02-30', endDate: '2026-03-01' } }), NOW)).toBe(false);
     expect(isExpiredJobGa4EvidenceUsable(evidence({
       dateRange: { startDate: '2026-11-10', endDate: '2026-11-11' },
     }), NOW)).toBe(false);
