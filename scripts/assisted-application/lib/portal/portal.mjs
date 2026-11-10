@@ -405,7 +405,7 @@ function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postin
   try {
     const current = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    const source = successFactorsModuleIdentity(postingRouteProof?.applyUrl);
+    const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
     if (!source || postingRouteProof?.via !== 'successfactors'
       || !isSuccessFactorsCareerPath(current.href)
       || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
