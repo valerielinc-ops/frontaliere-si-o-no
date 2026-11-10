@@ -26,12 +26,14 @@
  * Stable global shell aliases are checked against the digest of their current
  * producer bytes, read from the CDN response body. ETags are only validators:
  * a weak ETag cannot prove byte identity.
- * Only the full deploy may update those mutable aliases: fast emitters can run
- * from an older inputs.sha and must never roll a newer script back. A missing
- * or stale alias therefore fails closed until the full deploy publishes the
- * current producer. A content-addressed key may be PUT again only when its
- * cache metadata is stale; the producer bytes are still the same content that
- * the key names.
+ * Fast emitters never overwrite a mutable alias: they can run from an older
+ * inputs.sha and must never roll a newer script back. An alias that is absent
+ * from both the CDN and R2 is the bootstrap case after a new producer lands;
+ * it may be uploaded from the current producer, then purged and verified like
+ * every other asset. A stored or stale alias remains fail-closed until the
+ * full deploy repairs it. A content-addressed key may be PUT again only when
+ * its cache metadata is stale; the producer bytes are still the same content
+ * that the key names.
  *
  * An object on R2 is not yet a file the pages get. Each edge location keeps
  * the 404 it gave a browser while the object was missing (about three minutes
@@ -495,7 +497,7 @@ export async function ensureCdnShellAssets({
       results.push({ key, outcome: 'served' });
       continue;
     }
-    if (stablePairByKey.has(key)) {
+    if (stablePairByKey.has(key) && probeAnswer === 'stale') {
       const { versionedKey } = stablePairByKey.get(key);
       throw new Error(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey} — HTML that references it must not be published`);
     }
