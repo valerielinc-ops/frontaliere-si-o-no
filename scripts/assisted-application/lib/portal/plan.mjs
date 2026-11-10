@@ -20,6 +20,7 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentP
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import { isIdentityEmailConfirmation } from '../../../../functions/src/lib/identityEmail.js';
+import { shapeFits } from './value-shape.mjs';
 import {
   explicitLanguageEntries,
   explicitLanguageEntry,
@@ -1666,7 +1667,59 @@ function phoneCountryOption(candidate, field) {
 }
 
 /** A safe answer from the candidate or their profile; CV-only permit evidence is opt-in. */
-export function candidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
+/**
+ * The shape a free-text field asks for, read from the field's own label and
+ * native type (never from a sibling's caption): `name`, `email`, `phone`,
+ * `date`, `postal_code`, or '' when the field does not constrain the shape.
+ * A choice field is answered by one of its own options and is not checked.
+ */
+export function expectedValueShape(field) {
+  if (!field || isChoiceField(field) || isCheckboxField(field)) return '';
+  const kind = String(field.kind || '').trim().toLowerCase();
+  if (kind && !['text', 'textarea', 'email', 'tel', 'date'].includes(kind)) return '';
+  const inputType = String(field.inputType || '').trim().toLowerCase();
+  if (['password', 'file', 'search', 'url', 'number', 'hidden'].includes(inputType)) return '';
+  const label = String(field.label || '');
+  const bare = questionFromLabel(label);
+  if (FIRST_NAME_FIELD_RE.test(label) || BARE_FIRST_NAME_FIELD_RE.test(bare)
+    || LAST_NAME_FIELD_RE.test(label) || BARE_LAST_NAME_FIELD_RE.test(bare)
+    || FULL_NAME_FIELD_RE.test(label)) {
+    // «E-Mail (Vorname.Nachname@…)» describes an e-mail, not a name.
+    return inputType === 'email' || IDENTITY_EMAIL_RE.test(label) ? 'email' : 'name';
+  }
+  if (inputType === 'email' || (kind !== 'textarea' && IDENTITY_EMAIL_RE.test(label))) return 'email';
+  // The field's own label and native type only: the section context lists every
+  // sibling label, so it cannot say what this field is (#17094).
+  const topic = questionTopic(label, '', { ...field, context: '', section: '' });
+  if (topic === 'phone' || inputType === 'tel') return 'phone';
+  if (topic === 'residence_postal_code') return 'postal_code';
+  if (topic === 'birth_date' || isDateField(field)) return 'date';
+  return '';
+}
+
+/**
+ * The value-shape invariant: a value the runner writes into a free-text field
+ * must have the shape that field asks for (no e-mail in «Vorname», an e-mail
+ * in an e-mail field, digits in a phone or postal code). One reader for the
+ * deterministic answers and for the planner's own values.
+ */
+export function valueFitsField(field, value, candidate = null) {
+  return shapeFits(expectedValueShape(field), value, { identityEmail: candidate?.identity?.email });
+}
+
+/**
+ * The candidate's deterministic answer for a field, dropped when its shape
+ * contradicts the field (valueFitsField): a misread label must not let a
+ * known value win over the planner in the wrong control. Without it the field
+ * is decided as any other (the planner's value if it fits, else a question).
+ */
+export function candidateAnswerForField(candidate, field, options = {}) {
+  const known = rawCandidateAnswerForField(candidate, field, options);
+  if (!known || known.value === undefined || known.value === null || !String(known.value).trim()) return known;
+  return valueFitsField(field, known.value, candidate) ? known : null;
+}
+
+function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();
@@ -1681,7 +1734,11 @@ export function candidateAnswerForField(candidate, field, { includeProfileWorkPe
     const value = phoneCountryOption(candidate, field);
     return value ? { value, source: 'identity' } : null;
   }
-  if (isTextEmailInput && isIdentityEmailConfirmationField(field) && candidate?.identity?.email) {
+  // The confirmation reader sees the section context; the shape check keeps
+  // a name field from taking the e-mail when that context names an e-mail
+  // sibling, so the field still reaches its own identity answer below.
+  if (isTextEmailInput && isIdentityEmailConfirmationField(field) && candidate?.identity?.email
+    && valueFitsField(field, candidate.identity.email, candidate)) {
     return { value: candidate.identity.email, source: 'identity' };
   }
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context, field);
@@ -2090,6 +2147,13 @@ export function guardPlan(plan, fields, candidate = null) {
       }
       const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
       if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
+      // The planner's own value obeys the same value-shape invariant as the
+      // deterministic one: a value that contradicts the field is not typed.
+      if (action.action === 'fill' && !valueFitsField(field, action.value, candidate)) {
+        rejectedActionFields.add(field.id);
+        ask(field);
+        continue;
+      }
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
