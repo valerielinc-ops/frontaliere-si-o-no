@@ -47,7 +47,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { pathToFileURL } = require('node:url');
-            const { shouldRetryCloudFunctionsRun } = await import(pathToFileURL(
+            const { listRecentCloudFunctionsRuns, shouldRetryCloudFunctionsRun } = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/cloud-functions-hosted-runner-recovery.mjs`,
             ).href);
             const run = context.payload.workflow_run;
@@ -65,15 +65,12 @@ jobs:
                 per_page: 100,
               },
             );
-            const workflowRuns = await github.paginate(
-              github.rest.actions.listWorkflowRuns,
-              {
-                ...context.repo,
-                workflow_id: 'deploy-cloud-functions.yml',
-                branch: 'main',
-                per_page: 100,
-              },
-            );
+            const workflowRuns = await listRecentCloudFunctionsRuns({
+              github,
+              repo: context.repo,
+              run,
+              core,
+            });
             const annotationsByJob = {};
             for (const job of jobs) {
               if (!Number.isSafeInteger(Number(job.id))) continue;
