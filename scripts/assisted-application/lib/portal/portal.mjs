@@ -4225,7 +4225,8 @@ const optionalNotice = (control) => ownConsent.isOptionalPurpose(control.text, c
 const privacyStatementControl = (control) => !control.disabled && !control.chrome && !control.leavesDocument && ownConsent.isRequiredNotice(control);
 
 export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
-export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
+// «Zur Kenntnis genommen» (SBB, 2026-11-10) and the other acknowledgements close the statement as accepted.
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte|(?:zur )?kenntnis genommen|ich habe (?:es )?zur kenntnis genommen|gelesen und akzeptiert|einverstanden|ich bin einverstanden|acknowledged?|i acknowledge|read and accepted|(?:ho )?pres[ao] visione|letto e accettato|(?:j['’]ai )?pris connaissance|lu et accept[ée])(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
 // How long a form gets to free its button after the notice was accepted.
 const PRIVACY_ENABLE_TIMEOUT_MS = 8_000;
 
