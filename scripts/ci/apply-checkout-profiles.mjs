@@ -38,6 +38,14 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/packages/articles/content/blogImageCdnMirror.ts',
 ];
 
+// The OG prewarm consumes the same assembled active-job dataset as deploy and
+// hashes employer-logo bytes into card cache names. These runtime inputs are
+// read through fs, so the static workflow analyzer cannot infer them reliably.
+const JOB_OG_PREWARM_REQUIRED_SPARSE_PATHS = Object.freeze({
+  prepare: ['/data/jobs/', '/public/images/brands/'],
+  render: ['/public/images/brands/'],
+});
+
 /**
  * Input letti dal build globale mentre gira nel job `vitest`.
  *
@@ -321,7 +329,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
       : runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS
         : path.basename(workflowPath) === 'social-copy-pack.yml' && job.jobId === 'generate' && job.exclude.length
           ? SOCIAL_COPY_REQUIRED_SPARSE_PATHS
-          : [];
+          : path.basename(workflowPath) === 'og-jobs-cache-prewarm.yml' && job.exclude.length
+            ? JOB_OG_PREWARM_REQUIRED_SPARSE_PATHS[job.jobId] ?? []
+            : [];
     const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }

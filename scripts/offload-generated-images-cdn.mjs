@@ -66,6 +66,10 @@ import {
   CDN_OFFLOADED_IMAGE_TARGETS,
 } from '../build-plugins/shared/cdnOffloadTargets.mjs';
 import {
+  JOB_OG_DEFERRED_FALLBACKS,
+  deferredJobOgImageFallbackUrl,
+} from '../build-plugins/shared/jobOgRenderBudget.mjs';
+import {
   CDN_ASSET_CHECK_BUDGET_MS,
   formatCdnAssetReport,
   formatOffloadCoverageReport,
@@ -603,8 +607,16 @@ const DATA_FILE = CDN_OFFLOAD_DATA_FILE_PATTERN;
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
-async function offloadAll(distDir, cdnBase, onlyFiles = null, { chunk = false } = {}) {
+async function offloadAll(
+  distDir,
+  cdnBase,
+  onlyFiles = null,
+  { chunk = false, deferredJobOgFallbackSlugs = [] } = {},
+) {
   const partial = Array.isArray(onlyFiles);
+  const fallbackSlugs = deferredJobOgFallbackSlugs instanceof Set
+    ? deferredJobOgFallbackSlugs
+    : new Set(deferredJobOgFallbackSlugs);
   const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   // og/image rewrite/guard regexes: compiled for EVERY target, NOT gated on
@@ -626,7 +638,8 @@ async function offloadAll(distDir, cdnBase, onlyFiles = null, { chunk = false } 
       reAbs: new RegExp(escOrigin + escUrl + OG_FILE, 'g'),
       reRel: new RegExp('(?<![\\w.@])' + escUrl + OG_FILE, 'g'),
       reLeak: new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + OG_FILE),
-      repl: (_m, file) => `${cdnBase}${t.url}${file}`,
+      repl: (_m, file) => deferredJobOgImageFallbackUrl(file, cdnBase, fallbackSlugs)
+        || `${cdnBase}${t.url}${file}`,
     };
   });
 
@@ -913,7 +926,7 @@ async function offloadAll(distDir, cdnBase, onlyFiles = null, { chunk = false } 
     // set's insertion order, the /data/ keep-set) equals the sequential pass's.
     const files = [];
     walk(distDir, (fp) => { files.push(fp); });
-    const results = await runOffloadPool(files, distDir, cdnBase, workers);
+    const results = await runOffloadPool(files, distDir, cdnBase, workers, [...fallbackSlugs]);
     for (const r of results) {
       scanned += r.scanned;
       ogRewritten += r.ogRewritten;
@@ -1070,7 +1083,7 @@ function offloadWorkerCount() {
   return Math.max(1, Math.min(n, Math.max(1, cap) * 2, 16));
 }
 
-function runOffloadPool(files, distDir, cdnBase, workerCount) {
+function runOffloadPool(files, distDir, cdnBase, workerCount, deferredJobOgFallbackSlugs) {
   const slices = [];
   for (let i = 0; i < files.length; i += OFFLOAD_CHUNK_FILES) slices.push(files.slice(i, i + OFFLOAD_CHUNK_FILES));
   const results = new Array(slices.length);
@@ -1096,7 +1109,7 @@ function runOffloadPool(files, distDir, cdnBase, workerCount) {
     };
     for (let i = 0; i < n; i += 1) {
       const w = new Worker(fileURLToPath(import.meta.url), {
-        workerData: { offloadChunkWorker: true, distDir, cdnBase },
+        workerData: { offloadChunkWorker: true, distDir, cdnBase, deferredJobOgFallbackSlugs },
       });
       pool.push(w);
       w.on('message', (msg) => {
@@ -1133,7 +1146,26 @@ async function main() {
   }
 
   const onlyFiles = cli.filesFrom ? readFileList(cli.filesFrom, distDir) : null;
-  const { cdnAssetUrls, assetsLeaks } = await offloadAll(distDir, cdnBase, onlyFiles);
+  let deferredJobOgFallbackSlugs = new Set();
+  try {
+    const configuredFallbackPath = (process.env.JOB_OG_DEFERRED_FALLBACKS_FILE || '').trim();
+    const parsed = JSON.parse(
+      fs.readFileSync(
+        configuredFallbackPath
+          ? path.resolve(configuredFallbackPath)
+          : path.resolve(process.cwd(), '.cache/og-jobs', JOB_OG_DEFERRED_FALLBACKS),
+        'utf8',
+      ),
+    );
+    if (Array.isArray(parsed)) {
+      deferredJobOgFallbackSlugs = new Set(parsed.filter((slug) => typeof slug === 'string' && slug.length > 0));
+    }
+  } catch {
+    /* absent metadata means every OG job URL uses its generated card */
+  }
+  const { cdnAssetUrls, assetsLeaks } = await offloadAll(distDir, cdnBase, onlyFiles, {
+    deferredJobOgFallbackSlugs,
+  });
 
   // GUARDIA DI ESISTENZA (issue #7366). Gli /assets/ sono l'unica famiglia che
   // l'ordine del deploy non garantisce: puntano al bundle dell'ULTIMO deploy e
@@ -1221,7 +1253,10 @@ let cli = { filesFrom: '', strict: false };
 if (!isMainThread && workerData && workerData.offloadChunkWorker) {
   parentPort.on('message', async ({ id, files }) => {
     try {
-      const result = await offloadAll(workerData.distDir, workerData.cdnBase, files, { chunk: true });
+      const result = await offloadAll(workerData.distDir, workerData.cdnBase, files, {
+        chunk: true,
+        deferredJobOgFallbackSlugs: workerData.deferredJobOgFallbackSlugs || [],
+      });
       parentPort.postMessage({ id, result });
     } catch (err) {
       parentPort.postMessage({ id, error: err && err.message ? err.message : String(err) });

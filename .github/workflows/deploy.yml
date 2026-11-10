@@ -490,6 +490,8 @@ jobs:
       # opt-in; every other event/input resolves to '1'.
       BUILD_PROFILE: '1'
       ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+      JOB_OG_RENDER_BUDGET_S: '1800'
+      JOB_OG_PUBLISH_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
       # Restored to 2 (#4959 §4): the post-walk worker no longer imports the
       # site-shell graph. injectContextualLinks moved to a leaf module with
       # type-only imports, so plain Node ESM inside the worker resolves it —
@@ -1104,6 +1106,31 @@ jobs:
         with:
           path: .cache/og-jobs
           key: og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}-${{ github.run_id }}
+
+      # Non-IT publisher tails and section-shard staging run in separate
+      # directories/runners. Hand off the exact list the IT renderer deferred
+      # so their offloader rewrites those previews to the emitted archive card.
+      - name: Prepare deferred job OG fallback handoff
+        if: matrix.locale == 'it' && steps.build_step.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/job-og-deferred"
+          if [ -s .cache/og-jobs/.deferred-fallbacks.json ]; then
+            cp .cache/og-jobs/.deferred-fallbacks.json "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+          else
+            printf '[]\n' > "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+          fi
+          node -e 'const fs=require("fs");const v=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));if(!Array.isArray(v)||v.some(s=>typeof s!=="string"||!s||s.includes("/")||s.includes("\\")))process.exit(1)' "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+
+      - name: Upload deferred job OG fallback handoff
+        if: matrix.locale == 'it' && steps.build_step.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-og-deferred-fallbacks-${{ github.run_id }}
+          path: ${{ runner.temp }}/job-og-deferred/fallbacks.json
+          retention-days: 8
+          if-no-files-found: error
 
       - name: Build profile summary
         if: always()

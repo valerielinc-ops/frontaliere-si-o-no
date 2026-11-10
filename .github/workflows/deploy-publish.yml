@@ -420,6 +420,7 @@ jobs:
       # dist/en after changing into its staging clone).
       PUBLISHER_ROOT: ${{ github.workspace }}/publisher-resolver
       PUBLISHER_DIST: ${{ github.workspace }}/dist
+      JOB_OG_DEFERRED_FALLBACKS_FILE: ${{ github.workspace }}/.cache/og-jobs/.deferred-fallbacks.json
       DURABLE_LOCALE_PUBLISHED: ${{ contains(needs.resolve-publish-receipts.outputs.published_locales, matrix.locale) && 'true' || 'false' }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
@@ -556,6 +557,49 @@ jobs:
           if [ ! -s "dist/${BUILD_LOCALE}.html" ]; then
             echo "::warning title=Flat locale homepage absent::dist/${BUILD_LOCALE}.html is not in the artifact; the shard is published without /${BUILD_LOCALE}.html (/${BUILD_LOCALE}/ is the homepage)"
           fi
+
+      # A replayed publisher can consume a source build produced before this
+      # handoff existed. Those builds never had a render budget, so an empty
+      # list is safe. New builds require the sidecar; a missing artifact must
+      # stop this publisher before it can publish pages with 404 OG references.
+      - name: Detect deferred job OG fallback handoff contract
+        if: matrix.locale != 'it'
+        id: job-og-fallback-contract
+        shell: bash
+        run: |
+          if [ -f build-plugins/shared/jobOgRenderBudget.mjs ] \
+            && grep -Fq 'JOB_OG_RENDER_BUDGET_S:' .github/workflows/deploy.yml; then
+            echo 'required=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'required=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download deferred job OG fallback handoff from build run
+        if: matrix.locale != 'it' && steps.job-og-fallback-contract.outputs.required == 'true'
+        uses: actions/download-artifact@v8
+        with:
+          name: job-og-deferred-fallbacks-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/job-og-deferred
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install deferred job OG fallback handoff
+        if: matrix.locale != 'it'
+        shell: bash
+        env:
+          HANDOFF_REQUIRED: ${{ steps.job-og-fallback-contract.outputs.required || 'false' }}
+        run: |
+          set -euo pipefail
+          source_file="$RUNNER_TEMP/job-og-deferred/fallbacks.json"
+          mkdir -p .cache/og-jobs
+          if [ "$HANDOFF_REQUIRED" = true ]; then
+            test -s "$source_file" || { echo '::error::deferred job OG fallback handoff is missing'; exit 1; }
+          else
+            mkdir -p "$RUNNER_TEMP/job-og-deferred"
+            printf '[]\n' > "$source_file"
+          fi
+          node -e 'const fs=require("fs");const v=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));if(!Array.isArray(v)||v.some(s=>typeof s!=="string"||!s||s.includes("/")||s.includes("\\")))process.exit(1)' "$source_file"
+          cp "$source_file" "$JOB_OG_DEFERRED_FALLBACKS_FILE"
 
       # New builds mark the non-IT source tar as pending hreflang finalization.
       # Older successful runs already uploaded rewritten output and do not have

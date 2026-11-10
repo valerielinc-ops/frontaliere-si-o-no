@@ -1098,7 +1098,7 @@ step_push_cdn() {
   if [ "$cdn_target" = "r2" ] && [ -d dist/og ]; then
     rm -f "$r2_og_candidate"
     local r2_og_summary=""
-    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$stage/og" "$r2_og_candidate")"; then
+    if r2_og_summary="$(node scripts/ci/prepare-r2-og-delta.mjs dist/og .cache/r2-og-published-manifest.json "$stage/og" "$r2_og_candidate" .cache/og-jobs/.deferred-r2-og.json)"; then
       echo "[r2-og] $r2_og_summary"
       case "$r2_og_summary" in
         mode=full\ *)

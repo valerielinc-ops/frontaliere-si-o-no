@@ -3,6 +3,8 @@ import { getJobOgPhotoKey } from './jobOgImageCatalog.mjs';
 // Keep this version tied to rasterized card pixels. Social metadata changes in
 // jobsSeoPagesPlugin must not bump it: doing so invalidates every cached card
 // and turns a metadata-only deploy into a multi-hour cold render.
+// A version change pushed to main triggers og-jobs-cache-prewarm.yml, which
+// fills this version's cache before the next deploy reaches its IT build leg.
 export const JOB_OG_IMAGE_VERSION = 'v11-2026-11-09-kicker48';
 // The archive card has its own raster version so copy or layout changes do not
 // invalidate the thousands of per-offer images.
