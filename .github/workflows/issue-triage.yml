@@ -67,11 +67,13 @@ permissions:
 
 jobs:
   triage:
-    # Gate: solo eventi issue (non schedule/dispatch → quelli vanno al job sweep)
-    # + issue non già triagiata (anti-loop). Nessun gate sull'autore: le issue
-    # sono per lo più auto-generate dai monitor del repo stesso. Triage è
-    # low-blast-radius (label + commento + route).
-    if: ${{ github.event_name == 'issues' && !contains(github.event.issue.labels.*.name, 'agent:triaged') }}
+    # Gate: solo eventi issue (non schedule/dispatch → quelli vanno al job sweep).
+    # L'anti-loop vive nello step dopo una lettura live dell'issue: il payload
+    # dell'evento può essere già cambiato dalla sweep mentre GitHub materializza
+    # il job. Se il controllo restasse qui, triage e sweep potrebbero lasciare
+    # una run senza job (`failure`, zero jobs) solo perché la sweep ha aggiunto
+    # `agent:triaged` prima della valutazione dell'if.
+    if: ${{ github.event_name == 'issues' }}
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -196,11 +198,21 @@ jobs:
           issue_file="${RUNNER_TEMP}/issue-triage.json"
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json title,body,labels,state > "$issue_file"
           labels_json=$(jq -c '[.labels[]?.name // empty]' "$issue_file")
+          already_triaged=$(jq -r 'any(.labels[]?.name; . == "agent:triaged") | tostring' "$issue_file")
           had_human_veto=$(jq -r 'any(.labels[]?.name; . == "needs-human") | tostring' "$issue_file")
           state=$(jq -r '.state' "$issue_file")
           title=$(jq -r '.title // ""' "$issue_file")
           body=$(jq -r '.body // ""' "$issue_file")
           echo "Issue #$ISSUE_NUMBER state=$state labels=$labels_json title=$title"
+
+          # The event payload is only a trigger; the live snapshot is the
+          # authority for the anti-loop decision. A schedule sweep may have
+          # triaged this issue while this event run was queued. Keep the run
+          # successful and observable instead of skipping the whole workflow.
+          if [ "$already_triaged" = "true" ]; then
+            echo "Issue #$ISSUE_NUMBER already triaged in the live snapshot → no-op."
+            exit 0
+          fi
 
           # Classificazione in modulo node testabile (scripts/lib/classify-issue.mjs):
           # regex JS portabile (no grep GNU `\b`) + label come array (no bug se un
