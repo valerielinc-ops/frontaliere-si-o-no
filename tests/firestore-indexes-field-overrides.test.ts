@@ -66,6 +66,9 @@ const QUERIED: Array<[string, string, string]> = [
   ['job_email_ranking_stats', 'date', 'functions/src/lib/jobEmailRankingStore.js'],
   ['application_intents', 'expiresAt', 'functions/src/applicationIntentRetention.js'],
   ['application_intents', 'retentionUntil', 'functions/src/applicationIntentRetention.js'],
+  ['application_intents', 'reminder.dueAt', 'scripts/lib/application-intent-reminder-candidates.mjs'],
+  ['application_intents', 'reminder_due_at', 'scripts/lib/application-intent-reminder-candidates.mjs'],
+  ['application_intents', 'dueAt', 'scripts/lib/application-intent-reminder-candidates.mjs'],
   ['private', 'applicationIntentAuthUid', 'functions/src/authAccountCleanup.js'],
 ];
 
@@ -268,7 +271,17 @@ describe('firestore.indexes.json — query collection-group', () => {
     ).toEqual([
       { order: 'ASCENDING', queryScope: 'COLLECTION' },
       { order: 'ASCENDING', queryScope: 'COLLECTION_GROUP' },
-    ]);
+      ]);
+  });
+
+  it('i campi del sender application-intent hanno un indice COLLECTION_GROUP', () => {
+    for (const fieldPath of ['reminder.dueAt', 'reminder_due_at', 'dueAt']) {
+      const override = overrides.find((o) => o.collectionGroup === 'application_intents' && o.fieldPath === fieldPath);
+      expect(
+        override?.indexes,
+        `application_intents.${fieldPath}: indice collection-group mancante per il sender dei reminder`,
+      ).toContainEqual({ order: 'ASCENDING', queryScope: 'COLLECTION_GROUP' });
+    }
   });
 
   it('l estrattore riconosce catena, variabile e variabile derivata, e ignora i casi dinamici', () => {
