@@ -1365,16 +1365,14 @@
     "slugByLocale": {
       "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe",
       "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-17T09:12:53.091Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe",
         "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "en": [
@@ -1382,6 +1380,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau-4c24fcbe"
       ]
     },
     "postalCode": "9100",
@@ -1402,6 +1403,9 @@
         "firstSeenAt": "2026-09-11T13:33:11.778Z",
         "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)"
       }
+    ],
+    "previousSlugs": [
+      "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
     ]
   },
   {
@@ -1512,7 +1516,7 @@
     "slugByLocale": {
       "it": "infermiere-a-diplomato-a-hf-per-il-turno-di-notte-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+      "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0",
       "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
     },
     "sector": "Sanità / Ospedali",
@@ -1524,6 +1528,16 @@
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-287e5cc0"
+      ],
+      "fr": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
       ]
     },
