@@ -131,7 +131,7 @@ describe('automatic sector hub publication', () => {
     })) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
 
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-10-20');
+      const page = buildAutoSectorHubPage('', locale, publication, jobs);
       expect(page.indexable).toBe(true);
       expect(page.html).not.toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
       expect(page.html).toContain('"@type":"BreadcrumbList"');
@@ -162,7 +162,7 @@ describe('automatic sector hub publication', () => {
     expect(AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS).toBe(3);
     expect(AUTO_SECTOR_HUB_REACTIVATION_MIN_WEEKS).toBe(2);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-11-02');
+      const page = buildAutoSectorHubPage('', locale, publication, jobs);
       const canonicalUrl = `${BASE_URL}${buildAutoSectorHubPath(locale, 'tecnica')}`;
       const canonical = page.html.match(/<link rel=canonical href="([^"]+)"/)?.[1];
 
@@ -179,13 +179,13 @@ describe('automatic sector hub publication', () => {
       'tecnica', 'tecnica-near-floor', AUTO_SECTOR_HUB_REACTIVATION_MIN_JOBS - 1,
       AUTO_SECTOR_HUB_REACTIVATION_MIN_EMPLOYERS, new Date('2026-11-02T00:00:00.000Z'),
     ) as unknown as Parameters<typeof buildAutoSectorHubPage>[3];
-    const bridge = buildAutoSectorHubPage('', 'it', publication, nearFloorJobs, '2026-11-02');
+    const bridge = buildAutoSectorHubPage('', 'it', publication, nearFloorJobs);
     expect(bridge.indexable).toBe(false);
     expect(bridge.html).toContain('noindex,follow');
     expect(bridge.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
 
     const explicitlyRetired = { ...publication, retirementReason: 'Owner decision: duplicate hub.' };
-    const explicitBridge = buildAutoSectorHubPage('', 'it', explicitlyRetired, jobs, '2026-11-02');
+    const explicitBridge = buildAutoSectorHubPage('', 'it', explicitlyRetired, jobs);
     expect(explicitBridge.indexable).toBe(false);
     expect(explicitBridge.html).toContain(AUTO_SECTOR_HUB_NOINDEX_TARGET_MARKER);
   });

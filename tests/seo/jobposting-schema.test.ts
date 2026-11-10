@@ -389,10 +389,21 @@ describe('buildJobPostingSchema — empty-minimum input', () => {
     expect(schema.hiringOrganization.name.length).toBeGreaterThan(0);
   });
 
+  it('emits no JobPosting for an unknown expired page with no archive date, rather than a build-clock deadline', () => {
+    // The only deadline left would be "build clock − 1 day": not evidence,
+    // and different at every build (archivedJobPosting.ts).
+    const now = new Date('2026-11-05T00:00:00.000Z');
+    expect(buildArchivedJobPosting(
+      { postingDateSource: 'unknown' },
+      'Dieses Stellenangebot ist archiviert und nicht mehr verfügbar.',
+      { locale: 'de', url: 'https://frontaliereticino.ch/de/jobs-in-genf/unknown/', now },
+    )).toBeNull();
+  });
+
   it('keeps unknown expired pages schema-complete without inventing an active offer', () => {
     const now = new Date('2026-11-05T00:00:00.000Z');
     const schema = buildArchivedJobPosting(
-      { postingDateSource: 'unknown' },
+      { postingDateSource: 'unknown', crawledAt: '2026-10-20T08:00:00.000Z' },
       'Dieses Stellenangebot ist archiviert und nicht mehr verfügbar.',
       {
         locale: 'de',

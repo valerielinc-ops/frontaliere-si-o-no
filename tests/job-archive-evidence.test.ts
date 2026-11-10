@@ -200,6 +200,8 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(schemaBlock).toContain("postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown'");
     expect(schemaBlock).toContain('companyKey: hasRealTitle ?');
     expect(schemaBlock).toContain('buildArchivedJobPosting(expiredInput');
+    // P1 noindex soft landings carry no JobPosting (expiredJobIndexPolicy.ts).
+    expect(schemaBlock).toMatch(/if \(!expiredDemandIndexable\) \{\s+currentJobPostingLd = '';/);
     const search = source.slice(source.indexOf('// --- Search suggestions ---'), source.indexOf('// --- Frontalier info section:'));
     expect(search.match(/hasRealTitle && jobLocation/g)).toHaveLength(4);
     expect(source).toContain("${recordedIdentity ? `${copy.nextBody} ` : ''}");

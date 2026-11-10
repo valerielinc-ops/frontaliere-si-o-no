@@ -19,7 +19,8 @@ import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
 import { renderStatGrid, HERO_EYEBROW_STYLE, H1_STYLE, LEDE_STYLE } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { renderLatestPostingTime } from './shared/latestPostingDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { SECTOR_HUB_LOCALE_PREFIX, SECTOR_HUB_SECTION } from './shared/jobSectorPaths';
@@ -43,7 +44,6 @@ interface AutoHubCopy {
   inventory: string;
   employers: string;
   currentOpenings: string;
-  updated: string;
   breadcrumbHome: string;
   breadcrumbJobs: string;
 }
@@ -63,7 +63,6 @@ const COPY: Record<JobBoardLocale, AutoHubCopy> = {
     inventory: 'Offerte attive',
     employers: 'Datori distinti',
     currentOpenings: 'Risultati attuali',
-    updated: 'Pagina generata',
     breadcrumbHome: 'Home',
     breadcrumbJobs: 'Offerte in Ticino',
   },
@@ -81,7 +80,6 @@ const COPY: Record<JobBoardLocale, AutoHubCopy> = {
     inventory: 'Active openings',
     employers: 'Distinct employers',
     currentOpenings: 'Current results',
-    updated: 'Page generated',
     breadcrumbHome: 'Home',
     breadcrumbJobs: 'Jobs in Ticino',
   },
@@ -99,7 +97,6 @@ const COPY: Record<JobBoardLocale, AutoHubCopy> = {
     inventory: 'Aktive Stellen',
     employers: 'Arbeitgeber',
     currentOpenings: 'Aktuelle Treffer',
-    updated: 'Seite erstellt',
     breadcrumbHome: 'Startseite',
     breadcrumbJobs: 'Stellen im Tessin',
   },
@@ -117,7 +114,6 @@ const COPY: Record<JobBoardLocale, AutoHubCopy> = {
     inventory: 'Offres actives',
     employers: 'Employeurs distincts',
     currentOpenings: 'Résultats actuels',
-    updated: 'Page générée',
     breadcrumbHome: 'Accueil',
     breadcrumbJobs: 'Emplois au Tessin',
   },
@@ -196,9 +192,11 @@ export function buildAutoSectorHubPage(
   locale: JobBoardLocale,
   publication: SectorHubPublication,
   jobs: readonly AutoSectorJob[],
-  dateStamp: string,
 ): { html: string; indexable: boolean; wordCount: number } {
   const copy = COPY[locale];
+  // Data-dated eyebrow, never the build day: see shared/latestPostingDate.ts.
+  const latestPostingTime = renderLatestPostingTime(jobs, locale);
+  const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}${latestPostingTime ? ` · ${latestPostingTime}` : ''}</p>`;
   const label = publication.labelByLocale[locale];
   if (!label) throw new Error(`Automatic sector hub ${publication.slug} lacks a ${locale} label.`);
   const employers = countAutoSectorHubEmployers(jobs);
@@ -219,14 +217,13 @@ export function buildAutoSectorHubPage(
       <span>${esc(label)}</span>
     </nav>
     <header class="max-w-3xl mx-auto px-4 py-6">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)} · ${esc(dateStamp)}</p>
+      ${eyebrowHtml}
       <h1 style="${H1_STYLE}">${esc(copy.h1(label))}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.bridgeText(label))}</p>
     </header>
     ${renderStatGrid([
       { label: copy.inventory, value: jobs.length.toLocaleString(locale), tone: 'neutral' },
       { label: copy.employers, value: employers.toLocaleString(locale), tone: 'neutral' },
-      { label: copy.updated, value: dateStamp, tone: 'neutral' },
     ])}
     <section class="max-w-3xl mx-auto px-4 py-6">
       <a href="${esc(sectionRoot)}" style="font-weight:700;display:inline-flex;min-height:44px;align-items:center">${esc(copy.allJobs)} →</a>
@@ -260,7 +257,7 @@ export function buildAutoSectorHubPage(
       <span>${esc(label)}</span>
     </nav>
     <header class="max-w-3xl mx-auto px-4 py-6">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)} · ${esc(dateStamp)}</p>
+      ${eyebrowHtml}
       <h1 style="${H1_STYLE}">${esc(copy.h1(label))}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.description(label, jobs.length, employers))}</p>
     </header>
@@ -354,7 +351,6 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         if (ownsSharedSitemap && registrySourcePresent) fs.rmSync(sitemapFile, { force: true });
         return;
       }
-      const dateStamp = BUILD_DATE_STAMP;
       const collector = new WriteCollector({ distDir, pluginName: 'autoSectorHubPagesPlugin' });
       const sitemapEntries: string[] = [];
       const localeManifestEntries: string[] = [];
@@ -381,7 +377,7 @@ export function autoSectorHubPagesPlugin(rootDir: string): Plugin {
         for (const locale of LOCALES) {
           if (!shouldEmitLocale(locale)) continue;
           if (!publication.labelByLocale[locale]) continue;
-          const page = buildAutoSectorHubPage(distDir, locale, publication, jobs, dateStamp);
+          const page = buildAutoSectorHubPage(distDir, locale, publication, jobs);
           const pagePath = buildAutoSectorHubPath(locale, publication.slug, publication.routeKind);
           const file = np.join(distDir, pagePath.slice(1), 'index.html');
           collector.add(file, page.html);

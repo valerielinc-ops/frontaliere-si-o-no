@@ -24,7 +24,7 @@ describe('documented salary answer', () => {
     expect(page.html).toContain(`href="${CALC_HREF[locale]}"`);
     const orphan = __renderOrphanLandingPage({
       cluster: { clusterId: 'salary', locale, canonicalQuery: 'salary customs specialist', canonicalSlug: 'salary-customs', roleTokens: ['custom'], regionTokens: [], totalImpressions: 20, totalClicks: 0, queries: [] },
-      matchingJobs: [], strings: {}, dateStamp: new Date().toISOString().slice(0, 10), knownSlugsByLocale: new Map(),
+      matchingJobs: [], strings: {}, knownSlugsByLocale: new Map(),
     });
     expect(orphan.html).toContain(`href="${CALC_HREF[locale]}"`);
     expect(orphan.html).not.toContain('CHF 80');
@@ -38,7 +38,7 @@ describe('documented salary answer', () => {
   ] as const)('limits the salary explanation to salary intent in %s', (locale, ordinaryQuery, salaryQuery) => {
     const render = (canonicalQuery: string) => __renderOrphanLandingPage({
       cluster: { clusterId: 'intent', locale, canonicalQuery, canonicalSlug: 'intent', roleTokens: [], regionTokens: [], totalImpressions: 20, totalClicks: 0, queries: [] },
-      matchingJobs: [], strings: {}, dateStamp: new Date().toISOString().slice(0, 10), knownSlugsByLocale: new Map(),
+      matchingJobs: [], strings: {}, knownSlugsByLocale: new Map(),
     }).html;
     const answer = buildSalaryAnswer(locale, '').slice(0, 30);
     // Salary FAQs remain useful on ordinary job searches; only the direct
