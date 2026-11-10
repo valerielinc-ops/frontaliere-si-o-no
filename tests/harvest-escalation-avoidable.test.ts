@@ -350,6 +350,27 @@ describe('bucketFinding — pr-body-contract scarta i falsi positivi e lascia ri
 });
 
 describe('isGenuineSiblingClassViolation — conta solo il sibling non-sweepato, non affermazioni/falsi-positivi (#3325)', () => {
+  it('non confonde sibling semantici con un gemello di codice non sweepato (#17945)', () => {
+    const semanticSiblingFindings = [
+      '🔴 Important: `expectedValueShape()` still passes `field.context` into `questionTopic()`, so the guard can derive a shape from a sibling/section caption instead of the target field label.',
+      '🔴 Important: sibling disclosure toggles can share an ancestor, so the ownership heuristic remains an unresolved funnel risk.',
+      '🔴 Important: `EMAIL_CONFIRMATION_RE.test(text)` still lets a confirmation word from any sibling in `context` turn a primary label into an identity-email confirmation.',
+      '🔴 Important: a bare `<main>` gets its workplace and candidature wording from different plain sibling blocks, so a listing can be published as a detail.',
+      '🔴 Important: `terminatedLocaleJob()` and `failedSibling` treat a terminal sibling from an earlier workflow attempt as a current failure.',
+    ];
+
+    for (const finding of semanticSiblingFindings) {
+      expect(isGenuineSiblingClassViolation(finding), finding).toBe(false);
+      expect(bucketFinding(finding), finding).not.toBe('sibling-class-fix');
+    }
+  });
+
+  it('classifica il checker hyphenato come tooling, non come sweep mancante (#17945)', () => {
+    const finding = '🟡 Nit: the diff also changes sibling-checker/gate descriptor-based capture plumbing, but the Implementato bullet describes only free-text extraction.';
+    expect(isGenuineSiblingClassViolation(finding)).toBe(false);
+    expect(bucketFinding(finding)).toBe('sibling-tooling');
+  });
+
   it('sibling non toccato con lo stesso anti-pattern → violazione (contabile, es. #3317)', () => {
     expect(isGenuineSiblingClassViolation(
       '🔴 Important: stesso anti-pattern `.slice(0, 20)` keep-oldest cap-trim non-journalizzato che questa PR ha appena fixato resta intatto in 7 crawler company-specific attivi, non toccato da questa PR né dichiarato in `## Non implementato`.',
