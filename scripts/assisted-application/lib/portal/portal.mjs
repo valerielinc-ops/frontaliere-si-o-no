@@ -856,7 +856,11 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     postalCode: resolved.postalCode || factAddress.postalCode,
     city: resolved.city || factAddress.city,
     country: resolved.country || factAddress.countryName,
-  } : resolved;
+  } : {
+    ...resolved,
+    // No town: the country the platform still knows (the CV's or the order's, else the upload answers).
+    country: resolved.country || facts?.address?.countryName || '',
+  };
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -1394,6 +1398,33 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   return titleMatches(localContext, job.title);
 }
 
+// An Apply dropdown on the verified posting route sits under the vacancy's
+// own heading, which names the role but rarely the employer (Helsana's
+// Career Site Builder page). The page-level posting check already bound the
+// employer. Locally, a posting/requisition marker must be this posting's own
+// (any other one, or an ambiguous pair, rejects the control), the heading
+// must name no other employer, and it must pass the posting match on the
+// role.
+function disclosureEntryContextMatchesPosting(control, context = {}) {
+  const identity = controlPostingIdentity(control);
+  if (identity === null) return false;
+  if (identity !== '' && identity !== expectedPostingIdentity(context)) return false;
+  // The control's own label («Apply to Google») is the entry, not context
+  // naming another employer: only the text around it is checked.
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').trim()).filter(Boolean);
+  const localContext = [control?.vacancyContext, control?.section, control?.context]
+    .filter(Boolean)
+    .map((value) => ownLabels.reduce((text, label) => text.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const job = context.job || {};
+  if (!localContext || !job.title) return true;
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return postingMatch(localContext, { title: job.title }, context.postingUrl) === 'match';
+}
+
 // A few legacy employer pages render the only application opener as a native
 // button whose value is deliberately generic («cliccando qui», «click here»).
 // That label is not provenance by itself: it is accepted only when the
@@ -1402,6 +1433,26 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
 // there is no competing semantic Apply control. This keeps the security gate
 // closed for generic buttons on listings and for neighbouring roles.
 const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
+
+// Social sign-in entries hand the application to a third-party account. A
+// brand name alone is not one («Apply to Google» is a posting at Google):
+// the label must say the entry goes *through* the provider («Apply with
+// LinkedIn», «Bewerbung mit LinkedIn starten», «Sign in with Google»), or the
+// control's own id must name the provider as its sign-in option (Career Site
+// Builder: `applyOption-top-linkedin`).
+const SOCIAL_PROVIDER = String.raw`(?:linked\s?in|xing|indeed|facebook|google|apple|seek)`;
+const SOCIAL_APPLICATION_LABEL_RE = new RegExp(String.raw`\b(?:with|using|via|through|mit|über|ueber|con|tramite|avec|par)\s+(?:(?:your|my|ihrem|deinem|il\s+tuo|votre)\s+)?${SOCIAL_PROVIDER}\b`, 'iu');
+const SOCIAL_APPLICATION_ID_RE = new RegExp(String.raw`(?:^|[-_])(?:apply|sign[-_]?in|login|social)?[-_]?option[-_](?:[a-z]+[-_])?${SOCIAL_PROVIDER}$|(?:^|[-_])(?:apply|sign[-_]?in|login)[-_](?:with[-_])?${SOCIAL_PROVIDER}$`, 'iu');
+
+function applicationEntryLabel(control) {
+  return String(control?.text || control?.label || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function socialApplicationEntry(control) {
+  return [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .some((value) => SOCIAL_APPLICATION_LABEL_RE.test(String(value || '').replace(/\s+/g, ' ')))
+    || SOCIAL_APPLICATION_ID_RE.test(String(control?.domId || ''));
+}
 
 function genericApplicationEntryLabel(value) {
   const text = String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim()
@@ -1426,9 +1477,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
+  // A third-party sign-in («Apply with LinkedIn») cannot be completed by the
+  // runner. A social item of an opened Apply menu is never an entry, and an
+  // own entry always wins over a social one that merely comes first.
   const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
+    && !(control?.menuItem === true && socialApplicationEntry(control))
+    // An opened menu item usually links to `#`, which matches the posting
+    // route by construction: it must also carry this posting's context.
+    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
+  const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
+  if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
 
   const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
@@ -1457,6 +1517,29 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
+  // SuccessFactors Career Site Builder repeats one Apply dropdown above and
+  // below the vacancy. Identical disclosure toggles are one entry: open the
+  // first. Once its menu is open, the single own (non-social) menu item is
+  // the entry; the toggles that opened it are not alternatives to it. The
+  // page is the verified posting route without fields, so the controls'
+  // heading may name only the role: it must not name another posting or
+  // employer.
+  const ownEntries = allEntries.filter((control) => !(control.menuItem === true && socialApplicationEntry(control)));
+  const disclosureEntries = ownEntries.filter((control) => (control.popup === true || control.menuItem === true)
+    && !control.formId && (Number(control.frame) || 0) === 0
+    && (!control.href || samePortalRoute(control.href, context.postingUrl, context.postingUrl))
+    && disclosureEntryContextMatchesPosting(control, context));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && disclosureEntries.length > 0 && disclosureEntries.length === ownEntries.length) {
+    const menuEntries = disclosureEntries.filter((control) => control.menuItem === true);
+    if (menuEntries.length === 1) return menuEntries;
+    const toggles = disclosureEntries.filter((control) => control.popup === true);
+    const toggleLabels = new Set(toggles.map((control) => applicationEntryLabel(control)));
+    if (!allEntries.some((control) => control.menuItem === true) && toggles.length >= 1 && toggleLabels.size === 1) return toggles.slice(0, 1);
+  }
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -2272,9 +2355,13 @@ async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingCont
   await page.waitForTimeout(800);
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  const remainingPreferences = await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
+  // Consent law keeps a «Cookie settings» opener in the site's header or
+  // footer after every choice. Once the decision controls are gone, such a
+  // site-chrome opener outside any dialog is the persistent entry point, not
+  // the banner still waiting for an answer.
+  const remainingPreferences = (await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
     genericPreferences: true, manageConsent: true,
-  });
+  })).filter((control) => !(control.chrome === true && !control.dialog && !control.dialogId));
   const persistentYellowsharkOpener = remainingPreferences.length > 0 && Boolean(openedBy)
     && remainingPreferences.every((remainingPreference) => COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(remainingPreference))
       && COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(openedBy))
@@ -2456,12 +2543,23 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
-    const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
+    // A verified same-requisition SuccessFactors module route binds the
+    // vacancy more strongly than a Career Site Builder Apply dropdown, whose
+    // menu leads to the tenant's generic sign-in. Keep that route first.
+    const disclosureOnly = ownedEntries.length > 0 && ownedEntries.every((control) => control.popup === true);
+    const verifiedModuleRoute = disclosureOnly && hop === 0 && stageContext?.postingEntry === true
+      && isSuccessFactorsPostingEntry({
+        applyUrl: stageContext.applyUrl,
+        postingUrl: page.url(),
+        postingRouteProof: stageContext.postingRouteProof,
+      });
+    const selectableEntries = verifiedModuleRoute ? [] : ownedEntries;
+    const buttonEntries = selectableEntries.filter((control) => (snapshot.buttons || []).includes(control));
     const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
     const apply = manual ? null : buttonEntries[0] || null;
     const linkEntry = manual || apply
       ? null
-      : ownedEntries.find((control) => (snapshot.links || []).includes(control)) || null;
+      : selectableEntries.find((control) => (snapshot.links || []).includes(control)) || null;
     const link = linkEntry ? locatorFor(page, linkEntry) : null;
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
