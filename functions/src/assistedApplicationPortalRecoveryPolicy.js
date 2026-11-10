@@ -31,13 +31,24 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
 }
 
 /** A portal email-confirmation hold can resume only when the exact identity answer is known. */
-export function portalIdentityQuestionDefinitelyUnsent({ order, flow, draft, submission = {}, version,
-  questionId, identityQuestionReady = false, approvedRound = false, retentionAllowed = false, receiptVersion }) {
+export function portalIdentityQuestionDefinitelyUnsent({ identityQuestionReady = false, questionId, ...context }) {
+  return identityQuestionReady === true && portalQuestionHoldsDefinitelyUnsent({ ...context, questionIds: [questionId] });
+}
+
+/**
+ * A wait on the portal's questions, stopped before any send, that a new engine version may resume: exactly
+ * these question holds, an approved round whose submit run never clicked, and nothing that may have left.
+ * The caller decides that the current code answers each question (or that it is no question at all).
+ */
+export function portalQuestionHoldsDefinitelyUnsent({ order, flow, draft, submission = {}, version,
+  questionIds = [], approvedRound = false, retentionAllowed = false, receiptVersion }) {
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
-  return Boolean(portalCodeVersion(version)) && identityQuestionReady === true && approvedRound === true
+  const ids = Array.isArray(questionIds) ? questionIds.map(id => String(id || '')) : [];
+  return Boolean(portalCodeVersion(version)) && approvedRound === true
     && flow?.state === 'needs_candidate_action' && order?.automationState === 'needs_candidate_action'
-    && flow.heldBy?.length === 1 && flow.heldBy[0] === `question:${questionId}`
+    && ids.length > 0 && ids.every(Boolean) && new Set(ids).size === ids.length
+    && flow.heldBy?.length === ids.length && flow.heldBy.every((held, index) => held === `question:${ids[index]}`)
     && flow.portalCodeVersion !== version && flow.portalRecoveryVersion !== version && receiptVersion !== version
     && order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
     && retentionAllowed === true
@@ -48,7 +59,8 @@ export function portalIdentityQuestionDefinitelyUnsent({ order, flow, draft, sub
     && Number(draft?.completedAt) > 0 && Number(flow.dispatch.requestedAt) >= Number(draft.completedAt)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
     && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
-    && !Object.values(submission).some(record => record?.state === 'sent' || record?.clickedAt || isUnconfirmedSubmission(record));
+    && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending' || record?.clickedAt
+      || isUnconfirmedSubmission(record));
 }
 
 const hasAnswer = value => typeof value === 'boolean'

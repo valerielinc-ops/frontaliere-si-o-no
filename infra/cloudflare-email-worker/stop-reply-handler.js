@@ -381,10 +381,12 @@ async function classifyStopIntent(subject, message, patterns, prefix = null) {
 }
 
 // The assisted-application concierge asks the customer to reply to valerie@
-// with the CV attached. A reply that may carry an attachment is handed, as the
-// raw message, to assistedApplicationEmailCv (Cloud Function), which attaches
-// the CV to the customer's order when the sender is authenticated and owns an
-// order waiting for it. The reply is forwarded to the human inbox as always.
+// with the CV attached and a few facts written in the reply. Every reply up to
+// ASSISTED_CV_MAX_BYTES is handed, as the raw message, to
+// assistedApplicationEmailCv (Cloud Function), which attaches the CV and the
+// stated facts to the customer's order when the sender is authenticated and
+// owns an open order; a reply with only text (no attachment) states facts too.
+// The reply is forwarded to the human inbox as always.
 export const ASSISTED_CV_MAX_BYTES = 9 * 1024 * 1024;
 
 // Order aliases of the automated assisted application (nome.cognome.xxxx@ALIAS_DOMAIN, or c-xxxxxxxxxx@ without a name):
@@ -404,11 +406,10 @@ export function isAssistedAlias(address) {
     && /^(?:c-[a-z2-9]{10}|[a-z]+(?:-[a-z]+)*(?:\.[a-z]+(?:-[a-z]+)*){0,3}\.[a-z2-9]{4})@candidature\.frontaliereticino\.ch$/.test(value);
 }
 
-export function mayCarryAttachment(message) {
-  let type = '';
-  try { type = (message.headers && message.headers.get && message.headers.get('content-type')) || ''; } catch { type = ''; }
+/** A reply the CV endpoint can take whole: any content type, within its size limit (unknown size: read and see). */
+export function mayCarryCandidateReply(message) {
   const size = Number(message?.rawSize) || 0;
-  return /multipart\/mixed/i.test(type) && (size === 0 || size <= ASSISTED_CV_MAX_BYTES);
+  return size === 0 || size <= ASSISTED_CV_MAX_BYTES;
 }
 
 // Reads the one-shot raw stream: all of it up to maxBytes (bytes: null when
@@ -452,7 +453,7 @@ async function handleOutreachReply({ from, to = '', subject, message, env, ctx }
 
   let prefix = null;
   // Never an order alias: its one-shot raw stream belongs to the inbound handoff.
-  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && !isAssistedAlias(to) && mayCarryAttachment(message)) {
+  if (env.ASSISTED_CV_FN_URL && env.STOP_SECRET && !isAssistedAlias(to) && mayCarryCandidateReply(message)) {
     const { bytes, head } = await readAllBytes(message.raw, ASSISTED_CV_MAX_BYTES).catch(() => ({ bytes: null, head: null }));
     if (head) prefix = new TextDecoder('utf-8', { fatal: false }).decode(head);
     if (bytes) {

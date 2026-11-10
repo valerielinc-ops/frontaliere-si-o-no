@@ -139,7 +139,7 @@ describe('CV by e-mail reply', () => {
     const database = store();
     const bucket = fakeBucket();
     const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: database.db, bucket, secret: SECRET, nowMs: Date.UTC(2026, 8, 30, 9) });
-    expect(result).toEqual({ status: 200, body: { ok: true, matched: true } });
+    expect(result).toEqual({ status: 200, body: { ok: true, matched: true, cv: 'stored', reply: 'queued' } });
     const order = database.read(BASE)!;
     expect(order.cvStorageKey).toMatch(new RegExp(`^assisted-application-uploads/${ORDER}/\\d+-[0-9a-f-]+-CV-Maria\\.pdf$`));
     expect(order.cvFileName).toBe('CV-Maria.pdf');
@@ -147,6 +147,9 @@ describe('CV by e-mail reply', () => {
     expect(bucket.files.get(order.cvStorageKey)!.equals(PDF)).toBe(true);
     expect(database.read(`${BASE}/automation/intake`)).toMatchObject({ emailNotes: 'Ciao Valerie, ho il permesso G e sono disponibile dal 1° novembre.' });
     expect(database.read('assisted_applications/order_OTHER')!.cvStorageKey).toBeUndefined();
+    // The reply's own text waits for the facts reader (assistedApplicationCandidateReply.js).
+    const [replyPath] = database.list(`${BASE}/candidate_replies/`);
+    expect(database.read(replyPath)).toMatchObject({ status: 'received', cv: 'stored', attempts: 0, text: 'Ciao Valerie, ho il permesso G e sono disponibile dal 1° novembre.' });
   });
 
   it('deletes its file when a retried transaction finds a CV uploaded meanwhile', async () => {
@@ -162,21 +165,82 @@ describe('CV by e-mail reply', () => {
       },
     };
     const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: contended, bucket, secret: SECRET });
-    expect(result.body).toEqual({ ok: true, matched: false, reason: 'cv_already_present' });
+    // The CV loses to the page's; the reply's text is still read for its facts.
+    expect(result.body).toEqual({ ok: true, matched: true, cv: 'already_present', reply: 'queued' });
     expect(bucket.files.size).toBe(0);
     expect(database.read(`assisted_applications/${ORDER}`)).toMatchObject({ cvStorageKey: `assisted-application-uploads/${ORDER}/page.pdf` });
   });
 
-  it('never replaces an existing CV, ignores forged senders and non-CV files', async () => {
+  it('never replaces an existing CV, but still reads the reply of an order that has one (case 8BhQom09)', async () => {
     const withCv = store({ cvStorageKey: `assisted-application-uploads/${ORDER}/old.pdf` });
-    expect((await handleAssistedApplicationEmailCv(request(rawMessage()), { db: withCv.db, bucket: fakeBucket(), secret: SECRET })).body)
-      .toMatchObject({ matched: false, reason: 'no_waiting_order' });
+    const bucket = fakeBucket();
+    expect((await handleAssistedApplicationEmailCv(request(rawMessage()), { db: withCv.db, bucket, secret: SECRET })).body)
+      .toEqual({ ok: true, matched: true, cv: 'already_present', reply: 'queued' });
+    expect(bucket.files.size).toBe(0);
+    expect(withCv.read(BASE)).toMatchObject({ cvStorageKey: `assisted-application-uploads/${ORDER}/old.pdf` });
+    expect(withCv.list(`${BASE}/candidate_replies/`)).toHaveLength(1);
+  });
+
+  it('ignores forged senders; a non-CV file is not stored but the text is read', async () => {
     const forged = rawMessage({ auth: 'mx.cloudflare.net; dkim=fail; spf=fail' });
-    expect((await handleAssistedApplicationEmailCv(request(forged), { db: store().db, bucket: fakeBucket(), secret: SECRET })).body)
+    const forgedStore = store();
+    expect((await handleAssistedApplicationEmailCv(request(forged), { db: forgedStore.db, bucket: fakeBucket(), secret: SECRET })).body)
       .toMatchObject({ matched: false, reason: 'unauthenticated' });
+    expect(forgedStore.list(`${BASE}/candidate_replies/`)).toEqual([]);
     const exe = rawMessage({ attachment: Buffer.from('MZ\u0090\u0000binary'), filenameHeader: 'filename="cv.exe"' });
-    expect((await handleAssistedApplicationEmailCv(request(exe), { db: store().db, bucket: fakeBucket(), secret: SECRET })).body)
-      .toMatchObject({ matched: false, reason: 'no_cv_attachment' });
+    const bucket = fakeBucket();
+    expect((await handleAssistedApplicationEmailCv(request(exe), { db: store().db, bucket, secret: SECRET })).body)
+      .toEqual({ ok: true, matched: true, cv: 'none', reply: 'queued' });
+    expect(bucket.files.size).toBe(0);
+  });
+
+  it('reads a text-only reply, once per message, for the sender’s order only', async () => {
+    const textOnly = (messageId: string, body: string, from = 'Maria Rossi <maria.rossi@gmail.com>') => Buffer.from([
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=gmail.com; spf=pass smtp.mailfrom=maria.rossi@gmail.com',
+      `From: ${from}`,
+      `Message-ID: <${messageId}@mail.gmail.com>`,
+      'Subject: Re: La tua candidatura',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      body,
+    ].join('\r\n'));
+    const database = store();
+    const first = await handleAssistedApplicationEmailCv(request(textOnly('one', 'Permesso C, disponibile da 1/12/2026')), { db: database.db, bucket: fakeBucket(), secret: SECRET });
+    expect(first.body).toEqual({ ok: true, matched: true, cv: 'none', reply: 'queued' });
+    const again = await handleAssistedApplicationEmailCv(request(textOnly('one', 'Permesso C, disponibile da 1/12/2026')), { db: database.db, bucket: fakeBucket(), secret: SECRET });
+    expect(again.body).toEqual({ ok: true, matched: false, cv: 'none', reply: 'duplicate' });
+    expect(database.list(`${BASE}/candidate_replies/`)).toHaveLength(1);
+    expect(database.read('assisted_applications/order_OTHER')).not.toHaveProperty('candidateFacts');
+    const stranger = textOnly('two', 'Permesso C', 'Someone <stranger@gmail.com>');
+    // Authenticated, but the sender owns no order: nothing is written anywhere.
+    expect((await handleAssistedApplicationEmailCv(request(stranger), { db: database.db, bucket: fakeBucket(), secret: SECRET })).body)
+      .toMatchObject({ matched: false, reason: 'no_open_order' });
+    expect(database.list(`${BASE}/candidate_replies/`)).toHaveLength(1);
+    const empty = textOnly('three', '> only quoted history');
+    expect((await handleAssistedApplicationEmailCv(request(empty), { db: database.db, bucket: fakeBucket(), secret: SECRET })).body)
+      .toMatchObject({ matched: false, reason: 'nothing_to_read' });
+  });
+
+  it('applies a reply to the order it quotes by reference, else to the most recent open one', async () => {
+    const database = createMemoryFirestore({
+      'assisted_applications/order_OLDER001': { paymentStatus: 'paid', submissionStatus: 'in_progress', customerEmail: 'maria.rossi@gmail.com', paidAt: '2026-09-01T08:00:00Z' },
+      'assisted_applications/order_NEWER001': { paymentStatus: 'paid', submissionStatus: 'in_progress', customerEmail: 'maria.rossi@gmail.com', paidAt: '2026-09-30T08:00:00Z' },
+      'assisted_applications/order_SENT0001': { paymentStatus: 'paid', submissionStatus: 'submitted', customerEmail: 'maria.rossi@gmail.com', paidAt: '2026-10-30T08:00:00Z' },
+    });
+    const reply = (body: string, id: string) => Buffer.from([
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=gmail.com',
+      'From: maria.rossi@gmail.com',
+      `Message-ID: <${id}@mail.gmail.com>`,
+      'Subject: Re: La tua candidatura',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      body,
+    ].join('\r\n'));
+    await handleAssistedApplicationEmailCv(request(reply('Permesso C\n\n> Riferimento ordine: order_OLDER001', 'a')), { db: database.db, bucket: fakeBucket(), secret: SECRET });
+    expect(database.list('assisted_applications/order_OLDER001/candidate_replies/')).toHaveLength(1);
+    await handleAssistedApplicationEmailCv(request(reply('Permesso C', 'b')), { db: database.db, bucket: fakeBucket(), secret: SECRET });
+    expect(database.list('assisted_applications/order_NEWER001/candidate_replies/')).toHaveLength(1);
+    expect(database.list('assisted_applications/order_SENT0001/candidate_replies/')).toEqual([]);
   });
 
   it('rejects an authenticated but ambiguous multi-mailbox From header', async () => {

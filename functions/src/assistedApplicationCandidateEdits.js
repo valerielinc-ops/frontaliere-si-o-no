@@ -38,7 +38,7 @@ import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.j
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
-import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
+import { candidateStatementsOf, platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
 import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 
@@ -527,6 +527,23 @@ function storedOverrides(raw) {
   return out;
 }
 
+/**
+ * The CV's languages with the ones the candidate stated: a stated level replaces the CV's for the same
+ * language, a stated language the CV does not list is added, the CV's other languages stay.
+ */
+function withStatedLanguages(languages, stated) {
+  const list = (Array.isArray(languages) ? languages : []).map((entry) => ({ ...entry }));
+  for (const entry of stated) {
+    const code = String(entry?.code || '');
+    if (!code) continue;
+    const level = clean(entry.level, 40);
+    const index = list.findIndex((known) => languageCodesIn(known?.language || '')[0] === code);
+    if (index < 0) list.push({ language: clean(entry.language, 40) || code, level });
+    else if (level) list[index] = { ...list[index], level };
+  }
+  return list;
+}
+
 function splitLanguages(text) {
   return String(text || '').split(/[,;\n]/).map((part) => clean(part, 80)).filter(Boolean).map((language) => ({ language, level: '' }));
 }
@@ -572,6 +589,13 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
     && (profile.languagesExplicitList === true || hasExplicitLanguageSection(draft?.factSources?.text));
   if (has(overrides, 'location')) profile.location = overrides.location;
   if (has(overrides, 'linkedin')) profile.linkedin = overrides.linkedin;
+  // What the candidate stated in their reply to the concierge e-mail (assistedApplicationCandidateReply.js):
+  // their own word, above the CV and the platform's rules, below a correction they make here afterwards.
+  const statements = candidateStatementsOf(order);
+  if (!has(overrides, 'availability') && clean(statements.availability, 120)) profile.availability = clean(statements.availability, 120);
+  if (!has(overrides, 'languages') && Array.isArray(statements.languages) && statements.languages.length) {
+    profile.languages = withStatedLanguages(profile.languages, statements.languages);
+  }
   if (has(overrides, 'languages')) {
     profile.languages = splitLanguages(overrides.languages);
     profile.languagesListTruncated = false;
