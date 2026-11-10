@@ -378,7 +378,7 @@ function isSuccessFactorsCareerPath(value) {
     const url = new URL(String(value || ''));
     return url.protocol === 'https:' && !url.username && !url.password && !url.hash
       && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
-      && url.pathname.replace(/\/+$/, '') === '/career';
+      && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
   }
@@ -396,6 +396,38 @@ function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
       && expected.company === actual.company
       && expected.requisition === actual.requisition
       && expected.namespace === actual.namespace;
+  } catch {
+    return false;
+  }
+}
+
+function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postingRouteProof } = {}) {
+  try {
+    const current = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
+    if (!source || postingRouteProof?.via !== 'successfactors'
+      || !isSuccessFactorsCareerPath(current.href)
+      || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
+      || current.origin !== source.origin
+      || !samePostingAddress(postingRouteProof.postingUrl, posting.href)) return false;
+
+    const valuesFor = (key) => [...current.searchParams.entries()]
+      .filter(([name]) => name.toLowerCase() === key)
+      .map(([, value]) => value);
+    const company = valuesFor('company');
+    const requisition = valuesFor('career_job_req_id');
+    const namespace = valuesFor('career_ns');
+    // A redirect may drop the module query entirely, but an identity it keeps
+    // must still agree with the source module. Duplicate identity parameters
+    // are ambiguous and therefore never inherit the source posting.
+    if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    if (company.length && (company[0].toLowerCase() !== source.company
+      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0]))) return false;
+    if (requisition.length && (requisition[0] !== source.requisition
+      || !/^[0-9]{1,20}$/.test(requisition[0]))) return false;
+    if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
+    return true;
   } catch {
     return false;
   }
@@ -419,7 +451,12 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     return isSuccessFactorsModuleRoute(apply)
       && postingRouteProof?.via === 'successfactors'
       && sameSuccessFactorsModuleAddress(postingRouteProof.applyUrl, apply.href)
-      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href)
+      || isSuccessFactorsPortalCareerContinuation({
+        applyUrl: apply.href,
+        postingUrl: posting.href,
+        postingRouteProof,
+      });
   } catch {
     return false;
   }
