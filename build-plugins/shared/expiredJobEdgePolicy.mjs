@@ -33,6 +33,8 @@ export function isExpiredJobGa4EvidenceUsable(evidence, nowMs = Date.now()) {
   const startDateMs = Date.parse(`${startDate}T00:00:00Z`);
   const endDateMs = Date.parse(`${endDate}T00:00:00Z`);
   if (!Number.isFinite(startDateMs) || !Number.isFinite(endDateMs) || startDateMs > endDateMs) return false;
+  const currentUtcDate = new Date(nowMs).toISOString().slice(0, 10);
+  if (endDate > currentUtcDate) return false;
 
   return Number.isSafeInteger(evidence.coverage.returnedRows)
     && evidence.coverage.returnedRows >= 0

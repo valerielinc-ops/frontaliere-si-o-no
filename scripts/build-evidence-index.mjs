@@ -15,9 +15,9 @@ import { realpathSync } from 'node:fs';
 //
 // Failure semantics:
 //   - 0 fetcher failures → exit 0
-//   - 1 fetcher failure  → exit 0 (degraded — log warning)
-//   - 2 fetcher failures → exit 1 only when both results are empty
-//     (a full data outage); preserved partial observations remain degraded
+//   - 1 or 2 fetcher failures → exit 0 (degraded — log warning)
+//   - all 3 fetchers fail with no observed evidence → exit 1 (full data outage)
+//   - all 3 fail but any source preserves observed evidence → exit 0 (degraded)
 //
 // Optional flag: `--embeddings` triggers `scripts/build-article-embeddings.mjs`
 // at the end (delegated to keep this script focused on the JSON ETL).
