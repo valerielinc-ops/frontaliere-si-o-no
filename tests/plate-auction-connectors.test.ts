@@ -186,6 +186,27 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('sends cache-bypass headers when a catalogue refresh requests no-store', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', {
+        cache: 'no-store',
+        retries: 0,
+      })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock.mock.calls[0]?.[1]).toMatchObject({
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+          Pragma: 'no-cache',
+        },
+      });
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('retries when the response body stream fails after headers arrive', async () => {
     const firstResponse = {
       ok: true,
