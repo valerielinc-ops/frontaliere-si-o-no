@@ -149,6 +149,15 @@ describe('per-slot first-party creative delivery', () => {
     expect(optimized.host.childElementCount).toBe(0);
     expect(optimized.el.hasAttribute('data-ft-house-active')).toBe(false);
   });
+  it.each(['data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state'])('yields to descendant %s=optimized state', async attribute => {
+    const optimized = frame('waiting_response');
+    const marker = w.document.createElement('span');
+    marker.setAttribute(attribute, 'optimized');
+    optimized.google.append(marker);
+    await start();
+    expect(optimized.host.childElementCount).toBe(0);
+    expect(optimized.el.hasAttribute('data-ft-house-active')).toBe(false);
+  });
   it('fills a still-pending slot when Funding Choices confirms an ad blocker', async () => {
     const empty = frame('waiting_response'); empty.google.setAttribute('data-ft-ad-request-pending', '1');
     w.__ftAdBlock = { blocked: true, adsAllowed: false };

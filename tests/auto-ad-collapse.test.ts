@@ -62,6 +62,10 @@ describe('autoAdHasCreative — real or Google-owned content earns the space', (
     expect(autoAdHasCreative(placeContainer('<ins data-ft-ad-state="optimized"></ins>'))).toBe(true);
   });
 
+  it.each(['data-ad-state', 'data-ft-ad-state', 'data-ft-static-ad-state'])('recognizes descendant %s=optimized state', attribute => {
+    expect(autoAdHasCreative(placeContainer(`<ins ${attribute}="optimized"></ins>`))).toBe(true);
+  });
+
   it('the silent no-answer case does NOT count — this is the whole bug', () => {
     // Not empty, not flagged unfilled: invisible to both CSS collapse rules.
     expect(autoAdHasCreative(placeContainer(BARE_INS))).toBe(false);
@@ -104,6 +108,18 @@ describe('installAutoAdCollapse — gives the space back, but only after the bud
     teardown = installAutoAdCollapse();
 
     vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS * 3);
+    expect(el.hasAttribute(AUTO_AD_COLLAPSED_ATTR)).toBe(false);
+  });
+
+  it('restores the reserved space when the static shell reports optimized content after collapse', async () => {
+    vi.useFakeTimers();
+    const el = placeContainer(BARE_INS);
+    teardown = installAutoAdCollapse();
+    vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS);
+    expect(el.hasAttribute(AUTO_AD_COLLAPSED_ATTR)).toBe(true);
+
+    el.querySelector('ins')!.setAttribute('data-ft-static-ad-state', 'optimized');
+    await vi.advanceTimersByTimeAsync(0);
     expect(el.hasAttribute(AUTO_AD_COLLAPSED_ATTR)).toBe(false);
   });
 
