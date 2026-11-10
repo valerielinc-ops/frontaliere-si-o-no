@@ -34,6 +34,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'INCREMENTAL_MANIFEST_VERIFY',
       'JOBS_SEO_GCFREED_PROBE',
       'JOBS_SEO_MEM_GC',
+      'JOBS_SEO_NATIVE_ROUTE_INDEX',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_PROBE',
       'JOBS_SEO_REUSE_PROBE_MAX',
@@ -59,6 +60,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'SEQUENTIAL_PROFILE',
       'UV_THREADPOOL_SIZE',
     ]);
+    expect(parseVariants('baseline=JOBS_SEO_NATIVE_ROUTE_INDEX=legacy\ncandidate='))
+      .toEqual([
+        { name: 'baseline', env: { JOBS_SEO_NATIVE_ROUTE_INDEX: 'legacy' } },
+        { name: 'candidate', env: {} },
+      ]);
   });
 
   it('declares variants as a multiline string input and keeps monolith comparison opt-in', () => {

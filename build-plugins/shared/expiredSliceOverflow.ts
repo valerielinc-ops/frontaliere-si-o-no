@@ -79,14 +79,17 @@ export class ExpiredSliceOverflow<T> {
 
 /** First-owner indexing across both tiers; reaching the RAM cap never ends input. */
 export function augmentExpiredSliceIndex<T extends Parameters<typeof expiredJobSlugVariants>[0]>(
-  jobs: Iterable<T>, emittedSlugs: Set<string>, primary: Map<string, T>,
+  jobs: Iterable<T>, emittedSlugs: ReadonlySet<string> | ((slug: string) => boolean), primary: Map<string, T>,
   overflow: ExpiredSliceOverflow<T>, memoryLimit: number, recency: (job: T) => number,
 ): number {
+  const isEmittedSlug = typeof emittedSlugs === 'function'
+    ? emittedSlugs
+    : (slug: string) => emittedSlugs.has(slug);
   let retained = 0;
   for (const job of jobs) {
     const overflowVariants: string[] = [];
     for (const slug of expiredJobSlugVariants(job)) {
-      if (!emittedSlugs.has(slug) || primary.has(slug) || overflow.has(slug)) continue;
+      if (!isEmittedSlug(slug) || primary.has(slug) || overflow.has(slug)) continue;
       if (retained < memoryLimit) {
         primary.set(slug, job);
         retained++;

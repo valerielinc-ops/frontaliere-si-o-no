@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pruneSelfHealTracking } from '../../build-plugins/shared/pruneSelfHealTracking';
@@ -42,6 +42,24 @@ describe('self-heal tracking retention', () => {
       de: '/de/jobs/a',
       fr: '/fr/jobs/a',
     });
+  });
+
+  it('prunes a large registry without materializing a full keys array', () => {
+    const tracking = Object.fromEntries(
+      Array.from({ length: 50_000 }, (_, index) => [`slug-${index}`, { de: `/de/jobs/slug-${index}/` }]),
+    );
+    const objectKeys = vi.spyOn(Object, 'keys');
+
+    try {
+      expect(pruneSelfHealTracking(tracking, ['de'], () => true)).toEqual({
+        pruned: 50_000,
+        retained: 0,
+      });
+      expect(objectKeys).not.toHaveBeenCalled();
+      expect(Object.keys(tracking)).toEqual([]);
+    } finally {
+      objectKeys.mockRestore();
+    }
   });
 
   it('prunes after expired-path readers and before the previous-slug phase', () => {

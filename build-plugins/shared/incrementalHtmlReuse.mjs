@@ -1965,27 +1965,22 @@ export class JobsSeoHtmlReuse {
   prune(locale, manifest) {
     const localeDir = path.join(this.cacheRoot, safeLocale(locale));
     if (!fs.existsSync(localeDir)) return;
-    const liveByBlock = new Map(
-      JOBS_SEO_REUSE_BLOCKS.map((block) => [block, new Set()]),
-    );
+    // Cache file keys include the page kind and its input hash, so one shared
+    // membership set covers every block without retaining a second Set per
+    // block or a later union copy.
+    const liveCacheNames = new Set();
     for (const [pagePath, entry] of manifestCacheEntries(manifest)) {
       const block = KIND_TO_REUSE_BLOCK[entry?.kind];
       const inputHash = entryReuseHash(entry);
       if (!block || !inputHash) continue;
-      liveByBlock.get(block).add(cacheFileName(pagePath, entry.kind, inputHash));
+      liveCacheNames.add(cacheFileName(pagePath, entry.kind, inputHash));
     }
-    const currentCacheNames = new Set();
-    for (const keys of liveByBlock.values()) {
-      for (const key of keys) currentCacheNames.add(key);
-    }
-    const packedCacheNames = new Set();
+    const storesByBlock = new Map();
     for (const block of JOBS_SEO_REUSE_BLOCKS) {
       const store = this.packStore(locale, block);
+      storesByBlock.set(block, store);
       try {
-        store.prune(liveByBlock.get(block));
-        for (const key of liveByBlock.get(block)) {
-          if (store.has(key)) packedCacheNames.add(key);
-        }
+        store.prune(liveCacheNames);
       } catch (error) {
         console.warn(
           `[jobs-seo-reuse] cache-pack-prune-failed locale=${locale} block=${block}`
@@ -1993,16 +1988,33 @@ export class JobsSeoHtmlReuse {
         );
       }
     }
-    for (const fileName of fs.readdirSync(localeDir)) {
-      if (!fileName.endsWith('.html')) continue;
-      if (currentCacheNames.has(fileName) && !packedCacheNames.has(fileName)) continue;
-      try {
-        fs.unlinkSync(path.join(localeDir, fileName));
-      } catch (error) {
-        console.warn(
-          `[jobs-seo-reuse] cache-prune-failed locale=${locale} path=${fileName} reason=${error?.message || error}`,
-        );
+    const directory = fs.opendirSync(localeDir);
+    try {
+      let entry;
+      while ((entry = directory.readSync()) !== null) {
+        const { name: fileName } = entry;
+        if (!fileName.endsWith('.html')) continue;
+        const isCurrent = liveCacheNames.has(fileName);
+        let isPacked = false;
+        if (isCurrent) {
+          for (const store of storesByBlock.values()) {
+            if (store.has(fileName)) {
+              isPacked = true;
+              break;
+            }
+          }
+        }
+        if (isCurrent && !isPacked) continue;
+        try {
+          fs.unlinkSync(path.join(localeDir, fileName));
+        } catch (error) {
+          console.warn(
+            `[jobs-seo-reuse] cache-prune-failed locale=${locale} path=${fileName} reason=${error?.message || error}`,
+          );
+        }
       }
+    } finally {
+      directory.closeSync();
     }
   }
 
@@ -2045,6 +2057,33 @@ export class JobsSeoHtmlReuse {
         + ` mismatches=${stats.mismatches} mismatch-reason=${mismatchReasons}`,
       );
     }
+  }
+
+  /** Drop all previous-manifest and pack-index entries after the final build consumer. */
+  release() {
+    const released = {
+      packStores: this.packStores.size,
+      packEntries: 0,
+      previousLocales: this.previousByLocale.size,
+      previousEntries: 0,
+    };
+    for (const store of this.packStores.values()) {
+      released.packEntries += store.entries.size;
+      store.invalidate();
+    }
+    this.packStores.clear();
+    for (const previous of this.previousByLocale.values()) {
+      if (!previous?.entries) continue;
+      released.previousEntries += previous.entries.size;
+      previous.entries.clear();
+    }
+    this.previousByLocale.clear();
+    this.probeStates.clear();
+    this.mismatchLogCounts.clear();
+    this.diagnosticCounts.clear();
+    this.diagnosticsByLocale.clear();
+    this.stats.clear();
+    return released;
   }
 
   writeVerifyDiagnostics() {
