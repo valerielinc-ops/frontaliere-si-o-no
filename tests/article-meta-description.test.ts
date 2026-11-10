@@ -10,6 +10,7 @@ import {
   clampMetaDescription,
   META_DESCRIPTION_MAX_CHARS,
   META_DESCRIPTION_MIN_CHARS,
+  TITLE_MAX_CHARS,
 } from '../build-plugins/shared/titleSuffix';
 
 const MAX = META_DESCRIPTION_MAX_CHARS;
@@ -100,6 +101,69 @@ describe('clampMetaDescription enrichment ends on a clause boundary', () => {
     expect(out).toMatch(/[.…]$/);
     expect(out).not.toMatch(/\s(Scopri|Explore|Entdecke|Découvrez)$/);
   });
+
+  it('keeps the Bing floor when clause peeling would over-amputate', () => {
+    const description = 'Praktischer Leitfaden für italienische Grenzgänger: Steuern, G-Genehmigung, KVG, Verbindungen und Lebenshaltungskosten auf italienisch-schweizerischer Seite.';
+    const out = clampMetaDescription(description, MAX, 'de');
+    expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(out.length).toBeLessThanOrEqual(MAX);
+    expect(out).toMatch(/…$/);
+  });
+});
+
+describe('dated evergreen article title identity', () => {
+  it('caps an Article title while leaving the source headline complete', async () => {
+    const fs = await import('node:fs');
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const { renderArticlePages } = await import('../build-plugins/ogPagesPlugin');
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'article-evergreen-title-'));
+    const published = new Date().toISOString().slice(0, 10);
+    const headline = 'Guida evergreen datata per frontalieri con requisiti, costi e procedura completa';
+    const description = 'Una descrizione editoriale abbastanza lunga per verificare il limite Bing senza perdere il contesto utile della guida per i lavoratori frontalieri.';
+    const write = (file: string, body: string) => {
+      const target = path.join(rootDir, file);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, body);
+    };
+    try {
+      write('data/blog-articles-data.ts', `const RAW_ARTICLES = [
+        { id: 'dated-evergreen', category: 'pratico', date: '${published}', articleType: 'evergreen' },
+      ];`);
+      write('services/seo/seo-blog.ts', `export const entries = {
+        'blog-dated-evergreen': {
+          title: ${JSON.stringify(headline)},
+          description: ${JSON.stringify(description)},
+          canonicalPath: '/articoli-frontaliere/dated-evergreen/',
+          structuredData: ${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline,
+            datePublished: `${published}T00:00:00+00:00`,
+          })},
+        },
+      };`);
+      write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify({
+        'dated-evergreen': { it: 'dated-evergreen', en: 'dated-evergreen', de: 'dated-evergreen', fr: 'dated-evergreen' },
+      })};`);
+      const distDir = path.join(rootDir, 'dist');
+      const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+      expect(result.entries).toHaveLength(1);
+      const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
+      const title = /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? '';
+      const descriptions = /<meta name="description" content="([^"]*)"/.exec(html)?.[1] ?? '';
+      const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map(([, json]) => JSON.parse(json));
+      const article = schemas.find((schema) => schema['@type'] === 'Article');
+      expect(title.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      expect(descriptions.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+      expect(descriptions.length).toBeLessThanOrEqual(MAX);
+      expect(article).toBeDefined();
+      expect(article!.headline).toBe(headline);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  }, 300_000);
 });
 
 describe('rendered article pages carry the composed description', () => {

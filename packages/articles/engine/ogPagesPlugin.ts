@@ -1480,13 +1480,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // marker belongs to the SERP meta description and must not rewrite the
  // article's separate social-description contract.
  const ogDescription = clampMetaDescription(localizedDesc, shell.metaDescriptionMaxChars, articleLocale);
- // <title>: a dated article is a NewsArticle and keeps its source headline
- // verbatim so <title>, H1 and NewsArticle.headline remain one identity. Bing's
- // crawler has an explicit exemption for that exact invariant. Evergreen
- // articles (WebPage) and Events have no such exemption: their emitted title
- // must converge inside the shared cap, including after HTML escaping.
+ // <title>: a dated news article keeps its source headline verbatim so
+ // <title>, H1 and NewsArticle.headline remain one identity. Bing's crawler
+ // has an explicit exemption for that exact invariant. Evergreen articles
+ // are emitted as Article, not NewsArticle, and Events have no such exemption:
+ // their emitted title must converge inside the shared cap, including after
+ // HTML escaping.
  const isEvent = en.sdType === 'Event';
- const isNewsArticle = !isEvent && Boolean(en.datePub);
+ const isEvergreenArticle = articleTypeById[en.articleId] === 'evergreen';
+ const isNewsArticle = !isEvent && Boolean(en.datePub) && !isEvergreenArticle;
  const baseTitleProbe = titleCollisionKey(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
@@ -1783,7 +1785,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // A corpus entry without an editorial publication date is an evergreen
  // document. Keep it as WebPage until the registry supplies a real date.
  // A dated guide the generator declared evergreen is an Article, not news.
- '@type': !en.datePub ? 'WebPage' : articleTypeById[en.articleId] === 'evergreen' ? 'Article' : 'NewsArticle',
+ '@type': !en.datePub ? 'WebPage' : isEvergreenArticle ? 'Article' : 'NewsArticle',
  '@id': `${full}#article`,
  name: localizedTitle,
  headline: localizedTitle,

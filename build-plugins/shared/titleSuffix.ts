@@ -415,12 +415,27 @@ export function clampMetaDescription(
 ): string {
   const normalized = String(description || '').replace(/\s+/g, ' ').trim();
   if (!normalized) return '';
+  if (max <= 0) return '';
   const minimum = Math.min(META_DESCRIPTION_MIN_CHARS, max);
   const resolvedLocale = locale === 'en' || locale === 'de' || locale === 'fr' || locale === 'it'
     ? locale
     : inferMetaDescriptionLocale(normalized);
   const enriched = enrichShortMetaDescription(normalized, resolvedLocale, minimum, max);
-  return truncateHeadline(enriched, max);
+  const truncated = truncateHeadline(enriched, max);
+  if (enriched.length <= max || truncated.length >= minimum) return truncated;
+
+  // The shared clause truncator may peel a stopword tail after the last
+  // in-budget word. That is normally the right SERP trade-off, but it can
+  // push an otherwise valid description below Bing's minimum (for example
+  // when the next word is a long hyphenated proper name). Keep the explicit
+  // ellipsis and the hard budget in that irreducible case: a marked cut at
+  // the floor is preferable to shipping a short description that remains a
+  // crawler finding. Strip only delimiters here; peeling words would undo
+  // the floor guarantee.
+  const hardCut = truncateCodeUnits(enriched, max - 1).trimEnd();
+  const delimiterSafeCut = hardCut.replace(CLAUSE_SEPARATOR_TAIL_RE, '').trimEnd();
+  const floorFallback = `${delimiterSafeCut}…`;
+  return floorFallback.length >= minimum ? floorFallback : `${hardCut}…`;
 }
 
 /**

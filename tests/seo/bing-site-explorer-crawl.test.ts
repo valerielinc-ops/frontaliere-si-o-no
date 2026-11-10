@@ -216,6 +216,13 @@ describe('Bing-compatible full-tree crawler', () => {
     });
     expect(newsInvariant.findings.map((item) => item.code)).not.toContain('title-too-long');
 
+    const evergreenArticle = classifyDocument({
+      url: `${BASE}/articoli-frontaliere/guida-evergreen/`,
+      status: 200,
+      html: `<title>${newsHeadline}</title><link rel="canonical" href="${BASE}/articoli-frontaliere/guida-evergreen/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare una guida evergreen nel controllo SEO completo e mantenere il contratto di crawling."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', headline: newsHeadline })}</script>`,
+    });
+    expect(evergreenArticle.findings.map((item) => item.code)).toContain('title-too-long');
+
     const pdf = classifyDocument({
       url: `${BASE}/guide.pdf`,
       status: 200,
