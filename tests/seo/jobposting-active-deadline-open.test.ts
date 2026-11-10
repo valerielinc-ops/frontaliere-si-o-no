@@ -10,7 +10,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   assertActiveJobPostingDeadlineOpen,
   buildJobPostingSchema,
@@ -168,6 +168,51 @@ describe('the gate fails closed on every active emitter', () => {
     }, 'Offerta archiviata e non più disponibile.', { locale: 'it', url: 'https://frontaliereticino.ch/x/', now: NOW })!;
     expect(schema).toBeTruthy();
     expect(Date.parse(schema.validThrough)).toBeLessThan(NOW.getTime());
+  });
+});
+
+describe('one emission clock when opts.now is omitted (SPA, wall-clock builds)', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  // Every argument-less `new Date()` / `Date.now()` advances by 1ms, so a run
+  // whose resolution and validation read the clock separately crosses the
+  // date-only deadline's last instant (23:59:59.999Z) between the two.
+  const stubTickingClock = (startMs: number) => {
+    const RealDate = Date;
+    let tick = 0;
+    class TickingDate extends RealDate {
+      constructor(...args: unknown[]) {
+        if (args.length === 0) super(startMs + tick++);
+        else super(...(args as [string | number]));
+      }
+      static now() {
+        return startMs + tick++;
+      }
+    }
+    vi.stubGlobal('Date', TickingDate);
+  };
+
+  // The builder reads the clock a few times before resolving the deadline, so
+  // sweep the start: some offset lands resolution on the last open instant and
+  // validation on 23:59:59.999Z.
+  it.each([1, 2, 3, 4, 5, 6, 7, 8])('buildJobPostingSchema resolves and gates with the same instant (start %ims before)', (msBefore) => {
+    const today = day(0);
+    const start = Date.parse(`${today}T23:59:59.999Z`) - msBefore;
+    stubTickingClock(start);
+    const schema = buildJobPostingSchema({ ...base, validThrough: today }, {
+      locale: 'it',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-berna/tecnico-acme/',
+    });
+    expect(Date.parse(schema.validThrough)).toBeGreaterThan(start);
+  });
+
+  it('the reused-page refresh resolves and gates with the same instant', () => {
+    const today = day(0);
+    stubTickingClock(Date.parse(`${today}T23:59:59.998Z`));
+    const validThrough = resolveOpenActiveJobPostingValidThrough({ ...base, validThrough: today });
+    expect(Date.parse(String(validThrough))).toBeGreaterThan(Date.parse(`${today}T23:59:59.998Z`));
   });
 });
 

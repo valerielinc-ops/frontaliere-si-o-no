@@ -478,9 +478,20 @@ export function assertActiveJobPostingDeadlineOpen(
  * gate as a full render.
  */
 export function resolveOpenActiveJobPostingValidThrough(job: JobInput, now?: Date): string | null {
-  const validThrough = resolveJobPostingValidThrough(job, now);
-  assertActiveJobPostingDeadlineOpen(validThrough, now, String(job.id || job.slug || job.title || ''));
+  const clock = emissionClock(now);
+  const validThrough = resolveJobPostingValidThrough(job, clock);
+  assertActiveJobPostingDeadlineOpen(validThrough, clock, String(job.id || job.slug || job.title || ''));
   return validThrough;
+}
+
+/**
+ * One clock per emission. Resolving the deadline and gating it with two
+ * separate `new Date()` reads lets a run that crosses a deadline (e.g. a
+ * date-only source deadline at 23:59:59.999Z) resolve it as open and then
+ * reject it; a single captured instant keeps both decisions consistent.
+ */
+function emissionClock(now?: Date): Date {
+  return now && Number.isFinite(now.getTime()) ? now : new Date();
 }
 
 /** Build a locale-aware fallback description ≥ 50 chars. */
@@ -885,7 +896,8 @@ export function buildJobPostingSchema(
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
+  const clock = emissionClock(opts.now);
+  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, clock);
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
@@ -897,7 +909,7 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const validThrough = resolveJobPostingValidThrough(job, opts.now);
+  const validThrough = resolveJobPostingValidThrough(job, clock);
   if (!validThrough) {
     throw new Error(
       `buildJobPostingSchema: could not resolve a source or observed deadline for job ` +
@@ -907,7 +919,7 @@ export function buildJobPostingSchema(
   if (job.validThroughSource !== 'archive-evidence') {
     assertActiveJobPostingDeadlineOpen(
       validThrough,
-      opts.now,
+      clock,
       String(job.id || job.slug || job.title || companyName),
     );
   }
