@@ -338,3 +338,24 @@ describe('residence region (State / Kanton / Provincia), deduced from the CV tow
     expect(platformDefaultAnswer(portal('* State', { type: 'choice', options: ['Bern', 'Zürich'] }), lugano, { locale: 'en' })).toBeNull();
   });
 });
+
+describe('address fields in the candidate own form whose labels name a company (Yellowshark 2026-11-10)', () => {
+  const context = 'Anrede · Company · Frau · Herr · Vorname · Nachname · E-Mail · Email workflow step · Strasse · Hausnummer · PLZ · Ort · Land · Nationalität · Mobile · Telefon (optional) · Geburtstag · Monat · Jahr · Ich akzeptiere die Datenschutzerklärung';
+  const field = (applicationQuestion: string, extra = {}) => ({ id: 'q', source: 'portal', type: 'text', required: true,
+    applicationQuestion, question: applicationQuestion, context, section: 'Hier sind Sie richtig', ...extra });
+  const como = platformCandidateFacts({ profile: { location: 'Como (CO)' }, nowMs: NOW, locale: 'de' });
+
+  it('answers street, house number and postal code from the platform address', () => {
+    expect(platformQuestionTopic(field('Strasse'))).toBe('address_street_name');
+    expect(platformDefaultAnswer(field('Strasse'), como, { locale: 'de' })?.value).toBe(como.address.streetName);
+    expect(platformDefaultAnswer(field('Hausnummer'), como, { locale: 'de' })?.value).toBe(como.address.houseNumber);
+    expect(platformDefaultAnswer(field('PLZ'), como, { locale: 'de' })?.value).toBe(como.address.postalCode);
+  });
+
+  it('still leaves an address whose own section or label names another party', () => {
+    expect(platformQuestionTopic(field('Strasse', { section: 'Arbeitgeber' }))).toBeNull();
+    expect(platformQuestionTopic(field('Strasse', { context: 'Firma · Ansprechpartner · Strasse · PLZ · Ort' }))).toBeNull();
+    // A phone number beside the street is no house-number field: the street keeps its number.
+    expect(platformQuestionTopic(field('Indirizzo', { context: 'Nome · Cognome · E-mail · Indirizzo · Numero di telefono' }))).toBe('address_street');
+  });
+});

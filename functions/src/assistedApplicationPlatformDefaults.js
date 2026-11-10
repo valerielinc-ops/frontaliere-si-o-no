@@ -63,7 +63,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v7 (2026-11-10): support to other sites or branches, flexibility of the place of work, guard and piquet duty.
 // v8 (2026-11-10): the cross-border permit G deduced from the CV (deducedCrossBorderPermit), the declaration of
 // suitability for or interest in the position always yes. (v7 is the other sites and guard duty of #18004.)
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v8';
+// v9 (2026-11-10): the address of the candidate's own form whose labels name a company; the street name beside a
+// house-number field.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v9';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -532,6 +534,7 @@ const BIRTH = /\b(?:nascit\w*|nat[oa] il|data di nascita|geburt\w*|geboren|birth
 const EMAIL_LIKE = /\b(?:e ?mail|email|courriel|web|website|url|ip)\b/;
 const POSTAL = /\b(?:cap|npa|nap|plz|postleitzahl|zip|zip code|postal code|post code|postcode|code postal|codice postale)\b/;
 const HOUSE_NUMBER = /\b(?:numero civico|n civico|civico|hausnummer|haus nr|house number|street number|numero de rue|no de rue|numero)\b/;
+const HOUSE_NUMBER_FIELD = /\b(?:numero civico|n civico|civico|hausnummer|haus nr|house number|street number|numero de rue|no de rue)\b/;
 const STREET = /\b(?:via|strasse|street|rue|indirizzo|adresse|address|anschrift)\b/;
 const STREET_STRICT = /\b(?:via|strada|strasse|street|rue)\b/;
 const STREET_NAME_ONLY = /\b(?:nome (?:della )?(?:sua |tua )?via|street name|strassenname|nom de (?:la )?rue)\b/;
@@ -711,9 +714,23 @@ const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candi
  * contract (lib/addressContextContract.js) must not name another party, and an
  * unreadable contract is not ownership.
  */
+// The candidate's own identity fields among the labels of a form («Vorname · Nachname · E-Mail · Geburtstag»).
+const IDENTITY_FIELD_RE = /\b(?:vorname|nachname|first name|last name|surname|nome|cognome|prenom|e ?mail|geburt\w*|date of birth|birth\w*|data di nascita|nascita|naissance)\b/g;
+
+/** The field context lists the labels of the candidate's own form: two identity fields or more. */
+function candidateFormContext(context) {
+  return new Set(fold(context).match(IDENTITY_FIELD_RE) || []).size >= 2;
+}
+
 function candidateOwnsAddress(question) {
-  const around = fold([question?.context, question?.section].filter((value) => typeof value === 'string').join(' '));
-  if (OTHER_PARTY.test(around) || OTHER_PARTY.test(label(question))) return false;
+  const context = typeof question?.context === 'string' ? question.context : '';
+  const section = typeof question?.section === 'string' ? question.section : '';
+  const around = fold([context, section].join(' '));
+  // A context that lists the candidate's own form (Yellowshark 1EpmkrDu, 2026-11-10: «Anrede · Company · Frau ·
+  // Herr · Vorname · Nachname · E-Mail · Strasse …») is theirs even when a sibling label names a company (here a
+  // form-of-address option); the field's own section and label still decide against another party.
+  const otherAround = candidateFormContext(context) ? OTHER_PARTY.test(fold(section)) : OTHER_PARTY.test(around);
+  if (otherAround || OTHER_PARTY.test(label(question))) return false;
   const contract = addressContextContract(question);
   if (contract === undefined) return true;
   if (contract === null || contract.unknown) return false;
@@ -722,7 +739,11 @@ function candidateOwnsAddress(question) {
 }
 
 function classifyPlatformTopic(question) {
-  const topic = classifyPlatformSubject(question);
+  const subject = classifyPlatformSubject(question);
+  // A street field beside its own house-number field («Strasse · Hausnummer») takes the street name only. Only a
+  // real house-number label counts («Numero di telefono» is no such field).
+  const topic = subject === 'address_street' && typeof question?.context === 'string'
+    && HOUSE_NUMBER_FIELD.test(fold(question.context)) && !HOUSE_NUMBER.test(label(question)) ? 'address_street_name' : subject;
   return topic && ADDRESS_TOPICS.has(topic) && !candidateOwnsAddress(question) ? null : topic;
 }
 
