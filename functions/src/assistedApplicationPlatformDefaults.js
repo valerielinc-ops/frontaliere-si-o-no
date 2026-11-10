@@ -430,7 +430,8 @@ function currentOrRecentRole(role, nowMs) {
   if (!anchor || anchor === 'ongoing') return anchor === 'ongoing';
   const now = new Date(nowMs);
   const months = (now.getUTCFullYear() - anchor.year) * 12 + (now.getUTCMonth() + 1 - (anchor.month || 12));
-  return months <= CROSS_BORDER_RECENT_MONTHS;
+  // A role ending in the future is no proof of a job held today: only an end within the last months counts.
+  return months >= 0 && months <= CROSS_BORDER_RECENT_MONTHS;
 }
 
 /**
@@ -558,7 +559,7 @@ const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*
 // of interest, never other or future positions (a job alert), never a workload.
 const SUITABILITY = /\b(?:idone\w*|suitab\w*|suited|geeignet\w*|eignung|apte|aptitude|interess\w*|interest\w*|interet\w*)\b/;
 const APPLIED_FUNCTION = /\b(?:funzion\w*|posizion\w*|ruolo|mansion\w*|posto|bando|concorso|incarico|position|role|job|post|vacancy|stelle|funktion|ausschreibung|poste|fonction|emploi)\b/;
-const NOT_SUITABILITY = /\b(?:sanitar\w*|fisic\w*|psic\w*|medic\w*|salute|health\w*|physical\w*|mental\w*|gesundheit\w*|korperlich\w*|arztlich\w*|psychisch\w*|sante|physique\w*|condott\w*|casellario|penal\w*|criminal\w*|moral\w*|giuridic\w*|legal\w*|vaccin\w*|leumund\w*|strafregister\w*|casier|conduct\w*|record|judiciaire|conflitt\w*|conflict\w*|\w*konflikt\w*|conflit\w*|altr[aeio]|other|weitere\w*|andere\w*|autres?|futur\w*|ulterior\w*|simil\w*|similar|part ?time|tempo parziale|teilzeit|temps partiel|full ?time|tempo pieno|vollzeit|temps plein|pensum|percent\w*|percentuale)\b/;
+const NOT_SUITABILITY = /\b(?:job ?alerts?|alerts?|avvis\w*|notific\w*|newsletter\w*|talent ?pool\w*|jobabo\w*|benachrichtig\w*|sanitar\w*|fisic\w*|psic\w*|medic\w*|salute|health\w*|physical\w*|mental\w*|gesundheit\w*|korperlich\w*|arztlich\w*|psychisch\w*|sante|physique\w*|condott\w*|casellario|penal\w*|criminal\w*|moral\w*|giuridic\w*|legal\w*|vaccin\w*|leumund\w*|strafregister\w*|casier|conduct\w*|record|judiciaire|conflitt\w*|conflict\w*|\w*konflikt\w*|conflit\w*|altr[aeio]|other|weitere\w*|andere\w*|autres?|futur\w*|ulterior\w*|simil\w*|similar|part ?time|tempo parziale|teilzeit|temps partiel|full ?time|tempo pieno|vollzeit|temps plein|pensum|percent\w*|percentuale)\b/;
 // Guard or standby duty asked as an availability (owner decision 2026-11-10: on-call duty in every wording is
 // always yes). Only with an availability word: «Hai svolto servizio di guardia?» asks a fact of the past.
 // French «piquet» also names a past duty («Avez-vous effectué un service de piquet ?»): only its availability is ours.

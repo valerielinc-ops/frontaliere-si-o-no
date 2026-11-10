@@ -2,6 +2,7 @@
   "note": "sha256 of every owner-decision row (DECISIONS.md + DECISIONS-ARCHIVE.md). Rows are append-only: never edit or delete one; supersede it with a new dated row on the owner explicit instruction. See tests/owner-decisions-protected.test.ts.",
   "rows": [
     "0f6a811e79a7b7865f48af0a3f694e44ff6db36dbd4bff91c12d0b6e750aaeb0",
+    "12902ef85b502e008e403fe0418ead2aafcdd894c4772fb728604ac438dbbf59",
     "138728072a4d0562df0250c8bf2f8df63c9ce3ea95a6b7ef2993472b3aa84c9f",
     "1963ccf34d78e5304d0bf08a8cd13ee88f7510ee506da9cfaa22550a4a9981b0",
     "202a294c156cf82b81bff0440abe80363e54a660750d4cc84c8340ed52d0e49e",
@@ -24,7 +25,6 @@
     "6205a1006c6b6bfac8e6a1b605a00edec748a72e03c675c455e27487fb0adf4a",
     "64d1aac8725ce399229f9163ab1fb115708199c35e3eb00d733e997db08de387",
     "66ac0161bbcf9ab4aaad9ab836c756c6fe049d02882406fe1025eedd01d47b0c",
-    "7265f95cec676a31994a6baf9b43b04a5e8c60ca1bbeaabfa3e0c74d29e09ae3",
     "784680f4df09ebdc40a1af0b41e12eb62ca22615b2cfa667f6763fd9d94f4cc0",
     "7990ea1023670cd7f1ad69b5f4511a09e1e3e8c866c89c1a1618884f4dc88d82",
     "7bab243b916ec742fc5509814a631264ae8a7121b7efb132e71fae2b56f9c958",

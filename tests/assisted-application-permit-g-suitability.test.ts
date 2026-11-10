@@ -57,6 +57,10 @@ describe('permit G deduced from the CV (owner decision 2026-11-10)', () => {
     expect(platformDefaultAnswer(binary, known, { locale: 'it' })?.value).toBe('Sì');
   });
 
+  it('a Swiss role ending in the future proves no job held today (review of #18012)', () => {
+    expect(deducedCrossBorderPermit({ residenceCountry: 'IT', experience: [{ ...swissJob, location: 'Switzerland', end: '2027-12' }], nowMs: Date.UTC(2026, 10, 10) })).toBe('');
+  });
+
   it('reads the other bordering countries and a job ended within twelve months', () => {
     expect(facts({ location: 'Annemasse, France', experience: [{ ...swissJob, location: 'Genève, Suisse' }] }).permitStatus).toBe('permit_g');
     expect(facts({ location: 'Lörrach, Deutschland', experience: [{ ...swissJob, location: 'Basel, Schweiz', end: '02.2026' }] }).permitStatus).toBe('permit_g');
@@ -115,6 +119,10 @@ describe('permit G deduced from the CV (owner decision 2026-11-10)', () => {
     expect(own.defaults.work_permit).toBeUndefined();
     const cleared = candidateWithEdits({ order, draft, flow: { formOverrides: { workPermit: '' } } });
     expect(cleared.platformFacts.permitStatus).toBe('');
+    // An answer the candidate cleared on the question is their word too (review of #18012).
+    const clearedAnswer = candidateWithEdits({ order, draft, flow: { answers: { work_permit: '' } } });
+    expect(clearedAnswer.platformFacts.permitStatus).toBe('');
+    expect(clearedAnswer.platformFacts.permitStatusSource || '').toBe('');
   });
 
   it('the runner fills the permit fields with the deduced status, never over an answer of the candidate', () => {
@@ -141,6 +149,13 @@ describe('suitability for the position: always yes (owner decision 2026-11-10)',
     expect(platformDefaultAnswer(ask('Sind Sie an dieser Stelle interessiert?'), null, { locale: 'de' })?.value).toBe('Ja');
     expect(platformDefaultAnswer(ask('Are you interested in this position?'), null, { locale: 'en' })?.value).toBe('Yes');
     expect(platformDefaultAnswer(ask('Vous estimez-vous apte pour ce poste ?'), null, { locale: 'fr' })?.value).toBe('Oui');
+  });
+
+  it('a job alert is never a declaration of suitability (review of #18012)', () => {
+    const alerts = { id: 'q', source: 'portal', type: 'yes_no', question: 'Are you interested in job alerts?' };
+    expect(platformQuestionTopic(alerts)).not.toBe('function_suitability');
+    // It is a marketing request: the platform declines it.
+    expect(platformDefaultAnswer(alerts, null, { locale: 'en' })?.value ?? 'No').toBe('No');
   });
 
   it('a fitness of health or of law, a conflict of interest, other positions, a workload or a text stay out', () => {
