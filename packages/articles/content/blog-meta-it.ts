@@ -13700,6 +13700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tredicesima-avs-pensionati-italia.title': '13esima AVS per pensionati italiani da dicembre 2026',
     'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'Un pensionato che è stato frontaliere, è iscritto al sistema previdenziale elvetico e percepisce una rendita completa AVS di 2’520 franchi mensili riceverà una somma identica a titolo di tredicesima mensilità.',
     'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.frontalieri-svizzera-calo-ticino.title': 'Frontalieri: aumento in Svizzera, calo annuo in Ticino',
+    'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'Nel terzo trimestre, la statistica dei frontalieri evidenzia un netto contrasto tra la situazione federale e quella del Canton Ticino.',
+    'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

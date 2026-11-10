@@ -48167,6 +48167,17 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontalieri-svizzera-calo-ticino',
+ category: 'novita',
+ date: '2026-11-10T13:55:04.383Z',
+ image: '/images/blog/article-frontalieri-svizzera-calo-ticino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

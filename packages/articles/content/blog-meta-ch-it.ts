@@ -8708,6 +8708,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): salari e frontalieri, agire con i contributi',
     'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Il titolo editoriale presenta Pamini (Udc) con un\'indicazione precisa: collegare il tema dei salari e dei frontalieri al capitolo dei contributi.',
     'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.burocrazia-frena-investimenti-svizzera.title': 'Tre imprese su dieci rinviano o riducono investimenti per vincoli amministrativi',
+    'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Secondo il servizio RG 12.30 del 9 novembre 2026, per tre aziende svizzere su dieci i vincoli amministrativi comportano il rinvio, la riduzione o la cancellazione di investimenti.',
+    'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
