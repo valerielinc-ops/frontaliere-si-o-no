@@ -57,6 +57,11 @@ describe('a complete SuccessFactors form whose CV an earlier run of the order le
     expect(earlierCvHeld(buttons, [], true)).toBe(false);
     expect(earlierCvHeld(buttons, [''], true)).toBe(false);
     expect(earlierCvHeld([{ id: 'c', text: `Recently viewed ${CV}`, chrome: true }], [CV], true)).toBe(false);
+    // A cover letter kept under the CV's file name is no CV (review of #18007).
+    const letterOnly = [{ id: 'l', text: 'Cover Letter Edit document resume.pdf Opens a dialog' }];
+    expect(earlierCvHeld(letterOnly, ['resume.pdf'], true)).toBe(false);
+    expect(applicationStage({ ...form(earlierCvHeld(letterOnly, ['resume.pdf'], true)), buttons: [...buttons.filter((b: any) => !/curriculum/i.test(b.text || '')), ...letterOnly] }, { ...context, url: URL }).kind).toBe('unknown_apply');
+    expect(earlierCvHeld([{ id: 'r', text: 'Curriculum Vitae Edit document resume.pdf Opens a dialog' }], ['resume.pdf'], true)).toBe(true);
   });
 
   it('a kept CV alone does not make a page without the applicant’s own fields a form to send', () => {

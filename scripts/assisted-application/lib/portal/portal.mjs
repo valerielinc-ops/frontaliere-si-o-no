@@ -243,7 +243,18 @@ export function ownEarlierFileShown(buttons, names) {
  * another page proves nothing.
  */
 export function earlierCvHeld(buttons, cvNames, keptHere) {
-  return Boolean(keptHere) && (cvNames || []).some(Boolean) && ownEarlierFileShown(buttons, cvNames);
+  const names = (cvNames || []).filter(Boolean).map(String);
+  if (!keptHere || !names.length) return false;
+  // The file name must sit in the CV's own slot: the control's caption, without the file name, names the CV and
+  // not the cover letter (a letter kept under the same file name is no CV).
+  return (buttons || []).some((button) => {
+    if (button.chrome) return false;
+    const text = String(button.text || '');
+    const name = names.find((item) => text.includes(item));
+    if (!name) return false;
+    const caption = text.split(name).join(' ');
+    return CV_DOCUMENT_CONTEXT_RE.test(caption) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  });
 }
 
 export function removalsOf(buttons, names) {
