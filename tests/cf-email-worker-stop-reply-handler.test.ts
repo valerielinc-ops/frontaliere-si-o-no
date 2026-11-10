@@ -606,13 +606,27 @@ describe('worker email() — assisted-application CV replies', () => {
     expect(fetchMock.mock.calls.some(([url]) => url === env.REPLY_TRACK_FN_URL)).toBe(false);
   });
 
-  it('does not send plain replies or oversized messages to the CV endpoint', async () => {
+  it('hands a plain-text reply too (the facts the candidate writes), and still forwards it', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
     vi.stubGlobal('fetch', fetchMock);
-    const plain = fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: ok', rawText: 'grazie', headers: { 'content-type': 'text/plain' } });
-    await worker.email(plain, env, fakeCtx());
+    const raw = 'Content-Type: text/plain; charset=utf-8\r\n\r\nMaria Rossi / permesso C / disponibile da 1/12/2026\r\n';
+    const plain = fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: la tua candidatura', rawText: raw, headers: { 'content-type': 'text/plain' } });
+    const ctx = fakeCtx();
+    await worker.email(plain, env, ctx);
+    await Promise.all(ctx.waited);
+    const handoff = fetchMock.mock.calls.find(([url]) => url === env.ASSISTED_CV_FN_URL);
+    expect(handoff).toBeTruthy();
+    expect(new TextDecoder().decode(handoff![1].body)).toBe(raw);
+    expect(plain.forward).toHaveBeenCalledWith('inbox@example.com');
+  });
+
+  it('does not send oversized messages to the CV endpoint', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{}'));
+    vi.stubGlobal('fetch', fetchMock);
     const big = { ...fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: cv', rawText: 'x', headers: { 'content-type': 'multipart/mixed; boundary=y' } }), rawSize: 20 * 1024 * 1024 };
     await worker.email(big, env, fakeCtx());
+    const bigPlain = { ...fakeMessage({ from: 'a@example.com', to: 'valerie@frontaliereticino.ch', subject: 'Re: ok', rawText: 'x', headers: { 'content-type': 'text/plain' } }), rawSize: 20 * 1024 * 1024 };
+    await worker.email(bigPlain, env, fakeCtx());
     expect(fetchMock.mock.calls.some(([url]) => url === env.ASSISTED_CV_FN_URL)).toBe(false);
   });
 });
