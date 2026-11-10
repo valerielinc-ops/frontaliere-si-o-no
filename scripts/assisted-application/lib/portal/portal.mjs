@@ -35,7 +35,8 @@ import { extractFields as extractFieldsRaw, registerPortalChannelType } from './
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { applicationContractFromPreflight, applicationContractFromSubmission } from './application-contract.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, expectedValueShape, holdsValue, isPermitHistoricalQuestion, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { publicValueShape, readbackShape, reportedValueShape } from './value-shape.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -701,8 +702,11 @@ export function anonymizePath(url) {
  * (self-correction, level 3): the portal's host, the anonymized page, the
  * buttons, the fields' labels and kinds, the form's messages. Never a value:
  * agent.mjs also strikes every value of the candidate out before it leaves.
+ * Each free-text field carries its value's shape instead (value-shape.mjs:
+ * `empty`, `email`, `name`, `mismatch:name`…), and `readback` the runner's
+ * own comparison of what it typed with what the page kept (`truncated`).
  */
-export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
+export function stopReportFrom({ url, reason, step, seen, agent = [], readback = [] }) {
   let host = '';
   try {
     host = new URL(url).hostname;
@@ -715,10 +719,62 @@ export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
     reason,
     step,
     buttons: [...new Set((seen?.buttons || []).map((button) => String(button.text || '').trim()).filter(Boolean))].slice(0, 30),
-    fields: (seen?.fields || []).slice(0, 30).map((field) => ({ label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required) })),
+    fields: (seen?.fields || []).slice(0, 30).map((field) => {
+      const valueShape = stopReportValueShape(field, readback);
+      return { label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required), ...(valueShape ? { valueShape } : {}) };
+    }),
     errors: (seen?.errors || []).slice(0, 8),
     agent: agent.map((item) => ({ hint: item.hint, status: item.status })),
   };
+}
+
+const FREE_TEXT_KINDS = new Set(['text', 'textarea', 'date', 'email', 'tel']);
+
+/**
+ * The public shape of one field's value (never the value): the runner's
+ * read-back finding for that control when it has one, otherwise the shape of
+ * what the page holds, `mismatch:<expected>` when it contradicts the field.
+ * Choice, checkbox, file and password controls carry none.
+ */
+export function stopReportValueShape(field, readback = []) {
+  if (!field || field.inputType === 'password' || field.inputType === 'file') return '';
+  const finding = (Array.isArray(readback) ? readback : []).find((item) => item && (
+    (item.fieldId && item.fieldId === field.id)
+    || (!item.fieldId && item.label && item.label === String(field.label || '').slice(0, 120))));
+  const fromReadback = publicValueShape(finding?.shape);
+  if (fromReadback) return fromReadback;
+  if (Array.isArray(field.options) && field.options.length) return '';
+  if (field.kind && !FREE_TEXT_KINDS.has(String(field.kind))) return '';
+  // An optional field that constrains no shape (a «Note») says nothing a
+  // fixer needs: only identity-shaped or required fields carry one.
+  const expected = expectedValueShape(field);
+  if (!expected && !field.required) return '';
+  return publicValueShape(reportedValueShape({ expected, value: field.value }));
+}
+
+/**
+ * The runner's comparison of a typed value with what the control kept, for
+ * the encrypted diagnostics and the public stop report: label, expected
+ * shape, `truncated` (the control kept a prefix within its maxLength) or
+ * `changed` (it kept something else), the control's maxLength. Never a value.
+ */
+export function registrationReadbackFindings(actions = [], fields = []) {
+  const findings = [];
+  for (const action of actions) {
+    if (action?.action !== 'fill') continue;
+    const field = fields.find((item) => item.id === action.fieldId);
+    if (!field || field.inputType === 'password' || field.inputType === 'file') continue;
+    const shape = readbackShape({ planned: action.value, read: field.value, maxLength: field.maxLength });
+    if (!['truncated', 'mismatch'].includes(shape)) continue;
+    findings.push({
+      fieldId: field.id,
+      label: String(field.label || '').slice(0, 120),
+      expected: expectedValueShape(field),
+      shape: shape === 'mismatch' ? 'changed' : shape,
+      ...(Number.isSafeInteger(Number(field.maxLength)) && Number(field.maxLength) > 0 ? { maxLength: Number(field.maxLength) } : {}),
+    });
+  }
+  return findings;
 }
 
 /** Headful mode is opt-in; the assisted-application workflow enables it on Xvfb. */
@@ -5818,12 +5874,23 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // A known registration answer can reveal more required fields (Coop's
   // country selection is one example). Apply only guarded, non-upload answers
   // first; do not ask from the planner's earlier, partial view of the form.
+  // What the page kept of each typed answer (value-shape invariant): a value
+  // the control cut at its maxlength, or replaced, is a named finding in the
+  // encrypted diagnostics and in the public stop report, never a silent
+  // mismatch. The same planned value cut once is cut again: no replan for it.
+  let readbackFindings = [];
+  const readbackHandoff = () => ({
+    handoff: 'portal_needs_candidate',
+    ...(readbackFindings.length ? { valueShapes: readbackFindings.map(({ planned: _planned, ...finding }) => finding) } : {}),
+  });
   while (true) {
     const actions = registrationPlan.actions.filter((action) =>
       ['fill', 'select', 'check', 'uncheck'].includes(action.action)
       && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
     if (!actions.length) break;
-    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    if (actions.some((action) => readbackFindings.some((finding) => finding.shape === 'truncated'
+      && finding.fieldId === action.fieldId && finding.planned === action.value))) return readbackHandoff();
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return readbackHandoff();
     const registrationUrl = page.url();
     const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
     if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
@@ -5833,6 +5900,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
+    const found = registrationReadbackFindings(actions, registrationSnapshot.fields);
+    // `planned` stays in memory only, to recognise the same plan next turn.
+    readbackFindings = found.map((finding) => ({
+      ...finding,
+      planned: actions.find((action) => action.fieldId === finding.fieldId)?.value,
+    }));
+    if (found.length && diagnostics?.data) {
+      diagnostics.data.valueShape = [
+        ...(Array.isArray(diagnostics.data.valueShape) ? diagnostics.data.valueShape : []),
+        ...found.map((finding) => ({ phase: 'registration', ...finding })),
+      ].slice(-20);
+    }
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
@@ -7003,7 +7082,7 @@ export async function submitViaPortal(ctx) {
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
       if (!['captcha', 'captcha_provider_unavailable'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
-        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
+        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [], readback: metadata.valueShapes || [] });
       }
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
@@ -7458,7 +7537,7 @@ export async function submitViaPortal(ctx) {
           kind: 'otp_verification',
           outcome: auth.handoff || 'ok',
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -7550,7 +7629,7 @@ export async function submitViaPortal(ctx) {
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
-        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         if (auth.questions?.length || auth.documents?.length) return {
           event: {
             type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [],
