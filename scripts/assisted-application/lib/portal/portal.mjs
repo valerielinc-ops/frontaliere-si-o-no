@@ -7114,8 +7114,13 @@ export async function readPortalRequirements(ctx) {
     };
   }
   const genericPublicRoute = readAhead.source === 'public_application_route';
+  // Function scope, not the block below: the browser request guard further
+  // down calls it too. Declared inside the `if`, the guard's call threw a
+  // ReferenceError that its `.catch(() => false)` read as «not public», so
+  // every request was aborted and every generic employer page failed with
+  // net::ERR_FAILED (portal_reader_failed, 2026-11-06 → 2026-11-10).
+  const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
   if (genericPublicRoute) {
-    const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
     const publicUrls = [...new Set([entryUrl, stageApplyUrl].map(value => String(value || '').trim()).filter(Boolean))];
     const publicRouteAvailable = (await Promise.all(publicUrls.map(async (url) => {
       try {
@@ -7313,8 +7318,12 @@ export async function readPortalRequirements(ctx) {
     const handoff = error instanceof PortalQuestionLocalizationError
       ? 'question_localization_unavailable'
       : 'portal_reader_failed';
-    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
-    return await finish({ questions: [], documents: [], handoff }, { status: 'unavailable' });
+    // The class of the failure, never its message: a browser error can quote
+    // the page or a value. Without it the 2026-11-10 failures were opaque
+    // after the Actions log janitor ran.
+    const readerError = portalReaderErrorClass(error);
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`, readerError);
+    return await finish({ questions: [], documents: [], handoff, readerError }, { status: 'unavailable' });
   } finally {
     if (contractDiagnostics && !contractFinished) {
       await contractDiagnostics.finish().catch(() => {});
@@ -7322,6 +7331,25 @@ export async function readPortalRequirements(ctx) {
     }
     await browser?.close().catch(() => {});
   }
+}
+
+/**
+ * A fixed, non-personal class for a pre-read that threw: enough to tell a
+ * blocked request from a timeout, a download (PDF) or a code fault, without
+ * copying the browser's message (which can quote the page) anywhere.
+ * @param {unknown} error
+ * @returns {string}
+ */
+export function portalReaderErrorClass(error) {
+  const message = String(error?.message || error || '');
+  if (error?.name === 'TimeoutError' || /\bTimeout \d+ms exceeded\b/.test(message)) return 'timeout';
+  if (/Download is starting/i.test(message)) return 'download';
+  const net = message.match(/\bnet::(ERR_[A-Z_]+)/);
+  if (net) return `net_${net[1].slice(4).toLowerCase()}`.slice(0, 40);
+  if (/Target (?:page, context or browser|closed)|browser has been closed/i.test(message)) return 'browser_closed';
+  if (/chromium|executable doesn't exist|install/i.test(message) && /launch|install/i.test(message)) return 'browser_launch';
+  if (error instanceof ReferenceError || error instanceof TypeError) return 'code_error';
+  return 'other';
 }
 
 /** Backwards-compatible question-only view for callers that do not need uploads. */
