@@ -344,6 +344,9 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'I accept' }, { reservedButtons: [/accept/i] })).toBe('account_action_reserved');
     expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'Datenschutzerklärung gelesen' }, { reservedButtons: [/datenschutz/i] })).toBe('account_action_reserved');
     expect(refusal({ action: 'fill', value: 'Rossi' }, { button: false, inputType: 'text', name: 'Nachname', editable: true }, { reservedButtons: [/accept/i] })).toBe('');
+    // check/uncheck change the control too; «I accept» is read as «accept».
+    expect(refusal({ action: 'check' }, { name: '', labelName: 'I accept', button: false, inputType: 'checkbox' }, { reservedButtons: [/^accept/i] })).toBe('account_action_reserved');
+    expect(refusal({ action: 'uncheck' }, { name: '', labelName: 'Ich akzeptiere die Datenschutzerklärung', button: false, inputType: 'checkbox' }, { reservedButtons: [/^akzeptiere/i] })).toBe('account_action_reserved');
   });
 
   it('refuses a checkbox named only by an external label, through runAction', async () => {

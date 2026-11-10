@@ -536,8 +536,12 @@ export function refusal(action, info, { reservedButtons = [] } = {}) {
   }
   // The caller's own reserved controls (the account page: create account, sign in, privacy statement),
   // whatever their shape: a privacy checkbox or its label belongs to the runner's own preflight too.
-  if ((action.action === 'click' || action.action === 'press')
-    && reservedButtons.some((pattern) => pattern.test(info.name) || pattern.test(info.labelName || ''))) {
+  // Every action that changes the control's state; the label is read with and without its leading
+  // first-person pronoun («I accept» is the «accept» control).
+  const names = [info.name, info.labelName || ''].filter(Boolean)
+    .flatMap((name) => [name, name.replace(/^\s*(?:(?:ich|io|je|i)\b\s*|j['’]\s*)/i, '')]);
+  if (['click', 'press', 'check', 'uncheck'].includes(action.action)
+    && reservedButtons.some((pattern) => names.some((name) => pattern.test(name)))) {
     return 'account_action_reserved';
   }
   if (info.inputType === 'password') return 'password_reserved';
