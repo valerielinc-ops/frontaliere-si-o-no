@@ -329,6 +329,44 @@ describe('fallback with the model unavailable, through the real handler', () => 
     }
   });
 
+  describe('a code mailed from the employer’s domain, not the ATS host', () => {
+    // SuccessFactors tenant on career74.sapsf.eu; the Federal Administration mails the code from stelle.admin.ch.
+    const federal = (text: string) => Buffer.from([
+      'From: Bundesverwaltung <job@stelle.admin.ch>',
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=stelle.admin.ch',
+      'Subject: Verifizierung',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      text,
+      '',
+    ].join('\r\n'), 'utf8');
+    const text = 'Guten Tag\n\nDer Code für die Verifizierung Ihres Bewerbungskontos lautet 793151.\n\nBitte geben Sie diesen Code auf der Login-Seite ein. Er ist während 10 Minuten gültig.';
+
+    it('reaches the runner of the sole waiting account, not the candidate', async () => {
+      const { store, alias } = await setup('de', 'career74.sapsf.eu');
+      const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw: federal(text) });
+      expect(inbox).toMatchObject({ category: 'verification', verificationCode: '793151', portalVerificationHost: 'career74.sapsf.eu', forwarded: { status: 'skipped', reason: 'portal_verification' } });
+      expect(sendCascade).not.toHaveBeenCalled();
+    });
+
+    it('stays with the candidate when two unrelated accounts wait, or the account came after the message', async () => {
+      const { store, alias } = await setup('de');
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+        a: { host: 'career74.sapsf.eu', passwordEnc: { v: 1 }, verifiedAt: null },
+        b: { host: 'jobs.other.example', passwordEnc: { v: 1 }, verifiedAt: null },
+      });
+      const two = await deliverWithoutModel({ store, alias, raw: federal(text) });
+      expect(two.inbox).toMatchObject({ verificationCode: '793151', portalVerificationHost: '', forwarded: { status: 'sent' } });
+
+      const late = await setup('de');
+      await late.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
+        a: { host: 'career74.sapsf.eu', passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 5000 },
+      });
+      const after = await deliverWithoutModel({ store: late.store, alias: late.alias, raw: federal(text), at: 1000 });
+      expect(after.inbox).toMatchObject({ portalVerificationHost: '', forwarded: { status: 'sent' } });
+    });
+  });
+
   it('never takes a code from the quoted message', async () => {
     const { store, alias } = await setup();
     const { inbox } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Verify your email', text: 'Click the link to continue.\n\n> Your verification code is 111111' }) });
