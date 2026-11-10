@@ -175,4 +175,32 @@ describe('SBB’s passcode mail without the model', () => {
     });
     expect(sendCascade).not.toHaveBeenCalled();
   });
+
+  it('reads the code after «Einmaliger Passcode» without the model', async () => {
+    const store = createMemoryFirestore({
+      [ORDER_PATH]: { paymentStatus: 'paid', cvUploadedAt: 1, cvStorageKey: `assisted-application-uploads/${ORDER}/cv.pdf`, locale: 'de', companyName: 'Muster AG', jobTitle: 'Testrolle', applicantEmail: 'candidate@example.test' },
+    });
+    const alias = await ensureOrderAlias({ db: store.db, orderId: ORDER, cf: cf() });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ portal: { host, passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 500 } });
+    const files = bucket();
+    const short = Buffer.from([
+      'From: Recruiting <noreply@hrs.example-rail.ch>',
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=hrs.example-rail.ch',
+      'Subject: Konto aktivieren',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      'Bitte bestätigen Sie Ihr Konto. Einmaliger Passcode: 123456',
+      '',
+    ].join('\r\n'), 'utf8');
+    const accepted = await handleAssistedApplicationInbound({
+      method: 'POST', rawBody: short,
+      get: (name: string) => ({ 'x-stop-secret': SECRET, 'x-envelope-to': alias.address } as Record<string, string>)[name],
+    }, { db: store.db, bucket: files, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    await processAssistedApplicationInbound({
+      db: store.db, bucket: files, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY,
+      classify: vi.fn(async () => { throw new Error('codex_unavailable'); }), sendCascade: vi.fn(async () => ({ failed: [], sent: [{}] })), nowMs: 1000,
+    });
+    expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ classifiedBy: 'rules', verificationCode: '123456' });
+  });
 });
