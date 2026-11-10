@@ -1,0 +1,23 @@
+{
+  "companyKey": "2communicate-ag",
+  "companyName": "2communicate ag",
+  "companyHost": "jobs.dualoo.com",
+  "verifiedEmployerDomain": "2communicate.ch",
+  "platform": "dualoo.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.dualoo.com/portal/2lk9pljm/60ef5ea1-8847-4e15-be94-e86dab53544e/detail"
+  ],
+  "detailTemplate": "/portal/2lk9pljm/60ef5ea1-8847-4e15-be94-e86dab53544e/detail",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-10T14:01:25.083Z",
+  "candidateKey": "2communicate@neuendorf"
+}

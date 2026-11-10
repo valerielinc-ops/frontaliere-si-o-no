@@ -1,0 +1,25 @@
+{
+  "companyKey": "symsstrategicgroup",
+  "companyName": "Syms Strategic Group, LLC (SSG)",
+  "companyHost": "symsstrategicgroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://symsstrategicgroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 169,
+  "sampleTitles": [
+    "Cloud Computing Engineer Principal",
+    "Cloud Computing Engineer Principal",
+    "Cloud Computing Engineer Principal",
+    "Cloud Computing Engineer Principal",
+    "Cloud Computing Engineer Principal"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:07.845Z",
+  "candidateKey": "symsstrategicgroup@applytojob.com"
+}

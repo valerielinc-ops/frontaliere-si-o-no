@@ -1,0 +1,25 @@
+{
+  "companyKey": "sentinelgroup",
+  "companyName": "Sentinel Group",
+  "companyHost": "sentinelgroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://sentinelgroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Business Analyst I",
+    "Data Engineer",
+    "Frontend Software Engineer",
+    "FSA Operations Analyst Associate",
+    "Internal Retirement Plan Wholesaler"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:02.719Z",
+  "candidateKey": "sentinelgroup@applytojob.com"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "suitespottechnology",
+  "companyName": "SuiteSpot",
+  "companyHost": "suitespottechnology.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://suitespottechnology.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Forward Deploy Engineer - Capital",
+    "Senior Software Engineer",
+    "Talent Community"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:05.274Z",
+  "candidateKey": "suitespottechnology@applytojob.com"
+}
