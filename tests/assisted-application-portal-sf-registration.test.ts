@@ -264,6 +264,23 @@ describe('the labels of the page', () => {
     expect(isIdentityEmailConfirmation({ label, context: 'Email Address: * · Retype Email Address: *' })).toBe(false);
   });
 
+  it('reads the e-mail asked again in the extension too, accents and trailing verbs included', () => {
+    expect(isIdentityEmailCaption('Vérifiez votre e-mail')).toBe(true);
+    expect(isIdentityEmailCaption('E-Mail-Adresse wiederholen: *')).toBe(true);
+    expect(isIdentityEmailCaption('Conferma indirizzo e-mail')).toBe(true);
+    expect(isIdentityEmailCaption('Adresse postale')).toBe(false);
+  });
+
+  it('keeps an unplaced CV town from borrowing the nationality country', () => {
+    const facts = platformCandidateFacts({
+      order: { candidateFacts: { workPermit: 'none', passport: 'other', nationality: 'Swiss' } },
+      profile: { address: { city: 'zzzzzzzzzzzzzz' } },
+      identity: { firstName: 'Mario', name: 'Mario Rossi' },
+      nowMs: Date.parse('2026-11-10T10:00:00Z'),
+    });
+    expect(facts.address.country).toBe('');
+  });
+
   it('keeps «Retype Email Address» out of the postal address and gives it the e-mail', () => {
     expect(isIdentityEmailCaption('Retype Email Address: *')).toBe(true);
     const candidate = sfCandidate();

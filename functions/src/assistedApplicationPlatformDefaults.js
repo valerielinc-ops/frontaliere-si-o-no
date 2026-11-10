@@ -233,7 +233,9 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
     : fromCity.statedPostal || fromLocation.statedPostal;
   const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
-  const country = statedCountry || directory?.country || uploadResidenceCountry(uploaded);
+  // The upload answers name the country only for a CV with no town at all: a town the
+  // directory cannot place is not evidence of the permit's or nationality's country.
+  const country = statedCountry || directory?.country || (town ? '' : uploadResidenceCountry(uploaded));
   const postalCode = statedPostal || directory?.code || '';
   const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
   const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
