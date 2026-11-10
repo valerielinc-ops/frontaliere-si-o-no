@@ -165,6 +165,12 @@ describe('Bing-compatible full-tree crawler', () => {
         expect(legacy.findings.map((item) => item.code)).toContain(BING_FRONTIER_REDIRECT);
       }
     }
+
+    // Keep the route-builder's canton-specific German overrides covered too:
+    // the static family still uses the shared legacy `jobs-im` root, but T5
+    // must preserve `dePrefix` instead of guessing from that static prefix.
+    expect(buildCanonicalJobBoardHref('de', 'AG')).toBe('/de/jobs-im-aargau/');
+    expect(buildCanonicalJobBoardHref('de', 'VD')).toBe('/de/jobs-in-der-waadt/');
   });
 
   it('publishes the versioned template table used by frontier referrer indexes', () => {
