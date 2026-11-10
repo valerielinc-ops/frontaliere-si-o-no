@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 699,
+  "crawlerCount": 696,
   "groups": {
     "10": [
       "atec-personal",
@@ -484,11 +484,8 @@
       "zindel-united-swiss"
     ],
     "25": [
-      "bally",
-      "knowledge-lab",
       "locarno-film-festival",
-      "protectas",
-      "pzm-muensingen"
+      "protectas"
     ],
     "01": [
       "coop-ticino"
@@ -812,7 +809,6 @@
     "bachtelen": "data/jobs/by-crawler/bachtelen.json",
     "badrutts-palace": "data/jobs/by-crawler/badrutts-palace.json",
     "balgrist": "data/jobs/by-crawler/balgrist.json",
-    "bally": "data/jobs/by-crawler/bally.json",
     "baloise": "data/jobs/by-crawler/baloise.json",
     "banca-cler": "data/jobs/by-crawler/banca-cler.json",
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
@@ -1113,7 +1109,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1252,7 +1247,6 @@
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
     "pwc": "data/jobs/by-crawler/pwc.json",
-    "pzm-muensingen": "data/jobs/by-crawler/pzm-muensingen.json",
     "raiffeisen": "data/jobs/by-crawler/raiffeisen.json",
     "rapelli": "data/jobs/by-crawler/rapelli.json",
     "reboot-monkey": "data/jobs/by-crawler/reboot-monkey.json",
@@ -1454,5 +1448,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:3286966ba014f114b171487133a7d98389842e4639012cafcb4bd37dd550be26"
+  "digest": "sha256:63a39a738162300d0a4e29cb50c6d0b7b12760fb1e49908f6fc1c0a4530bcca8"
 }
