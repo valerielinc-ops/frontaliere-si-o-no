@@ -2,24 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "cassis-italia-cornado-risarcimento",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cassis-italia-cornado-risarcimento/",
-      "ts": "2026-05-07T07:37:15.149Z",
-      "seed": true
-    },
-    {
-      "id": "disoccupazione-ticino-aprile-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/disoccupazione-ticino-aprile-2026/",
-      "ts": "2026-05-07T07:42:36.932Z",
-      "seed": true
-    },
-    {
-      "id": "ticino-pernottamenti-controtendenza-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/ticino-pernottamenti-controtendenza-2026/",
-      "ts": "2026-05-07T08:01:17.656Z",
-      "seed": true
-    },
-    {
       "id": "lonza-cede-micro-macinazione-stabio",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/lonza-cede-micro-macinazione-stabio/",
       "ts": "2026-05-07T08:06:58.890Z",
@@ -6099,6 +6081,57 @@
       "url": "https://frontaliereticino.ch/articoli-frontaliere/vivere-magreglio-lavorare-ticino/",
       "ts": "2026-11-09T17:41:46.559Z",
       "fbPostId": "951226518080080_122130964047272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "tredicesima-avs-pensionati-italia",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/tredicesima-avs-pensionati-italia/",
+      "ts": "2026-11-10T01:41:03.782Z",
+      "fbPostId": "951226518080080_122130989007272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "smile-varese-como-ticino",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/smile-varese-como-ticino/",
+      "ts": "2026-11-10T01:41:09.287Z",
+      "fbPostId": "951226518080080_122130989031272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "imposta-sostitutiva-pensioni-svizzere",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/imposta-sostitutiva-pensioni-svizzere/",
+      "ts": "2026-11-10T01:41:15.280Z",
+      "fbPostId": "951226518080080_122130989061272498",
       "copyMode": "codex",
       "copySlot": "article",
       "copyPromptVersion": "frontaliere-social-copy-v4",
