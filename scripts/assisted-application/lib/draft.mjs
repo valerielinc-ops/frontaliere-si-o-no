@@ -75,7 +75,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey, postingAddressForPortal } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal } from './portal/portal.mjs';
 import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -90,6 +90,10 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 // profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
+// The reader outcomes copied into the draft's pre-read diagnostic. None of
+// them stops the draft (owner decision 2026-11-10: no blocked application):
+// the submit run reads the live form again with the same rules, CV and
+// decision engine, so a pre-read that did not get through costs nothing.
 const PORTAL_PRE_READ_HANDOFFS = new Set([
   'application_form_unreadable', 'captcha_present', 'cookie_preferences_unresolved', 'planner_unavailable',
   'portal_reader_failed', 'posting_mismatch', 'question_label_unreadable', 'question_localization_unavailable',
@@ -387,12 +391,15 @@ export async function buildDraft(ctx) {
     fallback: posting.postingUrl || order.jobUrl || '',
   });
   let portalContract = null;
+  let portalPreRead = null;
   if (readPortal && channel.applyUrl) {
     // The form of address the name gives is the platform's answer to a required
     // portal title field (owner decision 2026-11-09): never asked, always shown
     // among the form fields, where the candidate can correct it.
     const portalAnswers = { ...answers };
-    const portalResult = await readPortal({
+    // The pre-read is an optimisation of the first review, never a gate on
+    // the draft: a reader that throws is recorded like one that hands off.
+    const portalResult = await Promise.resolve().then(() => readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       postingUrl: portalPostingUrl,
@@ -409,44 +416,51 @@ export async function buildDraft(ctx) {
       candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' }, platformFacts: edited.platformFacts }),
       codex,
       log,
-    });
+    })).catch((error) => ({ questions: [], documents: [], handoff: 'portal_reader_failed', readerError: portalReaderErrorClass(error) }));
     // Older test/integration callers return only the question array; the live
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
     portalContract = compactApplicationContract(portal.portalContract);
     if (portal.handoff) {
-      // Keep the automation event useful after Actions logs are purged. Only
-      // this fixed set of reader outcomes is copied into its error code.
+      // A diagnostic, not a block (owner decision 2026-11-10): the letter, the
+      // CV, the platform's answers and the decision engine do not depend on
+      // the portal's form, and the submit run reads that form live. Only this
+      // fixed set of reader outcomes is copied, so the field outlives the
+      // purged Actions log without carrying page text.
       const reason = PORTAL_PRE_READ_HANDOFFS.has(portal.handoff) ? portal.handoff : 'unknown';
-      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`, { portalContract });
-    }
-    requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
-    // The document requirement is the answer to a narrow "do you hold it?"
-    // question. Re-run this filter after the portal has contributed its own
-    // document labels.
-    questions = questions.filter(notAnsweredByUpload);
-    const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
-    for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
-      if (!notAnsweredByUpload(question)) continue;
-      const key = portalQuestionKey(question) || question.id;
-      const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
-      if (existingIndex >= 0) {
-        const existing = questions[existingIndex];
-        // Upgrade a legacy portal question in place. Keeping its id preserves
-        // an answer already stored under that id, while the new application
-        // copy/options and candidate-language copy replace stale raw wording.
-        if (existing?.source === 'portal' && question?.source === 'portal'
-          && (question.applicationQuestion || question.applicationOptions?.length)) {
-          questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
+      const readerError = /^[a-z_]{1,40}$/.test(String(portal.readerError || '')) ? portal.readerError : null;
+      portalPreRead = { status: 'unavailable', handoff: reason, ...(readerError ? { readerError } : {}) };
+      log('portal pre-read unavailable', reason, readerError || '-', 'draft continues; the submit run reads the form');
+    } else {
+      requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
+      // The document requirement is the answer to a narrow "do you hold it?"
+      // question. Re-run this filter after the portal has contributed its own
+      // document labels.
+      questions = questions.filter(notAnsweredByUpload);
+      const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
+      for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
+        if (!notAnsweredByUpload(question)) continue;
+        const key = portalQuestionKey(question) || question.id;
+        const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
+        if (existingIndex >= 0) {
+          const existing = questions[existingIndex];
+          // Upgrade a legacy portal question in place. Keeping its id preserves
+          // an answer already stored under that id, while the new application
+          // copy/options and candidate-language copy replace stale raw wording.
+          if (existing?.source === 'portal' && question?.source === 'portal'
+            && (question.applicationQuestion || question.applicationOptions?.length)) {
+            questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
+          }
+          continue;
         }
-        continue;
+        if (known.has(key)) continue;
+        known.add(key);
+        questions.push(question);
       }
-      if (known.has(key)) continue;
-      known.add(key);
-      questions.push(question);
+      portalPreRead = { status: 'read', questions: portal.questions?.length || 0, documents: portal.documents?.length || 0 };
+      log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
     }
-    log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
   // The CV answers the open text questions (owner decisions 2026-11-10, lib/cv-answers.mjs): a technical
   // one with cited excerpts, a behavioural one with a plausible description built from the CV. A verified
@@ -510,6 +524,7 @@ export async function buildDraft(ctx) {
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
     ...(portalContract ? { portalContract } : {}),
+    ...(portalPreRead ? { portalPreRead } : {}),
     requirementsRaw: requirements,
     requirements: requirements.requirements,
     languageRequirements: requirements.languageRequirements,
