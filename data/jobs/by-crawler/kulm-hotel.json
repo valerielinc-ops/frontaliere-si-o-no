@@ -704,7 +704,7 @@
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -773,8 +773,7 @@
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -795,8 +794,7 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -905,12 +903,12 @@
     },
     {
       "id": "kulm-hotel-849d4022cc45",
-      "slug": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+      "slug": "commissione-di-rang-m-f-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
         "en": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "it": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "de": "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
-        "fr": "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+        "it": "commissione-di-rang-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "de": "kommission-der-europaischen-gemeinschaften-m-w-d-kulm-hotel-st-moritz-pontresina-8a7305",
+        "fr": "commission-de-rang-h-f-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -976,7 +974,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T21:22:40.113Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-02T22:34:26.552Z"
+      "firstSeenAt": "2026-07-02T22:34:26.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "de": [
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-97329602f0aa",

@@ -337,6 +337,18 @@ describe('required privacy notice dialog controls', () => {
 });
 
 describe('privacy before the registration click', () => {
+  it('allows an explicitly answered same-form acknowledgement when its external notice cannot be opened', async () => {
+    const question = 'I agree to the privacy policy';
+    const markup = `<form id="registration" action="/register">
+      <label><input type="checkbox" id="privacy" name="privacy" required checked> ${question}</label>
+      <a id="notice" href="https://privacy.example.test/policy">Read and accept the privacy policy</a>
+      <button type="button" id="create">Konto anlegen</button></form>`;
+    const fixture = fakePage([markup]);
+    const candidate = { identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'Yes', source: 'answers' }] };
+    expect(await preflight(fixture.page, { candidate })).toMatchObject({ privacy: 'none', blocked: false });
+  });
+
   it('opens, reviews, accepts and waits for the CTA: the observed imperative link', async () => {
     const fixture = fakePage([REGISTRATION()]);
     const clicks = wireNotice(fixture);
@@ -529,8 +541,9 @@ describe('the same grammar on the canonical consent path', () => {
     };
   };
 
-  it('keeps the box the guard always knew, so that a refusal below is the guard and not the harness', async () => {
-    expect(await requiredBox('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.')).toEqual({ own: true, mandated: true, asked: 0 });
+  it('requires candidate confirmation for a clean required privacy checkbox', async () => {
+    expect(await requiredBox('Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.'))
+      .toEqual({ own: true, mandated: false, asked: 1 });
   });
 
   it.each(privacyAcknowledgments)('accepts the sole privacy-reading acknowledgement in %s as a soft own-consent checkbox', (_locale, label) => {
@@ -571,9 +584,9 @@ describe('the same grammar on the canonical consent path', () => {
     expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
   });
 
-  it('revalidates privacy policy defaults against the native control before checking the box', () => {
+  it('allows only the exact privacy-reading policy default and requires explicit consent confirmation', () => {
     const label = privacyAcknowledgments[0][1];
-    const planFor = (metadata: Record<string, unknown> = {}) => {
+    const planFor = (metadata: Record<string, unknown> = {}, candidateState = candidate) => {
       const field = {
         id: 'privacy-review', kind: 'checkbox', inputType: 'checkbox', required: true, label,
         ...metadata,
@@ -581,10 +594,13 @@ describe('the same grammar on the canonical consent path', () => {
       return guardPlan({
         actions: [{ fieldId: field.id, action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' }],
         missingRequired: [],
-      }, [field], candidate);
+      }, [field], candidateState);
     };
     const clean = planFor();
     expect(clean.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'policy_default' }));
+    expect(clean.missingRequired.some((item: any) => item.fieldId === 'privacy-review')).toBe(false);
+    const confirmed = planFor({}, { ...candidate, portalQuestionsAnswered: [{ question: label, answer: 'Yes', source: 'answers' }] });
+    expect(confirmed.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'answers' }));
 
     for (const metadata of [
       { name: 'email', ariaLabel: 'Email' },
@@ -613,7 +629,7 @@ describe('the same grammar on the canonical consent path', () => {
     ['upper case', 'LESE UND AKZEPTIERE DIE DATENSCHUTZERKLÄRUNG'],
     ['no-break spaces', 'Lese und akzeptiere die Datenschutzerklärung'],
   ])('binds the mandate to the required notice: %s', async (_name, label) => {
-    expect(await requiredBox(label)).toEqual({ own: true, mandated: true, asked: 0 });
+    expect(await requiredBox(label)).toEqual({ own: true, mandated: false, asked: 1 });
   });
 
   it.each([
@@ -818,13 +834,13 @@ describe('privacy consent boundaries in the registration', () => {
     expect(seen).toMatchObject({ accepted: 0, ctaClicks: 0, requests: 0 });
   });
 
-  it.each(['', ' target="_blank"'])('uses an already checked consent in the same form without following its external link%s', async (target) => {
+  it.each(['', ' target="_blank"'])('does not treat a portal-prechecked consent as candidate confirmation%s', async (target) => {
     const notice = `<label><input type="checkbox" name="privacy" required checked> Ich akzeptiere die Datenschutzerklärung *</label><a id="notice" href="/datenschutz.html"${target}>Lese und akzeptiere die Datenschutzerklärung.</a>`;
     const fixture = fakePage([ACCOUNT_FORM(notice, '<button type="button" id="create">Konto anlegen</button>', '')]);
     const seen = wireAccount(fixture);
     fixture.element('consent').value = '1';
-    expect((await runRegistration(fixture)).auth).toMatchObject({ outcome: 'ok' });
-    expect(seen).toMatchObject({ noticeClicks: 0, accepted: 0, ctaClicks: 1, requests: 1 });
+    expect((await runRegistration(fixture)).reason).toBe('privacy_not_accepted');
+    expect(seen).toMatchObject({ noticeClicks: 0, accepted: 0, ctaClicks: 0, requests: 0 });
   });
 
   it('does not borrow a checked consent from a separate form', async () => {

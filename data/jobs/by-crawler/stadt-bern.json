@@ -2421,12 +2421,12 @@
     },
     {
       "id": "stadt-bern-0e9763db4b31",
-      "slug": "apprendistato-recyclist-in-stadt-bern",
+      "slug": "apprendistato-riciclatore-stadt-bern-bern",
       "slugByLocale": {
         "de": "lehrstelle-recyclist-in-stadt-bern-bern",
-        "it": "apprendistato-recyclist-in-stadt-bern",
-        "en": "lehrstelle-recyclist-in-stadt-bern-bern",
-        "fr": "lehrstelle-recyclist-in-stadt-bern-bern"
+        "it": "apprendistato-riciclatore-stadt-bern-bern",
+        "en": "recyclist-apprenticeship-stadt-bern-bern",
+        "fr": "place-d-apprentissage-recycleuse-recycleuse-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2475,11 +2475,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-recyclist-in-stadt-bern-bern",
+          "apprendistato-recyclist-in-stadt-bern"
+        ],
+        "en": [
+          "lehrstelle-recyclist-in-stadt-bern-bern"
+        ],
+        "fr": [
           "lehrstelle-recyclist-in-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-recyclist-in-stadt-bern-bern"
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "apprendistato-recyclist-in-stadt-bern"
       ],
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -2501,12 +2509,12 @@
     },
     {
       "id": "stadt-bern-fb96bed79447",
-      "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern",
+      "slug": "apprendistato-come-tecnico-a-manutenzione-aziendale-specializzazione-nel-servizio-di-officina-stadt-bern-bern",
       "slugByLocale": {
         "de": "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern",
-        "it": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern",
-        "en": "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern",
-        "fr": "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern"
+        "it": "apprendistato-come-tecnico-a-manutenzione-aziendale-specializzazione-nel-servizio-di-officina-stadt-bern-bern",
+        "en": "apprenticeship-as-a-specialist-specialist-in-business-maintenance-focus-on-work-service-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-la-maintenance-d-entreprise-se-concentrer-sur-le-service-de-travail"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2555,11 +2563,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern",
+          "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern"
+        ],
+        "en": [
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern"
+        ],
+        "fr": [
           "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern"
+        "lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern-bern",
+        "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-stadt-bern"
       ],
       "salaryMin": 76000,
       "salaryMax": 106000,

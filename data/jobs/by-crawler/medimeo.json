@@ -341,12 +341,12 @@
     },
     {
       "id": "medimeo-a50820d1585a",
-      "slug": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
+      "slug": "dermatologia-specialistica-60-100-inizio-pratica-ideale-in-svizzera-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
-        "it": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
-        "en": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region",
-        "fr": "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+        "it": "dermatologia-specialistica-60-100-inizio-pratica-ideale-in-svizzera-medimeo-ag-region-zurich",
+        "en": "specialist-dermatology-60-100-ideal-practice-start-in-switzerland-medimeo-ag-region-zurich",
+        "fr": "dermatologie-specialisee-60-100-debut-de-pratique-ideal-en-suisse-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -408,7 +408,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:17:32.359Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:32.359Z"
+      "firstSeenAt": "2026-11-09T21:17:32.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+        ],
+        "en": [
+          "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+        ],
+        "fr": [
+          "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-dermatologie-60-100-idealer-praxiseinstieg-in-der-schweiz-region"
+      ]
     }
   ]
 }

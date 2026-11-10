@@ -1791,7 +1791,7 @@
       "slug": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
         "it": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
+        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
         "de": "carrosseriespengler-hess-rothenburg",
         "fr": "pengler-de-carrosseries-carrosserie-hess-ag-rothenburg"
       },
@@ -1842,7 +1842,8 @@
       "previousSlugs": [
         "carrosseriespengler-hess-rothenburg",
         "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "body-spider-glider-carrosserie-hess-ag-rothenburg"
+        "body-spider-glider-carrosserie-hess-ag-rothenburg",
+        "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1851,7 +1852,7 @@
         ],
         "en": [
           "body-spider-glider-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+          "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
         ],
         "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"
@@ -2550,12 +2551,12 @@
     },
     {
       "id": "hess-carrosserie-92ccbb8923c4",
-      "slug": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
+      "slug": "lattoniere-di-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "it": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "en": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "fr": "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        "it": "lattoniere-di-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
+        "en": "body-harness-vehicle-restorer-carrosserie-hess-ag-bellach",
+        "fr": "carrosserie-restaurateur-de-vehicules-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2619,7 +2620,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:28:40.306Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        ],
+        "en": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        ],
+        "fr": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+      ]
     }
   ]
 }

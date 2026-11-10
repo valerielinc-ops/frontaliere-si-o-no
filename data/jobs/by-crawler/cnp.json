@@ -929,7 +929,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -980,7 +980,7 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -993,7 +993,7 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"
@@ -2483,12 +2483,12 @@
     },
     {
       "id": "cnp-40df133c5465",
-      "slug": "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "slug": "assistente-medico-o-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier",
-        "it": "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier",
-        "de": "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier"
+        "it": "assistente-medico-o-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "assistant-medical-officer-or-medical-officer-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "assistant-medical-officer-oder-medical-officer-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2535,11 +2535,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier",
+          "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier"
+        ],
+        "de": [
           "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier"
+        "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-cnp-marin-epagnier",
+        "medecin-chef-fe-de-clinique-adjoint-e-ou-medecin-chef-fe-de-clinique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "salaryMin": 86000,
       "salaryMax": 120000,

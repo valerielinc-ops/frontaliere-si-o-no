@@ -255,12 +255,12 @@
     },
     {
       "id": "spital-zollikerberg-3c48348d05be",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital",
+      "slug": "infermiere-diplomato-infermiere-diplomato-con-specializzazione-in-cure-palliative-50-100-spital-zollikerberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital"
+        "it": "infermiere-diplomato-infermiere-diplomato-con-specializzazione-in-cure-palliative-50-100-spital-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-care-professional-with-a-focus-on-palliative-care-50-100-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-palliatifs-50-100-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -323,7 +323,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:16:26.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:26.585Z"
+      "firstSeenAt": "2026-11-09T21:16:26.585Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-mit-schwerpunkt-in-palliative-care-50-100-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-6c79a59a2f5b",
@@ -331,8 +345,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg",
         "it": "collaboratore-trice-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg",
-        "en": "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg",
-        "fr": "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg"
+        "en": "employee-practice-reception-20-40-spital-zollikerberg-zollikerberg",
+        "fr": "reception-de-l-employe-cabinet-20-40-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -381,6 +395,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-praxis-empfang-20-40-spital-zollikerberg-zollikerberg"
         ]
       },
       "previousSlugs": [
@@ -407,12 +427,12 @@
     },
     {
       "id": "spital-zollikerberg-2a76f0763405",
-      "slug": "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg",
+      "slug": "sottosegretario-alla-stazione-lunedi-a-venerdi-turno-anticipato-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg",
-        "it": "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg",
-        "en": "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg",
-        "fr": "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg"
+        "it": "sottosegretario-alla-stazione-lunedi-a-venerdi-turno-anticipato-spital-zollikerberg-zollikerberg",
+        "en": "station-secretary-monday-to-friday-early-shift-spital-zollikerberg-zollikerberg",
+        "fr": "secretaire-de-station-du-lundi-au-vendredi-premier-quart-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -474,7 +494,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:16:26.580Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:26.580Z"
+      "firstSeenAt": "2026-11-09T21:16:26.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg"
+        ],
+        "en": [
+          "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg"
+        ],
+        "fr": [
+          "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "stationssekretarin-stationssekretar-montag-bis-freitag-fruhschicht-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-db01ec6c0fb2",

@@ -773,12 +773,12 @@
     },
     {
       "id": "ksw-0bb7c33f37b6",
-      "slug": "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch",
+      "slug": "infermiera-infermiere-con-funzione-aggiuntiva-direzione-del-gruppo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch"
+        "it": "infermiera-infermiere-con-funzione-aggiuntiva-direzione-del-gruppo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "nursing-specialist-nursing-specialist-with-additional-function-group-management-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-avec-fonction-supplementaire-gestion-de-groupe"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -842,7 +842,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:16:55.511Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:55.511Z"
+      "firstSeenAt": "2026-11-09T21:16:55.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-mit-zusatzfunktion-gruppenleitung-ksw-ch"
+      ]
     },
     {
       "id": "ksw-8f1e90f0edc2",
@@ -4985,12 +4999,12 @@
     },
     {
       "id": "ksw-30f5a80494ff",
-      "slug": "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch",
+      "slug": "specialista-responsabile-specialista-cura-responsabile-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch",
-        "it": "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch",
-        "en": "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch",
-        "fr": "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch"
+        "it": "specialista-responsabile-specialista-cura-responsabile-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur",
+        "en": "specialist-responsible-specialist-responsible-care-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-responsable-specialiste-responsable-soins-geriatriques-aigues-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5054,7 +5068,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:16:55.506Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:55.506Z"
+      "firstSeenAt": "2026-11-09T21:16:55.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch"
+        ],
+        "en": [
+          "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch"
+        ],
+        "fr": [
+          "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-fachverantwortlicher-pflege-akutgeriatrie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-ea482419d0bc",

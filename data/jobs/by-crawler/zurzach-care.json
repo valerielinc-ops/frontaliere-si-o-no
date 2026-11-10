@@ -6196,7 +6196,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6253,13 +6253,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -6751,12 +6751,12 @@
     },
     {
       "id": "zurzach-care-f2474c823d27",
-      "slug": "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach",
+      "slug": "assistente-medico-assistente-medico-dipartimento-di-neurologia-100-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach",
-        "it": "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach",
-        "en": "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach",
-        "fr": "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach"
+        "it": "assistente-medico-assistente-medico-dipartimento-di-neurologia-100-zurzach-care-bad-zurzach",
+        "en": "assistant-doctor-assistant-doctor-department-of-neurology-100-zurzach-care-bad-zurzach",
+        "fr": "medecin-adjoint-medecin-adjoint-departement-de-neurologie-100-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6832,7 +6832,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:15:01.232Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:15:01.232Z"
+      "firstSeenAt": "2026-11-09T21:15:01.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-fachbereich-neurologie-100-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-51e40d9cb078",

@@ -8342,12 +8342,12 @@
     },
     {
       "id": "uzh-472052cfbffe",
-      "slug": "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich",
+      "slug": "posizione-degli-studenti-del-dottorato-in-scienze-dell-attuazione-nella-sanita-umzh-learn4sepsis-universitat-zurich",
       "slugByLocale": {
         "en": "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich",
-        "it": "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich",
-        "de": "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich",
-        "fr": "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich"
+        "it": "posizione-degli-studenti-del-dottorato-in-scienze-dell-attuazione-nella-sanita-umzh-learn4sepsis-universitat-zurich",
+        "de": "doktorandenstelle-in-implementierungswissenschaft-im-gesundheitswesen-umzh-learn4sepsis-universitat-zurich-zurich",
+        "fr": "poste-d-etudiant-au-doctorat-en-sciences-de-la-mise-en-oeuvre-en-soins-de-sante-umzh-learn4sepsis-universitat-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8410,7 +8410,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T21:20:46.440Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T21:22:36.048Z"
+      "firstSeenAt": "2026-11-04T21:22:36.048Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich"
+        ],
+        "de": [
+          "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich"
+        ],
+        "fr": [
+          "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-position-in-implementation-science-in-health-care-umzh-learn4sepsis-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-52e17b4dacf3",
@@ -9518,8 +9532,8 @@
       "slugByLocale": {
         "de": "verwaltungsassistent-in-uzh-zurich",
         "it": "verwaltungsassistent-in-universitat-zurich-zurich",
-        "en": "verwaltungsassistent-in-universitat-zurich-zurich",
-        "fr": "verwaltungsassistent-in-universitat-zurich-zurich"
+        "en": "administrative-assistant-universitat-zurich-zurich",
+        "fr": "assistant-e-administratif-ve-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

@@ -6505,8 +6505,8 @@
       "slugByLocale": {
         "de": "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
         "it": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-reinach",
-        "en": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-reinach",
-        "fr": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-reinach"
+        "en": "junior-consultant-independent-asset-advice-vz-vermogenszentrum-reinach-basel-landschaft",
+        "fr": "consultant-junior-conseil-en-actifs-independants-vz-vermogenszentrum-reinach-basel-landschaft"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6593,12 +6593,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-80fe059ee32a",
-      "slug": "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich",
+      "slug": "incaricato-a-ipoteche-con-esperienza-professionale-pluriennale-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermoegenszentrum-ch",
-        "it": "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich",
-        "en": "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich",
-        "fr": "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich"
+        "it": "incaricato-a-ipoteche-con-esperienza-professionale-pluriennale-vz-vermogenszentrum-zurich-zurich",
+        "en": "mortgage-clerk-with-several-years-of-professional-experience-vz-vermogenszentrum-zurich-zurich",
+        "fr": "charge-e-d-affaires-hypotheques-avec-plusieurs-annees-d-experience-professionnelle-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6660,11 +6660,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-hypotheken-mit-mehrjahriger-berufserfahrung-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -6686,12 +6694,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-20bed426db2d",
-      "slug": "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne",
+      "slug": "immobiliare-broker-vz-vermogenszentrum-lausanne-vaud",
       "slugByLocale": {
         "fr": "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch",
-        "it": "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne",
-        "en": "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne",
-        "de": "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch"
+        "it": "immobiliare-broker-vz-vermogenszentrum-lausanne-vaud",
+        "en": "real-estate-broker-vz-vermogenszentrum-lausanne-vaud",
+        "de": "immobilienmakler-vz-vermogenszentrum-lausanne-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6756,11 +6764,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch",
+          "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne"
+        ],
+        "en": [
+          "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne"
+        ],
+        "de": [
           "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch"
+        "courtier-ere-immobilier-ere-vz-vermoegenszentrum-ch",
+        "courtier-ere-immobilier-ere-vz-vermogenszentrum-lausanne"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,

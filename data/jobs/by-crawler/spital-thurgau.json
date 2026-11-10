@@ -3050,9 +3050,9 @@
       "slug": "sostanze-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "sostanze-spital-thurgau-stgag-diessenhofen",
-        "en": "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "en": "unterassistent-in-stgag-ch",
         "de": "unterassistent-in-spital-thurgau-stgag-diessenhofen",
-        "fr": "sous-assistant-spital-thurgau-stgag-diessenhofen"
+        "fr": "unterassistent-in-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3106,17 +3106,19 @@
         ],
         "en": [
           "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sub-assistant-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
           "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sous-assistant-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-stgag-ch",
         "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-        "sous-assistant-in-spital-thurgau-stgag-diessenhofen"
+        "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
+        "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "sous-assistant-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
       "salaryMin": 57500,
@@ -3144,7 +3146,7 @@
         "it": "tirocinante-fisioterapista-ergoterapista-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "pre-practical-in-physio-occupational-therapy-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "vorpraktikant-in-physio-ergotherapie-stgag-ch",
-        "fr": "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "fr": "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3200,7 +3202,7 @@
         "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "stv-capo-medico-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "praktikant-in-psychosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3224,7 +3226,7 @@
         "fr": [
           "vorpraktikant-in-physio-ergotherapie-stgag-ch",
           "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.131Z",
@@ -5635,9 +5637,9 @@
       "slug": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "en": "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "en": "praktikant-in-langzeitpflege-stgag-ch",
         "de": "praktikant-in-langzeitpflege-spital-thurgau-stgag-diessenhofen",
-        "fr": "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
+        "fr": "praktikant-in-langzeitpflege-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5693,10 +5695,10 @@
         ],
         "en": [
           "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "internship-long-term-care-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
@@ -5709,7 +5711,9 @@
         "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen",
         "fachmann-frau-gesundheit-stgag-ch",
         "praktikant-in-langzeitpflege-stgag-munsterlingen",
-        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen"
+        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 73000,
@@ -9180,9 +9184,9 @@
       "slug": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
-        "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "en": "neuropsychologists-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
-        "fr": "neuropsychologue-spital-thurgau-stgag-munsterlingen"
+        "fr": "neuropsychologues-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -9230,8 +9234,8 @@
       "previousSlugs": [
         "neuropsychologen-in-stgag-ch",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologists-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+        "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "neuropsychologue-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9239,11 +9243,11 @@
         ],
         "en": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologists-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologist-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologue-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": false,
@@ -9357,7 +9361,7 @@
       "slug": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ambulateurium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
@@ -9407,7 +9411,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9416,7 +9420,7 @@
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
-          "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch"
@@ -14841,12 +14845,12 @@
     },
     {
       "id": "spital-thurgau-58ffb5ebe38a",
-      "slug": "arztsekretar-in-o-med-praxisassistent-in-onkologisches-ambulatorium-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "segretario-a-medico-a-o-med-assistente-ambulatoriale-oncologico-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "de": "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch",
-        "it": "arztsekretar-in-o-med-praxisassistent-in-onkologisches-ambulatorium-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch",
-        "fr": "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch"
+        "it": "segretario-a-medico-a-o-med-assistente-ambulatoriale-oncologico-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "medical-secretary-or-med-oncology-outpatient-clinic-practice-assistant-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "secretaire-medical-ou-medecin-assistant-e-en-cabinet-d-oncologie-ambulatoire-spital-thurgau-stgag-kantonsspital"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14896,11 +14900,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch",
+          "arztsekretar-in-o-med-praxisassistent-in-onkologisches-ambulatorium-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch"
+        ],
+        "fr": [
           "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch"
+        "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch",
+        "arztsekretar-in-o-med-praxisassistent-in-onkologisches-ambulatorium-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14922,12 +14934,12 @@
     },
     {
       "id": "spital-thurgau-179e40bd2b72",
-      "slug": "stv-responsabile-restauration-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "vice-responsabile-restauro-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "de": "stv-leiter-in-restauration-stgag-ch",
-        "it": "stv-responsabile-restauration-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "stv-leiter-in-restauration-stgag-ch",
-        "fr": "stv-leiter-in-restauration-stgag-ch"
+        "it": "vice-responsabile-restauro-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "deputy-head-of-restoration-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "responsable-adjoint-de-la-restauration-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14977,11 +14989,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-restauration-stgag-ch",
+          "stv-responsabile-restauration-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "stv-leiter-in-restauration-stgag-ch"
+        ],
+        "fr": [
           "stv-leiter-in-restauration-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-restauration-stgag-ch"
+        "stv-leiter-in-restauration-stgag-ch",
+        "stv-responsabile-restauration-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 83500,
       "salaryMax": 105000,

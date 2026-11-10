@@ -9203,12 +9203,12 @@
     },
     {
       "id": "equans-efbb30786741",
-      "slug": "technische-r-hauswart-in-equans-zurich-3",
+      "slug": "custode-tecnico-equans-switzerland-zurich",
       "slugByLocale": {
         "de": "technische-r-hauswart-in-equans-zurich",
-        "it": "technische-r-hauswart-in-equans-zurich-3",
-        "en": "technische-r-hauswart-in-equans-zurich-3",
-        "fr": "technische-r-hauswart-in-equans-zurich-3"
+        "it": "custode-tecnico-equans-switzerland-zurich",
+        "en": "technical-caretaker-equans-switzerland-zurich-20d8e8",
+        "fr": "technique-equans-switzerland-zurich-20d8e8"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9271,7 +9271,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:14:43.067Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-02T23:09:43.925Z"
+      "firstSeenAt": "2026-09-02T23:09:43.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-hauswart-in-equans-zurich-3"
+        ],
+        "en": [
+          "technische-r-hauswart-in-equans-zurich-3"
+        ],
+        "fr": [
+          "technische-r-hauswart-in-equans-zurich-3"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-hauswart-in-equans-zurich-3"
+      ]
     },
     {
       "id": "equans-5385068c2dc6",
@@ -9279,8 +9293,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen",
         "it": "servicetechniker-in-br-luftung-klima-equans-switzerland-st-gallen",
-        "en": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen",
-        "fr": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        "en": "ventilation-air-conditioning-service-technician-br-equans-switzerland-st-gallen",
+        "fr": "technicien-de-service-en-br-ventilation-et-climatisation-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9329,6 +9343,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        ],
+        "en": [
+          "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        ],
+        "fr": [
           "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
         ]
       },

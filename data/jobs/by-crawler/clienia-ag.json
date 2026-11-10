@@ -186,7 +186,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -267,7 +267,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -277,7 +278,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -7336,12 +7337,12 @@
     },
     {
       "id": "clienia-ag-c5a66c8b7b5a",
-      "slug": "koch-kochin-m-w-d-100-clienia-ag-zurich",
+      "slug": "cook-chef-m-f-d-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "koch-kochin-m-w-d-100-clienia-ag-zurich",
-        "it": "koch-kochin-m-w-d-100-clienia-ag-zurich",
+        "it": "cook-chef-m-f-d-100-clienia-ag-pfaffikon-zh",
         "en": "koch-kochin-m-w-d-100-clienia-ag-zurich",
-        "fr": "koch-kochin-m-w-d-100-clienia-ag-zurich"
+        "fr": "cuisson-chef-h-f-d-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7403,16 +7404,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:24:03.107Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:24:03.107Z"
+      "firstSeenAt": "2026-11-09T21:24:03.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-m-w-d-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "koch-kochin-m-w-d-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-m-w-d-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-d821059f58a4",
-      "slug": "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich",
+      "slug": "professionista-dell-albergo-40-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich",
-        "it": "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich",
-        "en": "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich",
-        "fr": "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich"
+        "it": "professionista-dell-albergo-40-clienia-ag-pfaffikon-zh",
+        "en": "hotel-professional-hotel-professional-40-clienia-ag-pfaffikon-zh",
+        "fr": "professionnel-de-l-hotel-professionnel-de-l-hotel-40-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7475,16 +7487,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:24:01.908Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:24:01.908Z"
+      "firstSeenAt": "2026-11-09T21:24:01.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich"
+        ],
+        "en": [
+          "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich"
+        ],
+        "fr": [
+          "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hotelfachfrau-hotelfachmann-40-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-57f090115dc5",
-      "slug": "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
+      "slug": "infermiera-certificata-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-        "it": "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        "it": "infermiera-certificata-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+        "en": "certified-nurse-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-agreee-hf-fh-h-f-d-70-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7531,11 +7557,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
       ],
       "salaryMin": 82400,
       "salaryMax": 115200,

@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "bms-building-7c45ec85dabd",
-      "slug": "team-leader-shop-100-f-h-d-bms-building-ch",
+      "slug": "capo-squadra-shop-100-f-m-d-bms-building-materials-sierre",
       "slugByLocale": {
         "fr": "team-leader-shop-100-f-h-d-bms-building-ch",
-        "it": "team-leader-shop-100-f-h-d-bms-building-ch",
+        "it": "capo-squadra-shop-100-f-m-d-bms-building-materials-sierre",
         "en": "team-leader-shop-100-f-h-d-bms-building-ch",
         "de": "team-leader-shop-100-f-h-d-bms-building-ch"
       },
@@ -108,7 +108,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:17:58.375Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:58.375Z"
+      "firstSeenAt": "2026-11-09T21:17:58.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-shop-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-shop-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-0564080422ec",

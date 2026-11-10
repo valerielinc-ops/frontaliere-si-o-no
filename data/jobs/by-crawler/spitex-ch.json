@@ -831,12 +831,12 @@
     },
     {
       "id": "spitex-ch-7454687c236a",
-      "slug": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+      "slug": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
       "slugByLocale": {
         "de": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "it": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+        "it": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
         "en": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "fr": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        "fr": "soins-de-gestion-d-equipe-60-100-spitex-mutschellen-reusstal-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",
@@ -899,7 +899,18 @@
       "streetAddress": "Bremgarten AG",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-09T09:15:22.269Z"
+      "firstSeenAt": "2026-10-09T09:15:22.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ],
+        "fr": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+      ]
     },
     {
       "id": "spitex-ch-77ef23219699",
@@ -982,12 +993,12 @@
     },
     {
       "id": "spitex-ch-e89cfbf641a7",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+      "slug": "professionista-della-salute-afc-50-80-per-il-centro-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "it": "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        "it": "professionista-della-salute-afc-50-80-per-il-centro-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "en": "health-specialist-efz-50-80-for-the-center-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "specialiste-de-la-sante-efz-50-80-pour-le-centre-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1036,11 +1047,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+          "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+        "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       ],
       "salaryMin": 63200,
       "salaryMax": 107600,
@@ -1061,12 +1080,12 @@
     },
     {
       "id": "spitex-ch-65996262e340",
-      "slug": "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch",
+      "slug": "esperto-di-ferite-certificate-esperto-di-ferite-certificato-safw-m-f-d-pensum-40-60-spitex-nord-ost-aargau-noa",
       "slugByLocale": {
         "de": "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch",
-        "it": "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch",
-        "en": "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch",
-        "fr": "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch"
+        "it": "esperto-di-ferite-certificate-esperto-di-ferite-certificato-safw-m-f-d-pensum-40-60-spitex-nord-ost-aargau-noa",
+        "en": "certified-wound-expert-certified-wound-expert-safw-m-f-d-pensum-40-60-spitex-nord-ost-aargau-noa-ehrendingen",
+        "fr": "expert-certifie-de-blessure-expert-certifie-de-blessure-safw-h-f-d-pensum-40-60-spitex-nord-ost-aargau-noa-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA)",
       "companyKey": "spitex-ch",
@@ -1128,16 +1147,30 @@
       "streetAddress": "Ehrendingen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T21:23:09.806Z"
+      "firstSeenAt": "2026-11-09T21:23:09.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch"
+        ],
+        "en": [
+          "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch"
+        ],
+        "fr": [
+          "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-wundexpertin-diplomierter-wundexperte-safw-m-w-d-pensum-40-60-spitex-ch"
+      ]
     },
     {
       "id": "spitex-ch-e7ccbaaaa068",
-      "slug": "collaboratore-trice-in-hauswirtschaft-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh",
+      "slug": "collaboratore-tricein-economia-domestica-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh",
-        "it": "collaboratore-trice-in-hauswirtschaft-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh",
-        "en": "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh",
-        "fr": "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh"
+        "it": "collaboratore-tricein-economia-domestica-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh",
+        "en": "employeesin-housekeeping-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh",
+        "fr": "employe-e-d-intendance-a-domicile-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh"
       },
       "company": "Sophie Guyer Alterszentrum",
       "companyKey": "spitex-ch",
@@ -1186,11 +1219,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh",
+          "collaboratore-trice-in-hauswirtschaft-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh"
+        "mitarbeiter-in-hauswirtschaft-spitex-40-60-spitex-ch-pfaffikon-zh",
+        "collaboratore-trice-in-hauswirtschaft-spitex-40-60-sophie-guyer-alterszentrum-pfaffikon-zh"
       ],
       "salaryMin": 54900,
       "salaryMax": 76800,
@@ -1212,12 +1253,12 @@
     },
     {
       "id": "spitex-ch-135815554c2a",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-60-100-con-fallverantwortung-spitex-region-frauenfeld",
+      "slug": "infermiere-a-diplomato-a-sss-sup-60-100-con-responsabilita-caso-per-caso-spitex-region-frauenfeld-frauenfeld",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-60-100-con-fallverantwortung-spitex-region-frauenfeld",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld"
+        "it": "infermiere-a-diplomato-a-sss-sup-60-100-con-responsabilita-caso-per-caso-spitex-region-frauenfeld-frauenfeld",
+        "en": "qualified-nurse-hf-fh-60-100-with-case-responsibility-spitex-region-frauenfeld-frauenfeld",
+        "fr": "dipl-infirmiere-infirmier-es-hes-60-100-avec-responsabilite-au-cas-par-cas-spitex-region-frauenfeld-frauenfeld"
       },
       "company": "Spitex Region Frauenfeld",
       "companyKey": "spitex-ch",
@@ -1266,11 +1307,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld",
+          "dipl-pflegefachfrau-mann-hf-fh-60-100-con-fallverantwortung-spitex-region-frauenfeld"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld"
+        "dipl-pflegefachfrau-mann-hf-fh-60-100-mit-fallverantwortung-spitex-ch-frauenfeld",
+        "dipl-pflegefachfrau-mann-hf-fh-60-100-con-fallverantwortung-spitex-region-frauenfeld"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

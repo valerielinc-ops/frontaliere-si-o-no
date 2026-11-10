@@ -2073,10 +2073,9 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [],
     };
     const guarded = guardPlan(plan, fields, { answers: {}, profile: {}, portalQuestionsAnswered: [] });
-    expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
+    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['f1', 'f2', 'f4', 'f5', 'f6']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
     ]);
     // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
     const projected = guardPlan({
@@ -2091,7 +2090,10 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'p2', kind: 'checkbox', label: 'Datenschutz', required: true, checked: true },
       { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
     ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
-    expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
+    expect(projected.actions).toEqual([
+      { fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' },
+      expect.objectContaining({ fieldId: 'p2', action: 'uncheck' }),
+    ]);
     expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
     expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
@@ -2100,7 +2102,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
+  it('asks the candidate before checking required privacy or consent boxes', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2112,23 +2114,25 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       // server rejects the application until this agreement is checked.
       { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
     ];
-    // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
     const guarded = guardPlan({
       actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
-    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent'], ['c6', 'consent']]);
-    // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
-    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
+    expect(guarded.actions.some((action: any) => action.action === 'check')).toBe(false);
+    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c1', 'c2', 'c3', 'c5']);
     expect(ownConsent(fields[3])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I do not accept the privacy policy', required: false, checked: false })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I cannot accept the privacy policy', required: false, checked: false })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
-    // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
-    expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+    expect(planSystemPrompt('it')).toContain("data is retained needs the candidate's explicit answer");
     expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
     expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
+
+    const confirmed = guardPlan({ actions: [], missingRequired: [] }, [fields[0]], {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question: fields[0].label, answer: 'Yes', source: 'answers' }],
+    });
+    expect(confirmed.actions).toContainEqual(expect.objectContaining({ fieldId: 'c1', action: 'check', source: 'answers' }));
   });
 
   it('requires explicit language context before treating a CEFR token in consent metadata as a fact', () => {
@@ -2138,6 +2142,112 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ ...privacyConsent, id: 'language_level_c1' })).toBe(false);
     expect(ownConsent({ ...privacyConsent, id: 'german-c1' })).toBe(false);
     expect(ownConsent({ ...privacyConsent, label: 'I agree to the Privacy Policy Statement and Arabic C1' })).toBe(false);
+  });
+
+  it('holds an ambiguous native control without changing its checkbox state', () => {
+    const field = {
+      id: 'privacy-with-work-permit-id', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement',
+      required: true, checked: true, consentOwnershipUnknown: true, controlId: 'workPermit',
+    };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('does not check marketing opt-ins without an explicit candidate answer and clears prechecked ones', () => {
+    const field = {
+      id: 'marketing', kind: 'checkbox', type: 'checkbox', label: 'I would like to receive marketing emails',
+      required: false, checked: false,
+    };
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const planned = guardPlan({
+      actions: [{ fieldId: field.id, action: 'check', value: 'true', source: 'rule' }],
+      missingRequired: [],
+    }, [field], candidate);
+    expect(planned.actions).not.toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(planned.missingRequired).toEqual([]);
+
+    const prechecked = guardPlan({ actions: [], missingRequired: [] }, [{ ...field, checked: true }], candidate);
+    expect(prechecked.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'uncheck' }));
+    expect(prechecked.missingRequired).toEqual([]);
+  });
+
+  it('keeps a required marketing choice for the candidate and declines optional choices', () => {
+    const question = 'Would you like to receive marketing emails?';
+    const options = [{ label: 'Yes' }, { label: 'No' }];
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const required = { id: 'required-marketing', kind: 'select', label: question, required: true, options };
+    const requiredPlan = guardPlan({
+      actions: [{ fieldId: required.id, action: 'select', value: 'No', source: 'rule' }],
+      missingRequired: [],
+    }, [required], candidate);
+    expect(requiredPlan.actions).not.toContainEqual(expect.objectContaining({ fieldId: required.id }));
+    expect(requiredPlan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: required.id }));
+
+    const optional = { ...required, id: 'optional-marketing', required: false, value: 'Yes' };
+    const optionalPlan = guardPlan({
+      actions: [{ fieldId: optional.id, action: 'select', value: 'Yes', source: 'rule' }],
+      missingRequired: [],
+    }, [optional], candidate);
+    expect(optionalPlan.actions).toContainEqual(expect.objectContaining({
+      fieldId: optional.id, action: 'select', value: 'No', source: 'policy_default',
+    }));
+    expect(optionalPlan.missingRequired).toEqual([]);
+
+    const preselected = guardPlan({ actions: [], missingRequired: [] }, [optional], candidate);
+    expect(preselected.actions).toContainEqual(expect.objectContaining({
+      fieldId: optional.id, action: 'select', value: 'No', source: 'policy_default',
+    }));
+  });
+
+  it('does not let an explicit yes bypass an unresolved native privacy control', () => {
+    const label = 'I agree to the Privacy Policy Statement';
+    const field = {
+      id: 'privacy-unknown', kind: 'checkbox', type: 'checkbox', label,
+      required: true, checked: false, consentOwnershipUnknown: true, controlId: 'workPermit',
+    };
+    const candidate = {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question: label, answer: 'Yes', source: 'answers' }],
+    };
+
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], candidate);
+
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it.each(['consent', 'profile', 'rule', 'policy_default', 'answer-id'])('does not treat an old %s answer as the candidate\'s consent', (source) => {
+    const field = { id: 'legacy-privacy', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question: field.label, answer: 'Yes', source }],
+    });
+    expect(guarded.actions).not.toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('does not treat a legacy consent answer without provenance as candidate-confirmed', () => {
+    const label = 'I agree to the Privacy Policy Statement';
+    const field = { id: 'legacy-untyped-privacy', kind: 'checkbox', label, required: true, checked: false };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question: label, answer: 'Yes' }],
+    });
+    expect(guarded.actions).not.toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('does not promote a legacy portal answer without provenance to an explicit consent', () => {
+    const label = 'I agree to the Privacy Policy Statement';
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.test', phone: '' },
+      portalQuestions: [{ id: 'portal_privacy_consent', question: label, required: true }],
+      draft: { portalAnswers: { answers: [{ question: label, answer: 'Yes' }] } },
+    });
+    expect(candidate.portalQuestionsAnswered).toContainEqual(expect.objectContaining({ question: label, answer: 'Yes' }));
+    expect(candidate.portalQuestionsAnswered[0]?.source).toBeUndefined();
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [{ id: 'privacy', kind: 'checkbox', label, required: true }], candidate);
+    expect(guarded.actions).not.toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check' }));
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'privacy' }));
   });
 
   it('never sends an ongoing or partial CV period to a calendar field', () => {
@@ -2487,7 +2597,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(supportedModifierEvidence.missingRequired).toEqual([]);
   });
 
-  it('derives a native language from the CV language only with contrasting language evidence', () => {
+  it('leaves a native language unanswered when only the CV language is known', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
       profile: {
@@ -2502,15 +2612,13 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       id: 'italian-spoken', kind: 'select', label: 'Qual è il livello di italiano parlato *', required: true,
       options: [{ label: '---' }, { label: 'Lingua madre' }, { label: 'Fluente' }, { label: 'Avanzato' }],
     };
-    expect(candidate.profile.cvLanguage).toBe('it');
-    expect([...inferredNativeLanguageCodes(candidate)]).toEqual(['it']);
-    expect(nativeLanguageOption(field, candidate)).toEqual({ label: 'Lingua madre' });
-    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Lingua madre', source: 'profile' });
-    // A model answer that undershoots the supported fact is replaced by the deterministic guard.
-    expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate)).toEqual({
-      actions: [{ fieldId: field.id, action: 'select', value: 'Lingua madre', document: 'none', source: 'profile', evidence: '' }],
-      missingRequired: [],
-    });
+    expect(candidate.profile).not.toHaveProperty('cvLanguage');
+    expect([...inferredNativeLanguageCodes(candidate)]).toEqual([]);
+    expect(nativeLanguageOption(field, candidate)).toBeNull();
+    expect(candidateAnswerForField(candidate, field)).toBeNull();
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
 
     const noContrastingEvidence = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
@@ -2523,7 +2631,6 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       profile: { cvLanguage: 'it', languages: [{ language: 'Italiano', level: 'C1' }, { language: 'English', level: 'B2' }] },
     });
     expect(nativeLanguageOption(field, conflictingLevel)).toBeNull();
-    expect(planSystemPrompt('it')).toContain('profile.cvLanguage');
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
@@ -2729,29 +2836,28 @@ describe('portal runner helpers', () => {
         address: { street: 'Via Test 1', postalCode: '', city: 'Salsomaggiore T. (PR)', country: 'Svizzera' },
       },
     });
-    expect(candidate.identity.address).toMatchObject({ postalCode: '43039', country: 'Italia' });
+    expect(candidate.identity.address).toMatchObject({ postalCode: '', country: 'Svizzera' });
     const cap = { id: 'cap', kind: 'text', label: 'Qual è il tuo CAP di residenza?', required: true, options: [] };
     const bareCap = { id: 'bare-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Indirizzo · CAP', required: true, options: [] };
     const workCap = { id: 'work-cap', kind: 'text', label: 'CAP', context: 'Employer address', required: true, options: [] };
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
-    expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
-    expect(candidateAnswerForField(candidate, bareCap)).toEqual({ value: '43039', source: 'identity' });
+    expect(candidateAnswerForField(candidate, cap)).toBeNull();
+    expect(candidateAnswerForField(candidate, bareCap)).toBeNull();
     expect(autoAnswersForPortalQuestions({
       questions: [{ id: bareCap.id, source: 'portal', question: bareCap.label, context: bareCap.context, required: true, type: 'text', options: [] }],
       candidate,
       answers: {},
-    })).toEqual({ 'bare-cap': '43039' });
+    })).toEqual({});
     expect(candidateAnswerForField(candidate, workCap)).toBeNull();
-    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Svizzera', source: 'identity' });
     const guarded = guardPlan({ actions: [
       { fieldId: 'cap', action: 'fill', value: '00000', document: 'none', source: 'rule', evidence: '' },
       { fieldId: 'country', action: 'select', value: 'Svizzera', document: 'none', source: 'rule', evidence: '' },
     ], missingRequired: [] }, [cap, country], candidate);
     expect(guarded.actions).toEqual(expect.arrayContaining([
-      expect.objectContaining({ fieldId: 'cap', value: '43039', source: 'identity' }),
-      expect.objectContaining({ fieldId: 'country', value: 'Italia', source: 'identity' }),
+      expect.objectContaining({ fieldId: 'country', value: 'Svizzera', source: 'identity' }),
     ]));
-    expect(guarded.missingRequired).toEqual([]);
+    expect(guarded.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'cap' }));
 
     const unresolvedCap = { id: 'unresolved-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)', required: true, options: [] };
     expect(guardPlan({ actions: [], missingRequired: [] }, [unresolvedCap], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).missingRequired)
@@ -2781,7 +2887,7 @@ describe('portal runner helpers', () => {
     expect(candidate.identity.address.street).toBe('');
     expect(candidateAnswerForField(candidate, street)).toBeNull();
     expect(candidateAnswerForField(candidate, combined)).toBeNull();
-    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino (VA), Italia', source: 'identity' });
+    expect(candidateAnswerForField(candidate, city)).toEqual({ value: 'Luino', source: 'identity' });
     expect(candidateAnswerForField(candidate, houseNumber)).toBeNull();
     for (const locality of ['Località Luino', 'Localité Luino', 'Ville de Luino', 'Wohnort in Luino']) {
       const labelledLocality = {
@@ -3014,6 +3120,62 @@ describe('portal runner helpers', () => {
 
   it('does not take a CAP from an employer address line in the CV', () => {
     expect(resolveResidenceAddress({}, '', 'Employer address: Via Roma 1, 43039').postalCode).toBe('');
+  });
+
+  it('does not treat a birth date in a city header as a postal code', () => {
+    expect(resolveResidenceAddress({ city: 'Lugano' }, 'Lugano', 'Lugano, 12.05.1990'))
+      .toMatchObject({ city: 'Lugano', postalCode: '' });
+  });
+
+  it('does not treat an isolated birth year as a Swiss postal code', () => {
+    expect(resolveResidenceAddress({ city: 'Lugano' }, 'Lugano', 'Lugano, 1990'))
+      .toMatchObject({ city: 'Lugano', postalCode: '' });
+    expect(resolveResidenceAddress({ city: 'Lugano' }, 'Lugano', 'Lugano, 6900'))
+      .toMatchObject({ city: 'Lugano', postalCode: '6900' });
+  });
+
+  it('keeps explicit profile address fields when abbreviated CV text omits their exact strings', () => {
+    const address = { city: 'Lugano', street: 'Via Roma 1', postalCode: '6900', country: 'Svizzera' };
+    expect(resolveResidenceAddress(address, '', 'Giulia Rossi\nEsperienza professionale\nImpiegata presso Acme'))
+      .toEqual({ street: 'Via Roma 1', postalCode: '6900', city: 'Lugano', country: 'Svizzera' });
+  });
+
+  it('does not use a profile address found only in work experience as the candidate residence', () => {
+    const address = { street: 'Via Roma 1', postalCode: '6900', city: 'Lugano', country: 'Switzerland' };
+    const candidate = candidateForForm({
+      identity: { name: 'Giulia Rossi', email: 'g@example.test', phone: '' },
+      profile: { location: 'Lugano', address },
+      draft: { factSources: { text: 'Giulia Rossi\nEsperienza professionale\nAcme AG · Via Roma 1 · 6900 Lugano, Switzerland' } },
+      answers: {},
+    });
+    expect(candidate.identity.address).toEqual({ street: '', postalCode: '', city: '', country: '' });
+    expect(addressQuestionAnswer(candidate, 'residence_city')).toBe('');
+  });
+
+  it('does not promote a work location into a residence city', () => {
+    expect(resolveResidenceAddress({}, 'Como', 'Giulia Rossi\nEsperienza professionale\nImpiegata, Como'))
+      .toEqual({ street: '', postalCode: '', city: '', country: '' });
+  });
+
+  it('does not reuse a work location as the candidate residence city', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Giulia Rossi', email: 'g@example.test', phone: '' },
+      profile: {
+        location: 'Como',
+        address: { street: '', postalCode: '', city: '', country: '' },
+      },
+      draft: { factSources: { text: 'Giulia Rossi\nEsperienza professionale\nImpiegata, Como' } },
+      answers: {},
+    });
+
+    expect(candidate.identity.address.city).toBe('');
+    expect(addressQuestionAnswer(candidate, 'residence_city')).toBe('');
+  });
+
+  it('keeps the complete profile address when the CV states it in the candidate header', () => {
+    const address = { street: 'Via Roma 73', postalCode: '22100', city: 'Como', country: 'Italia' };
+    expect(resolveResidenceAddress(address, 'Como', 'Giulia Rossi\nVia Roma 73, 22100 Como, Italia\nEsperienza professionale'))
+      .toEqual({ street: 'Via Roma 73', postalCode: '22100', city: 'Como', country: 'Italia' });
   });
 
   it('deduplicates a portal question after an ATS changes its wording', () => {

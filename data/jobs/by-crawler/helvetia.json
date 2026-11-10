@@ -1532,7 +1532,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1601,14 +1601,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -6416,10 +6416,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -6494,21 +6494,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -13219,12 +13218,12 @@
     },
     {
       "id": "helvetia-55c5ae1aa323",
-      "slug": "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel",
+      "slug": "studente-di-lavoro-m-f-d-dati-di-vendita-reporting-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel",
-        "it": "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel",
-        "en": "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel",
-        "fr": "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel"
+        "it": "studente-di-lavoro-m-f-d-dati-di-vendita-reporting-helvetia-versicherungen-basel",
+        "en": "working-student-m-f-d-sales-data-reporting-helvetia-versicherungen-basel",
+        "fr": "l-etudiant-en-travail-h-f-d-donnees-de-vente-et-rapports-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13286,7 +13285,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:22:13.050Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:22:13.050Z"
+      "firstSeenAt": "2026-11-09T21:22:13.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel"
+        ],
+        "en": [
+          "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel"
+        ],
+        "fr": [
+          "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-w-m-d-vertriebsdaten-amp-reporting-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-6b5eb176f00e",
@@ -13723,12 +13736,12 @@
     },
     {
       "id": "helvetia-150ddd3bd889",
-      "slug": "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil",
+      "slug": "fornitore-di-servizi-clienti-m-f-d-regione-di-assicurazione-wil-helvetia-versicherungen-wil",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil",
-        "it": "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil",
-        "en": "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil",
-        "fr": "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil"
+        "it": "fornitore-di-servizi-clienti-m-f-d-regione-di-assicurazione-wil-helvetia-versicherungen-wil",
+        "en": "customer-service-provider-m-f-d-insurance-region-wil-helvetia-versicherungen-wil",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-assurance-region-wil-helvetia-versicherungen-wil"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13790,16 +13803,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:22:13.030Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:22:13.030Z"
+      "firstSeenAt": "2026-11-09T21:22:13.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-region-wil-helvetia-wil"
+      ]
     },
     {
       "id": "helvetia-e83e2510daf4",
-      "slug": "business-analista-projektleiter-versicherugstechnisches-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+      "slug": "business-analyst-project-manager-contabilita-tecnica-assicurativa-m-f-d-part-time-full-time-helvetia-versicherungen",
       "slugByLocale": {
         "de": "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit",
-        "it": "business-analista-projektleiter-versicherugstechnisches-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit",
-        "fr": "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit"
+        "it": "business-analyst-project-manager-contabilita-tecnica-assicurativa-m-f-d-part-time-full-time-helvetia-versicherungen",
+        "en": "business-analyst-project-manager-insurance-accounting-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "fr": "analyste-d-affaires-chef-de-projet-comptabilite-technique-d-assurance-h-f-d-temps-partiel-temps-plein-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13848,11 +13875,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit",
+          "business-analista-projektleiter-versicherugstechnisches-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
+        ],
+        "en": [
+          "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit"
+        ],
+        "fr": [
           "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit"
         ]
       },
       "previousSlugs": [
-        "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit"
+        "business-analyst-projektleiter-versicherugstechnisches-rechnungswesen-w-m-d-teilzeit",
+        "business-analista-projektleiter-versicherugstechnisches-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -13874,12 +13909,12 @@
     },
     {
       "id": "helvetia-71da2676624f",
-      "slug": "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel",
+      "slug": "business-analyst-riassicurazione-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "it": "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "en": "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "fr": "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        "it": "business-analyst-riassicurazione-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "en": "business-analyst-reinsurance-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
+        "fr": "business-analyst-reassurance-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13942,16 +13977,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:22:13.019Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:22:13.019Z"
+      "firstSeenAt": "2026-11-09T21:22:13.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        ],
+        "en": [
+          "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        ],
+        "fr": [
+          "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-ruckversicherung-w-m-d-teilzeit-vollzeit-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-76bb137615e0",
-      "slug": "senior-fachspezialist-finanz-e-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen",
+      "slug": "specialista-senior-in-finanza-e-contabilita-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
         "de": "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "it": "senior-fachspezialist-finanz-e-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen",
-        "en": "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "fr": "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        "it": "specialista-senior-in-finanza-e-contabilita-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
+        "en": "senior-specialist-in-finance-and-accounting-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
+        "fr": "specialiste-principal-en-finance-et-comptabilite-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14000,11 +14049,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+          "senior-fachspezialist-finanz-e-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen"
+        ],
+        "en": [
+          "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        ],
+        "fr": [
           "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
         ]
       },
       "previousSlugs": [
-        "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        "senior-fachspezialist-finanz-und-rechnungswesen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+        "senior-fachspezialist-finanz-e-rechnungswesen-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

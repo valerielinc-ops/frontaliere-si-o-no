@@ -481,12 +481,12 @@
     },
     {
       "id": "planzer-629f5bb3a0c4",
-      "slug": "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen",
+      "slug": "capoturno-busta-turno-notturno-m-f-d-planzer-st-gallen",
       "slugByLocale": {
         "de": "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen",
-        "it": "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen",
-        "en": "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen",
-        "fr": "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen"
+        "it": "capoturno-busta-turno-notturno-m-f-d-planzer-st-gallen",
+        "en": "shift-manager-envelope-late-shift-m-f-d-planzer-st-gallen",
+        "fr": "enveloppe-de-chef-de-quart-de-travail-en-fin-de-journee-h-f-d-planzer-st-gallen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -550,7 +550,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:17:34.996Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:34.996Z"
+      "firstSeenAt": "2026-11-09T21:17:34.996Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen"
+        ],
+        "en": [
+          "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen"
+        ],
+        "fr": [
+          "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "schichtleiter-umschlag-spatschicht-m-w-d-planzer-st-gallen"
+      ]
     },
     {
       "id": "planzer-22bd8769fa4d",
@@ -633,12 +647,12 @@
     },
     {
       "id": "planzer-b085d1152a28",
-      "slug": "disponent-stuckgut-regional-m-w-d-planzer-bern",
+      "slug": "cargo-generale-regionale-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "it": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "en": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "fr": "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        "it": "cargo-generale-regionale-m-f-d-planzer-bern",
+        "en": "disponent-general-cargo-regional-m-f-d-planzer-bern",
+        "fr": "marchandises-generales-detachees-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -701,16 +715,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-18T21:17:32.829Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-18T23:10:22.940Z"
+      "firstSeenAt": "2026-09-18T23:10:22.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-e6420cd877de",
-      "slug": "disponent-paket-m-w-d-planzer-schmerikon",
+      "slug": "pacchetto-di-spedizione-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "disponent-paket-m-w-d-planzer-schmerikon",
-        "it": "disponent-paket-m-w-d-planzer-schmerikon",
-        "en": "disponent-paket-m-w-d-planzer-schmerikon",
-        "fr": "disponent-paket-m-w-d-planzer-schmerikon"
+        "it": "pacchetto-di-spedizione-m-f-d-planzer-schmerikon",
+        "en": "dispatch-package-m-f-d-planzer-schmerikon",
+        "fr": "emballage-d-expedition-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -773,7 +801,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:17:32.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:32.059Z"
+      "firstSeenAt": "2026-11-09T21:17:32.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-paket-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "disponent-paket-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "disponent-paket-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-paket-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-7d25049e968e",

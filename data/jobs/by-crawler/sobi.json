@@ -249,12 +249,12 @@
     },
     {
       "id": "sobi-11e24dfd94e6",
-      "slug": "senior-statistical-scientist-sobi-basel",
+      "slug": "scienziato-statistico-senior-sobi-basel",
       "slugByLocale": {
         "en": "senior-statistical-scientist-sobi-basel",
-        "it": "senior-statistical-scientist-sobi-basel",
-        "de": "senior-statistical-scientist-sobi-basel",
-        "fr": "senior-statistical-scientist-sobi-basel"
+        "it": "scienziato-statistico-senior-sobi-basel",
+        "de": "leitender-statistikwissenschaftler-sobi-basel",
+        "fr": "chercheur-principal-en-statistique-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -318,7 +318,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:15:55.263Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:15:55.263Z"
+      "firstSeenAt": "2026-11-09T21:15:55.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-statistical-scientist-sobi-basel"
+        ],
+        "de": [
+          "senior-statistical-scientist-sobi-basel"
+        ],
+        "fr": [
+          "senior-statistical-scientist-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-statistical-scientist-sobi-basel"
+      ]
     },
     {
       "id": "sobi-d75619f670fe",
@@ -396,7 +410,7 @@
       "slugByLocale": {
         "it": "gestore-di-accesso-al-mercato-sobi-zug",
         "en": "market-access-manager-sobi-zug",
-        "de": "manager-in-fur-marktzugang-sobi-zug",
+        "de": "marktzugangsmanager-sobi-zug",
         "fr": "gestionnaire-d-acces-au-marche-sobi-zug"
       },
       "company": "Sobi",
@@ -443,14 +457,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "market-access-manager-sobi-zug",
-        "marktzugangsmanager-sobi-zug"
+        "manager-in-fur-marktzugang-sobi-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "market-access-manager-sobi-zug"
         ],
         "de": [
-          "marktzugangsmanager-sobi-zug"
+          "manager-in-fur-marktzugang-sobi-zug"
         ]
       },
       "firstSeenAt": "2026-10-08T22:13:39.403Z",

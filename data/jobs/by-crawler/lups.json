@@ -6003,12 +6003,12 @@
     },
     {
       "id": "lups-1ca58f4da73e",
-      "slug": "praktikant-psychologie-m-w-d-80-lups-luzern",
+      "slug": "psicologia-interna-m-f-d-80-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "de": "praktikant-psychologie-m-w-d-80-lups-luzern",
-        "it": "praktikant-psychologie-m-w-d-80-lups-luzern",
-        "en": "praktikant-psychologie-m-w-d-80-lups-luzern",
-        "fr": "praktikant-psychologie-m-w-d-80-lups-luzern"
+        "it": "psicologia-interna-m-f-d-80-luzerner-psychiatrie-lups-luzern",
+        "en": "intern-psychology-m-f-d-80-luzerner-psychiatrie-lups-luzern",
+        "fr": "psychologie-interne-h-f-d-80-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6070,7 +6070,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:21:17.352Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:21:17.352Z"
+      "firstSeenAt": "2026-11-09T21:21:17.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-psychologie-m-w-d-80-lups-luzern"
+        ],
+        "en": [
+          "praktikant-psychologie-m-w-d-80-lups-luzern"
+        ],
+        "fr": [
+          "praktikant-psychologie-m-w-d-80-lups-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-psychologie-m-w-d-80-lups-luzern"
+      ]
     }
   ]
 }

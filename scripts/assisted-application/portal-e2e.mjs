@@ -36,7 +36,8 @@ import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
-// date, and permit answers grounded. Pass null to omit a fact under test.
+// date, permit answer, and explicit consent answers grounded. Pass null to omit
+// a fact under test; consent is never inferred from the portal's checkbox.
 const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' } = {}) => ({
   identity: { email: ALIAS, firstName: 'Luca', lastName: 'Bianchi', phone: '+41 79 000 00 00' },
   profile: {
@@ -50,9 +51,12 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
       ? { work_permit: 'Permesso G', valid_work_permit: permitAnswer }
       : {}),
   },
-  portalQuestionsAnswered: permitAnswer
-    ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer }]
-    : [],
+  portalQuestionsAnswered: [
+    ...(permitAnswer ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer, source: 'user' }] : []),
+    { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'user' },
+    { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user' },
+    { question: 'Data release', answer: 'I would like my data to be deleted once the present application process is complete.', source: 'user' },
+  ],
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
 // arbitrary evidence when a checked lifecycle stops before its expected phase.
@@ -1079,7 +1083,10 @@ async function fakeCodex({ prompt }) {
       return act('fill', answer, { source: 'answers' });
     }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
-    if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
+    if (/datenschutz|privacy policy/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /datenschutz|privacy policy/i.test(item.question || ''))?.answer || '';
+      return act('check', '', { source: answer ? 'answers' : 'consent' });
+    }
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
     if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
@@ -1104,7 +1111,10 @@ async function fakeCodex({ prompt }) {
       return act('select', answer, { source: 'answers' });
     }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
-    if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
+    if (/data release/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /data release/i.test(item.question || ''))?.answer || '';
+      return act('select', answer, { source: answer ? 'answers' : 'consent' });
+    }
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
   });
@@ -2003,7 +2013,10 @@ async function main() {
         const candidate = portalTestCandidate();
         candidate.answers.work_permit = 'Permesso G';
         candidate.answers[permitQuestion.id] = 'Yes';
-        candidate.portalQuestionsAnswered = [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }];
+        candidate.portalQuestionsAnswered = [
+          ...candidate.portalQuestionsAnswered.filter((item) => item.id !== permitQuestion.id),
+          { id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes', source: 'user' },
+        ];
         const resumedApplication = await run({ candidate });
         check('an answered registration question resumes account creation and submits the application',
           resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'
