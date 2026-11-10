@@ -7100,6 +7100,11 @@ export async function readPortalQuestions(ctx) {
 // stopped under four different reasons). handoff() reports them as the gate
 // when the page states it.
 const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+// Stops that a posting closed meanwhile also produces: the page the portal shows after the registration or
+// a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
+// application stage, or (with no form control left) as a page for the candidate. The closure is the cause
+// (the flow notifies and refunds it), not a page to teach.
+const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
 
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
@@ -7148,6 +7153,17 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
+    // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
+    // kann zurzeit nicht angezeigt werden … nicht länger darauf bewerben», and the run stopped as a mismatch.
+    // The page in front of the runner is read with the same classifier as the posting at the start; only a
+    // certain closure (isHardClosed) changes the outcome.
+    if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
+      const current = classifyLiveness({ finalUrl: page.url(), bodyText: await pageText(page).catch(() => '') });
+      if (isHardClosed(current)) {
+        evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
+        return { event: { type: 'posting_closed', reason: current.code }, evidence };
+      }
+    }
     // A posting that refuses applications from this connection's region (the
     // employer geolocates the runner's IP) explains the stops on the posting
     // page that follow it: a dead Apply control, the gated page's consent
