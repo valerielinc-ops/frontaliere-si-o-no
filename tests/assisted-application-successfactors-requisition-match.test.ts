@@ -39,6 +39,12 @@ describe('SuccessFactors after sign-in: the requisition the runner entered binds
     expect(formPostingMatch(form('Senior Application Manager/-in Logistikbasis der Armee (20604)'), job, { pageUrl, applyUrl })).toBe('mismatch');
     // A single non-title word is already another role (review of #17984).
     expect(formPostingMatch(form('Senior Application Manager/-in (20604)'), job, { pageUrl, applyUrl })).toBe('mismatch');
+    // A non-title word shorter than three characters is another role too.
+    expect(formPostingMatch(form('IT Application Manager/-in (20604)'), job, { pageUrl, applyUrl })).toBe('mismatch');
+    // The requisition binding itself refuses any extra word, short or long (review of #17984).
+    for (const heading of ['Senior Application Manager/-in (20604)', 'IT Application Manager/-in (20604)', 'Application Manager/-in bei X (20604)']) {
+      expect(successFactorsRequisitionShown(form(heading), job, { pageUrl, applyUrl })).toBe(false);
+    }
     // Gender markers the portal adds to the title name no other role.
     expect(formPostingMatch(form('Application Manager/-in (m/w/d) (20604)'), job, { pageUrl, applyUrl })).toBe('match');
     // The candidate's home or the list of applications: no role heading with this requisition.
