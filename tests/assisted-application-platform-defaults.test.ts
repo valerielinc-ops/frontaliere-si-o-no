@@ -310,3 +310,31 @@ describe('review of #17879', () => {
     expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: 'f1' }));
   });
 });
+
+describe('residence region (State / Kanton / Provincia), deduced from the CV town (Damiani 2026-11-10)', () => {
+  const portal = (question: string, extra = {}) => ({ id: 'q', source: 'portal', type: 'text', question, applicationQuestion: question,
+    context: 'Profile Information · * Address · * City · * State · * Zip Code · * Country', ...extra });
+  const lugano = platformCandidateFacts({ profile: { location: 'Lugano' }, nowMs: NOW, locale: 'en' });
+  const como = platformCandidateFacts({ profile: { location: 'Como (CO)' }, nowMs: NOW, locale: 'it' });
+
+  it('answers the canton or the province of the town the CV names', () => {
+    expect(lugano.address).toMatchObject({ country: 'CH', region: 'TI' });
+    expect(platformDefaultAnswer(portal('* State'), lugano, { locale: 'en' })).toMatchObject({ value: 'Ticino', topic: 'platform:residence_region' });
+    expect(platformDefaultAnswer(portal('Kanton'), lugano, { locale: 'de' })?.value).toBe('Ticino');
+    expect(platformDefaultAnswer(portal('Provincia di residenza'), como)?.value).toBe('CO');
+    // A select takes its own option for the code or the name.
+    expect(platformDefaultAnswer(portal('* State', { type: 'choice', options: ['Ticino (TI)', 'Zürich (ZH)'] }), lugano, { locale: 'en' })?.value).toBe('Ticino (TI)');
+    expect(platformDefaultAnswer(portal('Canton', { type: 'choice', options: ['TI', 'ZH'] }), lugano, { locale: 'fr' })?.value).toBe('TI');
+  });
+
+  it('never answers a country, a preference, another party or an unknown town', () => {
+    expect(platformQuestionTopic(portal('Stato'))).not.toBe('residence_region');
+    expect(platformDefaultAnswer(portal('Preferred region'), lugano, { locale: 'en' })).toBeNull();
+    expect(platformDefaultAnswer(portal('Gewünschte Arbeitsregion'), lugano, { locale: 'de' })).toBeNull();
+    expect(platformDefaultAnswer(portal('* State', { context: 'Employer address · * State' }), lugano, { locale: 'en' })).toBeNull();
+    const unknown = platformCandidateFacts({ profile: { location: 'Atlantis' }, nowMs: NOW, locale: 'en' });
+    expect(platformDefaultAnswer(portal('* State'), unknown, { locale: 'en' })).toBeNull();
+    // A select without the region's option is left, not forced.
+    expect(platformDefaultAnswer(portal('* State', { type: 'choice', options: ['Bern', 'Zürich'] }), lugano, { locale: 'en' })).toBeNull();
+  });
+});
