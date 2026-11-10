@@ -510,7 +510,9 @@ export function platformQuestionTopic(question) {
 
 const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
 const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
-const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*)\b/;
+// The candidate's own profile and application form own an address too («Profilinformationen»,
+// «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
+const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*|profil\w*|profile\w*|(?:stellen)?bewerbung\w*|application form|modulo di candidatura|formulaire de candidature|my details|meine daten|i miei dati|mes informations)\b/;
 
 /**
  * An address field is the candidate's only when nothing says otherwise: its

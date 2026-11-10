@@ -31,7 +31,7 @@ import {
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
-import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -271,7 +271,10 @@ const VERIFICATION_CODE_RE = /(?:\b(?:code|codice)\s+(?:confidentiel|de vérific
 // «Registrierungsbestätigung Stellenportal der Coop-Gruppe», sent when the
 // runner creates the account, before any application): never a receipt, which
 // would confirm a held submission and tell the candidate the employer has it.
-const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé)/i;
+const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé)/i;
+// The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
+const ACCOUNT_ACTIVATED_RE = /((ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(aktiviert|freigeschaltet|best[aä]tigt|verifiziert)|(your )?(account|profile) (has been |was |is (now )?)?(successfully )?(activated|verified|confirmed)|(il tuo |il suo )?(account|profilo) (è stato )?(attivato|verificato|confermato)|(votre )?(compte|profil) (a été )?(activé|vérifié|confirmé))/i;
+const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
 const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(eingegangen|erhalten)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(received|submitted)|candidatura (è stata )?(ricevuta|inviata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise)|reçu votre candidature)/i;
 
@@ -471,7 +474,8 @@ function categoryOfSentences(sentences, topic, body) {
   if (any(requestsDocuments)) return 'documents_request';
   if (any(acknowledgesApplication)) return 'auto_acknowledgement';
   if (!body.length && topic.some(namesInterview)) return 'interview_invite';
-  if (ACCOUNT_NOTICE_RE.test(sentences.join('\n'))) return 'verification';
+  const all = sentences.join('\n');
+  if (ACCOUNT_NOTICE_RE.test(all) || ACCOUNT_ACTIVATED_RE.test(all) || PASSWORD_CHANGED_RE.test(all)) return 'verification';
   return 'other';
 }
 
@@ -493,6 +497,30 @@ function readByRules({ subject = '', text = '' }) {
     verificationAsked: sentences.some(asksAccountVerification),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
+}
+
+/**
+ * A portal's own service mail about an account and nothing else (the federal
+ * SuccessFactors tenant, 2026-11-10: «Ihr Bewerbungskonto wurde erfolgreich
+ * erstellt. Hier … können Sie Bewerbungen erfassen»): `created`, `activated` or
+ * `password_changed`, else ''. Both the model's category and the rules must
+ * agree, and no sentence may carry an employer's own purpose (an interview, a
+ * refusal, an offer, a test, a document request, a receipt) or a verification
+ * request, which keeps its own path.
+ */
+export function portalAccountNoticeKind(message, classification = {}) {
+  if (classification.category !== 'verification' || classification.needsReply === true
+    || classification.interviewWhen || (classification.requestedDocuments || []).length) return '';
+  const rules = readByRules(message);
+  if (rules.verificationAsked) return '';
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  if (sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+    || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || acknowledgesApplication(sentence))) return '';
+  const all = sentences.join('\n');
+  if (PASSWORD_CHANGED_RE.test(all)) return 'password_changed';
+  if (ACCOUNT_ACTIVATED_RE.test(all)) return 'activated';
+  if (ACCOUNT_NOTICE_RE.test(all)) return 'created';
+  return '';
 }
 
 /**
@@ -785,6 +813,22 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
   return account ? String(account.host).toLowerCase() : '';
 }
 
+/**
+ * The host of the order's portal account a life-cycle notice is about, pending
+ * or verified: its sole link on that exact host, else the sender bound as for a
+ * code (portalAccountForNotice). The runner reads a `created`/`activated`
+ * notice as proof that its OTP was accepted; it never opens the notice's link.
+ */
+async function accountNoticeHost(orderRef, { authenticated, sender, sourceText, receivedAt }) {
+  if (!authenticated) return '';
+  const senderMatch = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || ''));
+  return portalAccountForNotice(await portalAccountsForOrder(orderRef), {
+    link: soleSecureLink(String(sourceText || '')),
+    senderHost: senderMatch?.[1].toLowerCase() || '',
+    receivedAt,
+  });
+}
+
 export async function claimedByPortalAccount(orderRef, classification, sender = '', context = {}) {
   return Boolean(await verificationAccountHost(orderRef, classification, sender, context));
 }
@@ -922,8 +966,8 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const order = orderSnapshot.data() || {};
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
-    if (!to || inbox.portalVerificationHost) {
-      const status = inbox.portalVerificationHost ? 'skipped' : 'failed';
+    if (!to || inbox.portalVerificationHost || inbox.portalAccountNoticeHost) {
+      const status = inbox.portalVerificationHost || inbox.portalAccountNoticeHost ? 'skipped' : 'failed';
       await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
       return { forwarded: status };
     }
@@ -1117,10 +1161,20 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // that portal's site, or a code. Anything else reaches the candidate.
     const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
     const consumedByRunner = Boolean(portalVerificationHost);
+    // A portal's own account mail (created, activated, password changed) for an
+    // account the runner holds for this order is the runner's, not news for the
+    // candidate: recorded, never forwarded. Real employer content never qualifies.
+    const portalAccountNotice = consumedByRunner ? '' : portalAccountNoticeKind(message, classification);
+    const portalAccountNoticeHost = portalAccountNotice
+      ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
+      : '';
+    const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost);
     const to = customerEmailFor(order);
     const initialDelivery = consumedByRunner
       ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
-      : to
+      : portalAccountNoticeHost
+        ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
+        : to
         ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
         : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
 
@@ -1148,6 +1202,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...classification,
         correlationStatus: RECEIPT_CATEGORIES.has(classification.category) ? 'verified' : 'unknown',
         portalVerificationHost,
+        ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
         forwardDelivery: initialDelivery,
         forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
@@ -1164,7 +1219,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     });
     if (!recorded) return { ok: true, skipped: true };
     let forwarded = (await ref.get()).data()?.forwarded?.status || null;
-    if (to && !consumedByRunner) {
+    if (to && !keptFromCandidate) {
       const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
       forwarded = delivery.forwarded || forwarded;
     }
