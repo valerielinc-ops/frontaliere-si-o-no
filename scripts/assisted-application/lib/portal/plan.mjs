@@ -1618,7 +1618,9 @@ function referralSourceAnswer(field) {
   }
   const ranked = options.map((option) => {
     const label = String(typeof option === 'string' ? option : option?.label ?? '').trim();
-    const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4
+    // A job board that is also the internet («Internet/Stellenportal», Stellenportal Bund) is ours over a named
+    // board of the employer's own («Stellenportal Bund»): the posting was found on frontaliereticino.ch.
+    const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4 + (REFERRAL_INTERNET_OPTION_RE.test(label) ? 1 : 0)
       : REFERRAL_OTHER_WEBSITE_RE.test(label) ? 3
         : REFERRAL_INTERNET_OPTION_RE.test(label) ? 2
           : /^\s*(?:other|others|altro|altra|autre|andere|sonstiges|sonstige)(?:\s*[\(:-].*)?\s*$/i.test(label) ? 1 : 0;
@@ -2179,7 +2181,13 @@ export function guardPlan(plan, fields, candidate = null) {
     const addressTopic = questionTopic(field.label, field.context, field);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
     const addressNeedsProvenance = addressAnswerNeedsOwnership(field.label, field) && !isAddressTopic;
-    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action)
+    // The platform's own address for this field (owner rule 2026-11-09: CAP and country from the CV's town, a
+    // street of the list) is provenance too. Without it, a planner that proposed any value for «* Strasse / Nr.»,
+    // «* Postleitzahl», «* Ort» had the field rejected here and the platform value never reached it (Bund
+    // eHSYErA1, 2026-11-10: the three fields went to the candidate with the facts holding all three).
+    const addressFromPolicy = action.source === 'policy_default'
+      && isOperationalDefaultValue(field, action.value, { facts: candidate?.platformFacts });
+    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action) && !addressFromPolicy
       && !answeredByCandidate(candidate, field.label, action.value, field.context, field)) {
       rejectedActionFields.add(field.id);
       ask(field);
