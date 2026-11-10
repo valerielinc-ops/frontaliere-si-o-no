@@ -144,6 +144,31 @@ function isShallowRepository(cwd) {
   }) === 'true';
 }
 
+function isCompleteCommitGraph(cwd) {
+  try {
+    if (isShallowRepository(cwd)) return false;
+
+    // A non-shallow partial clone can still omit commits by design. Read the
+    // local config in one command so unreadable or malformed config fails
+    // toward keeping the bounded marker fetch path.
+    const config = runGit(['config', '--local', '--null', '--list'], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    return !config.split('\0').some((entry) => {
+      if (!entry) return false;
+      const separator = entry.indexOf('\n');
+      const key = (separator < 0 ? entry : entry.slice(0, separator)).toLowerCase();
+      const value = separator < 0 ? '' : entry.slice(separator + 1).trim().toLowerCase();
+      if (key === 'extensions.partialclone') return true;
+      if (!/^remote\..*\.promisor$/u.test(key)) return false;
+      return value === '' || ['true', 'yes', 'on', '1'].includes(value);
+    });
+  } catch {
+    return false;
+  }
+}
+
 function resolveCommit(ref, cwd) {
   try {
     return runGit(['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
@@ -693,11 +718,10 @@ export function checkOldHistory({
     baseRefreshed = decision.baseRefreshed;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
-  // In a non-shallow checkout the commit graph has no hidden parent boundary:
-  // a missing marker is already conclusive. Fetching a retired marker by
-  // object id is redundant here and can spend the bounded network budget on a
-  // remote object that is retained only for stale-history detection.
-  if (result.reason === 'marker-unavailable' && refreshBase && !isShallowRepository(cwd)) {
+  // In a complete commit graph a missing marker is already conclusive.
+  // Partial clones can omit commits without a shallow boundary, so they retain
+  // the bounded fetch by object id.
+  if (result.reason === 'marker-unavailable' && refreshBase && isCompleteCommitGraph(cwd)) {
     return result;
   }
   if (result.reason === 'marker-unavailable' && refreshBase) {

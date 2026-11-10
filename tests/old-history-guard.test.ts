@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -297,6 +297,112 @@ describe('old-history-guard', () => {
         trace,
       })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
       expect(steps(trace)).toEqual([]);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('recupera un marker da un promisor in un clone parziale non-shallow', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      git(fixture.remote, 'config', 'uploadpack.allowFilter', 'true');
+      git(fixture.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      const checkout = join(fixture.root, 'partial-complete-checkout');
+      execFileSync('git', [
+        'clone', '--quiet', '--filter=blob:none', '--single-branch', '--branch', 'main', `file://${fixture.remote}`, checkout,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('false');
+      expect(git(checkout, 'config', '--get', 'remote.origin.promisor')).toBe('true');
+      const markerIsLocal = () => {
+        try {
+          execFileSync('git', ['cat-file', '-e', `${fixture.fixtureMarker}^{commit}`], {
+            cwd: checkout,
+            env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1', GIT_NO_LAZY_FETCH: '1' },
+            stdio: 'ignore',
+          });
+          return true;
+        } catch {
+          return false;
+        }
+      };
+      expect(markerIsLocal()).toBe(false);
+
+      const trace: TraceEntry[] = [];
+      expect(checkOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+        trace,
+      })).toEqual({ outcome: 'pass', reason: 'marker-not-in-head' });
+      expect(steps(trace)).toContain('fetch-marker');
+      expect(markerIsLocal()).toBe(true);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('mantiene il fetch bounded se non riesce a leggere la configurazione Git', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = join(fixture.root, 'config-error-checkout');
+      execFileSync('git', [
+        'clone', '--quiet', '--single-branch', '--branch', 'main', `file://${fixture.remote}`, checkout,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      const gitShimDirectory = mkdtempSync(join(fixture.root, 'git-config-error-'));
+      writeFileSync(join(gitShimDirectory, 'git'), [
+        '#!/bin/sh',
+        'if [ "$1" = "config" ] && [ "$2" = "--local" ] && [ "$3" = "--null" ] && [ "$4" = "--list" ] && [ "$(pwd -P)" = "$OLD_HISTORY_CONFIG_ERROR_CWD" ]; then',
+        '  printf "%s\\n" "simulated Git config read error" >&2',
+        '  exit 128',
+        'fi',
+        'exec "$OLD_HISTORY_REAL_GIT" "$@"',
+        '',
+      ].join('\n'), { mode: 0o755 });
+      const originalPath = process.env.PATH;
+      const originalRealGit = process.env.OLD_HISTORY_REAL_GIT;
+      const originalConfigErrorCwd = process.env.OLD_HISTORY_CONFIG_ERROR_CWD;
+      const trace: TraceEntry[] = [];
+      try {
+        process.env.PATH = `${gitShimDirectory}:${originalPath || ''}`;
+        process.env.OLD_HISTORY_REAL_GIT = realGit;
+        process.env.OLD_HISTORY_CONFIG_ERROR_CWD = realpathSync(checkout);
+        expect(execFileSync('which', ['git'], { encoding: 'utf8' }).trim()).toBe(join(gitShimDirectory, 'git'));
+        const result = checkOldHistory({
+          cwd: checkout,
+          markerRef: fixture.fixtureMarker,
+          headRef: 'HEAD',
+          baseRef: 'refs/remotes/origin/main',
+          refreshBase: true,
+          remote: 'origin',
+          branch: 'main',
+          trace,
+        });
+        expect(result, JSON.stringify(trace)).toEqual({ outcome: 'pass', reason: 'marker-not-in-head' });
+      } finally {
+        if (originalPath === undefined) delete process.env.PATH;
+        else process.env.PATH = originalPath;
+        if (originalRealGit === undefined) delete process.env.OLD_HISTORY_REAL_GIT;
+        else process.env.OLD_HISTORY_REAL_GIT = originalRealGit;
+        if (originalConfigErrorCwd === undefined) delete process.env.OLD_HISTORY_CONFIG_ERROR_CWD;
+        else process.env.OLD_HISTORY_CONFIG_ERROR_CWD = originalConfigErrorCwd;
+      }
+
+      expect(steps(trace)).toContain('fetch-marker');
+      expect(() => git(checkout, 'cat-file', '-e', `${fixture.fixtureMarker}^{commit}`)).not.toThrow();
     } finally {
       fixture.cleanup();
     }
