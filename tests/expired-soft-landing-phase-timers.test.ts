@@ -37,40 +37,35 @@ const CODE = SRC.split('\n')
   .join('\n');
 
 describe('#5130 — expired soft-landing phases are individually attributable', () => {
-  it('emits the three new phase timers', () => {
-    for (const phase of ['ejp:decide', 'ejp:shell', 'ejp:thin']) {
+  // Since #17486 (2026-11-08) every expired archive page publishes its full
+  // body: the thin tier, its traffic decision and the ph:ejp:thin timer are
+  // gone by design. The timers that remain must still split the shell build.
+  it('emits the phase timers of the full-body path', () => {
+    for (const phase of ['ejp:decide', 'ejp:shell']) {
       expect(CODE, phase).toContain(`recordPhase('${phase}'`);
     }
   });
 
-  it('decides the tier BEFORE the HTML is built — the precondition for skipping it', () => {
-    const decideAt = CODE.indexOf("trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired')");
+  it('decides the tier BEFORE the HTML is built, and only the full tier exists', () => {
+    const decideAt = CODE.indexOf("recordPhase('ejp:decide', __tEjpDecide)");
     const buildAt = CODE.indexOf('const __slFullHtml = buildSoftLandingHtml(');
-    const thinAt = CODE.indexOf('buildSoftLandingThinHtml(__slFullHtml, locale)');
     expect(decideAt).toBeGreaterThan(-1);
     expect(buildAt).toBeGreaterThan(-1);
-    expect(thinAt).toBeGreaterThan(-1);
     expect(decideAt).toBeLessThan(buildAt);
-    expect(buildAt).toBeLessThan(thinAt);
+    expect(CODE).toContain("const __slAction: 'full' = 'full'");
   });
 
   it('takes the tier decision exactly once (hoisting must not duplicate it)', () => {
-    const decideCalls = CODE.split("decideMulti(__slCandidatePaths, 'soft-landing-expired')").length - 1;
-    expect(decideCalls).toBe(1);
-    const actionAssignments = CODE.split(/const __slAction:\s*'full'\s*\|\s*'thin'\s*=/).length - 1;
+    const actionAssignments = CODE.split(/const __slAction:\s*'full'\s*=/).length - 1;
     expect(actionAssignments).toBe(1);
   });
 
   it('keeps ph:ejp:shell measuring the HTML build only, so it stays comparable to its sub-timers', () => {
-    // `ejp:shell` must close immediately after buildSoftLandingHtml — if it
-    // ever swallows the thin conversion again, `tpl + minify` stops adding up
-    // to it and the number becomes uninterpretable, which is how ~253 s went
-    // unattributed for months.
     const buildAt = CODE.indexOf('const __slFullHtml = buildSoftLandingHtml(');
     const shellRecordAt = CODE.indexOf("recordPhase('ejp:shell', __tEjpShell)");
-    const thinAt = CODE.indexOf('buildSoftLandingThinHtml(__slFullHtml, locale)');
     expect(shellRecordAt).toBeGreaterThan(buildAt);
-    expect(shellRecordAt).toBeLessThan(thinAt);
+    // No thin conversion can be swallowed by the shell timer: none runs on expired pages (#17486).
+    expect(CODE).not.toContain('buildSoftLandingThinHtml(__slFullHtml, locale)');
   });
 
   it('the decision timer wraps only the decision, not the build', () => {
@@ -80,15 +75,6 @@ describe('#5130 — expired soft-landing phases are individually attributable', 
     expect(decideTimerAt).toBeGreaterThan(-1);
     expect(decideRecordAt).toBeGreaterThan(decideTimerAt);
     expect(decideRecordAt).toBeLessThan(buildAt);
-  });
-
-  it('the thin timer wraps the conversion, and the tier counters still follow it', () => {
-    const thinTimerAt = CODE.indexOf('const __tEjpThin = phaseTimer()');
-    const thinRecordAt = CODE.indexOf("recordPhase('ejp:thin', __tEjpThin)");
-    const countersAt = CODE.indexOf('softLandingThinCount++');
-    expect(thinTimerAt).toBeGreaterThan(-1);
-    expect(thinRecordAt).toBeGreaterThan(thinTimerAt);
-    expect(countersAt).toBeGreaterThan(thinRecordAt);
   });
 });
 
