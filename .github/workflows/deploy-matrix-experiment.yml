@@ -59,6 +59,9 @@
 name: Deploy Matrix Experiment (per-locale, no deploy)
 
 on:
+  push:
+    branches:
+      - fix/issue-17896
   workflow_dispatch:
     inputs:
       locales:
