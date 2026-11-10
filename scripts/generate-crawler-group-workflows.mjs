@@ -2506,7 +2506,6 @@ function buildGroupWorkflowObject(
       'continue-on-error': true,
       env: {
         CRAWLER_LAUNCH_OUTCOME: `\${{ steps['crawler-launch-${crawler.slug}'].outcome }}`,
-        CRAWLER_MEMBER_SLUG: crawler.slug,
       },
       run: buildCrawlerResultShellBody(crawler, groupIndex),
     });
