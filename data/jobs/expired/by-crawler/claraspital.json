@@ -21,7 +21,7 @@
     "slugByLocale": {
       "it": "dipl-infermiera-hf-fh-surgery-2-3-st-claraspital-basel",
       "en": "dipl-nurse-hf-fh-surgery-2-3-st-claraspital-basel",
-      "de": "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel",
+      "de": "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel-a10dfc1d",
       "fr": "infirmiere-diplomee-hf-fh-operation-2-3-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
@@ -32,6 +32,7 @@
     ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel-a10dfc1d",
         "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel"
       ],
       "en": [
@@ -40,6 +41,9 @@
       "fr": [
         "infirmiere-diplomee-hf-fh-chirurgie-2-3-st-claraspital-basel",
         "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-chirurgie-2-3-claraspital-basel-a10dfc1d"
       ]
     },
     "postalCode": "4001",
@@ -73,16 +77,14 @@
     "slugByLocale": {
       "it": "uroterapista-in-ginecologia-st-claraspital-basel",
       "en": "urotherapist-in-gynecology-st-claraspital-basel",
-      "de": "urotherapeut-in-in-der-gynakologie-claraspital-basel",
+      "de": "urotherapeut-in-in-der-gynakologie-claraspital-basel-3e94afe0",
       "fr": "urotherapeute-en-gynecologie-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-01T09:29:46.454Z",
-    "previousSlugs": [
-      "urotherapeut-in-in-der-gynakologie-claraspital-basel"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "urotherapeut-in-in-der-gynakologie-claraspital-basel-3e94afe0",
         "urotherapeut-in-in-der-gynakologie-claraspital-basel"
       ],
       "en": [
@@ -90,6 +92,9 @@
       ],
       "fr": [
         "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+      ],
+      "de": [
+        "urotherapeut-in-in-der-gynakologie-claraspital-basel-3e94afe0"
       ]
     },
     "postalCode": "4001",
@@ -99,7 +104,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/urotherapeut-in-in-der-gynaekologie/c871ea60-5896-4ca4-bcde-83dfb6b7d190",
-    "firstSeenAt": "2026-10-03T09:24:25.169Z"
+    "firstSeenAt": "2026-10-03T09:24:25.169Z",
+    "previousSlugs": [
+      "urotherapeut-in-in-der-gynakologie-claraspital-basel"
+    ]
   },
   {
     "slug": "case-manager-stazionario-r-limitato-al-31-12-2026-st-claraspital-basel",
@@ -372,18 +380,25 @@
     "expiredAt": "2026-10-23T09:24:25.944Z",
     "previousSlugs": [
       "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel",
-      "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel"
+      "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel",
+      "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel-f931b659"
     ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel",
+        "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel-f931b659",
         "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel"
+        "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel",
+        "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel"
+        "dipl-pflegefachperson-hf-fh-medizin-claraspital-basel",
+        "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-medizin-1-claraspital-basel"
       ]
     },
     "postalCode": "4001",
