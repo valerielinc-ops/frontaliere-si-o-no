@@ -2504,6 +2504,34 @@ jobs:
           path: .cache/r2-og-published-manifest.json
           key: r2-og-published-${{ github.run_id }}
 
+      # "Keeping the last published manifest" (the promote step's own words)
+      # has to mean keeping it in the CACHE, not just on this runner's disk.
+      # The repository cache sits at its 10 GB cap: one IT leg saves a 6.83 GB
+      # jobs-seo-html entry plus two 1.19 GB og-jobs entries (measured
+      # 2026-11-10, 10.23 GB in 22 entries), and GitHub evicts by last access,
+      # oldest first. The manifest is restored at the START of the leg and
+      # those saves come after, so a leg that does not promote leaves the only
+      # copy as the least recently used entry and the next leg's saves evict
+      # it. Then the next leg finds `previous=missing` and copies every OG card:
+      # 42695695778 and 42746424682 both ran `[r2-og] mode=full` (31.3k and
+      # 31.7k files, 1.18-1.19 GB) against `mode=delta ... changed_bytes=180138517`
+      # on 42446263033, and their early CDN push hit the 6 h job cap and the 45
+      # min step timeout, skipping every IT section shard push. Each such
+      # failure loses the manifest again, so the full copy repeats.
+      #
+      # Re-saving the restored manifest under this run's key is sound because
+      # the OG copy is additive: R2 still holds at least what the manifest
+      # lists, so the worst case of a stale `previous` is a larger delta, never
+      # a missing card. Mutually exclusive with the promoted save above (same
+      # key, opposite condition on `promoted`).
+      - name: Carry the last published R2 OG manifest forward
+        if: ${{ always() && matrix.locale == 'it' && vars.CDN_TARGET == 'r2' && steps.promote-r2-og-manifest.outputs.promoted != 'true' && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}
+
       # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
       #
       # servePushedEdgeFile() in infra/cloudflare-worker/locale-router.js
