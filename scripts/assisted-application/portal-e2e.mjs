@@ -35,6 +35,7 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
 // date, permit answer, and explicit consent answers grounded. Pass null to omit
 // a fact under test; consent is never inferred from the portal's checkbox.
@@ -47,6 +48,8 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
   },
   answers: {
     salutation: 'Mr',
+    portal_privacy_consent: 'Yes',
+    portal_data_retention: PORTAL_TEST_DATA_RETENTION_ANSWER,
     ...(permitAnswer
       ? { work_permit: 'Permesso G', valid_work_permit: permitAnswer }
       : {}),
@@ -55,7 +58,7 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
     ...(permitAnswer ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer, source: 'user' }] : []),
     { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'user' },
     { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user' },
-    { question: 'Data release', answer: 'I would like my data to be deleted once the present application process is complete.', source: 'user' },
+    { question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user' },
   ],
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
