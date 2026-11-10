@@ -14,12 +14,16 @@ import { orderSalaryEstimatePatch } from '../../functions/src/assistedApplicatio
 
 const WAITING_STATES = ['needs_candidate_action', 'candidate_review'];
 
-/** A tick that releases the wait: a resumed submission, or a review whose question holds all cleared. */
+/**
+ * A tick that releases the wait: a resumed submission, or a review whose question holds cleared, all of
+ * them or the ones the platform now answers while a document is still awaited (assistedApplicationFlow.js).
+ */
 export function releasesWait(flow, result) {
   if (result.effects.some(effect => effect.type === 'dispatch' && effect.reason === 'resolved_candidate_answers')) return true;
+  const held = flow?.heldBy || [];
   return flow?.state === 'candidate_review'
-    && (flow.heldBy || []).some(held => /^(?:question|document):/.test(String(held)))
-    && result.flow?.state === 'candidate_review' && (result.flow.heldBy || []).length === 0;
+    && held.some(item => /^(?:question|document):/.test(String(item)))
+    && result.flow?.state === 'candidate_review' && (result.flow.heldBy || []).length < held.length;
 }
 
 export async function reconcileOperationalAnswers({ db, apply = false, nowMs = Date.now(), salaryEstimate = orderSalaryEstimatePatch }) {

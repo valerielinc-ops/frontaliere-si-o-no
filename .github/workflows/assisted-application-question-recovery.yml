@@ -1,0 +1,104 @@
+name: Recover assisted-application reviews after answer-pipeline changes
+
+# Owner directive 2026-11-10 (DECISIONS.md): every question is answered by the
+# platform (rules, CV, plausible deduction), also for the orders written
+# before. A review held by questions of its draft is re-evaluated whenever the
+# answer pipeline changes, and once a day for the bounded second attempt:
+# scripts/assisted-application/reconcile-review-questions.mjs asks the same
+# model steps the draft runs, stores the verified answers on the draft and
+# sets the order due; the Cloud Functions sweep runs the flow's tick. Nothing
+# is dispatched or sent from here.
+#
+# This repository is PUBLIC: the apply run prints counts only, never an order,
+# an answer or a CV line.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/src/assistedApplicationAiDraftCore.js'
+      - 'functions/src/assistedApplicationAiPrompts.js'
+      - 'functions/src/assistedApplicationCandidateEdits.js'
+      - 'functions/src/assistedApplicationCvAnswers.js'
+      - 'functions/src/assistedApplicationDecisionAnswers.js'
+      - 'functions/src/assistedApplicationFlow.js'
+      - 'functions/src/assistedApplicationOperationalAnswers.js'
+      - 'functions/src/assistedApplicationPlatformDefaults.js'
+      - 'functions/src/lib/answerRules.js'
+      - 'functions/src/lib/numberDateMentions.js'
+      - 'scripts/assisted-application/lib/cv-answers.mjs'
+      - 'scripts/assisted-application/lib/decision-answers.mjs'
+      - 'scripts/assisted-application/lib/portal/plan.mjs'
+      - 'scripts/assisted-application/reconcile-operational-answers.mjs'
+      - 'scripts/assisted-application/reconcile-review-questions.mjs'
+      - '.github/workflows/assisted-application-question-recovery.yml'
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: assisted-review-question-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    # Two npm installs, the Codex broker and one bounded pass over the
+    # reviews held by questions (two model calls per order at most).
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Resolve application recovery marker
+        # A push or dispatch of a commit marked [no-application-recovery]
+        # ships code only; the daily run is the normal clock.
+        if: github.event_name != 'schedule'
+        id: application_recovery
+        run: node scripts/ci/resolve-application-recovery-marker.mjs
+      - run: npm ci --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
+        working-directory: functions
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          umask 077
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+      # The draft's own lane: Codex Luna Max through the bounded broker.
+      - id: codex
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_max_concurrency: '1'
+      - name: Re-evaluate the questions that hold a review
+        if: ${{ github.event_name == 'schedule' || steps.application_recovery.outputs.apply == 'true' }}
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+          CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+        run: node scripts/assisted-application/reconcile-review-questions.mjs --apply
+        timeout-minutes: 30
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
