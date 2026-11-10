@@ -4215,6 +4215,38 @@ async function waitForVerificationOutcome(page) {
   return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
 }
 
+/**
+ * The candidate's own session on the job's form: no sign-in or registration
+ * form, no code field, and the application itself (a CV field, the usual
+ * fields, or its send control). SBB after its OTP (2026-11-10): `/portalcareer`
+ * with «Bewerbung abschicken» and «Abmelden», its sections closed (one visible
+ * field); Damiani right after a registration that asked for no OTP.
+ */
+// A positive mark of the candidate's own session: a guest application view has
+// a CV field and a submit button too, but no way to sign out or reach a profile.
+const SESSION_MARKER_RE = /\b(?:abmelden|ausloggen|log ?out|sign ?out|esci|disconnetti|d[ée]connexion|se d[ée]connecter|mein profil|my profile|mon profil|il mio profilo|mein konto|my account|mon compte|il mio account|meine dokumente|my documents|mes documents|i miei documenti)\b/i;
+function showsCandidateSession(view) {
+  const controls = [...(Array.isArray(view?.buttons) ? view.buttons : []), ...(Array.isArray(view?.links) ? view.links : [])];
+  return controls.some((control) => SESSION_MARKER_RE.test([control?.text, control?.label, control?.ariaLabel].filter(Boolean).join(' ')));
+}
+
+export function signedInApplicationSurface(view) {
+  return Boolean(view) && Array.isArray(view.fields) && authPageKind(view) === 'none' && !codeField(view)
+    && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
+}
+
+// SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).
+const restartedRegistrations = new WeakMap();
+function registrationRestarted(ctx, host) {
+  return Boolean(ctx?.accounts && restartedRegistrations.get(ctx.accounts)?.has(host));
+}
+function noteRegistrationRestart(ctx, host) {
+  if (!ctx?.accounts) return;
+  const hosts = restartedRegistrations.get(ctx.accounts) || new Set();
+  hosts.add(host);
+  restartedRegistrations.set(ctx.accounts, hosts);
+}
+
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -4252,6 +4284,10 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     await settle(page);
   }
   let { after, outcome } = await waitForVerificationOutcome(page);
+  // The portal took the code and opened the job's form in the candidate's own
+  // session (SBB: «Bewerbung abschicken», «Abmelden», one visible field, which
+  // the generic reading leaves `unconfirmed`). That page is the answer.
+  if (outcome === 'unconfirmed' && signedInApplicationSurface(after)) outcome = 'accepted';
   // The page may never settle on something the runner can read, while the
   // portal itself mails that the account now exists (the federal tenant's
   // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the
@@ -5924,13 +5960,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     account.verifiedAt = Date.now();
     await ctx.accounts.mark(host, { status: 'created', verifiedAt: account.verifiedAt });
   }
-  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
+  // Once per run: a tenant that asks for no OTP (Damiani, 2026-11-10) answers a
+  // repeated registration of an existing address and comes back to its sign-in
+  // page, and every step restarted it again until `auth_steps_exhausted`. The
+  // second time the saved credential signs in; a failed sign-in is handed over.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+    && !registrationRestarted(ctx, host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
     // there; only restart registration when the page actually offers that
     // navigation control.
     const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
     if (openedRegistration) {
+      noteRegistrationRestart(ctx, host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
       return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
@@ -7962,6 +8004,7 @@ export async function submitViaPortal(ctx) {
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
         let agentRecovery = null;
+        const authHost = new URL(page.url()).hostname;
         try {
           auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
           // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
@@ -8041,6 +8084,14 @@ export async function submitViaPortal(ctx) {
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
+        }
+        // The auth step ended in the candidate's own session on the job's form
+        // (Damiani: a registration without OTP lands in /portalcareer): the
+        // account is usable. Left unverified, the next run restarted its
+        // registration instead of signing in.
+        if (signedInApplicationSurface(snapshot)) {
+          const stored = await ctx.accounts.load(authHost).catch(() => null);
+          if (stored && !stored.verifiedAt) await ctx.accounts.mark(authHost, { status: 'created', verifiedAt: Date.now() });
         }
         step -= 1; // a login page is not a form page
         continue;
