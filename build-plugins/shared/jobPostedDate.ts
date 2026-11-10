@@ -15,23 +15,38 @@
 import { formatUpdatedDate, type LandingLocale } from './humanDate';
 import { escHtml } from './htmlEscape';
 
+// A complete ISO 8601 date or date-time: the whole string must match, so a
+// valid-looking prefix followed by garbage ("2026-10-29Tgarbage") is rejected.
+const ISO_POSTING_DATE =
+  /^(\d{4})-(\d{2})-(\d{2})(?:T(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d{1,9})?)?(?:Z|[+-](?:[01]\d|2[0-3]):?[0-5]\d)?)?$/i;
+// A legacy (non-ISO) string that already names its zone.
+const EXPLICIT_ZONE = /(?:\bZ|\bGMT|\bUTC|[+-]\d{2}:?\d{2})\s*$/i;
+
 /**
- * Calendar day (YYYY-MM-DD) named by a posting date string. An ISO string
- * keeps its own date part — the same day the "Pubblicata il" detail row and
- * the JSON-LD already show — so the result never depends on the build host's
- * time zone. Other parseable strings fall back to their UTC day.
+ * Calendar day (YYYY-MM-DD) named by a posting date string, or null.
+ *
+ * - A complete ISO string keeps its own date part — the same day the
+ *   "Pubblicata il" detail row and the JSON-LD already show — so the offset
+ *   never shifts it. The whole timestamp must be valid, not only the prefix.
+ * - A legacy non-ISO string is parsed in an EXPLICIT zone, never the build
+ *   host's: one without a zone is read as UTC (so "2026/10/29 00:30" is
+ *   2026-10-29 on every builder, the date as written, consistent with the ISO
+ *   rule above), one that names its zone is converted to its UTC day.
  */
 export function postingCalendarDay(dateStr: string | null | undefined): string | null {
   const raw = String(dateStr ?? '').trim();
   if (!raw) return null;
-  const iso = /^(\d{4})-(\d{2})-(\d{2})(?:$|T)/.exec(raw);
+  const iso = ISO_POSTING_DATE.exec(raw);
   if (iso) {
     const day = `${iso[1]}-${iso[2]}-${iso[3]}`;
     const check = new Date(`${day}T00:00:00.000Z`);
     if (Number.isNaN(check.getTime()) || check.toISOString().slice(0, 10) !== day) return null;
+    if (!Number.isFinite(Date.parse(raw))) return null;
     return day;
   }
-  const time = Date.parse(raw);
+  // Anything else shaped like an ISO date ("2026-10-29Tgarbage") is malformed.
+  if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return null;
+  const time = Date.parse(EXPLICIT_ZONE.test(raw) ? raw : `${raw} UTC`);
   return Number.isFinite(time) ? new Date(time).toISOString().slice(0, 10) : null;
 }
 

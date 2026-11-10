@@ -12,7 +12,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { renderMobileActionBlock, type JobDetailJob } from '../../build-plugins/shared/jobDetailHtml';
 import { renderJobCardHtml, type JobCardJob } from '../../build-plugins/shared/jobCardHtml';
-import { formatPostedOnSentence, postingCalendarDay } from '../../build-plugins/shared/jobPostedDate';
+import { formatPostedOnSentence, postingCalendarDay, renderPostedDateTime } from '../../build-plugins/shared/jobPostedDate';
 import { findRelativePostedText } from '../helpers/relativePostedText';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
@@ -94,6 +94,31 @@ describe('localized absolute posted date', () => {
     expect(postingCalendarDay('2026-02-30')).toBeNull();
     expect(postingCalendarDay('not-a-date')).toBeNull();
     expect(postingCalendarDay('')).toBeNull();
+  });
+
+  it('rejects an ISO prefix followed by garbage instead of showing a false date', () => {
+    for (const raw of ['2026-10-29Tgarbage', '2026-10-29T24:00:00Z', '2026-10-29 garbage', '2026-10-29T10:00:00+25:00']) {
+      expect(postingCalendarDay(raw), raw).toBeNull();
+      expect(renderPostedDateTime(raw, 'it', { sentence: true }), raw).toBe('');
+    }
+    expect(postingCalendarDay('2026-10-29T10:00:00.123456Z')).toBe('2026-10-29');
+    expect(postingCalendarDay('2026-10-29T23:30:00+0100')).toBe('2026-10-29');
+  });
+
+  it('parses a legacy zoneless date in UTC, never in the build host zone', () => {
+    const previous = process.env.TZ;
+    try {
+      for (const tz of ['UTC', 'Asia/Tokyo', 'America/Los_Angeles', 'Europe/Zurich']) {
+        process.env.TZ = tz;
+        expect(postingCalendarDay('2026/10/29 00:30'), tz).toBe('2026-10-29');
+        expect(postingCalendarDay('October 29, 2026 23:59'), tz).toBe('2026-10-29');
+        expect(postingCalendarDay('Thu, 29 Oct 2026 23:30:00 GMT'), tz).toBe('2026-10-29');
+        expect(renderPostedDateTime('2026/10/29 00:30', 'en', { sentence: true }), tz)
+          .toBe('<time datetime="2026-10-29">Published on 29 October 2026</time>');
+      }
+    } finally {
+      if (previous === undefined) delete process.env.TZ; else process.env.TZ = previous;
+    }
   });
 
   it('flags every relative wording the static HTML used to emit', () => {
