@@ -92,7 +92,12 @@ import {
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { wrongLocalePair, prepareFaqForWrite } from './fix-faq-locales.mjs';
 import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
-import { translateFieldFreeMt, translatedStringOrNull, joinTranslatedChunks } from './lib/article-free-mt.mjs';
+import {
+  isSourcePassthrough,
+  translateFieldFreeMt,
+  translatedStringOrNull,
+  joinTranslatedChunks,
+} from './lib/article-free-mt.mjs';
 import { hasUsableContentText, hasUsableTranslatedText } from './lib/usable-content-text.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
@@ -6754,6 +6759,10 @@ ${terminologyByLang[targetLang] || ''}`;
           console.error(`  ⚠️  ${lang}:${bodyKey} non è una stringa (${typeof result?.[bodyKey]}) — campo scartato, recupero per-campo downstream`);
           return {};
         }
+        if (sourceLang !== lang && isSourcePassthrough(text, bodyText)) {
+          console.error(`  ⚠️  ${lang}:${bodyKey} ha restituito la sorgente senza tradurla — campo scartato, recupero per-campo downstream`);
+          return {};
+        }
         return { [bodyKey]: sanitizeBodyText(text) };
       }
 
@@ -6792,7 +6801,7 @@ ${terminologyByLang[targetLang] || ''}`;
       // be stringified into the joined body as "[object Object]" — one corrupted
       // paragraph in the middle of otherwise-good prose. Refuse the whole field
       // instead and let the per-field recovery re-translate it.
-      const joined = joinTranslatedChunks(translated, bodyKey, lang);
+      const joined = joinTranslatedChunks(translated, bodyKey, lang, chunks);
       if (joined === null) {
         console.error(`  ⚠️  ${lang}:${bodyKey} — almeno un chunk non è una stringa, campo scartato: recupero per-campo downstream`);
         return {};
@@ -6921,7 +6930,7 @@ ${terminologyByLang[targetLang] || ''}`;
         // different from the IT value, so the old check ASSIGNED it. Require a
         // real string so a non-string retry falls through to the IT fallback.
         const retried = translatedStringOrNull(parsed?.[field], locale);
-        if (retried && String(retried).trim() !== String(itValue).trim()) {
+        if (retried && !isSourcePassthrough(retried, itValue)) {
           data.content[locale][field] = retried;
           console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
           continue;
@@ -6940,7 +6949,7 @@ ${terminologyByLang[targetLang] || ''}`;
     for (const field of ['title', 'excerpt']) {
       const itVal = (itContent[field] || '').trim();
       const locVal = (data.content[locale][field] || '').trim();
-      if (itVal && locVal === itVal) {
+      if (itVal && isSourcePassthrough(locVal, itVal)) {
         const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
         console.error(`  ⚠️  [translation-check] ${locale.toUpperCase()}.${field} identico all'italiano — retry traduzione...`);
         try {
@@ -6948,8 +6957,9 @@ ${terminologyByLang[targetLang] || ''}`;
             `ATTENZIONE: la traduzione precedente è rimasta in ITALIANO. Traduci OBBLIGATORIAMENTE in ${langName}.\n\nCONTENUTO ITALIANO DA TRADURRE:\n- ${field}: ${itVal}`,
             `{"${field}": "..."}`,
           ), 1000, `${locale}:${field}-retry`);
-          if (hasUsableTranslatedText(retryResult?.[field], locale) && retryResult[field].trim() !== itVal) {
-            data.content[locale][field] = retryResult[field];
+          const retried = translatedStringOrNull(retryResult?.[field], locale);
+          if (retried && !isSourcePassthrough(retried, itVal)) {
+            data.content[locale][field] = retried;
             console.error(`  ✅ [translation-check] ${locale.toUpperCase()}.${field} ritradotto con successo`);
           } else {
             console.error(`  ⚠️  [translation-check] ${locale.toUpperCase()}.${field} ancora identico dopo retry — accettato con warning`);
@@ -6978,9 +6988,10 @@ ${terminologyByLang[targetLang] || ''}`;
           1000,
           `${locale}:title-length-retry`,
         );
-        if (retryResult?.title && typeof retryResult.title === 'string') {
-          localeContent.title = retryResult.title;
-          console.error(`  ✅ [title-cap] ${locale.toUpperCase()} title ritradotto a ${retryResult.title.length} caratteri`);
+        const retriedTitle = translatedStringOrNull(retryResult?.title, locale);
+        if (retriedTitle && !isSourcePassthrough(retriedTitle, itContent.title)) {
+          localeContent.title = retriedTitle;
+          console.error(`  ✅ [title-cap] ${locale.toUpperCase()} title ritradotto a ${retriedTitle.length} caratteri`);
         }
       } catch (retryErr) {
         console.warn(`  ⚠️ [title-cap] Retry titolo ${locale} fallito: ${retryErr.message} — applico hard cap`);

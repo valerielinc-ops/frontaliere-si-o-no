@@ -36,7 +36,8 @@ function normalizePassthroughText(value) {
     .toLowerCase();
 }
 
-function isSourcePassthrough(sourceText, translatedText) {
+export function isSourcePassthrough(translatedText, sourceText) {
+  if (typeof translatedText !== 'string' || typeof sourceText !== 'string') return false;
   const source = normalizePassthroughText(sourceText);
   return source.length > 0 && source === normalizePassthroughText(translatedText);
 }
@@ -82,14 +83,16 @@ export function translatedStringOrNull(value, targetLang) {
  * @param {unknown[]} results  per-chunk parsed JSON objects
  * @param {string} bodyKey     'body1' | 'body2' | 'body3'
  * @param {string} [targetLang] locale dei chunk tradotti ('en' | 'de' | 'fr')
+ * @param {string[]|null} [sourceChunks] chunk italiani nello stesso ordine
  * @returns {string|null}
  */
-export function joinTranslatedChunks(results, bodyKey, targetLang) {
+export function joinTranslatedChunks(results, bodyKey, targetLang, sourceChunks = null) {
   if (!Array.isArray(results) || results.length === 0) return null;
   const parts = [];
-  for (const r of results) {
+  for (const [index, r] of results.entries()) {
     const part = translatedStringOrNull(r?.[bodyKey], targetLang);
     if (part === null) return null;
+    if (Array.isArray(sourceChunks) && isSourcePassthrough(part, sourceChunks[index])) return null;
     parts.push(part);
   }
   return parts.join('\n\n');
@@ -125,14 +128,25 @@ export function maskNavLinks(text) {
     return token;
   });
   const restore = (s) => {
-    let n = 0;
-    const out = String(s ?? '').replace(NAV_SENTINEL_RE, (_, i) => {
-      const original = store[Number(i)];
-      if (original === undefined) return '';
-      n += 1;
-      return original;
+    NAV_SENTINEL_RE.lastIndex = 0;
+    const seen = new Set();
+    let valid = true;
+    const out = String(s ?? '').replace(NAV_SENTINEL_RE, (_, rawIndex) => {
+      const index = Number(rawIndex);
+      if (!Number.isInteger(index)
+        || index < 0
+        || index >= store.length
+        || seen.has(index)) {
+        valid = false;
+        return '';
+      }
+      seen.add(index);
+      return store[index];
     });
-    return { text: out, ok: n === store.length };
+    const complete = valid
+      && seen.size === store.length
+      && store.every((_, index) => seen.has(index));
+    return { text: out, ok: complete };
   };
   return { masked, expected: store.length, restore };
 }
@@ -229,7 +243,7 @@ export async function translateFieldFreeMt({
   // tradotto: `Null` è una parola valida in tedesco, mentre `null` resta un
   // marker serializzato. Non-stringa e marker → ''.
   if (!hasUsableTranslatedText(out, targetLang)) return '';
-  if (isSourcePassthrough(masked, out)) {
+  if (sourceLang !== targetLang && isSourcePassthrough(out, masked)) {
     onWarn(`free-MT ${targetLang}:${fieldType} ha restituito la sorgente senza tradurla`);
     return '';
   }
