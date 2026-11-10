@@ -4183,9 +4183,17 @@ async function waitForVerificationOutcome(page) {
  * with «Bewerbung abschicken» and «Abmelden», its sections closed (one visible
  * field); Damiani right after a registration that asked for no OTP.
  */
+// A positive mark of the candidate's own session: a guest application view has
+// a CV field and a submit button too, but no way to sign out or reach a profile.
+const SESSION_MARKER_RE = /\b(?:abmelden|ausloggen|log ?out|sign ?out|esci|disconnetti|d[ée]connexion|se d[ée]connecter|mein profil|my profile|mon profil|il mio profilo|mein konto|my account|mon compte|il mio account|meine dokumente|my documents|mes documents|i miei documenti)\b/i;
+function showsCandidateSession(view) {
+  const controls = [...(Array.isArray(view?.buttons) ? view.buttons : []), ...(Array.isArray(view?.links) ? view.links : [])];
+  return controls.some((control) => SESSION_MARKER_RE.test([control?.text, control?.label, control?.ariaLabel].filter(Boolean).join(' ')));
+}
+
 export function signedInApplicationSurface(view) {
   return Boolean(view) && Array.isArray(view.fields) && authPageKind(view) === 'none' && !codeField(view)
-    && (hasApplicationForm(view) || sendsApplication(view));
+    && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
 }
 
 // SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).

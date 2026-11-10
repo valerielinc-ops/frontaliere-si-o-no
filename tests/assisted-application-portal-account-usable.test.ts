@@ -91,6 +91,9 @@ describe('the candidate’s own session on the job’s form', () => {
     const values = new Map<string, string>();
     expect(signedInApplicationSurface(sbbForm)).toBe(true);
     expect(signedInApplicationSurface(passcodePage(values))).toBe(false);
+    // A guest application view has a CV field and a submit button too: without a session mark it proves nothing.
+    expect(signedInApplicationSurface({ fields: [{ label: 'CV' }], buttons: [{ text: 'Bewerbung abschicken' }], links: [] } as any)).toBe(false);
+    expect(signedInApplicationSurface({ fields: [{ label: 'CV' }], buttons: [{ text: 'Bewerbung abschicken' }, { text: 'Abmelden' }], links: [] } as any)).toBe(true);
     expect(signedInApplicationSurface(signIn(DAMIANI, values))).toBe(false);
     expect(signedInApplicationSurface({ ...sbbForm, buttons: sbbForm.buttons.filter((button) => button.id !== 'send') })).toBe(false);
   });
