@@ -14513,10 +14513,10 @@
         "en": "IT Business Analyst in Branch Access Points & Self-Service",
         "fr": "IT Business Analyst :dans les points d'accès succursale et self-service"
       },
-      "slug": "it-business-analyst-in-zugangspunkte-filiale-self-service-post",
+      "slug": "analista-aziendale-it-filiale-punti-di-accesso-e-self-service-die-schweizerische-post-bellinzona-bern-lausanne-neuchatel",
       "slugByLocale": {
         "de": "it-business-analyst-in-zugangspunkte-filiale-self-service-post",
-        "it": "it-business-analyst-in-zugangspunkte-filiale-self-service-post",
+        "it": "analista-aziendale-it-filiale-punti-di-accesso-e-self-service-die-schweizerische-post-bellinzona-bern-lausanne-neuchatel",
         "en": "it-business-analyst-in-branch-access-points-self-service-die-schweizerische-post-bellinzona-bern-lausanne-neuchatel",
         "fr": "it-business-analyst-dans-les-points-d-acces-succursale-et-self-service-die-schweizerische-post-bellinzona-bern-lausanne"
       },
@@ -14557,7 +14557,15 @@
       "postalCode": "2000",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T21:44:11.344Z"
+      "firstSeenAt": "2026-11-09T21:44:11.344Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-analyst-in-zugangspunkte-filiale-self-service-post"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-analyst-in-zugangspunkte-filiale-self-service-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Technikerin-Instandhaltung/75190-de_DE",
@@ -14583,10 +14591,10 @@
         "en": "MaintenanceTechnician",
         "fr": "Technicien (ne)en maintenance"
       },
-      "slug": "techniker-in-instandhaltung-post",
+      "slug": "tecnico-di-manutenzione-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "de": "techniker-in-instandhaltung-post",
-        "it": "techniker-in-instandhaltung-post",
+        "it": "tecnico-di-manutenzione-die-schweizerische-post-zurich-mulligen",
         "en": "maintenancetechnician-die-schweizerische-post-zurich-mulligen",
         "fr": "technicien-ne-en-maintenance-die-schweizerische-post-zurich-mulligen"
       },
@@ -14627,7 +14635,15 @@
       "streetAddress": "Zürich-Mülligen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T21:44:09.455Z"
+      "firstSeenAt": "2026-11-09T21:44:09.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-instandhaltung-post"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-instandhaltung-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete-Baltschieder/74933-de_DE",

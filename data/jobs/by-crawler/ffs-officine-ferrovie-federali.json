@@ -5,9 +5,9 @@
   "jobs": [
     {
       "id": "sbb-43699ff31d6f",
-      "slug": "teamleiter-in-fahrzeugdiagnose-ffs-officine-ferrovie-federali-bern",
+      "slug": "caposquadra-nel-settore-della-diagnostica-dei-veicoli-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-fahrzeugdiagnose-ffs-officine-ferrovie-federali-bern",
+        "it": "caposquadra-nel-settore-della-diagnostica-dei-veicoli-ffs-officine-ferrovie-federali-bern",
         "en": "vehicle-diagnostic-team-leader-ffs-officine-ferrovie-federali-bern",
         "de": "teamleiter-in-fahrzeugdiagnose-ffs-officine-ferrovie-federali-bern",
         "fr": "chef-d-equipe-en-diagnostic-vehicule-ffs-officine-ferrovie-federali-bern"
@@ -88,13 +88,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:40:14.616Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:00.097Z"
+      "firstSeenAt": "2026-11-09T21:23:00.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fahrzeugdiagnose-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-fahrzeugdiagnose-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-83477941a20c",
-      "slug": "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+      "slug": "cambio-di-carriera-per-diventare-guardia-giurata-responsabile-della-sicurezza-ffs-officine-ferrovie-federali-rapperswil",
       "slugByLocale": {
-        "it": "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "it": "cambio-di-carriera-per-diventare-guardia-giurata-responsabile-della-sicurezza-ffs-officine-ferrovie-federali-rapperswil",
         "en": "cross-entry-security-guard-head-ofsecurity-ffs-officine-ferrovie-federali-rapperswil-sg",
         "de": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg",
         "fr": "acces-transversal-gardien-ne-de-securite-chef-ne-de-securite-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -177,7 +185,8 @@
       "firstSeenAt": "2026-11-09T21:22:51.551Z",
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg"
+          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg"
         ],
         "en": [
           "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -187,7 +196,8 @@
         ]
       },
       "previousSlugs": [
-        "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg"
+        "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-rapperswil-sg"
       ]
     },
     {
@@ -392,9 +402,9 @@
     },
     {
       "id": "sbb-fc4711aa14eb",
-      "slug": "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen",
+      "slug": "cambio-di-carriera-per-diventare-guardia-giurata-responsabile-della-sicurezza-ffs-officine-ferrovie-federali",
       "slugByLocale": {
-        "it": "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen",
+        "it": "cambio-di-carriera-per-diventare-guardia-giurata-responsabile-della-sicurezza-ffs-officine-ferrovie-federali",
         "en": "cross-entry-security-guard-head-ofsecurity-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen",
         "fr": "acces-transversal-gardien-ne-de-securite-chef-ne-de-securite-ffs-officine-ferrovie-federali-ostermundigen"
@@ -477,7 +487,8 @@
       "firstSeenAt": "2026-11-09T21:22:51.084Z",
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen"
+          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen",
+          "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen"
         ],
         "en": [
           "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen"
@@ -487,15 +498,16 @@
         ]
       },
       "previousSlugs": [
-        "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen"
+        "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen",
+        "cambio-carriera-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ostermundigen"
       ]
     },
     {
       "id": "sbb-a7614c227328",
-      "slug": "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz",
+      "slug": "consulente-di-viaggi-80-100-a-brienz-posizione-stagionale-a-tempo-determinato-da-marzo-a-ottobre-2027-ffs-officine",
       "slugByLocale": {
-        "it": "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz",
-        "en": "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz",
+        "it": "consulente-di-viaggi-80-100-a-brienz-posizione-stagionale-a-tempo-determinato-da-marzo-a-ottobre-2027-ffs-officine",
+        "en": "travel-consultant-80-100-in-brienz-seasonally-limited-position-from-march-to-october-2027-ffs-officine-ferrovie-federali",
         "de": "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz",
         "fr": "conseiller-en-voyages-80-100-a-brienz-saisonnierement-limite-de-mars-a-octobre-2027-ffs-officine-ferrovie-federali"
       },
@@ -586,7 +598,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:40:09.620Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:22:54.632Z"
+      "firstSeenAt": "2026-11-09T21:22:54.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz"
+        ],
+        "en": [
+          "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz"
+        ]
+      },
+      "previousSlugs": [
+        "reiseberater-in-80-100-in-brienz-saisonal-befristet-von-marz-bis-oktober-2027-ffs-officine-ferrovie-federali-brienz"
+      ]
     },
     {
       "id": "sbb-c081ae141bb7",
@@ -983,9 +1006,9 @@
     },
     {
       "id": "sbb-6d43ee901c67",
-      "slug": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+      "slug": "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+        "it": "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
         "en": "civil-engineering-project-manager-ffs-officine-ferrovie-federali-renens-vd",
         "de": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "chef-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
@@ -1045,7 +1068,8 @@
       "crawledAt": "2026-11-10T09:39:47.657Z",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+          "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
         ],
         "en": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
@@ -1055,7 +1079,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+        "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "salaryMin": 97500,
       "salaryMax": 165500,

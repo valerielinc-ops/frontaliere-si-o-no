@@ -4593,10 +4593,10 @@
     },
     {
       "id": "spital-sts-87d6bb4139b0",
-      "slug": "med-praxisassistent-in-pneumologie-spital-sts-thun",
+      "slug": "assistente-di-studio-medico-reparto-di-pneumologia-spital-sts-thun",
       "slugByLocale": {
         "de": "med-praxisassistent-in-pneumologie-spital-sts-thun",
-        "it": "med-praxisassistent-in-pneumologie-spital-sts-thun",
+        "it": "assistente-di-studio-medico-reparto-di-pneumologia-spital-sts-thun",
         "en": "medical-practiceassistant-pneumology-spital-sts-thun",
         "fr": "assistant-de-pratique-medicale-en-pneumologie-spital-sts-thun"
       },
@@ -4673,7 +4673,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:23:53.938Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:55.090Z"
+      "firstSeenAt": "2026-11-09T21:16:55.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-pneumologie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-pneumologie-spital-sts-thun"
+      ]
     }
   ]
 }

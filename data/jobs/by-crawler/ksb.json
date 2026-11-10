@@ -7643,11 +7643,11 @@
     },
     {
       "id": "ksb-4c0596c64682",
-      "slug": "grant-koordinator-in-forschung-60-100-ksb-ch",
+      "slug": "coordinatore-di-sovvenzioni-per-la-ricerca-60-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "grant-koordinator-in-forschung-60-100-ksb-ch",
         "fr": "administrateur-en-ctu-60-100-kantonsspital-baden-ksb-baden",
-        "it": "grant-koordinator-in-forschung-60-100-ksb-ch",
+        "it": "coordinatore-di-sovvenzioni-per-la-ricerca-60-100-kantonsspital-baden-ksb-baden",
         "en": "grant-research-coordinator-60-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -7709,7 +7709,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:40:19.757Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:41:19.189Z"
+      "firstSeenAt": "2026-11-09T21:41:19.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "grant-koordinator-in-forschung-60-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "grant-koordinator-in-forschung-60-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-54f495c267e4",
