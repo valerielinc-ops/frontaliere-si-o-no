@@ -7,9 +7,10 @@
 // full build that later overwrites it — churn that only ever surfaces in
 // production.
 //
-// Both repos assert the same fingerprint, so either side drifting fails on its
-// own side. When changing any value below intentionally, re-record the digest
-// in BOTH repos in the same change.
+// The articles host carries adapted copies of some site values. Each repo
+// records and verifies its own scalar digest; do not copy this site digest to
+// `host/shell-contract-fingerprint.json`. When changing the site contract,
+// re-record this digest and verify the host's independently recorded digest.
 import { describe, it, expect } from 'vitest';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
