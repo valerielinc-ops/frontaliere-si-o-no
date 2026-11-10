@@ -6,14 +6,15 @@ import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
-import { decisionAnswerFor } from './assistedApplicationDecisionAnswers.js';
+import { decisionAnswerFor, isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
 // (assistedApplicationDecisionAnswers.js); a new version lets reconcile-operational-answers.mjs release
 // the waits these now answer.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v6';
+// v7 (2026-11-10): support to other sites or branches, guard and piquet duty (platform-defaults-v5).
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v7';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -267,6 +268,72 @@ export function withOperationalQuestionAnswers(questions, confirmedAnswers = {},
     defaults[question.id] = answer;
   }
   return { answers, defaults };
+}
+
+/**
+ * Where a proposal mirrored on a draft question comes from (`answerOrigin`, withPlatformSuggestions): a
+ * decision of the engine, or a rule of the platform (owner preference or platform default). A CV answer keeps
+ * its own `suggestedAnswer` with its evidence (assistedApplicationCvAnswers.js) and no `answerOrigin`.
+ */
+const PLATFORM_SUGGESTION_ORIGINS = Object.freeze(['platform_decision', 'platform_rule']);
+const isPlatformSuggestion = question => PLATFORM_SUGGESTION_ORIGINS.includes(question?.answerOrigin);
+
+const withoutMirror = question => {
+  if (!isPlatformSuggestion(question)) return question;
+  const { suggestedAnswer: _value, answerOrigin: _origin, ...rest } = question;
+  return rest;
+};
+
+/** The draft's questions without the mirrored platform proposals: a mirror is recomputed, never an input. */
+export function withoutPlatformSuggestions(questions) {
+  return (Array.isArray(questions) ? questions : []).map(withoutMirror);
+}
+
+/**
+ * The platform's answer to every question it answers, mirrored on the draft question in the shape of the
+ * field (owner directive 2026-11-10: every answer the platform decides is a proposal the candidate sees):
+ * yes or no in the candidate's language, the option, the sentence, the date. A rule (start date three months
+ * ahead, workload 100%, the availabilities…) is `answerOrigin: 'platform_rule'`, a decision of the engine
+ * `'platform_decision'`. A question the CV answers keeps its own suggestedAnswer and evidence.
+ *
+ * The mirror is for the readers of the draft (owner tools, the admin view, the census): the review page, the
+ * e-mail and the runner keep projecting the answer live (withOperationalQuestionAnswers), so a date stays three
+ * months after the actual submission. A rule or a decision that no longer holds takes its mirror with it, and so
+ * does a question the candidate answered (`answers`): their word is the answer, not the platform's.
+ * `keepExisting` (the reconciliation of written drafts) keeps a mirrored start date as it is: the date moves with
+ * the day it is computed on, and a daily run would otherwise rewrite it every day. Every other value is a stable
+ * function of the facts, so a second run writes nothing.
+ * @param {object[]} questions
+ * @param {{facts?: object|null, locale?: string, keepExisting?: boolean, answers?: object}} [options]
+ * @returns {object[]}
+ */
+export function withPlatformSuggestions(questions, { facts = null, locale, keepExisting = false, answers = {} } = {}) {
+  return (Array.isArray(questions) ? questions : []).map(question => {
+    if (!question?.id) return question;
+    const mirrored = isPlatformSuggestion(question);
+    if (!mirrored && String(question.suggestedAnswer ?? '').trim()) return question;
+    const bare = withoutMirror(question);
+    if (hasAnswer(answers?.[question.id])) return bare;
+    const answer = operationalDefaultAnswer(bare, { locale, facts });
+    const value = String(answer?.value ?? '').trim();
+    if (!answer || !value || isCvAnswerDefault(answer)) return bare;
+    const origin = isDecisionAnswerDefault(answer) ? 'platform_decision' : 'platform_rule';
+    if (keepExisting && mirrored && question.answerOrigin === origin && answer.topic === 'platform:start_date'
+      && String(question.suggestedAnswer ?? '').trim()) return question;
+    return { ...bare, suggestedAnswer: value, answerOrigin: origin };
+  });
+}
+
+/**
+ * Where a projected default comes from, as the review page labels it: the CV (cited or a plausible
+ * description), a decision of the engine, or a rule of the platform.
+ * @returns {'cv_evidence'|'cv_plausible'|'platform_decision'|'platform_rule'|null}
+ */
+export function platformAnswerProvenance(answer) {
+  if (!answer) return null;
+  if (isCvAnswerDefault(answer)) return answer.origin === 'cv_plausible' ? 'cv_plausible' : 'cv_evidence';
+  if (isDecisionAnswerDefault(answer)) return 'platform_decision';
+  return 'platform_rule';
 }
 
 /** An answer is permitted only by the policy for this exact field. */

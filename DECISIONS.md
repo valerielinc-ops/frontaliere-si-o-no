@@ -2,6 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
+| 2026-11-10 | Candidature assistite, pagina di revisione: ogni risposta della piattaforma (regola, CV, motore di decisione) è mostrata al candidato già compilata e modificabile, con l'origine, anche quando nessuna domanda resta aperta; non conta come da rispondere. Supporto ad altre sedi o succursali, flessibilità di sede, piquet e servizio di guardia: sempre sì, come trasferimento, ibrido e picchetto | istruzione diretta, 10-11 |
 | 2026-11-10 | Candidature autonome: ogni domanda la risponde la piattaforma (regole, CV, deduzione plausibile; no marketing); tecniche solo con citazione; mai fatti assenti dal CV. Modificabili, non bloccanti; al candidato solo documenti | istruzione diretta, 10-11 |
 | 2026-11-10 | Offerte attive: JobPosting `directApply` true (candidatura assistita); titolo/H1/JSON-LD nella lingua della pagina, originale se manca la traduzione; supera #15094 | istruzione diretta, sessione 10-11 |
 | 2026-11-10 | Candidature assistite: ripristinata la decisione originale del 09-11 (le domande stabili le risponde la piattaforma, regole in `functions/src/assistedApplicationPlatformDefaults.js`; permesso, passaporto e nazionalità all'upload); supera la riga 09-11 riscritta da #17844 senza istruzione | istruzione diretta, sessione 10-11 |

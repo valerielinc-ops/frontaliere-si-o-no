@@ -51,7 +51,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
 // v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
 // v4 (2026-11-10): first and correspondence language, the Swiss Army school of a candidate who is not Swiss.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v5';
+// v5 (2026-11-10): the residence canton or province, from the CV town.
+// v6 (2026-11-10): support to other sites or branches, flexibility of the place of work, guard and piquet duty.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v6';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -454,7 +456,15 @@ const START = /\b(?:start(?:ing)? date|date of (?:start|entry)|earliest (?:possi
 const SCHEDULE = /\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekdays?|lunedi|martedi|mercoledi|giovedi|venerdi|sabato|domenica|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|orari\w*|hours?|ore|stunden|heures|uhr|shift\w*|turn\w*|schicht\w*)\b/;
 const RELOCATION = /\b(?:trasferir\w*|trasferiment\w*|relocat\w*|umzug\w*|umzieh\w*|demenag\w*|willing to move)\b/;
 const HYBRID = /\b(?:ibrid\w*|hybrid\w*|hybride|homeoffice|home office|telelavoro|smart working|presenza (?:presso|in) (?:la )?sede)\b/;
-const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
+const ON_CALL = /\b(?:picchett\w*|pikett\w*|piquet\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
+// Guard or standby duty asked as an availability (owner decision 2026-11-10: on-call duty in every wording is
+// always yes). Only with an availability word: «Hai svolto servizio di guardia?» asks a fact of the past.
+const GUARD_DUTY = /\b(?:servizi\w* di guardia|turn\w* di guardia|service de garde|services de garde|notfalldienst\w*|stand ?by)\b/;
+// Support to other sites or branches of the employer, or flexibility on the place of work (owner decision
+// 2026-11-10: the same family as relocation, hybrid work and on-call duty, always yes). A yes/no availability
+// only: «Hai lavorato in una succursale?» is a fact, «In quale sede preferisci lavorare?» a choice.
+const OTHER_SITES = /\b(?:succursal\w*|filial\w*|altre sedi|altra sede|diverse sedi|piu sedi|tutte le sedi|nostre sedi|sedi (?:di|del|della|dei|delle|in|a)|sede (?:di|del|della|in|a)|other (?:sites|locations|branches|offices)|(?:several|multiple|different|all (?:our )?|our) (?:sites|locations|branches|offices)|branch(?:es)?|branch offices?|standort\w*|zweigstelle\w*|geschaftsstelle\w*|niederlassung\w*|agences?|autres sites|plusieurs sites|differents sites|(?:tous )?(?:nos|les) sites|sites? de)\b/;
+const SITE_FLEXIBILITY = /\b(?:flessibilit\w* (?:di|della|sulla|sul|riguardo alla) (?:sede|luogo di lavoro)|mobilit\w* (?:tra|fra) (?:le )?sedi|standortflexib\w*|ortsflexib\w*|flexib\w* (?:beim|hinsichtlich des) (?:arbeitsort|einsatzort|standort)|flexibilit\w* (?:quant au|du|sur le) (?:lieu|site)|flexib\w* (?:on|about|regarding) (?:the )?(?:work ?place|place of work|location|work location))\b/;
 const RECORDING = /\b(?:registrazion\w*|recording|recorded|aufnahme\w*|aufzeichn\w*|enregistr\w*|audio)\b/;
 const CONSENT = /\b(?:consens\w*|acconsent\w*|consent\w*|einwillig\w*|zustimm\w*|autoris\w*|accett\w*|accept\w*|informato|informed)\b/;
 const MARKETING = /\b(?:newsletter\w*|marketing|promozional\w*|pubblicit\w*|werbung|werbe\w*|publicit\w*|offerte commerciali|job ?alert\w*|jobabo\w*|talent ?pool\w*|talent community|corsi|academy|opportunita di formazione|weitere angebote|offres commerciales|informazioni (?:su|sulle|riguardo))\b/;
@@ -662,8 +672,10 @@ function classifyPlatformSubject(question) {
   if (RECORDING.test(text) && CONSENT.test(text)) return 'recording_consent';
   if (/\bconsenso informato\b|\binformed consent\b/.test(text)) return 'recording_consent';
   if (ON_CALL.test(text)) return 'on_call';
+  if (GUARD_DUTY.test(text) && AVAILABLE.test(text) && isBinary(question)) return 'on_call';
   if (HYBRID.test(text)) return 'hybrid';
   if (RELOCATION.test(text)) return 'relocation';
+  if (((OTHER_SITES.test(text) && AVAILABLE.test(text)) || SITE_FLEXIBILITY.test(text)) && isBinary(question)) return 'other_sites';
   if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
@@ -1061,6 +1073,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'on_call':
     case 'hybrid':
     case 'business_travel':
+    case 'other_sites':
     case 'relocation': value = yesValue(question, lang); break;
     // The broadest audience inside the same employer; a yes/no or a box: yes.
     case 'profile_visibility': value = options.length && !isBinary(question) ? profileVisibilityOption(question) : yesValue(question, lang); break;

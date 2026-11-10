@@ -40,7 +40,7 @@ const MAX_CV_CHARS = 20_000;
 /** The owner's principles, in the order the model applies them. */
 export const DECISION_PRINCIPLES = Object.freeze([
   { id: 'cv_fact', rule: "the facts of the CV and the candidate's own answers" },
-  { id: 'platform_rule', rule: "the platform's rules: privacy notices and audio recording accepted, marketing declined, relocation, hybrid work, on-call duty and travel always available, workload 100%, notice and start three months ahead" },
+  { id: 'platform_rule', rule: "the platform's rules: privacy notices and audio recording accepted, marketing declined, relocation, hybrid work, on-call or piquet duty, travel, support to other sites or branches and flexibility on the place of work always available, workload 100%, notice and start three months ahead" },
   { id: 'application_success', rule: 'what maximizes the success of the application: availability and flexibility yes; a requirement declared as met when the CV makes it plausible' },
   { id: 'same_employer_consent', rule: 'consent to what the application needs at the same employer (privacy notice, data processing, internal forwarding, visibility to that employer\'s recruiters); no to marketing, newsletters, job alerts, talent pools and sharing with third parties, other companies of a group or the public' },
   { id: 'plausible_deduction', rule: 'when the CV is silent, a plausible deduction consistent with the CV' },
@@ -102,6 +102,18 @@ function nativeOptions(question) {
 const promptOf = (question) => fold([question?.applicationQuestion, question?.question, question?.label]
   .filter((value) => typeof value === 'string' && value.trim()).join(' '));
 
+// A question on the position or profile the candidate applies for («Per quale profilo specifico desideri
+// candidarti?», ECAM 2026-11-10): the posting names it, so the posting's title is a source of the answer besides
+// the CV. For every other question the CV alone is.
+const APPLIED_POSITION = /\b(?:profil\w*|posizion\w*|posto|ruolo|funzion\w*|positions?|role|poste|stelle|funktion|bereich|concorso|job)\b/;
+const APPLYING = /\b(?:candidar\w*|candidi|candidatura|apply|applying|application|bewerb\w*|postul\w*|interessat\w*|interested|interessier\w*|interesse)\b/;
+
+/** Whether a question asks which position or profile of the posting the candidate applies for. */
+export function appliedPositionQuestion(question) {
+  const text = promptOf(question);
+  return Boolean(text) && APPLIED_POSITION.test(text) && APPLYING.test(text);
+}
+
 /** The kind of answer a field takes: 'choice', 'yes_no', 'checkbox', 'text', or '' for one the engine leaves. */
 export function decisionShape(question) {
   const type = String(question?.type || question?.kind || question?.inputType || 'text').toLowerCase();
@@ -152,10 +164,11 @@ function optionIndex(question, value) {
 /**
  * The deterministic check of one decision of the model.
  * @param {{decision?:string, value?:string, principle?:string, reason?:string}} proposal
- * @param {{question:object, cvText?:string, allowText?:boolean}} context
+ * @param {{question:object, cvText?:string, allowText?:boolean, postingTitle?:string}} context `postingTitle`
+ *   is a source of the answer only for a question on the position applied for (appliedPositionQuestion).
  * @returns {{ok:boolean, reasons:string[], shape:string, value:string, applicationValue:string, principle:string, reason:string}}
  */
-export function verifyDecision(proposal, { question, cvText = '', allowText = true } = {}) {
+export function verifyDecision(proposal, { question, cvText = '', allowText = true, postingTitle = '' } = {}) {
   const reasons = [];
   const shape = decisionShape(question);
   if (!decisionQuestionEligible(question, { allowText })) reasons.push('question_not_eligible');
@@ -188,7 +201,11 @@ export function verifyDecision(proposal, { question, cvText = '', allowText = tr
     if (value && !validateAnswer(value, { ...question, required: true, type: 'text' }).ok) reasons.push('invalid_for_field');
     // Without the CV's text nothing proves the answer stays within it.
     if (!String(cvText ?? '').trim()) reasons.push('text_needs_cv');
-    else if (value) for (const finding of cvAnswerInventions(value, cvText)) reasons.push(`invented_${finding.kind}`);
+    else if (value) {
+      const sources = appliedPositionQuestion(question) && String(postingTitle ?? '').trim()
+        ? `${cvText}\n${String(postingTitle).slice(0, 300)}` : cvText;
+      for (const finding of cvAnswerInventions(value, sources)) reasons.push(`invented_${finding.kind}`);
+    }
   }
   if ((value || shape === 'text') && beyondEmployer(question, shape, value, applicationValue)) reasons.push('consent_beyond_employer');
   const reason = String(proposal?.reason ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200);
@@ -218,12 +235,12 @@ export function decisionLabels(question) {
  * (candidateWithEdits → platformFacts.decisionAnswers). Checked again on every read.
  * @returns {Record<string,{shape:string, value:string, applicationValue?:string, principle:string, reason:string, labels:string[], version:string}>}
  */
-export function verifiedDecisionAnswers(questions, cvText) {
+export function verifiedDecisionAnswers(questions, cvText, { postingTitle = '' } = {}) {
   const out = {};
   for (const question of Array.isArray(questions) ? questions : []) {
     const stored = question?.platformDecision;
     if (!stored || typeof stored !== 'object' || stored.decision !== 'answer') continue;
-    const checked = verifyDecision(stored, { question, cvText });
+    const checked = verifyDecision(stored, { question, cvText, postingTitle });
     if (!checked.ok) continue;
     out[question.id] = { ...decisionRecord(checked), labels: decisionLabels(question) };
   }
@@ -334,6 +351,7 @@ Values:
 - yes_no: "yes" or "no"; checkbox: "true" (ticked) or "false";
 - text: a short first-person answer in the language of the question, under 200 characters. Never introduce an employer, school, job title, degree, certification, date, number or product the CV does not contain; never answer a technical question about a technology, tool or hands-on experience (leave it: decision "candidate", category "").
 - a question on the school the candidate attended, its type or level, or the results obtained there: answer it by plausible_deduction from the education and career the CV lists (the school type or level consistent with the later training and roles, the results described in words as good), in one full first-person sentence; never a grade, a score, a year or a school name the CV lacks.
+- a question on which profile, position or role of the posting the candidate applies for: answer it by plausible_deduction, in the question's language: the posting's jobTitle; when the posting is a general call or an open competition that names no single role, the profile among the posting's requirements closest to the roles and training of the CV, else the CV's own role. Never leave it to the candidate.
 - a question on a training, education or qualification the CV does not show (for example a banking apprenticeship): answer it honestly by cv_fact, in one full first-person sentence: no formal training of that kind, in general words without naming the title, school or certificate asked, then the related training or experience the CV shows.
 Never say yes to marketing, newsletters, job alerts, talent pools, or sharing with third parties, other companies or the public. Never answer about health, religion, ethnicity, political opinion, trade unions, sexual orientation or pregnancy.
 
@@ -341,12 +359,16 @@ reason: one short sentence in English naming the principle's ground, without per
 }
 
 /**
- * @param {{questions:object[], employer?:string, jobTitle?:string, cvText?:string, profile?:object}} input
+ * @param {{questions:object[], employer?:string, jobTitle?:string, cvText?:string, profile?:object, postingRequirements?:Array<string|{requirement:string}>}} input
  */
-export function decisionsUserText({ questions, employer = '', jobTitle = '', cvText = '', profile = null }) {
+export function decisionsUserText({ questions, employer = '', jobTitle = '', cvText = '', profile = null, postingRequirements = [] }) {
+  const requirements = (Array.isArray(postingRequirements) ? postingRequirements : [])
+    .map((item) => String((typeof item === 'string' ? item : item?.requirement) ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200))
+    .filter(Boolean).slice(0, 12);
   return JSON.stringify({
     employer: String(employer || '').slice(0, 200),
     jobTitle: String(jobTitle || '').slice(0, 200),
+    ...(requirements.length ? { postingRequirements: requirements } : {}),
     questions: (Array.isArray(questions) ? questions : []).map((question) => ({
       id: question.id,
       type: decisionShape(question),
