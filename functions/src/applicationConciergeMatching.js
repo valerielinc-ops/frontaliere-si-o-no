@@ -11,6 +11,7 @@ import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSIO
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import {
+  LEGACY_UNVERIFIED_RETRACTION_REASON,
   isLegacyUnverifiedRetraction,
   legacyProposalRecoveryRetryFields,
   legacyProposalRecoveryTerminalFields,
@@ -48,6 +49,15 @@ const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS;
 const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
+/**
+ * An open proposal the matcher can no longer make acceptable on its own (its
+ * listing left the ranked work, its relevance fell below the gate, or its
+ * eligibility retries are exhausted) keeps one of the few open slots forever:
+ * the candidate cannot accept it and no new proposal can be published. After
+ * this grace it is retracted as uncertain (never as a proven mismatch), and the
+ * bounded legacy recovery re-proposes it if a later check passes.
+ */
+export const PROPOSAL_STALL_GRACE_MS = 24 * 60 * 60_000;
 const LETTER_PREFERENCE_STOP_WORDS = new Set([
   'interested', 'interest', 'interesse', 'interessata', 'interessato', 'motivated', 'motivation', 'motivazione',
   'company', 'azienda', 'entreprise', 'unternehmen', 'position', 'posizione', 'stelle', 'role', 'ruolo', 'job',
@@ -940,6 +950,27 @@ async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
   });
 }
 
+/**
+ * Whether an open, non-acceptable proposal is stalled, and whether its grace
+ * has elapsed. Transient states (a scheduled retry, a backoff, a deferred
+ * analysis) are not stalls: the retry queue still owns them.
+ */
+export function proposalStall({ data = {}, result = {}, ranked = true, belowThreshold = false, nowMs = Date.now() } = {}) {
+  const reason = !ranked ? 'listing_not_ranked'
+    : belowThreshold ? 'match_below_threshold'
+      : result?.retryExhausted === true ? 'eligibility_retry_exhausted'
+        : '';
+  if (!reason) {
+    return { release: false, releaseAt: 0,
+      fields: data.eligibilityStalledAt != null ? { eligibilityStalledAt: null, eligibilityStallReason: null } : {} };
+  }
+  const since = timestampMillis(data.eligibilityStalledAt);
+  if (!since) return { release: false, releaseAt: nowMs + PROPOSAL_STALL_GRACE_MS,
+    fields: { eligibilityStalledAt: Timestamp.now(), eligibilityStallReason: reason } };
+  const releaseAt = since + PROPOSAL_STALL_GRACE_MS;
+  return { release: nowMs >= releaseAt, releaseAt, fields: { eligibilityStallReason: reason } };
+}
+
 /** A bounded, durable frontier replaces the static top-40 window. */
 export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '', retryUrls = new Set(), recoveryUrls = [], deferredRecoveryUrls = new Set(), heldRetryUrls = retryUrls) {
   const priority = candidates.filter(candidate => proposedUrls.has(candidate.url)).slice(0, MAX_PROPOSALS_PER_RUN);
@@ -1327,7 +1358,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         let result;
         let shouldRecordRetry = true;
         if (!retryInputsChanged && retry?.retryState === 'exhausted') {
-          result = { status: 'unverified', reason: retry.lastReason || 'unknown', fingerprint: retry.fingerprint || null };
+          result = { status: 'unverified', reason: retry.lastReason || 'unknown', fingerprint: retry.fingerprint || null, retryExhausted: true };
           shouldRecordRetry = false;
         } else if (!retryInputsChanged && Number(retry?.retryAt) > Date.now()) {
           result = { status: 'unverified', reason: 'retry_backoff' };
@@ -1405,6 +1436,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     });
     let refreshedProposals = 0;
     let retractedProposals = 0;
+    let stallReleaseAt = 0;
     const recoveryOutcomes = new Map();
     for (const doc of existing) {
       const data = doc.data() || {};
@@ -1429,6 +1461,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           proposalRef,
           {
             ...eligibilityFields(result),
+            ...(data.eligibilityStalledAt != null ? { eligibilityStalledAt: null, eligibilityStallReason: null } : {}),
             matchScore: rescored.score,
             matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
@@ -1473,7 +1506,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           const retainedResult = belowThreshold && (result.status === 'compatible' || result.status === 'incompatible')
             ? { ...result, status: 'unverified', reason: 'match_below_threshold' }
             : result;
-          await updateExistingProposal(
+          const stall = proposalStall({ data, result, ranked: relevantUrls.has(data.jobUrl), belowThreshold, nowMs: Date.now() });
+          const changed = await updateExistingProposal(
             db,
             serviceRef,
             proposalRef,
@@ -1486,12 +1520,26 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
                 matchReasons: rescored.reasons,
                 rankingFeatures: rankingFeaturesForJob(job),
               } : {}),
+              ...stall.fields,
+              ...(stall.release ? {
+                eligibilityStatus: 'unverified',
+                retractionReason: LEGACY_UNVERIFIED_RETRACTION_REASON,
+                // A row recovered before starts a fresh bounded recovery.
+                legacyRecoveryStatus: 'pending',
+                legacyRecoveryContext: null,
+                legacyRecoveryAttempts: 0,
+                legacyRecoveryNextAt: null,
+              } : {}),
               updatedAt: FieldValue.serverTimestamp(),
             },
             'proposed',
-            null,
+            stall.release ? 'retracted' : null,
             fallbackOpenCount,
           );
+          if (changed && stall.release) retractedProposals += 1;
+          if (!stall.release && stall.releaseAt) {
+            stallReleaseAt = stallReleaseAt ? Math.min(stallReleaseAt, stall.releaseAt) : stall.releaseAt;
+          }
         }
       }
     }
@@ -1643,6 +1691,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       matchingLegacyRecoveryContext: eligibilityRecoveryContext,
       matchingLegacyRecoveryPendingCount: legacyRecoverySummary.count,
       matchingLegacyRecoveryRetryAt: legacyRecoverySummary.retryAt,
+      matchingStallReleaseAt: stallReleaseAt || null,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
       matchingJobCount: createdProposals + refreshedProposals,
       matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,

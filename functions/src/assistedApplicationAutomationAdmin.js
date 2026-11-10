@@ -23,6 +23,7 @@ import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.
 import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { answerConfirmationSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { platformAnswerProvenance, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
@@ -151,6 +152,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       summaryIt: item.summaryIt || '',
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
+      forwardedReason: item.forwarded?.reason || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup && !orderSnapshot.data()?.candidateAlias?.address) return null;
   // One signature per key and load: the CV that left is usually the tailored CV signed here already.
@@ -169,6 +171,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const reviewFlow = { ...flow, answers: orderAnswerContext.answers, questionAnswers: orderAnswerContext.orderAnswers };
   const candidateState = draft ? candidateWithEdits({ order, draft, flow: reviewFlow, locale: communicationLocale }) : { profile: {}, answers: {} };
   const visibleQuestions = draft ? questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, orderAnswerContext.orderAnswers, draft) : [];
+  // What the platform answers (a rule, the CV, the decision engine: owner directive 2026-11-10), as the review page
+  // proposes it to the candidate: shown next to the owner's field, never saved as the owner's answer.
+  const { defaults: platformDefaults } = draft
+    ? withOperationalQuestionAnswers(visibleQuestions, candidateState.answers, { locale: communicationLocale, facts: candidateState.platformFacts })
+    : { defaults: {} };
+  const platformAnswers = Object.fromEntries(Object.entries(platformDefaults)
+    .map(([id, answer]) => [id, { value: String(answer.value ?? ''), provenance: platformAnswerProvenance(answer), ...(answer.principle ? { principle: answer.principle } : {}) }]));
   return {
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
@@ -184,6 +193,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: candidateState.answers,
+      platformAnswers,
       requestedDocumentsOverride: flow.requestedDocumentsOverride === true,
       requestedDocuments: flow.requestedDocumentsOverride === true ? requiredDocumentsFor(draft, flow) : [],
       postalSubmission: flow.postalSubmission || null,

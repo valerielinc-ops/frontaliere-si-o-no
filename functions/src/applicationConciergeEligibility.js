@@ -86,22 +86,31 @@ function eligibilityEvidenceText(metadata, postingText, { includeLabels = false 
   return [...metadataValues, String(postingText || '')].filter(Boolean).join('\n\n');
 }
 
+/** A provider answer as a JSON object, or null when it is not one (fences around it are allowed). */
+export function eligibilityJsonObject(text) {
+  const body = String(text || '').replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
+  let result;
+  try { result = JSON.parse(body); } catch { return null; }
+  return result && typeof result === 'object' && !Array.isArray(result) ? result : null;
+}
+
 async function generateJson(systemPrompt, userPrompt, schema, options = {}) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
     userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3,
     // The final Codex rung is separately time-bounded and uses server-side Remote Config auth.
-    allowCodexFallback: true, ...options });
+    allowCodexFallback: true,
+    // At temperature 0 a provider repeats its malformed answer on every retry;
+    // a non-JSON answer moves on to the next provider instead of ending the check.
+    acceptText: text => eligibilityJsonObject(text) !== null,
+    ...options });
   options.signal?.throwIfAborted();
   if (!response.body?.ok) {
-    const error = new Error('eligibility_provider_unavailable');
+    const error = new Error(response.body?.invalidOutput ? 'eligibility_invalid_json' : 'eligibility_provider_unavailable');
     if (Array.isArray(response.body?.providerFailures)) error.providerFailures = response.body.providerFailures;
     throw error;
   }
-  const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
-  let result;
-  try { result = JSON.parse(text); }
-  catch { throw new Error('eligibility_invalid_json'); }
-  if (!result || typeof result !== 'object' || Array.isArray(result)) throw new Error('eligibility_invalid_json');
+  const result = eligibilityJsonObject(response.body.text);
+  if (!result) throw new Error('eligibility_invalid_json');
   return result;
 }
 

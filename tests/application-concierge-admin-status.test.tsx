@@ -78,6 +78,13 @@ describe('concierge admin proposal decision and application progress', () => {
     expect(row.queryByText('Candidatura:')).not.toBeInTheDocument();
   });
 
+  it('names a proposal still under the platform re-check as waiting on the platform, not on the candidate', async () => {
+    const row = await renderProposal({ status: 'proposed', eligibilityStatus: 'needs_verification', childApplicationId: null });
+    expect(row.getByText('In verifica dalla piattaforma').closest('div')).toHaveTextContent('Decisione proposta: In verifica dalla piattaforma');
+    expect(row.queryByText('In attesa del candidato')).not.toBeInTheDocument();
+    expect(row.getByText('Da verificare di nuovo')).toBeInTheDocument();
+  });
+
   it('distinguishes a withdrawn application from a declined proposal using the persisted decision', async () => {
     const row = await renderProposal({ status: 'declined', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' });
     expect(row.getByText('Ritirata').closest('div')).toHaveTextContent('Candidatura: Ritirata');

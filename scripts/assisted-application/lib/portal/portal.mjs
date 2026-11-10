@@ -233,6 +233,30 @@ export function ownEarlierFileShown(buttons, names) {
   });
 }
 
+/**
+ * The CV is on this application although this run did not upload it: the run kept, on this very page, the CV an
+ * earlier run of the order put in the application's own document slot (keptEarlier), and a file control of the
+ * page still carries this run's CV file name (SuccessFactors «My Documents»: «* Curriculum Vitae Edit document
+ * CV_….pdf Opens a dialog», Damiani rg82P9MP 2026-11-10). The stage guard reads it as the uploaded CV
+ * (`uploadedCv`): without it a complete form whose CV came from the earlier run, and with no job question, was
+ * «unknown_apply» and handed off before its final Apply. A name in the page chrome, another file, or a CV kept on
+ * another page proves nothing.
+ */
+export function earlierCvHeld(buttons, cvNames, keptHere) {
+  const names = (cvNames || []).filter(Boolean).map(String);
+  if (!keptHere || !names.length) return false;
+  // The file name must sit in the CV's own slot: the control's caption, without the file name, names the CV and
+  // not the cover letter (a letter kept under the same file name is no CV).
+  return (buttons || []).some((button) => {
+    if (button.chrome) return false;
+    const text = String(button.text || '');
+    const name = names.find((item) => text.includes(item));
+    if (!name) return false;
+    const caption = text.split(name).join(' ');
+    return CV_DOCUMENT_CONTEXT_RE.test(caption) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  });
+}
+
 export function removalsOf(buttons, names) {
   return (buttons || []).filter((button) => {
     if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
@@ -7902,6 +7926,9 @@ export async function submitViaPortal(ctx) {
   // the upload. Keep that proof bound to the page URL so the stage guard can
   // still prove the same form owns the final Apply button.
   const uploadedCvUrls = new Set();
+  // Pages where the run kept the CV an earlier run of the order left in the application's document slot.
+  const keptCvUrls = new Set();
+  const cvFileNames = documentPaths(ctx.files, 'cv').map((file) => path.basename(file));
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
     // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
@@ -7953,7 +7980,9 @@ export async function submitViaPortal(ctx) {
     return knowledge.get(host);
   };
   const controlsFor = async (current, known) => {
-    const snapshot = { ...current, text: await pageText(page), uploadedCv: uploadedCvUrls.has(page.url()) };
+    const uploadedCv = uploadedCvUrls.has(page.url())
+      || earlierCvHeld(current.buttons, cvFileNames, keptCvUrls.has(page.url()));
+    const snapshot = { ...current, text: await pageText(page), uploadedCv };
     const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
@@ -8767,6 +8796,7 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
+      if (keptEarlier.includes('cv')) keptCvUrls.add(page.url());
 
       let after = snapshot;
       let unclearQuestions = [];

@@ -41,12 +41,12 @@ export function decisionAnswerable(question, { answers = {}, facts = null, allow
   return !(facts && operationalDefaultAnswer(question, { facts }));
 }
 
-async function decide({ questions, codex, cvText = '', profile = null, employer = '', jobTitle = '', allowText, log }) {
+async function decide({ questions, codex, cvText = '', profile = null, employer = '', jobTitle = '', postingRequirements = [], allowText, log }) {
   const schema = structuredClone(DECISIONS_SCHEMA);
   schema.properties.decisions.items.properties.id.enum = questions.map((question) => question.id);
   try {
     const raw = await codex({
-      prompt: codexPrompt(decisionsSystemPrompt(), decisionsUserText({ questions, employer, jobTitle, cvText, profile })),
+      prompt: codexPrompt(decisionsSystemPrompt(), decisionsUserText({ questions, employer, jobTitle, cvText, profile, postingRequirements })),
       schema,
       timeoutMs: DECISIONS_TIMEOUT_MS,
     });
@@ -55,7 +55,7 @@ async function decide({ questions, codex, cvText = '', profile = null, employer 
     return questions.map((question) => {
       const proposal = proposals.find((item) => item?.id === question.id);
       if (!proposal) return { question, checked: null, reasons: ['not_decided'] };
-      const checked = verifyDecision(proposal, { question, cvText, allowText });
+      const checked = verifyDecision(proposal, { question, cvText, allowText, postingTitle: jobTitle, postingRequirements });
       return { question, checked, reasons: checked.reasons };
     });
   } catch (error) {
@@ -74,13 +74,13 @@ const report = (results) => results.map(({ question, checked, reasons }) => ({
  * reconcile-review-questions.mjs, asks only what still holds the review).
  * @returns {Promise<{questions:Array, asked:string[], kept:string[], decisions:Array}>}
  */
-export async function draftDecisionAnswers({ questions, answers = {}, facts = null, cvText, codex, employer = '', jobTitle = '', log = () => {}, onlyIds = null }) {
+export async function draftDecisionAnswers({ questions, answers = {}, facts = null, cvText, codex, employer = '', jobTitle = '', postingRequirements = [], log = () => {}, onlyIds = null }) {
   const all = Array.isArray(questions) ? questions : [];
   const none = { questions: all, asked: [], kept: [], decisions: [] };
   const answerable = all.filter((question) => decisionAnswerable(question, { answers, facts })
     && (!onlyIds || onlyIds.includes(question.id)));
   if (!answerable.length || !String(cvText || '').trim() || typeof codex !== 'function') return none;
-  const results = await decide({ questions: answerable, codex, cvText, employer, jobTitle, allowText: true, log });
+  const results = await decide({ questions: answerable, codex, cvText, employer, jobTitle, postingRequirements, allowText: true, log });
   if (!results) return none;
   const kept = new Map(results.filter((item) => item.checked?.ok).map((item) => [item.question.id, decisionRecord(item.checked)]));
   const asked = new Set(answerable.map((question) => question.id));

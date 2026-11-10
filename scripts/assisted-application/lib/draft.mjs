@@ -37,6 +37,8 @@ import { candidateWithEdits } from '../../../functions/src/assistedApplicationCa
 import { draftCvAnswers } from './cv-answers.mjs';
 import { draftDecisionAnswers } from './decision-answers.mjs';
 import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
+import { verifiedDecisionAnswers } from '../../../functions/src/assistedApplicationDecisionAnswers.js';
+import { withPlatformSuggestions } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -471,6 +473,7 @@ export async function buildDraft(ctx) {
   // categories of CANDIDATE_ONLY_CATEGORIES stay with the candidate.
   ({ questions } = await draftDecisionAnswers({
     questions, answers, cvText, codex, log, employer: order.companyName || '', jobTitle: title,
+    postingRequirements: requirements.requirements,
     facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText) },
   }));
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
@@ -478,6 +481,18 @@ export async function buildDraft(ctx) {
   // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.
   const salutation = salutationQuestion({ channel, questions, answers, locale, corrected: Object.hasOwn(edited.overrides, 'salutation') });
   if (salutation) questions.push(salutation);
+  // Every answer the platform gives (a rule, a decision of the engine) is mirrored on its question in the
+  // field's shape (`suggestedAnswer`, `answerOrigin`): the draft shows what the candidate is proposed. The
+  // review page and the runner keep projecting it live.
+  questions = withPlatformSuggestions(questions, {
+    locale,
+    answers,
+    facts: {
+      ...edited.platformFacts,
+      cvAnswers: verifiedCvAnswers(questions, cvText),
+      decisionAnswers: verifiedDecisionAnswers(questions, cvText, { postingTitle: title, postingRequirements: requirements.requirements }),
+    },
+  });
 
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
   const rendererMode = await pdfRendererMode();

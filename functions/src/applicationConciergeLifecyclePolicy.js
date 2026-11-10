@@ -85,6 +85,10 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   // their writers. The document trigger records this marker and the 15-minute
   // lifecycle sweep coalesces the resulting full scan with any nearby event.
   if (timestampMillis(service.matchingEventRefreshRequestedAt) > 0) return true;
+  // An open proposal stalled past its grace is released by the next run, so a
+  // full open-slot quota cannot wait for the 3-day refresh.
+  const stallReleaseAt = timestampMillis(service.matchingStallReleaseAt);
+  if (service.matchingStatus === 'complete' && stallReleaseAt > 0 && nowMs >= stallReleaseAt) return true;
   // Failed and crashed matcher runs share one bounded recovery budget.
   if (service.matchingStatus === 'failed' && staleRecoveryState(service).attempts > 0
     && !staleRecoveryDue(service, nowMs)) return false;
