@@ -10,6 +10,7 @@ import { join, resolve } from 'node:path';
 // retain their locale-dist artifacts on the same publisher run.
 
 const SCRIPT = resolve('scripts/ci/resolve-replay-shard-runs.sh');
+const LOCAL_REVALIDATE = readFileSync(resolve('scripts/ci/revalidate-dist-locally.sh'), 'utf8');
 const roots: string[] = [];
 afterEach(() => { while (roots.length) rmSync(roots.pop()!, { recursive: true, force: true }); });
 
@@ -98,5 +99,15 @@ describe('resolve-replay-shard-runs.sh', () => {
     expect(r.status, r.out).toBe(0);
     expect(r.out).toContain('::warning::allow_mixed_shards=true');
     expect(r.env).toBe('');
+  });
+});
+
+describe('local dist revalidation artifact handoff', () => {
+  it('resolves the publisher artifacts from the source build and rehydrates with per-locale run ids', () => {
+    expect(LOCAL_REVALIDATE).toContain('scripts/ci/resolve-replay-shard-runs.sh');
+    expect(LOCAL_REVALIDATE).toContain('GITHUB_ENV="$ARTIFACT_RUNS_ENV"');
+    expect(LOCAL_REVALIDATE).toContain('gh run download "$IT_ARTIFACT_RUN_ID"');
+    expect(LOCAL_REVALIDATE).toContain('export SHARD_ARTIFACT_RUN_ID_IT SHARD_ARTIFACT_RUN_ID_EN SHARD_ARTIFACT_RUN_ID_DE SHARD_ARTIFACT_RUN_ID_FR');
+    expect(LOCAL_REVALIDATE).not.toMatch(/gh run download "\$RUN_ID"[^\n]*--name github-pages/);
   });
 });
