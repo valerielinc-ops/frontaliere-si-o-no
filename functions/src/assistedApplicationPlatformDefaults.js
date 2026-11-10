@@ -5,7 +5,9 @@
  * 178 questions on 34 paid orders) are now answered by the platform instead:
  *
  *   - postal code, country of residence: deduced from the town in the CV
- *     (public GeoNames directory, data/platform-postal-codes.json);
+ *     (public GeoNames directory, data/platform-postal-codes.json); without a
+ *     town nor a country stated by the CV or the order, the country of residence
+ *     comes from the upload answers (uploadResidenceCountry, owner 2026-11-10);
  *   - street and house number, when a form requires them and the CV has none:
  *     one of a fixed list of common Italian street names and a number 1-101,
  *     chosen deterministically from the candidate so every run sends the same;
@@ -230,7 +232,8 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const directory = town ? platformPostalCode(town, { region, country: statedCountry }) : null;
   const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
     : fromCity.statedPostal || fromLocation.statedPostal;
-  const country = statedCountry || directory?.country || '';
+  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
+  const country = statedCountry || directory?.country || uploadResidenceCountry(uploaded);
   const postalCode = statedPostal || directory?.code || '';
   const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
   const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
@@ -247,7 +250,6 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const languages = (Array.isArray(profile?.languages) ? profile.languages : [])
     .map((entry) => ({ code: languageCodesIn(entry?.language || '')[0] || '', level: clean(entry?.level, 80) }))
     .filter((entry) => entry.code);
-  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
@@ -288,6 +290,18 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     nationality,
     passport,
   };
+}
+
+/**
+ * The country of residence the upload answers say, for a CV that names no town and no country (owner
+ * decision 2026-11-10): a Swiss residence permit (B, C, L) lives in Switzerland; any other answer (Swiss
+ * citizen, cross-border G, none) the country of the declared nationality. '' when the platform cannot name
+ * that country on a form (COUNTRY_NAMES): the field then stays the candidate's question.
+ */
+export function uploadResidenceCountry(uploaded = {}) {
+  if (['permit_b', 'permit_c', 'permit_l'].includes(uploaded?.workPermit)) return 'CH';
+  const code = nationalityOf(uploaded?.nationality)?.code || countryCodeOf(uploaded?.nationality);
+  return COUNTRY_NAMES[code] ? code : '';
 }
 
 /** The upload-time answers (order.candidateFacts, owner decision 2026-11-09). */
