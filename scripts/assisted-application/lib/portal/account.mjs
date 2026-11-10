@@ -40,8 +40,9 @@ export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion
 const SIGN_IN_NAVIGATION_RE = /(?:^|[^\p{L}\p{N}])(?:sign[\s-]*in|log[\s-]*in|anmelden|einloggen|accedi|connexion|se\s+connecter|connectez[-\s]vous)(?=$|[^\p{L}\p{N}])/iu;
 const ACCOUNT_CREATION_ACTION_RE = new RegExp(String.raw`(?:\b(?:create|new)\s+(?:an?\s+)?(?:account|profile)\b|\b(?:${GERMAN_ACCOUNT_CREATION_RE})|\b(?:register|sign\s*up)\b|\bregistrier\w*\b|\bregistrati(?:\s+qui)?\b|\bcrea(?:re)?\s+(?:un\s+)?(?:account|profilo)\b|\bcr[ée]er\s+(?:un\s+)?(?:compte|profil)\b|\bcr[ée]ez[-\s]+en\s+un\b|\bs['’]inscrire\b)`, 'iu');
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
-export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
-const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|kennwort|code))/i;
+// SBB's SuccessFactors tenant (career5, 2026-11-10) says «Einmalkennwort» and labels its field «*Passcode:».
+const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|kennwort|code)|mot de passe [àa] usage unique/i;
 // The code of an address, a phone, a discount or a file is no verification code: «Postal Code», «Country Phone
 // Code», «postalCode», «Code postal», «Codice fiscale». Workday's first page of the form was taken for a
 // verification page by its postal code, and the run waited ten minutes for an e-mail nobody sends (dry run
@@ -50,10 +51,11 @@ const OTHER_CODE_RE = /(?:postal|post|zip|plz|area|dial(?:l?ing)?|country|l[aä]
 const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
 // The federal SuccessFactors tenant (career74, 2026-11-10) masks its OTP input:
 // `type=password` behind an «Anzeigen» toggle, labelled only «*Code:», with no
-// e-mail or user field on the page. Such a bare word is the e-mailed code; next
-// to a login identity it stays that form's secret, and «Zugangscode» or
-// «Kennwort» remain passwords.
-const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice)[\s*:]*$/i;
+// e-mail or user field on the page; SBB's (career5, same day) labels the same
+// input «*Passcode:». Such a bare word is the e-mailed code; next to a login
+// identity it stays that form's secret, and «Zugangscode» or «Kennwort» remain
+// passwords.
+const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice|pass[\s-]?code)[\s*:]*$/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
@@ -100,7 +102,7 @@ export function hasExistingAccountPrompt(snapshot = {}) {
 }
 
 const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;
-const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|code)|\b(?:verification|confirmation) code\b/i;
+const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|kennwort|code)|\b(?:verification|confirmation) code\b/i;
 
 /** A response that asks to verify the account, not merely to complete an OTP/MFA challenge. */
 export function isAccountVerificationResponse(snapshot = {}) {
