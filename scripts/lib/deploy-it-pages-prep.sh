@@ -283,7 +283,7 @@ _publish_cdn_r2() {
     fi
   }
   _r2_image_namespace_lease_exit_cleanup() {
-    local exit_status=$?
+    local exit_status="${1:-$?}"
     trap '' EXIT INT TERM
     if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
       _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
@@ -302,7 +302,10 @@ _publish_cdn_r2() {
     if ! _r2_image_lease_stop_timeout; then
       _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
     fi
-    exit "$exit_status"
+    # Run cleanup while _r2_with_image_namespace_leases' locals are still in
+    # scope. Letting `exit` invoke the EXIT trap after this function unwinds
+    # loses the owned lease context under `set -u` and can skip its release.
+    _r2_image_namespace_lease_exit_cleanup "$exit_status"
   }
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
@@ -325,6 +328,22 @@ _publish_cdn_r2() {
       copy_args+=("${copy_flags[@]}")
     fi
     copy_args+=(--header-upload "Cache-Control: $4" "${stats_flags[@]}")
+    _r2_sync_logged_copy() { # <limit-s> <attempt-log> <rclone-copy-args...>
+      local limit="$1" attempt_log="$2"
+      shift 2
+      if timeout -k 15 "$limit" "${RC[@]}" "$@" -v --use-json-log 2>&1 \
+        | tee "$attempt_log" \
+        | while IFS= read -r log_line; do
+          case "$log_line" in
+            *'"msg":"Transferred:'*) printf '[rclone-progress] %s\n' "$log_line" ;;
+            *'"level":"error"'*) printf '[rclone-error] %s\n' "$log_line" ;;
+          esac
+        done; then
+        return 0
+      else
+        return $?
+      fi
+    }
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
     # Keep each attempt's upload log separately and append it to the aggregate:
@@ -341,13 +360,7 @@ _publish_cdn_r2() {
         # Rclone's JSON log is retained for the assets purge ledger. Tee it as
         # it is written and print only periodic stats/errors, so a long copy is
         # observable without buffering every object log until completion.
-        if timeout -k 15 "$1" "${RC[@]}" "${copy_args[@]}" \
-          -v --use-json-log 2>&1 | tee "$attempt_log" | while IFS= read -r log_line; do
-            case "$log_line" in
-              *'"msg":"Transferred:'*) printf '[rclone-progress] %s\n' "$log_line" ;;
-              *'"level":"error"'*) printf '[rclone-error] %s\n' "$log_line" ;;
-            esac
-          done; then
+        if _r2_image_lease_wait_timeout _r2_sync_logged_copy "$1" "$attempt_log" "${copy_args[@]}"; then
           sync_status=0
         else
           sync_status=$?
@@ -400,7 +413,7 @@ _publish_cdn_r2() {
       batch_file="$batch_dir/batch-$(printf '%05d' "$batch_index").txt"
       printf '%s\n' "$@" > "$batch_file"
       echo "[r2-og] batch ${batch_index}/$(((total_files + batch_size - 1) / batch_size)) start ($count files)"
-      if timeout -k 15 "$limit" "${RC[@]}" copy "$source_dir" "$bkt/og" \
+      if _r2_image_lease_wait_timeout timeout -k 15 "$limit" "${RC[@]}" copy "$source_dir" "$bkt/og" \
         --files-from-raw "$batch_file" --no-traverse \
         --header-upload 'Cache-Control: public,max-age=86400' \
         --stats=60s --stats-one-line --stats-log-level=NOTICE; then

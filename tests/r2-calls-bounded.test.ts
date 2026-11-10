@@ -204,9 +204,39 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
   it('large R2 copies emit one-line stats at least every minute, including copies with purge logs', () => {
     const source = read('scripts/lib/deploy-it-pages-prep.sh');
     expect(source).toContain('local -a stats_flags=(--stats=60s --stats-one-line --stats-log-level=NOTICE)');
-    expect(source).toMatch(/2>&1 \| tee "\$attempt_log" \| while IFS= read -r log_line/);
+    expect(source).toMatch(/2>&1 \\\n\s*\| tee "\$attempt_log" \\\n\s*\| while IFS= read -r log_line/);
     expect(source).toContain('[rclone-progress]');
     expect(source).not.toMatch(/--stats=0(?:\s|$)/);
+  });
+
+  it('early OG batches and logged copies stay inside the image-lease timeout wrapper', () => {
+    const source = read('scripts/lib/deploy-it-pages-prep.sh');
+    expect(source).toContain(
+      '_r2_image_lease_wait_timeout _r2_sync_logged_copy "$1" "$attempt_log" "${copy_args[@]}"',
+    );
+    expect(source).toContain(
+      '_r2_image_lease_wait_timeout timeout -k 15 "$limit" "${RC[@]}" copy "$source_dir" "$bkt/og"',
+    );
+
+    const loggedCopyStart = source.indexOf('_r2_sync_logged_copy()');
+    const loggedCopy = source.slice(
+      loggedCopyStart,
+      source.indexOf('    # `copy` is additive', loggedCopyStart),
+    );
+    expect(loggedCopy).toMatch(/timeout -k 15 "\$limit" "\$\{RC\[@\]\}"/);
+    const loggedCallsite = source.slice(
+      source.indexOf('    if [ -n "${5:-}" ]'),
+      source.indexOf('      else\n        sync_status=$?', source.indexOf('    if [ -n "${5:-}" ]')),
+    );
+    expect(loggedCallsite).toContain('if _r2_image_lease_wait_timeout _r2_sync_logged_copy');
+    expect(loggedCallsite).not.toMatch(/if timeout -k 15/);
+
+    const ogBatch = source.slice(
+      source.indexOf('    _r2_sync_og_batch()'),
+      source.indexOf('    while IFS= read -r relative_path', source.indexOf('    _r2_sync_og_batch()')),
+    );
+    expect(ogBatch).toContain('_r2_image_lease_wait_timeout timeout -k 15');
+    expect(ogBatch).not.toMatch(/if timeout -k 15/);
   });
 });
 
@@ -584,9 +614,11 @@ async function runPublishInterrupted(name: string, env: Record<string, string>) 
     }
     throw new Error(`image copy did not start before the test deadline: ${stderr}`);
   };
-  const deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
+  let deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
   try {
     await waitForCopyStart();
+    clearTimeout(deadline);
+    deadline = setTimeout(() => child.kill('SIGKILL'), 5_000);
     child.kill('SIGTERM');
     const result = await exit;
     return {
