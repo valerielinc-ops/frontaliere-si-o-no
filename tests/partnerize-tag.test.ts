@@ -37,13 +37,17 @@ describe('Partnerize tag', () => {
     const constants = read('build-plugins/constants.ts');
     expect(constants).toContain("export const PARTNERIZE_TAG_FILENAME = 'partnerize-tag.js';");
     expect(constants).toContain(
-      'export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;',
+      'export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`;',
     );
+    const plugin = read('build-plugins/staticScriptsPlugin.ts');
+    expect(plugin).toContain('[PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT]');
+    expect(plugin).toContain('[PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT]');
   });
 
   it('viene emesso in dist/assets da staticScriptsPlugin', () => {
     const plugin = read('build-plugins/staticScriptsPlugin.ts');
     expect(plugin).toContain('[PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT]');
+    expect(plugin).toContain('[PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT]');
   });
 
   it('e\' nel <head> di ogni emettitore di pagine', () => {

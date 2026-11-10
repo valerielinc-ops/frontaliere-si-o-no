@@ -11,6 +11,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
+  AD_RECOVERY_SNIPPET,
   ADSENSE_CLIENT_ID,
   ADSENSE_LAZY_LOADER,
   ADSENSE_LOADER_CONTENT,
@@ -63,12 +64,14 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
   it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader.js)', () => {
     expect(ADSENSE_SNIPPET).toContain(ADSENSE_LAZY_LOADER);
     // ADSENSE_LAZY_LOADER is a tiny <script src="..."> tag pointing to the
-    // externalised loader file written by staticScriptsPlugin. The filename is
-    // Privacy guards are content-addressed for new HTML; the stable alias
-    // remains emitted for older pages during cache convergence.
+    // externalised loader file written by staticScriptsPlugin. New HTML uses
+    // the short-lived stable alias; the immutable hashed copy remains available
+    // to older HTML during cache convergence.
     expect(ADSENSE_LAZY_LOADER).toMatch(
-      /<script\s+defer\s+src=["']\/assets\/adsense-loader-[a-f0-9]{12}\.js["']><\/script>/,
+      /<script\s+defer\s+src=["']\/assets\/adsense-loader\.js["']><\/script>/,
     );
+    expect(ADSENSE_SNIPPET.indexOf(AD_RECOVERY_SNIPPET)).toBeGreaterThanOrEqual(0);
+    expect(ADSENSE_SNIPPET.indexOf(AD_RECOVERY_SNIPPET)).toBeLessThan(ADSENSE_SNIPPET.indexOf(ADSENSE_LAZY_LOADER));
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');
     // Funnel-critical symmetry with the SPA AdSenseBanner idle fallback: the

@@ -3,7 +3,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  AD_RECOVERY_FILENAME,
+  AD_RECOVERY_VERSIONED_FILENAME,
   ADSENSE_LOADER_FILENAME,
+  ADSENSE_LOADER_VERSIONED_FILENAME,
   BRIDGE_CSS_FILENAME,
   BRIDGE_CSS_LINK,
   EARLY_BOOT_FILENAME,
@@ -13,6 +16,10 @@ import {
   GTAG_INIT_VERSIONED_FILENAME,
   GTAG_INIT_URL,
   GTAG_SNIPPET,
+  META_PIXEL_LOADER_FILENAME,
+  META_PIXEL_LOADER_VERSIONED_FILENAME,
+  PARTNERIZE_TAG_FILENAME,
+  PARTNERIZE_TAG_VERSIONED_FILENAME,
   POSTHOG_INIT_FILENAME,
   SEO_STATIC_CSS_FILENAME,
   SEO_STATIC_CSS_LINK,
@@ -27,9 +34,9 @@ import { SPA_ENTRY_JS_FILENAME } from '@/build-plugins/shared/spaEntryFilenames'
  * would (a) re-churn the ~1.28M prerendered pages that embed it and (b) 404
  * from HTML still cached under the previous name once the CDN janitor prunes
  * it — the two failure classes the stabilization removed. If a filename below
- * ever grows a hash again, this fails the moment the constant changes.
- * Privacy bootstraps also emit hash-bound references for new HTML, while these
- * stable aliases continue serving old pages during cache convergence.
+ * ever grows a hash again, this fails the moment the constant changes. Global
+ * scripts retain content-addressed copies for old HTML, while newly emitted
+ * pages use stable aliases with bounded cache lifetimes.
  */
 describe('stable asset filenames', () => {
   it.each([
@@ -38,8 +45,11 @@ describe('stable asset filenames', () => {
     [EARLY_BOOT_FILENAME, 'early-boot.js'],
     [FUEL_CHART_SCRIPT_FILENAME, 'fuel-chart.js'],
     [GTAG_INIT_FILENAME, 'gtag-init.js'],
+    [AD_RECOVERY_FILENAME, 'site-support.js'],
     [POSTHOG_INIT_FILENAME, 'posthog-init.js'],
     [ADSENSE_LOADER_FILENAME, 'adsense-loader.js'],
+    [PARTNERIZE_TAG_FILENAME, 'partnerize-tag.js'],
+    [META_PIXEL_LOADER_FILENAME, 'meta-pixel-base-code.js'],
   ])('%s is the stable name %s', (actual, expected) => {
     expect(actual).toBe(expected);
   });
@@ -49,12 +59,17 @@ describe('stable asset filenames', () => {
     expect(BRIDGE_CSS_LINK).toBe('<link rel="stylesheet" href="/assets/bridge.css">');
   });
 
-  it('content-addresses the identity-bearing gtag-init reference', () => {
+  it('keeps a content-addressed GA4 copy while HTML references the stable alias', () => {
     const expectedHash = createHash('sha256').update(GTAG_INIT_CONTENT).digest('hex').slice(0, 12);
 
     expect(GTAG_INIT_VERSIONED_FILENAME).toBe(`gtag-init-${expectedHash}.js`);
-    expect(GTAG_INIT_URL).toBe(`/assets/${GTAG_INIT_VERSIONED_FILENAME}`);
+    expect(GTAG_INIT_URL).toBe('/assets/gtag-init.js');
     expect(GTAG_SNIPPET).toContain(`<script defer src="${GTAG_INIT_URL}"></script>`);
+    expect(GTAG_SNIPPET).not.toContain(GTAG_INIT_VERSIONED_FILENAME);
+    expect(AD_RECOVERY_VERSIONED_FILENAME).toMatch(/^site-support-[a-f0-9]{12}\.js$/);
+    expect(ADSENSE_LOADER_VERSIONED_FILENAME).toMatch(/^adsense-loader-[a-f0-9]{12}\.js$/);
+    expect(PARTNERIZE_TAG_VERSIONED_FILENAME).toMatch(/^partnerize-tag-[a-f0-9]{12}\.js$/);
+    expect(META_PIXEL_LOADER_VERSIONED_FILENAME).toMatch(/^meta-pixel-base-code-[a-f0-9]{12}\.js$/);
 
     const staticScriptsSource = fs.readFileSync(
       path.join(process.cwd(), 'build-plugins', 'staticScriptsPlugin.ts'),
@@ -62,6 +77,8 @@ describe('stable asset filenames', () => {
     );
     expect(staticScriptsSource).toContain('[GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT]');
     expect(staticScriptsSource).toContain('[GTAG_INIT_FILENAME, GTAG_INIT_CONTENT]');
+    expect(staticScriptsSource).toContain('[META_PIXEL_LOADER_VERSIONED_FILENAME, META_PIXEL_LOADER_CONTENT]');
+    expect(staticScriptsSource).toContain('[META_PIXEL_LOADER_FILENAME, META_PIXEL_LOADER_CONTENT]');
   });
 
   it('the stylesheet sources exist in public/assets/ (Vite copies them verbatim to dist)', () => {

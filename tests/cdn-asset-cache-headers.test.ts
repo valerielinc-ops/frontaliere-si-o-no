@@ -51,42 +51,106 @@ function r2SyncLine(prefix: string): string {
   return line as string;
 }
 
+const GLOBAL_SHELL_ASSETS = ['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code'];
+
+function writeGlobalShellFixture(root: string): string {
+  const assets = join(root, 'dist', 'assets');
+  mkdirSync(assets, { recursive: true });
+  writeFileSync(
+    join(root, 'dist', 'index.html'),
+    GLOBAL_SHELL_ASSETS.map((name) => `<script src="/assets/${name}.js"></script>`).join(''),
+  );
+  for (const name of GLOBAL_SHELL_ASSETS) {
+    writeFileSync(join(assets, `${name}.js`), `${name} producer bytes`);
+    writeFileSync(join(assets, `${name}-aaaaaaaaaaaa.js`), `${name} producer bytes`);
+  }
+  return assets;
+}
+
+function runCdnPush(root: string): { status: number; output: string } {
+  try {
+    const output = execFileSync('bash', ['-c', `source ${PREP_SH} && step_push_cdn`], {
+      cwd: root,
+      env: {
+        PATH: process.env.PATH ?? '',
+        RUNNER_TEMP: root,
+        CDN_STAGE_DIR: join(root, 'cdn-stage'),
+        CDN_TARGET: 'pages',
+      },
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { status: 0, output };
+  } catch (error: unknown) {
+    const err = error as { status?: number; stdout?: Buffer | string; stderr?: Buffer | string };
+    return {
+      status: err.status ?? 1,
+      output: [err.stdout, err.stderr]
+        .filter((part) => part !== undefined)
+        .map((part) => part!.toString())
+        .join(''),
+    };
+  }
+}
+
 describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
-  it('fails closed unless both GA4 bootstrap paths are staged', () => {
-    expect(PREP).toContain('CDN asset stage is missing dist/assets and cannot publish the GA4 producer');
-    expect(PREP).toContain("-f \"$stage/assets/gtag-init.js\"");
-    expect(PREP).toContain("grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\\.js' dist");
-    expect(PREP).toContain('the current HTML producer $gtag_versioned_filename');
+  it('fails closed unless each stable global shell alias matches its current hashed target', () => {
+    expect(PREP).toContain('CDN asset stage is missing dist/assets and cannot publish the global shell producers');
+    for (const [stem, alias] of [
+      ['gtag-init', 'gtag-init.js'],
+      ['site-support', 'site-support.js'],
+      ['adsense-loader', 'adsense-loader.js'],
+      ['partnerize-tag', 'partnerize-tag.js'],
+      ['meta-pixel-base-code', 'meta-pixel-base-code.js'],
+    ]) {
+      expect(PREP).toContain(`_validate_stable_shell_asset_pair ${stem} ${alias}`);
+    }
+    expect(PREP).toContain('stable shell asset ${stable_filename} must match its current ${versioned_filename} target byte for byte');
+    expect(PREP).toContain('generated HTML must use stable global shell URLs');
   });
 
-  it('rejects a stale content-addressed producer even when the legacy alias is staged', () => {
+  it('rejects new HTML that still points at a content-addressed global producer', () => {
     const root = mkdtempSync(join(tmpdir(), 'cdn-gtag-contract-'));
-    const assets = join(root, 'dist', 'assets');
-    mkdirSync(assets, { recursive: true });
+    writeGlobalShellFixture(root);
     writeFileSync(
       join(root, 'dist', 'index.html'),
       '<script defer src="/assets/gtag-init-bbbbbbbbbbbb.js"></script>',
     );
-    writeFileSync(join(assets, 'gtag-init.js'), 'legacy alias');
-    writeFileSync(join(assets, 'gtag-init-aaaaaaaaaaaa.js'), 'stale producer');
     try {
-      let status: number | undefined;
-      try {
-        execFileSync('bash', ['-c', `source ${PREP_SH} && step_push_cdn`], {
-          cwd: root,
-          env: {
-            PATH: process.env.PATH ?? '',
-            RUNNER_TEMP: root,
-            CDN_STAGE_DIR: join(root, 'cdn-stage'),
-            CDN_TARGET: 'pages',
-          },
-          encoding: 'utf8',
-          stdio: ['ignore', 'pipe', 'pipe'],
-        });
-      } catch (error: unknown) {
-        status = (error as { status?: number }).status;
-      }
-      expect(status, 'the stale producer must fail step_push_cdn before publish').toBe(1);
+      const result = runCdnPush(root);
+      expect(result.status, 'the hashed HTML reference must fail before publish').toBe(1);
+      expect(result.output).toContain('generated HTML must use stable global shell URLs');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['GA4 stable alias', 'gtag-init.js', 'CDN asset stage must contain gtag-init.js and its current target'],
+    ['GA4 target', 'gtag-init-aaaaaaaaaaaa.js', 'must contain exactly one current gtag-init-'],
+    ['AdSense stable alias', 'adsense-loader.js', 'CDN asset stage must contain adsense-loader.js and its current target'],
+    ['AdSense target', 'adsense-loader-aaaaaaaaaaaa.js', 'must contain exactly one current adsense-loader-'],
+  ])('fails closed when the %s is absent', (_label, missingFile, expectedError) => {
+    const root = mkdtempSync(join(tmpdir(), 'cdn-shell-pair-contract-'));
+    try {
+      const assets = writeGlobalShellFixture(root);
+      rmSync(join(assets, missingFile));
+      const result = runCdnPush(root);
+      expect(result.status).toBe(1);
+      expect(result.output).toContain(expectedError);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the stable AdSense bytes differ from the current hashed target', () => {
+    const root = mkdtempSync(join(tmpdir(), 'cdn-adsense-pair-mismatch-'));
+    try {
+      const assets = writeGlobalShellFixture(root);
+      writeFileSync(join(assets, 'adsense-loader.js'), 'outdated alias');
+      const result = runCdnPush(root);
+      expect(result.status).toBe(1);
+      expect(result.output).toContain('stable shell asset adsense-loader.js must match its current adsense-loader-aaaaaaaaaaaa.js target byte for byte');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -94,12 +158,8 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
 
   it('fails closed when a production build has no versioned executable release', () => {
     const root = mkdtempSync(join(tmpdir(), 'cdn-versioned-release-contract-'));
-    const assets = join(root, 'dist', 'assets');
-    mkdirSync(assets, { recursive: true });
-    writeFileSync(join(root, 'dist', 'index.html'), '<script src="/assets/gtag-init-aaaaaaaaaaaa.js"></script>');
+    const assets = writeGlobalShellFixture(root);
     writeFileSync(join(assets, 'index-entry.js'), 'import "./App.js";');
-    writeFileSync(join(assets, 'gtag-init.js'), 'legacy alias');
-    writeFileSync(join(assets, 'gtag-init-aaaaaaaaaaaa.js'), 'current producer');
     try {
       let status: number | undefined;
       try {

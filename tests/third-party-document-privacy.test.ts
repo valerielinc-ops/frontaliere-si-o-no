@@ -14,9 +14,11 @@ import { ADS_CONSENT_STORAGE_KEY } from '../services/adsConsent';
 import { sanitizeTelemetryProperties } from '../services/analyticsUrlPrivacy.js';
 import { isSensitiveThirdPartyDocument } from '../services/thirdPartyDocumentPrivacy.js';
 import {
- ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LAZY_LOADER,
- META_PIXEL_LOADER_CONTENT, META_PIXEL_LOADER_FILENAME,
- PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_SNIPPET,
+ AD_RECOVERY_CONTENT, AD_RECOVERY_FILENAME, AD_RECOVERY_VERSIONED_FILENAME, AD_RECOVERY_SNIPPET,
+ ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LAZY_LOADER,
+ GTAG_INIT_CONTENT, GTAG_INIT_FILENAME, GTAG_INIT_VERSIONED_FILENAME, GTAG_SNIPPET,
+ META_PIXEL_LOADER_CONTENT, META_PIXEL_LOADER_FILENAME, META_PIXEL_LOADER_VERSIONED_FILENAME, META_PIXEL_BASE_CODE,
+ PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_SNIPPET,
  THIRD_PARTY_DOCUMENT_INITIAL_GUARD,
 } from '../build-plugins/constants';
 import { thirdPartyShellAssetSnapshot } from '../scripts/ci/export-third-party-shell-assets';
@@ -407,16 +409,23 @@ describe('signed-origin autonomous SDK startup', () => {
  it('publishes hash-bound protected assets plus stable aliases', () => {
   const files = new Map(listStaticScriptFiles());
   for (const [name, source, stable] of [
-   [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT, 'adsense-loader.js'],
-   [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT, 'partnerize-tag.js'],
-   [META_PIXEL_LOADER_FILENAME, META_PIXEL_LOADER_CONTENT, undefined],
-  ]) {
+   [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT, GTAG_INIT_FILENAME],
+   [AD_RECOVERY_VERSIONED_FILENAME, AD_RECOVERY_CONTENT, AD_RECOVERY_FILENAME],
+   [ADSENSE_LOADER_VERSIONED_FILENAME, ADSENSE_LOADER_CONTENT, ADSENSE_LOADER_FILENAME],
+   [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT, PARTNERIZE_TAG_FILENAME],
+   [META_PIXEL_LOADER_VERSIONED_FILENAME, META_PIXEL_LOADER_CONTENT, META_PIXEL_LOADER_FILENAME],
+  ] as const) {
    expect(name).toContain(createHash('sha256').update(source).digest('hex').slice(0, 12));
    expect(files.get(name)).toBe(source);
-   if (stable) expect(files.get(stable)).toBe(source);
+   expect(files.get(stable)).toBe(source);
   }
-  expect(ADSENSE_LAZY_LOADER).toContain(ADSENSE_LOADER_VERSIONED_FILENAME);
-  expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`);
+  expect(GTAG_SNIPPET).toContain(`<script defer src="/assets/${GTAG_INIT_FILENAME}"></script>`);
+  expect(AD_RECOVERY_SNIPPET).toBe(`<script defer data-cfasync="false" src="/assets/${AD_RECOVERY_FILENAME}"></script>`);
+  expect(ADSENSE_LAZY_LOADER).toBe(`<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`);
+  expect(PARTNERIZE_TAG_SNIPPET).toBe(`<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`);
+  expect(META_PIXEL_BASE_CODE).toContain(`<script defer src="/assets/${META_PIXEL_LOADER_FILENAME}"></script>`);
+  expect([GTAG_SNIPPET, AD_RECOVERY_SNIPPET, ADSENSE_LAZY_LOADER, PARTNERIZE_TAG_SNIPPET, META_PIXEL_BASE_CODE].join('\n'))
+   .not.toMatch(/(?:gtag-init|site-support|adsense-loader|partnerize-tag|meta-pixel-base-code)-[a-f0-9]{12}\.js/);
   expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('</script');
   expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('**');
   expect(Buffer.byteLength(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, 'utf8')).toBeLessThan(256);

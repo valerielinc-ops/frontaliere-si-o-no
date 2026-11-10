@@ -5,6 +5,8 @@ import vm from 'node:vm';
 
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
+import { listStaticScriptFiles } from '@/build-plugins/staticScriptsPlugin';
+import { META_PIXEL_LOADER_VERSIONED_FILENAME } from '@/build-plugins/constants';
 
 import { claim, getDeployManifestHash, hashContent, reset } from '@/build-plugins/sharedWriteRegistry';
 import {
@@ -70,6 +72,9 @@ describe('metaPixelBaseCodePlugin', () => {
 
     expect(META_PIXEL_LOADER_CONTENT).toContain("n('init', '1090503593451766')");
     expect(META_PIXEL_LOADER_CONTENT).toContain("n('track', 'PageView')");
+    const assets = new Map(listStaticScriptFiles());
+    expect(assets.get(META_PIXEL_LOADER_FILENAME)).toBe(META_PIXEL_LOADER_CONTENT);
+    expect(assets.get(META_PIXEL_LOADER_VERSIONED_FILENAME)).toBe(META_PIXEL_LOADER_CONTENT);
   });
 
   it('fails rather than silently skipping an HTML page without a head close tag', () => {

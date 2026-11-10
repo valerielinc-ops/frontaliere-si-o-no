@@ -3,7 +3,7 @@
  * the critical-CSS externalization, one stylesheet) as standalone files under
  * dist/assets/ at the end of the build. Used by:
  *
- *   GTAG_SNIPPET                  → /assets/gtag-init-<content-hash>.js
+ *   GTAG_SNIPPET                  → /assets/gtag-init.js
  *   ADSENSE_SNIPPET               → /assets/adsense-loader.js
  *   EARLY_BOOT_SCRIPT             → /assets/early-boot.js
  *                                   (concat of dark-mode-init + spa-action-redirect
@@ -11,7 +11,7 @@
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
  *   PARTNERIZE_TAG_CONTENT        → /assets/partnerize-tag.js (PARTNERIZE_TAG_SNIPPET)
- *   META_PIXEL_LOADER_CONTENT     → /assets/meta-pixel-base-code-<hash>.js
+ *   META_PIXEL_LOADER_CONTENT     → /assets/meta-pixel-base-code.js
  *   OFFERWALL_FC_SCRIPT_CONTENT   → /assets/job-board-fc-loader.js
  *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
  *
@@ -35,12 +35,9 @@
  * the small <script src="/assets/..."> tag and the browser caches the JS file
  * once globally.
  *
- * Filenames are STABLE (no content hash) like every other bundler asset — see
- * vite.config.ts `chunkFileNames`/`assetFileNames` for the rationale. The
- * identity-bearing gtag-init and signed-document Ads/Partnerize privacy
- * producers are deliberate exceptions: new HTML
- * references its content-addressed filename, while the stable alias remains
- * available for already-published HTML during cache convergence (#9403).
+ * New HTML uses stable aliases for global shell scripts, so a small producer
+ * change does not rewrite every static page. The current content-addressed
+ * copies stay in dist/assets for HTML that is already cached or published.
  *
  * The dark-mode + spa-action-redirect + self-heal merge collapses what would be
  * three synchronous <script> tags into one — dark-mode still runs first because
@@ -80,6 +77,7 @@ import {
   PARTNERIZE_TAG_SNIPPET,
   META_PIXEL_LOADER_CONTENT,
   META_PIXEL_LOADER_FILENAME,
+  META_PIXEL_LOADER_VERSIONED_FILENAME,
   OFFERWALL_FC_SCRIPT_CONTENT,
 } from './constants';
 import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
@@ -111,6 +109,7 @@ export function listStaticScriptFiles(): Array<readonly [string, string]> {
     [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
     [PARTNERIZE_TAG_VERSIONED_FILENAME, PARTNERIZE_TAG_CONTENT],
     [META_PIXEL_LOADER_FILENAME, META_PIXEL_LOADER_CONTENT],
+    [META_PIXEL_LOADER_VERSIONED_FILENAME, META_PIXEL_LOADER_CONTENT],
     [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
     [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
     [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
@@ -125,7 +124,8 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
       order: 'pre',
       handler(html) {
         // Root SPA and generated pages consume the same protected producer.
-        // Content addressing prevents an older cached vendor from bypassing it.
+        // The stable alias is short-lived; its hashed copy remains available
+        // to already-published HTML during cache convergence.
         return html.replace('<script src="/assets/partnerize-tag.js"></script>', PARTNERIZE_TAG_SNIPPET)
           .replace('<script defer data-cfasync="false" src="/assets/site-support.js"></script>', AD_RECOVERY_SNIPPET);
       },

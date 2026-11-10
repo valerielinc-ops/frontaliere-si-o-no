@@ -605,7 +605,7 @@ export const GA4_BOT_GATE_FN = `function(){if((${BOT_GATE_FN})())return true;if(
  */
 /**
  * Plain JS body for the gtag init — written to both the content-addressed
- * dist/assets/gtag-init-<hash>.js and the legacy dist/assets/gtag-init.js by
+ * dist/assets/gtag-init-<hash>.js and the stable dist/assets/gtag-init.js by
  * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
@@ -702,7 +702,8 @@ export const META_PIXEL_LOADER_CONTENT = `(function initializeMetaPixel(){
     window.__FT_META_PIXEL_DISABLED__ = true;
   }
 })();`;
-export const META_PIXEL_LOADER_FILENAME = `meta-pixel-base-code-${createHash('sha256')
+export const META_PIXEL_LOADER_FILENAME = 'meta-pixel-base-code.js';
+export const META_PIXEL_LOADER_VERSIONED_FILENAME = `meta-pixel-base-code-${createHash('sha256')
   .update(META_PIXEL_LOADER_CONTENT)
   .digest('hex')
   .slice(0, 12)}.js`;
@@ -716,15 +717,15 @@ export const META_PIXEL_MANIFEST_FINGERPRINT = createHash('sha256')
   .digest('hex');
 export const GTAG_INIT_CONTENT = `(function(){if((${GA4_BOT_GATE_FN})())return;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',Object.assign({transport_type:'beacon',send_page_view:false},(${TELEMETRY_SANITIZER_JS})({page_location:location.href,page_referrer:document.referrer})));gtag('event','page_view',(${TELEMETRY_SANITIZER_JS})({page_path:location.pathname,page_location:location.href,page_referrer:document.referrer,page_title:document.title,emission_id:emissionId}));})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
-// New HTML references a content-addressed filename so a stale edge copy of
-// this identity-bearing producer cannot satisfy a page that references newer
-// bytes. The stable alias remains emitted for already-published HTML (#9403).
+// New HTML uses the stable alias so a small producer edit cannot rewrite every
+// static page. The content-addressed copy remains published for pages and
+// caches that still hold an older HTML document.
 export const GTAG_INIT_CONTENT_HASH = createHash('sha256')
   .update(GTAG_INIT_CONTENT)
   .digest('hex')
   .slice(0, 12);
 export const GTAG_INIT_VERSIONED_FILENAME = `gtag-init-${GTAG_INIT_CONTENT_HASH}.js`;
-export const GTAG_INIT_URL = `/assets/${GTAG_INIT_VERSIONED_FILENAME}`;
+export const GTAG_INIT_URL = `/assets/${GTAG_INIT_FILENAME}`;
 // gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
 // NOT need to run before paint. `defer` takes it off the render-blocking path
 // (it ran synchronously in <head> before) so first paint no longer waits on a
@@ -1128,12 +1129,12 @@ const ADSENSE_LOADER_TEMPLATE = `(function initializeStaticAds(){${thirdPartyDoc
 export const AD_RECOVERY_CONTENT = `(function initializeSiteSupport(){var sensitive=(${THIRD_PARTY_DOCUMENT_GUARD_JS}),sanitize=(${TELEMETRY_SANITIZER_JS});if(sensitive(sanitize,window,document,false,initializeSiteSupport))return;${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}${FC_JOBBOARD_OFFERWALL_GATE_JS}if(location.hostname!=='frontaliereticino.ch'||(${BOT_GATE_FN})())return;var emit=${serializeStaticFunction(new NodeURL('../services/adDiagnostics.ts', import.meta.url), 'emitAdDiagnostic')};var createLoader=${serializeStaticFunction(new NodeURL('../services/adScriptLoader.ts', import.meta.url), 'createAdScriptLoader')};var probe=${serializeStaticFunction(new NodeURL('../services/iabAdBlockProbe.ts', import.meta.url), 'probeIabAdBlock')};var permitted=function(){try{if(window.localStorage.getItem('reader_noads_active')==='true')return false;}catch(e){}return !sensitive(sanitize,window,document,false);};(${serializeStaticFunction(new NodeURL('../services/houseAdRuntime.ts', import.meta.url), 'installHouseAds')})(${serializeStaticFunction(new NodeURL('../services/houseAdCreative.ts', import.meta.url), 'createHouseAdCreative')},${JSON.stringify(HOUSE_AD_CREATIVE_CSS)},emit,permitted,{assignmentUrl:'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getHouseAdCreativeAssignment',consentKey:'${ADS_CONSENT_STORAGE_KEY}',consentEvent:'${ADS_CONSENT_CHANGE_EVENT}',variants:${JSON.stringify(HOUSE_AD_VARIANTS)}});(${serializeStaticFunction(new NodeURL('../services/adRecovery.ts', import.meta.url), 'installAdRecovery')})(probe,createLoader,emit,permitted,{consentKey:'${ADS_CONSENT_STORAGE_KEY}',consentEvent:'${ADS_CONSENT_CHANGE_EVENT}',publisherId:'${FC_PUBLISHER_ID}',inlineHouseAds:true});})();`;
 export const AD_RECOVERY_FILENAME = 'site-support.js';
 export const AD_RECOVERY_VERSIONED_FILENAME = `site-support-${createHash('sha256').update(AD_RECOVERY_CONTENT).digest('hex').slice(0, 12)}.js`;
-export const AD_RECOVERY_SNIPPET = `<script defer data-cfasync="false" src="/assets/${AD_RECOVERY_VERSIONED_FILENAME}"></script>`;
+export const AD_RECOVERY_SNIPPET = `<script defer data-cfasync="false" src="/assets/${AD_RECOVERY_FILENAME}"></script>`;
 
 export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LOADER_VERSIONED_FILENAME = `adsense-loader-${createHash('sha256').update(ADSENSE_LOADER_CONTENT).digest('hex').slice(0, 12)}.js`;
-export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_VERSIONED_FILENAME}"></script>`;
+export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
  * Funding Choices MESSAGING loader, injected into the <head> of in-scope
@@ -1343,7 +1344,7 @@ export const PARTNERIZE_TAG_VERSIONED_FILENAME = `partnerize-tag-${createHash('s
 // No auth classification or raw context is retained here: the deferred producer
 // uses the canonical sanitizer and semantic DOM checks before starting an SDK.
 export const THIRD_PARTY_DOCUMENT_INITIAL_GUARD = `try{window.__FT_SENSITIVE_DOCUMENT__=!!(window.__FT_SENSITIVE_DOCUMENT__||/[?#@]/.test(window.location.href+(document.referrer||'')));}catch(e){window.__FT_SENSITIVE_DOCUMENT__=true;}`;
-export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_VERSIONED_FILENAME}"></script>`;
+export const PARTNERIZE_TAG_SNIPPET = `<script>${THIRD_PARTY_DOCUMENT_INITIAL_GUARD}</script><script defer src="/assets/${PARTNERIZE_TAG_FILENAME}"></script>`;
 
 /** Combined analytics snippet (GA4 + Meta + PostHog + AdSense + Partnerize) for static pages without the SPA bundle. */
 export const ANALYTICS_SNIPPET = `${GTAG_SNIPPET}

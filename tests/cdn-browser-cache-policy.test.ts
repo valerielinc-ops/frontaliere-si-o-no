@@ -8,6 +8,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const SETUP = readFileSync(resolve(ROOT, 'scripts/cf-locale-failover-setup.mjs'), 'utf8');
 const PREP = readFileSync(resolve(ROOT, 'scripts/lib/deploy-it-pages-prep.sh'), 'utf8');
 const WORKFLOW = readFileSync(resolve(ROOT, '.github/workflows/deploy-worker.yml'), 'utf8');
+const PAGES_HEADERS = readFileSync(resolve(ROOT, 'public/_headers'), 'utf8');
 
 /**
  * The browser-facing Cache-Control on the CDN comes from a zone Transform Rule,
@@ -55,6 +56,13 @@ describe('content-addressed loaders on R2', () => {
 
   it('leaves the stable aliases in the short-TTL batch', () => {
     expect(PREP).not.toMatch(/-name 'gtag-init\*\.js'/);
+  });
+
+  it('keeps every content-addressed global target immutable in Pages headers', () => {
+    for (const name of ['gtag-init', 'adsense-loader', 'partnerize-tag', 'site-support', 'meta-pixel-base-code']) {
+      expect(PAGES_HEADERS).toContain(`/assets/${name}-*\n  Cache-Control: public, max-age=31536000, immutable`);
+    }
+    expect(PAGES_HEADERS).toContain('/assets/*\n  Cache-Control: public, max-age=600, must-revalidate');
   });
 });
 

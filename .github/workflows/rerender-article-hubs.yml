@@ -311,8 +311,10 @@ jobs:
       # publishes within minutes. A file the last deploy did not upload would be
       # referenced by every page pushed below: on 2026-10-07 that was
       # gtag-init-<hash>.js, a 404 on every re-rendered article (#12270). This
-      # uploads what the CDN does not have, replaces nothing, and fails the job
-      # when it cannot — scripts/lib/cdn-shell-assets.mjs.
+      # uploads missing content-addressed files, verifies stable global aliases
+      # without modifying them, and fails the job when an alias is absent or
+      # stale. Only the full deploy may move those aliases —
+      # scripts/lib/cdn-shell-assets.mjs.
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
         if: steps.mode.outputs.dry != 'true'
