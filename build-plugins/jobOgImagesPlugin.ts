@@ -55,6 +55,14 @@ import {
   JOB_OG_IMAGE_VERSION,
   versionedJobOgImageUrl,
 } from './shared/jobOgImageVersion.mjs';
+import {
+  JOB_OG_DEFERRED_FALLBACKS,
+  JOB_OG_DEFERRED_R2_MANIFEST,
+  cacheEntryBelongsToSlugs,
+  isJobOgRenderBudgetSpent,
+  parseJobOgRenderBudgetMs,
+  sortJobsForOgRender,
+} from './shared/jobOgRenderBudget.mjs';
 
 const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
@@ -102,7 +110,7 @@ const CTA_RED = '#DC2626';
 const TEXT_PRIMARY = '#FFFFFF';
 const TEXT_MUTED = 'rgba(255,255,255,0.78)';
 
-interface JobMinimal {
+export interface JobMinimal {
   id: string;
   title?: string;
   titleByLocale?: Record<string, string>;
@@ -122,6 +130,8 @@ interface JobMinimal {
   category?: string;
   sector?: string;
   employmentType?: string;
+  datePosted?: string;
+  postedDate?: string;
 }
 
 function readFontPair(rootDir: string): { regular: Buffer; bold: Buffer } | null {
@@ -157,6 +167,23 @@ function readJobsJson(rootDir: string): JobMinimal[] {
     }
   }
   return [];
+}
+
+function readJobPopularity(rootDir: string): Record<string, number> {
+  try {
+    const parsed = JSON.parse(
+      readFileSync(path.join(rootDir, 'data/job-popularity.json'), 'utf-8'),
+    ) as unknown;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    return Object.fromEntries(
+      Object.entries(parsed).filter((entry): entry is [string, number] =>
+        typeof entry[1] === 'number' && Number.isFinite(entry[1]) && entry[1] > 0,
+      ),
+    );
+  } catch {
+    // The popularity export is optional; datePosted remains the deterministic fallback.
+    return {};
+  }
 }
 
 interface CompanyLogoAsset {
@@ -656,6 +683,521 @@ interface Stats {
   errors: number;
 }
 
+interface RenderContext {
+  fontPair: { regular: Buffer; bold: Buffer };
+  photoSources: JobPhotoSources;
+  companyLogosManifest: Record<string, string>;
+  companyLogoCache: Map<string, CompanyLogoAsset>;
+  cacheRoot: string;
+}
+
+interface JobRenderDescriptor {
+  jobId: string;
+  slug: string;
+  cachePath: string;
+  outPath: string | null;
+  model: CardModel;
+}
+
+interface RenderJob extends Omit<JobRenderDescriptor, 'model'> {
+  tree: unknown;
+}
+
+interface RenderQueueResult {
+  renderedSlugs: Set<string>;
+  deferredSlugs: Set<string>;
+  errors: number;
+}
+
+function resolveRootPath(rootDir: string, candidate: string): string {
+  return path.isAbsolute(candidate) ? candidate : path.join(rootDir, candidate);
+}
+
+function createRenderContext(rootDir: string, cacheRoot: string): RenderContext | null {
+  const fontPair = readFontPair(rootDir);
+  if (!fontPair) return null;
+  const photoSources = readJobPhotoSources(rootDir);
+  if (!photoSources) return null;
+  mkdirSync(cacheRoot, { recursive: true });
+  return {
+    fontPair,
+    photoSources,
+    companyLogosManifest: readCompanyLogosManifest(rootDir),
+    companyLogoCache: new Map<string, CompanyLogoAsset>(),
+    cacheRoot,
+  };
+}
+
+function describeJobForRender(
+  rootDir: string,
+  job: JobMinimal,
+  context: RenderContext,
+  outDir: string | null,
+): JobRenderDescriptor | null {
+  const slug = deriveSlug(job);
+  const italianTitle = getItalianJobTitle(job);
+  if (!slug || !italianTitle) return null;
+
+  const { photoKey } = selectJobOgPhoto(job, slug);
+  const logoPath = job.companyKey
+    ? context.companyLogosManifest[job.companyKey]
+    : undefined;
+  const companyLogo = companyLogoAsset(rootDir, logoPath, context.companyLogoCache);
+  const cachePath = path.join(
+    context.cacheRoot,
+    `${slug}.${photoKey}.${companyLogo.cacheKey}.${OG_RENDER_VERSION}.webp`,
+  );
+  const outPath = outDir
+    ? path.join(outDir, ogPathForSlug(slug))
+    : null;
+
+  return {
+    jobId: slug,
+    slug,
+    cachePath,
+    outPath,
+    model: {
+      kicker: 'STIAMO ASSUMENDO',
+      title: truncateText(italianTitle, 82),
+      company: deriveCompany(job),
+      companyLogoDataUrl: companyLogo.dataUrl,
+      city: deriveCity(job),
+      salary: deriveSalary(job),
+      employmentLabel: job.employmentType
+        ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
+        : null,
+      photoKey,
+    },
+  };
+}
+
+function describeArchiveCard(
+  context: RenderContext,
+  outDir: string | null,
+): JobRenderDescriptor {
+  return {
+    jobId: 'archive-landing-card',
+    slug: 'archive-landing-card',
+    cachePath: path.join(
+      context.cacheRoot,
+      `archive-landing-card.archive-neutral.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
+    ),
+    outPath: outDir ? path.join(outDir, OUT_SUBDIR, 'archive-landing-card.webp') : null,
+    model: {
+      title: 'ANNUNCIO ARCHIVIATO',
+      subtitle: 'Questa posizione non è più disponibile.',
+      company: null,
+      companyLogoDataUrl: null,
+      city: null,
+      salary: null,
+      employmentLabel: null,
+      photoKey: 'archive-neutral',
+      ctaLabel: 'CERCA OFFERTE ATTIVE',
+    },
+  };
+}
+
+function renderJob(descriptor: JobRenderDescriptor): RenderJob {
+  return { ...descriptor, tree: buildCardJsx(descriptor.model) };
+}
+
+function readPublishedR2OgPaths(
+  rootDir: string,
+  publishTarget: string,
+  manifestPath = '.cache/r2-og-published-manifest.json',
+): Set<string> {
+  if (publishTarget !== 'r2') return new Set();
+  try {
+    const manifest = JSON.parse(
+      readFileSync(resolveRootPath(rootDir, manifestPath), 'utf-8'),
+    ) as { version?: unknown; files?: Array<{ path?: unknown }> };
+    if (manifest?.version !== 1 || !Array.isArray(manifest.files)) return new Set();
+    return new Set(
+      manifest.files
+        .filter((file) => typeof file?.path === 'string' && /^jobs\/[A-Za-z0-9._-]+\.webp$/.test(file.path))
+        .map((file) => file.path as string),
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+async function renderQueue(
+  tasks: RenderJob[],
+  context: RenderContext,
+  budgetMs: number | null,
+): Promise<RenderQueueResult> {
+  const result: RenderQueueResult = {
+    renderedSlugs: new Set(),
+    deferredSlugs: new Set(),
+    errors: 0,
+  };
+  if (tasks.length === 0) return result;
+
+  const workerCount = Math.max(
+    1,
+    Math.min(
+      tasks.length,
+      Number(process.env.OG_WORKER_COUNT) || cpus().length || 2,
+      4,
+    ),
+  );
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const workerPath = path.join(here, 'og-render-worker.mjs');
+  const workerData = {
+    fontRegular: context.fontPair.regular,
+    fontBold: context.fontPair.bold,
+    brandBgFrom: BRAND_BG_FROM,
+    photoDataUrls: context.photoSources.fallbackDataUrls,
+    photoFilePaths: context.photoSources.specificPhotoPaths,
+    width: OG_WIDTH,
+    height: OG_HEIGHT,
+  };
+  const startedAt = Date.now();
+  let nextIndex = 0;
+  let liveWorkers = 0;
+  let budgetStopped = budgetMs !== null && budgetMs <= 0;
+  let settled = false;
+  const workers = new Set<Worker>();
+  const slots = new Map<Worker, { inFlight: RenderJob | null }>();
+
+  const markPendingDeferred = () => {
+    while (nextIndex < tasks.length) {
+      result.deferredSlugs.add(tasks[nextIndex].slug);
+      nextIndex += 1;
+    }
+  };
+  const stopForBudget = () => {
+    if (budgetStopped) return;
+    budgetStopped = true;
+    markPendingDeferred();
+    for (const worker of workers) {
+      const slot = slots.get(worker);
+      if (slot?.inFlight) {
+        result.deferredSlugs.add(slot.inFlight.slug);
+        slot.inFlight = null;
+      }
+      void worker.terminate();
+    }
+  };
+  const budgetIsSpent = () => {
+    if (budgetMs !== null && isJobOgRenderBudgetSpent(startedAt, budgetMs, Date.now())) {
+      stopForBudget();
+      return true;
+    }
+    return budgetStopped;
+  };
+
+  await new Promise<void>((resolve) => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const maybeResolve = () => {
+      if (settled || liveWorkers !== 0) return;
+      settled = true;
+      if (timer !== null) clearTimeout(timer);
+      resolve();
+    };
+
+    const dispatch = (worker: Worker) => {
+      if (budgetIsSpent()) return false;
+      if (nextIndex >= tasks.length) {
+        worker.postMessage('shutdown');
+        return false;
+      }
+      const job = tasks[nextIndex];
+      nextIndex += 1;
+      const slot = slots.get(worker);
+      if (slot) slot.inFlight = job;
+      worker.postMessage({ jobId: job.jobId, tree: job.tree });
+      return true;
+    };
+
+    const spawnWorker = () => {
+      if (budgetIsSpent() || liveWorkers >= workerCount) return;
+      const worker = new Worker(workerPath, { workerData });
+      workers.add(worker);
+      slots.set(worker, { inFlight: null });
+      liveWorkers += 1;
+
+      worker.on('message', (message: { jobId: string; ok: true; webp: Buffer } | { jobId: string; ok: false; error: string }) => {
+        const slot = slots.get(worker);
+        const job = slot?.inFlight;
+        if (!job) return;
+        if (budgetIsSpent()) return;
+
+        if (message.ok) {
+          try {
+            mkdirSync(path.dirname(job.cachePath), { recursive: true });
+            writeFileAtomicallySync(job.cachePath, message.webp);
+            if (job.outPath) {
+              mkdirSync(path.dirname(job.outPath), { recursive: true });
+              copyFileSync(job.cachePath, job.outPath);
+            }
+            result.renderedSlugs.add(job.slug);
+          } catch (error) {
+            result.errors += 1;
+            if (result.errors <= 5) {
+              // eslint-disable-next-line no-console
+              console.warn(`[job-og-images] write failed for ${job.slug}: ${(error as Error).message}`);
+            }
+          }
+        } else {
+          result.errors += 1;
+          if (result.errors <= 5) {
+            // eslint-disable-next-line no-console
+            console.warn(`[job-og-images] render failed for ${job.slug}: ${message.error}`);
+          }
+        }
+        slot.inFlight = null;
+        dispatch(worker);
+      });
+
+      worker.on('error', (error) => {
+        result.errors += 1;
+        const slot = slots.get(worker);
+        if (slot) slot.inFlight = null;
+        if (result.errors <= 5) {
+          // eslint-disable-next-line no-console
+          console.warn(`[job-og-images] worker error: ${error.message}`);
+        }
+        void worker.terminate();
+      });
+
+      worker.on('exit', () => {
+        const slot = slots.get(worker);
+        if (slot?.inFlight) {
+          if (budgetIsSpent()) result.deferredSlugs.add(slot.inFlight.slug);
+          else result.errors += 1;
+          slot.inFlight = null;
+        }
+        workers.delete(worker);
+        slots.delete(worker);
+        liveWorkers -= 1;
+        if (!budgetIsSpent() && nextIndex < tasks.length && liveWorkers < workerCount) {
+          spawnWorker();
+        }
+        maybeResolve();
+      });
+
+      dispatch(worker);
+    };
+
+    timer = budgetMs === null
+      ? null
+      : setTimeout(stopForBudget, Math.max(0, budgetMs));
+    if (!budgetStopped) {
+      for (let index = 0; index < workerCount; index += 1) spawnWorker();
+    } else {
+      markPendingDeferred();
+    }
+    if (liveWorkers === 0) maybeResolve();
+  });
+
+  return result;
+}
+
+export function findMissingJobOgImageJobs(
+  rootDir: string,
+  jobs: JobMinimal[],
+  cacheRoot = CACHE_SUBDIR,
+): { jobs: JobMinimal[]; archiveMissing: boolean } {
+  const absoluteCacheRoot = resolveRootPath(rootDir, cacheRoot);
+  const context = createRenderContext(rootDir, absoluteCacheRoot);
+  if (!context) throw new Error('Job OG render inputs are incomplete (fonts or photo assets missing).');
+  const missing: JobMinimal[] = [];
+  for (const job of sortJobsForOgRender(jobs, readJobPopularity(rootDir))) {
+    const descriptor = describeJobForRender(rootDir, job, context, null);
+    if (descriptor && !existsSync(descriptor.cachePath)) missing.push(job);
+  }
+  const archiveMissing = !existsSync(describeArchiveCard(context, null).cachePath);
+  return { jobs: missing, archiveMissing };
+}
+
+export async function renderJobOgImages(
+  rootDir: string,
+  jobs: JobMinimal[],
+  {
+    outDir = 'dist',
+    cacheRoot = CACHE_SUBDIR,
+    budgetMs = null,
+    publishTarget = 'pages',
+    publishedManifestPath = '.cache/r2-og-published-manifest.json',
+    cacheOnly = false,
+    includeArchive = true,
+    strict = false,
+  }: {
+    outDir?: string | null;
+    cacheRoot?: string;
+    budgetMs?: number | null;
+    publishTarget?: string;
+    publishedManifestPath?: string;
+    cacheOnly?: boolean;
+    includeArchive?: boolean;
+    strict?: boolean;
+  } = {},
+): Promise<Stats & { deferred: number; hits: number; deferredSlugs: string[] }> {
+  const absoluteCacheRoot = resolveRootPath(rootDir, cacheRoot);
+  const absoluteOutDir = outDir && !cacheOnly ? resolveRootPath(rootDir, outDir) : null;
+  const context = createRenderContext(rootDir, absoluteCacheRoot);
+  if (!context) {
+    const message = 'Job OG render inputs are incomplete (fonts or photo assets missing).';
+    if (strict) throw new Error(message);
+    // eslint-disable-next-line no-console
+    console.warn(`[job-og-images] ${message}`);
+    return { rendered: 0, cached: 0, skipped: jobs.length, errors: 0, deferred: 0, hits: 0, deferredSlugs: [] };
+  }
+
+  const stats: Stats = { rendered: 0, cached: 0, skipped: 0, errors: 0 };
+  const jobRenderQueue: RenderJob[] = [];
+  const orderedJobs = sortJobsForOgRender(jobs, readJobPopularity(rootDir));
+  for (const job of orderedJobs) {
+    const descriptor = describeJobForRender(rootDir, job, context, absoluteOutDir);
+    if (!descriptor) {
+      stats.skipped += 1;
+      continue;
+    }
+    if (existsSync(descriptor.cachePath)) {
+      try {
+        if (descriptor.outPath) {
+          mkdirSync(path.dirname(descriptor.outPath), { recursive: true });
+          copyFileSync(descriptor.cachePath, descriptor.outPath);
+        }
+        stats.cached += 1;
+      } catch {
+        jobRenderQueue.push(renderJob(descriptor));
+      }
+      continue;
+    }
+    jobRenderQueue.push(renderJob(descriptor));
+  }
+
+  let archiveCardPath: string | null = null;
+  if (includeArchive) {
+    const archive = describeArchiveCard(context, absoluteOutDir);
+    archiveCardPath = archive.outPath;
+    if (existsSync(archive.cachePath)) {
+      try {
+        if (archive.outPath) {
+          mkdirSync(path.dirname(archive.outPath), { recursive: true });
+          copyFileSync(archive.cachePath, archive.outPath);
+        }
+        stats.cached += 1;
+      } catch {
+        const archiveResult = await renderQueue([renderJob(archive)], context, null);
+        stats.rendered += archiveResult.renderedSlugs.size;
+        stats.errors += archiveResult.errors;
+      }
+    } else {
+      const archiveResult = await renderQueue([renderJob(archive)], context, null);
+      stats.rendered += archiveResult.renderedSlugs.size;
+      stats.errors += archiveResult.errors;
+    }
+  }
+
+  if (absoluteOutDir && includeArchive && (!archiveCardPath || !existsSync(archiveCardPath))) {
+    throw new Error('Job OG archive card could not be emitted; the build cannot guarantee valid archived-job previews.');
+  }
+
+  const queueResult = await renderQueue(jobRenderQueue, context, budgetMs);
+  stats.rendered += queueResult.renderedSlugs.size;
+  stats.errors += queueResult.errors;
+  const succeeded = queueResult.renderedSlugs;
+  const unrenderedSlugs = new Set(
+    jobRenderQueue.map((job) => job.slug).filter((slug) => !succeeded.has(slug)),
+  );
+  const publishedR2Paths = readPublishedR2OgPaths(rootDir, publishTarget, publishedManifestPath);
+  const preservePublishedSlugs = new Set<string>();
+  const fallbackSlugs = new Set<string>();
+  for (const slug of unrenderedSlugs) {
+    if (publishedR2Paths.has(`jobs/${slug}.webp`)) preservePublishedSlugs.add(slug);
+    else fallbackSlugs.add(slug);
+  }
+
+  if (absoluteOutDir && fallbackSlugs.size > 0) {
+    if (!archiveCardPath || !existsSync(archiveCardPath)) {
+      throw new Error('Job OG deferrals require an archive fallback card, but it was not emitted.');
+    }
+  }
+
+  if (preservePublishedSlugs.size > 0) {
+    writeFileAtomicallySync(
+      path.join(absoluteCacheRoot, JOB_OG_DEFERRED_R2_MANIFEST),
+      `${JSON.stringify([...preservePublishedSlugs].sort())}\n`,
+    );
+  } else {
+    try { unlinkSync(path.join(absoluteCacheRoot, JOB_OG_DEFERRED_R2_MANIFEST)); } catch { /* absent */ }
+  }
+  if (fallbackSlugs.size > 0) {
+    writeFileAtomicallySync(
+      path.join(absoluteCacheRoot, JOB_OG_DEFERRED_FALLBACKS),
+      `${JSON.stringify([...fallbackSlugs].sort())}\n`,
+    );
+  } else {
+    try { unlinkSync(path.join(absoluteCacheRoot, JOB_OG_DEFERRED_FALLBACKS)); } catch { /* absent */ }
+  }
+
+  // A legacy cache restored under the current prefix can contain old versions.
+  // If any current job is still missing, retain its cache entries so a later
+  // run can recover them; prune only entries we can prove belong to other jobs.
+  let pruned = 0;
+  let prunedBytes = 0;
+  const protectedSlugs = unrenderedSlugs;
+  try {
+    for (const entry of readdirSync(absoluteCacheRoot)) {
+      if (/\.tmp-\d+$/.test(entry)) {
+        try { unlinkSync(path.join(absoluteCacheRoot, entry)); } catch { /* best effort */ }
+        continue;
+      }
+      const versionSuffixes = [
+        `.${OG_RENDER_VERSION}.webp`,
+        `.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
+      ];
+      if (versionSuffixes.some((suffix) => entry.endsWith(suffix))) continue;
+      if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
+      if (cacheEntryBelongsToSlugs(entry, protectedSlugs)) continue;
+      try {
+        unlinkSync(path.join(absoluteCacheRoot, entry));
+        pruned += 1;
+        prunedBytes += entry.endsWith('.png') ? 95_000 : 30_000;
+      } catch {
+        /* best-effort cleanup */
+      }
+    }
+  } catch {
+    /* cacheRoot doesn't exist — noop */
+  }
+
+  const deferredSlugs = [...queueResult.deferredSlugs].sort();
+  const budgetLabel = budgetMs === null ? 'unlimited' : `${Math.floor(budgetMs / 1000)}s`;
+  const jobHits = orderedJobs.length - stats.skipped - jobRenderQueue.length;
+  // eslint-disable-next-line no-console
+  console.log(`[job-og-images] budget=${budgetLabel} rendered=${queueResult.renderedSlugs.size} deferred=${deferredSlugs.length} hits=${jobHits}`);
+  if (deferredSlugs.length > 0) {
+    // eslint-disable-next-line no-console
+    console.warn(`::warning::[job-og-images] ${deferredSlugs.length} active job card(s) deferred; the next build/prewarm will continue the cache fill`);
+  }
+  // eslint-disable-next-line no-console
+  console.log(
+    `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} pruned-stale=${pruned} (~${(prunedBytes / 1_048_576).toFixed(0)}MB)`,
+  );
+  if (stats.rendered + stats.cached > 0 && !cacheOnly) {
+    writeFileAtomicallySync(
+      path.join(absoluteCacheRoot, CACHE_COMPLETION_MARKER),
+      `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors, deferred: deferredSlugs.length })}\n`,
+    );
+  }
+  if (strict && (stats.errors > 0 || queueResult.deferredSlugs.size > 0)) {
+    throw new Error(
+      `Job OG cache render incomplete: ${stats.errors} error(s), ${queueResult.deferredSlugs.size} deferred card(s).`,
+    );
+  }
+  return {
+    ...stats,
+    deferred: deferredSlugs.length,
+    hits: jobHits,
+    deferredSlugs,
+  };
+}
+
 export default function jobOgImagesPlugin(): Plugin {
   let outDir: string | null = null;
   let rootDir: string | null = null;
@@ -673,6 +1215,13 @@ export default function jobOgImagesPlugin(): Plugin {
         unlinkSync(path.join(rootDir, CACHE_SUBDIR, CACHE_COMPLETION_MARKER));
       } catch {
         /* marker absent on a cold cache */
+      }
+      for (const metadataFile of [JOB_OG_DEFERRED_R2_MANIFEST, JOB_OG_DEFERRED_FALLBACKS]) {
+        try {
+          unlinkSync(path.join(rootDir, CACHE_SUBDIR, metadataFile));
+        } catch {
+          /* metadata belongs to the prior build */
+        }
       }
     },
     async closeBundle() {
@@ -692,305 +1241,25 @@ export default function jobOgImagesPlugin(): Plugin {
         console.log('[job-og-images] BUILD_LOCALE excludes IT (root owner) — skipping OG generation (CDN-shared, pruned on this shard).');
         return;
       }
-      const fontPair = readFontPair(rootDir);
-      if (!fontPair) {
-        // eslint-disable-next-line no-console
-        console.warn(
-          '[job-og-images] Roboto-{Regular,Bold}.ttf not found in public/fonts — skipping OG images.',
-        );
-        return;
-      }
       const jobs = readJobsJson(rootDir);
       if (jobs.length === 0) {
         // eslint-disable-next-line no-console
         console.warn('[job-og-images] no jobs in jobs.json — skipping.');
         return;
       }
-
-      const photoSources = readJobPhotoSources(rootDir);
-      if (!photoSources) {
-        // eslint-disable-next-line no-console
-        console.warn('[job-og-images] generated workplace photos are missing — skipping OG images.');
-        return;
-      }
-      const companyLogosManifest = readCompanyLogosManifest(rootDir);
-      const companyLogoCache = new Map<string, CompanyLogoAsset>();
-      const outRoot = path.join(rootDir, outDir, OUT_SUBDIR);
-      const cacheRoot = path.join(rootDir, CACHE_SUBDIR);
-      mkdirSync(outRoot, { recursive: true });
-      mkdirSync(cacheRoot, { recursive: true });
-
-      const stats: Stats = { rendered: 0, cached: 0, skipped: 0, errors: 0 };
-      const startMs = Date.now();
-
-      // ── Pass 1: drain the cache (synchronous I/O, no satori needed) ──
-      // For each job, decide whether we already have a fresh WebP. If yes,
-      // copy cache → dist and skip. If no, queue for render in pass 2.
-      interface RenderJob {
-        jobId: string;
-        slug: string;
-        outPath: string;
-        cachePath: string;
-        // Pre-built satori tree (computed in pass 1 to avoid re-deriving
-        // model fields when the worker pool dispatches).
-        tree: unknown;
-      }
-      const renderQueue: RenderJob[] = [];
-      for (const job of jobs) {
-        const slug = deriveSlug(job);
-        const italianTitle = getItalianJobTitle(job);
-        if (!slug || !italianTitle) {
-          stats.skipped += 1;
-          continue;
-        }
-        const outPath = path.join(rootDir, outDir, ogPathForSlug(slug));
-        const { photoKey } = selectJobOgPhoto(job, slug);
-        const logoPath = job.companyKey
-          ? companyLogosManifest[job.companyKey]
-          : undefined;
-        const companyLogo = companyLogoAsset(rootDir, logoPath, companyLogoCache);
-        // See the doc-comment above the deleted cacheKeyForJob for why
-        // we cache by slug + photo key + employer-logo fingerprint + version.
-        const cachePath = path.join(
-          cacheRoot,
-          `${slug}.${photoKey}.${companyLogo.cacheKey}.${OG_RENDER_VERSION}.webp`,
-        );
-
-        if (existsSync(cachePath)) {
-          try {
-            mkdirSync(path.dirname(outPath), { recursive: true });
-            copyFileSync(cachePath, outPath);
-            stats.cached += 1;
-            continue;
-          } catch {
-            /* fall through to enqueue for render */
-          }
-        }
-
-        const model: CardModel = {
-          kicker: 'STIAMO ASSUMENDO',
-          title: truncateText(italianTitle, 82),
-          company: deriveCompany(job),
-          companyLogoDataUrl: companyLogo.dataUrl,
-          city: deriveCity(job),
-          salary: deriveSalary(job),
-          employmentLabel: job.employmentType
-            ? EMPLOYMENT_LABEL_IT[job.employmentType] ?? null
-            : null,
-          photoKey,
-        };
-        renderQueue.push({
-          jobId: slug,
-          slug,
-          outPath,
-          cachePath,
-          tree: buildCardJsx(model),
-        });
-      }
-
-      const archivedOutPath = path.join(rootDir, outDir, OUT_SUBDIR, 'archive-landing-card.webp');
-      const archivedCachePath = path.join(
-        cacheRoot,
-        `archive-landing-card.archive-neutral.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
-      );
-      let archiveCardCached = false;
-      if (existsSync(archivedCachePath)) {
-        try {
-          mkdirSync(path.dirname(archivedOutPath), { recursive: true });
-          copyFileSync(archivedCachePath, archivedOutPath);
-          stats.cached += 1;
-          archiveCardCached = true;
-        } catch {
-          /* fall through to enqueue for render */
+      const budgetMs = parseJobOgRenderBudgetMs(process.env.JOB_OG_RENDER_BUDGET_S);
+      if (process.env.JOB_OG_RENDER_BUDGET_S && budgetMs === 0) {
+        const seconds = Number(process.env.JOB_OG_RENDER_BUDGET_S);
+        if (!Number.isFinite(seconds) || seconds < 0) {
+          // eslint-disable-next-line no-console
+          console.warn('[job-og-images] invalid JOB_OG_RENDER_BUDGET_S; using a zero-second render budget.');
         }
       }
-      if (!archiveCardCached) {
-        renderQueue.push({
-          jobId: 'archive-landing-card',
-          slug: 'archive-landing-card',
-          outPath: archivedOutPath,
-          cachePath: archivedCachePath,
-          tree: buildCardJsx({
-            title: 'ANNUNCIO ARCHIVIATO',
-            subtitle: 'Questa posizione non è più disponibile.',
-            company: null,
-            companyLogoDataUrl: null,
-            city: null,
-            salary: null,
-            employmentLabel: null,
-            photoKey: 'archive-neutral',
-            ctaLabel: 'CERCA OFFERTE ATTIVE',
-          }),
-        });
-      }
-
-      // ── Pass 2: render the queue across a worker pool ─────────
-      if (renderQueue.length > 0) {
-        const workerCount = Math.max(
-          1,
-          Math.min(
-            renderQueue.length,
-            Number(process.env.OG_WORKER_COUNT) || cpus().length || 2,
-            // Cap at 4 — each worker keeps the static fonts and four compact
-            // fallback JPEG data URLs in memory; offer-specific photos load lazily.
-            4,
-          ),
-        );
-        // eslint-disable-next-line no-console
-        console.log(
-          `[job-og-images] rendering ${renderQueue.length} cards across ${workerCount} workers (cache hits: ${stats.cached}/${jobs.length - stats.skipped + 1})`,
-        );
-
-        // Resolve worker URL relative to this file, so the build path
-        // (dist or source) doesn't matter at runtime.
-        const here = path.dirname(fileURLToPath(import.meta.url));
-        const workerPath = path.join(here, 'og-render-worker.mjs');
-
-        const writeResult = (job: RenderJob, webp: Buffer) => {
-          try {
-            mkdirSync(path.dirname(job.cachePath), { recursive: true });
-            mkdirSync(path.dirname(job.outPath), { recursive: true });
-            // A cancelled runner may save its partial cache on the way out.
-            // Publish only whole WebP files so every cached entry is reusable.
-            writeFileAtomicallySync(job.cachePath, webp);
-            copyFileSync(job.cachePath, job.outPath);
-            stats.rendered += 1;
-          } catch (err) {
-            stats.errors += 1;
-            if (stats.errors <= 5) {
-              // eslint-disable-next-line no-console
-              console.warn(
-                `[job-og-images] write failed for ${job.slug}: ${(err as Error).message}`,
-              );
-            }
-          }
-        };
-
-        await new Promise<void>((resolve) => {
-          let nextIdx = 0;
-          let liveWorkers = workerCount;
-
-          const dispatch = (worker: Worker) => {
-            if (nextIdx >= renderQueue.length) {
-              worker.postMessage('shutdown');
-              return false;
-            }
-            const job = renderQueue[nextIdx];
-            nextIdx += 1;
-            // Tag worker → in-flight job via WeakMap-equivalent on the
-            // worker instance. Simpler: store on a property.
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (worker as any).__inflight = job;
-            worker.postMessage({ jobId: job.jobId, tree: job.tree });
-            return true;
-          };
-
-          for (let i = 0; i < workerCount; i++) {
-            const worker = new Worker(workerPath, {
-              workerData: {
-                fontRegular: fontPair.regular,
-                fontBold: fontPair.bold,
-                brandBgFrom: BRAND_BG_FROM,
-                photoDataUrls: photoSources.fallbackDataUrls,
-                photoFilePaths: photoSources.specificPhotoPaths,
-                width: OG_WIDTH,
-                height: OG_HEIGHT,
-              },
-            });
-
-            worker.on(
-              'message',
-              (
-                msg:
-                  | { jobId: string; ok: true; webp: Buffer }
-                  | { jobId: string; ok: false; error: string },
-              ) => {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const job: RenderJob = (worker as any).__inflight;
-                if (msg.ok === true) {
-                  writeResult(job, msg.webp);
-                } else {
-                  stats.errors += 1;
-                  if (stats.errors <= 5) {
-                    // eslint-disable-next-line no-console
-                    console.warn(
-                      `[job-og-images] render failed for ${job.slug}: ${msg.error}`,
-                    );
-                  }
-                }
-                if (!dispatch(worker)) {
-                  worker.terminate();
-                }
-              },
-            );
-            worker.on('error', (err) => {
-              stats.errors += 1;
-              // eslint-disable-next-line no-console
-              console.warn(`[job-og-images] worker error: ${err.message}`);
-            });
-            worker.on('exit', () => {
-              liveWorkers -= 1;
-              if (liveWorkers === 0) resolve();
-            });
-
-            // Prime the worker with its first job.
-            dispatch(worker);
-          }
-        });
-      }
-
-      // ── Cache cleanup: remove stale-version files from .cache/og-jobs/ ──
-      // After a design bump (OG_RENDER_VERSION change) or format migration
-      // (PNG → WebP), the actions/cache restore-keys cascade rehydrates the
-      // previous version's cached files alongside the freshly-rendered ones.
-      // Without cleanup the cache size grows by ~180 MB per version bump,
-      // which both wastes the GitHub Actions cache budget and slows future
-      // restores. Filenames end in `.<OG_RENDER_VERSION>.webp`, so we drop
-      // any entry whose suffix doesn't match the current version+extension.
-      const versionSuffixes = [
-        `.${OG_RENDER_VERSION}.webp`,
-        `.${ARCHIVED_JOB_OG_IMAGE_VERSION}.webp`,
-      ];
-      let pruned = 0;
-      let prunedBytes = 0;
-      try {
-        for (const entry of readdirSync(cacheRoot)) {
-          if (/\.tmp-\d+$/.test(entry)) {
-            try {
-              unlinkSync(path.join(cacheRoot, entry));
-            } catch {
-              /* ignore stale interrupted-write temporary files */
-            }
-            continue;
-          }
-          if (versionSuffixes.some((suffix) => entry.endsWith(suffix))) continue;
-          if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
-          const orphaned = path.join(cacheRoot, entry);
-          try {
-            unlinkSync(orphaned);
-            pruned += 1;
-            // Rough avg: stale PNGs ~95 KB, stale WebPs ~30 KB. Used only
-            // for the human-readable log line below.
-            prunedBytes += entry.endsWith('.png') ? 95_000 : 30_000;
-          } catch {
-            /* ignore — best-effort cleanup */
-          }
-        }
-      } catch {
-        /* cacheRoot doesn't exist (impossible here) — noop */
-      }
-
-      const elapsedMs = Date.now() - startMs;
-      // eslint-disable-next-line no-console
-      console.log(
-        `[job-og-images] rendered=${stats.rendered} cached=${stats.cached} skipped=${stats.skipped} errors=${stats.errors} pruned-stale=${pruned} (~${(prunedBytes / 1_048_576).toFixed(0)}MB) in ${(elapsedMs / 1000).toFixed(1)}s`,
-      );
-      if (stats.rendered + stats.cached > 0) {
-        writeFileAtomicallySync(
-          path.join(cacheRoot, CACHE_COMPLETION_MARKER),
-          `${JSON.stringify({ rendered: stats.rendered, cached: stats.cached, skipped: stats.skipped, errors: stats.errors })}\n`,
-        );
-      }
+      await renderJobOgImages(rootDir, jobs, {
+        outDir,
+        budgetMs,
+        publishTarget: process.env.JOB_OG_PUBLISH_TARGET || 'pages',
+      });
     },
   };
 }

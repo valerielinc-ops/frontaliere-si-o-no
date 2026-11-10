@@ -122,10 +122,30 @@ async function writeCandidateManifest(candidatePath, files) {
   await fs.rename(temporaryPath, candidatePath);
 }
 
+async function readDeferredSlugs(filePath) {
+  if (!filePath) return [];
+  let parsed;
+  try {
+    parsed = JSON.parse(await fs.readFile(filePath, 'utf8'));
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw new Error(`could not read deferred OG slug list: ${error.message}`);
+  }
+  if (!Array.isArray(parsed)) throw new Error('deferred OG slug list must be a JSON array');
+  const slugs = [];
+  for (const slug of parsed) {
+    if (typeof slug !== 'string' || !slug || !isSafeRelativePath(`jobs/${slug}.webp`)) {
+      throw new Error(`unsafe deferred OG slug: ${String(slug)}`);
+    }
+    slugs.push(slug);
+  }
+  return [...new Set(slugs)].sort();
+}
+
 async function main() {
-  const [sourceDir, previousManifestPath, deltaDir, candidatePath] = process.argv.slice(2);
+  const [sourceDir, previousManifestPath, deltaDir, candidatePath, deferredSlugsPath] = process.argv.slice(2);
   if (!sourceDir || !previousManifestPath || !deltaDir || !candidatePath) {
-    throw new Error('usage: prepare-r2-og-delta.mjs <source-dir> <previous-manifest> <delta-dir> <candidate-manifest>');
+    throw new Error('usage: prepare-r2-og-delta.mjs <source-dir> <previous-manifest> <delta-dir> <candidate-manifest> [deferred-slugs.json]');
   }
 
   const sourceRoot = path.resolve(sourceDir);
@@ -147,9 +167,23 @@ async function main() {
 
   const previous = await loadPreviousManifest(previousManifestPath);
   const fullPublish = previous.files === null;
+  const deferredSlugs = await readDeferredSlugs(deferredSlugsPath);
   const changedFiles = fullPublish
     ? currentFiles
     : currentFiles.filter((file) => previous.files.get(file.path)?.sha256 !== file.sha256);
+  const currentPaths = new Set(currentFiles.map((file) => file.path));
+  const preservedDeferredFiles = fullPublish
+    ? []
+    : deferredSlugs
+      .map((slug) => {
+        const filePath = `jobs/${slug}.webp`;
+        const previousFile = previous.files.get(filePath);
+        if (!previousFile || currentPaths.has(filePath)) return null;
+        return { path: filePath, ...previousFile };
+      })
+      .filter(Boolean);
+  const candidateFiles = [...currentFiles, ...preservedDeferredFiles]
+    .sort((left, right) => (left.path < right.path ? -1 : left.path > right.path ? 1 : 0));
   const changedBytes = changedFiles.reduce((total, file) => total + file.size, 0);
   const noTraverseLimit = Math.min(
     NO_TRAVERSE_MAX_CHANGED_FILES,
@@ -158,13 +192,13 @@ async function main() {
   const noTraverse = !fullPublish && changedFiles.length > 0 && changedFiles.length <= noTraverseLimit;
 
   if (!fullPublish) await copyChangedFiles(changedFiles, path.resolve(deltaDir));
-  await writeCandidateManifest(path.resolve(candidatePath), currentFiles);
+  await writeCandidateManifest(path.resolve(candidatePath), candidateFiles);
 
   const mode = fullPublish ? 'full' : 'delta';
   process.stdout.write(
-    `mode=${mode} previous=${previous.status} total_files=${currentFiles.length} `
+    `mode=${mode} previous=${previous.status} total_files=${candidateFiles.length} `
     + `changed_files=${changedFiles.length} changed_bytes=${changedBytes} `
-    + `no_traverse=${noTraverse}\n`,
+    + `preserved_deferred=${preservedDeferredFiles.length} no_traverse=${noTraverse}\n`,
   );
 }
 

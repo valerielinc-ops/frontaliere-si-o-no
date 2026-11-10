@@ -113,6 +113,8 @@ source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/section-shard-push-cleanup.sh"
 offload_script="$repo_root/scripts/offload-generated-images-cdn.mjs"
+JOB_OG_DEFERRED_FALLBACKS_FILE="${JOB_OG_DEFERRED_FALLBACKS_FILE:-$repo_root/.cache/og-jobs/.deferred-fallbacks.json}"
+export JOB_OG_DEFERRED_FALLBACKS_FILE
 
 # Canonical section path per locale, from the shared single source of truth.
 # Keep in lockstep with SECTION_ROUTES in infra/cloudflare-worker/locale-router.js

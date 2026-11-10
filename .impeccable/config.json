@@ -67,7 +67,7 @@
         "rule": "design-system-font",
         "value": "roboto",
         "createdAt": "2026-11-02T18:10:29.272Z",
-        "reason": "Existing job OG cards use the bundled static Roboto TTF required by the Satori raster renderer; this change adjusts card hierarchy only."
+        "reason": "Existing job OG raster renderer explicitly reads Roboto-Regular.ttf and Roboto-Bold.ttf; this task changes render scheduling, not the site's UI typography."
       },
       {
         "rule": "broken-image",
