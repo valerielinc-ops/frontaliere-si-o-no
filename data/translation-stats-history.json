@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-10-22T09:54:37.352Z",
-    "label": "before",
-    "total": 32800,
-    "needsRetranslation": 2297,
-    "suppressed": 127,
-    "incomplete": 2707,
-    "complete": 30093,
-    "slotsPresent": 30093,
-    "flaggedAmongSlotsPresent": 58,
-    "verifiedTranslated": 30035,
-    "sourceCopyExcused": 282,
-    "slotsPresentByLength": 32777,
-    "languageVerified": 31864,
-    "missingByLocale": {
-      "it": 247,
-      "en": 211,
-      "de": 85,
-      "fr": 218
-    },
-    "queueAge": {
-      "count": 2297,
-      "withTimestamp": 2297,
-      "oldestAgeDays": 192,
-      "p50AgeDays": 32.5,
-      "p90AgeDays": 112.9,
-      "buckets": {
-        "0-1d": 203,
-        "1-2d": 30,
-        "2-7d": 76,
-        "0-7d": 309,
-        "7-30d": 708,
-        "30-90d": 854,
-        "90-180d": 417,
-        "180d+": 9
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "genderFormRepair": {
-      "measured": false,
-      "status": "cohort-captured",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 754,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "publicationHold": {
-      "held": 0,
-      "byCrawler": {}
-    },
-    "predicateVersion": "b4fbff52e4846206",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 660,
-      "complete": 636
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 476
-      },
-      {
-        "company": "LANDI Aare Genossenschaft",
-        "pending": 116
-      },
-      {
-        "company": "Medbase",
-        "pending": 110
-      },
-      {
-        "company": "Equans Switzerland",
-        "pending": 109
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 102
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 77
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 73
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 61
-      },
-      {
-        "company": "Fielmann Group",
-        "pending": 55
-      }
-    ]
-  },
-  {
     "timestamp": "2026-10-22T12:15:10.000Z",
     "label": "after",
     "total": 32834,
@@ -28747,5 +28643,111 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-11-10T16:19:46.762Z",
+    "label": "before",
+    "total": 35163,
+    "needsRetranslation": 3001,
+    "suppressed": 85,
+    "incomplete": 2360,
+    "complete": 32803,
+    "slotsPresent": 32803,
+    "flaggedAmongSlotsPresent": 967,
+    "verifiedTranslated": 31836,
+    "sourceCopyExcused": 0,
+    "slotsPresentByLength": 35146,
+    "languageVerified": 33925,
+    "missingByLocale": {
+      "it": 49,
+      "en": 63,
+      "de": 12,
+      "fr": 52
+    },
+    "queueAge": {
+      "count": 3001,
+      "withTimestamp": 3001,
+      "oldestAgeDays": 211.2,
+      "p50AgeDays": 31.8,
+      "p90AgeDays": 129.2,
+      "buckets": {
+        "0-1d": 355,
+        "1-2d": 192,
+        "2-7d": 255,
+        "0-7d": 802,
+        "7-30d": 688,
+        "30-90d": 979,
+        "90-180d": 515,
+        "180d+": 17
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 1010,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 210,
+      "byCrawler": {
+        "seco-jobroom": 210
+      }
+    },
+    "predicateVersion": "2535f99d338cafcd",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 606,
+      "complete": 516
+    },
+    "topPending": [
+      {
+        "company": "Macelleria Bozzini Sagl",
+        "pending": 277
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 164
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 120
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 93
+      },
+      {
+        "company": "Medbase",
+        "pending": 93
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 88
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 67
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 56
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 53
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 38
+      }
+    ]
   }
 ]

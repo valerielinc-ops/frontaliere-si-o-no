@@ -78,6 +78,13 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-10T13:23:27.670Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
+      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-b4a07ae6",
+      "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau-c774c7c5",
@@ -107,14 +114,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097383",
-    "firstSeenAt": "2026-11-05T09:17:32.465Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-b4a07ae6",
-      "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-    ]
+    "firstSeenAt": "2026-11-05T09:17:32.465Z"
   },
   {
     "slug": "infermiere-a-diplomato-a-hf-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
