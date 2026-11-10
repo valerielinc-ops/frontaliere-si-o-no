@@ -97,6 +97,12 @@ describe('portal question holds after a portal fix', () => {
     const letterSlot = portal('portal_letter', 'Motivationsschreiben');
     expect(await run(fixture([letterSlot]))).toMatchObject({ eligible: 0 });
     expect(await run(fixture([letterSlot], { draft: { coverLetterPdfKey: 'letter/object' } }))).toMatchObject({ queued: 1 });
+    // An upload slot needs the letter's PDF: the runner never uploads the bare text (review of #17990).
+    const letterUpload = portal('portal_letter_file', 'Motivationsschreiben', { type: 'file' });
+    const textOnly = fixture([letterUpload], { draft: { coverLetter: 'Sehr geehrte Damen und Herren' } });
+    expect(await run(textOnly)).toMatchObject({ eligible: 0 });
+    expect(textOnly.read(draftPath).questions[0].required).toBe(true);
+    expect(await run(fixture([letterUpload], { draft: { coverLetter: 'text', coverLetterPdfKey: 'letter/object' } }))).toMatchObject({ queued: 1 });
     expect(await run(fixture([cvSlot], { order: { cvStorageKey: '' } }))).toMatchObject({ eligible: 0 });
   });
 

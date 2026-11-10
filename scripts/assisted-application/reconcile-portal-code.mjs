@@ -79,9 +79,12 @@ const questionHoldKey = (round, ids) => createHash('sha256').update(JSON.stringi
   .digest('hex').slice(0, 32);
 
 // The runner attaches the CV and the cover letter it has; a slot for a document the order lacks stays a request.
+// An upload slot takes the letter's PDF (the runner uploads `coverLetterPdfKey`, never the bare text); only a
+// text slot can take the letter's text.
 const DOCUMENT_ON_FILE = {
   cv: ({ order, draft }) => Boolean(String(order?.cvStorageKey || draft?.cvKey || '').trim()),
-  cover_letter: ({ draft }) => Boolean(String(draft?.coverLetterPdfKey || '').trim() || String(draft?.coverLetter || '').trim()),
+  cover_letter: ({ draft, question }) => Boolean(String(draft?.coverLetterPdfKey || '').trim()
+    || (String(question?.type || 'text').trim().toLowerCase() !== 'file' && String(draft?.coverLetter || '').trim())),
 };
 
 /**
@@ -107,7 +110,7 @@ export function portalQuestionsResolvedByCode({ order, draft, flow, answerFlow =
   for (const [question] of held) {
     if (!flags.candidate.includes(question.id)) continue;
     const kind = portalQuestionDocumentSlotKind(question);
-    if (!kind || !DOCUMENT_ON_FILE[kind]({ order, draft })) return null;
+    if (!kind || !DOCUMENT_ON_FILE[kind]({ order, draft, question })) return null;
     slots.set(question.id, kind);
   }
   const nextQuestions = slots.size ? questions.map(question => slots.has(question.id)
