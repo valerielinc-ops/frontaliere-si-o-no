@@ -317,12 +317,12 @@
     },
     {
       "id": "fusalp-559f5149440a",
-      "slug": "sales-associate-permanent-80-m-w-fusalp-zurich",
+      "slug": "sales-associazione-permanente-80-m-f-fusalp-zurich",
       "slugByLocale": {
         "en": "sales-associate-permanent-80-m-w-fusalp-zurich",
-        "it": "sales-associate-permanent-80-m-w-fusalp-zurich",
-        "de": "sales-associate-permanent-80-m-w-fusalp-zurich",
-        "fr": "sales-associate-permanent-80-m-w-fusalp-zurich"
+        "it": "sales-associazione-permanente-80-m-f-fusalp-zurich",
+        "de": "verkaufsverbindung-dauer-80-m-w-fusalp-zurich",
+        "fr": "ventes-associees-permanentes-80-h-f-fusalp-zurich"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -384,16 +384,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:22:28.413Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:22:28.413Z"
+      "firstSeenAt": "2026-11-10T09:22:28.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-permanent-80-m-w-fusalp-zurich"
+        ],
+        "de": [
+          "sales-associate-permanent-80-m-w-fusalp-zurich"
+        ],
+        "fr": [
+          "sales-associate-permanent-80-m-w-fusalp-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-permanent-80-m-w-fusalp-zurich"
+      ]
     },
     {
       "id": "fusalp-46267c8598a6",
-      "slug": "sales-associate-winter-season-80-m-w-fusalp-zermatt",
+      "slug": "sales-associazione-season-80-m-f-fusalp-zermatt",
       "slugByLocale": {
         "en": "sales-associate-winter-season-80-m-w-fusalp-zermatt",
-        "it": "sales-associate-winter-season-80-m-w-fusalp-zermatt",
-        "de": "sales-associate-winter-season-80-m-w-fusalp-zermatt",
-        "fr": "sales-associate-winter-season-80-m-w-fusalp-zermatt"
+        "it": "sales-associazione-season-80-m-f-fusalp-zermatt",
+        "de": "verkaufsverbindung-winterseason-80-m-w-fusalp-zermatt",
+        "fr": "les-ventes-associent-la-saison-winter-80-h-f-fusalp-zermatt"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -455,7 +469,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:22:27.430Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:22:27.430Z"
+      "firstSeenAt": "2026-11-10T09:22:27.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-winter-season-80-m-w-fusalp-zermatt"
+        ],
+        "de": [
+          "sales-associate-winter-season-80-m-w-fusalp-zermatt"
+        ],
+        "fr": [
+          "sales-associate-winter-season-80-m-w-fusalp-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-winter-season-80-m-w-fusalp-zermatt"
+      ]
     }
   ]
 }

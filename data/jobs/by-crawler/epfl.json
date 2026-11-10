@@ -6069,12 +6069,12 @@
     },
     {
       "id": "epfl-ef224b141e87",
-      "slug": "chef-fe-de-projets-exploitation-epfl-lausanne",
+      "slug": "operazioni-di-project-manager-epfl-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projets-exploitation-epfl-lausanne",
-        "it": "chef-fe-de-projets-exploitation-epfl-lausanne",
-        "en": "chef-fe-de-projets-exploitation-epfl-lausanne",
-        "de": "chef-fe-de-projets-exploitation-epfl-lausanne"
+        "it": "operazioni-di-project-manager-epfl-lausanne",
+        "en": "project-manager-operations-epfl-lausanne",
+        "de": "projektmanager-operations-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6139,7 +6139,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:20:35.109Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:20:35.109Z"
+      "firstSeenAt": "2026-11-10T09:20:35.109Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projets-exploitation-epfl-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projets-exploitation-epfl-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projets-exploitation-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projets-exploitation-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-4347bee51fc5",

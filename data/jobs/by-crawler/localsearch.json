@@ -2205,12 +2205,12 @@
     },
     {
       "id": "localsearch-84ac793bfb92",
-      "slug": "verkaufer-in-im-aussendienst-localsearch-urdorf",
+      "slug": "venditore-trice-in-servizio-esterno-localsearch-urdorf",
       "slugByLocale": {
         "de": "verkaufer-in-im-aussendienst-localsearch-ch",
-        "it": "verkaufer-in-im-aussendienst-localsearch-urdorf",
-        "en": "verkaufer-in-im-aussendienst-localsearch-urdorf",
-        "fr": "verkaufer-in-im-aussendienst-localsearch-urdorf"
+        "it": "venditore-trice-in-servizio-esterno-localsearch-urdorf",
+        "en": "salesperson-in-the-field-localsearch-urdorf-234a86",
+        "fr": "vendeur-vendeuse-sur-le-terrain-localsearch-urdorf"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2256,11 +2256,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-aussendienst-localsearch-ch"
+          "verkaufer-in-im-aussendienst-localsearch-ch",
+          "verkaufer-in-im-aussendienst-localsearch-urdorf"
+        ],
+        "en": [
+          "verkaufer-in-im-aussendienst-localsearch-urdorf"
+        ],
+        "fr": [
+          "verkaufer-in-im-aussendienst-localsearch-urdorf"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch"
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-urdorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2285,12 +2293,12 @@
     },
     {
       "id": "localsearch-a3707443ec85",
-      "slug": "verkaufer-in-im-aussendienst-localsearch-unterentfelden",
+      "slug": "venditore-trice-in-servizio-esterno-localsearch-unterentfelden",
       "slugByLocale": {
         "de": "verkaufer-in-im-aussendienst-localsearch-ch",
-        "it": "verkaufer-in-im-aussendienst-localsearch-unterentfelden",
-        "en": "verkaufer-in-im-aussendienst-localsearch-unterentfelden",
-        "fr": "verkaufer-in-im-aussendienst-localsearch-unterentfelden"
+        "it": "venditore-trice-in-servizio-esterno-localsearch-unterentfelden",
+        "en": "salesperson-in-the-field-localsearch-unterentfelden-ec3891",
+        "fr": "vendeur-vendeuse-sur-le-terrain-localsearch-unterentfelden"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2336,11 +2344,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-aussendienst-localsearch-ch-2"
+          "verkaufer-in-im-aussendienst-localsearch-ch-2",
+          "verkaufer-in-im-aussendienst-localsearch-unterentfelden"
+        ],
+        "en": [
+          "verkaufer-in-im-aussendienst-localsearch-unterentfelden"
+        ],
+        "fr": [
+          "verkaufer-in-im-aussendienst-localsearch-unterentfelden"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-2"
+        "verkaufer-in-im-aussendienst-localsearch-ch-2",
+        "verkaufer-in-im-aussendienst-localsearch-unterentfelden"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

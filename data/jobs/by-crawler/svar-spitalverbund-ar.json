@@ -431,12 +431,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-39ff62498fcd",
-      "slug": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "intern-nursing-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "stagiaire-en-soins-infirmiers-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -500,16 +500,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:23:46.108Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:23:46.108Z"
+      "firstSeenAt": "2026-11-10T09:23:46.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-9a564fcdf3e4",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -572,7 +586,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T09:23:45.444Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-11T13:33:11.778Z"
+      "firstSeenAt": "2026-09-11T13:33:11.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-2f5c053e8a29",
@@ -657,12 +685,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-6373312177bf",
-      "slug": "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        "it": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -711,11 +739,19 @@
       "externalId": "4099655",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+          "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

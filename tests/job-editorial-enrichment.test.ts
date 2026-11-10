@@ -14,7 +14,7 @@ import {
  * (companyKey, canton, contract, salary{Min,Max}, featured, logo,
  * addressLocality, titleByLocale, datePosted) onto the `jobs` arrays so the
  * shared `renderJobCardListHtml` renderer can paint salary / contract /
- * "X giorni fa" chips identical to the in-app <JobCard>.
+ * posted-date chips matching the in-app <JobCard>.
  */
 
 const SOURCE = {

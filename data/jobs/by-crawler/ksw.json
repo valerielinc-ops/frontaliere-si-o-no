@@ -2608,12 +2608,12 @@
     },
     {
       "id": "ksw-2d772b631d9e",
-      "slug": "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch",
+      "slug": "vice-caposquadra-vice-caposquadra-ricevimento-d-emergenza-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch",
-        "it": "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch",
-        "en": "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch",
-        "fr": "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch"
+        "it": "vice-caposquadra-vice-caposquadra-ricevimento-d-emergenza-kantonsspital-winterthur-ksw-winterthur",
+        "en": "deputy-team-leader-emergency-reception-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "cheffe-d-equipe-adjointe-chef-d-equipe-adjoint-reception-d-urgence-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2677,7 +2677,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:16:07.433Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:16:07.433Z"
+      "firstSeenAt": "2026-11-10T09:16:07.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch"
+        ],
+        "en": [
+          "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch"
+        ],
+        "fr": [
+          "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiterin-stv-teamleiter-notfallempfang-ksw-ch"
+      ]
     },
     {
       "id": "ksw-5551eb52d8b5",

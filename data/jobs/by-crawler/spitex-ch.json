@@ -1774,12 +1774,12 @@
     },
     {
       "id": "spitex-ch-7b78e4c433f1",
-      "slug": "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis",
+      "slug": "specialista-assistenza-afc-spitex-knonaueramt-affoltern-am-albis",
       "slugByLocale": {
         "de": "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis",
-        "it": "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis",
-        "en": "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis",
-        "fr": "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis"
+        "it": "specialista-assistenza-afc-spitex-knonaueramt-affoltern-am-albis",
+        "en": "specialist-care-efz-spitex-knonaueramt-affoltern-am-albis",
+        "fr": "soins-specialises-efz-spitex-knonaueramt-affoltern-am-albis"
       },
       "company": "Spitex Knonaueramt",
       "companyKey": "spitex-ch",
@@ -1842,16 +1842,30 @@
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-10T09:14:43.031Z"
+      "firstSeenAt": "2026-11-10T09:14:43.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis"
+        ],
+        "en": [
+          "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis"
+        ],
+        "fr": [
+          "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-efz-spitex-ch-affoltern-am-albis"
+      ]
     },
     {
       "id": "spitex-ch-ec5d8ef284fe",
-      "slug": "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis",
+      "slug": "professionista-della-salute-afc-spitex-knonaueramt-affoltern-am-albis",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis",
-        "it": "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis",
-        "en": "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis",
-        "fr": "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis"
+        "it": "professionista-della-salute-afc-spitex-knonaueramt-affoltern-am-albis",
+        "en": "health-professional-efz-spitex-knonaueramt-affoltern-am-albis",
+        "fr": "professionnels-de-la-sante-efz-spitex-knonaueramt-affoltern-am-albis"
       },
       "company": "Spitex Knonaueramt",
       "companyKey": "spitex-ch",
@@ -1914,7 +1928,21 @@
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-10T09:14:42.145Z"
+      "firstSeenAt": "2026-11-10T09:14:42.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-spitex-ch-affoltern-am-albis"
+      ]
     },
     {
       "id": "spitex-ch-718a48a2093e",

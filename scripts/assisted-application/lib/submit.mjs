@@ -619,6 +619,8 @@ export async function submitApplication(ctx) {
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts }),
         knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
+        // The CV's text, for the decision engine's evidence on experience questions in the run (decision-answers.mjs).
+        cvText: draft.factSources?.text || '',
         candidateRequestRound,
         files,
         codex: ctx.codex,

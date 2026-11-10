@@ -2563,5 +2563,200 @@
         "lastOutcome": "budget_exhausted"
       }
     }
+  },
+  {
+    "schemaVersion": 3,
+    "runId": "42806463778",
+    "phase": "discovery",
+    "startedAt": "2026-11-10T11:21:54.261Z",
+    "finishedAt": "2026-11-10T11:43:53.881Z",
+    "sources": {
+      "seco": {
+        "attempts": 26,
+        "items": 3375,
+        "recordsSeen": 3375,
+        "newCandidatesFiled": 249,
+        "outcomes": {
+          "complete": 23,
+          "partial": 3,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "head_cursor_not_found": 2,
+          "http_412": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "osm": {
+        "attempts": 3,
+        "items": 4516,
+        "recordsSeen": 4516,
+        "newCandidatesFiled": 21,
+        "outcomes": {
+          "complete": 2,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "malformed_records": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "web": {
+        "attempts": 1,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_504": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "zefix": {
+        "attempts": 1,
+        "items": 80,
+        "recordsSeen": 80,
+        "newCandidatesFiled": 60,
+        "outcomes": {
+          "complete": 1,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": "complete",
+        "aggregateOutcome": "complete"
+      }
+    },
+    "resolvers": {
+      "google_places": {
+        "attempts": 0,
+        "requests": 0,
+        "places": 0,
+        "websites": 0,
+        "verified": 0,
+        "rejected": 0,
+        "outcomes": {
+          "resolved": 0,
+          "no_place": 0,
+          "no_website": 0,
+          "display_name_mismatch": 0,
+          "unverified": 0,
+          "site_unavailable": 0,
+          "budget_exhausted": 0,
+          "api_key_missing": 0,
+          "api_stopped": 0,
+          "unavailable": 0,
+          "not_attempted": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": null
+      }
+    }
+  },
+  {
+    "schemaVersion": 3,
+    "runId": "42806463778",
+    "phase": "trace",
+    "startedAt": "2026-11-10T11:43:54.826Z",
+    "finishedAt": "2026-11-10T13:02:17.626Z",
+    "sources": {
+      "seco": {
+        "attempts": 0,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": null,
+        "aggregateOutcome": null
+      },
+      "osm": {
+        "attempts": 0,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": null,
+        "aggregateOutcome": null
+      },
+      "web": {
+        "attempts": 0,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": null,
+        "aggregateOutcome": null
+      },
+      "zefix": {
+        "attempts": 0,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": null,
+        "aggregateOutcome": null
+      }
+    },
+    "resolvers": {
+      "google_places": {
+        "attempts": 684,
+        "requests": 0,
+        "places": 0,
+        "websites": 0,
+        "verified": 0,
+        "rejected": 0,
+        "outcomes": {
+          "resolved": 0,
+          "no_place": 0,
+          "no_website": 0,
+          "display_name_mismatch": 0,
+          "unverified": 0,
+          "site_unavailable": 0,
+          "budget_exhausted": 684,
+          "api_key_missing": 0,
+          "api_stopped": 0,
+          "unavailable": 0,
+          "not_attempted": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": "budget_exhausted"
+      }
+    }
   }
 ]

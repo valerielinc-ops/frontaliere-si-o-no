@@ -2308,12 +2308,12 @@
     },
     {
       "id": "spital-zofingen-5374433347dc",
-      "slug": "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen",
+      "slug": "reception-paziente-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen",
-        "it": "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen",
-        "en": "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen",
-        "fr": "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen"
+        "it": "reception-paziente-spital-zofingen-zofingen",
+        "en": "reception-patient-reception-line-spital-zofingen-zofingen",
+        "fr": "ligne-de-reception-patient-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2375,7 +2375,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:29:46.204Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:29:46.204Z"
+      "firstSeenAt": "2026-11-10T09:29:46.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-empfang-patientenaufnahme-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-d70b46c96ae0",

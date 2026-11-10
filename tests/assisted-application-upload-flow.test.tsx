@@ -78,8 +78,8 @@ const paidOrder = (overrides: Record<string, unknown> = {}) => ({
   consentedAt: null,
   applicantName: 'Nome di prova',
   applicantEmail: 'candidato@example.test',
-  // Asked with the CV (owner decision 2026-11-09): an order whose candidate already gave them.
-  candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana' },
+  // Asked with the CV (owner decisions 2026-11-09 and 2026-11-10): an order whose candidate already gave them.
+  candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana', criminalRecord: 'no', debtRecord: 'no' },
   cvStorageKey: null,
   cvFileName: null,
   ...overrides,
@@ -160,6 +160,16 @@ describe('assisted application consent and CV upload flow', () => {
     expect(screen.getByText(itCore['jobBoard.assisted.employerResponse.emailHint'])).toBeTruthy();
     expect(screen.getByRole('link', { name: itCore['jobBoard.concierge.openJob'] }).getAttribute('href')).toBe(jobUrl);
     expect(mocks.updateDoc).not.toHaveBeenCalled();
+  });
+
+  it('shows the employer’s automatic receipt without pointing to an e-mail it never received', async () => {
+    orderData = paidOrder({
+      submissionStatus: 'submitted', automationState: 'submitted',
+      employerResponse: { category: 'auto_acknowledgement', receivedAt: Date.now(), needsReply: false },
+    });
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByText(itCore['jobBoard.assisted.employerResponse.auto_acknowledgement']);
+    expect(screen.queryByText(itCore['jobBoard.assisted.employerResponse.emailHint'])).toBeNull();
   });
 
   it.each([false, true])('refreshes an advanced order on a stale page (transition during write: %s)', async (duringWrite) => {
@@ -258,11 +268,39 @@ describe('assisted application consent and CV upload flow', () => {
     await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.workPermit']), 'permit_g');
     await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.passport']), 'eu_efta');
     await user.type(screen.getByLabelText(itCore['jobBoard.assisted.nationality']), 'Italiana');
+    // The two legal facts are required too (owner decision 2026-11-10): without them the CV is not taken.
+    fireEvent.change(fileInput, { target: { files: [cv()] } });
+    expect(await screen.findByText(itCore['jobBoard.assisted.candidateFactsRequired'])).toBeTruthy();
+    expect(mocks.uploadBytes).not.toHaveBeenCalled();
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.criminalRecord']), 'no');
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.debtRecord']), 'yes');
     fireEvent.change(fileInput, { target: { files: [cv()] } });
     await waitFor(() => expect(mocks.uploadBytes).toHaveBeenCalledOnce());
     expect(mocks.updateDoc).toHaveBeenLastCalledWith(expect.anything(), expect.objectContaining({
       cvStorageKey: `assisted-application-uploads/${ORDER_ID}/cv.pdf`,
+      candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana', criminalRecord: 'no', debtRecord: 'yes' },
+    }));
+  });
+
+  it('asks the two legal facts of an order whose permit, passport and nationality predate them', async () => {
+    orderData = paidOrder({
+      consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 },
       candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana' },
+    });
+    const user = userEvent.setup();
+    const { container } = render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByRole('button', { name: itCore['jobBoard.assisted.fileCta'] });
+    const fileInput = container.querySelector<HTMLInputElement>('#assisted-application-cv-input') as HTMLInputElement;
+    const cv = () => new File(['pdf data'], 'cv.pdf', { type: 'application/pdf' });
+    fireEvent.change(fileInput, { target: { files: [cv()] } });
+    expect(await screen.findByText(itCore['jobBoard.assisted.candidateFactsRequired'])).toBeTruthy();
+    expect((screen.getByLabelText(itCore['jobBoard.assisted.workPermit']) as HTMLSelectElement).value).toBe('permit_g');
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.criminalRecord']), 'no');
+    await user.selectOptions(screen.getByLabelText(itCore['jobBoard.assisted.debtRecord']), 'no');
+    fireEvent.change(fileInput, { target: { files: [cv()] } });
+    await waitFor(() => expect(mocks.uploadBytes).toHaveBeenCalledOnce());
+    expect(mocks.updateDoc).toHaveBeenLastCalledWith(expect.anything(), expect.objectContaining({
+      candidateFacts: { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana', criminalRecord: 'no', debtRecord: 'no' },
     }));
   });
 

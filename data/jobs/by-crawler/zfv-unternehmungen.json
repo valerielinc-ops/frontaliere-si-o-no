@@ -1082,8 +1082,8 @@
       "slugByLocale": {
         "de": "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur",
         "it": "buffet-collaboratore-trice-60-zfv-unternehmungen-winterthur",
-        "en": "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur",
-        "fr": "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur"
+        "en": "buffet-associate-60-zfv-unternehmungen-winterthur",
+        "fr": "buffet-collaborateur-trice-60-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1131,6 +1131,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur"
+        ],
+        "en": [
+          "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
           "buffet-mitarbeiter-in-60-zfv-unternehmungen-winterthur"
         ]
       },
@@ -2421,10 +2427,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
         "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2470,20 +2476,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cucinare-cucinare-zfv-unternehmungen-baden",
-        "cuire-cuire-zfv-unternehmungen-baden"
+        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden",
-          "cucinare-cucinare-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuire-cuire-zfv-unternehmungen-baden"
+          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -5520,7 +5524,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5572,14 +5576,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",

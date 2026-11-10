@@ -1,6 +1,13 @@
 import { Inbox } from 'lucide-react';
 import type { AssistedApplicationAutomationView } from '@/services/assistedApplicationAdminService';
 
+// Why a message stayed with the automation instead of reaching the candidate.
+const KEPT: Record<string, string> = {
+  portal_verification: 'Verifica account gestita dall’automazione',
+  portal_account_notice: 'Avviso dell’account portale gestito dall’automazione',
+  application_receipt: 'Ricevuta automatica registrata, non inoltrata',
+};
+
 const CATEGORIES: Record<string, string> = {
   processing: 'In elaborazione', interview_invite: 'Invito a colloquio', rejection: 'Esito negativo',
   documents_request: 'Documenti richiesti', question: 'Domanda del datore', assessment: 'Test',
@@ -28,7 +35,7 @@ export default function AssistedApplicationInbox({ automation }: { automation?: 
               {item.summaryIt && <p className="max-w-prose">{item.summaryIt}</p>}
               {item.interviewWhen && <p>Colloquio: {item.interviewWhen}</p>}
               <p className={`text-xs ${item.forwarded === 'sent' ? 'text-success' : item.forwarded === 'failed' ? 'text-danger' : 'text-subtle'}`}>
-                {item.forwarded === 'sent' ? 'Inoltrata al candidato' : item.forwarded === 'skipped' ? 'Verifica account gestita dall’automazione' : item.forwarded === 'failed' ? 'Inoltro al candidato non riuscito' : 'Inoltro non ancora confermato'}
+                {item.forwarded === 'sent' ? 'Inoltrata al candidato' : item.forwarded === 'skipped' ? (KEPT[item.forwardedReason || ''] || 'Gestita dall’automazione, non inoltrata') : item.forwarded === 'failed' ? 'Inoltro al candidato non riuscito' : 'Inoltro non ancora confermato'}
               </p>
             </li>
           ))}

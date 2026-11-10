@@ -1385,12 +1385,12 @@
     },
     {
       "id": "ameos-ch-4e2497d3a354",
-      "slug": "leitung-m-w-d-psychologie-ameos-brunnen",
+      "slug": "testa-di-m-f-d-psicologia-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "leitung-m-w-d-psychologie-ameos-brunnen",
-        "it": "leitung-m-w-d-psychologie-ameos-brunnen",
-        "en": "leitung-m-w-d-psychologie-ameos-brunnen",
-        "fr": "leitung-m-w-d-psychologie-ameos-brunnen"
+        "it": "testa-di-m-f-d-psicologia-ameos-schweiz-brunnen",
+        "en": "head-of-m-f-d-psychology-ameos-schweiz-brunnen",
+        "fr": "responsable-de-la-psychologie-h-f-d-ameos-schweiz-brunnen-07b4a3"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1452,7 +1452,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:21:53.218Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:21:53.218Z"
+      "firstSeenAt": "2026-11-10T09:21:53.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-m-w-d-psychologie-ameos-brunnen"
+        ],
+        "en": [
+          "leitung-m-w-d-psychologie-ameos-brunnen"
+        ],
+        "fr": [
+          "leitung-m-w-d-psychologie-ameos-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-m-w-d-psychologie-ameos-brunnen"
+      ]
     },
     {
       "id": "ameos-ch-340009b830bc",

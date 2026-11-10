@@ -1,0 +1,25 @@
+{
+  "companyKey": "norba-ch",
+  "companyName": "Norba SA",
+  "companyHost": "norba.ch",
+  "verifiedEmployerDomain": "norba.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.norba.ch/carriere"
+  ],
+  "detailTemplate": "/offres-emploi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Technicien(ne) Bureau Technique (h/f)",
+    "Technicien Chantier (h/f) à 100%",
+    "CALCULATEUR - METREUR (h/f) à 100%"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-10T13:47:59.824Z",
+  "candidateKey": "norba@palezieux"
+}

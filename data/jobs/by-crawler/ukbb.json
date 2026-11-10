@@ -1519,12 +1519,12 @@
     },
     {
       "id": "ukbb-c0f08a28fbbd",
-      "slug": "medizinische-r-praxisassistent-in-mpa-o-fachangestellte-gesundheit-fage-cfc-60-80-universitats-kinderspital-beider-basel",
+      "slug": "assistente-di-ambulatorio-medico-in-mpa-o-operatore-sanitario-fage-afc-60-80-universitats-kinderspital-beider-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-ukbb",
-        "it": "medizinische-r-praxisassistent-in-mpa-o-fachangestellte-gesundheit-fage-cfc-60-80-universitats-kinderspital-beider-basel",
-        "en": "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-universitats-kinderspital-beider",
-        "fr": "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-universitats-kinderspital-beider"
+        "it": "assistente-di-ambulatorio-medico-in-mpa-o-operatore-sanitario-fage-afc-60-80-universitats-kinderspital-beider-basel",
+        "en": "medical-practice-assistant-mpa-or-health-assistant-fage-efz-60-80-universitats-kinderspital-beider-basel-basel",
+        "fr": "assistant-e-medical-e-mpa-ou-assistant-e-specialise-e-en-sante-assc-cfc-60-80-universitats-kinderspital-beider-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1573,11 +1573,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-ukbb"
+          "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-ukbb",
+          "medizinische-r-praxisassistent-in-mpa-o-fachangestellte-gesundheit-fage-cfc-60-80-universitats-kinderspital-beider-basel"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-universitats-kinderspital-beider"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-universitats-kinderspital-beider"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-ukbb"
+        "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-ukbb",
+        "medizinische-r-praxisassistent-in-mpa-o-fachangestellte-gesundheit-fage-cfc-60-80-universitats-kinderspital-beider-basel",
+        "medizinische-r-praxisassistent-in-mpa-oder-fachangestellte-gesundheit-fage-efz-60-80-universitats-kinderspital-beider"
       ],
       "salaryMin": 70400,
       "salaryMax": 98400,

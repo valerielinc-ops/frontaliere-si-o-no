@@ -3043,8 +3043,8 @@
       "slugByLocale": {
         "de": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
         "it": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
-        "en": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
-        "fr": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich"
+        "en": "performance-specialist-performance-testing-at-service-center-zurich-100-concordia-zurich",
+        "fr": "specialiste-des-performances-en-cours-d-evaluation-des-performances-au-service-center-de-zurich-100-concordia-zurich"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3115,8 +3115,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
         "it": "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
-        "en": "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
-        "fr": "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
+        "en": "team-leader-performance-controlling-and-performance-audit-bvm-80-100-concordia-luzern",
+        "fr": "chef-d-equipe-dans-le-controle-de-la-performance-et-l-audit-de-la-rentabilite-bvm-80-100-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3166,6 +3166,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
+        ],
+        "en": [
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
+        ],
+        "fr": [
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
         ]
       },
       "previousSlugs": [
@@ -3191,12 +3197,12 @@
     },
     {
       "id": "concordia-e176f712f754",
-      "slug": "versicherungsberater-in-80-100-in-bern-concordia-bern",
+      "slug": "consulente-assicurativo-80-100-a-berna-concordia-bern",
       "slugByLocale": {
         "de": "versicherungsberater-in-80-100-in-bern-concordia-bern",
-        "it": "versicherungsberater-in-80-100-in-bern-concordia-bern",
-        "en": "versicherungsberater-in-80-100-in-bern-concordia-bern",
-        "fr": "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        "it": "consulente-assicurativo-80-100-a-berna-concordia-bern",
+        "en": "insuranceconsultant-80-100-in-bern-concordia-bern",
+        "fr": "conseiller-en-assurance-80-100-a-berne-concordia-bern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3259,7 +3265,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:23:17.064Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:10:38.803Z"
+      "firstSeenAt": "2026-09-10T23:10:38.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        ],
+        "en": [
+          "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        ],
+        "fr": [
+          "versicherungsberater-in-80-100-in-bern-concordia-bern"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-80-100-in-bern-concordia-bern"
+      ]
     },
     {
       "id": "concordia-879e7ee6dcbc",

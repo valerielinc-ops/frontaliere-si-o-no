@@ -1,0 +1,26 @@
+{
+  "companyKey": "planlesouates-ch",
+  "companyName": "Commune de Plan-les-Ouates",
+  "companyHost": "plan-les-ouates.ch",
+  "verifiedEmployerDomain": "planlesouates.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.plan-les-ouates.ch/pages/un-parent/travailler-a-la-commune/offres-demploi"
+  ],
+  "detailTemplate": "/pages/la-commune/offres-demploi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "EDE - ASE Pool de remplacement - Petite Enfance",
+    "Responsable de secteur construction et énergie",
+    "Animateurs Le GIAP recrute",
+    "La cité des métiers"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-10T13:47:11.765Z",
+  "candidateKey": "commune-de-plan-les-ouates@plan-les-ouates"
+}

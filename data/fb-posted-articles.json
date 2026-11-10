@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "agricoltura-sociale-ticino-strategie-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/agricoltura-sociale-ticino-strategie-2026/",
-      "ts": "2026-05-07T08:13:02.301Z",
-      "seed": true
-    },
-    {
       "id": "arresto-droga-capolago-2026",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/arresto-droga-capolago-2026/",
       "ts": "2026-05-07T08:17:59.125Z",
@@ -6143,6 +6137,23 @@
       "url": "https://frontaliereticino.ch/articoli-svizzera/peso-burocrazia-imprese-svizzera/",
       "ts": "2026-11-10T10:02:32.959Z",
       "fbPostId": "951226518080080_122131020129272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "pamini-contributi-salari-svizzera",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/pamini-contributi-salari-svizzera/",
+      "ts": "2026-11-10T18:01:09.086Z",
+      "fbPostId": "951226518080080_122131053111272498",
       "copyMode": "codex",
       "copySlot": "article",
       "copyPromptVersion": "frontaliere-social-copy-v4",

@@ -1,0 +1,22 @@
+{
+  "companyKey": "tennesseecomptrollerofthetreasury",
+  "companyName": "Tennessee Comptroller of the Treasury",
+  "companyHost": "tennesseecomptrollerofthetreasury.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://tennesseecomptrollerofthetreasury.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Governance, Risk and Compliance Program Manager",
+    "Legislative Auditor: Mid-east Tennessee"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:09.122Z",
+  "candidateKey": "tennesseecomptrollerofthetreasury@applytojob.com"
+}

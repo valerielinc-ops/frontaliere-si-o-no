@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { readFileSync } from 'node:fs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, namesAnotherEmployer, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, formPostingMatch, hasReadOnlyVacancyEvidence, hasVacancySpecificPostingEvidence, localizePortalQuestions, namesAnotherEmployer, portalReadAheadCapability, portalQuestionReductionHandoff, portalRequirementsForCandidate, portalReaderErrorClass, portalRequirementsFromMissingRequired, readPortalRequirements, readPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { PORTAL_QUESTION_PLACEHOLDERS } from '../functions/src/lib/portalQuestionText.js';
 import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -701,6 +701,66 @@ it('pre-reads a public employer route without a planner and keeps unsafe channel
   });
   expect(launch).toHaveBeenCalledOnce();
   expect(browser.close).toHaveBeenCalledOnce();
+});
+
+it('lets a public employer page through its own request guard (ECAM / Bank Cler, 2026-11-10)', async () => {
+  // The guard's DNS check was declared in another block: the call threw, the
+  // guard read that as «not public» and aborted the page itself, so goto
+  // failed with net::ERR_FAILED on every generic employer site.
+  const url = 'https://careers.employer.example/jobs/42';
+  const snapshot = {
+    url, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [], text: 'Application form',
+    fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: true }],
+  };
+  const guards: Array<(route: any) => Promise<void>> = [];
+  const routed: Record<string, string> = {};
+  const dispatch = async (requestUrl: string) => {
+    const route = {
+      request: () => ({ url: () => requestUrl }),
+      fallback: vi.fn(async () => { routed[requestUrl] = 'continued'; }),
+      continue: vi.fn(async () => { routed[requestUrl] = 'continued'; }),
+      abort: vi.fn(async () => { routed[requestUrl] = 'aborted'; }),
+    };
+    for (const guard of guards) await guard(route);
+    return routed[requestUrl];
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => url,
+    goto: vi.fn(async (target: string) => {
+      if (await dispatch(target) === 'aborted') throw new Error(`page.goto: net::ERR_FAILED at ${target}`);
+    }),
+    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+  };
+  const context = {
+    newPage: async () => page,
+    route: vi.fn(async (pattern: string, handler: any) => { if (pattern === '**/*') guards.push(handler); }),
+  };
+  const browser = { newContext: vi.fn(async () => context), close: vi.fn(async () => {}) };
+  const resolvePublicHost = vi.fn(async (value: string) => !String(value).includes('internal.employer.example'));
+  const result = await readPortalRequirements({
+    channelType: 'employer_site', applyUrl: url, language: 'it', candidateLocale: 'it',
+    candidate: { identity: {}, profile: {}, answers: {} }, resolvePublicHost, launch: async () => browser,
+  });
+
+  expect(guards).toHaveLength(1);
+  expect(routed[url]).toBe('continued');
+  // Past the page load: the form was observed and only the missing planner stopped the pre-read.
+  expect(result.handoff).toBe('planner_unavailable');
+  expect(result.portalContract).toMatchObject({ form: { observed: true, requiredFileCount: 1 } });
+  // The guard still does its job on a host that does not resolve publicly.
+  expect(await dispatch('https://internal.employer.example/api')).toBe('aborted');
+});
+
+it('names the class of a failed pre-read without copying the browser message', () => {
+  expect(portalReaderErrorClass(new Error('page.goto: net::ERR_FAILED at https://employer.example/x'))).toBe('net_failed');
+  expect(portalReaderErrorClass(new Error('page.goto: net::ERR_NAME_NOT_RESOLVED at https://x.example'))).toBe('net_name_not_resolved');
+  expect(portalReaderErrorClass(Object.assign(new Error('page.goto: Timeout 60000ms exceeded.'), { name: 'TimeoutError' }))).toBe('timeout');
+  expect(portalReaderErrorClass(new Error('page.goto: Download is starting'))).toBe('download');
+  expect(portalReaderErrorClass(new ReferenceError('resolvePublicHost is not defined'))).toBe('code_error');
+  expect(portalReaderErrorClass(new Error('Target page, context or browser has been closed'))).toBe('browser_closed');
+  expect(portalReaderErrorClass(new Error('Maria Rossi <maria@example.com>'))).toBe('other');
+  expect(portalReaderErrorClass(null)).toBe('other');
 });
 
 it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {

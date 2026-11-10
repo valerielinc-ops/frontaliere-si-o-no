@@ -1,0 +1,27 @@
+{
+  "companyKey": "weiach-ch",
+  "companyName": "Gemeindeverwaltung, Politische Gemeinde Weiach",
+  "companyHost": "schule-weiach.ch",
+  "verifiedEmployerDomain": "weiach.ch",
+  "platform": "schule-weiach.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schule-weiach.ch/organisation/offene-stellen/p-367/"
+  ],
+  "detailTemplate": "/organisation/offene-stellen/p-367/angebote/schulclubs/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Fussball Weiach United (1. + 2. KIGA) 1. Sem. 26/27",
+    "Ponyparadies (2. KIGA + 2. Kl.) 1. Sem. 26/27",
+    "Lebkuchen und Guetzli dekorieren (2. KIGA + 2. Kl.) 1. Sem. 26/27",
+    "Fussball Weiach United (1. - 2. Kl.) 1. Sem. 26/27",
+    "Grittibänze und Grittimeitli (2. - 3. Kl.) 1. Sem. 26/27"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-10T14:01:22.127Z",
+  "candidateKey": "gemeindeverwaltung-politische-gemeinde-weiach@weiach"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "trinityesllc",
+  "companyName": "Trinity ES LLC",
+  "companyHost": "trinityesllc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://trinityesllc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Software Developer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:12.964Z",
+  "candidateKey": "trinityesllc@applytojob.com"
+}

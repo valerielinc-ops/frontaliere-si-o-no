@@ -9,7 +9,6 @@ import {
   renderJobCardListHtml,
   jobSaveLinkAttrs,
   localizedContract,
-  relativePostedLabel,
   isJobNew,
   escHtml,
   titleCaseLocalityIfLowercase,
@@ -90,26 +89,22 @@ describe('jobCardHtml — localizedContract', () => {
   });
 });
 
-describe('jobCardHtml — relativePostedLabel', () => {
-  it('says "Oggi" when posted today', () => {
-    expect(relativePostedLabel('2026-05-01', 'it', FIXED_NOW)).toBe('Oggi');
+describe('jobCardHtml — absolute posted-date chip', () => {
+  it.each([
+    ['it', 'Pubblicato il 7 marzo 2026'],
+    ['en', 'Published on 7 March 2026'],
+    ['de', 'Veröffentlicht am 7. März 2026'],
+    ['fr', 'Publié le 7 mars 2026'],
+  ] as const)('%s renders the posting day in a <time> element', (locale, text) => {
+    const html = renderJobCardHtml(baseJob, { href: '/x/', locale });
+    expect(html).toContain(`data-posted="2026-03-07"`);
+    expect(html).toContain(`<time datetime="2026-03-07">${text}</time>`);
   });
 
-  it('says "1 day ago" when posted yesterday (en)', () => {
-    expect(relativePostedLabel('2026-04-30', 'en', FIXED_NOW)).toBe('1 day ago');
-  });
-
-  it('uses German plural for older posts', () => {
-    expect(relativePostedLabel('2026-04-25', 'de', FIXED_NOW)).toBe('vor 6 Tagen');
-  });
-
-  it('falls back to ISO date past 60 days', () => {
-    expect(relativePostedLabel('2026-01-15', 'fr', FIXED_NOW)).toBe('2026-01-15');
-  });
-
-  it('returns empty for empty / invalid date', () => {
-    expect(relativePostedLabel('', 'it', FIXED_NOW)).toBe('');
-    expect(relativePostedLabel('not-a-date', 'it', FIXED_NOW)).toBe('');
+  it('omits the chip for an unparseable date', () => {
+    const html = renderJobCardHtml({ ...baseJob, postedDate: 'not-a-date' }, { href: '/x/', locale: 'it' });
+    expect(html).not.toContain('data-posted=');
+    expect(html).not.toContain('<time');
   });
 });
 

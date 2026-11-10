@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bcv-3133e6de18be",
-      "slug": "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne",
+      "slug": "project-portfolio-manager-pagamento-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne",
-        "it": "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne",
-        "en": "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne",
-        "de": "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne"
+        "it": "project-portfolio-manager-pagamento-banque-cantonale-vaudoise-lausanne",
+        "en": "project-portfolio-manager-payment-banque-cantonale-vaudoise-lausanne",
+        "de": "projektportfoliomanager-zahlung-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:22:23.474Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:22:23.474Z"
+      "firstSeenAt": "2026-11-10T09:22:23.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne"
+        ],
+        "en": [
+          "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne"
+        ],
+        "de": [
+          "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-portefeuilles-de-projets-paiement-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-0bc8403b69a7",
@@ -1270,7 +1284,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -1331,7 +1345,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -1340,7 +1354,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,
