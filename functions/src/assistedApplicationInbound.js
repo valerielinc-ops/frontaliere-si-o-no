@@ -563,9 +563,13 @@ function automatedMessage(message) {
   return AUTOMATED_TEXT_RE.test(own) || NO_REPLY_TEXT_RE.test(own);
 }
 
+// The clauses of a sentence: «Please confirm your availability; if you have questions, contact us» asks in its
+// first clause whatever the help offer of the second says.
+const CLAUSE_SPLIT_RE = /\s*;\s*|\s+(?:and|und|sowie|e|ed|et)\s+/iu;
 const asksForAction = (sentence) => {
   const rest = sentence.replace(NO_REPLY_TEXT_ALL_RE, ' ');
-  return ASK_RE.test(rest) && (DOCUMENT_NOUN_RE.test(rest) || (ACTION_VERB_RE.test(rest) && !QUESTIONS_OFFER_RE.test(rest)));
+  return ASK_RE.test(rest) && (DOCUMENT_NOUN_RE.test(rest)
+    || rest.split(CLAUSE_SPLIT_RE).some((clause) => ACTION_VERB_RE.test(clause) && !QUESTIONS_OFFER_RE.test(clause)));
 };
 
 /**

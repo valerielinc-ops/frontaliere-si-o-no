@@ -214,6 +214,9 @@ describe('what still reaches the candidate', () => {
     ['asks a question', 'Wir haben Ihre Bewerbung erhalten. Sind Sie ab Januar verfügbar?\n\nDies ist eine automatisch generierte E-Mail.'],
     ['asks to confirm interest (Italian)', `${ITALIAN}\n\nLa preghiamo di confermare il suo interesse entro venerdì.`],
     ['asks to choose a slot (French)', `${FRENCH}\n\nVeuillez choisir un créneau dans votre espace candidat.`],
+    // A help offer in the same sentence does not hide the request before it (review of #18002).
+    ['asks to confirm availability beside a help offer', 'We have received your application. Please confirm your availability; if you have questions, contact us. This automated message was sent automatically.'],
+    ['asks to upload beside a help offer (German)', 'Wir haben Ihre Bewerbung erhalten. Bitte bestätigen Sie Ihre Verfügbarkeit und kontaktieren Sie uns bei Fragen.\n\nDies ist eine automatisch generierte E-Mail.'],
   ])('a receipt that %s', (_name, text) => {
     expect(receiptOf(mail({ text }))).toBe(false);
   });
