@@ -293,7 +293,7 @@ export const TAXONOMY_ESCALATION_KINDS = Object.freeze(['rule', 'topic', 'ambigu
 // dello strumento (cache/revisione del checker, filtro del gate o misura del
 // hook), non un semplice path citato nell'acceptance del finding.
 const SIBLING_TOOLING_RE =
-  /\bsibling\s+checker\b|\bchecker\s+(?:cache|contents?|extracted|invocation|revision)\b|\bfunction-header\s+filter\b|\bgeneric\s+sibling\s+expression\b|\bgate\s+candidate\b|\bhook\b[^.\n]{0,40}\bcomplete\b[^.\n]{0,40}\b(?:large|partial)\s+clones?\b|\b(?:large|partial)\s+clones?\b[^.\n]{0,120}\b(?:pre\/?post|measurement|benchmark)\b/i;
+  /\bsibling[- ]checker\b|\bsibling[- ]check(?:er)?(?:[- ]gate)?\b|\bchecker\s+(?:cache|contents?|extracted|invocation|revision)\b|\bfunction-header\s+filter\b|\bgeneric\s+sibling\s+expression\b|\bgate\s+candidate\b|\bhook\b[^.\n]{0,40}\bcomplete\b[^.\n]{0,40}\b(?:large|partial)\s+clones?\b|\b(?:large|partial)\s+clones?\b[^.\n]{0,120}\b(?:pre\/?post|measurement|benchmark)\b/i;
 const UNVALIDATED_CLAIM_RE =
   /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i;
 
@@ -550,15 +550,17 @@ const SIBLING_CLASS_AFFIRM_RE =
 // parser), for scope prose (`consumer sibling`), or for a checker feature that
 // is merely being described. Those lines must not inflate this process bucket.
 // Keep the positive side explicit: a class finding needs an actionable relation
-// between the sibling and the repeated construct/sweep. Ambiguous lines fall
-// through to the fingerprint safety net in `bucketFinding`, so this guard does
-// not discard the reviewer finding; it only refuses to call it a sibling-class
-// recurrence without evidence.
+// between the sibling and the repeated construct/sweep. Temporal words alone
+// (`still`, `remains`, `different`) are not that relation: they also describe
+// sibling DOM nodes, fields in one form, or jobs in one workflow. Ambiguous
+// lines fall through to the fingerprint safety net in `bucketFinding`, so this
+// guard does not discard the reviewer finding; it only refuses to call it a
+// sibling-class recurrence without cross-file evidence.
 // A semantic neighbour that is merely non-first or changes route (for example
 // an event slug collision) is still countable through the fingerprint safety
 // net, but is not evidence of an unswept cross-file class.
 const SIBLING_CLASS_EVIDENCE_RE =
-  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|address\w*|propagat\w*)\b|\b(?:still|resta|lasciat\w*|left|remain\w*|unchanged|untouched|unfixed|unaddressed|diverg\w*|different|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b)/iu;
+  /(?:\b(?:stesso|same)\s+(?:anti-?pattern|costrutto|construct|pattern|bug|guard|logic|class)\b|\b(?:file|script|workflow|consumer|ramo|branch)\s+gemell\w*\b|\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:non|not|never|mai|lasciat\w*|left|unfixed|unaddressed|omess\w*|manc\w*|sweep\w*|check\w*|guard\w*|pattern\w*|bug\w*|fix\w*|modif\w*|address\w*|propagat\w*)\b|\b(?:diverg\w*|unlike)\b[^.\n]{0,120}\b(?:sibling|gemell\w*)\b[^.\n]{0,120}\b(?:same|stesso|anti-?pattern|costrutt\w*|construct\w*|pattern\w*|bug\w*|guard\w*|logic\w*|check\w*|batch\w*)\b)/iu;
 
 export function isGenuineSiblingToolingFinding(text) {
   const s = stripFindingLocationLabel(text).replace(/`[^`]*`/g, ' ');
