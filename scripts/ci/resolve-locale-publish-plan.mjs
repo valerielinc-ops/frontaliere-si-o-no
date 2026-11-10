@@ -7,8 +7,9 @@ import { realpathSync } from 'node:fs';
  * Matrix legs are independently observable, but a new SEO snapshot is
  * publishable only when every locale has a proven handoff. A locale enters
  * `healthyLocales` only when its job succeeded and its receipt proves the
- * exact build id, CDN ordering, and payload artifact; a non-IT source-ready
- * receipt enters `tailLocales` until the post-build shard tail completes.
+ * exact build id, CDN ordering, and payload artifact; a source-ready receipt
+ * enters `tailLocales` until its post-build shard tail completes. IT's CDN,
+ * section, Pages and metadata tail is also owned by deploy-publish.
  * Keeping an old locale shard beside a new IT snapshot breaks the cross-locale
  * hreflang graph, so stale/partial plans are diagnostics and recovery inputs,
  * never publish admission.
@@ -29,13 +30,22 @@ const PREREQUISITE_NAMES = Object.freeze([
   'matrix-setup',
   'prep',
 ]);
+const IT_SHARD_GROUPS = Object.freeze(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
 const PUBLISHER_SOURCE_ARTIFACT_KINDS = Object.freeze([
-  'sitemaps',
-  'sitemap-page-manifest-it',
+  'it-publish-root',
+  'it-shard-source-plan',
+  ...IT_SHARD_GROUPS.map((group) => `it-shard-source-group-${group}`),
+  'locale-shard-source-en',
+  'locale-shard-source-de',
+  'locale-shard-source-fr',
   'sitemap-page-manifest-en',
   'sitemap-page-manifest-de',
   'sitemap-page-manifest-fr',
-  'section-page-manifest-it',
+  'expired-archive-evidence-it',
+  'expired-archive-evidence-en',
+  'expired-archive-evidence-de',
+  'expired-archive-evidence-fr',
+  'jobs-master',
 ]);
 
 function text(value) {
@@ -238,34 +248,29 @@ export function resolveLocalePublishPlan({
       continue;
     }
 
-    // Non-IT source legs now hand off a validated, unmodified locale subtree
-    // to deploy-publish.yml. The heavy section push/pack/offload tail is
-    // admitted separately there; until its receipt arrives the locale stays
-    // stale and cannot be announced as live.
-    if (locale !== 'it') {
-      const sourceVerdict = validateLocaleSourceProvenance(entry.manifest, {
-        locale,
-        sourceRunId: runId,
-        sourceSha: sha,
-        expectedBuildId: expected,
-        expectedArtifactRunId: runId,
-      });
-      if (sourceVerdict.valid) {
-        if (!buildId) buildId = entry.manifest.buildId;
-        tailLocales.push(locale);
-        staleReasons[locale] = 'validated source artifact awaiting the post-build non-IT shard tail';
-        continue;
-      }
-      if (isLegacyNonItProvenance(entry.manifest)) legacySourceLocales.push(locale);
-      const reason = `${verdict.errors.join('; ')}; source handoff rejected: ${sourceVerdict.errors.join('; ')}`;
-      manifestFailures[locale] = reason;
-      staleReasons[locale] = `provenance rejected: ${reason}`;
+    // Every locale now hands off a validated immutable source artifact to
+    // deploy-publish.yml. IT's larger CDN/section/Pages tail joins the same
+    // cross-run workflow, so source readiness alone never proves publication.
+    const sourceVerdict = validateLocaleSourceProvenance(entry.manifest, {
+      locale,
+      sourceRunId: runId,
+      sourceSha: sha,
+      expectedBuildId: expected,
+      expectedArtifactRunId: runId,
+    });
+    if (sourceVerdict.valid) {
+      if (!buildId) buildId = entry.manifest.buildId;
+      tailLocales.push(locale);
+      staleReasons[locale] = locale === 'it'
+        ? 'validated IT source artifacts awaiting the post-build CDN, section, and Pages tail'
+        : 'validated source artifact awaiting the post-build non-IT shard tail';
       continue;
     }
-
-    const reason = verdict.errors.join('; ');
+    if (isLegacyNonItProvenance(entry.manifest)) legacySourceLocales.push(locale);
+    const reason = `${verdict.errors.join('; ')}; source handoff rejected: ${sourceVerdict.errors.join('; ')}`;
     manifestFailures[locale] = reason;
     staleReasons[locale] = `provenance rejected: ${reason}`;
+    continue;
   }
 
   if (healthyLocales.includes('it')) {
@@ -301,12 +306,12 @@ export function resolveLocalePublishPlan({
 
   // IT is the one non-negotiable common payload. No amount of healthy
   // per-locale evidence can publish around a missing/invalid IT receipt.
-  if (!healthyLocales.includes('it')) {
+  if (!healthyLocales.includes('it') && !tailLocales.includes('it')) {
     reasons.push('IT provenance is missing, invalid, or skewed; refusing all publish side effects');
   }
 
-  // A non-IT source-ready receipt is not live yet, but it is a complete input
-  // for the deferred tail. Anything outside the union of healthy + tail
+  // A source-ready receipt is not live yet, but is a complete input for the
+  // deferred tail. Anything outside the union of healthy + tail
   // locales means the new snapshot cannot produce a complete hreflang graph.
   const sourceReadyLocales = new Set([...healthyLocales, ...tailLocales]);
   const sourceIncompleteLocales = LOCALES.filter((locale) => !sourceReadyLocales.has(locale));
@@ -379,7 +384,7 @@ function writeGithubOutputs(file, plan) {
   if (!file) return;
   const lines = {
     allowed: String(plan.allowed),
-    it_admitted: String(plan.healthyLocales.includes('it')),
+    it_admitted: String(plan.healthyLocales.includes('it') || plan.tailLocales.includes('it')),
     mode: plan.mode,
     build_id: plan.buildId,
     healthy_locales: JSON.stringify(plan.healthyLocales),

@@ -48,7 +48,7 @@ describe('deferred same-run hreflang exchange', () => {
     expect(retryPublish.with['retention-days']).toBe(3);
   });
 
-  it('binds sitemap receipts only after each locale\'s required source artifacts exist', () => {
+  it('binds non-IT sitemap receipts in the source job and IT only after publisher artifacts exist', () => {
     const bind = step(buildSteps, 'Bind sitemap page manifest to uploaded artifact digests');
     const uploadReceipt = step(buildSteps, 'Upload sitemap page manifest for publisher gate');
 
@@ -56,12 +56,21 @@ describe('deferred same-run hreflang exchange', () => {
     expect(bind.if).toContain("steps.validate-owned-sitemap-pages.outcome == 'success'");
     expect(bind.if).toContain("matrix.locale != 'it'");
     expect(bind.if).toContain("steps.upload-locale-source.outcome == 'success'");
-    expect(bind.if).toContain("matrix.locale == 'it'");
-    expect(bind.if).toContain("steps.hreflang-index-manifest.outcome == 'success'");
-    expect(bind.if).toContain("steps.upload-pages-artifact.outcome == 'success'");
-    expect(bind.if).toContain("steps.upload-sitemaps-bundle.outcome == 'success'");
     expect(uploadReceipt).toBeDefined();
     expect(uploadReceipt.if).toBe("always() && steps.bind-sitemap-page-manifest.outcome == 'success'");
+
+    const itSteps = publish.jobs['finalize-it-publish'].steps as any[];
+    const bindIt = step(itSteps, 'Bind sitemap page manifest to publisher artifact digests');
+    const uploadIt = step(itSteps, 'Upload sitemap page manifest for publisher gate');
+    expect(bindIt?.if).toContain("steps.upload-pages-artifact.outcome == 'success'");
+    expect(bindIt?.if).toContain("steps.upload-sitemaps-bundle.outcome == 'success'");
+    expect(bindIt?.env.ARTIFACT_RUN_ID).toBe('${{ github.run_id }}');
+    expect(bindIt?.env.SOURCE_RUN_ID).toBe('${{ inputs.source_run_id }}');
+    expect(bindIt?.run).toContain('--artifact-run-id "$ARTIFACT_RUN_ID"');
+    expect(bindIt?.run).toContain('--base-artifact-name github-pages');
+    expect(uploadIt?.with?.name).toBe('sitemap-page-manifest-it-${{ github.run_id }}');
+    expect(itSteps.indexOf(bindIt)).toBeGreaterThan(itSteps.findIndex((candidate) => candidate.name === 'Upload Pages artifact (compression-level 9)'));
+    expect(itSteps.indexOf(uploadIt)).toBeGreaterThan(itSteps.indexOf(bindIt));
   });
 
   it('finalizes pending source tarballs in the deferred publisher with the exact source attempt', () => {
@@ -73,7 +82,7 @@ describe('deferred same-run hreflang exchange', () => {
     const rewrite = step(publishSteps, 'Finalize deferred same-run hreflang graph');
     const validate = step(publishSteps, 'Validate finalized non-IT locale shard output');
     const provenance = step(publishSteps, 'Write non-IT locale publish provenance');
-    const cdnGate = step(publishSteps, 'Wait for IT CDN push (cross-shard ordering guard)');
+    const cdnGate = step(publishSteps, 'Wait for current IT CDN build id before non-IT shard pushes');
 
     expect(sourceValidator.id).toBe('validate-source-build-identity');
     expect(sourceValidator.run).toContain(".run_attempt | select(type == \"number\" and . >= 1 and . == floor)");

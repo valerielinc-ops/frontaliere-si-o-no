@@ -4,13 +4,10 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
-// scripts/ci/resolve-replay-shard-runs.sh: the en/de/fr shard tars of a build
-// live on the deploy-publish run that published it — frequently the CANCELLED
-// one (its report job hit the 350-minute ceiling), while the later SUCCESS runs
-// are receipt-only reconciliations with no artifacts (build 39917633944:
-// publish 39946751902 cancelled holds them, 39956978145/39957703210 success
-// hold none). Replays 39927368320/39952023039 never found them and audited
-// trunk-of-then under shards-of-today.
+// scripts/ci/resolve-replay-shard-runs.sh: all locale payloads now live on the
+// deploy-publish run that published them. For IT that includes the Pages,
+// sitemap/page/section manifests, and six post-push validation tars; en/de/fr
+// retain their locale-dist artifacts on the same publisher run.
 
 const SCRIPT = resolve('scripts/ci/resolve-replay-shard-runs.sh');
 const roots: string[] = [];
@@ -52,8 +49,15 @@ esac
   }
 }
 
-const build = ['jobs-master-100', 'shard-batch-1-dist-it-100'];
+const build = ['jobs-master-100'];
 const locales = (rid: string) => ['en', 'de', 'fr'].map((l) => `locale-dist-${l}-${rid}`);
+const itArtifacts = (rid: string) => [
+  'github-pages',
+  `sitemaps-${rid}`,
+  `sitemap-page-manifest-it-${rid}`,
+  `section-page-manifest-it-${rid}`,
+  ...Array.from({ length: 6 }, (_, index) => `shard-batch-${index + 1}-dist-it-${rid}`),
+];
 
 describe('resolve-replay-shard-runs.sh', () => {
   it('picks the publish run that HOLDS the artifacts, whatever its conclusion', () => {
@@ -63,19 +67,28 @@ describe('resolve-replay-shard-runs.sh', () => {
         { id: '200', title: 'Publish Pages build 100 @ abc' }, // the cancelled one that published
         { id: '150', title: 'Publish Pages build 99 @ def' },
       ],
-      artifacts: { 100: build, 300: [], 200: locales('200'), 150: locales('150') },
+      artifacts: { 100: build, 300: [], 200: [...itArtifacts('200'), ...locales('200')], 150: [...itArtifacts('150'), ...locales('150')] },
     });
     expect(r.status, r.out).toBe(0);
-    expect(r.env.trim().split('\n')).toEqual(['SHARD_ARTIFACT_RUN_ID_EN=200', 'SHARD_ARTIFACT_RUN_ID_DE=200', 'SHARD_ARTIFACT_RUN_ID_FR=200']);
+    expect(r.env.trim().split('\n')).toEqual([
+      'SHARD_ARTIFACT_RUN_ID_IT=200',
+      'SHARD_ARTIFACT_RUN_ID_EN=200',
+      'SHARD_ARTIFACT_RUN_ID_DE=200',
+      'SHARD_ARTIFACT_RUN_ID_FR=200',
+    ]);
   });
 
   it('refuses an incoherent replay when the build artifacts expired', () => {
     const r = run({
       runs: [{ id: '200', title: 'Publish Pages build 100 @ abc' }],
-      artifacts: { 100: ['jobs-master-100:expired', 'shard-batch-1-dist-it-100'], 200: locales('200').map((n) => `${n}:expired`) },
+      artifacts: {
+        100: ['jobs-master-100:expired'],
+        200: [...itArtifacts('200'), ...locales('200')].map((name) => `${name}:expired`),
+      },
     });
     expect(r.status).toBe(1);
     expect(r.out).toContain('jobs-master-100 scaduto o assente');
+    expect(r.out).toContain('IT github-pages/sitemaps/page-manifest/section-batch artifacts assenti');
     expect(r.out).toContain('locale-dist-en-* assente/scaduto');
     expect(r.out).toContain('::error::replay incoerente per il build 100');
   });

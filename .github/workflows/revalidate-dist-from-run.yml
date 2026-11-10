@@ -142,27 +142,29 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      # Cross-run read of the BUILD run's artifact, keyed on `deploy_run_id`
-      # + the job token (needs `actions: read`, declared above).
-      - name: Download GitHub Pages artifact
-        uses: actions/download-artifact@v8
+      # The build run names the immutable source; the shared action resolves
+      # its publisher run and downloads the post-push Pages artifact.
+      - name: Fetch publisher GitHub Pages artifact
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
         with:
-          name: github-pages
-          path: /tmp/github-pages-artifact
           run-id: ${{ inputs.deploy_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          output-dir: /tmp/github-pages-artifact
+          github-token: ${{ github.token }}
 
       # Only dist/ — no data/ restore. See the "Steps deliberately dropped"
       # note at the bottom of this file for why jobs.json and friends are not
       # needed by the rehydrate scripts or by the gate.
       - name: Extract dist/
+        env:
+          TAR_PATH: ${{ steps.pages.outputs.tar-path }}
         run: |
           set -euo pipefail
           # Pages artifact wraps a single artifact.tar — extract into dist/.
           rm -rf dist && mkdir -p dist
-          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+          tar -xf "$TAR_PATH" -C dist
           # Release the source archive before any shard rehydration.
-          rm -f /tmp/github-pages-artifact/artifact.tar
+          rm -f "$TAR_PATH"
           echo "trunk artifact restored: $(find dist -type f | wc -l) files"
 
       # NO shard clone cache restore here — REMOVED, issue #5441. It read the
@@ -202,7 +204,7 @@ jobs:
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          DEPLOY_RUN_ID: ${{ steps.pages.outputs.run-id }}
           LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}

@@ -2,14 +2,13 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
- * Admit the complete non-IT shard tail completed by deploy-publish.yml.
+ * Admit the post-build shard tails completed by deploy-publish.yml.
  *
  * The source build plan leaves en/de/fr source-ready while their validated
  * artifacts cross the workflow boundary. This resolver promotes a locale only
  * after the post-build receipt proves the full tail and the receipt artifact
- * belongs to this publish run. A locale whose tail is incomplete is reported
- * as stale and keeps serving its previous shard; it does not stop the IT
- * snapshot from being published (see the comment above `allowed`).
+ * belongs to this publish run. An incomplete IT tail blocks Pages; incomplete
+ * non-IT tails keep serving their previous shards.
  */
 import fs from 'node:fs';
 
@@ -19,7 +18,6 @@ import {
   validateLocalePublishProvenance,
 } from './locale-publish-provenance.mjs';
 
-const NON_IT_LOCALES = Object.freeze(['en', 'de', 'fr']);
 
 function text(value) {
   return value == null ? '' : String(value).trim();
@@ -82,13 +80,13 @@ export function resolveNonItPublishPlan({
   const staleReasons = {};
   const readyLocales = [];
   const failures = [...provenanceErrors, ...manifestErrors];
-  const requestedTail = uniqueLocales(tailLocales).filter((locale) => NON_IT_LOCALES.includes(locale));
+  const requestedTail = uniqueLocales(tailLocales);
 
   for (const locale of requestedTail) {
     if (durable.has(locale)) continue;
     const entry = map.get(locale);
     if (!entry) {
-      const reason = 'post-build non-IT provenance receipt is missing';
+      const reason = 'post-build provenance receipt is missing';
       stale.add(locale);
       staleReasons[locale] = reason;
       continue;
@@ -123,22 +121,15 @@ export function resolveNonItPublishPlan({
   }
 
   const incompleteLocales = LOCALES.filter((locale) => !healthy.has(locale));
-  // A non-IT locale whose tail did not complete stays on its last-known-good
-  // shard and is REPORTED as stale; it no longer vetoes the IT Pages snapshot.
-  // Owner rule (2026-10-07): no gate blocks publication. Requiring every locale
-  // froze production twice in one night — run 37671196544 (three section shards
-  // rejected with 403) and run 37728960699, where GitHub refused the ticino-de
-  // push because one git tree had grown past 50 MiB ("non-blob object size
-  // limit exceeded"): that condition does not clear by itself, so every later
-  // publish would have skipped Pages as well. validate-live already receives
-  // stale_locales and checks those locales against their declared fallback.
-  // Still blocking: an IT snapshot that was not admitted, and unreadable or
-  // contradictory receipts (`failures`) — those are "state unknown", not stale.
-  const allowed = failures.length === 0 && healthy.has('it');
+  // IT owns the Pages artifact and CDN ordering, so its tail remains
+  // mandatory. A non-IT tail failure keeps that locale on its last-known-good
+  // shard; an incomplete IT tail or contradictory receipt blocks Pages.
+  const itTailComplete = healthy.has('it') || readyLocales.includes('it');
+  const allowed = failures.length === 0 && itTailComplete;
   const staleNonIt = incompleteLocales.filter((locale) => locale !== 'it');
   const admittedReason = readyLocales.length > 0
     ? `admitted post-build tail for ${readyLocales.join(', ')}`
-    : 'admitted the IT snapshot with no completed post-build tail';
+    : 'admitted the durable IT snapshot';
   if (allowed) {
     return {
       allowed,

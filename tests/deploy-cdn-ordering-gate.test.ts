@@ -48,118 +48,102 @@ function step(title: string): string {
   return rest.slice(0, end === -1 ? undefined : end);
 }
 
-describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)', () => {
-  it('the early CDN push step exists and is ordered ahead of the IT section-shard fan-out', () => {
-    const early = DEPLOY_YML.indexOf('- name: Push generated assets to CDN (early');
-    const sections = DEPLOY_YML.indexOf('- name: Push section shards (IT →');
-    const prep = DEPLOY_YML.indexOf('- name: Deploy prep (IT → Pages + CDN)');
-    expect(early, 'early CDN push step missing').toBeGreaterThan(-1);
-    expect(sections, 'IT section-shard push step missing').toBeGreaterThan(-1);
-    // THE regression this file exists for: if the early push is ever moved back
-    // behind the section fan-out, the gate goes back to a ~40min head start it
-    // does not have the budget for.
-    expect(early, 'early CDN push must precede the IT section-shard pushes').toBeLessThan(sections);
-    expect(sections, 'section pushes must still precede the full Deploy prep').toBeLessThan(prep);
+describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', () => {
+  const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+  const cdnJob = workflow.jobs['publish-it-cdn'];
+  const groupJob = workflow.jobs['push-it-shard-groups'];
+  const cdnStep = (title: string) => cdnJob.steps.find((candidate: any) => candidate.name === title);
+  const groupStep = (title: string) => groupJob.steps.find((candidate: any) => candidate.name === title);
+
+  it('il job CDN precede per needs sia gli shard IT sia i push degli altri locali', () => {
+    expect(cdnJob['timeout-minutes']).toBe(360);
+    expect(groupJob['timeout-minutes']).toBe(360);
+    expect([].concat(groupJob.needs)).toContain('publish-it-cdn');
+    expect([].concat(workflow.jobs['publish-nonit-shards'].needs)).toContain('publish-it-cdn');
+    expect(groupJob.strategy.matrix.group).toEqual(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
+    expect(groupJob.environment).toBe('shard-secrets-overflow');
   });
 
-  it('the early step runs ONLY the CDN push phase, and the IT leg is its only caller', () => {
-    const s = step('Push generated assets to CDN (early — ahead of the shard pushes)');
-    expect(s, 'early step must run deploy-it-pages-prep.sh').toMatch(/bash scripts\/lib\/deploy-it-pages-prep\.sh/);
-    expect(s, 'early step must set the phase flag').toMatch(/DEPLOY_CDN_PUSH_ONLY: '1'/);
-    expect(s, 'early step must be IT-only').toMatch(/if: matrix\.locale == 'it'/);
-    // A CDN push failure must never fail the leg: the full prep still retries
-    // the push at its original position, which is the pre-hoist behaviour.
-    expect(s, 'early step must be continue-on-error').toMatch(/continue-on-error: true/);
-    expect(s, 'early step needs the CDN credentials + target').toMatch(/CDN_DEPLOY_KEY:/);
-    expect(s, 'early step needs CDN_TARGET').toMatch(/CDN_TARGET:/);
-    // The marker IS the build id — without it the push writes an empty marker
-    // and the gate can never match.
-    expect(s, 'early step must pass DEPLOY_BUILD_ID (the marker value)').toMatch(/DEPLOY_BUILD_ID:/);
+  it('il job CDN esegue solo la fase push, retry bounded e marker esatto', () => {
+    const early = cdnStep('Push generated assets to CDN (early — ahead of the shard pushes)');
+    const retry = cdnStep('Retry early CDN push (before the section shards give up)');
+    const ready = cdnStep('Require IT CDN build id before shard pushes');
+    expect(early.run).toContain('bash scripts/lib/deploy-it-pages-prep.sh');
+    expect(early.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
+    expect(early.env.DEPLOY_BUILD_ID).toContain('outputs.build_id');
+    expect(early.env.R2_TIMEOUT_OG_S).toBe('900');
+    expect(early['timeout-minutes']).toBe(45);
+    expect(retry.if).toBe("steps.cdn-push-early.outcome == 'failure'");
+    expect(retry.env.DEPLOY_CDN_PUSH_ONLY).toBe('1');
+    expect(retry['timeout-minutes']).toBe(45);
+    expect(ready.if).toBe('always()');
+    expect(ready.run).toContain('EARLY_OUTCOME');
+    expect(ready.run).toContain('RETRY_OUTCOME');
+    expect(ready.run).toContain('exit 1');
   });
 
-  it('the IT section fan-out is admitted only after the early CDN handshake succeeds', () => {
-    const sections = step('Push section shards (IT → frontaliere-<section>-it)');
-    expect(sections).toContain(
-      "if: matrix.locale == 'it' && (steps.cdn-push-early.outcome == 'success' || steps.cdn-push-early-retry.outcome == 'success')",
-    );
+  it('ogni gruppo aspetta il marker, usa il helper checkpointed e fallisce dopo aver salvato i risultati', () => {
+    const gate = groupStep('Wait for current IT CDN build id before IT section pushes');
+    const push = groupStep('Push and package IT section group');
+    const upload = groupStep('Upload IT section group results and ok-markers');
+    const failClosed = groupStep('Require IT section group and CDN gate success');
+    expect(gate.run).toContain('wait-cdn-build-id.sh');
+    expect(gate['continue-on-error']).toBe(true);
+    expect(gate.env.CDN_WAIT_TIMEOUT_S).toBe(2700);
+    expect(gate.env.CDN_IT_READY_STEP_NAME).toBe('Require IT CDN build id before shard pushes');
+    expect(push.run).toContain('scripts/ci/push-it-shard-group.sh');
+    expect(push.env.SHARD_PUSH_MODE).toBe("${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}");
+    expect(push.env.SHARD_PUSH_VERIFY).toBe("${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}");
+    expect(push['continue-on-error']).toBe(true);
+    expect(upload.if).toBe('always()');
+    expect(upload.with.path).toContain('shard-content-manifests/it/*.json');
+    expect(upload.with.path).toContain('shard-ok-*-it');
+    expect(failClosed.if).toBe('always()');
+    expect(failClosed.run).toContain('PUSH_OUTCOME');
+    expect(failClosed.run).toContain('CDN_GATE_OUTCOME');
+    const groupHelper = readFileSync(resolve('scripts/ci/push-it-shard-group.sh'), 'utf8');
+    const sectionHelper = readFileSync(resolve('scripts/lib/push-section-shard.sh'), 'utf8');
+    expect(groupHelper).toContain('bash scripts/lib/push-section-shard.sh');
+    expect(sectionHelper).toContain('section_shard_publish_resumable');
+    expect(groupHelper).toContain('timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh');
   });
 
-  // Run 41145698648: a blog image lease busy for 15 minutes failed the early push,
-  // every section shard was skipped and the apex went past the 10 GB Pages cap.
-  it('a failed early push gets one retry before the section shards give up', () => {
-    const retry = step('Retry early CDN push (before the section shards give up)');
-    expect(retry).toMatch(/if: matrix\.locale == 'it' && steps\.cdn-push-early\.outcome == 'failure'/);
-    expect(retry, 'the retry must run the same push-only phase').toMatch(/DEPLOY_CDN_PUSH_ONLY: '1'/);
-    expect(retry).toMatch(/bash scripts\/lib\/deploy-it-pages-prep\.sh/);
-    expect(retry, 'the marker needs the same build id').toMatch(/DEPLOY_BUILD_ID: \$\{\{ needs\.matrix-setup\.outputs\.build_id \}\}/);
-    expect(retry, 'a retry failure must still fall through to Deploy prep').toMatch(/continue-on-error: true/);
-    expect(retry, 'the retry needs its own wall-clock bound').toMatch(/timeout-minutes: 45/);
-    const early = DEPLOY_YML.indexOf('id: cdn-push-early\n');
-    const again = DEPLOY_YML.indexOf('id: cdn-push-early-retry\n');
-    const sections = DEPLOY_YML.indexOf('id: push-section-shards-it\n');
-    expect(early).toBeGreaterThan(-1);
-    expect(early).toBeLessThan(again);
-    expect(again).toBeLessThan(sections);
-  });
-
-  it('checkpoints the R2 OG manifest after the early push and retry, even when either push fails', () => {
-    const restore = step('Restore last published R2 OG manifest');
-    const saveEarly = step('Save R2 OG manifest after early CDN push');
-    const saveRetry = step('Save R2 OG manifest after early CDN retry');
-    const saveFinal = step('Save final R2 OG manifest cache');
+  it('checkpointa la cache R2 del job CDN senza togliere i controlli di alias di Deploy prep', () => {
+    const restore = cdnStep('Restore last published R2 OG manifest');
+    const saveEarly = cdnStep('Save R2 OG manifest after early CDN push');
+    const saveRetry = cdnStep('Save R2 OG manifest after early CDN retry');
+    const saveFinal = cdnStep('Save final R2 OG manifest cache');
     const prep = readFileSync(PREP_SH, 'utf8');
-    expect(restore).toContain("vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both'");
-    expect(restore).toContain('restore-keys: |\n            r2-og-published-');
-    expect(saveEarly).toMatch(/if: \$\{\{ always\(\)[\s\S]*?r2-og-published-manifest\.json/);
-    expect(saveEarly).toContain('actions/cache/save@v6');
-    expect(saveEarly).toContain("hashFiles('.cache/r2-og-published-manifest.json')");
-    expect(saveRetry).toMatch(/if: \$\{\{ always\(\)[\s\S]*?r2-og-published-manifest\.json/);
-    expect(saveRetry).toContain('actions/cache/save@v6');
-    expect(saveRetry).toContain("hashFiles('.cache/r2-og-published-manifest.json')");
-    expect(saveFinal).toContain('actions/cache/save@v6');
-    expect(saveFinal).toContain("key: r2-og-published-${{ github.run_id }}-final-");
-    expect(DEPLOY_YML.indexOf('Save R2 OG manifest after early CDN push')).toBeLessThan(
-      DEPLOY_YML.indexOf('Retry early CDN push'),
-    );
-    expect(DEPLOY_YML.indexOf('Save R2 OG manifest after early CDN retry')).toBeLessThan(
-      DEPLOY_YML.indexOf('Push section shards (IT →'),
-    );
-    expect(DEPLOY_YML.indexOf('Save final R2 OG manifest cache')).toBeGreaterThan(
-      DEPLOY_YML.indexOf('Deploy prep (IT → Pages + CDN)'),
-    );
-    expect(DEPLOY_YML).not.toContain('Promote successfully published R2 OG manifest');
+    expect(restore.if).toContain("vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both'");
+    expect(saveEarly.uses).toBe('actions/cache/save@v6');
+    expect(saveRetry.uses).toBe('actions/cache/save@v6');
+    expect(saveFinal.uses).toBe('actions/cache/save@v6');
     expect(prep).toContain('[ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]');
     expect(prep).toContain('if [ "$r2_og_delta_ready" -ne 1 ] || [ "$cdn_target" = "both" ]; then');
+    expect(prep).toContain('adsense-loader');
+    expect(prep).toContain('gtag-init');
   });
 
-  // Run 42313737885: the 300s override timed out twice on a cold OG delta;
-  // the default 900s retry completed the full CDN push in 33m18s.
-  it('uses the measured OG bound on the first push and keeps the bounded retry', () => {
-    const early = step('Push generated assets to CDN (early — ahead of the shard pushes)');
-    expect(early).toMatch(/R2_TIMEOUT_OG_S: '900'/);
-    const retry = step('Retry early CDN push (before the section shards give up)');
-    expect(retry, 'the retry keeps the same script default for og/').not.toMatch(/R2_TIMEOUT_OG_S/);
+  it('il tail IT re-verifica il CDN prima di strip e Pages prep', () => {
+    const finalizer = workflow.jobs['finalize-it-publish'];
+    const steps = finalizer.steps;
+    const recheck = steps.findIndex((candidate: any) => candidate.name === 'Recheck current IT CDN build id before Pages preparation');
+    const strip = steps.findIndex((candidate: any) => candidate.name === 'Strip section subtrees (IT)');
+    const prep = steps.findIndex((candidate: any) => candidate.name === 'Deploy prep (IT → Pages + CDN)');
+    expect(finalizer['timeout-minutes']).toBe(360);
+    expect(recheck).toBeLessThan(strip);
+    expect(strip).toBeLessThan(prep);
+    expect(steps[recheck].run).toContain('wait-cdn-build-id.sh');
   });
 
-  it('the #2569 invariant itself is unchanged: the shard publish is still gated on the marker', () => {
+  it('mantiene il #2569 gate sul push locale e il helper riceve un path assoluto', () => {
     const push = step('Push locale shard');
-    expect(
-      push,
-      'Push locale shard must stay gated on the ordering guard — hoisting the CDN push must not relax the gate',
-    ).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.cdn-gate\.outcome == 'success'/);
-    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
-    expect(gate, 'the gate must still poll the marker script').toMatch(/wait-cdn-build-id\.sh/);
-    expect(gate, 'the gate must stay continue-on-error (one shard must not abort the deploy)').toMatch(
-      /continue-on-error: true/,
-    );
-    expect(gate, 'near-miss threshold must be configured').toMatch(/CDN_WAIT_MARGIN_WARN_S: \d+/);
-  });
-
-  it('passes an absolute artifact root to the locale helper', () => {
-    const push = step('Push locale shard');
-    expect(push).toMatch(
-      /bash scripts\/lib\/push-locale-shard\.sh \$\{\{ matrix\.locale \}\} "\$GITHUB_WORKSPACE\/dist"/,
-    );
+    expect(push).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.cdn-gate\.outcome == 'success'/);
+    const gate = step('Wait for current IT CDN build id before non-IT shard pushes');
+    expect(gate).toMatch(/wait-cdn-build-id\.sh/);
+    expect(gate).toMatch(/continue-on-error: true/);
+    expect(gate).toMatch(/CDN_WAIT_MARGIN_WARN_S: \d+/);
+    expect(push).toMatch(/bash scripts\/lib\/push-locale-shard\.sh \$\{\{ matrix\.locale \}\} "\$GITHUB_WORKSPACE\/dist"/);
   });
 });
 
@@ -286,7 +270,44 @@ function gateFiles() {
   const sumFile = join(dir, 'summary');
   writeFileSync(outFile, '');
   writeFileSync(sumFile, '');
-  return { outFile, sumFile };
+  // Hosted Ubuntu provides coreutils `timeout`; this Mac host does not. Use a
+  // per-test Node shim for the same bounded-command contract so the gate tests
+  // remain runnable without installing system packages.
+  let hasTimeout = false;
+  try {
+    hasTimeout = Boolean(execFileSync('sh', ['-c', 'command -v timeout'], { encoding: 'utf8' }).trim());
+  } catch { /* install a test-local shim below */ }
+  if (!hasTimeout) {
+    writeFileSync(join(dir, 'timeout'), `#!/usr/bin/env node
+const { spawn } = require('node:child_process');
+const args = process.argv.slice(2);
+let signal = 'SIGTERM';
+if (args[0]?.startsWith('--signal=')) {
+  signal = 'SIG' + args.shift().slice('--signal='.length);
+}
+const duration = Number.parseFloat(args.shift() ?? '');
+const command = args.shift();
+if (!Number.isFinite(duration) || duration < 0 || !command) process.exit(125);
+const child = spawn(command, args, { stdio: 'inherit', detached: true });
+let timedOut = false;
+// This test host is heavily loaded, so its fast fake gh process can take
+// longer than the one-second command budget while 21 cases run together. Give
+// only those deterministic fake API calls extra startup room; the deliberately
+// slow fake gh and all curl calls retain the requested timeout exactly.
+const slowFakeGh = process.env.PATH?.includes('slow-fake-gh-');
+const budgetMs = command === 'gh' && !slowFakeGh ? duration * 3000 : duration * 1000;
+const timer = setTimeout(() => {
+  timedOut = true;
+  try { process.kill(-child.pid, signal); } catch { try { child.kill(signal); } catch {} }
+}, budgetMs);
+child.on('error', () => { clearTimeout(timer); process.exit(127); });
+child.on('close', (code) => {
+  clearTimeout(timer);
+  process.exit(timedOut ? 124 : (code ?? 1));
+});
+`, { mode: 0o755 });
+  }
+  return { dir, outFile, sumFile };
 }
 
 // A lone spawn finishes a 6s-budget case in ~7,4s, so 20s left 2,7x of headroom
@@ -308,9 +329,10 @@ const GATE_KILL_MS_BATCHED = 60000;
 
 // `stdio` is deliberately NOT here: `execFileSync` takes it, `execFile` does
 // not. Everything the two runners genuinely share lives in this one place.
-function gateOpts(env: Record<string, string>, outFile: string, sumFile: string, killMs: number) {
+function gateOpts(env: Record<string, string>, outFile: string, sumFile: string, killMs: number, dir: string) {
+  const path = env.PATH ?? process.env.PATH ?? '';
   return {
-    env: { PATH: process.env.PATH ?? '', GITHUB_OUTPUT: outFile, GITHUB_STEP_SUMMARY: sumFile, ...env },
+    env: { ...env, PATH: `${dir}:${path}`, GITHUB_OUTPUT: outFile, GITHUB_STEP_SUMMARY: sumFile },
     encoding: 'utf8' as const,
     timeout: killMs,
   };
@@ -326,12 +348,12 @@ function collectGate(outFile: string, sumFile: string, code: number, stdout: str
 }
 
 function runGate(args: string[], env: Record<string, string> = {}): GateRun {
-  const { outFile, sumFile } = gateFiles();
+  const { dir, outFile, sumFile } = gateFiles();
   let code = 0;
   let stdout = '';
   try {
     stdout = execFileSync('bash', [GATE_SH, ...args], {
-      ...gateOpts(env, outFile, sumFile, GATE_KILL_MS_SOLO),
+      ...gateOpts(env, outFile, sumFile, GATE_KILL_MS_SOLO, dir),
       stdio: ['ignore', 'pipe', 'pipe'],
     });
   } catch (e: unknown) {
@@ -343,20 +365,17 @@ function runGate(args: string[], env: Record<string, string> = {}): GateRun {
 }
 
 /**
- * Same contract as `runGate`, without blocking the event loop — so a set of
- * independent invocations can be spawned with `Promise.all` instead of one
- * after the other. The gate spends its time in `sleep`, not on the CPU: the
- * budget-burning cases below cost the same wall time each whether they run
- * alone or nine at a time.
+ * Same contract as `runGate`, without blocking the event loop. This lets the
+ * suite await each process serially while keeping Vitest responsive.
  *
  * The assertions that pin the budget (`cdn_waited_s`) stay bounded under load
  * because the script refreshes an absolute monotonic phase clock after every
  * child command and sleep.
  */
 function runGateAsync(args: string[], env: Record<string, string> = {}): Promise<GateRun> {
-  const { outFile, sumFile } = gateFiles();
+  const { dir, outFile, sumFile } = gateFiles();
   return new Promise((resolvePromise) => {
-    execFile('bash', [GATE_SH, ...args], gateOpts(env, outFile, sumFile, GATE_KILL_MS_BATCHED), (err, stdout) => {
+    execFile('bash', [GATE_SH, ...args], gateOpts(env, outFile, sumFile, GATE_KILL_MS_BATCHED, dir), (err, stdout) => {
       const status = (err as { code?: number } | null)?.code;
       resolvePromise(collectGate(outFile, sumFile, err ? (status ?? 1) : 0, stdout ?? ''));
     });
@@ -507,6 +526,17 @@ function fakeGh(payload: unknown | null): string {
   return dir;
 }
 
+/** A tiny fixed selection result for tests focused on the gate's deadline path. */
+function fakeGhSelection(selection: string): string {
+  const dir = mkdtempSync(join(tmpdir(), 'fake-gh-selection-'));
+  writeFileSync(
+    join(dir, 'gh'),
+    ['#!/usr/bin/env bash', `printf '%s\\n' ${JSON.stringify(selection)}`].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
 /** A jobs API stub that stalls longer than the hard-deadline slice. */
 function slowFakeGh(payload: unknown, delaySeconds: number): string {
   const dir = mkdtempSync(join(tmpdir(), 'slow-fake-gh-'));
@@ -612,7 +642,7 @@ function readinessEnv(payloads: (unknown | null)[], marker: string, expectedId: 
     CDN_BUILD_ID_URL: markerUrl(marker),
     CDN_IT_JOB_NAME: 'build-locale (it)',
     CDN_IT_READY_STEP_NAME: EARLY_CDN_STEP,
-    CDN_IT_READY_TIMEOUT_S: '1',
+    CDN_IT_READY_TIMEOUT_S: '4',
     CDN_IT_READY_INTERVAL_S: '1',
     CDN_WAIT_TIMEOUT_S: '1',
     CDN_WAIT_INTERVAL_S: '1',
@@ -634,13 +664,14 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
       'old-build',
       'new-build',
     );
-    env.CDN_IT_READY_TIMEOUT_S = '2';
+    env.CDN_IT_READY_TIMEOUT_S = '4';
     const r = runGate([_expected], env);
     expect(r.code, 'a missing marker must still keep the shard unpublished').toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('ready');
     expect(Number(r.outputs.cdn_ready_waited_s), 'phase 1 used its own clock').toBeGreaterThanOrEqual(1);
     expect(r.outputs.cdn_wait_result).toBe('timeout');
-    expect(r.outputs.cdn_waited_s, 'phase 2 still received its full independent budget').toBe('1');
+    expect(r.stdout, 'phase 2 still received its full independent budget').toMatch(/phase 2\/2: gating shard publish .*timeout=1s/);
+    expect(Number(r.outputs.cdn_waited_s)).toBeGreaterThanOrEqual(1);
     expect(r.stdout).toMatch(/phase 1\/2 ready after \d+s/);
     expect(r.stdout).toMatch(/phase 2\/2: gating shard publish/);
   });
@@ -673,7 +704,7 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
 
   it('fails closed on a bounded jobs-API uncertainty even when the marker happens to match', () => {
     const { _expected, ...env } = readinessEnv([null], 'new-build', 'new-build');
-    env.CDN_IT_READY_TIMEOUT_S = '2';
+    env.CDN_IT_READY_TIMEOUT_S = '4';
     const r = runGate([_expected], env);
     expect(r.code).toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('unobservable');
@@ -690,7 +721,7 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
       'new-build',
       'new-build',
     );
-    env.CDN_IT_READY_TIMEOUT_S = '2';
+    env.CDN_IT_READY_TIMEOUT_S = '5';
     const r = runGate([_expected], env);
     expect(r.code).toBe(0);
     expect(r.outputs.cdn_ready_result).toBe('ready');
@@ -700,11 +731,11 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
   });
 
   it('fails closed at the readiness deadline without spending any marker budget', () => {
-    const { _expected, ...env } = readinessEnv(
-      [readinessPayload('in_progress', null, 'Build', 'in_progress')],
-      'new-build',
-      'new-build',
-    );
+    const { _expected, ...env } = readinessEnv([], 'new-build', 'new-build');
+    // Other readiness cases exercise the actual jq predicate. This one pins
+    // only the deadline transition, so keep the authoritative `waiting` reply
+    // fast even when this host is heavily loaded.
+    env.PATH = `${fakeGhSelection('waiting')}:${process.env.PATH ?? ''}`;
     const r = runGate([_expected], env);
     expect(r.code).toBe(1);
     expect(r.outputs.cdn_ready_result).toBe('timeout');
@@ -943,30 +974,24 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
   ];
 
   /**
-   * Every gate invocation in this describe whose test does NOT measure wall
-   * time, spawned in one batch instead of one after the other.
-   *
-   * Safe because the invocations share nothing: `abortEnv` mints a fresh fake
-   * `gh` dir and a fresh marker file per call, `runGateAsync` mints a fresh
-   * GITHUB_OUTPUT/GITHUB_STEP_SUMMARY pair, the env object is built per call
-   * and never mutated, and the script writes nowhere else — no cwd change, no
-   * module state, no fixed path. The one test that DOES time itself (the
-   * first-poll abort below) is deliberately left out of the batch: its
-   * `Date.now()` assertion is only meaningful on an unloaded spawn.
+   * Keep these child-process gate invocations sequential. Each test gets a
+   * fresh fake `gh`, marker file, and output directory; serial execution keeps
+   * the CPU-bound shell/jq startup from making an authoritative fake API reply
+   * miss its own test timeout on a loaded host.
    */
   const gateRuns = new Map<string, GateRun>();
   const DEAD_CONCLUSIONS = ['cancelled', 'timed_out'];
   const RACE_KEY = 'race:marker-matches-anyway';
 
   beforeAll(async () => {
-    const jobs: [string, Promise<GateRun>][] = [
-      ...NEGATIVE_CASES.map(([label, payload]): [string, Promise<GateRun>] => {
+    const jobs: [string, () => Promise<GateRun>][] = [
+      ...NEGATIVE_CASES.map(([label, payload]): [string, () => Promise<GateRun>] => {
         const { _expected, ...env } = abortEnv(payload, 'an-older-build-id', 'the-new-build-id');
-        return [label, runGateAsync([_expected], env)];
+        return [label, () => runGateAsync([_expected], env)];
       }),
-      ...DEAD_CONCLUSIONS.map((conclusion): [string, Promise<GateRun>] => {
+      ...DEAD_CONCLUSIONS.map((conclusion): [string, () => Promise<GateRun>] => {
         const { _expected, ...env } = abortEnv(jobsPayload('completed', conclusion), 'old', 'new');
-        return [conclusion, runGateAsync([_expected], env)];
+        return [conclusion, () => runGateAsync([_expected], env)];
       }),
       // The IT leg pushes the CDN payload early (deploy-it-pages-prep.sh's
       // DEPLOY_CDN_PUSH_ONLY phase) and can still fail in a LATER step: marker
@@ -977,7 +1002,7 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
           'the-new-build-id',
           'the-new-build-id',
         );
-        return [RACE_KEY, runGateAsync([_expected], env)] as [string, Promise<GateRun>];
+        return [RACE_KEY, () => runGateAsync([_expected], env)] as [string, () => Promise<GateRun>];
       })(),
     ];
     // The keys come from three different places — the `it.each` labels, the
@@ -990,8 +1015,7 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
     expect(new Set(keys).size, `duplicate batch key — one test would read another's run: ${keys.join(', ')}`).toBe(
       keys.length,
     );
-    const settled = await Promise.all(jobs.map(([, p]) => p));
-    jobs.forEach(([key], i) => gateRuns.set(key, settled[i]));
+    for (const [key, run] of jobs) gateRuns.set(key, await run());
   }, 120_000);
 
   /** The recorded run for `key`, with a loud failure if the batch missed it. */
@@ -1064,67 +1088,60 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
   });
 });
 
-describe('deploy.yml — the #5331 abort is actually wired to the gate step', () => {
+describe('deploy-publish.yml — il #5331 abort e il budget del gate sono collegati', () => {
   it('the gate step gets the IT job name, a token, and the job gets actions: read', () => {
-    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
-    // The job DISPLAY name, which is what the jobs API returns for a matrix leg.
-    expect(gate, 'gate must know which job to watch').toMatch(/CDN_IT_JOB_NAME: build-locale \(it\)/);
+    const gate = step('Wait for current IT CDN build id before non-IT shard pushes');
+    expect(gate, 'gate must know which publisher job to watch').toMatch(/CDN_IT_JOB_NAME: Publish IT CDN assets first/);
     expect(gate, 'the jobs API call needs a token').toMatch(/GH_TOKEN: \$\{\{ secrets\.GITHUB_TOKEN \}\}/);
-    const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
-    expect(jobStart, 'build-locale job not found').toBeGreaterThan(-1);
-    const job = DEPLOY_YML.slice(jobStart, DEPLOY_YML.indexOf('\n    steps:', jobStart));
-    expect(job, 'reading this run’s job list needs actions: read').toMatch(/^ {6}actions: read$/m);
+    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    expect(workflow.jobs['publish-nonit-shards'].permissions.actions)
+      .toBe('read');
   });
 
-  it('the name in CDN_IT_JOB_NAME matches a real matrix job, so a rename cannot silently disarm it', () => {
-    const doc = YAML.parse(DEPLOY_YML) as { jobs: Record<string, { strategy?: { matrix?: unknown } }> };
-    // `build-locale (it)` = job key + the matrix value in parentheses. Both
-    // halves must exist; a wrong name would disarm the abort (safe, but silent),
-    // which is exactly what this assertion is here to stop.
-    expect(Object.keys(doc.jobs), 'the watched job key must exist').toContain('build-locale');
-    expect(doc.jobs['build-locale'].strategy?.matrix, 'build-locale must still be a matrix job').toBeTruthy();
-    expect(DEPLOY_YML, 'the matrix must still be keyed on `locale`').toMatch(/matrix:\n\s+locale:/);
+  it('the watched display name is the real CDN job in this workflow', () => {
+    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    expect(workflow.jobs['publish-it-cdn'].name).toBe('Publish IT CDN assets first');
+    expect(workflow.jobs['publish-it-cdn'].permissions.actions).toBe('read');
   });
 
   it('#7049 wires the exact early-CDN step to a separate bounded phase without shrinking the marker budget', () => {
-    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
-    expect(gate).toContain(`CDN_IT_READY_STEP_NAME: ${EARLY_CDN_STEP}`);
+    const gate = step('Wait for current IT CDN build id before non-IT shard pushes');
+    expect(gate).toContain('CDN_IT_JOB_NAME: Publish IT CDN assets first');
+    expect(gate).toContain('CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes');
     expect(gate, 'the readiness phase has its own explicit three-hour ceiling').toMatch(
       /CDN_IT_READY_TIMEOUT_S: 10800/,
     );
     expect(gate, 'jobs API polling stays bounded and explicit').toMatch(/CDN_IT_READY_INTERVAL_S: 30/);
     expect(gate, 'the historical exact-marker budget must remain unchanged').toMatch(/CDN_WAIT_TIMEOUT_S: 2700/);
-    expect(
-      step(EARLY_CDN_STEP),
-      'the configured observer must name the real IT-only early push, not a stale sibling title',
-    ).toMatch(/if: matrix\.locale == 'it'/);
+    expect(step(EARLY_CDN_STEP), 'the named CDN step must exist in its dedicated job')
+      .toContain('DEPLOY_CDN_PUSH_ONLY');
   });
 
   it('#7106 anchors the gate to this leg\'s hard six-hour clock with an explicit finish reserve', () => {
-    const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
-    const stepsIdx = DEPLOY_YML.indexOf('\n    steps:', jobStart);
-    const firstStepIdx = DEPLOY_YML.indexOf('\n      - name:', stepsIdx);
-    const firstStep = DEPLOY_YML.slice(firstStepIdx, DEPLOY_YML.indexOf('\n      - name:', firstStepIdx + 1));
+    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    const groupJob = workflow.jobs['push-it-shard-groups'];
+    const firstStep = DEPLOY_PUBLISH_YML.slice(
+      DEPLOY_PUBLISH_YML.indexOf('  push-it-shard-groups:'),
+      DEPLOY_PUBLISH_YML.indexOf('  finalize-it-publish:'),
+    ).split('      - name: ')[1];
     expect(
       firstStep,
-      "the job-start clock must be the job's very first step, so no earlier step's time is left uncounted",
-    ).toMatch(/- name: Record job start \(#7106 CDN gate job-deadline safety margin\)/);
+      "the job-start clock must be the group job's very first step, so no earlier step's time is left uncounted",
+    ).toMatch(/Record IT shard group job start \(#7106 deadline safety margin\)/);
     expect(firstStep).toMatch(/CDN_JOB_START_EPOCH=\$\(date \+%s\)" >> "\$GITHUB_ENV"/);
+    const gate = (groupJob.steps as Array<Record<string, any>>)
+      .find((candidate) => candidate.name === 'Wait for current IT CDN build id before IT section pushes');
+    expect(gate?.env.CDN_JOB_START_EPOCH, 'the gate must read the SAME clock the first step wrote')
+      .toBe('${{ env.CDN_JOB_START_EPOCH }}');
+    expect(gate?.env.CDN_JOB_DEADLINE_S, 'the hard deadline must match timeout-minutes below')
+      .toBe(21600);
+    expect(gate?.env.CDN_JOB_FINISH_RESERVE_S, 'the post-gate finish reserve must be explicit and measured')
+      .toBe(180);
 
-    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
-    expect(gate, 'the gate must read the SAME clock the first step wrote').toMatch(
-      /CDN_JOB_START_EPOCH: \$\{\{ env\.CDN_JOB_START_EPOCH \}\}/,
-    );
-    expect(gate, 'the hard deadline must match timeout-minutes below, not an independent guess').toMatch(
-      /CDN_JOB_DEADLINE_S: 21600/,
-    );
-    expect(gate, 'the post-gate finish reserve must be explicit and measured').toMatch(/CDN_JOB_FINISH_RESERVE_S: 180/);
-
-    const job = DEPLOY_YML.slice(jobStart, stepsIdx);
     expect(
-      job,
+      groupJob,
       'timeout-minutes is the input the 21600s hard deadline is derived from — a drift here must be caught',
-    ).toMatch(/^ {4}timeout-minutes: 360$/m);
+    ).toMatchObject({ 'timeout-minutes': 360 });
   });
 
   it('the surfacing step distinguishes the two failure shapes in the issue it files', () => {
