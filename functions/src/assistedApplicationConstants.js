@@ -59,6 +59,8 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   // The candidate's line-by-line choices on the tailored CV (review page).
   'automation_candidate_cv_reviewed',
   'cv_uploaded_by_owner',
+  // Facts the candidate stated in their reply to valerie@, applied to the order (assistedApplicationCandidateReply.js).
+  'candidate_reply_applied',
 ]);
 
 // The mandate texts candidates agreed to, oldest first; the last is the one
