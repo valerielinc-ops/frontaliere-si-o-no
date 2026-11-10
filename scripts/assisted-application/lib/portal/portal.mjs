@@ -264,8 +264,9 @@ export async function waitForFileRemoval(page, name, timeout = PREVIOUS_FILE_REM
 // takes away the application, the account or the profile is never answered for the runner.
 const REMOVAL_CONFIRM_VERB_RE = /(delet|remov|l[oö]sch|entfern|elimin|rimuov|cancella|supprim|retir|efface)/i;
 const NOT_A_FILE_REMOVAL_RE = /(withdraw|zur[uü]ck\s*(?:zu)?zieh|ritir|\baccount\b|\bkonto\b|\bcompte\b|candidature|bewerbung|candidatura|\bapplication\b|\bprofile?\b|\bprofilo\b)/i;
-// The affirmative button of an in-page confirmation, never «Cancel» / «No» / «Abbrechen».
-const REMOVAL_CONFIRM_ACCEPT_RE = /^\s*(?:ok|okay|yes|ja|s[iì]|oui|confirm|best[aä]tigen|conferma(?:re)?|confirmer|delete|remove|l[oö]schen|entfernen|elimina(?:re)?|rimuovi|supprimer|retirer)\b/i;
+// The affirmative button of an in-page confirmation, never «Cancel» / «No» / «Abbrechen». The end of the word is
+// read on Unicode letters: an ASCII \b never closes «Sì».
+const REMOVAL_CONFIRM_ACCEPT_RE = /^\s*(?:ok|okay|yes|ja|s[iì]|oui|confirm|best[aä]tigen|conferma(?:re)?|confirmer|delete|remove|l[oö]schen|entfernen|elimina(?:re)?|rimuovi|supprimer|retirer)(?![\p{L}\p{N}_])/iu;
 const REMOVAL_CONFIRM_DIALOG_SELECTOR = '[role="alertdialog"], [role="dialog"], [aria-modal="true"], dialog[open]';
 
 /** The text of a confirmation that takes a file away, and nothing else. */

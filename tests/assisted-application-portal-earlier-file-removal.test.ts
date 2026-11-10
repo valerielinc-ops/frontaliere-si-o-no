@@ -162,6 +162,16 @@ describe('the earlier run’s file behind a removal control that asks first', ()
     expect(await confirmRemovalInPage(fakePage())).toBe('none');
   });
 
+  it('reads an accented affirmative label as one word («Sì», review of #17996)', async () => {
+    const page = fakePage({ dom: { text: 'Vuoi eliminare il documento?', buttons: ['Sì', 'Annulla'] } });
+    page.state.onAccept = () => page.present.delete(LETTER);
+    expect(await confirmRemovalInPage(page)).toBe('clicked');
+    expect(page.state.domClicks).toBe(1);
+    // A longer word that only starts like an affirmative is no answer.
+    const prefixed = fakePage({ dom: { text: 'Vuoi eliminare il documento?', buttons: ['Sìcuro di no', 'Annulla'] } });
+    expect(await confirmRemovalInPage(prefixed)).not.toBe('clicked');
+  });
+
   it('reports a click that never landed', async () => {
     const page = fakePage();
     const result = await removeEarlierFile(page, deleteButton, [LETTER], { click: async () => { throw new Error('detached'); }, ...fast });
