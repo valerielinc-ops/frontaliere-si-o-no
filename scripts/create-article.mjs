@@ -11596,6 +11596,79 @@ export function buildArticlePublishedUrls(data) {
  */
 const SEO_DESCRIPTION_MAX = 160;
 
+const ARTICLE_PUBLISH_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
+const ARTICLE_PUBLISH_LOCALE_FIELDS = Object.freeze(['title', 'excerpt', 'body1', 'body2', 'body3']);
+const ARTICLE_PUBLISH_SEO_FIELDS = Object.freeze([
+  'title',
+  'description',
+  'keywords',
+  'ogTitle',
+  'ogDescription',
+  'headline',
+]);
+const ARTICLE_PUBLISH_MIN_BODY_WORDS = 50;
+
+/**
+ * Validate the complete site-side publisher payload before any registry is
+ * mutated. The corpus publisher has a stricter admission boundary, but the
+ * site writer is adapted: it owns four localized i18n/body outputs, the
+ * site-owned Google News sitemap, and its own image/CTA pipeline. Keeping the
+ * boundary here makes those differences explicit without importing or copying
+ * the corpus writer.
+ *
+ * `registerArticleFiles()` is also called directly by non-AI producers. They
+ * already perform their producer-specific enrichment (including CTA and image
+ * provenance), but previously the shared writer only checked the Italian
+ * title. A missing translation or SEO field could therefore mutate router or
+ * registry files before a later writer threw. Reject the whole payload first.
+ */
+export function assertArticlePublisherContract(data) {
+  const errors = [];
+  const content = data?.content;
+
+  for (const locale of ARTICLE_PUBLISH_LOCALES) {
+    const localized = content?.[locale];
+    if (!localized || typeof localized !== 'object' || Array.isArray(localized)) {
+      errors.push(`content.${locale}`);
+      continue;
+    }
+
+    for (const field of ARTICLE_PUBLISH_LOCALE_FIELDS) {
+      if (!hasUsableTranslatedText(localized[field], locale)) {
+        errors.push(`content.${locale}.${field}`);
+      }
+    }
+
+    const body = ARTICLE_PUBLISH_LOCALE_FIELDS
+      .filter((field) => field.startsWith('body'))
+      .map((field) => String(localized[field] || '').replace(/<[^>]+>/g, ' '))
+      .join(' ');
+    if (countWords(body) < ARTICLE_PUBLISH_MIN_BODY_WORDS) {
+      errors.push(`content.${locale}.body1-3 (<${ARTICLE_PUBLISH_MIN_BODY_WORDS} parole)`);
+    }
+  }
+
+  for (const field of ARTICLE_PUBLISH_SEO_FIELDS) {
+    if (!hasUsableContentText(data?.seo?.[field])) errors.push(`seo.${field}`);
+  }
+
+  for (const locale of ARTICLE_PUBLISH_LOCALES) {
+    if (!hasUsableTranslatedText(data?.imageAlt?.[locale], locale)) {
+      errors.push(`imageAlt.${locale}`);
+    }
+  }
+
+  const imagePath = data?._generatedImagePath || data?.image;
+  if (!hasUsableContentText(imagePath)) errors.push('image');
+
+  if (errors.length > 0) {
+    throw new Error(
+      `registerArticleFiles: publisher payload non valido prima della scrittura: ${errors.join(', ')}`,
+    );
+  }
+  return data;
+}
+
 /**
  * Hard cap on the meta descriptions, applied at the SHARED write path.
  *
@@ -11647,11 +11720,16 @@ export async function registerArticleFiles(data, opts = {}) {
   // `clampSeoDescriptions`: troncare a 160 caratteri un campo che E' il
   // segnaposto lo renderebbe solo un segnaposto piu' corto, non lo toglierebbe.
   sanitizePromptPlaceholders(data);
+  assertArticlePublisherContract(data);
   // Secondary producers (including journalist publishing) bypass main(); keep
   // the same translated-body admission gate on the shared writer path.
   assertTranslationsPassFactualityGates(data);
   clampSeoDescriptions(data);
   const slugs = deriveAndSanitizeArticleSlugs(data);
+  // The AI path checks duplicates before translation, while direct publishers
+  // reach this writer without going through main(). Reuse the same guard after
+  // the final localized slugs exist, still before the first file mutation.
+  checkForDuplicates(data);
   modifyRouterTs(data);
   modifyBlogArticlesTsx(data);
   modifyI18nTs(data);
