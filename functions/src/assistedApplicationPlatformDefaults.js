@@ -148,7 +148,7 @@ export function countryName(code, locale = 'it') {
 export function splitTown(value) {
   let text = clean(value);
   let country = '';
-  const countryMatch = /(?:,|\s[-–—]\s)\s*([\p{L} ]+)\s*$/u.exec(text);
+  const countryMatch = /(?:,|\s[-–—]\s)\s*([\p{L}](?:[\p{L} ]|-(?=\p{L}))*)\s*$/u.exec(text);
   if (countryMatch && countryCodeOf(countryMatch[1])) {
     country = countryCodeOf(countryMatch[1]);
     text = text.slice(0, countryMatch.index).trim();
@@ -747,7 +747,7 @@ const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candi
  * unreadable contract is not ownership.
  */
 // The candidate's own identity fields among the labels of a form («Vorname · Nachname · E-Mail · Geburtstag»).
-const IDENTITY_FIELD_RE = /\b(?:vorname|nachname|first name|last name|surname|nome|cognome|prenom|e ?mail|geburt\w*|date of birth|birth\w*|data di nascita|nascita|naissance)\b/g;
+const IDENTITY_FIELD_RE = /\b(?:vorname|nachname|first name|last name|surname|nome|cognome|prenom|nom|e ?mail|geburt\w*|date of birth|birth\w*|data di nascita|nascita|naissance)\b/g;
 
 /** The field context lists the labels of the candidate's own form: two identity fields or more. */
 function candidateFormContext(context) {
