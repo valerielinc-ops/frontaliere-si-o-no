@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zkb",
-  "assembledAt": "2026-11-09T21:17:30.720Z",
-  "runId": "42698889168",
+  "assembledAt": "2026-11-10T09:13:59.425Z",
+  "runId": "42787527739",
   "jobs": [
     {
       "id": "zkb-1b4fe92e8009",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/792841/11461/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:20.498Z",
+      "crawledAt": "2026-11-10T09:13:53.103Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:20.498Z",
+      "validThrough": "2027-02-04T09:13:53.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/792841/11462/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:20.070Z",
+      "crawledAt": "2026-11-10T09:13:52.656Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:20.070Z",
+      "validThrough": "2027-02-04T09:13:52.656Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://apply.refline.ch/792841/11466/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:19.648Z",
+      "crawledAt": "2026-11-10T09:13:52.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:19.648Z",
+      "validThrough": "2027-02-04T09:13:52.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://apply.refline.ch/792841/11465/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:19.226Z",
+      "crawledAt": "2026-11-10T09:13:51.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:19.226Z",
+      "validThrough": "2027-02-04T09:13:51.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -383,7 +383,7 @@
       "url": "https://apply.refline.ch/792841/11463/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:18.801Z",
+      "crawledAt": "2026-11-10T09:13:51.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:18.801Z",
+      "validThrough": "2027-02-04T09:13:51.306Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -465,7 +465,7 @@
       "url": "https://apply.refline.ch/792841/11460/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:18.380Z",
+      "crawledAt": "2026-11-10T09:13:50.855Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:18.380Z",
+      "validThrough": "2027-02-04T09:13:50.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -553,7 +553,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:17.958Z",
+      "crawledAt": "2026-11-10T09:13:50.408Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -608,7 +608,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:17:17.958Z",
+      "validThrough": "2026-12-10T09:13:50.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -642,7 +642,7 @@
       "url": "https://apply.refline.ch/792841/11467/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:17.536Z",
+      "crawledAt": "2026-11-10T09:13:49.958Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -692,7 +692,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T21:17:17.536Z",
+      "validThrough": "2027-02-04T09:13:49.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -727,7 +727,7 @@
       "url": "https://apply.refline.ch/792841/11350/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:17.115Z",
+      "crawledAt": "2026-11-10T09:13:49.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-10T21:17:17.115Z",
+      "validThrough": "2026-12-10T09:13:49.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +815,7 @@
       "url": "https://apply.refline.ch/792841/11459/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:16.683Z",
+      "crawledAt": "2026-11-10T09:13:49.058Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -868,7 +868,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:16.683Z",
+      "validThrough": "2027-02-03T09:13:49.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -903,7 +903,7 @@
       "url": "https://apply.refline.ch/792841/11410/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:16.260Z",
+      "crawledAt": "2026-11-10T09:13:48.604Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -953,7 +953,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T21:17:16.260Z",
+      "validThrough": "2027-01-01T09:13:48.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -987,7 +987,7 @@
       "url": "https://apply.refline.ch/792841/11444/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:15.833Z",
+      "crawledAt": "2026-11-10T09:13:48.149Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1043,7 +1043,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:17:15.833Z",
+      "validThrough": "2027-01-21T09:13:48.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1078,7 +1078,7 @@
       "url": "https://apply.refline.ch/792841/11413/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:15.410Z",
+      "crawledAt": "2026-11-10T09:13:47.698Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1130,7 +1130,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-03T21:17:15.410Z",
+      "validThrough": "2027-01-04T09:13:47.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1165,7 +1165,7 @@
       "url": "https://apply.refline.ch/792841/11441/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:14.964Z",
+      "crawledAt": "2026-11-10T09:13:47.247Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1235,7 +1235,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-19T21:17:14.964Z",
+      "validThrough": "2027-01-19T09:13:47.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1270,7 +1270,7 @@
       "url": "https://apply.refline.ch/792841/11427/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:13.976Z",
+      "crawledAt": "2026-11-10T09:13:46.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1326,7 +1326,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T21:17:13.976Z",
+      "validThrough": "2027-01-08T09:13:46.798Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://apply.refline.ch/792841/11446/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:13.552Z",
+      "crawledAt": "2026-11-10T09:13:46.348Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1408,7 +1408,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:17:13.552Z",
+      "validThrough": "2027-01-21T09:13:46.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1442,7 +1442,7 @@
       "url": "https://apply.refline.ch/792841/11264/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:13.130Z",
+      "crawledAt": "2026-11-10T09:13:45.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1497,7 +1497,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:13.130Z",
+      "validThrough": "2026-12-10T09:13:45.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1532,7 +1532,7 @@
       "url": "https://apply.refline.ch/792841/11445/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:12.710Z",
+      "crawledAt": "2026-11-10T09:13:45.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1582,7 +1582,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T21:17:12.710Z",
+      "validThrough": "2027-01-21T09:13:45.450Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1616,7 +1616,7 @@
       "url": "https://apply.refline.ch/792841/11383/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:12.288Z",
+      "crawledAt": "2026-11-10T09:13:44.002Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1668,7 +1668,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-23T21:17:12.288Z",
+      "validThrough": "2026-12-24T09:13:44.002Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1703,7 +1703,7 @@
       "url": "https://apply.refline.ch/792841/11440/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:11.868Z",
+      "crawledAt": "2026-11-10T09:13:43.551Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1758,7 +1758,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:17:11.868Z",
+      "validThrough": "2027-01-18T09:13:43.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1793,7 +1793,7 @@
       "url": "https://apply.refline.ch/792841/11436/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:11.438Z",
+      "crawledAt": "2026-11-10T09:13:43.086Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1843,7 +1843,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-13T21:17:11.438Z",
+      "validThrough": "2027-01-14T09:13:43.086Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1878,7 +1878,7 @@
       "url": "https://apply.refline.ch/792841/11421/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:11.014Z",
+      "crawledAt": "2026-11-10T09:13:42.637Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1928,7 +1928,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:17:11.014Z",
+      "validThrough": "2027-01-07T09:13:42.637Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1962,7 +1962,7 @@
       "url": "https://apply.refline.ch/792841/11431/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:10.587Z",
+      "crawledAt": "2026-11-10T09:13:42.187Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2012,7 +2012,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-10T21:17:10.587Z",
+      "validThrough": "2027-01-11T09:13:42.187Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2047,7 +2047,7 @@
       "url": "https://apply.refline.ch/792841/11423/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:10.165Z",
+      "crawledAt": "2026-11-10T09:13:41.737Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2100,7 +2100,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T21:17:10.165Z",
+      "validThrough": "2027-01-07T09:13:41.737Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2135,7 +2135,7 @@
       "url": "https://apply.refline.ch/792841/11424/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:09.739Z",
+      "crawledAt": "2026-11-10T09:13:41.285Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2190,7 +2190,7 @@
       },
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:09.739Z",
+      "validThrough": "2027-01-07T09:13:41.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2225,7 +2225,7 @@
       "url": "https://apply.refline.ch/792841/11422/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:09.315Z",
+      "crawledAt": "2026-11-10T09:13:40.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2275,7 +2275,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:17:09.315Z",
+      "validThrough": "2027-01-07T09:13:40.825Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2310,7 +2310,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:08.895Z",
+      "crawledAt": "2026-11-10T09:13:40.376Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2360,7 +2360,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T21:17:08.895Z",
+      "validThrough": "2027-01-06T09:13:40.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2395,7 +2395,7 @@
       "url": "https://apply.refline.ch/792841/11220/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:08.471Z",
+      "crawledAt": "2026-11-10T09:13:39.928Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2445,7 +2445,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:08.471Z",
+      "validThrough": "2026-12-10T09:13:39.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2480,7 +2480,7 @@
       "url": "https://apply.refline.ch/792841/11406/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:08.048Z",
+      "crawledAt": "2026-11-10T09:13:39.479Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2527,7 +2527,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T21:17:08.048Z",
+      "validThrough": "2026-12-31T09:13:39.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2562,7 +2562,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:07.628Z",
+      "crawledAt": "2026-11-10T09:13:39.032Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2622,7 +2622,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:07.628Z",
+      "validThrough": "2026-12-10T09:13:39.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2657,7 +2657,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:07.207Z",
+      "crawledAt": "2026-11-10T09:13:38.583Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2715,7 +2715,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:07.207Z",
+      "validThrough": "2026-12-10T09:13:38.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2750,7 +2750,7 @@
       "url": "https://apply.refline.ch/792841/11400/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:06.781Z",
+      "crawledAt": "2026-11-10T09:13:38.131Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2805,7 +2805,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T21:17:06.781Z",
+      "validThrough": "2026-12-30T09:13:38.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2840,7 +2840,7 @@
       "url": "https://apply.refline.ch/792841/11394/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:06.264Z",
+      "crawledAt": "2026-11-10T09:13:37.682Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2892,7 +2892,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T21:17:06.264Z",
+      "validThrough": "2026-12-29T09:13:37.682Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2926,7 +2926,7 @@
       "url": "https://apply.refline.ch/792841/11388/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:05.844Z",
+      "crawledAt": "2026-11-10T09:13:37.232Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2978,7 +2978,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T21:17:05.844Z",
+      "validThrough": "2026-12-27T09:13:37.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3012,7 +3012,7 @@
       "url": "https://apply.refline.ch/792841/11392/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:05.424Z",
+      "crawledAt": "2026-11-10T09:13:36.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3067,7 +3067,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T21:17:05.424Z",
+      "validThrough": "2026-12-28T09:13:36.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3102,7 +3102,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:04.962Z",
+      "crawledAt": "2026-11-10T09:13:36.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3151,7 +3151,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:04.962Z",
+      "validThrough": "2026-12-10T09:13:36.334Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3186,7 +3186,7 @@
       "url": "https://apply.refline.ch/792841/11381/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:03.975Z",
+      "crawledAt": "2026-11-10T09:13:35.884Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3233,7 +3233,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-23T21:17:03.975Z",
+      "validThrough": "2026-12-24T09:13:35.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3268,7 +3268,7 @@
       "url": "https://apply.refline.ch/792841/11377/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:03.553Z",
+      "crawledAt": "2026-11-10T09:13:35.434Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3320,7 +3320,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-21T21:17:03.553Z",
+      "validThrough": "2026-12-22T09:13:35.434Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3355,7 +3355,7 @@
       "url": "https://apply.refline.ch/792841/11001/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:03.130Z",
+      "crawledAt": "2026-11-10T09:13:34.982Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3407,7 +3407,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:03.130Z",
+      "validThrough": "2026-12-10T09:13:34.982Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3442,7 +3442,7 @@
       "url": "https://apply.refline.ch/792841/11371/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:02.705Z",
+      "crawledAt": "2026-11-10T09:13:33.821Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3497,7 +3497,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:17:02.705Z",
+      "validThrough": "2026-12-17T09:13:33.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3532,7 +3532,7 @@
       "url": "https://apply.refline.ch/792841/11359/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:02.275Z",
+      "crawledAt": "2026-11-10T09:13:33.367Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3579,7 +3579,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-15T21:17:02.275Z",
+      "validThrough": "2026-12-15T09:13:33.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3614,7 +3614,7 @@
       "url": "https://apply.refline.ch/792841/11337/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:01.851Z",
+      "crawledAt": "2026-11-10T09:13:32.916Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3673,7 +3673,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:01.851Z",
+      "validThrough": "2026-12-10T09:13:32.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3707,7 +3707,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:01.415Z",
+      "crawledAt": "2026-11-10T09:13:32.464Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3754,7 +3754,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:01.415Z",
+      "validThrough": "2026-12-10T09:13:32.464Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3789,7 +3789,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:00.985Z",
+      "crawledAt": "2026-11-10T09:13:32.013Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3844,7 +3844,7 @@
       },
       "streetAddress": "Witikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:17:00.985Z",
+      "validThrough": "2026-12-10T09:13:32.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3879,7 +3879,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:00.545Z",
+      "crawledAt": "2026-11-10T09:13:31.560Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3936,7 +3936,7 @@
       },
       "streetAddress": "Rüti",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:17:00.545Z",
+      "validThrough": "2026-12-10T09:13:31.560Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3971,7 +3971,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:17:00.048Z",
+      "crawledAt": "2026-11-10T09:13:31.072Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4026,7 +4026,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:17:00.048Z",
+      "validThrough": "2026-12-10T09:13:31.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4061,7 +4061,7 @@
       "url": "https://apply.refline.ch/792841/11149/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:16:59.336Z",
+      "crawledAt": "2026-11-10T09:13:30.620Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4125,7 +4125,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-09T21:16:59.336Z",
+      "validThrough": "2026-12-10T09:13:30.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4213,7 +4213,7 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-01-21T09:22:02.707Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "zkb-d5e9616501b9",
@@ -4301,7 +4301,7 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2027-01-06T09:22:00.446Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "zkb-e7ba5818d21d",
@@ -4383,91 +4383,6 @@
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
       "validThrough": "2026-12-09T09:21:49.140Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-dd801c277fe0",
-      "slug": "devops-ingegnere-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "devops-ingegnere-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "devops-engineer-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
-        "de": "devops-engineer-network-security-communication-m-w-d-zkb-zurich",
-        "fr": "devops-ingenieur-network-security-communication-m-w-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "DevOps Engineer Network, Security & Communication (m/w/d)",
-      "titleByLocale": {
-        "it": "DevOps Ingegnere Network, Security & Communication (m/w/d)",
-        "en": "DevOps Engineer Network, Security & Communication (m/f/d)",
-        "de": "DevOps Engineer Network, Security & Communication (m/w/d)",
-        "fr": "Ingénieur DevOps Réseau, Sécurité et Communication (h/f/d)"
-      },
-      "description": "100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Netzwerk-Team sucht Verstärkung im Bereich Content Security. Neben einem reibungslosen Betrieb und der kontinuierlichen Weiterentwicklung unserer Lösungen gestaltest du neue Anforderungen aus der Security und aus der Weiterentwicklungs-Roadmap aktiv mit.\nDich erwartet ein breites und interessantes Tätigkeitsgebiet mit modernen Technologien und Anwendungen – von der Konzeption bis zur Umsetzung – mit viel Gestaltungsspielraum und Flexibilität sowie attraktiven Entwicklungsmöglichkeiten. Als Team verantworten wir die Netzwerk-, Sicherheits- und Kommunikations-Infrastrukturen der Bank und realisieren innovative Lösungen. So trägst du dazu bei, dass unsere Netzwerk-, Security- und Voice-Plattform täglich performant läuft und die Bank effizient und sicher mit ihrer Kundschaft kommuniziert.\nDeine Aufgaben\n• Mitarbeiten bei der Definition und Realisierung von Vorhaben im Bereich Data Leakage Prevention Lösungen\n• Unterstützen bei der Definition, Realisierung und Bewirtschaftung der Produkte im Bereich Proxy-, Mail-, Loadbalancer- und DNS-Infrastruktur\n• Konzeptionieren, Dokumentieren und Implementieren von zeitgemässen und sicheren Applikationslösungen im Tätigkeitsbereich\n• Unterstützen der Architektur bei der Implementierung neuer Funktionalitäten\n• Beraten und Betreuen von internen und externen Ansprechpersonen in technischen Fragestellungen\n• Übernehmen der Applikationsverantwortung für Systeme der IT-Security-Plattformen inklusive Engineering, Wartung und Pikett-Dienst (vier bis fünf Wochen pro Jahr)\nDein Profil\n• Abgeschlossenes Studium (HF / FH / Uni / ETH) in Informatik, Wirtschaftsinformatik oder eine gleichwertige Ausbildung\n• Mehrjährige praktische Erfahrung im Applikationssupport oder im Betrieb von Security-Applikationen (z.B. DLP, Webgateway, Mailgateway, Loadbalancer, Vulnerability Scanner)\n• Gute Kenntnisse von Netzwerkprotokollen, Security-Technologien und Linux-Betriebssystemen (vorzugsweise RHEL)\n• Umfassende Erfahrung in der Automatisierung über unterschiedliche Plattformen hinweg, idealerweise mit Python\n• Du bist in der Lage, vernetzte Applikationen auf Enterprise Level selbständig stabil und sicher zu gestalten\n• Du bist routiniert im Konzeptionieren, Entwickeln, Integrieren und Automatisieren von Netzwerk- und Security-Lösungen\n• Erfahrung in der Führung von Vorhaben sowie in der Bewirtschaftung von Schnittstellen zu Lieferanten und Integrationspartnern\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Vakanz werden ausschliesslich Direktbewerbungen berücksichtigt.\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-      "descriptionByLocale": {
-        "it": "• Ingegnere DevOps Rete, sicurezza e comunicazione (m/f/d)\n\n100% | Informatica/Ingegneria aziendale | Zurigo | Professionisti esperti\n\nCandidati online adesso\n\nIl nostro team di rete è alla ricerca di rinforzi nel settore della sicurezza dei contenuti. Oltre al buon funzionamento e allo sviluppo continuo delle nostre soluzioni, darai forma attivamente ai nuovi requisiti di sicurezza e all'ulteriore roadmap di sviluppo.\nTi aspetta un ampio e interessante campo di attività con tecnologie e applicazioni moderne - dall'ideazione alla realizzazione - con molta libertà creativa e flessibilità, nonché interessanti opportunità di sviluppo. Come squadra siamo responsabili dell'infrastruttura di rete, sicurezza e comunicazione della banca e implementiamo soluzioni innovative. In questo modo contribuirai a garantire che la nostra rete, la sicurezza e la piattaforma vocale funzionino ogni giorno in modo efficiente e che la banca comunichi in modo efficiente e sicuro con i propri clienti.\n\nI tuoi compiti\n\n• Collaborare alla definizione e all'implementazione di progetti nell'area delle soluzioni di prevenzione della fuga di dati\n• Supporto nella definizione, implementazione e gestione di prodotti in ambito proxy, mail, load balancer e infrastrutture DNS\n• Concezione, documentazione e implementazione di soluzioni applicative moderne e sicure nell'area di attività\n• Supportare l'architettura nell'implementazione di nuove funzionalità\n• Consulenza e supporto ai contatti interni ed esterni su questioni tecniche\n• Assumere la responsabilità applicativa per i sistemi della piattaforma di sicurezza IT, compresi ingegneria, manutenzione e servizio di reperibilità (da quattro a cinque settimane all'anno)\n• Studi compiuti (HF / FH / Uni / ETH) in informatica, informatica aziendale o formazione equivalente\n• Diversi anni di esperienza pratica nel supporto applicativo o nel funzionamento di applicazioni di sicurezza (ad es.\n\nDLP, gateway web, gateway di posta, bilanciatore del carico, scanner di vulnerabilità)\n• Buona conoscenza dei protocolli di rete, delle tecnologie di sicurezza e dei sistemi operativi Linux (preferibilmente RHEL)\n• Vasta esperienza nell'automazione su diverse piattaforme, idealmente con Python\n• Siete in grado di progettare autonomamente applicazioni di rete a livello aziendale in modo stabile e sicuro\n• Hai esperienza nella progettazione, sviluppo, integrazione e automazione di soluzioni di rete e sicurezza\n• Esperienza nella gestione di progetti e nella gestione delle interfacce con fornitori e partner di integrazione\n• Ottima conoscenza del tedesco parlato e scritto\n• Per noi il sostegno reciproco e lo spirito di squadra sono molto importanti\n• Gamma di compiti entusiasmante e diversificata con molte opportunità di networking\n• La tua carriera è importante per noi come datore di lavoro ed è per questo che ti incoraggiamo e accompagniamo nel tuo percorso e ti supportiamo con tante offerte\n• Posto di lavoro moderno nel distretto 5 con ottimi collegamenti di trasporto (stazione ferroviaria di Hardbrücke)\n• Diversi eventi e reti interne vi offrono l'opportunità di fare rete rapidamente\n• Pacchetto completo con stipendio base interessante, retribuzione variabile e un'ampia gamma di vantaggi\nPer questo posto vacante verranno prese in considerazione solo le candidature dirette.",
-        "en": "• DevOps Engineer Network, Security & Communication (m/f/d)\n\n100%, IT / Business Engineering, Zurich, Professionals\n\nApply online now\n\nOur network team is looking for reinforcement in the area of content security. In addition to smooth operation and the continuous development of our solutions, you are actively shaping new requirements from security and the further development roadmap. A broad and interesting area of activity with modern technologies and applications – from conception to implementation – awaits you with plenty of design flexibility and attractive development opportunities.\n\nAs a team, we are responsible for the bank's network, security and communication infrastructures and implement innovative solutions. This is how you help ensure that our network, security and voice platform runs daily on the bank's network and communicates efficiently and securely with its customers.\n\nYour Tasks\n\n• Support in the definition, implementation and management of products in the field of proxy, mail, load balancer and DNS infrastructure\n• Conception, documentation and implementation of timely and secure application solutions in the field of activity\n• Support in the implementation of new functionalities\n• Advising and supervising internal and external contact persons in technical issues\n• Accepting the application responsibility for\n\nSystems of IT security platforms including engineering, maintenance and piket service (four to five weeks per year)\n• Completed studies (HF / FH / Uni / ETH) in computer science, business information technology or equivalent training\n• Multi-year practical experience in application support or in the operation of security applications (e.g.\n\nDLP, Webgateway, Mailgateway, Load Balancer, Vulnerability Scanner)\n• Good knowledge of network protocols, security technologies and Linux operating systems (preferably RHEL)\n• Comprehensive automation experience across different platforms, ideally with Python\n• You are able to independently make networked applications stable and secure at enterprise level\n• You are ro-taxed in designing, developing, integrating and automating network and security solutions\n• Experience in managing projects and managing\n\nInterfaces with suppliers and integration partners\n• Very good German language skills in word and writing\n• Mutual support and team spirit are great with us\n• Exciting and diverse range of tasks with many networking possibilities\n• Your career is at our heart as an employer and therefore we support and support you on your way and support you with many offers\n• Modern workplace in circle 5 with very good traffic connection (hard bridge station)\n• Various occasions and internal networks offer you the opportunity to quickly get to know\n\nnetwork\n• Comprehensive package with attractive basic salary, variable remuneration and versatile benefits for this vacancy are exclusively taken into account for direct applications.",
-        "de": "100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Netzwerk-Team sucht Verstärkung im Bereich Content Security. Neben einem reibungslosen Betrieb und der kontinuierlichen Weiterentwicklung unserer Lösungen gestaltest du neue Anforderungen aus der Security und aus der Weiterentwicklungs-Roadmap aktiv mit.\nDich erwartet ein breites und interessantes Tätigkeitsgebiet mit modernen Technologien und Anwendungen – von der Konzeption bis zur Umsetzung – mit viel Gestaltungsspielraum und Flexibilität sowie attraktiven Entwicklungsmöglichkeiten. Als Team verantworten wir die Netzwerk-, Sicherheits- und Kommunikations-Infrastrukturen der Bank und realisieren innovative Lösungen. So trägst du dazu bei, dass unsere Netzwerk-, Security- und Voice-Plattform täglich performant läuft und die Bank effizient und sicher mit ihrer Kundschaft kommuniziert.\nDeine Aufgaben\n• Mitarbeiten bei der Definition und Realisierung von Vorhaben im Bereich Data Leakage Prevention Lösungen\n• Unterstützen bei der Definition, Realisierung und Bewirtschaftung der Produkte im Bereich Proxy-, Mail-, Loadbalancer- und DNS-Infrastruktur\n• Konzeptionieren, Dokumentieren und Implementieren von zeitgemässen und sicheren Applikationslösungen im Tätigkeitsbereich\n• Unterstützen der Architektur bei der Implementierung neuer Funktionalitäten\n• Beraten und Betreuen von internen und externen Ansprechpersonen in technischen Fragestellungen\n• Übernehmen der Applikationsverantwortung für Systeme der IT-Security-Plattformen inklusive Engineering, Wartung und Pikett-Dienst (vier bis fünf Wochen pro Jahr)\nDein Profil\n• Abgeschlossenes Studium (HF / FH / Uni / ETH) in Informatik, Wirtschaftsinformatik oder eine gleichwertige Ausbildung\n• Mehrjährige praktische Erfahrung im Applikationssupport oder im Betrieb von Security-Applikationen (z.B. DLP, Webgateway, Mailgateway, Loadbalancer, Vulnerability Scanner)\n• Gute Kenntnisse von Netzwerkprotokollen, Security-Technologien und Linux-Betriebssystemen (vorzugsweise RHEL)\n• Umfassende Erfahrung in der Automatisierung über unterschiedliche Plattformen hinweg, idealerweise mit Python\n• Du bist in der Lage, vernetzte Applikationen auf Enterprise Level selbständig stabil und sicher zu gestalten\n• Du bist routiniert im Konzeptionieren, Entwickeln, Integrieren und Automatisieren von Netzwerk- und Security-Lösungen\n• Erfahrung in der Führung von Vorhaben sowie in der Bewirtschaftung von Schnittstellen zu Lieferanten und Integrationspartnern\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Vakanz werden ausschliesslich Direktbewerbungen berücksichtigt.\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
-        "fr": "• Ingénieur DevOps Réseau, Sécurité & Communication (h/f/d)\n\n100% | Informatique / Ingénierie d'Affaires | Zurich | Des professionnels expérimentés\n\nPostulez en ligne maintenant\n\nNotre équipe réseau recherche des renforts dans le domaine de la sécurité des contenus. En plus du bon fonctionnement et du développement continu de nos solutions, vous façonnerez activement les nouvelles exigences de sécurité et la feuille de route du développement ultérieur.\nUn domaine d'activité vaste et intéressant avec des technologies et des applications modernes vous attend - de la conception à la mise en œuvre - avec une grande liberté de création et une grande flexibilité ainsi que des opportunités de développement attrayantes. En équipe, nous sommes responsables du réseau, de la sécurité et des infrastructures de communication de la banque et mettons en œuvre des solutions innovantes. De cette manière, vous contribuerez à garantir que notre plateforme réseau, de sécurité et vocale fonctionne efficacement au quotidien et que la banque communique de manière efficace et sécurisée avec ses clients.\n\nVos tâches\n\n• Collaborer à la définition et à la mise en œuvre de projets dans le domaine des solutions de prévention des fuites de données\n• Accompagnement dans la définition, la mise en œuvre et la gestion de produits dans le domaine du proxy, de la messagerie, de l'équilibreur de charge et de l'infrastructure DNS\n• Conception, documentation et mise en œuvre de solutions applicatives contemporaines et sécurisées dans le domaine d'activité\n• Accompagner l'architecture dans la mise en œuvre de nouvelles fonctionnalités\n• Conseiller et soutenir les contacts internes et externes sur les questions techniques\n• Assumer la responsabilité des applications pour les systèmes de la plateforme de sécurité informatique, y compris l'ingénierie, la maintenance et le service de garde (quatre à cinq semaines par an)\n• Etudes complétées (HF / FH / Uni / ETH) en informatique, informatique de gestion ou formation équivalente\n• Plusieurs années d'expérience pratique en support applicatif ou dans l'exploitation d'applications de sécurité (ex.\n\nDLP, passerelle Web, passerelle de messagerie, équilibreur de charge, scanner de vulnérabilités)\n• Bonne connaissance des protocoles réseau, des technologies de sécurité et des systèmes d'exploitation Linux (de préférence RHEL)\n• Vaste expérience en automatisation sur différentes plateformes, idéalement avec Python\n• Vous êtes capable de concevoir de manière indépendante des applications en réseau au niveau de l'entreprise de manière stable et sécurisée.\n• Vous êtes expérimenté dans la conception, le développement, l'intégration et l'automatisation de solutions de réseau et de sécurité.\n• Expérience dans la gestion de projets et la gestion des interfaces avec les fournisseurs et les partenaires d'intégration\n• Très bonne connaissance de l'allemand parlé et écrit\n• L'entraide et l'esprit d'équipe sont très importants pour nous\n• Gamme de tâches passionnantes et diversifiées avec de nombreuses opportunités de réseautage\n• Votre carrière est importante pour nous en tant qu'employeur et c'est pourquoi nous vous encourageons, vous accompagnons dans votre cheminement et vous soutenons avec de nombreuses offres.\n• Lieu de travail moderne dans le quartier 5 avec de très bonnes liaisons de transport (gare Hardbrücke)\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Package complet avec un salaire de base attractif, une rémunération variable et une large gamme d'avantages\nSeules les candidatures directes seront prises en considération pour ce poste."
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11355/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:20:30.485Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-15T09:43:39.198770+00:00",
-      "postedDate": "2026-09-15T09:43:39.198770+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11355/pub/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11355",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "devops-ingenieur-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
-        "devops-engineer-network-security-communication-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-ingenieur-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
-          "devops-engineer-network-security-communication-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-16T23:43:19.987Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T21:20:30.485Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }
