@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { AGENT_SCHEMA, refusal } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { AGENT_SCHEMA, refusal, runAction } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const { submitViaPortal, isAgentRecoverableAuthStop } = portal as any;
 
@@ -344,6 +344,16 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'I accept' }, { reservedButtons: [/accept/i] })).toBe('account_action_reserved');
     expect(refusal({ action: 'click' }, { button: false, inputType: 'checkbox', name: 'Datenschutzerklärung gelesen' }, { reservedButtons: [/datenschutz/i] })).toBe('account_action_reserved');
     expect(refusal({ action: 'fill', value: 'Rossi' }, { button: false, inputType: 'text', name: 'Nachname', editable: true }, { reservedButtons: [/accept/i] })).toBe('');
+  });
+
+  it('refuses a checkbox named only by an external label, through runAction', async () => {
+    const { window } = new JSDOM('<label for="privacy">I accept</label><input type="checkbox" id="privacy">');
+    const element = window.document.getElementById('privacy')!;
+    let clicks = 0;
+    const page = { locator: () => ({ evaluate: async (fn: (el: Element) => unknown) => fn(element), click: async () => { clicks += 1; } }) };
+    const result = await runAction(page as any, { action: 'click', ref: 'e1' }, {}, { reservedButtons: [/accept/i] });
+    expect(result).toEqual({ ok: false, error: 'account_action_reserved' });
+    expect(clicks).toBe(0);
   });
 
   it('turns what the candidate data does not say into a candidate question, never into an answer', async () => {

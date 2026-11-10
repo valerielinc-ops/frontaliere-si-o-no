@@ -477,8 +477,15 @@ async function describe(locator) {
     const form = control.closest('form');
     const submits = Boolean(form) && ((control.tagName === 'BUTTON' && (control.getAttribute('type') || 'submit').toLowerCase() === 'submit') || (control.tagName === 'INPUT' && control.type === 'submit'));
     const href = control.tagName === 'A' ? control.getAttribute('href') || '' : '';
+    // The associated labels (<label for>, a wrapping <label>, aria-labelledby): a checkbox
+    // whose only name is an external «I accept» label is still the account's privacy control.
+    const labelledBy = (control.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+      .map((id) => element.ownerDocument.getElementById(id)?.textContent || '');
+    const labelName = [...(element.labels || []), ...labelledBy.map((text) => ({ textContent: text }))]
+      .map((label) => label.textContent || '').join(' ').replace(/\s+/g, ' ').trim().slice(0, 200);
     return {
       name,
+      labelName,
       button: Boolean(button),
       tag,
       inputType: tag === 'input' ? element.type : '',
@@ -529,7 +536,8 @@ export function refusal(action, info, { reservedButtons = [] } = {}) {
   }
   // The caller's own reserved controls (the account page: create account, sign in, privacy statement),
   // whatever their shape: a privacy checkbox or its label belongs to the runner's own preflight too.
-  if ((action.action === 'click' || action.action === 'press') && reservedButtons.some((pattern) => pattern.test(info.name))) {
+  if ((action.action === 'click' || action.action === 'press')
+    && reservedButtons.some((pattern) => pattern.test(info.name) || pattern.test(info.labelName || ''))) {
     return 'account_action_reserved';
   }
   if (info.inputType === 'password') return 'password_reserved';
