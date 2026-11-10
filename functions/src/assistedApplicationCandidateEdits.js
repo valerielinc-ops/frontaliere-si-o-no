@@ -38,7 +38,9 @@ import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.j
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
-import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
+import { candidateStatementsOf, platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
+import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
+import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -525,6 +527,23 @@ function storedOverrides(raw) {
   return out;
 }
 
+/**
+ * The CV's languages with the ones the candidate stated: a stated level replaces the CV's for the same
+ * language, a stated language the CV does not list is added, the CV's other languages stay.
+ */
+function withStatedLanguages(languages, stated) {
+  const list = (Array.isArray(languages) ? languages : []).map((entry) => ({ ...entry }));
+  for (const entry of stated) {
+    const code = String(entry?.code || '');
+    if (!code) continue;
+    const level = clean(entry.level, 40);
+    const index = list.findIndex((known) => languageCodesIn(known?.language || '')[0] === code);
+    if (index < 0) list.push({ language: clean(entry.language, 40) || code, level });
+    else if (level) list[index] = { ...list[index], level };
+  }
+  return list;
+}
+
 function splitLanguages(text) {
   return String(text || '').split(/[,;\n]/).map((part) => clean(part, 80)).filter(Boolean).map((language) => ({ language, level: '' }));
 }
@@ -570,6 +589,13 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
     && (profile.languagesExplicitList === true || hasExplicitLanguageSection(draft?.factSources?.text));
   if (has(overrides, 'location')) profile.location = overrides.location;
   if (has(overrides, 'linkedin')) profile.linkedin = overrides.linkedin;
+  // What the candidate stated in their reply to the concierge e-mail (assistedApplicationCandidateReply.js):
+  // their own word, above the CV and the platform's rules, below a correction they make here afterwards.
+  const statements = candidateStatementsOf(order);
+  if (!has(overrides, 'availability') && clean(statements.availability, 120)) profile.availability = clean(statements.availability, 120);
+  if (!has(overrides, 'languages') && Array.isArray(statements.languages) && statements.languages.length) {
+    profile.languages = withStatedLanguages(profile.languages, statements.languages);
+  }
   if (has(overrides, 'languages')) {
     profile.languages = splitLanguages(overrides.languages);
     profile.languagesListTruncated = false;
@@ -628,6 +654,12 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter
   // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
   const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '' });
+  // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
+  // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
+  platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);
+  // The decision engine's choices for the questions no rule and no CV answer cover (2026-11-10,
+  // assistedApplicationDecisionAnswers.js), checked again on every read: form-only as well.
+  platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text);
   return { identity, profile, answers, overrides, personal, platformFacts };
 }
 

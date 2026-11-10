@@ -6,10 +6,6 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 const MANIFEST_VERSION = 1;
-// Small deltas favor one destination lookup per changed file; broad rebuilds
-// keep rclone's recursive inventory instead of issuing thousands of lookups.
-const NO_TRAVERSE_MAX_CHANGED_FILES = 1_000;
-const NO_TRAVERSE_MAX_CHANGED_RATIO = 0.1;
 
 function fail(message) {
   console.error(`[r2-og-manifest] ${message}`);
@@ -17,7 +13,8 @@ function fail(message) {
 }
 
 function isSafeRelativePath(filePath) {
-  if (typeof filePath !== 'string' || filePath.length === 0 || filePath.includes('\\')) return false;
+  if (typeof filePath !== 'string' || filePath.length === 0
+    || filePath.includes('\\') || /[\r\n]/.test(filePath)) return false;
   if (path.posix.isAbsolute(filePath)) return false;
   const parts = filePath.split('/');
   return parts.every((part) => part.length > 0 && part !== '.' && part !== '..');
@@ -79,7 +76,7 @@ function parsePreviousManifest(raw) {
       || files.has(file.path)) {
       return null;
     }
-    files.set(file.path, { sha256: file.sha256, size: file.size });
+    files.set(file.path, { path: file.path, sha256: file.sha256, size: file.size });
   }
   return files;
 }
@@ -94,32 +91,89 @@ async function loadPreviousManifest(manifestPath) {
   }
 }
 
-async function copyChangedFiles(changedFiles, deltaDir) {
-  await fs.rm(deltaDir, { recursive: true, force: true });
-  if (changedFiles.length === 0) return;
+async function writeManifest(manifestPath, manifest) {
+  await fs.mkdir(path.dirname(manifestPath), { recursive: true });
+  const temporaryPath = `${manifestPath}.tmp-${process.pid}`;
+  await fs.writeFile(temporaryPath, `${JSON.stringify(manifest)}\n`, { mode: 0o600 });
+  await fs.rename(temporaryPath, manifestPath);
+}
 
-  await fs.mkdir(deltaDir, { recursive: true });
-  const batchSize = 128;
-  for (let index = 0; index < changedFiles.length; index += batchSize) {
-    const batch = changedFiles.slice(index, index + batchSize);
-    await Promise.all(batch.map(async (file) => {
-      const targetPath = path.join(deltaDir, ...file.path.split('/'));
-      await fs.mkdir(path.dirname(targetPath), { recursive: true });
-      await fs.copyFile(file.absolutePath, targetPath);
-    }));
-  }
+function manifestFromFiles(files, buildId) {
+  return {
+    version: MANIFEST_VERSION,
+    buildId: buildId ?? null,
+    files: [...files.values()]
+      .map(({ path: filePath, sha256, size }) => ({ path: filePath, sha256, size }))
+      .sort((left, right) => (left.path < right.path ? -1 : left.path > right.path ? 1 : 0)),
+  };
 }
 
 async function writeCandidateManifest(candidatePath, files) {
-  await fs.mkdir(path.dirname(candidatePath), { recursive: true });
-  const temporaryPath = `${candidatePath}.tmp-${process.pid}`;
-  const manifest = {
-    version: MANIFEST_VERSION,
-    buildId: process.env.DEPLOY_BUILD_ID || null,
-    files: files.map(({ path: filePath, sha256, size }) => ({ path: filePath, sha256, size })),
-  };
-  await fs.writeFile(temporaryPath, `${JSON.stringify(manifest)}\n`, { mode: 0o600 });
-  await fs.rename(temporaryPath, candidatePath);
+  const candidateFiles = new Map(files.map((file) => [file.path, file]));
+  await writeManifest(candidatePath, manifestFromFiles(candidateFiles, process.env.DEPLOY_BUILD_ID));
+}
+
+async function writeChangedFiles(filePath, files) {
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  const temporaryPath = `${filePath}.tmp-${process.pid}`;
+  await fs.writeFile(temporaryPath, files.map((file) => file.path).join('\n') + (files.length ? '\n' : ''), { mode: 0o600 });
+  await fs.rename(temporaryPath, filePath);
+}
+
+function readPathList(raw, label) {
+  const paths = raw.split(/\r?\n/).filter(Boolean);
+  const seen = new Set();
+  for (const filePath of paths) {
+    if (!isSafeRelativePath(filePath) || seen.has(filePath)) {
+      throw new Error(`${label} contains an unsafe or duplicate path: ${filePath}`);
+    }
+    seen.add(filePath);
+  }
+  return seen;
+}
+
+async function recordPublishedProgress({ candidatePath, previousPath, changedPath, completedPath, publishedPath, sourcePath, complete }) {
+  const candidateRaw = await fs.readFile(candidatePath, 'utf8');
+  const candidate = JSON.parse(candidateRaw);
+  const candidateFiles = parsePreviousManifest(candidateRaw);
+  if (!candidate || candidate.version !== MANIFEST_VERSION || !candidateFiles) {
+    throw new Error('candidate manifest is invalid; refusing to checkpoint unverified OG files');
+  }
+
+  const changed = readPathList(await fs.readFile(changedPath, 'utf8'), 'changed OG file list');
+  const completed = readPathList(await fs.readFile(completedPath, 'utf8'), 'completed OG file list');
+  const previous = await loadPreviousManifest(previousPath);
+  for (const filePath of changed) {
+    if (!candidateFiles.has(filePath)) throw new Error(`changed OG path is missing from the candidate manifest: ${filePath}`);
+  }
+  for (const filePath of completed) {
+    if (!changed.has(filePath)) throw new Error(`completed OG path was not in the changed list: ${filePath}`);
+    const expected = candidateFiles.get(filePath);
+    const alreadyPublished = previous.files?.get(filePath);
+    if (alreadyPublished?.sha256 === expected.sha256 && alreadyPublished.size === expected.size) continue;
+    const sourceFile = path.join(sourcePath, ...filePath.split('/'));
+    const actual = await hashFile(sourceFile);
+    if (actual.sha256 !== expected.sha256 || actual.size !== expected.size) {
+      throw new Error(`completed OG source no longer matches the candidate manifest: ${filePath}`);
+    }
+  }
+
+  let publishedFiles;
+  if (complete) {
+    if (completed.size !== changed.size) {
+      throw new Error(`cannot complete OG manifest: ${completed.size}/${changed.size} changed files were verified`);
+    }
+    publishedFiles = candidateFiles;
+  } else {
+    publishedFiles = previous.files ? new Map(previous.files) : new Map();
+    for (const filePath of completed) publishedFiles.set(filePath, candidateFiles.get(filePath));
+  }
+
+  await writeManifest(publishedPath, manifestFromFiles(publishedFiles, candidate.buildId));
+  process.stdout.write(
+    `published_files=${publishedFiles.size} completed_changed=${completed.size} `
+    + `candidate_files=${candidateFiles.size} complete=${complete}\n`,
+  );
 }
 
 async function readDeferredSlugs(filePath) {
@@ -142,12 +196,7 @@ async function readDeferredSlugs(filePath) {
   return [...new Set(slugs)].sort();
 }
 
-async function main() {
-  const [sourceDir, previousManifestPath, deltaDir, candidatePath, deferredSlugsPath] = process.argv.slice(2);
-  if (!sourceDir || !previousManifestPath || !deltaDir || !candidatePath) {
-    throw new Error('usage: prepare-r2-og-delta.mjs <source-dir> <previous-manifest> <delta-dir> <candidate-manifest> [deferred-slugs.json]');
-  }
-
+async function prepareDelta(sourceDir, previousManifestPath, changedFilesPath, candidatePath, deferredSlugsPath) {
   const sourceRoot = path.resolve(sourceDir);
   const sourceStat = await fs.stat(sourceRoot);
   if (!sourceStat.isDirectory()) throw new Error(`OG source is not a directory: ${sourceDir}`);
@@ -160,9 +209,11 @@ async function main() {
     const hashed = await Promise.all(batch.map(async (file) => ({
       path: file.path,
       ...(await hashFile(file.absolutePath)),
-      absolutePath: file.absolutePath,
     })));
     currentFiles.push(...hashed);
+    if ((index + hashBatchSize) % 1_024 === 0 || index + hashBatchSize >= sourceFiles.length) {
+      console.error(`[r2-og-manifest] hashed ${Math.min(index + hashBatchSize, sourceFiles.length)}/${sourceFiles.length} source files`);
+    }
   }
 
   const previous = await loadPreviousManifest(previousManifestPath);
@@ -179,27 +230,47 @@ async function main() {
         const filePath = `jobs/${slug}.webp`;
         const previousFile = previous.files.get(filePath);
         if (!previousFile || currentPaths.has(filePath)) return null;
-        return { path: filePath, ...previousFile };
+        return previousFile;
       })
       .filter(Boolean);
   const candidateFiles = [...currentFiles, ...preservedDeferredFiles]
     .sort((left, right) => (left.path < right.path ? -1 : left.path > right.path ? 1 : 0));
   const changedBytes = changedFiles.reduce((total, file) => total + file.size, 0);
-  const noTraverseLimit = Math.min(
-    NO_TRAVERSE_MAX_CHANGED_FILES,
-    Math.ceil(currentFiles.length * NO_TRAVERSE_MAX_CHANGED_RATIO),
-  );
-  const noTraverse = !fullPublish && changedFiles.length > 0 && changedFiles.length <= noTraverseLimit;
-
-  if (!fullPublish) await copyChangedFiles(changedFiles, path.resolve(deltaDir));
+  await writeChangedFiles(path.resolve(changedFilesPath), changedFiles);
   await writeCandidateManifest(path.resolve(candidatePath), candidateFiles);
 
   const mode = fullPublish ? 'full' : 'delta';
   process.stdout.write(
     `mode=${mode} previous=${previous.status} total_files=${candidateFiles.length} `
     + `changed_files=${changedFiles.length} changed_bytes=${changedBytes} `
-    + `preserved_deferred=${preservedDeferredFiles.length} no_traverse=${noTraverse}\n`,
+    + `preserved_deferred=${preservedDeferredFiles.length} no_traverse=${changedFiles.length > 0}\n`,
   );
+}
+
+async function main() {
+  if (process.argv[2] === 'record-progress') {
+    const [, , , candidatePath, previousPath, changedPath, completedPath, publishedPath, sourcePath, mode] = process.argv;
+    if (!candidatePath || !previousPath || !changedPath || !completedPath || !publishedPath || !sourcePath
+      || !['partial', 'complete'].includes(mode)) {
+      throw new Error('usage: prepare-r2-og-delta.mjs record-progress <candidate> <previous> <changed-list> <completed-list> <published-manifest> <source-dir> <partial|complete>');
+    }
+    await recordPublishedProgress({
+      candidatePath,
+      previousPath,
+      changedPath,
+      completedPath,
+      publishedPath,
+      sourcePath,
+      complete: mode === 'complete',
+    });
+    return;
+  }
+
+  const [sourceDir, previousManifestPath, changedFilesPath, candidatePath, deferredSlugsPath] = process.argv.slice(2);
+  if (!sourceDir || !previousManifestPath || !changedFilesPath || !candidatePath) {
+    throw new Error('usage: prepare-r2-og-delta.mjs <source-dir> <previous-manifest> <changed-files> <candidate-manifest> [deferred-slugs.json]');
+  }
+  await prepareDelta(sourceDir, previousManifestPath, changedFilesPath, candidatePath, deferredSlugsPath);
 }
 
 main().catch((error) => fail(error instanceof Error ? error.message : String(error)));

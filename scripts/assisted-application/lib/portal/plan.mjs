@@ -12,6 +12,7 @@ import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
 import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { isDecisionAnswerDefault } from '../../../../functions/src/assistedApplicationDecisionAnswers.js';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -1618,7 +1619,9 @@ function referralSourceAnswer(field) {
   }
   const ranked = options.map((option) => {
     const label = String(typeof option === 'string' ? option : option?.label ?? '').trim();
-    const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4
+    // A job board that is also the internet («Internet/Stellenportal», Stellenportal Bund) is ours over a named
+    // board of the employer's own («Stellenportal Bund»): the posting was found on frontaliereticino.ch.
+    const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4 + (REFERRAL_INTERNET_OPTION_RE.test(label) ? 1 : 0)
       : REFERRAL_OTHER_WEBSITE_RE.test(label) ? 3
         : REFERRAL_INTERNET_OPTION_RE.test(label) ? 2
           : /^\s*(?:other|others|altro|altra|autre|andere|sonstiges|sonstige)(?:\s*[\(:-].*)?\s*$/i.test(label) ? 1 : 0;
@@ -2179,7 +2182,13 @@ export function guardPlan(plan, fields, candidate = null) {
     const addressTopic = questionTopic(field.label, field.context, field);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
     const addressNeedsProvenance = addressAnswerNeedsOwnership(field.label, field) && !isAddressTopic;
-    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action)
+    // The platform's own address for this field (owner rule 2026-11-09: CAP and country from the CV's town, a
+    // street of the list) is provenance too. Without it, a planner that proposed any value for «* Strasse / Nr.»,
+    // «* Postleitzahl», «* Ort» had the field rejected here and the platform value never reached it (Bund
+    // eHSYErA1, 2026-11-10: the three fields went to the candidate with the facts holding all three).
+    const addressFromPolicy = action.source === 'policy_default'
+      && isOperationalDefaultValue(field, action.value, { facts: candidate?.platformFacts });
+    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action) && !addressFromPolicy
       && !answeredByCandidate(candidate, field.label, action.value, field.context, field)) {
       rejectedActionFields.add(field.id);
       ask(field);
@@ -2236,8 +2245,13 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
+    // A decision of the engine is checked in code on every read (assistedApplicationDecisionAnswers.js, owner
+    // mandate 2026-11-10): a yes to a certification stands on a verified CV quote, a yes to an experience is the
+    // owner's plausible deduction. It stands for a knock-out like the candidate's own answer; a language level not.
+    const fromDecision = !languageAbility && fromPolicy
+      && isDecisionAnswerDefault(operationalDefaultAnswer(field, { facts: candidate?.platformFacts }));
     const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
-      || answeredByCandidate(candidate, field.label, given, field.context, field)
+      || answeredByCandidate(candidate, field.label, given, field.context, field) || fromDecision
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(`${field.label} ${field.context || ''}`, given, action.evidence));
     if ((languageAbility || KNOCK_OUT.test(field.label))
       && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {

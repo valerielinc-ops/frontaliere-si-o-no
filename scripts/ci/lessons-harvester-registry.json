@@ -75,16 +75,16 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
       "outcome": "declined",
-      "decidedAt": "2026-11-02T13:46:33Z",
-      "ref": "#16312, #15918, #15046",
-      "reason": "Fingerprint catch-all eterogeneo: #16312 riguarda il confine di superficie attiva cookie, #15918 identita' e default dei parser, #15046 replay/audit e metadata; non esiste una regola preventiva comune senza duplicare AGENTS.md #6."
+      "decidedAt": "2026-11-10T13:42:29Z",
+      "ref": "#17844, #17399, #16923",
+      "reason": "Catch-all ancora eterogeneo: gli esempi coprono precedenza delle fonti, distinzione query vuota/mancante e propagazione di contesto tra caller e consumer; una regola unica duplicherà AGENTS.md #6 o generalizzerà troppo."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
       "outcome": "declined",
-      "decidedAt": "2026-10-20T10:17:13Z",
-      "ref": "#14003, #12620, #12253",
-      "reason": "Catch-all eterogeneo già coperto da AGENTS.md #6: la scansione dei sibling e dei consumer funnel-critical è esplicita; non serve una seconda regola senza classe comune più precisa."
+      "decidedAt": "2026-11-10T13:42:29Z",
+      "ref": "#17906, #17115, #16169",
+      "reason": "Catch-all ancora eterogeneo: gli esempi coprono provenance dell'URL, ownership della superficie cookie e classificazione/trace dei segnali; non esiste una regola preventiva comune senza overfitting."
     },
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-every",

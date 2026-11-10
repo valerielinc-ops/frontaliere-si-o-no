@@ -1,0 +1,23 @@
+{
+  "companyKey": "snapsheet",
+  "companyName": "Snapsheet",
+  "companyHost": "snapsheet.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://snapsheet.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Account Manager - Appraisals",
+    "Senior Account Executive",
+    "Virtual Auto Appraiser"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:03.992Z",
+  "candidateKey": "snapsheet@applytojob.com"
+}

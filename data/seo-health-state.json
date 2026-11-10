@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-09T12:58:49.845Z",
+  "lastRunAt": "2026-11-10T12:44:33.918Z",
   "findings": {
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-genf/kostenpreismanager-m-w-rolex-geneve/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-09T12:58:49.845Z",
-      "lastSeenAt": "2026-11-09T12:58:49.845Z",
-      "detail": null
-    },
     "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/": {
       "code": "sitemap-noindex",
       "url": "https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/",
-      "consecutiveRuns": 1,
+      "consecutiveRuns": 2,
       "firstSeenAt": "2026-11-09T12:58:49.845Z",
-      "lastSeenAt": "2026-11-09T12:58:49.845Z",
+      "lastSeenAt": "2026-11-10T12:44:33.918Z",
       "detail": null
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/articles-frontalier/enterrement-avec-animaux-domestiques-berne-2026/chat/completions/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/articles-frontalier/enterrement-avec-animaux-domestiques-berne-2026/chat/completions/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-10T12:44:33.918Z",
+      "lastSeenAt": "2026-11-10T12:44:33.918Z",
+      "detail": "edge=503 count=1 live=503 surface=worker-shard"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": false
+  "lastActionable": true
 }

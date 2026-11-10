@@ -1,6 +1,7 @@
 import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { firstParsableDateStr } from './firstParsableDate';
+import { postingCalendarDay, renderPostedDateTime } from './jobPostedDate';
 /**
  * Shared HTML renderer for job cards used across SEO landing-page plugins.
  *
@@ -131,21 +132,6 @@ const NEW_BADGE_LABEL: Record<JobCardLocale, string> = {
   fr: 'Nouveau',
 };
 
-const RELATIVE_DATE_DICT: Record<JobCardLocale, {
-  today: string;
-  one: string;
-  many: (n: number) => string;
-}> = {
-  it: { today: 'Oggi', one: '1 giorno fa', many: (n) => `${n} giorni fa` },
-  en: { today: 'Today', one: '1 day ago', many: (n) => `${n} days ago` },
-  de: { today: 'Heute', one: 'vor 1 Tag', many: (n) => `vor ${n} Tagen` },
-  fr: {
-    today: "Aujourd'hui",
-    one: 'il y a 1 jour',
-    many: (n) => `il y a ${n} jours`,
-  },
-};
-
 export function localizedContract(
   contract: string | undefined,
   locale: JobCardLocale,
@@ -153,22 +139,6 @@ export function localizedContract(
   const key = String(contract || '').toLowerCase().trim();
   if (!key) return '';
   return CONTRACT_LABEL[locale][key] || CONTRACT_LABEL[locale].other;
-}
-
-export function relativePostedLabel(
-  dateStr: string | undefined,
-  locale: JobCardLocale,
-  now: Date = new Date(),
-): string {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return '';
-  const diffDays = Math.max(0, Math.floor((now.getTime() - d.getTime()) / 86400000));
-  const dict = RELATIVE_DATE_DICT[locale];
-  if (diffDays <= 0) return dict.today;
-  if (diffDays === 1) return dict.one;
-  if (diffDays < 60) return dict.many(diffDays);
-  return d.toISOString().slice(0, 10);
 }
 
 export function isJobNew(
@@ -356,11 +326,13 @@ export function renderJobCardHtml(
   const salaryLabel = salary && suffix ? `${salary} ${suffix}` : salary;
   const contractLbl = localizedContract(job.contract, locale);
   // First PARSEABLE date string, not first truthy: a malformed postedDate must
-  // not shadow a valid datePosted and feed "Invalid Date" into the relative
+  // not shadow a valid datePosted and feed "Invalid Date" into the posted-date
   // label / "new" freshness badge on indexed job cards.
   const postedRaw = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.datePosted).trim()) || '';
-  const postedLabel = relativePostedLabel(postedRaw, locale);
-  const postedIso = postedRaw.slice(0, 10);
+  // Absolute date only: a relative "N giorni fa" chip went false the day after
+  // the build and rewrote every listing page at every build.
+  const postedIso = postingCalendarDay(postedRaw);
+  const postedTimeHtml = renderPostedDateTime(postedRaw, locale, { sentence: true });
   const fresh = isJobNew(postedRaw);
   const featured = Boolean(job.featured);
 
@@ -397,8 +369,8 @@ export function renderJobCardHtml(
   const contractChip = contractLbl
     ? `<span class="jc-chip-pill">${escHtml(contractLbl)}</span>`
     : '';
-  const postedChip = postedLabel
-    ? `<span class="jc-chip" data-posted="${escHtml(postedIso)}">${ICON_CLOCK}${escHtml(postedLabel)}</span>`
+  const postedChip = postedIso && postedTimeHtml
+    ? `<span class="jc-chip" data-posted="${escHtml(postedIso)}">${ICON_CLOCK}${postedTimeHtml}</span>`
     : '';
 
   // No `aria-label`: WCAG 2.5.3 (Label in Name) requires the accessible name

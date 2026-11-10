@@ -1,0 +1,25 @@
+{
+  "companyKey": "universityofmary",
+  "companyName": "University of Mary",
+  "companyHost": "universityofmary.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://universityofmary.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Accountant I or II",
+    "Accounting Clerk I/II",
+    "Admissions Representative",
+    "Assistant Director of Choral Studies",
+    "Assistant Registrar"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:14.248Z",
+  "candidateKey": "universityofmary@applytojob.com"
+}

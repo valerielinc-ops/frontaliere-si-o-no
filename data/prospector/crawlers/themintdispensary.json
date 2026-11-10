@@ -1,0 +1,25 @@
+{
+  "companyKey": "themintdispensary",
+  "companyName": "Mint Cannabis",
+  "companyHost": "themintdispensary.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://themintdispensary.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 53,
+  "sampleTitles": [
+    "Area Manager - West Michigan",
+    "BOH Clerk - Gilbert",
+    "Brand Ambassador - Tempe",
+    "Budtender - Bonita Springs",
+    "Budtender - Coldwater"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:11.687Z",
+  "candidateKey": "themintdispensary@applytojob.com"
+}

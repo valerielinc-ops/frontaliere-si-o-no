@@ -215,7 +215,17 @@ function nativeQuestionText(value, counter = null) {
       element.innerText, element.textContent, element.getAttribute('aria-label'), element.getAttribute('title'),
     ].some(value => COOKIE_MANAGE_CONSENT_RE.test(String(value || '').replace(/\s+/g, ' ').trim()));
     for (let node = element.parentElement; node; node = node.parentElement) {
-      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+      // `role="banner"` is also the ARIA landmark of the site header: SBB's
+      // SuccessFactors header carries it around a persistent
+      // «Cookie-Einstellungen» link that outlives every consent choice. The
+      // bare role still marks a banner surface, except on that persistent
+      // header (a <header>, a node named `header`, or one holding the site
+      // navigation). The node's id, class and label prove a banner either way.
+      const role = String(node.getAttribute('role') || '').trim();
+      const persistentHeaderLandmark = /^banner$/i.test(role) && (node.matches('header')
+        || /(?:^|[\s_-])header(?:$|[\s_-])/i.test(`${node.id} ${typeof node.className === 'string' ? node.className : ''}`)
+        || Boolean(node.querySelector('nav, [role="navigation"], [role="menubar"]')));
+      const marker = [node.id, node.className, persistentHeaderLandmark ? '' : role, node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (manageConsent && COOKIE_MANAGER_SURFACE_RE.test(marker)) {
         return node.matches(DIALOG_SELECTOR) ? 'dialog' : 'banner';
@@ -1239,9 +1249,59 @@ function nativeQuestionText(value, counter = null) {
   // semantic `<button>` (the visible value can be «cliccando qui»). Keep it
   // in the action snapshot; portal.mjs applies the stricter route-bound
   // provenance check before it is ever clicked.
-  const BUTTONS = 'button, input[type="submit"], input[type="button"], a[role="button"], a[href], [role="button"]';
+  const BUTTONS = 'button, input[type="submit"], input[type="button"], a[role="button"], a[href], [role="button"], a[role="menuitem"]';
   const actionLink = (element) => element.tagName === 'A' && (Boolean(element.closest('.css_button')) || element.classList.contains('button') || element.classList.contains('btn'));
-  const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
+  // SuccessFactors Career Site Builder renders «Jetzt bewerben» as a dropdown
+  // toggle; the actual entries («Jetzt bewerben», «Apply with LinkedIn») are
+  // plain `role="menuitem"` links in the menu it opens. Mark the toggle, and
+  // keep a menu item only while the toggle owning its menu reports itself
+  // expanded, so closed menus and navigation menubars stay out of the snapshot.
+  const DISCLOSURE_TOGGLE = '[aria-haspopup="true"], [aria-haspopup="menu"], [data-toggle="dropdown"], [data-bs-toggle="dropdown"]';
+  // The snapshot's control budget, the share of it that opened menu items may
+  // use, and the places reserved for application entries before either.
+  const SNAPSHOT_BUTTON_BUDGET = 60;
+  const MENU_ITEM_BUDGET = 20;
+  const APPLICATION_ENTRY_RESERVE = 10;
+  const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
+  // The toggle that owns a menu item's menu, and only when it is proved: a
+  // toggle whose aria-controls/aria-owns names a container of the item, or
+  // the toggle that is the immediate previous sibling of the item's menu.
+  // The second is the structural Bootstrap binding (`data-toggle="dropdown"`
+  // acts on the next sibling) that Helsana's Career Site Builder page uses:
+  // its «Jetzt bewerben» toggle has no aria-controls and is followed directly
+  // by its `ul.dropdown-menu` (live page, 2026-11-10). Anything else, such as
+  // a lone unrelated toggle elsewhere in the same card, owns nothing.
+  const menuOwnerToggle = (element) => {
+    const toggles = [...document.querySelectorAll(DISCLOSURE_TOGGLE)]
+      .filter((candidate) => candidate !== element && !candidate.contains(element) && !element.contains(candidate));
+    const menu = element.closest('[role="menu"], .dropdown-menu, ul, ol');
+    if (!menu) return null;
+    // Only ids from the item up to its own menu: a toggle naming the whole
+    // card does not own one particular menu inside it.
+    const menuIds = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.id) menuIds.push(node.id);
+      if (node === menu) break;
+    }
+    const named = toggles.filter((candidate) => ['aria-controls', 'aria-owns']
+      .some((attribute) => String(candidate.getAttribute(attribute) || '').split(/\s+/).some((id) => menuIds.includes(id))));
+    if (named.length) return named.length === 1 ? named[0] : null;
+    return toggles.includes(menu.previousElementSibling) ? menu.previousElementSibling : null;
+  };
+  const openedMenuItem = (element) => element.getAttribute('role') === 'menuitem'
+    && menuOwnerToggle(element)?.getAttribute('aria-expanded') === 'true';
+  // A menu item near any disclosure toggle belongs to a disclosure menu.
+  const disclosureMenuItem = (element) => {
+    if (element.getAttribute('role') !== 'menuitem') return false;
+    let depth = 0;
+    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
+      if ([...node.querySelectorAll(DISCLOSURE_TOGGLE)].some((candidate) => candidate !== element
+        && !candidate.contains(element) && !element.contains(candidate))) return true;
+    }
+    return false;
+  };
+  const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element)
+    || openedMenuItem(element);
   const buttonName = (element) => [
     // `innerText` is the rendered label in a browser. JSDOM does not expose
     // it, so inspect text content before accessibility attributes; normalize
@@ -1317,7 +1377,7 @@ function nativeQuestionText(value, counter = null) {
   };
   const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
-  const buttons = [...document.querySelectorAll(BUTTONS)]
+  const candidateButtons = [...document.querySelectorAll(BUTTONS)]
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
       && actionControl(element))
     .map((element) => ({
@@ -1355,10 +1415,34 @@ function nativeQuestionText(value, counter = null) {
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
+      ...(disclosureToggle(element) ? { popup: true } : {}),
+      ...(openedMenuItem(element) ? { menuItem: true } : {}),
       ...noticeMetadata(element),
     }))
-    .filter((button) => button.text)
-    .slice(0, 60);
+    .filter((button) => button.text);
+  // The snapshot keeps at most 60 controls. Application entries («Jetzt
+  // bewerben», «Apply») get their places first, wherever they are in the
+  // DOM; the rest fill the budget in document order, with opened menu items
+  // limited to a fixed share. Neither a long menu nor a long page can push
+  // the posting's own Apply out of the snapshot. Document order is kept.
+  const buttons = (() => {
+    const kept = new Set();
+    for (const button of candidateButtons) {
+      if (kept.size >= APPLICATION_ENTRY_RESERVE) break;
+      if (applicationEntryLabel(button.text)) kept.add(button);
+    }
+    let menuItems = [...kept].filter((button) => button.menuItem).length;
+    for (const button of candidateButtons) {
+      if (kept.size >= SNAPSHOT_BUTTON_BUDGET) break;
+      if (kept.has(button)) continue;
+      if (button.menuItem) {
+        if (menuItems >= MENU_ITEM_BUDGET) continue;
+        menuItems += 1;
+      }
+      kept.add(button);
+    }
+    return candidateButtons.filter((button) => kept.has(button));
+  })();
   // Bind every field and action to its actual owner, so a site-search field
   // cannot turn a nearby Apply link into the application's final form.
   for (const field of fields) {
@@ -1376,7 +1460,10 @@ function nativeQuestionText(value, counter = null) {
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
   // be printed as one. Read apart with its target: portal.mjs can verify a unique external Apply handoff.
   const links = [...document.querySelectorAll('a[href]')]
-    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element))
+    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element)
+      // An item of a disclosure menu that is closed, or whose owner toggle is
+      // not proved, is no page link either: only its opened menu exposes it.
+      && !disclosureMenuItem(element))
     .slice(0, 60)
     .map((element) => ({
       id: idFor(element),

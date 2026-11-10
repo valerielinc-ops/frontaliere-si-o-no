@@ -21,11 +21,14 @@
 
 import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
-import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount } from '../../../../functions/src/assistedApplicationPortalSites.js';
+import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount, PORTAL_ACCOUNT_NOTICES_CONFIRMING } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
 const VERIFICATION_POLL_MS = 10_000;
+// The federal SuccessFactors tenant mailed «Ihr Bewerbungskonto wurde
+// erfolgreich erstellt» 25 s after its code (2026-11-10).
+export const ACCOUNT_NOTICE_TIMEOUT_MS = 2 * 60 * 1000;
 
 // SuccessFactors (Coop, 2026-10-02) words its link as a question and an
 // answer: «Noch kein Profil? Hier registrieren», «Non hai ancora un profilo?
@@ -40,14 +43,22 @@ export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion
 const SIGN_IN_NAVIGATION_RE = /(?:^|[^\p{L}\p{N}])(?:sign[\s-]*in|log[\s-]*in|anmelden|einloggen|accedi|connexion|se\s+connecter|connectez[-\s]vous)(?=$|[^\p{L}\p{N}])/iu;
 const ACCOUNT_CREATION_ACTION_RE = new RegExp(String.raw`(?:\b(?:create|new)\s+(?:an?\s+)?(?:account|profile)\b|\b(?:${GERMAN_ACCOUNT_CREATION_RE})|\b(?:register|sign\s*up)\b|\bregistrier\w*\b|\bregistrati(?:\s+qui)?\b|\bcrea(?:re)?\s+(?:un\s+)?(?:account|profilo)\b|\bcr[ée]er\s+(?:un\s+)?(?:compte|profil)\b|\bcr[ée]ez[-\s]+en\s+un\b|\bs['’]inscrire\b)`, 'iu');
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
-export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
-const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|kennwort|code))/i;
+// SBB's SuccessFactors tenant (career5, 2026-11-10) says «Einmalkennwort» and labels its field «*Passcode:».
+const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|kennwort|code)|mot de passe [àa] usage unique/i;
 // The code of an address, a phone, a discount or a file is no verification code: «Postal Code», «Country Phone
 // Code», «postalCode», «Code postal», «Codice fiscale». Workday's first page of the form was taken for a
 // verification page by its postal code, and the run waited ten minutes for an e-mail nobody sends (dry run
 // of 2026-10-07). Whole words otherwise: «Shipping» holds no PIN.
 const OTHER_CODE_RE = /(?:postal|post|zip|plz|area|dial(?:l?ing)?|country|l[aä]nder|landes|phone|telefon|telephone|mobile|promo(?:tion)?|aktions|discount|rabatt|coupon|voucher|gutschein|referral|tax|steuer|bank|swift|bic|sort|employee|company|job|requisition|currency|language|region|state|province)[\s_-]*(?:code|codice|kode)|(?:code|codice)\s+(?:postal|postale|fiscale|pays|paese|promo|sconto|r[ée]gion|area)/gi;
 const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
+// The federal SuccessFactors tenant (career74, 2026-11-10) masks its OTP input:
+// `type=password` behind an «Anzeigen» toggle, labelled only «*Code:», with no
+// e-mail or user field on the page; SBB's (career5, same day) labels the same
+// input «*Passcode:». Such a bare word is the e-mailed code; next to a login
+// identity it stays that form's secret, and «Zugangscode» or «Kennwort» remain
+// passwords.
+const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice|pass[\s-]?code)[\s*:]*$/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
@@ -94,7 +105,7 @@ export function hasExistingAccountPrompt(snapshot = {}) {
 }
 
 const ACCOUNT_VERIFICATION_RE = /(?:\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b[^.\n]{0,80}\b(?:account|konto|compte)\b|\b(?:verify|verifizier\w*|bestätig\w*|verifica\w*|confirm\w*|vérifi\w*)\b\s+(?:(?:your|the|ihr(?:e|en)?|dein(?:e|en)?|die|votre|ton|ta|son|sa|il|la|l['’])\s+){0,2}(?:e-?mail(?:[-\s]?(?:address|adresse))?|(?:address|adresse|indirizzo)\s+e-?mail))/iu;
-const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|code)|\b(?:verification|confirmation) code\b/i;
+const GENERIC_OTP_RESPONSE_RE = /one[- ]time (?:password|passcode)|\b(?:otp|passcode)\b|mot de passe [àa] usage unique|code confidentiel|einmal(?:passwort|kennwort|code)|\b(?:verification|confirmation) code\b/i;
 
 /** A response that asks to verify the account, not merely to complete an OTP/MFA challenge. */
 export function isAccountVerificationResponse(snapshot = {}) {
@@ -170,9 +181,13 @@ export function verificationIsPending(after) {
   return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }
 
-/** create: two password fields (password + repeat); sign_in: one. */
+/**
+ * create: two password fields (password + repeat); sign_in: one. A masked
+ * one-time-code input is no account password: the OTP page that follows a
+ * SuccessFactors registration is neither a sign-in nor a create form.
+ */
 export function authPageKind(snapshot) {
-  const passwords = snapshot.fields.filter((field) => field.inputType === 'password').length;
+  const passwords = snapshot.fields.filter((field) => field.inputType === 'password' && !isCodeField(field, snapshot.fields)).length;
   if (passwords >= 2) return 'create';
   if (passwords === 1) return 'sign_in';
   return 'none';
@@ -434,6 +449,33 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
      * The first verification message classified by the inbound handler after
      * `sinceMs` bound by inbound to this exact account host.
      */
+    /**
+     * The portal's own «account created/activated» mail for this exact host,
+     * received after `sinceMs` and bound by the inbound handler
+     * (`portalAccountNoticeHost`): proof that the account exists. Never a link to open.
+     */
+    async accountNotice({ host, sinceMs }) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const since = Number(sinceMs);
+      if (!normalizedHost || !Number.isFinite(since)) return null;
+      const snapshot = await inbox.where('receivedAt', '>=', since).get();
+      for (const doc of snapshot.docs) {
+        const message = doc.data();
+        if (String(message.portalAccountNoticeHost || '').toLowerCase() !== normalizedHost) continue;
+        if (!PORTAL_ACCOUNT_NOTICES_CONFIRMING.includes(message.portalAccountNotice)) continue;
+        const receivedAt = Number(message.receivedAt);
+        if (Number.isFinite(receivedAt) && receivedAt >= since) return { messageId: doc.id, kind: message.portalAccountNotice, receivedAt };
+      }
+      return null;
+    },
+    async waitForAccountNotice({ host, sinceMs, timeoutMs = ACCOUNT_NOTICE_TIMEOUT_MS }) {
+      const deadline = nowMs() + timeoutMs;
+      for (;;) {
+        const notice = await this.accountNotice({ host, sinceMs });
+        if (notice || nowMs() >= deadline) return notice;
+        await sleep(VERIFICATION_POLL_MS);
+      }
+    },
     async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
       const excluded = new Set(excludeMessageIds);
       const normalizedHost = String(host || '').toLowerCase();
@@ -472,19 +514,29 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
   };
 }
 
+/** The field asks for a verification code (plain or masked), not for a postal, phone or account secret. */
+function isCodeField(field, fields = []) {
+  const label = `${field.label} ${field.name}`.replace(OTHER_CODE_RE, ' ');
+  if (!CODE_FIELD_RE.test(label)) return false;
+  if (field.kind === 'text' && field.inputType !== 'password') return true;
+  if (field.inputType !== 'password') return false;
+  return PASSWORD_CODE_FIELD_RE.test(label)
+    || (BARE_CODE_LABEL_RE.test(String(field.label ?? '')) && !loginIdentityField(fields));
+}
+
 export function codeField(snapshot) {
-  return snapshot.fields.find((field) => {
-    const label = `${field.label} ${field.name}`.replace(OTHER_CODE_RE, ' ');
-    return CODE_FIELD_RE.test(label)
-      && (field.kind === 'text' && field.inputType !== 'password'
-        || field.inputType === 'password' && PASSWORD_CODE_FIELD_RE.test(label));
-  }) || null;
+  return snapshot.fields.find((field) => isCodeField(field, snapshot.fields)) || null;
+}
+
+/** The e-mail or user name a sign-in form asks for. */
+function loginIdentityField(fields) {
+  return fields.find((field) => field.inputType === 'email')
+    || fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && /e-?mail|benutzer|user|login/i.test(`${field.label} ${field.name} ${field.autocomplete}`))
+    || null;
 }
 
 export function loginFields(snapshot) {
   const password = snapshot.fields.find((field) => field.inputType === 'password') || null;
-  const email = snapshot.fields.find((field) => field.inputType === 'email')
-    || snapshot.fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && /e-?mail|benutzer|user|login/i.test(`${field.label} ${field.name} ${field.autocomplete}`))
-    || null;
+  const email = loginIdentityField(snapshot.fields);
   return { email, password };
 }

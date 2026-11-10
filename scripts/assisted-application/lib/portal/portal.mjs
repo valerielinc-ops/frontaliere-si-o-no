@@ -44,6 +44,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { decideLiveQuestions } from '../decision-answers.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -217,6 +218,21 @@ export function failedConsentRequiresHandoff(result, action, field) {
 }
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
+/**
+ * The page lists a file under exactly one of this run's own names as a file
+ * control of its own (SuccessFactors' «My Documents»: «CV_….pdf (11/10/2026)»
+ * and «* Curriculum Vitae Edit document CV_….pdf Opens a dialog», no remove
+ * control). Only an earlier run of this order names a file so: the slot holds
+ * our document already. A name merely quoted in the page text proves nothing.
+ */
+export function ownEarlierFileShown(buttons, names) {
+  return (buttons || []).some((button) => {
+    if (button.chrome) return false;
+    const text = String(button.text || '');
+    return names.some((name) => name && text.includes(String(name)));
+  });
+}
+
 export function removalsOf(buttons, names) {
   return (buttons || []).filter((button) => {
     if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
@@ -226,16 +242,142 @@ export function removalsOf(buttons, names) {
 }
 
 const PREVIOUS_FILE_REMOVAL_TIMEOUT_MS = 1500;
+// A removal the portal confirms first (SuccessFactors «My Documents»: «Cover Letter Delete document <file> Opens
+// a dialog», Damiani rg82P9MP 2026-11-10) goes to the server once confirmed and redraws the slot afterwards.
+const CONFIRMED_FILE_REMOVAL_TIMEOUT_MS = 8000;
+// In-page confirmation dialogs answered per removal click: the first, and one the portal may stack on it.
+export const MAX_REMOVAL_CONFIRMATIONS = 2;
 
 /** Wait for an asynchronously removed prior document to leave the rendered page. */
-export async function waitForFileRemoval(page, name) {
+export async function waitForFileRemoval(page, name, timeout = PREVIOUS_FILE_REMOVAL_TIMEOUT_MS) {
   try {
     await page.getByText(name, { exact: false }).first()
-      .waitFor({ state: 'hidden', timeout: PREVIOUS_FILE_REMOVAL_TIMEOUT_MS });
+      .waitFor({ state: 'hidden', timeout });
     return true;
   } catch {
     return false;
   }
+}
+
+// A question that asks to take a file away («Are you sure you want to delete this document?», «Möchten Sie das
+// Dokument wirklich löschen?», «Vuoi eliminare il documento?», «Voulez-vous supprimer ce document ?»). One that
+// takes away the application, the account or the profile is never answered for the runner.
+const REMOVAL_CONFIRM_VERB_RE = /(delet|remov|l[oö]sch|entfern|elimin|rimuov|cancella|supprim|retir|efface)/i;
+const NOT_A_FILE_REMOVAL_RE = /(withdraw|zur[uü]ck\s*(?:zu)?zieh|ritir|\baccount\b|\bkonto\b|\bcompte\b|candidature|bewerbung|candidatura|\bapplication\b|\bprofile?\b|\bprofilo\b)/i;
+// The affirmative button of an in-page confirmation, never «Cancel» / «No» / «Abbrechen». The end of the word is
+// read on Unicode letters: an ASCII \b never closes «Sì».
+const REMOVAL_CONFIRM_ACCEPT_RE = /^\s*(?:ok|okay|yes|ja|s[iì]|oui|confirm|best[aä]tigen|conferma(?:re)?|confirmer|delete|remove|l[oö]schen|entfernen|elimina(?:re)?|rimuovi|supprimer|retirer)(?![\p{L}\p{N}_])/iu;
+const REMOVAL_CONFIRM_DIALOG_SELECTOR = '[role="alertdialog"], [role="dialog"], [aria-modal="true"], dialog[open]';
+
+/** The text of a confirmation that takes a file away, and nothing else. */
+export function isFileRemovalConfirmation(text) {
+  const value = String(text || '');
+  return REMOVAL_CONFIRM_VERB_RE.test(value) && !NOT_A_FILE_REMOVAL_RE.test(value);
+}
+
+/** The visible in-page dialog in front of the page (the last one drawn), or null. */
+async function visibleRemovalDialog(page) {
+  if (typeof page?.locator !== 'function') return null;
+  const dialogs = page.locator(REMOVAL_CONFIRM_DIALOG_SELECTOR);
+  const count = await Promise.resolve(dialogs?.count?.()).catch(() => 0) || 0;
+  for (let index = count - 1; index >= 0; index -= 1) {
+    const dialog = dialogs.nth(index);
+    if (await Promise.resolve(dialog.isVisible()).catch(() => false)) return dialog;
+  }
+  return null;
+}
+
+/**
+ * Answer the in-page confirmation a removal click opened: its text must ask to take a file away and exactly one
+ * of its buttons must say yes. 'none' when no dialog is in front of the page.
+ * @returns {Promise<'none'|'refused'|'ambiguous'|'click_failed'|'clicked'>}
+ */
+export async function confirmRemovalInPage(page) {
+  const dialog = await visibleRemovalDialog(page);
+  if (!dialog) return 'none';
+  const text = await Promise.resolve(dialog.innerText()).catch(() => '');
+  if (!isFileRemovalConfirmation(text)) return 'refused';
+  const accept = dialog.getByRole('button', { name: REMOVAL_CONFIRM_ACCEPT_RE });
+  if (await Promise.resolve(accept.count()).catch(() => 0) !== 1) return 'ambiguous';
+  try {
+    await accept.first().click({ timeout: 6_000 });
+    return 'clicked';
+  } catch {
+    return 'click_failed';
+  }
+}
+
+/**
+ * Take away the file an earlier run of this order left on the page, through its removal control.
+ *
+ * The portal may ask first. A browser confirm() is answered yes only while this click is in flight and only when it
+ * asks to take a file away; any other browser dialog is dismissed (without a listener Playwright dismisses them
+ * all, and the removal never happens: Damiani rg82P9MP, run 42849689238). An in-page confirmation is answered at
+ * most MAX_REMOVAL_CONFIRMATIONS times. Nothing in the evidence carries the dialog's text.
+ *
+ * - 'removed': the file's name left the page;
+ * - 'untouched': nothing was confirmed, no dialog is left open, the name is still there: the file is as it was;
+ * - 'unconfirmed': a confirmation was given (or a dialog stays open) and the name is still there: unknown state;
+ * - 'click_failed': the removal control could not be clicked.
+ * @returns {Promise<{ status: 'removed'|'untouched'|'unconfirmed'|'click_failed', confirmations: object[] }>}
+ */
+export async function removeEarlierFile(page, button, names, {
+  click = clickButton,
+  maxConfirmations = MAX_REMOVAL_CONFIRMATIONS,
+  shortTimeout = PREVIOUS_FILE_REMOVAL_TIMEOUT_MS,
+  longTimeout = CONFIRMED_FILE_REMOVAL_TIMEOUT_MS,
+} = {}) {
+  const confirmations = [];
+  const onDialog = (dialog) => {
+    const type = typeof dialog?.type === 'function' ? dialog.type() : '';
+    const message = typeof dialog?.message === 'function' ? dialog.message() : '';
+    const accepted = type === 'confirm' && isFileRemovalConfirmation(message);
+    confirmations.push({ source: 'browser', type, accepted });
+    Promise.resolve(accepted ? dialog.accept() : dialog.dismiss()).catch(() => {});
+  };
+  const listening = typeof page?.on === 'function';
+  if (listening) page.on('dialog', onDialog);
+  const confirmed = () => confirmations.some((item) => item.accepted || item.result === 'clicked');
+  const gone = async (timeout) => {
+    for (const name of names) {
+      if (!await waitForFileRemoval(page, name, timeout)) return false;
+    }
+    return true;
+  };
+  try {
+    try {
+      await click(page, button);
+    } catch {
+      return { status: 'click_failed', confirmations };
+    }
+    if (await gone(confirmed() ? longTimeout : shortTimeout)) return { status: 'removed', confirmations };
+    for (let round = 0; round < maxConfirmations; round += 1) {
+      const result = await confirmRemovalInPage(page);
+      if (result === 'none') break;
+      confirmations.push({ source: 'page', result });
+      if (result !== 'clicked') break;
+      if (await gone(longTimeout)) return { status: 'removed', confirmations };
+    }
+    // A removal that needs no confirmation can still be on its way to the server.
+    if (await gone(longTimeout)) return { status: 'removed', confirmations };
+    // A dialog this click opened and the runner did not answer is closed (Escape = its cancel).
+    if (await visibleRemovalDialog(page) && page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
+    const dialogOpen = Boolean(await visibleRemovalDialog(page));
+    return { status: confirmed() || dialogOpen ? 'unconfirmed' : 'untouched', confirmations };
+  } finally {
+    if (listening) (page.off || page.removeListener)?.call(page, 'dialog', onDialog);
+  }
+}
+
+/**
+ * The page has no second place for this document: no file input at all and no upload control for it. Only then
+ * can an earlier file of ours, which the portal does not let us take away, stay as this run's: the run cannot put a
+ * second copy of the document beside it.
+ */
+export function noSecondUploadPlace(snapshot, document) {
+  if ((snapshot?.fields || []).some((field) => field?.kind === 'file' || field?.inputType === 'file')) return false;
+  if (document !== 'cv' && document !== 'cover_letter') return true;
+  return uploadButtonCandidatesFor(snapshot, document).length === 0;
 }
 
 const EXPERIENCE_SECTION_RE = /\b(?:experience|work history|employment history|berufserfahrung|erfahrung|expérience|parcours professionnel|esperienz[ae]|esperienza lavorativa|esperienze lavorative)\b/i;
@@ -287,6 +429,45 @@ const POPUP_GRACE_MS = 6_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+// The account page's technical stops (handleAuth's `authStop`) that the agentic fallback may try
+// to complete, once per page and stop and within MAX_AGENT_CALLS, before the owner gets the page.
+// Each one is raised before any account button was pressed on this surface: the form simply did
+// not converge (a value that did not stay, a surface that kept redrawing, replans exhausted). The
+// agent fills fields only; the runner then re-reads the stable surface and walks its own guarded
+// path again (privacy preflight, credential saved right before the create click, OTP after it).
+// Deliberately NOT recoverable, so they still go straight to the owner:
+// - a surface that moved by itself (`*_surface_moved`): a navigation the runner did not ask for
+//   may have been a form submission, and nothing ambiguous is ever retried;
+// - `privacy_not_accepted`, unreadable labels and unhandled required files: their own paths
+//   (consent guard, candidate questions, uploads) decide them;
+// - every stop after an account click (create refused/unanswered, sign-in failed, verification
+//   without the e-mail, control errors): the account state is then unknown or needs the mailbox;
+// - `no_create_button`/`no_sign_in_button`: the agent never presses account buttons;
+// - submit-stage handoffs such as `portal_ambiguous`: they never come from the account page, and
+//   an ambiguous send is never retried.
+const AUTH_AGENT_RECOVERABLE_STOPS = new Set([
+  'registration_replans_exhausted',
+  'registration_answer_unconfirmed',
+  'registration_surface_unstable',
+  'privacy_question_surface_unstable',
+  'privacy_question_answer_unconfirmed',
+  'sign_in_typing_unconfirmed',
+]);
+/**
+ * Whether handleAuth's result is a technical stop the agentic fallback may try (see above).
+ * `portal_ambiguous` is refused even if some path ever tagged it: an ambiguous send is never retried.
+ */
+export function isAgentRecoverableAuthStop(result) {
+  return Boolean(result?.handoff) && result.handoff !== 'portal_ambiguous' && AUTH_AGENT_RECOVERABLE_STOPS.has(result.authStop);
+}
+// Controls of the account page reserved to the runner while the agent fills it: creating the
+// account, signing in, and the privacy statement with its dialog (registrationPrivacyPreflight).
+const AUTH_AGENT_RESERVED_BUTTONS = [
+  CREATE_ACCOUNT_RE,
+  SIGN_IN_RE,
+  /datenschutz|privacy|privacidad|confidentialit|riservatezza|protezione dei dati|einwilligung|einverst|consent|konto|account|profil|regist|anmeld|einlogg|log ?in|accedi|connexion|connecter|inscri/i,
+  /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)\b/i,
+];
 
 function accountFailure(code, stage) {
   return serializeAccountFailure({ code, stage }) || { code: 'unknown', stage: 'unknown' };
@@ -338,7 +519,7 @@ function isSuccessFactorsCareerPath(value) {
     const url = new URL(String(value || ''));
     return url.protocol === 'https:' && !url.username && !url.password && !url.hash
       && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
-      && url.pathname.replace(/\/+$/, '') === '/career';
+      && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
   }
@@ -356,6 +537,38 @@ function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
       && expected.company === actual.company
       && expected.requisition === actual.requisition
       && expected.namespace === actual.namespace;
+  } catch {
+    return false;
+  }
+}
+
+function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postingRouteProof } = {}) {
+  try {
+    const current = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
+    if (!source || postingRouteProof?.via !== 'successfactors'
+      || !isSuccessFactorsCareerPath(current.href)
+      || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
+      || current.origin !== source.origin
+      || !samePostingAddress(postingRouteProof.postingUrl, posting.href)) return false;
+
+    const valuesFor = (key) => [...current.searchParams.entries()]
+      .filter(([name]) => name.toLowerCase() === key)
+      .map(([, value]) => value);
+    const company = valuesFor('company');
+    const requisition = valuesFor('career_job_req_id');
+    const namespace = valuesFor('career_ns');
+    // A redirect may drop the module query entirely, but an identity it keeps
+    // must still agree with the source module. Duplicate identity parameters
+    // are ambiguous and therefore never inherit the source posting.
+    if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    if (company.length && (company[0].toLowerCase() !== source.company
+      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0]))) return false;
+    if (requisition.length && (requisition[0] !== source.requisition
+      || !/^[0-9]{1,20}$/.test(requisition[0]))) return false;
+    if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
+    return true;
   } catch {
     return false;
   }
@@ -379,7 +592,12 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     return isSuccessFactorsModuleRoute(apply)
       && postingRouteProof?.via === 'successfactors'
       && sameSuccessFactorsModuleAddress(postingRouteProof.applyUrl, apply.href)
-      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href)
+      || isSuccessFactorsPortalCareerContinuation({
+        applyUrl: apply.href,
+        postingUrl: posting.href,
+        postingRouteProof,
+      });
   } catch {
     return false;
   }
@@ -808,7 +1026,9 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
   // say, a form receives from the platform: the town's postal code and country, and a street when a form
   // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
-  const facts = platformFacts && typeof platformFacts === 'object' ? platformFacts : null;
+  // With the form's language: the posting's, for the correspondence-language rule (assistedApplicationPlatformDefaults.js).
+  const facts = platformFacts && typeof platformFacts === 'object'
+    ? { ...platformFacts, applicationLanguage: String(language || '').slice(0, 2).toLowerCase() } : null;
   const factAddress = facts?.address?.city ? facts.address : null;
   const address = factAddress ? {
     ...resolved,
@@ -816,7 +1036,11 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     postalCode: resolved.postalCode || factAddress.postalCode,
     city: resolved.city || factAddress.city,
     country: resolved.country || factAddress.countryName,
-  } : resolved;
+  } : {
+    ...resolved,
+    // No town: the country the platform still knows (the CV's or the order's, else the upload answers).
+    country: resolved.country || facts?.address?.countryName || '',
+  };
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
@@ -1354,6 +1578,33 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   return titleMatches(localContext, job.title);
 }
 
+// An Apply dropdown on the verified posting route sits under the vacancy's
+// own heading, which names the role but rarely the employer (Helsana's
+// Career Site Builder page). The page-level posting check already bound the
+// employer. Locally, a posting/requisition marker must be this posting's own
+// (any other one, or an ambiguous pair, rejects the control), the heading
+// must name no other employer, and it must pass the posting match on the
+// role.
+function disclosureEntryContextMatchesPosting(control, context = {}) {
+  const identity = controlPostingIdentity(control);
+  if (identity === null) return false;
+  if (identity !== '' && identity !== expectedPostingIdentity(context)) return false;
+  // The control's own label («Apply to Google») is the entry, not context
+  // naming another employer: only the text around it is checked.
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').trim()).filter(Boolean);
+  const localContext = [control?.vacancyContext, control?.section, control?.context]
+    .filter(Boolean)
+    .map((value) => ownLabels.reduce((text, label) => text.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const job = context.job || {};
+  if (!localContext || !job.title) return true;
+  if (namesAnotherEmployer(localContext, job)) return false;
+  return postingMatch(localContext, { title: job.title }, context.postingUrl) === 'match';
+}
+
 // A few legacy employer pages render the only application opener as a native
 // button whose value is deliberately generic («cliccando qui», «click here»).
 // That label is not provenance by itself: it is accepted only when the
@@ -1362,6 +1613,26 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
 // there is no competing semantic Apply control. This keeps the security gate
 // closed for generic buttons on listings and for neighbouring roles.
 const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
+
+// Social sign-in entries hand the application to a third-party account. A
+// brand name alone is not one («Apply to Google» is a posting at Google):
+// the label must say the entry goes *through* the provider («Apply with
+// LinkedIn», «Bewerbung mit LinkedIn starten», «Sign in with Google»), or the
+// control's own id must name the provider as its sign-in option (Career Site
+// Builder: `applyOption-top-linkedin`).
+const SOCIAL_PROVIDER = String.raw`(?:linked\s?in|xing|indeed|facebook|google|apple|seek)`;
+const SOCIAL_APPLICATION_LABEL_RE = new RegExp(String.raw`\b(?:with|using|via|through|mit|über|ueber|con|tramite|avec|par)\s+(?:(?:your|my|ihrem|deinem|il\s+tuo|votre)\s+)?${SOCIAL_PROVIDER}\b`, 'iu');
+const SOCIAL_APPLICATION_ID_RE = new RegExp(String.raw`(?:^|[-_])(?:apply|sign[-_]?in|login|social)?[-_]?option[-_](?:[a-z]+[-_])?${SOCIAL_PROVIDER}$|(?:^|[-_])(?:apply|sign[-_]?in|login)[-_](?:with[-_])?${SOCIAL_PROVIDER}$`, 'iu');
+
+function applicationEntryLabel(control) {
+  return String(control?.text || control?.label || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function socialApplicationEntry(control) {
+  return [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .some((value) => SOCIAL_APPLICATION_LABEL_RE.test(String(value || '').replace(/\s+/g, ' ')))
+    || SOCIAL_APPLICATION_ID_RE.test(String(control?.domId || ''));
+}
 
 function genericApplicationEntryLabel(value) {
   const text = String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim()
@@ -1386,9 +1657,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
   ];
+  // A third-party sign-in («Apply with LinkedIn») cannot be completed by the
+  // runner. A social item of an opened Apply menu is never an entry, and an
+  // own entry always wins over a social one that merely comes first.
   const matching = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label)
+    && !(control?.menuItem === true && socialApplicationEntry(control))
+    // An opened menu item usually links to `#`, which matches the posting
+    // route by construction: it must also carry this posting's context.
+    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
+  const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
+  if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
 
   const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
@@ -1417,6 +1697,29 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
+  // SuccessFactors Career Site Builder repeats one Apply dropdown above and
+  // below the vacancy. Identical disclosure toggles are one entry: open the
+  // first. Once its menu is open, the single own (non-social) menu item is
+  // the entry; the toggles that opened it are not alternatives to it. The
+  // page is the verified posting route without fields, so the controls'
+  // heading may name only the role: it must not name another posting or
+  // employer.
+  const ownEntries = allEntries.filter((control) => !(control.menuItem === true && socialApplicationEntry(control)));
+  const disclosureEntries = ownEntries.filter((control) => (control.popup === true || control.menuItem === true)
+    && !control.formId && (Number(control.frame) || 0) === 0
+    && (!control.href || samePortalRoute(control.href, context.postingUrl, context.postingUrl))
+    && disclosureEntryContextMatchesPosting(control, context));
+  if (posting && current && current.origin === posting.origin
+    && current.pathname === posting.pathname && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && disclosureEntries.length > 0 && disclosureEntries.length === ownEntries.length) {
+    const menuEntries = disclosureEntries.filter((control) => control.menuItem === true);
+    if (menuEntries.length === 1) return menuEntries;
+    const toggles = disclosureEntries.filter((control) => control.popup === true);
+    const toggleLabels = new Set(toggles.map((control) => applicationEntryLabel(control)));
+    if (!allEntries.some((control) => control.menuItem === true) && toggles.length >= 1 && toggleLabels.size === 1) return toggles.slice(0, 1);
+  }
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -1875,6 +2178,22 @@ export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settin
 // control has proved that it belongs to a cookie manager surface.
 export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
+// A preference centre (opened by «Einstellungen anzeigen», «Manage options»,
+// or shown in place of the banner) can offer no reject control at all: only
+// its category toggles and a control that saves them. With every optional
+// category withdrawn first, saving is the necessary-only choice. These labels
+// carry no «cookie» word: the control still needs the same cookie context (a
+// cookie dialog or banner) as every other cookie choice.
+export const COOKIE_SAVE_RE = /^(?:(?:save|confirm|submit)(?: my| your| the)? (?:cookie )?(?:preferences|settings|choices?|selection|consent)|(?:allow|accept) (?:the )?selection|(?:einstellungen|auswahl|präferenzen|cookie-einstellungen) (?:speichern|bestätigen|übernehmen)|auswahl (?:erlauben|akzeptieren)|(?:salva|conferma)(?: le| la)? (?:preferenze|impostazioni|scelte|selezione)|(?:enregistrer|confirmer|valider|sauvegarder)(?: mes| les| ma)? (?:préférences|paramètres|choix|sélection))$/i;
+// A category the manager keeps on by itself: its toggle is left as the
+// manager set it. The status marker («Immer aktiv») may sit anywhere in the
+// category's row; the necessary/essential name is read only from the toggle's
+// own name and the row's title, never from a category description (Complianz
+// describes its optional «Preferences» as storage «necessary for» a purpose).
+const COOKIE_ALWAYS_ACTIVE_RE = /(?:always active|immer aktiv|sempre attiv|toujours actif|siempre activ)/i;
+const COOKIE_REQUIRED_CATEGORY_RE = /(?:necessary|essential|notwendig|erforderlich|essenziell|necessari|nécessaire|indispensable|unbedingt)/i;
+// At most this many toggles of one cookie surface are withdrawn.
+const COOKIE_TOGGLE_LIMIT = 40;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
 // Generic banner/modal markers are not proof that a bare Manage consent
@@ -2107,7 +2426,131 @@ async function findCookieControl(page, snapshot, pattern, options = {}) {
 
 async function cookieChoice(page, snapshot) {
   return await findCookieControl(page, snapshot, COOKIE_REJECT_RE)
+    || await findCookieControl(page, snapshot, COOKIE_SAVE_RE)
     || await findCookieControl(page, snapshot, COOKIE_ACCEPT_RE);
+}
+
+function cookieControlFrame(page, control) {
+  const frameNumber = Number(control?.frame) || 0;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  return frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+}
+
+/**
+ * A cookie preference opener that only reopens a manager already closed: the
+ * floating «Manage consent» tab of Complianz, a «Cookie settings» button that
+ * outlives every choice. The live DOM must prove it collapsed: outside any
+ * form or dialog, no cookie dialog open on the page, and its own ARIA state
+ * says the surface it controls is closed (aria-expanded="false", or every
+ * aria-controls target present and not rendered). Without that proof the
+ * control may be the manager itself and keeps the page unresolved.
+ */
+async function isCollapsedCookieReopener(page, control) {
+  if (!control?.id || control.dialog || control.disabled) return false;
+  const frame = cookieControlFrame(page, control);
+  if (typeof frame?.evaluate !== 'function') return false;
+  const proof = await frame.evaluate(({ reopenerId }) => {
+    const element = [...document.querySelectorAll('[data-aa-id]')].find((node) => node.getAttribute('data-aa-id') === reopenerId);
+    if (!element) return 'missing';
+    if (element.closest('form, [role="form"], dialog, [role="dialog"], [aria-modal="true"]')) return 'scoped';
+    const rendered = (node) => {
+      if (!node || node.closest('[hidden]')) return false;
+      for (let current = node; current && current.nodeType === 1; current = current.parentElement) {
+        const style = window.getComputedStyle(current);
+        if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
+      }
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    };
+    if (!rendered(element)) return 'hidden';
+    const cookieCopy = /\bcookies?\b/i;
+    const openCookieDialog = [...document.querySelectorAll('dialog[open], [role="dialog"], [aria-modal="true"]')]
+      .slice(0, 50).some((node) => rendered(node) && cookieCopy.test(node.innerText || node.textContent || ''));
+    if (openCookieDialog) return 'surface_open';
+    const expanded = element.getAttribute('aria-expanded');
+    if (expanded === 'true') return 'expanded';
+    const targets = String(element.getAttribute('aria-controls') || '').split(/\s+/).filter(Boolean).slice(0, 5)
+      .map((id) => document.getElementById(id));
+    if (targets.length && targets.every(Boolean)) return targets.some(rendered) ? 'surface_open' : 'collapsed';
+    return expanded === 'false' ? 'collapsed' : 'unproven';
+  }, { reopenerId: String(control.id) }).catch(() => null);
+  return proof === 'collapsed';
+}
+
+/**
+ * Before a save: switch off every optional category of the cookie surface
+ * that owns the save control (checkboxes and ARIA switches), leaving disabled
+ * toggles and the categories the manager keeps on (necessary, functional).
+ * Returns how many were withdrawn, or -1 when the control has no cookie surface.
+ */
+async function withdrawOptionalCookieToggles(page, control) {
+  const frame = cookieControlFrame(page, control);
+  if (!control?.id || typeof frame?.evaluate !== 'function') return -1;
+  const withdrawn = await frame.evaluate(({ controlId, surfacePattern, alwaysActivePattern, requiredPattern, limit }) => {
+    const control = [...document.querySelectorAll('[data-aa-id]')].find((node) => node.getAttribute('data-aa-id') === controlId);
+    if (!control) return -1;
+    const managerSurface = new RegExp(surfacePattern, 'i');
+    const alwaysActive = new RegExp(alwaysActivePattern, 'i');
+    const required = new RegExp(requiredPattern, 'i');
+    let surface = null;
+    for (let node = control.parentElement; node && node !== document.body; node = node.parentElement) {
+      const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!node.matches('dialog, [role="dialog"], [aria-modal="true"]') && !managerSurface.test(marker)) continue;
+      if (!/\bcookies?\b/i.test(node.innerText || node.textContent || '')) continue;
+      surface = node;
+      break;
+    }
+    if (!surface || surface.matches('form, [role="form"]')) return -1;
+    const toggleSelector = 'input[type="checkbox"], [role="switch"], [role="checkbox"]';
+    let count = 0;
+    for (const toggle of [...surface.querySelectorAll(toggleSelector)].slice(0, limit)) {
+      const native = toggle.tagName === 'INPUT';
+      const on = () => (native ? toggle.checked : toggle.getAttribute('aria-checked') === 'true');
+      if (!on() || toggle.disabled || toggle.getAttribute('aria-disabled') === 'true') continue;
+      // The toggle's own row: the largest ancestor that holds no other toggle.
+      let row = toggle;
+      while (row.parentElement && row.parentElement !== surface && row.parentElement.querySelectorAll(toggleSelector).length === 1) row = row.parentElement;
+      if (alwaysActive.test(row.innerText || row.textContent || '')) continue;
+      const label = toggle.id ? document.querySelector(`label[for="${CSS.escape(toggle.id)}"]`) : toggle.closest('label');
+      const labelledBy = String(toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((id) => document.getElementById(id)?.textContent || '');
+      const titles = [...row.querySelectorAll('h1, h2, h3, h4, h5, h6, legend, summary, strong, b, [class*="title" i], [class*="name" i]')]
+        .map((node) => String(node.textContent || '').trim()).filter((text) => text && text.length <= 80);
+      const name = [label?.textContent, toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...labelledBy, ...titles].join(' ');
+      if (required.test(name)) continue;
+      toggle.click();
+      if (!on()) count += 1;
+    }
+    return count;
+  }, {
+    controlId: String(control.id),
+    surfacePattern: COOKIE_MANAGER_SURFACE_RE.source,
+    alwaysActivePattern: COOKIE_ALWAYS_ACTIVE_RE.source,
+    requiredPattern: COOKIE_REQUIRED_CATEGORY_RE.source,
+    limit: COOKIE_TOGGLE_LIMIT,
+  }).catch(() => -1);
+  return Number.isInteger(withdrawn) ? withdrawn : -1;
+}
+
+/**
+ * The cookie preference controls still waiting for an answer after a choice.
+ * Not waiting: a site-chrome opener outside any dialog (header/footer «Cookie
+ * settings»), the very opener the runner used, unchanged and outside a dialog,
+ * and an opener the live DOM proves collapsed (isCollapsedCookieReopener).
+ */
+async function blockingCookiePreferences(page, current, openedBy = null) {
+  const remaining = (await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
+    genericPreferences: true, manageConsent: true,
+  })).filter((control) => !(control.chrome === true && !control.dialog && !control.dialogId));
+  const blocking = [];
+  for (const control of remaining) {
+    if (openedBy && sameCookieControl(control, openedBy) && !control.dialog && !cookieDialogRemains(current, openedBy)) continue;
+    if (await isCollapsedCookieReopener(page, control)) continue;
+    blocking.push(control);
+  }
+  return blocking;
 }
 
 function pageOrigin(page) {
@@ -2137,6 +2580,7 @@ async function cookiePageSnapshot(page) {
 
 async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {}) {
   const origin = pageOrigin(page);
+  if (COOKIE_SAVE_RE.test(cookieControlLabel(button))) await withdrawOptionalCookieToggles(page, button);
   try {
     await clickButton(page, button);
   } catch {
@@ -2145,13 +2589,22 @@ async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {
   return confirmCookieChoiceDismissed(page, snapshot, origin, button, { openedBy });
 }
 
+// The frame whose shadow root holds the marked cookie control, per page (the
+// page itself for the main document).
+const shadowCookieTargets = new WeakMap();
+const COOKIE_SHADOW_FRAME_LIMIT = 10;
+
+function shadowCookieTarget(page) {
+  return shadowCookieTargets.get(page) || page;
+}
+
 async function clearShadowCookieMarker(page) {
-  await page.locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
+  await shadowCookieTarget(page).locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
 }
 
 async function clickMarkedShadowCookie(page) {
   try {
-    await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
+    await shadowCookieTarget(page).locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
     return true;
   } catch {
     return false;
@@ -2160,89 +2613,135 @@ async function clickMarkedShadowCookie(page) {
   }
 }
 
-async function markShadowCookieButton(page, { includePreferences = false } = {}) {
-  try {
-    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include]) => {
-    const roots = [document];
-    const shadows = [];
-    for (let index = 0; index < roots.length && index < 50; index += 1) {
-      for (const element of roots[index].querySelectorAll('*')) {
-        if (!element.shadowRoot) continue;
-        roots.push(element.shadowRoot);
-        shadows.push(element.shadowRoot);
-      }
+/**
+ * Marks the first cookie control of a shadow root, in the main document and
+ * then in up to COOKIE_SHADOW_FRAME_LIMIT embedded frames. `act` is set only
+ * when the caller clicks the mark: a save control then has its shadow root's
+ * optional categories withdrawn first; a read-only check changes nothing.
+ */
+async function markShadowCookieButton(page, { includePreferences = false, act = false } = {}) {
+  const args = [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
+    COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences,
+    COOKIE_SAVE_RE.source, COOKIE_ALWAYS_ACTIVE_RE.source, COOKIE_REQUIRED_CATEGORY_RE.source, act, COOKIE_TOGGLE_LIMIT];
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  for (const target of [page, ...frames.slice(1, 1 + COOKIE_SHADOW_FRAME_LIMIT)]) {
+    if (typeof target?.evaluate !== 'function' || typeof target?.locator !== 'function') continue;
+    let kind = '';
+    try {
+      kind = await target.evaluate(markShadowCookieInPage, args);
+    } catch {
+      kind = '';
     }
-    const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
-      for (let node = host; node && node !== document.body; node = node.parentElement) {
-        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
-          .filter(Boolean).join(' ');
-        if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
-      }
-      return false;
-    };
-    const cookieShadowManagerSurfaceIsActive = (host) => {
-      const managerSurface = new RegExp(managerSurfacePattern, 'i');
-      for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
-        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
-          .filter(Boolean).join(' ');
-        if (!managerSurface.test(marker)) continue;
-        if (node.matches('form, [role="form"]')) continue;
-        if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
-        return true;
-      }
-      return false;
-    };
-    const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
-    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
-    for (const action of actions) {
-      const pattern = new RegExp(action.source, 'i');
-      const isManageConsent = action.source === manageConsent;
-      for (const shadow of shadows) {
-        const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
-        if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || (manageConsentAction
-            ? !cookieShadowManagerSurfaceIsActive(shadow.host)
-            : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
-        const button = [...shadow.querySelectorAll('button, [role="button"]')]
-          .find((element) => {
-            const label = String(element.innerText || element.textContent || '').trim();
-            return element.getBoundingClientRect().width > 0
-              && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
-              && !(action.kind === 'preferences' && isManageConsent
-                && (element.closest('form, [role="form"]')
-                  || shadow.host.closest('form, [role="form"]')))
-              && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
-          });
-        if (button) {
-          button.setAttribute('data-aa-cookie', '1');
-          return action.kind;
-        }
-      }
-    }
-    return '';
-    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
-      COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences]);
-  } catch {
-    return '';
+    if (typeof kind !== 'string' || !kind) continue;
+    if (target === page) shadowCookieTargets.delete(page);
+    else shadowCookieTargets.set(page, target);
+    return kind;
   }
+  return '';
+}
+
+function markShadowCookieInPage([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include,
+  save, alwaysActivePattern, requiredPattern, act, toggleLimit]) {
+  const roots = [document];
+  const shadows = [];
+  for (let index = 0; index < roots.length && index < 50; index += 1) {
+    for (const element of roots[index].querySelectorAll('*')) {
+      if (!element.shadowRoot) continue;
+      roots.push(element.shadowRoot);
+      shadows.push(element.shadowRoot);
+    }
+  }
+  const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
+    for (let node = host; node && node !== document.body; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
+        || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
+    }
+    return false;
+  };
+  const cookieShadowManagerSurfaceIsActive = (host) => {
+    const managerSurface = new RegExp(managerSurfacePattern, 'i');
+    for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!managerSurface.test(marker)) continue;
+      if (node.matches('form, [role="form"]')) continue;
+      if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
+      return true;
+    }
+    return false;
+  };
+  const withdrawOptional = (shadow) => {
+    const alwaysActive = new RegExp(alwaysActivePattern, 'i');
+    const required = new RegExp(requiredPattern, 'i');
+    const toggleSelector = 'input[type="checkbox"], [role="switch"], [role="checkbox"]';
+    for (const toggle of [...shadow.querySelectorAll(toggleSelector)].slice(0, toggleLimit)) {
+      const native = toggle.tagName === 'INPUT';
+      const on = native ? toggle.checked : toggle.getAttribute('aria-checked') === 'true';
+      if (!on || toggle.disabled || toggle.getAttribute('aria-disabled') === 'true') continue;
+      let row = toggle;
+      while (row.parentElement && row.parentElement.querySelectorAll(toggleSelector).length === 1) row = row.parentElement;
+      if (alwaysActive.test(row.textContent || '')) continue;
+      const titles = [...row.querySelectorAll('h1, h2, h3, h4, h5, h6, legend, summary, strong, b, label, [class*="title" i], [class*="name" i]')]
+        .map((node) => String(node.textContent || '').trim()).filter((text) => text && text.length <= 80);
+      // The toggle's associated names count as much as the row's titles: an `aria-labelledby` name or a
+      // `<label for>` elsewhere in the shadow root («Necessary») keeps a required category on.
+      const byId = (id) => (shadow.getElementById ? shadow.getElementById(id) : shadow.querySelector(`#${CSS.escape(id)}`))
+        || document.getElementById(id);
+      const associated = [
+        ...String(toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map((id) => String(byId(id)?.textContent || '').trim()),
+        ...[...(toggle.labels || [])].map((node) => String(node.textContent || '').trim()),
+        ...(toggle.id ? [...shadow.querySelectorAll(`label[for="${CSS.escape(toggle.id)}"]`)].map((node) => String(node.textContent || '').trim()) : []),
+      ].filter(Boolean);
+      if (required.test([toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...associated, ...titles].join(' '))) continue;
+      toggle.click();
+    }
+  };
+  const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: save, save: true }, { kind: 'decision', source: accept }];
+  if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
+  for (const action of actions) {
+    const pattern = new RegExp(action.source, 'i');
+    const isManageConsent = action.source === manageConsent;
+    for (const shadow of shadows) {
+      const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
+      if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
+        || (manageConsentAction
+          ? !cookieShadowManagerSurfaceIsActive(shadow.host)
+          : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
+      const button = [...shadow.querySelectorAll('button, [role="button"]')]
+        .find((element) => {
+          const label = String(element.innerText || element.textContent || '').trim();
+          return element.getBoundingClientRect().width > 0
+            && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+            && !(action.kind === 'preferences' && isManageConsent
+              && (element.closest('form, [role="form"]')
+                || shadow.host.closest('form, [role="form"]')))
+            && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
+        });
+      if (button) {
+        if (action.save && act) withdrawOptional(shadow);
+        button.setAttribute('data-aa-cookie', '1');
+        return action.kind;
+      }
+    }
+  }
+  return '';
 }
 
 async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false, openedBy = null } = {}) {
   await page.waitForTimeout(800);
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  const remainingPreferences = await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
-    genericPreferences: true, manageConsent: true,
-  });
-  const persistentYellowsharkOpener = remainingPreferences.length > 0 && Boolean(openedBy)
-    && remainingPreferences.every((remainingPreference) => COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(remainingPreference))
-      && COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(openedBy))
-      && sameCookieControl(remainingPreference, openedBy)
-      && !remainingPreference.dialog
-      && !cookieDialogRemains(current, openedBy));
+  // Consent law keeps an opener after every choice: a «Cookie settings» link
+  // in the site's header or footer, or a floating tab such as Complianz's
+  // «Manage consent» (order 1EpmkrDu: «Ablehnen» closed the banner, the tab
+  // appeared, and the run stopped on cookie_preferences_unresolved). Once the
+  // decision controls are gone, such an opener is the persistent entry point,
+  // not the banner still waiting for an answer (blockingCookiePreferences).
   if (await cookieChoice(page, current)
-    || (remainingPreferences.length > 0 && !persistentYellowsharkOpener)
+    || (await blockingCookiePreferences(page, current, openedBy)).length > 0
     || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
   if (verifyShadow) {
     let shadowAction = await markShadowCookieButton(page);
@@ -2263,7 +2762,15 @@ export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
 
-  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true });
+  // A collapsed reopener (a consent already given, or a region without a
+  // banner) is no banner waiting for an answer: opening it would only ask the
+  // same question again on every hop.
+  let preferences = null;
+  for (const control of await findCookieControls(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) {
+    if (await isCollapsedCookieReopener(page, control)) continue;
+    preferences = control;
+    break;
+  }
   if (preferences) {
     const origin = pageOrigin(page);
     try {
@@ -2278,7 +2785,7 @@ export async function dismissCookieBanner(page, snapshot) {
     if (!choice) {
       // Manage consent can open a shadow-root preference center whose explicit
       // Reject/Accept controls are absent from the regular DOM snapshot.
-      const shadowDecision = await markShadowCookieButton(page);
+      const shadowDecision = await markShadowCookieButton(page, { act: true });
       if (shadowDecision !== 'decision') return { status: 'unresolved', snapshot: current };
       if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
       return confirmCookieChoiceDismissed(page, current, origin, preferences, {
@@ -2291,13 +2798,13 @@ export async function dismissCookieBanner(page, snapshot) {
   // A banner inside a shadow root (Usercentrics on Coop's career pages,
   // 2026-10-02) is out of the page scan's reach while its overlay takes every
   // click. Only a shadow root's own cookie controls are marked and clicked.
-  let shadowAction = await markShadowCookieButton(page);
+  let shadowAction = await markShadowCookieButton(page, { act: true });
   if (shadowAction === 'decision') {
     if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
     await page.waitForTimeout(800);
     const current = await cookiePageSnapshot(page);
     if (!current || await cookieChoice(page, current)
-      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
+      || (await blockingCookiePreferences(page, current)).length > 0) return { status: 'unresolved', snapshot: current || snapshot };
     shadowAction = await markShadowCookieButton(page, { includePreferences: true });
     if (shadowAction) {
       await clearShadowCookieMarker(page);
@@ -2306,7 +2813,7 @@ export async function dismissCookieBanner(page, snapshot) {
     return { status: 'dismissed', snapshot: current };
   }
 
-  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true, act: true });
   if (shadowAction !== 'preferences') return { status: 'none', snapshot };
   const origin = pageOrigin(page);
   if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
@@ -2315,19 +2822,76 @@ export async function dismissCookieBanner(page, snapshot) {
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
   choice = await cookieChoice(page, current);
   if (choice) return clickCookieChoice(page, current, choice);
-  shadowAction = await markShadowCookieButton(page);
+  shadowAction = await markShadowCookieButton(page, { act: true });
   if (shadowAction !== 'decision') return { status: 'unresolved', snapshot: current };
   if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
   await page.waitForTimeout(800);
   current = await cookiePageSnapshot(page);
   if (!current || await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    || (await blockingCookiePreferences(page, current)).length > 0) return { status: 'unresolved', snapshot: current || snapshot };
   shadowAction = await markShadowCookieButton(page, { includePreferences: true });
   if (shadowAction) {
     await clearShadowCookieMarker(page);
     return { status: 'unresolved', snapshot: current };
   }
   return { status: 'dismissed', snapshot: current };
+}
+
+// Deterministic passes over one page before the agentic fallback: a manager
+// can redraw or animate between the reads, and a second pass may find the
+// opener's layer (open the preferences, then reject). Each choice is
+// idempotent: refusing optional cookies twice never sends an application.
+const COOKIE_RESOLUTION_ATTEMPTS = 3;
+const COOKIE_RESOLUTION_BACKOFF_MS = 700;
+// The cookie agent: at most this many pages per run, this many rounds each.
+const COOKIE_AGENT_MAX_PAGES = 2;
+const COOKIE_AGENT_ROUNDS = 3;
+// Never the cookie agent's to press (agent.mjs refusal() also keeps every
+// final submit, apply and navigation control): the application's own entry,
+// the account's sign-in and registration.
+export const COOKIE_AGENT_RESERVED_BUTTONS = [
+  /\b(?:apply|bewerb\w*|candid\w*|postul\w*|application|bewerbung)\b/i,
+  SIGN_IN_RE,
+  CREATE_ACCOUNT_RE,
+  /\b(?:log ?in|anmelden|einloggen|accedi|connexion|regist\w*|konto|account)\b/i,
+];
+
+/**
+ * Closes the cookie manager in front of the page: up to
+ * COOKIE_RESOLUTION_ATTEMPTS deterministic passes (dismissCookieBanner) with a
+ * growing pause, then, when the caller passes `agent`, one agentic attempt.
+ * The agent's work counts only when a fresh deterministic pass then finds no
+ * manager left (`none`) or closes what remains (`dismissed`).
+ * @returns {Promise<{status:'none'|'dismissed'|'unresolved', snapshot:object, attempts:string[], agent?:string}>}
+ */
+export async function resolveCookieConsent(page, snapshot, { agent = null } = {}) {
+  const origin = pageOrigin(page);
+  const attempts = [];
+  let current = snapshot;
+  let result = { status: 'none', snapshot };
+  for (let attempt = 1; attempt <= COOKIE_RESOLUTION_ATTEMPTS; attempt += 1) {
+    result = await dismissCookieBanner(page, current);
+    attempts.push(result.status);
+    if (result.status !== 'unresolved') return { ...result, attempts };
+    // A choice that left the site is never retried there.
+    if (!origin || pageOrigin(page) !== origin || attempt === COOKIE_RESOLUTION_ATTEMPTS) break;
+    if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(COOKIE_RESOLUTION_BACKOFF_MS * attempt);
+    current = await cookiePageSnapshot(page) || result.snapshot || current;
+  }
+  if (typeof agent !== 'function' || !origin || pageOrigin(page) !== origin) return { ...result, attempts };
+  let outcome = null;
+  try {
+    outcome = await agent(page, result.snapshot || current);
+  } catch {
+    outcome = { status: 'stuck', acted: false };
+  }
+  const agentStatus = String(outcome?.status || 'unavailable');
+  if (!outcome?.acted || pageOrigin(page) !== origin) return { ...result, attempts, agent: agentStatus };
+  const fresh = await cookiePageSnapshot(page);
+  if (!fresh) return { ...result, attempts, agent: agentStatus };
+  const verified = await dismissCookieBanner(page, fresh);
+  attempts.push(verified.status);
+  return { ...verified, attempts, agent: agentStatus };
 }
 
 /**
@@ -2370,7 +2934,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
-    const cookies = await dismissCookieBanner(page, snapshot);
+    const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
     const allControls = [
       ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -2416,12 +2980,23 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
-    const buttonEntries = ownedEntries.filter((control) => (snapshot.buttons || []).includes(control));
+    // A verified same-requisition SuccessFactors module route binds the
+    // vacancy more strongly than a Career Site Builder Apply dropdown, whose
+    // menu leads to the tenant's generic sign-in. Keep that route first.
+    const disclosureOnly = ownedEntries.length > 0 && ownedEntries.every((control) => control.popup === true);
+    const verifiedModuleRoute = disclosureOnly && hop === 0 && stageContext?.postingEntry === true
+      && isSuccessFactorsPostingEntry({
+        applyUrl: stageContext.applyUrl,
+        postingUrl: page.url(),
+        postingRouteProof: stageContext.postingRouteProof,
+      });
+    const selectableEntries = verifiedModuleRoute ? [] : ownedEntries;
+    const buttonEntries = selectableEntries.filter((control) => (snapshot.buttons || []).includes(control));
     const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
     const apply = manual ? null : buttonEntries[0] || null;
     const linkEntry = manual || apply
       ? null
-      : ownedEntries.find((control) => (snapshot.links || []).includes(control)) || null;
+      : selectableEntries.find((control) => (snapshot.links || []).includes(control)) || null;
     const link = linkEntry ? locatorFor(page, linkEntry) : null;
     const linkVisible = link
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
@@ -2837,6 +3412,45 @@ export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' 
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
+/**
+ * The SuccessFactors application the runner asked for, read on the page itself (Stellenportal Bund eHSYErA1,
+ * 2026-11-10). After sign-in SuccessFactors serves the form at `/portalcareer?_s.crb=…`, with neither the company
+ * nor the requisition in its address, and a federal tenant names no employer the order's data names («Swiss Armed
+ * Forces (VTG)» against «Schweizerische Eidgenossenschaft»): the company check alone said `mismatch` on the right
+ * form. What binds it is the heading SuccessFactors writes on every application, the role and its requisition
+ * («Application Manager/-in (20604)»), on the same tenant host as the module address the runner entered
+ * (`/career?company=…&career_ns=job_application&career_job_req_id=20604`). Another requisition, another role, a
+ * requisition away from the role's own line or another host is not this posting.
+ */
+export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '', applyUrl = '' } = {}) {
+  let module;
+  let page;
+  try {
+    module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    page = new URL(String(pageUrl || ''));
+  } catch {
+    return false;
+  }
+  if (!module || !job?.title || page.origin !== module.origin
+    || !['/portalcareer', '/career'].includes(page.pathname.replace(/\/+$/, ''))) return false;
+  const requisition = new RegExp(`\\(\\s*${module.requisition}\\s*\\)`);
+  const otherRequisition = /\(\s*\d{1,20}\s*\)/g;
+  return String(formText || '').split(/\r?\n/).some((line) => requisition.test(line)
+    && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
+    && titleMatches(line.replace(otherRequisition, ' '), job.title)
+    && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/** The line names the role and nothing else of substance (no second role or employer around it). */
+// Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
+const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
+function titleWordsOnly(line, title) {
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  const seen = normalizeWords(line).split(' ').filter(Boolean);
+  // Every other word is a different role or an employer («Senior …», «… bei X»).
+  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+}
+
 export function formPostingMatch(formText, job = {}, {
   postingMatched = false,
   postingEntry = false,
@@ -2844,6 +3458,7 @@ export function formPostingMatch(formText, job = {}, {
   pageUrl = '',
   postingUrl = '',
   postingRouteProof = null,
+  applyUrl = '',
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
@@ -2872,6 +3487,8 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
+  // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
+  if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -4015,15 +4632,59 @@ async function clickFirst(page, snapshot, patterns) {
 
 /** SuccessFactors leaves the OTP field and a loading live-region in place while the code is checked. */
 async function waitForVerificationOutcome(page) {
-  let after = await extractFields(page);
-  let outcome = verificationOutcome(after);
+  // After «Weiter» the federal SuccessFactors tenant posts two documents
+  // (`/career`, then `/portalcareer`) and draws the application form in its
+  // UI5 shell (2026-11-10): a read can fail between them, and a page with
+  // nothing to act on is still drawing, not an unconfirmed verification.
+  const read = () => extractFields(page).catch(() => null);
+  const actionable = (view) => Boolean(view?.fields?.length) || (view?.buttons || []).some((button) => !button.disabled);
+  const unsettled = (view, result) => !view || result === 'pending' || verificationIsPending(view)
+    || (result === 'unconfirmed' && !actionable(view));
+  let after = await read();
+  let outcome = after ? verificationOutcome(after) : 'pending';
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
-  while ((outcome === 'pending' || verificationIsPending(after)) && Date.now() < deadline) {
+  while (unsettled(after, outcome) && Date.now() < deadline) {
     await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
-    after = await extractFields(page);
-    outcome = verificationOutcome(after);
+    after = await read();
+    outcome = after ? verificationOutcome(after) : 'pending';
   }
-  return { after, outcome };
+  // The same non-throwing read: a page still unreadable at the deadline is a
+  // pending outcome, answered by a bounded handoff, never an uncaught rejection.
+  after ||= await read();
+  if (!after) return { after: null, outcome: 'pending' };
+  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
+}
+
+/**
+ * The candidate's own session on the job's form: no sign-in or registration
+ * form, no code field, and the application itself (a CV field, the usual
+ * fields, or its send control). SBB after its OTP (2026-11-10): `/portalcareer`
+ * with «Bewerbung abschicken» and «Abmelden», its sections closed (one visible
+ * field); Damiani right after a registration that asked for no OTP.
+ */
+// A positive mark of the candidate's own session: a guest application view has
+// a CV field and a submit button too, but no way to sign out or reach a profile.
+const SESSION_MARKER_RE = /\b(?:abmelden|ausloggen|log ?out|sign ?out|esci|disconnetti|d[ée]connexion|se d[ée]connecter|mein profil|my profile|mon profil|il mio profilo|mein konto|my account|mon compte|il mio account|meine dokumente|my documents|mes documents|i miei documenti)\b/i;
+function showsCandidateSession(view) {
+  const controls = [...(Array.isArray(view?.buttons) ? view.buttons : []), ...(Array.isArray(view?.links) ? view.links : [])];
+  return controls.some((control) => SESSION_MARKER_RE.test([control?.text, control?.label, control?.ariaLabel].filter(Boolean).join(' ')));
+}
+
+export function signedInApplicationSurface(view) {
+  return Boolean(view) && Array.isArray(view.fields) && authPageKind(view) === 'none' && !codeField(view)
+    && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
+}
+
+// SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).
+const restartedRegistrations = new WeakMap();
+function registrationRestarted(ctx, host) {
+  return Boolean(ctx?.accounts && restartedRegistrations.get(ctx.accounts)?.has(host));
+}
+function noteRegistrationRestart(ctx, host) {
+  if (!ctx?.accounts) return;
+  const hosts = restartedRegistrations.get(ctx.accounts) || new Set();
+  hosts.add(host);
+  restartedRegistrations.set(ctx.accounts, hosts);
 }
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
@@ -4051,6 +4712,7 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
   });
   if (!verification) return accountHandoff('account_verification_timeout', 'verification_timeout', 'verification');
+  const submittedAt = Date.now();
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
@@ -4061,7 +4723,21 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return accountHandoff('account', 'verification_unobserved', 'verification');
     await settle(page);
   }
-  const { after, outcome } = await waitForVerificationOutcome(page);
+  let { after, outcome } = await waitForVerificationOutcome(page);
+  // The portal took the code and opened the job's form in the candidate's own
+  // session (SBB: «Bewerbung abschicken», «Abmelden», one visible field, which
+  // the generic reading leaves `unconfirmed`). That page is the answer.
+  if (outcome === 'unconfirmed' && signedInApplicationSurface(after)) outcome = 'accepted';
+  // The page may never settle on something the runner can read, while the
+  // portal itself mails that the account now exists (the federal tenant's
+  // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the
+  // inbound handler). That notice, received after the code was sent, is the
+  // portal's own word; a refused or expired code is never overridden by it.
+  // A page still loading at the deadline (`pending`) is as open as an unconfirmed one.
+  if ((outcome === 'unconfirmed' || outcome === 'pending') && typeof ctx.accounts.waitForAccountNotice === 'function'
+    && await ctx.accounts.waitForAccountNotice({ host, sinceMs: submittedAt })) {
+    outcome = 'accepted';
+  }
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
   if (outcome !== 'accepted') {
@@ -4069,7 +4745,10 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     return accountHandoff(`account_verification_${outcome}`, code, 'verification');
   }
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
-  return { snapshot: after, reopen: true };
+  // Accepted on the portal's notice while the page stayed unreadable: the job is reopened anyway.
+  const snapshotAfter = after || await extractFields(page).catch(() => null)
+    || { url: page.url(), fields: [], buttons: [], links: [], errors: [] };
+  return { snapshot: snapshotAfter, reopen: true };
 }
 
 // SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
@@ -4087,7 +4766,8 @@ const optionalNotice = (control) => ownConsent.isOptionalPurpose(control.text, c
 const privacyStatementControl = (control) => !control.disabled && !control.chrome && !control.leavesDocument && ownConsent.isRequiredNotice(control);
 
 export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
-export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
+// «Zur Kenntnis genommen» (SBB, 2026-11-10) and the other acknowledgements close the statement as accepted.
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte|(?:zur )?kenntnis genommen|ich habe (?:es )?zur kenntnis genommen|gelesen und akzeptiert|einverstanden|ich bin einverstanden|acknowledged?|i acknowledge|read and accepted|(?:ho )?pres[ao] visione|letto e accettato|(?:j['’]ai )?pris connaissance|lu et accept[ée])(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
 // How long a form gets to free its button after the notice was accepted.
 const PRIVACY_ENABLE_TIMEOUT_MS = 8_000;
 
@@ -4427,6 +5107,67 @@ function stableUploadTriggerDiscriminator(button) {
  * account/application pages, so the document name must still be present in
  * the control's DOM context and the candidate must be unique.
  */
+// SuccessFactors draws each document slot as one button: the slot's caption, its action and the dialog it opens
+// («* Lebenslauf - Zeugnisse - Diplome Lebenslauf Öffnet ein Dialogfeld», Helsana s2Tbwwjd; «* Lebenslauf
+// Lebenslauf hinzufügen Öffnet ein Dialogfeld», Bund eHSYErA1, 2026-11-10). Its action has no verb the upload
+// patterns know (none at all on Helsana), so the CV was never attached (trigger_not_found) and the empty slot
+// came back as a text question. The caption says which document the slot takes; a slot that already holds one
+// («Edit document <file>») is not a new upload.
+const SUCCESS_FACTORS_DIALOG_SLOT_RE = /\s(?:öffnet\s+ein\s+dialog(?:feld|fenster)?|opens\s+a\s+dialog(?:\s+box)?|ouvre\s+une\s+(?:boîte\s+de\s+)?dialogue|apre\s+(?:una\s+)?(?:finestra\s+di\s+)?dialogo)\s*$/iu;
+const SUCCESS_FACTORS_FILLED_SLOT_RE = /\b(?:edit\s+document|dokument\s+bearbeiten|modifica\s+(?:il\s+)?documento|modifier\s+(?:le\s+)?document)\b/i;
+
+/** The document a slot caption names ('cv' | 'cover_letter'); '' when it names neither, or both. */
+function documentSlotCaptionKind(caption) {
+  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
+  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+}
+
+/** The document a SuccessFactors slot button takes ('cv' | 'cover_letter'), or '' for any other control. */
+export function successFactorsDocumentSlotKind(button) {
+  const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
+  if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text) || SUCCESS_FACTORS_FILLED_SLOT_RE.test(text)) return '';
+  const caption = text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, '');
+  // «Cover Letter Delete document <file> Opens a dialog» (Damiani, 2026-11-10) holds a file and takes it away:
+  // read as the letter's upload slot, it was clicked three times as one, and each click asked to delete the file.
+  if (REMOVE_FILE_RE.test(caption)) return '';
+  return documentSlotCaptionKind(caption);
+}
+
+// The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
+// s2Tbwwjd). Every part of the caption must be one of these nouns: a caption with any other word is a question.
+const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}`
+  + '|(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
+  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze'
+  + '|dokumente|documents|documenti|(?:bewerbungs)?unterlagen|bewerbungsdossier|anh[aä]nge|beilagen|attachments|allegati'
+  + '|pi[eè]ces\\s+jointes)$', 'iu');
+const SLOT_CAPTION_SEPARATOR_RE = /\s*[-–—/,;|+&·]\s*|\s+(?:und|and|et|e|ed|sowie)\s+/iu;
+const anchoredPattern = (pattern) => new RegExp(`^(?:${pattern.source})$`, pattern.flags.replace('g', ''));
+const CAPTION_UPLOAD_RE = { cv: anchoredPattern(CV_UPLOAD_RE), cover_letter: anchoredPattern(COVER_LETTER_UPLOAD_RE) };
+
+/**
+ * The document a held portal question really is ('cv' | 'cover_letter'), or '' for a question. A runner that
+ * found no upload action in a document slot reported the empty slot as a required text question (Helsana
+ * s2Tbwwjd, «Lebenslauf - Zeugnisse - Diplome»): the draft keeps only the slot's caption, so it is read with
+ * the slot rule above (successFactorsDocumentSlotKind) and accepted only when the caption is nothing but
+ * document names, or exactly an upload instruction («Lebenslauf hochladen»), on a free text field with no
+ * options and no format. «Lebenslauf und Motivationsschreiben», a question mark, or any other word: ''.
+ */
+export function portalQuestionDocumentSlotKind(question) {
+  if (question?.source !== 'portal') return '';
+  const type = String(question.type || 'text').trim().toLowerCase();
+  if (!['text', 'file'].includes(type) || (Array.isArray(question.options) && question.options.length)
+    || String(question.validation?.pattern || '').trim()) return '';
+  const caption = String(question.applicationQuestion || question.question || '').replace(/\s+/g, ' ')
+    .replace(/^[\s*:]+|[\s*:]+$/g, '').trim();
+  if (!caption || caption.length > 120 || /[?¿()]/.test(caption)) return '';
+  const kind = documentSlotCaptionKind(caption);
+  if (!kind) return '';
+  if (CAPTION_UPLOAD_RE[kind].test(caption)) return kind;
+  const parts = caption.split(SLOT_CAPTION_SEPARATOR_RE).map(part => part.trim());
+  return parts.length <= 6 && parts.every(part => SLOT_CAPTION_PART_RE.test(part)) ? kind : '';
+}
+
 export function uploadButtonCandidatesFor(snapshot, kind) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
   const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
@@ -4437,6 +5178,8 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   const iconCandidates = [];
   const add = (button) => {
     if (!button || button.disabled || button.chrome) return;
+    // A control that takes a file away is never the one that puts a file in.
+    if (REMOVE_FILE_RE.test(String(button.text || ''))) return;
     // Preserve two distinct text-only controls as ambiguous candidates. IDs
     // deduplicate the same control when it is found by both scans.
     // Automation ids and names are often shared by separate controls. Only
@@ -4449,6 +5192,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   };
   const named = findButton(snapshot?.buttons || [], pattern);
   if (named && buttonMatchesDocumentContext(named, contextPattern)) add(named);
+  for (const button of snapshot?.buttons || []) {
+    if (!button.disabled && !button.chrome && successFactorsDocumentSlotKind(button) === kind) add(button);
+  }
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
@@ -5644,7 +6390,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -5654,6 +6400,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // or submits another registration; the candidate must sign in themselves.
   if (!account && hasExistingAccountPrompt(snapshot)) {
     return accountHandoff('account', 'login_unobserved', 'login');
+  }
+
+  // A one-time-code page is neither a sign-in nor a registration form, even
+  // when the portal masks the code as a password input (federal
+  // SuccessFactors, 2026-11-10): typing the alias and password there found no
+  // e-mail field and ended as `login_unobserved`. Only this order's unverified
+  // account can answer it, with the e-mailed code.
+  if (kind === 'none' && codeField(snapshot)) {
+    if (account && !account.verifiedAt) return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+    return accountHandoff('account_verification', 'verification_unobserved', 'verification');
   }
 
   const canResendVerification = hasResendVerificationControl(snapshot);
@@ -5679,16 +6435,31 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Restart the registration flow with the same password so the portal can
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
-  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+    && typeof ctx.accounts.accountNotice === 'function'
+    && await ctx.accounts.accountNotice({ host, sinceMs: Number(account.createdAt) || 0 })) {
+    // An earlier run's code was accepted, and the portal mailed that the
+    // account exists, but that run never saw its answer. A new registration
+    // would be refused for an existing address: record it and sign in.
+    account.verifiedAt = Date.now();
+    await ctx.accounts.mark(host, { status: 'created', verifiedAt: account.verifiedAt });
+  }
+  // Once per run: a tenant that asks for no OTP (Damiani, 2026-11-10) answers a
+  // repeated registration of an existing address and comes back to its sign-in
+  // page, and every step restarted it again until `auth_steps_exhausted`. The
+  // second time the saved credential signs in; a failed sign-in is handed over.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+    && !registrationRestarted(ctx, host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
     // there; only restart registration when the page actually offers that
     // navigation control.
     const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
     if (openedRegistration) {
+      noteRegistrationRestart(ctx, host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
     }
   }
 
@@ -5698,11 +6469,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // and the button pressed is the one of the reading made right before the click.
     let form = snapshot;
     let typed = false;
+    typedSecrets?.add(account.password);
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
       if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
+      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+      // not stay) is left alone: filling it again would undo it.
+      const emailKept = String(email.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase();
       await applyActions(page, form.fields, [
-        { fieldId: email.id, action: 'fill', value: account.email },
+        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: account.email }]),
         { fieldId: password.id, action: 'fill', value: account.password },
       ], {});
       await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
@@ -5710,7 +6485,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       const now = loginFields(form);
       typed = Boolean(now.email?.value) && Boolean(now.password?.value);
     }
-    if (!typed) return accountHandoff('account', 'login_unobserved', 'login');
+    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
     const shown = form.errors || [];
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
@@ -5740,7 +6515,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -5888,17 +6663,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       ['fill', 'select', 'check', 'uncheck'].includes(action.action)
       && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
     if (!actions.length) break;
+    // A value the control cuts at its maxlength does not fit whoever types it: no agentic retry.
     if (actions.some((action) => readbackFindings.some((finding) => finding.shape === 'truncated'
       && finding.fieldId === action.fieldId && finding.planned === action.value))) return readbackHandoff();
-    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return readbackHandoff();
+    // `authStop` names the technical stop for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { ...readbackHandoff(), authStop: 'registration_replans_exhausted' };
     const registrationUrl = page.url();
     const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
     if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
-      return { handoff: 'portal_needs_candidate' };
+      return { handoff: 'portal_needs_candidate', authStop: 'registration_answer_unconfirmed' };
     }
-    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
+    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_moved' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
-    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
+    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_unstable' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
     const found = registrationReadbackFindings(actions, registrationSnapshot.fields);
     // `planned` stays in memory only, to recognise the same plan next turn.
@@ -5930,6 +6707,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     )),
   };
   const password = account?.password || newPortalPassword({ portal: host });
+  // Struck from what the agentic fallback sees of this page, should it be called after a stop.
+  typedSecrets?.add(password);
   const sinceMs = Date.now();
   const saveCredentialBeforeCreate = async () => {
     if (credentialSaved) return;
@@ -5947,6 +6726,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let privacy = 'none';
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
+  // A registration surface that did not converge before the create click: the credential is parked
+  // as on every exit, and the stop is named for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+  const technicalStop = async (authStop) => {
+    await parkRegistrationCredential(authStop);
+    return noted({ handoff: 'portal_needs_candidate', authStop });
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -5974,8 +6759,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const { filled } = preflight;
     if (page.url() !== privacyStartUrl || filled.url !== privacyStartUrl) {
-      await parkRegistrationCredential('privacy_question_surface_moved');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_moved');
     }
     // Blur and accepting the notice can both reveal required controls. A fresh,
     // stable read and plan must prove that the account form is still complete
@@ -5987,8 +6771,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     } else {
       const settled = await waitForStableQuestionSurface(page, filled, privacyUrl, { registration: true });
       if (settled.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       // A known answer can redraw the registration form before credentials are
       // typed. Keep one post-credential planner pass in that case: the
@@ -6001,8 +6784,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
     if (privacyPlan.status !== 'stable') {
-      await parkRegistrationCredential('privacy_question_surface_unstable');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_unstable');
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
@@ -6041,13 +6823,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ));
     if (newlyRequiredActions.length) {
       if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const appliedAfterPrivacy = await applyActions(page, stableRegistrationSnapshot.fields, newlyRequiredActions, ctx.files);
       if (newlyRequiredActions.some((action) => !appliedAfterPrivacy.some((result) => result.fieldId === action.fieldId && result.ok))) {
-        await parkRegistrationCredential('privacy_question_answer_unconfirmed');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_answer_unconfirmed');
       }
       for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
         const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
@@ -6058,18 +6838,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         }
       }
       if (page.url() !== privacyUrl) {
-        await parkRegistrationCredential('privacy_question_surface_moved');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_moved');
       }
       const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl, { registration: true });
       if (afterPrivacyActions.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const replanned = await planStableRegistrationSurface(afterPrivacyActions.snapshot, privacyUrl);
       if (replanned.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       registrationSnapshot = accountRegistrationSnapshot(replanned.snapshot);
       registrationPlan = {
@@ -6806,8 +7583,13 @@ export async function readPortalRequirements(ctx) {
     };
   }
   const genericPublicRoute = readAhead.source === 'public_application_route';
+  // Function scope, not the block below: the browser request guard further
+  // down calls it too. Declared inside the `if`, the guard's call threw a
+  // ReferenceError that its `.catch(() => false)` read as «not public», so
+  // every request was aborted and every generic employer page failed with
+  // net::ERR_FAILED (portal_reader_failed, 2026-11-06 → 2026-11-10).
+  const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
   if (genericPublicRoute) {
-    const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
     const publicUrls = [...new Set([entryUrl, stageApplyUrl].map(value => String(value || '').trim()).filter(Boolean))];
     const publicRouteAvailable = (await Promise.all(publicUrls.map(async (url) => {
       try {
@@ -6963,6 +7745,7 @@ export async function readPortalRequirements(ctx) {
         pageUrl: page.url(),
         postingUrl: formPostingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
       if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
@@ -7005,8 +7788,12 @@ export async function readPortalRequirements(ctx) {
     const handoff = error instanceof PortalQuestionLocalizationError
       ? 'question_localization_unavailable'
       : 'portal_reader_failed';
-    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
-    return await finish({ questions: [], documents: [], handoff }, { status: 'unavailable' });
+    // The class of the failure, never its message: a browser error can quote
+    // the page or a value. Without it the 2026-11-10 failures were opaque
+    // after the Actions log janitor ran.
+    const readerError = portalReaderErrorClass(error);
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`, readerError);
+    return await finish({ questions: [], documents: [], handoff, readerError }, { status: 'unavailable' });
   } finally {
     if (contractDiagnostics && !contractFinished) {
       await contractDiagnostics.finish().catch(() => {});
@@ -7014,6 +7801,25 @@ export async function readPortalRequirements(ctx) {
     }
     await browser?.close().catch(() => {});
   }
+}
+
+/**
+ * A fixed, non-personal class for a pre-read that threw: enough to tell a
+ * blocked request from a timeout, a download (PDF) or a code fault, without
+ * copying the browser's message (which can quote the page) anywhere.
+ * @param {unknown} error
+ * @returns {string}
+ */
+export function portalReaderErrorClass(error) {
+  const message = String(error?.message || error || '');
+  if (error?.name === 'TimeoutError' || /\bTimeout \d+ms exceeded\b/.test(message)) return 'timeout';
+  if (/Download is starting/i.test(message)) return 'download';
+  const net = message.match(/\bnet::(ERR_[A-Z_]+)/);
+  if (net) return `net_${net[1].slice(4).toLowerCase()}`.slice(0, 40);
+  if (/Target (?:page, context or browser|closed)|browser has been closed/i.test(message)) return 'browser_closed';
+  if (/chromium|executable doesn't exist|install/i.test(message) && /launch|install/i.test(message)) return 'browser_launch';
+  if (error instanceof ReferenceError || error instanceof TypeError) return 'code_error';
+  return 'other';
 }
 
 /** Backwards-compatible question-only view for callers that do not need uploads. */
@@ -7027,6 +7833,7 @@ export async function readPortalQuestions(ctx) {
  * @param {string} ctx.language posting language (browser locale)
  * @param {string} ctx.candidateLocale language of the questions to the candidate
  * @param {object} ctx.candidate candidateForForm(...)
+ * @param {string} [ctx.cvText] the CV's text (draft.factSources.text): the decision engine checks its evidence against it
  * @param {{cv:string, cover_letter:string}} ctx.files local file paths
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
@@ -7044,6 +7851,11 @@ export async function readPortalQuestions(ctx) {
 // stopped under four different reasons). handoff() reports them as the gate
 // when the page states it.
 const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+// Stops that a posting closed meanwhile also produces: the page the portal shows after the registration or
+// a navigation is its own «this job can no longer be applied for», which reads as another posting, as no
+// application stage, or (with no form control left) as a page for the candidate. The closure is the cause
+// (the flow notifies and refunds it), not a page to teach.
+const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
 
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
@@ -7092,6 +7904,17 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
+    // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
+    // kann zurzeit nicht angezeigt werden … nicht länger darauf bewerben», and the run stopped as a mismatch.
+    // The page in front of the runner is read with the same classifier as the posting at the start; only a
+    // certain closure (isHardClosed) changes the outcome.
+    if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
+      const current = classifyLiveness({ finalUrl: page.url(), bodyText: await pageText(page).catch(() => '') });
+      if (isHardClosed(current)) {
+        evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
+        return { event: { type: 'posting_closed', reason: current.code }, evidence };
+      }
+    }
     // A posting that refuses applications from this connection's region (the
     // employer geolocates the runner's IP) explains the stops on the posting
     // page that follow it: a dead Apply control, the gated page's consent
@@ -7154,6 +7977,42 @@ export async function submitViaPortal(ctx) {
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
+  // The agentic fallback for a cookie manager the deterministic passes could
+  // not close (resolveCookieConsent): once per page, COOKIE_AGENT_MAX_PAGES per
+  // run, without candidate data. It may press only the manager's own controls:
+  // apply, sign-in, registration, navigation and submit stay reserved.
+  const cookieAgentPages = new Set();
+  const cookieAgent = ctx.codex ? async (currentPage, current) => {
+    const startUrl = currentPage.url();
+    if (cookieAgentPages.has(startUrl) || cookieAgentPages.size >= COOKIE_AGENT_MAX_PAGES) return { status: 'budget', acted: false };
+    cookieAgentPages.add(startUrl);
+    let agent;
+    try {
+      agent = await completeWithAgent({
+        page: currentPage,
+        hint: 'cookie_preferences_unresolved',
+        candidate: {},
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+        fields: current?.fields || [],
+        maxRounds: COOKIE_AGENT_ROUNDS,
+        reservedButtons: COOKIE_AGENT_RESERVED_BUTTONS,
+        log,
+      });
+    } catch (error) {
+      agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, evidence: { rounds: [] } };
+    }
+    const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
+    (evidence.cookieAgent ||= []).push({
+      status: agent.status,
+      acted,
+      rounds: (agent.evidence?.rounds || []).length,
+      ...(agent.reason ? { reason: String(agent.reason).slice(0, 160) } : {}),
+    });
+    // A cookie choice never leaves the page: whatever moved it is not counted.
+    if (agent.moved || currentPage.url() !== startUrl) return { status: 'moved', acted: false };
+    return { status: agent.status, acted };
+  } : null;
   try {
     context = await browser.newContext(portalContextOptions(ctx));
     registerPortalChannelType(context, channelType);
@@ -7181,7 +8040,12 @@ export async function submitViaPortal(ctx) {
     // the selected posting is the page the browser actually opened; the
     // vacancy and employer checks below remain unchanged after the overlay is
     // gone.
-    const initialCookieState = await dismissCookieBanner(page, snapshot);
+    const initialCookieState = await resolveCookieConsent(page, snapshot, { agent: cookieAgent });
+    evidence.cookieConsent = {
+      status: initialCookieState.status,
+      attempts: initialCookieState.attempts,
+      ...(initialCookieState.agent ? { agent: initialCookieState.agent } : {}),
+    };
     snapshot = initialCookieState.snapshot || snapshot;
     sourceProtocol = snapshot.protocol || sourceProtocol;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
@@ -7250,6 +8114,7 @@ export async function submitViaPortal(ctx) {
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+      cookieAgent,
     });
     ({ page, snapshot } = opened);
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
@@ -7272,9 +8137,13 @@ export async function submitViaPortal(ctx) {
         pageUrl,
         postingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
+      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') {
+        evidence.postingMatchVia = successFactorsRequisitionShown(seen, ctx.job, { pageUrl, applyUrl: ctx.applyUrl }) ? 'successfactors_requisition'
+          : namedByItsData ? 'posting_data' : 'posting_page';
+      }
       return result;
     };
     const pendingOtpAccount = async (current) => {
@@ -7455,7 +8324,7 @@ export async function submitViaPortal(ctx) {
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
-    const runAgent = async (current, hint) => {
+    const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
       if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
       agentTried.add(key);
@@ -7470,8 +8339,9 @@ export async function submitViaPortal(ctx) {
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
-          secrets: [...ownPasswords.values()],
+          secrets: [...ownPasswords.values(), ...secrets],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+          reservedButtons,
           log,
         });
       } catch (error) {
@@ -7500,13 +8370,35 @@ export async function submitViaPortal(ctx) {
       // the current planning surface.
       return mergePortalChoiceOptions(current, refreshed);
     };
-    const askCandidate = async (questions, current = snapshot) => {
+    // The questions the decision engine already decided or left in this run: each is tried once.
+    const engineTried = new Set();
+    const askCandidate = async (questions, current = snapshot, { decide = false } = {}) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);
       const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
         candidate: ctx.candidate,
         candidateLocale: ctx.candidateLocale,
       });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
+      // What can be answered is answered before anything is translated for the candidate (owner mandate
+      // 2026-11-10; Damiani rg82P9MP stopped on question_localization_unavailable with the decision engine never
+      // run, because it ran after the translation and a failed translation ended the page). The rules and the
+      // CV already answered in guardPlan; here the decision engine decides, over the portal's own wording, what
+      // they leave, and the page is planned again so the planner fills it. Only what it leaves
+      // (CANDIDATE_ONLY_CATEGORIES, failed checks) is translated and reaches the candidate.
+      if (decide) {
+        const fresh = (requirements.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
+        for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
+        const engine = fresh.length
+          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, cvText: ctx.cvText, log })
+          : { ids: [], decisions: [] };
+        if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
+        if (engine.ids.length) {
+          const facts = ctx.candidate.platformFacts;
+          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
+          return { replan: true };
+        }
+      }
       let request;
       try {
         request = await portalRequirementsForCandidate(requirements, {
@@ -7528,6 +8420,44 @@ export async function submitViaPortal(ctx) {
         },
         evidence,
       };
+    };
+
+    // Passwords handleAuth typed in this run (generated or stored): struck from the agent's snapshot.
+    const authSecrets = new Set();
+    const authAgentTried = new Set();
+    /**
+     * The agentic fallback on an account page that stopped on a technical stop. It never presses an
+     * account button (AUTH_AGENT_RESERVED_BUTTONS) nor types a password (agent.mjs refuses both);
+     * what the candidate data does not say becomes a candidate question (askCandidate). On the same,
+     * stable account page it hands back to handleAuth, whose guards decide the click.
+     * @returns {Promise<{status:string, auth?:object, request?:object}>}
+     */
+    const recoverAuthWithAgent = async (stopped) => {
+      const startUrl = page.url();
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (!current || !current.passwordVisible || !['create', 'sign_in'].includes(authPageKind(current))) return { status: 'not_account_page' };
+      const key = `${startUrl}|${authPageKind(current)}|${stopped.authStop}`;
+      if (authAgentTried.has(key)) return { status: 'already_tried' };
+      authAgentTried.add(key);
+      const agent = await runAgent(current, authPageKind(current) === 'sign_in' ? 'sign_in_incomplete' : 'registration_incomplete', {
+        secrets: [...authSecrets],
+        reservedButtons: AUTH_AGENT_RESERVED_BUTTONS,
+      });
+      if (!agent) return { status: 'unavailable' };
+      if (agent.status === 'needs_candidate') {
+        const request = await askCandidate(agent.questions, current);
+        return request ? { status: agent.status, request } : { status: agent.status };
+      }
+      const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
+      if (agent.status === 'unavailable' || (agent.status !== 'done' && !acted)) return { status: agent.status };
+      // The agent may not leave the page: whatever it pressed that moved it is not retried here.
+      if (agent.moved || page.url() !== startUrl) return { status: 'moved' };
+      const stable = await waitForStableQuestionSurface(page, current, startUrl, { registration: true });
+      if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
+        return { status: agent.status };
+      }
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+      return { status: agent.status, auth };
     };
 
     let loopAttemptStarted = false;
@@ -7576,6 +8506,7 @@ export async function submitViaPortal(ctx) {
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+            cookieAgent,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
@@ -7633,8 +8564,28 @@ export async function submitViaPortal(ctx) {
         if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
+        let agentRecovery = null;
+        const authHost = new URL(page.url()).hostname;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+          // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
+          // fallback once per page and stop before the owner does: the agent fills fields only,
+          // then the deterministic path runs again on a stable re-read. Its own outcome stands
+          // unless it stops again on a technical stop: the owner then gets the original handoff.
+          if (isAgentRecoverableAuthStop(auth)) {
+            const stopped = auth;
+            agentRecovery = { stop: stopped.authStop, status: 'not_run' };
+            const recovered = await recoverAuthWithAgent(stopped);
+            agentRecovery.status = recovered.status;
+            if (recovered.request) {
+              evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'questions', agentRecovery };
+              return recovered.request;
+            }
+            if (recovered.auth && !isAgentRecoverableAuthStop(recovered.auth)) {
+              auth = recovered.auth;
+              agentRecovery.outcome = auth.handoff || 'ok';
+            }
+          }
         } catch (error) {
           // A control of the account page that could not be pressed or typed into (covered by a dialog,
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
@@ -7654,6 +8605,8 @@ export async function submitViaPortal(ctx) {
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
+          ...(auth.authStop ? { stop: auth.authStop } : {}),
+          ...(agentRecovery ? { agentRecovery } : {}),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
@@ -7687,11 +8640,20 @@ export async function submitViaPortal(ctx) {
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+            cookieAgent,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
+        }
+        // The auth step ended in the candidate's own session on the job's form
+        // (Damiani: a registration without OTP lands in /portalcareer): the
+        // account is usable. Left unverified, the next run restarted its
+        // registration instead of signing in.
+        if (signedInApplicationSurface(snapshot)) {
+          const stored = await ctx.accounts.load(authHost).catch(() => null);
+          if (stored && !stored.verifiedAt) await ctx.accounts.mark(authHost, { status: 'created', verifiedAt: Date.now() });
         }
         step -= 1; // a login page is not a form page
         continue;
@@ -7744,31 +8706,67 @@ export async function submitViaPortal(ctx) {
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
+      // A portal that offers no removal (SuccessFactors keeps the earlier CV in
+      // «My Documents» with only «Edit document», Damiani 2026-11-10) leaves
+      // the file of an earlier run of this order in its slot: under this run's
+      // own name it is our document, kept as it is, and the run goes on.
+      const keptEarlier = [];
       for (const document of Object.keys(ctx.files || {}).filter((item) =>
         !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {
           const visible = await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
-          if (visible && !matchingRemoval) return await handoff('previous_file_not_removable');
+          if (!visible || matchingRemoval) continue;
+          if (ownEarlierFileShown(snapshot.buttons, [name])) {
+            if (!keptEarlier.includes(document)) keptEarlier.push(document);
+            continue;
+          }
+          return await handoff('previous_file_not_removable');
         }
       }
       if (earlier.length) {
-        for (const { button, names } of earlier) {
-          try {
-            await clickButton(page, button);
-          } catch {
-            return await handoff('previous_file_removal_failed');
+        const replaced = [];
+        const removalConfirmations = [];
+        for (const { document, button, names } of earlier) {
+          if (keptEarlier.includes(document)) continue;
+          const removal = await removeEarlierFile(page, button, names);
+          removalConfirmations.push(...removal.confirmations.map((item) => ({ document, ...item })));
+          if (removal.status === 'click_failed') return await handoff('previous_file_removal_failed');
+          if (removal.status === 'removed') {
+            if (!replaced.includes(document)) replaced.push(document);
+            continue;
           }
-          let remains = false;
-          for (const name of names) {
-            remains ||= !await waitForFileRemoval(page, name);
+          // The portal did not take the file away and nothing was confirmed (its confirm() asked for something
+          // else, its control does not remove): the file is ours, under this run's own name, as it was. It stays
+          // only when the page has no place for a second copy of the document; any doubt goes to the owner.
+          snapshot = await extractFields(page);
+          if (removal.status === 'untouched' && !replaced.includes(document)
+            && ownEarlierFileShown(snapshot.buttons, names) && noSecondUploadPlace(snapshot, document)) {
+            if (!keptEarlier.includes(document)) keptEarlier.push(document);
+            continue;
           }
-          if (remains) return await handoff('previous_file_removal_unconfirmed');
+          return await handoff('previous_file_removal_unconfirmed');
         }
-        evidence.steps.at(-1).replaced = [...new Set(earlier.map((item) => item.document))];
-        snapshot = await extractFields(page);
+        if (removalConfirmations.length) evidence.steps.at(-1).removalConfirmations = removalConfirmations;
+        if (replaced.length) {
+          evidence.steps.at(-1).replaced = replaced;
+          snapshot = await extractFields(page);
+          // A slot that takes its file through a dialog (SuccessFactors) is filled before the page is planned:
+          // the emptied slot gets this run's file now. A file field is left to the planner, as before.
+          const sectionsAgain = await openSections();
+          if (sectionsAgain) return sectionsAgain;
+          const sentAfter = new Set(evidence.uploads.map((upload) => upload.document));
+          for (const document of replaced) {
+            if (sentAfter.has(document)) continue;
+            const fileField = document === 'cv'
+              ? snapshot.fields.some(isCvFileField)
+              : snapshot.fields.some((field) => field?.kind === 'file' || field?.inputType === 'file');
+            if (!fileField) return await handoff('previous_file_replacement_unavailable');
+          }
+        }
       }
+      if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
 
       let after = snapshot;
       let unclearQuestions = [];
@@ -7976,7 +8974,9 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions, snapshot);
+              const request = await askCandidate(candidateQuestions, snapshot, { decide: true });
+              // Planned again without spending a step: each question goes to the engine once (engineTried).
+              if (request?.replan) { step -= 1; continue; }
               if (request) return request;
             }
           }

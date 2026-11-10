@@ -1,0 +1,22 @@
+{
+  "companyKey": "sureswiftcapital",
+  "companyName": "SureSwift Capital",
+  "companyHost": "sureswiftcapital.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://sureswiftcapital.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Are You The Talent We're Looking For?",
+    "Experienced Intermediate Software Engineer, Ruby on Rails"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:06.542Z",
+  "candidateKey": "sureswiftcapital@applytojob.com"
+}

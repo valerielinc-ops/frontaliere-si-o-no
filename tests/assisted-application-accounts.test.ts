@@ -107,7 +107,12 @@ describe('portal account pages', () => {
     expect(codeField({ fields: [field('f1', 'password', 'One-time password')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Code confidentiel')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Verification code')] })?.id).toBe('f1');
-    expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
+    // A bare «Code» password next to the login's e-mail is that form's secret;
+    // alone on its page it is the masked e-mailed code (federal SuccessFactors, 2026-11-10).
+    expect(codeField({ fields: [field('f0', 'email', 'E-Mail-Adresse'), field('f1', 'password', 'Code')] })).toBeNull();
+    expect(authPageKind({ fields: [field('f0', 'email', 'E-Mail-Adresse'), field('f1', 'password', 'Code')] })).toBe('sign_in');
+    expect(codeField({ fields: [field('f1', 'password', '*Code:')] })?.id).toBe('f1');
+    expect(authPageKind({ fields: [field('f1', 'password', '*Code:')] })).toBe('none');
     // The code of an address, a phone or a discount is no verification code: Workday's first page of the form
     // («Postal Code», name postalCode; «Country Phone Code») was taken for a verification page (2026-10-07).
     for (const label of ['Postal Code', 'ZIP code', 'Zip-Code', 'Country Phone Code*', 'Area code', 'Code postal', 'Codice fiscale', 'Ländercode', 'Promo code', 'Gutscheincode', 'Referral code', 'Employee code']) {

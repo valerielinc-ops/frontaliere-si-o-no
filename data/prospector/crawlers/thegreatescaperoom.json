@@ -1,0 +1,24 @@
+{
+  "companyKey": "thegreatescaperoom",
+  "companyName": "The Great Escape Room",
+  "companyHost": "thegreatescaperoom.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://thegreatescaperoom.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Escape Room Game Master / Host Pigeon For",
+    "Escape Room Game Monitor/Host",
+    "Seasonal Escape Room Monitor",
+    "Seasonal Escape Room Monitor/Host"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-10T13:46:10.413Z",
+  "candidateKey": "thegreatescaperoom@applytojob.com"
+}

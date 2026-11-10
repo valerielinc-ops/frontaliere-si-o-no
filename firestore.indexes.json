@@ -224,6 +224,27 @@
       ]
     },
     {
+      "collectionGroup": "application_intents",
+      "fieldPath": "reminder.dueAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "application_intents",
+      "fieldPath": "reminder_due_at",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "application_intents",
+      "fieldPath": "dueAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "fieldPath": "campaign_id",
       "indexes": [

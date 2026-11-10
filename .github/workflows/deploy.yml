@@ -381,6 +381,8 @@ jobs:
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
+      - name: Refresh employer-profiles snapshot from live corpus
+        run: node scripts/build-employer-profiles.mjs
       - name: Refresh weekly-employers footer link list
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
       - name: Mine all job slugs for 404 coverage
@@ -814,7 +816,7 @@ jobs:
       # undo the OG copy, so only the OG-specific completion record is needed.
       # A cache miss deliberately falls back to one full additive copy.
       - name: Restore last published R2 OG manifest
-        if: ${{ matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
+        if: ${{ matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') }}
         uses: actions/cache/restore@v6
         with:
           path: .cache/r2-og-published-manifest.json
@@ -1672,6 +1674,14 @@ jobs:
           R2_TIMEOUT_OG_S: '900'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
+      - name: Save R2 OG manifest after early CDN push
+        if: ${{ always() && matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+
       # One more try BEFORE the section fan-out gives up. A failed early push
       # skips every section shard, the strip then no-ops, and the apex goes past
       # the 10 GB Pages cap. Run 41145698648 lost the whole publish that way: the
@@ -1691,6 +1701,14 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+
+      - name: Save R2 OG manifest after early CDN retry
+        if: ${{ always() && matrix.locale == 'it' && steps.cdn-push-early-retry.outcome != 'skipped' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
 
       # Persiste peak_anon_mb/peak_rss_mb/wall_seconds per-leg cross-run:
       # senza questo, il referto letto da "Read build memory report" e'
@@ -1749,6 +1767,83 @@ jobs:
             process.stdout.write(JSON.stringify(row));
           ' | HISTORY_LABEL=build-history \
               bash scripts/lib/append-build-history-row.sh
+
+      # Read-only follow-up for PR #17670: the first comparable post-merge
+      # deploy must expose the full-corpus memory/duration result instead of
+      # leaving the archive-sweep optimization with only a prose revert plan.
+      # The fixed reference is the pre-change peak anon baseline from run
+      # 42466783158 (20.002 MB). This observer never changes the memory gate or
+      # the publish path; missing outputs stay explicitly non-comparable.
+      - name: Observe expired archive memory delta
+        id: expired_archive_memory_delta
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          EXPIRED_ARCHIVE_BASELINE_PEAK_ANON_MB: '20002'
+          EXPIRED_ARCHIVE_BREACH: ${{ steps.memguard.outputs.breach }}
+          EXPIRED_ARCHIVE_PEAK_ANON_MB: ${{ steps.memguard.outputs.peak_anon_mb }}
+          EXPIRED_ARCHIVE_PEAK_RSS_MB: ${{ steps.memguard.outputs.peak_rss_mb }}
+          EXPIRED_ARCHIVE_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const numericMetric = (value) => {
+            const text = String(value ?? '').trim();
+            return /^\d+$/.test(text) ? Number(text) : null;
+          };
+
+          const markdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
+
+          function expiredArchiveMemoryDeltaObserved() {
+            const baseline = numericMetric(process.env.EXPIRED_ARCHIVE_BASELINE_PEAK_ANON_MB);
+            const anon = numericMetric(process.env.EXPIRED_ARCHIVE_PEAK_ANON_MB);
+            const rss = numericMetric(process.env.EXPIRED_ARCHIVE_PEAK_RSS_MB);
+            const wall = numericMetric(process.env.EXPIRED_ARCHIVE_WALL_SECONDS);
+            const breach = String(process.env.EXPIRED_ARCHIVE_BREACH ?? '').trim();
+            let anonDelta = null;
+            let revertTrigger = 'not-comparable: complete post-merge measurement unavailable';
+
+            if (anon !== null && baseline !== null) {
+              anonDelta = anon - baseline;
+              if (breach) {
+                revertTrigger = `revert: dynamic memory threshold breached (${breach})`;
+              } else if (anon >= baseline) {
+                revertTrigger = 'revert: peak_anon_mb did not fall below 20.002 MB baseline';
+              } else {
+                revertTrigger = 'not-triggered: peak_anon_mb fell below 20.002 MB baseline';
+              }
+            } else if (breach) {
+              revertTrigger = `revert: dynamic memory threshold breached (${breach}); anon peak unavailable`;
+            }
+
+            const summary = [
+              '### Expired archive memory delta (advisory)',
+              '',
+              'The first complete post-merge deploy on the same corpus is the comparison point for PR #17670.',
+              '',
+              '| metric | observed | reference | delta |',
+              '| --- | ---: | ---: | ---: |',
+              `| peak_anon_mb | \`${markdownCell(anon)}\` | \`${markdownCell(baseline)}\` (20.002 MB) | \`${markdownCell(anonDelta)}\` |`,
+              `| peak_rss_mb | \`${markdownCell(rss)}\` | no fixed pre-merge value | n/a |`,
+              `| wall_seconds | \`${markdownCell(wall)}\` | no fixed pre-merge value | n/a |`,
+              `| dynamic threshold breach | \`${markdownCell(breach || 'none')}\` | empty | n/a |`,
+              `| revert trigger | \`${markdownCell(revertTrigger)}\` | see PR #17670 | n/a |`,
+              '',
+            ].join('\n');
+
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            if (summaryPath) fs.appendFileSync(summaryPath, summary);
+            else process.stdout.write(summary);
+            console.log(
+              `[expired-archive-memory] peak_anon_mb=${anon ?? 'unknown'} peak_rss_mb=${rss ?? 'unknown'} ` +
+              `wall_seconds=${wall ?? 'unknown'} delta_anon_mb=${anonDelta ?? 'unknown'} trigger=${revertTrigger}`,
+            );
+          }
+
+          expiredArchiveMemoryDeltaObserved();
+          NODE
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
       # Push each oversized job-board section (ticino/svizzera/zurigo) to its
@@ -2469,68 +2564,16 @@ jobs:
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
-      - name: Promote successfully published R2 OG manifest
-        id: promote-r2-og-manifest
-        if: ${{ always() && matrix.locale == 'it' && vars.CDN_TARGET == 'r2' }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          candidate="$RUNNER_TEMP/r2-og-published-manifest.next.json"
-          synced_hash="$RUNNER_TEMP/r2-og-published-manifest.synced.sha256"
-          if [ ! -s "$candidate" ]; then
-            echo "::warning::[r2-og-manifest] no candidate manifest was produced; keeping the last published manifest"
-            exit 0
-          fi
-          if [ ! -s "$synced_hash" ]; then
-            echo "::warning::[r2-og-manifest] OG copy did not complete; keeping the last published manifest"
-            exit 0
-          fi
-          expected="$(cat "$synced_hash")"
-          actual="$(sha256sum "$candidate" | awk '{print $1}')"
-          if [[ ! "$expected" =~ ^[a-f0-9]{64}$ || "$actual" != "$expected" ]]; then
-            echo "::warning::[r2-og-manifest] candidate differs from the successfully copied OG manifest"
-            exit 0
-          fi
-          mkdir -p .cache
-          cp "$candidate" .cache/r2-og-published-manifest.json.tmp
-          mv .cache/r2-og-published-manifest.json.tmp .cache/r2-og-published-manifest.json
-          echo "promoted=true" >> "$GITHUB_OUTPUT"
-
-      - name: Save successfully published R2 OG manifest
-        if: ${{ always() && steps.promote-r2-og-manifest.outputs.promoted == 'true' }}
+      # Refresh the LRU position after the later, larger caches have been
+      # written. The OG checkpoint is already saved after the early push, so a
+      # timeout above still leaves resumable progress.
+      - name: Save final R2 OG manifest cache
+        if: ${{ always() && matrix.locale == 'it' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
         continue-on-error: true
         with:
           path: .cache/r2-og-published-manifest.json
-          key: r2-og-published-${{ github.run_id }}
-
-      # "Keeping the last published manifest" (the promote step's own words)
-      # has to mean keeping it in the CACHE, not just on this runner's disk.
-      # The repository cache sits at its 10 GB cap: one IT leg saves a 6.83 GB
-      # jobs-seo-html entry plus two 1.19 GB og-jobs entries (measured
-      # 2026-11-10, 10.23 GB in 22 entries), and GitHub evicts by last access,
-      # oldest first. The manifest is restored at the START of the leg and
-      # those saves come after, so a leg that does not promote leaves the only
-      # copy as the least recently used entry and the next leg's saves evict
-      # it. Then the next leg finds `previous=missing` and copies every OG card:
-      # 42695695778 and 42746424682 both ran `[r2-og] mode=full` (31.3k and
-      # 31.7k files, 1.18-1.19 GB) against `mode=delta ... changed_bytes=180138517`
-      # on 42446263033, and their early CDN push hit the 6 h job cap and the 45
-      # min step timeout, skipping every IT section shard push. Each such
-      # failure loses the manifest again, so the full copy repeats.
-      #
-      # Re-saving the restored manifest under this run's key is sound because
-      # the OG copy is additive: R2 still holds at least what the manifest
-      # lists, so the worst case of a stale `previous` is a larger delta, never
-      # a missing card. Mutually exclusive with the promoted save above (same
-      # key, opposite condition on `promoted`).
-      - name: Carry the last published R2 OG manifest forward
-        if: ${{ always() && matrix.locale == 'it' && vars.CDN_TARGET == 'r2' && steps.promote-r2-og-manifest.outputs.promoted != 'true' && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
-        uses: actions/cache/save@v6
-        continue-on-error: true
-        with:
-          path: .cache/r2-og-published-manifest.json
-          key: r2-og-published-${{ github.run_id }}
+          key: r2-og-published-${{ github.run_id }}-final-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
 
       # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
       #

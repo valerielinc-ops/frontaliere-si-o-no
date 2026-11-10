@@ -26,7 +26,6 @@ import {
   printedTitles,
   salutationQuestion,
   sanitizeDocuments,
-  sanitizeApplicationAnswerSuggestions,
   swissTypography,
   sanitizeMatch,
   sanitizeProfile,
@@ -35,9 +34,10 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { questionTopic, SENSITIVE } from './portal/plan.mjs';
+import { draftCvAnswers } from './cv-answers.mjs';
+import { draftDecisionAnswers } from './decision-answers.mjs';
+import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
 import {
-  APPLICATION_ANSWERS_SCHEMA,
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
   PROFILE_SCHEMA,
@@ -48,8 +48,6 @@ import {
   documentsSystemPrompt,
   documentsUserText,
   applicationEmailSubject,
-  applicationAnswersSystemPrompt,
-  applicationAnswersUserText,
   letterSubject,
   matchSystemPrompt,
   matchUserText,
@@ -77,7 +75,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, mergeRequiredDocuments, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm, portalQuestionKey, postingAddressForPortal } from './portal/portal.mjs';
+import { candidateForForm, portalQuestionKey, portalReaderErrorClass, postingAddressForPortal } from './portal/portal.mjs';
 import { compactApplicationContract } from './portal/application-contract.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -92,15 +90,16 @@ const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 // profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
 const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
 const MAX_REPAIR_FINDINGS = 12;
+// The reader outcomes copied into the draft's pre-read diagnostic. None of
+// them stops the draft (owner decision 2026-11-10: no blocked application):
+// the submit run reads the live form again with the same rules, CV and
+// decision engine, so a pre-read that did not get through costs nothing.
 const PORTAL_PRE_READ_HANDOFFS = new Set([
   'application_form_unreadable', 'captcha_present', 'cookie_preferences_unresolved', 'planner_unavailable',
   'portal_reader_failed', 'posting_mismatch', 'question_label_unreadable', 'question_localization_unavailable',
   'question_planning_failed', 'public_route_unavailable', 'requirements_unavailable',
 ]);
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
-const PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE = /\b(?:e-?mail|courriel|t[eé]l[eé]phone\w*|telefon\w*|mobiltelefon\w*|telefono\w*|phone|mobile|cellulaire|num[eé]ro de t[eé]l[eé]phone|religion|religious|faith|pregnan\w*|sexual orientation|political affiliation|political views|race|ethnic\w*|disabil\w*|consent|privacy|terms and conditions|newsletter|marketing)\b/i;
-const PORTAL_ANSWER_NAME_FIELD_RE = /^\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome)(?:\s*(?:\/|,|&|and|e)\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome))*(?:\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\))?\s*[:*?]?\s*$/i;
-const PORTAL_ANSWER_NAME_QUESTION_RE = /\b(?:what(?:'s| is)\s+(?:your|the applicant'?s|the candidate'?s)\s+(?:first\s+|last\s+|full\s+)?name|please state your name|quel est votre (?:pr[eé]nom|nom(?: de famille| complet)?)|comment\s+(?:vous\s+appelez(?:-vous)?|t['’]appelles(?:-tu)?)|come ti chiami|come si chiama|qual(?:['’]e|\s+è|\s+e)\s+(?:il|la)\s+(?:tuo|suo)\s+nome|wie (?:heisst|heißt) du|wie lautet (?:dein|ihr) (?:name|vorname|nachname)|wie (?:heisst|heißt) (?:ihr|dein) name|wie heissen sie|wie heißen sie)\b/i;
 
 /** What the fact gate did not find, as the model is told it for the one repair. */
 function findingsOf(...results) {
@@ -120,64 +119,6 @@ export class DraftAbort extends Error {
 
 function candidateLocale(order) {
   return CANDIDATE_LOCALES.has(order?.locale) ? order.locale : 'it';
-}
-
-async function draftPortalAnswerSuggestions({ questions, answers, cvText, codex, locale, log }) {
-  const excludedQuestion = (question) => {
-    const text = [question?.question, question?.applicationQuestion, question?.context, question?.section].filter(Boolean).join(' ');
-    const topic = questionTopic(question?.applicationQuestion || question?.question, question?.context || '', question);
-    const excludedTopic = Boolean(topic) && !String(topic).startsWith('language:');
-    const nameField = [question?.question, question?.applicationQuestion].filter(Boolean)
-      .some((label) => PORTAL_ANSWER_NAME_FIELD_RE.test(label));
-    return excludedTopic || SENSITIVE.test(text) || PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE.test(text)
-      || nameField || PORTAL_ANSWER_NAME_QUESTION_RE.test(text);
-  };
-  const answerable = (Array.isArray(questions) ? questions : []).filter((question) =>
-    question?.source === 'portal' && question?.type === 'text'
-      && String(question.applicationQuestion || question.question || '').trim()
-      && !String(answers?.[question.id] ?? '').trim()
-      && !excludedQuestion(question));
-  const sourceText = String(cvText || '').slice(0, MAX_SOURCE_CHARS);
-  if (!answerable.length || !sourceText.trim()) return questions;
-
-  const citations = sourceCitations({ cv: sourceText });
-  if (!citations.excerpts.length) return questions;
-  const schema = structuredClone(APPLICATION_ANSWERS_SCHEMA);
-  schema.properties.answers.items.properties.id.enum = answerable.map((question) => question.id);
-  schema.properties.answers.items.properties.evidence.items = {
-    type: 'string',
-    enum: ['', ...citations.excerpts.map((item) => item.id)],
-    description: 'An exact CV excerpt id, or "" when the CV does not support the draft.',
-  };
-  try {
-    const raw = await codex({
-      prompt: codexPrompt(applicationAnswersSystemPrompt(locale), applicationAnswersUserText({
-        questions: answerable,
-        candidateSourceExcerpts: citations.excerpts,
-      })),
-      schema,
-      timeoutMs: 120_000,
-    });
-    const resolved = {
-      ...raw,
-      answers: Array.isArray(raw?.answers) ? raw.answers.map((item) => {
-        const ids = Array.isArray(item?.evidence) ? item.evidence.slice(0, 3) : [];
-        let evidenceUnverified = false;
-        const evidence = ids.map((id) => {
-          const quote = citations.resolve(id);
-          if (quote === null || quote === id) evidenceUnverified = true;
-          return quote;
-        }).filter(Boolean);
-        return { ...item, evidence, evidenceUnverified };
-      }) : [],
-    };
-    const updated = sanitizeApplicationAnswerSuggestions(resolved, answerable, sourceText);
-    const byId = new Map(updated.map((question) => [question.id, question]));
-    return (Array.isArray(questions) ? questions : []).map((question) => byId.get(question?.id) || question);
-  } catch (error) {
-    log('portal answer suggestions skipped', String(error?.message || error).split('\n')[0].slice(0, 160));
-    return questions;
-  }
 }
 
 /**
@@ -450,12 +391,15 @@ export async function buildDraft(ctx) {
     fallback: posting.postingUrl || order.jobUrl || '',
   });
   let portalContract = null;
+  let portalPreRead = null;
   if (readPortal && channel.applyUrl) {
     // The form of address the name gives is the platform's answer to a required
     // portal title field (owner decision 2026-11-09): never asked, always shown
     // among the form fields, where the candidate can correct it.
     const portalAnswers = { ...answers };
-    const portalResult = await readPortal({
+    // The pre-read is an optimisation of the first review, never a gate on
+    // the draft: a reader that throws is recorded like one that hands off.
+    const portalResult = await Promise.resolve().then(() => readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       postingUrl: portalPostingUrl,
@@ -472,48 +416,63 @@ export async function buildDraft(ctx) {
       candidate: candidateForForm({ identity, profile, answers: portalAnswers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' }, platformFacts: edited.platformFacts }),
       codex,
       log,
-    });
+    })).catch((error) => ({ questions: [], documents: [], handoff: 'portal_reader_failed', readerError: portalReaderErrorClass(error) }));
     // Older test/integration callers return only the question array; the live
     // reader also returns required file fields so they reach the upload picker
     // before the first submission attempt.
     const portal = Array.isArray(portalResult) ? { questions: portalResult, documents: [] } : (portalResult || { questions: [], documents: [] });
     portalContract = compactApplicationContract(portal.portalContract);
     if (portal.handoff) {
-      // Keep the automation event useful after Actions logs are purged. Only
-      // this fixed set of reader outcomes is copied into its error code.
+      // A diagnostic, not a block (owner decision 2026-11-10): the letter, the
+      // CV, the platform's answers and the decision engine do not depend on
+      // the portal's form, and the submit run reads that form live. Only this
+      // fixed set of reader outcomes is copied, so the field outlives the
+      // purged Actions log without carrying page text.
       const reason = PORTAL_PRE_READ_HANDOFFS.has(portal.handoff) ? portal.handoff : 'unknown';
-      throw new DraftAbort('draft_failed', `portal_requirements_unavailable:${reason}`, { portalContract });
-    }
-    requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
-    // The document requirement is the answer to a narrow "do you hold it?"
-    // question. Re-run this filter after the portal has contributed its own
-    // document labels.
-    questions = questions.filter(notAnsweredByUpload);
-    const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
-    for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
-      if (!notAnsweredByUpload(question)) continue;
-      const key = portalQuestionKey(question) || question.id;
-      const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
-      if (existingIndex >= 0) {
-        const existing = questions[existingIndex];
-        // Upgrade a legacy portal question in place. Keeping its id preserves
-        // an answer already stored under that id, while the new application
-        // copy/options and candidate-language copy replace stale raw wording.
-        if (existing?.source === 'portal' && question?.source === 'portal'
-          && (question.applicationQuestion || question.applicationOptions?.length)) {
-          questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
+      const readerError = /^[a-z_]{1,40}$/.test(String(portal.readerError || '')) ? portal.readerError : null;
+      portalPreRead = { status: 'unavailable', handoff: reason, ...(readerError ? { readerError } : {}) };
+      log('portal pre-read unavailable', reason, readerError || '-', 'draft continues; the submit run reads the form');
+    } else {
+      requiredDocuments = mergeRequiredDocuments(requiredDocuments, portal.documents);
+      // The document requirement is the answer to a narrow "do you hold it?"
+      // question. Re-run this filter after the portal has contributed its own
+      // document labels.
+      questions = questions.filter(notAnsweredByUpload);
+      const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
+      for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
+        if (!notAnsweredByUpload(question)) continue;
+        const key = portalQuestionKey(question) || question.id;
+        const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
+        if (existingIndex >= 0) {
+          const existing = questions[existingIndex];
+          // Upgrade a legacy portal question in place. Keeping its id preserves
+          // an answer already stored under that id, while the new application
+          // copy/options and candidate-language copy replace stale raw wording.
+          if (existing?.source === 'portal' && question?.source === 'portal'
+            && (question.applicationQuestion || question.applicationOptions?.length)) {
+            questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
+          }
+          continue;
         }
-        continue;
+        if (known.has(key)) continue;
+        known.add(key);
+        questions.push(question);
       }
-      if (known.has(key)) continue;
-      known.add(key);
-      questions.push(question);
+      portalPreRead = { status: 'read', questions: portal.questions?.length || 0, documents: portal.documents?.length || 0 };
+      log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
     }
-    log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
-  // A draft can answer narrative portal questions only from cited CV excerpts.
-  // The candidate reviews and saves any proposal before it enters flow.answers.
-  questions = await draftPortalAnswerSuggestions({ questions, answers, cvText, codex, locale, log });
+  // The CV answers the open text questions (owner decisions 2026-11-10, lib/cv-answers.mjs): a technical
+  // one with cited excerpts, a behavioural one with a plausible description built from the CV. A verified
+  // answer is a platform proposal (platformFacts.cvAnswers): shown and editable, never in flow.answers.
+  ({ questions } = await draftCvAnswers({ questions, answers, facts: edited.platformFacts, cvText, codex, locale, log }));
+  // What neither a platform rule nor the CV answered, the decision engine decides by the owner's principles
+  // (lib/decision-answers.mjs, 2026-11-10): a platform proposal too (platformFacts.decisionAnswers), only the
+  // categories of CANDIDATE_ONLY_CATEGORIES stay with the candidate.
+  ({ questions } = await draftDecisionAnswers({
+    questions, answers, cvText, codex, log, employer: order.companyName || '', jobTitle: title,
+    facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText) },
+  }));
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
   // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.
@@ -565,6 +524,7 @@ export async function buildDraft(ctx) {
     liveness: { result: liveness.page?.result || null, code: liveness.page?.code || null, datasetGone: liveness.datasetGone },
     channel,
     ...(portalContract ? { portalContract } : {}),
+    ...(portalPreRead ? { portalPreRead } : {}),
     requirementsRaw: requirements,
     requirements: requirements.requirements,
     languageRequirements: requirements.languageRequirements,

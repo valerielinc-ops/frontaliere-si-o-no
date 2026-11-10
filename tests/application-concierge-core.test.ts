@@ -375,6 +375,35 @@ describe('application concierge candidate API', () => {
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
   });
 
+  it('stores the two legal facts with the upload answers and copies them to every child application (owner decision 2026-11-10)', async () => {
+    const facts = { workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana', criminalRecord: 'no', debtRecord: 'yes' };
+    const saved = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'saveProfile', applicantName: 'Candidate Example', applicantEmail: 'candidate@example.test', candidateFacts: facts },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(saved.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toMatchObject({ candidateFacts: facts });
+    expect((saved.body as any).service.candidateFacts).toEqual(facts);
+
+    // A value outside the lists is refused, never stored.
+    const refused = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'saveProfile', applicantName: 'Candidate Example', applicantEmail: 'candidate@example.test', candidateFacts: { ...facts, criminalRecord: 'maybe' } },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(refused).toMatchObject({ status: 400, body: { ok: false, error: 'invalid_candidate_details' } });
+    expect(mocks.documents.get('application_concierge_services/service-1')).toMatchObject({ candidateFacts: facts });
+
+    const accepted = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(accepted.status).toBe(200);
+    expect(mocks.documents.get(`assisted_applications/${(accepted.body as any).childApplicationId}`)).toMatchObject({ candidateFacts: facts });
+  });
+
   it('blocks candidate acceptance at the product cap even when a legacy service stores a larger limit', async () => {
     const key = 'application_concierge_services/service-1';
     mocks.documents.set(key, { ...mocks.documents.get(key), maxPositions: 20, acceptedPositionsCount: 10 });

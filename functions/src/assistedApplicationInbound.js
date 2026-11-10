@@ -16,7 +16,10 @@
  *      classification in `assisted_applications/{id}/inbox`;
  *   5. the message goes to the candidate at once — full text, attachments up to
  *      10 MB, our one-line summary on top, Reply-To set to the authenticated
- *      source Reply-To (or the source From) so the candidate answers them directly;
+ *      source Reply-To (or the source From) so the candidate answers them directly.
+ *      Never forwarded: a portal's verification or account mail the runner
+ *      holds, and the employer's automatic receipt of the application, which
+ *      asks for nothing (automaticApplicationReceipt; the concierge shows it);
  *   6. an acknowledgement or a reply of the employer settles a submission of
  *      unknown outcome (career-ops: "sent" on the success page OR the
  *      confirmation e-mail): see confirmSubmissionByEmployer.
@@ -31,7 +34,7 @@ import {
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
-import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -271,9 +274,15 @@ const VERIFICATION_CODE_RE = /(?:\b(?:code|codice)\s+(?:confidentiel|de vérific
 // «Registrierungsbestätigung Stellenportal der Coop-Gruppe», sent when the
 // runner creates the account, before any application): never a receipt, which
 // would confirm a held submission and tell the candidate the employer has it.
-const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé)/i;
+const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet|er[öo]ffnet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé|(thanks|thank you) for (your )?(registration|registering|signing up)|(your )?registration (on|at|with|to) [^.\n]{0,60}(was|has been|is) (successful|complete|completed|confirmed)|you have (successfully )?(registered|created (an?|your) (account|profile))|(vielen )?dank f[üu]r (ihre |deine |die )?(registrierung|profilerstellung|kontoerstellung)|(du hast|sie haben) [^.\n]{0,60}(ein|ihr|dein) (benutzer|bewerbungs)?(profil|konto) (erstellt|angelegt|er[öo]ffnet)|grazie per (la tua |la sua |la )?registrazione|registrazione (è stata )?(completata|effettuata) con successo|merci (pour|de) votre inscription|votre inscription (a été |est )?(confirmée|réussie|enregistrée|validée))/i;
+// SBB (2026-11-10): «Vielen Dank für die Profilerstellung … Du hast im Karriereportal ein Profil erstellt»;
+// Damiani (same day): «Thanks for your registration! … Your registration on the site was successful.»
+// The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
+const ACCOUNT_ACTIVATED_RE = /((ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(aktiviert|freigeschaltet|best[aä]tigt|verifiziert)|(your )?(account|profile) (has been |was |is (now )?)?(successfully )?(activated|verified|confirmed)|(il tuo |il suo )?(account|profilo) (è stato )?(attivato|verificato|confermato)|(votre )?(compte|profil) (a été )?(activé|vérifié|confirmé))/i;
+const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
-const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(eingegangen|erhalten)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(received|submitted)|candidatura (è stata )?(ricevuta|inviata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise)|reçu votre candidature)/i;
+// The federal SuccessFactors tenant (2026-11-10): «Ihre Bewerbung ist bei uns angekommen».
+const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
 
 /** An "acknowledgement" that only confirms a portal account is the account's own mail. */
 export function correctedCategory(category, { subject = '', text = '' } = {}) {
@@ -348,17 +357,18 @@ const VERIFY_REQUEST_RE = phrases([
 const VERIFICATION_NAMED_RE = phrases([
   String.raw`(?:verification|confirmation|activation|security|verifizierungs|best[aä]tigungs|aktivierungs|sicherheits)[- ]?(?:code|link)`,
   // «Der Code für die Verifizierung Ihres Bewerbungskontos lautet …» (Federal Administration, SuccessFactors).
-  String.raw`(?:code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
+  // «Dein Passcode für die Aktivierung deines Kontos lautet …» (SBB, SuccessFactors).
+  String.raw`(?:(?:pass)?code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
   String.raw`(?:codice|link) di (?:verifica|conferma|attivazione)`,
   String.raw`(?:code|lien) de (?:v[eé]rification|confirmation|activation)`,
-  String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|code)`,
+  String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|kennwort|code)|einmalige[rn]? passcode`,
   String.raw`(?:e-?mail|account)[- ](?:verification|verifizierung)|verifica (?:dell['’]|del |della )?(?:account|e-?mail|indirizzo)|v[eé]rification (?:de (?:votre |l['’])|d['’])?(?:compte|e-?mail|adresse)`,
 ].join('|'));
 const RECEIPT_WORD_RE = phrases(String.raw`received|erhalten|eingegangen|ricevut\p{L}*|reçu\p{L}*`);
 const LINK_WORD_RE = phrases(String.raw`link|lien|collegamento|click|klicken|clicca|cliquez`);
 const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rifier|v[eé]rification|verification`);
 // Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
-const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
+const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|einmalige[rnsm]? (?:passcode|code|kennwort|passwort)|einmal(?:passcode|kennwort|passwort|code)|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:(?:pass)?code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
 
 const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
 const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
@@ -470,7 +480,8 @@ function categoryOfSentences(sentences, topic, body) {
   if (any(requestsDocuments)) return 'documents_request';
   if (any(acknowledgesApplication)) return 'auto_acknowledgement';
   if (!body.length && topic.some(namesInterview)) return 'interview_invite';
-  if (ACCOUNT_NOTICE_RE.test(sentences.join('\n'))) return 'verification';
+  const all = sentences.join('\n');
+  if (ACCOUNT_NOTICE_RE.test(all) || ACCOUNT_ACTIVATED_RE.test(all) || PASSWORD_CHANGED_RE.test(all)) return 'verification';
   return 'other';
 }
 
@@ -492,6 +503,103 @@ function readByRules({ subject = '', text = '' }) {
     verificationAsked: sentences.some(asksAccountVerification),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
+}
+
+/**
+ * A portal's own service mail about an account and nothing else (the federal
+ * SuccessFactors tenant, 2026-11-10: «Ihr Bewerbungskonto wurde erfolgreich
+ * erstellt. Hier … können Sie Bewerbungen erfassen»): `created`, `activated` or
+ * `password_changed`, else ''. Both the model's category and the rules must
+ * agree, and no sentence may carry an employer's own purpose (an interview, a
+ * refusal, an offer, a test, a document request, a receipt) or a verification
+ * request, which keeps its own path.
+ */
+export function portalAccountNoticeKind(message, classification = {}) {
+  if (classification.category !== 'verification' || classification.needsReply === true
+    || classification.interviewWhen || (classification.requestedDocuments || []).length) return '';
+  const rules = readByRules(message);
+  if (rules.verificationAsked) return '';
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  if (sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+    || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || acknowledgesApplication(sentence))) return '';
+  const all = sentences.join('\n');
+  if (PASSWORD_CHANGED_RE.test(all)) return 'password_changed';
+  if (ACCOUNT_ACTIVATED_RE.test(all)) return 'activated';
+  if (ACCOUNT_NOTICE_RE.test(all)) return 'created';
+  return '';
+}
+
+// A machine says it wrote the message: an RFC 3834 header, a no-reply mailbox,
+// or its own words. A person's reply carries none of them.
+const AUTOMATED_TEXT_RE = phrases([
+  String.raw`automatisch\p{L}* (?:generiert|erstellt|erzeugt|versandt|versendet|verschickt)\p{L}*|automatische\p{L}* (?:e-?mail|nachricht|antwort|benachrichtigung|mitteilung|best[aä]tigung|eingangsbest[aä]tigung)`,
+  String.raw`automatically (?:generated|sent|created)|auto-?generated|automated (?:message|e-?mail|response|reply|notification)|automatic (?:message|e-?mail|response|reply|notification|confirmation)`,
+  String.raw`(?:generat\p{L}*|inviat\p{L}*) automaticamente|(?:messaggio|e-?mail|mail|risposta|notifica|conferma) (?:generat\p{L}* )?automatic\p{L}*`,
+  String.raw`(?:g[ée]n[ée]r[ée]\p{L}*|envoy[ée]\p{L}*) automatiquement|(?:message|e-?mail|courriel|r[ée]ponse|notification|confirmation) automatique`,
+].join('|'));
+// «bitte antworten Sie nicht darauf», «please do not reply to this e-mail», «non rispondere», «ne pas répondre».
+const NO_REPLY_SOURCE = String.raw`(?:please\s+)?(?:do not|don['’]t)\s+reply(?:\s+(?:to|on)\s+(?:this|it)(?:\s+(?:e-?mail|message))?)?|(?:bitte\s+)?(?:antworten sie|antworte)\s+nicht(?:\s+(?:direkt\s+)?(?:darauf|auf diese\s+\p{L}+))?|(?:bitte\s+)?nicht\s+(?:direkt\s+)?(?:darauf|auf diese\s+\p{L}+)\s+(?:zu\s+)?antworten|(?:si prega di\s+|per favore\s+|ti preghiamo di\s+|la preghiamo di\s+)?non\s+rispondere(?:\s+a\s+questa\s+\p{L}+)?|(?:merci de\s+|veuillez\s+)?ne\s+(?:pas\s+)?r[ée]pond(?:re|ez)(?:\s+pas)?(?:\s+[àa]\s+ce(?:t)?\s+\p{L}+)?`;
+const NO_REPLY_TEXT_RE = phrases(NO_REPLY_SOURCE);
+const NO_REPLY_TEXT_ALL_RE = new RegExp(NO_REPLY_TEXT_RE.source, 'giu');
+const NO_REPLY_MAILBOX_RE = /(?:^|[._+-])(?:no[._-]?reply|do[._-]?not[._-]?reply|ne[._-]?pas[._-]?repondre|non[._-]?rispondere)(?:$|[._+-])/i;
+const AUTOMATED_HEADER = { 'auto-submitted': /^(?!no\b)\S/i, 'x-autoreply': /\S/, 'x-autorespond': /\S/, precedence: /^(?:auto_reply|bulk|junk)\b/i };
+// A sentence that asks the reader to do something; «merci de votre candidature» thanks, it does not ask.
+const ASK_RE = phrases(String.raw`please|kindly|bitte|wir bitten|bitten wir|per favore|la preghiamo|ti preghiamo|vi preghiamo|si prega|(?:ti|le|vi) chiediamo|(?:la|ti|vi) invitiamo|veuillez|merci de(?!\s+(?:votre|vos|ton|ta|tes|nous avoir|l['’]int[ée]r[êe]t|avoir))|nous vous (?:prions|invitons|demandons)|we (?:ask|invite) you|(?:you|sie|du) (?:must|need to|are required to|m[üu]ssen|musst)|devi|deve|dovr\p{L}*|vous devez|tu dois`);
+const ACTION_VERB_RE = phrases([
+  String.raw`complete|fill|send|upload|submit|provide|confirm|click|log ?in|sign(?: in)?|answer|reply|respond|call|contact|book|schedule|select|choose|update|verify|register`,
+  String.raw`ausf[üu]ll\p{L}*|erg[äa]nz\p{L}*|vervollst[äa]ndig\p{L}*|(?:zu|ein|über)?send\p{L}*|schick\p{L}*|hochlad\p{L}*|laden|lade|ladet|(?:ein|nach)reich\p{L}*|best[äa]tig\p{L}*|klick\p{L}*|anmeld\p{L}*|einlogg\p{L}*|antwort\p{L}*|kontaktier\p{L}*|w[äa]hl\p{L}*|anruf\p{L}*|rufen|registrier\p{L}*`,
+  String.raw`compil\p{L}*|complet\p{L}*|invia\p{L}*|invii|caric\p{L}*|conferm\p{L}*|clicc\p{L}*|acced\p{L}*|rispond\p{L}*|contatt\p{L}*|scegli\p{L}*|selezion\p{L}*|prenot\p{L}*|fornir\p{L}*|forni\p{L}*|registr\p{L}*`,
+  String.raw`rempli\p{L}*|compl[ée]t\p{L}*|envoy\p{L}*|t[ée]l[ée]charg\p{L}*|confirm\p{L}*|cliqu\p{L}*|connect\p{L}*|r[ée]pond\p{L}*|contact\p{L}*|choisi\p{L}*|s[ée]lectionn\p{L}*|r[ée]serv\p{L}*|fourni\p{L}*|transmet\p{L}*|inscri\p{L}*`,
+].join('|'));
+// «If you have questions, please contact us» offers help, it asks for nothing.
+const QUESTIONS_OFFER_RE = phrases(String.raw`questions?|fragen|r[üu]ckfragen|domande|dubbi|chiarimenti|informazioni|informations?`);
+
+function automatedMessage(message) {
+  const headers = Array.isArray(message.headers) ? message.headers : [];
+  if (headers.some(([key, value]) => AUTOMATED_HEADER[key]?.test(String(value || '').trim()))) return true;
+  const local = /^([^@\s]+)@[^@\s]+$/.exec(singleMailboxAddress(message.from) || '')?.[1] || '';
+  if (local && NO_REPLY_MAILBOX_RE.test(local)) return true;
+  const own = normalizedMail(ownMessageText(String(message.text || '').replace(/\r\n?/g, '\n').slice(0, 20_000)));
+  return AUTOMATED_TEXT_RE.test(own) || NO_REPLY_TEXT_RE.test(own);
+}
+
+// The clauses of a sentence: «Please confirm your availability; if you have questions, contact us» asks in its
+// first clause whatever the help offer of the second says.
+const CLAUSE_SPLIT_RE = /\s*;\s*|\s+(?:and|und|sowie|e|ed|et)\s+/iu;
+const asksForAction = (sentence) => {
+  const rest = sentence.replace(NO_REPLY_TEXT_ALL_RE, ' ');
+  return ASK_RE.test(rest) && (DOCUMENT_NOUN_RE.test(rest)
+    || rest.split(CLAUSE_SPLIT_RE).some((clause) => ACTION_VERB_RE.test(clause) && !QUESTIONS_OFFER_RE.test(clause)));
+};
+
+/**
+ * An employer's automatic receipt of the application and nothing else (the
+ * federal SuccessFactors tenant, 2026-11-10: «Vielen Dank für Ihr Interesse an
+ * der Stelle … Ihre Bewerbung ist bei uns angekommen … Dies ist eine
+ * automatisch generierte E-Mail, bitte antworten Sie nicht darauf»): a system
+ * signal for the order, never news to forward. It still records the employer's
+ * acknowledgement and settles a submission of unknown outcome; the candidate
+ * reads it on the Application Concierge page.
+ *
+ * Everything must agree, else the message goes to the candidate as before:
+ * the model and the rules both read an acknowledgement, the message says it was
+ * generated by a machine, it asks for nothing (no reply, interview, document,
+ * test, verification, question or action of any kind), mentions no interview,
+ * and carries no file but images.
+ */
+export function automaticApplicationReceipt(message, classification = {}) {
+  if (classification.category !== 'auto_acknowledgement' || classification.needsReply === true
+    || classification.interviewWhen || (classification.requestedDocuments || []).length
+    || classification.verificationCode || classification.verificationUrl) return false;
+  if ((message.attachments || []).some((item) => !/^image\//i.test(String(item?.contentType || '')))) return false;
+  const rules = readByRules(message);
+  if (rules.category !== 'auto_acknowledgement' || rules.verificationAsked) return false;
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  if (!sentences.some(acknowledgesApplication)) return false;
+  if (sentences.some((sentence) => namesInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+    || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || asksAccountVerification(sentence)
+    || asksForAction(sentence) || /\?\s*$/.test(sentence))) return false;
+  return automatedMessage(message);
 }
 
 /**
@@ -784,6 +892,22 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
   return account ? String(account.host).toLowerCase() : '';
 }
 
+/**
+ * The host of the order's portal account a life-cycle notice is about, pending
+ * or verified: its sole link on that exact host, else the sender bound as for a
+ * code (portalAccountForNotice). The runner reads a `created`/`activated`
+ * notice as proof that its OTP was accepted; it never opens the notice's link.
+ */
+async function accountNoticeHost(orderRef, { authenticated, sender, sourceText, receivedAt }) {
+  if (!authenticated) return '';
+  const senderMatch = /^[^@\s]+@([^@\s]+)$/i.exec(String(sender || ''));
+  return portalAccountForNotice(await portalAccountsForOrder(orderRef), {
+    link: soleSecureLink(String(sourceText || '')),
+    senderHost: senderMatch?.[1].toLowerCase() || '',
+    receivedAt,
+  });
+}
+
 export async function claimedByPortalAccount(orderRef, classification, sender = '', context = {}) {
   return Boolean(await verificationAccountHost(orderRef, classification, sender, context));
 }
@@ -921,8 +1045,9 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const order = orderSnapshot.data() || {};
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
-    if (!to || inbox.portalVerificationHost) {
-      const status = inbox.portalVerificationHost ? 'skipped' : 'failed';
+    const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt);
+    if (!to || keptFromCandidate) {
+      const status = keptFromCandidate ? 'skipped' : 'failed';
       await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
       return { forwarded: status };
     }
@@ -1116,10 +1241,26 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // that portal's site, or a code. Anything else reaches the candidate.
     const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
     const consumedByRunner = Boolean(portalVerificationHost);
+    // A portal's own account mail (created, activated, password changed) for an
+    // account the runner holds for this order is the runner's, not news for the
+    // candidate: recorded, never forwarded. Real employer content never qualifies.
+    const portalAccountNotice = consumedByRunner ? '' : portalAccountNoticeKind(message, classification);
+    const portalAccountNoticeHost = portalAccountNotice
+      ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
+      : '';
+    // The employer's automatic receipt of the application is a system signal:
+    // recorded below as its acknowledgement (and proof of a submission of unknown
+    // outcome), shown on the Application Concierge page, never forwarded.
+    const applicationReceipt = !consumedByRunner && !portalAccountNoticeHost && automaticApplicationReceipt(message, classification);
+    const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt;
     const to = customerEmailFor(order);
     const initialDelivery = consumedByRunner
       ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
-      : to
+      : portalAccountNoticeHost
+        ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
+        : applicationReceipt
+        ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : to
         ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
         : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
 
@@ -1147,6 +1288,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...classification,
         correlationStatus: RECEIPT_CATEGORIES.has(classification.category) ? 'verified' : 'unknown',
         portalVerificationHost,
+        ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
+        ...(applicationReceipt ? { automaticApplicationReceipt: true } : {}),
         forwardDelivery: initialDelivery,
         forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
@@ -1163,7 +1306,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     });
     if (!recorded) return { ok: true, skipped: true };
     let forwarded = (await ref.get()).data()?.forwarded?.status || null;
-    if (to && !consumedByRunner) {
+    if (to && !keptFromCandidate) {
       const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
       forwarded = delivery.forwarded || forwarded;
     }

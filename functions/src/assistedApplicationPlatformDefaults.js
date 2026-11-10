@@ -5,22 +5,33 @@
  * 178 questions on 34 paid orders) are now answered by the platform instead:
  *
  *   - postal code, country of residence: deduced from the town in the CV
- *     (public GeoNames directory, data/platform-postal-codes.json);
+ *     (public GeoNames directory, data/platform-postal-codes.json); without a
+ *     town nor a country stated by the CV or the order, the country of residence
+ *     comes from the upload answers (uploadResidenceCountry, owner 2026-11-10);
  *   - street and house number, when a form requires them and the CV has none:
  *     one of a fixed list of common Italian street names and a number 1-101,
  *     chosen deterministically from the candidate so every run sends the same;
  *   - form of address: from the first name, never asked;
  *   - language levels: from the CV;
  *   - salary expectation: the maximum of the job's salary estimate;
- *   - workload 100%; notice period and start date 3 months after submission;
+ *   - workload 100%; notice period and start date 3 months after submission
+ *     (a start date or a workload the candidate stated in their reply wins: order.candidateStatements);
  *   - privacy notices and audio-recording consent accepted, marketing declined;
  *   - date of birth, when the CV does not state it: the year the candidate
  *     was 18 (end of the Maturità, or start of university), on 1 January;
  *   - civil status: married above 35, single otherwise;
- *   - willing to relocate, to work hybrid and to be on call.
+ *   - willing to relocate, to work hybrid, to be on call and to travel for business (travel: 2026-11-10);
+ *   - profile visibility / internal forwarding (2026-11-10): the broadest audience inside the same employer
+ *     («Alle Recruiter*innen der Stadt Zürich»), never a third party, the public or a marketing list.
+ *
+ * What no rule here covers goes to the decision engine (assistedApplicationDecisionAnswers.js).
  *
  * The work permit, the passport (Swiss / EU-EFTA / other) and the nationality
- * are asked at CV upload instead (order.candidateFacts).
+ * are asked at CV upload instead (order.candidateFacts). So are, since
+ * 2026-11-10, the two legal facts nobody may invent: an entry in the criminal
+ * record and one in the debt-enforcement or bankruptcy register. A portal's
+ * yes/no on them is answered from those answers (legalRecordValue); an order
+ * uploaded before has none, and the question stays the candidate's.
  *
  * Every value here is a platform choice, not a candidate statement: it is
  * projected with `source: 'policy_default'` (assistedApplicationOperationalAnswers.js)
@@ -41,7 +52,12 @@ import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusFi
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v1';
+// v2 (2026-11-10): business travel and profile visibility inside the employer.
+// v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
+// v4 (2026-11-10): first and correspondence language, the Swiss Army school of a candidate who is not Swiss.
+// v5 (2026-11-10): the residence canton or province, from the CV town.
+// v6 (2026-11-10): an entry in the criminal record or in the debt-enforcement register, from the upload answers.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v6';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -149,7 +165,7 @@ function seedNumber(seed, salt) {
   return createHash('sha256').update(`${salt}\u0000${seed}`).digest().readUInt32BE(0);
 }
 
-const MATURITY_RE = /\b(?:matur\w*|diploma (?:di )?(?:scuola )?(?:media )?superiore|diploma di (?:maturita|liceo|istituto|ragioneria|geometra|perito)|diploma quinquennale|liceo|istituto tecnico|istituto professionale|ragioneria|perito|geometra|high school|secondary school diploma|abitur|baccalaur\w*|gymnas\w*|kantonsschule|liceo cantonale|scuola cantonale di commercio)\b/;
+const MATURITY_RE = /\b(?:matur\w*|diploma (?:di )?(?:scuola )?(?:media )?superiore|diploma di (?:maturita|liceo|istituto|ragioneria|geometra|perito)|diploma quinquennale|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|ipsar|ragioneria|perito|geometra|high school|secondary school diploma|upper secondary|technical (?:high )?school|vocational (?:school|diploma)|abitur|baccalaur\w*|gymnas\w*|kantonsschule|liceo cantonale|scuola cantonale di commercio|efz|eidgenossisches fahigkeitszeugnis|afc|attestato federale di capacita|cfc|certificat federal de capacite|lehrabschluss)\b/;
 const UNIVERSITY_RE = /\b(?:laurea|universit\w*|politecnico|bachelor|master|msc|bsc|ba|ma|phd|dottorato|ingegneria|degree|hochschule|fachhochschule|supsi|usi|eth|epfl|haute ecole|accademia|academy)\b/;
 
 function yearOf(value) {
@@ -171,9 +187,45 @@ export function platformDateOfBirth(profile = {}) {
     .map((item) => yearOf(item?.end) || (yearOf(item?.start) ? yearOf(item.start) + 5 : null)).filter(Boolean);
   const university = education.filter((item) => UNIVERSITY_RE.test(text(item)))
     .map((item) => yearOf(item?.start)).filter(Boolean);
+  // A CV whose titles name neither (an English or a vocational title, «Maintenance and Technical Support»,
+  // Damiani 2026-11-10): the same rule over its education as listed. Its first school finished is the
+  // school-leaving one; with university-level entries only, the first one started.
+  const dated = education.filter((item) => !UNIVERSITY_RE.test(text(item)));
+  const leaving = dated.map((item) => yearOf(item?.end)).filter(Boolean);
+  const started = education.map((item) => yearOf(item?.start)).filter(Boolean);
   const year = maturity.length ? Math.min(...maturity) - PLATFORM_SCHOOL_LEAVING_AGE
-    : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE : null;
+    : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE
+      : leaving.length ? Math.min(...leaving) - PLATFORM_SCHOOL_LEAVING_AGE
+        : started.length ? Math.min(...started) - PLATFORM_SCHOOL_LEAVING_AGE : null;
   return year ? { value: `${year}-01-01`, estimated: true } : null;
+}
+
+// The level of a title of study, highest first (owner mandate 2026-11-10: the education level comes from the
+// CV, its highest and latest title). A title is read against the most specific level first: «Associate degree»
+// is not a bachelor, «Diploma di laurea» is not a school diploma. The same reader ranks a portal's options.
+const EDUCATION_LEVELS = [
+  [6, /\b(?:phd|ph d|doctorate|doctoral|dottorato|doktor\w*|doctorat)\b/],
+  [5, /\b(?:master\w*|msc|mba|laurea (?:magistrale|specialistica)|magistrale|specialistica|diplom ingenieur|lizenziat\w*|licence de master)\b/],
+  [3, /\b(?:associate (?:degree|diploma)|higher (?:national )?diploma|istruzione tecnica superiore|ifts|hohere fachschule|hf|eidgenossisch\w* diplom|brevetto federale|diploma federale|federal (?:diploma|certificate)|post ?secondary|technicien es|tecnico superiore|istituto tecnico superiore|its academy|fondazione its)\b/],
+  [4, /\b(?:bachelor\w*|bsc|laurea|licence|university degree|college degree|degree|universit\w*|politecnico|fachhochschule|hochschule|haute ecole|hes|supsi|eth|epfl)\b/],
+  [2, /\b(?:matur\w*|diploma|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|perito|ragioneria|geometra|high school|(?<!lower )secondary|abitur|baccalaur\w*|gymnas\w*|kantonsschule|vocational|apprentice\w*|apprendist\w*|lehre|lehrabschluss|efz|afc|cfc|fahigkeitszeugnis|attestato federale di capacita|certificat federal de capacite|qualifica professionale|berufsausbildung|formation professionnelle)\b/],
+  [1, /\b(?:licenza media|scuola media|middle school|lower secondary|primary|elementary|sekundarschule|realschule|hauptschule|scuola dell obbligo|compulsory|obligatoire)\b/],
+];
+
+/** The level of one title or option, or null when it names none. */
+export function educationLevelRank(value) {
+  const text = fold(value);
+  if (!text) return null;
+  for (const [rank, re] of EDUCATION_LEVELS) if (re.test(text)) return rank;
+  return null;
+}
+
+/** The candidate's highest level of study in the CV (degree first, then institution), or null. */
+export function platformEducationLevel(profile = {}) {
+  const ranks = (Array.isArray(profile?.education) ? profile.education : [])
+    .map((item) => educationLevelRank(item?.degree) ?? educationLevelRank(item?.institution))
+    .filter((rank) => rank !== null);
+  return ranks.length ? Math.max(...ranks) : null;
 }
 
 export function ageOn(dateOfBirth, nowMs = Date.now()) {
@@ -188,6 +240,35 @@ export function ageOn(dateOfBirth, nowMs = Date.now()) {
 /** Same day, three months later, in Zurich: the one definition the review page proposes too. */
 export function platformStartDate(nowMs = Date.now()) {
   return defaultStartDate(nowMs);
+}
+
+/** The candidate's own statements read from their reply (order.candidateStatements), or {}. */
+export function candidateStatementsOf(order = {}) {
+  const value = order?.candidateStatements;
+  return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+}
+
+/**
+ * The start date the candidate stated, as a form takes it: their date, or today once it has passed (they are
+ * available from then on). '' when they stated none.
+ */
+export function statedStartDate(order = {}, nowMs = Date.now()) {
+  const stated = String(candidateStatementsOf(order).startDate || '');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(stated)) return '';
+  const today = zurichToday(nowMs);
+  return stated < today ? today : stated;
+}
+
+/**
+ * The workload a workload field takes: the percentage the candidate stated, else the platform's 100 % — which
+ * full time, or «full or part time», agrees with. Part time only, with no percentage: null, never 100 %.
+ */
+export function statedWorkloadPercent(order = {}) {
+  const workload = candidateStatementsOf(order).workload;
+  if (!workload || typeof workload !== 'object') return PLATFORM_WORKLOAD_PERCENT;
+  const percent = Number(workload.percent);
+  if (Number.isInteger(percent) && percent >= 10 && percent <= 100) return percent;
+  return workload.partTime && !workload.fullTime ? null : PLATFORM_WORKLOAD_PERCENT;
 }
 
 /** The maximum of the job's salary estimate, annual: order.salaryMax/baseSalary, written at checkout or by the automation. */
@@ -230,7 +311,10 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const directory = town ? platformPostalCode(town, { region, country: statedCountry }) : null;
   const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
     : fromCity.statedPostal || fromLocation.statedPostal;
-  const country = statedCountry || directory?.country || '';
+  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
+  // The upload answers name the country only for a CV with no town at all: a town the
+  // directory cannot place is not evidence of the permit's or nationality's country.
+  const country = statedCountry || directory?.country || (town ? '' : uploadResidenceCountry(uploaded));
   const postalCode = statedPostal || directory?.code || '';
   const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
   const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
@@ -247,7 +331,6 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const languages = (Array.isArray(profile?.languages) ? profile.languages : [])
     .map((entry) => ({ code: languageCodesIn(entry?.language || '')[0] || '', level: clean(entry?.level, 80) }))
     .filter((entry) => entry.code);
-  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
@@ -270,38 +353,76 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
       city: town,
       country,
       countryName: countryName(country, language),
+      // The canton or province of the town: the one the CV states, else the directory's for that town.
+      region: region || (directory && (!country || directory.country === country) ? directory.region : '') || '',
       synthesizedStreet: !statedStreet,
     },
     salutation,
     dateOfBirth: birth?.value || '',
     dateOfBirthEstimated: Boolean(birth?.estimated),
+    educationLevel: platformEducationLevel(profile),
     age,
     civilStatus,
     civilStatusLabel: civilStatus ? civilStatusOptions(language)[CIVIL_STATUS_ORDER.indexOf(civilStatus)] || '' : '',
     civilStatusEstimated: !statedCivil && Boolean(civilStatus),
     languages,
     salary: platformSalary(order),
-    startDate: platformStartDate(nowMs),
+    // What the candidate stated in their reply (assistedApplicationCandidateReply.js) wins over the rule.
+    startDate: statedStartDate(order, nowMs) || platformStartDate(nowMs),
+    startDateStated: Boolean(statedStartDate(order, nowMs)),
     noticeMonths: PLATFORM_NOTICE_MONTHS,
-    workloadPercent: PLATFORM_WORKLOAD_PERCENT,
+    workloadPercent: statedWorkloadPercent(order),
     permitStatus,
     nationality,
     passport,
+    // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
+    criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
+    debtRecord: legalRecordAnswer(uploaded.debtRecord),
   };
+}
+
+/**
+ * The country of residence the upload answers say, for a CV that names no town and no country (owner
+ * decision 2026-11-10): a Swiss residence permit (B, C, L) lives in Switzerland; any other answer (Swiss
+ * citizen, cross-border G, none) the country of the declared nationality. '' when the platform cannot name
+ * that country on a form (COUNTRY_NAMES): the field then stays the candidate's question.
+ */
+export function uploadResidenceCountry(uploaded = {}) {
+  if (['permit_b', 'permit_c', 'permit_l'].includes(uploaded?.workPermit)) return 'CH';
+  const code = nationalityOf(uploaded?.nationality)?.code || countryCodeOf(uploaded?.nationality);
+  return COUNTRY_NAMES[code] ? code : '';
 }
 
 /** The upload-time answers (order.candidateFacts, owner decision 2026-11-09). */
 export const CANDIDATE_PASSPORTS = Object.freeze(['swiss', 'eu_efta', 'other']);
 const UPLOAD_PERMITS = new Set(['swiss', 'permit_c', 'permit_b', 'permit_l', 'permit_g', 'none']);
 
-/** The candidate's upload answers as stored, or null when the input is not a complete, valid set. */
+/**
+ * The two legal facts asked at CV upload (owner decision 2026-11-10): an entry in the criminal record, an entry
+ * in the debt-enforcement or bankruptcy register. Each is 'no' or 'yes'; an order uploaded before has neither.
+ */
+export const CANDIDATE_LEGAL_FACTS = Object.freeze(['criminalRecord', 'debtRecord']);
+const LEGAL_RECORD_ANSWERS = Object.freeze(['no', 'yes']);
+const legalRecordAnswer = (value) => (LEGAL_RECORD_ANSWERS.includes(value) ? value : '');
+
+/**
+ * The candidate's upload answers as stored, or null when the input is not a complete, valid set. The legal facts
+ * are optional (an order or a page opened before they were asked), but a value given must be 'no' or 'yes'.
+ */
 export function sanitizeCandidateFacts(value) {
   if (!value || typeof value !== 'object') return null;
   const workPermit = clean(value.workPermit, 20);
   const passport = clean(value.passport, 20);
   const nationality = clean(value.nationality, 80);
   if (!UPLOAD_PERMITS.has(workPermit) || !CANDIDATE_PASSPORTS.includes(passport) || !nationality) return null;
-  return { workPermit, passport, nationality };
+  const legal = {};
+  for (const key of CANDIDATE_LEGAL_FACTS) {
+    const answer = clean(value[key], 5);
+    if (!answer) continue;
+    if (!LEGAL_RECORD_ANSWERS.includes(answer)) return null;
+    legal[key] = answer;
+  }
+  return { workPermit, passport, nationality, ...legal };
 }
 
 /**
@@ -346,6 +467,10 @@ const STREET_NAME_ONLY = /\b(?:nome (?:della )?(?:sua |tua )?via|street name|str
 const NOT_ADDRESS = /\b(?:whatsapp|sms|telefon\w*|phone|cellulare|mobile|handy|e ?mail|email|courriel)\b/;
 const AGE_LIMIT = /\b(?:(meno di|under|unter|moins de|almeno|at least|mindestens|au moins|piu di|over|uber|plus de))\s+(\d{1,2})\s+(?:anni|years?|jahre?|ans)\b/;
 const CITY = /\b(?:citta|city|ort|wohnort|localita|ville|town|comune|lieu|gemeinde)\b/;
+// The canton or province of the address («State», «Kanton», «Canton», «Provincia», «Region»); never «Stato», the country.
+const REGION = /\b(?:state|province|provinz|provincia|kanton|canton|cantone|region|regione|bundesland|county|departement|department)\b/;
+// A region the candidate would work in is a preference, not the address («Preferred region», «Arbeitsregion»).
+const REGION_PREFERENCE = /\b(?:prefer\w*|desired|wish\w*|wunsch\w*|gewunscht\w*|bevorzug\w*|preferit\w*|desiderat\w*|souhait\w*|einsatz\w*|arbeits\w*|work\w*|lavoro|travail|job|stelle|mobilit\w*)\b/;
 const COUNTRY = /\b(?:paese|nazione|country|land|pays|stato)\b/;
 const RESIDENCE = /\b(?:residen\w*|domicil\w*|wohn\w*|vivi|abiti|live|living|reside)\b/;
 const CITIZENSHIP = /\b(?:nazionalita|nationalit\w*|staatsangeh\w*|citizenship|cittadinanza|citoyennete|passport|passaporto|passeport|pass|nascita|birth|geburt)\b/;
@@ -359,9 +484,79 @@ const HYBRID = /\b(?:ibrid\w*|hybrid\w*|hybride|homeoffice|home office|telelavor
 const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
 const RECORDING = /\b(?:registrazion\w*|recording|recorded|aufnahme\w*|aufzeichn\w*|enregistr\w*|audio)\b/;
 const CONSENT = /\b(?:consens\w*|acconsent\w*|consent\w*|einwillig\w*|zustimm\w*|autoris\w*|accett\w*|accept\w*|informato|informed)\b/;
-const MARKETING = /\b(?:newsletter\w*|marketing|promozional\w*|pubblicit\w*|werbung|werbe\w*|publicit\w*|offerte commerciali|job alert\w*|talent pool|talent community|corsi|academy|opportunita di formazione|weitere angebote|offres commerciales|informazioni (?:su|sulle|riguardo))\b/;
+const MARKETING = /\b(?:newsletter\w*|marketing|promozional\w*|pubblicit\w*|werbung|werbe\w*|publicit\w*|offerte commerciali|job ?alert\w*|jobabo\w*|talent ?pool\w*|talent community|corsi|academy|opportunita di formazione|weitere angebote|offres commerciales|informazioni (?:su|sulle|riguardo))\b/;
 const PRIVACY = /\b(?:informativa|privacy|datenschutz\w*|protection des donnees|donnees personnelles|trattamento dei (?:tuoi )?dati|dati personali|data protection|personal data|privacy notice|privacy policy)\b/;
 const LANGUAGE_LEVEL = /\b(?:livello|level|niveau|proficiency|fluency|fluent|conoscenz\w*|kenntnis\w*|competenz\w*|parli|speak|sprechen|parlez|sprachkenntnisse)\b/;
+// Business travel (owner decision 2026-11-10: availability is always yes, like relocation and on-call duty).
+const TRAVEL = /\b(?:business travel\w*|travel\w*|trasfert\w*|viagg\w*|reisebereitschaft|reisetatigkeit\w*|reisen|dienstreise\w*|geschaftsreise\w*|deplacement\w*|voyag\w*)\b/;
+const AVAILABLE = /\b(?:availab\w*|willing\w*|ready|prepared|open to|dispost\w*|disponibil\w*|bereit\w*|bereitschaft|disponible\w*|pret\w*|can you|are you able|potresti|sei in grado|konnen sie|pouvez vous)\b/;
+const TRAVEL_NOT_AVAILABILITY = /\b(?:cost\w*|spes\w*|kosten|frais|reimburs\w*|rimbors\w*|ruckerstatt\w*|visa|visto|percent\w*|percentuale|prozent|pour ?cent|how often|quanto spesso|wie oft|combien de fois|how much|quanti giorni|wie viele tage)\b/;
+
+// Visibility of the candidate's profile, or forwarding of the application, inside the employer (owner decision
+// 2026-11-10, Stadt Zürich: «Eigenes Profil sichtbar machen für: Alle Recruiter*innen der Stadt Zürich …
+// erforderlich, damit Ihre Bewerbung stadtintern weitergeleitet werden kann»). It serves the application and is
+// not marketing: the broadest audience inside the same employer is chosen. Never a third party, the public,
+// another company of a group or a marketing list.
+const VISIBILITY = /\b(?:profil\w* (?:\w+ )?(?:sichtbar\w*|visib\w*)|sichtbar\w* (?:machen )?fur|sichtbarkeit|visibilit\w*|visible (?:to|for|a|pour|per)|rendere visibile|rendre (?:\w+ )?(?:profil|candidature|dossier) visible|chi puo vedere|who can (?:see|view)|wer (?:darf|kann) (?:\w+ ){0,2}(?:sehen|einsehen))\b/;
+const FORWARD_INTERNAL = /\b(?:stadtintern\w*|verwaltungsintern\w*|unternehmensintern\w*|firmenintern\w*|hausintern\w*|intern\w* weiter\w*|weiterleit\w* (?:\w+ ){0,3}intern\w*|inoltrat\w* internamente|inoltr\w* (?:\w+ ){0,3}intern\w*|forward\w* internally|internally forward\w*|shared internally|condivis\w* internamente|transmis\w* en interne|transmettre en interne)\b/;
+// Other positions or units of the same employer: an audience inside it in an option, never enough alone for a
+// yes/no («informed about other positions» is a job alert, which the owner declines).
+const OTHER_POSITIONS = /\b(?:other (?:open )?(?:positions|vacancies|departments|roles|jobs)|altre (?:posizioni|funzioni|unita|offerte)|weitere (?:offene )?stellen|andere (?:stellen|abteilungen|organisationseinheiten|dienstabteilungen)|autres (?:postes|services|departements))\b/;
+const NOTIFICATION = /\b(?:informier\w*|informazion\w*|information(?:s|en)?|informed|inform|benachrichtig\w*|notif\w*|avvis\w*|aggiornament\w*|updates?|alert\w*|abonn\w*|subscri\w*|iscriv\w*)\b/;
+const EMPLOYER_RECRUITERS = /\b(?:recruiter\w*|recruiting|recruteu\w*|recrutement|personalverantwortlich\w*|personalabteilung\w*|personaldienst\w*|personalfachleute|hr|human resources|risorse umane|ressources humaines|selezionator\w*|reclutator\w*|hiring (?:managers?|team)|responsabil\w* (?:della )?selezione|organisationseinheit\w*|unita organizzativ\w*)\b/;
+const OUTSIDE_EMPLOYER = /\b(?:dritt\w*|third part\w*|terze parti|terzi|tiers|extern\w*|esterni|partner\w*|agenz\w*|agenc\w*|agences?|personalvermittl\w*|headhunter\w*|publicly|pubblicamente|publiquement|offentlich sichtbar|public profile|profilo pubblico|profil public|everyone|tutti gli utenti|all users|alle (?:nutzer\w*|besucher\w*)|altre aziende|other (?:companies|employers)|andere (?:unternehmen|firmen|arbeitgeber)|autres (?:entreprises|employeurs)|gruppo|group companies|konzern\w*|tochtergesellschaft\w*|filiale\w*|affiliat\w*|consociat\w*)\b/;
+const BROAD_AUDIENCE = /\b(?:alle|all|tutti|tutte|tous|toutes|samtlich\w*|gesamt\w*|entire|whole|ogni|jede\w*|qualsiasi|stadtintern\w*|verwaltungsintern\w*|unternehmensintern\w*|internamente|internally|en interne|organisationseinheit\w*|unita organizzativ\w*)\b/;
+const NARROW_AUDIENCE = /\b(?:nur|only|solo|soltanto|unicamente|seulement|uniquement|ausschliesslich|exclusively|esclusivamente)\b/;
+
+function visibilityPrompt(question) {
+  const owners = Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : [];
+  return fold([question?.applicationQuestion, question?.question, question?.label, question?.context, ...owners]
+    .filter((value) => typeof value === 'string').join(' '));
+}
+
+/** Both catalogues of a choice: the one the candidate reads and the portal's own, index by index. */
+function bilingualOptions(question) {
+  const shown = optionsOf(question);
+  const native = (Array.isArray(question?.applicationOptions) ? question.applicationOptions : [])
+    .map((option) => String((typeof option === 'string' ? option : option?.label ?? option?.value) ?? '').trim());
+  return shown.map((option, index) => fold(`${option} ${native.length === shown.length ? native[index] : ''}`));
+}
+
+/**
+ * The audience inside the employer an option opens the profile to: higher is broader, null for an option that
+ * reaches outside the employer or a marketing list.
+ */
+function internalAudienceRank(text) {
+  if (OUTSIDE_EMPLOYER.test(text) || MARKETING.test(text) || NOTIFICATION.test(text)) return null;
+  const forwarded = FORWARD_INTERNAL.test(text) || OTHER_POSITIONS.test(text);
+  if (!EMPLOYER_RECRUITERS.test(text) && !forwarded) return null;
+  return (BROAD_AUDIENCE.test(text) ? 2 : 0) + (forwarded ? 1 : 0) - (NARROW_AUDIENCE.test(text) ? 2 : 0);
+}
+
+/** Whether the field asks who inside the employer may see the profile or receive the application. */
+function isProfileVisibilityQuestion(question) {
+  const prompt = visibilityPrompt(question);
+  const own = label(question);
+  if (MARKETING.test(own) || OUTSIDE_EMPLOYER.test(own) || NOTIFICATION.test(own)) return false;
+  if (isBinary(question)) {
+    return (VISIBILITY.test(own) && (EMPLOYER_RECRUITERS.test(own) || FORWARD_INTERNAL.test(own) || OTHER_POSITIONS.test(own)))
+      || FORWARD_INTERNAL.test(own);
+  }
+  const options = bilingualOptions(question);
+  if (options.length < 2) return false;
+  const signalled = VISIBILITY.test(prompt) || options.some((option) => FORWARD_INTERNAL.test(option));
+  return signalled && options.some((option) => internalAudienceRank(option) !== null);
+}
+
+/** The broadest option inside the employer, or '' when two are equally broad or none is internal. */
+function profileVisibilityOption(question) {
+  const shown = optionsOf(question);
+  const ranked = bilingualOptions(question).map((text, index) => ({ option: shown[index], rank: internalAudienceRank(text) }))
+    .filter((item) => item.rank !== null)
+    .sort((left, right) => right.rank - left.rank);
+  if (!ranked.length || (ranked.length > 1 && ranked[0].rank === ranked[1].rank)) return '';
+  return ranked[0].option;
+}
 
 // One subject per answer. A prompt that joins two subjects («notice period and start date», «WhatsApp
 // contact and data processing», «processing for marketing») is the candidate's: no single platform value
@@ -379,6 +574,7 @@ const SUBJECT_FAMILIES = {
 };
 const TOPIC_FAMILY = {
   salary_expectation: 'salary', start_date: 'start', marketing_opt_in: 'marketing', recording_consent: 'privacy',
+  profile_visibility: 'privacy',
 };
 
 /**
@@ -403,22 +599,24 @@ export function platformQuestionTopic(question) {
   const subjects = Object.entries(SUBJECT_FAMILIES).filter(([name, re]) => name !== family && re.test(text)).map(([name]) => name);
   // An address, a birth date, a permit, a language level … carry no second subject of the list. A marketing
   // request names its channel («newsletter by e-mail»); declining it declines both.
-  const compatible = { marketing_opt_in: ['contact'] }[topic] || [];
+  const compatible = { marketing_opt_in: ['contact'], profile_visibility: ['contact'] }[topic] || [];
   if (subjects.some((name) => !compatible.includes(name))) return null;
   const identifiers = nativeIdentifiers(question);
   if (identifiers && NATIVE_FACT_ID.test(identifiers)) {
     const expected = { residence_country: /country/i, work_permit: /permit/i, nationality: /nation/i, birth_date: /birth|dob/i,
       birth_day: /birth|dob/i, birth_month: /birth|dob/i, birth_year: /birth|dob/i, address_street: /address|street/i,
       address_street_name: /address|street/i, address_house_number: /address|street/i, residence_postal_code: /postal|zip|address/i,
-      residence_city: /city|address/i, salary_expectation: /salary/i }[topic];
+      residence_city: /city|address/i, residence_region: /state|province|region|canton|kanton|county|address/i, salary_expectation: /salary/i, education_level: /qualification|education|degree/i }[topic];
     if (!expected || !expected.test(identifiers)) return null;
   }
   return topic;
 }
 
-const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
+const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'residence_region', 'address_street', 'address_street_name', 'address_house_number']);
 const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
-const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*)\b/;
+// The candidate's own profile and application form own an address too («Profilinformationen»,
+// «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
+const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*|profil\w*|profile\w*|(?:stellen)?bewerbung\w*|application form|modulo di candidatura|formulaire de candidature|my details|meine daten|i miei dati|mes informations)\b/;
 
 /**
  * An address field is the candidate's only when nothing says otherwise: its
@@ -449,6 +647,9 @@ function classifyPlatformSubject(question) {
   // A residence condition left by lib/mobilityRequirements.js is a fact (where the candidate lives), not a
   // willingness: the platform's relocation declaration already met every clause relocation satisfies.
   if (/^mobility_requirement_/.test(id)) return null;
+  const legal = legalRecordTopic(question);
+  if (legal) return legal;
+  if (isProfileVisibilityQuestion(question)) return 'profile_visibility';
   if (id === 'salutation' || /\bcome vuoi essere indicat\w*\b|\bform of address\b/.test(text)) return 'salutation';
   if (BIRTH.test(text) && !CITY.test(text) && !COUNTRY.test(text) && !/\bluogo\b|\bort\b|\bplace\b|\blieu\b/.test(text)) {
     const options = optionsOf(question);
@@ -484,6 +685,7 @@ function classifyPlatformSubject(question) {
     if (STREET_NAME_ONLY.test(text) && !otherParty) return 'address_street_name';
     if (STREET.test(text) && !CITIZENSHIP.test(text) && !otherParty) return 'address_street';
     if (CITY.test(text) && !CITIZENSHIP.test(text) && !otherParty && (RESIDENCE.test(text) || text.split(' ').length <= 5)) return 'residence_city';
+    if (REGION.test(text) && !CITIZENSHIP.test(text) && !REGION_PREFERENCE.test(text) && !otherParty && (RESIDENCE.test(text) || text.split(' ').length <= 4)) return 'residence_region';
   }
   if (MARKETING.test(text) && !PRIVACY.test(text)) return 'marketing_opt_in';
   if (RECORDING.test(text) && CONSENT.test(text)) return 'recording_consent';
@@ -491,8 +693,15 @@ function classifyPlatformSubject(question) {
   if (ON_CALL.test(text)) return 'on_call';
   if (HYBRID.test(text)) return 'hybrid';
   if (RELOCATION.test(text)) return 'relocation';
+  if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
+  if (isSwissArmyQuestion(question)) return 'swiss_army_service';
+  if (isEducationLevelQuestion(question)) return 'education_level';
+  if (isFirstLanguageQuestion(question)) return 'first_language';
+  if (isCorrespondenceLanguageQuestion(question)) return 'correspondence_language';
+  if (isLanguageRowName(question)) return 'language_row_name';
+  if (isLanguageRowLevel(question)) return 'language_row_level';
   if (SALARY.test(text) && !/\b(?:attuale|current|aktuell\w*|actuel\w*)\b/.test(text)) return 'salary_expectation';
   if (AGE_LIMIT.test(text) && isBinary(question)) return 'age_limit';
   if (START.test(text) && !SCHEDULE.test(text) && (type === 'date' || ['text', 'textarea', ''].includes(type))
@@ -560,6 +769,27 @@ function noValue(question, locale) {
   return { it: 'No', en: 'No', de: 'Nein', fr: 'Non' }[languageOf(locale)];
 }
 
+// Swiss cantons by the directory's code: a «State» / «Kanton» text field takes the canton's name.
+const SWISS_CANTONS = {
+  AG: 'Aargau', AI: 'Appenzell Innerrhoden', AR: 'Appenzell Ausserrhoden', BE: 'Bern', BL: 'Basel-Landschaft',
+  BS: 'Basel-Stadt', FR: 'Fribourg', GE: 'Genève', GL: 'Glarus', GR: 'Graubünden', JU: 'Jura', LU: 'Luzern',
+  NE: 'Neuchâtel', NW: 'Nidwalden', OW: 'Obwalden', SG: 'St. Gallen', SH: 'Schaffhausen', SO: 'Solothurn',
+  SZ: 'Schwyz', TG: 'Thurgau', TI: 'Ticino', UR: 'Uri', VD: 'Vaud', VS: 'Valais', ZG: 'Zug', ZH: 'Zürich',
+};
+
+/** The residence region for the field: the option naming its code or name, else the canton's name or the province code. */
+function regionValue(question, address) {
+  const code = String(address?.region || '').toUpperCase();
+  if (!/^[A-Z]{2}$/.test(code)) return '';
+  const name = address.country === 'CH' ? SWISS_CANTONS[code] || '' : '';
+  const options = optionsOf(question);
+  if (!options.length) return name || code;
+  return options.find((option) => fold(option) === fold(code))
+    || (name && options.find((option) => fold(option) === fold(name)))
+    || options.find((option) => new RegExp(`\\(\\s*${code}\\s*\\)`, 'i').test(option))
+    || '';
+}
+
 function choose(question, value) {
   const options = optionsOf(question);
   if (!options.length) return value;
@@ -580,11 +810,168 @@ function countryValue(question, facts) {
     || '';
 }
 
+const DATE_PATTERN = /\b(dd|gg|jj|tt|mm)([./-])(dd|gg|jj|tt|mm)([./-])(yyyy|aaaa|jjjj)\b/i;
+
 function dateValue(question, iso, locale) {
   if (!iso) return '';
   if (typeOf(question) === 'date') return iso;
   const [year, month, day] = iso.split('-');
+  // The format the field shows wins over the language's («MM/DD/YYYY», SuccessFactors en_US).
+  const pattern = DATE_PATTERN.exec([question?.placeholder, question?.datePattern, question?.label, question?.question]
+    .filter((value) => typeof value === 'string').join(' '));
+  if (pattern) {
+    const part = (token) => (/^mm$/i.test(token) ? month : /^(?:yyyy|aaaa|jjjj)$/i.test(token) ? year : day);
+    return `${part(pattern[1])}${pattern[2]}${part(pattern[3])}${pattern[4]}${part(pattern[5])}`;
+  }
   return languageOf(locale) === 'en' ? `${day}/${month}/${year}` : `${day}.${month}.${year}`;
+}
+
+// ── Education level and an unnamed language row (owner mandate 2026-11-10) ──
+// SuccessFactors' «Education Level» picklist and its «Language Competencies» row («* Language», «* Level»,
+// Damiani 2026-11-10): the CV answers both, the candidate is never asked.
+
+const EDUCATION_LEVEL_LABEL = /\b(?:(?:highest )?(?:level of )?education(?:al)? (?:level|attainment|degree)|(?:highest )?level of (?:education|study|studies)|highest (?:education|degree|qualification)|education|titolo di studio|livello (?:di )?(?:istruzione|studio|studi)|grado (?:di )?istruzione|istruzione|ausbildungsniveau|bildungsniveau|bildungsabschluss|hochste\w* (?:abschluss|ausbildung)|hochster bildungsabschluss|schulabschluss|niveau (?:d )?(?:etudes|formation|education)|diplome le plus eleve|plus haut diplome|formation)\b/;
+const EDUCATION_NOT_LEVEL = /\b(?:institut\w*|school name|nome (?:della )?scuola|universit\w* name|major|field|subject|indirizzo|fachrichtung|domaine|year|anno|jahr|annee|start|end|from|to|da|al|grade|voto|note|country|paese|land|pays|city|citta|ort|ville)\b/;
+
+function isEducationLevelQuestion(question) {
+  const text = label(question);
+  if (!EDUCATION_LEVEL_LABEL.test(text) || EDUCATION_NOT_LEVEL.test(text) || text.split(' ').length > 8) return false;
+  // A picklist of levels: its options name at least two different levels, so the field asks a level and not a
+  // school (a list of schools names one level only).
+  return new Set(optionsOf(question).map(educationLevelRank).filter((rank) => rank !== null)).size >= 2;
+}
+
+/** The option of the candidate's level; else the highest one below it (never a title the CV does not hold). */
+function educationLevelValue(question, facts) {
+  const rank = facts?.educationLevel;
+  if (!Number.isFinite(rank)) return '';
+  const ranked = optionsOf(question).map((option) => ({ option, rank: educationLevelRank(option) }))
+    .filter((item) => item.rank !== null);
+  const exact = ranked.filter((item) => item.rank === rank);
+  if (exact.length) return exact[0].option;
+  const below = ranked.filter((item) => item.rank < rank).sort((left, right) => right.rank - left.rank);
+  return below[0]?.option || '';
+}
+
+const BARE_LANGUAGE = /^(?:language|lingua|sprache|langue|idioma|foreign language|lingua straniera|fremdsprache|langue etrangere)$/;
+const BARE_LEVEL = /^(?:level|livello|niveau|stufe|proficiency(?: level)?|language level|livello (?:linguistico|di conoscenza)|sprachniveau|niveau de langue|competenza|kenntnisstand)$/;
+const LANGUAGE_SECTION = /\b(?:language\w*|lingu\w*|sprach\w*|langue\w*|idiom\w*)\b/;
+// A selector of the site's own language is no competency row.
+const INTERFACE_LANGUAGE = /\b(?:interface|website|site|display|anzeige\w*|sito|correspondence|corrispondenza|korrespondenz\w*|communication|kommunikation)\b/;
+
+function rowScope(question) {
+  const owners = Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : [];
+  return fold([question?.context, question?.section, question?.addressContext?.section, ...owners]
+    .filter((value) => typeof value === 'string').join(' '));
+}
+
+// An optional bare «Language» is the site's own selector (SuccessFactors' header, Damiani 2026-11-10): only a
+// required row is one the application asks.
+function isLanguageRowName(question) {
+  if (question?.required === false || !BARE_LANGUAGE.test(label(question)) || INTERFACE_LANGUAGE.test(rowScope(question))) return false;
+  return optionsOf(question).filter((option) => languageCodesIn(option).length === 1).length >= 2;
+}
+
+function isLanguageRowLevel(question) {
+  if (question?.required === false || !BARE_LEVEL.test(label(question)) || !LANGUAGE_SECTION.test(rowScope(question))) return false;
+  return optionsOf(question).filter((option) => levelRank(option) !== null).length >= 2;
+}
+
+/** The CV's strongest language (its own language first, the mother tongue): the one a single row names. */
+function primaryLanguage(facts) {
+  return rankedLanguages(facts)[0] || null;
+}
+
+/** The CV's languages, strongest first (the mother tongue, then by level, then in the CV's order). */
+function rankedLanguages(facts) {
+  const entries = (facts?.languages || []).map((entry, index) => ({
+    ...entry, index, rank: entry.level === 'native' ? 7 : levelRank(entry.level) ?? -1,
+  }));
+  return entries.sort((left, right) => right.rank - left.rank || left.index - right.index);
+}
+
+// ── Federal portal (Stellenportal Bund, eHSYErA1, 2026-11-10) ──
+const languageOptionOf = (question, code) => pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === code);
+const OTHER_LANGUAGE_OPTION = /^(?:andere\w*|other\w*|altr[ae]|autre\w*|weitere)\b/;
+const languageOptions = (question) => optionsOf(question).filter((option) => languageCodesIn(option).length === 1);
+
+const FIRST_LANGUAGE = /^(?:erstsprache|muttersprache|mother tongue|first language|native language|lingua madre|madrelingua|prima lingua|langue maternelle|premiere langue)$/;
+function isFirstLanguageQuestion(question) {
+  return FIRST_LANGUAGE.test(label(question)) && languageOptions(question).length >= 2;
+}
+
+/** The mother tongue (the CV's own language, owner decision 2026-11-09); not offered: «Andere», never another language. */
+function firstLanguageValue(question, facts) {
+  const native = (facts?.languages || []).find((entry) => entry.level === 'native');
+  if (!native) return '';
+  return languageOptionOf(question, native.code) || pickOption(question, (option) => OTHER_LANGUAGE_OPTION.test(fold(option)));
+}
+
+const CORRESPONDENCE_LANGUAGE = /^(?:korrespondenzsprache|sprache (?:der|fur die) korrespondenz|correspondence language|language (?:of|for) correspondence|preferred (?:communication |correspondence )?language|lingua (?:di|per la) corrispondenza|lingua di comunicazione|langue de correspondance|langue de communication)$/;
+function isCorrespondenceLanguageQuestion(question) {
+  return CORRESPONDENCE_LANGUAGE.test(label(question)) && languageOptions(question).length >= 2;
+}
+
+/**
+ * The language the employer writes to the candidate in (rule of 2026-11-10, proposed with the federal portal): the
+ * mother tongue when the list offers it; else the posting's language when the CV lists it; else the strongest
+ * language of the CV the list offers; else the posting's language, the one the candidate applied in.
+ */
+function correspondenceLanguageValue(question, facts) {
+  const native = (facts?.languages || []).find((entry) => entry.level === 'native');
+  const posting = String(facts?.applicationLanguage || '').slice(0, 2).toLowerCase();
+  const listed = new Set((facts?.languages || []).map((entry) => entry.code));
+  if (native && languageOptionOf(question, native.code)) return languageOptionOf(question, native.code);
+  if (posting && listed.has(posting) && languageOptionOf(question, posting)) return languageOptionOf(question, posting);
+  for (const entry of rankedLanguages(facts)) {
+    const option = languageOptionOf(question, entry.code);
+    if (option) return option;
+  }
+  return posting ? languageOptionOf(question, posting) : '';
+}
+
+// The Swiss Army's recruit school, NCO or officer school: only a Swiss citizen serves, so a candidate known not to
+// be Swiss has not attended it (a fact, deterministic). A Swiss citizen, or an unknown nationality, is left to the
+// decision engine (plausible deduction from the CV).
+const SWISS_ARMY = /\b(?:rekrutenschule|unteroffiziers\w*|offiziersschule|schweizer armee|militardienst|militaerdienst|scuola reclute|scuola (?:sottufficiali|ufficiali)|esercito svizzero|ecole de recrues|ecole (?:de sous officiers|d officiers)|armee suisse|swiss army|swiss armed forces|military service in switzerland)\b/;
+function isSwissArmyQuestion(question) {
+  return SWISS_ARMY.test(label(question)) && isBinary(question);
+}
+
+function swissArmyValue(question, facts, lang) {
+  const nationality = nationalityOf(facts?.nationality)?.code || '';
+  const swiss = facts?.passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
+  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(facts?.passport));
+  return knownForeign ? noValue(question, lang) : '';
+}
+
+// ── Criminal record and debt-enforcement register (owner decision 2026-11-10) ──
+// SBB ifB89NW2: «* Hast du einen Eintrag im Strafregister oder im Betreibungsregister?» (Nein/Ja). A legal fact
+// nobody may deduce: answered only from the candidate's answers at CV upload (order.candidateFacts). Only the
+// question whether the register holds an entry: never a request for the extract, a pending proceeding, a
+// conviction asked as such («Have you ever been convicted…?») nor a statement to confirm or sign.
+const CRIMINAL_REGISTER = /\b(?:strafregister\w*|vorstraf\w*|vorbestraft\w*|casellario\w*|precedenti penali|fedina penale|criminal records?|police records?|casier judiciaire)\b/;
+const DEBT_REGISTER = /\b(?:betreibung\w*|konkurs\w*|verlustschein\w*|registro (?:delle )?esecuzion\w*|esecuzioni (?:forzate|e fallimenti|o fallimenti)|fallimen\w*|poursuites?|faillites?|actes? de defaut de biens|debt enforcement\w*|debt collection register\w*|bankrupt\w*)\b/;
+const LEGAL_PENDING = /\b(?:hangig\w*|laufend\w*|pending|ongoing|in corso|pendent\w*|en cours|\w*verfahren\w*|procediment\w*|procedur\w*|proceeding\w*|investigat\w*|ermittlung\w*|untersuchung\w*|indagin\w*|enquete\w*|anklage\w*|accusat\w*|charged)\b/;
+const LEGAL_DOCUMENT_REQUEST = /\b(?:\w*auszug\w*|extracts?|estratt\w*|extraits?|certificat\w*|certificate\w*|zeugnis\w*|bescheinigung\w*|vorleg\w*|vorweis\w*|einreich\w*|beileg\w*|beibring\w*|bring|provide|submit|present|presentar\w*|furnish|fornir\w*|produrr\w*|upload\w*|hochlad\w*|carica\w*|allega\w*|joindre|fournir|copy|kopie|copia|copie|obtain|bestell\w*|richied\w*|richiest\w*|proofs?|prove|nachweis\w*|beleg\w*|prova|prove|preuves?|justificati\w*|evidence|attestat\w*|documentation|dokumentation|documentazione)\b/;
+const LEGAL_STATEMENT = /\b(?:kein\w*|nicht|not|non|nessun\w*|senza|sans|aucun\w*|without|ohne|frei|free|privo|priva|exempt\w*|libero|libera|vierge|never|nie|niemals|mai|jamais|leer\w*|clean|einwandfrei\w*|unbescholten\w*|sauber\w*|bestatig\w*|confirm\w*|conferm\w*|dichiar\w*|declar\w*|erklar\w*|atteste\w*|certif\w*|versicher\w*|garant\w*|eidesstattlich\w*|sworn|signature|unterschrift\w*|firma)\b/;
+
+/** 'criminal_record', 'debt_record' or 'criminal_or_debt_record' for a yes/no on a register entry, else null. */
+function legalRecordTopic(question) {
+  const text = label(question);
+  const criminal = CRIMINAL_REGISTER.test(text);
+  const debt = DEBT_REGISTER.test(text);
+  if ((!criminal && !debt) || !isBinary(question)) return null;
+  if (LEGAL_PENDING.test(text) || LEGAL_DOCUMENT_REQUEST.test(text) || LEGAL_STATEMENT.test(text)) return null;
+  return criminal && debt ? 'criminal_or_debt_record' : criminal ? 'criminal_record' : 'debt_record';
+}
+
+/** Yes when an answer the question asks is yes, no when every one is no; '' when one it needs is unknown. */
+function legalRecordValue(question, topic, facts, lang) {
+  const keys = { criminal_record: ['criminalRecord'], debt_record: ['debtRecord'], criminal_or_debt_record: ['criminalRecord', 'debtRecord'] }[topic];
+  const answers = keys.map((key) => legalRecordAnswer(facts?.[key]));
+  if (answers.includes('yes')) return yesValue(question, lang);
+  return answers.every((answer) => answer === 'no') ? noValue(question, lang) : '';
 }
 
 function languageValue(question, code, facts) {
@@ -647,6 +1034,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   switch (topic) {
     case 'residence_postal_code': value = address.postalCode ? choose(question, address.postalCode) : ''; break;
     case 'residence_city': value = address.city ? choose(question, address.city.replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())) : ''; break;
+    case 'residence_region': value = address.city ? regionValue(question, address) : ''; break;
     case 'residence_country': value = countryValue(question, withLocale); break;
     case 'address_street': value = address.city ? address.street : ''; break;
     case 'address_street_name': value = address.city ? address.streetName : ''; break;
@@ -730,8 +1118,28 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'recording_consent':
     case 'on_call':
     case 'hybrid':
+    case 'business_travel':
     case 'relocation': value = yesValue(question, lang); break;
+    // The broadest audience inside the same employer; a yes/no or a box: yes.
+    case 'profile_visibility': value = options.length && !isBinary(question) ? profileVisibilityOption(question) : yesValue(question, lang); break;
     case 'salary_expectation': value = salaryValue(question, withLocale); break;
+    case 'education_level': value = educationLevelValue(question, known); break;
+    case 'language_row_name': {
+      const primary = primaryLanguage(known);
+      value = primary ? pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === primary.code) : '';
+      break;
+    }
+    case 'language_row_level': {
+      const primary = primaryLanguage(known);
+      value = primary ? languageValue(question, primary.code, withLocale) : '';
+      break;
+    }
+    case 'first_language': value = firstLanguageValue(question, known); break;
+    case 'correspondence_language': value = correspondenceLanguageValue(question, known); break;
+    case 'swiss_army_service': value = swissArmyValue(question, known, lang); break;
+    case 'criminal_record':
+    case 'debt_record':
+    case 'criminal_or_debt_record': value = legalRecordValue(question, topic, known, lang); break;
     case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:
       if (topic.startsWith('language:')) value = languageValue(question, topic.slice('language:'.length), withLocale);

@@ -47,7 +47,8 @@ const HARD_EXPIRED_PATTERNS = [
   /diese stelle (ist )?(nicht mehr|bereits) besetzt/i,
   /offre (expiree|n'est plus disponible)/i,
   /(cette )?offre n'est plus (disponible|en ligne|active)/i,
-  /(offre|poste|annonce) (deja )?pourvu(e)?/i,
+  // «(offre|poste|annonce) (déjà) pourvu(e)» is read as a sentence of its own (FILLED_FORMS): anywhere in
+  // the text it also matched a line of the other postings a page lists.
   /offre (cloturee|desactivee|terminee)/i,
   /ce poste n'est plus (disponible|a pourvoir|ouvert)/i,
   /recrutement (termine|cloture)/i,
@@ -58,10 +59,71 @@ const HARD_EXPIRED_PATTERNS = [
   /(offerta|annuncio) scadut[oa]/i,
   /candidature (chiuse|non piu accettate)/i,
   /(diese )?stelle (ist )?(leider )?nicht mehr (verfugbar|aktiv|ausgeschrieben|online)/i,
-  /(stelle|inserat|stellenanzeige|ausschreibung) (ist |wurde )?(bereits )?(abgelaufen|geschlossen|deaktiviert)/i,
+  /(stelle|inserat|stellenanzeige|ausschreibung) (ist |wurde )?(bereits )?(abgelaufen|geschlossen|deaktiviert|geloscht)/i,
   /bewerbungsfrist (ist )?abgelaufen/i,
   /die stelle wurde (bereits )?besetzt/i,
+  // A portal's own page for a posting it no longer shows (SuccessFactors, Stadt Zürich 2026-11-10: «Diese
+  // Stelle kann zurzeit nicht angezeigt werden. Sie wurde entweder gelöscht, oder man kann sich nicht länger
+  // darauf bewerben.»), and the same statement in the other languages: always about this posting, never a
+  // sentence an open posting prints.
+  // «kann nicht angezeigt werden» alone may be a passing display failure: only with its deletion or
+  // no-longer-apply clause is it the closure.
+  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
+  /(?:kann|konnen) sich nicht (?:mehr|langer) (?:darauf |dafur |auf diese stelle )?bewerben/i,
+  /non e piu possibile (?:candidarsi|candidarti|inviare (?:la (?:tua |sua )?)?candidatura)/i,
+  /(?:l')?(?:annuncio|offerta) (?:e stat[ao] )?(?:rimoss[ao]|eliminat[ao])\b/i,
+  /il n'est plus possible de (?:postuler|candidater)/i,
+  /(?:offre|annonce) (?:a ete )?(?:supprimee|retiree)\b/i,
+  /\b(?:job|position|role|posting|vacancy|opening|requisition) (?:has been|was|is now) (?:closed|removed|deleted|withdrawn)\b/i,
+  /\byou can no longer apply\b/i,
 ];
+
+// «The post has been filled», in the forms employers print (Stadt Zürich's own posting page, 2026-11-10:
+// «Diese Stelle wurde leider bereits besetzt.», which read as `insufficient_content`). Unlike the banners
+// above, the words also occur in an open posting («per sofort zu besetzen», «Stelle neu besetzen») and in
+// the other postings a page lists («weitere Stellen … besetzt»), so each form counts only as a sentence of
+// its own (filledStatement): the whole sentence is the statement, with nothing but an apology and
+// «leider / bereits / già / déjà / already» around it. A form that names the posting («diese Stelle»,
+// «this position») is its own; a bare one («Stelle bereits besetzt», «poste pourvu») may be a line of a
+// list, and counts only on a page that offers no apply control.
+const FILLER = {
+  de: '(?:(?:leider|bereits|schon|inzwischen|mittlerweile|nun) )*',
+  it: '(?:(?:purtroppo|gia|ormai) )*',
+  fr: '(?:(?:malheureusement|deja|desormais) )*',
+  en: '(?:(?:unfortunately|already|now) )*',
+};
+const APOLOGY = {
+  de: '(?:(?:es tut uns leid|wir bedauern),? )?',
+  it: '(?:(?:ci dispiace|siamo spiacenti),? )?',
+  fr: '(?:(?:desolee?s?|nous sommes desole(?:e)?s),? )?',
+  en: "(?:(?:sorry|we're sorry|we are sorry),? )?",
+};
+const FILLED_FORMS = {
+  de: {
+    named: '(?:diese|die) (?:stelle|position|vakanz)',
+    bare: '(?:stelle|position|vakanz)',
+    said: (subject, f) => `(?:${subject} (?:(?:ist|wurde) )?${f}|(?:ist|wurde) ${subject} ${f})(?:besetzt|vergeben)(?: worden)?`,
+  },
+  it: {
+    named: '(?:(?:questa|la) (?:posizione|offerta|ricerca)|(?:questo|il) (?:posto|ruolo))',
+    bare: '(?:posizione|posto|ruolo)',
+    said: (subject, f) => `${subject} (?:(?:e|risulta) )?${f}(?:stat[oa] )?${f}(?:copert|assegnat|occupat)[oa]`,
+  },
+  fr: {
+    named: "(?:(?:ce|le) poste|(?:cette |l')(?:offre|annonce))",
+    bare: '(?:poste|offre|annonce)',
+    said: (subject, f) => `${subject} (?:(?:a|est) )?${f}(?:ete )?${f}(?:pourvue?|attribuee?)`,
+  },
+  en: {
+    named: '(?:this|the) (?:position|role|job|vacancy|post|opening)',
+    bare: '(?:position|role|job|vacancy|opening)',
+    said: (subject, f) => `${subject} (?:(?:has|was|is) ${f}(?:been )?${f})?filled`,
+  },
+};
+const filledPatterns = (kind) => Object.entries(FILLED_FORMS)
+  .map(([lang, form]) => new RegExp(`^${APOLOGY[lang]}${FILLER[lang]}${form.said(form[kind], FILLER[lang])}$`, 'i'));
+const NAMED_FILLED_PATTERNS = filledPatterns('named');
+const BARE_FILLED_PATTERNS = filledPatterns('bare');
 
 const LISTING_PAGE_PATTERNS = [/\d+\s+jobs?\s+found/i, /\d+\s+(offerte|stellen|offres) (trovate|gefunden|trouvees)/i];
 const SOFT_EXPIRED_PATTERNS = [/\bjob expired\b/i];
@@ -110,6 +172,28 @@ function jobIdToken(url = '') {
 const firstMatch = (patterns, text = '') => patterns.find((pattern) => pattern.test(text));
 const hasApplyControl = (controls = []) => controls.some((control) => APPLY_PATTERNS.some((pattern) => pattern.test(control)));
 
+/**
+ * The page's own sentences: its lines (htmlToText ends every block with one, innerText too), each split after
+ * a full stop, with list bullets, quotes and closing punctuation trimmed. Read before the whitespace is
+ * folded, which would join the lines.
+ */
+function sentencesOf(rawText = '') {
+  if (typeof rawText !== 'string') return [];
+  return rawText.split(/[\r\n]+|(?<=[.!?;])\s+/)
+    .map((sentence) => normalizeForMatch(sentence).trim().replace(/^[-–—•·*>"'«»(\[\s]+|[-–—"'«»)\]\s.!?;:…]+$/g, ''))
+    .filter((sentence) => sentence && sentence.length <= 160);
+}
+
+/** A sentence of the page that says this post has been filled (FILLED_FORMS), or undefined. */
+function filledStatement(rawText, { applyControlVisible = false } = {}) {
+  const patterns = applyControlVisible ? NAMED_FILLED_PATTERNS : [...NAMED_FILLED_PATTERNS, ...BARE_FILLED_PATTERNS];
+  for (const sentence of sentencesOf(rawText)) {
+    const pattern = firstMatch(patterns, sentence);
+    if (pattern) return pattern;
+  }
+  return undefined;
+}
+
 export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [] } = {}) {
   const bodyText = normalizeForMatch(rawBodyText);
   const applyControls = (Array.isArray(rawApplyControls) ? rawApplyControls : []).map(normalizeForMatch);
@@ -121,6 +205,8 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
   if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
   const expiredBody = firstMatch(HARD_EXPIRED_PATTERNS, bodyText);
   if (expiredBody) return { result: 'expired', code: 'expired_body', reason: `pattern matched: ${expiredBody.source}` };
+  const filled = filledStatement(rawBodyText, { applyControlVisible: hasApplyControl(applyControls) });
+  if (filled) return { result: 'expired', code: 'expired_body', reason: `posting filled: ${filled.source}` };
   const jobId = jobIdToken(requestedUrl);
   if (jobId && finalUrl && !finalUrl.toLowerCase().includes(jobId)) {
     return { result: 'uncertain', code: 'redirected_off_posting', reason: 'job id missing from final URL' };

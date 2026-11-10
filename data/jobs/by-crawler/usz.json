@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usz",
-  "assembledAt": "2026-11-10T09:21:25.923Z",
+  "assembledAt": "2026-11-10T13:23:56.961Z",
   "runId": "42788273559",
   "jobs": [
     {
@@ -17661,10 +17661,10 @@
     },
     {
       "id": "usz-fead14e7305e",
-      "slug": "sachbearbeiter-in-stationare-fakturierung-80-100-usz-ch",
+      "slug": "impiegato-nella-fatturazione-cartacea-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-stationare-fakturierung-80-100-usz-ch",
-        "it": "sachbearbeiter-in-stationare-fakturierung-80-100-usz-ch",
+        "it": "impiegato-nella-fatturazione-cartacea-80-100-universitatsspital-zurich-usz-zurich",
         "en": "stationary-invoicing-clerk-80-100-universitatsspital-zurich-usz-zurich",
         "fr": "responsable-en-facturation-stationnaire-80-100-universitatsspital-zurich-usz-zurich"
       },
@@ -17727,7 +17727,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:16:23.373Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T09:16:10.683Z"
+      "firstSeenAt": "2026-10-05T09:16:10.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-stationare-fakturierung-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-stationare-fakturierung-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-3b897f5c81f6",
@@ -18218,10 +18226,10 @@
     },
     {
       "id": "usz-9744d486379c",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfall-60-usz-ch",
+      "slug": "assistente-amministrativo-presso-l-ufficio-accettazione-pazienti-del-pronto-soccorso-60-universitatsspital-zurich-usz",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-notfall-60-usz-ch",
-        "it": "sachbearbeiter-in-patientenaufnahme-notfall-60-usz-ch",
+        "it": "assistente-amministrativo-presso-l-ufficio-accettazione-pazienti-del-pronto-soccorso-60-universitatsspital-zurich-usz",
         "en": "caseworker-patient-admission-emergency-60-universitatsspital-zurich-usz-zurich",
         "fr": "charge-de-dossier-admission-des-patients-en-cas-d-urgence-60-universitatsspital-zurich-usz-zurich"
       },
@@ -18283,7 +18291,15 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:16:23.369Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfall-60-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfall-60-usz-ch"
+      ]
     },
     {
       "id": "usz-a4b297771f57",
@@ -18720,85 +18736,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:24:23.430Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "usz-f011e5a724b0",
-      "slug": "medico-assistente-medico-assistente-m-f-d-clinica-di-immunologia-80-100-universitatsspital-zurich-usz-zurich",
-      "slugByLocale": {
-        "de": "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
-        "it": "medico-assistente-medico-assistente-m-f-d-clinica-di-immunologia-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-zurich",
-        "fr": "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-zurich"
-      },
-      "company": "Universitätsspital Zürich (USZ)",
-      "companyKey": "usz",
-      "companyDomain": "usz.ch",
-      "title": "Assistenzärztin / Assistenzarzt (w/m/d) Klinik für Immunologie 80-100%",
-      "titleByLocale": {
-        "it": "Medico assistente / Medico assistente (m/f/d) Clinica di immunologia 80-100%",
-        "en": "Assistant physician (m/f/d) Clinic for Immunology 80-100 %",
-        "de": "Assistenzärztin / Assistenzarzt (w/m/d) Klinik für Immunologie 80-100%",
-        "fr": "Médecin adjoint (h/f/d) Clinique d'immunologie 80-100 %"
-      },
-      "description": "USZ Campus\n\n## nach Vereinbarung\nArbeiten Sie an der Schnittstelle von moderner Immunologie, klinischer Praxis und Forschung in einem führenden universitären Umfeld. Freuen Sie sich auf ein vielseitiges Tätigkeitsspektrum, gezielte Weiterbildung und eine kollegiale Zusammenarbeit am Universitätsspital Zürich.\n\n## Ihre Hauptaufgaben\n• Klinische Betreuung von ambulanten immunologischen Patient:innen sowie konsiliarärztliche Tätigkeit, jeweils unter Supervision durch einen Kaderarzt der Klinik für Immunologie\n• Mitarbeit in Spezialsprechstunden (z.B. Sarkoidose, Lupus) und interdisziplinären Sprechstunden (ORL)\n• Aktive Teilnahme an interdisziplinären Teamsitzungen und Fallbesprechungen\n• Medizinische Berichterstattung und Durchführung administrativer Tätigkeiten\n• Interdisziplinäre Zusammenarbeit mit anderen Fachdisziplinen am USZ\n• Aktive Teilnahme an klinisch-wissenschaftlichen Weiterbildungen\n\n## Ihr Profil\n• Zwei Jahre Erfahrung in Allgemeiner Innerer Medizin an einer Weiterbildungsstätte der Kategorie A\n• Hohe Fachkompetenz, Teamfähigkeit und Engagement\n• Ein respektvoller Umgang mit Patient:innen und Mitarbeitenden ist für Sie selbstverständlich\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n## Unser Angebot\nWir bieten Ihnen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer universitär geprägten, innovativen Umgebung, in der Forschung, Lehre und klinische Praxis eng miteinander verknüpft sind.\nWir unterstützen Ihre fachliche Entwicklung durch eine strukturierte Weiterbildung gemäss dem SIWF-Programm sowie durch die Teilnahme an externen Kursen und internationalen Kongressen. Ein engagiertes, interdisziplinäres Team begleitet Sie im Arbeitsalltag und sorgt für ein kollegiales Umfeld.\nProfitieren Sie von attraktiven Anstellungskonditionen, einer modernen Infrastruktur und einem zentral gelegenen Arbeitsplatz auf dem Campus des Universitätsspitals Zürich.\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nUnsere Benefits\n\n## Kita vor Ort\nIn unseren hauseigenen Kindertagesstätten werden deine Kinder liebevoll betreut. Lange Öffnungszeiten ohne Betriebsferien und subventionierte Betreuungsplätze entlasten dich im Alltag.\n\n## Gesundheit\nWir unterstützen deine Gesundheit. Neben persönlichen Beratungen und Kursen unseres Gesundheitsmanagements, die dein Wohlbefinden fördern, bieten wir dir mit einem subventionierten Jahresabonnement beim ASVZ Zugang zu über 120 Sportarten.\n\n## Flexibilität\nWir fördern eine ausgewogene Work-Life-Balance: Knapp die Hälfte unserer Mitarbeitenden arbeitet Teilzeit, und etwa 50% der Aufgaben lassen sich im Homeoffice erledigen – wenn es dein Berufsalltag zulässt.\n\n## Familienfreundlichkeit\nWir helfen dir, Familie und Beruf zu vereinbaren. Mütter haben Anspruch auf mindestens 6 Monate Mutterschaftsurlaub (davon 16 Wochen mit vollem Lohn), Väter auf mindestens 2 Monate Vaterschaftsurlaub (davon 2 Wochen mit vollem Lohn).\n\n## Weiterbildung & Entwicklung\nWir begleiten dich auf deinem beruflichen Weg und unterstützen deine Entwicklung mit individuellen Karriere- und Weiterbildungsmöglichkeiten.\n\n## Versicherungen\nWir übernehmen 60% deiner Pensionskassenbeiträge und bieten attraktive Sonderkonditionen für Ergänzungsversicherungen.\n\n## Mobilität\nDu profitierst von einem persönlichen ZVV-BonusPass zum Spezialpreis oder erhältst einen fixen Geldbetrag für ein Generalabonnement (GA) oder Halbtax PLUS.\n\n## Telefonie\nDu und deine Familienangehörigen profitieren von Sonderkonditionen für private Mobil-Abonnements.\nWeitere Vorteile: Details\n\n## Berichte aus dem Berufsalltag\nDas USZ ist eines der führenden Spitäler in Forschung und Praxis: 2500 Transplantationen jährlich, Beteiligung an bis zu 3100 wissenschaftlichen Publikationen, 14 geförderte Start-ups seit 2019 und täglich über 1000 ambulante Patientinnen und Patienten. Was das für den Alltag unserer Ärztinnen und Ärzte bedeutet, erfährst du in den Berichten unserer Kolleginnen und Kollegen. Zu den Berichten\nKarriere und Entwicklung",
-      "descriptionByLocale": {
-        "it": "Lavorare all'interfaccia di immunologia moderna, pratica clinica e ricerca in un ambiente universitario leader. Godetevi una vasta gamma di attività, un'ulteriore formazione mirata e una collaborazione collegiale presso l'Ospedale Universitario di Zurigo. I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Cura clinica dei pazienti immunologici ambulatoriale: all'interno e al lavoro di consulenza, sotto la supervisione di un medico senior della Clinica di Immunologia\n\n• Cooperazione in orari di consultazione speciali (ad esempio sarcoidosi, lupus) e ore di consultazione interdisciplinari (ORL)\n\n• Partecipazione attiva alle riunioni di team interdisciplinari e alle riunioni di casi\n\n• Relazione medica e attuazione delle attività amministrative\n\n• Cooperazione interdisciplinare con altre discipline all'USZ\n\n• Partecipazione attiva alla formazione clinica e scientifica\n\nRequisiti\n• Due anni di esperienza in medicina interna generale presso un centro di formazione di categoria A\n\n• Alto livello di competenza, lavoro di squadra e impegno\n\n• Trattamento rispettoso dei pazienti: i vostri dipendenti sono una questione naturalmente\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nOffriamo:\nVi offriamo un lavoro vario e responsabile in un ambiente innovativo, guidato dall'università, dove la ricerca, l'insegnamento e la pratica clinica sono strettamente legati.\n\nSosteniamo il vostro sviluppo professionale attraverso un'ulteriore formazione strutturata secondo il programma SIWF, nonché attraverso la partecipazione a corsi esterni e congressi internazionali. Un team dedicato e interdisciplinare vi accompagna nel lavoro quotidiano e garantisce un ambiente collegiale.\n\nApprofittate di condizioni di lavoro interessanti, di un'infrastruttura moderna e di un posto di lavoro situato nel campus dell'Ospedale Universitario di Zurigo.",
-        "en": "Work at the interface of modern immunology, clinical practice and research in a leading university environment. Enjoy a wide range of activities, targeted further education and a collegial cooperation at the University Hospital Zurich.<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• Clinical care of outpatient immunological patients: inside as well as consultancy work, each under supervision by a senior physician of the Clinic of Immunology\n\n• Cooperation in special consultation hours (e.g. sarcoidosis, lupus) and interdisciplinary consultation hours (ORL)\n\n• Active participation in interdisciplinary team meetings and case meetings\n\n• Medical reporting and implementation of administrative activities\n\n• Interdisciplinary cooperation with other disciplines at the USZ\n\n• Active participation in clinical and scientific training\n\nRequirements\n• Two years of experience in general internal medicine at a category A training centre\n\n• High level of expertise, teamwork and commitment\n\n• Respectful treatment of patients: your employees are a matter of course\n\n• Very good knowledge of German in word and writing\n\nWe offer:\nWe offer you varied and responsible work in a university-driven, innovative environment where research, teaching and clinical practice are closely linked.\n\nWe support your professional development through structured further education in accordance with the SIWF programme as well as through participation in external courses and international congresses. A dedicated, interdisciplinary team accompanies you in everyday work and ensures a collegial environment.\n\nBenefit from attractive employment conditions, a modern infrastructure and a centrally located workplace on the campus of the University Hospital Zurich.",
-        "de": "USZ Campus\n\n## nach Vereinbarung\nArbeiten Sie an der Schnittstelle von moderner Immunologie, klinischer Praxis und Forschung in einem führenden universitären Umfeld. Freuen Sie sich auf ein vielseitiges Tätigkeitsspektrum, gezielte Weiterbildung und eine kollegiale Zusammenarbeit am Universitätsspital Zürich.\n\n## Ihre Hauptaufgaben\n• Klinische Betreuung von ambulanten immunologischen Patient:innen sowie konsiliarärztliche Tätigkeit, jeweils unter Supervision durch einen Kaderarzt der Klinik für Immunologie\n• Mitarbeit in Spezialsprechstunden (z.B. Sarkoidose, Lupus) und interdisziplinären Sprechstunden (ORL)\n• Aktive Teilnahme an interdisziplinären Teamsitzungen und Fallbesprechungen\n• Medizinische Berichterstattung und Durchführung administrativer Tätigkeiten\n• Interdisziplinäre Zusammenarbeit mit anderen Fachdisziplinen am USZ\n• Aktive Teilnahme an klinisch-wissenschaftlichen Weiterbildungen\n\n## Ihr Profil\n• Zwei Jahre Erfahrung in Allgemeiner Innerer Medizin an einer Weiterbildungsstätte der Kategorie A\n• Hohe Fachkompetenz, Teamfähigkeit und Engagement\n• Ein respektvoller Umgang mit Patient:innen und Mitarbeitenden ist für Sie selbstverständlich\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n## Unser Angebot\nWir bieten Ihnen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer universitär geprägten, innovativen Umgebung, in der Forschung, Lehre und klinische Praxis eng miteinander verknüpft sind.\nWir unterstützen Ihre fachliche Entwicklung durch eine strukturierte Weiterbildung gemäss dem SIWF-Programm sowie durch die Teilnahme an externen Kursen und internationalen Kongressen. Ein engagiertes, interdisziplinäres Team begleitet Sie im Arbeitsalltag und sorgt für ein kollegiales Umfeld.\nProfitieren Sie von attraktiven Anstellungskonditionen, einer modernen Infrastruktur und einem zentral gelegenen Arbeitsplatz auf dem Campus des Universitätsspitals Zürich.\nFür diese Stelle können keine Dossiers von Personalvermittlern berücksichtigt werden. Danke für Ihr Verständnis.\nUnsere Benefits\n\n## Kita vor Ort\nIn unseren hauseigenen Kindertagesstätten werden deine Kinder liebevoll betreut. Lange Öffnungszeiten ohne Betriebsferien und subventionierte Betreuungsplätze entlasten dich im Alltag.\n\n## Gesundheit\nWir unterstützen deine Gesundheit. Neben persönlichen Beratungen und Kursen unseres Gesundheitsmanagements, die dein Wohlbefinden fördern, bieten wir dir mit einem subventionierten Jahresabonnement beim ASVZ Zugang zu über 120 Sportarten.\n\n## Flexibilität\nWir fördern eine ausgewogene Work-Life-Balance: Knapp die Hälfte unserer Mitarbeitenden arbeitet Teilzeit, und etwa 50% der Aufgaben lassen sich im Homeoffice erledigen – wenn es dein Berufsalltag zulässt.\n\n## Familienfreundlichkeit\nWir helfen dir, Familie und Beruf zu vereinbaren. Mütter haben Anspruch auf mindestens 6 Monate Mutterschaftsurlaub (davon 16 Wochen mit vollem Lohn), Väter auf mindestens 2 Monate Vaterschaftsurlaub (davon 2 Wochen mit vollem Lohn).\n\n## Weiterbildung & Entwicklung\nWir begleiten dich auf deinem beruflichen Weg und unterstützen deine Entwicklung mit individuellen Karriere- und Weiterbildungsmöglichkeiten.\n\n## Versicherungen\nWir übernehmen 60% deiner Pensionskassenbeiträge und bieten attraktive Sonderkonditionen für Ergänzungsversicherungen.\n\n## Mobilität\nDu profitierst von einem persönlichen ZVV-BonusPass zum Spezialpreis oder erhältst einen fixen Geldbetrag für ein Generalabonnement (GA) oder Halbtax PLUS.\n\n## Telefonie\nDu und deine Familienangehörigen profitieren von Sonderkonditionen für private Mobil-Abonnements.\nWeitere Vorteile: Details\n\n## Berichte aus dem Berufsalltag\nDas USZ ist eines der führenden Spitäler in Forschung und Praxis: 2500 Transplantationen jährlich, Beteiligung an bis zu 3100 wissenschaftlichen Publikationen, 14 geförderte Start-ups seit 2019 und täglich über 1000 ambulante Patientinnen und Patienten. Was das für den Alltag unserer Ärztinnen und Ärzte bedeutet, erfährst du in den Berichten unserer Kolleginnen und Kollegen. Zu den Berichten\nKarriere und Entwicklung",
-        "fr": "Travailler à l'interface de l'immunologie moderne, de la pratique clinique et de la recherche dans un environnement universitaire de premier plan. Profitez d'un large éventail d'activités, d'une formation complémentaire ciblée et d'une coopération collégiale à l'hôpital universitaire de Zurich.<br/ >L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Soins cliniques des patients immunologiques ambulatoires : à l'intérieur et en consultation, sous la supervision d'un médecin principal de la Clinique d'immunologie\n\n• Coopération en heures de consultation spéciales (par exemple sarcoïdose, lupus) et en heures de consultation interdisciplinaire (ORL)\n\n• Participation active aux réunions d'équipes interdisciplinaires et aux réunions de cas\n\n• Rapports médicaux et mise en œuvre des activités administratives\n\n• Coopération interdisciplinaire avec d'autres disciplines à l'USZ\n\n• Participation active à la formation clinique et scientifique\n\nExigences\n• Deux ans d'expérience en médecine interne générale dans un centre de formation de catégorie A\n\n• Haute compétence, travail d'équipe et engagement\n\n• Traitement respectueux des patients: vos employés sont une question bien sûr\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons:\nNous vous proposons un travail varié et responsable dans un environnement universitaire et innovant où la recherche, l'enseignement et la pratique clinique sont étroitement liés.\n\nNous soutenons votre perfectionnement professionnel par une formation continue structurée conformément au programme SIWF ainsi que par la participation à des cours externes et à des congrès internationaux. Une équipe interdisciplinaire dédiée vous accompagne dans le travail quotidien et assure un environnement collégial.\n\nBénéficiez de conditions d'emploi attrayantes, d'une infrastructure moderne et d'un lieu de travail central sur le campus de l'hôpital universitaire de Zurich."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.usz.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-klinik-fuer-immunologie/cca11374-6059-460e-881f-b446a42580ac",
-      "source": "USZ Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T09:24:23.419Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-09",
-      "postedDate": "2026-11-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50219",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:24:23.419Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T03:27:45.671Z",
       "crawlerMissStreak": 2
     },
     {
