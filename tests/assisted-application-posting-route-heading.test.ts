@@ -128,5 +128,8 @@ describe('postingMainHeading', () => {
     // A long heading is returned whole, so the role check sees its suffix (review of #18003).
     const long = `Product Manager${'—'.repeat(190)} at Other Employer`;
     expect(isRoleHeading(await postingMainHeading(pageOf(`<h1>${long}</h1>`)), 'Product Manager')).toBe(false);
+    // The review's acceptance case as a page: a unique visible h1 with a bare number is not the role (finding 7254076cf749).
+    expect(isRoleHeading(await postingMainHeading(pageOf('<h1>Product Manager 999</h1>')), 'Product Manager')).toBe(false);
+    expect(isRoleHeading(await postingMainHeading(pageOf('<h1>Product Manager 80-100%</h1>')), 'Product Manager')).toBe(true);
   });
 });
