@@ -58,6 +58,8 @@ import {
   resolveArticleRouteHref,
 } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
+import { buildCanonicalJobBoardHref, CANTON_JOB_BOARD_PREFIX } from '../../build-plugins/shared/cantonJobBoardPrefix';
+import { buildCantonSnapshotPath } from '../../build-plugins/jobMarketSnapshotChCantonPathsData';
 import { buildProfessionCantonPath } from '../../build-plugins/professionCantonData';
 import { buildProfessionLandingPath } from '../../build-plugins/professionLandingsData';
 import { renderSalaryProfessionCantonPage } from '../../build-plugins/salaryProfessionCantonPages';
@@ -66,6 +68,12 @@ import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallbac
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
+const BING_JOB_MARKET_CANTON_CASES = [
+  { locale: 'it', canton: 'ZH', slug: 'zurigo', expected: '/cerca-lavoro-zurigo/' },
+  { locale: 'en', canton: 'ZH', slug: 'zurich', expected: '/en/find-jobs-zurich/' },
+  { locale: 'de', canton: 'ZH', slug: 'zurich', expected: '/de/jobs-in-zurich/' },
+  { locale: 'fr', canton: 'ZH', slug: 'zurich', expected: '/fr/trouver-emploi-zurich/' },
+] as const;
 const BORDER_WAIT_ARTICLES = [
   {
     locale: 'it',
@@ -117,6 +125,57 @@ function validHtml(url, extra = '') {
 }
 
 describe('Bing-compatible full-tree crawler', () => {
+  it('keeps canton snapshot T11 CTAs on canonical T5 routes in all locales', () => {
+    const snapshotSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobMarketSnapshotChCantonPages.ts'),
+      'utf8',
+    );
+    const employersSource = readFileSync(
+      join(process.cwd(), 'build-plugins/weeklyEmployersChCantonPages.ts'),
+      'utf8',
+    );
+    expect(snapshotSource).toContain('buildCanonicalJobBoardHref(locale, cantonCode)');
+    expect(employersSource).toContain('buildCanonicalJobBoardHref(locale, cantonCode)');
+
+    const localePrefix = { it: '', en: '/en', de: '/de', fr: '/fr' } as const;
+    for (const { locale, canton, slug, expected } of BING_JOB_MARKET_CANTON_CASES) {
+      const snapshotPath = buildCantonSnapshotPath(locale, slug);
+      const canonicalHref = buildCanonicalJobBoardHref(locale, canton);
+      const publishedRoot = `${localePrefix[locale]}/${CANTON_JOB_BOARD_PREFIX[locale]}-${slug}/`
+        .replace(/\/{2,}/g, '/');
+
+      expect(canonicalHref, `${locale}/${canton}`).toBe(expected);
+      expect(snapshotPath, `${locale}/${canton} snapshot`).toBe(`${publishedRoot}snapshot/`);
+      expect(BING_TEMPLATE_TABLE[templateIndexFor(`${BASE}${snapshotPath}`)].id)
+        .toBe('job-market-snapshot-pages');
+      expect(BING_TEMPLATE_TABLE[templateIndexFor(`${BASE}${canonicalHref}`)].id)
+        .toBe('job-board-pages');
+      expect(extractInternalLinks(
+        `<a href="${BASE}${canonicalHref}">Job board</a>`,
+        `${BASE}${snapshotPath}`,
+        BASE,
+      )).toEqual([`${BASE}${canonicalHref}`]);
+
+      // The crawler must continue to expose a real redirect if a legacy link
+      // is ever emitted; this regression test must not hide the symptom.
+      if (publishedRoot !== canonicalHref) {
+        const legacy = classifyDocument({
+          url: `${BASE}${publishedRoot}`,
+          status: 301,
+          finalUrl: `${BASE}${canonicalHref}`,
+          scope: 'discovered-frontier',
+        });
+        expect(legacy.findings.map((item) => item.code)).toContain(BING_FRONTIER_REDIRECT);
+      }
+    }
+
+    // Keep the route-builder's canton-specific German overrides covered too:
+    // the static family still uses the shared legacy `jobs-im` root, but T5
+    // must preserve `dePrefix` instead of guessing from that static prefix.
+    expect(buildCanonicalJobBoardHref('de', 'AG')).toBe('/de/jobs-im-aargau/');
+    expect(buildCanonicalJobBoardHref('de', 'VD')).toBe('/de/jobs-in-der-waadt/');
+  });
+
   it('publishes the versioned template table used by frontier referrer indexes', () => {
     const frontier = collectDiscoveredInventory({
       manifest: { baseUrl: BASE, urls: [`${BASE}/eventi/`] },
