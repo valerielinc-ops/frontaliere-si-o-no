@@ -2237,16 +2237,14 @@
     "slugByLocale": {
       "it": "pedagoga-del-discorso-50-100-kanton-solothurn-olten",
       "en": "speech-pedagogue-50-100-kanton-solothurn-olten",
-      "de": "logopade-in-50-100-kanton-solothurn-olten",
+      "de": "logopade-in-50-100-kanton-solothurn-olten-cd6af5e5",
       "fr": "pedagogue-50-100-kanton-solothurn-olten"
     },
     "sector": "Amministrazione pubblica",
     "expiredAt": "2026-10-02T09:26:23.565Z",
-    "previousSlugs": [
-      "logopade-in-50-100-kanton-solothurn-olten"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "logopade-in-50-100-kanton-solothurn-olten-cd6af5e5",
         "logopade-in-50-100-kanton-solothurn-olten"
       ],
       "en": [
@@ -2254,6 +2252,9 @@
       ],
       "fr": [
         "logopade-in-50-100-kanton-solothurn-olten"
+      ],
+      "de": [
+        "logopade-in-50-100-kanton-solothurn-olten-cd6af5e5"
       ]
     },
     "postalCode": "4600",
@@ -2262,7 +2263,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.so.ch/offene-stellen/logopaede-in/ac6e7cb0-f1df-439c-b682-05dba5ae22ee",
-    "firstSeenAt": "2026-09-01T07:29:40.872Z"
+    "firstSeenAt": "2026-09-01T07:29:40.872Z",
+    "previousSlugs": [
+      "logopade-in-50-100-kanton-solothurn-olten"
+    ]
   },
   {
     "slug": "giudice-corte-d-imposta-cantonale-ufficio-amministrativo-kanton-solothurn-solothurn",
