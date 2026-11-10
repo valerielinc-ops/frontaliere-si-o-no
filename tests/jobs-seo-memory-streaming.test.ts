@@ -319,7 +319,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
-    expect(source).toContain('const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024');
+    expect(source).toContain('const JOBS_SEO_HTML_GC_INTERVAL_MB = 512');
     expect(source).toContain('autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,');
     expect(source).toContain('jobsSeoHtmlGcRuns,');
     expect(source).toContain('const flushHubPageWritesIfNeeded = async (): Promise<void> => {');

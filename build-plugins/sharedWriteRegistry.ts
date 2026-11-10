@@ -213,12 +213,13 @@ let finalOutputManifestFingerprint: string | null = null;
  * has a claimed file already made this path a directory, or vice versa?
  */
 const claimedOutputDescendants = new Map<string, string>();
+const DIRECTORY_INDEX_BASENAME = 'index.html';
+const DIRECTORY_INDEX_SUFFIX = `${path.sep}${DIRECTORY_INDEX_BASENAME}`;
 /**
- * Keep the concrete descendant path for every ancestor, including the parent
- * directory of an `index.html` claim. The path is used in the collision error
- * so the diagnostic identifies the actual file that blocks a later file claim.
- * Do not derive this entry from the index filename: that was an unmeasured
- * retention optimization and did not carry a comparable corpus baseline.
+ * Keep a concrete descendant path for each ancestor so path-shape errors can
+ * identify the blocking file. For `<dir>/index.html`, the direct parent is
+ * omitted: `claimedDirectoryIndex()` reconstructs that path from `pathHistory`
+ * when needed, without retaining a second full path per page.
  */
 // Build emitters normally pass canonical absolute paths. Keep only normalized
 // aliases for the uncommon relative or non-normalized claim.
@@ -234,6 +235,15 @@ let buildGeneration = 0;
 function resolveRetainedPath(filePath: string): string {
   const resolved = path.resolve(filePath);
   return resolved === filePath ? filePath : resolved;
+}
+
+function claimedDirectoryIndex(dirPath: string): string | undefined {
+  const indexPath = dirPath.endsWith(path.sep)
+    ? `${dirPath}${DIRECTORY_INDEX_BASENAME}`
+    : `${dirPath}${DIRECTORY_INDEX_SUFFIX}`;
+  return pathHistory.has(indexPath) || claimedOutputPathAliases.has(indexPath)
+    ? indexPath
+    : undefined;
 }
 
 function asVersionList(history: StoredClaimHistory): readonly ClaimVersion[] {
@@ -288,7 +298,7 @@ function assertOutputPathShapeAvailable(filePath: string): void {
     ancestor = parent;
   }
 
-  const descendant = claimedOutputDescendants.get(resolved);
+  const descendant = claimedOutputDescendants.get(resolved) ?? claimedDirectoryIndex(resolved);
   if (descendant !== undefined) {
     throw new DistPathCollisionError(
       descendant,
@@ -304,6 +314,10 @@ function rememberOutputPathShape(filePath: string): void {
   if (pathHistory.has(filePath)) return;
 
   let ancestor = path.dirname(resolved);
+  // The directory for the common `<page>/index.html` output is recoverable
+  // from the already retained pathHistory key. Do not keep a second full path
+  // value in claimedOutputDescendants for every page directory.
+  if (resolved.endsWith(DIRECTORY_INDEX_SUFFIX)) ancestor = path.dirname(ancestor);
   while (ancestor !== resolved) {
     if (!claimedOutputDescendants.has(ancestor)) {
       claimedOutputDescendants.set(ancestor, resolved);

@@ -307,13 +307,13 @@ describe('sharedWriteRegistry', () => {
  expect(claim(path.join(root, 'guide'), 'pluginB', 'file')).toBe('allow-write');
  });
 
- it('retains each index page directory for concrete collision diagnostics', () => {
+ it('derives index page directories without retaining a second path per page', () => {
  const root = path.resolve(os.tmpdir(), 'retained-shape-index-fixture');
  claim(path.join(root, 'jobs', 'first', 'index.html'), 'pluginA', 'html');
  const storedDirs = getOutputShapeDirCount();
  const secondIndex = path.join(root, 'jobs', 'second', 'index.html');
  claim(secondIndex, 'pluginA', 'html');
- expect(getOutputShapeDirCount()).toBe(storedDirs + 1);
+ expect(getOutputShapeDirCount()).toBe(storedDirs);
 
  let error: unknown;
  try {
@@ -324,6 +324,19 @@ describe('sharedWriteRegistry', () => {
  expect(error).toBeInstanceOf(DistPathCollisionError);
  expect((error as DistPathCollisionError).blockingPath).toBe(secondIndex);
  expect(() => claim(path.join(root, 'jobs'), 'pluginB', 'file')).toThrow(DistPathCollisionError);
+
+ reset();
+ const relativeIndex = path.join('retained-shape-relative-index', 'second', 'index.html');
+ const resolvedRelativeIndex = path.resolve(relativeIndex);
+ claim(relativeIndex, 'pluginA', 'html');
+ let relativeError: unknown;
+ try {
+ claim(path.dirname(resolvedRelativeIndex), 'pluginB', 'file');
+ } catch (caught) {
+ relativeError = caught;
+ }
+ expect(relativeError).toBeInstanceOf(DistPathCollisionError);
+ expect((relativeError as DistPathCollisionError).blockingPath).toBe(resolvedRelativeIndex);
  });
  });
 });
