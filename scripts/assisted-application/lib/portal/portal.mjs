@@ -3351,6 +3351,7 @@ function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = ''
 export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   pageUrl = '',
   pageTitle = '',
+  pageHeading = '',
   postingUrl = '',
   postingRouteProof = null,
   vacancyIdentityContexts = [],
@@ -3370,7 +3371,17 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   // rendered page text: a generic document title must not hide an unrelated
   // role in the selected route, while a proven employer/location suffix in
   // the posting body may be ignored.
-  if (!organizationCompatible || namesAnotherEmployer(routeBound ? pageText : sourceText, job, { allowPostingLocation: routeBound })) return false;
+  // namesAnotherEmployer reads the first line of its text as the page's title.
+  // The rendered text of a selected route starts with whatever the site puts
+  // first, often a skip link («Zum Inhalt springen», «Skip to content»; order
+  // 1EpmkrDu, jobs.yellowshark.com, 2026-11-10: posting_mismatch before its
+  // Apply). When the page's own main heading is exactly the role, that heading
+  // is the title line; the employer-conflict rule still reads the whole page.
+  // A heading naming another role, a second employer or nothing keeps the
+  // rendered first line, as before.
+  const routeHeading = routeBound && isRoleHeading(pageHeading, job?.title) ? String(pageHeading).trim() : '';
+  const conflictText = routeBound ? (routeHeading ? `${routeHeading}\n${pageText}` : pageText) : sourceText;
+  if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
@@ -3439,6 +3450,34 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
     && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
     && titleMatches(line.replace(otherRequisition, ' '), job.title)
     && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/**
+ * The page's main heading is the order's role and nothing else: every word of
+ * the role, and around it only gender markers or a workload («(m/w/d)»,
+ * «80-100%»). Another role, an employer or a slogan in it is not this role.
+ */
+function isRoleHeading(heading, title) {
+  const text = String(heading || '').trim();
+  if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  const seen = normalizeWords(text).split(' ').filter(Boolean);
+  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || /^\d{1,3}$/.test(word));
+}
+
+/** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
+export async function postingMainHeading(page) {
+  const headings = await page.evaluate?.(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
+    .filter((node) => {
+      const rect = node.getBoundingClientRect();
+      const style = window.getComputedStyle(node);
+      return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+    })
+    .map((node) => String(node.innerText || node.textContent || '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, 10)).catch(() => null);
+  const distinct = [...new Set(Array.isArray(headings) ? headings : [])];
+  return distinct.length === 1 ? distinct[0].slice(0, 200) : '';
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */
@@ -7684,6 +7723,7 @@ export async function readPortalRequirements(ctx) {
     const sourcePostingMatched = hasJobContract && hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
+      pageHeading: await postingMainHeading(page),
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
@@ -8088,6 +8128,7 @@ export async function submitViaPortal(ctx) {
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
+        pageHeading: await postingMainHeading(page),
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
