@@ -27,7 +27,10 @@
  *    `--rich-missing-out <file>`, which scripts/submit-google-indexing-jobs.js
  *    notifies first (monitor-gsc-seo.yml runs the two back to back).
  *
- * Always exits 0 — alerting/monitoring only.
+ * Exit codes: 0 when the monitor ran (whatever it found — findings become
+ * issues, not red runs); 1 when it could not run: no service account in CI,
+ * authentication failure, or an unexpected exception. Until 2026-11-10 every
+ * path exited 0, which hid a ReferenceError for 17 days.
  *
  * Usage: node scripts/monitor-gsc-job-indexation.mjs [--dry-run] [--rich-missing-out <file>]
  *
@@ -302,6 +305,26 @@ async function isLiveJobPage(url) {
 }
 
 // ── Analysis ────────────────────────────────────────────────
+
+/**
+ * Why a sampled page counts as a JobPosting rich-result regression, or null.
+ * Only a job DETAIL page that is live with JobPosting (so Google could show
+ * it) and that URL Inspection actually answered for can regress.
+ *
+ * From 2026-10-24 (#15046) to 2026-11-10 this check called two functions that
+ * were never defined (`isJobPageUrl`, `jobPostingRichResultRegression`): the
+ * first sampled page threw "isJobPageUrl is not defined", main() died inside
+ * its loop and, because the CLI wrapper exited 0, every run was green while
+ * the history, the rich-result guard and `job-rich-missing` were never
+ * produced. Exported so tests/monitor-gsc-job-rich-missing.test.ts runs it.
+ * @param {{pageUrl: string, liveJob: boolean, result: {error?: string, hasJobs?: boolean}}} p
+ * @returns {string|null}
+ */
+export function jobRichResultRegression({ pageUrl, liveJob, result }) {
+  if (!isJobDetailCandidate(pageUrl) || !liveJob || !result || result.error) return null;
+  return result.hasJobs ? null : 'no Job postings rich result in URL Inspection';
+}
+
 function categorize(result, pageUrl) {
   if (result.error) return 'UNKNOWN';
 
@@ -545,7 +568,12 @@ async function main() {
 
   const sa = loadServiceAccount();
   if (!sa) {
-    log('⚠️', 'No Service Account credentials — skipping');
+    if (process.env.GITHUB_ACTIONS === 'true') {
+      console.log('::error title=GSC monitor::No Service Account credentials — monitor not run');
+      process.exitCode = 1;
+    } else {
+      log('⚠️', 'No Service Account credentials — skipping');
+    }
     return;
   }
 
@@ -554,7 +582,8 @@ async function main() {
     accessToken = await getAccessToken(sa);
     log('🔑', 'Authenticated via Service Account');
   } catch (err) {
-    log('⚠️', `Auth failed: ${err.message}`);
+    console.log(`::error title=GSC monitor::Auth failed: ${err.message}`);
+    process.exitCode = 1;
     return;
   }
 
@@ -602,9 +631,7 @@ async function main() {
     const category = result.error ? 'UNKNOWN' : categorize(result, pageUrl);
     results[category]++;
 
-    const jobRichResultRegressionReason = isJobPageUrl(pageUrl)
-      ? jobPostingRichResultRegression(result)
-      : null;
+    const jobRichResultRegressionReason = jobRichResultRegression({ pageUrl, liveJob, result });
     if (jobRichResultRegressionReason) {
       jobRichResultRegressions.push({
         url: pageUrl,
@@ -1062,7 +1089,9 @@ async function submitToIndexNow(urls) {
 // happen to be in the environment.
 if (isInvokedDirectly(import.meta.url)) {
   main().catch(err => {
-    log('⚠️', `Monitor error: ${err.message}`);
-    process.exit(0); // Always exit 0
+    // A programming error must turn the run red: exiting 0 here kept
+    // "isJobPageUrl is not defined" invisible from 2026-10-24 to 2026-11-10.
+    console.log(`::error title=GSC monitor::Monitor error: ${err.stack || err.message}`);
+    process.exit(1);
   });
 }

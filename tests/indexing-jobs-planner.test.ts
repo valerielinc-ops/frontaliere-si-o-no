@@ -19,16 +19,19 @@ import {
   judgeLive,
   spentOn,
   backlogRank,
-  DELETE_SHARE,
+  newRank,
+  countDedupSkipped,
   GONE_FORGET_DAYS,
 } from '../scripts/lib/indexing-jobs-planner.mjs';
 import {
   parseArgs,
   runBudgetFor,
   runLiveChecks,
+  formatRunReport,
   LIVE_CHECK_CONCURRENCY,
   DAILY_BUDGET,
 } from '../scripts/submit-google-indexing-jobs.js';
+import { DEFAULT_DAILY_QUOTA } from '../scripts/lib/indexing-api-quota.mjs';
 
 const S = 'https://frontaliereticino.ch';
 const testDay = '2026-10-24';
@@ -105,9 +108,15 @@ describe('ledger', () => {
     expect(l.urls[job('/cerca-lavoro-ticino/a/')]).toBeUndefined();
   });
 
-  it('shares the 2,000-request day between job and article callers', () => {
+  it('the daily quota is the one Google grants (200), not the 2,000 once requested', () => {
+    // 2026-11-03 → 2026-11-09: every run stopped on 429 after ~200 publishes.
+    expect(DEFAULT_DAILY_QUOTA).toBe(200);
+    expect(DAILY_BUDGET).toBe(200);
+  });
+
+  it('shares the daily quota between job and article callers', () => {
     const l = createLedger(testDay);
-    l.days[testDay] = 1_960; // 1,960 job publishes already accounted for.
+    l.days[testDay] = DAILY_BUDGET - 40; // job publishes already accounted for.
     const articleUrls = Array.from({ length: 40 }, (_, i) => `${S}/articoli-frontaliere/article-${i}/`);
 
     for (const url of articleUrls) {
@@ -174,7 +183,7 @@ describe('planSubmissions', () => {
     expect(backlogRank(job('/cerca-lavoro-ticino/x/'))).toBeLessThan(backlogRank(job('/cerca-lavoro-zurigo/x/')));
   });
 
-  it('priority (no Jobs rich result) beats new, new beats delete, delete beats backlog', () => {
+  it('new beats delete, delete beats priority (no Jobs rich result), priority beats backlog', () => {
     const l = seeded();
     const day1 = '2026-10-25';
     observeSitemap(l, [
@@ -185,9 +194,9 @@ describe('planSubmissions', () => {
     ], day1); // old-ti left the sitemaps
     const plan = planSubmissions(l, { today: day1, max: 10, priority: [job('/cerca-lavoro-zurigo/old-zh/'), job('/not/in/ledger/')] });
     expect(plan.slice(0, 3).map((p) => [p.tier, p.type, p.url])).toEqual([
-      ['priority', 'URL_UPDATED', job('/cerca-lavoro-zurigo/old-zh/')],
       ['new', 'URL_UPDATED', job('/cerca-lavoro-vaud/brand-new/')],
       ['delete', 'URL_DELETED', job('/cerca-lavoro-ticino/old-ti/')],
+      ['priority', 'URL_UPDATED', job('/cerca-lavoro-zurigo/old-zh/')],
     ]);
     // A priority URL that is not an active sitemap job is never sent.
     expect(plan.some((p) => p.url === job('/not/in/ledger/'))).toBe(false);
@@ -195,13 +204,50 @@ describe('planSubmissions', () => {
     expect(new Set(plan.map((p) => p.url)).size).toBe(plan.length);
   });
 
-  it('caps URL_DELETED at DELETE_SHARE of the run budget', () => {
+  it('every expired job is planned as URL_DELETED before any update, once', () => {
     const l = createLedger(day0);
     const many = Array.from({ length: 40 }, (_, i) => ({ loc: job(`/cerca-lavoro-ticino/gone-${i}/`), lastmod: null }));
-    observeSitemap(l, many, day0);
-    observeSitemap(l, [], '2026-10-25');
+    observeSitemap(l, [...many, { loc: job('/cerca-lavoro-ticino/still-here/'), lastmod: '2026-10-01' }], day0);
+    observeSitemap(l, [{ loc: job('/cerca-lavoro-ticino/still-here/'), lastmod: '2026-10-01' }], '2026-10-25');
     const plan = planSubmissions(l, { today: '2026-10-25', max: 20 });
-    expect(plan.filter((p) => p.type === 'URL_DELETED')).toHaveLength(Math.floor(20 * DELETE_SHARE));
+    expect(plan.slice(0, 40).every((p) => p.type === 'URL_DELETED')).toBe(true);
+    expect(plan[40]).toMatchObject({ tier: 'backlog', url: job('/cerca-lavoro-ticino/still-here/') });
+    for (const item of plan.slice(0, 40)) recordOutcome(l, item, 'sent', '2026-10-25');
+    expect(planSubmissions(l, { today: '2026-10-26', max: 20 }).some((p) => p.type === 'URL_DELETED')).toBe(false);
+  });
+
+  it('new = never notified and posted in the last 24h; the Italian URL of every new job goes first', () => {
+    const l = createLedger(day0);
+    observeSitemap(l, [
+      { loc: job('/cerca-lavoro-ticino/old/'), lastmod: '2026-10-20' },
+    ], day0);
+    const day1 = '2026-10-25';
+    observeSitemap(l, [
+      { loc: job('/cerca-lavoro-ticino/old/'), lastmod: '2026-10-20' },
+      { loc: job('/en/find-jobs-ticino/fresh-ti/'), lastmod: '2026-10-25' },
+      { loc: job('/cerca-lavoro-zurigo/fresh-zh/'), lastmod: '2026-10-24' },
+      { loc: job('/cerca-lavoro-ticino/fresh-ti/'), lastmod: '2026-10-25' },
+      // Posted 4 days ago, published late: still never seen by Google → new.
+      { loc: job('/cerca-lavoro-berna/late/'), lastmod: '2026-10-21' },
+    ], day1);
+    const plan = planSubmissions(l, { today: day1, max: 10 });
+    expect(plan.filter((p) => p.tier === 'new').map((p) => p.url)).toEqual([
+      job('/cerca-lavoro-ticino/fresh-ti/'),
+      job('/cerca-lavoro-zurigo/fresh-zh/'),
+      job('/cerca-lavoro-berna/late/'),
+      job('/en/find-jobs-ticino/fresh-ti/'),
+    ]);
+    expect(plan.find((p) => p.url === job('/cerca-lavoro-ticino/old/'))?.tier).toBe('backlog');
+    expect(newRank(job('/cerca-lavoro-zurigo/x/'))).toBeLessThan(newRank(job('/en/find-jobs-ticino/x/')));
+  });
+
+  it('never re-sends the same URL+type unchanged, not even when the monitor flags it', () => {
+    const l = seeded();
+    for (const item of planSubmissions(l, { today: day0, max: 10 })) recordOutcome(l, item, 'sent', day0);
+    expect(countDedupSkipped(l)).toBe(4);
+    const day3 = '2026-10-27';
+    const plan = planSubmissions(l, { today: day3, max: 10, priority: [job('/cerca-lavoro-zurigo/old-zh/')] });
+    expect(plan).toEqual([]);
   });
 
   it('does not re-send what was sent, re-sends what the sitemap says changed', () => {
@@ -272,15 +318,27 @@ describe('submit-google-indexing-jobs CLI', () => {
   });
 
   it('the first run of the quota day takes the large share, later runs the small one, never past the budget', () => {
-    const args = parseArgs(['--max', '15', '--max-first-run', '2000']);
-    expect(runBudgetFor(args, 0)).toBe(2000);
-    expect(runBudgetFor(args, 200)).toBe(15);
-    expect(runBudgetFor(args, 1999)).toBe(1);
+    // monitor-gsc-seo.yml: 200 quota - 60 reserved for post-publish top-ups.
+    const args = parseArgs(['--max', '15', '--max-first-run', '140']);
+    expect(runBudgetFor(args, 0)).toBe(140);
+    expect(runBudgetFor(args, 140)).toBe(15);
+    expect(runBudgetFor(args, DAILY_BUDGET - 1)).toBe(1);
     expect(runBudgetFor(args, DAILY_BUDGET)).toBe(0);
+    expect(parseArgs(['--max-first-run', '2000']).maxFirstRun).toBe(DAILY_BUDGET);
   });
 
   it('an explicit --max 0 is a hard cap, even on the first run of the quota day', () => {
-    expect(runBudgetFor({ max: 0, maxFirstRun: 2000 }, 0)).toBe(0);
-    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '2000']), 0)).toBe(0);
+    expect(runBudgetFor({ max: 0, maxFirstRun: 140 }, 0)).toBe(0);
+    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '140']), 0)).toBe(0);
+  });
+
+  it('every run reports sent per class, skipped for dedup and quota left', () => {
+    const r = formatRunReport({
+      outcome: 'Done', byTier: { new: 12, delete: 3 }, dedupSkipped: 143, liveSkipped: 2, failed: 1, spent: 70, today: '2026-11-10',
+    });
+    expect(r.line).toContain('sent 15 (new=12 delete=3 priority=0 updated=0 backlog=0)');
+    expect(r.line).toContain('skipped 143 for dedup');
+    expect(r.line).toContain(`quota 70/${DAILY_BUDGET} used, ${DAILY_BUDGET - 70} left`);
+    expect(r.table.join('\n')).toContain(`| 12 | 3 | 0 | 0 | 0 | 143 | 2 | 1 | 70/${DAILY_BUDGET} | ${DAILY_BUDGET - 70} |`);
   });
 });

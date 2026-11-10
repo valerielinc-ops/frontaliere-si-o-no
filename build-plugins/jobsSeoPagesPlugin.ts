@@ -1789,6 +1789,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collector's active Map is now also bounded at the jobs-SEO threshold for
  // every page family, including phases that do not release a page cache
  // chunk. The generic collector default remains unchanged for other plugins.
+ // Keep the existing 1-GiB cadence until an identical-corpus full-locale
+ // benchmark supports changing it.
  const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024;
  const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
  let jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
