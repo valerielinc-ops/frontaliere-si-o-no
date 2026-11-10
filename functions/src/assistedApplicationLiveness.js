@@ -65,7 +65,9 @@ const HARD_EXPIRED_PATTERNS = [
   // Stelle kann zurzeit nicht angezeigt werden. Sie wurde entweder gelöscht, oder man kann sich nicht länger
   // darauf bewerben.»), and the same statement in the other languages: always about this posting, never a
   // sentence an open posting prints.
-  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden/i,
+  // «kann nicht angezeigt werden» alone may be a passing display failure: only with its deletion or
+  // no-longer-apply clause is it the closure.
+  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
   /(?:kann|konnen) sich nicht (?:mehr|langer) (?:darauf |dafur |auf diese stelle )?bewerben/i,
   /non e piu possibile (?:candidarsi|candidarti|inviare (?:la (?:tua |sua )?)?candidatura)/i,
   /(?:l')?(?:annuncio|offerta) (?:e stat[ao] )?(?:rimoss[ao]|eliminat[ao])\b/i,

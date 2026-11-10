@@ -174,8 +174,16 @@ describe('a posting that closes behind the registration', () => {
     expect(isHardClosed(page)).toBe(true);
   });
 
+  it('does not close on «kann nicht angezeigt werden» alone, which may be a passing display failure', () => {
+    for (const text of ['Diese Stelle kann zurzeit nicht angezeigt werden.', `Diese Stelle kann derzeit nicht angezeigt werden. ${'z '.repeat(200)}`]) {
+      const page = classifyLiveness({ status: 200, bodyText: text });
+      expect(page.code).not.toBe('expired_body');
+      expect(isHardClosed(page)).toBe(false);
+    }
+  });
+
   it.each([
-    'Diese Stelle kann derzeit nicht angezeigt werden.',
+    'Diese Stelle kann derzeit nicht angezeigt werden. Sie wurde gelöscht.',
     'Sie können sich nicht mehr auf diese Stelle bewerben.',
     'Die Stelle wurde gelöscht.',
     'Non è più possibile candidarsi per questa posizione.',
