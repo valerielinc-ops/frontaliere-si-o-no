@@ -18,8 +18,8 @@ const context = { url: submissionUrl, applyUrl, submissionUrl, job };
 describe('SuccessFactors receipt at the same session route (Helsana s2Tbwwjd)', () => {
   it('is a receipt after the runner\'s final click', () => {
     expect(applicationReceipt(receiptPage, context)).toBe(true);
-    // The site's own language selector in the header is no form left on the page.
-    expect(applicationReceipt({ ...receiptPage, fields: [{ label: 'Sprache', kind: 'combobox', required: false, value: 'Deutsch' }] }, context)).toBe(true);
+    // The site's own language selector in the header (marked `chrome` by the extractor) is no form left on the page.
+    expect(applicationReceipt({ ...receiptPage, fields: [{ label: 'Sprache', kind: 'combobox', required: false, value: 'Deutsch', chrome: true }] }, context)).toBe(true);
     for (const text of [
       'Your application has been submitted. Thank you for applying.',
       'La sua candidatura è stata inviata.',
@@ -40,6 +40,9 @@ describe('SuccessFactors receipt at the same session route (Helsana s2Tbwwjd)', 
     expect(applicationReceipt({ ...receiptPage, buttons: [...receiptPage.buttons, { text: 'Bewerben' }] }, context)).toBe(false);
     expect(applicationReceipt({ ...receiptPage, errors: ['Lebenslauf ist erforderlich'] }, context)).toBe(false);
     expect(applicationReceipt({ ...receiptPage, fields: [{ label: 'Sprache', kind: 'combobox', required: false, invalid: true }] }, context)).toBe(false);
+    // An optional question named like a language is still a form field unless the extractor marked it `chrome`
+    // (review of #17993).
+    expect(applicationReceipt({ ...receiptPage, fields: [{ label: 'Language', required: false, chrome: false, disabled: false, inputType: 'text' }] }, context)).toBe(false);
     // No explicit confirmation, or the portal saying it was not sent.
     expect(applicationReceipt({ ...receiptPage, text: 'Ihre Angaben wurden gespeichert.\nProfil anzeigen' }, context)).toBe(false);
     expect(applicationReceipt({ ...receiptPage, text: 'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung konnte nicht übermittelt werden.' }, context)).toBe(false);

@@ -70,20 +70,18 @@ const RECEIPT_PATH_RE = /(?:^|\/)(?:thank[-_ ]?you|receipt|complete(?:d)?|confir
 // übermittelt.» with «Zurück zum Stellenüberblick» and «Profil anzeigen» only): no posting key and no receipt path.
 const SUCCESS_FACTORS_APPLICATION_PATH_RE = /^\/(?:portalcareer|career)\/?$/i;
 // The site's own language selector is chrome, not a form field left to fill.
-const LANGUAGE_SELECTOR_LABEL_RE = /^\s*(?:sprache|language|langue|lingua|idioma)\s*$/i;
 
 /**
  * A SuccessFactors receipt: the runner pressed the final control on a SuccessFactors application page of this
  * origin, and the page now at the same application route says explicitly that the application was received
- * (CONFIRM_RE), with no form left on it (no field but the site's language selector, no submit control) and no
+ * (CONFIRM_RE), with no form left on it (no field but the site's own controls the extractor marks `chrome`, no submit control) and no
  * validation error. The thank-you copy of a page that still holds the form is not one.
  */
 function successFactorsReceipt(snapshot, { actual, source }) {
   if (!SUCCESS_FACTORS_APPLICATION_PATH_RE.test(actual.pathname) || !SUCCESS_FACTORS_APPLICATION_PATH_RE.test(source.pathname)) return false;
   if ((snapshot.errors || []).length) return false;
   const formFields = (snapshot.fields || []).filter(field => !field.disabled && !field.chrome
-    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(field.inputType)
-    && !(field.required !== true && LANGUAGE_SELECTOR_LABEL_RE.test(String(field.label || ''))));
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(field.inputType));
   return formFields.length === 0 && !(snapshot.fields || []).some(field => field.invalid === true);
 }
 
