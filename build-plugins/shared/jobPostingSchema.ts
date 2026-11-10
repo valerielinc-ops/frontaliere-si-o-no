@@ -207,6 +207,14 @@ export interface BuildJobPostingOptions {
    * retain the historical wall-clock fallback (notably the runtime SPA).
    */
   readonly now?: Date;
+  /**
+   * schema.org `directApply`. Omitted → `true`: on an ACTIVE job page the site
+   * offers its assisted application (the site applies on the user's behalf),
+   * so the page itself is the application flow (owner decision 2026-11-10).
+   * Archived postings pass their own value: a closed vacancy offers no
+   * application flow on this site (`buildArchivedJobPosting`).
+   */
+  readonly directApply?: boolean;
 }
 
 /**
@@ -899,7 +907,7 @@ export function buildJobPostingSchema(
     baseSalary,
     url: opts.url,
     validThrough,
-    directApply: isEmployerOwnedApplyUrl(job),
+    directApply: opts.directApply ?? true,
     ...(job.id || job.slug
       ? {
           identifier: {

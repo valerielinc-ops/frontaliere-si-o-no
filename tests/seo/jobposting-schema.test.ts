@@ -316,32 +316,37 @@ describe('buildJobPostingSchema — missing publication under different build cl
 });
 
 describe('buildJobPostingSchema — application destination', () => {
-  it('keeps directApply false when only an applyUrl is available without employer proof', () => {
+  // Owner decision 2026-11-10: every ACTIVE job page offers the site's
+  // assisted application, so the page is the application flow whatever the
+  // employer's apply destination is.
+  it.each([
+    ['no apply URL at all', {}],
+    ['an aggregator apply URL without employer proof', { applyUrl: 'https://jobs.example.test/application/123' }],
+    ['a hosted ATS destination', { companyDomain: 'example.com', applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123' }],
+    ['an employer-owned apply URL', { companyDomain: 'example.com', applyUrl: 'https://careers.example.com/application/123' }],
+  ] as const)('declares directApply true on an active posting with %s', (_label, applyFields) => {
+    const schema = buildJobPostingSchema({
+      ...applyFields,
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura assistita del lavoro.',
+      company: 'Esempio SA',
+    }, OPTS);
+    expect(schema.directApply).toBe(true);
+  });
+
+  it('lets an archived caller state its own directApply value', () => {
     const schema = buildJobPostingSchema({
       title: 'Operatore sanitario',
       description:
         'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
       company: 'Esempio SA',
       applyUrl: 'https://jobs.example.test/application/123',
-      url: '',
-    }, OPTS);
+    }, { ...OPTS, directApply: false });
     expect(schema.directApply).toBe(false);
   });
 
-  it('marks a same-organisation application subdomain as direct apply', () => {
-    const schema = buildJobPostingSchema({
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
-      company: 'Esempio SA',
-      companyDomain: 'example.com',
-      applyUrl: 'https://careers.example.com/application/123',
-      url: 'https://www.example.com/jobs/123',
-    }, OPTS);
-    expect(schema.directApply).toBe(true);
-  });
-
-  it('keeps the typed applyUrl/companyDomain pair through the slim boundary', () => {
+  it('keeps the typed applyUrl/companyDomain ownership check through the slim boundary', () => {
     const directApplyFields: Pick<JobInput, 'applyUrl' | 'companyDomain'> = {
       applyUrl: 'https://careers.example.com/application/123',
       companyDomain: 'example.com',
@@ -349,26 +354,8 @@ describe('buildJobPostingSchema — application destination', () => {
 
     expect(SLIM_INDEX_FIELDS.has('applyUrl')).toBe(true);
     expect(isEmployerOwnedApplyUrl(directApplyFields)).toBe(true);
-    expect(buildJobPostingSchema({
-      ...directApplyFields,
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso tipizzato di candidatura diretta.',
-      company: 'Esempio SA',
-    }, OPTS).directApply).toBe(true);
-  });
-
-  it('does not label a hosted ATS destination as employer direct apply', () => {
-    const schema = buildJobPostingSchema({
-      title: 'Operatore sanitario',
-      description:
-        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
-      company: 'Esempio SA',
-      companyDomain: 'example.com',
-      applyUrl: 'https://example.wd5.myworkdayjobs.com/en-US/careers/job/123',
-      url: 'https://www.example.com/jobs/123',
-    }, OPTS);
-    expect(schema.directApply).toBe(false);
+    expect(isEmployerOwnedApplyUrl({ ...directApplyFields, applyUrl: 'https://example.wd5.myworkdayjobs.com/x' })).toBe(false);
+    expect(isEmployerOwnedApplyUrl({ applyUrl: 'https://jobs.example.test/application/123' })).toBe(false);
   });
 
   it('keeps the raw ownership domain separate from hiringOrganization.sameAs', () => {

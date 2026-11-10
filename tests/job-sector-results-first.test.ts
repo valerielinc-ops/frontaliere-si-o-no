@@ -42,12 +42,12 @@ describe('sector category landings — results-first ordering', () => {
       sectorProseData,
     });
     const body = html.slice(html.indexOf('<main'));
-    // Cards show the employer's original title (`title`) in every locale
-    // (scripts/lib/job-title-identity.mjs); only the interface is translated.
-    const first = body.indexOf('Result 1 it');
-    const third = body.indexOf('Result 3 it');
+    // Cards show the title in the page's language (owner decision
+    // 2026-11-10, scripts/lib/job-title-identity.mjs).
+    const first = body.indexOf(`Result 1 ${locale}`);
+    const third = body.indexOf(`Result 3 ${locale}`);
     const context = body.indexOf('data-sector-summary');
-    const fourth = body.indexOf('Result 4 it');
+    const fourth = body.indexOf(`Result 4 ${locale}`);
 
     expect(first).toBeGreaterThanOrEqual(0);
     expect(third).toBeGreaterThan(first);

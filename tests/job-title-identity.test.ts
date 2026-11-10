@@ -6,6 +6,8 @@ import {
   jobDisplayTitle,
   jobSearchTitleText,
   localeTitleDropsSourceWords,
+  localizedJobDisplayTitle,
+  localizedJobTitleResolution,
   originalJobTitle,
 } from '../scripts/lib/job-title-identity.mjs';
 import { buildSlimSeed } from '../build-plugins/shared/slimJobIndex';
@@ -43,21 +45,72 @@ const TRAINING = {
   titleByLocale: { de: 'Ausbildung dipl. Pflegefachperson HF', it: 'Allenamento per dipl. Carriera HF' },
 };
 
-describe('jobDisplayTitle — the employer title survives every locale variant', () => {
+describe('jobDisplayTitle — the identity title is the employer original', () => {
   it.each([
-    ['PEMSA «M1, M2» (trade dropped by the translation)', PEMSA, 'Macchinista M1, M2,M3'],
-    ['Fielmann «Optometristo»', FIELMANN, 'Optometrist/Augenoptikermeister (w/m/d)'],
-    ['«Applicazione spontanea Dipl. Infermiera HF»', SPONTANEOUS, 'Spontanbewerbung Dipl. Pflegefachfrau HF'],
-    ['«Allenamento per dipl. Carriera HF»', TRAINING, 'Ausbildung dipl. Pflegefachperson HF'],
+    ['PEMSA', PEMSA, 'Macchinista M1, M2,M3'],
+    ['Fielmann', FIELMANN, 'Optometrist/Augenoptikermeister (w/m/d)'],
+    ['Spontanbewerbung', SPONTANEOUS, 'Spontanbewerbung Dipl. Pflegefachfrau HF'],
+    ['Ausbildung', TRAINING, 'Ausbildung dipl. Pflegefachperson HF'],
   ])('%s', (_label, job, expected) => {
+    // Identity (dedup, matching, slug repair) never changes with the locale.
     expect(jobDisplayTitle(job)).toBe(expected);
-    for (const locale of ['it', 'en', 'de', 'fr']) {
+    expect(originalJobTitle(job)).toBe(expected);
+  });
+});
+
+// Owner decision 2026-11-10 (supersedes 2026-10-23): a page shows the title
+// in its own language; the original only when the locale has no usable
+// translation.
+describe('localizedJobDisplayTitle — the page shows the title in its language', () => {
+  const opts = (locale: string) => ({ locale, url: 'https://frontaliereticino.ch/x/', baseUrl: 'https://frontaliereticino.ch' });
+
+  it('uses the translated slot of every locale that has one', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const expected = FIELMANN.titleByLocale[locale];
+      expect(localizedJobDisplayTitle(FIELMANN, locale)).toBe(expected);
+      expect(localizedJobTitleResolution(FIELMANN, locale)).toEqual({ title: expected, source: 'translation', reason: 'translated' });
       // The slim index / seed is what the SPA paints and re-heads with.
-      expect(buildSlimSeed(job, locale).title).toBe(expected);
-      expect(buildJobListEntry(job, { locale, url: 'https://frontaliereticino.ch/x/', baseUrl: 'https://frontaliereticino.ch' })?.name).toBe(expected);
+      expect(buildSlimSeed(FIELMANN, locale).title).toBe(expected);
+      expect(buildJobListEntry(FIELMANN, opts(locale))?.name).toBe(expected);
     }
   });
 
+  it('falls back to the original when the locale slot is missing', () => {
+    expect(localizedJobTitleResolution(SPONTANEOUS, 'fr')).toEqual({
+      title: 'Spontanbewerbung Dipl. Pflegefachfrau HF', source: 'original', reason: 'missing',
+    });
+    expect(buildSlimSeed(SPONTANEOUS, 'en').title).toBe('Spontanbewerbung Dipl. Pflegefachfrau HF');
+    expect(localizedJobDisplayTitle(SPONTANEOUS, 'it')).toBe('Applicazione spontanea Dipl. Infermiera HF');
+  });
+
+  it('falls back to the original when the slot is a truncation, like the slug writers', () => {
+    for (const locale of ['en', 'de', 'fr']) {
+      expect(localizedJobTitleResolution(PEMSA, locale)).toEqual({
+        title: 'Macchinista M1, M2,M3', source: 'original', reason: 'truncated',
+      });
+      expect(buildJobListEntry(PEMSA, opts(locale))?.name).toBe('Macchinista M1, M2,M3');
+    }
+  });
+
+  it('accepts a regional locale tag and drops a translation-only closing period', () => {
+    const job = {
+      title: 'Schreiner/in für Service- und Unterhaltsarbeiten',
+      titleByLocale: { it: 'Carpentiere per lavori di assistenza e manutenzione.', de: 'Schreiner/in für Service- und Unterhaltsarbeiten' },
+    };
+    expect(localizedJobDisplayTitle(job, 'it-CH')).toBe('Carpentiere per lavori di assistenza e manutenzione');
+    // An abbreviation, or a period the employer's own title ends with, is kept.
+    expect(localizedJobDisplayTitle({ title: 'Pflegefachperson HF', titleByLocale: { it: 'Infermiere Dipl.' } }, 'it')).toBe('Infermiere Dipl.');
+    expect(localizedJobDisplayTitle({ title: 'Leiter Verkauf.', titleByLocale: { it: 'Responsabile vendite.' } }, 'it')).toBe('Responsabile vendite.');
+  });
+
+  it('returns the title of a locale-flattened record as is', () => {
+    expect(localizedJobTitleResolution({ title: 'Infermiere' }, 'it')).toEqual({ title: 'Infermiere', source: 'translation', reason: 'flattened' });
+    expect(localizedJobDisplayTitle(null, 'it')).toBe('');
+  });
+
+});
+
+describe('job title helpers', () => {
   it('collapses a word repeated back-to-back («Legale Legale Servizio Legale…»)', () => {
     expect(dedupeAdjacentTitleWords('Legale Legale Servizio Legale')).toBe('Legale Servizio Legale');
     expect(jobDisplayTitle({ title: 'Legale  legale Servizio Legale (80-100%)' })).toBe('Legale Servizio Legale (80-100%)');
@@ -113,7 +166,7 @@ const ALLOWED_LOCALE_TITLE_READS: Record<string, { count: number; why: string }>
   'services/seoService.ts': { count: 0, why: '' },
 };
 
-describe('job title display sites use jobDisplayTitle', () => {
+describe('job title display sites read the shared helper, not raw titleByLocale', () => {
   it.each(Object.entries(ALLOWED_LOCALE_TITLE_READS))('%s', (file, { count }) => {
     const source = readFileSync(resolve(ROOT, file), 'utf8');
     expect(source.match(LOCALE_TITLE_RE)?.length ?? 0).toBe(count);

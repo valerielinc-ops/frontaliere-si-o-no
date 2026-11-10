@@ -1,4 +1,4 @@
-import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { CALC_HREF } from './shared/calcHref';
@@ -3948,7 +3948,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     ? ctx.matchingJobs.flatMap((job) => {
         const href = jobLocalizedUrl(job, locale, activeJobSitemapLocs);
         if (!href) return [];
-        const jobTitle = sanitizeJobTitleForDisplay(jobDisplayTitle(job).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+        const jobTitle = sanitizeJobTitleForDisplay(localizedJobDisplayTitle(job, locale).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');

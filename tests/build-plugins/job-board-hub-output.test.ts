@@ -392,9 +392,8 @@ describe('job-board emitted output', () => {
       const entries = structured(document);
       expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
-      // The fixture's canonical title is Italian; locale rendering does not
-      // invent a translated source title.
-      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].title);
+      // The page names the job in its own language (owner decision 2026-11-10).
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
@@ -404,6 +403,68 @@ describe('job-board emitted output', () => {
       expect(seed?.textContent).toContain('https://example.test/careers/0/');
     }
   });
+
+  // OBSERVER (owner decision 2026-11-10): a job page whose locale has a
+  // translated title must name the job in the page's language on every
+  // title surface. Fails if any of them falls back to the original (Italian)
+  // title, or to another locale's slot, while the translation exists.
+  it.each(locales)('names an active job in the page language on every title surface in %s', (locale) => {
+    const job = jobs[2];
+    const translated = job.titleByLocale[locale];
+    const otherTitles = [job.title, ...Object.values(job.titleByLocale)].filter((title) => title !== translated);
+    const document = htmlDoc(`${hubPath(locale, 'ZH')}${job.slug}/`);
+    const surfaces: Record<string, string> = {
+      '<title>': document.title,
+      h1: document.querySelector('h1')?.textContent || '',
+      'og:title': document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '',
+      'twitter:title': document.querySelector('meta[name="twitter:title"]')?.getAttribute('content') || '',
+      'meta description': document.querySelector('meta[name="description"]')?.getAttribute('content') || '',
+    };
+    const entities = structured(document);
+    const posting = entities.find((entry) => entry['@type'] === 'JobPosting');
+    surfaces['JobPosting.title'] = posting?.title || '';
+    const breadcrumb = entities.find((entry) => entry['@type'] === 'BreadcrumbList');
+    surfaces['BreadcrumbList (last)'] = breadcrumb?.itemListElement?.at(-1)?.name || '';
+    for (const [surface, value] of Object.entries(surfaces)) {
+      expect(value, `${locale} ${surface}`).toContain(translated);
+      for (const other of otherTitles) expect(value, `${locale} ${surface} leaks "${other}"`).not.toContain(other);
+    }
+    expect(posting.title).toBe(translated);
+    expect(posting.directApply).toBe(true);
+  });
+
+  it('names ItemList job entries in the page language on every emitted page', () => {
+    // Walks the emitted dist: any ItemList entry naming an audit job must use
+    // the translated title of the page's locale.
+    const auditTitle = /amministrativ|administrati|Verwaltungsspezialist/i;
+    const seen: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
+    const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true })
+      .flatMap((entry) => entry.isDirectory() ? walk(path.join(dir, entry.name)) : entry.name === 'index.html' ? [path.join(dir, entry.name)] : []);
+    const dist = path.join(root, 'dist');
+    for (const file of walk(dist)) {
+      const relative = path.relative(dist, file);
+      const locale = (['en', 'de', 'fr'] as const).find((candidate) => relative.startsWith(`${candidate}/`)) || 'it';
+      const html = fs.readFileSync(file, 'utf8');
+      if (!html.includes('ItemList') || !auditTitle.test(html)) continue;
+      const blocks = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1]));
+      const lists = blocks.flatMap(function collect(value: any): any[] {
+        if (!value || typeof value !== 'object') return [];
+        return [...(value['@type'] === 'ItemList' ? [value] : []), ...Object.values(value).flatMap(collect)];
+      });
+      for (const list of lists) {
+        for (const item of list.itemListElement || []) {
+          const name = String(item?.name || item?.item?.name || '');
+          if (!auditTitle.test(name)) continue;
+          seen[locale] += 1;
+          const index = name.match(/(\d+)$/)?.[1];
+          const job = jobs.find((candidate) => candidate.title.endsWith(` ${index}`));
+          expect(name, `${relative}`).toBe(job?.titleByLocale[locale]);
+        }
+      }
+    }
+    for (const locale of locales) expect(seen[locale], `${locale} ItemList entries naming an audit job`).toBeGreaterThan(0);
+  }, 120000);
 
   it('keeps every mandatory field on active details in all four locales', () => {
     for (const locale of locales) {
@@ -436,9 +497,9 @@ describe('job-board emitted output', () => {
       const posting = postings[0];
       for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
       expect(posting.employmentType).toBe('FULL_TIME');
-      // The fixture's canonical title is Italian; locale rendering does not
-      // invent a translated source title.
-      expect(posting.title).toBe(jobs[7].title);
+      // Archived pages name the job in the page's language too (owner
+      // decision 2026-11-10); the recorded translation is not invented.
+      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
