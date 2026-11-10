@@ -282,11 +282,11 @@ jobs:
           # silently misses the new ones; this form cannot drift (AGENTS.md #6).
           REPO_VARS_JSON: ${{ toJSON(vars) }}
           # The complete logical dist already consumes almost all of the
-          # hosted runner's disk. Keep the transient batch ZIP bound to one;
-          # the weekly full audit has the time budget for serialized I/O, and
-          # parallel ZIPs can terminate the runner with ENOSPC before a step
-          # can report a verdict.
-          REHYDRATE_MAX_PARALLEL: '1'
+          # hosted runner's disk. Arbitrary replays stay serialized by default;
+          # the only caller that first removes the source-only 4.4 GB image
+          # tree is allowed two bounded workers, recovering wall time without
+          # restoring the old four-ZIP ENOSPC peak.
+          REHYDRATE_MAX_PARALLEL: ${{ inputs.prune_source_images && '2' || '1' }}
         run: |
           set -uo pipefail
           eval "$(jq -r 'to_entries[]

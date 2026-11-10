@@ -188,13 +188,14 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
   });
 
-  it('serializes full-audit shard rehydration to stay within runner disk', () => {
+  it('uses bounded parallelism only after source-only images are pruned', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const rehydrateStep = workflow.jobs.audit.steps.find((step: any) => (
       step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
     ));
 
-    expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL).toBe('1');
+    expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL)
+      .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
   });
 
   it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
@@ -226,6 +227,8 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(pruneIndex).toBeLessThan(freeIndex);
     expect(pruneIndex).toBeLessThan(rehydrateIndex);
     expect(full.jobs['full-audit'].with.prune_source_images).toBe(true);
+    expect(steps[rehydrateIndex]?.env?.REHYDRATE_MAX_PARALLEL)
+      .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
     expect(published.jobs.report.with.prune_source_images).not.toBe(true);
   });
 
