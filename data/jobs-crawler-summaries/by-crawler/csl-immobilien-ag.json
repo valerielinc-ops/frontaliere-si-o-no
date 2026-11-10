@@ -1,7 +1,7 @@
 {
   "key": "csl-immobilien-ag",
   "label": "CSL Immobilien AG",
-  "generatedAt": "2026-11-09T21:44:14.761Z",
+  "generatedAt": "2026-11-10T09:36:40.252Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10761,
-  "avgDurationMs": 10761,
+  "durationMs": 8347,
+  "avgDurationMs": 8347,
   "durationHistory": [
-    10761
+    8347
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csl-immobilien-ag-9e5ee263ca24",
-      "slug": "leiter-in-marketing-kommunikation-csl-immobilien-ag-zurich",
+      "slug": "responsabile-marketing-e-comunicazione-csl-immobilien-ag-zurich-zh",
       "company": "CSL Immobilien AG",
       "companyKey": "csl-immobilien-ag",
       "companyDomain": "app.jobportal.abaservices.ch",
@@ -37,7 +38,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:43:29.321Z",
+      "crawledAt": "2026-11-10T09:36:10.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -56,23 +57,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-09T21:43:29.321Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:43:29.321Z",
+      "validThrough": "2027-02-07T09:36:10.147Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:43:29.321Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -87,7 +87,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:43:29.307Z",
+      "crawledAt": "2026-11-10T09:36:10.143Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:43:29.307Z",
+      "validThrough": "2027-01-26T09:36:10.143Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -121,5 +121,5 @@
       }
     }
   ],
-  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }

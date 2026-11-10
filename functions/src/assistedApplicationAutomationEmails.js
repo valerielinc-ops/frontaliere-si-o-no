@@ -551,7 +551,7 @@ const PORTAL_STOPS = {
   captcha_provider_unavailable: 'il controllo anti-robot non è stato risolto dal runner',
   account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
   rejected: 'il portale ha rifiutato l’invio automatico',
-  application_region_unsupported: 'il portale non supporta al momento candidature dalla regione del candidato',
+  application_region_unsupported: 'il portale ha bloccato le candidature dalla regione della connessione del runner (geolocalizza l’indirizzo IP del runner, non il candidato)',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
   posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
   whatsapp: 'il datore accetta candidature solo via WhatsApp (PastaHR, gli apprendistati Coop): la chat parte dal telefono del candidato e nessun robot può inviarla',
@@ -560,7 +560,7 @@ const PORTAL_STOPS = {
 // whatsapp (#11161): a retry completes the order when the channel has a PastaHR https link (the
 // candidate gets it by e-mail, with the steps); any other WhatsApp channel stops here again.
 const PORTAL_STOP_HINTS = {
-  application_region_unsupported: 'L’annuncio dice che al momento il portale non supporta candidature dalla regione del candidato. La run si è fermata prima di aprire il modulo; verifica con il datore se è possibile candidarsi da questa regione prima di riprovare.',
+  application_region_unsupported: 'Il candidato non deve fare nulla e non è partito nulla: la run si è fermata sulla pagina dell’annuncio, prima del modulo. Il blocco dipende dall’indirizzo IP del runner, quindi riproviamo automaticamente da un altro runner. Per chiudere subito, dalla coda premi «Compila con l’estensione» da una connessione svizzera.',
   captcha: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
   captcha_provider_unavailable: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
   whatsapp: 'Non c’è un modulo da compilare: il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), dalla coda «Riprova l’invio automatico» chiude l’ordine: il candidato riceve per email il link e i passaggi. Altrimenti premi «Affida al candidato»: riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
@@ -596,7 +596,9 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
   const raw = String(reason || '').trim();
   if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
     return {
-      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio' : 'la connessione al portale non è riuscita',
+      reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'
+        : raw === 'portal:application_region_unsupported' ? `l’invio sul portale si è fermato: ${PORTAL_STOPS.application_region_unsupported}`
+          : 'la connessione al portale non è riuscita',
       hint: `La candidatura resta in coda. Riproveremo automaticamente ${formatDeadline(portalAutoRetryAt, 'it')} e i tentativi proseguiranno mentre l’annuncio è disponibile. Non serve intervenire sulla singola candidatura.`,
       detail: '',
     };

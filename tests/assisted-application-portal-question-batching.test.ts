@@ -728,6 +728,52 @@ describe('assisted portal question batching', () => {
     expect(accountEvents).toEqual([]);
   });
 
+  // Value-shape invariant (SuccessFactors #17094/#17181): a value the control
+  // cut at its maxlength is a named finding, not a silent mismatch, and the
+  // same cut value is not retyped until the replan budget runs out.
+  it('names a registration answer the control cut at its maxlength and stops retyping it', async () => {
+    const { page, window } = fakePage({ registration: true });
+    window.document.querySelector('form')!.insertAdjacentHTML('afterbegin',
+      '<label for="last-name">Last name *</label><input id="last-name" name="last-name" type="text" maxlength="5" required>');
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return sameLanguageLocalization(prompt);
+      plannerCalls += 1;
+      return {
+        actions: [{ fieldId: fieldId('last-name'), action: 'fill', value: 'Provalunga', document: 'none', source: 'identity', evidence: '' }],
+        missingRequired: [],
+      };
+    };
+    const diagnostics: any = { data: {}, beforeClick: () => {}, afterClick: () => {} };
+    const accountEvents: string[] = [];
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test', lastName: 'Provalunga' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+      diagnostics,
+    });
+
+    const finding = { fieldId: fieldId('last-name'), label: 'Last name *', expected: 'name', shape: 'truncated', maxLength: 5 };
+    expect(result).toEqual({ handoff: 'portal_needs_candidate', valueShapes: [finding] });
+    expect(plannerCalls).toBe(2);
+    expect(diagnostics.data.valueShape).toEqual([{ phase: 'registration', ...finding }]);
+    expect(JSON.stringify({ result, diagnostics: diagnostics.data })).not.toContain('Provalunga');
+    expect(accountEvents).toEqual([]);
+  });
+
   it('replans after a successful CV upload reveals a hard required question', async () => {
     const fixture = fakePage({ registration: true, uploadRevealsUnknown: true });
     const { page, window } = fixture;

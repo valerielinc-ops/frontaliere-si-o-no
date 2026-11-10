@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-11-09T21:21:04.226Z",
-  "runId": "42700471648",
+  "assembledAt": "2026-11-10T09:19:58.008Z",
+  "runId": "42788883171",
   "jobs": [
     {
       "id": "lindt-spruengli-22b6ca6b4b2c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -34,7 +34,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:20:56.938Z",
+      "crawledAt": "2026-11-10T09:19:48.144Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "initiativbewerbung-lindt-sprungli-kilchberg"
+        "unerbetene-anwendung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "initiativbewerbung-lindt-sprungli-kilchberg"
+          "unerbetene-anwendung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -111,7 +111,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:56.938Z",
+      "validThrough": "2026-12-10T09:19:48.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:56.232Z",
+      "crawledAt": "2026-11-10T09:19:47.479Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "Altendorf",
@@ -195,7 +195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:56.232Z",
+      "validThrough": "2026-12-10T09:19:47.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -229,7 +229,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:55.529Z",
+      "crawledAt": "2026-11-10T09:19:46.814Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -280,7 +280,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:55.529Z",
+      "validThrough": "2026-12-10T09:19:46.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:54.816Z",
+      "crawledAt": "2026-11-10T09:19:46.152Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -365,7 +365,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:54.816Z",
+      "validThrough": "2026-12-10T09:19:46.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -399,7 +399,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:54.082Z",
+      "crawledAt": "2026-11-10T09:19:45.483Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Luzern",
@@ -443,7 +443,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:54.082Z",
+      "validThrough": "2026-12-10T09:19:45.483Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:53.323Z",
+      "crawledAt": "2026-11-10T09:19:44.748Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -530,7 +530,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:53.323Z",
+      "validThrough": "2026-12-10T09:19:44.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -564,7 +564,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:52.613Z",
+      "crawledAt": "2026-11-10T09:19:44.102Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -612,7 +612,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:20:52.613Z",
+      "validThrough": "2026-12-30T09:19:44.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -646,7 +646,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:51.918Z",
+      "crawledAt": "2026-11-10T09:19:43.432Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -697,7 +697,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:20:51.918Z",
+      "validThrough": "2026-12-31T09:19:43.432Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -731,7 +731,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:51.221Z",
+      "crawledAt": "2026-11-10T09:19:42.747Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -783,7 +783,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T21:20:51.221Z",
+      "validThrough": "2027-01-04T09:19:42.747Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -817,7 +817,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:50.535Z",
+      "crawledAt": "2026-11-10T09:19:41.930Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -867,7 +867,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:20:50.535Z",
+      "validThrough": "2027-01-14T09:19:41.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:49.841Z",
+      "crawledAt": "2026-11-10T09:19:41.159Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -969,7 +969,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:20:49.841Z",
+      "validThrough": "2027-01-11T09:19:41.159Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1003,7 +1003,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:20:49.141Z",
+      "crawledAt": "2026-11-10T09:19:40.496Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1053,7 +1053,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:20:49.141Z",
+      "validThrough": "2027-01-18T09:19:40.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1087,7 +1087,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-40-60----Saisonaushilfe-_JR104112-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:48.439Z",
+      "crawledAt": "2026-11-10T09:19:39.821Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1137,7 +1137,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:20:48.439Z",
+      "validThrough": "2027-01-31T09:19:39.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1171,7 +1171,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Internship---Finance---Controlling---6-months--100---_JR104255-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:20:47.737Z",
+      "crawledAt": "2026-11-10T09:19:39.127Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1218,7 +1218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:20:47.737Z",
+      "validThrough": "2027-01-31T09:19:39.127Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1252,7 +1252,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:47.039Z",
+      "crawledAt": "2026-11-10T09:19:38.478Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1304,7 +1304,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:20:47.039Z",
+      "validThrough": "2027-01-26T09:19:38.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1338,7 +1338,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:46.331Z",
+      "crawledAt": "2026-11-10T09:19:37.777Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "Landquart",
@@ -1390,7 +1390,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:20:46.331Z",
+      "validThrough": "2027-01-26T09:19:37.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1424,7 +1424,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Zermatt-Switzerland/Lindt-Chocolate-Advisor-80-100-_JR104114-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:45.632Z",
+      "crawledAt": "2026-11-10T09:19:37.086Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
@@ -1472,7 +1472,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:20:45.632Z",
+      "validThrough": "2027-01-31T09:19:37.086Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1506,7 +1506,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Formanlage_JR104217-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.927Z",
+      "crawledAt": "2026-11-10T09:19:36.390Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1556,7 +1556,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:20:44.927Z",
+      "validThrough": "2027-02-01T09:19:36.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1590,7 +1590,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Channel-Activation-Manager-Global-Travel-Retail---Available-Immediately_JR104264-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:20:44.207Z",
+      "crawledAt": "2026-11-10T09:19:35.710Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1637,7 +1637,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:20:44.207Z",
+      "validThrough": "2027-02-02T09:19:35.710Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1671,7 +1671,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR104298-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:43.465Z",
+      "crawledAt": "2026-11-10T09:19:35.058Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1723,7 +1723,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:20:43.465Z",
+      "validThrough": "2027-02-03T09:19:35.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1757,7 +1757,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Mitarbeiter-in-Debitorenbuchhaltung-100-_JR104277-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:42.733Z",
+      "crawledAt": "2026-11-10T09:19:34.369Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1794,7 +1794,6 @@
           "mitarbeiter-in-debitorenbuchhaltung-100-lindt-spruengli-kilchberg"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-09T09:38:57.145Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1810,7 +1809,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:20:42.733Z",
+      "validThrough": "2027-02-07T09:19:34.369Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1844,7 +1843,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:42.003Z",
+      "crawledAt": "2026-11-10T09:19:33.707Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1894,32 +1893,32 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:42.003Z",
+      "validThrough": "2026-12-10T09:19:33.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "lindt-spruengli-1969af39551e",
-      "slug": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
+      "slug": "marketing-business-analytics-mba-tirocinante-gtr-as-of-1-february-2027-lindt-sprungli-kilchberg",
       "slugByLocale": {
+        "it": "marketing-business-analytics-mba-tirocinante-gtr-as-of-1-february-2027-lindt-sprungli-kilchberg",
         "en": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
-        "it": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
-        "de": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli",
-        "fr": "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+        "de": "marketing-business-analytics-mba-praktikant-gtr-as-of-1-february-2027-lindt-sprungli-kilchberg",
+        "fr": "marketing-business-analytics-mba-stagiaire-gtr-as-of-1-february-2027-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
       "companyDomain": "lindt-spruengli.com",
       "title": "Marketing Business Analytics (MBA) Intern GTR as of 1 February 2027",
       "titleByLocale": {
-        "en": "Marketing Business Analytics (MBA) Intern GTR as of 1 February 2027",
         "it": "Marketing Business Analytics (MBA) Tirocinante GTR as of 1 February 2027",
+        "en": "Marketing Business Analytics (MBA) Intern GTR as of 1 February 2027",
         "de": "Marketing Business Analytics (MBA) Praktikant GTR as of 1 February 2027",
         "fr": "Marketing Business Analytics (MBA) Stagiaire GTR as of 1 February 2027"
       },
       "description": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
       "descriptionByLocale": {
-        "en": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
         "it": "Lindt & Sprüngli Ritratto\n\nIl Marketing Business Analytics Intern ha un ruolo chiave nel team GTR Categoria & Revenue Growth Management (RGM), situato alla sede di Kilchberg. Nella nostra struttura globale del team, l'MBA Intern è responsabile dell'esecuzione efficiente ed efficace dei compiti centrali e operativi che coprono diverse regioni ed è il proprietario del database e dei processi di vendita globale.\n\nL'MBA Intern è una persona pratica, che ha un forte background nell'analisi del mercato e del business, porta buone capacità di pensiero analitico e si sta adattando rapidamente agli ambienti in evoluzione.\n\nIn questo stage, stai lavorando a stretto contatto con CatMan Manager, RGM Manager e Head of Marketing di Kilchberg, e inoltre supporterà i Regional Sales Manager di tutto il mondo nelle loro responsabilità. Potrai acquisire informazioni su analisi delle prestazioni esterne, reportistica, gestione dei dati e progetti di prezzi globali.\n\nDoveri e responsabilità chiave:\nAnalisi dei mercati e delle imprese\n- Supporto per la generazione e l'analisi delle prestazioni di vendita su base mensile a livello globale, regionale e di marca\n- P&M e Novelty tracker e sviluppo di scorecard e aggiornamento mensile\n- Aggiornamento delle panoramiche di distribuzione (peso e numerico)\n- Formulazione di raccomandazioni, generazione di approfondimenti\n- Sostegno alla preparazione e alla partecipazione attiva alle chiamate trimestrali con le diverse regioni geografiche\n- Proprietario del rapporto mensile dei concorrenti – raccolta di dati qualitativi da diverse fonti e condivisione con la comunità GTR più ampia\n\nGestione dei dati\n- Processo di raccolta dei dati e armonizzazione su base globale\n- Punto principale di contatto e coordinate con l'agenzia di dati esterna\n- Costruire database e mantenerli\n- Assicurare alta qualità dei dati in tutti i processi\n\nPrezzi e promozione\n- Monitorare i prezzi del mercato in tutti gli aeroporti, identificare i movimenti dei prezzi rilevanti dei prodotti propri e concorrenti, e tradurre i risultati in aggiornamenti interni attuabili. Valuta l'efficienza promozionale e l'efficacia , identifica le opportunità di ottimizzazione e fornisce raccomandazioni sulla meccanica promozionale e l'esecuzione POS.\n- Supporto del progetto per il miglioramento della raccolta di dati e di reportistica, nonché analisi ad-hoc su diversi argomenti (relazione al dettaglio, sviluppi di categoria, sviluppo aeroporto, vendita, prezzi, promozione).\nRequisiti minimi di esperienza: forte interesse per l'analisi, il prezzo, la gestione commerciale\n\nPreferred Experience Requisiti:\nProfilo del lavoro\nCapacità funzionali:\n- Strategia e business focus comprendendo il business, fornendo supporto decisionale e raccomandazioni adeguate\n- Spirito imprenditoriale, abbracciare il cambiamento e agire come agente di cambiamento per le prossime iniziative\n- mentalità consultiva e di consulenza, comprese le buone capacità di comunicazione\n- Rischio e controllo know-how e forte etica del lavoro\n- Tecnologia e affinità dei dati, andando con forti capacità analitiche per ottenere informazioni benefiche dai dati\n- Guida ai risultati, monitorando i progressi, rispettando le scadenze e interagendo con gli stakeholder per raggiungere il massimo\n- Approccio di problem solving ben strutturato\n- Elevata agilità di apprendimento e adattabilità, con la capacità di familiarizzare rapidamente con nuovi argomenti, compiti e modi di lavoro.\n- L'atteggiamento dei giocatori di squadra, la costruzione di relazioni di lavoro positive e il lavoro attraverso i confini funzionali\n- Eccellente conoscenza di Excel, Power BI conoscenza un plus\n\nRequisiti linguistici: Forte lingua inglese competenze scritte e orali\n\nRequisiti minimi di Educazione: laurea minima con focus su Business Administration / Scienza dei dati",
+        "en": "Lindt & Sprüngli Portrait\n\nThe Marketing Business Analytics Intern has a key role in the GTR Category & Revenue Growth Management (RGM) team, located at the headquarter in Kilchberg. In our global team structure, the MBA Intern is responsible for the efficient and effective execution of central, operational tasks covering several regions and is the owner of the global sell-out database and processes.\n\nThe MBA Intern is a hands-on person, who has a strong background in business & market analytics, brings good analytical thinking skills and is adapting quickly to changing environments.\n\nIn this internship, you are closely working with the CatMan Manager, RGM Manager and Head of Marketing in Kilchberg, and in addition will support the Regional Sales Managers around the globe in their responsibilities. You will gain insights into external performance analysis, reporting, data management and global pricing projects.\n\nKey Duties and Responsibilities:\nMarket & Business Analysis\n- Support in generating and analyzing the sell-out performance on a monthly basis on global, regional and brand level\n- P&M and Novelty tracker and scorecard development and monthly update\n- Update of distribution overviews (weighted & numerical)\n- Formulation of recommendations, insights generation\n- Support in the preparation and active participation in Quarterly Performance Calls with the different geographical regions\n- Ownership of Monthly Competitor Report – qualitative data collection from different sources & sharing with wider GTR community\n\nData Management\n- Own data collection process and harmonization on a global basis\n- Main Point of contact and coordinate with external data agency\n- Build databases and maintain them\n- Ensure high data quality throughout all processes\n\nPricing & Promotion\n- Monitor market pricing across airports, identify relevant price movements of own and competitor products, and translate findings into actionable internal updates. Assess promotional efficiency and effectiveness , identify optimization opportunities, and provide recommendations on promotional mechanics and POS execution.\n- Project support for improvement of reporting and data collection as well as ad-hoc analysis on different topics (own retail reporting, category developments, airport development, sell-out, pricing, promotion).\nMinimum Experience Requirements: Strong interest in Analysis, Pricing, Business & Sales management\n\nPreferred Experience Requirements:\nJob Profile\nFunctional Capabilities:\n- Strategy and business focus by understanding the business, providing decision-support and suitable recommendations\n- Entrepreneurial spirit, embracing change and acting as a change agent for upcoming initiatives\n- Advisory and consultancy mindset, including good communication skills\n- Risk and control know-how as well as strong work ethics\n- Technology and data affinity, going along with strong analytical skills to win beneficial insights from data\n- Drive for results , by monitoring progress, meeting deadlines and interacting with stakeholders to achieve the maximum\n- Process-driven, well-structured problem-solving approach\n- High learning agility and adaptability , with the ability to quickly familiarize themselves with new topics, tasks and ways of working.\n- Team-player attitude , building positive work relationships and working across functional boundaries\n- Excellent Excel knowledge, Power BI knowledge a plus\n\nLanguage Requirements: Strong English language skills written and oral\n\nMinimum Education Requirements: Minimum Bachelor’s degree with focus on Business Administration / Data Science",
         "de": "Lindt & Sprüngli Porträt\n\nDer Praktikant für Marketing Business Analytics nimmt eine Schlüsselrolle im GTR Category & Revenue Growth Management (RGM) Team mit Sitz in Kilchberg ein. In unserer globalen Teamstruktur ist der MBA Intern für die effiziente und effektive Durchführung zentraler, operativer Aufgaben in mehreren Regionen verantwortlich und ist Eigentümer der globalen Ausverkaufsdatenbank und -prozesse.\n\nDer MBA Intern ist eine praktische Person, die einen starken Hintergrund in Business & Market Analytics hat, gute analytische Denkfähigkeiten mitbringt und sich schnell an veränderte Umgebungen anpasst.\n\nIn diesem Praktikum arbeiten Sie eng mit dem CatMan Manager, RGM Manager und Head of Marketing in Kilchberg zusammen und unterstützen darüber hinaus die Regional Sales Manager rund um den Globus in ihrer Verantwortung. Sie erhalten Einblicke in externe Leistungsanalysen, Reporting, Datenmanagement und globale Preisbildungsprojekte.\n\nWichtige Aufgaben und Zuständigkeiten:\nMarkt- und Geschäftsanalyse\n- Unterstützung bei der Generierung und Analyse der Ausverkaufsperformance auf monatlicher Basis auf globaler, regionaler und Markenebene\n- P&M und Novelty Tracker und Scorecard Entwicklung und monatliches Update\n- Aktualisierung der Verteilungsübersichten (gewichtet & numerisch)\n- Formulierung von Empfehlungen, Insights Generation\n- Unterstützung bei der Vorbereitung und aktiven Teilnahme an Quarterly Performance Calls mit den verschiedenen geografischen Regionen\n- Besitz des monatlichen Wettbewerbsberichts – qualitative Datenerhebung aus verschiedenen Quellen und Austausch mit einer breiteren GTR-Community\n\nDatenmanagement\n- Eigener Datenerhebungsprozess und Harmonisierung auf globaler Basis\n- Hauptansprechstelle und Koordination mit externer Datenagentur\n- Datenbanken erstellen und pflegen\n- Sicherstellung einer hohen Datenqualität in allen Prozessen\n\nPreisgestaltung und Promotion\n- Überwachen Sie die Marktpreise auf allen Flughäfen, identifizieren Sie relevante Preisbewegungen von eigenen und Konkurrenzprodukten und übersetzen Sie die Ergebnisse in umsetzbare interne Updates. Bewerten Sie die Effizienz und Effektivität von Werbeaktionen, identifizieren Sie Optimierungsmöglichkeiten und geben Sie Empfehlungen zu Werbemechanik und POS-Ausführung.\n- Projektunterstützung zur Verbesserung der Berichterstattung und Datenerhebung sowie Ad-hoc-Analyse zu verschiedenen Themen (eigenes Retail-Reporting, Kategorieentwicklungen, Flughafenentwicklung, Ausverkauf, Preisgestaltung, Promotion).\nMinimale Erfahrungsanforderungen: Starkes Interesse an Analyse, Preisgestaltung, Business & Sales Management\n\nBevorzugte Erfahrungsanforderungen:\nStellenprofil\nFunktionale Fähigkeiten:\n- Strategie und Geschäftsfokus durch das Verständnis des Unternehmens, die Bereitstellung von Entscheidungsunterstützung und geeignete Empfehlungen\n- Unternehmergeist, Veränderung annehmen und als Change Agent für kommende Initiativen agieren\n- Beratungs- und Beratungsdenken, einschließlich guter Kommunikationsfähigkeiten\n- Risiko- und Kontroll-Know-how sowie starke Arbeitsethik\n- Technologie- und Datenaffinität sowie starke analytische Fähigkeiten, um nützliche Erkenntnisse aus Daten zu gewinnen\n- Drängen Sie nach Ergebnissen, indem Sie den Fortschritt überwachen, Termine einhalten und mit den Stakeholdern interagieren, um das Maximum zu erreichen\n- Prozessgesteuerter, gut strukturierter Problemlösungsansatz\n- Hohe Lernflexibilität und -anpassungsfähigkeit mit der Fähigkeit, sich schnell mit neuen Themen, Aufgaben und Arbeitsweisen vertraut zu machen.\n- Teamplayer-Haltung, Aufbau positiver Arbeitsbeziehungen und Arbeit über funktionale Grenzen hinweg\n- Exzellentes Excel-Wissen, Power BI-Wissen ein Plus\n\nSprachanforderungen: Starke Englischkenntnisse schriftlich und mündlich\n\nMindestausbildungsvoraussetzungen: Mindest-Bachelorstudium mit Schwerpunkt Betriebswirtschaftslehre / Data Science",
         "fr": "Portrait de Lindt & Sprüngli\n\nLe stagiaire Marketing Business Analytics a un rôle clé à jouer dans l'équipe de gestion de la croissance de la catégorie et des revenus de la RTR, située au siège social de Kilchberg. Dans notre structure d'équipe globale, le stagiaire MBA est responsable de l'exécution efficace et efficiente des tâches opérationnelles centrales couvrant plusieurs régions et est le propriétaire de la base de données et des processus de vente globale.\n\nLe stagiaire MBA est une personne pratique, qui a une solide expérience en analyse des affaires et du marché, apporte de bonnes compétences de réflexion analytique et s'adapte rapidement aux environnements changeants.\n\nDans le cadre de ce stage, vous travaillez en étroite collaboration avec CatMan Manager, RGM Manager et Head of Marketing à Kilchberg, et vous accompagnerez les Directeurs régionaux des ventes à travers le monde dans leurs responsabilités. Vous obtiendrez des informations sur les projets externes d'analyse du rendement, de rapport, de gestion des données et de tarification mondiale.\n\nPrincipales fonctions et responsabilités :\nAnalyse des marchés et des entreprises\n- Soutien à la production et à l'analyse de la performance de vente mensuelle au niveau mondial, régional et de la marque\n- Élaboration et mise à jour mensuelle d'un tracker P&M et d'une carte de pointage\n- Mise à jour des aperçus de distribution (pondéré et numérique)\n- Formulation de recommandations, production d'idées\n- Soutien à la préparation et à la participation active aux appels de performance trimestriels avec les différentes régions géographiques\n- Propriété du rapport mensuel des concurrents – collecte de données qualitatives auprès de différentes sources et partage avec une communauté plus large de TRG\n\nGestion des données\n- Processus de collecte et d ' harmonisation des données à l ' échelle mondiale\n- Point de contact principal et coordination avec l'agence de données externe\n- Construire des bases de données et les tenir à jour\n- Assurer une qualité élevée des données tout au long de tous les processus\n\nPrix et promotion\n- Surveiller les prix du marché entre les aéroports, identifier les mouvements de prix pertinents des produits propres et concurrents et traduire les résultats en mises à jour internes réalisables. Évaluer l'efficience et l'efficacité de la promotion, identifier les possibilités d'optimisation et formuler des recommandations sur la mécanique promotionnelle et l'exécution des POS.\n- Appui au projet pour l'amélioration des rapports et de la collecte de données ainsi que pour l'analyse ad hoc sur différents sujets (rapports de détail, développements par catégorie, développement des aéroports, vente, prix, promotion).\nExigences minimales en matière d'expérience : Intérêt marqué pour l'analyse, la tarification, la gestion des affaires et des ventes\n\nExigences relatives à l'expérience privilégiée :\nProfil d'emploi\nCapacités fonctionnelles:\n- Stratégie et orientation des activités en comprenant les activités, en fournissant un appui aux décisions et en formulant des recommandations appropriées\n- Esprit d'entreprise, embrassant le changement et agissant comme agent de changement pour les initiatives à venir\n- Avis et conseils, y compris de bonnes compétences en communication\n- Savoir-faire en matière de risques et de contrôle ainsi qu'une éthique de travail solide\n- La technologie et l'affinité des données, ainsi que de solides compétences d'analyse pour obtenir des données utiles\n- Encourager les résultats en surveillant les progrès accomplis, en respectant les délais et en interagissant avec les parties prenantes pour atteindre le maximum\n- Approche de résolution de problèmes axée sur les processus et bien structurée\n- Haute agilité d'apprentissage et adaptabilité, avec la capacité de se familiariser rapidement avec de nouveaux sujets, tâches et façons de travailler.\n- L'attitude des joueurs d'équipe, l'établissement de relations de travail positives et le travail au-delà des frontières fonctionnelles\n- Excellente connaissance Excel, Power BI connaissance a plus\n\nExigences linguistiques : Fortes compétences linguistiques en anglais écrites et orales\n\nExigences minimales en matière d'éducation: Baccalauréat minimum avec l'accent sur l'administration des affaires / Data Science"
       },
@@ -1928,7 +1927,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Marketing-Business-Analytics--MBA--Intern-GTR-as-of-1-February-2027_JR104238-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:20:41.263Z",
+      "crawledAt": "2026-11-10T09:19:33.015Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1948,9 +1947,22 @@
       "applyUrl": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Marketing-Business-Analytics--MBA--Intern-GTR-as-of-1-February-2027_JR104238-1",
       "jobReqId": "JR104238",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-09T21:20:41.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+        ],
+        "de": [
+          "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+        ],
+        "fr": [
+          "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+        ]
       },
+      "previousSlugs": [
+        "marketing-business-analytics-mba-intern-gtr-as-of-1-february-2027-lindt-spruengli"
+      ],
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -1965,9 +1977,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:20:41.263Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:41.263Z"
+      "validThrough": "2027-02-07T09:19:33.015Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

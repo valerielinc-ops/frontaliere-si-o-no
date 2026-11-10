@@ -10,7 +10,7 @@ vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async impo
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
     beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
 }));
-import { submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { advancedToFinalReview, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
 
 const title = 'Infrastructure Strategy Manager';
@@ -322,6 +322,40 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledOnce();
   });
 
+  // Order 1EpmkrDu (Yellowshark, 2026-11-04/06): the employer geolocates the
+  // runner's IP. With the notice, its Apply control is greyed out and never
+  // responds; 6 of 19 runs got no notice and reached the form.
+  const regionNotice = 'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.';
+  const deadApplyClick = () => Promise.reject(new Error(
+    'locator.click: Timeout 6000ms exceeded.\nCall log:\n  - waiting for locator(\'[data-aa-id="apply"]\').first()',
+  ));
+
+  it('reports the regional gate, not a dead click, when the notice stays and its Apply control never responds', async () => {
+    const gated = snapshot(applyUrl, regionNotice,
+      [{ id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 42', disabled: false }]);
+    const f = fixture(gated, null, review, null, { buttonTransitions: { '[data-aa-id="apply"]': deadApplyClick } });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_region_unsupported' });
+    // No fix issue: the gate is on the runner's IP and the retry ladder owns it; the screenshot stays in the evidence.
+    expect(result.evidence.stopReport).toBeUndefined();
+    expect(result.evidence.handoffScreenshot).toBeTruthy();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('keeps a dead Apply click as a control stop when the posting states no regional gate', async () => {
+    const ungated = snapshot(applyUrl, 'Senden Sie Ihre Bewerbung in 3 einfachen Schritten.',
+      [{ id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Job ID: 42', disabled: false }]);
+    const f = fixture(ungated, null, review, null, { buttonTransitions: { '[data-aa-id="apply"]': deadApplyClick } });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_control_click_unresolved' });
+    expect(f.guard).not.toHaveBeenCalled();
+  });
+
   it('resolves the explicit cookie choice before checking the Yellowshark posting identity', async () => {
     const postingUrl = 'https://jobs.yellowshark.com/job/example/';
     const cookieDialog = snapshot(postingUrl,
@@ -375,6 +409,87 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  describe('a final click that only opens the final review (Deloitte Avature, order JvKpYedw)', () => {
+    const summaryUrl = 'https://careers.example/Careers/ApplicationSummary?jobId=42';
+    const reviewText = 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.';
+    const summary = snapshot(summaryUrl, reviewText, [{ id: 'final', text: 'Apply' }]);
+    const recap = snapshot('https://careers.example/Careers/ApplicationRecap?jobId=42', reviewText, [{ id: 'again', text: 'Apply' }]);
+
+    function reviewHarness(transitions: Record<string, () => void>) {
+      state.snapshot = review;
+      const clicks: string[] = [];
+      const page: any = {
+        url: () => state.snapshot.url, title: async () => title, frames: () => [page], mainFrame: () => page,
+        goto: vi.fn(async () => ({ status: () => 200 })),
+        evaluate: async (fn: Function) => {
+          const source = String(fn);
+          if (source.includes('navigator.userAgent')) return 'Chrome';
+          return source.includes('document.body') ? state.snapshot.text : false;
+        },
+        waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
+        getByRole: () => ({ count: async () => 0, filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }) }),
+        locator: (selector: string) => ({
+          count: async () => 0,
+          first: () => ({
+            click: async () => { clicks.push(selector); transitions[selector]?.(); },
+            evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
+          }),
+        }),
+      };
+      const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
+      const guard = vi.fn(async () => {});
+      const confirmedNotSent = vi.fn(async () => {});
+      const run = () => submitViaPortal({
+        applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
+        codex: vi.fn(), launch: async () => browser, onBeforeSubmit: guard, onConfirmedNotSent: confirmedNotSent,
+      });
+      return { run, guard, confirmedNotSent, clicks };
+    }
+
+    it('releases the claim as not sent, then guards and confirms the review’s own final button', async () => {
+      const h = reviewHarness({
+        '[data-aa-id="commit"]': () => { state.snapshot = summary; },
+        '[data-aa-id="final"]': () => { state.snapshot = receipt; },
+      });
+
+      const result = await h.run();
+
+      expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+      expect(result.evidence.finalOutcomes).toEqual(['review_pending', 'confirmed']);
+      expect(h.clicks).toEqual(['[data-aa-id="commit"]', '[data-aa-id="final"]']);
+      expect(h.guard).toHaveBeenCalledTimes(2);
+      expect(h.confirmedNotSent).toHaveBeenCalledOnce();
+      expect(h.confirmedNotSent).toHaveBeenCalledWith({ reason: 'portal_review_pending' });
+      // The first claim is released before the review's button is armed.
+      expect(h.confirmedNotSent.mock.invocationCallOrder[0]).toBeLessThan(h.guard.mock.invocationCallOrder[1]);
+    });
+
+    it('hands off, released, when the review keeps opening another review', async () => {
+      const h = reviewHarness({
+        '[data-aa-id="commit"]': () => { state.snapshot = summary; },
+        '[data-aa-id="final"]': () => { state.snapshot = recap; },
+      });
+
+      const result = await h.run();
+
+      expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+      expect(result.evidence.finalOutcomes).toEqual(['review_pending', 'review_pending']);
+      expect(h.clicks).toEqual(['[data-aa-id="commit"]', '[data-aa-id="final"]']);
+      expect(h.confirmedNotSent).toHaveBeenCalledTimes(2);
+    });
+
+    it('reads a final review only on another page of the same posting', () => {
+      const context = { applyUrl, submissionUrl: reviewUrl, job: { title } };
+      expect(advancedToFinalReview(summary, { ...context, url: summaryUrl })).toBe(true);
+      // The page that was clicked still showing its instructions is an unknown outcome, not a new step.
+      expect(advancedToFinalReview(review, { ...context, url: reviewUrl })).toBe(false);
+      expect(advancedToFinalReview({ ...summary, url: 'https://careers.example/Careers/ApplicationSummary?jobId=43' },
+        { ...context, url: 'https://careers.example/Careers/ApplicationSummary?jobId=43' })).toBe(false);
+      expect(advancedToFinalReview(receipt, { ...context, url: receiptUrl })).toBe(false);
+      expect(advancedToFinalReview(null, { ...context, url: summaryUrl })).toBe(false);
+    });
   });
 
   it('classifies a non-form loading page outside the selected posting as a mismatch', async () => {

@@ -410,10 +410,25 @@ describe('employer messages on the alias', () => {
     const [coded] = none.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => none.store.read(path)!);
     expect(coded).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
 
-    // A code while only an unrelated portal's account waits: the sender is not that portal, so it is forwarded.
+    // A code from the employer's own domain while the order's sole account waits on its ATS host
+    // (Federal Administration on career74.sapsf.eu, 2026-11-10): the runner consumes it, the
+    // candidate does not receive it (owner instruction 2026-11-10).
+    const sole = await setupInbound();
+    await sole.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 500 } });
+    const sendSole = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    await deliver({ store: sole.store, alias: sole.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendSole, classify: verification('', '482913') });
+    const [claimed] = sole.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => sole.store.read(path)!);
+    expect(claimed).toMatchObject({ verificationCode: '482913', portalVerificationHost: 'jobs.other-portal.com', forwarded: { status: 'skipped', reason: 'portal_verification' } });
+    expect(sendSole).not.toHaveBeenCalled();
+
+    // Two unrelated accounts wait: nothing says which one the code is for, so it is forwarded.
     const unrelated = await setupInbound();
     await unrelated.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
-      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null } });
+      .set({
+        jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null },
+        login_third_ats_com: { host: 'login.third-ats.com', passwordEnc: { v: 1 }, verifiedAt: null },
+      });
     const sendUnrelated = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({ store: unrelated.store, alias: unrelated.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendUnrelated, classify: verification('', '482913') });
     const [unclaimed] = unrelated.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => unrelated.store.read(path)!);

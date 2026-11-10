@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-09T21:39:02.575Z",
-  "runId": "42701670454",
+  "assembledAt": "2026-11-10T09:41:14.437Z",
+  "runId": "42789954982",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:54.502Z",
+      "crawledAt": "2026-11-10T09:41:07.043Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:54.502Z",
+      "validThrough": "2027-01-28T09:41:07.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:53.592Z",
+      "crawledAt": "2026-11-10T09:41:06.482Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:53.592Z",
+      "validThrough": "2027-01-28T09:41:06.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:53.016Z",
+      "crawledAt": "2026-11-10T09:41:05.930Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:53.016Z",
+      "validThrough": "2027-01-28T09:41:05.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:52.103Z",
+      "crawledAt": "2026-11-10T09:41:05.049Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -341,7 +341,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:52.103Z",
+      "validThrough": "2027-01-28T09:41:05.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:51.485Z",
+      "crawledAt": "2026-11-10T09:41:04.503Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -423,7 +423,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:51.485Z",
+      "validThrough": "2027-01-28T09:41:04.503Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -445,12 +445,12 @@
         "de": "Stellvertretender Leiter der Klinik",
         "fr": "Chef-fe de clinique adjoint-e"
       },
-      "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\n Exigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression ecrite et orale.",
+      "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\n Exigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale.",
       "descriptionByLocale": {
         "it": "L'unità Infectiology è riconosciuta da ISFM come istituto di formazione post-laurea di categoria B in infettiveologia. Situato nel Dipartimento di Medicina e Specialità, opera principalmente in HFR Fribourg – Ospedale cantonale, con pazienti complessi (unità di isolamento per trattamenti onco-haematologici, terapia intensiva) e fornisce una consultazione telefonica per i tre siti periferici dell'ospedale. Esso propone una consultazione ambulatoria (HIV, epatite, malattia infettiva generale) per la popolazione Friburgois. L'infezione dedica parte delle sue attività alla supervisione dell'unità di prevenzione e controllo delle infezioni.\nL'unità infettiva dell'ospedale Fribourg sta cercando un:\n\n• Si assicurano in un giorno le richieste di consultazioni dalle varie specialità ospedaliere e ambulatoriali, tra cui infettiologia generale, ortopedia settica, infezioni chirurgiche e pazienti immunosoppresso.\n\n• Sotto la supervisione dei medici esecutivi, si assicura la gestione infettiva e il follow-up dei pazienti a voi affidati in tutta l'istituzione.\n\n• Stai partecipando al rapporto giornaliero del laboratorio di microbiologia.\n\n• Si partecipa alla formazione post-laurea.\n\n• Si partecipa alla supervisione di assistenti in medicina interna gira\n\nSi desidera passare a una laurea come specialista infettivo e hanno completato alcuni o tutta la vostra formazione in medicina interna. Vi offriamo la possibilità di aderire all'unità di infezione per un massimo di 18 mesi.\nRequisiti:\n\n• Diploma federale di medico o diploma riconosciuto equivalente dalla Commissione delle professioni mediche (MEBEKO)\n\n• Formazione in medicina interna che comprende almeno 2 anni di esperienza in ospedale.\n\n• Vuole ottenere il titolo di specialista in Malattia Infettiva.\n\n• La prima esperienza nell'infezione clinica è un bene.\n\n• Significato della cooperazione in un team e in multidisciplinare, impegno e disponibilità.\n\n• Padrone della lingua francese, e molto buona capacità di espressione scritta e orale.",
         "en": "The Infectiology Unit is recognized by ISFM as a Category B post-graduate training institution in infectiousology. Located in the Department of Medicine and Specialties, it operates mainly in HFR Fribourg – Cantonal Hospital, with complex patients (isolation units for onco-haematological treatments, intensive care) and provides a telephone consultation for the three peripheral sites of the hospital. It proposes an ambulatory consultation (HIV, Hepatitis, general infectious disease) for the Fribourgeois population. Infectiology devotes part of its activities to the supervision of the Infection Prevention and Control Unit.\nThe infectiology unit of the Fribourg hospital is looking for a:\n\n• You ensure on a daytime basis the requests for consultations from the various hospital and outpatient specialties, including general infectiology, septic orthopaedics, surgical infections and immunosuppressed patients.\n\n• Under the supervision of the executive doctors, you ensure the infectious management and follow-up of the patients entrusted to you throughout the institution.\n\n• You are participating in the microbiology laboratory's daily report.\n\n• You participate in post-graduate training.\n\n• You participate in the supervision of assistants in internal medicine turns\n\nYou want to move to a degree as an infectious specialist and have completed some or all of your training in internal medicine. We offer you the possibility to join the infection unit for a maximum of 18 months.\nRequirements:\n\n• Federal diploma of doctor or diploma recognized equivalent by the Medical Professions Commission (MEBEKO)\n\n• Training in internal medicine including at least 2 years of experience in hospital.\n\n• Wants to get the title of specialist in Infectious Disease.\n\n• Prior experience in clinical infection is an asset.\n\n• Meaning of cooperation in a team and in multidisciplinary, commitment and availability.\n\n• Mastery of the French language, and very good capacity for written and oral expression.",
         "de": "Die Abteilung für Infektiologie wird von der ISFM als postgraduale Ausbildungseinrichtung der Kategorie B in Infektiologie anerkannt. Es befindet sich in der Abteilung für Medizin und Spezialgebiete und ist hauptsächlich im HFR-Krankenhaus Freiburg mit komplexen Patienten (Isolationseinheiten für onkohämatologische Behandlungen, Intensivstation) tätig und bietet eine telefonische Beratung für die drei peripheren Standorte des Krankenhauses. Es schlägt eine ambulante Konsultation (HIV, Hepatitis, allgemeine Infektionskrankheit) für die Freiburger Bevölkerung vor. Die Infektiologie widmet einen Teil ihrer Aktivitäten der Überwachung der Infection Prevention and Control Unit.\nDie Infektiologieabteilung des Freiburger Krankenhauses sucht eine:\n\n• Sie stellen tagsüber die Anfragen nach Konsultationen von den verschiedenen Krankenhaus- und ambulanten Fachgebieten sicher, einschließlich allgemeiner Infektiologie, septischer Orthopädie, chirurgischer Infektionen und immunsupprimierter Patienten.\n\n• Unter der Aufsicht der leitenden Ärzte, stellen Sie die Infektionsmanagement und Nachsorge der Ihnen anvertrauten Patienten in der gesamten Einrichtung.\n\n• Sie nehmen am täglichen Bericht des Mikrobiologielabors teil.\n\n• Sie nehmen an einer postgradualen Ausbildung teil.\n\n• Sie beteiligen sich an der Betreuung von Assistenten in der inneren Medizin dreht\n\nSie möchten zu einem gewissen Grad als Infektionsspezialist zu bewegen und haben einige oder alle Ihre Ausbildung in der inneren Medizin abgeschlossen. Wir bieten Ihnen die Möglichkeit, sich der Infektionseinheit für maximal 18 Monate anzuschließen.\nAnforderungen:\n\n• Bundesarztdiplom oder Diplom anerkannt gleichwertig von der Medical Professions Commission (MEBEKO)\n\n• Ausbildung in der inneren Medizin einschließlich mindestens 2 Jahre Erfahrung im Krankenhaus.\n\n• Will den Titel eines Spezialisten für Infektionskrankheiten bekommen.\n\n• Vorerfahrung in der klinischen Infektion ist ein Vorteil.\n\n• Bedeutung der Zusammenarbeit im Team und in multidisziplinärer, Engagement und Verfügbarkeit.\n\n• Beherrschung der französischen Sprache und sehr gute Fähigkeit zum schriftlichen und mündlichen Ausdruck.",
-        "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\nL’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\nExigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression ecrite et orale."
+        "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\nL’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\nExigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale."
       },
       "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
@@ -458,7 +458,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:50.481Z",
+      "crawledAt": "2026-11-10T09:41:03.681Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -511,7 +511,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:50.481Z",
+      "validThrough": "2027-01-28T09:41:03.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -546,7 +546,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:49.522Z",
+      "crawledAt": "2026-11-10T09:41:02.884Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -597,7 +597,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:49.522Z",
+      "validThrough": "2027-01-27T09:41:02.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -632,7 +632,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:48.494Z",
+      "crawledAt": "2026-11-10T09:41:02.022Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -683,7 +683,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:38:48.494Z",
+      "validThrough": "2027-01-27T09:41:02.022Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -717,7 +717,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:47.588Z",
+      "crawledAt": "2026-11-10T09:41:01.104Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -765,7 +765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:38:47.588Z",
+      "validThrough": "2027-02-03T09:41:01.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:47.011Z",
+      "crawledAt": "2026-11-10T09:41:00.279Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -850,7 +850,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:38:47.011Z",
+      "validThrough": "2027-02-03T09:41:00.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -885,7 +885,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:46.036Z",
+      "crawledAt": "2026-11-10T09:40:59.715Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -936,7 +936,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:38:46.036Z",
+      "validThrough": "2027-02-03T09:40:59.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -971,7 +971,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:45.432Z",
+      "crawledAt": "2026-11-10T09:40:58.884Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1019,7 +1019,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:38:45.432Z",
+      "validThrough": "2027-02-03T09:40:58.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1054,7 +1054,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:44.459Z",
+      "crawledAt": "2026-11-10T09:40:58.051Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1105,7 +1105,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:44.459Z",
+      "validThrough": "2027-02-04T09:40:58.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1139,7 +1139,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:43.837Z",
+      "crawledAt": "2026-11-10T09:40:57.233Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1190,7 +1190,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:43.837Z",
+      "validThrough": "2027-02-04T09:40:57.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1225,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:38:43.222Z",
+      "crawledAt": "2026-11-10T09:40:56.695Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1276,81 +1276,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:38:43.222Z",
+      "validThrough": "2027-02-07T09:40:56.695Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hfr-hopital-fribourgeois-ba1bd0c78a42",
-      "slug": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-      "slugByLocale": {
-        "it": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "en": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "de": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg",
-        "fr": "infirmier-ere-sage-femme-homme-sage-femme-hfr-hopital-fribourgeois-fribourg"
-      },
-      "company": "Hôpital fribourgeois (HFR)",
-      "companyKey": "hfr-hopital-fribourgeois",
-      "companyDomain": "h-fr.ch",
-      "title": "Infirmier-ère sage-femme / homme sage-femme",
-      "titleByLocale": {
-        "it": "Infirmier-ère sage-femme / omme sage-femme",
-        "en": "Infirmier-ère sage-femme / homme sage-femme",
-        "de": "Infirmier-ère sage-femme / homme sage-femme",
-        "fr": "Infirmier-ère sage-femme / homme sage-femme"
-      },
-      "description": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborateurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente :  salle d’accouchement et/ou service post-natal\n\n• Sie betreuen die Mütter und ihre Neugeborenen umfassend und individuell, wobei Sie sich an das Pflegeleitbild und an die Protokolle der Abteilung halten.\n\n• Sie wirken an der Betreuung der neuen Mitarbeitenden und der Studierenden mit.\n\n• Sie üben eine vielseitige Tätigkeit im Gebärzimmer und/oder auf dem Wochenbett aus.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Hebamme HF/FH oder dipl. Pflegefachfrau/-mann mit Ausbildung zur Hebamme\n\n• Mind. 2 Jahre Erfahrung auf einer Geburtshilfeabteilung\n\n• Deutsch oder Französisch mit guten Kenntnissen der anderen Sprache\n\n• Beherrschen der grundlegenden Informatikprogramme\n\n• Fähigkeit zur interdisziplinären Arbeit und Teamfähigkeit\n\n• Selbstständigkeit, Dynamik, hohe Anpassungsfähigkeit und Flexibilität\n\n• Organisationsvermögen und Verantwortungsbewusstsein",
-      "descriptionByLocale": {
-        "it": "• des soins globaux et individuels aux couples mères-enfants en rispettaant la concezione des soins et protocols du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborazioniurs et nouvelles collaborazionitrices\n\n• fonctionner en polivalente : salle d’accouchement et/ou service post-natale\n\n• Si occupano delle madri e dei loro neonati in modo completo e individuale, aderendo alla dichiarazione della missione di cura e ai protocolli del dipartimento.\n\n• Partecipano alla cura di nuovi dipendenti e studenti.\n\n• Essi svolgono un'attività versatile nella sala natale e/o sul post-partum.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimo deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allenande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils Informaques de base\n\n• aptitude au travail d’équipe et pluridisciplinare\n\n• autonomia, dinamismi, adattamento rapido e flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Midwife HF/FH o dipl. Infermieristica professionale con addestramento ostetrico\n\n• Mente. 2 anni di esperienza in un reparto di ostetricia\n\n• Tedesco o Francese con buona conoscenza dell'altra lingua\n\n• Mastering di programmi di scienze informatiche di base\n\n• Capacità di lavorare interdisciplinare e lavoro di squadra\n\n• Indipendenza, dinamismo, elevata adattabilità e flessibilità\n\n• Capacità e responsabilità organizzative",
-        "en": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborationurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente : salle d’accouchement et/ou service post-natal\n\n• They look after the mothers and their newborns comprehensively and individually, adhering to the nursing mission statement and the protocols of the department.\n\n• They participate in the care of new employees and students.\n\n• They perform a versatile activity in the birth room and/or on the postpartum.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allenande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomy, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Midwife HF/FH or dipl. Nursing professional with midwife training\n\n• Mind. 2 years of experience in an obstetrics department\n\n• German or French with good knowledge of the other language\n\n• Mastering basic computer science programs\n\n• Ability to work interdisciplinary and teamwork\n\n• Independence, dynamism, high adaptability and flexibility\n\n• Organisational capacity and responsibility",
-        "de": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participer à l’encadrement des étudiant-e-s et des nouveaux collaborateurs et nouvelles collaboratrices\n\n• fonctionner en polyvalente : salle d’accouchement et/ou service post-natal\n\n• Sie betreuen die Mütter und ihre Neugeborenen umfassend und individuell, wobei Sie sich an das Pflegeleitbild und an die Protokolle der Abteilung halten.\n\n• Sie wirken an der Betreuung der neuen Mitarbeitenden und der Studierenden mit.\n\n• Sie üben eine vielseitige Tätigkeit im Gebärzimmer und/oder auf dem Wochenbett aus.\n\n• diplôme de sage-femme ou d’infirmier-ère sage-femme\n\n• minimum deux ans d’expérience au sein d’un service d’obstétrique\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d’équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l’organisation et des responsabilités\n\n• Dipl. Hebamme HF/FH oder dipl. Pflegefachfrau/-mann mit Ausbildung zur Hebamme\n\n• Mind. 2 Jahre Erfahrung auf einer Geburtshilfeabteilung\n\n• Deutsch oder Französisch mit guten Kenntnissen der anderen Sprache\n\n• Beherrschen der grundlegenden Informatikprogramme\n\n• Fähigkeit zur interdisziplinären Arbeit und Teamfähigkeit\n\n• Selbstständigkeit, Dynamik, hohe Anpassungsfähigkeit und Flexibilität\n\n• Organisationsvermögen und Verantwortungsbewusstsein",
-        "fr": "• prodiguer des soins globaux et individuels aux couples mères-enfants en respectant la conception des soins et protocoles du service en post-partum\n\n• participant à l'enseignement des étudiants-e-s et des nouveaux collaborateurs et nouvelles collaborateurs\n\n• fonctionner en polyvalente : salle d'accueil et/ou service postnatal\n\n• Ils s'occupent des mères et de leurs nouveau-nés de façon complète et individuelle, en respectant l'énoncé de mission et les protocoles du ministère.\n\n• Ils participent aux soins des nouveaux employés et étudiants.\n\n• Ils effectuent une activité polyvalente dans la salle de naissance et/ou sur le postpartum.\n\n• diplôme de sage-femme ou d'infirmier-ère sage-femme\n\n• minimum deux ans d'expérience au sein d'un service\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l'autre langue\n\n• maîtrise des outils informatiques de base\n\n• aptitude au travail d'équipe et pluridisciplinaire\n\n• autonomie, dynamisme, adaptation rapide et flexibilité\n\n• sens de l'organisation et des responsabilités\n\n• Dipl. Sage-femme HF/FH ou dipl. Professionnel infirmier avec formation de sage-femme\n\n• De rien. 2 ans d'expérience en obstétrique\n\n• Allemand ou français avec une bonne connaissance de l'autre langue\n\n• Maîtrise des programmes informatiques de base\n\n• Capacité de travailler interdisciplinaire et en équipe\n\n• Indépendance, dynamisme, grande adaptabilité et flexibilité\n\n• Capacité et responsabilité organisationnelles"
-      },
-      "needsRetranslation": true,
-      "location": "Fribourg, Switzerland",
-      "canton": "FR",
-      "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1571",
-      "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-08T21:57:43.677Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-29T10:12:18+00:00",
-      "postedDate": "2026-10-29T10:12:18+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1571",
-      "jobReqId": "1571",
-      "externalId": "1571",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-06T22:05:01.042Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:57:43.677Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

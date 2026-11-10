@@ -1,7 +1,7 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-11-09T21:20:52.369Z",
-  "runId": "42699237631",
+  "assembledAt": "2026-11-10T09:16:35.608Z",
+  "runId": "42787825574",
   "jobs": [
     {
       "id": "valora-8f50a504dbf4",
@@ -34,7 +34,7 @@
       "url": "https://career.valora.com/en/job/12939/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.431Z",
+      "crawledAt": "2026-11-10T09:16:25.499Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:44.431Z",
+      "validThrough": "2026-12-10T09:16:25.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career.valora.com/en/job/20001/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.429Z",
+      "crawledAt": "2026-11-10T09:16:25.498Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:44.429Z",
+      "validThrough": "2026-12-10T09:16:25.498Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://career.valora.com/en/job/21041/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.428Z",
+      "crawledAt": "2026-11-10T09:16:25.497Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -253,7 +253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:44.428Z",
+      "validThrough": "2026-12-10T09:16:25.497Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://career.valora.com/en/job/21161/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.427Z",
+      "crawledAt": "2026-11-10T09:16:25.496Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -331,7 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:44.427Z",
+      "validThrough": "2026-12-10T09:16:25.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://career.valora.com/en/job/21590/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.412Z",
+      "crawledAt": "2026-11-10T09:16:25.479Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -415,7 +415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:44.412Z",
+      "validThrough": "2026-12-10T09:16:25.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +449,7 @@
       "url": "https://career.valora.com/en/job/12937/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.411Z",
+      "crawledAt": "2026-11-10T09:16:25.478Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhof",
@@ -499,7 +499,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:44.411Z",
+      "validThrough": "2026-12-10T09:16:25.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -533,7 +533,7 @@
       "url": "https://career.valora.com/en/job/12938/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.410Z",
+      "crawledAt": "2026-11-10T09:16:25.477Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhof",
@@ -585,91 +585,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:20:44.410Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-838498389dab",
-      "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
-      "slugByLocale": {
-        "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
-        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
-        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
-      "titleByLocale": {
-        "it": "Venditore / Venditore k chiosco 8.6 ore.",
-        "en": "Seller / Seller k kiosk 8.6 hours.",
-        "de": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
-        "fr": "Vendeur / Vendeur k kiosque 8,6 heures."
-      },
-      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-      "descriptionByLocale": {
-        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Berna stiamo ora cercando rinforzi per 8,6 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo dei prodotti alimentari e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione di norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
-        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Bern we are now looking for reinforcements for 8.6 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-        "fr": "Vous vendez votre passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Berne, nous cherchons maintenant des renforts pour 8,6 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des biens et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.408Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Bern",
-      "streetAddress": "Murtenstrasse 1",
-      "postalCode": "3004",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21148/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "21148",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ],
-        "en": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T14:33:01.446Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:44.408Z",
+      "validThrough": "2026-12-10T09:16:25.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +619,7 @@
       "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.408Z",
+      "crawledAt": "2026-11-10T09:16:25.476Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -751,7 +667,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:20:44.408Z",
+      "validThrough": "2026-12-10T09:16:25.476Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -785,7 +701,7 @@
       "url": "https://career.valora.com/en/job/17836/agenturpartnerin-agenturpartner-region-berner-oberland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.407Z",
+      "crawledAt": "2026-11-10T09:16:25.475Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bern",
@@ -835,7 +751,91 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.407Z",
+      "validThrough": "2026-12-22T09:16:25.475Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-838498389dab",
+      "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+      "slugByLocale": {
+        "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
+        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
+      "titleByLocale": {
+        "it": "Venditore / Venditore k chiosco 8.6 ore.",
+        "en": "Seller / Seller k kiosk 8.6 hours.",
+        "de": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
+        "fr": "Vendeur / Vendeur k kiosque 8,6 heures."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Berna stiamo ora cercando rinforzi per 8,6 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo dei prodotti alimentari e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione di norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
+        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Bern we are now looking for reinforcements for 8.6 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Vous vendez votre passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Berne, nous cherchons maintenant des renforts pour 8,6 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des biens et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:16:25.475Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Bern",
+      "streetAddress": "Murtenstrasse 1",
+      "postalCode": "3004",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21148/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "21148",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:33:01.446Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:16:25.475Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -869,7 +869,7 @@
       "url": "https://career.valora.com/en/job/18331/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.406Z",
+      "crawledAt": "2026-11-10T09:16:25.474Z",
       "addressLocality": "Wallis",
       "addressRegion": "Wallis",
       "streetAddress": "Wallis",
@@ -919,7 +919,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.406Z",
+      "validThrough": "2026-12-22T09:16:25.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -953,7 +953,7 @@
       "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.405Z",
+      "crawledAt": "2026-11-10T09:16:25.473Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -1003,7 +1003,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.405Z",
+      "validThrough": "2026-12-22T09:16:25.473Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1037,7 +1037,7 @@
       "url": "https://career.valora.com/en/job/20005/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.402Z",
+      "crawledAt": "2026-11-10T09:16:25.471Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1087,7 +1087,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.402Z",
+      "validThrough": "2026-12-22T09:16:25.471Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1121,7 +1121,7 @@
       "url": "https://career.valora.com/en/job/20569/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.400Z",
+      "crawledAt": "2026-11-10T09:16:25.470Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1171,7 +1171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.400Z",
+      "validThrough": "2026-12-22T09:16:25.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1205,7 +1205,7 @@
       "url": "https://career.valora.com/en/job/21083/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.399Z",
+      "crawledAt": "2026-11-10T09:16:25.468Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Bahnhof",
@@ -1257,7 +1257,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:44.399Z",
+      "validThrough": "2026-12-22T09:16:25.468Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1291,7 +1291,7 @@
       "url": "https://career.valora.com/en/job/20945/it-program-manager-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.397Z",
+      "crawledAt": "2026-11-10T09:16:25.467Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1327,7 +1327,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:20:44.397Z",
+      "validThrough": "2026-12-27T09:16:25.467Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://career.valora.com/en/job/21039/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.395Z",
+      "crawledAt": "2026-11-10T09:16:25.466Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1411,7 +1411,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:20:44.395Z",
+      "validThrough": "2026-12-30T09:16:25.466Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1445,7 +1445,7 @@
       "url": "https://career.valora.com/en/job/22063/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.394Z",
+      "crawledAt": "2026-11-10T09:16:25.465Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1495,7 +1495,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:20:44.394Z",
+      "validThrough": "2027-01-17T09:16:25.465Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1529,7 +1529,7 @@
       "url": "https://career.valora.com/en/job/21758/strategischer-einkaufer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.392Z",
+      "crawledAt": "2026-11-10T09:16:25.463Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1579,7 +1579,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:20:44.392Z",
+      "validThrough": "2027-01-18T09:16:25.463Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1613,7 +1613,7 @@
       "url": "https://career.valora.com/en/job/22043/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.390Z",
+      "crawledAt": "2026-11-10T09:16:25.461Z",
       "addressLocality": "Thun",
       "addressRegion": "Bern",
       "streetAddress": "Bälliz 15",
@@ -1663,7 +1663,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:20:44.390Z",
+      "validThrough": "2027-01-19T09:16:25.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1697,7 +1697,7 @@
       "url": "https://career.valora.com/en/job/22105/service-delivery-pos-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.389Z",
+      "crawledAt": "2026-11-10T09:16:25.460Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1744,7 +1744,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:20:44.389Z",
+      "validThrough": "2027-01-21T09:16:25.460Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1778,7 +1778,7 @@
       "url": "https://career.valora.com/en/job/21040/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.387Z",
+      "crawledAt": "2026-11-10T09:16:25.457Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1828,7 +1828,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.387Z",
+      "validThrough": "2027-01-24T09:16:25.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1862,7 +1862,7 @@
       "url": "https://career.valora.com/en/job/21042/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.385Z",
+      "crawledAt": "2026-11-10T09:16:25.454Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -1912,7 +1912,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.385Z",
+      "validThrough": "2027-01-24T09:16:25.454Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1946,7 +1946,7 @@
       "url": "https://career.valora.com/en/job/21220/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.382Z",
+      "crawledAt": "2026-11-10T09:16:25.451Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1996,7 +1996,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.382Z",
+      "validThrough": "2027-01-24T09:16:25.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2030,7 +2030,7 @@
       "url": "https://career.valora.com/en/job/21622/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.380Z",
+      "crawledAt": "2026-11-10T09:16:25.449Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -2080,7 +2080,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.380Z",
+      "validThrough": "2027-01-24T09:16:25.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2114,7 +2114,7 @@
       "url": "https://career.valora.com/en/job/21701/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.379Z",
+      "crawledAt": "2026-11-10T09:16:25.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -2164,7 +2164,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.379Z",
+      "validThrough": "2027-01-24T09:16:25.448Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2198,7 +2198,7 @@
       "url": "https://career.valora.com/en/job/21847/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.376Z",
+      "crawledAt": "2026-11-10T09:16:25.445Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2248,7 +2248,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.376Z",
+      "validThrough": "2027-01-24T09:16:25.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2282,7 +2282,7 @@
       "url": "https://career.valora.com/en/job/21923/verkauferin-verkaufer-k-kiosk-30-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.374Z",
+      "crawledAt": "2026-11-10T09:16:25.443Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2332,7 +2332,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:20:44.374Z",
+      "validThrough": "2027-01-24T09:16:25.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2366,7 +2366,7 @@
       "url": "https://career.valora.com/en/job/21265/produktionsmitarbeiter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.373Z",
+      "crawledAt": "2026-11-10T09:16:25.442Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -2418,7 +2418,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:20:44.373Z",
+      "validThrough": "2027-01-31T09:16:25.442Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2452,7 +2452,7 @@
       "url": "https://career.valora.com/en/job/22072/verkauferin-verkaufer-avec-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.342Z",
+      "crawledAt": "2026-11-10T09:16:25.406Z",
       "addressLocality": "Ittigen",
       "addressRegion": "Bern",
       "streetAddress": "Worblentalstrasse 103",
@@ -2502,7 +2502,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:20:44.342Z",
+      "validThrough": "2027-02-01T09:16:25.406Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2536,7 +2536,7 @@
       "url": "https://career.valora.com/en/job/21792/internal-control-risk-specialist-80-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.336Z",
+      "crawledAt": "2026-11-10T09:16:25.400Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2597,7 +2597,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:20:44.336Z",
+      "validThrough": "2027-01-14T09:16:25.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2631,7 +2631,7 @@
       "url": "https://career.valora.com/en/job/22004/consumer-finance-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.335Z",
+      "crawledAt": "2026-11-10T09:16:25.399Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2678,7 +2678,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:20:44.335Z",
+      "validThrough": "2027-02-02T09:16:25.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2712,7 +2712,7 @@
       "url": "https://career.valora.com/en/job/22005/specialist-collections-payments-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.334Z",
+      "crawledAt": "2026-11-10T09:16:25.397Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2759,7 +2759,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:20:44.334Z",
+      "validThrough": "2027-02-02T09:16:25.397Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2793,7 +2793,7 @@
       "url": "https://career.valora.com/en/job/22064/compliance-officer-legal-counsel-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.332Z",
+      "crawledAt": "2026-11-10T09:16:25.395Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2841,16 +2841,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:20:44.332Z",
+      "validThrough": "2027-02-02T09:16:25.395Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "valora-0e79f4f2aeee",
       "slug": "it-manager-finanza-risorse-umane-applications-w-m-d-valora-group-muttenz",
       "slugByLocale": {
-        "de": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
         "it": "it-manager-finanza-risorse-umane-applications-w-m-d-valora-group-muttenz",
         "en": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
+        "de": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
         "fr": "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
       },
       "company": "Valora Group",
@@ -2858,16 +2858,16 @@
       "companyDomain": "valora.com",
       "title": "IT Manager Finance & HR Applications (w/m/d)",
       "titleByLocale": {
-        "de": "IT Manager Finance & HR Applications (w/m/d)",
         "it": "IT Manager Finanza & Risorse Umane Applications (w/m/d)",
         "en": "IT Manager Finance & HR Applications (m/f/d)",
+        "de": "IT Manager Finance & HR Applications (w/m/d)",
         "fr": "IT Manager Finance & Ressources Humaines Applications (w/m/d)"
       },
       "description": "Aufgaben, die Dir gefallen werden\n• Du führst und entwickelst unser ERP FI/CO & HR Team und schaffst ein Umfeld, in dem Zusammenarbeit und Innovation gelebt werden.\n• Enge Zusammenarbeit mit Finance, Controlling, HR und Payroll und Übersetzung von Business-Anforderungen in zukunftsfähige IT-Lösungen.\n• Verantwortlichkeit des Finance und HR Applikationsportfolios über den gesamten Lebenszyklus.\n• Du steuerst Anforderungen, Projekte und Veränderungen und sorgst für stabile, effiziente und wirtschaftliche Lösungen.\n• Entwicklung der Finance und HR Roadmap, sowie antreiben von Transformations- und Digitalisierungsinitiativen.\n• Du identifizierst Innovations- und Automatisierungspotenziale und setzt diese gemeinsam mit deinen Stakeholdern um.\n• Das Einhalten von Governance-, Compliance- und Risikovorgaben hat für dich höchste Priorität. Voraussetzungen, die Du mitbringst\n• Ein abgeschlossenes Studium der Wirtschaftsinformatik, Informatik, Betriebswirtschaft oder eine vergleichbare Qualifikation.\n• Mehrjährige Führungserfahrung in komplexen ERP – oder Enterprise-Applikationslandschaften.\n• Fundierte Kenntnisse von Finance-, Controlling-, HR- und Payroll-Prozessen.\n• Gute Kenntnisse in SAP FI/CO sowie Erfahrung mit SAP SuccessFactors und/oder SAP Employee Central Payroll (ECP).\n• Erfahrung im Management von SaaS-Lösungen und Systemintegrationen.\n• Ein ausgeprägtes Gespür für Stakeholder-Management und Business Partnering.\n• Erfahrung in der Entwicklung von Strategien, Roadmaps und organisationsübergreifenden Transformationsprojekten.\n• Eine selbstständige, strukturierte und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutsch- und Englischkenntnisse. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
       "descriptionByLocale": {
-        "de": "Aufgaben, die Dir gefallen werden\n• Du führst und entwickelst unser ERP FI/CO & HR Team und schaffst ein Umfeld, in dem Zusammenarbeit und Innovation gelebt werden.\n• Enge Zusammenarbeit mit Finance, Controlling, HR und Payroll und Übersetzung von Business-Anforderungen in zukunftsfähige IT-Lösungen.\n• Verantwortlichkeit des Finance und HR Applikationsportfolios über den gesamten Lebenszyklus.\n• Du steuerst Anforderungen, Projekte und Veränderungen und sorgst für stabile, effiziente und wirtschaftliche Lösungen.\n• Entwicklung der Finance und HR Roadmap, sowie antreiben von Transformations- und Digitalisierungsinitiativen.\n• Du identifizierst Innovations- und Automatisierungspotenziale und setzt diese gemeinsam mit deinen Stakeholdern um.\n• Das Einhalten von Governance-, Compliance- und Risikovorgaben hat für dich höchste Priorität. Voraussetzungen, die Du mitbringst\n• Ein abgeschlossenes Studium der Wirtschaftsinformatik, Informatik, Betriebswirtschaft oder eine vergleichbare Qualifikation.\n• Mehrjährige Führungserfahrung in komplexen ERP – oder Enterprise-Applikationslandschaften.\n• Fundierte Kenntnisse von Finance-, Controlling-, HR- und Payroll-Prozessen.\n• Gute Kenntnisse in SAP FI/CO sowie Erfahrung mit SAP SuccessFactors und/oder SAP Employee Central Payroll (ECP).\n• Erfahrung im Management von SaaS-Lösungen und Systemintegrationen.\n• Ein ausgeprägtes Gespür für Stakeholder-Management und Business Partnering.\n• Erfahrung in der Entwicklung von Strategien, Roadmaps und organisationsübergreifenden Transformationsprojekten.\n• Eine selbstständige, strukturierte und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutsch- und Englischkenntnisse. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
         "it": "Compiti che ti piacerà\n• Guida e sviluppa il nostro team ERP FI/CO & HR e crea un ambiente in cui la collaborazione e l'innovazione sono vissute.\n• Chiudere la collaborazione con Finance, Controlling, HR e Payroll e la traduzione dei requisiti aziendali in soluzioni IT a prova di futuro.\n• Responsabilità del portafoglio applicazioni finanza e HR nell'intero ciclo di vita.\n• Si controllano i requisiti, i progetti e i cambiamenti e forniscono soluzioni stabili, efficienti ed economiche.\n• Sviluppo del Finance and HR Roadmap, nonché iniziative di trasformazione e digitalizzazione.\n• Identificare le potenzialità di innovazione e automazione e implementarle insieme ai vostri stakeholder.\n• Il rispetto dei requisiti di governance, conformità e rischio è la vostra priorità. Requisiti che porti\n• Uno studio completato di informatica aziendale, informatica, amministrazione aziendale o una qualificazione comparabile.\n• Diversi anni di esperienza di leadership in complessi ERP o paesaggi applicativi aziendali.\n• Conoscenza approfondita dei processi finanziari, di controllo, HR e payroll.\n• Buona conoscenza di SAP FI/CO e esperienza con SAP SuccessFactors e/o SAP Employee Central Payroll (ECP).\n• Esperienza nella gestione di soluzioni e integrazioni di sistema SaaS.\n• Un forte senso della gestione degli stakeholder e del business partner.\n• Esperienza nello sviluppo di strategie, roadmap e progetti di trasformazione cross-organisazionale.\n• Un metodo di lavoro indipendente, strutturato e orientato alla soluzione.\n• Ottima conoscenza del tedesco e dell'inglese. Vantaggi Ti offriamo\n• Un ambiente di lavoro dinamico e internazionale con ampio spazio per idee e partecipazione creativa\n• Varie opportunità di sviluppo e formazione, anche attraverso la nostra Valora Academy e corsi di formazione dal vivo\n• Una cultura aziendale semplice con scambio diretto e una vivace du-culture che promuove innovazione e agilità.\n• Progetti emozionanti e varie attività con un grande spazio di manovra e un elevato grado di responsabilità personale\n• Approfitta di interessanti sconti per i dipendenti nei formati Valora e partner selezionati nei settori del tempo libero, dello sport, della salute e della mobilità\n• Condizioni di lavoro attraenti con il proprio fondo pensionistico e tre piani di risparmio selezionabili in modo flessibile\n• Ore lavorative flessibili con flessibilità e la possibilità di lavorare nell'ufficio",
         "en": "Tasks you will like\n• You lead and develop our ERP FI/CO & HR team and create an environment where collaboration and innovation are lived.\n• Close cooperation with Finance, Controlling, HR and Payroll and translation of business requirements into future-proof IT solutions.\n• Responsibility of the finance and HR application portfolio over the entire life cycle.\n• You control requirements, projects and changes and provide stable, efficient and economical solutions.\n• Development of the Finance and HR Roadmap, as well as driving transformation and digitalization initiatives.\n• You identify innovation and automation potentials and implement them together with your stakeholders.\n• Compliance with governance, compliance and risk requirements is your top priority. Requirements that you bring\n• A completed study of business informatics, computer science, business administration or a comparable qualification.\n• Several years of leadership experience in complex ERP or enterprise application landscapes.\n• In-depth knowledge of finance, controlling, HR and payroll processes.\n• Good knowledge of SAP FI/CO and experience with SAP SuccessFactors and/or SAP Employee Central Payroll (ECP).\n• Experience in managing SaaS solutions and system integrations.\n• A strong sense of stakeholder management and business partnering.\n• Experience in the development of strategies, roadmaps and cross-organisational transformation projects.\n• An independent, structured and solution-oriented working method.\n• Very good knowledge of German and English. Benefits We Offer You\n• A dynamic, international working environment with plenty of room for ideas and creative participation\n• Various development and further education opportunities, including through our internal Valora Academy and live training courses\n• An uncomplicated corporate culture with direct exchange and a lively du-culture that promotes innovation and agility.\n• Exciting projects and varied tasks with a great deal of room for manoeuvre and a high degree of personal responsibility\n• Enjoy attractive employee discounts at Valora formats and selected partners in the fields of leisure, sports, health and mobility\n• Attractive employment conditions with own pension fund and three flexibly selectable savings plans\n• Flexible working hours with flexibility and the possibility to work in the home office",
+        "de": "Aufgaben, die Dir gefallen werden\n• Du führst und entwickelst unser ERP FI/CO & HR Team und schaffst ein Umfeld, in dem Zusammenarbeit und Innovation gelebt werden.\n• Enge Zusammenarbeit mit Finance, Controlling, HR und Payroll und Übersetzung von Business-Anforderungen in zukunftsfähige IT-Lösungen.\n• Verantwortlichkeit des Finance und HR Applikationsportfolios über den gesamten Lebenszyklus.\n• Du steuerst Anforderungen, Projekte und Veränderungen und sorgst für stabile, effiziente und wirtschaftliche Lösungen.\n• Entwicklung der Finance und HR Roadmap, sowie antreiben von Transformations- und Digitalisierungsinitiativen.\n• Du identifizierst Innovations- und Automatisierungspotenziale und setzt diese gemeinsam mit deinen Stakeholdern um.\n• Das Einhalten von Governance-, Compliance- und Risikovorgaben hat für dich höchste Priorität. Voraussetzungen, die Du mitbringst\n• Ein abgeschlossenes Studium der Wirtschaftsinformatik, Informatik, Betriebswirtschaft oder eine vergleichbare Qualifikation.\n• Mehrjährige Führungserfahrung in komplexen ERP – oder Enterprise-Applikationslandschaften.\n• Fundierte Kenntnisse von Finance-, Controlling-, HR- und Payroll-Prozessen.\n• Gute Kenntnisse in SAP FI/CO sowie Erfahrung mit SAP SuccessFactors und/oder SAP Employee Central Payroll (ECP).\n• Erfahrung im Management von SaaS-Lösungen und Systemintegrationen.\n• Ein ausgeprägtes Gespür für Stakeholder-Management und Business Partnering.\n• Erfahrung in der Entwicklung von Strategien, Roadmaps und organisationsübergreifenden Transformationsprojekten.\n• Eine selbstständige, strukturierte und lösungsorientierte Arbeitsweise.\n• Sehr gute Deutsch- und Englischkenntnisse. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
         "fr": "Tâches que vous aimerez\n• Vous dirigez et développez notre équipe ERP FI/CO & HR et créez un environnement de collaboration et d'innovation.\n• Collaboration étroite avec les Finances, le Contrôle, les RH et la paie et traduction des exigences opérationnelles en solutions informatiques à l'épreuve de l'avenir.\n• Responsabilité du portefeuille d'applications des finances et des RH sur l'ensemble du cycle de vie.\n• Vous contrôlez les exigences, les projets et les changements et offrez des solutions stables, efficaces et économiques.\n• Élaboration de la feuille de route des finances et des RH, ainsi que des initiatives de transformation et de numérisation.\n• Vous identifiez les potentiels d'innovation et d'automatisation et les implémentez avec vos intervenants.\n• Le respect des exigences en matière de gouvernance, de conformité et de risque est votre priorité absolue. Exigences que vous apportez\n• Une étude complète de l'informatique des entreprises, de l'informatique, de l'administration des entreprises ou d'une qualification comparable.\n• Plusieurs années d'expérience de leadership dans des environnements complexes d'application ERP ou d'entreprise.\n• Connaissance approfondie des processus financiers, de contrôle, de RH et de paye.\n• Bonne connaissance de SAP FI/CO et expérience avec SAP SuccessFactors et/ou SAP Employee Central Payroll (ECP).\n• Expérience dans la gestion des solutions SaaS et des intégrations système.\n• Un fort sentiment de gestion des intervenants et de partenariat d'affaires.\n• Expérience dans l'élaboration de stratégies, de feuilles de route et de projets de transformation interorganisations.\n• Une méthode de travail indépendante, structurée et orientée vers la solution.\n• Très bonne connaissance de l'allemand et de l'anglais. Avantages que nous vous offrons\n• Un environnement de travail international dynamique avec beaucoup de place pour les idées et la participation créative\n• Diverses possibilités de développement et de formation continue, y compris par le biais de notre Académie interne de Valora et des cours de formation en direct\n• Une culture d'entreprise simple avec un échange direct et une du-culture vivante qui favorise l'innovation et l'agilité.\n• Projets passionnants et tâches variées avec une grande marge de manœuvre et un haut degré de responsabilité personnelle\n• Profitez de réductions d'employés attractives aux formats Valora et de partenaires sélectionnés dans les domaines des loisirs, du sport, de la santé et de la mobilité\n• Conditions d'emploi attrayantes avec fonds de pension propre et trois plans d'épargne flexibles sélectionnables\n• Durées de travail flexibles avec flexibilité et possibilité de travailler à domicile"
       },
       "location": "Muttenz",
@@ -2875,7 +2875,7 @@
       "url": "https://career.valora.com/en/job/22203/it-manager-finance-hr-applications-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:20:44.327Z",
+      "crawledAt": "2026-11-10T09:16:25.391Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2895,9 +2895,16 @@
       "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/22203/Application/CheckLogin/1?lang=ger&DesignID=10004",
       "jobReqId": "22203",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
+        ]
       },
+      "firstSeenAt": "2026-11-09T21:20:44.327Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -2912,17 +2919,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:20:44.327Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:44.327Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
-        ]
-      },
-      "previousSlugs": [
-        "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
-      ]
+      "validThrough": "2027-02-07T09:16:25.391Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

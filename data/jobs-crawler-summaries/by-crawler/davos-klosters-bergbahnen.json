@@ -1,18 +1,19 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-11-09T21:33:29.603Z",
+  "generatedAt": "2026-11-10T09:42:23.117Z",
   "total": 9,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6566,
-  "avgDurationMs": 6566,
+  "durationMs": 5569,
+  "avgDurationMs": 5569,
   "durationHistory": [
-    6566
+    5569
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-abfcf95b4374",
       "slug": "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
@@ -35,8 +36,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:15.974Z",
+      "crawledAt": "2026-11-10T09:42:12.815Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:27:08.619Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -45,14 +47,13 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:15.974Z",
+      "validThrough": "2026-12-19T09:42:12.815Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:27:08.619Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 23
       }
     },
@@ -78,8 +79,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn-100_j_3958641",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:15.321Z",
+      "crawledAt": "2026-11-10T09:42:12.233Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-03T21:58:55.984Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -88,14 +90,13 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:15.321Z",
+      "validThrough": "2026-12-19T09:42:12.233Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:58:55.984Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 23
       }
     },
@@ -121,8 +122,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Immobilienunterhalt-100_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:14.890Z",
+      "crawledAt": "2026-11-10T09:42:11.841Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:27:07.823Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -131,14 +133,13 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:14.890Z",
+      "validThrough": "2026-12-19T09:42:11.841Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-04T09:27:07.823Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 23
       }
     },
@@ -164,8 +165,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:14.431Z",
+      "crawledAt": "2026-11-10T09:42:11.449Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-03T21:58:55.152Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -174,19 +176,17 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:14.431Z",
+      "validThrough": "2026-12-19T09:42:11.449Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:58:55.152Z",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 20,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -211,7 +211,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3961937",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:15.753Z",
+      "crawledAt": "2026-11-10T09:42:12.617Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-04T09:27:08.619Z",
       "salaryMin": 62000,
@@ -222,7 +222,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:15.753Z",
+      "validThrough": "2026-12-19T09:42:12.617Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -254,7 +254,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-In-Service-Bar-Restaurant-Bolgen-Plaza-100_j_3961947",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:15.538Z",
+      "crawledAt": "2026-11-10T09:42:12.423Z",
       "firstSeenAt": "2026-11-03T21:58:56.343Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -264,7 +264,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:15.538Z",
+      "validThrough": "2026-12-19T09:42:12.423Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -296,7 +296,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn-100_j_3961932",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:15.103Z",
+      "crawledAt": "2026-11-10T09:42:12.036Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T21:58:55.984Z",
       "salaryMin": 62000,
@@ -307,7 +307,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:15.103Z",
+      "validThrough": "2026-12-19T09:42:12.036Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -339,7 +339,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-Immobilienunterhalt-100_j_3961925",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:14.669Z",
+      "crawledAt": "2026-11-10T09:42:11.642Z",
       "firstSeenAt": "2026-11-03T21:58:55.358Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -349,7 +349,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:14.669Z",
+      "validThrough": "2026-12-19T09:42:11.642Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -381,7 +381,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3961934",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:33:14.209Z",
+      "crawledAt": "2026-11-10T09:42:11.251Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T21:58:55.152Z",
       "salaryMin": 62000,
@@ -392,7 +392,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:33:14.209Z",
+      "validThrough": "2026-12-19T09:42:11.251Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -403,5 +403,5 @@
       }
     }
   ],
-  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }
