@@ -303,6 +303,33 @@ describe('review round 4 (#17902)', () => {
   });
 });
 
+describe('review round 5 (#17902)', () => {
+  it('does not let an unrelated expanded toggle in the same card open a separate closed menu', () => {
+    const html = `<main><section><h1>${role}</h1><article class="job-card">
+      <button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Teilen</button>
+      <p>Stelle mit Freunden teilen</p>
+      <div role="menu" aria-label="Bewerbungsoptionen"><a role="menuitem" id="apply-closed" href="#">Jetzt bewerben</a></div>
+    </article></section></main>`;
+    const { read } = domPage(html, postingUrl);
+    const snapshot = read();
+    expect(snapshot.buttons.some((button: any) => button.domId === 'apply-closed' || button.menuItem)).toBe(false);
+    expect(snapshot.links.some((link: any) => link.text === 'Jetzt bewerben')).toBe(false);
+    const entries = applicationEntryControls(snapshot, entryContext);
+    expect(entries.some((control: any) => control.menuItem || control.domId === 'apply-closed' || control.text === 'Jetzt bewerben')).toBe(false);
+  });
+
+  it('accepts aria-controls only when exactly one toggle names the item menu', () => {
+    const html = `<main><section><h1>${role}</h1><div class="actions">
+      <button class="dropdown-toggle" aria-haspopup="true" aria-controls="apply-menu" aria-expanded="true">Jetzt bewerben</button>
+      <button class="dropdown-toggle" aria-haspopup="true" aria-controls="apply-menu" aria-expanded="false">Jetzt bewerben</button>
+      <p>Optionen</p>
+      <ul id="apply-menu" role="menu"><li role="none"><a role="menuitem" id="apply-shared" href="#">Jetzt bewerben</a></li></ul>
+    </div></section></main>`;
+    const { read } = domPage(html, postingUrl);
+    expect(read().buttons.some((button: any) => button.domId === 'apply-shared')).toBe(false);
+  });
+});
+
 describe('review round 3 (#17902)', () => {
   const requisitionContext = { ...entryContext, job: { ...entryContext.job, jobId: '123' } };
   const openMenuSnapshot = (marker: string, href: string) => ({

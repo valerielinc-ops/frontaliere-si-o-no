@@ -1263,30 +1263,30 @@ function nativeQuestionText(value, counter = null) {
   const MENU_ITEM_BUDGET = 20;
   const APPLICATION_ENTRY_RESERVE = 10;
   const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
-  // The toggle that owns a menu item's menu, proved in this order: a toggle
-  // whose aria-controls/aria-owns names a container of the item; the toggle
-  // immediately before the item's menu; the nearest ancestor holding exactly
-  // one toggle. Two toggles at the same level without either proof own
-  // nothing, so an expanded sibling menu never opens another menu's items.
+  // The toggle that owns a menu item's menu, and only when it is proved: a
+  // toggle whose aria-controls/aria-owns names a container of the item, or
+  // the toggle that is the immediate previous sibling of the item's menu.
+  // The second is the structural Bootstrap binding (`data-toggle="dropdown"`
+  // acts on the next sibling) that Helsana's Career Site Builder page uses:
+  // its «Jetzt bewerben» toggle has no aria-controls and is followed directly
+  // by its `ul.dropdown-menu` (live page, 2026-11-10). Anything else, such as
+  // a lone unrelated toggle elsewhere in the same card, owns nothing.
   const menuOwnerToggle = (element) => {
     const toggles = [...document.querySelectorAll(DISCLOSURE_TOGGLE)]
       .filter((candidate) => candidate !== element && !candidate.contains(element) && !element.contains(candidate));
-    let depth = 0;
-    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
-      if (!node.id) continue;
-      const owner = toggles.find((candidate) => ['aria-controls', 'aria-owns']
-        .some((attribute) => String(candidate.getAttribute(attribute) || '').split(/\s+/).includes(node.id)));
-      if (owner) return owner;
-    }
     const menu = element.closest('[role="menu"], .dropdown-menu, ul, ol');
-    if (menu?.previousElementSibling && toggles.includes(menu.previousElementSibling)) return menu.previousElementSibling;
-    depth = 0;
-    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
-      const scoped = toggles.filter((candidate) => node.contains(candidate));
-      if (scoped.length === 1) return scoped[0];
-      if (scoped.length > 1) return null;
+    if (!menu) return null;
+    // Only ids from the item up to its own menu: a toggle naming the whole
+    // card does not own one particular menu inside it.
+    const menuIds = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      if (node.id) menuIds.push(node.id);
+      if (node === menu) break;
     }
-    return null;
+    const named = toggles.filter((candidate) => ['aria-controls', 'aria-owns']
+      .some((attribute) => String(candidate.getAttribute(attribute) || '').split(/\s+/).some((id) => menuIds.includes(id))));
+    if (named.length) return named.length === 1 ? named[0] : null;
+    return toggles.includes(menu.previousElementSibling) ? menu.previousElementSibling : null;
   };
   const openedMenuItem = (element) => element.getAttribute('role') === 'menuitem'
     && menuOwnerToggle(element)?.getAttribute('aria-expanded') === 'true';
