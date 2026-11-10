@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-11-09T21:37:39.610Z",
+  "generatedAt": "2026-11-10T09:38:56.547Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7169,
-  "avgDurationMs": 7169,
+  "durationMs": 7790,
+  "avgDurationMs": 7790,
   "durationHistory": [
-    7169
+    7790
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:37:18.348Z",
+      "crawledAt": "2026-11-10T09:38:38.815Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:37:18.348Z",
+      "validThrough": "2026-12-29T09:38:38.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:37:17.758Z",
+      "crawledAt": "2026-11-10T09:38:37.583Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-09T21:37:17.758Z",
+      "validThrough": "2026-12-10T09:38:37.583Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -146,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }
