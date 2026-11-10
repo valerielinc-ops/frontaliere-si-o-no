@@ -466,7 +466,7 @@ export function assertActiveJobPostingDeadlineOpen(
   const deadline = validThrough ? Date.parse(validThrough) : NaN;
   if (!Number.isFinite(deadline) || deadline <= clock.getTime()) {
     throw new Error(
-      `active JobPosting "${label}" would be emitted already expired: validThrough ` +
+      `active JobPosting "${label || '(unidentified job)'}" would be emitted already expired: validThrough ` +
       `${validThrough ?? '(missing)'} is not after the emission clock ${clock.toISOString()}`,
     );
   }

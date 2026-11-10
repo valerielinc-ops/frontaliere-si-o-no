@@ -235,11 +235,13 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   if (explicit && sourceDeadlineStillOpen) {
     // A date-only deadline closes at the end of that day, not at its first
     // instant: "2026-11-10" read as 2026-11-10T00:00Z is already past on the
-    // very day the source says the listing is still open.
+    // very day the source says the listing is still open. The end-of-day value
+    // still passes the open-at-emission check: at exactly 23:59:59.999Z it is
+    // not after the clock and yields to the bounded window like any other.
     const validThrough = dateOnly
       ? new Date(sourceDate.getTime() + DAY_MS - 1).toISOString()
       : explicit;
-    return { validThrough, validThroughSource: 'source' };
+    return activeDeadlineAfterClock({ validThrough, validThroughSource: 'source' }, job, clock);
   }
 
   const observedAt = latestActiveObservation(job, clock);

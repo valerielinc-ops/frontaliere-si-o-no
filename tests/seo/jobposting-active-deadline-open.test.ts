@@ -111,6 +111,15 @@ describe('an active JobPosting is never emitted with validThrough <= emission cl
     expect(isOpen(resolved.validThrough)).toBe(true);
   });
 
+  it('a date-only source deadline at the very last instant of its day yields to the bounded window', () => {
+    const lastInstant = new Date(`${day(0)}T23:59:59.999Z`);
+    const resolved = resolveActiveJobPostingDeadline({ ...base, validThrough: day(0) }, lastInstant);
+    expect(isOpen(resolved.validThrough, lastInstant)).toBe(true);
+    expect(resolved.validThroughSource).toBe('build-clock-fallback');
+    expect(() => assertActiveJobPostingDeadlineOpen(resolved.validThrough, lastInstant, 'x')).not.toThrow();
+    expect(() => build({ ...base, validThrough: day(0) }, lastInstant)).not.toThrow();
+  });
+
   it('holds over every combination of deadline evidence', () => {
     const offsets = [undefined, -400, -91, -45, -31, -1, -0.01, 0.01, 1, 29, 400];
     const sources = [undefined, 'source', 'last-observed-window', 'job-type-cap', 'build-clock-fallback'];
@@ -142,6 +151,7 @@ describe('the gate fails closed on every active emitter', () => {
     expect(() => assertActiveJobPostingDeadlineOpen(NOW.toISOString(), NOW, 'x')).toThrow(/already expired/);
     expect(() => assertActiveJobPostingDeadlineOpen(null, NOW, 'x')).toThrow(/already expired/);
     expect(() => assertActiveJobPostingDeadlineOpen(at(1), NOW, 'x')).not.toThrow();
+    expect(() => assertActiveJobPostingDeadlineOpen(at(-1), NOW, '')).toThrow(/\(unidentified job\)/);
   });
 
   it('the reused-page refresh resolves through the same gate', () => {
