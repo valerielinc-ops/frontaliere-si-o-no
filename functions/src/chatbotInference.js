@@ -22,6 +22,7 @@ import { createHash } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
+import { geminiResponseText } from './lib/geminiResponseText.js';
 
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
 
@@ -160,7 +161,7 @@ async function callGeminiModel(model, messages, systemPrompt, apiKey) {
 
  if (response.ok) {
  const data = await response.json();
- const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+ const text = geminiResponseText(data);
  if (!text) throw Object.assign(new Error('empty_response'), { code: 'EMPTY' });
  return text;
  }
