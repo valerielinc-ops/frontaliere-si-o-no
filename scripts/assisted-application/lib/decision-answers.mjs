@@ -5,8 +5,9 @@
  *   - draftDecisionAnswers: at draft time, over the CV text; a kept decision is written on the draft question
  *     (`platformDecision`) and projected as a platform proposal (platformFacts.decisionAnswers).
  *   - decideLiveQuestions: in the run, when the portal shows required fields nobody answered, before the
- *     runner stops to ask the candidate (portal.mjs askCandidate). Over the structured profile only, so no
- *     free text: a text answer needs the CV's text to be checked.
+ *     runner stops to ask the candidate (portal.mjs askCandidate). Over the structured profile and, when the
+ *     draft holds it, the CV's text (owner mandate 2026-11-10: a yes on experience cites the CV, verified in
+ *     code). Never free text in the run: choice, yes/no and checkbox fields only.
  */
 import { codexPrompt } from '../../../functions/src/assistedApplicationAiPrompts.js';
 import {
@@ -111,7 +112,7 @@ function profileForModel(candidate = {}) {
  * the labels the planner recognizes the live field by), and the ids decided.
  * @returns {Promise<{decided:Record<string,object>, ids:string[], decisions:Array}>}
  */
-export async function decideLiveQuestions({ questions, candidate, codex, log = () => {} }) {
+export async function decideLiveQuestions({ questions, candidate, codex, cvText = '', log = () => {} }) {
   const live = (Array.isArray(questions) ? questions : []).filter((question) => question?.id)
     .map((question) => (question.source ? question : { ...question, source: 'portal' }));
   const empty = { decided: {}, ids: [], decisions: [] };
@@ -122,6 +123,8 @@ export async function decideLiveQuestions({ questions, candidate, codex, log = (
   const results = await decide({
     questions: answerable,
     codex,
+    // The CV's text, when the draft holds it: the evidence a yes on experience cites is checked against it.
+    cvText: String(cvText || ''),
     profile: profileForModel(candidate),
     employer: candidate?.job?.company || candidate?.job?.organization || '',
     jobTitle: candidate?.job?.title || '',

@@ -22,8 +22,16 @@
  *
  * Every decision is checked here, in code, on every read: the value must be one the field can take, a choice
  * one of its options, a text answer must not introduce a name, title, qualification, date or figure the CV
- * lacks (cvAnswerInventions), and principle 4 is enforced (no yes to marketing or third parties). A decision
- * is projected like a platform default (`source: 'policy_default'`): shown and editable on the review page, it
+ * lacks (cvAnswerInventions), and principle 4 is enforced (no yes to marketing or third parties).
+ *
+ * A yes/no or a choice on the candidate's experience or skills (owner mandate 2026-11-10, SBB ifB89NW2: «Hast du
+ * Erfahrungen mit Datenbanken, Managed OS, Container-Plattformen…?») is decided too (experienceQuestionKind):
+ * yes on the CV's evidence, cited verbatim and pertinent to the question (cv_fact); with no evidence, the
+ * plausible deduction from the CV's roles, sectors and skills that maximizes the application's success. Never a
+ * yes to a formal certification, licence or degree the CV does not name («SAFe-zertifiziert», «PMP certified»):
+ * that yes becomes a no here, in code, while the experience itself may still be a plausible yes.
+ *
+ * A decision is projected like a platform default (`source: 'policy_default'`): shown and editable on the review page, it
  * no longer holds the application, and it never enters `answers`/`profile`, from which the letter and the CV
  * are written.
  *
@@ -32,10 +40,12 @@
 import { validateAnswer } from './lib/answerRules.js';
 import { cvAnswerInventions } from './assistedApplicationCvAnswers.js';
 
-export const DECISION_ANSWERS_VERSION = 'decision-answers-v1';
+// v2 (2026-11-10): experience and skill questions, with the CV's evidence; no yes to a certification it lacks.
+export const DECISION_ANSWERS_VERSION = 'decision-answers-v2';
 export const DECISION_QUESTION_SOURCES = Object.freeze(['portal', 'match']);
 const MAX_TEXT_ANSWER = 200;
 const MAX_CV_CHARS = 20_000;
+const MAX_EVIDENCE = 3;
 
 /** The owner's principles, in the order the model applies them. */
 export const DECISION_PRINCIPLES = Object.freeze([
@@ -116,7 +126,101 @@ export function decisionShape(question) {
 export function candidateOnlyCategory(question) {
   const text = promptOf(question);
   if (!text) return null;
-  return CANDIDATE_ONLY_CATEGORIES.find((category) => category.re.test(text))?.id || null;
+  for (const category of CANDIDATE_ONLY_CATEGORIES) {
+    if (!category.re.test(text)) continue;
+    // «Sind Sie SAFe-zertifiziert?»: whether the CV holds a qualification, which the CV states or not (owner
+    // mandate 2026-11-10), not a document only the candidate can hand over.
+    if (category.id === 'candidate_document' && asksHeldQualification(question, text)) continue;
+    return category.id;
+  }
+  return null;
+}
+
+// ── Experience and skills (owner mandate 2026-11-10) ──────────────────────────
+
+const EXPERIENCE_WORDS = /\b(?:\w*erfahrung\w*|experience\w*|esperienz\w*|kenntnis\w*|knowledge|conoscenz\w*|connaissance\w*|familiar\w*|vertraut\w*|skills?|kompetenz\w*|competenz\w*|competence\w*|know how|hands on|proficien\w*|praxis\w*|gearbeitet|worked|lavorato|travaille|expertise|background)\b/;
+// A formal qualification: a yes to it states a fact of the CV, never a plausible one.
+const QUALIFICATION_WORDS = /\b(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*|accredit\w*|akkredit\w*|licen[cs]\w*|lizenz\w*|fachausweis\w*|brevet\w*|diplom\w*|degree\w*|laurea\w*|abschluss\w*|titolo di studio)\b/;
+// A degree named alone («Haben Sie einen Master?»); with an experience word it is a role («Scrum Master Erfahrung»).
+const DEGREE_WORDS = /\b(?:bachelor\w*|master|msc|bsc|mba|phd|dottorat\w*|doktor\w*|doctorat\w*)\b/;
+const ALTERNATIVE = /\b(?:oder|or|o|ou|oppure|ovvero|bzw|beziehungsweise|respektive|resp)\b/;
+// The candidate is asked to hand the document over, not whether they hold the qualification.
+const DOCUMENT_REQUEST = /\b(?:copy|copia|copie|kopie|upload\w*|hochlad\w*|laden|hoch|carica\w*|allega\w*|attach\w*|beileg\w*|beifug\w*|joindre|submit|einreich\w*|provide|fornir\w*|fournir|vorleg\w*|vorweis\w*|present\w*|send|invia\w*|envoy\w*|zusend\w*)\b/;
+
+/**
+ * 'certification' for a question on a formal qualification, 'experience' for one on experience or skills, null
+ * otherwise. «SAFe certification or equivalent experience» is experience: a yes does not claim the certificate.
+ */
+export function experienceQuestionKind(question) {
+  const text = promptOf(question);
+  if (!text) return null;
+  const experience = EXPERIENCE_WORDS.test(text);
+  if (QUALIFICATION_WORDS.test(text)) return experience && ALTERNATIVE.test(text) ? 'experience' : 'certification';
+  if (DEGREE_WORDS.test(text) && !experience) return 'certification';
+  return experience ? 'experience' : null;
+}
+
+function asksHeldQualification(question, text) {
+  // A certification asked alone, or «a certificate or equivalent experience».
+  if (!experienceQuestionKind(question) || DOCUMENT_REQUEST.test(text)) return false;
+  if (!['yes_no', 'checkbox', 'choice'].includes(decisionShape(question))) return false;
+  // Nothing else of the document category is asked: a criminal-record extract, a driving licence, a reference.
+  const document = new RegExp(CANDIDATE_ONLY_CATEGORIES.find((category) => category.id === 'candidate_document').re.source, 'g');
+  return (text.match(document) || []).every((word) => CERTIFICATE_WORD.test(word));
+}
+const CERTIFICATE_WORD = /^(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*)$/;
+
+// Words of a question that name nothing: the CV's evidence must share another one with it.
+const GENERIC_WORDS = new Set(`hast hat habe haben hatten sind bist ist sie du ihr ich wir einen einer eines eine ein im in mit und oder von zu zur zum fur der die das den dem des als bei auf an aus uber auch schon bereits bisher jemals mindestens erste ersten gute guten sehr
+have has had do does did you your any some with and or of in on at to for the a an as by from about already ever least good first strong solid proven
+hai ha abbiamo avete sei e o di del della dello dei degli delle nel nella nei negli con per un una uno il lo la le gli come almeno gia buona buone ottima
+avez avons as es est vous tu une des du de la le les et ou avec pour en au aux dans sur deja moins bonne bonnes
+erfahrung erfahrungen berufserfahrung experience experiences esperienza esperienze kenntnisse kenntnis knowledge conoscenza conoscenze connaissance connaissances
+skill skills kompetenz kompetenzen competenza competenze competence competences praxis expertise background familiar vertraut worked gearbeitet lavorato travaille
+jahre jahren years year anni anno ans annee annees zertifiziert zertifizierung zertifikat certified certification certificate certificazione certificat certifie
+bereich bereichen field area ambito domaine umfeld environment ambiente environnement`.split(/\s+/).filter(Boolean));
+
+const evidenceText = (value) => String(value ?? '').normalize('NFC').replace(/[’‘]/g, "'").replace(/[“”«»]/g, '"')
+  .replace(/\s+/gu, ' ').trim().toLowerCase();
+
+function distinctiveWords(text) {
+  return [...new Set(fold(text).split(' ').filter((word) => word.length >= 2 && !/^\d+$/.test(word) && !GENERIC_WORDS.has(word)))];
+}
+
+/** Whether a quote of the CV names something the question asks about (a word, or the stem of a long one). */
+function pertinentTo(question, quote) {
+  const quoteWords = fold(quote).split(' ').filter(Boolean);
+  return distinctiveWords(promptOf(question)).some((word) => (word.length >= 7
+    ? quoteWords.some((other) => other.length >= 6 && other.slice(0, 6) === word.slice(0, 6))
+    : quoteWords.includes(word)));
+}
+
+/**
+ * The quotes of the model that stand: verbatim in the CV (the comparison of assistedApplicationCvAnswers.js) and
+ * pertinent to the question; for a certification, naming a certification too.
+ */
+function verifiedEvidence(question, evidence, cvText, kind) {
+  const cv = evidenceText(cvText);
+  if (!cv) return [];
+  return evidence.filter((quote) => cv.includes(evidenceText(quote)) && pertinentTo(question, quote)
+    && (kind !== 'certification' || QUALIFICATION_WORDS.test(fold(quote)) || DEGREE_WORDS.test(fold(quote))));
+}
+
+/** The value of a decision that says yes, for each shape. */
+function affirmative(shape, value) {
+  if (shape === 'yes_no') return value === 'yes';
+  if (shape === 'checkbox') return value === 'true';
+  return shape === 'choice' && YES.test(fold(value));
+}
+
+/** The «no» of the field: the shown and the portal's option, or the yes/no value; null when it has none. */
+function negativeOf(question, shape) {
+  if (shape === 'yes_no') return { value: 'no', applicationValue: '' };
+  if (shape === 'checkbox') return { value: 'false', applicationValue: '' };
+  const shown = shownOptions(question);
+  const indexes = shown.map((option, index) => (NO.test(fold(option)) ? index : -1)).filter((index) => index >= 0);
+  if (indexes.length !== 1) return null;
+  return { value: shown[indexes[0]], applicationValue: nativeOptions(question)[indexes[0]] || '' };
 }
 
 /** A question the engine may decide: of the portal or the match, of a shape it handles, with a prompt. */
@@ -190,9 +294,28 @@ export function verifyDecision(proposal, { question, cvText = '', allowText = tr
     if (!String(cvText ?? '').trim()) reasons.push('text_needs_cv');
     else if (value) for (const finding of cvAnswerInventions(value, cvText)) reasons.push(`invented_${finding.kind}`);
   }
+  let reason = String(proposal?.reason ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200);
+  let decided = principle;
+  let evidence = [];
+  // Experience and skills (owner mandate 2026-11-10): the CV's quotes that stand are kept; a fact of the CV needs
+  // one, else the yes is the plausible deduction it is; a formal qualification is never a plausible yes.
+  const kind = shape === 'text' ? null : experienceQuestionKind(question);
+  if (kind && value) {
+    const quotes = (Array.isArray(proposal?.evidence) ? proposal.evidence : [])
+      .map((item) => String(item ?? '').replace(/\s+/gu, ' ').trim()).filter(Boolean).slice(0, MAX_EVIDENCE);
+    evidence = verifiedEvidence(question, quotes, cvText, kind);
+    if (affirmative(shape, value) && kind === 'certification' && !evidence.length) {
+      const negative = negativeOf(question, shape);
+      if (!negative) reasons.push('certification_not_in_cv');
+      else {
+        ({ value, applicationValue } = negative);
+        decided = 'cv_fact';
+        reason = 'The CV names no such certification, licence or degree.';
+      }
+    } else if (decided === 'cv_fact' && affirmative(shape, value) && !evidence.length) decided = 'plausible_deduction';
+  }
   if ((value || shape === 'text') && beyondEmployer(question, shape, value, applicationValue)) reasons.push('consent_beyond_employer');
-  const reason = String(proposal?.reason ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200);
-  return { ok: reasons.length === 0, reasons: [...new Set(reasons)], shape, value, applicationValue, principle, reason };
+  return { ok: reasons.length === 0, reasons: [...new Set(reasons)], shape, value, applicationValue, principle: decided, reason, evidence };
 }
 
 /** What a verified decision keeps, for the draft question (`platformDecision`) and for the facts. */
@@ -204,6 +327,8 @@ export function decisionRecord(checked) {
     ...(checked.applicationValue ? { applicationValue: checked.applicationValue } : {}),
     principle: checked.principle,
     reason: checked.reason,
+    // The CV's quotes a yes on experience stands on, verbatim: checked again on every read.
+    ...(checked.evidence?.length ? { evidence: checked.evidence } : {}),
     version: DECISION_ANSWERS_VERSION,
   };
 }
@@ -280,6 +405,7 @@ export function decisionAnswerFor(question, facts) {
     origin: 'platform_decision',
     principle: entry.principle,
     reason: entry.reason || '',
+    ...(Array.isArray(entry.evidence) && entry.evidence.length ? { evidence: entry.evidence } : {}),
     version: DECISION_ANSWERS_VERSION,
   };
 }
@@ -301,13 +427,18 @@ export const DECISIONS_SCHEMA = Object.freeze({
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['id', 'decision', 'value', 'principle', 'category', 'reason'],
+        required: ['id', 'decision', 'value', 'principle', 'category', 'evidence', 'reason'],
         properties: {
           id: { type: 'string', description: 'The exact id of one supplied question' },
           decision: { type: 'string', enum: ['answer', 'candidate'] },
           value: { type: 'string', description: 'choice: the exact text of one supplied option; yes_no: "yes" or "no"; checkbox: "true" or "false"; text: a short first-person answer; "" when decision is candidate' },
           principle: { type: 'string', enum: ['', ...PRINCIPLE_IDS] },
           category: { type: 'string', enum: ['', ...CATEGORY_IDS] },
+          evidence: {
+            type: 'array',
+            items: { type: 'string' },
+            description: 'experience or certification question: 1-3 excerpts copied verbatim from the CV that show it; [] otherwise',
+          },
           reason: { type: 'string', description: 'One short sentence in English on why, without personal data' },
         },
       },
@@ -333,6 +464,13 @@ Values:
 - choice: return the exact text of one supplied option (either list), the one the principles choose; for visibility or forwarding inside the employer choose the broadest audience inside that same employer;
 - yes_no: "yes" or "no"; checkbox: "true" (ticked) or "false";
 - text: a short first-person answer in the language of the question, under 200 characters. Never introduce an employer, school, job title, degree, certification, date, number or product the CV does not contain; never answer a technical question about a technology, tool or hands-on experience (leave it: decision "candidate", category "").
+
+Experience and skills (a yes_no, checkbox or choice question whose subject is "experience" or "certification"): always decide it, never leave it to the candidate.
+- When the CV shows pertinent experience (the technology, the method, the role, the sector or the certification asked about), answer yes with principle cv_fact and copy 1-3 excerpts of the CV that show it, verbatim, into evidence.
+- When the CV says nothing pertinent, make the plausible deduction from the CV's roles, sectors, tasks and skills that maximizes the success of the application (principle plausible_deduction or application_success): yes when the candidate's career makes that experience plausible, no only when it is clearly foreign to it; evidence [].
+- Never yes to a formal certification, licence or degree (for example "SAFe certified", "PMP certified", a federal diploma) the CV does not name: answer no to it, while the experience itself may still be a plausible yes.
+- A choice of levels or years: the option the CV supports, else the plausible one.
+
 Never say yes to marketing, newsletters, job alerts, talent pools, or sharing with third parties, other companies or the public. Never answer about health, religion, ethnicity, political opinion, trade unions, sexual orientation or pregnancy.
 
 reason: one short sentence in English naming the principle's ground, without personal data.`;
@@ -348,6 +486,7 @@ export function decisionsUserText({ questions, employer = '', jobTitle = '', cvT
     questions: (Array.isArray(questions) ? questions : []).map((question) => ({
       id: question.id,
       type: decisionShape(question),
+      subject: experienceQuestionKind(question) || '',
       portalQuestion: question.applicationQuestion || question.question || question.label || '',
       candidateFacingQuestion: question.question || '',
       options: shownOptions(question),
