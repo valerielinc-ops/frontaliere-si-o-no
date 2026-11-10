@@ -1,7 +1,7 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-11-09T21:52:30.111Z",
-  "runId": "42702005433",
+  "assembledAt": "2026-11-10T10:08:24.026Z",
+  "runId": "42790254317",
   "jobs": [
     {
       "id": "omega-33509",
@@ -34,7 +34,7 @@
       "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:52:22.710Z",
+      "crawledAt": "2026-11-10T10:08:17.963Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:52:22.710Z",
+      "validThrough": "2027-01-14T10:08:17.963Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33566",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:52:01.293Z",
+      "crawledAt": "2026-11-10T10:07:56.491Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:52:01.293Z",
+      "validThrough": "2027-01-21T10:07:56.491Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -225,7 +225,7 @@
       "url": "https://www.swatchgroup.com/de/job/33609",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:51:40.190Z",
+      "crawledAt": "2026-11-10T10:07:34.869Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:51:40.190Z",
+      "validThrough": "2027-01-26T10:07:34.869Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -321,7 +321,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33645",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:51:18.817Z",
+      "crawledAt": "2026-11-10T10:07:13.143Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:51:18.817Z",
+      "validThrough": "2027-01-28T10:07:13.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -417,7 +417,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33698",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:50:57.218Z",
+      "crawledAt": "2026-11-10T10:06:51.370Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -488,7 +488,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:50:57.218Z",
+      "validThrough": "2027-02-02T10:06:51.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -522,7 +522,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33741",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:50:35.799Z",
+      "crawledAt": "2026-11-10T10:06:29.605Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -586,7 +586,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:50:35.799Z",
+      "validThrough": "2027-02-04T10:06:29.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -620,7 +620,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33831",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:50:14.413Z",
+      "crawledAt": "2026-11-10T10:06:08.025Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -681,7 +681,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:50:14.413Z",
+      "validThrough": "2027-02-05T10:06:08.025Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -778,7 +778,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-21T09:51:17.056Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
