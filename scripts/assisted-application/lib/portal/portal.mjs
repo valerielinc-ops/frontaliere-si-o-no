@@ -7289,7 +7289,13 @@ export async function submitViaPortal(ctx) {
       // A held-permit value recorded during this run describes a runner form
       // action, not a separate candidate portal response. Keep it in run
       // evidence, but do not present it as an answered portal question.
-      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question));
+      // The evidence log represents checkbox actions as ✓/✗. Those marks are
+      // display-only, not candidate answers; including them beside an explicit
+      // Yes/No answer makes the consent matcher treat the candidate's answer
+      // as conflicting on the next planner pass. `visibleAnswers` below
+      // reconstructs a checkbox answer only when it matches candidate data.
+      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question)
+        && !['✓', '✗'].includes(String(item.answer || '').trim()));
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
