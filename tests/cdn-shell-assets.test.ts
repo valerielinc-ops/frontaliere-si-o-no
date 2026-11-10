@@ -471,18 +471,34 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.purge.flat()).not.toContain(stable);
   });
 
-  it('fails closed when a stable global alias is missing instead of publishing it from a fast emitter', async () => {
+  it('bootstraps a stable global alias when both the CDN and R2 confirm it is absent', async () => {
     const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
     const stable = 'assets/adsense-loader.js';
+    const stableContent = assets.find((asset) => asset.key === stable)!.content;
     const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
       probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
     });
 
-    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+    const results: Outcome[] = await ensureCdnShellAssets({ assets, ...cdn });
 
-    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(results).toContainEqual({ key: stable, outcome: 'uploaded' });
+    expect(cdn.calls.upload).toContainEqual([stable, stableContent]);
+    expect(cdn.calls.purge).toEqual([[stable]]);
+    expect(cdn.bucket.has(stable)).toBe(true);
+  });
+
+  it('does not overwrite a stable global alias already stored in R2 when its edge response is absent', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const cdn = fakeCdn(assets, {
+      probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
+    });
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets, ...cdn });
+
+    expect(results).toContainEqual({ key: stable, outcome: 'stored' });
     expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
-    expect(cdn.calls.purge.flat()).not.toContain(stable);
+    expect(cdn.calls.purge).toEqual([[stable]]);
   });
 
   it('refuses a global stable alias whose local bytes differ from its current hashed target', async () => {

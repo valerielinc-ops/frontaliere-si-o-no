@@ -26,12 +26,15 @@
  * Stable global shell aliases are checked against the digest of their current
  * producer bytes, read from the CDN response body. ETags are only validators:
  * a weak ETag cannot prove byte identity.
- * Only the full deploy may update those mutable aliases: fast emitters can run
- * from an older inputs.sha and must never roll a newer script back. A missing
- * or stale alias therefore fails closed until the full deploy publishes the
- * current producer. A content-addressed key may be PUT again only when its
- * cache metadata is stale; the producer bytes are still the same content that
- * the key names.
+ * Fast emitters never replace a served mutable alias: they can run from an
+ * older inputs.sha and must never roll a newer script back. A truly absent
+ * alias is different: after R2 confirms that no object exists, the emitter
+ * may bootstrap it from the byte-identical current content-addressed pair.
+ * A stale or unreadable alias therefore remains fail-closed; an already-stored
+ * alias is never overwritten and is revalidated after the edge purge. Only the
+ * full deploy may replace that object. A content-addressed key may be PUT
+ * again only when its cache metadata is stale; the producer bytes are still
+ * the same content that the key names.
  *
  * An object on R2 is not yet a file the pages get. Each edge location keeps
  * the 404 it gave a browser while the object was missing (about three minutes
@@ -497,7 +500,10 @@ export async function ensureCdnShellAssets({
     }
     if (stablePairByKey.has(key)) {
       const { versionedKey } = stablePairByKey.get(key);
-      throw new Error(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey} — HTML that references it must not be published`);
+      if (probeAnswer !== 'absent') {
+        throw new Error(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey}, while a fast emitter can bootstrap only a confirmed absence — HTML that references it must not be published`);
+      }
+      log(`${key}: stable alias is absent; checking R2 before bootstrapping it from ${versionedKey}`);
     }
     const stored = await withR2Deadline(key, 'lookup', (options) => checkStored(key, options));
     if (stored === 'exists') {
