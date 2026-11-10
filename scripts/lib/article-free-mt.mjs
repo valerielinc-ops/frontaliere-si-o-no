@@ -28,10 +28,7 @@ function normalizePassthroughText(value) {
   return String(value ?? '')
     .normalize('NFKC')
     .replace(/\u00a0/g, ' ')
-    .replace(/\r\n/g, '\n')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/[ \t]*\n[ \t]*/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
+    .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
 }
@@ -99,6 +96,38 @@ export function joinTranslatedChunks(results, bodyKey, targetLang, sourceChunks 
 }
 
 /**
+ * Restore indexed sentinels only when every original appears exactly once.
+ * A count-only check accepts a duplicated index and silently loses another
+ * protected token, which is worse than refusing the translation.
+ *
+ * @param {unknown} value translated text
+ * @param {RegExp} pattern global sentinel pattern with one numeric capture
+ * @param {string[]} originals protected source values by index
+ * @returns {{ text: string, ok: boolean }}
+ */
+export function restoreIndexedSentinels(value, pattern, originals) {
+  pattern.lastIndex = 0;
+  const seen = new Set();
+  let valid = true;
+  const text = String(value ?? '').replace(pattern, (_, rawIndex) => {
+    const index = Number(rawIndex);
+    if (!Number.isInteger(index)
+      || index < 0
+      || index >= originals.length
+      || seen.has(index)) {
+      valid = false;
+      return '';
+    }
+    seen.add(index);
+    return originals[index];
+  });
+  const complete = valid
+    && seen.size === originals.length
+    && originals.every((_, index) => seen.has(index));
+  return { text, ok: complete };
+}
+
+/**
  * Mask internal `[testo](nav:azione)` CTA links so machine translation passes
  * them through verbatim (the `nav:azione` target is a router action, not prose).
  *
@@ -127,27 +156,7 @@ export function maskNavLinks(text) {
     store.push(m);
     return token;
   });
-  const restore = (s) => {
-    NAV_SENTINEL_RE.lastIndex = 0;
-    const seen = new Set();
-    let valid = true;
-    const out = String(s ?? '').replace(NAV_SENTINEL_RE, (_, rawIndex) => {
-      const index = Number(rawIndex);
-      if (!Number.isInteger(index)
-        || index < 0
-        || index >= store.length
-        || seen.has(index)) {
-        valid = false;
-        return '';
-      }
-      seen.add(index);
-      return store[index];
-    });
-    const complete = valid
-      && seen.size === store.length
-      && store.every((_, index) => seen.has(index));
-    return { text: out, ok: complete };
-  };
+  const restore = (s) => restoreIndexedSentinels(s, NAV_SENTINEL_RE, store);
   return { masked, expected: store.length, restore };
 }
 
