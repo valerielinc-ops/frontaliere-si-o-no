@@ -1005,6 +1005,12 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   const topic = questionTopic(question, context, metadata);
+  const checkbox = String(metadata?.kind || metadata?.inputType || metadata?.type || '').trim().toLowerCase() === 'checkbox';
+  if (checkbox) {
+    const leftBoolean = booleanAnswer(left);
+    const rightBoolean = booleanAnswer(right);
+    if (leftBoolean !== null || rightBoolean !== null) return leftBoolean !== null && leftBoolean === rightBoolean;
+  }
   if (topic === 'notice_period') return equivalentOperationalAnswers({ ...metadata, question, context }, left, right);
   if (topic === 'preferred_workload') {
     if (a === b) return true;

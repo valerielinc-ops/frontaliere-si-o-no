@@ -1057,6 +1057,7 @@ function fakeAgent(prompt) {
 
 // A password field must never reach the planner: the runner types it (account.mjs).
 let plannerSawPassword = false;
+let plannerSawPrivacyCheckboxJa = false;
 
 /** Planner stand-in: answers by label, as the real planner does for these fields. */
 async function fakeCodex({ prompt }) {
@@ -1152,6 +1153,8 @@ async function fakeCodex({ prompt }) {
   }
   const request = JSON.parse(prompt.slice(prompt.lastIndexOf('{"form"'), prompt.lastIndexOf('\n\nReturn exactly')));
   const { form, candidate } = request;
+  if ((candidate?.portalQuestionsAnswered || []).some((item) => /privacy policy statement/i.test(item.question || '')
+    && String(item.answer || '').trim().toLowerCase() === 'ja')) plannerSawPrivacyCheckboxJa = true;
   if (form.fields.some((field) => /password|kennwort/i.test(field.label))) plannerSawPassword = true;
   const actions = form.fields.map((field) => {
     const act = (action, value = '', extra = {}) => ({ fieldId: field.id, action, value, document: 'none', source: 'identity', ...extra });
@@ -1535,6 +1538,7 @@ async function main() {
     && portalUploadActionKey('/wizard', 1, redrawnGeneratedCvField, ambiguousGeneratedCvRedraw, [selectedGeneratedCvRecord]) === null
     && portalUploadActionKey('/wizard', 1, singleFieldAfterDuplicateShrinks[0], singleFieldAfterDuplicateShrinks, [selectedDuplicateGeneratedRecord]) === null);
   const runUmantisChecks = async () => {
+    plannerSawPrivacyCheckboxJa = false;
     const hotelSaved = new Map();
     const hotelAccounts = {
       async load(host) { return hotelSaved.get(host) || null; },
@@ -1548,7 +1552,9 @@ async function main() {
     const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
       && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
-      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'), stopContext(hotelDry));
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run')
+      && hotelDry.evidence.answers.some((item) => /privacy policy statement/i.test(item.question) && item.answer === '✓' && item.source === 'answers')
+      && plannerSawPrivacyCheckboxJa, stopContext(hotelDry));
     check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
     let guardCalls = 0;
     const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });

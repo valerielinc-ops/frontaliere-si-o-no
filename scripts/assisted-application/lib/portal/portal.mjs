@@ -7257,9 +7257,11 @@ export async function submitViaPortal(ctx) {
     const openedOnce = new Set();
     const openTries = new Map();
     const profileSectionsDone = new Set();
-    // What went into the form, question by question (career-ops application-answers):
-    // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
+    // Semantic answers for planner retries (career-ops application-answers):
+    // checkbox markers are never treated as candidate answers. The last answer wins.
     const given = new Map();
+    // Human-readable evidence keeps the action as it appeared in the form (✓/✗).
+    const evidenceGiven = new Map();
     evidence.answers = [];
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
@@ -7268,7 +7270,7 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}, plannerAnswer = undefined) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
@@ -7276,7 +7278,7 @@ export async function submitViaPortal(ctx) {
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
       const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
-      given.set(key, {
+      const recordedAnswer = {
         question: label,
         ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
@@ -7284,8 +7286,15 @@ export async function submitViaPortal(ctx) {
         ...(surrounding ? { context: surrounding } : {}),
         ...(heading ? { section: heading } : {}),
         ...(fieldAutocomplete ? { autocomplete: fieldAutocomplete } : {}),
-      });
-      evidence.answers = [...given.values()].slice(0, 80);
+      };
+      evidenceGiven.set(key, recordedAnswer);
+      if (plannerAnswer === undefined) given.set(key, recordedAnswer);
+      else {
+        const semanticAnswer = String(plannerAnswer ?? '').trim();
+        if (semanticAnswer) given.set(key, { ...recordedAnswer, answer: semanticAnswer.slice(0, 2000) });
+        else given.delete(key);
+      }
+      evidence.answers = [...evidenceGiven.values()].slice(0, 80);
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
@@ -7776,7 +7785,11 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
+          const isCheckboxAction = ['check', 'uncheck'].includes(action.action);
+          const plannerAnswer = !isCheckboxAction ? undefined
+            : ['answers', 'candidate', 'user'].includes(action.source)
+              ? (action.action === 'check' ? 'ja' : 'nein') : null;
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field, plannerAnswer);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
