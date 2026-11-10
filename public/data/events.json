@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T01:31:51.087Z",
+  "generatedAt": "2026-11-10T03:13:14.151Z",
   "totalEvents": 16620,
   "events": [
     {
@@ -420185,7 +420185,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un laboratorio di arte contemporanea aperto a tutti, a Ginevra. L’attività consiste nel rompere stoviglie e trasformarne i frammenti in opere d’arte.",
+      "descriptionByLocale": {
+        "it": "È un laboratorio di arte contemporanea aperto a tutti, a Ginevra. L’attività consiste nel rompere stoviglie e trasformarne i frammenti in opere d’arte.",
+        "en": "This is a contemporary art workshop open to everyone in Geneva. The activity involves breaking crockery and turning the pieces into artworks.",
+        "de": "In Genf findet ein Workshop für zeitgenössische Kunst statt, der allen offensteht. Dabei wird Geschirr zerbrochen und aus den Teilen werden Kunstwerke gestaltet.",
+        "fr": "À Genève, un atelier d’art contemporain s’adresse à tout public. L’activité consiste à briser de la vaisselle, puis à utiliser les morceaux pour créer des œuvres artistiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9ab6bd71222343f990e892f70d7b0889",
@@ -430201,7 +430209,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza affronta il tema della comunicazione non verbale e dei significati che possono emergere dai segnali del corpo. Si parlerà di gesti, espressioni e postura in relazione a pensieri, emozioni e intenzioni, presso LaFilanda di Mendrisio.",
+      "descriptionByLocale": {
+        "it": "La conferenza affronta il tema della comunicazione non verbale e dei significati che possono emergere dai segnali del corpo. Si parlerà di gesti, espressioni e postura in relazione a pensieri, emozioni e intenzioni, presso LaFilanda di Mendrisio.",
+        "en": "This conference examines nonverbal communication and the meanings conveyed by bodily signals. It considers how gestures, facial expressions and posture can relate to thoughts, emotions and intentions, and takes place at LaFilanda in Mendrisio.",
+        "de": "Die Konferenz befasst sich mit nonverbaler Kommunikation und den Bedeutungen körperlicher Signale. Im Mittelpunkt stehen Gesten, Gesichtsausdrücke und Körperhaltung im Zusammenhang mit Gedanken, Gefühlen und Absichten; der Anlass findet in der LaFilanda in Mendrisio statt.",
+        "fr": "Cette conférence porte sur la communication non verbale et sur ce que les signaux du corps peuvent exprimer. Elle aborde le lien entre gestes, expressions du visage et posture ainsi qu’entre pensées, émotions et intentions, et se déroule à LaFilanda, à Mendrisio."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A212VJ2",
@@ -431323,7 +431339,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un mercato dedicato a chi crea. Si svolge a Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento è un mercato dedicato a chi crea. Si svolge a Ginevra, nel cantone di Ginevra.",
+        "en": "The event is a market dedicated to creators. It takes place in Geneva, in the canton of Geneva.",
+        "de": "Die Veranstaltung ist ein Markt für Kreative. Sie findet in Genf im Kanton Genf statt.",
+        "fr": "L’événement prend la forme d’un marché consacré aux créatrices et aux créateurs. Il se déroule à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:marie-ducate-simultanes-guide-volante-1",
@@ -441268,7 +441292,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È una conferenza pubblica dedicata al diritto alle cure, alla dignità delle persone e al rapporto tra salute e pace. L’incontro affronta le difficoltà dell’assistenza umanitaria in contesti di guerra o povertà e si tiene all’Ospedale La Carità di Locarno.",
+      "descriptionByLocale": {
+        "it": "È una conferenza pubblica dedicata al diritto alle cure, alla dignità delle persone e al rapporto tra salute e pace. L’incontro affronta le difficoltà dell’assistenza umanitaria in contesti di guerra o povertà e si tiene all’Ospedale La Carità di Locarno.",
+        "en": "This public conference considers access to medical care as a matter of rights and examines its connection with human dignity and peace. It addresses the challenges of humanitarian assistance in places affected by war or poverty and takes place at Ospedale La Carità in Locarno.",
+        "de": "Die öffentliche Konferenz befasst sich mit dem Recht auf medizinische Versorgung und mit dem Zusammenhang zwischen Gesundheit, Menschenwürde und Frieden. Im Mittelpunkt stehen die Herausforderungen humanitärer Hilfe in von Krieg oder Armut geprägten Situationen; die Veranstaltung findet im Ospedale La Carità in Locarno statt.",
+        "fr": "Cette conférence publique examine l’accès aux soins comme un droit et s’intéresse aux liens entre santé, dignité humaine et paix. Elle aborde les difficultés de l’aide humanitaire dans des contextes marqués par la guerre ou la pauvreté et se déroule à l’Ospedale La Carità de Locarno."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:verite-sort-bouche-enfants-rencontre-atelier",
@@ -442463,7 +442495,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, i Perchés du Lac propongono uno spettacolo teatrale basato sull’improvvisazione. La rappresentazione si tiene al Floky la loutre.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, i Perchés du Lac propongono uno spettacolo teatrale basato sull’improvvisazione. La rappresentazione si tiene al Floky la loutre.",
+        "en": "In Geneva, Perchés du Lac present a theatre performance built around improvisation. The event takes place at Floky la loutre.",
+        "de": "In Genf zeigen die Perchés du Lac eine Theateraufführung mit Schwerpunkt auf Improvisation. Die Veranstaltung findet im Floky la loutre statt.",
+        "fr": "À Genève, les Perchés du Lac présentent un spectacle théâtral fondé sur l’improvisation. La représentation se déroule au Floky la loutre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:974a00e07cf44dca964dbc58790b969a",
@@ -451951,7 +451991,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il salone GARDEROBES presenta a Ginevra la sua terza edizione. L’iniziativa appartiene alla categoria delle manifestazioni fieristiche ed è dedicata alla moda sostenibile.",
+      "descriptionByLocale": {
+        "it": "Il salone GARDEROBES presenta a Ginevra la sua terza edizione. L’iniziativa appartiene alla categoria delle manifestazioni fieristiche ed è dedicata alla moda sostenibile.",
+        "en": "GARDEROBES is a salon held in Geneva for its third edition. The event focuses on sustainable fashion.",
+        "de": "GARDEROBES findet in Genf in seiner dritten Ausgabe als Messe statt. Die Veranstaltung widmet sich nachhaltiger Mode.",
+        "fr": "Le salon GARDEROBES se tient à Genève pour sa troisième édition. Il s’agit d’une manifestation consacrée à la mode durable."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Ab6VFQ2",
@@ -471973,7 +472021,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un incontro dedicato agli approcci naturali per l’artrosi, l’artrite e l’osteoporosi. Si svolge in uno spazio di quartiere a Champel, Ginevra.",
+      "descriptionByLocale": {
+        "it": "È un incontro dedicato agli approcci naturali per l’artrosi, l’artrite e l’osteoporosi. Si svolge in uno spazio di quartiere a Champel, Ginevra.",
+        "en": "This health-focused meeting addresses natural approaches related to arthrosis, arthritis and osteoporosis. It takes place at a neighbourhood community space in Champel, Geneva.",
+        "de": "Die Veranstaltung ist ein Gesundheitsgespräch über natürliche Ansätze bei Arthrose, Arthritis und Osteoporose. Sie findet in einem Quartiertreffpunkt in Champel, Genf, statt.",
+        "fr": "Cette rencontre de santé porte sur des approches naturelles liées à l’arthrose, à l’arthrite et à l’ostéoporose. Elle est prévue dans un espace de quartier à Champel, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64030",
@@ -475193,7 +475249,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Alla Casa della sostenibilità USI di Airolo è in programma uno spettacolo nel planetario astronomico. Attraverso immagini proiettate e una narrazione dal vivo, l’appuntamento affronta il rapporto con la Terra e la sua fragilità nel contesto dell’universo.",
+      "descriptionByLocale": {
+        "it": "Alla Casa della sostenibilità USI di Airolo è in programma uno spettacolo nel planetario astronomico. Attraverso immagini proiettate e una narrazione dal vivo, l’appuntamento affronta il rapporto con la Terra e la sua fragilità nel contesto dell’universo.",
+        "en": "The event takes place at the Casa della sostenibilità USI in Airolo and is presented as an astronomical planetarium show. Using projected images and live narration, it considers Earth’s fragility and place within the wider universe.",
+        "de": "In der Casa della sostenibilità USI in Airolo findet eine Vorführung im astronomischen Planetarium statt. Mit projizierten Bildern und einer Live-Erzählung widmet sich die Veranstaltung der Erde, ihrer Verletzlichkeit und ihrer Stellung im Universum.",
+        "fr": "À la Casa della sostenibilità USI d’Airolo, une représentation est proposée dans le planétarium astronomique. À l’aide d’images projetées et d’un récit en direct, le rendez-vous aborde la fragilité de la Terre et sa place dans l’univers."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:radio-live-releve",
@@ -476481,7 +476545,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra si svolge un laboratorio di cosmetica per bambini dedicato alla preparazione di sali da bagno. L’attività propone un approccio ludico, creativo ed ecologico.",
+      "descriptionByLocale": {
+        "it": "A Ginevra si svolge un laboratorio di cosmetica per bambini dedicato alla preparazione di sali da bagno. L’attività propone un approccio ludico, creativo ed ecologico.",
+        "en": "Geneva hosts a cosmetics workshop for children focused on making bath salts. The activity has a playful, creative and ecological focus.",
+        "de": "In Genf findet ein Kosmetik-Workshop für Kinder zur Herstellung von Badesalzen statt. Die Aktivität verbindet spielerische, kreative und ökologische Aspekte.",
+        "fr": "À Genève, un atelier de cosmétique pour enfants porte sur la fabrication de sels de bain. Il propose une activité à la fois ludique, créative et écologique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-autodefense-espagnol",
@@ -476507,7 +476579,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra si svolge un laboratorio di autodifesa in spagnolo. L’attività è destinata alle persone che lavorano nel sex work.",
+      "descriptionByLocale": {
+        "it": "A Ginevra si svolge un laboratorio di autodifesa in spagnolo. L’attività è destinata alle persone che lavorano nel sex work.",
+        "en": "Geneva is hosting a self-defence workshop conducted in Spanish. It is intended for people who work in the sex industry.",
+        "de": "In Genf wird ein spanischsprachiger Workshop zur Selbstverteidigung angeboten. Er richtet sich an Menschen, die in der Sexarbeit tätig sind.",
+        "fr": "À Genève, un atelier consacré à l’autodéfense se déroule en espagnol. Il s’adresse aux personnes qui exercent le travail du sexe."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:771de43578e54d7bb20a3534e82d57ac",
@@ -482870,7 +482950,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto presenta un nuovo progetto solista di Julie Campiche. L’esibizione riunisce arpa, voce, suoni elettronici e campionamenti a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto presenta un nuovo progetto solista di Julie Campiche. L’esibizione riunisce arpa, voce, suoni elettronici e campionamenti a Ginevra.",
+        "en": "This concert presents a new solo project by Julie Campiche. The performance brings together harp, voice, electronic sounds and samples in Geneva.",
+        "de": "Das Konzert stellt ein neues Soloprojekt von Julie Campiche vor. Die Aufführung verbindet Harfe, Stimme, elektronische Klänge und Samples in Genf.",
+        "fr": "Ce concert présente un nouveau projet solo de Julie Campiche. La représentation associe harpe, voix, électronique et échantillonnages à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a8eab6c05b15449c854a1d98fa3b4002",
@@ -502679,7 +502767,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il bazar dell’Avvento alla Scuola Rudolf Steiner di Minusio propone atelier natalizi e bancarelle con prodotti artigianali, libri, corone e calendari dell’Avvento. L’offerta comprende inoltre specialità gastronomiche, attività per bambini, musica dal vivo e uno spettacolo conclusivo.",
+      "descriptionByLocale": {
+        "it": "Il bazar dell’Avvento alla Scuola Rudolf Steiner di Minusio propone atelier natalizi e bancarelle con prodotti artigianali, libri, corone e calendari dell’Avvento. L’offerta comprende inoltre specialità gastronomiche, attività per bambini, musica dal vivo e uno spettacolo conclusivo.",
+        "en": "The Rudolf Steiner School in Minusio hosts a seasonal bazaar with Christmas workshops and stalls offering handmade goods, books, wreaths and Advent calendars. The programme also includes food offerings, activities for children, live music and a closing performance.",
+        "de": "Die Rudolf-Steiner-Schule in Minusio veranstaltet einen Adventsbasar mit weihnachtlichen Ateliers sowie Ständen mit handgefertigten Waren, Büchern, Kränzen und Adventskalendern. Zum Programm gehören ausserdem kulinarische Angebote, Aktivitäten für Kinder, Livemusik und eine abschliessende Aufführung.",
+        "fr": "La Scuola Rudolf Steiner de Minusio accueille un bazar de l’Avent avec des ateliers de Noël et des stands proposant des articles artisanaux, des livres, des couronnes et des calendriers de l’Avent. Des offres de restauration, des activités pour les enfants, de la musique en direct et un spectacle final complètent le programme."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ACmLVB2",
@@ -589619,7 +589715,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento propone un percorso dedicato alla salute della schiena. A Kandersteg è pensato sia per la prevenzione sia per sostenere le persone con problemi alla schiena già presenti.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento propone un percorso dedicato alla salute della schiena. A Kandersteg è pensato sia per la prevenzione sia per sostenere le persone con problemi alla schiena già presenti.",
+        "en": "This event focuses on targeted, lasting improvement of back health. Held in Kandersteg, it is intended both for prevention and for people seeking support with existing back problems.",
+        "de": "Die Veranstaltung widmet sich einer gezielten und nachhaltigen Verbesserung der Rückengesundheit. In Kandersteg richtet sie sich sowohl an Menschen zur Vorbeugung als auch an Personen mit bereits bestehenden Rückenbeschwerden.",
+        "fr": "Ce rendez-vous est consacré à l’amélioration ciblée et durable de la santé du dos. À Kandersteg, il s’adresse aussi bien aux personnes qui souhaitent prévenir les problèmes qu’à celles qui recherchent un accompagnement pour des troubles déjà présents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AcQmxvh",
