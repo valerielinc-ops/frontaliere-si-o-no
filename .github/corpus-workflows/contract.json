@@ -4,27 +4,27 @@
   "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "0eb4e5fa727604cf3f9489ba6bc6fccde76bbc66",
-  "sourceCommitVerified": true,
+  "sourceCommit": "ca0cef0464c56a29bcf9f882fbc8512650bc5d08",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
     "sourceRef": "main",
-    "sourceCommit": "0eb4e5fa727604cf3f9489ba6bc6fccde76bbc66"
+    "sourceCommit": "ca0cef0464c56a29bcf9f882fbc8512650bc5d08"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 695,
+  "crawlerCount": 696,
   "crawlerRosterCardinality": {
-    "sourceCommit": "0eb4e5fa727604cf3f9489ba6bc6fccde76bbc66",
+    "sourceCommit": "ca0cef0464c56a29bcf9f882fbc8512650bc5d08",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 695
+    "crawlerCount": 696
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094",
+    "rosterDigest": "sha256:63a39a738162300d0a4e29cb50c6d0b7b12760fb1e49908f6fc1c0a4530bcca8",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -391,6 +391,7 @@
     "scripts/update-lipsuisse-ch-jobs.mjs",
     "scripts/update-livit-jobs.mjs",
     "scripts/update-localsearch-jobs.mjs",
+    "scripts/update-locarno-film-festival-jobs.mjs",
     "scripts/update-logitech-jobs.mjs",
     "scripts/update-lombard-odier-jobs.mjs",
     "scripts/update-lonza-jobs.mjs",
@@ -1636,11 +1637,12 @@
     {
       "file": "crawler-group-25.yml",
       "sourceLogic": "crawler-group-25-logic.yml",
-      "sourceSha256": "b4cbfbbbf988b3fe10f96b8a40b9f1f91f929e9fc6c0c0f56efa06811bdc8af0",
-      "artifactSha256": "23208cabe2b0add186cfb9ba58075c5dde38db5a52bee414c174b49fe044ba21",
+      "sourceSha256": "5451af0a9dfaf7a783e05b079cc250c8f4cd51ac097c3f1b5d454f2ce6157286",
+      "artifactSha256": "41aa5dd305de20a6cfda2699f81cae72ee04a88c08e9ccd3e3a9db89ec82e9e2",
       "generatorSha256": "1708234993975991196e4b01fd35b611f8024592bae6c50e4f0657ca318ace0b",
       "members": [
-        "protectas"
+        "protectas",
+        "locarno-film-festival"
       ]
     },
     {

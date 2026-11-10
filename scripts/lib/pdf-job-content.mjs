@@ -126,13 +126,23 @@ async function extractTextWithUnpdf(arrayBuffer) {
   const pdf = await getDocumentProxy(new Uint8Array(arrayBuffer));
 
   try {
+    let links = [];
+    try {
+      const { extractLinks } = await import('unpdf');
+      const annotatedLinks = await extractLinks(pdf);
+      links = Array.isArray(annotatedLinks?.links)
+        ? [...new Set(annotatedLinks.links.filter((link) => typeof link === 'string' && link.trim()))]
+        : [];
+    } catch {
+      // PDF text remains usable if annotation extraction is unavailable.
+    }
     // Fast path: merged extraction (single string result)
     const merged = await extractText(pdf, { mergePages: true });
     const mergedText = String(merged?.text || '');
     const totalPages = Number(merged?.totalPages || 0);
 
     if (mergedText.trim().length >= MIN_MERGED_TEXT_LENGTH) {
-      return { ...merged, extractionMethod: 'unpdf' };
+      return { ...merged, links, extractionMethod: 'unpdf' };
     }
 
     // Fallback: page-by-page extraction.
@@ -147,14 +157,14 @@ async function extractTextWithUnpdf(arrayBuffer) {
         const joinedLength = pageTexts.reduce((sum, t) => sum + t.length, 0);
 
         if (joinedLength > mergedText.trim().length) {
-          return { text: pageTexts, totalPages, extractionMethod: 'unpdf' };
+          return { text: pageTexts, totalPages, links, extractionMethod: 'unpdf' };
         }
       } catch {
         // page-by-page also failed — return whatever merged gave us
       }
     }
 
-    return { ...merged, extractionMethod: 'unpdf' };
+    return { ...merged, links, extractionMethod: 'unpdf' };
   } finally {
     try {
       await pdf.destroy();
@@ -217,6 +227,7 @@ async function defaultExtractTextFromPdfBytes(arrayBuffer) {
   if (fallback && fallbackWords > primaryWords) {
     return {
       ...fallback,
+      ...(primary?.links?.length ? { links: primary.links } : {}),
       fallbackUsed: true,
       ...(primaryError ? { primaryError: primaryError.message } : {}),
     };
@@ -384,6 +395,7 @@ export async function extractPdfJobContentFromUrl(
       bodyWordCount: wordCount,
       totalPages,
       sourceUrl: pdfUrl,
+      ...(Array.isArray(extracted?.links) ? { links: extracted.links } : {}),
       httpStatus: Number(response?.status || 0) || undefined,
       contentType: response?.headers?.get?.('content-type') || undefined,
       ...(extracted?.extractionMethod ? { extractionMethod: extracted.extractionMethod } : {}),
