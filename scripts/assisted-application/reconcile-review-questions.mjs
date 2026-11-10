@@ -16,7 +16,10 @@
  *      editable on the review page, never written into the candidate's own answers;
  *   3. when a hold can drop, the order's clock is set due and the scheduled sweep runs the tick of the flow
  *      (assistedApplicationFlow.js): the holds the platform answers drop, and with none left the review goes
- *      on as when the candidate answers the last question (the 12 h clock). Nothing is dispatched here.
+ *      on as when the candidate answers the last question (the 12 h clock). Nothing is dispatched here;
+ *   4. every answer the platform gives (a rule, a decision of the engine) is mirrored on its question in the
+ *      field's shape (`suggestedAnswer`, `answerOrigin`, withPlatformSuggestions), as a new draft has it: also
+ *      on the orders with nothing held, without a model. A mirror already right is not rewritten.
  *
  * What stays the candidate's (a document, an identifier, a legal declaration, a fact the CV does not hold)
  * stays held. The model is asked at most REVIEW_QUESTION_MAX_ATTEMPTS times per order and per episode (the
@@ -38,6 +41,8 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { evaluateRedFlags, transition } from '../../functions/src/assistedApplicationFlow.js';
 import { candidateWithEdits } from '../../functions/src/assistedApplicationCandidateEdits.js';
 import { verifiedCvAnswers } from '../../functions/src/assistedApplicationCvAnswers.js';
+import { verifiedDecisionAnswers } from '../../functions/src/assistedApplicationDecisionAnswers.js';
+import { withPlatformSuggestions, withoutPlatformSuggestions } from '../../functions/src/assistedApplicationOperationalAnswers.js';
 import { cvAnswerable, draftCvAnswers } from './lib/cv-answers.mjs';
 import { decisionAnswerable, draftDecisionAnswers } from './lib/decision-answers.mjs';
 import { releasesWait } from './reconcile-operational-answers.mjs';
@@ -45,8 +50,9 @@ import { releasesWait } from './reconcile-operational-answers.mjs';
 export const REVIEW_QUESTION_STATES = Object.freeze(['candidate_review', 'owner_review']);
 export const REVIEW_QUESTION_MAX_ATTEMPTS = 2;
 export const REVIEW_QUESTION_RETRY_MS = 6 * 60 * 60 * 1000;
-// What the draft keeps on a question it answered (lib/cv-answers.mjs, lib/decision-answers.mjs).
-const ANSWER_FIELDS = ['suggestedAnswer', 'answerEvidence', 'answerKind', 'answerMissingDetail', 'platformDecision'];
+// What the draft keeps on a question it answered (lib/cv-answers.mjs, lib/decision-answers.mjs, and the
+// mirror of the platform's answer, withPlatformSuggestions).
+const ANSWER_FIELDS = ['suggestedAnswer', 'answerEvidence', 'answerKind', 'answerMissingDetail', 'platformDecision', 'answerOrigin'];
 
 const defaultRoot = fileURLToPath(new URL('../../', import.meta.url));
 
@@ -87,15 +93,35 @@ const questionIdentity = (draft) => JSON.stringify((Array.isArray(draft?.questio
 const sameHolds = (left, right) => JSON.stringify([...(left?.heldBy || [])].map(String).sort())
   === JSON.stringify([...(right?.heldBy || [])].map(String).sort());
 
+/** An order whose current draft the reconciliation may touch: paid, in review, the draft of the round. */
+function reviewDraftOf({ order, flow, draft }) {
+  if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return false;
+  if (!REVIEW_QUESTION_STATES.includes(flow?.state)) return false;
+  return Boolean(draft && Array.isArray(draft.questions) && Number(draft.round) === (Number(flow.round) || 1));
+}
+
+/**
+ * The platform's answers mirrored on the draft's questions (step 4), and the ids whose mirror changes.
+ * No model: the rules and the decisions already stored on the draft.
+ * @returns {{questions:object[], ids:string[]}}
+ */
+export function platformSuggestionUpdate({ order, flow, draft }) {
+  const questions = Array.isArray(draft?.questions) ? draft.questions : [];
+  if (!reviewDraftOf({ order, flow, draft })) return { questions, ids: [] };
+  const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
+  const updated = withPlatformSuggestions(questions, { facts: platformFacts, locale: platformFacts?.locale, keepExisting: true, answers });
+  const mirror = (question) => JSON.stringify([question?.suggestedAnswer ?? null, question?.answerOrigin ?? null]);
+  const ids = updated.filter((question, index) => question?.id && mirror(question) !== mirror(questions[index])).map((question) => question.id);
+  return { questions: updated, ids };
+}
+
 /**
  * What the pipeline of today can still do for an order, without a model: null when nothing (not paid, not
  * in review, no open question and no question hold).
  * @returns {null|{held:string[], open:string[], targets:string[], candidateOnly:string[], answers:object, platformFacts:object}}
  */
 export function reviewQuestionPlan({ order, flow, draft }) {
-  if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return null;
-  if (!REVIEW_QUESTION_STATES.includes(flow?.state)) return null;
-  if (!draft || !Array.isArray(draft.questions) || Number(draft.round) !== (Number(flow.round) || 1)) return null;
+  if (!reviewDraftOf({ order, flow, draft })) return null;
   const held = questionHolds(flow);
   const open = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, flow.questionAnswers || {}, flow, order).candidate;
   if (!held.length && !open.length) return null;
@@ -142,14 +168,21 @@ function mergeAnswerFields(questions, updated, ids) {
 async function answerTargets({ order, draft, plan, codex, log }) {
   const cvText = draft?.factSources?.text;
   const locale = order?.locale || draft?.candidateLocale || 'it';
+  const jobTitle = String(draft?.job?.title || draft?.requirementsRaw?.roleTitle || order?.jobTitle || '').slice(0, 300);
+  // A mirrored platform proposal is never an input of the model steps (it is recomputed afterwards).
   const cv = await draftCvAnswers({
-    questions: draft.questions, answers: plan.answers, facts: plan.platformFacts, cvText, codex, locale, log, onlyIds: plan.targets,
+    questions: withoutPlatformSuggestions(draft.questions), answers: plan.answers, facts: plan.platformFacts, cvText, codex, locale, log, onlyIds: plan.targets,
   });
   const decided = await draftDecisionAnswers({
     questions: cv.questions, answers: plan.answers, cvText, codex, log, onlyIds: plan.targets,
     employer: order?.companyName || '',
-    jobTitle: String(draft?.job?.title || draft?.requirements?.roleTitle || order?.jobTitle || '').slice(0, 300),
-    facts: { ...plan.platformFacts, cvAnswers: verifiedCvAnswers(cv.questions, cvText) },
+    jobTitle,
+    postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
+    facts: {
+      ...plan.platformFacts,
+      cvAnswers: verifiedCvAnswers(cv.questions, cvText),
+      decisionAnswers: verifiedDecisionAnswers(cv.questions, cvText, { postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [] }),
+    },
   });
   return {
     questions: decided.questions,
@@ -161,7 +194,7 @@ async function answerTargets({ order, draft, plan, codex, log }) {
 export async function reconcileReviewQuestions({
   db, codex = null, apply = false, nowMs = Date.now(), version = currentReviewQuestionVersion(), orderPrefixes = [], log = () => {},
 }) {
-  const report = { apply, scanned: 0, withQuestions: 0, asked: 0, answered: 0, queued: 0, written: 0, exhausted: 0, orders: [] };
+  const report = { apply, scanned: 0, withQuestions: 0, asked: 0, answered: 0, mirrored: 0, queued: 0, written: 0, exhausted: 0, orders: [] };
   for (const state of REVIEW_QUESTION_STATES) {
     let cursor;
     do {
@@ -179,7 +212,30 @@ export async function reconcileReviewQuestions({
         const flow = flowDoc.data() || {};
         const draft = draftDoc.data() || null;
         const plan = reviewQuestionPlan({ order, flow, draft });
-        if (!plan) continue;
+        if (!plan) {
+          // Nothing held or open: only the mirror of the platform's answers, without a model (step 4).
+          const mirror = platformSuggestionUpdate({ order, flow, draft });
+          if (!mirror.ids.length) continue;
+          report.mirrored += mirror.ids.length;
+          report.orders.push({ order: doc.id.slice(0, 8), state: flow.state, mirrored: mirror.ids });
+          if (!apply) continue;
+          const written = await db.runTransaction(async (transaction) => {
+            const [orderNow, flowNow, draftNow] = await Promise.all([transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef)]);
+            const freshFlow = flowNow.data() || {};
+            const freshDraft = draftNow.data() || {};
+            if (freshFlow.state !== flow.state || Number(freshFlow.round) !== Number(flow.round)
+              || Number(freshDraft.round) !== Number(draft.round) || questionIdentity(freshDraft) !== questionIdentity(draft)) return false;
+            const fresh = platformSuggestionUpdate({ order: orderNow.data() || {}, flow: freshFlow, draft: freshDraft });
+            if (!fresh.ids.length) return false;
+            transaction.set(draftRef, { questions: fresh.questions }, { merge: true });
+            transaction.set(doc.ref.collection('events').doc(), {
+              type: 'review_questions_mirrored', actor: 'system', at: nowMs, version: version.slice(0, 16), mirrored: fresh.ids,
+            });
+            return true;
+          });
+          if (written) report.written++;
+          continue;
+        }
         report.withQuestions++;
         const key = reviewQuestionEpisodeKey({ version, flow, plan });
         const ledger = order.reviewQuestionRecovery || null;
@@ -200,14 +256,19 @@ export async function reconcileReviewQuestions({
         }
         const stillOpen = evaluateRedFlags(after, flow.answers || {}, flow.documents || {}, flow.questionAnswers || {}, flow, order).candidate;
         const answered = plan.targets.filter((id) => !stillOpen.includes(id));
+        // The platform's answers mirrored on the questions, the model's new ones included (step 4).
+        const mirror = platformSuggestionUpdate({ order, flow, draft: after });
+        after = { ...after, questions: mirror.questions };
+        const changed = [...new Set([...answered, ...mirror.ids])];
         const tick = transition(flow, { type: 'tick' }, { order, draft: after, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
         const releases = releasesWait(flow, tick);
-        Object.assign(entry, { answered, stillOpen, releases, heldAfter: releases ? tick.flow.heldBy : flow.heldBy });
+        Object.assign(entry, { answered, stillOpen, releases, heldAfter: releases ? tick.flow.heldBy : flow.heldBy, mirrored: mirror.ids });
         report.asked += asked.length;
         report.answered += answered.length;
+        report.mirrored += mirror.ids.length;
         report.orders.push(entry);
         const queue = releases && ledger?.queuedKey !== key;
-        if (!apply || (!asked.length && !queue)) {
+        if (!apply || (!asked.length && !queue && !mirror.ids.length)) {
           if (queue) report.queued++;
           continue;
         }
@@ -223,8 +284,8 @@ export async function reconcileReviewQuestions({
           const freshLedger = freshOrder.reviewQuestionRecovery || null;
           // Another run took this attempt already.
           if (asked.length && !modelAttemptAllowed(freshLedger, key, nowMs)) return false;
-          if (answered.length) {
-            transaction.set(draftRef, { questions: mergeAnswerFields(freshDraft.questions, after.questions, answered) }, { merge: true });
+          if (changed.length) {
+            transaction.set(draftRef, { questions: mergeAnswerFields(freshDraft.questions, after.questions, changed) }, { merge: true });
           }
           const sameEpisode = freshLedger?.key === key;
           const attempts = (sameEpisode ? Number(freshLedger.attempts) || 0 : 0) + (asked.length ? 1 : 0);
@@ -243,7 +304,7 @@ export async function reconcileReviewQuestions({
           }, { merge: true });
           transaction.set(doc.ref.collection('events').doc(), {
             type: 'review_questions_reconciled', actor: 'system', at: nowMs, version: version.slice(0, 16),
-            asked, answered, stillOpen, queued: queue,
+            asked, answered, stillOpen, queued: queue, mirrored: mirror.ids,
           });
           return true;
         });

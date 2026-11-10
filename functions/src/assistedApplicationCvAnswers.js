@@ -203,6 +203,8 @@ export function verifiedCvAnswers(questions, cvText) {
   if (!String(cvText ?? '').trim()) return out;
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!cvAnswerQuestionEligible(question) || !String(question.suggestedAnswer ?? '').trim()) continue;
+    // The platform's own proposal mirrored on the draft (withPlatformSuggestions): not an answer of the CV.
+    if (['platform_decision', 'platform_rule'].includes(question.answerOrigin)) continue;
     // A suggestion of a draft written before the kinds is a cited one: it holds as a technical answer.
     const kind = CV_ANSWER_KINDS.includes(question.answerKind) ? question.answerKind : 'technical';
     const checked = verifyCvAnswer({ kind, answer: question.suggestedAnswer, evidence: question.answerEvidence }, { cvText, question });

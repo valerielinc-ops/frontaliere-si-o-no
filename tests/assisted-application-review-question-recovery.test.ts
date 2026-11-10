@@ -167,7 +167,8 @@ describe('a start date and two behavioural questions (order G6q8…)', () => {
     expect(calls).toEqual([`cv:${emergency.id},${structured.id}`]);
     const questions = store.read(`${base}/ai_drafts/current`).questions;
     expect(questions.find((question: any) => question.id === emergency.id)).toMatchObject({ suggestedAnswer: EMERGENCY_ANSWER, answerKind: 'behavioral', answerEvidence: [ANCHOR_ROLE] });
-    expect(questions.find((question: any) => question.id === availability.id).suggestedAnswer).toBeUndefined();
+    // The start date the platform proposes is mirrored on its question, as a new draft has it (2026-11-10).
+    expect(questions.find((question: any) => question.id === availability.id)).toMatchObject({ suggestedAnswer: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), answerOrigin: 'platform_rule' });
     // Proposals, editable on the review page: never the candidate's own answers.
     expect(store.read(`${base}/automation/flow`).answers).toBeUndefined();
     expect(store.read(base)).toMatchObject({ automationDueAt: now, reviewQuestionRecovery: { attempts: 1, nextAttemptAt: null } });
@@ -236,7 +237,10 @@ describe('a start date with a document (order ogeY…)', () => {
     const { codex, calls } = stubModel({});
     expect(await reconcileReviewQuestions({ db: store.db, codex, nowMs: now, apply: true })).toMatchObject({ asked: 0, written: 1, queued: 1 });
     expect(calls).toEqual([]);
-    expect(store.read(`${base}/ai_drafts/current`)).toEqual(draft);
+    // Only the mirror of the platform's start date is written on the draft: no answer of the model.
+    const written = store.read(`${base}/ai_drafts/current`);
+    expect({ ...written, questions: written.questions.map(({ suggestedAnswer: _s, answerOrigin: _o, ...rest }: any) => rest) }).toEqual(draft);
+    expect(written.questions[0]).toMatchObject({ suggestedAnswer: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), answerOrigin: 'platform_rule' });
     expect(await sweep(store, now)).toEqual([]);
     expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'candidate_review', heldBy: [`document:${goodConduct.id}`] });
     expect(await reconcileReviewQuestions({ db: store.db, codex, nowMs: now + 1, apply: true })).toMatchObject({ withQuestions: 0, queued: 0 });
