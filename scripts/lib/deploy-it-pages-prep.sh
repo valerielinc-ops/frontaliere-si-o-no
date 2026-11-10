@@ -1164,6 +1164,33 @@ _janitor_cdn_r2() {
 # publishes via CDN_TARGET: 'r2' (S3 sync, default-off) or 'pages' (legacy git
 # force-push to valerielinc-ops/frontaliere-cdn). Exports CDN_BASE on success.
 # Internally non-fatal: every failure path keeps the assets in dist.
+_validate_stable_shell_asset_pair() {
+  local asset_name="$1" stable_filename="$2" versioned_files versioned_count versioned_path versioned_filename
+  versioned_files="$(find dist/assets -maxdepth 1 -type f -name "${asset_name}-*.js" -print 2>/dev/null)"
+  versioned_count=0
+  if [ -n "$versioned_files" ]; then
+    versioned_count="$(printf '%s\n' "$versioned_files" | wc -l | tr -d '[:space:]')"
+  fi
+  if [ "$versioned_count" -ne 1 ]; then
+    echo "::error::dist/assets must contain exactly one current ${asset_name}-<sha12>.js producer (found ${versioned_count})" >&2
+    return 1
+  fi
+  versioned_path="$(find dist/assets -maxdepth 1 -type f -name "${asset_name}-*.js" -print -quit 2>/dev/null)"
+  versioned_filename="${versioned_path##*/}"
+  if ! printf '%s\n' "$versioned_filename" | grep -Eq "^${asset_name}-[a-f0-9]{12}\.js$"; then
+    echo "::error::dist/assets contains an invalid content-addressed ${asset_name} filename: ${versioned_filename}" >&2
+    return 1
+  fi
+  if [ ! -f "dist/assets/${stable_filename}" ] || [ ! -f "$stage/assets/${stable_filename}" ] || [ ! -f "$stage/assets/${versioned_filename}" ]; then
+    echo "::error::CDN asset stage must contain ${stable_filename} and its current target ${versioned_filename}" >&2
+    return 1
+  fi
+  if ! cmp -s "dist/assets/${stable_filename}" "$versioned_path" || ! cmp -s "$stage/assets/${stable_filename}" "$stage/assets/${versioned_filename}"; then
+    echo "::error::stable shell asset ${stable_filename} must match its current ${versioned_filename} target byte for byte" >&2
+    return 1
+  fi
+}
+
 step_push_cdn() {
   set -uo pipefail
   # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
@@ -1231,35 +1258,41 @@ step_push_cdn() {
   fi
   [ -d dist/data ]         && cp -r dist/data         "$stage/data"
   [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
-  # The GA4 static page_view producer is identity-bearing. New HTML points at
-  # a content-addressed gtag-init-<hash>.js, while the stable alias keeps old
-  # HTML alive during cache convergence. Fail closed if either side is absent:
-  # publishing only a legacy or only an unversioned producer can recreate the
-  # D18 untagged page_view gap.
+  # Global shell HTML uses stable URLs so editing one producer does not rewrite
+  # every static page. Keep the content-addressed targets published for older
+  # HTML and fail closed unless every stable alias is staged byte-identical to
+  # the one current target.
   if [ ! -d "$stage/assets" ]; then
-    echo "::error::CDN asset stage is missing dist/assets and cannot publish the GA4 producer" >&2
+    echo "::error::CDN asset stage is missing dist/assets and cannot publish the global shell producers" >&2
     return 1
   fi
-  local gtag_html_references html_scan_status gtag_reference_count gtag_versioned_filename
-  gtag_html_references="$(grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\.js' dist | sort -u)"
+  local asset_html_references asset_html_hash_references html_scan_status stable_html_asset
+  asset_html_references="$(grep -RhoE --include='*.html' '(gtag-init|site-support|adsense-loader|partnerize-tag|meta-pixel-base-code)(-[a-f0-9]{12})?\.js' dist | sort -u)"
   html_scan_status=$?
   if [ "$html_scan_status" -gt 1 ]; then
-    echo "::error::could not read generated HTML to resolve the current GA4 producer filename" >&2
+    echo "::error::could not read generated HTML to verify stable global shell producer references" >&2
     return 1
   fi
-  gtag_reference_count=0
-  if [ -n "$gtag_html_references" ]; then
-    gtag_reference_count="$(printf '%s\n' "$gtag_html_references" | wc -l | tr -d '[:space:]')"
-  fi
-  if [ "$gtag_reference_count" -ne 1 ]; then
-    echo "::error::generated HTML must reference exactly one content-addressed GA4 producer (found ${gtag_reference_count})" >&2
+  asset_html_hash_references="$(printf '%s\n' "$asset_html_references" | grep -E -- '-[a-f0-9]{12}\.js$' || true)"
+  if [ -n "$asset_html_hash_references" ]; then
+    echo "::error::generated HTML must use stable global shell URLs; found content-addressed references: ${asset_html_hash_references}" >&2
     return 1
   fi
-  gtag_versioned_filename="$gtag_html_references"
-  if [ ! -f "$stage/assets/gtag-init.js" ] || [ ! -f "$stage/assets/$gtag_versioned_filename" ]; then
-    echo "::error::CDN asset stage must contain gtag-init.js and the current HTML producer $gtag_versioned_filename" >&2
+  for stable_html_asset in gtag-init.js site-support.js adsense-loader.js partnerize-tag.js meta-pixel-base-code.js; do
+    if ! printf '%s\n' "$asset_html_references" | grep -Fxq "$stable_html_asset"; then
+      echo "::error::generated HTML does not reference required stable global shell asset ${stable_html_asset}" >&2
+      return 1
+    fi
+  done
+  if [ ! -d dist/assets ]; then
+    echo "::error::dist/assets is missing and cannot publish the global shell producers" >&2
     return 1
   fi
+  _validate_stable_shell_asset_pair gtag-init gtag-init.js || return 1
+  _validate_stable_shell_asset_pair site-support site-support.js || return 1
+  _validate_stable_shell_asset_pair adsense-loader adsense-loader.js || return 1
+  _validate_stable_shell_asset_pair partnerize-tag partnerize-tag.js || return 1
+  _validate_stable_shell_asset_pair meta-pixel-base-code meta-pixel-base-code.js || return 1
   # Preserve the existing non-fatal credential path for the legacy Pages
   # target. The caller will fail the build-scoped prep because CDN_BASE stays
   # unset, but this branch must still report the actionable missing secret
