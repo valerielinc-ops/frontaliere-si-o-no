@@ -446,12 +446,12 @@
     },
     {
       "id": "cereneo-00183027773a",
-      "slug": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
+      "slug": "capoclinica-capoclinica-neurologia-con-particolare-attenzione-ai-disturbi-del-movimento-a-100-cereneo-weggis",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
-        "it": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
-        "en": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
-        "fr": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+        "it": "capoclinica-capoclinica-neurologia-con-particolare-attenzione-ai-disturbi-del-movimento-a-100-cereneo-weggis",
+        "en": "senior-physician-senior-physician-neurology-with-focus-on-movement-disorders-a-100-cereneo-weggis",
+        "fr": "medecin-superieur-neurologie-du-medecin-superieur-avec-accent-sur-les-troubles-du-mouvement-a-100-cereneo-weggis"
       },
       "company": "Cereneo",
       "companyKey": "cereneo",
@@ -514,7 +514,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:23:36.641Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:23:36.641Z"
+      "firstSeenAt": "2026-11-10T09:23:36.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+      ]
     },
     {
       "id": "cereneo-1a200435b981",

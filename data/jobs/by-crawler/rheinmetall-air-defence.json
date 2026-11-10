@@ -2960,12 +2960,12 @@
     },
     {
       "id": "rheinmetall-air-defence-0a9494100a9d",
-      "slug": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "industrializzazione-dell-ingegnere-di-produzione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "industrializzazione-dell-ingegnere-di-produzione-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "production-engineer-industrialization-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "ingenieur-de-production-industrialisation-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3027,16 +3027,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T09:30:41.423Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "produktionstechniker-industrialisierung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-cf54512669a1",
-      "slug": "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "tecnico-di-misurazione-come-pianificatore-di-test-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "tecnico-di-misurazione-come-pianificatore-di-test-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "measuring-technician-as-test-planner-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "technicien-de-mesure-comme-planificateur-de-test-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3086,11 +3100,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
           "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "messtechniker-als-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "messtechniker-come-prufplaner-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

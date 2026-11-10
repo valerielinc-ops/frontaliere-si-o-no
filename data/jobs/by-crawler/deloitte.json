@@ -6648,12 +6648,12 @@
     },
     {
       "id": "deloitte-8696cfd86619",
-      "slug": "senior-manager-national-tax-office-tax-legal-deloitte-zurich",
+      "slug": "senior-manager-ufficio-nazionale-delle-imposte-deloitte-zurich",
       "slugByLocale": {
         "en": "senior-manager-national-tax-office-tax-legal-deloitte-zurich",
-        "it": "senior-manager-national-tax-office-tax-legal-deloitte-zurich",
+        "it": "senior-manager-ufficio-nazionale-delle-imposte-deloitte-zurich",
         "de": "senior-manager-national-tax-office-tax-legal-deloitte-zurich",
-        "fr": "senior-manager-national-tax-office-tax-legal-deloitte-zurich"
+        "fr": "aine-gestionnaire-bureau-national-des-impots-fiscalite-et-droit-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -6717,7 +6717,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:22:57.667Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:22:57.667Z"
+      "firstSeenAt": "2026-11-10T09:22:57.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-national-tax-office-tax-legal-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-manager-national-tax-office-tax-legal-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-national-tax-office-tax-legal-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-8a1a54c56849",

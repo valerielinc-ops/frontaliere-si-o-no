@@ -218,6 +218,21 @@ export function failedConsentRequiresHandoff(result, action, field) {
 }
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
+/**
+ * The page lists a file under exactly one of this run's own names as a file
+ * control of its own (SuccessFactors' «My Documents»: «CV_….pdf (11/10/2026)»
+ * and «* Curriculum Vitae Edit document CV_….pdf Opens a dialog», no remove
+ * control). Only an earlier run of this order names a file so: the slot holds
+ * our document already. A name merely quoted in the page text proves nothing.
+ */
+export function ownEarlierFileShown(buttons, names) {
+  return (buttons || []).some((button) => {
+    if (button.chrome) return false;
+    const text = String(button.text || '');
+    return names.some((name) => name && text.includes(String(name)));
+  });
+}
+
 export function removalsOf(buttons, names) {
   return (buttons || []).filter((button) => {
     if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
@@ -3014,6 +3029,45 @@ export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' 
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
+/**
+ * The SuccessFactors application the runner asked for, read on the page itself (Stellenportal Bund eHSYErA1,
+ * 2026-11-10). After sign-in SuccessFactors serves the form at `/portalcareer?_s.crb=…`, with neither the company
+ * nor the requisition in its address, and a federal tenant names no employer the order's data names («Swiss Armed
+ * Forces (VTG)» against «Schweizerische Eidgenossenschaft»): the company check alone said `mismatch` on the right
+ * form. What binds it is the heading SuccessFactors writes on every application, the role and its requisition
+ * («Application Manager/-in (20604)»), on the same tenant host as the module address the runner entered
+ * (`/career?company=…&career_ns=job_application&career_job_req_id=20604`). Another requisition, another role, a
+ * requisition away from the role's own line or another host is not this posting.
+ */
+export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '', applyUrl = '' } = {}) {
+  let module;
+  let page;
+  try {
+    module = successFactorsModuleIdentity(new URL(String(applyUrl || '')));
+    page = new URL(String(pageUrl || ''));
+  } catch {
+    return false;
+  }
+  if (!module || !job?.title || page.origin !== module.origin
+    || !['/portalcareer', '/career'].includes(page.pathname.replace(/\/+$/, ''))) return false;
+  const requisition = new RegExp(`\\(\\s*${module.requisition}\\s*\\)`);
+  const otherRequisition = /\(\s*\d{1,20}\s*\)/g;
+  return String(formText || '').split(/\r?\n/).some((line) => requisition.test(line)
+    && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
+    && titleMatches(line.replace(otherRequisition, ' '), job.title)
+    && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/** The line names the role and nothing else of substance (no second role or employer around it). */
+// Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
+const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
+function titleWordsOnly(line, title) {
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  const seen = normalizeWords(line).split(' ').filter(Boolean);
+  // Every other word is a different role or an employer («Senior …», «… bei X»).
+  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+}
+
 export function formPostingMatch(formText, job = {}, {
   postingMatched = false,
   postingEntry = false,
@@ -3021,6 +3075,7 @@ export function formPostingMatch(formText, job = {}, {
   pageUrl = '',
   postingUrl = '',
   postingRouteProof = null,
+  applyUrl = '',
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
@@ -3049,6 +3104,8 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
+  // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
+  if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
@@ -4215,6 +4272,38 @@ async function waitForVerificationOutcome(page) {
   return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
 }
 
+/**
+ * The candidate's own session on the job's form: no sign-in or registration
+ * form, no code field, and the application itself (a CV field, the usual
+ * fields, or its send control). SBB after its OTP (2026-11-10): `/portalcareer`
+ * with «Bewerbung abschicken» and «Abmelden», its sections closed (one visible
+ * field); Damiani right after a registration that asked for no OTP.
+ */
+// A positive mark of the candidate's own session: a guest application view has
+// a CV field and a submit button too, but no way to sign out or reach a profile.
+const SESSION_MARKER_RE = /\b(?:abmelden|ausloggen|log ?out|sign ?out|esci|disconnetti|d[ée]connexion|se d[ée]connecter|mein profil|my profile|mon profil|il mio profilo|mein konto|my account|mon compte|il mio account|meine dokumente|my documents|mes documents|i miei documenti)\b/i;
+function showsCandidateSession(view) {
+  const controls = [...(Array.isArray(view?.buttons) ? view.buttons : []), ...(Array.isArray(view?.links) ? view.links : [])];
+  return controls.some((control) => SESSION_MARKER_RE.test([control?.text, control?.label, control?.ariaLabel].filter(Boolean).join(' ')));
+}
+
+export function signedInApplicationSurface(view) {
+  return Boolean(view) && Array.isArray(view.fields) && authPageKind(view) === 'none' && !codeField(view)
+    && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
+}
+
+// SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).
+const restartedRegistrations = new WeakMap();
+function registrationRestarted(ctx, host) {
+  return Boolean(ctx?.accounts && restartedRegistrations.get(ctx.accounts)?.has(host));
+}
+function noteRegistrationRestart(ctx, host) {
+  if (!ctx?.accounts) return;
+  const hosts = restartedRegistrations.get(ctx.accounts) || new Set();
+  hosts.add(host);
+  restartedRegistrations.set(ctx.accounts, hosts);
+}
+
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -4252,6 +4341,10 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     await settle(page);
   }
   let { after, outcome } = await waitForVerificationOutcome(page);
+  // The portal took the code and opened the job's form in the candidate's own
+  // session (SBB: «Bewerbung abschicken», «Abmelden», one visible field, which
+  // the generic reading leaves `unconfirmed`). That page is the answer.
+  if (outcome === 'unconfirmed' && signedInApplicationSurface(after)) outcome = 'accepted';
   // The page may never settle on something the runner can read, while the
   // portal itself mails that the account now exists (the federal tenant's
   // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the
@@ -4640,14 +4733,52 @@ function stableUploadTriggerDiscriminator(button) {
 const SUCCESS_FACTORS_DIALOG_SLOT_RE = /\s(?:öffnet\s+ein\s+dialog(?:feld|fenster)?|opens\s+a\s+dialog(?:\s+box)?|ouvre\s+une\s+(?:boîte\s+de\s+)?dialogue|apre\s+(?:una\s+)?(?:finestra\s+di\s+)?dialogo)\s*$/iu;
 const SUCCESS_FACTORS_FILLED_SLOT_RE = /\b(?:edit\s+document|dokument\s+bearbeiten|modifica\s+(?:il\s+)?documento|modifier\s+(?:le\s+)?document)\b/i;
 
+/** The document a slot caption names ('cv' | 'cover_letter'); '' when it names neither, or both. */
+function documentSlotCaptionKind(caption) {
+  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
+  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+}
+
 /** The document a SuccessFactors slot button takes ('cv' | 'cover_letter'), or '' for any other control. */
 export function successFactorsDocumentSlotKind(button) {
   const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
   if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text) || SUCCESS_FACTORS_FILLED_SLOT_RE.test(text)) return '';
-  const caption = text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, '');
-  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
-  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
-  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+  return documentSlotCaptionKind(text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, ''));
+}
+
+// The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
+// s2Tbwwjd). Every part of the caption must be one of these nouns: a caption with any other word is a question.
+const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}`
+  + '|(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
+  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze'
+  + '|dokumente|documents|documenti|(?:bewerbungs)?unterlagen|bewerbungsdossier|anh[aä]nge|beilagen|attachments|allegati'
+  + '|pi[eè]ces\\s+jointes)$', 'iu');
+const SLOT_CAPTION_SEPARATOR_RE = /\s*[-–—/,;|+&·]\s*|\s+(?:und|and|et|e|ed|sowie)\s+/iu;
+const anchoredPattern = (pattern) => new RegExp(`^(?:${pattern.source})$`, pattern.flags.replace('g', ''));
+const CAPTION_UPLOAD_RE = { cv: anchoredPattern(CV_UPLOAD_RE), cover_letter: anchoredPattern(COVER_LETTER_UPLOAD_RE) };
+
+/**
+ * The document a held portal question really is ('cv' | 'cover_letter'), or '' for a question. A runner that
+ * found no upload action in a document slot reported the empty slot as a required text question (Helsana
+ * s2Tbwwjd, «Lebenslauf - Zeugnisse - Diplome»): the draft keeps only the slot's caption, so it is read with
+ * the slot rule above (successFactorsDocumentSlotKind) and accepted only when the caption is nothing but
+ * document names, or exactly an upload instruction («Lebenslauf hochladen»), on a free text field with no
+ * options and no format. «Lebenslauf und Motivationsschreiben», a question mark, or any other word: ''.
+ */
+export function portalQuestionDocumentSlotKind(question) {
+  if (question?.source !== 'portal') return '';
+  const type = String(question.type || 'text').trim().toLowerCase();
+  if (!['text', 'file'].includes(type) || (Array.isArray(question.options) && question.options.length)
+    || String(question.validation?.pattern || '').trim()) return '';
+  const caption = String(question.applicationQuestion || question.question || '').replace(/\s+/g, ' ')
+    .replace(/^[\s*:]+|[\s*:]+$/g, '').trim();
+  if (!caption || caption.length > 120 || /[?¿()]/.test(caption)) return '';
+  const kind = documentSlotCaptionKind(caption);
+  if (!kind) return '';
+  if (CAPTION_UPLOAD_RE[kind].test(caption)) return kind;
+  const parts = caption.split(SLOT_CAPTION_SEPARATOR_RE).map(part => part.trim());
+  return parts.length <= 6 && parts.every(part => SLOT_CAPTION_PART_RE.test(part)) ? kind : '';
 }
 
 export function uploadButtonCandidatesFor(snapshot, kind) {
@@ -5924,13 +6055,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     account.verifiedAt = Date.now();
     await ctx.accounts.mark(host, { status: 'created', verifiedAt: account.verifiedAt });
   }
-  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
+  // Once per run: a tenant that asks for no OTP (Damiani, 2026-11-10) answers a
+  // repeated registration of an existing address and comes back to its sign-in
+  // page, and every step restarted it again until `auth_steps_exhausted`. The
+  // second time the saved credential signs in; a failed sign-in is handed over.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+    && !registrationRestarted(ctx, host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
     // there; only restart registration when the page actually offers that
     // navigation control.
     const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
     if (openedRegistration) {
+      noteRegistrationRestart(ctx, host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
       return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
@@ -7057,8 +7194,13 @@ export async function readPortalRequirements(ctx) {
     };
   }
   const genericPublicRoute = readAhead.source === 'public_application_route';
+  // Function scope, not the block below: the browser request guard further
+  // down calls it too. Declared inside the `if`, the guard's call threw a
+  // ReferenceError that its `.catch(() => false)` read as «not public», so
+  // every request was aborted and every generic employer page failed with
+  // net::ERR_FAILED (portal_reader_failed, 2026-11-06 → 2026-11-10).
+  const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
   if (genericPublicRoute) {
-    const resolvePublicHost = typeof ctx.resolvePublicHost === 'function' ? ctx.resolvePublicHost : resolvesToPublicHost;
     const publicUrls = [...new Set([entryUrl, stageApplyUrl].map(value => String(value || '').trim()).filter(Boolean))];
     const publicRouteAvailable = (await Promise.all(publicUrls.map(async (url) => {
       try {
@@ -7214,6 +7356,7 @@ export async function readPortalRequirements(ctx) {
         pageUrl: page.url(),
         postingUrl: formPostingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       contractPostingMatch = formMatch === 'mismatch' ? 'mismatch' : formMatch === 'match' ? 'match' : 'unknown';
       if (formMatch === 'mismatch') return await finish({ questions: [], documents: [], handoff: 'posting_mismatch' }, { status: 'blocked' });
@@ -7256,8 +7399,12 @@ export async function readPortalRequirements(ctx) {
     const handoff = error instanceof PortalQuestionLocalizationError
       ? 'question_localization_unavailable'
       : 'portal_reader_failed';
-    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`);
-    return await finish({ questions: [], documents: [], handoff }, { status: 'unavailable' });
+    // The class of the failure, never its message: a browser error can quote
+    // the page or a value. Without it the 2026-11-10 failures were opaque
+    // after the Actions log janitor ran.
+    const readerError = portalReaderErrorClass(error);
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${handoff}`, readerError);
+    return await finish({ questions: [], documents: [], handoff, readerError }, { status: 'unavailable' });
   } finally {
     if (contractDiagnostics && !contractFinished) {
       await contractDiagnostics.finish().catch(() => {});
@@ -7265,6 +7412,25 @@ export async function readPortalRequirements(ctx) {
     }
     await browser?.close().catch(() => {});
   }
+}
+
+/**
+ * A fixed, non-personal class for a pre-read that threw: enough to tell a
+ * blocked request from a timeout, a download (PDF) or a code fault, without
+ * copying the browser's message (which can quote the page) anywhere.
+ * @param {unknown} error
+ * @returns {string}
+ */
+export function portalReaderErrorClass(error) {
+  const message = String(error?.message || error || '');
+  if (error?.name === 'TimeoutError' || /\bTimeout \d+ms exceeded\b/.test(message)) return 'timeout';
+  if (/Download is starting/i.test(message)) return 'download';
+  const net = message.match(/\bnet::(ERR_[A-Z_]+)/);
+  if (net) return `net_${net[1].slice(4).toLowerCase()}`.slice(0, 40);
+  if (/Target (?:page, context or browser|closed)|browser has been closed/i.test(message)) return 'browser_closed';
+  if (/chromium|executable doesn't exist|install/i.test(message) && /launch|install/i.test(message)) return 'browser_launch';
+  if (error instanceof ReferenceError || error instanceof TypeError) return 'code_error';
+  return 'other';
 }
 
 /** Backwards-compatible question-only view for callers that do not need uploads. */
@@ -7540,9 +7706,13 @@ export async function submitViaPortal(ctx) {
         pageUrl,
         postingUrl,
         postingRouteProof: ctx.postingRouteProof,
+        applyUrl: ctx.applyUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
+      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') {
+        evidence.postingMatchVia = successFactorsRequisitionShown(seen, ctx.job, { pageUrl, applyUrl: ctx.applyUrl }) ? 'successfactors_requisition'
+          : namedByItsData ? 'posting_data' : 'posting_page';
+      }
       return result;
     };
     const pendingOtpAccount = async (current) => {
@@ -7963,6 +8133,7 @@ export async function submitViaPortal(ctx) {
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
         let agentRecovery = null;
+        const authHost = new URL(page.url()).hostname;
         try {
           auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
           // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
@@ -8043,6 +8214,14 @@ export async function submitViaPortal(ctx) {
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
+        // The auth step ended in the candidate's own session on the job's form
+        // (Damiani: a registration without OTP lands in /portalcareer): the
+        // account is usable. Left unverified, the next run restarted its
+        // registration instead of signing in.
+        if (signedInApplicationSurface(snapshot)) {
+          const stored = await ctx.accounts.load(authHost).catch(() => null);
+          if (stored && !stored.verifiedAt) await ctx.accounts.mark(authHost, { status: 'created', verifiedAt: Date.now() });
+        }
         step -= 1; // a login page is not a form page
         continue;
       }
@@ -8094,15 +8273,26 @@ export async function submitViaPortal(ctx) {
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
+      // A portal that offers no removal (SuccessFactors keeps the earlier CV in
+      // «My Documents» with only «Edit document», Damiani 2026-11-10) leaves
+      // the file of an earlier run of this order in its slot: under this run's
+      // own name it is our document, kept as it is, and the run goes on.
+      const keptEarlier = [];
       for (const document of Object.keys(ctx.files || {}).filter((item) =>
         !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {
           const visible = await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
-          if (visible && !matchingRemoval) return await handoff('previous_file_not_removable');
+          if (!visible || matchingRemoval) continue;
+          if (ownEarlierFileShown(snapshot.buttons, [name])) {
+            if (!keptEarlier.includes(document)) keptEarlier.push(document);
+            continue;
+          }
+          return await handoff('previous_file_not_removable');
         }
       }
+      if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
       if (earlier.length) {
         for (const { button, names } of earlier) {
           try {

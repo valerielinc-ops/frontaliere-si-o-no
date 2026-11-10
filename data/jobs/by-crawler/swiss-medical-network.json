@@ -29,9 +29,12 @@
         "de": "Medizinische Sekretärin"
       },
       "slugByLocale": {
-        "fr": "secretaire-medical-e-swiss-medical-network"
+        "fr": "secretaire-medical-e-swiss-medical-network",
+        "it": "segretario-medico-swiss-medical-network-lausanne",
+        "en": "medical-secretary-swiss-medical-network-lausanne",
+        "de": "medizinische-sekretarin-swiss-medical-network-lausanne"
       },
-      "slug": "secretaire-medical-e-swiss-medical-network",
+      "slug": "segretario-medico-swiss-medical-network-lausanne",
       "category": "healthcare",
       "datePosted": "2026-11-10T08:49:38.302Z",
       "postedDate": "2026-11-10T08:49:38.302Z",
@@ -63,7 +66,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000160183270-deputy-cfo-regione-ticino",
@@ -2840,7 +2851,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
@@ -2861,15 +2872,11 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
-        "specialista-medicina-interna-swiss-medical-network-wengen"
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-          "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
-          "specialista-medicina-interna-swiss-medical-network-wengen"
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:24.352Z",

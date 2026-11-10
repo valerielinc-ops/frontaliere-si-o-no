@@ -1137,12 +1137,12 @@
     },
     {
       "id": "klinik-schuetzen-c7ca91787f7b",
-      "slug": "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden",
+      "slug": "addetto-a-risorse-umane-90-100-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden",
-        "it": "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden",
-        "en": "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden",
-        "fr": "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden"
+        "it": "addetto-a-risorse-umane-90-100-klinik-schutzen-rheinfelden-rheinfelden",
+        "en": "hr-clerk-90-100-klinik-schutzen-rheinfelden-rheinfelden",
+        "fr": "responsable-des-ressources-humaines-90-100-klinik-schutzen-rheinfelden-rheinfelden"
       },
       "company": "Klinik Schützen Rheinfelden",
       "companyKey": "klinik-schuetzen",
@@ -1205,7 +1205,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:15:50.959Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:15:50.959Z"
+      "firstSeenAt": "2026-11-10T09:15:50.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden"
+        ],
+        "en": [
+          "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden"
+        ],
+        "fr": [
+          "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-personalwesen-90-100-klinik-schuetzen-rheinfelden"
+      ]
     }
   ]
 }

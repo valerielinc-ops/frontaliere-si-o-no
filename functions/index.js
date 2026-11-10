@@ -134,11 +134,13 @@ import {
   runAssistedApplicationPaymentRecoverySweep,
 } from './src/assistedApplicationPaymentRecovery.js';
 import {
+  applyAutomationEvent,
   handleRunnerEvent,
   isAutomationEnabledFor,
   maybeStartAutomation,
   runAutomationSweep,
   postingClosedForOrder,
+  startAutomation,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { orderWithSalaryEstimate } from './src/assistedApplicationJobCard.js';
@@ -147,6 +149,7 @@ import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { processAssistedApplicationCandidateReply } from './src/assistedApplicationCandidateReply.js';
 import { handleGetAssistedApplicationCvUrl } from './src/assistedApplicationCvUrl.js';
 import {
   handleAssistedApplicationInbound,
@@ -3436,8 +3439,9 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   },
 );
 
-// Fase 2: the CV the customer attaches to a reply to valerie@ — handed over
-// raw by the Cloudflare Email Worker (x-stop-secret gate, as outreachStopReply).
+// Fase 2: the customer's reply to valerie@ — the CV it carries and the facts it
+// states — handed over raw by the Cloudflare Email Worker (x-stop-secret gate,
+// as outreachStopReply).
 export const assistedApplicationEmailCv = onRequest(
   { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: false },
   async (req, res) => {
@@ -3449,12 +3453,36 @@ export const assistedApplicationEmailCv = onRequest(
         secret: newsletterSecret,
         isEnabled: (orderId) => isAutomationEnabledFor(orderId),
       });
-      if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
+      // Outcome codes only, never the sender or the order: the dropped replies are visible too.
+      console.log('[assistedApplicationEmailCv]', JSON.stringify({ matched: Boolean(body.matched), reason: body.reason || null, cv: body.cv || null, reply: body.reply || null }));
       res.status(status).json(body);
     } catch (error) {
       console.error('[assistedApplicationEmailCv]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
+  },
+);
+
+// ...then the facts of the reply are read by Codex, checked against its own words
+// and applied to the order; the automation restarts from them. Retried on failure.
+export const processAssistedApplicationCandidateReplyMessage = onDocumentCreated(
+  { region: 'europe-west6', document: 'assisted_applications/{orderId}/candidate_replies/{replyId}', memory: '512MiB', timeoutSeconds: 540, retry: true },
+  async (event) => {
+    if (event.data?.data()?.status !== 'received') return;
+    const { orderId, replyId } = event.params;
+    const result = await processAssistedApplicationCandidateReply({
+      db: getAdminDb(),
+      orderId,
+      replyId,
+      extract: (request) => codexStructured(request),
+      regenerate: ({ db, nowMs }) => applyAutomationEvent({
+        db, orderId, event: { type: 'owner_regenerate' }, actor: 'candidate_email_reply', runEffect: (context) => runAutomationEffect(context), nowMs,
+      }),
+      start: async ({ db, nowMs }) => ((await isAutomationEnabledFor(orderId))
+        ? startAutomation({ db, orderId, runEffect: (context) => runAutomationEffect(context), nowMs, reason: 'candidate_email_reply', ensureAlias: (args) => ensureOrderAlias(args) })
+        : { ok: true, skipped: 'automation_disabled' }),
+    });
+    if (!result.skipped) console.log('[processAssistedApplicationCandidateReplyMessage]', JSON.stringify({ applied: result.applied || [], restarted: result.restarted || null, failed: Boolean(result.failed) }));
   },
 );
 

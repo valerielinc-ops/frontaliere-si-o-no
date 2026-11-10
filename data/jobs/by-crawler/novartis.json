@@ -2260,12 +2260,12 @@
     },
     {
       "id": "novartis-5d953b1eac4f",
-      "slug": "formulation-project-leader-m-f-d-novartis-ch",
+      "slug": "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
       "slugByLocale": {
         "en": "formulation-project-leader-m-f-d-novartis-ch",
-        "it": "formulation-project-leader-m-f-d-novartis-ch",
-        "de": "formulation-project-leader-m-f-d-novartis-ch",
-        "fr": "formulation-project-leader-m-f-d-novartis-ch"
+        "it": "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
+        "de": "projektleiter-formulierung-m-w-d-novartis-basel-city",
+        "fr": "chef-de-projet-de-formulation-h-f-d-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2327,16 +2327,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:25:09.763Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:25:09.763Z"
+      "firstSeenAt": "2026-11-10T09:25:09.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ],
+        "de": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ],
+        "fr": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "formulation-project-leader-m-f-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-ba5340d5320f",
-      "slug": "patent-attorney-ii-novartis-ch",
+      "slug": "avvocato-di-brevetto-ii-novartis-basel-city",
       "slugByLocale": {
         "en": "patent-attorney-ii-novartis-ch",
-        "it": "patent-attorney-ii-novartis-ch",
-        "de": "patent-attorney-ii-novartis-ch",
-        "fr": "patent-attorney-ii-novartis-ch"
+        "it": "avvocato-di-brevetto-ii-novartis-basel-city",
+        "de": "patentanwalt-ii-novartis-basel-city",
+        "fr": "conseil-des-brevets-ii-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2398,7 +2412,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:25:08.896Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:25:08.896Z"
+      "firstSeenAt": "2026-11-10T09:25:08.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patent-attorney-ii-novartis-ch"
+        ],
+        "de": [
+          "patent-attorney-ii-novartis-ch"
+        ],
+        "fr": [
+          "patent-attorney-ii-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patent-attorney-ii-novartis-ch"
+      ]
     },
     {
       "id": "novartis-004258e68c12",

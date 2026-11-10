@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "apleona-schweiz-ag-0f285264230e",
-      "slug": "servicetechniker-elektro-im-service-e-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
+      "slug": "tecnico-di-assistenza-elettrica-in-servizio-e-manutenzione-m-f-d-apleona-schweiz-ag-schaffhausen",
       "slugByLocale": {
         "de": "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
-        "it": "servicetechniker-elektro-im-service-e-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
-        "en": "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
-        "fr": "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
+        "it": "tecnico-di-assistenza-elettrica-in-servizio-e-manutenzione-m-f-d-apleona-schweiz-ag-schaffhausen",
+        "en": "service-technician-electrical-in-service-and-maintenance-m-f-d-apleona-schweiz-ag-schaffhausen",
+        "fr": "technicien-de-service-electrique-en-service-et-entretien-h-f-d-apleona-schweiz-ag-schaffhausen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -57,11 +57,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
+          "servicetechniker-elektro-im-service-e-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
+        ],
+        "en": [
+          "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
+        ],
+        "fr": [
           "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
+        "servicetechniker-elektro-im-service-und-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen",
+        "servicetechniker-elektro-im-service-e-unterhalt-m-w-d-apleona-schweiz-ag-schaffhausen"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,

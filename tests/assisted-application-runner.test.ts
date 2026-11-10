@@ -16,7 +16,7 @@ import { checkPostingLiveness } from '../scripts/assisted-application/lib/postin
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
-import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
+import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError, transition } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
@@ -323,6 +323,60 @@ describe('draft mode', () => {
       applyUrl,
       postingUrl: '',
     }));
+  });
+
+  it('drafts without the portal form when its pre-read fails: a diagnostic, never draft_failed (owner 2026-11-10)', async () => {
+    // ECAM and Bank Cler, 2026-11-10: the reader aborted every request of a
+    // generic employer page and the whole draft stopped at owner_takeover.
+    // Whatever the reader does (hands off, rejects, throws synchronously),
+    // the letter, the CV and the platform's answers are written, and the
+    // form is read live by the submit run.
+    const cases = [
+      {
+        reader: vi.fn(async () => ({ questions: [], documents: [], handoff: 'portal_reader_failed', readerError: 'net_failed' })),
+        preRead: { status: 'unavailable', handoff: 'portal_reader_failed', readerError: 'net_failed' },
+      },
+      {
+        reader: vi.fn(async () => { throw new ReferenceError('resolvePublicHost is not defined'); }),
+        preRead: { status: 'unavailable', handoff: 'portal_reader_failed', readerError: 'code_error' },
+      },
+      {
+        reader: vi.fn(() => { throw new Error('page.goto: net::ERR_FAILED at https://employer.example/jobs/1'); }),
+        preRead: { status: 'unavailable', handoff: 'portal_reader_failed', readerError: 'net_failed' },
+      },
+      {
+        reader: vi.fn(async () => ({ questions: [], documents: [], handoff: 'application_form_unreadable', readerError: 'Not A Class' })),
+        preRead: { status: 'unavailable', handoff: 'application_form_unreadable' },
+      },
+    ];
+    for (const { reader, preRead } of cases) {
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(),
+        readPortalRequirements: reader, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      } as any);
+      expect(reader).toHaveBeenCalledOnce();
+      expect(draft).toMatchObject({ status: 'ready', round: 1, channel: { type: 'lever' } });
+      expect(draft.portalPreRead).toEqual(preRead);
+      expect(draft.coverLetter.text).toBeTruthy();
+      // The rule questions are kept; nothing from the unread form is invented.
+      expect(draft.questions.map((question: any) => question.id)).toEqual(['salary_expectation']);
+      const { flow } = transition({ state: 'drafting', round: 1 } as any, { type: 'draft_ready' }, {
+        order, draft, nowMs: Date.UTC(2026, 8, 30),
+      });
+      expect(flow.state).toBe('candidate_review');
+      expect(flow.heldBy).not.toContain('draft_failed');
+    }
+  }, 180_000);
+
+  it('records a pre-read that got through, with what it found', async () => {
+    const reader = vi.fn(async () => ({ questions: [], documents: [] }));
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(),
+      readPortalRequirements: reader, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    } as any);
+    expect(draft.portalPreRead).toEqual({ status: 'read', questions: 0, documents: 0 });
   });
 
   it('classifies a published SuccessFactors job route even when the saved apply URL is stale', async () => {

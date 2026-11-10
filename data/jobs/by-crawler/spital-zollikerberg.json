@@ -341,12 +341,12 @@
     },
     {
       "id": "spital-zollikerberg-b72389855514",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-bambini-permanenza-compresa-la-formazione",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital"
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-bambini-permanenza-compresa-la-formazione",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-children-permanence-including-vocational-training-spital",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-enfants-professionnels-en-soins-infirmiers-permanence-y-compris-formation"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -408,16 +408,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:12:33.801Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:12:33.801Z"
+      "firstSeenAt": "2026-11-10T09:12:33.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-inklusive-berufsbildung-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-60e916f36041",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing",
+      "slug": "assistente-di-pratica-medica-assistente-di-pratica-medica-permanenza-infantile-condivisione-possibile-del-lavoro-spital",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing"
+        "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-permanenza-infantile-condivisione-possibile-del-lavoro-spital",
+        "en": "medical-practice-assistant-medical-practice-assistant-child-permanence-job-sharing-possible-spital-zollikerberg",
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-permanence-enfant-partage-d-emploi-possible-spital"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -479,7 +493,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:12:33.800Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:12:33.800Z"
+      "firstSeenAt": "2026-11-10T09:12:33.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-kinder-permanence-jobsharing"
+      ]
     },
     {
       "id": "spital-zollikerberg-0f33050ab078",

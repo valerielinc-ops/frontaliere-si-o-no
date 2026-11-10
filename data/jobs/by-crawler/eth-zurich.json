@@ -9468,8 +9468,8 @@
       "slugByLocale": {
         "en": "doctoral-postdoctoral-position-in-full-duplex-wireline-transceivers-with-echo-cancellation",
         "it": "doctoral-postdoctoral-position-in-full-duplex-wireline-transceivers-with-echo-cancellation",
-        "de": "doctoral-postdoctoral-position-in-full-duplex-wireline-transceivers-with-echo-cancellation",
-        "fr": "doctoral-postdoctoral-position-in-full-duplex-wireline-transceivers-with-echo-cancellation"
+        "de": "doktoranden-postdoc-position-in-full-duplex-wireline-transceivern-mit-echo-absage-eth-zurich-zurich",
+        "fr": "poste-de-doctorat-postdoctorat-dans-les-emetteurs-filaires-full-duplex-avec-annulation-echo-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9535,12 +9535,12 @@
     },
     {
       "id": "eth-zurich-446efbce2c2e",
-      "slug": "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation",
+      "slug": "posizione-dottorale-postdoctoral-in-adc-ad-alta-velocita-ad-alta-efficienza-energetica-per-i-transceiver-wireline-di",
       "slugByLocale": {
         "en": "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation",
-        "it": "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation",
-        "de": "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation",
-        "fr": "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation"
+        "it": "posizione-dottorale-postdoctoral-in-adc-ad-alta-velocita-ad-alta-efficienza-energetica-per-i-transceiver-wireline-di",
+        "de": "doktoranden-postdoktorandenposition-in-energieeffizienten-high-speed-adcs-fur-wireline-transceiver-der-nachsten",
+        "fr": "poste-de-doctorat-postdoctorant-dans-les-caa-a-haute-vitesse-ecoenergetique-pour-les-emetteurs-filaires-de-prochaine"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9602,16 +9602,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:48:38.258Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:48:38.258Z"
+      "firstSeenAt": "2026-11-10T09:48:38.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation"
+        ],
+        "de": [
+          "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation"
+        ],
+        "fr": [
+          "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-postdoctoral-position-in-energy-efficient-high-speed-adcs-for-next-generation"
+      ]
     },
     {
       "id": "eth-zurich-b4b53b24128b",
-      "slug": "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision",
+      "slug": "posizione-dottorale-postdoctoral-in-gestione-e-riferimenti-di-precisione-integrati-per-sensori-di-immagini-rgb-d",
       "slugByLocale": {
         "en": "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision",
-        "it": "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision",
-        "de": "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision",
-        "fr": "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision"
+        "it": "posizione-dottorale-postdoctoral-in-gestione-e-riferimenti-di-precisione-integrati-per-sensori-di-immagini-rgb-d",
+        "de": "doktoranden-postdoktorandenposition-in-vollstandig-integrierten-strommanagement-und-prazisionsreferenzen-fur",
+        "fr": "position-doctorante-postdoctorale-en-gestion-de-l-energie-et-precision-entierement-integrees-references-pour-capteurs-d"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9673,16 +9687,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:48:37.768Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:48:37.768Z"
+      "firstSeenAt": "2026-11-10T09:48:37.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision"
+        ],
+        "de": [
+          "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision"
+        ],
+        "fr": [
+          "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-postdoctoral-position-in-fully-integrated-power-management-and-precision"
+      ]
     },
     {
       "id": "eth-zurich-f50e7cb66fb1",
-      "slug": "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d",
+      "slug": "dottorato-postdoctoral-position-in-low-jitter-generazione-dell-orologio-per-sensori-di-immagine-rgb-d-monofoto-eth",
       "slugByLocale": {
         "en": "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d",
-        "it": "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d",
-        "de": "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d",
-        "fr": "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d"
+        "it": "dottorato-postdoctoral-position-in-low-jitter-generazione-dell-orologio-per-sensori-di-immagine-rgb-d-monofoto-eth",
+        "de": "doktoranden-postdoktoranden-position-in-low-jitter-uhr-generierung-fur-einzelphotonen-rgb-d-bildsensoren-eth-zurich",
+        "fr": "position-doctorante-postdoctorale-dans-la-generation-d-horloges-a-faible-vitesse-pour-capteurs-d-image-rgb-d-a-photo"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9744,7 +9772,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:48:37.277Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:48:37.277Z"
+      "firstSeenAt": "2026-11-10T09:48:37.277Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d"
+        ],
+        "de": [
+          "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d"
+        ],
+        "fr": [
+          "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-postdoctoral-position-in-low-jitter-clock-generation-for-single-photon-rgb-d"
+      ]
     },
     {
       "id": "eth-zurich-5d8e88309a77",

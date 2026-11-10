@@ -14,7 +14,8 @@
  *   - form of address: from the first name, never asked;
  *   - language levels: from the CV;
  *   - salary expectation: the maximum of the job's salary estimate;
- *   - workload 100%; notice period and start date 3 months after submission;
+ *   - workload 100%; notice period and start date 3 months after submission
+ *     (a start date or a workload the candidate stated in their reply wins: order.candidateStatements);
  *   - privacy notices and audio-recording consent accepted, marketing declined;
  *   - date of birth, when the CV does not state it: the year the candidate
  *     was 18 (end of the Maturità, or start of university), on 1 January;
@@ -240,6 +241,35 @@ export function platformStartDate(nowMs = Date.now()) {
   return defaultStartDate(nowMs);
 }
 
+/** The candidate's own statements read from their reply (order.candidateStatements), or {}. */
+export function candidateStatementsOf(order = {}) {
+  const value = order?.candidateStatements;
+  return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+}
+
+/**
+ * The start date the candidate stated, as a form takes it: their date, or today once it has passed (they are
+ * available from then on). '' when they stated none.
+ */
+export function statedStartDate(order = {}, nowMs = Date.now()) {
+  const stated = String(candidateStatementsOf(order).startDate || '');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(stated)) return '';
+  const today = zurichToday(nowMs);
+  return stated < today ? today : stated;
+}
+
+/**
+ * The workload a workload field takes: the percentage the candidate stated, else the platform's 100 % — which
+ * full time, or «full or part time», agrees with. Part time only, with no percentage: null, never 100 %.
+ */
+export function statedWorkloadPercent(order = {}) {
+  const workload = candidateStatementsOf(order).workload;
+  if (!workload || typeof workload !== 'object') return PLATFORM_WORKLOAD_PERCENT;
+  const percent = Number(workload.percent);
+  if (Number.isInteger(percent) && percent >= 10 && percent <= 100) return percent;
+  return workload.partTime && !workload.fullTime ? null : PLATFORM_WORKLOAD_PERCENT;
+}
+
 /** The maximum of the job's salary estimate, annual: order.salaryMax/baseSalary, written at checkout or by the automation. */
 export function platformSalary(order = {}) {
   const base = order?.baseSalary && typeof order.baseSalary === 'object' ? order.baseSalary : null;
@@ -334,9 +364,11 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     civilStatusEstimated: !statedCivil && Boolean(civilStatus),
     languages,
     salary: platformSalary(order),
-    startDate: platformStartDate(nowMs),
+    // What the candidate stated in their reply (assistedApplicationCandidateReply.js) wins over the rule.
+    startDate: statedStartDate(order, nowMs) || platformStartDate(nowMs),
+    startDateStated: Boolean(statedStartDate(order, nowMs)),
     noticeMonths: PLATFORM_NOTICE_MONTHS,
-    workloadPercent: PLATFORM_WORKLOAD_PERCENT,
+    workloadPercent: statedWorkloadPercent(order),
     permitStatus,
     nationality,
     passport,

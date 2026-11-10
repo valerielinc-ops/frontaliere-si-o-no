@@ -3818,12 +3818,12 @@
     },
     {
       "id": "concara-17dea513ac1c",
-      "slug": "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern",
+      "slug": "manutenzione-professionale-50-80-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern",
-        "it": "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern",
-        "en": "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern",
-        "fr": "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern"
+        "it": "manutenzione-professionale-50-80-concara-domicil-spitex-bern-bern",
+        "en": "professional-operating-maintenance-50-80-concara-domicil-spitex-bern-bern",
+        "fr": "entretien-professionnel-facultatif-50-80-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3886,13 +3886,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:21:32.098Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:21:32.098Z"
+      "firstSeenAt": "2026-11-10T09:21:32.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern"
+        ],
+        "en": [
+          "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern"
+        ],
+        "fr": [
+          "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-fachfrau-betriebsunterhalt-50-80-concara-bern"
+      ]
     },
     {
       "id": "concara-da3122ec74c3",
       "slug": "dipl-professionista-infermieristico-con-responsabilita-quotidiana-40-100-al-centro-nel-mezzo-della-vita-concara-domicil-spitex-7d5f9b6abc",
       "slugByLocale": {
-        "it": "dipl-professionista-infermieristico-con-responsabilita-quotidiana-40-100-al-centro-nel-mezzo-della-vita-concara-domicil-spitex-7d5f9b6abc",
+        "it": "dipl-professionista-infermieristico-con-responsabilita-quotidiana-40-100-al-centro-nel-mezzo-della-vita-concara-domicil",
         "en": "dipl-nursing-professional-with-day-to-day-responsibility-40-100-in-the-center-in-the-middle-of-life-concara-domicil",
         "de": "dipl-pflegefachperson-mit-tagesverantwortung-40-100-mitten-im-zentrum-mitten-im-leben",
         "fr": "dipl-specialiste-des-soins-infirmiers-avec-responsabilite-quotidienne-40-100-au-centre-au-milieu-de-la-vie-concara"
@@ -3941,13 +3955,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-tagesverantwortung-40-100-mitten-im-zentrum-mitten-im-leben",
-        "dipl-professionista-infermieristico-con-responsabilita-quotidiana-40-100-al-centro-nel-mezzo-della-vita-concara-domicil"
+        "dipl-pflegefachperson-mit-tagesverantwortung-40-100-mitten-im-zentrum-mitten-im-leben"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-tagesverantwortung-40-100-mitten-im-zentrum-mitten-im-leben",
-          "dipl-professionista-infermieristico-con-responsabilita-quotidiana-40-100-al-centro-nel-mezzo-della-vita-concara-domicil"
+          "dipl-pflegefachperson-mit-tagesverantwortung-40-100-mitten-im-zentrum-mitten-im-leben"
         ]
       },
       "firstSeenAt": "2026-08-13T22:09:29.910Z",
@@ -3973,7 +3985,7 @@
       "id": "concara-4c761688f542",
       "slug": "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern-3d75be79ad",
       "slugByLocale": {
-        "it": "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern-3d75be79ad",
+        "it": "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern",
         "en": "with-heart-hand-and-mind-employee-care-and-care-40-100-sought-after-concara-domicil-spitex-bern-bern",
         "de": "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern",
         "fr": "avec-c-ur-main-et-esprit-soins-et-soins-aux-employes-40-100-recherches-concara-domicil-spitex-bern-bern"
@@ -4028,8 +4040,7 @@
         "mit-herz-hand-und-verstand-associate-betreuung-und-pflege-40-100-gesucht-concara-domicil-spitex-bern-bern",
         "mit-herz-hand-und-verstand-collaborateur-trice-betreuung-und-pflege-40-100-gesucht-concara-domicil-spitex-bern-bern",
         "con-herz-hand-e-verstand-collaboratore-trice-betreuung-e-pflege-40-100-gesucht-concara-domicil-spitex-bern",
-        "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern",
-        "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern"
+        "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4039,8 +4050,7 @@
           "mit-herz-hand-und-verstand-associate-betreuung-und-pflege-40-100-gesucht-concara-domicil-spitex-bern-bern",
           "mit-herz-hand-und-verstand-collaborateur-trice-betreuung-und-pflege-40-100-gesucht-concara-domicil-spitex-bern-bern",
           "con-herz-hand-e-verstand-collaboratore-trice-betreuung-e-pflege-40-100-gesucht-concara-domicil-spitex-bern",
-          "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern",
-          "con-cuore-mano-e-mente-assistenza-e-cura-dei-dipendenti-40-100-ricercati-concara-domicil-spitex-bern-bern"
+          "mit-herz-hand-und-verstand-mitarbeiter-in-betreuung-und-pflege-40-100-gesucht-concara-bern"
         ],
         "en": [
           "with-heart-hand-and-mind-staff-sought-in-care-and-care-40-100-concara-domicil-spitex-bern-bern"

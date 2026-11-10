@@ -1656,12 +1656,12 @@
     },
     {
       "id": "evam-vaud-8695343",
-      "slug": "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch",
+      "slug": "consulente-di-orientamento-100-csd-evam-lausanne",
       "slugByLocale": {
         "fr": "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch",
-        "it": "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch",
-        "en": "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch",
-        "de": "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch"
+        "it": "consulente-di-orientamento-100-csd-evam-lausanne",
+        "en": "guidance-counsellor-100-csd-evam-lausanne",
+        "de": "beratung-100-csd-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1720,7 +1720,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:30:18.493Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:30:18.493Z"
+      "firstSeenAt": "2026-11-10T09:30:18.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch"
+        ],
+        "de": [
+          "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-orientation-100-cdd-evam-vaud-ch"
+      ]
     }
   ]
 }

@@ -499,7 +499,7 @@
         "it": "responsabile-di-cantiere-e-di-progetto-migrolino-suhr",
         "en": "construction-project-manager-migrolino-suhr",
         "de": "bau-projektleiter-in-migrolino-suhr",
-        "fr": "responsable-de-chantier-et-de-projets-migrolino-suhr"
+        "fr": "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -544,7 +544,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bau-projektleiter-in-migrolino-suhr",
-        "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+        "responsable-de-chantier-et-de-projets-migrolino-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -555,7 +555,7 @@
         ],
         "fr": [
           "bau-projektleiter-in-migrolino-suhr",
-          "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+          "responsable-de-chantier-et-de-projets-migrolino-suhr"
         ]
       },
       "firstSeenAt": "2026-10-08T21:17:33.089Z",
@@ -1151,12 +1151,12 @@
     },
     {
       "id": "migrolino-e8a0d910df31",
-      "slug": "selbstandige-r-franchisepartner-in-per-migrolino-shop-tankstelle-car-wash-in-zug-migrolino-zug",
+      "slug": "partner-in-franchising-indipendente-per-negozio-migrolino-stazione-di-servizio-e-lavaggio-auto-a-zugo-migrolino-zug",
       "slugByLocale": {
         "de": "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino",
-        "it": "selbstandige-r-franchisepartner-in-per-migrolino-shop-tankstelle-car-wash-in-zug-migrolino-zug",
-        "en": "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino",
-        "fr": "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino"
+        "it": "partner-in-franchising-indipendente-per-negozio-migrolino-stazione-di-servizio-e-lavaggio-auto-a-zugo-migrolino-zug",
+        "en": "independent-franchise-partner-for-migrolino-shop-petrol-station-car-wash-in-zug-migrolino-zug",
+        "fr": "partenaire-franchise-independant-pour-la-boutique-migrolino-la-station-service-et-le-lavage-de-voiture-a-zoug-migrolino"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -1204,11 +1204,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino",
+          "selbstandige-r-franchisepartner-in-per-migrolino-shop-tankstelle-car-wash-in-zug-migrolino-zug"
+        ],
+        "en": [
+          "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino"
+        ],
+        "fr": [
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino"
         ]
       },
       "previousSlugs": [
-        "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino"
+        "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-zug-migrolino",
+        "selbstandige-r-franchisepartner-in-per-migrolino-shop-tankstelle-car-wash-in-zug-migrolino-zug"
       ],
       "salaryMin": 107500,
       "salaryMax": 188500,
