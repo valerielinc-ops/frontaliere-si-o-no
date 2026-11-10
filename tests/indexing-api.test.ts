@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { LEDGER_UNAVAILABLE, notifyGoogleIndexing } from '../scripts/lib/indexing-api.mjs';
 import { createLedger, quotaDayKey } from '../scripts/lib/indexing-jobs-planner.mjs';
+import { DAILY_BUDGET } from '../scripts/lib/indexing-api-quota.mjs';
 
 const tokenMock = vi.hoisted(() => ({ exchange: vi.fn(async () => 'token') }));
 vi.mock('../scripts/lib/google-service-account-token.mjs', () => ({
@@ -49,7 +50,7 @@ describe('notifyGoogleIndexing shared ledger', () => {
   });
 
   it('sends nothing when the read of a 1,999 ledger fails, and keeps the file', async () => {
-    const raw = writeLedger(1999);
+    const raw = writeLedger(DAILY_BUDGET - 1);
     const real = fs.readFileSync;
     vi.spyOn(fs, 'readFileSync').mockImplementation(((file: fs.PathOrFileDescriptor, ...rest: never[]) => {
       if (file === ledgerPath) throw new Error('EIO: forced read failure');
@@ -67,7 +68,7 @@ describe('notifyGoogleIndexing shared ledger', () => {
   it.each(['writeFileSync', 'renameSync'] as const)(
     'sends nothing when %s fails on a 1,999 ledger, and keeps the file',
     async (method) => {
-      const raw = writeLedger(1999);
+      const raw = writeLedger(DAILY_BUDGET - 1);
       vi.spyOn(fs, method).mockImplementation(() => { throw new Error('ENOSPC: forced write failure'); });
 
       const results = await notifyGoogleIndexing(URLS, { ledgerPath });
@@ -119,7 +120,7 @@ describe('notifyGoogleIndexing shared ledger', () => {
   });
 
   it('persists the reservation before the only POST the budget still allows', async () => {
-    writeLedger(1999);
+    writeLedger(DAILY_BUDGET - 1);
     let spentAtPost = 0;
     fetchMock.mockImplementation(async () => {
       spentAtPost = JSON.parse(fs.readFileSync(ledgerPath, 'utf8')).days[quotaDayKey()];
@@ -129,7 +130,7 @@ describe('notifyGoogleIndexing shared ledger', () => {
     const results = await notifyGoogleIndexing(URLS, { ledgerPath });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(spentAtPost).toBe(2000);
+    expect(spentAtPost).toBe(DAILY_BUDGET);
     expect(results).toEqual([{ url: URLS[0], ok: true, status: 200 }]);
     expect(JSON.parse(fs.readFileSync(ledgerPath, 'utf8')).notifications[URLS[0]].sent).toBe(quotaDayKey());
   });

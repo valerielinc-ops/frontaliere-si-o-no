@@ -69,7 +69,11 @@ describe('indexing chain scripts reference only declared names', () => {
 
   it('the guard is real: it reports the identifiers the monitor used to call', () => {
     const src = readFileSync(resolve('scripts/monitor-gsc-job-indexation.mjs'), 'utf8')
-      .replace('jobRichResultRegression({ pageUrl, liveJob, result })', 'isJobPageUrl(pageUrl) ? jobPostingRichResultRegression(result) : null');
+      .replace(
+        'const jobRichResultRegressionReason = jobRichResultRegression({ pageUrl, liveJob, result });',
+        'const jobRichResultRegressionReason = isJobPageUrl(pageUrl) ? jobPostingRichResultRegression(result) : null;',
+      );
+    expect(src).toContain('isJobPageUrl(pageUrl)');
     const host = ts.createCompilerHost({});
     const orig = host.getSourceFile;
     host.getSourceFile = (name, lang, ...rest) => (name === '/virtual/monitor.mjs'
