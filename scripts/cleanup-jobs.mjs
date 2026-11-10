@@ -49,6 +49,7 @@ import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs
 import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
 import { readJsonArrayFile } from './lib/streaming-json-array.mjs';
+import { jobLastObservedAtMs, timestampMs } from './lib/job-observation-heartbeat.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -95,6 +96,37 @@ const URL_VALIDATION_SKIP_REASON = EXPLICIT_SKIP_URL_VALIDATION
 const STALE_DAYS = Math.max(7, Math.min(180, intFromEnv('JOBS_STALE_DAYS', 60)));
 const STALE_MS = STALE_DAYS * 24 * 60 * 60 * 1000;
 let localeReportJobs = null;
+
+/**
+ * Age-based pruning decision shared by slice and dataset mode.
+ *
+ * A record is aged by its LAST OBSERVATION, not only by `crawledAt`: a record
+ * that never received a heartbeat used to be skipped forever (`ts > 0`), so a
+ * vacancy closed at the source stayed active on the site (1.544 such slice
+ * records on 2026-11-10). `jobLastObservedAtMs` falls back to `firstSeenAt`
+ * and, for a row its crawler still lists as active, to the time its slice was
+ * last written; the same STALE_DAYS window applies. Pruned records follow the
+ * existing archive path (expired soft-landing), never a bare deletion.
+ *
+ * @returns {{ stale: boolean, lastObservedMs: number|null, fallback: boolean }}
+ */
+function ageVerdict(job, nowMs, { sliceObservedAtMs = null } = {}) {
+  const lastObservedMs = jobLastObservedAtMs(job, { sliceObservedAtMs });
+  const fallback = timestampMs(job?.crawledAt) === null;
+  return {
+    stale: lastObservedMs !== null && nowMs - lastObservedMs > STALE_MS,
+    lastObservedMs,
+    fallback,
+  };
+}
+
+function logHeartbeatlessAge(counts) {
+  if (counts.aged === 0 && counts.unknown === 0 && counts.pruned === 0) return;
+  console.log(
+    `🫀 Records without crawledAt: ${counts.aged} aged by last observation `
+    + `(${counts.pruned} past ${STALE_DAYS} days), ${counts.unknown} with no known observation (kept).`,
+  );
+}
 
 function readJson(filePath) {
   return readJsonFile(filePath);
@@ -588,12 +620,21 @@ async function main() {
         );
       }
 
-      // Age-based pruning
+      // Age-based pruning (last observation; see ageVerdict). The slice's
+      // own write time is the observation of the active rows it still holds.
       const now = Date.now();
+      const sliceObservedAtMs = timestampMs(sliceData?.assembledAt);
+      const heartbeatless = { aged: 0, unknown: 0, pruned: 0 };
       let kept = hardenedJobs.filter((job) => {
-        const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
-        return !(ts > 0 && now - ts > STALE_MS);
+        const verdict = ageVerdict(job, now, { sliceObservedAtMs });
+        if (verdict.fallback) {
+          if (verdict.lastObservedMs === null) heartbeatless.unknown++;
+          else heartbeatless.aged++;
+          if (verdict.stale) heartbeatless.pruned++;
+        }
+        return !verdict.stale;
       });
+      logHeartbeatlessAge(heartbeatless);
       const agePruned = hardenedJobs.length - kept.length;
       if (agePruned > 0) console.log(`🗓️  Removed ${agePruned} stale jobs (> ${STALE_DAYS} days) from slice.`);
 
@@ -777,23 +818,39 @@ async function main() {
   }
 
   // ── 1. Age-based pruning (safety net) ────────────────────────────────
+  // The assembled dataset has lost slice provenance, so an ACTIVE record
+  // without crawledAt has no known last sighting here and is kept: expiring it
+  // in this (uncommitted) build dataset would publish as expired a vacancy its
+  // slice still holds. Slice-mode housekeeping makes and persists that call.
   const now = Date.now();
   const ageRemoved = [];
   const afterAgePrune = [];
+  const heartbeatless = { aged: 0, unknown: 0, pruned: 0 };
 
   for (const job of scopedJobs) {
-    const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
-    if (ts > 0 && now - ts > STALE_MS) {
-      ageRemoved.push({ id: job.id, url: job.url, reason: `older than ${STALE_DAYS} days`, crawledAt: job.crawledAt });
+    const verdict = ageVerdict(job, now);
+    if (verdict.fallback) {
+      if (verdict.lastObservedMs === null) heartbeatless.unknown++;
+      else heartbeatless.aged++;
+      if (verdict.stale) heartbeatless.pruned++;
+    }
+    if (verdict.stale) {
+      ageRemoved.push({
+        id: job.id,
+        url: job.url,
+        reason: `older than ${STALE_DAYS} days`,
+        lastObservedAt: new Date(verdict.lastObservedMs).toISOString(),
+      });
     } else {
       afterAgePrune.push(job);
     }
   }
+  logHeartbeatlessAge(heartbeatless);
 
   if (ageRemoved.length > 0) {
     console.log(`\n🗓️  Rimossi ${ageRemoved.length} job più vecchi di ${STALE_DAYS} giorni:`);
     for (const r of ageRemoved.slice(0, 20)) {
-      console.log(`   - ${r.id} (crawledAt: ${r.crawledAt})`);
+      console.log(`   - ${r.id} (last observed: ${r.lastObservedAt})`);
     }
     if (ageRemoved.length > 20) console.log(`   … +${ageRemoved.length - 20} altri`);
   }

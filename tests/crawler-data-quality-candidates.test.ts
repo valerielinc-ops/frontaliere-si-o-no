@@ -428,6 +428,48 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     expect(report.findings).toEqual([]);
   });
 
+  it('reports active records without crawledAt as a freshness-contract finding (target 0)', () => {
+    const base = {
+      generatedAt: '2026-09-01T00:00:00.000Z',
+      windowDays: 15,
+      runUrl: 'https://github.com/acme/site/actions/runs/12345',
+      fileCount: 2,
+      jobCount: 5,
+      commitCount: 1,
+      contamination: { moved: 0, affected: [] },
+      duplicates: [],
+      translation: null,
+    };
+    const report = buildCrawlerDataQualityReport({
+      ...base,
+      housekeeping: {
+        emptyLocaleBuckets: [],
+        staleActive: [],
+        heartbeatlessActive: {
+          total: 5,
+          active: 4,
+          heartbeatless: 3,
+          byCrawler: [{ crawler: 'galenica', heartbeatless: 3, active: 3 }],
+        },
+      },
+    });
+    const finding = report.findings.find((entry) => entry.key === 'active-records-without-crawledAt');
+    expect(finding?.category).toBe('freshness-contract');
+    expect(finding?.affectedFiles).toEqual(['data/jobs/by-crawler/galenica.json']);
+    expect(report.metrics.heartbeatlessActiveRecords).toBe(3);
+
+    const clean = buildCrawlerDataQualityReport({
+      ...base,
+      housekeeping: {
+        emptyLocaleBuckets: [],
+        staleActive: [],
+        heartbeatlessActive: { total: 5, active: 4, heartbeatless: 0, byCrawler: [] },
+      },
+    });
+    expect(clean.findings.map((entry) => entry.key)).not.toContain('active-records-without-crawledAt');
+    expect(clean.metrics.heartbeatlessActiveRecords).toBe(0);
+  });
+
   it('attributes queue movement to crawler slices without changing the aggregate gate', () => {
     expect(attributeRetranslationDelta(
       { 'seco-jobroom.json': 300, 'drained.json': 10 },
