@@ -2,7 +2,6 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-11-10 | Offerte attive: JobPosting `directApply` true (candidatura assistita); titolo/H1/JSON-LD nella lingua della pagina, originale se manca la traduzione; supera #15094 | 10-11 |
 | 2026-11-10 | Candidature assistite: ripristinata la decisione originale del 09-11 (le domande stabili le risponde la piattaforma, regole in `functions/src/assistedApplicationPlatformDefaults.js`; permesso, passaporto e nazionalità all'upload); supera la riga 09-11 riscritta da #17844 senza istruzione | istruzione diretta, sessione 10-11 |
 | 2026-11-09 | Candidature: non inferire fatti personali; consensi per trattamento, contatto o conservazione richiedono risposta esplicita. Default solo per presa visione obbligatoria e inequivocabile dell’informativa; rifiutare marketing facoltativo. | 09-11 |
 | 2026-10-05 | Eventi: MySwitzerland: UA da browser autorizzato SOLO per i dettagli (eccezione alla regola dello UA identificativo dei crawler; 1 req/s, stop a 403/429/challenge) (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
@@ -31,6 +30,7 @@
 | 2026-09-23 | `fachkraft`: se il totale dichiarato varia tra le pagine, si tollera il drift, si percorre tutta la paginazione e si pubblica il massimo snapshot osservato quando l'accounting dei dettagli è completo; cicli, pagine non leggibili e mismatch stabile restano fail-closed | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | `hugo-boss`: dopo retry bounded su una pagina duplicata, il contratto è pubblicare il massimo snapshot deduplicato osservato, marcandolo `coverage: max-observed`; DDO invalido, identità mancanti e letture vuote non provate restano failure | istruzione diretta, sessione 23-09 |
 | 2026-09-23 → raffinata 2026-09-24 | `tsmg`: record con paese non-CH scartati, il crawler continua; paese assente o località CH non risolvibile: quarantena loggata solo se non può essere target né è già pubblicato, altrimenti failure; valori paese sconosciuti e snapshot degradati restano failure | istruzione diretta, sessioni 23-09 e 24-09 |
+| 2026-09-23 | Gli articoli vecchi non si cancellano: si preservano per SEO e traffico monetizzato (default refresh: riga 2026-09-24) | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Issue e fix in repository diversi: si crea o migra l'issue nel repository corretto, si collegano le schede e si chiude l'errata solo con evidenza. I workflow aprono le issue nel repository proprietario del problema | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Tracker permanenti non si chiudono artificialmente per un obiettivo numerico; lo stato operativo va nel ledger `.agents/issue-orchestration-ledger-YYYYMMDD.md` | istruzione diretta, sessione 23-09 |
 | 2026-09-17 | **`needs-human` sulle PR non è più un veto persistente.** La label può restare come tracking/escalation, ma nessun merge, autorebase o dispatch automatico si ferma solo per la sua presenza | istruzione diretta, sessione 17-09 |

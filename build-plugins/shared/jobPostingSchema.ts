@@ -907,6 +907,7 @@ export function buildJobPostingSchema(
     baseSalary,
     url: opts.url,
     validThrough,
+    // decisione del proprietario 2026-11-10: true sulle offerte attive per la candidatura assistita
     directApply: opts.directApply ?? true,
     ...(job.id || job.slug
       ? {

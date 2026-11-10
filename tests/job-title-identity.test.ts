@@ -103,6 +103,29 @@ describe('localizedJobDisplayTitle — the page shows the title in its language'
     expect(localizedJobDisplayTitle({ title: 'Leiter Verkauf.', titleByLocale: { it: 'Responsabile vendite.' } }, 'it')).toBe('Responsabile vendite.');
   });
 
+  it('keeps long and compound abbreviations the source writes with a period', () => {
+    expect(localizedJobDisplayTitle({ title: 'Sachbearbeiter Kaufm. Abteilung', titleByLocale: { it: 'Impiegato Kaufm.' } }, 'it')).toBe('Impiegato Kaufm.');
+    expect(localizedJobDisplayTitle({ title: 'Ingenieur Maschinenbau', titleByLocale: { it: 'Ingegnere Dipl.-Ing.' } }, 'it')).toBe('Ingegnere Dipl.-Ing.');
+  });
+
+  it('classifies a raw record with no translated slot as missing, never as flattened', () => {
+    // The build tally reads raw dataset records: an empty `titleByLocale` is a
+    // missing translation; only a record WITHOUT the field is a flattened one.
+    expect(localizedJobTitleResolution({ title: 'Pfleger', titleByLocale: {} }, 'it').reason).toBe('missing');
+    expect(buildSlimSeed({ id: 'raw', title: 'Pfleger' }, 'it').title).toBe('Pfleger');
+  });
+
+  it('full and flattened records of the same offer resolve to the same title (SPA share, head, card)', () => {
+    for (const job of [PEMSA, FIELMANN, SPONTANEOUS, TRAINING]) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const seed = buildSlimSeed(job, locale);
+        expect(localizedJobDisplayTitle(seed, locale)).toBe(localizedJobDisplayTitle(job, locale));
+        // The SPA merges the slim record with its per-job detail (titleByLocale).
+        expect(localizedJobDisplayTitle({ ...seed, titleByLocale: job.titleByLocale }, locale)).toBe(localizedJobDisplayTitle(job, locale));
+      }
+    }
+  });
+
   it('returns the title of a locale-flattened record as is', () => {
     expect(localizedJobTitleResolution({ title: 'Infermiere' }, 'it')).toEqual({ title: 'Infermiere', source: 'translation', reason: 'flattened' });
     expect(localizedJobDisplayTitle(null, 'it')).toBe('');

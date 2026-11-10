@@ -122,12 +122,18 @@ function shortLocale(locale) {
 /**
  * A machine translation sometimes closes the title with a sentence period
  * ("Carpentiere per lavori di assistenza e manutenzione.") that the employer's
- * title does not have. Drop that one period; an abbreviation ("… Dipl.",
- * "… dott.") or a period the source also ends with is kept.
+ * title does not have. Drop that one period. Kept: a short abbreviation
+ * ("… Dipl.", "… dott."), a compound abbreviation ("… Dipl.-Ing.", "… Kaufm.-techn."),
+ * a period the source also ends with, and any final word the source itself
+ * writes with a period (a long abbreviation copied untranslated, "… Kaufm.").
  */
 function dropTranslationPeriod(translated, sourceTitle) {
   if (!/[\p{L}\p{N})]{5,}\.$/u.test(translated)) return translated;
-  if (clean(sourceTitle).endsWith('.')) return translated;
+  const source = clean(sourceTitle);
+  if (source.endsWith('.')) return translated;
+  const lastWord = translated.split(' ').pop() || '';
+  if (/[.\-]/u.test(lastWord.slice(0, -1))) return translated;
+  if (source.split(' ').some((word) => word.toLowerCase() === lastWord.toLowerCase())) return translated;
   return translated.slice(0, -1).trimEnd();
 }
 
@@ -162,6 +168,8 @@ export function localizedJobTitleResolution(job, locale) {
 }
 
 /**
+ * decisione del proprietario 2026-11-10: titolo nella lingua della pagina; supera #15094.
+ *
  * The title a job page (or any job surface) in `locale` displays: the
  * translated title, falling back to the employer's original only when the
  * locale has no usable translation (see `localizedJobTitleResolution`).
