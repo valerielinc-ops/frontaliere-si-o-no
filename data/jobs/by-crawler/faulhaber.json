@@ -87,8 +87,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-spedition-lager-100-croglio-faulhaber",
         "it": "collaboratore-trice-in-spedition-magazzino-100-faulhaber-croglio",
-        "en": "mitarbeiter-in-spedition-lager-100-croglio-faulhaber",
-        "fr": "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
+        "en": "employee-spedition-warehouse-100-faulhaber-croglio",
+        "fr": "spedition-de-l-employe-entrepot-100-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -130,6 +130,12 @@
       "crawledAt": "2026-11-09T21:19:50.263Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
+        ],
+        "en": [
+          "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
+        ],
+        "fr": [
           "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
         ]
       },

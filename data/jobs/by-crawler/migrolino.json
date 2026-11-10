@@ -499,7 +499,7 @@
         "it": "responsabile-di-cantiere-e-di-progetto-migrolino-suhr",
         "en": "construction-project-manager-migrolino-suhr",
         "de": "bau-projektleiter-in-migrolino-suhr",
-        "fr": "responsable-de-chantier-et-de-projets-migrolino-suhr"
+        "fr": "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -544,7 +544,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bau-projektleiter-in-migrolino-suhr",
-        "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+        "responsable-de-chantier-et-de-projets-migrolino-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -555,7 +555,7 @@
         ],
         "fr": [
           "bau-projektleiter-in-migrolino-suhr",
-          "conducteur-rice-de-travaux-et-chef-fe-de-projet-migrolino-suhr"
+          "responsable-de-chantier-et-de-projets-migrolino-suhr"
         ]
       },
       "firstSeenAt": "2026-10-08T21:17:33.089Z",
@@ -985,12 +985,12 @@
     },
     {
       "id": "migrolino-329add6dd624",
-      "slug": "verkaufsmitarbeiter-in-migrolino-wilderswil",
+      "slug": "addetto-a-alle-vendite-migrolino-wilderswil",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "it": "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "en": "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "fr": "verkaufsmitarbeiter-in-migrolino-wilderswil"
+        "it": "addetto-a-alle-vendite-migrolino-wilderswil",
+        "en": "sales-associate-migrolino-wilderswil",
+        "fr": "employe-e-de-vente-migrolino-wilderswil"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -1052,16 +1052,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:17:51.638Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-20T21:31:54.597Z"
+      "firstSeenAt": "2026-08-20T21:31:54.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-wilderswil"
+      ]
     },
     {
       "id": "migrolino-0fb7b8e8c905",
-      "slug": "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
+      "slug": "addetto-a-alle-vendite-migrolino-wilderswil-6fdc31",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "it": "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-        "en": "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-        "fr": "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
+        "it": "addetto-a-alle-vendite-migrolino-wilderswil-6fdc31",
+        "en": "sales-associate-migrolino-wilderswil-6fdc31",
+        "fr": "employe-e-de-vente-migrolino-wilderswil-6fdc31"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -1123,7 +1137,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:17:51.076Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-20T21:31:54.597Z"
+      "firstSeenAt": "2026-08-20T21:31:54.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
+      ]
     }
   ]
 }

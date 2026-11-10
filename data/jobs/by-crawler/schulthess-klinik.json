@@ -1180,12 +1180,12 @@
     },
     {
       "id": "schulthess-klinik-b85f745132d8",
-      "slug": "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich",
+      "slug": "segreteria-stazione-stazioni-di-servizio-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich",
-        "it": "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich",
-        "en": "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich",
-        "fr": "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich"
+        "it": "segreteria-stazione-stazioni-di-servizio-schulthess-klinik-zurich",
+        "en": "station-secretary-station-secretary-bed-stations-schulthess-klinik-zurich",
+        "fr": "poste-secretaire-station-secretaire-lits-postes-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -1247,7 +1247,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:17:18.211Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:18.211Z"
+      "firstSeenAt": "2026-11-09T21:17:18.211Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stationssekretarin-stationssekretar-bettenstationen-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

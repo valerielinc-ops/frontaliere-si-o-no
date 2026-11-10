@@ -4880,12 +4880,12 @@
     },
     {
       "id": "puk-zuerich-1a87e2d0dc16",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depression-e-angsterkrankungen-schwerpunkt-trauma-e-affektive-storung-psychiatrische-universitatsklinik-zurich",
+      "slug": "infermiere-diplomato-a-centro-per-la-depressione-e-i-disturbi-d-ansia-focus-su-traumi-e-disturbi-dell-umore",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depression-e-angsterkrankungen-schwerpunkt-trauma-e-affektive-storung-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen"
+        "it": "infermiere-diplomato-a-centro-per-la-depressione-e-i-disturbi-d-ansia-focus-su-traumi-e-disturbi-dell-umore",
+        "en": "dipl-nursing-specialist-centre-for-depression-and-anxiety-focus-on-trauma-and-affective-disorder-psychiatrische",
+        "fr": "dipl-specialiste-des-soins-infirmiers-centre-de-depression-et-d-anxiete-axe-sur-les-traumatismes-et-les-troubles"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4937,11 +4937,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depression-e-angsterkrankungen-schwerpunkt-trauma-e-affektive-storung-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depression-und-angsterkrankungen",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depression-e-angsterkrankungen-schwerpunkt-trauma-e-affektive-storung-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5517,12 +5525,12 @@
     },
     {
       "id": "puk-zuerich-53d49840f8da",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich",
+      "slug": "dipl-infermieristica-professionale-trattamento-casa-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich"
+        "it": "dipl-infermieristica-professionale-trattamento-casa-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "dipl-nursing-professional-home-treatment-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-soins-a-domicile-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5588,7 +5596,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:19:41.424Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:19:41.424Z"
+      "firstSeenAt": "2026-11-09T21:19:41.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-home-treatment-puk-zuerich-zurich"
+      ]
     },
     {
       "id": "puk-zuerich-76cd9ec3c3f3",

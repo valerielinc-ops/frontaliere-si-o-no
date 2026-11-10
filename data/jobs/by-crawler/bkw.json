@@ -1456,7 +1456,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -2709,7 +2709,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -10196,7 +10196,7 @@
       "id": "bkw-acc27b6b93f1",
       "slug": "spezialist-in-engineering-alle-bkw-oberkirch",
       "slugByLocale": {
-        "it": "spezialist-in-engineering-alle-bkw-oberkirch",
+        "it": "ingegneria-specialistica-tutti-bkw-oberkirch",
         "en": "specialist-engineering-all-bkw-oberkirch",
         "de": "spezialist-in-engineering-alle-bkw-ch-06j0xi",
         "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch"
@@ -10244,13 +10244,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-engineering-alle-bkw-ch",
-        "ingegneria-specialistica-tutti-bkw-oberkirch"
+        "spezialist-in-engineering-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-engineering-alle-bkw-ch",
-          "ingegneria-specialistica-tutti-bkw-oberkirch"
+          "spezialist-in-engineering-alle-bkw-ch"
         ],
         "de": [
           "spezialist-in-engineering-alle-bkw-ch"
@@ -15575,7 +15573,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "ressources-humaines-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -15620,11 +15618,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "ressources-humaines-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "ressources-humaines-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -25885,8 +25883,8 @@
       "slugByLocale": {
         "de": "abteilungsleiter-in-kalte-alle-bkw-ch",
         "it": "abteilungsleiter-in-kalte-alle-bkw-ch",
-        "en": "abteilungsleiter-in-kalte-alle-bkw-ch",
-        "fr": "abteilungsleiter-in-kalte-alle-bkw-ch"
+        "en": "refrigeration-department-manager-all-bkw-beringen",
+        "fr": "chef-de-service-en-froid-tous-bkw-beringen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25956,7 +25954,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -26005,7 +26003,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26013,7 +26011,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -26036,12 +26034,12 @@
     },
     {
       "id": "bkw-3e7b46e2ba66",
-      "slug": "projektleiter-in-kalte-alle-bkw-beringen",
+      "slug": "project-manager-a-freddo-tutti-bkw-beringen",
       "slugByLocale": {
         "de": "projektleiter-in-kalte-alle-bkw-ch",
-        "it": "projektleiter-in-kalte-alle-bkw-beringen",
-        "en": "projektleiter-in-kalte-alle-bkw-ch",
-        "fr": "projektleiter-in-kalte-alle-bkw-ch"
+        "it": "project-manager-a-freddo-tutti-bkw-beringen",
+        "en": "refrigeration-project-manager-all-bkw-beringen",
+        "fr": "gestionnaire-de-projet-a-froid-tous-bkw-beringen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26090,11 +26088,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-kalte-alle-bkw-ch",
+          "projektleiter-in-kalte-alle-bkw-beringen"
+        ],
+        "en": [
+          "projektleiter-in-kalte-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-kalte-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-kalte-alle-bkw-ch"
+        "projektleiter-in-kalte-alle-bkw-ch",
+        "projektleiter-in-kalte-alle-bkw-beringen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -26197,8 +26203,8 @@
       "slugByLocale": {
         "de": "servicekoordinator-in-hlks-alle-bkw-ch",
         "it": "servicekoordinator-in-hlks-alle-bkw-ch",
-        "en": "servicekoordinator-in-hlks-alle-bkw-ch",
-        "fr": "servicekoordinator-in-hlks-alle-bkw-ch"
+        "en": "hvac-servicecoordinator-all-bkw-beringen",
+        "fr": "coordinateur-de-service-en-cvcs-tous-bkw-beringen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26269,8 +26275,8 @@
       "slugByLocale": {
         "de": "leiter-in-administration-alle-bkw-ch",
         "it": "responsabile-administration-alle-bkw-monthey",
-        "en": "leiter-in-administration-alle-bkw-ch",
-        "fr": "leiter-in-administration-alle-bkw-ch"
+        "en": "headof-administration-all-bkw-monthey",
+        "fr": "responsable-del-administration-tous-bkw-monthey"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26320,6 +26326,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-administration-alle-bkw-ch"
+        ],
+        "en": [
+          "leiter-in-administration-alle-bkw-ch"
+        ],
+        "fr": [
+          "leiter-in-administration-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -26345,12 +26357,12 @@
     },
     {
       "id": "bkw-9a251ae96766",
-      "slug": "operations-manager-local-security-officer-bess-alle-bkw-ch",
+      "slug": "gestione-delle-operazioni-responsabile-della-sicurezza-locale-bess-tutti-bkw-bern",
       "slugByLocale": {
         "de": "operations-manager-local-security-officer-bess-alle-bkw-ch",
-        "it": "operations-manager-local-security-officer-bess-alle-bkw-ch",
+        "it": "gestione-delle-operazioni-responsabile-della-sicurezza-locale-bess-tutti-bkw-bern",
         "en": "operations-manager-local-security-officer-bess-alle-bkw-ch",
-        "fr": "operations-manager-local-security-officer-bess-alle-bkw-ch"
+        "fr": "gestionnaire-des-operations-agent-de-securite-local-bess-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26413,16 +26425,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:20:23.191Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:23.191Z"
+      "firstSeenAt": "2026-11-09T21:20:23.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-manager-local-security-officer-bess-alle-bkw-ch"
+        ],
+        "fr": [
+          "operations-manager-local-security-officer-bess-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operations-manager-local-security-officer-bess-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-e7cfcbda7372",
-      "slug": "business-partner-management-services-energy-production-alle-bkw-ch",
+      "slug": "servizi-di-gestione-aziendale-energia-produzione-tutti-bkw-bern",
       "slugByLocale": {
         "de": "business-partner-management-services-energy-production-alle-bkw-ch",
-        "it": "business-partner-management-services-energy-production-alle-bkw-ch",
+        "it": "servizi-di-gestione-aziendale-energia-produzione-tutti-bkw-bern",
         "en": "business-partner-management-services-energy-production-alle-bkw-ch",
-        "fr": "business-partner-management-services-energy-production-alle-bkw-ch"
+        "fr": "services-de-gestion-des-partenaires-d-affaires-production-d-energie-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26485,7 +26508,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:20:23.190Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:23.190Z"
+      "firstSeenAt": "2026-11-09T21:20:23.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-partner-management-services-energy-production-alle-bkw-ch"
+        ],
+        "fr": [
+          "business-partner-management-services-energy-production-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-partner-management-services-energy-production-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-70b55fbd82ab",

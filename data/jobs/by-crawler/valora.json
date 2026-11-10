@@ -2846,10 +2846,10 @@
     },
     {
       "id": "valora-0e79f4f2aeee",
-      "slug": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
+      "slug": "it-manager-finanza-risorse-umane-applications-w-m-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
-        "it": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
+        "it": "it-manager-finanza-risorse-umane-applications-w-m-d-valora-group-muttenz",
         "en": "it-manager-finance-hr-applications-w-m-d-valora-muttenz",
         "fr": "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
       },
@@ -2914,7 +2914,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:20:44.327Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:44.327Z"
+      "firstSeenAt": "2026-11-09T21:20:44.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "it-manager-finance-hr-applications-w-m-d-valora-muttenz"
+      ]
     }
   ]
 }

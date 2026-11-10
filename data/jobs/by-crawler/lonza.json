@@ -6397,7 +6397,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -6444,7 +6444,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6453,7 +6453,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -16860,9 +16860,9 @@
       "slug": "advanced-manufacturing-technology-lead-lonza-basel",
       "slugByLocale": {
         "en": "advanced-manufacturing-technology-lead-lonza-ch",
-        "it": "advanced-manufacturing-technology-lead-lonza-basel",
-        "de": "advanced-manufacturing-technology-lead-lonza-basel",
-        "fr": "advanced-manufacturing-technology-lead-lonza-basel"
+        "it": "tecnologia-avanzata-di-produzione-lonza-basel",
+        "de": "spitzentechnologie-fur-fortgeschrittene-fertigungstechnik-lonza-basel",
+        "fr": "technologie-de-fabrication-avancee-plomb-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -16908,21 +16908,11 @@
       "jobReqId": "R80285",
       "previousSlugsByLocale": {
         "it": [
-          "advanced-manufacturing-technology-lead-lonza-ch",
-          "tecnologia-avanzata-di-produzione-lonza-basel"
-        ],
-        "de": [
-          "spitzentechnologie-fur-fortgeschrittene-fertigungstechnik-lonza-basel"
-        ],
-        "fr": [
-          "technologie-de-fabrication-avancee-plomb-lonza-basel"
+          "advanced-manufacturing-technology-lead-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "advanced-manufacturing-technology-lead-lonza-ch",
-        "tecnologia-avanzata-di-produzione-lonza-basel",
-        "spitzentechnologie-fur-fortgeschrittene-fertigungstechnik-lonza-basel",
-        "technologie-de-fabrication-avancee-plomb-lonza-basel"
+        "advanced-manufacturing-technology-lead-lonza-ch"
       ],
       "salaryMin": 123000,
       "salaryMax": 165500,
@@ -16951,8 +16941,8 @@
       "slugByLocale": {
         "en": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "it": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
-        "de": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
-        "fr": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
+        "de": "msat-prozessexperte-saugetiere-im-vorgelagerten-gro-ma-stab-m-w-d-lonza-visp",
+        "fr": "msat-expert-en-processus-mammalien-en-amont-grande-echelle-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17030,12 +17020,12 @@
     },
     {
       "id": "lonza-752ad2d98e61",
-      "slug": "laboratory-associate-analytical-development-lonza-ch",
+      "slug": "laboratorio-associato-sviluppo-analitico-lonza-visp",
       "slugByLocale": {
         "en": "laboratory-associate-analytical-development-lonza-ch",
-        "it": "laboratory-associate-analytical-development-lonza-ch",
-        "de": "laboratory-associate-analytical-development-lonza-ch",
-        "fr": "laboratory-associate-analytical-development-lonza-ch"
+        "it": "laboratorio-associato-sviluppo-analitico-lonza-visp",
+        "de": "labormitarbeiter-analytische-entwicklung-lonza-visp",
+        "fr": "associe-de-laboratoire-developpement-analytique-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17109,15 +17099,29 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:15:09.815Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:15:09.815Z"
+      "firstSeenAt": "2026-11-09T21:15:09.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-associate-analytical-development-lonza-ch"
+        ],
+        "de": [
+          "laboratory-associate-analytical-development-lonza-ch"
+        ],
+        "fr": [
+          "laboratory-associate-analytical-development-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-associate-analytical-development-lonza-ch"
+      ]
     },
     {
       "id": "lonza-35c9299e6141",
-      "slug": "bioprocess-engineer-m-f-d-lonza-ch",
+      "slug": "bioprocess-ingegnere-m-f-d-lonza-visp",
       "slugByLocale": {
         "en": "bioprocess-engineer-m-f-d-lonza-visp",
-        "it": "bioprocess-engineer-m-f-d-lonza-ch",
-        "de": "bioprocess-engineer-m-f-d-lonza-ch",
+        "it": "bioprocess-ingegnere-m-f-d-lonza-visp",
+        "de": "bioprocess-ingenieur-m-f-d-lonza-visp",
         "fr": "bioprocess-engineer-m-f-d-lonza-ch"
       },
       "company": "Lonza",
@@ -17192,16 +17196,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:15:09.158Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:15:09.158Z"
+      "firstSeenAt": "2026-11-09T21:15:09.158Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "bioprocess-engineer-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-8f59086933f9",
-      "slug": "biotechnologist-lonza-visp",
+      "slug": "biotecnologia-lonza-visp",
       "slugByLocale": {
         "en": "biotechnologist-lonza-visp",
-        "it": "biotechnologist-lonza-visp",
-        "de": "biotechnologist-lonza-ch",
-        "fr": "biotechnologist-lonza-visp"
+        "it": "biotecnologia-lonza-visp",
+        "de": "biotechnologe-lonza-visp",
+        "fr": "biotechnologue-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17247,14 +17262,22 @@
       "jobReqId": "R80770",
       "previousSlugsByLocale": {
         "it": [
-          "biotechnologist-lonza-ch"
+          "biotechnologist-lonza-ch",
+          "biotechnologist-lonza-visp"
         ],
         "en": [
           "biotechnologist-lonza-ch"
+        ],
+        "de": [
+          "biotechnologist-lonza-ch"
+        ],
+        "fr": [
+          "biotechnologist-lonza-visp"
         ]
       },
       "previousSlugs": [
-        "biotechnologist-lonza-ch"
+        "biotechnologist-lonza-ch",
+        "biotechnologist-lonza-visp"
       ],
       "salaryMin": 81000,
       "salaryMax": 135000,
@@ -17290,12 +17313,12 @@
     },
     {
       "id": "lonza-17828ba46e64",
-      "slug": "projektleiter-analytische-entwicklung-per-biokonjugate-80-100-m-w-d-lonza-visp",
+      "slug": "responsabile-di-progetto-sviluppo-analitico-per-bioconiugati-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch",
-        "it": "projektleiter-analytische-entwicklung-per-biokonjugate-80-100-m-w-d-lonza-visp",
-        "en": "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch",
-        "fr": "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch"
+        "it": "responsabile-di-progetto-sviluppo-analitico-per-bioconiugati-80-100-m-f-d-lonza-visp",
+        "en": "project-manager-analytical-development-for-bioconjugates-80-100-m-f-d-lonza-visp",
+        "fr": "gestionnaire-de-projet-developpement-analytique-pour-bioconjugates-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17342,11 +17365,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch",
+          "projektleiter-analytische-entwicklung-per-biokonjugate-80-100-m-w-d-lonza-visp"
+        ],
+        "en": [
+          "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch"
+        "projektleiter-analytische-entwicklung-fur-biokonjugate-80-100-m-w-d-lonza-ch",
+        "projektleiter-analytische-entwicklung-per-biokonjugate-80-100-m-w-d-lonza-visp"
       ],
       "salaryMin": 81000,
       "salaryMax": 135000,
@@ -17465,12 +17496,12 @@
     },
     {
       "id": "lonza-e09dbb8ce027",
-      "slug": "analytics-solutions-manager-lonza-ch",
+      "slug": "gestione-delle-soluzioni-di-analisi-lonza-basel",
       "slugByLocale": {
         "en": "analytics-solutions-manager-lonza-ch",
-        "it": "analytics-solutions-manager-lonza-ch",
-        "de": "analytics-solutions-manager-lonza-ch",
-        "fr": "analytics-solutions-manager-lonza-ch"
+        "it": "gestione-delle-soluzioni-di-analisi-lonza-basel",
+        "de": "manager-fur-analyselosungen-lonza-basel",
+        "fr": "gestionnaire-de-solutions-analytiques-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17534,7 +17565,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:15:06.396Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:15:06.396Z"
+      "firstSeenAt": "2026-11-09T21:15:06.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytics-solutions-manager-lonza-ch"
+        ],
+        "de": [
+          "analytics-solutions-manager-lonza-ch"
+        ],
+        "fr": [
+          "analytics-solutions-manager-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "analytics-solutions-manager-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3e16707cbd92",

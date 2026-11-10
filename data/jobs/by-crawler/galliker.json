@@ -86,12 +86,12 @@
     },
     {
       "id": "galliker-917b734e7b60",
-      "slug": "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
+      "slug": "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "mitarbeiter-gebaudetechnik-galliker-altishofen",
-        "it": "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
-        "en": "mitarbeiter-gebaudetechnik-galliker-altishofen",
-        "fr": "mitarbeiter-gebaudetechnik-galliker-altishofen"
+        "it": "impiegato-di-impiantistica-per-edifici-galliker-transport-ag-altishofen",
+        "en": "building-technology-employees-galliker-transport-ag-altishofen",
+        "fr": "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -141,11 +141,19 @@
       "externalId": "0416",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-gebaudetechnik-galliker-altishofen",
+          "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "mitarbeiter-gebaudetechnik-galliker-altishofen"
+        ],
+        "fr": [
           "mitarbeiter-gebaudetechnik-galliker-altishofen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-gebaudetechnik-galliker-altishofen"
+        "mitarbeiter-gebaudetechnik-galliker-altishofen",
+        "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -167,12 +175,12 @@
     },
     {
       "id": "galliker-35409cba24dc",
-      "slug": "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen",
+      "slug": "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-        "it": "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen",
-        "en": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
-        "fr": "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
+        "it": "dipendente-magazzino-ricambi-autocarri-a-galliker-transport-ag-altishofen",
+        "en": "employee-spare-parts-warehouse-truck-a-galliker-transport-ag-altishofen",
+        "fr": "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -222,11 +230,19 @@
       "externalId": "0380",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
+          "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
+        ],
+        "fr": [
           "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen"
+        "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
+        "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -248,12 +264,12 @@
     },
     {
       "id": "galliker-e015029bf100",
-      "slug": "lkw-diagnostiker-a-galliker-altishofen",
+      "slug": "diagnostica-per-camion-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "lkw-diagnostiker-a-galliker-altishofen",
-        "it": "lkw-diagnostiker-a-galliker-altishofen",
-        "en": "lkw-diagnostiker-a-galliker-altishofen",
-        "fr": "lkw-diagnostiker-a-galliker-altishofen"
+        "it": "diagnostica-per-camion-a-galliker-transport-ag-altishofen",
+        "en": "truck-diagnostician-a-galliker-transport-ag-altishofen",
+        "fr": "diagnosticien-du-camion-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -316,7 +332,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T21:18:50.510Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:07.185Z"
+      "firstSeenAt": "2026-09-23T23:38:07.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-diagnostiker-a-galliker-altishofen"
+        ],
+        "en": [
+          "lkw-diagnostiker-a-galliker-altishofen"
+        ],
+        "fr": [
+          "lkw-diagnostiker-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "lkw-diagnostiker-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-e4d507a30ec4",
@@ -483,12 +513,12 @@
     },
     {
       "id": "galliker-c313b7dcd508",
-      "slug": "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen",
+      "slug": "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
-        "it": "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen",
+        "it": "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen",
         "en": "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
-        "fr": "junior-projektleiter-gebaudetechnik-a-galliker-altishofen"
+        "fr": "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -537,11 +567,16 @@
       "externalId": "0417",
       "previousSlugsByLocale": {
         "it": [
+          "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
+          "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen"
+        ],
+        "fr": [
           "junior-projektleiter-gebaudetechnik-a-galliker-altishofen"
         ]
       },
       "previousSlugs": [
-        "junior-projektleiter-gebaudetechnik-a-galliker-altishofen"
+        "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
+        "junior-projektleiter-gebaudetechnik-a-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 54000,
       "salaryMax": 82000,
@@ -563,12 +598,12 @@
     },
     {
       "id": "galliker-ec0e7d1b24e0",
-      "slug": "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen",
+      "slug": "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-        "it": "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen",
-        "en": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
-        "fr": "junior-projektleiter-bau-und-unterhalt-galliker-altishofen"
+        "it": "junior-project-manager-edilizia-e-manutenzione-galliker-transport-ag-altishofen",
+        "en": "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen",
+        "fr": "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -618,11 +653,19 @@
       "externalId": "0414",
       "previousSlugsByLocale": {
         "it": [
+          "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+          "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "junior-projektleiter-bau-und-unterhalt-galliker-altishofen"
+        ],
+        "fr": [
           "junior-projektleiter-bau-und-unterhalt-galliker-altishofen"
         ]
       },
       "previousSlugs": [
-        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen"
+        "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
+        "junior-projektleiter-bau-e-unterhalt-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 54000,
       "salaryMax": 82000,
@@ -644,12 +687,12 @@
     },
     {
       "id": "galliker-1a46e75f7f16",
-      "slug": "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
+      "slug": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "fahrzeugschlosser-a-galliker-altishofen",
-        "it": "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-        "en": "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
-        "fr": "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+        "it": "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+        "en": "vehicle-closer-a-galliker-transport-ag-altishofen",
+        "fr": "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -698,11 +741,19 @@
       "externalId": "0403",
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugschlosser-a-galliker-altishofen"
+          "fahrzeugschlosser-a-galliker-altishofen",
+          "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+        ],
+        "fr": [
+          "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
         ]
       },
       "previousSlugs": [
-        "fahrzeugschlosser-a-galliker-altishofen"
+        "fahrzeugschlosser-a-galliker-altishofen",
+        "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -724,12 +775,12 @@
     },
     {
       "id": "galliker-fe27c4981311",
-      "slug": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-e-monitoring-systeme-galliker-transport-ag-altishofen",
+      "slug": "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
-        "it": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-e-monitoring-systeme-galliker-transport-ag-altishofen",
-        "en": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
-        "fr": "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker"
+        "it": "specialista-in-impiantistica-per-edifici-a-focus-sui-sistemi-di-accesso-e-monitoraggio-galliker-transport-ag-altishofen",
+        "en": "specialist-building-technology-a-focus-on-access-and-monitoring-systems-galliker-transport-ag-altishofen",
+        "fr": "specialiste-de-la-technologie-du-batiment-a-accent-sur-les-systemes-d-acces-et-de-surveillance-galliker-transport-ag"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -779,11 +830,19 @@
       "externalId": "0413",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
+          "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-e-monitoring-systeme-galliker-transport-ag-altishofen"
+        ],
+        "en": [
+          "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker"
+        ],
+        "fr": [
           "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker"
+        "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-und-monitoring-systeme-galliker",
+        "fachspezialist-gebaudetechnik-a-schwerpunkt-zutritts-e-monitoring-systeme-galliker-transport-ag-altishofen"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -890,12 +949,12 @@
     },
     {
       "id": "galliker-7de7bf746bae",
-      "slug": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
+      "slug": "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-        "it": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-        "en": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
-        "fr": "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
+        "it": "specialista-automobilistico-nf-principiante-trasversale-a-galliker-transport-ag-altishofen",
+        "en": "automotive-specialist-nf-lateral-entrant-a-galliker-transport-ag-altishofen",
+        "fr": "automobile-specialiste-nf-entree-laterale-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -959,16 +1018,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T21:18:46.409Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:02.533Z"
+      "firstSeenAt": "2026-09-23T23:38:02.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
+        ],
+        "en": [
+          "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
+        ],
+        "fr": [
+          "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-0aa09017bc1e",
-      "slug": "anlageleiter-waschanlage-a-galliker-altishofen",
+      "slug": "responsabile-impianti-di-lavaggio-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "de": "anlageleiter-waschanlage-a-galliker-altishofen",
-        "it": "anlageleiter-waschanlage-a-galliker-altishofen",
-        "en": "anlageleiter-waschanlage-a-galliker-altishofen",
-        "fr": "anlageleiter-waschanlage-a-galliker-altishofen"
+        "it": "responsabile-impianti-di-lavaggio-a-galliker-transport-ag-altishofen",
+        "en": "washing-plant-manager-a-galliker-transport-ag-altishofen",
+        "fr": "gestionnaire-d-usine-de-lavage-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -1031,7 +1104,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T21:18:46.040Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T09:14:23.868Z"
+      "firstSeenAt": "2026-10-07T09:14:23.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlageleiter-waschanlage-a-galliker-altishofen"
+        ],
+        "en": [
+          "anlageleiter-waschanlage-a-galliker-altishofen"
+        ],
+        "fr": [
+          "anlageleiter-waschanlage-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "anlageleiter-waschanlage-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-b3adfc7dfcde",
@@ -3966,7 +4053,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -4014,7 +4101,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4026,7 +4113,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -4213,7 +4300,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -4260,14 +4347,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

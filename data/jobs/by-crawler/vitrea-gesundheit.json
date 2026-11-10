@@ -600,10 +600,10 @@
     },
     {
       "id": "vitrea-gesundheit-d1e1bbff2a08",
-      "slug": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
+      "slug": "in-servizio-a-60-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
         "de": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
-        "it": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
+        "it": "in-servizio-a-60-vitrea-gesundheit-seewis-im-prattigau",
         "en": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau",
         "fr": "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
       },
@@ -667,16 +667,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:17:09.285Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:09.285Z"
+      "firstSeenAt": "2026-11-09T21:17:09.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
+        ]
+      },
+      "previousSlugs": [
+        "mitabeiterin-service-a-60-vitrea-gesundheit-seewis-im-prattigau"
+      ]
     },
     {
       "id": "vitrea-gesundheit-e6144cb6b4cf",
-      "slug": "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang",
+      "slug": "incaricato-hr-a-50-80-vitrea-gesundheit-dussnang",
       "slugByLocale": {
         "de": "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang",
-        "it": "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang",
-        "en": "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang",
-        "fr": "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang"
+        "it": "incaricato-hr-a-50-80-vitrea-gesundheit-dussnang",
+        "en": "personnel-hr-a-50-80-vitrea-gesundheit-dussnang",
+        "fr": "responsable-rh-a-50-80-vitrea-gesundheit-dussnang"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -739,16 +747,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:17:07.596Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:17:07.596Z"
+      "firstSeenAt": "2026-11-09T21:17:07.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang"
+        ],
+        "en": [
+          "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang"
+        ],
+        "fr": [
+          "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-hr-a-50-80-vitrea-gesundheit-dussnang"
+      ]
     },
     {
       "id": "vitrea-gesundheit-e5b921e1fc05",
-      "slug": "pflegehilfe-srk-a-flexpool-mind-40-o-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "assistenza-infermieristica-crs-a-flexpool-almeno-il-40-o-piu-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "pflegehilfe-srk-a-flexpool-mind-40-o-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "assistenza-infermieristica-crs-a-flexpool-almeno-il-40-o-piu-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "care-assistance-srk-a-flexpool-mind-40-or-more-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "aide-aux-soins-srk-a-flexpool-esprit-40-ou-plus-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -796,11 +818,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "pflegehilfe-srk-a-flexpool-mind-40-o-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
           "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
         ]
       },
       "previousSlugs": [
-        "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "pflegehilfe-srk-a-flexpool-mind-40-oder-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "pflegehilfe-srk-a-flexpool-mind-40-o-mehr-vitrea-gesundheit-zihlschlacht-sitterdorf"
       ],
       "salaryMin": 32600,
       "salaryMax": 45600,

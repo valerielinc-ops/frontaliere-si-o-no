@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18102,8 +18102,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern",
         "it": "mitarbeiterin-collaboratore-trice-administration-anasthesiepflege-90-luzerner-kantonsspital-luks-luzern",
-        "en": "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern",
-        "fr": "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern"
+        "en": "employee-employee-administration-anesthesia-care-90-luzerner-kantonsspital-luks-luzern",
+        "fr": "administration-des-employes-soins-d-anesthesie-90-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18152,6 +18152,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-administration-anasthesiepflege-90-luks-luzern"
         ]
       },
@@ -18350,12 +18356,12 @@
     },
     {
       "id": "luks-e79a242f4968",
-      "slug": "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee",
+      "slug": "infermieristica-specialista-hf-fh-reparto-madre-interdisciplinare-80-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
         "de": "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee",
-        "it": "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee",
-        "en": "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee",
-        "fr": "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee"
+        "it": "infermieristica-specialista-hf-fh-reparto-madre-interdisciplinare-80-luzerner-kantonsspital-luks-sursee",
+        "en": "nursing-specialist-hf-fh-interdisciplinary-mother-child-department-80-luzerner-kantonsspital-luks-sursee",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-departement-interdisciplinaire-mere-enfant-80-luzerner-kantonsspital-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18417,7 +18423,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:01.146Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:01.146Z"
+      "firstSeenAt": "2026-11-09T21:23:01.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee"
+        ],
+        "en": [
+          "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee"
+        ],
+        "fr": [
+          "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-hf-fh-interdisziplinare-mutter-kind-abteilung-80-luks-sursee"
+      ]
     },
     {
       "id": "luks-de16ee5b58b4",
