@@ -48157,6 +48157,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'tredicesima-avs-pensionati-italia',
+ category: 'pensione',
+ date: '2026-11-09T23:37:15.075Z',
+ image: '/images/blog/article-tredicesima-avs-pensionati-italia.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
