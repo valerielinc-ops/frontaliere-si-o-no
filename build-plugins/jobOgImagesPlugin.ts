@@ -924,7 +924,7 @@ async function renderQueue(
         if (!job) return;
         if (budgetIsSpent()) return;
 
-        if (message.ok) {
+        if (!('error' in message)) {
           try {
             mkdirSync(path.dirname(job.cachePath), { recursive: true });
             writeFileAtomicallySync(job.cachePath, message.webp);

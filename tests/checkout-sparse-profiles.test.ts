@@ -443,6 +443,23 @@ describe('profili di sparse-checkout', () => {
     }
   }, TIMEOUT);
 
+  it('il prewarm OG include le slice job e i byte dei loghi usati nella cache', () => {
+    const file = path.join(WF_DIR, 'og-jobs-cache-prewarm.yml');
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const { text } = computeProfiledText(file, pkg.scripts);
+    const workflow = YAML.parse(text, { logLevel: 'silent' });
+    for (const [jobId, requiredPaths] of [
+      ['prepare', ['data/jobs/by-crawler/example.json', 'public/images/brands/example.webp']],
+      ['render', ['public/images/brands/example.webp']],
+    ] as const) {
+      const checkout = workflow.jobs[jobId].steps.find((step: any) => step.uses === 'actions/checkout@v7');
+      const sparse = checkout?.with?.['sparse-checkout'] ?? '/*';
+      for (const requiredPath of requiredPaths) {
+        expect(sparseIncludesPath(sparse, requiredPath), `${jobId}: ${requiredPath}`).toBe(true);
+      }
+    }
+  }, TIMEOUT);
+
   it('nessun workflow e in ritardo su cio che l analizzatore calcolerebbe oggi (issue #6249)', () => {
     // `verifyCheckoutProfiles()` sopra vieta solo di escludere PIU' del calcolato.
     // Non basta: un workflow appena aggiunto (o una libreria che ha smesso di

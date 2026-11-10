@@ -64,10 +64,10 @@ describe('job OG cache prewarm and deferred publication', () => {
     expect(prewarm).toContain(OG_CACHE_HASH_INPUTS);
     expect(deploy).toContain(OG_CACHE_HASH_INPUTS);
     expect(deploy).toContain('restore-keys: |\n            og-jobs-${{ runner.os }}-${{ steps.job_og_image_version.outputs.version }}-');
+    expect(prewarm).toContain('uses: ./.github/actions/assemble-jobs-cache-key');
+    expect(prewarm).toContain('path: .cache/assemble-jobs');
     expect(prewarm).toContain('node scripts/assemble-jobs-dataset.mjs --stats');
     expect(prewarm).toContain('node scripts/cleanup-jobs.mjs');
-    expect(prewarm).toContain('node scripts/mine-all-job-slugs.mjs');
-    expect(prewarm).toContain('node scripts/migrate-all-known-job-slugs-canton-aware.mjs');
     const saveJob = prewarm.slice(prewarm.indexOf('  save-cache:'));
     expect(saveJob).toContain("needs.render.result == 'skipped'");
     expect(saveJob).toContain("needs.prepare.result == 'success'");
