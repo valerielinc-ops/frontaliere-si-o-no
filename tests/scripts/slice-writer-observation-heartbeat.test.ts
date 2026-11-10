@@ -12,8 +12,9 @@
  * covered; this test drives the REAL writer the way those runners do.
  *
  * The writer runs in a child process on a temporary copy of its import closure
- * (same scheme as slice-writer-sibling-slices.test.ts); no tracked file is
- * touched.
+ * (same scheme as slice-writer-sibling-slices.test.ts). No crawler slice is
+ * read: the postings built below are the whole job input, and the slice is
+ * written and read inside the temporary directory. No tracked file is touched.
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { spawnSync } from 'node:child_process';
@@ -25,7 +26,6 @@ import { ASSEMBLE_AUX_DATA_INPUTS, listAssembleCodeClosure } from '../../scripts
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const SLICES = path.join('data', 'jobs', 'by-crawler');
 const DAY = 86_400_000;
 const daysAgo = (n: number) => new Date(Date.now() - n * DAY).toISOString();
 
@@ -69,11 +69,34 @@ function posting(n: number, overrides: Job = {}): Job {
   };
 }
 
-const sliceFile = (key: string) => path.join(tmpRoot, SLICES, `${key}.json`);
-const readSlice = (key: string) => JSON.parse(fs.readFileSync(sliceFile(key), 'utf8')).jobs as Job[];
+/**
+ * The slice the writer persisted, found by name under the temporary root. The
+ * test never names the writer's output directory itself: the writer owns that
+ * layout, and everything it writes stays inside `tmpRoot`.
+ */
+function sliceFiles(key: string): string[] {
+  const found: string[] = [];
+  const walk = (dir: string) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      // node_modules is a symlink to the repository's: never descend into it.
+      if (entry.name === 'node_modules' || entry.isSymbolicLink()) continue;
+      const abs = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(abs);
+      else if (entry.name === `${key}.json`) found.push(abs);
+    }
+  };
+  walk(tmpRoot);
+  return found;
+}
+
+function readSlice(key: string): Job[] {
+  const files = sliceFiles(key);
+  expect(files, `exactly one ${key}.json written`).toHaveLength(1);
+  return JSON.parse(fs.readFileSync(files[0], 'utf8')).jobs as Job[];
+}
 
 function runWriter(script: string[], fresh: Job[]) {
-  fs.rmSync(sliceFile('farmacia-osservata'), { force: true });
+  for (const file of sliceFiles('farmacia-osservata')) fs.rmSync(file, { force: true });
   fs.writeFileSync(path.join(tmpRoot, 'fresh.json'), JSON.stringify(fresh));
   fs.writeFileSync(path.join(tmpRoot, 'write-slice.mjs'), script.join('\n'));
   const env: Record<string, string> = {};
@@ -109,6 +132,9 @@ beforeAll(() => {
     fs.mkdirSync(path.dirname(dest), { recursive: true });
     fs.copyFileSync(abs, dest);
   }
+  // Static reference inputs only (postal codes, canton pins, registries): no
+  // crawler slice is copied, so the verdict cannot move when a crawler rewrites
+  // its slice. Without them the writer falls back to slow lookups.
   for (const rel of ASSEMBLE_AUX_DATA_INPUTS) {
     const src = path.join(REPO_ROOT, rel);
     if (!fs.existsSync(src)) continue;
@@ -117,7 +143,6 @@ beforeAll(() => {
     fs.mkdirSync(path.dirname(path.join(tmpRoot, rel)), { recursive: true });
     fs.cpSync(src, path.join(tmpRoot, rel), { recursive: true });
   }
-  fs.mkdirSync(path.join(tmpRoot, SLICES), { recursive: true });
   fs.symlinkSync(path.join(REPO_ROOT, 'node_modules'), path.join(tmpRoot, 'node_modules'), 'dir');
   fs.writeFileSync(path.join(tmpRoot, 'package.json'), JSON.stringify({ type: 'module' }));
 });
