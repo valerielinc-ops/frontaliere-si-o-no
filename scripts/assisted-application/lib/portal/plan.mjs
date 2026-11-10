@@ -132,7 +132,7 @@ const trimField = (field) => ({
   ...(field.privacyMetadataIncomplete === true ? { privacyMetadataIncomplete: true } : {}),
   ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
   ...(Object.hasOwn(field, 'addressContext') ? { addressContext: addressContextContract(field) } : {}),
-  required: Boolean(field.required),
+  required: effectiveRequired(field),
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
   // Whole lists: a country list has ~250 entries and Italien is past the 100th.
@@ -1203,6 +1203,12 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+/** A native contract's own requiredness wins over the generic flag (kept from #17844). */
+function effectiveRequired(field) {
+  const nativeRequired = field?.portalNativeContract?.required;
+  return typeof nativeRequired === 'boolean' ? nativeRequired : Boolean(field?.required);
+}
+
 function isCheckboxField(field) {
   return field?.kind === 'checkbox' || field?.inputType === 'checkbox' || field?.type === 'checkbox';
 }
@@ -1987,7 +1993,7 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!missing.some((other) => other.fieldId === withProvenance.fieldId)) missing.push(withProvenance);
   }
   const ask = (field, { force = false } = {}) => {
-    if ((field.required || force) && !missing.some((item) => item.fieldId === field.id)) {
+    if ((effectiveRequired(field) || force) && !missing.some((item) => item.fieldId === field.id)) {
       missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), ...(field.section ? { section: String(field.section).slice(0, 240) } : {}), ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => typeof option === 'string' ? option : option.label), required: true });
     }
   };
@@ -2096,7 +2102,7 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     // What the page holds after the action counts: a dropdown set to its
     // prompt ("Select One") or a required box unticked is still blank.
-    if ((action.action === 'select' && PLACEHOLDER.test(value)) || (action.action === 'uncheck' && field.required)) {
+    if ((action.action === 'select' && PLACEHOLDER.test(value)) || (action.action === 'uncheck' && effectiveRequired(field))) {
       ask(field);
       continue;
     }
@@ -2179,7 +2185,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const answer = candidateAnswerForField(candidate, field);
     const exactHistoricalPermitAnswer = isPermitField(field.label)
       && isPermitHistoricalQuestion(field.label) && Boolean(answer);
-    if ((!field.required && !exactHistoricalPermitAnswer) || answered.has(field.id)
+    if ((!effectiveRequired(field) && !exactHistoricalPermitAnswer) || answered.has(field.id)
       || (holdsValue(field) && !exactHistoricalPermitAnswer)
       || (rejectedActionFields.has(field.id) && !exactHistoricalPermitAnswer)) continue;
     if (!answer) continue;
@@ -2223,8 +2229,8 @@ export function guardPlan(plan, fields, candidate = null) {
     // question. Current permit status cannot confirm whether one was held in
     // the past; only a saved answer to this exact question can do that.
     if (!answered.has(field.id) && isPermitField(field.label)
-      && isPermitHistoricalQuestion(field.label) && !answer && (field.required || holdsValue(field))) {
-      ask(field, { force: !field.required });
+      && isPermitHistoricalQuestion(field.label) && !answer && (effectiveRequired(field) || holdsValue(field))) {
+      ask(field, { force: !effectiveRequired(field) });
       continue;
     }
     // The application's own consent is no question for the candidate: the
@@ -2237,7 +2243,7 @@ export function guardPlan(plan, fields, candidate = null) {
       answered.add(field.id);
       continue;
     }
-    if (!field.required || answered.has(field.id) || holdsAfterActions) continue;
+    if (!effectiveRequired(field) || answered.has(field.id) || holdsAfterActions) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));

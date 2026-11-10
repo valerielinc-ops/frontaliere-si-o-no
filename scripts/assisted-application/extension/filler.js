@@ -33,7 +33,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?(?:application|applying)\b|many thanks for (your )?(?:application|applying)\b|thanks for applying|application (has been )?(received|submitted|sent)|we have received your application\b|you have successfully applied|vielen dank für (ihre|deine) bewerbung|wir haben (ihre|deine) unterlagen erhalten|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (?:(?:la tua|la sua) candidatura\b|aver inviato (?:(?:la|la tua|la sua) )?candidatura\b|esserti candidat[oa]\b)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|abbiamo ricevuto (?:la )?(?:tua|sua|vostra) candidatura\b|(?:la|l['’])\s*(?:tua|sua|vostra) candidatura (?:è stata )?(?:correttamente )?(?:inoltrata|ricevuta|inviata)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers, isOptionalPurpose } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
@@ -1971,6 +1971,16 @@
       if (entry.nativeContractUnavailable === true) {
         failed.push(entry.label || entry.kind);
         missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        continue;
+      }
+      // A portal can ship an optional marketing, newsletter or talent-pool box already ticked. The owner's
+      // policy declines marketing (DECISIONS.md 2026-11-09): without the candidate's explicit «yes» it is
+      // unticked before the submit.
+      if (entry.kind === 'checkbox' && entry.element?.checked && !entry.required
+        && isOptionalPurpose((entry.labels || [entry.label]).filter(Boolean).join(' '))
+        && answerFor(entry, kit)?.check !== true) {
+        press(entry.element);
+        (entry.element.checked ? failed : filled).push(entry.label || entry.kind);
         continue;
       }
       if (!isEmpty(entry)) continue;

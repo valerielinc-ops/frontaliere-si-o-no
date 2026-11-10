@@ -38,7 +38,7 @@ import { addressContextContract } from './lib/addressContextContract.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
-import { asksHeldStatus, euEftaNational, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
 export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v1';
@@ -304,12 +304,12 @@ export function sanitizeCandidateFacts(value) {
   return { workPermit, passport, nationality };
 }
 
-/** The passport a candidate holds: their upload answer, else what their status or nationality implies. */
-export function passportOf({ passport = '', permitStatus = '', nationality = '' } = {}) {
-  if (CANDIDATE_PASSPORTS.includes(passport)) return passport;
-  if (permitStatus === 'swiss' || nationalityOf(nationality)?.group === 'ch') return 'swiss';
-  if (nationality && euEftaNational(nationality)) return 'eu_efta';
-  return nationality ? 'other' : '';
+/**
+ * The passport a candidate holds: only their answer at CV upload (owner decision 2026-11-09). A permit or a
+ * nationality is not a passport; without the upload answer it stays unknown and is asked.
+ */
+export function passportOf({ passport = '' } = {}) {
+  return CANDIDATE_PASSPORTS.includes(passport) ? passport : '';
 }
 
 /** Facts that need no candidate: dates, consents, availabilities. */

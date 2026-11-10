@@ -11,7 +11,7 @@
  *  1. every owner-decision row (DECISIONS.md + DECISIONS-ARCHIVE.md) is
  *     append-only: a row is never edited or deleted, only superseded by a new
  *     dated row, or moved verbatim to the archive;
- *  2. the decision of 2026-11-09 is active;
+ *  2. the decision of 2026-11-09 is active (restated by the row of 2026-11-10);
  *  3. the behaviour that decision requires.
  *
  * A failure here is not a stale test. Change it only on an explicit owner
@@ -44,10 +44,10 @@ describe('owner decisions are append-only', () => {
     expect(missing, `${PROTECTED} Righe modificate o cancellate: ${missing.length}.`).toEqual([]);
   });
 
-  it('keeps the assisted-application decision of 2026-11-09 active', () => {
-    const active = rowsOf('DECISIONS.md').find((row) => row.startsWith('| 2026-11-09 | Candidature assistite:'));
+  it('keeps the assisted-application decision active (2026-11-09, restored on 2026-11-10)', () => {
+    const active = rowsOf('DECISIONS.md').find((row) => row.startsWith('| 2026-11-10 | Candidature assistite:'));
     expect(active, PROTECTED).toContain('functions/src/assistedApplicationPlatformDefaults.js');
-    expect(active, PROTECTED).toContain('riconfermata 10-11');
+    expect(active, PROTECTED).toContain('supera la riga 09-11');
   });
 });
 

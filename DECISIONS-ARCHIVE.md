@@ -11,3 +11,6 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-08-13 | Quattro scelte LPD registrate | #5764 (commenti 13-08) — issue chiusa, riga spostata il 2026-10-05 |
 | 2026-08-24 | #6173 (verticale farmacie svizzere): **SÌ, procedi** | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
 | 2026-08-24 | #6227 (bande salariali stimate): **opzione A** — scrivere `salarySource`, far comparire l'etichetta "(stima)" dove il codice già la prevede, dato sempre incluso in `baseSalary` per Google — **+ fix del mapping settore IT→EN** (bug indipendente dalla decisione: 70,1% degli annunci ripiega su Logistics per mancata traduzione delle categorie) | istruzione diretta, sessione 24-08 — issue chiusa, riga spostata il 2026-10-05 |
+| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-09-28 | #7972: **opzione B** — il confronto/tuning del costo di traduzione si dichiara pronto solo dopo 5 finestre consecutive con schema corrente, `starved=false` e rapporto `windowMs` max/min ≤1,2; le finestre legacy, incomplete o fuori budget restano evidenza ma spezzano la sequenza | decisione autonoma secondo VISION D1/D2/D5, sweep 28-09 |
