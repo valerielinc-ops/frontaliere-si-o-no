@@ -66,6 +66,11 @@ describe('experience and skill questions (SBB ifB89NW2)', () => {
     const quote = 'Betrieb von PostgreSQL-Datenbanken und Kubernetes-Clustern in der Public Cloud (Azure).';
     expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'cv_fact', evidence: [quote], reason: 'The CV shows it.' }, { question, cvText: CV }))
       .toMatchObject({ ok: true, value: 'Ja', principle: 'cv_fact', evidence: [quote] });
+    // A word found only inside another word of the CV is no quote of it: «SQL» in «NoSQL» (review of #17997).
+    const sql = { ...live('sql', 'Do you have experience with SQL?'), source: 'portal' };
+    const sqlDecision = verifyDecision({ decision: 'answer', value: 'Ja', principle: 'cv_fact', evidence: ['SQL'], reason: '' }, { question: sql, cvText: 'Datenhaltung mit NoSQL-Stores.' });
+    expect(sqlDecision.principle).not.toBe('cv_fact');
+    expect(sqlDecision.evidence || []).toEqual([]);
     // A quote the CV does not hold, or one that names nothing asked, is no evidence: the yes is a deduction.
     for (const evidence of [['Betrieb von Oracle-Datenbanken in der Public Cloud.'], ['Gestione del backlog per la piattaforma clienti']]) {
       expect(verifyDecision({ decision: 'answer', value: 'Ja', principle: 'cv_fact', evidence, reason: '' }, { question, cvText: CV }))
@@ -213,6 +218,12 @@ describe('the criminal record and the debt-enforcement register (owner decision 
     ]) expect(platformDefaultAnswer(choice(question), none)).toBeNull();
     // Not a yes/no: a free text field stays with the candidate.
     expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'text', question: 'Strafregister' }, none)).toBeNull();
+    // A request for proof, or a question asked in the negative, is never answered from the upload facts
+    // (review of #17997): a yes there would invert the candidate's declaration.
+    const record = factsOf({ ...UPLOAD, criminalRecord: 'yes', debtRecord: 'no' });
+    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Do you have proof of a criminal record?' }, record, { locale: 'en' })).toBeNull();
+    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Sind Sie ohne Einträge im Strafregister?' }, none)).toBeNull();
+    expect(platformDefaultAnswer(choice('Können Sie einen Nachweis über Ihren Strafregistereintrag erbringen?'), none)).toBeNull();
   });
 
   it('stores the two answers validated, and keeps the orders that predate them valid', () => {

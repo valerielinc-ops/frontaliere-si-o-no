@@ -199,10 +199,24 @@ function pertinentTo(question, quote) {
  * The quotes of the model that stand: verbatim in the CV (the comparison of assistedApplicationCvAnswers.js) and
  * pertinent to the question; for a certification, naming a certification too.
  */
+// The quote stands in the CV as a phrase of its own: «SQL» inside «NoSQL» is not the CV saying SQL.
+const WORD_CHAR = /[\p{L}\p{N}\p{M}]/u;
+function containsPhrase(text, phrase) {
+  if (!phrase) return false;
+  for (let at = text.indexOf(phrase); at >= 0; at = text.indexOf(phrase, at + 1)) {
+    const before = at > 0 ? text[at - 1] : '';
+    const after = text[at + phrase.length] || '';
+    const openOk = !WORD_CHAR.test(phrase[0]) || !before || !WORD_CHAR.test(before);
+    const closeOk = !WORD_CHAR.test(phrase[phrase.length - 1]) || !after || !WORD_CHAR.test(after);
+    if (openOk && closeOk) return true;
+  }
+  return false;
+}
+
 function verifiedEvidence(question, evidence, cvText, kind) {
   const cv = evidenceText(cvText);
   if (!cv) return [];
-  return evidence.filter((quote) => cv.includes(evidenceText(quote)) && pertinentTo(question, quote)
+  return evidence.filter((quote) => containsPhrase(cv, evidenceText(quote)) && pertinentTo(question, quote)
     && (kind !== 'certification' || QUALIFICATION_WORDS.test(fold(quote)) || DEGREE_WORDS.test(fold(quote))));
 }
 
