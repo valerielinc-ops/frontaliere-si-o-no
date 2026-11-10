@@ -365,7 +365,7 @@ export function installHouseAds(
     if (records.every(r => (r.target as Element).closest?.('[data-ft-house-host]'))) return;
     schedule();
   });
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-anchor-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   window.addEventListener('frontaliere:auth-state', (event) => {
     const state = (event as CustomEvent).detail;
