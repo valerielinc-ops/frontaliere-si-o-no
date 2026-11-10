@@ -123,6 +123,89 @@ describe('crawler detail in PDF format', () => {
     }
   });
 
+  it('preserves the approved application URL when Jina rescues a blocked PDF', async () => {
+    const fetchImpl = vi.fn(async (url: string) => (
+      url.endsWith('/robots.txt')
+        ? response(url, 200, 'User-agent: *\nAllow: /')
+        : response(url, 403, 'Just a moment…')
+    ));
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      `<html><body><a href="${FORM_URL}">Candidatura</a><p>${PDF_TEXT}</p></body></html>`,
+    ));
+    const policy = createSpecUrlPolicy({ seedUrls: [SPEC.seedUrls[0]] }, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      const page = await fetchRuntimePage(PDF_URL, policy, {
+        fetchImpl,
+        jinaFetchImpl,
+        retries: 0,
+        jinaRetries: 0,
+        hostDelayMs: 0,
+        sleepImpl: async () => {},
+      }, {
+        readPdf: true,
+        detailLocationLabel: SPEC.detailLocationLabel,
+        detailTitleLeadIn: SPEC.detailTitleLeadIn,
+        detailTitleEndLabel: SPEC.detailTitleEndLabel,
+        detailApplyUrlHost: SPEC.detailApplyUrlHost,
+        detailApplyUrlPathPrefix: SPEC.detailApplyUrlPathPrefix,
+      });
+
+      expect(page.proxiedBy).toBe('jina');
+      const detail = extractRuntimeDetailFields(SPEC, page.body, page.url, {
+        recordUrl: PDF_URL,
+        recordTitle: 'Scarica il bando completo',
+      });
+      expect(detail.applyUrl).toBe(FORM_URL);
+    } finally {
+      await policy.dispatcher.close();
+    }
+  });
+
+  it('preserves a verified row application URL when browser rescue has no link', async () => {
+    const fetchImpl = vi.fn(async (url: string) => (
+      url.endsWith('/robots.txt')
+        ? response(url, 200, 'User-agent: *\nAllow: /')
+        : response(url, 403, 'Just a moment…')
+    ));
+    const browserFetchImpl = vi.fn(async () => `<html><body><p>${PDF_TEXT}</p></body></html>`);
+    const policy = createSpecUrlPolicy({ seedUrls: [SPEC.seedUrls[0]] }, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      const page = await fetchRuntimePage(PDF_URL, policy, {
+        fetchImpl,
+        browserFetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        hostDelayMs: 0,
+        sleepImpl: async () => {},
+      }, {
+        readPdf: true,
+        detailLocationLabel: SPEC.detailLocationLabel,
+        detailTitleLeadIn: SPEC.detailTitleLeadIn,
+        detailTitleEndLabel: SPEC.detailTitleEndLabel,
+        detailApplyUrlHost: SPEC.detailApplyUrlHost,
+        detailApplyUrlPathPrefix: SPEC.detailApplyUrlPathPrefix,
+        detailApplyUrl: FORM_URL,
+      });
+
+      expect(page.proxiedBy).toBe('browser');
+      const detail = extractRuntimeDetailFields(SPEC, page.body, page.url, {
+        recordUrl: PDF_URL,
+        recordTitle: 'Scarica il bando completo',
+      });
+      expect(detail.applyUrl).toBe(FORM_URL);
+    } finally {
+      await policy.dispatcher.close();
+    }
+  });
+
   it('uses the browser fallback for the blocked listing, then publishes the PDF title and workplace', async () => {
     extractPdfJobContentFromUrl.mockResolvedValue({ text: PDF_TEXT, links: [FORM_URL] });
     const fetchImpl = vi.fn(async (url: string) => {

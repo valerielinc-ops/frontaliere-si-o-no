@@ -153,6 +153,21 @@ function pdfApplyUrlFromAnnotations(links, allowedHost, allowedPathPrefix) {
   return '';
 }
 
+function pdfApplyUrlFromText(text, allowedHost, allowedPathPrefix, fallbackUrl = '') {
+  const source = String(text || '');
+  const links = [];
+  for (const match of source.matchAll(/<a\b[^>]*>/giu)) {
+    const href = readAttr(match[0], 'href');
+    if (href) links.push(href);
+  }
+  for (const match of source.matchAll(/\]\((https:\/\/[^)\s]+)\)/giu)) links.push(match[1]);
+  for (const match of source.matchAll(/https:\/\/[^\s<>"'()[\]]+/giu)) {
+    links.push(match[0].replace(/[),.;!?]+$/u, ''));
+  }
+  links.push(fallbackUrl);
+  return pdfApplyUrlFromAnnotations(links, allowedHost, allowedPathPrefix);
+}
+
 function pdfTextAsHtml(text, locationLabel = '', titleLeadIn = '', titleEndLabel = '', applyUrl = '') {
   const paragraphs = String(text || '').split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
   const escapeHtml = (value) => value.replace(/[&<>]/g, (character) => ({
@@ -174,7 +189,7 @@ function pdfTextAsHtml(text, locationLabel = '', titleLeadIn = '', titleEndLabel
   )).join('')}</main></body></html>`;
 }
 
-async function parsePdfResponseBody(url, body, result, runtime, locationLabel = '', titleLeadIn = '', titleEndLabel = '', applyUrlHost = '', applyUrlPathPrefix = '') {
+async function parsePdfResponseBody(url, body, result, runtime, locationLabel = '', titleLeadIn = '', titleEndLabel = '', applyUrlHost = '', applyUrlPathPrefix = '', fallbackApplyUrl = '') {
   const bytes = Buffer.from(String(body).slice(PDF_BODY_PREFIX.length), 'base64');
   if (bytes.length > MAX_SPEC_PDF_BYTES) {
     throw Object.assign(new Error(`PDF detail exceeds ${MAX_SPEC_PDF_BYTES} bytes`), {
@@ -200,7 +215,11 @@ async function parsePdfResponseBody(url, body, result, runtime, locationLabel = 
       retryable: false,
     });
   }
-  const applyUrl = pdfApplyUrlFromAnnotations(extracted.links, applyUrlHost, applyUrlPathPrefix);
+  const applyUrl = pdfApplyUrlFromAnnotations(
+    [...(Array.isArray(extracted.links) ? extracted.links : []), fallbackApplyUrl],
+    applyUrlHost,
+    applyUrlPathPrefix,
+  );
   return {
     ...result,
     body: pdfTextAsHtml(extracted.text, locationLabel, titleLeadIn, titleEndLabel, applyUrl),
@@ -694,7 +713,7 @@ async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
  * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
  *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean, readPdf?: boolean,
  *   detailLocationLabel?: string, detailTitleLeadIn?: string, detailTitleEndLabel?: string,
- *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string }} [request]
+ *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string, detailApplyUrl?: string }} [request]
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   const notifyPageFetched = (page) => {
@@ -735,6 +754,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
       request.detailTitleEndLabel,
       request.detailApplyUrlHost,
       request.detailApplyUrlPathPrefix,
+      request.detailApplyUrl,
     ));
   }
   let wafProxyExhausted = false;
@@ -780,6 +800,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
       sleepImpl: runtime.jinaSleepImpl,
     });
     if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
+      const applyUrl = request.readPdf === true
+        ? pdfApplyUrlFromText(
+          proxiedBody,
+          request.detailApplyUrlHost,
+          request.detailApplyUrlPathPrefix,
+          request.detailApplyUrl,
+        )
+        : '';
       return notifyPageFetched({
         ...result,
         ok: true,
@@ -791,6 +819,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
             request.detailLocationLabel,
             request.detailTitleLeadIn,
             request.detailTitleEndLabel,
+            applyUrl,
           )
           : proxiedBody,
         proxiedBy: 'jina',
@@ -815,6 +844,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
     && request.allowJinaProxy !== false) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
+      const applyUrl = request.readPdf === true
+        ? pdfApplyUrlFromText(
+          browserBody,
+          request.detailApplyUrlHost,
+          request.detailApplyUrlPathPrefix,
+          request.detailApplyUrl,
+        )
+        : '';
       return notifyPageFetched({
         ...result,
         ok: true,
@@ -826,6 +863,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
             request.detailLocationLabel,
             request.detailTitleLeadIn,
             request.detailTitleEndLabel,
+            applyUrl,
           )
           : browserBody,
         proxiedBy: 'browser',
@@ -2827,6 +2865,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
               detailApplyUrlPathPrefix: spec.detailApplyUrlPathPrefix,
+              detailApplyUrl: row.applyUrl,
             });
           } catch (error) {
             // Stessa regola di retry del validatore — see detail-extract.mjs.
@@ -2839,6 +2878,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
               detailApplyUrlPathPrefix: spec.detailApplyUrlPathPrefix,
+              detailApplyUrl: row.applyUrl,
             });
           }
           // Same extractor the validator grades with — see detail-extract.mjs.
