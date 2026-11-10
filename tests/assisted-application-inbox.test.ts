@@ -415,7 +415,7 @@ describe('employer messages on the alias', () => {
     // candidate does not receive it (owner instruction 2026-11-10).
     const sole = await setupInbound();
     await sole.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
-      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null } });
+      .set({ jobs_other_portal_com: { host: 'jobs.other-portal.com', passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 500 } });
     const sendSole = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({ store: sole.store, alias: sole.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendSole, classify: verification('', '482913') });
     const [claimed] = sole.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => sole.store.read(path)!);

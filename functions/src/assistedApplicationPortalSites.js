@@ -81,7 +81,12 @@ export function pendingAccountForCode(accounts, senderHost, { receivedAt } = {})
     .filter((entry) => !(Number.isFinite(at) && Number(entry.createdAt) > at));
   const named = waiting.filter((entry) => registrable(entry.host) === registrable(sender));
   if (named.length === 1) return named[0];
-  return named.length === 0 && waiting.length === 1 ? waiting[0] : null;
+  if (named.length > 0 || waiting.length !== 1) return null;
+  // The sole account is bound only when it provably existed before the message
+  // (the runner stamps createdAt when it stores the credential).
+  const [sole] = waiting;
+  const createdAt = Number(sole.createdAt);
+  return Number.isFinite(at) && Number.isFinite(createdAt) && createdAt <= at ? sole : null;
 }
 
 /** A verification link on the portal's own site (or its ATS family), over https. */

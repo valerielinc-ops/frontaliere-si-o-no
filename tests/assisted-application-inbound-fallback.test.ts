@@ -10,6 +10,7 @@ const { ensureOrderAlias } = await import('../functions/src/assistedApplicationA
 const { buildForward, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound, runAssistedApplicationInboundForwardSweep } = await import('../functions/src/assistedApplicationInbound.js');
 const { hostKey, portalAccountStore } = await import('../scripts/assisted-application/lib/portal/account.mjs');
 const { employerResponseOf, employerResponseView } = await import('../functions/src/assistedApplicationEmployerResponse.js');
+const { pendingAccountForCode } = await import('../functions/src/assistedApplicationPortalSites.js');
 
 const ORDER = 'order_FALLBACK1';
 const ORDER_PATH = `assisted_applications/${ORDER}`;
@@ -343,10 +344,20 @@ describe('fallback with the model unavailable, through the real handler', () => 
     const text = 'Guten Tag\n\nDer Code für die Verifizierung Ihres Bewerbungskontos lautet 793151.\n\nBitte geben Sie diesen Code auf der Login-Seite ein. Er ist während 10 Minuten gültig.';
 
     it('reaches the runner of the sole waiting account, not the candidate', async () => {
-      const { store, alias } = await setup('de', 'career74.sapsf.eu');
+      const { store, alias } = await setup('de');
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+        .set({ portal: { host: 'career74.sapsf.eu', passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 500 } });
       const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw: federal(text) });
       expect(inbox).toMatchObject({ category: 'verification', verificationCode: '793151', portalVerificationHost: 'career74.sapsf.eu', forwarded: { status: 'skipped', reason: 'portal_verification' } });
       expect(sendCascade).not.toHaveBeenCalled();
+    });
+
+    it('binds the sole waiting account only when it provably existed before the message', () => {
+      const account = (createdAt: unknown) => ({ a: { host: 'portal.example', passwordEnc: {}, verifiedAt: null, createdAt } });
+      expect(pendingAccountForCode(account('unknown'), 'employer.example', { receivedAt: 1000 })).toBeNull();
+      expect(pendingAccountForCode(account(undefined), 'employer.example', { receivedAt: 1000 })).toBeNull();
+      expect(pendingAccountForCode(account(500), 'employer.example', { receivedAt: 'later' })).toBeNull();
+      expect(pendingAccountForCode(account(500), 'employer.example', { receivedAt: 1000 })?.host).toBe('portal.example');
     });
 
     it('stays with the candidate when two unrelated accounts wait, or the account came after the message', async () => {
