@@ -826,15 +826,18 @@ function fetchHttpsText(url, {
   ca,
   accept,
   retryOn404 = true,
+  cache,
   redirectsRemaining = 4,
 } = {}) {
   return new Promise((resolve, reject) => {
+    const headers = {
+      Accept: accept || 'text/html,application/xhtml+xml',
+      'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+      ...(cache === 'no-store' ? { 'Cache-Control': 'no-cache', Pragma: 'no-cache' } : {}),
+    };
     const request = https.request(url, {
       method: 'GET',
-      headers: {
-        Accept: accept || 'text/html,application/xhtml+xml',
-        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-      },
+      headers,
       ca: [...tls.rootCertificates, ca].join('\n'),
     }, (response) => {
       const chunks = [];
@@ -850,6 +853,7 @@ function fetchHttpsText(url, {
             ca,
             accept,
             retryOn404,
+            cache,
             redirectsRemaining: redirectsRemaining - 1,
           }));
           return;
@@ -894,15 +898,17 @@ export async function fetchHtml(url, {
         // Keep custom-CA requests inside this retry loop. FR's SwissSign
         // certificate path uses `https.request`; returning it directly here
         // used to make one transient TLS timeout degrade the whole source.
-        return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
+        return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404, cache });
       }
+      const headers = {
+        Accept: accept || 'text/html,application/xhtml+xml',
+        'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
+        ...(cache === 'no-store' ? { 'Cache-Control': 'no-cache', Pragma: 'no-cache' } : {}),
+      };
       const response = await fetch(url, {
         redirect: 'follow',
         ...(cache ? { cache } : {}),
-        headers: {
-          Accept: accept || 'text/html,application/xhtml+xml',
-          'User-Agent': userAgent || process.env.JOBS_CRAWLER_USER_AGENT || 'FrontaliereTicinoBot/1.0',
-        },
+        headers,
         signal: controller.signal,
       });
       if (!response.ok) {
