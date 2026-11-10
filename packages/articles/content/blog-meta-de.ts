@@ -13695,6 +13695,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contro-aumento-iva-pesa-meno.title': 'Mehrwertsteuererhöhung: Steuer lastet stärker auf Geringverdiener',
     'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'Die Position der Kommunistischen Partei stellt die Auszahlung der 13. Rente nicht in Frage.',
     'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.tredicesima-avs-pensionati-italia.title': '13. AVS für italienische Rentner ab Dezember 2026',
+    'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'Ein Rentner, der Grenzgänger war, im schweizerischen Vorsorgesystem eingeschrieben ist und eine volle AHV-Rente von 2’520 Franken pro Monat bezieht, erhält den gleichen Betrag als 13. Monatslohn.',
+    'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

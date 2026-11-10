@@ -114537,6 +114537,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tredicesima-avs-pensionati-italia': {
+    title: '13esima AVS per pensionati italiani da dicembre 2026',
+    description: 'I 225\'316 beneficiari AVS residenti in Italia riceveranno la tredicesima mensilità AVS da dicembre 2026, con un flusso annuo oltre 1,7 miliardi di franchi.',
+    keywords: 'AVS 13esima, pensionati Italia, frontaliere svizzera, rendita AVS, dicembre 2026, UFAS',
+    ogTitle: '13esima AVS pensionati italiani da dicembre 2026',
+    ogDescription: 'I 225\'316 beneficiari AVS residenti in Italia riceveranno la tredicesima mensilità AVS da dicembre 2026. Il flusso annuo supererà 1,7 miliardi di franchi, come confermato dall\'UFAS.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-pensionati-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "13esima AVS per pensionati italiani da dicembre 2026",
+      "description": "I 225'316 beneficiari AVS residenti in Italia riceveranno la tredicesima mensilità AVS da dicembre 2026, con un flusso annuo oltre 1,7 miliardi di franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tredicesima-avs-pensionati-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-09T23:37:16+00:00",
+      "dateModified": "2026-11-09T23:37:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-pensionati-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
