@@ -1768,6 +1768,83 @@ jobs:
           ' | HISTORY_LABEL=build-history \
               bash scripts/lib/append-build-history-row.sh
 
+      # Read-only follow-up for PR #17670: the first comparable post-merge
+      # deploy must expose the full-corpus memory/duration result instead of
+      # leaving the archive-sweep optimization with only a prose revert plan.
+      # The fixed reference is the pre-change peak anon baseline from run
+      # 42466783158 (20.002 MB). This observer never changes the memory gate or
+      # the publish path; missing outputs stay explicitly non-comparable.
+      - name: Observe expired archive memory delta
+        id: expired_archive_memory_delta
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          EXPIRED_ARCHIVE_BASELINE_PEAK_ANON_MB: '20002'
+          EXPIRED_ARCHIVE_BREACH: ${{ steps.memguard.outputs.breach }}
+          EXPIRED_ARCHIVE_PEAK_ANON_MB: ${{ steps.memguard.outputs.peak_anon_mb }}
+          EXPIRED_ARCHIVE_PEAK_RSS_MB: ${{ steps.memguard.outputs.peak_rss_mb }}
+          EXPIRED_ARCHIVE_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const numericMetric = (value) => {
+            const text = String(value ?? '').trim();
+            return /^\d+$/.test(text) ? Number(text) : null;
+          };
+
+          const markdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
+
+          function expiredArchiveMemoryDeltaObserved() {
+            const baseline = numericMetric(process.env.EXPIRED_ARCHIVE_BASELINE_PEAK_ANON_MB);
+            const anon = numericMetric(process.env.EXPIRED_ARCHIVE_PEAK_ANON_MB);
+            const rss = numericMetric(process.env.EXPIRED_ARCHIVE_PEAK_RSS_MB);
+            const wall = numericMetric(process.env.EXPIRED_ARCHIVE_WALL_SECONDS);
+            const breach = String(process.env.EXPIRED_ARCHIVE_BREACH ?? '').trim();
+            let anonDelta = null;
+            let revertTrigger = 'not-comparable: complete post-merge measurement unavailable';
+
+            if (anon !== null && baseline !== null) {
+              anonDelta = anon - baseline;
+              if (breach) {
+                revertTrigger = `revert: dynamic memory threshold breached (${breach})`;
+              } else if (anon >= baseline) {
+                revertTrigger = 'revert: peak_anon_mb did not fall below 20.002 MB baseline';
+              } else {
+                revertTrigger = 'not-triggered: peak_anon_mb fell below 20.002 MB baseline';
+              }
+            } else if (breach) {
+              revertTrigger = `revert: dynamic memory threshold breached (${breach}); anon peak unavailable`;
+            }
+
+            const summary = [
+              '### Expired archive memory delta (advisory)',
+              '',
+              'The first complete post-merge deploy on the same corpus is the comparison point for PR #17670.',
+              '',
+              '| metric | observed | reference | delta |',
+              '| --- | ---: | ---: | ---: |',
+              `| peak_anon_mb | \`${markdownCell(anon)}\` | \`${markdownCell(baseline)}\` (20.002 MB) | \`${markdownCell(anonDelta)}\` |`,
+              `| peak_rss_mb | \`${markdownCell(rss)}\` | no fixed pre-merge value | n/a |`,
+              `| wall_seconds | \`${markdownCell(wall)}\` | no fixed pre-merge value | n/a |`,
+              `| dynamic threshold breach | \`${markdownCell(breach || 'none')}\` | empty | n/a |`,
+              `| revert trigger | \`${markdownCell(revertTrigger)}\` | see PR #17670 | n/a |`,
+              '',
+            ].join('\n');
+
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            if (summaryPath) fs.appendFileSync(summaryPath, summary);
+            else process.stdout.write(summary);
+            console.log(
+              `[expired-archive-memory] peak_anon_mb=${anon ?? 'unknown'} peak_rss_mb=${rss ?? 'unknown'} ` +
+              `wall_seconds=${wall ?? 'unknown'} delta_anon_mb=${anonDelta ?? 'unknown'} trigger=${revertTrigger}`,
+            );
+          }
+
+          expiredArchiveMemoryDeltaObserved();
+          NODE
+
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
       # Push each oversized job-board section (ticino/svizzera/zurigo) to its
       # OWN per-locale Pages repo (frontaliere-<section>-it, several GB each)
