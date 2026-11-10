@@ -1324,8 +1324,15 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
 // closed for generic buttons on listings and for neighbouring roles.
 const GENERIC_APPLICATION_ENTRY_RE = /^(?:clicca(?:ndo)?\s+qui|click\s+here|cliquez?\s+ici|hier\s+klicken|hier\s+bewerben|apply\s+here|candidarsi\s+qui|fare\s+clic\s+qui)$/iu;
 
-// Social sign-in entries hand the application to a third-party account.
-const SOCIAL_APPLICATION_ENTRY_RE = /\b(?:linked\s?in|xing|indeed|facebook|google|apple|seek)\b/iu;
+// Social sign-in entries hand the application to a third-party account. A
+// brand name alone is not one («Apply to Google» is a posting at Google):
+// the label must say the entry goes *through* the provider («Apply with
+// LinkedIn», «Bewerbung mit LinkedIn starten», «Sign in with Google»), or the
+// control's own id must name the provider as its sign-in option (Career Site
+// Builder: `applyOption-top-linkedin`).
+const SOCIAL_PROVIDER = String.raw`(?:linked\s?in|xing|indeed|facebook|google|apple|seek)`;
+const SOCIAL_APPLICATION_LABEL_RE = new RegExp(String.raw`\b(?:with|using|via|through|mit|über|ueber|con|tramite|avec|par)\s+(?:(?:your|my|ihrem|deinem|il\s+tuo|votre)\s+)?${SOCIAL_PROVIDER}\b`, 'iu');
+const SOCIAL_APPLICATION_ID_RE = new RegExp(String.raw`(?:^|[-_])(?:apply|sign[-_]?in|login|social)?[-_]?option[-_](?:[a-z]+[-_])?${SOCIAL_PROVIDER}$|(?:^|[-_])(?:apply|sign[-_]?in|login)[-_](?:with[-_])?${SOCIAL_PROVIDER}$`, 'iu');
 
 function applicationEntryLabel(control) {
   return String(control?.text || control?.label || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
@@ -1333,7 +1340,8 @@ function applicationEntryLabel(control) {
 
 function socialApplicationEntry(control) {
   return [control?.text, control?.label, control?.ariaLabel, control?.title]
-    .some((value) => SOCIAL_APPLICATION_ENTRY_RE.test(String(value || '')));
+    .some((value) => SOCIAL_APPLICATION_LABEL_RE.test(String(value || '').replace(/\s+/g, ' ')))
+    || SOCIAL_APPLICATION_ID_RE.test(String(control?.domId || ''));
 }
 
 function genericApplicationEntryLabel(value) {

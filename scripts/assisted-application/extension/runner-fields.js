@@ -205,12 +205,17 @@ function nativeQuestionText(value, counter = null) {
       element.innerText, element.textContent, element.getAttribute('aria-label'), element.getAttribute('title'),
     ].some(value => COOKIE_MANAGE_CONSENT_RE.test(String(value || '').replace(/\s+/g, ' ').trim()));
     for (let node = element.parentElement; node; node = node.parentElement) {
-      // `role="banner"` is the ARIA landmark of the site header, not a cookie
-      // banner: SBB's SuccessFactors header carries it around a persistent
+      // `role="banner"` is also the ARIA landmark of the site header: SBB's
+      // SuccessFactors header carries it around a persistent
       // «Cookie-Einstellungen» link that outlives every consent choice. The
-      // node's own id, class and label still prove a real banner surface.
+      // bare role still marks a banner surface, except on that persistent
+      // header (a <header>, a node named `header`, or one holding the site
+      // navigation). The node's id, class and label prove a banner either way.
       const role = String(node.getAttribute('role') || '').trim();
-      const marker = [node.id, node.className, /^banner$/i.test(role) ? '' : role, node.getAttribute('aria-label')]
+      const persistentHeaderLandmark = /^banner$/i.test(role) && (node.matches('header')
+        || /(?:^|[\s_-])header(?:$|[\s_-])/i.test(`${node.id} ${typeof node.className === 'string' ? node.className : ''}`)
+        || Boolean(node.querySelector('nav, [role="navigation"], [role="menubar"]')));
+      const marker = [node.id, node.className, persistentHeaderLandmark ? '' : role, node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (manageConsent && COOKIE_MANAGER_SURFACE_RE.test(marker)) {
         return node.matches(DIALOG_SELECTOR) ? 'dialog' : 'banner';
@@ -1242,6 +1247,9 @@ function nativeQuestionText(value, counter = null) {
   // keep a menu item only while the toggle owning its menu reports itself
   // expanded, so closed menus and navigation menubars stay out of the snapshot.
   const DISCLOSURE_TOGGLE = '[aria-haspopup="true"], [aria-haspopup="menu"], [data-toggle="dropdown"], [data-bs-toggle="dropdown"]';
+  // Share of the 60-control snapshot budget that opened menu items may use.
+  const MENU_ITEM_BUDGET = 20;
+  let menuItemsKept = 0;
   const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
   const openedMenuItem = (element) => {
     if (element.getAttribute('role') !== 'menuitem') return false;
@@ -1373,6 +1381,10 @@ function nativeQuestionText(value, counter = null) {
       ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
+    // An opened menu may list dozens of items. They share the 60-control
+    // budget with the page's own actions, so they get at most a fixed share
+    // of it: a long menu can never push the posting's Apply out of the snapshot.
+    .filter((button) => !button.menuItem || (menuItemsKept += 1) <= MENU_ITEM_BUDGET)
     .slice(0, 60);
   // Bind every field and action to its actual owner, so a site-search field
   // cannot turn a nearby Apply link into the application's final form.

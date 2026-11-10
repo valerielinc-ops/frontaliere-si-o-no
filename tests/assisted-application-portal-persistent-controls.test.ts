@@ -223,3 +223,42 @@ describe('Career Site Builder Apply dropdown (Helsana, s2Tbwwjd)', () => {
     expect(entries.some((control: any) => /linkedin/i.test(control.text))).toBe(false);
   });
 });
+
+describe('review round 2 (#17902)', () => {
+  it('keeps a cookie banner identified only by role="banner", but not the persistent site header', () => {
+    const { read } = domPage('<div role="banner"><button type="button">Cookie-Einstellungen</button></div>', 'https://jobs.example/apply');
+    expect(read().buttons.find((button: any) => button.text === 'Cookie-Einstellungen')).toMatchObject({ cookieSurface: 'banner', chrome: true });
+
+    const header = domPage('<header role="banner"><button type="button">Cookie-Einstellungen</button></header>', 'https://jobs.example/apply');
+    const opener = header.read().buttons.find((button: any) => button.text === 'Cookie-Einstellungen');
+    expect(opener).toMatchObject({ chrome: true });
+    expect(opener).not.toHaveProperty('cookieSurface');
+  });
+
+  it('returns an own menu item that merely names a brand, and still excludes the social sign-in', async () => {
+    const html = posting()
+      .replace(/id="applyOption-(top|bottom)-manual" class="networkContainer applyOption socialbutton-link">Jetzt bewerben</g,
+        'id="applyOption-$1-own" class="networkContainer applyOption socialbutton-link">Apply to Google<');
+    const { page, read } = domPage(html, postingUrl, openMenu);
+    await page.locator('#toggle-top').first().click();
+    const entries = applicationEntryControls(read(), entryContext);
+    expect(entries).toEqual([expect.objectContaining({ text: 'Apply to Google', menuItem: true })]);
+    expect(entries.some((control: any) => control.text === 'Apply with LinkedIn')).toBe(false);
+  });
+
+  it('keeps the posting Apply button in the snapshot after 60 opened menu items', () => {
+    const items = Array.from({ length: 60 }, (_, index) => `<li role="none"><a role="menuitem" href="/topic/${index}">Thema ${index}</a></li>`).join('');
+    const html = `<main><section>
+      <div class="dropdown"><button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Themen</button>
+        <ul class="dropdown-menu">${items}</ul></div>
+      <h1>${role}</h1>
+      <button id="apply" type="button">Jetzt bewerben</button>
+    </section></main>`;
+    const { read } = domPage(html, postingUrl);
+    const snapshot = read();
+    expect(snapshot.buttons.filter((button: any) => button.menuItem === true).length).toBeLessThan(60);
+    const apply = snapshot.buttons.find((button: any) => button.domId === 'apply');
+    expect(apply).toBeDefined();
+    expect(applicationEntryControls(snapshot, { ...entryContext, job: { title: role } })).toEqual([apply]);
+  });
+});
