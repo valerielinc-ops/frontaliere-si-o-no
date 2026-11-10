@@ -242,6 +242,11 @@ const sourceTreeLintTests = new Map([
   // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
   // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
   ['tests/r2-calls-bounded.test.ts', /^scripts\/(?:lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh|ci\/check-house-ad-images\.mjs)$/],
+  // These guards read workflow and R2-manifest files from disk rather than
+  // importing them, so keep their runtime dependencies in the related graph.
+  ['tests/deploy-cdn-ordering-gate.test.ts', /^(?:\.github\/workflows\/deploy\.yml|scripts\/lib\/deploy-it-pages-prep\.sh)$/],
+  ['tests/job-og-cache-prewarm.test.ts', /^(?:\.github\/workflows\/(?:deploy|og-jobs-cache-prewarm|deploy-publish)\.yml|scripts\/ci\/prepare-r2-og-delta\.mjs|scripts\/lib\/push-section-shard\.sh)$/],
+  ['tests/r2-og-manifest-carry.test.ts', /^\.github\/workflows\/deploy\.yml$/],
   ['tests/house-ad-image-publish.test.ts', /^(?:services\/(?:cdnImageBase|houseAdCreative)\.ts|scripts\/(?:lib\/deploy-it-pages-prep\.sh|ci\/check-house-ad-images\.mjs|offload-generated-images-cdn\.mjs|ensure-image-cdn-redirect\.mjs)|docs\/house-ad-creatives\.json|public\/images\/job-search-campaign\/.*)$/],
   // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
   // estensioni; costano pochi secondi.

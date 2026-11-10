@@ -5,7 +5,9 @@
  * 178 questions on 34 paid orders) are now answered by the platform instead:
  *
  *   - postal code, country of residence: deduced from the town in the CV
- *     (public GeoNames directory, data/platform-postal-codes.json);
+ *     (public GeoNames directory, data/platform-postal-codes.json); without a
+ *     town nor a country stated by the CV or the order, the country of residence
+ *     comes from the upload answers (uploadResidenceCountry, owner 2026-11-10);
  *   - street and house number, when a form requires them and the CV has none:
  *     one of a fixed list of common Italian street names and a number 1-101,
  *     chosen deterministically from the candidate so every run sends the same;
@@ -235,7 +237,10 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const directory = town ? platformPostalCode(town, { region, country: statedCountry }) : null;
   const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
     : fromCity.statedPostal || fromLocation.statedPostal;
-  const country = statedCountry || directory?.country || '';
+  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
+  // The upload answers name the country only for a CV with no town at all: a town the
+  // directory cannot place is not evidence of the permit's or nationality's country.
+  const country = statedCountry || directory?.country || (town ? '' : uploadResidenceCountry(uploaded));
   const postalCode = statedPostal || directory?.code || '';
   const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
   const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
@@ -252,7 +257,6 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const languages = (Array.isArray(profile?.languages) ? profile.languages : [])
     .map((entry) => ({ code: languageCodesIn(entry?.language || '')[0] || '', level: clean(entry?.level, 80) }))
     .filter((entry) => entry.code);
-  const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
@@ -293,6 +297,18 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     nationality,
     passport,
   };
+}
+
+/**
+ * The country of residence the upload answers say, for a CV that names no town and no country (owner
+ * decision 2026-11-10): a Swiss residence permit (B, C, L) lives in Switzerland; any other answer (Swiss
+ * citizen, cross-border G, none) the country of the declared nationality. '' when the platform cannot name
+ * that country on a form (COUNTRY_NAMES): the field then stays the candidate's question.
+ */
+export function uploadResidenceCountry(uploaded = {}) {
+  if (['permit_b', 'permit_c', 'permit_l'].includes(uploaded?.workPermit)) return 'CH';
+  const code = nationalityOf(uploaded?.nationality)?.code || countryCodeOf(uploaded?.nationality);
+  return COUNTRY_NAMES[code] ? code : '';
 }
 
 /** The upload-time answers (order.candidateFacts, owner decision 2026-11-09). */
@@ -494,7 +510,9 @@ export function platformQuestionTopic(question) {
 
 const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
 const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
-const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*)\b/;
+// The candidate's own profile and application form own an address too («Profilinformationen»,
+// «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
+const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*|profil\w*|profile\w*|(?:stellen)?bewerbung\w*|application form|modulo di candidatura|formulaire de candidature|my details|meine daten|i miei dati|mes informations)\b/;
 
 /**
  * An address field is the candidate's only when nothing says otherwise: its
