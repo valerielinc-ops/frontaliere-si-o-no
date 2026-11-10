@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, clickButton, hasApplicationSurface, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, clickButton, hasApplicationSurface, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
@@ -416,6 +416,37 @@ describe('portal runner self-correction', () => {
     expect(hasApplicationSurface(snapshot)).toBe(false);
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, snapshot.url, { snapshot }))
       .toMatchObject({ submit: null, next: null });
+  });
+
+  it('recovers the unique Stadt Zürich detail link for the selected role', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [],
+      buttons: [],
+      links: [
+        {
+          text: 'Application Manager 80-100%',
+          href: 'https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html',
+        },
+      ],
+    };
+
+    expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager 80-100%'))
+      .toBe('https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html');
+  });
+
+  it('keeps a Stadt Zürich listing unresolved when two role links match', () => {
+    const snapshot = {
+      url: 'https://www.stadt-zuerich.ch/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html',
+      fields: [],
+      buttons: [],
+      links: [
+        { text: 'Application Manager', href: 'https://www.stadt-zuerich.ch/jobs/de/gsz-51726.html' },
+        { text: 'Application Manager', href: 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/' },
+      ],
+    };
+
+    expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager')).toBe('');
   });
 
   it('does not treat a public Job-Room posting shell as an application surface', () => {
