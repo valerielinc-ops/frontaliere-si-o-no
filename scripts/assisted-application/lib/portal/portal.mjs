@@ -6220,6 +6220,18 @@ export function urlConfirms(url, snapshot, context = {}) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && applicationReceipt(snapshot, { ...context, url });
 }
 
+/**
+ * The click moved this posting's application to another page that is its
+ * final review, whose own words say the application is sent only by a later
+ * Submit/Apply (Deloitte's Avature, order JvKpYedw 2026-10-30: the profile's
+ * Apply opened /ApplicationReview «please select Submit to finalise your
+ * application»). The portal itself states that nothing was submitted yet.
+ */
+export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
+  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
+  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
+}
+
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
@@ -6232,6 +6244,7 @@ async function waitForOutcome(page, context = {}) {
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
     if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -6946,6 +6959,13 @@ export async function readPortalQuestions(ctx) {
  * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
+// Stops on the posting page that an employer's regional gate produces:
+// Yellowshark greys out its Apply control and keeps a consent banner on the
+// gated page (order 1EpmkrDu, 2026-11-04/06: the 13 runs that got the notice
+// stopped under four different reasons). handoff() reports them as the gate
+// when the page states it.
+const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_preferences_unresolved']);
+
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
   const channelType = portalChannelType(ctx);
@@ -6993,6 +7013,12 @@ export async function submitViaPortal(ctx) {
   const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
+    // A posting that refuses applications from this connection's region (the
+    // employer geolocates the runner's IP) explains the stops on the posting
+    // page that follow it: a dead Apply control, the gated page's consent
+    // banner. Report the cause, which another runner can clear, not its symptom.
+    if (REGION_GATED_STOPS.has(reason) && page && evidence.steps.length === 0
+      && isApplicationRegionUnsupported(await pageText(page).catch(() => ''))) reason = 'application_region_unsupported';
     reason = portalHandoffReason(reason, {
       diagnostics: evidence.diagnostics,
       attempt: diagnostics?.currentAttempt(),
@@ -7000,8 +7026,10 @@ export async function submitViaPortal(ctx) {
     });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
-      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
-      if (!['captcha', 'captcha_provider_unavailable'].includes(reason)) {
+      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
+      // is no code fix, nor is a regional gate on the runner's IP (#17112 and
+      // #17132 tried to click through it): the retry ladder owns that one.
+      if (!['captcha', 'captcha_provider_unavailable', 'application_region_unsupported'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
@@ -7206,6 +7234,7 @@ export async function submitViaPortal(ctx) {
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
+    let reviewAdvances = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
     // The passwords this run typed into application forms that create their own account, by host.
@@ -8150,6 +8179,16 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
       }
       if (outcome === 'captcha') return await handoff('captcha');
+      if (outcome === 'review_pending') {
+        // Not an unknown outcome: the portal's review page says the
+        // application still waits for its own final button. Release the
+        // claim as not sent, then let the loop bind and guard that button.
+        if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_review_pending' });
+        if (reviewAdvances >= 1) return await handoff('application_stage_unknown');
+        reviewAdvances += 1;
+        snapshot = await extractFields(page);
+        continue;
+      }
       if (outcome === 'validation' && validationRetries < 1) {
         if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_validation' });
         validationRetries += 1;
