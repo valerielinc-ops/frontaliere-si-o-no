@@ -52,7 +52,6 @@ import {
   cantonNetSalaryBandForCode,
   type Grossregion,
 } from './shared/cantonSalaryIndex';
-import { resolveCantonSection } from './shared/cantonSection';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
