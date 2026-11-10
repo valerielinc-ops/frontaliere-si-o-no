@@ -30275,6 +30275,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'pamini-contributi-salari-svizzera',
+    category: 'pratico',
+    date: '2026-11-10T09:09:47.527Z',
+    image: '/images/blog/article-pamini-contributi-salari-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

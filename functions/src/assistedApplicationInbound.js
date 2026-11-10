@@ -31,7 +31,7 @@ import {
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
-import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -347,6 +347,8 @@ const VERIFY_REQUEST_RE = phrases([
 // A code or link with its own explicit name, also in a sentence that warns about it.
 const VERIFICATION_NAMED_RE = phrases([
   String.raw`(?:verification|confirmation|activation|security|verifizierungs|best[aä]tigungs|aktivierungs|sicherheits)[- ]?(?:code|link)`,
+  // «Der Code für die Verifizierung Ihres Bewerbungskontos lautet …» (Federal Administration, SuccessFactors).
+  String.raw`(?:code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
   String.raw`(?:codice|link) di (?:verifica|conferma|attivazione)`,
   String.raw`(?:code|lien) de (?:v[eé]rification|confirmation|activation)`,
   String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|code)`,
@@ -356,7 +358,7 @@ const RECEIPT_WORD_RE = phrases(String.raw`received|erhalten|eingegangen|ricevut
 const LINK_WORD_RE = phrases(String.raw`link|lien|collegamento|click|klicken|clicca|cliquez`);
 const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rifier|v[eé]rification|verification`);
 // Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
-const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs)code)(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
+const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
 
 const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
 const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
@@ -756,7 +758,7 @@ async function portalAccountsForOrder(orderRef) {
   return snapshot.data() || {};
 }
 
-async function verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked, linkAsked, text } = {}) {
+async function verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked, linkAsked, text, receivedAt } = {}) {
   if (!authenticated || !verificationAsked || classification.category !== 'verification') return '';
   const accounts = await portalAccountsForOrder(orderRef);
   const link = classification.verificationUrl;
@@ -776,7 +778,9 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
       account = null;
     }
   }
-  if (!account && verbatimCode && senderHost) account = currentPendingPortalAccount(accounts, senderHost);
+  if (!account && verbatimCode && senderHost) {
+    account = currentPendingPortalAccount(accounts, senderHost) || pendingAccountForCode(accounts, senderHost, { receivedAt });
+  }
   return account ? String(account.host).toLowerCase() : '';
 }
 
@@ -1110,7 +1114,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // runner that created the account on the alias, and kept from the
     // candidate, only when an account of this order waits for it: a link on
     // that portal's site, or a code. Anything else reaches the candidate.
-    const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText });
+    const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
     const consumedByRunner = Boolean(portalVerificationHost);
     const to = customerEmailFor(order);
     const initialDelivery = consumedByRunner

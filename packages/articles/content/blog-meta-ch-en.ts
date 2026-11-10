@@ -8705,6 +8705,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.peso-burocrazia-imprese-svizzera.title': 'Bureaucratic burden on Swiss companies: 67% consider it high',
     'blog.article.peso-burocrazia-imprese-svizzera.excerpt': 'According to the national survey conducted by gfs.bern on behalf of economiesuisse and published today, 67% of the 1’527 companies surveyed consider the administrative burden to be high, as reported by Keystone-ATS.',
     'blog.article.peso-burocrazia-imprese-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): wages and cross-border workers, act through contributions',
+    'blog.article.pamini-contributi-salari-svizzera.excerpt': 'The editorial headline presents Pamini (Udc) with a precise indication: link the issue of wages and cross-border commuters to the chapter on contributions.',
+    'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
