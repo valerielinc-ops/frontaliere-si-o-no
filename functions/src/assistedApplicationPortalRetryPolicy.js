@@ -1,10 +1,17 @@
 /** Shared by the state machine, scheduler and owner queue. No I/O. */
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
+// Stops caused by where and how the runner connects, not by the portal form
+// or the candidate. `application_region_unsupported` belongs here: the
+// employer geolocates the visitor's IP, i.e. the GitHub runner's, not the
+// candidate's (Yellowshark, order 1EpmkrDu: 13 of 19 runs got the regional
+// notice, the other 6 reached the form; from a Swiss connection the same
+// posting serves its form). Another run usually gets another address.
 const TRANSPORT_HOLDS = new Set([
   'portal:navigation_unavailable',
   'transport:email_provider_unavailable',
   'portal:question_localization_unavailable',
+  'portal:application_region_unsupported',
 ]);
 
 /** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */
