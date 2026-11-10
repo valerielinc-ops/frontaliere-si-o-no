@@ -292,6 +292,36 @@ describe('cookie managers in an iframe and a shadow root', () => {
     expect(clicked).toEqual(['Reject all cookies']);
     expect(result.status).toBe('dismissed');
   });
+
+  it('keeps a shadow-root category named only by aria-labelledby on when saving (review of #17998)', async () => {
+    const { page, read, clicked, doc } = domPage([
+      '<main><button type="button">Bewerben</button></main>',
+      '<consent-banner class="cookie-banner"></consent-banner>',
+    ], url, (element, frame) => {
+      if (frame === 1 && /save/i.test(element.textContent || '')) {
+        const root = element.getRootNode() as ShadowRoot;
+        root.querySelector('.panel')?.remove();
+      }
+    });
+    const host = doc(1).querySelector('consent-banner')!;
+    const shadow = host.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `<p>We use cookies on this website.</p>
+      <ul class="legend"><li id="cat-nec">Necessary</li><li id="cat-mkt">Marketing</li></ul>
+      <div class="panel">
+        <div><span role="switch" aria-checked="true" aria-labelledby="cat-nec" class="nec"></span></div>
+        <div><span role="switch" aria-checked="true" aria-labelledby="cat-mkt" class="mkt"></span></div>
+        <button>Save preferences</button>
+      </div>`;
+    const necessary = shadow.querySelector('.nec')!;
+    const marketing = shadow.querySelector('.mkt')!;
+    for (const toggle of [necessary, marketing]) {
+      toggle.addEventListener('click', () => toggle.setAttribute('aria-checked', toggle.getAttribute('aria-checked') === 'true' ? 'false' : 'true'));
+    }
+    await dismissCookieBanner(page, read());
+    expect(clicked).toEqual(['Save preferences']);
+    expect(necessary.getAttribute('aria-checked')).toBe('true');
+    expect(marketing.getAttribute('aria-checked')).toBe('false');
+  });
 });
 
 describe('bounded cookie resolution with the agentic fallback', () => {

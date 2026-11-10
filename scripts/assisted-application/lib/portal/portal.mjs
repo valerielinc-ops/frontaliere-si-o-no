@@ -2559,7 +2559,17 @@ function markShadowCookieInPage([reject, accept, customize, manageConsent, gener
       if (alwaysActive.test(row.textContent || '')) continue;
       const titles = [...row.querySelectorAll('h1, h2, h3, h4, h5, h6, legend, summary, strong, b, label, [class*="title" i], [class*="name" i]')]
         .map((node) => String(node.textContent || '').trim()).filter((text) => text && text.length <= 80);
-      if (required.test([toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...titles].join(' '))) continue;
+      // The toggle's associated names count as much as the row's titles: an `aria-labelledby` name or a
+      // `<label for>` elsewhere in the shadow root («Necessary») keeps a required category on.
+      const byId = (id) => (shadow.getElementById ? shadow.getElementById(id) : shadow.querySelector(`#${CSS.escape(id)}`))
+        || document.getElementById(id);
+      const associated = [
+        ...String(toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map((id) => String(byId(id)?.textContent || '').trim()),
+        ...[...(toggle.labels || [])].map((node) => String(node.textContent || '').trim()),
+        ...(toggle.id ? [...shadow.querySelectorAll(`label[for="${CSS.escape(toggle.id)}"]`)].map((node) => String(node.textContent || '').trim()) : []),
+      ].filter(Boolean);
+      if (required.test([toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...associated, ...titles].join(' '))) continue;
       toggle.click();
     }
   };
