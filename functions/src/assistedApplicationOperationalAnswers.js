@@ -180,7 +180,7 @@ export function operationalQuestionTopic(question) {
  * candidate (dates, consents, availabilities) apply.
  */
 export function operationalDefaultAnswer(question, { locale, facts } = {}) {
-  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale })
+  return ownerPreferenceAnswer(question, { locale, facts }) || platformDefaultAnswer(question, facts || null, { locale })
     // What the CV answers to an open text question (owner decisions 2026-11-10): a proposal like the
     // platform's, verified against the CV (assistedApplicationCvAnswers.js).
     || cvAnswerFor(question, facts)
@@ -189,7 +189,7 @@ export function operationalDefaultAnswer(question, { locale, facts } = {}) {
     || decisionAnswerFor(question, facts);
 }
 
-function ownerPreferenceAnswer(question, { locale } = {}) {
+function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
   const topic = operationalQuestionTopic(question);
   if (!topic) return null;
   const options = optionsOf(question);
@@ -226,11 +226,16 @@ function ownerPreferenceAnswer(question, { locale } = {}) {
       value = '3';
     } else value = { it: '3 mesi', en: '3 months', de: '3 Monate', fr: '3 mois' }[language];
   } else if (topic === 'preferred_workload') {
+    // The percentage the candidate stated in their reply wins over the platform's 100 %; part time only with no
+    // percentage leaves the field to the candidate (platformCandidateFacts workloadPercent null).
+    const percent = facts && Object.hasOwn(facts, 'workloadPercent') ? facts.workloadPercent : 100;
+    if (!Number.isInteger(percent)) return null;
+    const exact = new RegExp(`^${percent}\\s*%?$`);
     if (options.length) {
-      const matches = options.filter(option => /^100\s*%?$/.test(option.label.trim()) || /^100\s*%?$/.test(option.value.trim()));
+      const matches = options.filter(option => exact.test(option.label.trim()) || exact.test(option.value.trim()));
       if (matches.length !== 1) return null;
       value = matches[0].label;
-    } else value = question?.type === 'number' || question?.inputType === 'number' ? '100' : '100%';
+    } else value = question?.type === 'number' || question?.inputType === 'number' ? String(percent) : `${percent}%`;
   } else {
     if (options.length) {
       const matches = options.filter(option => YES.test(norm(option.label)));

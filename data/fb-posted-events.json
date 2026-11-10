@@ -2,33 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "weekend-digest-ZH-2026-11-07",
-      "url": "https://frontaliereticino.ch/eventi/zurigo/questo-weekend/",
-      "postId": "951226518080080_122130723471272498",
-      "postedAt": "2026-11-06T16:23:20.337Z",
-      "copyMode": "codex",
-      "copySlot": "digest",
-      "copyPromptVersion": "frontaliere-social-copy-v4",
-      "copyPackId": "1fb417e247af2a71",
-      "copyTemplateId": "fb-digest-question",
-      "copyAssignmentMode": "deterministic",
-      "copyAngleId": "domanda-comune",
-      "copyPillarId": "strumenti-utili",
-      "copyAngleIntent": "both",
-      "copyHook": "Le domande da tenere presenti quando cambiano le priorità.",
-      "copyCta": "Scopri le notizie."
-    },
-    {
-      "id": "myswitzerland:71b992d948f74be0b21345130573050d",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
-      "id": "myswitzerland:33949dc467d34744a6bb57054e1f1853",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
       "id": "myswitzerland:e74f70a63a4d4d4bbfbf8deee07ec272",
       "viaDigest": "weekend-digest-ZH-2026-11-07",
       "postedAt": "2026-11-06T16:23:20.337Z"
@@ -5240,6 +5213,57 @@
       "copyAngleIntent": "both",
       "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
       "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:7b1c42331d2a4986a6241feac386e722",
+      "url": "https://frontaliereticino.ch/eventi/turgovia/romanshorn/",
+      "postId": "951226518080080_122131048257272498",
+      "postedAt": "2026-11-10T16:40:34.328Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:0f3b5d270d4a408fb87d707cceee5098",
+      "url": "https://frontaliereticino.ch/eventi/appenzello/",
+      "postId": "951226518080080_122131048293272498",
+      "postedAt": "2026-11-10T16:40:39.916Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:fc588521a6814ad8ab51093635839c2b",
+      "url": "https://frontaliereticino.ch/eventi/soletta/solothurn/",
+      "postId": "951226518080080_122131048335272498",
+      "postedAt": "2026-11-10T16:40:46.028Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
     }
   ]
 }

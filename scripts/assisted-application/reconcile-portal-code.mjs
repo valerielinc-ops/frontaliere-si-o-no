@@ -1,4 +1,5 @@
 /** Queue certainly unsent technical holds once per published portal-engine version. */
+import { createHash } from 'node:crypto';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
@@ -11,10 +12,12 @@ import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/as
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
-import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { portalCodeVersion, portalIdentityQuestionDefinitelyUnsent, portalQuestionHoldsDefinitelyUnsent, portalRecoveryDefinitelyUnsent,
+  operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { portalAutoRetryAttemptsRemaining, portalExhaustedRecoveryPending } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import './extension/apply-control.js';
 import { candidateAnswerForField, isIdentityEmailConfirmationField } from './lib/portal/plan.mjs';
+import { portalQuestionDocumentSlotKind } from './lib/portal/portal.mjs';
 
 const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
   || typeof value === 'string' && value.trim().length > 0 || Array.isArray(value) && value.some(item => String(item ?? '').trim());
@@ -61,6 +64,64 @@ function identityEmailConfirmationAnswer({ order, draft, flow, nowMs }) {
   return { questionId: heldId, email };
 }
 
+/** The question ids of a wait made only of question holds, in their order; [] for any other hold. */
+function heldQuestionIds(flow) {
+  const holds = Array.isArray(flow?.heldBy) ? flow.heldBy : [];
+  const ids = holds.map(held => /^question:(.+)$/s.exec(String(held || ''))?.[1] || '');
+  return ids.length && ids.every(Boolean) ? ids : [];
+}
+
+// A resumed wait that comes back on the same questions in the same round is resumed again at most this many
+// times, whatever the number of engine versions published in between: each comeback costs the candidate
+// another «we need you» e-mail.
+export const PORTAL_QUESTION_RECOVERY_MAX = 2;
+const questionHoldKey = (round, ids) => createHash('sha256').update(JSON.stringify([Number(round) || 1, [...ids].sort()]))
+  .digest('hex').slice(0, 32);
+
+// The runner attaches the CV and the cover letter it has; a slot for a document the order lacks stays a request.
+// An upload slot takes the letter's PDF (the runner uploads `coverLetterPdfKey`, never the bare text); only a
+// text slot can take the letter's text.
+const DOCUMENT_ON_FILE = {
+  cv: ({ order, draft }) => Boolean(String(order?.cvStorageKey || draft?.cvKey || '').trim()),
+  cover_letter: ({ draft, question }) => Boolean(String(draft?.coverLetterPdfKey || '').trim()
+    || (String(question?.type || 'text').trim().toLowerCase() !== 'file' && String(draft?.coverLetter || '').trim())),
+};
+
+/**
+ * The portal questions a round waits on, read again with the current code. Each one is either answered now
+ * (a platform rule, the CV, the decision engine or a confirmed answer: evaluateRedFlags projects them all
+ * through operationalDefaultAnswer) or the empty document slot the runner now fills with the CV or the letter
+ * (portalQuestionDocumentSlotKind). Only when every held question is, and the flow's own tick would then
+ * resume the submission (`resolved_candidate_answers`), the resolution is returned; any real question left
+ * keeps the whole wait with the candidate (null). Slots become optional in the returned questions, with the
+ * engine version that decided it.
+ */
+export function portalQuestionsResolvedByCode({ order, draft, flow, answerFlow = flow, version, nowMs }) {
+  const ids = heldQuestionIds(flow);
+  if (!ids.length || flow?.state !== 'needs_candidate_action' || Number(draft?.round) !== (Number(flow.round) || 1)) return null;
+  const questions = Array.isArray(draft?.questions) ? draft.questions : [];
+  const held = ids.map(id => questions.filter(question => question?.id === id));
+  if (held.some(matches => matches.length !== 1 || matches[0].source !== 'portal')) return null;
+  const answers = object(answerFlow?.answers);
+  const documents = flow.documents || {};
+  const flags = evaluateRedFlags(draft, answers, documents, answerFlow?.questionAnswers, answerFlow, order);
+  if (flags.owner.length || flags.documents.length) return null;
+  const slots = new Map();
+  for (const [question] of held) {
+    if (!flags.candidate.includes(question.id)) continue;
+    const kind = portalQuestionDocumentSlotKind(question);
+    if (!kind || !DOCUMENT_ON_FILE[kind]({ order, draft, question })) return null;
+    slots.set(question.id, kind);
+  }
+  const nextQuestions = slots.size ? questions.map(question => slots.has(question.id)
+    ? { ...question, required: false, portalDocumentSlot: { kind: slots.get(question.id), version } } : question) : null;
+  const nextDraft = nextQuestions ? { ...draft, questions: nextQuestions } : draft;
+  const tick = transition(answerFlow, { type: 'tick' }, { order, draft: nextDraft, answers, documents, nowMs });
+  if (!tick.effects.some(effect => effect.type === 'dispatch' && effect.mode === 'submit'
+    && effect.reason === 'resolved_candidate_answers')) return null;
+  return { questionIds: ids, slots: [...slots].map(([id, kind]) => ({ id, kind })), questions: nextQuestions };
+}
+
 function hasCurrentNativePortalContract(draft) {
   const applyUrl = canonicalUrl(draft?.channel?.applyUrl || draft?.job?.applyUrl);
   return (Array.isArray(draft?.questions) ? draft.questions : []).some(question => {
@@ -99,7 +160,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
     const flag = parseAutomationFlag(template.parameters?.[AUTOMATION_FLAG_KEY]?.defaultValue?.value);
     isEnabled = id => flag.all || flag.orders.has(id);
   }
-  const summary = { scanned: 0, eligible: 0, queued: 0, identityQuestionsQueued: 0, apply };
+  const summary = { scanned: 0, eligible: 0, queued: 0, identityQuestionsQueued: 0, questionHoldsQueued: 0, apply };
   let cursor;
   do {
     let query = db.collection('assisted_applications').where('automationState', 'in', ['owner_takeover', 'needs_candidate_action'])
@@ -112,8 +173,9 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
       const eligible = await db.runTransaction(async transaction => {
         const flowRef = doc.ref.collection('automation').doc('flow');
         const submissionRef = doc.ref.collection('automation').doc('submission');
+        const draftRef = doc.ref.collection('ai_drafts').doc('current');
         const [orderDoc, flowDoc, draftDoc, submissionDoc] = await Promise.all([
-          transaction.get(doc.ref), transaction.get(flowRef), transaction.get(doc.ref.collection('ai_drafts').doc('current')),
+          transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef),
           transaction.get(submissionRef),
         ]);
         const order = orderDoc.data(); const flow = flowDoc.data(); const draft = draftDoc.data();
@@ -128,8 +190,16 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
             questionId: identityAnswer.questionId, identityQuestionReady: true, approvedRound: roundWasSent(flow),
             retentionAllowed: talentPoolConsentActive(order) || retentionPurgeDueAt(order) > nowMs,
             receiptVersion: receipt?.version }));
+        // Any other wait on portal questions only: the current code may answer them, or know them for the
+        // document slots they are. It is decided below, once the verified answers are loaded.
+        const questionHoldIds = identityQuestionReady ? [] : heldQuestionIds(flow);
+        const questionHoldsReady = questionHoldIds.length > 0
+          && isFetchablePublicUrl(draft?.channel?.applyUrl || draft?.job?.applyUrl) && !portalExhaustedRecoveryPending(flow)
+          && portalQuestionHoldsDefinitelyUnsent({ order, flow, draft, submission, version, questionIds: questionHoldIds,
+            approvedRound: roundWasSent(flow), retentionAllowed: talentPoolConsentActive(order) || retentionPurgeDueAt(order) > nowMs,
+            receiptVersion: receipt?.version });
         const ownerRecoveryReady = portalRecoveryDefinitelyUnsent({ order, flow, draft, submission, version });
-        if ((!ownerRecoveryReady && !identityQuestionReady) || !roundWasSent(flow) || flow.postingExpiredAt) return false;
+        if ((!ownerRecoveryReady && !identityQuestionReady && !questionHoldsReady) || !roundWasSent(flow) || flow.postingExpiredAt) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
         // A source-version change may make a previously blocked portal
@@ -138,7 +208,9 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         // bounded exhausted-budget repair marker. The marker is written in the
         // same transaction as the queue and prevents repeated deployments from
         // resubmitting one application indefinitely.
-        if (!identityQuestionReady && !portalAutoRetryAttemptsRemaining(flow) && flow.portalExhaustedRecoveryVersion) {
+        // A wait on questions is not a portal retry: like the candidate's own answer, it does not spend
+        // the portal budget, and its own bound is PORTAL_QUESTION_RECOVERY_MAX.
+        if (!identityQuestionReady && !questionHoldsReady && !portalAutoRetryAttemptsRemaining(flow) && flow.portalExhaustedRecoveryVersion) {
           // A queued repair is already the one permitted dispatch. A later
           // source version must not erase its due time before the scheduler
           // consumes it; only an exhausted, unqueued marker is retired here.
@@ -158,6 +230,31 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         }
         const answerContext = await loadRunnerAnswerContext({ db, orderId: doc.id, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
+        if (questionHoldsReady) {
+          // Only verified answers count, as in the sweep's own tick (applyAutomationEvent).
+          const resolution = portalQuestionsResolvedByCode({ order, draft, flow, answerFlow: answerContext.flow, version, nowMs });
+          if (!resolution) return false;
+          const round = Number(flow.round) || 1;
+          const key = questionHoldKey(round, resolution.questionIds);
+          const prior = submission.portalQuestionRecovery;
+          const attempts = prior?.key === key ? Number(prior.attempts) || 0 : 0;
+          if (attempts >= PORTAL_QUESTION_RECOVERY_MAX) return false;
+          if (apply) {
+            if (resolution.questions) transaction.set(draftRef, { questions: resolution.questions }, { merge: true });
+            // The clock's tick resumes the submission (resolved_candidate_answers) and rechecks everything.
+            transaction.set(flowRef, { portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
+            transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });
+            transaction.set(submissionRef, {
+              portalCodeRecovery: { version, round, queuedAt: nowMs, kind: 'portal_questions_resolved' },
+              portalQuestionRecovery: { key, round, attempts: attempts + 1, version, queuedAt: nowMs },
+            }, { merge: true });
+            transaction.set(doc.ref.collection('events').doc(), {
+              type: 'portal_question_recovery_scheduled', actor: 'system', at: nowMs, version,
+              questions: resolution.questionIds.length, documentSlots: resolution.slots.map(slot => slot.kind),
+            });
+          }
+          return 'questions';
+        }
         const trustedLocalAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
           && hasUntrustedProfileOperationalAnswers({ profile: profileDoc?.data(), draft })
@@ -232,6 +329,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if (apply) {
           summary.queued++;
           if (eligible === 'identity') summary.identityQuestionsQueued++;
+          if (eligible === 'questions') summary.questionHoldsQueued++;
         }
       }
     }
