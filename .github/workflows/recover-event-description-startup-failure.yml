@@ -34,7 +34,9 @@ jobs:
           ref: main
           fetch-depth: 1
           persist-credentials: false
-          sparse-checkout: scripts/ci/event-description-startup-recovery.mjs
+          sparse-checkout: |
+            scripts/ci/event-description-startup-recovery.mjs
+            scripts/ci/lib/workflow-run-list-recovery.mjs
           sparse-checkout-cone-mode: false
 
       - name: Retry only an unstarted rewrite run
@@ -43,7 +45,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { pathToFileURL } = require('node:url');
-            const { shouldRetryEventDescriptionRun } = await import(pathToFileURL(
+            const { listRecentEventDescriptionRuns, shouldRetryEventDescriptionRun } = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/event-description-startup-recovery.mjs`,
             ).href);
             const run = context.payload.workflow_run;
@@ -61,15 +63,12 @@ jobs:
                 per_page: 100,
               },
             );
-            const workflowRuns = await github.paginate(
-              github.rest.actions.listWorkflowRuns,
-              {
-                ...context.repo,
-                workflow_id: 'event-description-rewrite.yml',
-                branch: 'main',
-                per_page: 100,
-              },
-            );
+            const workflowRuns = await listRecentEventDescriptionRuns({
+              github,
+              repo: context.repo,
+              run,
+              core,
+            });
             if (!shouldRetryEventDescriptionRun({ run, jobs, workflowRuns })) {
               core.info(`Run ${run.id} does not match the bounded startup-failure signature.`);
               return;

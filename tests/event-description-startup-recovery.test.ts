@@ -7,6 +7,7 @@ import {
   hasNewerEventDescriptionRun,
   isEventDescriptionRunCandidate,
   isUnstartedEventDescriptionRun,
+  listRecentEventDescriptionRuns,
   shouldRetryEventDescriptionRun,
 } from '../scripts/ci/event-description-startup-recovery.mjs';
 
@@ -21,6 +22,7 @@ const sourceRun = {
   event: 'workflow_dispatch',
   head_branch: 'main',
   path: EVENT_DESCRIPTION_WORKFLOW_PATH,
+  created_at: '2026-11-10T14:53:19Z',
   run_attempt: 1,
 };
 
@@ -103,6 +105,35 @@ describe('bounded event-description startup recovery', () => {
     })).toBe(false);
   });
 
+  it('uses the bounded shared run listing for transient GitHub failures', async () => {
+    let attempts = 0;
+    const waits: number[] = [];
+    const github = {
+      rest: {
+        actions: {
+          listWorkflowRuns: async () => {
+            attempts += 1;
+            if (attempts === 1) {
+              const error = new Error('Bad Gateway') as Error & { status?: number };
+              error.status = 502;
+              throw error;
+            }
+            return { data: { workflow_runs: [] } };
+          },
+        },
+      },
+    };
+    await expect(listRecentEventDescriptionRuns({
+      github,
+      repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' },
+      run: sourceRun,
+      core: { warning: () => {} },
+      sleep: async (milliseconds: number) => waits.push(milliseconds),
+    })).resolves.toEqual([]);
+    expect(attempts).toBe(2);
+    expect(waits).toEqual([500]);
+  });
+
   it('pins the observer to the source workflow and grants only bounded Actions write access', () => {
     const workflow = parse(fs.readFileSync(RECOVERY_WORKFLOW_PATH, 'utf8')) as any;
     expect(workflow.on.workflow_run).toEqual({
@@ -113,8 +144,10 @@ describe('bounded event-description startup recovery', () => {
     expect(workflow.jobs.retry.if).toContain("run_attempt == 1");
     const steps = workflow.jobs.retry.steps;
     expect(steps[0]).toMatchObject({ uses: 'actions/checkout@v7' });
-    expect(steps[0].with['sparse-checkout']).toBe('scripts/ci/event-description-startup-recovery.mjs');
+    expect(steps[0].with['sparse-checkout']).toContain('scripts/ci/event-description-startup-recovery.mjs');
+    expect(steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
     expect(steps.at(-1).uses).toBe('actions/github-script@v9');
+    expect(steps.at(-1).with.script).toContain('listRecentEventDescriptionRuns');
     expect(steps.at(-1).with.script).toContain('shouldRetryEventDescriptionRun');
     expect(steps.at(-1).with.script).toContain('reRunWorkflow');
   });
