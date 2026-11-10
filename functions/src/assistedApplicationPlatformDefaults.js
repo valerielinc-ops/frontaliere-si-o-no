@@ -492,8 +492,11 @@ export function deducedCrossBorderPermit({ residenceCountry = '', experience = [
 export function uploadResidenceCountry(uploaded = {}) {
   if (['permit_b', 'permit_c', 'permit_l'].includes(uploaded?.workPermit)) return 'CH';
   const code = nationalityOf(uploaded?.nationality)?.code || countryCodeOf(uploaded?.nationality);
-  return COUNTRY_NAMES[code] ? code : '';
+  // Only Switzerland and the countries bordering it: a nationality from farther away says nothing of where a
+  // cross-border commuter lives (the country table also names other countries, for the CV's own locations).
+  return UPLOAD_RESIDENCE_COUNTRIES.has(code) ? code : '';
 }
+const UPLOAD_RESIDENCE_COUNTRIES = new Set(['CH', 'IT', 'DE', 'FR', 'AT', 'LI']);
 
 /** The upload-time answers (order.candidateFacts, owner decision 2026-11-09). */
 export const CANDIDATE_PASSPORTS = Object.freeze(['swiss', 'eu_efta', 'other']);
