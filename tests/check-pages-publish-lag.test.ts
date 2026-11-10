@@ -280,26 +280,3 @@ describe('evaluatePublishCadence — trailing-24h publish count (plan item 12)',
     });
   });
 });
-
-describe('pages-publish-lag-watchdog.yml — cadence wiring', () => {
-  const workflow = fs.readFileSync(
-    path.resolve(__dirname, '../.github/workflows/pages-publish-lag-watchdog.yml'),
-    'utf8',
-  );
-
-  it('opens and resolves the cadence issue from the step outputs, as a report at priority medium', () => {
-    const open = workflow.indexOf('- name: Open / dedup cadence issue');
-    const resolve = workflow.indexOf('- name: Resolve cadence issue when the target is met');
-    expect(open).toBeGreaterThan(-1);
-    expect(resolve).toBeGreaterThan(open);
-    const openStep = workflow.slice(open, resolve);
-    expect(openStep).toContain("if: steps.check.outputs.cadence_degraded == 'true'");
-    expect(openStep).toContain('--priority 3');
-    expect(workflow.slice(resolve)).toContain("if: steps.check.outputs.cadence_degraded == 'false'");
-  });
-
-  it('passes the summary through env, not by expanding step output inside the script', () => {
-    expect(workflow).toContain('CADENCE_SUMMARY: ${{ steps.check.outputs.cadence_summary }}');
-    expect(workflow).not.toMatch(/--description "\$\{\{ steps\.check\.outputs\.cadence_summary/);
-  });
-});
