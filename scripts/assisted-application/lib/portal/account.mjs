@@ -21,11 +21,14 @@
 
 import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
-import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount } from '../../../../functions/src/assistedApplicationPortalSites.js';
+import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount, PORTAL_ACCOUNT_NOTICES_CONFIRMING } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
 const VERIFICATION_POLL_MS = 10_000;
+// The federal SuccessFactors tenant mailed «Ihr Bewerbungskonto wurde
+// erfolgreich erstellt» 25 s after its code (2026-11-10).
+export const ACCOUNT_NOTICE_TIMEOUT_MS = 2 * 60 * 1000;
 
 // SuccessFactors (Coop, 2026-10-02) words its link as a question and an
 // answer: «Noch kein Profil? Hier registrieren», «Non hai ancora un profilo?
@@ -444,6 +447,33 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
      * The first verification message classified by the inbound handler after
      * `sinceMs` bound by inbound to this exact account host.
      */
+    /**
+     * The portal's own «account created/activated» mail for this exact host,
+     * received after `sinceMs` and bound by the inbound handler
+     * (`portalAccountNoticeHost`): proof that the account exists. Never a link to open.
+     */
+    async accountNotice({ host, sinceMs }) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const since = Number(sinceMs);
+      if (!normalizedHost || !Number.isFinite(since)) return null;
+      const snapshot = await inbox.where('receivedAt', '>=', since).get();
+      for (const doc of snapshot.docs) {
+        const message = doc.data();
+        if (String(message.portalAccountNoticeHost || '').toLowerCase() !== normalizedHost) continue;
+        if (!PORTAL_ACCOUNT_NOTICES_CONFIRMING.includes(message.portalAccountNotice)) continue;
+        const receivedAt = Number(message.receivedAt);
+        if (Number.isFinite(receivedAt) && receivedAt >= since) return { messageId: doc.id, kind: message.portalAccountNotice, receivedAt };
+      }
+      return null;
+    },
+    async waitForAccountNotice({ host, sinceMs, timeoutMs = ACCOUNT_NOTICE_TIMEOUT_MS }) {
+      const deadline = nowMs() + timeoutMs;
+      for (;;) {
+        const notice = await this.accountNotice({ host, sinceMs });
+        if (notice || nowMs() >= deadline) return notice;
+        await sleep(VERIFICATION_POLL_MS);
+      }
+    },
     async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
       const excluded = new Set(excludeMessageIds);
       const normalizedHost = String(host || '').toLowerCase();
