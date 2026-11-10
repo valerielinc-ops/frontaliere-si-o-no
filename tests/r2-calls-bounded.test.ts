@@ -189,12 +189,24 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     const m = read('scripts/lib/deploy-it-pages-prep.sh').match(/^\s*_r2_sync (\d+) "\$stage\/data"/m);
     expect(m, '_r2_sync <limit> "$stage/data" not found').toBeTruthy();
     expect(Number(m![1])).toBeGreaterThanOrEqual(1622);
+    expect(read('scripts/lib/deploy-it-pages-prep.sh'))
+      .toContain('_r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse');
   });
 
   it('the og/ sync keeps a bounded budget for the observed slow R2 prefix', () => {
     const source = read('scripts/lib/deploy-it-pages-prep.sh');
     expect(source).toContain('_t_og="$(_r2_timeout_s R2_TIMEOUT_OG_S 900)"');
-    expect(source).toMatch(/^\s*if\s+_r2_sync "\$_t_og"\s+"\$stage\/og"\s+og\s+"public,max-age=86400"\s+""\s+"\$og_copy_option";\s*then/m);
+    expect(source).toContain('_r2_sync_og_delta "$_t_og" "$PREP_CWD/dist/og"');
+    expect(source).toContain('--files-from-raw "$batch_file" --no-traverse');
+    expect(source).toContain('_r2_sync "$_t_og" "$stage/og" og "public,max-age=86400" "" no-traverse');
+  });
+
+  it('large R2 copies emit one-line stats at least every minute, including copies with purge logs', () => {
+    const source = read('scripts/lib/deploy-it-pages-prep.sh');
+    expect(source).toContain('local -a stats_flags=(--stats=60s --stats-one-line --stats-log-level=NOTICE)');
+    expect(source).toMatch(/2>&1 \| tee "\$attempt_log" \| while IFS= read -r log_line/);
+    expect(source).toContain('[rclone-progress]');
+    expect(source).not.toMatch(/--stats=0(?:\s|$)/);
   });
 });
 
@@ -263,8 +275,6 @@ exec "$STUB_REAL_NODE" "$@"
     `#!/usr/bin/env bash
 args=()
 for a in "$@"; do case "$a" in --*) ;; *) args+=("$a") ;; esac; done
-logf=""
-for a in "$@"; do case "$a" in --log-file=*) logf="\${a#--log-file=}" ;; esac; done
 if [ -n "\${STUB_RAW_CALLS:-}" ]; then
   printf '%s\\0' "$@" >> "$STUB_RAW_CALLS"
   printf '\\n' >> "$STUB_RAW_CALLS"
@@ -340,13 +350,11 @@ case "\${args[0]}" in
         fi ;;
     esac
     case "$dst" in */assets)
-      if [ -n "$logf" ]; then
-        if [ ! -e "$STUB_DIR/assets-log-first" ]; then
-          printf '%s\\n' "\${STUB_ASSETS_LOG_FIRST:-\${STUB_ASSETS_LOG:-}}" > "$logf"
-          : > "$STUB_DIR/assets-log-first"
-        else
-          printf '%s\\n' "\${STUB_ASSETS_LOG:-}" > "$logf"
-        fi
+      if [ ! -e "$STUB_DIR/assets-log-first" ]; then
+        printf '%s\\n' "\${STUB_ASSETS_LOG_FIRST:-\${STUB_ASSETS_LOG:-}}"
+        : > "$STUB_DIR/assets-log-first"
+      else
+        printf '%s\\n' "\${STUB_ASSETS_LOG:-}"
       fi ;;
     esac
     case "$dst" in */"\${STUB_FAIL_ONCE_PREFIX:-__none__}")
@@ -1049,7 +1057,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(bootstrapCopies[0]).not.toContain('--ignore-times');
     const rootCopy = copies.find((args) => args.some((arg) => arg.endsWith('/stage/assets')));
     expect(rootCopy).toBeDefined();
-    expect(rootCopy).not.toContain('--no-traverse');
+    expect(rootCopy).toContain('--no-traverse');
     expect(r.rawCalls.indexOf(rootCopy!)).toBeLessThan(r.rawCalls.indexOf(loaderCopies[0]));
     expect(r.rawCalls.indexOf(loaderCopies[1])).toBeLessThan(r.rawCalls.indexOf(bootstrapCopies[0]));
     const completePut = r.rawCalls.findIndex((args) => args.includes('copyto')
