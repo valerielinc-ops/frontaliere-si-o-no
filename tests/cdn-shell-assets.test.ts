@@ -564,22 +564,27 @@ describe('probeCdnAsset', () => {
     })).resolves.toBe('stale');
   });
 
-  it('marks a stable global alias stale when its ETag differs from the current producer bytes', async () => {
-    const fetchImpl = (async () => ({
-      ok: true,
-      status: 200,
-      headers: new Headers({
-        'content-type': 'application/javascript',
-        'cache-control': SHELL_ASSET_CACHE_CONTROL,
-        etag: 'W/"outdated"',
-      }),
-    })) as unknown as typeof fetch;
+  it('marks a stable global alias stale when a weak ETag matches but the response bytes differ', async () => {
+    const expectedContentMd5 = createHash('md5').update(GTAG_INIT_CONTENT).digest('hex');
+    const seenMethods: string[] = [];
+    const fetchImpl = (async (_url: string | URL, init?: RequestInit) => {
+      seenMethods.push(String(init?.method));
+      return new Response(`${GTAG_INIT_CONTENT}\n// stale bytes`, {
+        status: 200,
+        headers: {
+          'content-type': 'application/javascript',
+          'cache-control': SHELL_ASSET_CACHE_CONTROL,
+          etag: `W/"${expectedContentMd5}"`,
+        },
+      });
+    }) as unknown as typeof fetch;
 
     await expect(probeCdnAsset('assets/gtag-init.js', {
       fetchImpl,
       expectedCacheControl: SHELL_ASSET_CACHE_CONTROL,
-      expectedContentMd5: createHash('md5').update(GTAG_INIT_CONTENT).digest('hex'),
+      expectedContentMd5,
     })).resolves.toBe('stale');
+    expect(seenMethods).toEqual(['GET']);
   });
 
   it('reads a request that does not complete as unknown', async () => {
@@ -629,20 +634,19 @@ describe('confirmCdnAsset', () => {
     expect(seen[0].init.headers?.Origin).toBeUndefined();
   });
 
-  it('confirms a stable alias only when the edge ETag matches the current producer', async () => {
+  it('confirms a stable alias by body bytes even when a weak ETag claims those producer bytes', async () => {
     const md5 = createHash('md5').update(GTAG_INIT_CONTENT).digest('hex');
-    const response = (etag: string) => (async () => ({
-      ok: true,
+    const response = (etag: string, body: string) => (async () => new Response(body, {
       status: 200,
-      headers: new Headers({ 'content-type': 'application/javascript', etag }),
+      headers: { 'content-type': 'application/javascript', etag },
     })) as unknown as typeof fetch;
 
     await expect(confirmCdnAsset('assets/gtag-init.js', {
-      fetchImpl: response(`W/"${md5}"`),
+      fetchImpl: response(`W/"${md5}"`, GTAG_INIT_CONTENT),
       expectedContentMd5: md5,
     })).resolves.toBe('present');
     await expect(confirmCdnAsset('assets/gtag-init.js', {
-      fetchImpl: response('W/"previous"'),
+      fetchImpl: response(`W/"${md5}"`, `${GTAG_INIT_CONTENT}\n// stale bytes`),
       expectedContentMd5: md5,
     })).resolves.toBe('unknown');
   });
