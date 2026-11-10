@@ -1688,7 +1688,9 @@ export function expectedValueShape(field) {
     return inputType === 'email' || IDENTITY_EMAIL_RE.test(label) ? 'email' : 'name';
   }
   if (inputType === 'email' || (kind !== 'textarea' && IDENTITY_EMAIL_RE.test(label))) return 'email';
-  const topic = questionTopic(label, field.context, field);
+  // The field's own label and native type only: the section context lists every
+  // sibling label, so it cannot say what this field is (#17094).
+  const topic = questionTopic(label, '', { ...field, context: '', section: '' });
   if (topic === 'phone' || inputType === 'tel') return 'phone';
   if (topic === 'residence_postal_code') return 'postal_code';
   if (topic === 'birth_date' || isDateField(field)) return 'date';

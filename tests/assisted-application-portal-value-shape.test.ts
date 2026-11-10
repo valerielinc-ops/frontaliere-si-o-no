@@ -95,6 +95,10 @@ describe('value-shape invariant: SuccessFactors registration (#17094, #17181)', 
     expect(expectedValueShape(fieldById('last-name'))).toBe('name');
     expect(expectedValueShape(fieldById('email-repeat'))).toBe('email');
     expect(expectedValueShape({ id: 'c', kind: 'select', label: 'Vorname', options: [{ value: 'a', label: 'a' }] })).toBe('');
+    // The shape is the field's own: a sibling caption in the section context never changes it.
+    expect(expectedValueShape({ id: 't', kind: 'text', label: 'Telefon', context: 'E-Mail-Adresse wiederholen' })).toBe('phone');
+    expect(expectedValueShape({ id: 't', kind: 'text', label: 'Telefon', context: 'Postleitzahl · Geburtsdatum' })).toBe('phone');
+    expect(expectedValueShape({ id: 'n', kind: 'text', label: 'Bemerkungen', context: 'Telefon · Postleitzahl' })).toBe('');
     expect(valueFitsField(fieldById('first-name'), ALIAS, candidate)).toBe(false);
   });
 
