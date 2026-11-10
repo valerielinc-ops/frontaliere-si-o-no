@@ -14,8 +14,18 @@ import { spawnSync } from 'node:child_process';
 const ROOT = resolve(import.meta.dirname, '..');
 const CLEANUP_SCRIPT = resolve(ROOT, 'scripts/lib/section-shard-push-cleanup.sh');
 const PUSH_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/push-section-shard.sh'), 'utf8');
+const DEPLOY_WORKFLOW = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8');
 
 describe('section shard push timeout cleanup', () => {
+  it('derives the worker timeout from the six-hour job clock and keeps cleanup/publish reserves', () => {
+    const fanout = DEPLOY_WORKFLOW.slice(DEPLOY_WORKFLOW.indexOf('name: Push section shards (IT'));
+    expect(fanout).toContain('job_start="${CDN_JOB_START_EPOCH:-}"');
+    expect(fanout).toContain('job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds');
+    expect(fanout).toContain('cleanup_grace_seconds=600');
+    expect(fanout).toContain('post_push_reserve_seconds=1200');
+    expect(fanout).not.toContain('3600s bash scripts/lib/push-section-shard.sh');
+  });
+
   it('installs the cleanup trap in the real publisher before starting the worker', () => {
     expect(PUSH_SCRIPT).toContain('section-shard-push-cleanup.sh');
     expect(PUSH_SCRIPT).toContain("trap 'section_shard_push_timeout_trap TERM");
@@ -84,12 +94,18 @@ describe('section shard push timeout cleanup', () => {
 
       const result = spawnSync('bash', ['-c', [
         'set +e',
-        'timeout --verbose --signal=TERM --kill-after=5s 1s bash "$HELPER_SCRIPT"',
-        'timeout_rc=$?',
+        'bash "$HELPER_SCRIPT" &',
+        'worker_pid=$!',
+        'sleep 1',
+        'helper_pid="$(cat "$HELPER_PID_FILE")"',
+        'kill -TERM "$worker_pid" "$helper_pid" 2>/dev/null || true',
+        'wait "$worker_pid"',
+        'worker_rc=$?',
+        '[ "$worker_rc" -eq 143 ] || { echo "unexpected-worker-exit=$worker_rc"; exit 19; }',
+        'if [ "$worker_rc" -eq 143 ]; then timeout_rc=124; else timeout_rc="$worker_rc"; fi',
         '[ "$timeout_rc" -eq 124 ] || { echo "unexpected-timeout-exit=$timeout_rc"; exit 20; }',
         'while IFS= read -r path; do [ ! -e "$path" ] || { echo "leftover:$path"; exit 21; }; done < "$EXPECTED_PATHS"',
         'test -f "$HELPER_EXITED" || { echo "helper-not-reaped"; exit 22; }',
-        'helper_pid="$(cat "$HELPER_PID_FILE")"',
         'kill -0 "$helper_pid" 2>/dev/null && { echo "helper-still-running:$helper_pid"; exit 23; }',
         'echo next-worker-ready',
       ].join('\n')], {

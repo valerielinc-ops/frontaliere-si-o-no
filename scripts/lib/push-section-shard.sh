@@ -67,6 +67,10 @@
 #                  rewritten. A delta fallback to full rewrites everything
 #                  first, as today. The staged copy the pack step tars is
 #                  completed in background — see scripts/lib/shard-cdn-rewrite.sh.
+#   SHARD_DELTA_RESUME_THRESHOLD — changed paths needed to checkpoint a large
+#                  section delta on a non-Pages branch (default 200000).
+#   SHARD_DELTA_CHECKPOINT_FILES — maximum changed paths per checkpoint commit
+#                  (default 10000).
 #
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
 # strip step) and exits 0. A missing deploy key uses the HTTPS fallback when it
@@ -109,6 +113,7 @@ verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 # shard_orphan_flatten_and_push — shared with push-locale-shard.sh and
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/section-shard-resume.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/section-shard-push-cleanup.sh"
@@ -321,6 +326,8 @@ push_section_shard() {
     verify_stage="$RUNNER_TEMP/shard-push-verify-stage-$section-$loc"
     verify_output="$RUNNER_TEMP/shard-push-verify-plan-$section-$loc"
     cdn_rewrite_partial=0
+    delta_base_sha=''
+    delta_checkpoint_ref=''
 
     # Full mode keeps the historical push as the source of truth. When the
     # canary is enabled, build the delta index beside it without pushing; the
@@ -363,6 +370,8 @@ push_section_shard() {
             "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
             "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
             "$SHARD_HISTORY_CAP" "$section-$loc shard"; then
+          delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
+          delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
           delta_apply_ok=1
           if [ "$cdn_rewrite_deferred" = 1 ]; then
             if offload_delta_stage "$delta_output"; then
@@ -601,29 +610,63 @@ push_section_shard() {
       git config user.name "Valerie Linc"
       if [ "$SHARD_DELTA_CONTENT_CHANGES" -eq 0 ]; then
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
+        if [ -n "$delta_checkpoint_ref" ]; then
+          section_shard_checkpoint_cleanup "$stage" "$SHARD_REPO" "$delta_checkpoint_ref" "$section-$loc shard" || true
+        fi
       else
         _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
         _delta_tree="$(git write-tree --missing-ok)"
-        _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [delta]")"
-        shard_phase git-commit
+        _delta_message="$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
         _push_ok=0
         _push_rc=0
         _push_attempted=0
         _tree_rc=0
-        shard_report_largest_tree "$stage" "$_delta_commit" "$section-$loc shard" || _tree_rc=$?
-        shard_phase largest-tree
-        if [ "$_tree_rc" -eq 0 ]; then
-          _push_attempted=1
-          if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$section-$loc shard"; then
-            _push_ok=1
+        _resume_threshold="${SHARD_DELTA_RESUME_THRESHOLD:-200000}"
+        case "$_resume_threshold" in
+          ''|*[!0-9]*|0)
+            echo "::error::$section-$loc shard: SHARD_DELTA_RESUME_THRESHOLD must be a positive integer" >&2
+            exit 1
+            ;;
+        esac
+        _resume_path_count=$((SHARD_DELTA_CHANGED_FILES + SHARD_DELTA_REMOVED_FILES))
+        _resumable_active=0
+        if [ -n "$delta_checkpoint_ref" ] && [ "$_resume_path_count" -ge "$_resume_threshold" ]; then
+          _resumable_active=1
+          echo "$section-$loc shard: resumable delta enabled for $_resume_path_count changed paths (threshold $_resume_threshold, chunk size ${SHARD_DELTA_CHECKPOINT_FILES:-10000})"
+          shard_report_largest_tree "$stage" "$_delta_tree" "$section-$loc shard" || _tree_rc=$?
+          shard_phase largest-tree
+          if [ "$_tree_rc" -eq 0 ]; then
+            _push_attempted=1
+            if section_shard_publish_resumable \
+                "$stage" "$SHARD_REPO" "$delta_base_sha" "$_delta_tree" \
+                "$delta_checkpoint_ref" "$_delta_message" "$section-$loc shard" \
+                "${SHARD_DELTA_CHECKPOINT_FILES:-10000}"; then
+              _push_ok=1
+            else
+              _push_rc=$?
+            fi
           else
-            _push_rc=$?
+            _push_rc="$_tree_rc"
           fi
+          shard_phase resumable-git-push
         else
-          _push_rc="$_tree_rc"
+          _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$_delta_message [delta]")"
+          shard_phase git-commit
+          shard_report_largest_tree "$stage" "$_delta_commit" "$section-$loc shard" || _tree_rc=$?
+          shard_phase largest-tree
+          if [ "$_tree_rc" -eq 0 ]; then
+            _push_attempted=1
+            if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$section-$loc shard"; then
+              _push_ok=1
+            else
+              _push_rc=$?
+            fi
+          else
+            _push_rc="$_tree_rc"
+          fi
+          shard_phase git-push
         fi
-        shard_phase git-push
-        if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
+        if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$_resumable_active" != 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
           echo "::warning::$section-$loc shard: delta self-heal required after 3 push attempts — flattening to a fresh orphan commit and retrying"
           if git -C "$stage" checkout-index -a; then
             if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
@@ -634,6 +677,9 @@ push_section_shard() {
           fi
         fi
         [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
+        if [ "$_resumable_active" != 1 ] && [ -n "$delta_checkpoint_ref" ]; then
+          section_shard_checkpoint_cleanup "$stage" "$SHARD_REPO" "$delta_checkpoint_ref" "$section-$loc shard" || true
+        fi
       fi
     else
       cd "$stage"

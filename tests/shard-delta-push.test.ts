@@ -718,6 +718,76 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('mantiene privati i checkpoint e riprende i chunk prima di promuovere main', () => {
+    const scenario = createScenario('section-resumable-delta');
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['zurigo', 'it', current.dist],
+      deployKey: 'SHARD_ZURIGO_IT_DEPLOY_KEY',
+      label: 'section-resumable',
+    };
+    const resumeSettings = {
+      SHARD_DELTA_RESUME_THRESHOLD: '1',
+      SHARD_DELTA_CHECKPOINT_FILES: '2',
+    };
+    const hook = join(scenario.remote, 'hooks', 'pre-receive');
+    try {
+      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+        'jobs/a': '<html>A v1</html>',
+        'jobs/b': '<html>B v1</html>',
+        'jobs/c': '<html>C v1</html>',
+      });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v1', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+      expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
+      const base = git(['-C', scenario.remote, 'rev-parse', 'main']);
+      const checkpointRef = `refs/heads/shard-resume/zurigo-it-${base}`;
+
+      writeFileSync(hook, [
+        '#!/bin/sh',
+        'while read old new ref; do',
+        '  case "$ref" in',
+        '    refs/heads/shard-resume/zurigo-it-*)',
+        '      message="$(git show -s --format=%B "$new")"',
+        '      case "$message" in *"checkpoint 3/"*) echo "test interruption after two checkpoints" >&2; exit 1 ;; esac',
+        '      ;;',
+        '  esac',
+        'done',
+        'exit 0',
+        '',
+      ].join('\n'), { mode: 0o755 });
+      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+        'jobs/a': '<html>A v2</html>',
+        'jobs/b': '<html>B v2</html>',
+        'jobs/c': '<html>C v2</html>',
+      });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v2', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+
+      const interrupted = runPush(scenario, 'delta', resumeSettings, sectionTarget);
+      expect(interrupted.status).not.toBe(0);
+      expect(interrupted.output).toContain('checkpoint 2/');
+      expect(interrupted.output).toContain('main remains unchanged');
+      expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).toBe(base);
+      expect(git(['-C', scenario.remote, 'show', `${checkpointRef}:cerca-lavoro-zurigo/jobs/a/index.html`])).toBe('<html>A v2</html>');
+
+      writeFileSync(hook, '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+      const resumed = runPush(scenario, 'delta', resumeSettings, sectionTarget);
+      expect(resumed.status).toBe(0);
+      expect(resumed.output).toContain('resuming hidden checkpoint');
+      expect(resumed.output).toContain('already 2/3 chunks');
+      expect(resumed.output).toContain('checkpoint 1/3 already persisted; reusing it');
+      expect(resumed.output).toContain('checkpoint 2/3 already persisted; reusing it');
+      expect(resumed.output).not.toContain('checkpoint 2/3 paths=');
+      expect(resumed.output).toContain('complete tree promoted; hidden checkpoint removed');
+      expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).not.toBe(base);
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/a/index.html'])).toBe('<html>A v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/c/index.html'])).toBe('<html>C v2</html>');
+      const checkpoint = spawnSync('git', ['-C', scenario.remote, 'show-ref', '--verify', '--quiet', checkpointRef], { encoding: 'utf8' });
+      expect(checkpoint.status).not.toBe(0);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
   // This case performs eight isolated Git shard publishes; keep the bound
   // finite while allowing slower CI runners to complete the unchanged checks.
   it('pubblica la provenienza anche quando il payload servito resta identico', () => {

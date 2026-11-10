@@ -905,21 +905,34 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
-  it('bounds each section-shard push above its historical successful high-water and logs it', () => {
+  it('derives the IT section timeout from its job deadline and preserves the non-IT cap', () => {
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
-      const timeoutMatch = run.match(
-        /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
-      );
-      expect(timeoutMatch, `${name}: missing the bounded section worker`).not.toBeNull();
-      const cleanupGraceSeconds = Number(timeoutMatch![1]);
-      const timeoutSeconds = Number(timeoutMatch![2]);
-      // Run 37728960699 completed a full-overlay ticino-fr push (9.9 GB,
-      // 558,573 files) in 2,524s. Leave 18 min for corpus growth.
-      expect(timeoutSeconds, `${name}: deadline must exceed the 2,524s historical success`).toBeGreaterThan(2524);
-      expect(timeoutSeconds, `${name}: keep the reviewed 60 min cap`).toBe(3600);
-      expect(cleanupGraceSeconds, `${name}: preserve signal-cleanup grace`).toBe(600);
-      expect(run).toContain(`timeout_seconds=${timeoutSeconds} cleanup_grace_seconds=${cleanupGraceSeconds}`);
+      if (name.startsWith('Push section shards (IT')) {
+        expect(run, `${name}: must use the build-locale job start`).toContain('job_start="${CDN_JOB_START_EPOCH:-}"');
+        expect(run, `${name}: preserve cleanup grace`).toContain('cleanup_grace_seconds=600');
+        expect(run, `${name}: reserve time for finalize and publish`).toContain('post_push_reserve_seconds=1200');
+        expect(run, `${name}: derive the worker budget from the six-hour job deadline`).toContain(
+          'timeout_seconds=$((job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds))',
+        );
+        expect(run, `${name}: reject a deadline with no safe worker budget`).toContain('if [ "$timeout_seconds" -le 0 ]');
+        expect(run, `${name}: pass the derived worker budget to timeout`).toContain(
+          'timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh',
+        );
+        expect(run, `${name}: log the derived deadline and cleanup reserve`).toContain(
+          'timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds',
+        );
+      } else {
+        const timeoutMatch = run.match(
+          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
+        );
+        expect(timeoutMatch, `${name}: keep its separate bounded worker`).not.toBeNull();
+        expect(Number(timeoutMatch![1]), `${name}: preserve signal-cleanup grace`).toBe(600);
+        // Run 37728960699 completed a non-IT full-overlay push in 2,524s;
+        // that leg retains its independent 60-minute cap.
+        expect(Number(timeoutMatch![2]), `${name}: preserve its reviewed 60 min cap`).toBe(3600);
+        expect(run).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+      }
       expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
       expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
       expect(run, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
