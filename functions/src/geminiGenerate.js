@@ -20,6 +20,7 @@
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
+import { geminiResponseText } from './lib/geminiResponseText.js';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 // Alias "latest": 'gemini-2.0-flash-lite' e' RITIRATO (verificato il 2026-08-14
@@ -85,7 +86,7 @@ async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, 
   }
 
   const data = await res.json().catch(() => ({}));
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+  const text = geminiResponseText(data);
   if (!text) throw new Error('gemini_empty');
   return text;
 }
@@ -132,9 +133,16 @@ export async function handleGeminiGenerate(req) {
   return generateServerText({ systemPrompt, userPrompt, maxTokens, temperature, model });
 }
 
-/** Internal trusted callers can send complete source text; the HTTP endpoint keeps its original caps. */
+/**
+ * Internal trusted callers can send complete source text; the HTTP endpoint keeps its original caps.
+ * `acceptText(text)` lets a caller with a strict output contract (JSON) reject an answer: the
+ * provider counts as failed (`invalid_output`) and the next one is tried, within the same
+ * `maxProviderAttempts` budget. A deterministic (temperature 0) bad answer is not retried on the
+ * provider that produced it.
+ */
 export async function generateServerText({ systemPrompt = '', userPrompt = '', maxTokens = 2048, temperature = 0.7,
-  model = DEFAULT_MODEL, maxProviderAttempts = Infinity, allowCodexFallback = true, background = false, signal = null } = {}) {
+  model = DEFAULT_MODEL, maxProviderAttempts = Infinity, allowCodexFallback = true, background = false, signal = null,
+  acceptText = null } = {}) {
   if (!userPrompt || userPrompt.length > 100_000 || systemPrompt.length > 40_000) {
     return { status: 400, body: { ok: false, error: 'generation_input_out_of_bounds' } };
   }
@@ -147,6 +155,14 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     failures.push(`${provider}: ${detail}`);
     providerFailures.push(providerFailure(provider, value));
   };
+  let rejectedOutput = false;
+  const accepted = (text) => {
+    if (typeof acceptText !== 'function') return true;
+    let ok = false;
+    try { ok = acceptText(text) === true; } catch { ok = false; }
+    if (!ok) rejectedOutput = true;
+    return ok;
+  };
 
   // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
   const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
@@ -155,7 +171,8 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     attempts += 1;
     try {
       const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal });
-      return { status: 200, body: { ok: true, text, provider: 'gemini' } };
+      if (accepted(text)) return { status: 200, body: { ok: true, text, provider: 'gemini' } };
+      noteFailure('gemini', 'invalid_output');
     } catch (err) {
       noteFailure('gemini', err);
     }
@@ -176,6 +193,10 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     attempts += 1;
     try {
       const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, apiFamily: fb.apiFamily, systemPrompt, userPrompt, maxTokens, temperature, background, signal });
+      if (!accepted(text)) {
+        noteFailure(fb.label, 'invalid_output');
+        continue;
+      }
       console.log(`[geminiGenerate] served by fallback ${fb.label}`);
       return { status: 200, body: { ok: true, text, provider: fb.label } };
     } catch (err) {
@@ -198,15 +219,16 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
   // turn that cancellation into a generic provider failure (or accept a late
   // result); callers must observe the shared cancellation contract.
   if (signal?.aborted) return cancelled();
-  if (codexResult.ok) {
+  if (codexResult.ok && accepted(codexResult.text)) {
     console.log('[geminiGenerate] served by fallback codex');
     return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };
   }
-  noteFailure('codex', codexResult.notConfigured ? 'not_configured' : codexResult.error);
+  noteFailure('codex', codexResult.ok ? 'invalid_output' : codexResult.notConfigured ? 'not_configured' : codexResult.error);
 
   // Every provider failed.
   console.error('[geminiGenerate] all providers failed —', failures.join(' | '));
-  const body = { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300) };
+  const body = { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300),
+    ...(rejectedOutput ? { invalidOutput: true } : {}) };
   // This is consumed only by trusted background qualification. Keep provider
   // availability details out of the interactive HTTP response.
   if (background) body.providerFailures = providerFailures;
