@@ -1,4 +1,4 @@
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { firstParsableDateStr } from './firstParsableDate';
 /**
@@ -325,8 +325,8 @@ export function renderJobCardHtml(
 ): string {
   const { href, locale } = opts;
 
-  // Employer's own title in every locale (scripts/lib/job-title-identity.mjs).
-  const titleSource = jobDisplayTitle(job);
+  // Title in the card's language (scripts/lib/job-title-identity.mjs).
+  const titleSource = localizedJobDisplayTitle(job, locale);
   const title = sanitizeJobTitleForCard(
     String(titleSource).replace(/\s+/g, ' ').trim(),
   );

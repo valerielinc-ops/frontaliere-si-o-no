@@ -263,14 +263,16 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     expect(html).toContain('Evil &amp; Co &quot;Pwn&quot;');
   });
 
-  it("shows the employer's original title, not the translated titleByLocale slot", () => {
+  it("shows the title in the card's language, the original only without a translation", () => {
+    // Owner decision 2026-11-10: translated title, original as fallback.
     const localized: JobCardJob = {
       ...baseJob,
       titleByLocale: { en: 'Full Stack .Net Developer' },
     };
     const html = renderJobCardHtml(localized, { href: '/x/', locale: 'en' });
-    expect(html).toContain('Full Stack .Net Sviluppatore');
-    expect(html).not.toContain('Full Stack .Net Developer');
+    expect(html).toContain('Full Stack .Net Developer');
+    expect(html).not.toContain('Full Stack .Net Sviluppatore');
+    expect(renderJobCardHtml(localized, { href: '/x/', locale: 'de' })).toContain('Full Stack .Net Sviluppatore');
   });
 
   it('does not render an AI translation explanation as the job title', () => {

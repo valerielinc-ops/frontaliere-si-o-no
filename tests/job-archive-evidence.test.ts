@@ -103,9 +103,9 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
     const code = ts.transpileModule(`${source.slice(start, end)} return expiredDataObj;`, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
-    const run = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'relPath', 'slug', 'jobCompany', 'jobLocation', 'jobDisplayTitle', 'jobContract', 'jobDatePosted', 'jobSalaryMin', 'jobSalaryMax', 'jobSalaryCurrency', 'jobSalarySource', code);
+    const run = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'relPath', 'slug', 'jobCompany', 'jobLocation', 'recordedTitleForLocale', 'jobContract', 'jobDatePosted', 'jobSalaryMin', 'jobSalaryMax', 'jobSalaryCurrency', 'jobSalarySource', code);
     const info = { title: 'Locale role', titleByLocale: { en: 'Locale role' }, descriptionByLocale: { en: 'Locale description' }, slugByLocale: { fr: 'another-reference' }, sector: 'Unverified sector' };
-    const seed = run(hasRealTitle, null, info, { companyKey: 'url-employer' }, 'en', '/en/find-jobs-zurich/own-route/', 'tracking-key', 'URL employer', 'URL place', (job: { title?: string } | null | undefined) => job?.title || '');
+    const seed = run(hasRealTitle, null, info, { companyKey: 'url-employer' }, 'en', '/en/find-jobs-zurich/own-route/', 'tracking-key', 'URL employer', 'URL place', (loc: string) => info.titleByLocale[loc as 'en'] || info.title);
     if (hasRealTitle) {
       expect(seed.titleByLocale).toEqual(info.titleByLocale);
       expect(seed.descriptionByLocale).toEqual(info.descriptionByLocale);
