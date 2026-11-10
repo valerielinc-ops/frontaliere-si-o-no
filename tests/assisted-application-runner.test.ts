@@ -14,7 +14,7 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalAnswersForFlow, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
 import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore as createRawMemoryFirestore } from './helpers/memoryFirestore';
@@ -31,6 +31,29 @@ const CV_LINES = [
   'Ridotto gli errori di somministrazione del 15% con un nuovo protocollo di doppio controllo.',
   'Lingue: italiano madrelingua, tedesco B1. Competenze: triage, terapia intensiva, cartella clinica.',
 ];
+
+describe('portal answer projection provenance', () => {
+  it('reuses only candidate-sourced consent answers from a previous portal pass', () => {
+    const question = {
+      id: 'privacy',
+      question: 'I agree to the Privacy Policy Statement',
+      semanticKey: 'privacy_application_consent',
+      requiresAffirmativeConsent: true,
+    };
+    const record = (source?: string) => ({
+      semanticKey: question.semanticKey,
+      question: question.question,
+      answer: 'Yes',
+      ...(source ? { source } : {}),
+    });
+
+    expect(portalAnswersForFlow([question], {}, [record('consent')])).toEqual({});
+    expect(portalAnswersForFlow([question], {}, [record('policy_default')])).toEqual({});
+    expect(portalAnswersForFlow([question], {}, [record('answer-id')])).toEqual({});
+    expect(portalAnswersForFlow([question], {}, [record()])).toEqual({});
+    expect(portalAnswersForFlow([question], {}, [record('answers')])).toEqual({ privacy: 'Yes' });
+  });
+});
 
 function cvPdf() {
   return renderPdf(CV_LINES.map((text) => ({ text })));
@@ -195,9 +218,10 @@ describe('draft mode', () => {
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
     expect(draft.matches.find((item: any) => item.index === 1)).toMatchObject({ evidence: expect.stringContaining('tedesco B1'), evidenceUnverified: false });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
-    // The unambiguous Italian first name already fills the form of address, so it is not asked again.
+    // The candidate's name does not establish a form of address; it remains optional and unanswered.
     expect(draft.questions).toEqual([
       expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
+      expect.objectContaining({ id: 'salutation', required: false }),
     ]);
     // "7 anni" is not in the CV: flagged for the operator.
     expect(draft.factCheck).toMatchObject({ ok: true, unsupported: [] });

@@ -1,14 +1,14 @@
 /**
- * Owner-configured form preferences, not facts from the candidate's CV.
+ * Owner-configured form defaults, not facts from the candidate's CV.
  * Keep them out of the confirmed-answer ledger and qualification evidence.
  */
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
-import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
-// v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v5';
+// v7 (2026-11-09): only workload preference and the exact application privacy-reading acknowledgement remain soft defaults.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v7';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -26,7 +26,6 @@ const OTHER_NOTICE_TOPIC = /\b(?:availability|disponibilita|verfugbarkeit|dispon
 const RETENTION_ACTION = /\b(?:retention|retain\w*|keep\w*|stor\w*|conserv\w*|memoriz\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*|conservation|stock\w*|effac\w*)\b/;
 const RETENTION_DATA = /\b(?:data|dati|donnees|daten|personal information|informazioni personali|informazioni di carattere personale|donnees personnelles|personenbezogen\w*)\b/;
 const RETENTION_TIME = /\b(?:how long|for how long|per quanto tempo|per quanto|duration|durata|period|periodo|after|dopo|successiv\w*|future|future offers|offerte di lavoro|nach|apres|combien de temps|wie lange|jahre?|anni?|months?|mesi?|mois|years?|ans?)\b/;
-const AFFIRMATIVE_CONSENT = /^(?:(?:i|io|je|ich) )?(?:si|yes|ja|oui|true|1|acconsent\w*|accett\w*|consent\w*|consens\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|autoris\w*)(?: .*)?$/;
 
 function optionsOf(question) {
   const raw = question?.options?.length ? question.options : question?.applicationOptions || [];
@@ -116,7 +115,7 @@ function languageOf(text, locale) {
   return 'en';
 }
 
-/** Only unconditional operational preferences have an automatic default. */
+/** Only the approved workload preference and exact privacy-reading acknowledgement have defaults. */
 export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
@@ -168,66 +167,33 @@ export function operationalQuestionTopic(question) {
   return null;
 }
 
-/**
- * Return a value the actual field can express; never choose another preference.
- * `facts` (platformCandidateFacts) extends the owner preferences with the
- * platform defaults of 2026-11-09; without them only the facts that need no
- * candidate (dates, consents, availabilities) apply.
- */
+/** Return a value the actual field can express; never choose another preference. */
 export function operationalDefaultAnswer(question, { locale, facts } = {}) {
   return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale });
 }
 
 function ownerPreferenceAnswer(question, { locale } = {}) {
   const topic = operationalQuestionTopic(question);
-  if (!topic) return null;
+  if (!['preferred_workload', 'privacy_review_ack'].includes(topic)) return null;
   const options = optionsOf(question);
   const text = norm(question?.applicationQuestion || question?.question || question?.label);
   const language = languageOf(text, locale);
   let value;
-  if (topic === 'application_data_processing_consent') {
-    if (question?.kind === 'checkbox' || question?.type === 'checkbox' || question?.inputType === 'checkbox') value = 'true';
-    else if (options.length) {
-      const matches = options.filter(option => (AFFIRMATIVE_CONSENT.test(norm(option.label))
-        || AFFIRMATIVE_CONSENT.test(norm(option.value)))
-        && !hasConsentContradiction(`${option.label} ${option.value}`));
-      if (matches.length !== 1) return null;
-      value = matches[0].label;
-    } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
-      value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
-    } else return null;
-  } else if (topic === 'application_data_retention') {
-    value = minimumDataRetentionOption(options, text);
-    if (!value) return null;
-  } else if (topic === 'privacy_review_ack') {
+  if (topic === 'privacy_review_ack') {
+    const required = question?.portalNativeContract?.required === true
+      || (question?.portalNativeContract?.required !== false && question?.required === true);
+    if (!required) return null;
     if (options.length) {
       const matches = options.filter(option => YES.test(norm(option.label)));
       if (matches.length !== 1) return null;
       value = matches[0].label;
-    } else value = question?.kind === 'checkbox' || question?.type === 'checkbox'
+    } else value = question?.type === 'checkbox' || question?.kind === 'checkbox' || question?.inputType === 'checkbox'
       ? 'true' : { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
-  } else if (topic === 'notice_period') {
-    if (options.length) {
-      value = operationalAnswerForOption(question, '3 months');
-      if (!value) return null;
-    } else if (question?.type === 'number' || question?.inputType === 'number') {
-      if (!NOTICE_MONTH_UNIT.test(text)) return null;
-      value = '3';
-    } else value = { it: '3 mesi', en: '3 months', de: '3 Monate', fr: '3 mois' }[language];
-  } else if (topic === 'preferred_workload') {
-    if (options.length) {
-      const matches = options.filter(option => /^100\s*%?$/.test(option.label.trim()) || /^100\s*%?$/.test(option.value.trim()));
-      if (matches.length !== 1) return null;
-      value = matches[0].label;
-    } else value = question?.type === 'number' || question?.inputType === 'number' ? '100' : '100%';
-  } else {
-    if (options.length) {
-      const matches = options.filter(option => YES.test(norm(option.label)));
-      if (matches.length !== 1) return null;
-      value = matches[0].label;
-    } else value = question?.kind === 'checkbox' || question?.type === 'checkbox'
-      ? 'true' : { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
-  }
+  } else if (options.length) {
+    const matches = options.filter(option => /^100\s*%?$/.test(option.label.trim()) || /^100\s*%?$/.test(option.value.trim()));
+    if (matches.length !== 1) return null;
+    value = matches[0].label;
+  } else value = question?.type === 'number' || question?.inputType === 'number' ? '100' : '100%';
   const validationQuestion = { ...question, type: question.type === 'number' || question.inputType === 'number'
     ? 'number' : question.type || (options.length ? 'choice' : question.inputType || 'text'), options: options.map(option => option.label) };
   if (!validateAnswer(value, validationQuestion).ok) return null;

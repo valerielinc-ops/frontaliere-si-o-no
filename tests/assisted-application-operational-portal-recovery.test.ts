@@ -12,7 +12,7 @@ const notice = { id: 'notice', source: 'portal', question: 'Attuale periodo di p
 function fixture() {
   return createMemoryFirestore({
     [base]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null, consentVersion: 'assisted-application-v2', consentedAt: now - 2000, cvUploadedAt: now - 2000 },
-    [`${base}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'], answers: { notice: '7 giorni' }, dispatch: { mode: 'submit', round: 1, requestedAt: now - 500 }, portalCodeVersion: 'a'.repeat(64) },
+    [`${base}/automation/flow`]: { state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'], answers: { notice: '7 giorni', whatsapp: 'No' }, dispatch: { mode: 'submit', round: 1, requestedAt: now - 500 }, portalCodeVersion: 'a'.repeat(64) },
     [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, completedAt: now - 1000, questions: [notice], job: { source: 'job_detail', applyUrl: 'https://jobs.example.com/apply/' }, channel: { type: 'employer_site' }, factCheck: { ok: true } },
     [`${base}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: now - 100 } },
   });
@@ -86,7 +86,7 @@ describe('source-version recovery of positively identified operational portal qu
     (referral as any).portalNativeContract = { version: 'native-contract-v1', round: draft.round, url: draft.channel?.applyUrl || draft.job?.applyUrl, observedAt: now, required: false, requiredEvidence: 'aria-required:false', topic: 'recruitment_source', frame: 0, form: 0, fieldId: 'source-native', label: referral.applicationQuestion };
     store.docs.set(`${base}/ai_drafts/current`, draft);
     expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 1 });
-    expect(store.read(`${base}/automation/flow`).answers.notice).toBe('7 giorni');
+    expect(store.read(`${base}/automation/flow`).answers).toEqual({ notice: '7 giorni', whatsapp: 'No' });
   });
 
   it.each([
@@ -99,10 +99,10 @@ describe('source-version recovery of positively identified operational portal qu
     expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 1 });
   });
 
-  it('uses the owner default only when the operational answer is absent', async () => {
+  it('keeps recovery closed when a required factual answer is absent', async () => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: {} });
-    expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 1 });
+    expect(await reconcilePortalCode(context(store))).toMatchObject({ queued: 0 });
     expect(store.read(`${base}/automation/flow`).answers).toEqual({});
   });
 

@@ -33,7 +33,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?(?:application|applying)\b|many thanks for (your )?(?:application|applying)\b|thanks for applying|application (has been )?(received|submitted|sent)|we have received your application\b|you have successfully applied|vielen dank für (ihre|deine) bewerbung|wir haben (ihre|deine) unterlagen erhalten|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (?:(?:la tua|la sua) candidatura\b|aver inviato (?:(?:la|la tua|la sua) )?candidatura\b|esserti candidat[oa]\b)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|abbiamo ricevuto (?:la )?(?:tua|sua|vostra) candidatura\b|(?:la|l['’])\s*(?:tua|sua|vostra) candidatura (?:è stata )?(?:correttamente )?(?:inoltrata|ricevuta|inviata)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isApplicationDataProcessingConsent, minimumDataRetentionOption, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, isPrivacyReviewAcknowledgment, isApplicationDataProcessingConsent, isOptionalPurpose } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
@@ -112,11 +112,12 @@
   const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
   const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|(?:dati|informazioni) personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche (?:angaben|daten|informationen)|private adresse|wohnadresse|adresse personnelle|(?:informations|coordonnees) personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
-  const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   // Keep the same required-marker vocabulary as the portal snapshot. A
   // SuccessFactors label may carry only “(erforderlich)” while the input has
   // neither native nor ARIA requiredness.
   const REQUIRED_RE = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
+  const CONSENT_CONTEXT_RE = /\b(?:consent|consens|einwillig|agree|accept|akzeptier|accett|privacy|datenschutz|informativa|confidentialit|terms|conditions|agb|retention|retain|conserv\w*|data protection|personal data|acknowledg\w*|newsletter|marketing|werbung|pubblicit|whatsapp|third part|partner)\b/i;
+  const CONSENT_CHOICE_KINDS = new Set(['radio', 'select', 'combobox', 'search-select', 'listbox', 'aria-radio']);
   const hasAriaRequired = (element) => String(element.getAttribute('aria-required') || '').trim().toLowerCase() === 'true';
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
@@ -1076,7 +1077,7 @@
     return '';
   }
 
-  function inferredSalutationAnswer(entry, kit) {
+  function candidateSalutationAnswer(entry, kit) {
     const value = String(kit.profile?.formOfAddress || '').trim();
     const target = salutationKind(value);
     if (!target) return null;
@@ -1089,21 +1090,6 @@
     if (!salutationField) return null;
     const matches = options.filter(option => salutationKind(option.label) === target);
     return matches.length === 1 ? { value: matches[0].label, family: 'formOfAddress' } : null;
-  }
-
-  function minimumRetentionAnswer(entry) {
-    const options = choiceOptions(entry);
-    if (!options.length || typeof minimumDataRetentionOption !== 'function') return null;
-    const context = normalize((entry.labels || [entry.label]).join(' '));
-    if (!/\b(?:data|dati|daten|donnees)\b/.test(context)
-      || !/\b(?:retain|retention|stor\w*|memoriz\w*|conserv\w*|elimin\w*|cancell\w*|delet\w*|aufbewahr\w*|speicher\w*)\b/.test(context)) return null;
-    const selected = minimumDataRetentionOption(options.map(option => ({
-      label: option.label,
-      value: option.value ?? option.element?.value ?? option.label,
-    })), context);
-    if (!selected) return null;
-    const matches = options.filter(option => normalize(option.label) === normalize(selected));
-    return matches.length === 1 ? { value: matches[0].label, family: 'minimumDataRetention' } : null;
   }
 
   function latestPositionAnswer(entry, kit) {
@@ -1253,7 +1239,6 @@
   function identityValue(family, kit) {
     const id = kit.identity || {};
     const address = id.address || {};
-    const locationParts = String(id.location || '').split(',').map((part) => part.trim()).filter(Boolean);
     switch (family) {
       case 'email': return id.email;
       case 'fullName': return id.fullName;
@@ -1262,9 +1247,9 @@
       case 'phone': return formatInternationalPhone(id.phone);
       case 'phoneCountry': return id.phoneCountry || phoneCountryLabelOf(id.phone, kit.language);
       case 'postalCode': return address.postalCode;
-      case 'city': return address.city || locationParts[0];
+      case 'city': return address.city;
       case 'street': return address.street;
-      case 'country': return address.country || (locationParts.length > 1 ? locationParts[locationParts.length - 1] : '');
+      case 'country': return address.country;
       case 'linkedin': return id.linkedin;
       case 'birthDate': return kit.profile?.dateOfBirth;
       case 'birthDateDay': {
@@ -1303,8 +1288,22 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    if (entry.nativeContractUnavailable === true) return null;
+    if (entry.nativeContractUnavailable === true || entry.consentOwnershipUnknown === true || entry.privacyMetadataIncomplete === true) return null;
     const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
+    const consentLabels = [entry.label, ...(entry.labels || []), fromKit?.question]
+      .filter(value => typeof value === 'string' && value.trim());
+    const consentText = consentLabels.join(' ');
+    const consentSemanticIds = [entry.name, entry.id, entry.controlId, entry.semanticId, entry.fieldId].filter(Boolean);
+    const explicitConsentSource = ['answers', 'candidate', 'user'].includes(fromKit?.source);
+    const isConsentChoice = consentChoice(entry, kit);
+    const policyDefaultPrivacyAcknowledgment = fromKit?.source === 'policy_default'
+      && entry.required === true
+      && isPrivacyReviewAcknowledgment(fromKit.question, ...consentSemanticIds, ...(entry.labels || []));
+    const policyDefaultOptionalDecline = fromKit?.source === 'policy_default'
+      && entry.required === false
+      && isOptionalPurpose(consentText)
+      && /^(?:0|false|no|nein|non|n|nicht)$/i.test(normalize(fromKit.answer));
+    if (isConsentChoice && !explicitConsentSource && !policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline) return null;
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');
@@ -1326,55 +1325,28 @@
       return null;
     }
     if (entry.kind === 'checkbox') {
-      if (entry.consentOwnershipUnknown === true) return null;
-      const explicitNegativeAnswer = fromKit && fromKit.source !== 'policy_default'
-        && /^(?:0|false|no|nein|non)$/i.test(normalize(fromKit.answer));
-      if (explicitNegativeAnswer) return null;
-      // JazzHR/Resumator (Fincons) puts the required privacy statement in the
-      // label immediately before a separate «I agree» checkbox. Use all the
-      // control's labels, but keep marketing/newsletter opt-ins excluded.
-      const rawLabel = (entry.labels || [entry.label]).join(' ');
-      const label = normalize(rawLabel);
-      const element = entry.element;
-      const attr = name => element?.getAttribute?.(name) || '';
-      const privacyMetadata = {
-        ...entry,
-        ...(entry.privacyMetadata && typeof entry.privacyMetadata === 'object' ? entry.privacyMetadata : {}),
-        name: entry.name || attr('name'),
-        autocomplete: entry.autocomplete || attr('autocomplete'),
-        domId: entry.domId || element?.id || attr('id'),
-        controlId: entry.controlId || attr('controlId') || attr('data-control-id') || attr('data-controlid'),
-        semanticId: entry.semanticId || attr('semanticId') || attr('data-semantic-id') || attr('data-semanticid'),
-      };
-      const privacyIdentifiers = privacySemanticIdentifiers(privacyMetadata);
-      const privacyRepresentations = [entry.question, entry.label, entry.applicationQuestion]
-        .filter(value => typeof value === 'string' && value.trim());
-      const supplementalPrivacyLabels = Array.isArray(entry.labels)
-        ? entry.labels.filter(value => typeof value === 'string' && value.trim()) : [];
-      const privacyReviewAck = typeof isPrivacyReviewAcknowledgment === 'function'
-        && typeof privacyReviewAcknowledgmentShape === 'function'
-        && privacyRepresentations.length > 0
-        && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
-        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
-      const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
-        && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
-      const applicationDataProcessingConsent = typeof isApplicationDataProcessingConsent === 'function'
-        && isApplicationDataProcessingConsent([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
-          privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels);
-      // The owner's default accepts only this application's personal-data
-      // processing; optional marketing, talent-pool and unrelated purposes stay off.
-      return (entry.required || privacyReviewAck || applicationDataProcessingConsent)
-        && (privacyReviewAck || applicationDataProcessingConsent || (CONSENT_RE.test(label) && !privacyReviewShape))
-        && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
-        privacyMetadata, ...privacyIdentifiers) ? { check: true } : null;
+      if (isConsentChoice) {
+        if (!policyDefaultPrivacyAcknowledgment && !policyDefaultOptionalDecline && !explicitConsentSource) return null;
+        return /^(?:1|true|yes|ja|oui|si|y)$/i.test(normalize(fromKit.answer)) ? { check: true } : null;
+      }
+      const factSource = ['answers', 'candidate', 'user', 'profile', 'documents'].includes(fromKit?.source);
+      const factPolarity = factSource ? consentAnswerPolarity(fromKit?.answer) : null;
+      return factPolarity === null ? null : { check: factPolarity };
     }
     if (!fromKit) {
-      const salutation = inferredSalutationAnswer(entry, kit);
+      const salutation = candidateSalutationAnswer(entry, kit);
       if (salutation) return salutation;
-      const retention = minimumRetentionAnswer(entry);
-      if (retention) return retention;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
+    if (isConsentChoice && CONSENT_CHOICE_KINDS.has(entry.kind) && fromKit) {
+      const polarity = consentAnswerPolarity(fromKit.answer);
+      const options = choiceOptions(entry);
+      if (polarity !== null && options.length) {
+        const matching = options.filter(option => consentAnswerPolarity(option.label) === polarity);
+        if (matching.length !== 1) return null;
+        return { value: matching[0].label, ...(fromKit.family ? { family: fromKit.family } : {}) };
+      }
+    }
     // Contact facts are canonical identity data, not answers copied from the
     // last portal run. This is the boundary that prevents a stale «Schweiz»
     // answer from overwriting an Italian phone prefix or a blank residence.
@@ -1405,6 +1377,24 @@
       && WORK_SCHEDULE_ONLY_RE.test(normalize(value))) return null;
     if (value) return { value, family };
     if (['textarea', 'rich-text'].includes(entry.kind) && LETTER_RE.test(labelText) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
+    return null;
+  }
+
+  function consentChoice(entry, kit) {
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit, entry);
+    const text = [entry.label, ...(entry.labels || []), fromKit?.question]
+      .filter(value => typeof value === 'string' && value.trim()).join(' ');
+    const semanticIds = [entry.name, entry.id, entry.controlId, entry.semanticId, entry.fieldId].filter(Boolean);
+    return CONSENT_CONTEXT_RE.test(text)
+      || isApplicationDataProcessingConsent(text, ...semanticIds)
+      || (entry.kind !== 'checkbox' && CONSENT_CHOICE_KINDS.has(entry.kind) && isOptionalPurpose(text));
+  }
+
+  function consentAnswerPolarity(value) {
+    const text = normalize(value);
+    if (/^(?:(?:1|true|yes|ja|oui|si|y)\b|(?:i )?(?:agree|accept|consent|acknowledge)\b)/.test(text)) return true;
+    if (/^(?:(?:0|false|no|nein|non|n|nicht)\b|(?:i )?(?:do not|don t)\s+(?:agree|accept|consent|wish|want)\b|(?:disagree|decline|refuse|reject)\b|not interested\b)/.test(text)) return false;
+    if (/^(?:i )?(?:would like|want|wish|would love)\b/.test(text)) return true;
     return null;
   }
 
@@ -1755,9 +1745,11 @@
         }
         return Boolean(element.files && element.files.length === (element.multiple ? files.length : 1));
       }
-      case 'checkbox':
-        if (!element.checked) press(element);
-        return element.checked;
+      case 'checkbox': {
+        const shouldCheck = answer.check === true;
+        if (element.checked !== shouldCheck) press(element);
+        return element.checked === shouldCheck;
+      }
       case 'radio': {
         const option = bestOption(entry.options, answer.value, answer.family);
         if (!option) return false;
@@ -1968,17 +1960,55 @@
     const preferredCv = new Set(preferredDocumentControls(cvControls));
     for (const entry of entries) {
       if (cvControls.includes(entry) && !preferredCv.has(entry)) continue;
-      if (entry.nativeContractUnavailable === true) {
+      if (entry.nativeContractUnavailable === true || entry.consentOwnershipUnknown === true || entry.privacyMetadataIncomplete === true) {
         failed.push(entry.label || entry.kind);
-        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'native_contract_unavailable' });
+        missing.push({ label: entry.label || (entry.labels || []).find(Boolean) || entry.kind, answer: '', reason: 'native_contract_unavailable' });
         continue;
       }
-      if (!isEmpty(entry)) continue;
+      // A portal can ship a checkbox preselected. Treat it as unconfirmed:
+      // only an explicit candidate affirmative answer may leave it checked.
+      const consentAnswer = kitAnswer(entry.labels || [entry.label], kit, entry);
+      const explicitConsentAnswer = ['answers', 'candidate', 'user'].includes(consentAnswer?.source);
+      const consentPolarity = explicitConsentAnswer || consentAnswer?.source === 'policy_default'
+        ? consentAnswerPolarity(consentAnswer.answer) : null;
+      const optionalCheckboxDecline = entry.kind === 'checkbox' && entry.required !== true && consentPolarity === false
+        && (explicitConsentAnswer || consentAnswer?.source === 'policy_default');
+      if (entry.kind === 'checkbox' && !isEmpty(entry) && answerFor(entry, kit)?.check !== true) {
+        const unchecked = await fillEntry(entry, { check: false }, { getFile, getFiles }).catch(() => false);
+        if (!unchecked) {
+          failed.push(entry.label || entry.kind);
+          missing.push({ label: entry.label || entry.kind, answer: '', reason: 'unconfirmed_checkbox_could_not_be_cleared' });
+          continue;
+        }
+        if (!explicitConsentAnswer && !optionalCheckboxDecline && consentChoice(entry, kit)) {
+          missing.push({ label: entry.label || entry.kind, answer: '', reason: 'unconfirmed_consent_choice' });
+          continue;
+        }
+      }
       const answer = answerFor(entry, kit);
+      const isConsentChoice = consentChoice(entry, kit);
+      if (isConsentChoice && entry.required && explicitConsentAnswer && consentPolarity === false) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'required_consent_refused' });
+        continue;
+      }
+      if (entry.kind === 'checkbox' && entry.required && !isConsentChoice && answer?.check === false) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: 'No', reason: 'required_factual_checkbox_refused' });
+        continue;
+      }
+      if (isConsentChoice && !isEmpty(entry) && !answer) {
+        failed.push(entry.label || entry.kind);
+        missing.push({ label: entry.label || entry.kind, answer: '', reason: 'unconfirmed_consent_choice' });
+        continue;
+      }
+      if (!isEmpty(entry) && !isConsentChoice) continue;
       const documentKey = answer?.document ? `${doc.defaultView.location.href}|${answer.document}|${uploadControlId(entry.element)}` : '';
       if (documentKey && uploaded.has(documentKey)) continue;
       if (!answer) {
-        if (entry.required) missing.push({ label: entry.label || entry.kind, answer: '' });
+        if (entry.required || (isConsentChoice && consentAnswer?.source && !optionalCheckboxDecline)) {
+          missing.push({ label: entry.label || entry.kind, answer: '', ...(isConsentChoice ? { reason: 'consent_choice_unresolved' } : {}) });
+        }
         continue;
       }
       // At most twice per control: a portal that clears it again is left to Valerie.
@@ -1986,13 +2016,17 @@
       attempts.set(entry.element, tries);
       if (tries > 2) {
         failed.push(entry.label);
-        if (entry.required) missing.push({ label: entry.label, answer: answer.value || answer.document || '' });
+        if (entry.required || isConsentChoice) {
+          missing.push({ label: entry.label, answer: answer.value || answer.document || '', ...(isConsentChoice ? { reason: 'consent_choice_unresolved' } : {}) });
+        }
         continue;
       }
       const ok = await fillEntry(entry, answer, { getFile, getFiles }).catch(() => false);
       if (ok && documentKey) uploaded.add(documentKey);
       (ok ? filled : failed).push(entry.label || entry.kind);
-      if (!ok && entry.required) missing.push({ label: entry.label, answer: answer.value || answer.document || '' });
+      if (!ok && (entry.required || isConsentChoice)) {
+        missing.push({ label: entry.label, answer: answer.value || answer.document || '', ...(isConsentChoice ? { reason: 'consent_choice_unresolved' } : {}) });
+      }
     }
     return { filled, missing, failed, entries: entries.length };
   }

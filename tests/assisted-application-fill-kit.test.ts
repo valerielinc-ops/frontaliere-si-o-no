@@ -55,25 +55,22 @@ const takenOver = { state: 'owner_takeover', round: 1, heldBy: ['portal_refused'
 
 // Owner decision 2026-10-01: a portal the robot cannot pass is sent by Valerie, the extension types for her.
 describe('fill kit', () => {
-  it('carries owner-approved consent and minimum-retention defaults for every portal', () => {
+  it('does not invent consent, retention, or form-of-address answers for the extension', () => {
     const consent = 'Dichiaro di aver letto e compreso la Dichiarazione sulla protezione dei dati. Acconsento che i miei dati personali vengano trattati in conformità con tale Dichiarazione.';
     const retention = 'Per quanto tempo autorizzi l’ente a conservare i tuoi dati personali?';
-    const shortRetention = 'Desidero che i miei dati vengano eliminati dopo la procedura di candidatura corrente.';
     const kit = buildFillKit({
       orderId: ORDER,
       order,
       draft: { ...draft, language: 'it', questions: [
         { id: 'application_consent', question: consent, applicationQuestion: consent, type: 'checkbox', required: false },
         { id: 'data_retention', question: retention, applicationQuestion: retention, type: 'choice', required: false,
-          options: ['Conservazione per future offerte di lavoro', shortRetention] },
+          options: ['Conservazione per future offerte di lavoro', 'Eliminazione dopo questa procedura di candidatura'] },
       ] },
     });
 
-    expect(kit.profile.formOfAddress).toBe('Signora');
-    expect(kit.answers).toEqual(expect.arrayContaining([
-      expect.objectContaining({ question: consent, answer: 'true', source: 'policy_default' }),
-      expect.objectContaining({ question: retention, answer: shortRetention, source: 'policy_default' }),
-    ]));
+    expect(kit.profile.formOfAddress).toBe('');
+    expect(kit.answers.some((answer: any) => answer.question === consent)).toBe(false);
+    expect(kit.answers.some((answer: any) => answer.question === retention)).toBe(false);
   });
 
   it.each(['identity', 'answers'])('retains the current user answer above a stale same-owner %s projection', (source) => {
