@@ -667,6 +667,10 @@ jobs:
       - name: Dispatch post-publish indexing loops (Indexing API top-up + Bing SEO loop)
         if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
+        env:
+          # Only an App token whose `actions: write` the mint verified; empty
+          # otherwise, so the shell falls back to GITHUB_PAT.
+          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
         run: |
           if [ "${APP_TOKEN_ACTIONS:-false}" = "true" ] && [ -n "${APP_TOKEN:-}" ]; then
             TOKEN="$APP_TOKEN"; WHO="App token"
