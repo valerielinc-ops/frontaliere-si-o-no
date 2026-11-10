@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-11-09T21:16:19.184Z",
+  "generatedAt": "2026-11-10T09:12:21.017Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7643,
-  "avgDurationMs": 7643,
+  "durationMs": 8052,
+  "avgDurationMs": 8052,
   "durationHistory": [
-    7643
+    8052
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -52,7 +52,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:13:27.937Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,7 +83,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:16:01.773Z",
+      "crawledAt": "2026-11-10T09:12:07.887Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -100,7 +100,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:16:01.773Z",
+      "validThrough": "2027-01-06T09:12:07.887Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:16:00.829Z",
+      "crawledAt": "2026-11-10T09:12:07.015Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -146,7 +146,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:16:00.829Z",
+      "validThrough": "2027-01-07T09:12:07.015Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:15:59.823Z",
+      "crawledAt": "2026-11-10T09:12:06.020Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -192,7 +192,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:15:59.823Z",
+      "validThrough": "2027-01-01T09:12:06.020Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -221,7 +221,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:15:58.934Z",
+      "crawledAt": "2026-11-10T09:12:04.746Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -238,7 +238,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:15:58.934Z",
+      "validThrough": "2026-12-10T09:12:04.746Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -286,7 +286,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:13:24.278Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -296,5 +296,5 @@
       }
     }
   ],
-  "codeCommit": "1dbbd63fa4ef1d645b973703c20eaa910357364d"
+  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
 }
