@@ -3471,7 +3471,8 @@ export function isRoleHeading(heading, title) {
 
 /** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
 export async function postingMainHeading(page) {
-  const headings = await page.evaluate?.(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
+  if (typeof page?.evaluate !== 'function') return '';
+  const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
     .filter((node) => {
       const rect = node.getBoundingClientRect();
       const style = window.getComputedStyle(node);
@@ -3484,7 +3485,8 @@ export async function postingMainHeading(page) {
   // with more main headings than that is no single-heading posting.
   if (!Array.isArray(headings) || headings.length > 200) return '';
   const distinct = [...new Set(headings)];
-  return distinct.length === 1 ? distinct[0].slice(0, 200) : '';
+  // The whole heading: isRoleHeading refuses one longer than a title, never a cut that hides «… at Other Employer».
+  return distinct.length === 1 ? distinct[0] : '';
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */

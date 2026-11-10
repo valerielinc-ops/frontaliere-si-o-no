@@ -122,5 +122,8 @@ describe('postingMainHeading', () => {
     expect(await postingMainHeading(pageOf('<h2>IT Product Manager</h2>'))).toBe('');
     // A different heading after ten copies of the role is still a second heading (review of #18003).
     expect(await postingMainHeading(pageOf(`${'<h1>IT Product Manager</h1>'.repeat(10)}<h1>Apply now</h1>`))).toBe('');
+    // A long heading is returned whole, so the role check sees its suffix (review of #18003).
+    const long = `Product Manager${'—'.repeat(190)} at Other Employer`;
+    expect(isRoleHeading(await postingMainHeading(pageOf(`<h1>${long}</h1>`)), 'Product Manager')).toBe(false);
   });
 });
