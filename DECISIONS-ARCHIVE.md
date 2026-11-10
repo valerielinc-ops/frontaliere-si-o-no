@@ -16,3 +16,4 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-09-17 | **`needs-human` sulle PR non è più un veto persistente.** La label può restare come tracking/escalation, ma nessun merge, autorebase o dispatch automatico si ferma solo per la sua presenza | istruzione diretta, sessione 17-09 |
 | 2026-09-23 | Gli articoli vecchi non si cancellano: si preservano per SEO e traffico monetizzato (default refresh: riga 2026-09-24) | istruzione diretta, sessione 23-09 |
 | 2026-09-05 | **#814 (`TRANSLATION_THINKING_AB`): aperta per MONITORING, non come blocco.** A/B acceso col default; i tre item erano falsi positivi, nessun lavoro in coda | istruzione diretta, sessione 05-09 |
+| 2026-11-09 | Candidature: non inferire fatti personali; consensi per trattamento, contatto o conservazione richiedono risposta esplicita. Default solo per presa visione obbligatoria e inequivocabile dell’informativa; rifiutare marketing facoltativo. | 09-11 |
