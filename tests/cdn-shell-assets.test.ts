@@ -500,6 +500,20 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.purge.flat()).toContain(stable);
   });
 
+  it('keeps an indeterminate stable alias fail-closed', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
+      probeAnswer: (key, has) => key === stable ? 'unknown' : has ? 'present' : 'absent',
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+
+    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(cdn.calls.checkStored).not.toContain(stable);
+    expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
+  });
+
   it('refuses a global stable alias whose local bytes differ from its current hashed target', async () => {
     const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
     const staleAssets = assets.map((asset) => asset.key === 'assets/adsense-loader.js'

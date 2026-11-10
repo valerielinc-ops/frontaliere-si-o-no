@@ -497,7 +497,7 @@ export async function ensureCdnShellAssets({
       results.push({ key, outcome: 'served' });
       continue;
     }
-    if (stablePairByKey.has(key) && probeAnswer === 'stale') {
+    if (stablePairByKey.has(key) && probeAnswer !== 'absent') {
       const { versionedKey } = stablePairByKey.get(key);
       throw new Error(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey} — HTML that references it must not be published`);
     }
