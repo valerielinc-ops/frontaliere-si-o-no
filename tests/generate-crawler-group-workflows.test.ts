@@ -1251,13 +1251,13 @@ describe('crawler generation state cleanup', () => {
   });
 
   it('keeps group 24 within the default watchdog budget with its committed roster', async () => {
-    expect(crawlerGroupMaxParallel(24)).toBe(7);
+    expect(crawlerGroupMaxParallel(24)).toBe(8);
     const group24Body = buildCrawlerLaunchShellBody({
       slug: 'group-24-member',
       runStep: { env: {}, run: 'true' },
       postSteps: [],
     }, 24);
-    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-7}"`);
+    expect(group24Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-8}"`);
 
     const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
