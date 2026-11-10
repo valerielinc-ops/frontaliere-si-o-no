@@ -351,17 +351,18 @@ const VERIFY_REQUEST_RE = phrases([
 const VERIFICATION_NAMED_RE = phrases([
   String.raw`(?:verification|confirmation|activation|security|verifizierungs|best[aä]tigungs|aktivierungs|sicherheits)[- ]?(?:code|link)`,
   // «Der Code für die Verifizierung Ihres Bewerbungskontos lautet …» (Federal Administration, SuccessFactors).
-  String.raw`(?:code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
+  // «Dein Passcode für die Aktivierung deines Kontos lautet …» (SBB, SuccessFactors).
+  String.raw`(?:(?:pass)?code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
   String.raw`(?:codice|link) di (?:verifica|conferma|attivazione)`,
   String.raw`(?:code|lien) de (?:v[eé]rification|confirmation|activation)`,
-  String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|code)`,
+  String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|kennwort|code)|einmalige[rn]? passcode`,
   String.raw`(?:e-?mail|account)[- ](?:verification|verifizierung)|verifica (?:dell['’]|del |della )?(?:account|e-?mail|indirizzo)|v[eé]rification (?:de (?:votre |l['’])|d['’])?(?:compte|e-?mail|adresse)`,
 ].join('|'));
 const RECEIPT_WORD_RE = phrases(String.raw`received|erhalten|eingegangen|ricevut\p{L}*|reçu\p{L}*`);
 const LINK_WORD_RE = phrases(String.raw`link|lien|collegamento|click|klicken|clicca|cliquez`);
 const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rifier|v[eé]rification|verification`);
 // Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
-const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
+const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|einmalige[rnsm]? (?:passcode|code|kennwort|passwort)|einmal(?:passcode|kennwort|passwort|code)|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:(?:pass)?code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
 
 const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
 const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
