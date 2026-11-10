@@ -218,6 +218,21 @@ export function failedConsentRequiresHandoff(result, action, field) {
 }
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
+/**
+ * The page lists a file under exactly one of this run's own names as a file
+ * control of its own (SuccessFactors' «My Documents»: «CV_….pdf (11/10/2026)»
+ * and «* Curriculum Vitae Edit document CV_….pdf Opens a dialog», no remove
+ * control). Only an earlier run of this order names a file so: the slot holds
+ * our document already. A name merely quoted in the page text proves nothing.
+ */
+export function ownEarlierFileShown(buttons, names) {
+  return (buttons || []).some((button) => {
+    if (button.chrome) return false;
+    const text = String(button.text || '');
+    return names.some((name) => name && text.includes(String(name)));
+  });
+}
+
 export function removalsOf(buttons, names) {
   return (buttons || []).filter((button) => {
     if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
@@ -8032,15 +8047,26 @@ export async function submitViaPortal(ctx) {
           const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
           return removals;
         });
+      // A portal that offers no removal (SuccessFactors keeps the earlier CV in
+      // «My Documents» with only «Edit document», Damiani 2026-11-10) leaves
+      // the file of an earlier run of this order in its slot: under this run's
+      // own name it is our document, kept as it is, and the run goes on.
+      const keptEarlier = [];
       for (const document of Object.keys(ctx.files || {}).filter((item) =>
         !sentNow.has(item) && !selectedDocumentsThisRun.has(item))) {
         const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
         const matchingRemoval = earlier.some((item) => item.document === document);
         for (const name of names) {
           const visible = await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
-          if (visible && !matchingRemoval) return await handoff('previous_file_not_removable');
+          if (!visible || matchingRemoval) continue;
+          if (ownEarlierFileShown(snapshot.buttons, [name])) {
+            if (!keptEarlier.includes(document)) keptEarlier.push(document);
+            continue;
+          }
+          return await handoff('previous_file_not_removable');
         }
       }
+      if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
       if (earlier.length) {
         for (const { button, names } of earlier) {
           try {
