@@ -2054,24 +2054,36 @@ jobs:
               echo "$section-it: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               return 0
             fi
-            # A full-overlay ticino-fr push of 9.9 GB / 558,573 files completed
-            # in 2,524s (run 37728960699). A 60 min worker deadline leaves 18 min
-            # beyond that measured run for corpus growth while the 10 min cleanup
-            # grace handles child-process termination. Permanent GitHub tree-size
-            # rejections are caught by shard_report_largest_tree before upload, so
-            # they do not consume this deadline or repeat the same failed push.
-            # On timeout the missing ok-marker keeps the complete section on apex;
-            # no page is removed from the publish or deindexed.
-            echo "[section-push] event=start locale=it section=$section timeout_seconds=3600 cleanup_grace_seconds=600"
-            if timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh "$section" it dist; then
+            # Each worker's deadline uses the build-locale job's original start
+            # clock. Leave 10 minutes for its TERM cleanup and 20 minutes for
+            # finalize/publish steps before GitHub's 6-hour job limit. Large
+            # delta pushes persist bounded chunks on a private shard ref, so a
+            # timeout can resume on the next automatically re-armed deploy.
+            job_start="${CDN_JOB_START_EPOCH:-}"
+            case "$job_start" in
+              ''|*[!0-9]*)
+                echo "::error::[section-push] cannot derive deadline: CDN_JOB_START_EPOCH is missing or invalid"
+                return 1
+                ;;
+            esac
+            cleanup_grace_seconds=600
+            post_push_reserve_seconds=1200
+            now_epoch="$(date +%s)"
+            timeout_seconds=$((job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds))
+            if [ "$timeout_seconds" -le 0 ]; then
+              echo "::error::[section-push] no worker budget remains locale=it section=$section cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds"
+              return 1
+            fi
+            echo "[section-push] event=start locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds job_timeout_seconds=21600"
+            if timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh "$section" it dist; then
               echo "[section-push] event=finish locale=it section=$section outcome=success"
               return 0
             else
               rc=$?
               if [ "$rc" -eq 124 ]; then
-                echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=3600 cleanup_grace_seconds=600 exit_code=$rc; the existing apex and strip-marker fallback remains in effect"
+                echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds exit_code=$rc; incomplete checkpoints remain private and the existing apex and strip-marker fallback remains in effect"
               elif [ "$rc" -eq 137 ]; then
-                echo "::error::[section-push] event=forced-termination locale=it section=$section timeout_seconds=3600 cleanup_grace_seconds=600 exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
+                echo "::error::[section-push] event=forced-termination locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds exit_code=$rc; inspect timeout signal diagnostics to distinguish deadline escalation from runner termination"
               else
                 echo "::error::[section-push] event=finish locale=it section=$section outcome=failure exit_code=$rc"
               fi
