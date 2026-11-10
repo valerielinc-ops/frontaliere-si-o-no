@@ -4416,7 +4416,10 @@ esac
         expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
           `\${{ steps['crawler-launch-${member}'].outcome }}`,
         );
+        expect(result.env?.CRAWLER_MEMBER_SLUG).toBe(member);
         expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
+        expect(result.run).toContain('s="$CRAWLER_MEMBER_SLUG"');
+        expect(result.run).not.toContain(member);
         expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
         expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
         expect(result.run).toContain('invalid detached crawler PID');
