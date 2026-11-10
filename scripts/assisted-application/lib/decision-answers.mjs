@@ -70,12 +70,15 @@ const report = (results) => results.map(({ question, checked, reasons }) => ({
 
 /**
  * At draft time: decide the answerable questions over the CV and keep the verified decisions on them.
+ * `onlyIds` limits the call to those questions (the re-evaluation of an older draft,
+ * reconcile-review-questions.mjs, asks only what still holds the review).
  * @returns {Promise<{questions:Array, asked:string[], kept:string[], decisions:Array}>}
  */
-export async function draftDecisionAnswers({ questions, answers = {}, facts = null, cvText, codex, employer = '', jobTitle = '', log = () => {} }) {
+export async function draftDecisionAnswers({ questions, answers = {}, facts = null, cvText, codex, employer = '', jobTitle = '', log = () => {}, onlyIds = null }) {
   const all = Array.isArray(questions) ? questions : [];
   const none = { questions: all, asked: [], kept: [], decisions: [] };
-  const answerable = all.filter((question) => decisionAnswerable(question, { answers, facts }));
+  const answerable = all.filter((question) => decisionAnswerable(question, { answers, facts })
+    && (!onlyIds || onlyIds.includes(question.id)));
   if (!answerable.length || !String(cvText || '').trim() || typeof codex !== 'function') return none;
   const results = await decide({ questions: answerable, codex, cvText, employer, jobTitle, allowText: true, log });
   if (!results) return none;

@@ -65,6 +65,25 @@ const JOB_QUESTIONS_SECTION_RE = /\b(?:job[-\s]specific (?:information|questions
 // endpoint. A same-origin `/other/` page repeating the role title is not a
 // receipt proof, even when the preceding review route was observed.
 const RECEIPT_PATH_RE = /(?:^|\/)(?:thank[-_ ]?you|receipt|complete(?:d)?|confirmation|success|submitted)\/?$/i;
+// SuccessFactors keeps its application, and the page that confirms it, at the same session route
+// (`/portalcareer?_s.crb=…`, Helsana s2Tbwwjd 2026-11-10: «Vielen Dank für Ihre Bewerbung. Ihre Angaben wurden
+// übermittelt.» with «Zurück zum Stellenüberblick» and «Profil anzeigen» only): no posting key and no receipt path.
+const SUCCESS_FACTORS_APPLICATION_PATH_RE = /^\/(?:portalcareer|career)\/?$/i;
+// The site's own language selector is chrome, not a form field left to fill.
+
+/**
+ * A SuccessFactors receipt: the runner pressed the final control on a SuccessFactors application page of this
+ * origin, and the page now at the same application route says explicitly that the application was received
+ * (CONFIRM_RE), with no form left on it (no field but the site's own controls the extractor marks `chrome`, no submit control) and no
+ * validation error. The thank-you copy of a page that still holds the form is not one.
+ */
+function successFactorsReceipt(snapshot, { actual, source }) {
+  if (!SUCCESS_FACTORS_APPLICATION_PATH_RE.test(actual.pathname) || !SUCCESS_FACTORS_APPLICATION_PATH_RE.test(source.pathname)) return false;
+  if ((snapshot.errors || []).length) return false;
+  const formFields = (snapshot.fields || []).filter(field => !field.disabled && !field.chrome
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(field.inputType));
+  return formFields.length === 0 && !(snapshot.fields || []).some(field => field.invalid === true);
+}
 
 const APPLICATION_REGION_UNSUPPORTED_PATTERNS = [
   /\bbewerbung\w*\b.{0,120}\b(?:region|gebiet)\b.{0,120}\bnicht\s+(?:unterstütz|möglich|annehm|zulass)/iu,
@@ -222,7 +241,8 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
     // employer root. The exact same-requisition pair is the binding here;
     // never enable this for an unverified employer landing page.
     || (postingEntry && actual.origin === source.origin && actual.pathname === '/'
-      && !source.username && !source.password && !source.hash);
+      && !source.username && !source.password && !source.hash)
+    || (observedSubmissionRoute && successFactorsReceipt(snapshot, { actual, source }));
 }
 
 /**

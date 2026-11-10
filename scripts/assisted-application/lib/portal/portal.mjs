@@ -242,16 +242,142 @@ export function removalsOf(buttons, names) {
 }
 
 const PREVIOUS_FILE_REMOVAL_TIMEOUT_MS = 1500;
+// A removal the portal confirms first (SuccessFactors «My Documents»: «Cover Letter Delete document <file> Opens
+// a dialog», Damiani rg82P9MP 2026-11-10) goes to the server once confirmed and redraws the slot afterwards.
+const CONFIRMED_FILE_REMOVAL_TIMEOUT_MS = 8000;
+// In-page confirmation dialogs answered per removal click: the first, and one the portal may stack on it.
+export const MAX_REMOVAL_CONFIRMATIONS = 2;
 
 /** Wait for an asynchronously removed prior document to leave the rendered page. */
-export async function waitForFileRemoval(page, name) {
+export async function waitForFileRemoval(page, name, timeout = PREVIOUS_FILE_REMOVAL_TIMEOUT_MS) {
   try {
     await page.getByText(name, { exact: false }).first()
-      .waitFor({ state: 'hidden', timeout: PREVIOUS_FILE_REMOVAL_TIMEOUT_MS });
+      .waitFor({ state: 'hidden', timeout });
     return true;
   } catch {
     return false;
   }
+}
+
+// A question that asks to take a file away («Are you sure you want to delete this document?», «Möchten Sie das
+// Dokument wirklich löschen?», «Vuoi eliminare il documento?», «Voulez-vous supprimer ce document ?»). One that
+// takes away the application, the account or the profile is never answered for the runner.
+const REMOVAL_CONFIRM_VERB_RE = /(delet|remov|l[oö]sch|entfern|elimin|rimuov|cancella|supprim|retir|efface)/i;
+const NOT_A_FILE_REMOVAL_RE = /(withdraw|zur[uü]ck\s*(?:zu)?zieh|ritir|\baccount\b|\bkonto\b|\bcompte\b|candidature|bewerbung|candidatura|\bapplication\b|\bprofile?\b|\bprofilo\b)/i;
+// The affirmative button of an in-page confirmation, never «Cancel» / «No» / «Abbrechen». The end of the word is
+// read on Unicode letters: an ASCII \b never closes «Sì».
+const REMOVAL_CONFIRM_ACCEPT_RE = /^\s*(?:ok|okay|yes|ja|s[iì]|oui|confirm|best[aä]tigen|conferma(?:re)?|confirmer|delete|remove|l[oö]schen|entfernen|elimina(?:re)?|rimuovi|supprimer|retirer)(?![\p{L}\p{N}_])/iu;
+const REMOVAL_CONFIRM_DIALOG_SELECTOR = '[role="alertdialog"], [role="dialog"], [aria-modal="true"], dialog[open]';
+
+/** The text of a confirmation that takes a file away, and nothing else. */
+export function isFileRemovalConfirmation(text) {
+  const value = String(text || '');
+  return REMOVAL_CONFIRM_VERB_RE.test(value) && !NOT_A_FILE_REMOVAL_RE.test(value);
+}
+
+/** The visible in-page dialog in front of the page (the last one drawn), or null. */
+async function visibleRemovalDialog(page) {
+  if (typeof page?.locator !== 'function') return null;
+  const dialogs = page.locator(REMOVAL_CONFIRM_DIALOG_SELECTOR);
+  const count = await Promise.resolve(dialogs?.count?.()).catch(() => 0) || 0;
+  for (let index = count - 1; index >= 0; index -= 1) {
+    const dialog = dialogs.nth(index);
+    if (await Promise.resolve(dialog.isVisible()).catch(() => false)) return dialog;
+  }
+  return null;
+}
+
+/**
+ * Answer the in-page confirmation a removal click opened: its text must ask to take a file away and exactly one
+ * of its buttons must say yes. 'none' when no dialog is in front of the page.
+ * @returns {Promise<'none'|'refused'|'ambiguous'|'click_failed'|'clicked'>}
+ */
+export async function confirmRemovalInPage(page) {
+  const dialog = await visibleRemovalDialog(page);
+  if (!dialog) return 'none';
+  const text = await Promise.resolve(dialog.innerText()).catch(() => '');
+  if (!isFileRemovalConfirmation(text)) return 'refused';
+  const accept = dialog.getByRole('button', { name: REMOVAL_CONFIRM_ACCEPT_RE });
+  if (await Promise.resolve(accept.count()).catch(() => 0) !== 1) return 'ambiguous';
+  try {
+    await accept.first().click({ timeout: 6_000 });
+    return 'clicked';
+  } catch {
+    return 'click_failed';
+  }
+}
+
+/**
+ * Take away the file an earlier run of this order left on the page, through its removal control.
+ *
+ * The portal may ask first. A browser confirm() is answered yes only while this click is in flight and only when it
+ * asks to take a file away; any other browser dialog is dismissed (without a listener Playwright dismisses them
+ * all, and the removal never happens: Damiani rg82P9MP, run 42849689238). An in-page confirmation is answered at
+ * most MAX_REMOVAL_CONFIRMATIONS times. Nothing in the evidence carries the dialog's text.
+ *
+ * - 'removed': the file's name left the page;
+ * - 'untouched': nothing was confirmed, no dialog is left open, the name is still there: the file is as it was;
+ * - 'unconfirmed': a confirmation was given (or a dialog stays open) and the name is still there: unknown state;
+ * - 'click_failed': the removal control could not be clicked.
+ * @returns {Promise<{ status: 'removed'|'untouched'|'unconfirmed'|'click_failed', confirmations: object[] }>}
+ */
+export async function removeEarlierFile(page, button, names, {
+  click = clickButton,
+  maxConfirmations = MAX_REMOVAL_CONFIRMATIONS,
+  shortTimeout = PREVIOUS_FILE_REMOVAL_TIMEOUT_MS,
+  longTimeout = CONFIRMED_FILE_REMOVAL_TIMEOUT_MS,
+} = {}) {
+  const confirmations = [];
+  const onDialog = (dialog) => {
+    const type = typeof dialog?.type === 'function' ? dialog.type() : '';
+    const message = typeof dialog?.message === 'function' ? dialog.message() : '';
+    const accepted = type === 'confirm' && isFileRemovalConfirmation(message);
+    confirmations.push({ source: 'browser', type, accepted });
+    Promise.resolve(accepted ? dialog.accept() : dialog.dismiss()).catch(() => {});
+  };
+  const listening = typeof page?.on === 'function';
+  if (listening) page.on('dialog', onDialog);
+  const confirmed = () => confirmations.some((item) => item.accepted || item.result === 'clicked');
+  const gone = async (timeout) => {
+    for (const name of names) {
+      if (!await waitForFileRemoval(page, name, timeout)) return false;
+    }
+    return true;
+  };
+  try {
+    try {
+      await click(page, button);
+    } catch {
+      return { status: 'click_failed', confirmations };
+    }
+    if (await gone(confirmed() ? longTimeout : shortTimeout)) return { status: 'removed', confirmations };
+    for (let round = 0; round < maxConfirmations; round += 1) {
+      const result = await confirmRemovalInPage(page);
+      if (result === 'none') break;
+      confirmations.push({ source: 'page', result });
+      if (result !== 'clicked') break;
+      if (await gone(longTimeout)) return { status: 'removed', confirmations };
+    }
+    // A removal that needs no confirmation can still be on its way to the server.
+    if (await gone(longTimeout)) return { status: 'removed', confirmations };
+    // A dialog this click opened and the runner did not answer is closed (Escape = its cancel).
+    if (await visibleRemovalDialog(page) && page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
+    const dialogOpen = Boolean(await visibleRemovalDialog(page));
+    return { status: confirmed() || dialogOpen ? 'unconfirmed' : 'untouched', confirmations };
+  } finally {
+    if (listening) (page.off || page.removeListener)?.call(page, 'dialog', onDialog);
+  }
+}
+
+/**
+ * The page has no second place for this document: no file input at all and no upload control for it. Only then
+ * can an earlier file of ours, which the portal does not let us take away, stay as this run's: the run cannot put a
+ * second copy of the document beside it.
+ */
+export function noSecondUploadPlace(snapshot, document) {
+  if ((snapshot?.fields || []).some((field) => field?.kind === 'file' || field?.inputType === 'file')) return false;
+  if (document !== 'cv' && document !== 'cover_letter') return true;
+  return uploadButtonCandidatesFor(snapshot, document).length === 0;
 }
 
 const EXPERIENCE_SECTION_RE = /\b(?:experience|work history|employment history|berufserfahrung|erfahrung|expérience|parcours professionnel|esperienz[ae]|esperienza lavorativa|esperienze lavorative)\b/i;
@@ -4744,7 +4870,11 @@ function documentSlotCaptionKind(caption) {
 export function successFactorsDocumentSlotKind(button) {
   const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
   if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text) || SUCCESS_FACTORS_FILLED_SLOT_RE.test(text)) return '';
-  return documentSlotCaptionKind(text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, ''));
+  const caption = text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, '');
+  // «Cover Letter Delete document <file> Opens a dialog» (Damiani, 2026-11-10) holds a file and takes it away:
+  // read as the letter's upload slot, it was clicked three times as one, and each click asked to delete the file.
+  if (REMOVE_FILE_RE.test(caption)) return '';
+  return documentSlotCaptionKind(caption);
 }
 
 // The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
@@ -4791,6 +4921,8 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   const iconCandidates = [];
   const add = (button) => {
     if (!button || button.disabled || button.chrome) return;
+    // A control that takes a file away is never the one that puts a file in.
+    if (REMOVE_FILE_RE.test(String(button.text || ''))) return;
     // Preserve two distinct text-only controls as ambiguous candidates. IDs
     // deduplicate the same control when it is found by both scans.
     // Automation ids and names are often shared by separate controls. Only
@@ -8292,23 +8424,48 @@ export async function submitViaPortal(ctx) {
           return await handoff('previous_file_not_removable');
         }
       }
-      if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
       if (earlier.length) {
-        for (const { button, names } of earlier) {
-          try {
-            await clickButton(page, button);
-          } catch {
-            return await handoff('previous_file_removal_failed');
+        const replaced = [];
+        const removalConfirmations = [];
+        for (const { document, button, names } of earlier) {
+          if (keptEarlier.includes(document)) continue;
+          const removal = await removeEarlierFile(page, button, names);
+          removalConfirmations.push(...removal.confirmations.map((item) => ({ document, ...item })));
+          if (removal.status === 'click_failed') return await handoff('previous_file_removal_failed');
+          if (removal.status === 'removed') {
+            if (!replaced.includes(document)) replaced.push(document);
+            continue;
           }
-          let remains = false;
-          for (const name of names) {
-            remains ||= !await waitForFileRemoval(page, name);
+          // The portal did not take the file away and nothing was confirmed (its confirm() asked for something
+          // else, its control does not remove): the file is ours, under this run's own name, as it was. It stays
+          // only when the page has no place for a second copy of the document; any doubt goes to the owner.
+          snapshot = await extractFields(page);
+          if (removal.status === 'untouched' && !replaced.includes(document)
+            && ownEarlierFileShown(snapshot.buttons, names) && noSecondUploadPlace(snapshot, document)) {
+            if (!keptEarlier.includes(document)) keptEarlier.push(document);
+            continue;
           }
-          if (remains) return await handoff('previous_file_removal_unconfirmed');
+          return await handoff('previous_file_removal_unconfirmed');
         }
-        evidence.steps.at(-1).replaced = [...new Set(earlier.map((item) => item.document))];
-        snapshot = await extractFields(page);
+        if (removalConfirmations.length) evidence.steps.at(-1).removalConfirmations = removalConfirmations;
+        if (replaced.length) {
+          evidence.steps.at(-1).replaced = replaced;
+          snapshot = await extractFields(page);
+          // A slot that takes its file through a dialog (SuccessFactors) is filled before the page is planned:
+          // the emptied slot gets this run's file now. A file field is left to the planner, as before.
+          const sectionsAgain = await openSections();
+          if (sectionsAgain) return sectionsAgain;
+          const sentAfter = new Set(evidence.uploads.map((upload) => upload.document));
+          for (const document of replaced) {
+            if (sentAfter.has(document)) continue;
+            const fileField = document === 'cv'
+              ? snapshot.fields.some(isCvFileField)
+              : snapshot.fields.some((field) => field?.kind === 'file' || field?.inputType === 'file');
+            if (!fileField) return await handoff('previous_file_replacement_unavailable');
+          }
+        }
       }
+      if (keptEarlier.length) evidence.steps.at(-1).keptEarlier = keptEarlier;
 
       let after = snapshot;
       let unclearQuestions = [];

@@ -182,6 +182,13 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-10T13:25:43.176Z",
+    "previousSlugs": [
+      "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh",
+      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh",
+      "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch",
+      "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh-7f12c14d",
+      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh-84ccb715"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-cc9d40ef",
@@ -214,14 +221,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa036237",
-    "firstSeenAt": "2026-09-28T21:58:25.532Z",
-    "previousSlugs": [
-      "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh",
-      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh",
-      "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch",
-      "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich-zh-7f12c14d",
-      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich-zh-84ccb715"
-    ]
+    "firstSeenAt": "2026-09-28T21:58:25.532Z"
   },
   {
     "slug": "ingegnere-di-progettazione-sviluppatore-di-prodotto-m-f-yellowshark-ag-lenzburg",

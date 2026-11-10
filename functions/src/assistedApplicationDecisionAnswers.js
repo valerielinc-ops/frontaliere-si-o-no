@@ -478,6 +478,8 @@ Values:
 - choice: return the exact text of one supplied option (either list), the one the principles choose; for visibility or forwarding inside the employer choose the broadest audience inside that same employer;
 - yes_no: "yes" or "no"; checkbox: "true" (ticked) or "false";
 - text: a short first-person answer in the language of the question, under 200 characters. Never introduce an employer, school, job title, degree, certification, date, number or product the CV does not contain; never answer a technical question about a technology, tool or hands-on experience (leave it: decision "candidate", category "").
+- a question on the school the candidate attended, its type or level, or the results obtained there: answer it by plausible_deduction from the education and career the CV lists (the school type or level consistent with the later training and roles, the results described in words as good), in one full first-person sentence; never a grade, a score, a year or a school name the CV lacks.
+- a question on a training, education or qualification the CV does not show (for example a banking apprenticeship): answer it honestly by cv_fact, in one full first-person sentence: no formal training of that kind, in general words without naming the title, school or certificate asked, then the related training or experience the CV shows.
 
 Experience and skills (a yes_no, checkbox or choice question whose subject is "experience" or "certification"): always decide it, never leave it to the candidate.
 - When the CV shows pertinent experience (the technology, the method, the role, the sector or the certification asked about), answer yes with principle cv_fact and copy 1-3 excerpts of the CV that show it, verbatim, into evidence.
