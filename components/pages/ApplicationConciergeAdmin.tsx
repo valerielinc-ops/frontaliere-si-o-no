@@ -25,6 +25,11 @@ const CandidatePortal = lazy(() => import('@/components/community/ApplicationCon
 const SERVICE_LABELS: Record<string, string> = { active: 'Attivo', awaiting_payment: 'In attesa di pagamento', payment_failed: 'Pagamento non riuscito', expired: 'Scaduto', refunded: 'Rimborsato' };
 const PAYMENT_LABELS: Record<string, string> = { paid: 'Confermato', pending: 'In attesa', failed: 'Non riuscito', refunded: 'Rimborsato' };
 const PROPOSAL_LABELS: Record<string, string> = { proposed: 'In attesa del candidato', accepted: 'Accettata', declined: 'Rifiutata', expired: 'Scaduta', retracted: 'Ritirata' };
+// A proposal the candidate cannot accept yet waits on the platform's own re-check, not on the candidate.
+const proposalDecisionLabel = (proposal: { status: string; eligibilityStatus?: string | null }) =>
+  proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification'
+    ? 'In verifica dalla piattaforma'
+    : PROPOSAL_LABELS[proposal.status] || proposal.status;
 const date = (value?: string | null) => value ? new Date(value).toLocaleDateString('it-CH') : '—';
 
 const EMPTY_FORM = { serviceId: '', jobId: '', jobUrl: '', companyId: '', companyName: '', jobTitle: '', location: '', applyMode: '' };
@@ -193,7 +198,7 @@ export default function ApplicationConciergeAdmin() {
                       <li key={proposal.proposalId} className="flex flex-wrap items-start justify-between gap-2 py-3 text-sm">
                         <div className="min-w-0"><p className="break-words font-semibold text-strong">{proposal.jobTitle}</p><p className="text-subtle">{proposal.companyName} · proposta il {date(proposal.proposedAt)}</p></div>
                         <dl className="text-subtle">
-                          <div><dt className="inline">Decisione proposta: </dt><dd className="inline">{PROPOSAL_LABELS[proposal.status] || proposal.status}</dd></div>
+                          <div><dt className="inline">Decisione proposta: </dt><dd className="inline">{proposalDecisionLabel(proposal)}</dd></div>
                           {displayStatus !== proposal.status && <div>
                             <dt className="inline">{employerResponse ? 'Risposta azienda: ' : 'Candidatura: '}</dt>
                             <dd className="inline font-semibold text-strong">{t(employerResponse ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</dd>
