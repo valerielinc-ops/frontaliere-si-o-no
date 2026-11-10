@@ -171,7 +171,7 @@ env:
 # branch di campagna aperti, non dal numero di dispatch. `cancel-in-progress:
 # false` protegge la misura già partita.
 concurrency:
-  group: deploy-matrix-experiment-${{ github.ref_name }}
+  group: deploy-matrix-experiment-${{ github.ref_name }}${{ github.event_name == 'push' && format('-{0}', github.sha) || '' }}
   cancel-in-progress: false
 
 jobs:
