@@ -660,7 +660,11 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Dispatch Indexing API top-up (monitor-gsc-seo.yml mode=post-publish)
+      # bing-seo-loop.yml had the same dead `workflow_run` trigger (30 of its
+      # last 30 runs were `schedule`): it is dispatched here too, with the
+      # inputs that reproduce what a workflow_run run did (audit only: no fix
+      # PR, no IndexNow stream, no full-tree crawl).
+      - name: Dispatch post-publish indexing loops (Indexing API top-up + Bing SEO loop)
         if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
         run: |
@@ -669,15 +673,24 @@ jobs:
           elif [ -n "${GITHUB_PAT:-}" ]; then
             TOKEN="$GITHUB_PAT"; WHO="GITHUB_PAT"
           else
-            echo "::error title=Indexing API top-up::no token that may dispatch (APP_TOKEN_ACTIONS=${APP_TOKEN_ACTIONS:-unset}, GITHUB_PAT empty) — new jobs wait for the 08:20 UTC run"
+            echo "::error title=Post-publish dispatch::no token that may dispatch (APP_TOKEN_ACTIONS=${APP_TOKEN_ACTIONS:-unset}, GITHUB_PAT empty) — new jobs wait for the 08:20 UTC Indexing API run"
             exit 1
           fi
+          FAIL=0
           if GH_TOKEN="$TOKEN" gh workflow run monitor-gsc-seo.yml --repo "$GITHUB_REPOSITORY" --ref main -f mode=post-publish; then
             echo "✅ Indexing API top-up dispatched with the $WHO"
           else
-            echo "::error title=Indexing API top-up::dispatch of monitor-gsc-seo.yml failed with the $WHO"
-            exit 1
+            echo "::error title=Post-publish dispatch::dispatch of monitor-gsc-seo.yml failed with the $WHO"
+            FAIL=1
           fi
+          if GH_TOKEN="$TOKEN" gh workflow run bing-seo-loop.yml --repo "$GITHUB_REPOSITORY" --ref main \
+               -f after_publish=true -f apply_fixes=false -f submit_indexnow=false; then
+            echo "✅ Bing SEO loop dispatched with the $WHO"
+          else
+            echo "::error title=Post-publish dispatch::dispatch of bing-seo-loop.yml failed with the $WHO"
+            FAIL=1
+          fi
+          exit "$FAIL"
 
       # Last step: register the run as last_known_good in the deploy
       # registry. Must come AFTER side-effects so a partial publish

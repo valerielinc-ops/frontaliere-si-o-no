@@ -12,7 +12,7 @@
  *    whose eviction made every run start empty.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
 
@@ -28,7 +28,7 @@ const stepNamed = (steps: Step[], re: RegExp) => steps.find((s) => re.test(s.nam
 
 describe('post-publish Indexing API top-up', () => {
   const steps: Step[] = postDeploy.jobs.publish.steps;
-  const dispatch = stepNamed(steps, /Dispatch Indexing API top-up/);
+  const dispatch = stepNamed(steps, /Dispatch post-publish indexing loops/);
 
   it('is an explicit dispatch of monitor-gsc-seo.yml in post-publish mode, after the indexing step', () => {
     expect(dispatch?.run).toMatch(/gh workflow run monitor-gsc-seo\.yml --repo "\$GITHUB_REPOSITORY" --ref main -f mode=post-publish/);
@@ -46,6 +46,30 @@ describe('post-publish Indexing API top-up', () => {
     const mint = stepNamed(steps, /Mint App token for the Indexing API top-up/);
     expect(mint?.run).toContain('scripts/ci/mint-app-token.mjs');
     expect(steps.indexOf(mint!)).toBeLessThan(steps.indexOf(dispatch!));
+  });
+
+  it('bing-seo-loop.yml (same dead trigger) is dispatched too, audit-only like its former workflow_run runs', () => {
+    expect(dispatch?.run).toMatch(/gh workflow run bing-seo-loop\.yml --repo "\$GITHUB_REPOSITORY" --ref main/);
+    expect(dispatch?.run).toContain('-f after_publish=true -f apply_fixes=false -f submit_indexnow=false');
+    const bing = parse(read('.github/workflows/bing-seo-loop.yml'));
+    expect(bing.on.workflow_run).toBeUndefined();
+    expect(bing.on.workflow_dispatch.inputs.after_publish.type).toBe('boolean');
+  });
+
+  it('no NEW workflow waits for a workflow_run of the publisher that never fires', () => {
+    // Ratchet. audit-published-dist.yml has the same dead trigger (zero runs
+    // in its history at 2026-11-10); its fix needs a dispatch from
+    // deploy-publish.yml, which this change may not touch. Remove it from this
+    // list when that lands — the test fails until you do.
+    const KNOWN_DEAD = ['audit-published-dist.yml'];
+    const offenders = readdirSync(resolve('.github/workflows'))
+      .filter((f: string) => /\.ya?ml$/.test(f))
+      .filter((f: string) => {
+        const on = parse(read(`.github/workflows/${f}`))?.on;
+        const wr = on && typeof on === 'object' ? on.workflow_run : undefined;
+        return Boolean(wr?.workflows?.includes('Publish to GitHub Pages (deploy + validate)'));
+      });
+    expect(offenders).toEqual(KNOWN_DEAD);
   });
 
   it('monitor-gsc-seo.yml accepts the dispatch and no longer relies on workflow_run', () => {

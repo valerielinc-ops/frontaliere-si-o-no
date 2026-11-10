@@ -310,6 +310,7 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
   const staticPages = read('build-plugins/staticPagesPlugin.ts');
   const redirects = read('build-plugins/legacyRedirectsPlugin.ts');
   const loopWorkflow = read('.github/workflows/bing-seo-loop.yml');
+  const postDeployPublish = read('.github/workflows/post-deploy-publish.yml');
   const policy = read('scripts/seo/bing-seo-policy.mjs');
   const treeCrawler = read('scripts/seo/bing-site-explorer-crawl.mjs');
   const treeReporter = read('scripts/seo/bing-site-explorer-report.mjs');
@@ -375,11 +376,16 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'Il workflow deve eseguire inventario sitemap, frontiera dei link interni, matrix crawl completo e aggregazione con issue deduplicata.',
     ));
   }
-  if (!loopWorkflow.includes("workflows: ['Publish to GitHub Pages (deploy + validate)']")) {
+  // The post-publish run is an explicit dispatch from the publisher, after the
+  // live build identity is verified: the former `workflow_run` on deploy-publish
+  // never fired (GitHub drops the next hop of a GITHUB_TOKEN-dispatched run).
+  if (!postDeployPublish.includes('gh workflow run bing-seo-loop.yml')
+    || !postDeployPublish.includes('-f after_publish=true')
+    || !loopWorkflow.includes('after_publish:')) {
     findings.push(sourceFinding(
       'full-tree-deploy-trigger-source',
-      '.github/workflows/bing-seo-loop.yml',
-      'Il full-tree crawl deve partire dal workflow_run del publish Pages reale, dopo deploy e validazione, non dal solo build.',
+      '.github/workflows/post-deploy-publish.yml',
+      'Il loop deve partire dopo il publish Pages reale e verificato live: dispatch esplicito da post-deploy-publish.yml con after_publish=true, non dal solo build.',
     ));
   }
   if (!loopWorkflow.includes('publish-gate:')
