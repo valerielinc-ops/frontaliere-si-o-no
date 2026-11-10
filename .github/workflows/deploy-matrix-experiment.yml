@@ -231,6 +231,11 @@ jobs:
           VARIANTS_INPUT: ${{ inputs.variants }}
         run: |
           set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME:-}" == 'push' && "${GITHUB_REF_NAME:-}" == 'fix/issue-17896' ]]; then
+            export LOCALES_INPUT='it,en,de,fr'
+            export ALL_LOCALES_INPUT='true'
+            export VARIANTS_INPUT=$'baseline=JOBS_SEO_HTML_GC_INTERVAL_MB=1024\ncandidate=JOBS_SEO_HTML_GC_INTERVAL_MB=512'
+          fi
           JSON="$(node scripts/ci/matrix-experiment-variants.mjs)"
           echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
           node --input-type=module -e '
