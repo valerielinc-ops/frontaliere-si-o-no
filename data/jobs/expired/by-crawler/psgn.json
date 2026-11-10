@@ -544,16 +544,14 @@
     "slugByLocale": {
       "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
       "en": "senior-physician-senior-physician-psychiatrie-st-gallen-pfafers",
-      "de": "oberarztin-oberarzt-psgn-pfafers",
+      "de": "oberarztin-oberarzt-psgn-pfafers-a473379d",
       "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-pfafers"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-06T21:34:48.167Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-psgn-pfafers"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-psgn-pfafers-a473379d",
         "oberarztin-oberarzt-psgn-pfafers"
       ],
       "en": [
@@ -561,6 +559,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-psgn-pfafers"
+      ],
+      "de": [
+        "oberarztin-oberarzt-psgn-pfafers-a473379d"
       ]
     },
     "postalCode": "7312",
@@ -570,7 +571,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/852ca4c1-993b-46b5-be35-27c2586d4fab",
-    "firstSeenAt": "2026-10-29T09:23:02.355Z"
+    "firstSeenAt": "2026-10-29T09:23:02.355Z",
+    "previousSlugs": [
+      "oberarztin-oberarzt-psgn-pfafers"
+    ]
   },
   {
     "slug": "responsabile-gestione-dell-ospitalita-psychiatrie-st-gallen-wil",
@@ -865,13 +869,12 @@
     "slugByLocale": {
       "it": "medico-senior-mbf-psychiatrie-st-gallen-pfafers",
       "en": "senior-physician-mbf-psychiatrie-st-gallen-pfafers",
-      "de": "oberarztin-oberarzt-mbf-psgn-pfafers",
+      "de": "oberarztin-oberarzt-mbf-psgn-pfafers-ffdf8894",
       "fr": "medecin-principal-psychiatrie-st-gallen-pfafers"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-30T09:31:16.646Z",
     "previousSlugs": [
-      "oberarztin-oberarzt-mbf-psgn-pfafers",
       "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
       "oberarztin-oberarzt-mbf-psgn-wil-sg",
       "oberarztin-oberarzt-mbf-psgn-pfafers-4831922e",
@@ -947,7 +950,9 @@
       "oberarztin-oberarzt-mbf-psgn-pfafers-4f8c776b",
       "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-wil-sg",
       "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-pfafers",
-      "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg"
+      "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg",
+      "oberarztin-oberarzt-mbf-psgn-pfafers",
+      "oberarztin-oberarzt-mbf-psgn-pfafers-a0d9a95a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -969,8 +974,9 @@
         "oberarztin-oberarzt-mbf-psgn-pfafers-f038ab6e",
         "oberarztin-oberarzt-mbf-psgn-pfafers-3c0e9505",
         "oberarztin-oberarzt-mbf-psgn-pfafers-4f8c776b",
-        "oberarztin-oberarzt-mbf-psgn-pfafers",
-        "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers"
+        "oberarztin-oberarzt-mbf-psgn-pfafers-a0d9a95a",
+        "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
+        "oberarztin-oberarzt-mbf-psgn-pfafers"
       ],
       "en": [
         "oberarztin-oberarzt-mbf-psgn-pfafers",
@@ -981,7 +987,8 @@
         "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg"
       ],
       "de": [
-        "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-pfafers"
+        "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-pfafers",
+        "oberarztin-oberarzt-mbf-psgn-pfafers-ffdf8894"
       ]
     },
     "postalCode": "7312",
