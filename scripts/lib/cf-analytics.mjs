@@ -273,10 +273,10 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
   const rows = zones[0]?.httpRequestsAdaptiveGroups;
   if (!Array.isArray(rows)) throw new Error('Cloudflare analytics returned an unknown path result.');
   return rows.map((r) => ({
-    status: r?.dimensions?.edgeResponseStatus ?? null,
-    host: r?.dimensions?.clientRequestHTTPHost ?? null,
-    path: r?.dimensions?.clientRequestPath ?? null,
-    count: r?.count ?? null,
+    status: r.dimensions.edgeResponseStatus,
+    host: r.dimensions.clientRequestHTTPHost,
+    path: r.dimensions.clientRequestPath,
+    count: r.count,
   }));
 }
 
@@ -337,12 +337,12 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
   const rows = zones[0]?.httpRequestsAdaptiveGroups;
   if (!Array.isArray(rows)) throw new Error('Cloudflare analytics returned an unknown diagnostics result.');
   return rows.map((r) => ({
-    hour: r?.dimensions?.datetimeHour ?? null,
-    edgeStatus: r?.dimensions?.edgeResponseStatus ?? null,
-    originStatus: r?.dimensions?.originResponseStatus ?? null,
-    cacheStatus: r?.dimensions?.cacheStatus ?? null,
-    host: r?.dimensions?.clientRequestHTTPHost ?? null,
-    count: r?.count ?? null,
+    hour: r.dimensions.datetimeHour,
+    edgeStatus: r.dimensions.edgeResponseStatus,
+    originStatus: r.dimensions.originResponseStatus ?? null,
+    cacheStatus: r.dimensions.cacheStatus ?? null,
+    host: r.dimensions.clientRequestHTTPHost,
+    count: r.count,
   }));
 }
 
