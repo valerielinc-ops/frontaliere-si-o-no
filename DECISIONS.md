@@ -2,7 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-11-10 | Candidature: si compila ogni valore del CV. Domande tecniche solo con citazione del CV; generiche: descrizione plausibile dal CV, senza datori, titoli, studi, date o numeri assenti. Proposte modificabili, non bloccanti | istruzione diretta, 10-11 |
+| 2026-11-10 | Candidature autonome: ogni domanda la risponde la piattaforma (regole, CV, deduzione plausibile; no marketing); tecniche solo con citazione; mai fatti assenti dal CV. Modificabili, non bloccanti; al candidato solo documenti | istruzione diretta, 10-11 |
 | 2026-11-10 | Candidature assistite: ripristinata la decisione originale del 09-11 (le domande stabili le risponde la piattaforma, regole in `functions/src/assistedApplicationPlatformDefaults.js`; permesso, passaporto e nazionalità all'upload); supera la riga 09-11 riscritta da #17844 senza istruzione | istruzione diretta, sessione 10-11 |
 | 2026-10-05 | Eventi: MySwitzerland: UA da browser autorizzato SOLO per i dettagli (eccezione alla regola dello UA identificativo dei crawler; 1 req/s, stop a 403/429/challenge) (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
 | 2026-10-05 | Traduzioni lavori: Codex Luna Max di riserva se falliscono le chiavi, tetto per run (H7); copie sorgente marcate tenute (I2) | 05-10 |
