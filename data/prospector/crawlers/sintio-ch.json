@@ -5,9 +5,9 @@
   "platform": "join.com",
   "mode": "jsonld",
   "seedUrls": [
-    "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility"
+    "https://join.com/companies/sintio"
   ],
-  "detailTemplate": "/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
+  "detailTemplate": "/companies/sintio/*",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,

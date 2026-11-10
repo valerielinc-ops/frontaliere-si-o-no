@@ -2,7 +2,7 @@
 /**
  * Sintio job parser — Fetcher and job builder.
  *
- * Source: https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility
+ * Source: https://join.com/companies/sintio
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSintioChJobs()  — Fetch and parse all jobs
@@ -26,7 +26,7 @@ export const SINTIO_CH_KEY = 'sintio-ch';
 export const SINTIO_CH_COMPANY_NAME = 'Sintio';
 export const SINTIO_CH_COMPANY_DOMAIN = 'join.com';
 
-const CAREER_URL = 'https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility';
+const CAREER_URL = 'https://join.com/companies/sintio';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
