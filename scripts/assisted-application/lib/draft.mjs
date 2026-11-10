@@ -26,7 +26,6 @@ import {
   printedTitles,
   salutationQuestion,
   sanitizeDocuments,
-  sanitizeApplicationAnswerSuggestions,
   swissTypography,
   sanitizeMatch,
   sanitizeProfile,
@@ -35,9 +34,10 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { questionTopic, SENSITIVE } from './portal/plan.mjs';
+import { draftCvAnswers } from './cv-answers.mjs';
+import { draftDecisionAnswers } from './decision-answers.mjs';
+import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
 import {
-  APPLICATION_ANSWERS_SCHEMA,
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
   PROFILE_SCHEMA,
@@ -48,8 +48,6 @@ import {
   documentsSystemPrompt,
   documentsUserText,
   applicationEmailSubject,
-  applicationAnswersSystemPrompt,
-  applicationAnswersUserText,
   letterSubject,
   matchSystemPrompt,
   matchUserText,
@@ -98,9 +96,6 @@ const PORTAL_PRE_READ_HANDOFFS = new Set([
   'question_planning_failed', 'public_route_unavailable', 'requirements_unavailable',
 ]);
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
-const PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE = /\b(?:e-?mail|courriel|t[eé]l[eé]phone\w*|telefon\w*|mobiltelefon\w*|telefono\w*|phone|mobile|cellulaire|num[eé]ro de t[eé]l[eé]phone|religion|religious|faith|pregnan\w*|sexual orientation|political affiliation|political views|race|ethnic\w*|disabil\w*|consent|privacy|terms and conditions|newsletter|marketing)\b/i;
-const PORTAL_ANSWER_NAME_FIELD_RE = /^\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome)(?:\s*(?:\/|,|&|and|e)\s*(?:first\s+name|given\s+name|last\s+name|family\s+name|full\s+name|surname|name|vorname|nachname|familienname|pr[eé]nom|nom\s+de\s+famille|nom|nome|nome\s+completo|cognome|nome\s+e\s+cognome))*(?:\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\))?\s*[:*?]?\s*$/i;
-const PORTAL_ANSWER_NAME_QUESTION_RE = /\b(?:what(?:'s| is)\s+(?:your|the applicant'?s|the candidate'?s)\s+(?:first\s+|last\s+|full\s+)?name|please state your name|quel est votre (?:pr[eé]nom|nom(?: de famille| complet)?)|comment\s+(?:vous\s+appelez(?:-vous)?|t['’]appelles(?:-tu)?)|come ti chiami|come si chiama|qual(?:['’]e|\s+è|\s+e)\s+(?:il|la)\s+(?:tuo|suo)\s+nome|wie (?:heisst|heißt) du|wie lautet (?:dein|ihr) (?:name|vorname|nachname)|wie (?:heisst|heißt) (?:ihr|dein) name|wie heissen sie|wie heißen sie)\b/i;
 
 /** What the fact gate did not find, as the model is told it for the one repair. */
 function findingsOf(...results) {
@@ -120,64 +115,6 @@ export class DraftAbort extends Error {
 
 function candidateLocale(order) {
   return CANDIDATE_LOCALES.has(order?.locale) ? order.locale : 'it';
-}
-
-async function draftPortalAnswerSuggestions({ questions, answers, cvText, codex, locale, log }) {
-  const excludedQuestion = (question) => {
-    const text = [question?.question, question?.applicationQuestion, question?.context, question?.section].filter(Boolean).join(' ');
-    const topic = questionTopic(question?.applicationQuestion || question?.question, question?.context || '', question);
-    const excludedTopic = Boolean(topic) && !String(topic).startsWith('language:');
-    const nameField = [question?.question, question?.applicationQuestion].filter(Boolean)
-      .some((label) => PORTAL_ANSWER_NAME_FIELD_RE.test(label));
-    return excludedTopic || SENSITIVE.test(text) || PORTAL_ANSWER_PERSONAL_OR_OPERATIONAL_RE.test(text)
-      || nameField || PORTAL_ANSWER_NAME_QUESTION_RE.test(text);
-  };
-  const answerable = (Array.isArray(questions) ? questions : []).filter((question) =>
-    question?.source === 'portal' && question?.type === 'text'
-      && String(question.applicationQuestion || question.question || '').trim()
-      && !String(answers?.[question.id] ?? '').trim()
-      && !excludedQuestion(question));
-  const sourceText = String(cvText || '').slice(0, MAX_SOURCE_CHARS);
-  if (!answerable.length || !sourceText.trim()) return questions;
-
-  const citations = sourceCitations({ cv: sourceText });
-  if (!citations.excerpts.length) return questions;
-  const schema = structuredClone(APPLICATION_ANSWERS_SCHEMA);
-  schema.properties.answers.items.properties.id.enum = answerable.map((question) => question.id);
-  schema.properties.answers.items.properties.evidence.items = {
-    type: 'string',
-    enum: ['', ...citations.excerpts.map((item) => item.id)],
-    description: 'An exact CV excerpt id, or "" when the CV does not support the draft.',
-  };
-  try {
-    const raw = await codex({
-      prompt: codexPrompt(applicationAnswersSystemPrompt(locale), applicationAnswersUserText({
-        questions: answerable,
-        candidateSourceExcerpts: citations.excerpts,
-      })),
-      schema,
-      timeoutMs: 120_000,
-    });
-    const resolved = {
-      ...raw,
-      answers: Array.isArray(raw?.answers) ? raw.answers.map((item) => {
-        const ids = Array.isArray(item?.evidence) ? item.evidence.slice(0, 3) : [];
-        let evidenceUnverified = false;
-        const evidence = ids.map((id) => {
-          const quote = citations.resolve(id);
-          if (quote === null || quote === id) evidenceUnverified = true;
-          return quote;
-        }).filter(Boolean);
-        return { ...item, evidence, evidenceUnverified };
-      }) : [],
-    };
-    const updated = sanitizeApplicationAnswerSuggestions(resolved, answerable, sourceText);
-    const byId = new Map(updated.map((question) => [question.id, question]));
-    return (Array.isArray(questions) ? questions : []).map((question) => byId.get(question?.id) || question);
-  } catch (error) {
-    log('portal answer suggestions skipped', String(error?.message || error).split('\n')[0].slice(0, 160));
-    return questions;
-  }
 }
 
 /**
@@ -511,9 +448,17 @@ export async function buildDraft(ctx) {
     }
     log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
-  // A draft can answer narrative portal questions only from cited CV excerpts.
-  // The candidate reviews and saves any proposal before it enters flow.answers.
-  questions = await draftPortalAnswerSuggestions({ questions, answers, cvText, codex, locale, log });
+  // The CV answers the open text questions (owner decisions 2026-11-10, lib/cv-answers.mjs): a technical
+  // one with cited excerpts, a behavioural one with a plausible description built from the CV. A verified
+  // answer is a platform proposal (platformFacts.cvAnswers): shown and editable, never in flow.answers.
+  ({ questions } = await draftCvAnswers({ questions, answers, facts: edited.platformFacts, cvText, codex, locale, log }));
+  // What neither a platform rule nor the CV answered, the decision engine decides by the owner's principles
+  // (lib/decision-answers.mjs, 2026-11-10): a platform proposal too (platformFacts.decisionAnswers), only the
+  // categories of CANDIDATE_ONLY_CATEGORIES stay with the candidate.
+  ({ questions } = await draftDecisionAnswers({
+    questions, answers, cvText, codex, log, employer: order.companyName || '', jobTitle: title,
+    facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText) },
+  }));
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
   // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.

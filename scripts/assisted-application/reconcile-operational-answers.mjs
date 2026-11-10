@@ -15,7 +15,7 @@ import { orderSalaryEstimatePatch } from '../../functions/src/assistedApplicatio
 const WAITING_STATES = ['needs_candidate_action', 'candidate_review'];
 
 /** A tick that releases the wait: a resumed submission, or a review whose question holds all cleared. */
-function releasesWait(flow, result) {
+export function releasesWait(flow, result) {
   if (result.effects.some(effect => effect.type === 'dispatch' && effect.reason === 'resolved_candidate_answers')) return true;
   return flow?.state === 'candidate_review'
     && (flow.heldBy || []).some(held => /^(?:question|document):/.test(String(held)))

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-10T10:43:13.052Z",
+  "generatedAt": "2026-11-10T11:53:56.069Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -184732,17 +184732,17 @@
       "id": "ge-agenda:atelier-decouverte-nature-enfants-mene-enquete-coeur-ruche",
       "sourceDescriptionHash": "c622d8597d458901c0f1cd3543a9a9a5981a78ba09c8c97806e6ada797e9fa46",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:34:45.400Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:33:15.287Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "ge-agenda:atelier-photolangager::22a4bd9b8b126005d87a7b25abc85dec36634f46807eef6a4121c88a0ff1067d": {
       "id": "ge-agenda:atelier-photolangager",
       "sourceDescriptionHash": "22a4bd9b8b126005d87a7b25abc85dec36634f46807eef6a4121c88a0ff1067d",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:50:31.333Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:40:48.884Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184769,7 +184769,7 @@
       "sourceDescriptionHash": "4c21d8956340d7866da16dbd793c82d5ce551f99215da3d0d2c060fccc7ce3f4",
       "code": "new-number",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:28:48.092Z",
+      "lastAttemptAt": "2026-11-10T11:26:38.728Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184850,16 +184850,16 @@
       "sourceDescriptionHash": "7d7168b81c2605df2391dfe84f9d15d24a8484939d3a71433289600d344ddc9e",
       "code": "new-date-or-price",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:25:23.487Z",
+      "lastAttemptAt": "2026-11-10T11:23:17.467Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "ge-agenda:changeait-histoire-construire-recits-donner-envie-agir::eccbd342ed60e6171f28dd83678d634245acbaffe7b02fa743b67f12c88f311a": {
       "id": "ge-agenda:changeait-histoire-construire-recits-donner-envie-agir",
       "sourceDescriptionHash": "eccbd342ed60e6171f28dd83678d634245acbaffe7b02fa743b67f12c88f311a",
-      "code": "new-number",
+      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:23:33.299Z",
+      "lastAttemptAt": "2026-11-10T11:22:01.688Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184958,7 +184958,7 @@
       "sourceDescriptionHash": "5053a3f7ce070a4caf0e2c611c5d1b71b8a4d84013e26f09d8af32db4f7860cf",
       "code": "new-number",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:28:04.122Z",
+      "lastAttemptAt": "2026-11-10T11:29:09.894Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185046,9 +185046,9 @@
     "ge-agenda:hemu-jazz-orchestra-leila-olivesi::a97f8ab5634e970c221ab3ddfdcf891b14bd43333cfe6204f670c20f028e030a": {
       "id": "ge-agenda:hemu-jazz-orchestra-leila-olivesi",
       "sourceDescriptionHash": "a97f8ab5634e970c221ab3ddfdcf891b14bd43333cfe6204f670c20f028e030a",
-      "code": "new-number",
+      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:39:43.042Z",
+      "lastAttemptAt": "2026-11-10T11:36:46.596Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185228,7 +185228,7 @@
       "sourceDescriptionHash": "f46fc7889b5ffc90ff0ff9ebfce2fb4055cff065904c559050623b0412635b36",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:38:42.538Z",
+      "lastAttemptAt": "2026-11-10T11:35:48.565Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185237,16 +185237,16 @@
       "sourceDescriptionHash": "58ae4634ba49c34f25dd20f464439db71a479023930bc925b5ad8b18b7d1f226",
       "code": "new-date-or-price",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:26:57.285Z",
+      "lastAttemptAt": "2026-11-10T11:27:50.499Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "ge-agenda:permanence-numerique-rive::1344ee64ffbd298f29458f19c2cd28fc648627269821454a0c2016ff27b2d219": {
       "id": "ge-agenda:permanence-numerique-rive",
       "sourceDescriptionHash": "1344ee64ffbd298f29458f19c2cd28fc648627269821454a0c2016ff27b2d219",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T09:03:20.533Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:49:00.090Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185271,9 +185271,9 @@
     "ge-agenda:projection-film-ancora-domani-paola-cortellesi::168cc92411099686c564d6116537772bee1d13b91bc01755d8dcb83028860d14": {
       "id": "ge-agenda:projection-film-ancora-domani-paola-cortellesi",
       "sourceDescriptionHash": "168cc92411099686c564d6116537772bee1d13b91bc01755d8dcb83028860d14",
-      "code": "new-name",
+      "code": "sentence-count",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:22:13.453Z",
+      "lastAttemptAt": "2026-11-10T11:20:13.858Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185309,7 +185309,7 @@
       "sourceDescriptionHash": "8aa2b9f92cb1ac70021204880b59fa8dd636a6db00f3b259d422133d40153fdd",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:23:24.853Z",
+      "lastAttemptAt": "2026-11-10T11:22:32.611Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185345,7 +185345,7 @@
       "sourceDescriptionHash": "11345e3188db0785ede30062f6bc908613461904015ed47d92da48a8ba3878a9",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:19:38.741Z",
+      "lastAttemptAt": "2026-11-10T11:19:02.837Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185399,7 +185399,7 @@
       "sourceDescriptionHash": "772badff1258a2ebbb5e94d93ff1b3f2aaf7c26ea397784917b044ff0be493dc",
       "code": "new-number",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:22:34.410Z",
+      "lastAttemptAt": "2026-11-10T11:21:37.780Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185417,7 +185417,7 @@
       "sourceDescriptionHash": "56064ee9fc64b4a1009b29013a43cfb0e3c1ee6062e6861cb7763ff907e74986",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:24:30.912Z",
+      "lastAttemptAt": "2026-11-10T11:23:26.443Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186847,8 +186847,8 @@
       "id": "guidle:APa3Vde",
       "sourceDescriptionHash": "a00b41e03c947eb1be6d947c18ccc1f14d3b2004bc4c649b88d1a52ac861abfb",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T09:06:57.380Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:47:41.749Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187468,8 +187468,8 @@
       "id": "guidle:AWeJCDe",
       "sourceDescriptionHash": "a469d5f6f6e2817dcd27b6d836b1022caf9f0e8c224966139a2027b5d560b1ee",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:35:42.884Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:26:41.053Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187846,8 +187846,8 @@
       "id": "lu-stadt-agenda:7723786",
       "sourceDescriptionHash": "b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630",
       "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:40:21.708Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:32:28.817Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189629,7 +189629,7 @@
       "sourceDescriptionHash": "2726bf3d5173ff8dc4157f08bdec69aab3b8067d6d481200e39d90f2f6a973b7",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:33:37.074Z",
+      "lastAttemptAt": "2026-11-10T11:30:26.765Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189654,9 +189654,9 @@
     "myswitzerland:6415330cd49c46fdbc5e5ca0ead7b1d2::779522011b802dbf9fa844df128f9921956c88535e4fd1c05a7d821b26829727": {
       "id": "myswitzerland:6415330cd49c46fdbc5e5ca0ead7b1d2",
       "sourceDescriptionHash": "779522011b802dbf9fa844df128f9921956c88535e4fd1c05a7d821b26829727",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:53:47.028Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:33:33.319Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190572,9 +190572,9 @@
     "myswitzerland:9ab9c97ef3db408d8614711e77f837d9::3630ceb00232169ef720b7766bee1b9c1bad8cccd1311b4459bde66d95da12be": {
       "id": "myswitzerland:9ab9c97ef3db408d8614711e77f837d9",
       "sourceDescriptionHash": "3630ceb00232169ef720b7766bee1b9c1bad8cccd1311b4459bde66d95da12be",
-      "code": "new-number",
+      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:21:21.199Z",
+      "lastAttemptAt": "2026-11-10T11:20:44.865Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192841,8 +192841,8 @@
       "id": "tio-agenda:63816",
       "sourceDescriptionHash": "5fe29507a30816c1ff6aa44889740c08a898829cf34fc94de522c16a2b4fd5a7",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:59:31.294Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:40:01.461Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193075,8 +193075,8 @@
       "id": "tio-agenda:64113",
       "sourceDescriptionHash": "9320083d4b7a4a070d42db40e14bf453d25131a1cd6b56893dbf1b60615b098b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:52:55.629Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:43:52.409Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193498,8 +193498,8 @@
       "id": "tio-agenda:64815",
       "sourceDescriptionHash": "99968f09ddd1d528b6caf74366d6da5f446283cfaa0af85807a9926aa356d26b",
       "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:58:01.795Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:50:21.772Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193517,7 +193517,7 @@
       "sourceDescriptionHash": "581a80d96dda14fa075d54e683f76f6dd5f017842689cea42b19e70696249d0b",
       "code": "new-number",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:37:09.156Z",
+      "lastAttemptAt": "2026-11-10T11:34:32.720Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193542,9 +193542,9 @@
     "tio-agenda:64864::b1082bd71a03771f1d1952c4f6fb54d3f46ed9318d7e5ed2de6b142754ad4f98": {
       "id": "tio-agenda:64864",
       "sourceDescriptionHash": "b1082bd71a03771f1d1952c4f6fb54d3f46ed9318d7e5ed2de6b142754ad4f98",
-      "code": "new-name",
+      "code": "source-ngram-8",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:32:19.071Z",
+      "lastAttemptAt": "2026-11-10T11:29:24.155Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193562,16 +193562,16 @@
       "sourceDescriptionHash": "4351ad4d1d2f15f0a6b6cdbb1f9d3811aea69f225712600e803e68c9ab6d80d7",
       "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:29:02.918Z",
+      "lastAttemptAt": "2026-11-10T11:30:20.279Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64910::25eabf29c82c4a734f753a4c0ec0f6448ac62ec855b9a2f254dcf4333640c838": {
       "id": "tio-agenda:64910",
       "sourceDescriptionHash": "25eabf29c82c4a734f753a4c0ec0f6448ac62ec855b9a2f254dcf4333640c838",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T08:51:39.366Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-10T11:42:27.212Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193580,7 +193580,7 @@
       "sourceDescriptionHash": "cc0dedee0e31528f254bdb0247f3a3bf2cbaf58ecc4b83b7e04ced5ebde4e3d9",
       "code": "new-number",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-10T10:30:32.146Z",
+      "lastAttemptAt": "2026-11-10T11:27:41.379Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

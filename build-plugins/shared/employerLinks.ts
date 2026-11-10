@@ -92,24 +92,36 @@ export function loadKnownCompanySlugs(rootDir: string): Set<string> {
  * Load the canonical slugs for the evergreen `/aziende/<slug>/` surface.
  *
  * `known-company-slugs.json` belongs to the legacy company-hub surface and
- * therefore cannot prove that an evergreen employer profile was emitted. The
- * employer-profile dataset is the source of truth for that route: both its
- * full profiles and its below-floor records receive a real bridge page.
+ * therefore cannot prove that an evergreen employer profile was emitted.
+ * Primary source during a build: `dist/data/employer-job-counts.json`, written
+ * by `employerProfilePagesPlugin` after reconciling `data/employer-profiles.json`
+ * with the live corpus (both full profiles and below-floor bridges).
+ * Fallback: the committed `data/employer-profiles.json` snapshot when `dist/`
+ * has not been generated yet.
  */
 export function loadKnownEmployerProfileSlugs(rootDir: string): Set<string> {
+  const slugs = new Set<string>();
+  const emittedCountsPath = np.resolve(rootDir, 'dist/data/employer-job-counts.json');
+  try {
+    const counts = JSON.parse(fs.readFileSync(emittedCountsPath, 'utf-8')) as Record<string, unknown>;
+    if (counts && typeof counts === 'object') {
+      for (const key of Object.keys(counts)) {
+        const slug = String(key || '').trim();
+        if (slug) slugs.add(slug);
+      }
+    }
+  } catch { /* fall through to committed dataset */ }
+
   const datasetPath = np.resolve(rootDir, 'data/employer-profiles.json');
   try {
     const dataset = JSON.parse(fs.readFileSync(datasetPath, 'utf-8')) as {
       profiles?: Array<{ slug?: unknown }>;
       belowFloor?: Array<{ slug?: unknown }>;
     };
-    const slugs = new Set<string>();
     for (const record of [...(dataset.profiles || []), ...(dataset.belowFloor || [])]) {
       const slug = String(record?.slug || '').trim();
       if (slug) slugs.add(slug);
     }
-    return slugs;
-  } catch {
-    return new Set();
-  }
+  } catch { /* ignore */ }
+  return slugs;
 }

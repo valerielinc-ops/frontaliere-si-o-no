@@ -37,27 +37,30 @@ import { reportedSalarySummary } from '../build-plugins/shared/realSalaryMedian.
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
-import { MIN_ACTIVE_JOBS, BRIDGE_FLOOR } from '../build-plugins/shared/employerProfileConfig.mjs';
+import { MIN_ACTIVE_JOBS, BRIDGE_FLOOR, MAX_PROFILES } from '../build-plugins/shared/employerProfileConfig.mjs';
+import {
+  buildEmployerProfileRecord,
+  compareEmployerRecords,
+  groupJobsByEmployerSlug,
+} from '../build-plugins/shared/employerProfileRecords.mjs';
 import { readJobsStatsHistory } from './lib/job-stats-history-store.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_PATH = path.join(ROOT, 'data', 'employer-profiles.json');
 
 // Floors shared with the SSG plugin — ONE definition (employerProfileConfig.mjs).
-export { MIN_ACTIVE_JOBS, BRIDGE_FLOOR };
-/** Runaway guard so a crawler mis-aggregation can't balloon the sitemap. */
-export const MAX_PROFILES = 1000;
+// MAX_PROFILES lives there too: the plugin fills snapshot gaps from the live
+// corpus and must respect the same runaway cap.
+export { MIN_ACTIVE_JOBS, BRIDGE_FLOOR, MAX_PROFILES };
 /** Trailing window (days) for the hiring-trend counts. */
 export const TREND_WINDOW_DAYS = 28;
-/** Max cities / cantons surfaced per profile (kept lean; long tail dropped). */
-const MAX_CITIES = 6;
-const MAX_CANTONS = 6;
 
 const SCHEMA_VERSION = 1;
 
-/** Slugs that would collide with the locale-prefix grammar of the route/compat
- * regex (`/^\/(?:(?:en|de|fr)\/)?aziende\/.../`) — never emit a page for them. */
-const RESERVED_SLUGS = new Set(['it', 'en', 'de', 'fr']);
+// Grouping, the reserved-slug guard and the per-employer aggregates (dominant
+// sector/name, cantons, cities, salary median) live in
+// build-plugins/shared/employerProfileRecords.mjs so the SSG plugin derives
+// exactly the same record when it fills a gap in this snapshot.
 
 function loadJobs() {
   const p = ['data/jobs.json', 'public/data/jobs.json']
@@ -66,50 +69,6 @@ function loadJobs() {
   if (!p) throw new Error('jobs.json not found — run scripts/assemble-jobs-dataset.mjs first.');
   const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
   return Array.isArray(raw) ? raw : raw.jobs || [];
-}
-
-/** Strict source-reported annual CHF sample; no inferred legacy bands. */
-function salaryMedian(jobs) {
-  const summary = reportedSalarySummary(jobs);
-  return { median: summary.medianChf, samples: summary.sampleCount };
-}
-
-/** Most frequent non-empty string of `field` in a group (deterministic tie-break). */
-function dominant(jobs, field) {
-  const counts = new Map();
-  for (const j of jobs) {
-    const v = String(j[field] || '').trim();
-    if (!v) continue;
-    counts.set(v, (counts.get(v) || 0) + 1);
-  }
-  let best = '';
-  let bestN = 0;
-  for (const [v, n] of counts) {
-    if (n > bestN || (n === bestN && v < best)) {
-      best = v;
-      bestN = n;
-    }
-  }
-  return best || null;
-}
-
-/** Aggregate a field into [{ name, count }] sorted by count desc, name asc. */
-function topBy(jobs, pick, limit) {
-  const counts = new Map();
-  for (const j of jobs) {
-    const v = pick(j);
-    if (!v) continue;
-    counts.set(v, (counts.get(v) || 0) + 1);
-  }
-  return [...counts.entries()]
-    .map(([name, count]) => ({ name, count }))
-    .sort((a, b) => b.count - a.count || (a.name < b.name ? -1 : 1))
-    .slice(0, limit);
-}
-
-function cityLabel(job) {
-  const raw = String(job.addressLocality || job.location || '').split(/[,(]/)[0].trim();
-  return raw || null;
 }
 
 /**
@@ -161,69 +120,27 @@ function buildTrendMap(hist) {
 function build() {
   const jobs = loadJobs();
   const trendMap = buildTrendMap(readJobsStatsHistory(ROOT));
-
-  // Group active jobs by canonical company slug.
-  const groups = new Map();
-  for (const j of jobs) {
-    const company = String(j.company || '').trim();
-    if (!company) continue;
-    const slug = canonicalCompanyProfileSlug(company, j.companyKey);
-    if (!slug) continue;
-    // Never let a company slug that normalises to a bare locale code (en/de/fr/
-    // it) enter the set: `/aziende/en/` would be parsed by the router /
-    // searchConsoleCompat regex as the EN-prefixed root of a slug-less path.
-    if (RESERVED_SLUGS.has(slug)) continue;
-    if (!groups.has(slug)) groups.set(slug, []);
-    groups.get(slug).push(j);
-  }
+  const groups = groupJobsByEmployerSlug(jobs);
 
   const profiles = [];
   const belowFloor = [];
 
   for (const [slug, group] of groups) {
-    const activeJobs = group.length;
-    if (activeJobs < BRIDGE_FLOOR) continue; // singletons: no page, no bridge.
-
-    const name = dominant(group, 'company') || slug;
-    const sector = dominant(group, 'sector');
-    const topCanton = topBy(group, (j) => String(j.canton || '').trim().toUpperCase() || null, 1)[0];
-
-    if (activeJobs < MIN_ACTIVE_JOBS) {
-      belowFloor.push({
-        slug,
-        name,
-        activeJobs,
-        sector,
-        canton: topCanton ? topCanton.name : null,
-      });
-      continue;
-    }
-
-    const { median, samples } = salaryMedian(group);
-    const cantons = topBy(
-      group,
-      (j) => String(j.canton || '').trim().toUpperCase() || null,
-      MAX_CANTONS,
-    );
-    const cities = topBy(group, cityLabel, MAX_CITIES);
-
-    profiles.push({
-      slug,
-      name,
-      companyKey: dominant(group, 'companyKey'),
-      sector,
-      activeJobs,
-      cantons,
-      cities,
-      salaryMedianChf: median,
-      salarySamples: samples,
+    const built = buildEmployerProfileRecord(slug, group, {
+      salarySummary: reportedSalarySummary,
       trend: trendMap.get(slug) || null,
     });
+    if (!built) continue; // singletons: no page, no bridge.
+    if (built.band === 'belowFloor') {
+      belowFloor.push(built.record);
+      continue;
+    }
+    profiles.push(built.record);
   }
 
   // Deterministic order: active jobs desc, then slug asc.
-  profiles.sort((a, b) => b.activeJobs - a.activeJobs || (a.slug < b.slug ? -1 : 1));
-  belowFloor.sort((a, b) => b.activeJobs - a.activeJobs || (a.slug < b.slug ? -1 : 1));
+  profiles.sort(compareEmployerRecords);
+  belowFloor.sort(compareEmployerRecords);
 
   const capped = profiles.slice(0, MAX_PROFILES);
 

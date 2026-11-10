@@ -5,10 +5,15 @@
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
+import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
+import { decisionAnswerFor } from './assistedApplicationDecisionAnswers.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v5';
+// v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
+// (assistedApplicationDecisionAnswers.js); a new version lets reconcile-operational-answers.mjs release
+// the waits these now answer.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v6';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -175,7 +180,13 @@ export function operationalQuestionTopic(question) {
  * candidate (dates, consents, availabilities) apply.
  */
 export function operationalDefaultAnswer(question, { locale, facts } = {}) {
-  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale });
+  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale })
+    // What the CV answers to an open text question (owner decisions 2026-11-10): a proposal like the
+    // platform's, verified against the CV (assistedApplicationCvAnswers.js).
+    || cvAnswerFor(question, facts)
+    // Last, what the decision engine chose by the owner's principles for a question nothing above covers
+    // (assistedApplicationDecisionAnswers.js, 2026-11-10): a proposal too, checked again on every read.
+    || decisionAnswerFor(question, facts);
 }
 
 function ownerPreferenceAnswer(question, { locale } = {}) {
@@ -269,7 +280,8 @@ export function isOperationalDefaultValue(question, value, options = {}) {
 /** Required form preferences also leave with an email application. Never edit the CV. */
 export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {}) {
   const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language, facts });
-  const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id])
+  // A CV answer is already in the CV the e-mail carries: no line of its own.
+  const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id] && !isCvAnswerDefault(defaults[question.id]))
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);
   const body = draft?.applicationEmail?.body || '';
   return lines.length ? `${body}\n\n${lines.join('\n')}` : body;

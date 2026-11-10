@@ -160,7 +160,7 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
           aria-invalid={error ? true : undefined}
         />
       )}
-      {question.suggestedAnswer && !savedAnswer && showingSuggestion && (
+      {question.suggestedAnswer && !savedAnswer && showingSuggestion && !question.answeredByPlatform && (
         <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.answerDraftNotice')}</span>
       )}
       {question.answerEvidence?.length && showingSuggestion ? (
