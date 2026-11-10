@@ -35,7 +35,10 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+const PORTAL_TEST_DATA_RETENTION_KEEP_OPTION = 'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.';
 const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
+const PORTAL_TEST_DATA_RETENTION_CONTEXT = `Data release * · ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION} · ${PORTAL_TEST_DATA_RETENTION_ANSWER}`;
+const PORTAL_TEST_PRIVACY_CONTEXT = 'Concierge Host';
 const fakeLocalizationUnknowns = [];
 const safeFixtureLabel = (value) => String(value || '').replace(/[^\p{L}\p{N} _.,?*'’()-]/gu, '').slice(0, 140);
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
@@ -60,7 +63,19 @@ const portalTestCandidate = ({ dateOfBirth = '12.05.1990', permitAnswer = 'Yes' 
     ...(permitAnswer ? [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: permitAnswer, source: 'user' }] : []),
     { question: 'Ich akzeptiere die Datenschutzerklärung', answer: 'Ja', source: 'user' },
     { question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user' },
-    { question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user' },
+    // Explicit answers carry the same section context the native-field reader
+    // records, so matching cannot leak across repeated questions or sections.
+    {
+      question: 'I agree to the Privacy Policy Statement', answer: 'Yes', source: 'user',
+      context: PORTAL_TEST_PRIVACY_CONTEXT, section: PORTAL_TEST_PRIVACY_CONTEXT,
+    },
+    {
+      question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user',
+    },
+    {
+      question: 'Data release', answer: PORTAL_TEST_DATA_RETENTION_ANSWER, source: 'user',
+      context: PORTAL_TEST_DATA_RETENTION_CONTEXT, section: 'Data release *',
+    },
   ],
 });
 // Synthetic-portal diagnostics only: never serialize values, credentials or
@@ -114,8 +129,16 @@ const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = 
   ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
   ...(Array.isArray(portalNavigationDiagnostics) && portalNavigationDiagnostics.length
     ? { portalNavigation: portalNavigationDiagnostics.slice(0, 12).map(safePortalNavigationDiagnostic) } : {}),
-  questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
-    typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
+  questions: (Array.isArray(event.questions) ? event.questions : []).map(question => {
+    if (typeof question === 'string') return question;
+    return {
+      fieldId: safeFixtureLabel(question.fieldId || question.id),
+      applicationQuestion: safeFixtureLabel(question.applicationQuestion || question.portalQuestion || ''),
+      context: safeFixtureLabel(question.context || ''),
+      section: safeFixtureLabel(question.section || ''),
+      question: safeFixtureLabel(question.question || question.label || ''),
+    };
+  }),
   steps: (evidence.steps || []).slice(-2).map(step => ({
     step: step.step, ...(step.url ? { location: safeLocation(step.url) } : {}),
     fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
@@ -264,7 +287,7 @@ function fakePortal() {
       ${closed ? '<div id="documents-section"></div>' : umantisDocuments}
       <label for="hear">How did you hear about us? *</label><select id="hear" name="hear"><option value="">Please select</option><option value="home">Company homepage</option><option value="board">Online job board</option><option value="misc">Miscellaneous</option></select>
       <label><input type="checkbox" name="employee"> I am a current employee of your company</label>
-      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.</label><label><input type="radio" name="release" value="delete"> I would like my data to be deleted once the present application process is complete.</label></fieldset>
+      <fieldset><legend>Data release *</legend><label><input type="radio" name="release" value="keep"> ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION}</label><label><input type="radio" name="release" value="delete"> ${PORTAL_TEST_DATA_RETENTION_ANSWER}</label></fieldset>
       <label><input type="checkbox" name="privacy"> I agree to the Privacy Policy Statement *</label>
       <input type="hidden" id="letter_stored" name="letter_stored" value=""><input type="hidden" id="cv_stored" name="cv_stored" value="">
       <button type="submit">Submit final application</button>`, true)}
