@@ -13701,6 +13701,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tredicesima-avs-pensionati-italia.title': '13e AVS pour les retraités italiens à partir de décembre 2026',
     'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'Un retraité qui a été frontalier, est affilié au système de prévoyance suisse et perçoit une rente complète AVS de 2’520 francs par mois recevra une somme identique au titre du treizième mois.',
     'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontalieri-svizzera-calo-ticino.title': 'Frontaliers : hausse en Suisse, baisse annuelle au Tessin',
+    'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'Au troisième trimestre, la statistique des travailleurs frontaliers met en évidence un contraste net entre la situation fédérale et celle du canton du Tessin.',
+    'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

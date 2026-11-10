@@ -8708,6 +8708,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): wages and cross-border workers, act through contributions',
     'blog.article.pamini-contributi-salari-svizzera.excerpt': 'The editorial headline presents Pamini (Udc) with a precise indication: link the issue of wages and cross-border commuters to the chapter on contributions.',
     'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 in 10 businesses delay or cut investments: red tape',
+    'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'According to the RG 12.30 service of November 9, 2026, for three out of ten Swiss companies, administrative constraints result in the postponement, reduction or cancellation of investments.',
+    'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

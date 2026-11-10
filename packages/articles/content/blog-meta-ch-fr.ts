@@ -8708,6 +8708,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc) : salaires et frontaliers, agir avec les cotisations',
     'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Le titre éditorial présente Pamini (Udc) avec une indication précise : relier le thème des salaires et des frontaliers au chapitre des cotisations.',
     'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 entreprises sur 10 freinent leurs investissements',
+    'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Selon le service RG 12.30 du 9 novembre 2026, pour trois entreprises suisses sur dix, les contraintes administratives entraînent le report, la réduction ou l’annulation d’investissements.',
+    'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

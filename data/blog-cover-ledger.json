@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1129,
+      "5": 1133,
       "6": 5061
     },
-    "publishedCovers": 7871,
+    "publishedCovers": 7875,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217021,6 +217021,138 @@
       "provider": null,
       "status": "no-credit",
       "currentlyPublished": true
+    },
+    "article-burocrazia-frena-investimenti-svizzera": {
+      "cover": "/images/blog/article-burocrazia-frena-investimenti-svizzera.webp",
+      "hash": "0093b4efa01ad23c8c4b71b55c2ead69f590e7a0577d6e0ff908c4ca1a28b381",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "burocrazia-frena-investimenti-svizzera",
+          "category": "fiscale",
+          "date": "2026-11-10T14:41:07.902Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-burocrazia-frena-investimenti-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-burocrazia-frena-investimenti-svizzera",
+        "imageUrl": "/images/blog/article-burocrazia-frena-investimenti-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-corsa-frauenfeld-wil-2026": {
+      "cover": "/images/blog/article-corsa-frauenfeld-wil-2026.webp",
+      "hash": "a3f638db35328908fe236071203ba0ecf63b19e29ce41225d8778b429d863921",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "corsa-frauenfeld-wil-2026",
+          "category": "pratico",
+          "date": "2026-11-10T13:27:36.197Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-corsa-frauenfeld-wil-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-corsa-frauenfeld-wil-2026",
+        "imageUrl": "/images/blog/article-corsa-frauenfeld-wil-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-frontalieri-svizzera-calo-ticino": {
+      "cover": "/images/blog/article-frontalieri-svizzera-calo-ticino.webp",
+      "hash": "891039de397a7d6ea7f4b317d153ecf2d23683b03a52cd8351c01c72787ba906",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontalieri-svizzera-calo-ticino",
+          "category": "novita",
+          "date": "2026-11-10T13:55:04.383Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-svizzera-calo-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-svizzera-calo-ticino",
+        "imageUrl": "/images/blog/article-frontalieri-svizzera-calo-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-governo-appenzello-candidati": {
+      "cover": "/images/blog/article-governo-appenzello-candidati.webp",
+      "hash": "6e01955409e86a8996366ce47875eb03e579e6ed652087b59ca99946423fc688",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "governo-appenzello-candidati",
+          "category": "novita",
+          "date": "2026-11-10T11:50:35.348Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-governo-appenzello-candidati.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-governo-appenzello-candidati",
+        "imageUrl": "/images/blog/article-governo-appenzello-candidati.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {
