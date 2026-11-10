@@ -7783,7 +7783,8 @@ export async function submitViaPortal(ctx) {
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
           const isCheckboxAction = ['check', 'uncheck'].includes(action.action);
           const plannerAnswer = !isCheckboxAction ? undefined
-            : ['answers', 'candidate', 'user'].includes(action.source) ? action.value : null;
+            : ['answers', 'candidate', 'user'].includes(action.source)
+              ? (action.action === 'check' ? 'ja' : 'nein') : null;
           record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field, plannerAnswer);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
