@@ -21,6 +21,9 @@
  *     was 18 (end of the Maturità, or start of university), on 1 January;
  *   - civil status: married above 35, single otherwise;
  *   - willing to relocate, to work hybrid, to be on call and to travel for business (travel: 2026-11-10);
+ *   - suitable for and interested in the position applied for (2026-11-10), never a fitness of health or law;
+ *   - permit G, when the candidate stated no status, the CV's town is in a country bordering Switzerland and
+ *     the CV shows a current or recent employment in Switzerland (deducedCrossBorderPermit, 2026-11-10);
  *   - profile visibility / internal forwarding (2026-11-10): the broadest audience inside the same employer
  *     («Alle Recruiter*innen der Stadt Zürich»), never a third party, the public or a marketing list.
  *
@@ -46,7 +49,7 @@
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { addressContextContract } from './lib/addressContextContract.js';
-import { isoDateOf } from './lib/cvPeriod.js';
+import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
@@ -58,7 +61,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v5 (2026-11-10): the residence canton or province, from the CV town.
 // v6 (2026-11-10): an entry in the criminal record or in the debt-enforcement register, from the upload answers.
 // v7 (2026-11-10): support to other sites or branches, flexibility of the place of work, guard and piquet duty.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v7';
+// v8 (2026-11-10): the cross-border permit G deduced from the CV (deducedCrossBorderPermit), the declaration of
+// suitability for or interest in the position always yes. (v7 is the other sites and guard duty of #18004.)
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v8';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -299,7 +304,7 @@ export function platformSalutationGender(firstName, locale = 'it') {
  * `personal` and `answers` are candidateWithEdits()'s; the CV and the
  * candidate's own corrections always win over a platform value.
  */
-export function platformCandidateFacts({ order = {}, profile = {}, identity = {}, personal = {}, answers = {}, locale = 'it', nowMs = Date.now(), seed = '' } = {}) {
+export function platformCandidateFacts({ order = {}, profile = {}, identity = {}, personal = {}, answers = {}, locale = 'it', nowMs = Date.now(), seed = '', permitDeduction = true } = {}) {
   const language = languageOf(locale);
   const key = clean(seed || order?.userId || order?.orderId || identity?.email || identity?.name || 'candidate', 300);
   const address = profile?.address && typeof profile.address === 'object' ? profile.address : {};
@@ -332,7 +337,13 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const languages = (Array.isArray(profile?.languages) ? profile.languages : [])
     .map((entry) => ({ code: languageCodesIn(entry?.language || '')[0] || '', level: clean(entry?.level, 80) }))
     .filter((entry) => entry.code);
-  const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
+  const statedPermit = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
+  // Nothing stated by the candidate, at upload, in an answer or a correction (even a cleared one: `permitDeduction`
+  // false): the cross-border permit the CV implies (owner decision 2026-11-10), from the CV's own town only.
+  const deducedPermit = !statedPermit && permitDeduction && !clean(answers?.work_permit) && !clean(uploaded.workPermit)
+    ? deducedCrossBorderPermit({ residenceCountry: statedCountry || directory?.country || '', experience: profile?.experience, workPermit: profile?.workPermit, nowMs })
+    : '';
+  const permitStatus = statedPermit || deducedPermit;
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
   // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
@@ -374,12 +385,71 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     noticeMonths: PLATFORM_NOTICE_MONTHS,
     workloadPercent: statedWorkloadPercent(order),
     permitStatus,
+    // 'candidate' for a status the candidate stated, 'deduced' for the one the platform deduced from the CV.
+    permitStatusSource: statedPermit ? 'candidate' : deducedPermit ? 'deduced' : '',
     nationality,
     passport,
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
   };
+}
+
+/** The countries bordering Switzerland: a resident who works in Switzerland is a cross-border commuter. */
+export const CROSS_BORDER_COUNTRIES = Object.freeze(['IT', 'FR', 'DE', 'AT', 'LI']);
+/** How long after a Swiss job ended its cross-border permit is still deduced: «current or recent» (owner). */
+export const CROSS_BORDER_RECENT_MONTHS = 12;
+// The kinds of role that are no employment: a volunteer post, a taster day of an apprenticeship.
+const NOT_EMPLOYMENT = new Set(['volunteer', 'trial_apprenticeship']);
+const SWISS_NAME = /\b(?:svizzera|switzerland|schweiz|suisse|svizra|helvetia)\b/;
+
+/**
+ * Whether a place the CV writes for a role is in Switzerland: «Lugano», «Mendrisio (TI)», «Zürich, Schweiz»,
+ * «Chiasso - Svizzera». Conservative: a town the directory also knows in Italy, with no canton and no country,
+ * is not read as Swiss, and «(CH)» after an Italian town is the province of Chieti.
+ */
+export function isSwissPlace(value) {
+  const text = clean(value);
+  if (!text) return false;
+  const { town, region, country } = splitTown(text);
+  const entries = town ? postalDirectory().get(fold(town)) || [] : [];
+  if (country) return country === 'CH' && (!entries.length || entries.some((entry) => entry.country === 'CH'));
+  if (SWISS_NAME.test(fold(text))) return true;
+  if (!entries.length) return false;
+  if (region) return entries.some((entry) => entry.country === 'CH' && entry.region === region);
+  return platformPostalCode(town)?.country === 'CH';
+}
+
+/** Whether a role of the CV is current or ended at most CROSS_BORDER_RECENT_MONTHS before `nowMs`. */
+function currentOrRecentRole(role, nowMs) {
+  const end = String(role?.end ?? '').trim();
+  const endpoint = end ? parseEndpoint(end) : null;
+  if (endpoint === 'ongoing' || isOngoingPeriod(role?.start, role?.end)) return true;
+  // No end: the role's start, when it is itself recent, dates it; an older start with no end proves nothing.
+  const anchor = endpoint || (end ? null : parseEndpoint(role?.start));
+  if (!anchor || anchor === 'ongoing') return anchor === 'ongoing';
+  const now = new Date(nowMs);
+  const months = (now.getUTCFullYear() - anchor.year) * 12 + (now.getUTCMonth() + 1 - (anchor.month || 12));
+  // A role ending in the future is no proof of a job held today: only an end within the last months counts.
+  return months >= 0 && months <= CROSS_BORDER_RECENT_MONTHS;
+}
+
+/**
+ * The cross-border permit G the CV implies, or '' (owner decision 2026-11-10: «la persona lavora in Svizzera,
+ * quindi sicuramente ha il permesso G siccome vive in Italia»): the CV's town is in Italy or another country
+ * bordering Switzerland, and the CV shows an employment in Switzerland, current or ended at most
+ * CROSS_BORDER_RECENT_MONTHS ago. Only when the candidate stated no status (platformCandidateFacts): their word
+ * always wins. The CV's own permit wording, when it names another status, stops the deduction.
+ * @param {{residenceCountry?:string, experience?:object[], workPermit?:string, nowMs?:number}} input
+ * @returns {''|'permit_g'}
+ */
+export function deducedCrossBorderPermit({ residenceCountry = '', experience = [], workPermit = '', nowMs = Date.now() } = {}) {
+  if (!CROSS_BORDER_COUNTRIES.includes(residenceCountry)) return '';
+  const printed = permitStatusOf(workPermit);
+  if (printed && printed !== 'permit_g') return '';
+  const swissJob = (Array.isArray(experience) ? experience : []).some((role) => role && typeof role === 'object'
+    && !NOT_EMPLOYMENT.has(role.kind) && isSwissPlace(role.location) && currentOrRecentRole(role, nowMs));
+  return swissJob ? 'permit_g' : '';
 }
 
 /**
@@ -483,6 +553,13 @@ const SCHEDULE = /\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|
 const RELOCATION = /\b(?:trasferir\w*|trasferiment\w*|relocat\w*|umzug\w*|umzieh\w*|demenag\w*|willing to move)\b/;
 const HYBRID = /\b(?:ibrid\w*|hybrid\w*|hybride|homeoffice|home office|telelavoro|smart working|presenza (?:presso|in) (?:la )?sede)\b/;
 const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
+// A declaration of suitability for, or of interest in, the position the candidate applies for (owner decision
+// 2026-11-10: «Dichiara la propria idoneità alla funzione prevista dal bando?» is always yes: they are applying).
+// Never a fitness that is a fact of health or law (medical, physical, conduct, criminal record), never a conflict
+// of interest, never other or future positions (a job alert), never a workload.
+const SUITABILITY = /\b(?:idone\w*|suitab\w*|suited|geeignet\w*|eignung|apte|aptitude|interess\w*|interest\w*|interet\w*)\b/;
+const APPLIED_FUNCTION = /\b(?:funzion\w*|posizion\w*|ruolo|mansion\w*|posto|bando|concorso|incarico|position|role|job|post|vacancy|stelle|funktion|ausschreibung|poste|fonction|emploi)\b/;
+const NOT_SUITABILITY = /\b(?:job ?alerts?|alerts?|avvis\w*|notific\w*|newsletter\w*|talent ?pool\w*|jobabo\w*|benachrichtig\w*|sanitar\w*|fisic\w*|psic\w*|medic\w*|salute|health\w*|physical\w*|mental\w*|gesundheit\w*|korperlich\w*|arztlich\w*|psychisch\w*|sante|physique\w*|condott\w*|casellario|penal\w*|criminal\w*|moral\w*|giuridic\w*|legal\w*|vaccin\w*|leumund\w*|strafregister\w*|casier|conduct\w*|record|judiciaire|conflitt\w*|conflict\w*|\w*konflikt\w*|conflit\w*|altr[aeio]|other|weitere\w*|andere\w*|autres?|futur\w*|ulterior\w*|simil\w*|similar|part ?time|tempo parziale|teilzeit|temps partiel|full ?time|tempo pieno|vollzeit|temps plein|pensum|percent\w*|percentuale)\b/;
 // Guard or standby duty asked as an availability (owner decision 2026-11-10: on-call duty in every wording is
 // always yes). Only with an availability word: «Hai svolto servizio di guardia?» asks a fact of the past.
 // French «piquet» also names a past duty («Avez-vous effectué un service de piquet ?»): only its availability is ours.
@@ -706,6 +783,7 @@ function classifyPlatformSubject(question) {
   if (RELOCATION.test(text)) return 'relocation';
   if (((OTHER_SITES.test(text) && AVAILABLE.test(text)) || SITE_FLEXIBILITY.test(text)) && isBinary(question)) return 'other_sites';
   if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
+  if (SUITABILITY.test(text) && APPLIED_FUNCTION.test(text) && !NOT_SUITABILITY.test(text) && isBinary(question)) return 'function_suitability';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
   if (isSwissArmyQuestion(question)) return 'swiss_army_service';
@@ -1043,6 +1121,8 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   const options = optionsOf(question);
   const address = known.address || {};
   let value = '';
+  // A value that rests on the permit the platform deduced (deducedCrossBorderPermit) says so.
+  let basis = '';
   switch (topic) {
     case 'residence_postal_code': value = address.postalCode ? choose(question, address.postalCode) : ''; break;
     case 'residence_city': value = address.city ? choose(question, address.city.replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())) : ''; break;
@@ -1079,6 +1159,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
         || permitOptionFallback(question, status, known.passport);
       else if (isBinary(question)) value = status === 'none' ? noValue(question, lang) : yesValue(question, lang);
       else value = permitLabel(status, lang);
+      if (known.permitStatusSource === 'deduced') basis = 'deduced';
       break;
     }
     case 'nationality': {
@@ -1096,6 +1177,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       // «Do you hold a Swiss work permit or Swiss passport…?»: a held permit answers it first.
       if (known.permitStatus && optionsOf(question).some((option) => /\b(?:permesso|permit|bewilligung|permis)\b/.test(fold(option)))) {
         value = permitOptionFallback(question, known.permitStatus, passport);
+        if (value && known.permitStatusSource === 'deduced') basis = 'deduced';
         if (value) break;
       }
       if (!passport) break;
@@ -1131,6 +1213,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'on_call':
     case 'hybrid':
     case 'business_travel':
+    case 'function_suitability':
     case 'other_sites':
     case 'relocation': value = yesValue(question, lang); break;
     // The broadest audience inside the same employer; a yes/no or a box: yes.
@@ -1160,5 +1243,5 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   value = String(value ?? '').trim();
   if (!value) return null;
   if (options.length && !options.includes(value) && !['true', 'false'].includes(value)) return null;
-  return { value, topic: `platform:${topic}`, source: 'policy_default', version: PLATFORM_DEFAULTS_VERSION };
+  return { value, topic: `platform:${topic}`, source: 'policy_default', ...(basis ? { basis } : {}), version: PLATFORM_DEFAULTS_VERSION };
 }

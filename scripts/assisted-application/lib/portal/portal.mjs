@@ -1042,7 +1042,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
-  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
+  // The status the candidate chose, else the cross-border permit the platform deduced from the CV (owner decision
+  // 2026-11-10, platformCandidateFacts `permitStatusSource: 'deduced'`): never over an answer of theirs.
+  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit)
+    || (platformFacts?.permitStatusSource === 'deduced' && !String(answers.work_permit ?? '').trim() ? permitStatusOf(platformFacts.permitStatus) : '');
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
