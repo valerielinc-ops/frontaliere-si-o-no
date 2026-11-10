@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-11-09T21:46:22.363Z",
-  "runId": "42702174264",
+  "assembledAt": "2026-11-10T09:45:31.460Z",
+  "runId": "42790405573",
   "jobs": [
     {
       "id": "bachtelen-696d214df72c",
@@ -35,7 +35,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.734Z",
+      "crawledAt": "2026-11-10T09:45:21.643Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.734Z",
+      "validThrough": "2026-12-20T09:45:21.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.733Z",
+      "crawledAt": "2026-11-10T09:45:21.640Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.733Z",
+      "validThrough": "2026-12-20T09:45:21.640Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.732Z",
+      "crawledAt": "2026-11-10T09:45:21.638Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -237,7 +237,86 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.732Z",
+      "validThrough": "2026-12-20T09:45:21.638Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bachtelen-80970a31d42e",
+      "slug": "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen-69e38a9457",
+      "slugByLocale": {
+        "it": "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen-69e38a9457",
+        "en": "healing-pedagogues-healing-pedagogues-resp-teachers-60-100-stiftung-bachtelen-grenchen",
+        "de": "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
+        "fr": "pedagogues-de-guerison-pedagogues-de-guerison-resp-enseignants-60-100-stiftung-bachtelen-grenchen"
+      },
+      "company": "Stiftung Bachtelen",
+      "companyKey": "bachtelen",
+      "companyDomain": "bachtelen.ch",
+      "title": "Heilpädagog:innen resp. Lehrpersonen (60-100%)",
+      "titleByLocale": {
+        "it": "Guarire i pedagoghi / Guarire i pedagoghi resp. Insegnanti (60-100%)",
+        "en": "Healing pedagogues / Healing pedagogues resp. Teachers (60-100%)",
+        "de": "Heilpädagog:innen resp. Lehrpersonen (60-100%)",
+        "fr": "Pédagogues de guérison / Pédagogues de guérison resp. Enseignants (60-100%)"
+      },
+      "description": "Das Bachtelen ist ein führendes Kompetenzzentrum im Kanton Solothurn für Kinder und Jugendliche. Mit Angeboten in Schule, Wohnen, Therapie, Beratung und familienergänzender Betreuung setzen wir uns für die bestmögliche Förderung und Integration von Kindern und Jugendlichen ein. Über 500 engagierte Mitarbeitende gestalten gemeinsam eine Kultur der Offenheit, Fachlichkeit und Wertschätzung.\n\nFür die AS-Klassen am Standort Grenchen suchen wir ab sofort für eine Klasse im Zyklus 3\n\nHeilpädagog:innen\n\nresp. Lehrpersonen ( 60-100% )\n\nDu hast Freude an:\n\n• der Arbeit mit Jugendlichen im Autismus Spektrum des Zyklus 3\n\n• der Individualisierung des Unterrichts\n\n• hoher Selbstverantwortung\n\n• der Arbeit in einem kleinen Team\n\n• der engen interdisziplinären Zusammenarbeit (intern wie extern)\n\n• der intensiven Zusammenarbeit mit den Eltern\n\nDu bringst mit:\n\n• EDK-anerkannte Lehrer:innenausbildung, wenn möglich mit heilpädagogischer Zusatz-Ausbildung\n\n• Erfahrung mit Kindern/Jugendlichen im Autismus Spektrum\n\n• Humor und Kreativität\n\n• persönliche Flexibilität\n\nKontakt\n\nIsabelle\n\nArmenti\n\nSchulleiterin\n\n032 624 14 62\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "descriptionByLocale": {
+        "it": "Bachtelen è un centro di competenza leader nel cantone di Solothurn per bambini e giovani. Con offerte a scuola, vita, terapia, consulenza e cura familiare, ci impegniamo nella migliore promozione e integrazione possibile dei bambini e dei giovani. Più di 500 dipendenti dedicati formano insieme una cultura di apertura, professionalità e apprezzamento.\n\nPer le classi AS nella posizione Grenchen, ora stiamo cercando una classe in Ciclo 3\n\nGuarire il pedagogue/guadagoga di guarigione\n\nInsegnanti (60-100%)\n\nTi è piaciuto:\n\n• Lavorare con gli adolescenti sullo spettro autismo del ciclo 3\n\n• Individualizzazione dell'insegnamento\n\n• Alta responsabilità\n\n• Lavorare in una piccola squadra\n\n• Chiudere la cooperazione interdisciplinare (interna ed esterna)\n\n• Cooperazione intensiva con i genitori\n\nPorti con te:\n\n• Insegnanti approvati da EDK: formazione interna, se possibile con formazione aggiuntiva\n\n• Esperienza con bambini / ragazzi sullo spettro autismo\n\n• Humor e creatività\n\n• Flessibilità personale\n\nSi prega di fornire informazioni:\n\nIsabelle Armenti, co-direttore della scuola di Solothurn Day\n\n(tel: 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nInvia la tua domanda a:\n\nIsabelle Armenti\n\nCo-direttore della Scuola di Giorno Solothurn\n\nWildbachstrasse 16\n\n4500 Solothurn\n\nisabelle.armenti@bachtelen.ch\n\nApplicazioni online si prega solo in formato PDF (max. 10 MB)\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is a leading competence centre in the canton of Solothurn for children and young people. With offers in school, living, therapy, counselling and family-supplemented care, we are committed to the best possible promotion and integration of children and young people. More than 500 dedicated employees jointly shape a culture of openness, professionalism and appreciation.\n\nFor the AS classes at the Grenchen location, we are now looking for a class in Cycle 3\n\nHealing pedagogue/healing pedagogue\n\nResp. Teachers (60-100% )\n\nYou enjoyed:\n\n• Working with adolescents on the autism spectrum of cycle 3\n\n• Individualization of teaching\n\n• High self-responsibility\n\n• Working in a small team\n\n• Close interdisciplinary cooperation (internal and external)\n\n• Intensive cooperation with parents\n\nYou bring with you:\n\n• EDK-approved teachers: inside training, if possible with additional curative education\n\n• Experience with children/teens on the autism spectrum\n\n• Humor and creativity\n\n• Personal flexibility\n\nPlease provide information:\n\nIsabelle Armenti, co-director of the Solothurn Day School\n\n(tel: 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nYou submit your application to:\n\nIsabelle Armenti\n\nCo-director of Day School Solothurn\n\nWildbachstrasse 16\n\n4500 Solothurn\n\nisabelle.armenti@bachtelen.ch\n\nOnline applications please only in PDF format (max. 10 MB)\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
+        "de": "Das Bachtelen ist ein führendes Kompetenzzentrum im Kanton Solothurn für Kinder und Jugendliche. Mit Angeboten in Schule, Wohnen, Therapie, Beratung und familienergänzender Betreuung setzen wir uns für die bestmögliche Förderung und Integration von Kindern und Jugendlichen ein. Über 500 engagierte Mitarbeitende gestalten gemeinsam eine Kultur der Offenheit, Fachlichkeit und Wertschätzung.\n\nFür die AS-Klassen am Standort Grenchen suchen wir ab sofort für eine Klasse im Zyklus 3\n\nHeilpädagog:innen\n\nresp. Lehrpersonen ( 60-100% )\n\nDu hast Freude an:\n\n• der Arbeit mit Jugendlichen im Autismus Spektrum des Zyklus 3\n\n• der Individualisierung des Unterrichts\n\n• hoher Selbstverantwortung\n\n• der Arbeit in einem kleinen Team\n\n• der engen interdisziplinären Zusammenarbeit (intern wie extern)\n\n• der intensiven Zusammenarbeit mit den Eltern\n\nDu bringst mit:\n\n• EDK-anerkannte Lehrer:innenausbildung, wenn möglich mit heilpädagogischer Zusatz-Ausbildung\n\n• Erfahrung mit Kindern/Jugendlichen im Autismus Spektrum\n\n• Humor und Kreativität\n\n• persönliche Flexibilität\n\nKontakt\n\nIsabelle\n\nArmenti\n\nSchulleiterin\n\n032 624 14 62\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Bachtelen est l'un des principaux centres de compétence du canton de Soleure pour les enfants et les jeunes. Avec des offres à l'école, à la vie, à la thérapie, au counseling et à la prise en charge familiale, nous nous engageons à promouvoir et à intégrer au mieux les enfants et les jeunes. Plus de 500 employés dévoués façonnent conjointement une culture d'ouverture, de professionnalisme et d'appréciation.\n\nPour les cours AS à l'emplacement de Grenchen, nous cherchons maintenant une classe en cycle 3\n\nPédagogue de guérison/pédagogue de guérison\n\nAdm.\n\nVous avez apprécié :\n\n• Travail avec les adolescents sur le spectre autistique du cycle 3\n\n• Individualisation de l'enseignement\n\n• Haute responsabilité\n\n• Travailler dans une petite équipe\n\n• Coopération interdisciplinaire étroite (interne et externe)\n\n• Coopération intensive avec les parents\n\nVous apportez avec vous:\n\n• Enseignants approuvés par l'EDK: formation interne, si possible avec une éducation curative supplémentaire\n\n• Expérience avec les enfants/adolescents sur le spectre de l'autisme\n\n• Humour et créativité\n\n• Flexibilité personnelle\n\nVeuillez fournir des informations:\n\nIsabelle Armenti, codirectrice de l'école de jour Soleure\n\n(tél. : 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nVous soumettez votre demande à :\n\nIsabelle Armenti\n\nCodirecteur de Day School Soleure\n\nLa rivière Wildbachstrasse 16\n\n4500 Soleure\n\nislamelle.armenti@bachtelen.ch\n\nLes applications en ligne ne sont disponibles qu'en format PDF (max. 10 Mo)\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+      },
+      "location": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
+      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:45:21.620Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2540",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21T08:17:36Z",
+      "postedDate": "2026-09-21T08:17:36Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
+        "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
+          "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen"
+        ]
+      },
+      "firstSeenAt": "2026-08-04T11:45:16.653Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:45:21.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -272,7 +351,7 @@
       "url": "https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.722Z",
+      "crawledAt": "2026-11-10T09:45:21.619Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -321,86 +400,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.722Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "bachtelen-80970a31d42e",
-      "slug": "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen-69e38a9457",
-      "slugByLocale": {
-        "it": "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen-69e38a9457",
-        "en": "healing-pedagogues-healing-pedagogues-resp-teachers-60-100-stiftung-bachtelen-grenchen",
-        "de": "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
-        "fr": "pedagogues-de-guerison-pedagogues-de-guerison-resp-enseignants-60-100-stiftung-bachtelen-grenchen"
-      },
-      "company": "Stiftung Bachtelen",
-      "companyKey": "bachtelen",
-      "companyDomain": "bachtelen.ch",
-      "title": "Heilpädagog:innen resp. Lehrpersonen (60-100%)",
-      "titleByLocale": {
-        "it": "Guarire i pedagoghi / Guarire i pedagoghi resp. Insegnanti (60-100%)",
-        "en": "Healing pedagogues / Healing pedagogues resp. Teachers (60-100%)",
-        "de": "Heilpädagog:innen resp. Lehrpersonen (60-100%)",
-        "fr": "Pédagogues de guérison / Pédagogues de guérison resp. Enseignants (60-100%)"
-      },
-      "description": "Das Bachtelen ist ein führendes Kompetenzzentrum im Kanton Solothurn für Kinder und Jugendliche. Mit Angeboten in Schule, Wohnen, Therapie, Beratung und familienergänzender Betreuung setzen wir uns für die bestmögliche Förderung und Integration von Kindern und Jugendlichen ein. Über 500 engagierte Mitarbeitende gestalten gemeinsam eine Kultur der Offenheit, Fachlichkeit und Wertschätzung.\n\nFür die AS-Klassen am Standort Grenchen suchen wir ab sofort für eine Klasse im Zyklus 3\n\nHeilpädagog:innen\n\nresp. Lehrpersonen ( 60-100% )\n\nDu hast Freude an:\n\n• der Arbeit mit Jugendlichen im Autismus Spektrum des Zyklus 3\n\n• der Individualisierung des Unterrichts\n\n• hoher Selbstverantwortung\n\n• der Arbeit in einem kleinen Team\n\n• der engen interdisziplinären Zusammenarbeit (intern wie extern)\n\n• der intensiven Zusammenarbeit mit den Eltern\n\nDu bringst mit:\n\n• EDK-anerkannte Lehrer:innenausbildung, wenn möglich mit heilpädagogischer Zusatz-Ausbildung\n\n• Erfahrung mit Kindern/Jugendlichen im Autismus Spektrum\n\n• Humor und Kreativität\n\n• persönliche Flexibilität\n\nKontakt\n\nIsabelle\n\nArmenti\n\nSchulleiterin\n\n032 624 14 62\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-      "descriptionByLocale": {
-        "it": "Bachtelen è un centro di competenza leader nel cantone di Solothurn per bambini e giovani. Con offerte a scuola, vita, terapia, consulenza e cura familiare, ci impegniamo nella migliore promozione e integrazione possibile dei bambini e dei giovani. Più di 500 dipendenti dedicati formano insieme una cultura di apertura, professionalità e apprezzamento.\n\nPer le classi AS nella posizione Grenchen, ora stiamo cercando una classe in Ciclo 3\n\nGuarire il pedagogue/guadagoga di guarigione\n\nInsegnanti (60-100%)\n\nTi è piaciuto:\n\n• Lavorare con gli adolescenti sullo spettro autismo del ciclo 3\n\n• Individualizzazione dell'insegnamento\n\n• Alta responsabilità\n\n• Lavorare in una piccola squadra\n\n• Chiudere la cooperazione interdisciplinare (interna ed esterna)\n\n• Cooperazione intensiva con i genitori\n\nPorti con te:\n\n• Insegnanti approvati da EDK: formazione interna, se possibile con formazione aggiuntiva\n\n• Esperienza con bambini / ragazzi sullo spettro autismo\n\n• Humor e creatività\n\n• Flessibilità personale\n\nSi prega di fornire informazioni:\n\nIsabelle Armenti, co-direttore della scuola di Solothurn Day\n\n(tel: 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nInvia la tua domanda a:\n\nIsabelle Armenti\n\nCo-direttore della Scuola di Giorno Solothurn\n\nWildbachstrasse 16\n\n4500 Solothurn\n\nisabelle.armenti@bachtelen.ch\n\nApplicazioni online si prega solo in formato PDF (max. 10 MB)\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
-        "en": "Bachtelen is a leading competence centre in the canton of Solothurn for children and young people. With offers in school, living, therapy, counselling and family-supplemented care, we are committed to the best possible promotion and integration of children and young people. More than 500 dedicated employees jointly shape a culture of openness, professionalism and appreciation.\n\nFor the AS classes at the Grenchen location, we are now looking for a class in Cycle 3\n\nHealing pedagogue/healing pedagogue\n\nResp. Teachers (60-100% )\n\nYou enjoyed:\n\n• Working with adolescents on the autism spectrum of cycle 3\n\n• Individualization of teaching\n\n• High self-responsibility\n\n• Working in a small team\n\n• Close interdisciplinary cooperation (internal and external)\n\n• Intensive cooperation with parents\n\nYou bring with you:\n\n• EDK-approved teachers: inside training, if possible with additional curative education\n\n• Experience with children/teens on the autism spectrum\n\n• Humor and creativity\n\n• Personal flexibility\n\nPlease provide information:\n\nIsabelle Armenti, co-director of the Solothurn Day School\n\n(tel: 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nYou submit your application to:\n\nIsabelle Armenti\n\nCo-director of Day School Solothurn\n\nWildbachstrasse 16\n\n4500 Solothurn\n\nisabelle.armenti@bachtelen.ch\n\nOnline applications please only in PDF format (max. 10 MB)\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "de": "Das Bachtelen ist ein führendes Kompetenzzentrum im Kanton Solothurn für Kinder und Jugendliche. Mit Angeboten in Schule, Wohnen, Therapie, Beratung und familienergänzender Betreuung setzen wir uns für die bestmögliche Förderung und Integration von Kindern und Jugendlichen ein. Über 500 engagierte Mitarbeitende gestalten gemeinsam eine Kultur der Offenheit, Fachlichkeit und Wertschätzung.\n\nFür die AS-Klassen am Standort Grenchen suchen wir ab sofort für eine Klasse im Zyklus 3\n\nHeilpädagog:innen\n\nresp. Lehrpersonen ( 60-100% )\n\nDu hast Freude an:\n\n• der Arbeit mit Jugendlichen im Autismus Spektrum des Zyklus 3\n\n• der Individualisierung des Unterrichts\n\n• hoher Selbstverantwortung\n\n• der Arbeit in einem kleinen Team\n\n• der engen interdisziplinären Zusammenarbeit (intern wie extern)\n\n• der intensiven Zusammenarbeit mit den Eltern\n\nDu bringst mit:\n\n• EDK-anerkannte Lehrer:innenausbildung, wenn möglich mit heilpädagogischer Zusatz-Ausbildung\n\n• Erfahrung mit Kindern/Jugendlichen im Autismus Spektrum\n\n• Humor und Kreativität\n\n• persönliche Flexibilität\n\nKontakt\n\nIsabelle\n\nArmenti\n\nSchulleiterin\n\n032 624 14 62\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-        "fr": "Bachtelen est l'un des principaux centres de compétence du canton de Soleure pour les enfants et les jeunes. Avec des offres à l'école, à la vie, à la thérapie, au counseling et à la prise en charge familiale, nous nous engageons à promouvoir et à intégrer au mieux les enfants et les jeunes. Plus de 500 employés dévoués façonnent conjointement une culture d'ouverture, de professionnalisme et d'appréciation.\n\nPour les cours AS à l'emplacement de Grenchen, nous cherchons maintenant une classe en cycle 3\n\nPédagogue de guérison/pédagogue de guérison\n\nAdm.\n\nVous avez apprécié :\n\n• Travail avec les adolescents sur le spectre autistique du cycle 3\n\n• Individualisation de l'enseignement\n\n• Haute responsabilité\n\n• Travailler dans une petite équipe\n\n• Coopération interdisciplinaire étroite (interne et externe)\n\n• Coopération intensive avec les parents\n\nVous apportez avec vous:\n\n• Enseignants approuvés par l'EDK: formation interne, si possible avec une éducation curative supplémentaire\n\n• Expérience avec les enfants/adolescents sur le spectre de l'autisme\n\n• Humour et créativité\n\n• Flexibilité personnelle\n\nVeuillez fournir des informations:\n\nIsabelle Armenti, codirectrice de l'école de jour Soleure\n\n(tél. : 032 624 14 62; coleitung-taso@bachtelen.ch)\n\nVous soumettez votre demande à :\n\nIsabelle Armenti\n\nCodirecteur de Day School Soleure\n\nLa rivière Wildbachstrasse 16\n\n4500 Soleure\n\nislamelle.armenti@bachtelen.ch\n\nLes applications en ligne ne sont disponibles qu'en format PDF (max. 10 Mo)\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
-      },
-      "location": "Grenchen",
-      "canton": "SO",
-      "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
-      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.722Z",
-      "addressLocality": "Grenchen",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2540",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sociale / Educazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21T08:17:36Z",
-      "postedDate": "2026-09-21T08:17:36Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
-        "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "heilpadagog-innen-resp-lehrpersonen-60-100-bachtelen-grenchen",
-          "guarire-i-pedagoghi-guarire-i-pedagoghi-resp-insegnanti-60-100-stiftung-bachtelen-grenchen"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:45:16.653Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.722Z",
+      "validThrough": "2026-12-20T09:45:21.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -435,7 +435,7 @@
       "url": "https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.721Z",
+      "crawledAt": "2026-11-10T09:45:21.617Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -478,7 +478,7 @@
       },
       "streetAddress": "Solothurn und Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:46:15.721Z",
+      "validThrough": "2026-12-20T09:45:21.617Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -513,7 +513,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.720Z",
+      "crawledAt": "2026-11-10T09:45:21.615Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -564,7 +564,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:46:15.720Z",
+      "validThrough": "2027-01-14T09:45:21.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -599,7 +599,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.719Z",
+      "crawledAt": "2026-11-10T09:45:21.614Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -648,7 +648,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:46:15.719Z",
+      "validThrough": "2027-01-14T09:45:21.614Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -683,7 +683,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.717Z",
+      "crawledAt": "2026-11-10T09:45:21.612Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -734,16 +734,16 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:46:15.717Z",
+      "validThrough": "2027-01-27T09:45:21.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-077ea542274c",
       "slug": "capogruppo-con-cavalletto-80-100-stiftung-bachtelen-grenchen",
       "slugByLocale": {
-        "de": "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen",
         "it": "capogruppo-con-cavalletto-80-100-stiftung-bachtelen-grenchen",
         "en": "group-leaderwith-deputy-head-of-capital-80-100-stiftung-bachtelen-grenchen",
+        "de": "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen",
         "fr": "chef-de-groupe-avec-suppleant-de-la-direction-de-creche-80-100-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
@@ -751,25 +751,25 @@
       "companyDomain": "bachtelen.ch",
       "title": "Gruppenleiter:in mit Stv. der Kitaleitung 80-100%",
       "titleByLocale": {
-        "de": "Gruppenleiter:in mit Stv. der Kitaleitung 80-100%",
         "it": "Capogruppo: con cavalletto 80-100%",
         "en": "Group Leaderwith Deputy Head of Capital 80-100%",
+        "de": "Gruppenleiter:in mit Stv. der Kitaleitung 80-100%",
         "fr": "Chef de groupe avec suppléant de la direction de crèche 80-100 %"
       },
-      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n In Grenchen führt das Bachtelen vier Kindertagesstätten. Die Kita Villa Kunterbunt, die Kita Märlihus und die Kita Teddybär sowie in Lommiswil einen Hort und die Kita Lommiswil. Diese Kindertagesstätten bieten den Kindern eine vielfältige Lern- und Lebenswelt.\n Für die Kita Teddybär in Grenchen suchen wir ab sofort oder ab 01.01.2027 ein:e\n Gruppenleiter:in mit Stv. der Kitaleitung 80-100%\n Deine Arbeit beinhaltet:\n\n• Als Gruppenleiter:in übernimmst du die Tagesverantwortung der Kindergruppe und bist für deine Teamkolleg:innen die Ansprechperson\n\n• Die Pädagogische Weiterentwicklung der Kita verantwortest du mit und treibst diese im Alltag voran\n\n• Als stellvertretende Kitaleitung übernimmst du zusätzliche Aufgaben der Kitaführung und vertrittst bei Abwesenheit die Kitaleitung\n Das bringst du mit:\n\n• Deine Ausbildung zur FaBe K hast du mind. vor 3 Jahren abgeschlossen und konntest in dieser Zeit Erfahrungen in einer vergleichbaren Rolle sammeln. Eine Weiterbildung in der Kindheitspädagogik HF ist von Vorteil\n\n• Du bist bereit Verantwortung zu übernehmen und fühlst dich sicher, das Team im Alltag anzuleiten\n\n• Hohe pädagogische Kompetenz in der Förderung, Betreuung und Begleitung der Kinder\n\n• Kreativität, Flexibilität und ein hohes Engagement zeichnet deine Persönlichkeit aus\n Das bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeitendenevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n Du hast Fragen?\n Gerne gibt dir Olivia Steiner unter 032 531 08 01 oder olivia.steiner@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nOlivia\n\nSteiner\n\nLeitung Kitas Bachtelen\n\n032 531 08 01\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n In Grenchen führt das Bachtelen vier Kindertagesstätten . Die Kita Villa Kunterbunt, die Kita Märlihus und die Kita Teddybär sowie in Lommiswil einen Hort und die Kita Lommiswil. Diese Kindertagesstätten bieten den Kindern eine vielfältige Lern- und Lebenswelt.\n Für die Kita Teddybär in Grenchen suchen wir ab sofort oder ab 01.01.2027 ein:e\n Gruppenleiter:in mit Stv. der Kitaleitung 80-100%\n Deine Arbeit beinhaltet:\n\n• Als Gruppenleiter:in übernimmst du die Tagesverantwortung der Kindergruppe und bist für deine Teamkolleg:innen die Ansprechperson\n\n• Die Pädagogische Weiterentwicklung der Kita verantwortest du mit und treibst diese im Alltag voran\n\n• Als stellvertretende Kitaleitung übernimmst du zusätzliche Aufgaben der Kitaführung und vertrittst bei Abwesenheit die Kitaleitung\n Das bringst du mit:\n\n• Deine Ausbildung zur FaBe K hast du mind. vor 3 Jahren abgeschlossen und konntest in dieser Zeit Erfahrungen in einer vergleichbaren Rolle sammeln. Eine Weiterbildung in der Kindheitspädagogik HF ist von Vorteil\n\n• Du bist bereit Verantwortung zu übernehmen und fühlst dich sicher, das Team im Alltag anzuleiten\n\n• Hohe pädagogische Kompetenz in der Förderung, Betreuung und Begleitung der Kinder\n\n• Kreativität, Flexibilität und ein hohes Engagement zeichnet deine Persönlichkeit aus\n Das bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeitendenevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n Du hast Fragen?\n Gerne gibt dir Olivia Steiner unter 032 531 08 01 oder olivia.steiner@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nOlivia\n\nSteiner\n\nLeitung Kitas Bachtelen\n\n032 531 08 01\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
       "descriptionByLocale": {
-        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n In Grenchen führt das Bachtelen vier Kindertagesstätten. Die Kita Villa Kunterbunt, die Kita Märlihus und die Kita Teddybär sowie in Lommiswil einen Hort und die Kita Lommiswil. Diese Kindertagesstätten bieten den Kindern eine vielfältige Lern- und Lebenswelt.\n Für die Kita Teddybär in Grenchen suchen wir ab sofort oder ab 01.01.2027 ein:e\n Gruppenleiter:in mit Stv. der Kitaleitung 80-100%\n Deine Arbeit beinhaltet:\n\n• Als Gruppenleiter:in übernimmst du die Tagesverantwortung der Kindergruppe und bist für deine Teamkolleg:innen die Ansprechperson\n\n• Die Pädagogische Weiterentwicklung der Kita verantwortest du mit und treibst diese im Alltag voran\n\n• Als stellvertretende Kitaleitung übernimmst du zusätzliche Aufgaben der Kitaführung und vertrittst bei Abwesenheit die Kitaleitung\n Das bringst du mit:\n\n• Deine Ausbildung zur FaBe K hast du mind. vor 3 Jahren abgeschlossen und konntest in dieser Zeit Erfahrungen in einer vergleichbaren Rolle sammeln. Eine Weiterbildung in der Kindheitspädagogik HF ist von Vorteil\n\n• Du bist bereit Verantwortung zu übernehmen und fühlst dich sicher, das Team im Alltag anzuleiten\n\n• Hohe pädagogische Kompetenz in der Förderung, Betreuung und Begleitung der Kinder\n\n• Kreativität, Flexibilität und ein hohes Engagement zeichnet deine Persönlichkeit aus\n Das bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeitendenevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n Du hast Fragen?\n Gerne gibt dir Olivia Steiner unter 032 531 08 01 oder olivia.steiner@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nOlivia\n\nSteiner\n\nLeitung Kitas Bachtelen\n\n032 531 08 01\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\n A Grenchen, Bachtelen gestisce quattro centri di assistenza. La Kita Villa Kunterbunt, la Kita Märlihus e la Kita Teddybär così come a Lommiswil a Hort e la Kita Lommiswil. Questi centri di asilo offrono ai bambini un mondo di apprendimento e di vita diverso.\n Per la Kita Teddybär a Grenchen cerchiamo subito o da 01.01.2027:e\n Gruppo leader: in con Stv. il Kitaleitung 80-100 %\n Il vostro lavoro comprende:\n\n• Come leader di gruppo: si assume la responsabilità quotidiana del gruppo dei bambini e sono la persona di contatto per il vostro compagno di squadra:\n\n• Siete responsabili dello sviluppo pedagogico del vivaio e lo spingete avanti nella vita quotidiana.\n\n• Come vice Kitaleitung assumete ulteriori compiti della leadership Kita e rappresentate il Kitaleitung in assenza\n Questo è ciò che portate con voi:\n\n• Hai la tua formazione per FaBe K. Completato 3 anni fa ed è stato in grado di acquisire esperienza in un ruolo paragonabile in questo periodo. L'istruzione superiore nell'istruzione infantile HF è un vantaggio\n\n• Siete pronti a prendere la responsabilità e sentitevi sicuri di guidare il team nella vita quotidiana\n\n• Alta competenza pedagogica nella promozione, cura e accompagnamento dei bambini\n\n• Creatività, flessibilità e alto impegno caratterizza la tua personalità\n Questo è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Vari eventi sui dipendenti\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\n Hai delle domande?\n Olivia Steiner è lieta di fornirvi informazioni su 032 531 08 01 o olivia.steiner@bachtelen.ch.\n Attendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nOlivia\n\nPietre\n\nCapo di Kitas Bachtelen\n\n032 531 08 01\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
-        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\n In Grenchen, Bachtelen runs four daycare centers. The Kita Villa Kunterbunt, the Kita Märlihus and the Kita Teddybär as well as in Lommiswil a Hort and the Kita Lommiswil. These daycare centers offer the children a diverse learning and living world.\n For the Kita Teddybär in Grenchen we are looking for immediately or from 01.01.2027:e\n Group leader: in with Stv. the Kitaleitung 80-100 %\n Your work includes:\n\n• As a group leader: you take on the day-to-day responsibility of the children's group and are the contact person for your teammate:\n\n• You are responsible for the pedagogical development of the nursery and drive it forward in everyday life.\n\n• As deputy Kitaleitung you take on additional tasks of the Kita leadership and represent the Kitaleitung in absence\n This is what you bring with you:\n\n• You have your training for FaBe K. Completed 3 years ago and was able to gain experience in a comparable role during this time. Further education in childhood education HF is an advantage\n\n• You are ready to take responsibility and feel safe to guide the team in everyday life\n\n• High pedagogical competence in the promotion, care and accompaniment of children\n\n• Creativity, flexibility and high commitment characterizes your personality\n This is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Various employee events\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\n You have questions?\n Olivia Steiner is happy to provide you with information on 032 531 08 01 or olivia.steiner@bachtelen.ch.\n We look forward to your application!\n\nContact details\n\nOlivia\n\nStones\n\nHead of Kitas Bachtelen\n\n032 531 08 01\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\n À Grenchen, Bachtelen gère quatre garderies. Kita Villa Kunterbunt, Kita Märlihus et Kita Teddybär ainsi qu'à Lommiswil une Hort et Kita Lommiswil. Ces garderies offrent aux enfants un monde d'apprentissage et de vie diversifié.\n Pour le Kita Teddybär à Grenchen nous cherchons immédiatement ou à partir du 01.01.2027:e\n Leader du groupe: avec Stv. le Kitaleitung 80-100 %\n Votre travail comprend :\n\n• En tant que chef de groupe, vous assumez la responsabilité quotidienne du groupe d'enfants et êtes la personne-ressource de votre coéquipier :\n\n• Vous êtes responsable du développement pédagogique de la pépinière et la faire avancer dans la vie quotidienne.\n\n• Comme adjoint Kitaleitung vous assumez des tâches supplémentaires de la direction Kita et représentez le Kitaleitung en l'absence\n C'est ce que vous apportez avec vous :\n\n• Vous avez suivi votre formation pour FaBe K. Terminé il y a 3 ans et avez pu acquérir de l'expérience dans un rôle comparable pendant cette période. La formation continue dans le domaine de l'éducation des enfants est un avantage\n\n• Vous êtes prêt à prendre des responsabilités et à vous sentir en sécurité pour guider l'équipe dans la vie quotidienne\n\n• Haute compétence pédagogique en matière de promotion, de prise en charge et d ' accompagnement des enfants\n\n• Créativité, flexibilité et engagement élevé caractérisent votre personnalité\n Voici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Divers événements pour les employés\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n Vous avez des questions ?\n Olivia Steiner est heureuse de vous fournir des informations sur 032 531 08 01 ou Olivia.steiner@bachtelen.ch.\n Nous nous réjouissons de votre candidature!\n\nCoordonnées\n\nOlivia\n\nPierres\n\nChef de Kitas Bachtelen\n\n032 531 08 01\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nA Grenchen, Bachtelen gestisce quattro centri di assistenza. La Kita Villa Kunterbunt, la Kita Märlihus e la Kita Teddybär così come a Lommiswil a Hort e la Kita Lommiswil. Questi centri di asilo offrono ai bambini un mondo di apprendimento e di vita diverso.\nPer la Kita Teddybär a Grenchen cerchiamo subito o da 01.01.2027:e\nGruppo leader: in con Stv. il Kitaleitung 80-100 %\nIl vostro lavoro comprende:\n\n• Come leader di gruppo: si assume la responsabilità quotidiana del gruppo dei bambini e sono la persona di contatto per il vostro compagno di squadra:\n\n• Siete responsabili dello sviluppo pedagogico del vivaio e lo spingete avanti nella vita quotidiana.\n\n• Come vice Kitaleitung assumete ulteriori compiti della leadership Kita e rappresentate il Kitaleitung in assenza\nQuesto è ciò che portate con voi:\n\n• Hai la tua formazione per FaBe K. Completato 3 anni fa ed è stato in grado di acquisire esperienza in un ruolo paragonabile in questo periodo. L'istruzione superiore nell'istruzione infantile HF è un vantaggio\n\n• Siete pronti a prendere la responsabilità e sentitevi sicuri di guidare il team nella vita quotidiana\n\n• Alta competenza pedagogica nella promozione, cura e accompagnamento dei bambini\n\n• Creatività, flessibilità e alto impegno caratterizza la tua personalità\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Vari eventi sui dipendenti\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\nHai delle domande?\nOlivia Steiner è lieta di fornirvi informazioni su 032 531 08 01 o olivia.steiner@bachtelen.ch.\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nOlivia\n\nPietre\n\nCapo di Kitas Bachtelen\n\n032 531 08 01\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\nIn Grenchen, Bachtelen runs four daycare centers. The Kita Villa Kunterbunt, the Kita Märlihus and the Kita Teddybär as well as in Lommiswil a Hort and the Kita Lommiswil. These daycare centers offer the children a diverse learning and living world.\nFor the Kita Teddybär in Grenchen we are looking for immediately or from 01.01.2027:e\nGroup leader: in with Stv. the Kitaleitung 80-100 %\nYour work includes:\n\n• As a group leader: you take on the day-to-day responsibility of the children's group and are the contact person for your teammate:\n\n• You are responsible for the pedagogical development of the nursery and drive it forward in everyday life.\n\n• As deputy Kitaleitung you take on additional tasks of the Kita leadership and represent the Kitaleitung in absence\nThis is what you bring with you:\n\n• You have your training for FaBe K. Completed 3 years ago and was able to gain experience in a comparable role during this time. Further education in childhood education HF is an advantage\n\n• You are ready to take responsibility and feel safe to guide the team in everyday life\n\n• High pedagogical competence in the promotion, care and accompaniment of children\n\n• Creativity, flexibility and high commitment characterizes your personality\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Various employee events\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\nYou have questions?\nOlivia Steiner is happy to provide you with information on 032 531 08 01 or olivia.steiner@bachtelen.ch.\nWe look forward to your application!\n\nContact details\n\nOlivia\n\nStones\n\nHead of Kitas Bachtelen\n\n032 531 08 01\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\nIn Grenchen führt das Bachtelen vier Kindertagesstätten . Die Kita Villa Kunterbunt, die Kita Märlihus und die Kita Teddybär sowie in Lommiswil einen Hort und die Kita Lommiswil. Diese Kindertagesstätten bieten den Kindern eine vielfältige Lern- und Lebenswelt.\nFür die Kita Teddybär in Grenchen suchen wir ab sofort oder ab 01.01.2027 ein:e\nGruppenleiter:in mit Stv. der Kitaleitung 80-100%\nDeine Arbeit beinhaltet:\n\n• Als Gruppenleiter:in übernimmst du die Tagesverantwortung der Kindergruppe und bist für deine Teamkolleg:innen die Ansprechperson\n\n• Die Pädagogische Weiterentwicklung der Kita verantwortest du mit und treibst diese im Alltag voran\n\n• Als stellvertretende Kitaleitung übernimmst du zusätzliche Aufgaben der Kitaführung und vertrittst bei Abwesenheit die Kitaleitung\nDas bringst du mit:\n\n• Deine Ausbildung zur FaBe K hast du mind. vor 3 Jahren abgeschlossen und konntest in dieser Zeit Erfahrungen in einer vergleichbaren Rolle sammeln. Eine Weiterbildung in der Kindheitspädagogik HF ist von Vorteil\n\n• Du bist bereit Verantwortung zu übernehmen und fühlst dich sicher, das Team im Alltag anzuleiten\n\n• Hohe pädagogische Kompetenz in der Förderung, Betreuung und Begleitung der Kinder\n\n• Kreativität, Flexibilität und ein hohes Engagement zeichnet deine Persönlichkeit aus\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeitendenevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\nDu hast Fragen?\nGerne gibt dir Olivia Steiner unter 032 531 08 01 oder olivia.steiner@bachtelen.ch Auskunft.\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nOlivia\n\nSteiner\n\nLeitung Kitas Bachtelen\n\n032 531 08 01\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\nÀ Grenchen, Bachtelen gère quatre garderies. Kita Villa Kunterbunt, Kita Märlihus et Kita Teddybär ainsi qu'à Lommiswil une Hort et Kita Lommiswil. Ces garderies offrent aux enfants un monde d'apprentissage et de vie diversifié.\nPour le Kita Teddybär à Grenchen nous cherchons immédiatement ou à partir du 01.01.2027:e\nLeader du groupe: avec Stv. le Kitaleitung 80-100 %\nVotre travail comprend :\n\n• En tant que chef de groupe, vous assumez la responsabilité quotidienne du groupe d'enfants et êtes la personne-ressource de votre coéquipier :\n\n• Vous êtes responsable du développement pédagogique de la pépinière et la faire avancer dans la vie quotidienne.\n\n• Comme adjoint Kitaleitung vous assumez des tâches supplémentaires de la direction Kita et représentez le Kitaleitung en l'absence\nC'est ce que vous apportez avec vous :\n\n• Vous avez suivi votre formation pour FaBe K. Terminé il y a 3 ans et avez pu acquérir de l'expérience dans un rôle comparable pendant cette période. La formation continue dans le domaine de l'éducation des enfants est un avantage\n\n• Vous êtes prêt à prendre des responsabilités et à vous sentir en sécurité pour guider l'équipe dans la vie quotidienne\n\n• Haute compétence pédagogique en matière de promotion, de prise en charge et d ' accompagnement des enfants\n\n• Créativité, flexibilité et engagement élevé caractérisent votre personnalité\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Divers événements pour les employés\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\nVous avez des questions ?\nOlivia Steiner est heureuse de vous fournir des informations sur 032 531 08 01 ou Olivia.steiner@bachtelen.ch.\nNous nous réjouissons de votre candidature!\n\nCoordonnées\n\nOlivia\n\nPierres\n\nChef de Kitas Bachtelen\n\n032 531 08 01\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Grenchen",
       "canton": "SO",
       "url": "https://www.bachtelen.ch/stelle/gruppenleiterin-mit-stv-der-kitaleitung-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:46:15.703Z",
+      "crawledAt": "2026-11-10T09:45:21.585Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -787,27 +787,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/stelle/gruppenleiterin-mit-stv-der-kitaleitung-80-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:46:15.703Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:46:15.703Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen"
@@ -819,9 +802,168 @@
           "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen"
         ]
       },
-      "previousSlugs": [
-        "gruppenleiter-in-mit-stv-der-kitaleitung-80-100-bachtelen-grenchen"
-      ]
+      "firstSeenAt": "2026-11-09T21:46:15.703Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T09:45:21.585Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bachtelen-4649a84c4b8e",
+      "slug": "schulische-r-heilpadagog-in-zyklus-1-34-bachtelen-grenchen",
+      "slugByLocale": {
+        "de": "schulische-r-heilpadagog-in-zyklus-1-34-bachtelen-grenchen",
+        "it": "schulische-r-heilpadagog-in-zyklus-1-34-bachtelen-grenchen",
+        "en": "schulische-r-heilpadagog-in-zyklus-1-34-bachtelen-grenchen",
+        "fr": "schulische-r-heilpadagog-in-zyklus-1-34-bachtelen-grenchen"
+      },
+      "company": "Stiftung Bachtelen",
+      "companyKey": "bachtelen",
+      "companyDomain": "bachtelen.ch",
+      "title": "Schulische:r Heilpädagog:in (Zyklus 1) 34%",
+      "titleByLocale": {
+        "de": "Schulische:r Heilpädagog:in (Zyklus 1) 34%",
+        "it": "Schulische:r Heilpädagog:in (Zyklus 1) 34%",
+        "en": "Schulische:r Heilpädagog:in (Zyklus 1) 34%",
+        "fr": "Schulische:r Heilpädagog:in (Zyklus 1) 34%"
+      },
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.02.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 1) 34%\n 10 Lektionen, Arbeitstage Montagmorgen und Freitag\n Deine Arbeit beinhaltet:\n\n• Du führst in Kooperation mit der Klassenlehrperson eine Basisstufenklasse und gestaltest einen spielerischen Lernalltag, in dem Kinder entdecken, ausprobieren und sich in ihrem Tempo entwickeln können.\n\n• Du planst und überprüfst die individuelle Förderung und hältst kleine und grosse Entwicklungsschritte in Schulberichten fest.\n\n• Du baust eine vertrauensvolle Beziehung zu den Eltern auf und gestaltest die Förderung gemeinsam mit dem interdisziplinären Team.\n\n• Du koordinierst dein Klassenteam und begleitest die Mitarbeitenden mit klarer Anleitung und einem offenen Ohr.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Ein Gespür für jüngere Kinder mit besonderem Bildungsbedarf und Freude daran, ihre Neugier aufzugreifen und ihre Entwicklung zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Geduld, Verantwortungsbewusstsein und die Flexibilität, dich auf unterschiedliche Bedürfnisse und Situationen einzulassen.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "descriptionByLocale": {
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.02.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 1) 34%\n 10 Lektionen, Arbeitstage Montagmorgen und Freitag\n Deine Arbeit beinhaltet:\n\n• Du führst in Kooperation mit der Klassenlehrperson eine Basisstufenklasse und gestaltest einen spielerischen Lernalltag, in dem Kinder entdecken, ausprobieren und sich in ihrem Tempo entwickeln können.\n\n• Du planst und überprüfst die individuelle Förderung und hältst kleine und grosse Entwicklungsschritte in Schulberichten fest.\n\n• Du baust eine vertrauensvolle Beziehung zu den Eltern auf und gestaltest die Förderung gemeinsam mit dem interdisziplinären Team.\n\n• Du koordinierst dein Klassenteam und begleitest die Mitarbeitenden mit klarer Anleitung und einem offenen Ohr.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Ein Gespür für jüngere Kinder mit besonderem Bildungsbedarf und Freude daran, ihre Neugier aufzugreifen und ihre Entwicklung zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Geduld, Verantwortungsbewusstsein und die Flexibilität, dich auf unterschiedliche Bedürfnisse und Situationen einzulassen.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "it": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.02.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 1) 34%\n 10 Lektionen, Arbeitstage Montagmorgen und Freitag\n Deine Arbeit beinhaltet:\n\n• Du führst in Kooperation mit der Klassenlehrperson eine Basisstufenklasse und gestaltest einen spielerischen Lernalltag, in dem Kinder entdecken, ausprobieren und sich in ihrem Tempo entwickeln können.\n\n• Du planst und überprüfst die individuelle Förderung und hältst kleine und grosse Entwicklungsschritte in Schulberichten fest.\n\n• Du baust eine vertrauensvolle Beziehung zu den Eltern auf und gestaltest die Förderung gemeinsam mit dem interdisziplinären Team.\n\n• Du koordinierst dein Klassenteam und begleitest die Mitarbeitenden mit klarer Anleitung und einem offenen Ohr.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Ein Gespür für jüngere Kinder mit besonderem Bildungsbedarf und Freude daran, ihre Neugier aufzugreifen und ihre Entwicklung zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Geduld, Verantwortungsbewusstsein und die Flexibilität, dich auf unterschiedliche Bedürfnisse und Situationen einzulassen.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "en": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.02.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 1) 34%\n 10 Lektionen, Arbeitstage Montagmorgen und Freitag\n Deine Arbeit beinhaltet:\n\n• Du führst in Kooperation mit der Klassenlehrperson eine Basisstufenklasse und gestaltest einen spielerischen Lernalltag, in dem Kinder entdecken, ausprobieren und sich in ihrem Tempo entwickeln können.\n\n• Du planst und überprüfst die individuelle Förderung und hältst kleine und grosse Entwicklungsschritte in Schulberichten fest.\n\n• Du baust eine vertrauensvolle Beziehung zu den Eltern auf und gestaltest die Förderung gemeinsam mit dem interdisziplinären Team.\n\n• Du koordinierst dein Klassenteam und begleitest die Mitarbeitenden mit klarer Anleitung und einem offenen Ohr.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Ein Gespür für jüngere Kinder mit besonderem Bildungsbedarf und Freude daran, ihre Neugier aufzugreifen und ihre Entwicklung zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Geduld, Verantwortungsbewusstsein und die Flexibilität, dich auf unterschiedliche Bedürfnisse und Situationen einzulassen.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.02.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 1) 34%\n 10 Lektionen, Arbeitstage Montagmorgen und Freitag\n Deine Arbeit beinhaltet:\n\n• Du führst in Kooperation mit der Klassenlehrperson eine Basisstufenklasse und gestaltest einen spielerischen Lernalltag, in dem Kinder entdecken, ausprobieren und sich in ihrem Tempo entwickeln können.\n\n• Du planst und überprüfst die individuelle Förderung und hältst kleine und grosse Entwicklungsschritte in Schulberichten fest.\n\n• Du baust eine vertrauensvolle Beziehung zu den Eltern auf und gestaltest die Förderung gemeinsam mit dem interdisziplinären Team.\n\n• Du koordinierst dein Klassenteam und begleitest die Mitarbeitenden mit klarer Anleitung und einem offenen Ohr.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Ein Gespür für jüngere Kinder mit besonderem Bildungsbedarf und Freude daran, ihre Neugier aufzugreifen und ihre Entwicklung zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Geduld, Verantwortungsbewusstsein und die Flexibilität, dich auf unterschiedliche Bedürfnisse und Situationen einzulassen.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn."
+      },
+      "needsRetranslation": true,
+      "location": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-1-34/",
+      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:45:21.583Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2540",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10T09:25:39Z",
+      "postedDate": "2026-11-10T09:25:39Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-1-34/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 28900,
+      "salaryMax": 40500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 28900,
+          "maxValue": 40500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T09:45:21.583Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-10T09:45:21.583Z"
+    },
+    {
+      "id": "bachtelen-f50948cda142",
+      "slug": "schulische-r-heilpadagog-in-zyklus-3-45-bachtelen-grenchen",
+      "slugByLocale": {
+        "de": "schulische-r-heilpadagog-in-zyklus-3-45-bachtelen-grenchen",
+        "it": "schulische-r-heilpadagog-in-zyklus-3-45-bachtelen-grenchen",
+        "en": "schulische-r-heilpadagog-in-zyklus-3-45-bachtelen-grenchen",
+        "fr": "schulische-r-heilpadagog-in-zyklus-3-45-bachtelen-grenchen"
+      },
+      "company": "Stiftung Bachtelen",
+      "companyKey": "bachtelen",
+      "companyDomain": "bachtelen.ch",
+      "title": "Schulische:r Heilpädagog:in (Zyklus 3) 45%",
+      "titleByLocale": {
+        "de": "Schulische:r Heilpädagog:in (Zyklus 3) 45%",
+        "it": "Schulische:r Heilpädagog:in (Zyklus 3) 45%",
+        "en": "Schulische:r Heilpädagog:in (Zyklus 3) 45%",
+        "fr": "Schulische:r Heilpädagog:in (Zyklus 3) 45%"
+      },
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.01.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 3) 45%\n 13 Lektionen, Arbeitstage Montag und Dienstag\n Deine Arbeit beinhaltet:\n\n• Du führst eine Oberstufenklasse in Kooperation mit der Klassenlehrperson und gestaltest einen alltagsnahen Unterricht, in dem Jugendliche ihre Stärken entdecken und Selbstständigkeit gewinnen.\n\n• Du planst und überprüfst die individuelle Förderung und machst Lern- und Entwicklungsfortschritte in Schulberichten sichtbar.\n\n• Du pflegst einen offenen Austausch mit den Eltern und suchst gemeinsam mit dem interdisziplinären Team nach passenden Lernwegen.\n\n• Du koordinierst den Einsatz deines Klassenteams im Schulalltag und arbeitest mit deinen Teamkolleg:innen partnerschaftlich zusammen.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Interesse an den Lebenswelten Jugendlicher und Freude daran, junge Menschen mit besonderem Bildungsbedarf auf ihrem Weg zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Verantwortungsbewusstsein, eine selbstständige Arbeitsweise und Flexibilität, wenn ein Schultag anders verläuft als geplant.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "descriptionByLocale": {
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.01.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 3) 45%\n 13 Lektionen, Arbeitstage Montag und Dienstag\n Deine Arbeit beinhaltet:\n\n• Du führst eine Oberstufenklasse in Kooperation mit der Klassenlehrperson und gestaltest einen alltagsnahen Unterricht, in dem Jugendliche ihre Stärken entdecken und Selbstständigkeit gewinnen.\n\n• Du planst und überprüfst die individuelle Förderung und machst Lern- und Entwicklungsfortschritte in Schulberichten sichtbar.\n\n• Du pflegst einen offenen Austausch mit den Eltern und suchst gemeinsam mit dem interdisziplinären Team nach passenden Lernwegen.\n\n• Du koordinierst den Einsatz deines Klassenteams im Schulalltag und arbeitest mit deinen Teamkolleg:innen partnerschaftlich zusammen.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Interesse an den Lebenswelten Jugendlicher und Freude daran, junge Menschen mit besonderem Bildungsbedarf auf ihrem Weg zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Verantwortungsbewusstsein, eine selbstständige Arbeitsweise und Flexibilität, wenn ein Schultag anders verläuft als geplant.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "it": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.01.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 3) 45%\n 13 Lektionen, Arbeitstage Montag und Dienstag\n Deine Arbeit beinhaltet:\n\n• Du führst eine Oberstufenklasse in Kooperation mit der Klassenlehrperson und gestaltest einen alltagsnahen Unterricht, in dem Jugendliche ihre Stärken entdecken und Selbstständigkeit gewinnen.\n\n• Du planst und überprüfst die individuelle Förderung und machst Lern- und Entwicklungsfortschritte in Schulberichten sichtbar.\n\n• Du pflegst einen offenen Austausch mit den Eltern und suchst gemeinsam mit dem interdisziplinären Team nach passenden Lernwegen.\n\n• Du koordinierst den Einsatz deines Klassenteams im Schulalltag und arbeitest mit deinen Teamkolleg:innen partnerschaftlich zusammen.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Interesse an den Lebenswelten Jugendlicher und Freude daran, junge Menschen mit besonderem Bildungsbedarf auf ihrem Weg zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Verantwortungsbewusstsein, eine selbstständige Arbeitsweise und Flexibilität, wenn ein Schultag anders verläuft als geplant.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "en": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.01.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 3) 45%\n 13 Lektionen, Arbeitstage Montag und Dienstag\n Deine Arbeit beinhaltet:\n\n• Du führst eine Oberstufenklasse in Kooperation mit der Klassenlehrperson und gestaltest einen alltagsnahen Unterricht, in dem Jugendliche ihre Stärken entdecken und Selbstständigkeit gewinnen.\n\n• Du planst und überprüfst die individuelle Förderung und machst Lern- und Entwicklungsfortschritte in Schulberichten sichtbar.\n\n• Du pflegst einen offenen Austausch mit den Eltern und suchst gemeinsam mit dem interdisziplinären Team nach passenden Lernwegen.\n\n• Du koordinierst den Einsatz deines Klassenteams im Schulalltag und arbeitest mit deinen Teamkolleg:innen partnerschaftlich zusammen.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Interesse an den Lebenswelten Jugendlicher und Freude daran, junge Menschen mit besonderem Bildungsbedarf auf ihrem Weg zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Verantwortungsbewusstsein, eine selbstständige Arbeitsweise und Flexibilität, wenn ein Schultag anders verläuft als geplant.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot Kognition suchen wir für die Schule an der Breitengasse 11 in Grenchen per 01.01.2027 eine:n\n Schulische:n Heilpädagog:in (Zyklus 3) 45%\n 13 Lektionen, Arbeitstage Montag und Dienstag\n Deine Arbeit beinhaltet:\n\n• Du führst eine Oberstufenklasse in Kooperation mit der Klassenlehrperson und gestaltest einen alltagsnahen Unterricht, in dem Jugendliche ihre Stärken entdecken und Selbstständigkeit gewinnen.\n\n• Du planst und überprüfst die individuelle Förderung und machst Lern- und Entwicklungsfortschritte in Schulberichten sichtbar.\n\n• Du pflegst einen offenen Austausch mit den Eltern und suchst gemeinsam mit dem interdisziplinären Team nach passenden Lernwegen.\n\n• Du koordinierst den Einsatz deines Klassenteams im Schulalltag und arbeitest mit deinen Teamkolleg:innen partnerschaftlich zusammen.\n\n• Du bringst deine Ideen in Schul- und Klassenprojekte ein und entwickelst unsere Schule gemeinsam mit dem Team weiter.\n\nDas bringst du mit:\n\n• Einen Masterabschluss in schulischer Heilpädagogik oder mind. ein EDK-anerkanntes Lehrdiplom auf der entsprechenden Stufe.\n\n• Interesse an den Lebenswelten Jugendlicher und Freude daran, junge Menschen mit besonderem Bildungsbedarf auf ihrem Weg zu begleiten.\n\n• Eine zugewandte Art, klare Kommunikation und Freude an der Zusammenarbeit mit Eltern und Fachpersonen.\n\n• Verantwortungsbewusstsein, eine selbstständige Arbeitsweise und Flexibilität, wenn ein Schultag anders verläuft als geplant.\n\n• Neugier und Lust, deine Arbeit zu reflektieren, dich weiterzubilden und eigene Ideen einzubringen.\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Seraina Zaugg unter 032 531 08 88 oder seraina.zaugg@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nSeraina\n\nZaugg\n\nSchulleiterin\n\n032 531 08 88\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn."
+      },
+      "needsRetranslation": true,
+      "location": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-3-45/",
+      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:45:21.578Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2540",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10T09:33:06Z",
+      "postedDate": "2026-11-10T09:33:06Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-3-45/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 38300,
+      "salaryMax": 53600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 38300,
+          "maxValue": 53600,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T09:45:21.578Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-10T09:45:21.578Z"
     }
   ]
 }

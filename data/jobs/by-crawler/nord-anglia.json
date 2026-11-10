@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-11-09T21:28:25.994Z",
-  "runId": "42700292125",
+  "assembledAt": "2026-11-10T09:15:50.393Z",
+  "runId": "42788734381",
   "jobs": [
     {
       "id": "nord-anglia-16ca6a9b3cd1",
@@ -34,7 +34,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-EYFS-Teacher-80/1446865533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.735Z",
+      "crawledAt": "2026-11-10T09:15:45.993Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:28:18.735Z",
+      "validThrough": "2027-01-11T09:15:45.993Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.727Z",
+      "crawledAt": "2026-11-10T09:15:45.988Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -147,8 +147,8 @@
           "ib-teachers-nord-anglia-pully"
         ]
       },
-      "firstSeenAt": "2026-09-19T22:53:23.422Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:53:23.422Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -163,7 +163,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:28:18.727Z",
+      "validThrough": "2026-12-16T09:15:45.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-EHL-Administrative-Intern/1450843433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.718Z",
+      "crawledAt": "2026-11-10T09:15:45.984Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -232,8 +232,8 @@
           "ehl-administrative-intern-nord-anglia-villars-sur-ollon"
         ]
       },
-      "firstSeenAt": "2026-10-23T21:24:42.299Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-23T21:24:42.299Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
       "salarySource": "estimated",
@@ -248,7 +248,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:28:18.718Z",
+      "validThrough": "2027-01-21T09:15:45.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Spanish-Teacher-%28After-School-Tutoring%29/1451830433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.697Z",
+      "crawledAt": "2026-11-10T09:15:45.973Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -336,7 +336,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:28:18.697Z",
+      "validThrough": "2027-01-25T09:15:45.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -370,7 +370,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Choir-teacher-After-school-tutoring/1451993333/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.694Z",
+      "crawledAt": "2026-11-10T09:15:45.971Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -424,7 +424,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:28:18.694Z",
+      "validThrough": "2027-01-26T09:15:45.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -458,7 +458,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Professeur_e-de-Fran%C3%A7ais-Cours-de-soutien/1452003333/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.690Z",
+      "crawledAt": "2026-11-10T09:15:45.969Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -479,10 +479,12 @@
       "jobReqId": "1452003333",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
+        "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva",
+        "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
-        ],
         "it": [
           "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
           "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva"
@@ -493,13 +495,11 @@
         ],
         "de": [
           "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
+        ],
+        "fr": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
         ]
       },
-      "previousSlugs": [
-        "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
-        "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva",
-        "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
-      ],
       "firstSeenAt": "2026-10-28T09:30:06.863Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
@@ -515,7 +515,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:28:18.690Z",
+      "validThrough": "2027-01-26T09:15:45.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -549,7 +549,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant-2027_2028/1452579533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.687Z",
+      "crawledAt": "2026-11-10T09:15:45.966Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -599,7 +599,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:28:18.687Z",
+      "validThrough": "2027-01-27T09:15:45.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -633,7 +633,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Stagiaire-MPC/1453008433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.665Z",
+      "crawledAt": "2026-11-10T09:15:45.956Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -654,24 +654,24 @@
       "jobReqId": "1453008433",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-mpc-nord-anglia-villars-sur-ollon",
+        "mpc-de-l-appareil-de-controle-nord-anglia-education-switzerland-villars-sur-ollon"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "mpc-de-l-appareil-de-controle-nord-anglia-education-switzerland-villars-sur-ollon"
-        ],
         "it": [
+          "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        ],
+        "en": [
           "stagiaire-mpc-nord-anglia-villars-sur-ollon"
         ],
         "de": [
           "stagiaire-mpc-nord-anglia-villars-sur-ollon"
         ],
-        "en": [
-          "stagiaire-mpc-nord-anglia-villars-sur-ollon"
+        "fr": [
+          "mpc-de-l-appareil-de-controle-nord-anglia-education-switzerland-villars-sur-ollon"
         ]
       },
-      "previousSlugs": [
-        "stagiaire-mpc-nord-anglia-villars-sur-ollon",
-        "mpc-de-l-appareil-de-controle-nord-anglia-education-switzerland-villars-sur-ollon"
-      ],
       "firstSeenAt": "2026-11-02T09:28:29.703Z",
       "salaryMin": 43500,
       "salaryMax": 80000,
@@ -687,7 +687,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:28:18.665Z",
+      "validThrough": "2027-01-28T09:15:45.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -721,7 +721,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-MoniteursMonitrices-SkiSnowboard/1443646733/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.642Z",
+      "crawledAt": "2026-11-10T09:15:45.947Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -765,7 +765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:28:18.642Z",
+      "validThrough": "2026-12-31T09:15:45.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.630Z",
+      "crawledAt": "2026-11-10T09:15:45.942Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -828,8 +828,8 @@
           "learning-support-assistants-nord-anglia-aubonne"
         ]
       },
-      "firstSeenAt": "2026-09-19T22:53:13.924Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:53:13.924Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -844,7 +844,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T21:28:18.630Z",
+      "validThrough": "2027-01-02T09:15:45.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -852,7 +852,7 @@
       "slug": "insegnante-di-filosofia-al-30-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "it": "insegnante-di-filosofia-al-30-nord-anglia-education-switzerland-pully",
-        "en": "enseignant-e-en-philosophie-a-30-nord-anglia-pully",
+        "en": "30-teacher-in-philosophy-nord-anglia-education-switzerland-pully",
         "de": "insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt",
         "fr": "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
       },
@@ -878,7 +878,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignant-e-en-philosophie-%C3%A0-30/1444672633/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.622Z",
+      "crawledAt": "2026-11-10T09:15:45.936Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -905,6 +905,9 @@
       "previousSlugsByLocale": {
         "it": [
           "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
+        ],
+        "en": [
+          "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
         ]
       },
       "firstSeenAt": "2026-10-06T21:17:18.179Z",
@@ -922,7 +925,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:28:18.622Z",
+      "validThrough": "2027-01-04T09:15:45.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -956,7 +959,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.610Z",
+      "crawledAt": "2026-11-10T09:15:45.931Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -1000,7 +1003,331 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:28:18.610Z",
+      "validThrough": "2026-12-10T09:15:45.931Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nord-anglia-5f89b28eef85",
+      "slug": "employe-e-de-73yage-et-de-support-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon",
+      "slugByLocale": {
+        "it": "employe-e-de-73yage-et-de-support-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "en": "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon",
+        "de": "arbeitgeber-e-de-nnnsjg-et-de-support-logisticique-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "fr": "emploi-e-de-reseau-et-de-soutien-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "Employé(e) de nettoyage et de support logistique - 80%",
+      "titleByLocale": {
+        "it": "Personale di pulizia e supporto logistico - 80%",
+        "en": "Cleaning and logistical support staff - 80%",
+        "de": "Reinigungs- und Logistikmitarbeiter - 80%",
+        "fr": "Employé(e) de nettoyage et de support logistique - 80%"
+      },
+      "description": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe.\n\nNos collaborateurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l’éducation et au développement professionnel.\n\nLe Collège Alpin Beau Soleil est à la recherche d’\n\nEmployé(e) de nettoyage et de support logistique – 80 %\n\nÀ partir du 04/01/2027\n\nVotre mission\n\nEn tant que membre de notre équipe Housekeeping, vous assurez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus.\n\nCe poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensable.\n\nSous la supervision de la Housekeeping Manager, vous organisez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance.\n\nVos responsabilités\n\n• Collecte et distribution du linge, des uniformes et du linge de lit\n\n• Collecte quotidienne des déchets extérieurs\n\n• Réception, rangement et distribution des produits et fournitures\n\n• Livraisons internes entre les bâtiments et les services\n\n• Entretien courant et contrôles périodiques des équipements de buanderie\n\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité\n\nVotre profil\n\n• Minimum un an d’expérience dans le secteur du nettoyage\n\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n\n• Bonne condition physique pour les déplacements et la manutention\n\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n\n• Fiabilité, ponctualité, polyvalence et flexibilité\n\n• Bonne présentation et attitude accueillante\n\nComment postuler\n\nVeuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers .\n\nDélai de postulation: 15 novembre 2026.\n\nLe collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires.",
+      "descriptionByLocale": {
+        "it": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globo. Nos collaboraurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderni. Ils profitent également des opportunités qui découlent de notre appartenance à une organizzazione mondiale dédiée à l’éducation et au développement professionnel. Le Collège Alpin Beau Soleil est à la recherche d’ Employé(e) de nettoyage et de support logistique – 80 % À partir du 04/01/2027 Votre missione En tant que membre de notre équipe Housekeeping, vous assicurarez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus. Ce poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minuti de pausa quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensabili. Sous la supervision de la Housekeeping Manager, vous organizzatoz vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance. Vosté responsabilis\n• Raccolta e distribuzione du linge, des uniforms et du linge de lit\n• Collezionisti quotidienne des déchets extérieurs\n• Ripartizione dei prodotti e dei prodotti\n• Livraisons internas entre les bâtiments et les services\n• Esecuzione del contratto\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le rispetto des consigns de sécurité Votre profil\n• Minimo un'esperienza dans le secteur du nettoyage\n• Espérience en logistique, en buanderie ou en approvazionement appréciée\n• Maîtrise du français ; notions d'anglais et autres langues un atout\n• Bonne stato fisico pour les déplacements et la manutention\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n• Fiabilité, ponctualité, polivalence et flexibilité\n• Bonne présentation et atteggiamenti accueillante Comment postuler Veuillez nous faire parvenir votre dossier completa (CV, diplômes, certificats et lettre de move) via internet notre sito https://www.beausoleil.ch/careers . Le collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses caseers judiciaires.",
+        "en": "Founded in 1910, the Collège Beau Soleil is one of Switzerland's most renowned private schools. As a prestigious international institution, we welcome students aged 11-18 from over 60 different nationalities and offer them holistic boarding education. Our College joined the Nord Anglia Education Group in 2011, the world leader in high-end schools, bringing together more than 80 international schools around the world.\n\nOur employees benefit from a dynamic, family-friendly work environment on a modern campus. They also take advantage of the opportunities arising from our membership in a global organization dedicated to education and professional development.\n\nAlpine Beau Soleil College is looking for\n\nCleaning and logistical support employee – 80%\n\nFrom 04/01/2027\n\nYour Mission\n\nAs a member of our Housekeeping team, you ensure the daily logistical support of Alpin Beau Soleil College and contribute to the smooth functioning of the boarding schools and various campus buildings.\n\nThis 80 per cent shift runs from Monday to Friday, from 7:30 a.m. to 2:45 p.m. (3:00 p.m. on Friday), with 30 minutes of daily break. It includes the collection and distribution of laundry, waste management and supply of products and supplies to teams. It involves regular travel on campus and handling tasks. The driving licence category B is indispensable.\n\nUnder the supervision of the Housekeeping Manager, you organize your tasks independently and collaborate with the laundry, boarding and maintenance teams.\n\nYour Responsibilities\n\n• Collection and distribution of linen, uniforms and bed linen\n\n• Daily collection of external waste\n\n• Receipt, storage and distribution of goods and supplies\n\n• Internal deliveries between buildings and services\n\n• Routine maintenance and periodic inspection of laundry equipment\n\n• Maintenance of order and cleanliness of work spaces, in accordance with safety instructions\n\nYour profile\n\n• Minimum one year experience in the cleaning sector\n\n• Experience in logistics, laundry or appreciated supply\n\n• Mastery of French; English and other languages an asset\n\n• Good physical condition for movement and handling\n\n• Organizational sense and ability to work as a team and independently\n\n• Reliability, timeliness, versatility and flexibility\n\n• Good presentation and welcoming attitude\n\nHow to Apply\n\nPlease send us your complete dossier (CV, diplomas, certificates and cover letter) via our website https://www.beausoleil.ch/careers .\n\nDeadline for application: 15 November 2026.\n\nThe College is committed to protecting and promoting the well-being of children. The selected candidate will be required to provide an extract of his or her criminal records.",
+        "de": "Fondé en 1910, le Collège Beau Soleil est l'une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe. Nos collaborationurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l'éducation et au développement professionnel. Le Collège Alpin Beau Soleil est à la recherche d’ Employé(e) de nettoyage et de support logistique – 80 % À partir du 04/01/2027 Votre-Mission En tant que membre de notre équipe Housekeeping, vous surez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus. Ce poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Die Sammlung und die Verteilung der linge, die gestion des déchets et l'approvisionnement des équipes en produits et fournitures werden ergänzt. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est unverzichtbar. Sous la supervision de la housekeeping manager, vous organizez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance. Vos responsabilités\n• Collecte et distribution du linge, des uniformes et du linge de lit\n• Collecte quotidienne des déchets extérieurs\n• Réception, rangement et distribution des produits et fournitures\n• Livraisons interns entre les bâtiments et les services\n• Entretien courant et contrôles périodiques des équipements de buanderie\n• Maintien de l'ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité Votre profil\n• Minimum un an d'expérience dans le secteur du nettoyage\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n• Bonne condition physique pour les déplacements et la manutention\n• Sens de l'organisation et capacité à travailler en équipe et de manière autonome\n• Fiabilité, ponctualité, polyvalence et flexibilité\n• Bonne présentation et attitude accueillante Comment postuler Veuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers. Le collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires.",
+        "fr": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe.\n\nNos collaborateurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l’éducation et au développement professionnel.\n\nLe Collège Alpin Beau Soleil est à la recherche d’\n\nEmployé(e) de nettoyage et de support logistique – 80 %\n\nÀ partir du 04/01/2027\n\nVotre mission\n\nEn tant que membre de notre équipe Housekeeping, vous assurez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus.\n\nCe poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensable.\n\nSous la supervision de la Housekeeping Manager, vous organisez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance.\n\nVos responsabilités\n\n• Collecte et distribution du linge, des uniformes et du linge de lit\n\n• Collecte quotidienne des déchets extérieurs\n\n• Réception, rangement et distribution des produits et fournitures\n\n• Livraisons internes entre les bâtiments et les services\n\n• Entretien courant et contrôles périodiques des équipements de buanderie\n\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité\n\nVotre profil\n\n• Minimum un an d’expérience dans le secteur du nettoyage\n\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n\n• Bonne condition physique pour les déplacements et la manutention\n\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n\n• Fiabilité, ponctualité, polyvalence et flexibilité\n\n• Bonne présentation et attitude accueillante\n\nComment postuler\n\nVeuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers .\n\nDélai de postulation: 15 novembre 2026.\n\nLe collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires."
+      },
+      "location": "Villars-sur-Ollon",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Employ%C3%A9%28e%29-de-nettoyage-et-de-support-logistique-80/1446108133/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-10T09:15:45.925Z",
+      "addressLocality": "Villars-sur-Ollon",
+      "addressRegion": "VD",
+      "streetAddress": "Villars-sur-Ollon",
+      "postalCode": "1884",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09T00:00:00Z",
+      "postedDate": "2026-10-09T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Employ%C3%A9%28e%29-de-nettoyage-et-de-support-logistique-80/1446108133/",
+      "jobReqId": "1446108133",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
+        ],
+        "it": [
+          "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
+      ],
+      "firstSeenAt": "2026-10-16T09:25:14.465Z",
+      "salaryMin": 40800,
+      "salaryMax": 75600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 40800,
+          "maxValue": 75600,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:15:45.925Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nord-anglia-b46acb0a1e06",
+      "slug": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
+      "slugByLocale": {
+        "it": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
+        "en": "ict-teacher-45-nord-anglia-pully",
+        "de": "ict-lehrer-45-nord-anglia-education-switzerland-pully",
+        "fr": "enseignant-en-tic-45-nord-anglia-education-switzerland-pully"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "ICT Teacher 45%",
+      "titleByLocale": {
+        "it": "Insegnante delle TIC 45%",
+        "en": "ICT Teacher 45%",
+        "de": "ICT Lehrer 45%",
+        "fr": "Enseignant en TIC 45 %"
+      },
+      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
+      "descriptionByLocale": {
+        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a partecipare al nostro team accademico. CONTI DI LAVORO\n• Progettare e implementare un curriculum ICT che si allinea agli standard educativi e promuove il pensiero critico e la risoluzione dei problemi\n• Fornire lezioni coinvolgenti e interattive che si rivolgono a stili di apprendimento diversi e adattare l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con esigenze educative speciali\n• Creare un ambiente di insegnamento di qualità che favorisca l'apprendimento, la promozione dell'agenzia di apprendimento e l'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège, e fornire agli studenti un feedback regolare, sia per via orale e attraverso la valutazione accurata\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare PROFILE E COMPETENZIONI\n• Corso di laurea o master in IT\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente in-ternazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e riparo criminale pulito Se siete appassionati di istruzione e interessati ad unirsi al nostro team, si prega di applicare direttamente online attraverso il nostro sito web.",
+        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
+        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, unserem akademischen Team beizutreten. WICHTIGKEITEN\n• Entwerfen und implementieren Sie ein ICT-Curriculum, das sich an Bildungsstandards orientiert und kritisches Denken und Problemlösung fördert\n• Liefern Sie ansprechende und interaktive Lektionen, die unterschiedlichen Lernstilen gerecht werden und den Unterricht an die Stärken und Bedürfnisse jedes Schülers anpassen, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind, und geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch eine genaue Bewertung.\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen ihrer Kinder und das Lernprofil und die Kompetenzen\n• Bachelor oder Master in IT\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem in-ternationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafvollstreckung Wenn Sie sich für Bildung interessieren und daran interessiert sind, unserem Team beizutreten, bewerben Sie sich bitte direkt online über unsere Website.",
+        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe académique. PRINCIPAUX COMPTES\n• Concevoir et mettre en œuvre un programme d ' enseignement des TIC conforme aux normes éducatives et promouvoir la pensée critique et la résolution de problèmes\n• Offrir des leçons interactives et stimulantes qui répondent aux différents styles d'apprentissage et adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Créer un environnement pédagogique de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage qui sont stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège, et fournir aux élèves des commentaires réguliers, tant oralement qu'au moyen d'une cote d'exactitude\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants et apprendre PROFIL ET COMPÉTENCES\n• Licence ou maîtrise en informatique\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et recyclage criminel propre Si vous êtes passionné par l'éducation et intéressé à rejoindre notre équipe, veuillez postuler directement en ligne sur notre site Web."
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-10T09:15:45.915Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "streetAddress": "Pully",
+      "postalCode": "1009",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11T02:01:00Z",
+      "postedDate": "2026-09-11T02:01:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
+      "jobReqId": "1425918433",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ict-teacher-45-nord-anglia-pully"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-teacher-45-nord-anglia-pully"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:21.241Z",
+      "salaryMin": 23000,
+      "salaryMax": 42500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 23000,
+          "maxValue": 42500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:15:45.915Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nord-anglia-9e800df5a8b0",
+      "slug": "insegnanti-primario-nord-anglia-education-switzerland-pully",
+      "slugByLocale": {
+        "it": "insegnanti-primario-nord-anglia-education-switzerland-pully",
+        "en": "teachers-primary-nord-anglia-pully",
+        "de": "lehrer-primary-nord-anglia-education-switzerland-pully",
+        "fr": "enseignants-nord-anglia-education-switzerland-pully"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "Teachers Primary",
+      "titleByLocale": {
+        "it": "Insegnanti Primario",
+        "en": "Teachers Primary",
+        "de": "Lehrer Primary",
+        "fr": "Enseignants"
+      },
+      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and implementing the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy\n\n• Adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\n• Give students regular feedback, both orally and through accurate rating\n\nPROFILE AND COMPETENCES\n\n• Bachelor ’s degree\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an international environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal records",
+      "descriptionByLocale": {
+        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a unirsi al nostro team. RISPOSTE PRINCIPALI\n• Creare un ambiente di insegnamento di qualità favorevole all'apprendimento, alla promozione dell'agenzia di apprendimento e all'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège\n• Adapt l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con bisogni educativi speciali\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare\n• Dare agli studenti un feedback regolare, sia per via orale e con una valutazione accurata PROFILE E COMPETENZE\n• Corso di laurea\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente internazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e documenti criminali puliti",
+        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and implementing the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy\n\n• Adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\n• Give students regular feedback, both orally and through accurate rating\n\nPROFILE AND COMPETENCES\n\n• Bachelor ’s degree\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an international environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal records",
+        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, sich unserem Team anzuschließen. WICHTIGKEITEN\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind\n• Anpassung des Unterrichts an die Stärken und Bedürfnisse jedes Schülers, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen und das Lernen ihrer Kinder\n• Geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch genaue Bewertung PROFIL UND KOMPETENZEN\n• Bachelor-Abschluss\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem internationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafregister",
+        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe. PRINCIPAUX RESPONSABILITÉS\n• Créer un environnement d'enseignement de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège\n• Adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants\n• Donner aux élèves des commentaires réguliers, à la fois oralement et par une évaluation précise PROFIL ET COMPÉTENCES\n• Baccalauréat\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et casier judiciaire propre"
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-10T09:15:45.907Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "streetAddress": "Pully",
+      "postalCode": "1009",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11T02:00:00Z",
+      "postedDate": "2026-09-11T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
+      "jobReqId": "1145234101",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teachers-primary-nord-anglia-pully"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teachers-primary-nord-anglia-pully"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:53:24.772Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:15:45.907Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nord-anglia-6742d7a9a7da",
+      "slug": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
+      "slugByLocale": {
+        "it": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
+        "en": "primary-teachers-nord-anglia-education-switzerland-pully",
+        "de": "enseignants-es-primaire-nord-anglia-pully",
+        "fr": "s-es-primaire-nord-anglia-education-switzerland-pully"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "Enseignants-es Primaire",
+      "titleByLocale": {
+        "it": "Ensegnants-es Priori",
+        "en": "Primary Teachers",
+        "de": "Primaire",
+        "fr": "Enseignants-es Primaire"
+      },
+      "description": "QUI SOMMES-NOUS ?\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe.\n\nRESPONSABILITÉS PRINCIPALES\n\n• Développe un climat propice à l’apprentissage et à l’acquisition des compétences attendues\n\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n\n• Effectue périodiquement une évaluation du niveau atteint\n\n• Rencontre régulièrement les parents d’élèves pour un point de situation\n\n• Gère le budget alloué à sa classe pour les activités et sorties\n\nPROFIL ET COMPÉTENCES\n\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n\n• 5-7 d’expérience en classes primaires\n\n• Excellente maîtrise du français et de l’anglais\n\n• Extraits de casier judiciaire vierges\n\n• Nationalité suisse ou permis de travail valide",
+      "descriptionByLocale": {
+        "it": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une eccellente formazione à des générations d'étudiants suisses et étrangers. Son esprit s'articule autour des performance académiques, du multilinguisme et de valeurs telles que le rispetto et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dinamique, à la fois local et international, nous vous invitons à rejoindre notre équipe. RESPONSABILITÉ PRINCIPALI\n• Développe un climat propice à l’apprentissage et à l’acquisizione delle competenze\n• Formule et met en œuvre les objectifs de la sezione en accordo les objectifs généraux du Collège\n• Collabore avec ses collègues pour armoniser la progression de l’enseignement\n• Définit et adattae avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du program de la sezione Primaire\n• Effettuare un'analisi e una valutazione della niveau\n• Rencontre régulièrement les genitori d’élèves pour un point de\n• Gère le budget alloué à sa classe pour les activités et sorties PROFIL ET COMPÉTENCEs\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n• 5-7 d’espérience en classi primari\n• Eccellente maîtrise du français et de l’anglais\n• Extraits de caseerage\n• Nationalité suisse ou permis de travail valide",
+        "en": "WHO ARE WE?\n\nChampittet College, a reference school in the German region since 1903, offers excellent training to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The College is part of the North Anglia Education family, the world leader in international schools with 88 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Develops a climate conducive to learning and learning the skills expected\n\n• Formulates and implements the section's objectives in accordance with the general objectives of the College\n\n• Collaborates with colleagues to harmonize educational progress\n\n• Defines and adapts with colleagues, leaders and dean, the objectives and contents of the Primary Section program\n\n• Conducts periodic assessment of the level achieved\n\n• Regular meeting of parents for a situation point\n\n• Manages the budget allocated to its class for activities and outputs\n\nPROFILE AND SKILLS\n\n• Higher education diploma in education science and/or pedagogy\n\n• 5-7 of experience in primary classes\n\n• Excellent mastery of French and English\n\n• Excerpts from blank criminal records\n\n• Swiss nationality or valid work permit",
+        "de": "QUI SOMMES-NOUS ? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 zahlt. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe. VERANTWORTUNGSGRUNDSÄTZE\n• Développe un climat propice à l'apprentissage et à l'acquisition des compétences attendues\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n• Effectue périodiquement une évaluation du niveau atteint\n• Rencontre régulièrement les parents d'élèves pour un point de situation\n• Gère le budget alloué à sa classe pour les activités et sorties PROFIL ET COMPÉTENCES\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n• 5-7 d’expérience en class primaires\n• Ausgezeichnete maîtrise du français et de l'anglais\n• Extraits de casier judiciaire vierges\n• Nationalité suisse ou permis de travail gültig",
+        "fr": "QUI SOMMES-NOUS ?\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe.\n\nRESPONSABILITÉS PRINCIPALES\n\n• Développe un climat propice à l’apprentissage et à l’acquisition des compétences attendues\n\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n\n• Effectue périodiquement une évaluation du niveau atteint\n\n• Rencontre régulièrement les parents d’élèves pour un point de situation\n\n• Gère le budget alloué à sa classe pour les activités et sorties\n\nPROFIL ET COMPÉTENCES\n\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n\n• 5-7 d’expérience en classes primaires\n\n• Excellente maîtrise du français et de l’anglais\n\n• Extraits de casier judiciaire vierges\n\n• Nationalité suisse ou permis de travail valide"
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-10T09:15:45.900Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "streetAddress": "Pully",
+      "postalCode": "1009",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11T02:00:00Z",
+      "postedDate": "2026-09-11T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
+      "jobReqId": "1145233801",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
+          "enseignants-es-primaire-nord-anglia-pully"
+        ],
+        "it": [
+          "enseignants-es-primaire-nord-anglia-pully"
+        ],
+        "en": [
+          "enseignants-es-primaire-nord-anglia-pully"
+        ]
+      },
+      "previousSlugs": [
+        "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
+        "enseignants-es-primaire-nord-anglia-pully"
+      ],
+      "firstSeenAt": "2026-09-19T22:53:24.102Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:15:45.900Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1079,328 +1406,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T21:28:18.599Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-5f89b28eef85",
-      "slug": "employe-e-de-73yage-et-de-support-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon",
-      "slugByLocale": {
-        "it": "employe-e-de-73yage-et-de-support-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon",
-        "en": "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon",
-        "de": "arbeitgeber-e-de-nnnsjg-et-de-support-logisticique-80-nord-anglia-education-switzerland-villars-sur-ollon",
-        "fr": "emploi-e-de-reseau-et-de-soutien-logistique-80-nord-anglia-education-switzerland-villars-sur-ollon"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Employé(e) de nettoyage et de support logistique - 80%",
-      "titleByLocale": {
-        "fr": "Employé(e) de nettoyage et de support logistique - 80%",
-        "it": "Personale di pulizia e supporto logistico - 80%",
-        "en": "Cleaning and logistical support staff - 80%",
-        "de": "Reinigungs- und Logistikmitarbeiter - 80%"
-      },
-      "description": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe.\n\nNos collaborateurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l’éducation et au développement professionnel.\n\nLe Collège Alpin Beau Soleil est à la recherche d’\n\nEmployé(e) de nettoyage et de support logistique – 80 %\n\nÀ partir du 04/01/2027\n\nVotre mission\n\nEn tant que membre de notre équipe Housekeeping, vous assurez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus.\n\nCe poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensable.\n\nSous la supervision de la Housekeeping Manager, vous organisez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance.\n\nVos responsabilités\n\n• Collecte et distribution du linge, des uniformes et du linge de lit\n\n• Collecte quotidienne des déchets extérieurs\n\n• Réception, rangement et distribution des produits et fournitures\n\n• Livraisons internes entre les bâtiments et les services\n\n• Entretien courant et contrôles périodiques des équipements de buanderie\n\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité\n\nVotre profil\n\n• Minimum un an d’expérience dans le secteur du nettoyage\n\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n\n• Bonne condition physique pour les déplacements et la manutention\n\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n\n• Fiabilité, ponctualité, polyvalence et flexibilité\n\n• Bonne présentation et attitude accueillante\n\nComment postuler\n\nVeuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers .\n\nDélai de postulation: 15 novembre 2026.\n\nLe collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires.",
-      "descriptionByLocale": {
-        "it": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globo. Nos collaboraurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderni. Ils profitent également des opportunités qui découlent de notre appartenance à une organizzazione mondiale dédiée à l’éducation et au développement professionnel. Le Collège Alpin Beau Soleil est à la recherche d’ Employé(e) de nettoyage et de support logistique – 80 % À partir du 04/01/2027 Votre missione En tant que membre de notre équipe Housekeeping, vous assicurarez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus. Ce poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minuti de pausa quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensabili. Sous la supervision de la Housekeeping Manager, vous organizzatoz vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance. Vosté responsabilis\n• Raccolta e distribuzione du linge, des uniforms et du linge de lit\n• Collezionisti quotidienne des déchets extérieurs\n• Ripartizione dei prodotti e dei prodotti\n• Livraisons internas entre les bâtiments et les services\n• Esecuzione del contratto\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le rispetto des consigns de sécurité Votre profil\n• Minimo un'esperienza dans le secteur du nettoyage\n• Espérience en logistique, en buanderie ou en approvazionement appréciée\n• Maîtrise du français ; notions d'anglais et autres langues un atout\n• Bonne stato fisico pour les déplacements et la manutention\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n• Fiabilité, ponctualité, polivalence et flexibilité\n• Bonne présentation et atteggiamenti accueillante Comment postuler Veuillez nous faire parvenir votre dossier completa (CV, diplômes, certificats et lettre de move) via internet notre sito https://www.beausoleil.ch/careers . Le collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses caseers judiciaires.",
-        "en": "Founded in 1910, the Collège Beau Soleil is one of Switzerland's most renowned private schools. As a prestigious international institution, we welcome students aged 11-18 from over 60 different nationalities and offer them holistic boarding education. Our College joined the Nord Anglia Education Group in 2011, the world leader in high-end schools, bringing together more than 80 international schools around the world.\n\nOur employees benefit from a dynamic, family-friendly work environment on a modern campus. They also take advantage of the opportunities arising from our membership in a global organization dedicated to education and professional development.\n\nAlpine Beau Soleil College is looking for\n\nCleaning and logistical support employee – 80%\n\nFrom 04/01/2027\n\nYour Mission\n\nAs a member of our Housekeeping team, you ensure the daily logistical support of Alpin Beau Soleil College and contribute to the smooth functioning of the boarding schools and various campus buildings.\n\nThis 80 per cent shift runs from Monday to Friday, from 7:30 a.m. to 2:45 p.m. (3:00 p.m. on Friday), with 30 minutes of daily break. It includes the collection and distribution of laundry, waste management and supply of products and supplies to teams. It involves regular travel on campus and handling tasks. The driving licence category B is indispensable.\n\nUnder the supervision of the Housekeeping Manager, you organize your tasks independently and collaborate with the laundry, boarding and maintenance teams.\n\nYour Responsibilities\n\n• Collection and distribution of linen, uniforms and bed linen\n\n• Daily collection of external waste\n\n• Receipt, storage and distribution of goods and supplies\n\n• Internal deliveries between buildings and services\n\n• Routine maintenance and periodic inspection of laundry equipment\n\n• Maintenance of order and cleanliness of work spaces, in accordance with safety instructions\n\nYour profile\n\n• Minimum one year experience in the cleaning sector\n\n• Experience in logistics, laundry or appreciated supply\n\n• Mastery of French; English and other languages an asset\n\n• Good physical condition for movement and handling\n\n• Organizational sense and ability to work as a team and independently\n\n• Reliability, timeliness, versatility and flexibility\n\n• Good presentation and welcoming attitude\n\nHow to Apply\n\nPlease send us your complete dossier (CV, diplomas, certificates and cover letter) via our website https://www.beausoleil.ch/careers .\n\nDeadline for application: 15 November 2026.\n\nThe College is committed to protecting and promoting the well-being of children. The selected candidate will be required to provide an extract of his or her criminal records.",
-        "de": "Fondé en 1910, le Collège Beau Soleil est l'une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe. Nos collaborationurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l'éducation et au développement professionnel. Le Collège Alpin Beau Soleil est à la recherche d’ Employé(e) de nettoyage et de support logistique – 80 % À partir du 04/01/2027 Votre-Mission En tant que membre de notre équipe Housekeeping, vous surez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus. Ce poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Die Sammlung und die Verteilung der linge, die gestion des déchets et l'approvisionnement des équipes en produits et fournitures werden ergänzt. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est unverzichtbar. Sous la supervision de la housekeeping manager, vous organizez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance. Vos responsabilités\n• Collecte et distribution du linge, des uniformes et du linge de lit\n• Collecte quotidienne des déchets extérieurs\n• Réception, rangement et distribution des produits et fournitures\n• Livraisons interns entre les bâtiments et les services\n• Entretien courant et contrôles périodiques des équipements de buanderie\n• Maintien de l'ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité Votre profil\n• Minimum un an d'expérience dans le secteur du nettoyage\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n• Bonne condition physique pour les déplacements et la manutention\n• Sens de l'organisation et capacité à travailler en équipe et de manière autonome\n• Fiabilité, ponctualité, polyvalence et flexibilité\n• Bonne présentation et attitude accueillante Comment postuler Veuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers. Le collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires.",
-        "fr": "Fondé en 1910, le Collège Beau Soleil est l’une des écoles privées les plus réputées de Suisse. En tant qu’établissement international prestigieux, nous accueillons des élèves âgés de 11 à 18 ans de plus de 60 nationalités différentes et leur offrons une éducation holistique en internat. Notre Collège a intégré le groupe Nord Anglia Education en 2011, leader mondial des écoles haut de gamme, regroupant plus de 80 établissements internationaux situés aux quatre coins du globe.\n\nNos collaborateurs bénéficient d’un environnement de travail familial et dynamique, au sein d’un campus moderne. Ils profitent également des opportunités qui découlent de notre appartenance à une organisation mondiale dédiée à l’éducation et au développement professionnel.\n\nLe Collège Alpin Beau Soleil est à la recherche d’\n\nEmployé(e) de nettoyage et de support logistique – 80 %\n\nÀ partir du 04/01/2027\n\nVotre mission\n\nEn tant que membre de notre équipe Housekeeping, vous assurez le support logistique quotidien du Collège Alpin Beau Soleil et contribuez au bon fonctionnement des internats et des différents bâtiments du campus.\n\nCe poste à 80 % s’exerce du lundi au vendredi, de 07h30 à 14h45 (15h00 le vendredi), avec 30 minutes de pause quotidienne. Il comprend la collecte et la distribution du linge, la gestion des déchets et l’approvisionnement des équipes en produits et fournitures. Il implique des déplacements réguliers sur le campus et des tâches de manutention. Le permis de conduire catégorie B est indispensable.\n\nSous la supervision de la Housekeeping Manager, vous organisez vos tâches de manière autonome et collaborez avec les équipes des buanderies, des internats et du service Maintenance.\n\nVos responsabilités\n\n• Collecte et distribution du linge, des uniformes et du linge de lit\n\n• Collecte quotidienne des déchets extérieurs\n\n• Réception, rangement et distribution des produits et fournitures\n\n• Livraisons internes entre les bâtiments et les services\n\n• Entretien courant et contrôles périodiques des équipements de buanderie\n\n• Maintien de l’ordre et de la propreté des espaces de travail, dans le respect des consignes de sécurité\n\nVotre profil\n\n• Minimum un an d’expérience dans le secteur du nettoyage\n\n• Expérience en logistique, en buanderie ou en approvisionnement appréciée\n\n• Maîtrise du français ; notions d’anglais et autres langues un atout\n\n• Bonne condition physique pour les déplacements et la manutention\n\n• Sens de l’organisation et capacité à travailler en équipe et de manière autonome\n\n• Fiabilité, ponctualité, polyvalence et flexibilité\n\n• Bonne présentation et attitude accueillante\n\nComment postuler\n\nVeuillez nous faire parvenir votre dossier complet (CV, diplômes, certificats et lettre de motivation) via notre site internet https://www.beausoleil.ch/careers .\n\nDélai de postulation: 15 novembre 2026.\n\nLe collège s’engage à protéger et à promouvoir le bien-être des enfants. Le candidat sélectionné sera tenu de remettre un extrait de ses casiers judiciaires."
-      },
-      "location": "Villars-sur-Ollon",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Employ%C3%A9%28e%29-de-nettoyage-et-de-support-logistique-80/1446108133/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.594Z",
-      "addressLocality": "Villars-sur-Ollon",
-      "addressRegion": "VD",
-      "streetAddress": "Villars-sur-Ollon",
-      "postalCode": "1884",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-09T00:00:00Z",
-      "postedDate": "2026-10-09T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Employ%C3%A9%28e%29-de-nettoyage-et-de-support-logistique-80/1446108133/",
-      "jobReqId": "1446108133",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
-        ],
-        "it": [
-          "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
-        ]
-      },
-      "previousSlugs": [
-        "employe-e-de-nettoyage-et-de-support-logistique-80-nord-anglia-villars-sur-ollon"
-      ],
-      "firstSeenAt": "2026-10-16T09:25:14.465Z",
-      "salaryMin": 40800,
-      "salaryMax": 75600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 40800,
-          "maxValue": 75600,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:28:18.594Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-b46acb0a1e06",
-      "slug": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
-        "en": "ict-teacher-45-nord-anglia-pully",
-        "de": "ict-lehrer-45-nord-anglia-education-switzerland-pully",
-        "fr": "enseignant-en-tic-45-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "ICT Teacher 45%",
-      "titleByLocale": {
-        "it": "Insegnante delle TIC 45%",
-        "en": "ICT Teacher 45%",
-        "de": "ICT Lehrer 45%",
-        "fr": "Enseignant en TIC 45 %"
-      },
-      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-      "descriptionByLocale": {
-        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a partecipare al nostro team accademico. CONTI DI LAVORO\n• Progettare e implementare un curriculum ICT che si allinea agli standard educativi e promuove il pensiero critico e la risoluzione dei problemi\n• Fornire lezioni coinvolgenti e interattive che si rivolgono a stili di apprendimento diversi e adattare l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con esigenze educative speciali\n• Creare un ambiente di insegnamento di qualità che favorisca l'apprendimento, la promozione dell'agenzia di apprendimento e l'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège, e fornire agli studenti un feedback regolare, sia per via orale e attraverso la valutazione accurata\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare PROFILE E COMPETENZIONI\n• Corso di laurea o master in IT\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente in-ternazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e riparo criminale pulito Se siete appassionati di istruzione e interessati ad unirsi al nostro team, si prega di applicare direttamente online attraverso il nostro sito web.",
-        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, unserem akademischen Team beizutreten. WICHTIGKEITEN\n• Entwerfen und implementieren Sie ein ICT-Curriculum, das sich an Bildungsstandards orientiert und kritisches Denken und Problemlösung fördert\n• Liefern Sie ansprechende und interaktive Lektionen, die unterschiedlichen Lernstilen gerecht werden und den Unterricht an die Stärken und Bedürfnisse jedes Schülers anpassen, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind, und geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch eine genaue Bewertung.\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen ihrer Kinder und das Lernprofil und die Kompetenzen\n• Bachelor oder Master in IT\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem in-ternationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafvollstreckung Wenn Sie sich für Bildung interessieren und daran interessiert sind, unserem Team beizutreten, bewerben Sie sich bitte direkt online über unsere Website.",
-        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe académique. PRINCIPAUX COMPTES\n• Concevoir et mettre en œuvre un programme d ' enseignement des TIC conforme aux normes éducatives et promouvoir la pensée critique et la résolution de problèmes\n• Offrir des leçons interactives et stimulantes qui répondent aux différents styles d'apprentissage et adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Créer un environnement pédagogique de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage qui sont stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège, et fournir aux élèves des commentaires réguliers, tant oralement qu'au moyen d'une cote d'exactitude\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants et apprendre PROFIL ET COMPÉTENCES\n• Licence ou maîtrise en informatique\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et recyclage criminel propre Si vous êtes passionné par l'éducation et intéressé à rejoindre notre équipe, veuillez postuler directement en ligne sur notre site Web."
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.570Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11T02:01:00Z",
-      "postedDate": "2026-09-11T02:01:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
-      "jobReqId": "1425918433",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ict-teacher-45-nord-anglia-pully"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-teacher-45-nord-anglia-pully"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:21.241Z",
-      "salaryMin": 23000,
-      "salaryMax": 42500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 23000,
-          "maxValue": 42500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:18.570Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-9e800df5a8b0",
-      "slug": "insegnanti-primario-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "insegnanti-primario-nord-anglia-education-switzerland-pully",
-        "en": "teachers-primary-nord-anglia-pully",
-        "de": "lehrer-primary-nord-anglia-education-switzerland-pully",
-        "fr": "enseignants-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Teachers Primary",
-      "titleByLocale": {
-        "it": "Insegnanti Primario",
-        "en": "Teachers Primary",
-        "de": "Lehrer Primary",
-        "fr": "Enseignants"
-      },
-      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and implementing the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy\n\n• Adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\n• Give students regular feedback, both orally and through accurate rating\n\nPROFILE AND COMPETENCES\n\n• Bachelor ’s degree\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an international environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal records",
-      "descriptionByLocale": {
-        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a unirsi al nostro team. RISPOSTE PRINCIPALI\n• Creare un ambiente di insegnamento di qualità favorevole all'apprendimento, alla promozione dell'agenzia di apprendimento e all'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège\n• Adapt l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con bisogni educativi speciali\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare\n• Dare agli studenti un feedback regolare, sia per via orale e con una valutazione accurata PROFILE E COMPETENZE\n• Corso di laurea\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente internazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e documenti criminali puliti",
-        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and implementing the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy\n\n• Adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\n• Give students regular feedback, both orally and through accurate rating\n\nPROFILE AND COMPETENCES\n\n• Bachelor ’s degree\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an international environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal records",
-        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, sich unserem Team anzuschließen. WICHTIGKEITEN\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind\n• Anpassung des Unterrichts an die Stärken und Bedürfnisse jedes Schülers, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen und das Lernen ihrer Kinder\n• Geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch genaue Bewertung PROFIL UND KOMPETENZEN\n• Bachelor-Abschluss\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem internationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafregister",
-        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe. PRINCIPAUX RESPONSABILITÉS\n• Créer un environnement d'enseignement de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège\n• Adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants\n• Donner aux élèves des commentaires réguliers, à la fois oralement et par une évaluation précise PROFIL ET COMPÉTENCES\n• Baccalauréat\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et casier judiciaire propre"
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:28:18.552Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11T02:00:00Z",
-      "postedDate": "2026-09-11T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
-      "jobReqId": "1145234101",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teachers-primary-nord-anglia-pully"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teachers-primary-nord-anglia-pully"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:24.772Z",
-      "needsRetranslation": true,
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:18.552Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-6742d7a9a7da",
-      "slug": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
-        "en": "enseignants-es-primaire-nord-anglia-pully",
-        "de": "enseignants-es-primaire-nord-anglia-pully",
-        "fr": "s-es-primaire-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Enseignants-es Primaire",
-      "titleByLocale": {
-        "it": "Ensegnants-es Priori",
-        "en": "Primary Teachers",
-        "de": "Primaire",
-        "fr": "Enseignants-es Primaire"
-      },
-      "description": "QUI SOMMES-NOUS ?\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe.\n\nRESPONSABILITÉS PRINCIPALES\n\n• Développe un climat propice à l’apprentissage et à l’acquisition des compétences attendues\n\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n\n• Effectue périodiquement une évaluation du niveau atteint\n\n• Rencontre régulièrement les parents d’élèves pour un point de situation\n\n• Gère le budget alloué à sa classe pour les activités et sorties\n\nPROFIL ET COMPÉTENCES\n\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n\n• 5-7 d’expérience en classes primaires\n\n• Excellente maîtrise du français et de l’anglais\n\n• Extraits de casier judiciaire vierges\n\n• Nationalité suisse ou permis de travail valide",
-      "descriptionByLocale": {
-        "it": "QUI SOMMES-NOUS? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une eccellente formazione à des générations d'étudiants suisses et étrangers. Son esprit s'articule autour des performance académiques, du multilinguisme et de valeurs telles que le rispetto et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dinamique, à la fois local et international, nous vous invitons à rejoindre notre équipe. RESPONSABILITÉ PRINCIPALI\n• Développe un climat propice à l’apprentissage et à l’acquisizione delle competenze\n• Formule et met en œuvre les objectifs de la sezione en accordo les objectifs généraux du Collège\n• Collabore avec ses collègues pour armoniser la progression de l’enseignement\n• Définit et adattae avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du program de la sezione Primaire\n• Effettuare un'analisi e una valutazione della niveau\n• Rencontre régulièrement les genitori d’élèves pour un point de\n• Gère le budget alloué à sa classe pour les activités et sorties PROFIL ET COMPÉTENCEs\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n• 5-7 d’espérience en classi primari\n• Eccellente maîtrise du français et de l’anglais\n• Extraits de caseerage\n• Nationalité suisse ou permis de travail valide",
-        "en": "WHO ARE WE?\n\nChampittet College, a reference school in the German region since 1903, offers excellent training to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The College is part of the North Anglia Education family, the world leader in international schools with 88 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our team.\n\nMAIN RESPONSIBILITIES\n\n• Develops a climate conducive to learning and learning the skills expected\n\n• Formulates and implements the section's objectives in accordance with the general objectives of the College\n\n• Collaborates with colleagues to harmonize educational progress\n\n• Defines and adapts with colleagues, leaders and dean, the objectives and contents of the Primary Section program\n\n• Conducts periodic assessment of the level achieved\n\n• Regular meeting of parents for a situation point\n\n• Manages the budget allocated to its class for activities and outputs\n\nPROFILE AND SKILLS\n\n• Higher education diploma in education science and/or pedagogy\n\n• 5-7 of experience in primary classes\n\n• Excellent mastery of French and English\n\n• Excerpts from blank criminal records\n\n• Swiss nationality or valid work permit",
-        "de": "QUI SOMMES-NOUS ? Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 zahlt. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe. VERANTWORTUNGSGRUNDSÄTZE\n• Développe un climat propice à l'apprentissage et à l'acquisition des compétences attendues\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n• Effectue périodiquement une évaluation du niveau atteint\n• Rencontre régulièrement les parents d'élèves pour un point de situation\n• Gère le budget alloué à sa classe pour les activités et sorties PROFIL ET COMPÉTENCES\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n• 5-7 d’expérience en class primaires\n• Ausgezeichnete maîtrise du français et de l'anglais\n• Extraits de casier judiciaire vierges\n• Nationalité suisse ou permis de travail gültig",
-        "fr": "QUI SOMMES-NOUS ?\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d'écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dynamique, à la fois local et international, nous vous invitons à rejoindre notre équipe.\n\nRESPONSABILITÉS PRINCIPALES\n\n• Développe un climat propice à l’apprentissage et à l’acquisition des compétences attendues\n\n• Formule et met en œuvre les objectifs de la section en accord avec les objectifs généraux du Collège\n\n• Collabore avec ses collègues pour harmoniser la progression de l’enseignement\n\n• Définit et adapte avec ses collègues, les chefs de file et les doyennes, les objectifs et contenus du programme de la section Primaire\n\n• Effectue périodiquement une évaluation du niveau atteint\n\n• Rencontre régulièrement les parents d’élèves pour un point de situation\n\n• Gère le budget alloué à sa classe pour les activités et sorties\n\nPROFIL ET COMPÉTENCES\n\n• Diplôme d’enseignement supérieur en sciences de l’éducation et/ou pédagogie\n\n• 5-7 d’expérience en classes primaires\n\n• Excellente maîtrise du français et de l’anglais\n\n• Extraits de casier judiciaire vierges\n\n• Nationalité suisse ou permis de travail valide"
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-09T21:28:18.534Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11T02:00:00Z",
-      "postedDate": "2026-09-11T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
-      "jobReqId": "1145233801",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
-          "enseignants-es-primaire-nord-anglia-pully"
-        ],
-        "it": [
-          "enseignants-es-primaire-nord-anglia-pully"
-        ]
-      },
-      "previousSlugs": [
-        "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
-        "enseignants-es-primaire-nord-anglia-pully"
-      ],
-      "firstSeenAt": "2026-09-19T22:53:24.102Z",
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:18.534Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

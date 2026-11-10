@@ -18,6 +18,7 @@ const {
   roundWasSent,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { TRANSPORT_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
 const cleanDraft = {
@@ -409,19 +410,23 @@ describe('approval flow', () => {
     expect(step.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
   });
 
-  it('does not schedule retries when the posting blocks applications from the candidate region', () => {
+  it('retries a regional notice from another runner, because the portal geolocates the runner and not the candidate', () => {
     const step = transition(
       { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
       { type: 'submit_handoff', reason: 'application_region_unsupported' },
       { draft: cleanDraft, nowMs: T0 },
     );
 
-    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:application_region_unsupported'], portalAutoRetryAt: null });
-    expect(step.effects).toEqual([{
-      type: 'email', kind: 'owner_takeover', reason: 'portal:application_region_unsupported', stage: 'submit', attempts: 1,
-    }]);
-    expect(transition(step.flow, { type: 'portal_auto_retry' }, { draft: cleanDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] }).ignored)
-      .toBe('not_auto_retryable');
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:application_region_unsupported'],
+      portalAutoRetryAt: T0 + TRANSPORT_AUTO_RETRY_DELAYS_MS[0],
+    });
+    // The infrastructure ladder notifies operations once, after its last short step.
+    expect(step.effects).toEqual([]);
+    // The persistence adapter preserves dispatch metadata across pure FSM transitions.
+    const held = { ...step.flow, dispatch: { mode: 'submit', attempts: 1 } };
+    expect(transition(held, { type: 'portal_auto_retry' }, { draft: { ...cleanDraft, round: 1 }, nowMs: T0 + TRANSPORT_AUTO_RETRY_DELAYS_MS[0] }).effects)
+      .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
   it('retries once without a candidate email when the portal repeats questions that already have answers', () => {

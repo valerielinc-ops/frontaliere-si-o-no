@@ -265,7 +265,8 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     });
     expect(schema.baseSalary).toMatchObject({ value: { minValue: 61000, maxValue: 77000 } });
     expect(schema.employmentType).toEqual(['FULL_TIME', 'TEMPORARY']);
-    expect(schema.validThrough).toBe(new Date(sourceValidThrough).toISOString());
+    // A date-only source deadline closes at the end of that day.
+    expect(schema.validThrough).toBe(`${sourceValidThrough}T23:59:59.999Z`);
   });
 
   it('uses the curated HQ tuple only in the HQ city and only as a whole', () => {
@@ -773,8 +774,17 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
     const now = new Date('2026-10-26T00:00:00.000Z');
     const fromCrawl = buildJobPostingSchema(job({ crawledAt: '2026-10-01T00:00:00.000Z', postedDate: '2026-09-01' }), { ...OPTS, now });
     expect(fromCrawl.validThrough).toBe('2026-11-30T00:00:00.000Z');
+    const fromRecentPost = buildJobPostingSchema(job({ postedDate: '2026-10-20' }), { ...OPTS, now });
+    expect(fromRecentPost.validThrough).toBe('2027-01-18T00:00:00.000Z');
+  });
+
+  it('never emits an active posting whose publication cap already lapsed', () => {
+    // Before 2026-11-10 this asserted '2025-12-19' at a 2026-10-26 build: an
+    // active page published an already-expired JobPosting. A lapsed window
+    // yields to the bounded build-clock window instead.
+    const now = new Date('2026-10-26T00:00:00.000Z');
     const fromPosted = buildJobPostingSchema(job({ postedDate: '2025-09-20' }), { ...OPTS, now });
-    expect(fromPosted.validThrough).toBe('2025-12-19T00:00:00.000Z');
+    expect(fromPosted.validThrough).toBe(new Date(now.getTime() + 90 * 86400000).toISOString());
   });
 
   it('keeps a future source deadline verbatim', () => {
@@ -784,7 +794,7 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
 
   it('replaces an expired source date with the honest last-observation window', () => {
     const explicitPast = daysAgoIso(120);
-    const observedAt = daysAgoIso(200);
+    const observedAt = daysAgoIso(10);
     const schema = buildJobPostingSchema(
       job({
         validThrough: explicitPast,
@@ -794,6 +804,22 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
       OPTS,
     );
     expect(schema.validThrough).toBe(new Date(Date.parse(observedAt) + 89 * 86400000).toISOString());
+  });
+
+  it('falls back to the bounded build-clock window when the observation window lapsed', () => {
+    // An observation 200 days old gives observedAt + 89d, i.e. a deadline in
+    // the past on a page that still presents the offer as open.
+    const now = new Date();
+    const observedAt = daysAgoIso(200);
+    const schema = buildJobPostingSchema(
+      job({
+        validThrough: daysAgoIso(120),
+        postedDate: new Date(Date.parse(observedAt) - 86_400_000).toISOString(),
+        crawledAt: observedAt,
+      }),
+      { ...OPTS, now },
+    );
+    expect(schema.validThrough).toBe(new Date(now.getTime() + 90 * 86400000).toISOString());
   });
 });
 

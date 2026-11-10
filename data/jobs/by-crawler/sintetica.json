@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sintetica",
-  "assembledAt": "2026-11-09T21:16:09.303Z",
-  "runId": "42698712539",
+  "assembledAt": "2026-11-10T09:12:14.032Z",
+  "runId": "42787381074",
   "jobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
@@ -41,7 +41,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:16:01.773Z",
+      "crawledAt": "2026-11-10T09:12:07.887Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -76,7 +76,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:16:01.773Z",
+      "validThrough": "2027-01-06T09:12:07.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:16:00.829Z",
+      "crawledAt": "2026-11-10T09:12:07.015Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -159,7 +159,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:16:00.829Z",
+      "validThrough": "2027-01-07T09:12:07.015Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:15:59.823Z",
+      "crawledAt": "2026-11-10T09:12:06.020Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -235,7 +235,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:15:59.823Z",
+      "validThrough": "2027-01-01T09:12:06.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -276,7 +276,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-09T21:15:58.934Z",
+      "crawledAt": "2026-11-10T09:12:04.746Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -317,7 +317,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-09T21:15:58.934Z",
+      "validThrough": "2026-12-10T09:12:04.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -350,7 +350,7 @@
       "slugByLocale": {
         "it": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs",
-        "de": "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio",
+        "de": "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio",
         "fr": "qualite-control-microbiological-laboratory-technicien-mendrisio-site-ticino-sintetica-sa-mendrisio"
       },
       "slug": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
@@ -371,7 +371,7 @@
       "id": "sintetica-8218af8800e4",
       "previousSlugs": [
         "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
-        "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio"
+        "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -381,7 +381,7 @@
           "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica"
         ],
         "de": [
-          "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio"
+          "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio"
         ]
       },
       "firstSeenAt": "2026-10-04T21:10:44.868Z",
@@ -402,7 +402,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:13:27.937Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/810830/purchasing-amp-logistics-specialist-ch/sintetica",
@@ -485,7 +485,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:13:24.278Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

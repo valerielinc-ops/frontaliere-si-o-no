@@ -194,9 +194,16 @@ describe('automation e-mails', () => {
     expect(refused.hint).not.toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal_ambiguous', stage: 'submit' }).hint).toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
+    // The employer geolocates the runner's IP, not the candidate: never tell Valerie to ask the employer about the candidate's region.
     const regionRestricted = describeTakeover({ reason: 'portal:application_region_unsupported', stage: 'submit' });
-    expect(regionRestricted.reason).toContain('non supporta al momento candidature dalla regione del candidato');
-    expect(regionRestricted.hint).toContain('prima di riprovare');
+    expect(regionRestricted.reason).toContain('indirizzo IP del runner, non il candidato');
+    expect(regionRestricted.reason).not.toContain('regione del candidato');
+    expect(regionRestricted.hint).toContain('riproviamo automaticamente da un altro runner');
+    expect(regionRestricted.hint).toContain('«Compila con l’estensione» da una connessione svizzera');
+    const regionRetry = describeTakeover({ reason: 'portal:application_region_unsupported', stage: 'submit', portalAutoRetryAt: DEADLINE });
+    expect(regionRetry.reason).toContain('indirizzo IP del runner');
+    expect(regionRetry.reason).not.toContain('la connessione al portale non è riuscita');
+    expect(regionRetry.hint).toContain(`Riproveremo automaticamente ${formatDeadline(DEADLINE, 'it')}`);
     const portalRetry = buildOwnerAutomationEmail('owner_takeover', {
       job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'portal:portal_needs_candidate',
       portalAutoRetryAt: DEADLINE,
