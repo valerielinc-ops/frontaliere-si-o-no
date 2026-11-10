@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { hasVacancySpecificPostingEvidence, postingMainHeading } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { hasVacancySpecificPostingEvidence, isRoleHeading, postingMainHeading } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 // The public Yellowshark posting of order 1EpmkrDu, rebuilt from its rendered
 // text (2026-11-10). The contact person's name and number are left out: no person here.
@@ -59,6 +59,11 @@ describe('selected posting route whose rendered text starts with a skip link', (
     const heading = 'Senior Software Engineer Java (m/w) 80-100%';
     const text = `${renderedPosting(heading)}\nWeitere Jobs\nIT Product Manager`;
     expect(hasVacancySpecificPostingEvidence(text, job, { pageUrl: postingUrl, pageTitle, pageHeading: heading, postingUrl })).toBe(false);
+  });
+
+  it('reads a role heading only with every word of the role (acceptance of the review of #18003)', () => {
+    expect(isRoleHeading('Product Manager', 'IT Product Manager')).toBe(false);
+    expect(isRoleHeading('IT Product Manager (m/w/d) 80-100%', 'IT Product Manager')).toBe(true);
   });
 
   it('keeps a heading with only part of the role a mismatch (review of #18003)', () => {

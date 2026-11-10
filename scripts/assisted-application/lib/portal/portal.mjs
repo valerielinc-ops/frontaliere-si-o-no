@@ -3457,7 +3457,7 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
  * the role, and around it only gender markers or a workload («(m/w/d)»,
  * «80-100%»). Another role, an employer or a slogan in it is not this role.
  */
-function isRoleHeading(heading, title) {
+export function isRoleHeading(heading, title) {
   const text = String(heading || '').trim();
   if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
   const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
