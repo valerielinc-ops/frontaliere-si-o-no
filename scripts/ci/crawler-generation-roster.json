@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 695,
+  "crawlerCount": 699,
   "groups": {
     "10": [
       "atec-personal",
@@ -484,7 +484,11 @@
       "zindel-united-swiss"
     ],
     "25": [
-      "protectas"
+      "bally",
+      "knowledge-lab",
+      "locarno-film-festival",
+      "protectas",
+      "pzm-muensingen"
     ],
     "01": [
       "coop-ticino"
@@ -808,6 +812,7 @@
     "bachtelen": "data/jobs/by-crawler/bachtelen.json",
     "badrutts-palace": "data/jobs/by-crawler/badrutts-palace.json",
     "balgrist": "data/jobs/by-crawler/balgrist.json",
+    "bally": "data/jobs/by-crawler/bally.json",
     "baloise": "data/jobs/by-crawler/baloise.json",
     "banca-cler": "data/jobs/by-crawler/banca-cler.json",
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
@@ -1108,6 +1113,7 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
+    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1139,6 +1145,7 @@
     "lis-lugano-istituti-sociali": "data/jobs/by-crawler/lis-lugano-istituti-sociali.json",
     "livit": "data/jobs/by-crawler/livit.json",
     "localsearch": "data/jobs/by-crawler/localsearch.json",
+    "locarno-film-festival": "data/jobs/by-crawler/locarno-film-festival.json",
     "logitech": "data/jobs/by-crawler/logitech.json",
     "lombard-odier": "data/jobs/by-crawler/lombard-odier.json",
     "lombardi-group": "data/jobs/by-crawler/lombardi-group.json",
@@ -1245,6 +1252,7 @@
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
     "pwc": "data/jobs/by-crawler/pwc.json",
+    "pzm-muensingen": "data/jobs/by-crawler/pzm-muensingen.json",
     "raiffeisen": "data/jobs/by-crawler/raiffeisen.json",
     "rapelli": "data/jobs/by-crawler/rapelli.json",
     "reboot-monkey": "data/jobs/by-crawler/reboot-monkey.json",
@@ -1446,5 +1454,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:f5347709f52e88c79e7e58281fe51a92eaec19d81ec7346679e5caef7f365094"
+  "digest": "sha256:3286966ba014f114b171487133a7d98389842e4639012cafcb4bd37dd550be26"
 }

@@ -1,0 +1,27 @@
+{
+  "companyKey": "locarno-film-festival",
+  "companyName": "Locarno Film Festival",
+  "companyHost": "locarnofestival.ch",
+  "verifiedEmployerDomain": "locarnofestival.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.locarnofestival.ch/it/about/organization/work-with-us.html"
+  ],
+  "detailTemplate": "/it/dam/jcr*/*.pdf",
+  "detailFormat": "pdf",
+  "detailLocationLabel": "Luogo di lavoro",
+  "detailTitleLeadIn": "Il Locarno Film Festival è alla ricerca di un/una",
+  "detailTitleEndLabel": "Impiego",
+  "detailApplyUrlHost": "form.locarnofestival.ch",
+  "detailApplyUrlPathPrefix": "/forms/",
+  "detailEnrichment": true,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Atelier du Futur Project Manager"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "browserRescue": true,
+  "learnedAt": "2026-11-10T07:03:19.000Z"
+}
