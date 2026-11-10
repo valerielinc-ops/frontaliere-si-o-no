@@ -30,7 +30,11 @@
  * `parseJobBoardSlug`.
  */
 
-import { JOB_BOARD_PREFIX, JOB_BOARD_PREFIX_LEGACY_DE } from '../../services/jobBoardSlugs';
+import {
+  getJobBoardSlugForCanton,
+  JOB_BOARD_PREFIX,
+  JOB_BOARD_PREFIX_LEGACY_DE,
+} from '../../services/jobBoardSlugs';
 
 export type CantonJobBoardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -44,3 +48,27 @@ export const CANTON_JOB_BOARD_PREFIX: Record<CantonJobBoardLocale, string> = {
   de: withoutTrailingDash(JOB_BOARD_PREFIX_LEGACY_DE),
   fr: withoutTrailingDash(JOB_BOARD_PREFIX.fr),
 };
+
+const CANONICAL_LOCALE_PREFIX: Record<CantonJobBoardLocale, string> = {
+  it: '',
+  en: '/en',
+  de: '/de',
+  fr: '/fr',
+};
+
+/**
+ * Build a canonical top-level job-board href for an outbound link.
+ *
+ * `CANTON_JOB_BOARD_PREFIX` above is intentionally the published prefix for
+ * the two static CH-canton page families. It is not the router's T5 section
+ * slug: in German, for example, those pages still use `jobs-im-*` while the
+ * canonical job-board route uses the canton-specific `jobs-in-*`/`dePrefix`
+ * mapping. Outbound CTAs must therefore go through the shared route builder.
+ */
+export function buildCanonicalJobBoardHref(
+  locale: CantonJobBoardLocale,
+  cantonCode: string,
+): string {
+  const section = getJobBoardSlugForCanton(cantonCode, locale);
+  return `${CANONICAL_LOCALE_PREFIX[locale]}/${section}/`.replace(/\/{2,}/g, '/');
+}
