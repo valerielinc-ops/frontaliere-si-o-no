@@ -653,7 +653,8 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   const personal = { salutation: platformSalutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter
   // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
-  const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '' });
+  // A permit field the candidate corrected, even to empty, is their word: no permit is deduced over it.
+  const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '', permitDeduction: !has(overrides, 'workPermit') });
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
   // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);

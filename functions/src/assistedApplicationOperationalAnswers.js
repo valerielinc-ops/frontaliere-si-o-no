@@ -13,7 +13,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
 // (assistedApplicationDecisionAnswers.js); a new version lets reconcile-operational-answers.mjs release
 // the waits these now answer.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v6';
+// v8 (2026-11-10): the deduced permit G and the declaration of suitability for the position (platform-defaults-v8;
+// v7 is the other sites and guard duty of #18004).
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v8';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
