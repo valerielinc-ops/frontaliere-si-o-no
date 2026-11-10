@@ -36,6 +36,8 @@ import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
+const fakeLocalizationUnknowns = [];
+const safeFixtureLabel = (value) => String(value || '').replace(/[^\p{L}\p{N} _.,?*'’()-]/gu, '').slice(0, 140);
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
 // date, permit answer, and explicit consent answers grounded. Pass null to omit
 // a fact under test; consent is never inferred from the portal's checkbox.
@@ -99,6 +101,7 @@ const safePortalNavigationDiagnostic = (entry = {}) => {
 };
 const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = [] }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
+  ...(fakeLocalizationUnknowns.length ? { fakeLocalizationUnknowns: fakeLocalizationUnknowns.slice(-3) } : {}),
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
   ...(Array.isArray(evidence.finalOutcomes) ? { finalOutcomes: evidence.finalOutcomes } : {}),
   ...(evidence.finalUrl ? { finalUrl: (() => {
@@ -1052,7 +1055,63 @@ async function fakeCodex({ prompt }) {
           validationMessage: '',
         };
       }
-      if (!/valid work permit/i.test(applicationQuestion)) throw new Error('fake_localizer_unknown_fixture');
+      if (/^title\b|salutation|form of address/i.test(applicationQuestion)) {
+        const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
+          candidate: /^mr\.?$/i.test(application) ? 'Signor' : /^mrs?\.?$|^ms\.?$/i.test(application) ? 'Signora' : /^other$/i.test(application) ? 'Altro' : '',
+          application,
+        }));
+        if (optionMap.some((pair) => !pair.candidate)) {
+          fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+          throw new Error('fake_localizer_unknown_fixture');
+        }
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Quale appellativo vuoi usare nei moduli di candidatura?',
+          why: 'Il portale richiede di scegliere un appellativo.',
+          options: optionMap.map((pair) => pair.candidate),
+          optionMap,
+          validationMessage: '',
+        };
+      }
+      if (/data release|data retention|retention period/i.test(applicationQuestion)) {
+        const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
+          candidate: /stored|keep|retain|future/i.test(application)
+            ? 'Acconsento alla conservazione dei miei dati anche dopo questa candidatura per future opportunità di lavoro.'
+            : /deleted|delete|present application process/i.test(application)
+              ? 'Desidero che i miei dati siano cancellati al termine dell’attuale procedura di candidatura.'
+              : '',
+          application,
+        }));
+        if (optionMap.some((pair) => !pair.candidate)) {
+          fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+          throw new Error('fake_localizer_unknown_fixture');
+        }
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Per quanto tempo autorizzi il portale a conservare i tuoi dati personali?',
+          why: 'Scegli per quanto tempo autorizzi la conservazione dei dati.',
+          options: optionMap.map((pair) => pair.candidate),
+          optionMap,
+          validationMessage: '',
+        };
+      }
+      if (/privacy policy|privacy statement|data protection/i.test(applicationQuestion)) {
+        return {
+          id: question.id,
+          sourceLocale: 'en',
+          question: 'Accetti la dichiarazione sulla protezione dei dati?',
+          why: 'Il portale richiede di accettare la dichiarazione sulla protezione dei dati.',
+          options: [],
+          optionMap: [],
+          validationMessage: '',
+        };
+      }
+      if (!/valid work permit/i.test(applicationQuestion)) {
+        fakeLocalizationUnknowns.push(safeFixtureLabel(applicationQuestion));
+        throw new Error('fake_localizer_unknown_fixture');
+      }
       const optionMap = (question.applicationOptions || question.options || []).map((application) => ({
         candidate: /^yes$/i.test(application) ? 'Sì' : /^no$/i.test(application) ? 'No' : application,
         application,
