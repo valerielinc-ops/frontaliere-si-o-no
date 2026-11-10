@@ -7,6 +7,7 @@
 
 import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assistedApplicationAiFactCheck.js';
 import { sanitizeValidation } from './lib/answerRules.js';
+import { cvAnswerQuestionEligible, verifyCvAnswer } from './assistedApplicationCvAnswers.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions, permitStatusQuestion } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, languageExplicitlyAbsent } from './lib/languageFacts.js';
@@ -465,14 +466,15 @@ function sanitizeQuestions(raw) {
 }
 
 /**
- * Attach CV-grounded draft answers only to the exact open text questions read
- * from the application portal. The answer remains a proposal in the draft;
- * the candidate review page must save it before it becomes an answer.
+ * Attach the CV's answers to the open text questions, the portal's and the match's (owner decisions of
+ * 2026-11-10). A technical answer stands on cited CV excerpts; a behavioural one may be a plausible
+ * description built from the CV. Both pass the hard limit of assistedApplicationCvAnswers.js (no employer,
+ * title, qualification, date or figure the CV lacks) and the letter's fact gate. A kept answer is
+ * projected as a platform proposal (platformFacts.cvAnswers): shown, editable, never a candidate fact.
  */
 export function sanitizeApplicationAnswerSuggestions(raw, questions, sourceText = '') {
-  const source = normalizedHaystack(sourceText).replace(/\s+/gu, ' ');
   const byId = new Map((Array.isArray(questions) ? questions : [])
-    .filter((question) => question?.source === 'portal' && question?.type === 'text' && question?.id)
+    .filter((question) => cvAnswerQuestionEligible(question))
     .map((question) => [question.id, question]));
   const suggestions = new Map();
   for (const item of list(raw?.answers, 12)) {
@@ -480,16 +482,17 @@ export function sanitizeApplicationAnswerSuggestions(raw, questions, sourceText 
     const question = byId.get(id);
     if (!question || suggestions.has(id)) continue;
     const evidence = list(item?.evidence, 3).map((quote) => clean(quote, 360)).filter(Boolean);
-    const verifiedEvidence = item?.evidenceUnverified !== true && evidence.length > 0
-      && evidence.every((quote) => source.includes(normalizedHaystack(quote).replace(/\s+/gu, ' ')));
     const proposal = String(item?.suggestedAnswer ?? '').replace(/\s+/gu, ' ').trim();
-    const maxAnswerLength = Math.min(450, Number(question.validation?.maxLength) || 450);
-    // A real citation alone does not prove every claim in the generated text.
-    const factsSupported = proposal.length > 0 && checkDraftFacts({ coverLetter: proposal }, { text: sourceText }).ok;
-    const suggestedAnswer = verifiedEvidence && factsSupported && proposal.length <= maxAnswerLength ? clean(proposal, maxAnswerLength) : '';
+    const checked = verifyCvAnswer({ kind: item?.kind, answer: proposal, evidence }, { cvText: sourceText, question });
+    // A citation id the request did not issue is an invention too, and a real citation alone does not
+    // prove every claim in the generated text: the letter's fact gate runs over it as well.
+    const kept = checked.ok && item?.evidenceUnverified !== true
+      && checkDraftFacts({ coverLetter: proposal }, { text: sourceText }).ok;
+    const suggestedAnswer = kept ? checked.value : '';
     suggestions.set(id, {
       suggestedAnswer,
-      answerEvidence: suggestedAnswer ? evidence : [],
+      answerEvidence: suggestedAnswer ? checked.evidence : [],
+      answerKind: suggestedAnswer ? checked.kind : '',
       answerMissingDetail: clean(item?.missingDetail, 240),
     });
   }

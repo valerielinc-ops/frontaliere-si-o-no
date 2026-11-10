@@ -673,4 +673,34 @@ describe('useNavigationState', () => {
       expect(result.current.staticOverlay).toBe(false);
     });
   });
+
+  describe('employer profile /aziende/<slug>/ fallback without static HTML', () => {
+    it('hydrates JobBoard company filter when /aziende/<slug>/ has no static main in DOM', () => {
+      document.body.innerHTML = '<div id="root"></div>';
+      window.history.replaceState({}, '', '/aziende/comune-di-minusio/');
+      vi.mocked(parsePath).mockReturnValue({
+        route: { activeTab: 'job-board', staticOverlay: true },
+        locale: 'it',
+      } as never);
+
+      const { result } = renderHook(() => useNavigationState());
+      expect(result.current.activeTab).toBe('job-board');
+      expect(result.current.staticOverlay).toBe(false);
+      expect(result.current.jobSlug).toBe('azienda-comune-di-minusio');
+    });
+
+    it('keeps staticOverlay=true when /aziende/<slug>/ has main.seo-static-content in DOM', () => {
+      document.body.innerHTML = '<div id="root"></div><main class="seo-static-content"><h1>Comune di Minusio</h1></main>';
+      window.history.replaceState({}, '', '/aziende/comune-di-minusio/');
+      vi.mocked(parsePath).mockReturnValue({
+        route: { activeTab: 'job-board', staticOverlay: true },
+        locale: 'it',
+      } as never);
+
+      const { result } = renderHook(() => useNavigationState());
+      expect(result.current.activeTab).toBe('job-board');
+      expect(result.current.staticOverlay).toBe(true);
+      expect(result.current.jobSlug).toBeNull();
+    });
+  });
 });

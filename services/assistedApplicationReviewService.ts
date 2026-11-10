@@ -87,6 +87,10 @@ export interface ReviewQuestion {
   why: string;
   /** Answered by the platform's defaults (owner decision 2026-11-09): shown prefilled, the candidate may change it. */
   answeredByPlatform?: boolean;
+  /** The answer comes from the CV: cited (`cv_evidence`) or a plausible description built from it (`cv_plausible`). */
+  answerFromCv?: 'cv_evidence' | 'cv_plausible';
+  /** Decided by the platform's decision engine (2026-11-10): the owner principle the proposal rests on. */
+  answerDecisionPrinciple?: 'cv_fact' | 'platform_rule' | 'application_success' | 'same_employer_consent' | 'plausible_deduction';
   type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
   options: string[];
   required: boolean;

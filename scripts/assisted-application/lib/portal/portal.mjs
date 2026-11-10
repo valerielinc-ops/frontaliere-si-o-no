@@ -44,6 +44,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { decideLiveQuestions } from '../decision-answers.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -7556,7 +7557,9 @@ export async function submitViaPortal(ctx) {
       // the current planning surface.
       return mergePortalChoiceOptions(current, refreshed);
     };
-    const askCandidate = async (questions, current = snapshot) => {
+    // The questions the decision engine already decided or left in this run: each is tried once.
+    const engineTried = new Set();
+    const askCandidate = async (questions, current = snapshot, { decide = false } = {}) => {
       const questionSnapshot = await snapshotWithPortalOptions(current);
       const requirements = portalRequirementsFromMissingRequired(questionSnapshot.fields, questions, {
         candidate: ctx.candidate,
@@ -7576,6 +7579,23 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
+      // The decision engine before the candidate (owner mandate 2026-11-10, lib/decision-answers.mjs): what it
+      // decides by the owner's principles joins the platform's proposals and the page is planned again, so the
+      // planner fills it; only what it leaves (CANDIDATE_ONLY_CATEGORIES, failed checks) reaches the candidate.
+      if (decide) {
+        const fresh = (request.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
+        for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
+        const engine = fresh.length
+          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, log })
+          : { ids: [], decisions: [] };
+        if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
+        if (engine.ids.length) {
+          const facts = ctx.candidate.platformFacts;
+          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
+          return { replan: true };
+        }
+      }
       return {
         event: {
           type: 'submit_needs_candidate',
@@ -8091,7 +8111,9 @@ export async function submitViaPortal(ctx) {
               unclearQuestions = candidateQuestions;
               agentHint = 'unclear_fields';
             } else {
-              const request = await askCandidate(candidateQuestions, snapshot);
+              const request = await askCandidate(candidateQuestions, snapshot, { decide: true });
+              // Planned again without spending a step: each question goes to the engine once (engineTried).
+              if (request?.replan) { step -= 1; continue; }
               if (request) return request;
             }
           }
