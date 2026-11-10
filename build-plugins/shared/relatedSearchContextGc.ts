@@ -10,9 +10,9 @@ export function isRelatedSearchContextGcEnabled(value: string | undefined): bool
 }
 
 /**
- * Keep short-lived matcher allocations from accumulating through the full
- * 395k-candidate pass. The first 20k contexts use tighter checkpoints because
- * production profiles show most transient heap growth in that warm-up window.
+ * Sample/consider collection at bounded checkpoints. Dense warm-up points
+ * include the 2,500-context boundary where the preceding SEO phases left dead
+ * heap; later points keep transient allocations bounded through the full pass.
  */
 export function shouldForceRelatedSearchContextGc(processedContexts: number): boolean {
   if (!Number.isSafeInteger(processedContexts) || processedContexts <= 0) return false;
@@ -25,7 +25,7 @@ export function shouldForceRelatedSearchContextGc(processedContexts: number): bo
 
 /**
  * Full collections are expensive. After the first checkpoint, run one only
- * after at least 512 MiB of new heap has accumulated.
+ * after at least 512 MiB of new heap has accumulated since the previous GC.
  */
 export function shouldCollectRelatedSearchContextGarbage(
   heapUsedBytes: number,
@@ -52,7 +52,7 @@ function isFiniteNonNegative(value: number | null): value is number {
  * Include the build guard's RSS + VmSwap signal without making /proc a build
  * prerequisite. Missing current anon telemetry falls back to the established
  * heap-only predicate; missing prior anon telemetry disables only its growth
- * comparison, while a valid current sample can still trip guard headroom.
+ * comparison, while a valid current sample can still trip the guard headroom.
  */
 export function decideRelatedSearchContextGc(
   heapUsedBytes: number,
