@@ -1,7 +1,7 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-11-10T09:17:42.153Z",
+  "generatedAt": "2026-11-10T21:31:36.359Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 7712,
-  "avgDurationMs": 7712,
+  "durationMs": 9355,
+  "avgDurationMs": 9355,
   "durationHistory": [
-    7712
+    9355
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cordenpharma-ad013d1121fd",
-      "slug": "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen",
+      "slug": "operatore-di-sistema-m-f-d-3-strati-cordenpharma-ettingen",
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
       "companyDomain": "cordenpharma.com",
@@ -34,7 +35,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/21024/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:30.344Z",
+      "crawledAt": "2026-11-10T21:31:12.948Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -52,24 +53,22 @@
       "postedDate": "2026-11-09T23:00Z",
       "postingDateSource": "reported",
       "applyUrl": "https://career.cordenpharma.com/de/p/ettingen/jobs/21024/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T12:36:02.888Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:17:30.344Z",
+      "validThrough": "2027-02-08T21:31:12.948Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-16T12:36:02.888Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +83,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:30.827Z",
+      "crawledAt": "2026-11-10T21:31:13.463Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -107,7 +106,7 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:17:30.827Z",
+      "validThrough": "2026-12-10T21:31:13.463Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +128,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/21021/teamleiterin-lab-analytics-100-mwd-innerhalb-abteilung-qc-analytics",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:29.866Z",
+      "crawledAt": "2026-11-10T21:31:12.444Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -152,7 +151,7 @@
       "salaryMax": 211500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:17:29.866Z",
+      "validThrough": "2027-01-20T21:31:12.444Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +173,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20999/lernender-chemie-und-pharmatechnologe-efz-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:29.400Z",
+      "crawledAt": "2026-11-10T21:31:11.873Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -197,7 +196,7 @@
       "salaryMax": 68000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:17:29.400Z",
+      "validThrough": "2027-01-11T21:31:11.873Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -219,7 +218,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:28.915Z",
+      "crawledAt": "2026-11-10T21:31:11.364Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -242,7 +241,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T09:17:28.915Z",
+      "validThrough": "2026-12-13T21:31:11.364Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -264,7 +263,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:28.400Z",
+      "crawledAt": "2026-11-10T21:31:10.836Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -287,7 +286,7 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T09:17:28.400Z",
+      "validThrough": "2026-12-21T21:31:10.836Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -309,7 +308,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/21030/chemie-pharmatechnologe-day-shift-100-mwd-in-tagesschicht-innerhalb-unserer-techopsmanufacturing",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:27.914Z",
+      "crawledAt": "2026-11-10T21:31:10.148Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -332,7 +331,7 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:17:27.914Z",
+      "validThrough": "2027-02-04T21:31:10.148Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -354,7 +353,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/21009/chemie-und-pharmatechnologe-100-mwd-2-schicht-fruhspat-mo-fr",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:27.420Z",
+      "crawledAt": "2026-11-10T21:31:09.646Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -377,7 +376,7 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T09:17:27.420Z",
+      "validThrough": "2027-01-09T21:31:09.646Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -399,7 +398,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:26.941Z",
+      "crawledAt": "2026-11-10T21:31:09.137Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -422,7 +421,7 @@
       "salaryMax": 138500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:17:26.941Z",
+      "validThrough": "2026-12-10T21:31:09.137Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -433,5 +432,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }
