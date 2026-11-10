@@ -3843,6 +3843,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (m) {
  if (emitted.indexable) emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
  emittedEmployerProfilesBySlug.set(m[2], emitted);
+ knownEmployerProfileSlugs.add(m[2]);
  }
  }
  console.log(

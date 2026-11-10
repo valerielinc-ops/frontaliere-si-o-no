@@ -15,6 +15,9 @@ export const MIN_ACTIVE_JOBS = 3;
 /** Companies with >= this but < MIN_ACTIVE_JOBS get a noindex,follow bridge. */
 export const BRIDGE_FLOOR = 2;
 
+/** Runaway guard so a crawler mis-aggregation can't balloon the sitemap. */
+export const MAX_PROFILES = 1000;
+
 /*
  * ── STATUS, 2026-08-08: HALF OF THIS IS NOW DONE ───────────────────────────
  *

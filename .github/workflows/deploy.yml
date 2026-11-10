@@ -381,6 +381,8 @@ jobs:
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
+      - name: Refresh employer-profiles snapshot from live corpus
+        run: node scripts/build-employer-profiles.mjs
       - name: Refresh weekly-employers footer link list
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
       - name: Mine all job slugs for 404 coverage
