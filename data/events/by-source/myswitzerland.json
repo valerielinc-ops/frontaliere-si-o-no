@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-09T14:45:10.170Z",
+  "assembledAt": "2026-11-10T14:10:53.767Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -146135,34 +146135,18 @@
       },
       "startDate": "2027-01-08",
       "endDate": "2027-01-08",
-      "startTime": "20:00",
-      "category": "Theater",
-      "venue": "Théâtre de Beaulieu",
+      "category": "Event",
+      "venue": "Lausanne",
       "comune": "Lausanne",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/les-4-saisons-ballet/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/les-4-saisons-ballet/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "amount": 1,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Avenue Bergières 10",
-        "postalCode": "1004",
-        "locality": "Lausanne"
-      },
       "geo": {
-        "lat": 46.5286926,
-        "lng": 6.6233879
+        "lat": 46.5293402,
+        "lng": 6.623266
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ticketcorner",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/les-4-saisons-ballet/"
-      },
       "performer": {
         "name": "Paris Ballet Theater"
       },
@@ -264937,29 +264921,25 @@
       },
       "startDate": "2026-12-15",
       "endDate": "2026-12-15",
-      "startTime": "18:30",
       "category": "Event",
       "venue": "Geneva",
-      "comune": "Genève",
-      "canton": "GE",
+      "canton": "",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/ali-catherine-et-ferdinand-lescalade-vue-par-hodler/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
-        "lat": 46.2013698,
-        "lng": 6.1485431
+        "lat": 46.2014032,
+        "lng": 6.1471064
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Geneva"
-      },
-      "sourceDescriptionHash": "126433b3f2c3d5aa89d294522bbe05604f0e15ad9452c83ff011a411435024b0"
+      "sourceDescriptionHash": "126433b3f2c3d5aa89d294522bbe05604f0e15ad9452c83ff011a411435024b0",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "ali-catherine-et-ferdinand-lescalade-vue-par-2026-12-15"
+        }
+      ]
     },
     {
       "id": "myswitzerland:57976beec3544a6b87d167ee0db0543e",
@@ -274712,6 +274692,501 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "ca72851b95b87a64ad6beb49a5a1c72b57268263ef2a927ecd9dd64f1202e923"
+    },
+    {
+      "id": "myswitzerland:5cc72690dd5b459db2fb6064ba1071b7",
+      "title": "Summer biathlon by ESS Villars",
+      "titleByLocale": {
+        "it": "Summer biathlon by ESS Villars",
+        "en": "Summer biathlon by ESS Villars",
+        "de": "Sommerbiathlon durch die ESS Villars",
+        "fr": "Biathlon estival par l'ESS de Villars"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-10-28",
+      "category": "Event",
+      "venue": "Villars-sur-Ollon",
+      "comune": "Ollon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/summer-biathlon-by-ess-villars/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2993238,
+        "lng": 7.0528873
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e65cce9fb12a65d4df90abf3de2dc681d7f3e4a714fc9d8ca6091aba0ce2a77a"
+    },
+    {
+      "id": "myswitzerland:5bb9bc64006b49e1994d75ed7b0f2e98",
+      "title": "Gaming & Sport Camp Zurzach",
+      "titleByLocale": {
+        "it": "Gaming & Sport Camp Zurzach",
+        "en": "Gaming & Sport Camp Zurzach",
+        "de": "Gaming & Sport Camp Zurzach",
+        "fr": "Gaming & Sport Camp Zurzach"
+      },
+      "startDate": "2027-07-12",
+      "endDate": "2027-07-16",
+      "category": "Event",
+      "venue": "Bad Zurzach",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/gaming-sport-camp-zurzach-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.584328,
+        "lng": 8.294369
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Gaming"
+        },
+        {
+          "name": "Sport"
+        },
+        {
+          "name": "Bewegung"
+        }
+      ],
+      "sourceDescriptionHash": "495276fa403e3b93e972ae80817e093df76070ccf9b0051accf4f278267f2f85"
+    },
+    {
+      "id": "myswitzerland:5ad88bbb376d4fca8cd471ffb41bbdf4",
+      "title": "Visita alla fattoria",
+      "titleByLocale": {
+        "it": "Visita alla fattoria",
+        "en": "Visit to the farm",
+        "de": "Besuch auf dem Bauernhof",
+        "fr": "Visite de la ferme"
+      },
+      "startDate": "2027-02-05",
+      "endDate": "2027-03-05",
+      "category": "Event",
+      "venue": "Disentis",
+      "comune": "Disentis/Mustér",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/visita-alla-fattoria-5/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.700186,
+        "lng": 8.841038
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Tieren"
+      },
+      "sourceDescriptionHash": "952dd2421ebdd1d6e59b1e5aee92c7fe92d00bd7b25e21d159cfe2b8b67d3e8b"
+    },
+    {
+      "id": "myswitzerland:59c947c94a8240a48e94e65960a9ec94",
+      "title": "Thai Magic Dinner",
+      "titleByLocale": {
+        "it": "Thai Magic Dinner",
+        "en": "Thai Magic Dinner",
+        "de": "Thai Magic Duo Dinner",
+        "fr": "Thai Magic Dinner"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/thai-magic-dinner/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.48023,
+        "lng": 8.313702
+      },
+      "recurring": true,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Thai Magic Duo"
+      },
+      "sourceDescriptionHash": "a76f967ad2e90b4f99d5cd37ef0a2ad06101ac9421102f1b58a9825e05cf7b62"
+    },
+    {
+      "id": "myswitzerland:59b3462c50da4df1b8d5ccac38bc8cbb",
+      "title": "Sonntags Serenade mit Vivienne Steiner",
+      "titleByLocale": {
+        "it": "Sonntags Serenade mit Vivienne Steiner",
+        "en": "Sonntags Serenade mit Vivienne Steiner",
+        "de": "Sonntags Serenade mit Vivienne Steiner",
+        "fr": "Sonntags Serenade mit Vivienne Steiner"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sonntags-serenade-mit-vivienne-steiner/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6468782,
+        "lng": 9.1958107
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Repertoire"
+        },
+        {
+          "name": "Kulinarik"
+        },
+        {
+          "name": "Terminen"
+        },
+        {
+          "name": "Themen"
+        },
+        {
+          "name": "Menschen"
+        }
+      ],
+      "sourceDescriptionHash": "ed3819afbf5187b8d0c1469604d06c16e94289ae146ed8e734edb7751a35a089"
+    },
+    {
+      "id": "myswitzerland:598357383f3049dfab9f52ee44a39f7e",
+      "title": "Wenkenhofgespräche: \"Zeiten erhöhter Gefahr\" von Julia von Lucadou (Lesezirkel)",
+      "titleByLocale": {
+        "it": "Wenkenhofgespräche: \"Zeiten erhöhter Gefahr\" von Julia von Lucadou (Lesezirkel)",
+        "en": "Wenkenhofgespräche: \"Zeiten erhöhter Gefahr\" von Julia von Lucadou (Lesezirkel)",
+        "de": "Wenkenhofgespräche: \"Zeiten erhöhter Gefahr\" von Julia von Lucadou (Lesezirkel)",
+        "fr": "Wenkenhofgespräche: \"Zeiten erhöhter Gefahr\" von Julia von Lucadou (Lesezirkel)"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wenkenhofgespraeche-zeiten-erhoehter-gefahr-von-julia-von-lucadou-lesezirkel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.584714,
+        "lng": 7.6507779
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6cf3f6eab36358b03afc4e43ade598d403240b36e3f81108cf576013c2e6b549"
+    },
+    {
+      "id": "myswitzerland:592a8f510e3f4e1d9743d3d5bff1341d",
+      "title": "Theater «Der Killer und die Nervensäge»",
+      "titleByLocale": {
+        "it": "Theater «Der Killer und die Nervensäge»",
+        "en": "Theater «Der Killer und die Nervensäge»",
+        "de": "Theater «Der Killer und die Nervensäge»",
+        "fr": "Theater «Der Killer und die Nervensäge»"
+      },
+      "startDate": "2027-04-09",
+      "endDate": "2027-04-09",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theater-der-killer-und-die-nervensaege-5/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.387017,
+        "lng": 8.4256455
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "15d276e60a58a586c3c7addfb6cd8f2b639f9b04a39be20731d2aaee86992f4b"
+    },
+    {
+      "id": "myswitzerland:58b808d6de3942e38024c7b8cd766dfc",
+      "title": "Yoga",
+      "titleByLocale": {
+        "it": "Yoga",
+        "en": "Yoga",
+        "de": "Yoga",
+        "fr": "Yoga"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2027-04-23",
+      "category": "Event",
+      "venue": "Mürren",
+      "comune": "Lauterbrunnen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/yoga-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.562355,
+        "lng": 7.896403
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "bdad511425d9a736024525abf35cc082416b0b7877a1550f005f45ad0b7e4556"
+    },
+    {
+      "id": "myswitzerland:5883b922e4be476982434c5057299576",
+      "title": "Kerzenziehen 2026",
+      "titleByLocale": {
+        "it": "Kerzenziehen 2026",
+        "en": "Kerzenziehen 2026",
+        "de": "Kerzenziehen 2026",
+        "fr": "Kerzenziehen 2026"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-12-02",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kerzenziehen-2026-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.444206,
+        "lng": 8.581801
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "84d458d5b1544a1fef9e69f4470f82974b00f93b290de24ae44ea0d1a148c286"
+    },
+    {
+      "id": "myswitzerland:585540af902240f5bb7a930ddb217234",
+      "title": "Die letzte ultimative Silvester Party",
+      "titleByLocale": {
+        "it": "Die letzte ultimative Silvester Party",
+        "en": "Die letzte ultimative Silvester Party",
+        "de": "Die letzte ultimative Silvester Party",
+        "fr": "Die letzte ultimative Silvester Party"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/die-letzte-ultimative-silvester-party/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7b99146470bd8101786ec085c95b17b03249b8d33ba400760362eb55f4f94538"
+    },
+    {
+      "id": "myswitzerland:5846248d37f44b48b520745c3665ef37",
+      "title": "Knusper-Lebkuchenhäuschen – zum Naschen, Dekorieren & Verschenken",
+      "titleByLocale": {
+        "it": "Knusper-Lebkuchenhäuschen – zum Naschen, Dekorieren & Verschenken",
+        "en": "Knusper-Lebkuchenhäuschen – zum Naschen, Dekorieren & Verschenken",
+        "de": "Knusper-Lebkuchenhäuschen – zum Naschen, Dekorieren & Verschenken",
+        "fr": "Knusper-Lebkuchenhäuschen – zum Naschen, Dekorieren & Verschenken"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-16",
+      "category": "Event",
+      "venue": "Alberswil",
+      "comune": "Alberswil",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/knusperlebkuchenhaeuschen-zum-naschen-dekorieren-verschenken/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1432394,
+        "lng": 7.9998415
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "a1dac267251a776551147ac57ed06d7ff51216d6254e15a9d7a1e5eac0c56286"
+    },
+    {
+      "id": "myswitzerland:583254430b3f4378ae2e05252dbc552c",
+      "title": "Café-Erzählungen: «Geschichten vom Schnee»",
+      "titleByLocale": {
+        "it": "Café-Erzählungen: «Geschichten vom Schnee»",
+        "en": "Café-Erzählungen: «Geschichten vom Schnee»",
+        "de": "Café-Erzählungen: «Geschichten vom Schnee»",
+        "fr": "Café-récits : \"Histoires de neige\""
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "category": "Event",
+      "venue": "Aigle",
+      "comune": "Aigle",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cafe-erzaehlungen-geschichten-vom-schnee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3193934,
+        "lng": 6.9643973
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "81083179ae179ac93d6c2ddaa2ec308b6d1df48e64afe11602dc2fcd7cf8d84d"
+    },
+    {
+      "id": "myswitzerland:58249eed89eb4fe5ae04b4646b4a7d5b",
+      "title": "Fotoausstellung \"Das Publikum noch vor der Tür\"",
+      "titleByLocale": {
+        "it": "Fotoausstellung \"Das Publikum noch vor der Tür\"",
+        "en": "Fotoausstellung \"Das Publikum noch vor der Tür\"",
+        "de": "Fotoausstellung \"Das Publikum noch vor der Tür\"",
+        "fr": "Fotoausstellung \"Das Publikum noch vor der Tür\""
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Mauren FL",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fotoausstellung-das-publikum-noch-vor-der-tuer/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2208507,
+        "lng": 9.544559
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Künstler"
+        },
+        {
+          "name": "Schauspieler"
+        },
+        {
+          "name": "Proben"
+        }
+      ],
+      "sourceDescriptionHash": "1bb7477d1d54ff2cf75afbdb535ed8675d974d8d399bc5e5024f3d2e95834a9d"
+    },
+    {
+      "id": "myswitzerland:58198efcb06c4320b26ae8d03466966d",
+      "title": "SciStay - Research, discovery & amazement for children and teens.",
+      "titleByLocale": {
+        "it": "SciStay - Research, discovery & amazement for children and teens.",
+        "en": "SciStay - Research, discovery & amazement for children and teens.",
+        "de": "SciStay - Forschen, Entdecken & Staunen für Kinder und Teens.",
+        "fr": "SciStay - Research, discovery & amazement for children and teens."
+      },
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/scistay-research-discovery-amazement-for-children-and-teens-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3563873,
+        "lng": 8.591235
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "227c82604e844ab02190da965f4cb4e21a483f9d7fbc130e6c203314f66550e3"
+    },
+    {
+      "id": "myswitzerland:5811b8c713254f67bc40a1bcab7bb753",
+      "title": "Firmenrundgang - Produktion mit Herz und Hand - 20. Januar 2027",
+      "titleByLocale": {
+        "it": "Firmenrundgang - Produktion mit Herz und Hand - 20. Januar 2027",
+        "en": "Firmenrundgang - Produktion mit Herz und Hand - 20. Januar 2027",
+        "de": "Firmenrundgang - Produktion mit Herz und Hand - 20. Januar 2027",
+        "fr": "Firmenrundgang - Produktion mit Herz und Hand - 20. Januar 2027"
+      },
+      "startDate": "2027-01-20",
+      "endDate": "2027-01-20",
+      "category": "Event",
+      "venue": "Wangen-Brüttisellen",
+      "comune": "Wangen-Brüttisellen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/firmenrundgang-produktion-mit-herz-und-hand-20-januar-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.421991,
+        "lng": 8.627665
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "cb7eb7ffe7131aed9cca55fd8f6f18e7a39c7171eac584efb8d294f7357d744a"
+    },
+    {
+      "id": "myswitzerland:57e9b9779b974d688f8165a136b25f81",
+      "title": "SCHNITZULCHEER ÜFHEERU",
+      "titleByLocale": {
+        "it": "SCHNITZULCHEER ÜFHEERU",
+        "en": "SCHNITZULCHEER ÜFHEERU",
+        "de": "SCHNITZULCHEER ÜFHEERU",
+        "fr": "SCHNITZULCHEER ÜFHEERU"
+      },
+      "startDate": "2027-02-03",
+      "endDate": "2027-02-05",
+      "category": "Event",
+      "venue": "Blatten-Belalp",
+      "comune": "Blatten",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schnitzulcheer-uefheeru/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.358795,
+        "lng": 7.984372
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "36da0e969681eb15c51910a0c2c78bec6e6b6be29eacf89dc6fe608073c8f16d"
+    },
+    {
+      "id": "myswitzerland:576c93873eb44fb3a534840c420d8ddb",
+      "title": "Initiation à l'improvisation théâtrale dès 6 ans",
+      "titleByLocale": {
+        "it": "Initiation à l'improvisation théâtrale dès 6 ans",
+        "en": "Initiation à l'improvisation théâtrale dès 6 ans",
+        "de": "Initiation à l'improvisation théâtrale dès 6 ans",
+        "fr": "Initiation à l'improvisation théâtrale dès 6 ans"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/initiation-a-limprovisation-theatrale-des-6-ans-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1979415,
+        "lng": 6.1371087
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6c00021934b79429d26063272479a98642c5186a3f702d6ab7f2c2cc035a76fb"
+    },
+    {
+      "id": "myswitzerland:57277a6576bc41cfb33e1d06afa838ec",
+      "title": "Schweizer Erzählnacht 2026",
+      "titleByLocale": {
+        "it": "Schweizer Erzählnacht 2026",
+        "en": "Schweizer Erzählnacht 2026",
+        "de": "Schweizer Erzählnacht 2026",
+        "fr": "Schweizer Erzählnacht 2026"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schweizer-erzaehlnacht-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5829739,
+        "lng": 7.648341
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b4df5fb5a31df5f70e916ddfa680c1070faa1e9a5a00dba6bfe1d0b33c554966"
     }
   ]
 }
