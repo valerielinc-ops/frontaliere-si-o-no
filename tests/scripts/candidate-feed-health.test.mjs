@@ -20,11 +20,93 @@ test('recovery defers while a target workflow run is pending', () => {
 test('recovery run listings are bounded and retry transient GitHub failures', () => {
   const listings = [...HEALTH_WORKFLOW.matchAll(/listWorkflowRuns\(\{[\s\S]*?\n\s+\}\)/gu)]
     .map((match) => match[0]);
-  assert.equal(listings.length, 3);
+  assert.equal(listings.length, 2);
   for (const listing of listings) {
     assert.match(listing, /created: `>=\$\{created\}`/u);
   }
-  assert.equal((HEALTH_WORKFLOW.match(/^\s+retries: 2$/gmu) || []).length, 2);
+  assert.equal((HEALTH_WORKFLOW.match(/^\s+retries:/gmu) || []).length, 0);
+  assert.equal((HEALTH_WORKFLOW.match(/listWorkflowRunsWithRetry\(['"][^'"]+['"]\)/gu) || []).length, 3);
+});
+
+test('mining recovery retries listWorkflowRuns on 5xx but leaves dispatch single-shot', async () => {
+  const mineStepMatch = HEALTH_WORKFLOW.match(/name: Re-mine stale or missing candidate source[\s\S]*?script: \|\n([\s\S]*?)(?=\n\s+- name:|$)/u);
+  assert.ok(mineStepMatch);
+  const scriptBody = mineStepMatch[1].replace(/^[ ]{12}/gm, '');
+
+  let listAttempts = 0;
+  let dispatchAttempts = 0;
+  const mockGithub = {
+    rest: {
+      actions: {
+        listWorkflowRuns: async () => {
+          listAttempts++;
+          if (listAttempts === 1) {
+            const err = new Error('Service Unavailable');
+            err.status = 503;
+            throw err;
+          }
+          return { data: { workflow_runs: [] } };
+        },
+        createWorkflowDispatch: async () => {
+          dispatchAttempts++;
+          const err = new Error('Service Unavailable');
+          err.status = 503;
+          throw err;
+        },
+      },
+    },
+  };
+  const mockContext = { repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' } };
+  const mockCore = { notice: () => {} };
+
+  const fn = new Function('context', 'github', 'core', `return (async () => {\n${scriptBody}\n})();`);
+  await assert.rejects(
+    () => fn(mockContext, mockGithub, mockCore),
+    (err) => err?.status === 503,
+  );
+  assert.equal(listAttempts, 2);
+  assert.equal(dispatchAttempts, 1);
+});
+
+test('deploy recovery retries listWorkflowRuns on 5xx but leaves dispatch single-shot', async () => {
+  const deployStepMatch = HEALTH_WORKFLOW.match(/name: Rebuild and republish a stale or missing CDN projection[\s\S]*?script: \|\n([\s\S]*?)$/u);
+  assert.ok(deployStepMatch);
+  const scriptBody = deployStepMatch[1].replace(/^[ ]{12}/gm, '');
+
+  let listAttempts = 0;
+  let dispatchAttempts = 0;
+  const mockGithub = {
+    rest: {
+      actions: {
+        listWorkflowRuns: async () => {
+          listAttempts++;
+          if (listAttempts === 1) {
+            const err = new Error('Service Unavailable');
+            err.status = 503;
+            throw err;
+          }
+          return { data: { workflow_runs: [] } };
+        },
+        createWorkflowDispatch: async () => {
+          dispatchAttempts++;
+          const err = new Error('Service Unavailable');
+          err.status = 503;
+          throw err;
+        },
+      },
+    },
+  };
+  const mockContext = { repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' } };
+  const mockCore = { notice: () => {} };
+
+  const fn = new Function('context', 'github', 'core', `return (async () => {\n${scriptBody}\n})();`);
+  await assert.rejects(
+    () => fn(mockContext, mockGithub, mockCore),
+    (err) => err?.status === 503,
+  );
+  // Two list calls running concurrently: 1 attempt failed, 1 attempt retried, total at least 2 list calls
+  assert.ok(listAttempts >= 2);
+  assert.equal(dispatchAttempts, 1);
 });
 
 test('candidate feed health has a native schedule as a fallback to the external loop clock', () => {

@@ -72,27 +72,42 @@ jobs:
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          retries: 2
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             // Bound the branch-filtered listing: GitHub can serve stale or
             // transient 5xx responses when an Actions history grows large.
             const created = new Date(Date.now() - 35 * 86_400_000).toISOString().slice(0, 10);
-            const { data } = await github.rest.actions.listWorkflowRuns({
-              owner,
-              repo,
-              workflow_id: 'topic-candidates-mining.yml',
-              branch: 'main',
-              created: `>=${created}`,
-              per_page: 100,
-            });
+            async function listWorkflowRunsWithRetry(workflow_id) {
+              let attempts = 0;
+              while (true) {
+                try {
+                  return await github.rest.actions.listWorkflowRuns({
+                    owner,
+                    repo,
+                    workflow_id,
+                    branch: 'main',
+                    created: `>=${created}`,
+                    per_page: 100,
+                  });
+                } catch (err) {
+                  attempts++;
+                  const status = err?.status;
+                  const is5xx = typeof status === 'number' && status >= 500 && status < 600;
+                  if (attempts > 2 || !is5xx) throw err;
+                  await new Promise((resolve) => setTimeout(resolve, attempts * 500));
+                }
+              }
+            }
+            const { data } = await listWorkflowRunsWithRetry('topic-candidates-mining.yml');
             const active = data.workflow_runs.some((run) =>
               ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(run.status));
             if (active) {
               core.notice('Candidate mining is already queued or running; recovery is deferred to the next health check.');
               return;
             }
+            // Dispatches are single-shot: transient 5xx responses must not replay
+            // createWorkflowDispatch and trigger duplicate recovery runs.
             await github.rest.actions.createWorkflowDispatch({
               owner,
               repo,
@@ -106,30 +121,36 @@ jobs:
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          retries: 2
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             // The recovery check only needs live candidates; keep the
             // branch-filtered listing bounded and retry transient 5xx errors.
             const created = new Date(Date.now() - 35 * 86_400_000).toISOString().slice(0, 10);
+            async function listWorkflowRunsWithRetry(workflow_id) {
+              let attempts = 0;
+              while (true) {
+                try {
+                  return await github.rest.actions.listWorkflowRuns({
+                    owner,
+                    repo,
+                    workflow_id,
+                    branch: 'main',
+                    created: `>=${created}`,
+                    per_page: 100,
+                  });
+                } catch (err) {
+                  attempts++;
+                  const status = err?.status;
+                  const is5xx = typeof status === 'number' && status >= 500 && status < 600;
+                  if (attempts > 2 || !is5xx) throw err;
+                  await new Promise((resolve) => setTimeout(resolve, attempts * 500));
+                }
+              }
+            }
             const [build, publish] = await Promise.all([
-              github.rest.actions.listWorkflowRuns({
-                owner,
-                repo,
-                workflow_id: 'deploy.yml',
-                branch: 'main',
-                created: `>=${created}`,
-                per_page: 100,
-              }),
-              github.rest.actions.listWorkflowRuns({
-                owner,
-                repo,
-                workflow_id: 'deploy-publish.yml',
-                branch: 'main',
-                created: `>=${created}`,
-                per_page: 100,
-              }),
+              listWorkflowRunsWithRetry('deploy.yml'),
+              listWorkflowRunsWithRetry('deploy-publish.yml'),
             ]);
             const activeBuild = build.data.workflow_runs.some((run) =>
               ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(run.status));
@@ -139,6 +160,8 @@ jobs:
               core.notice('A Pages build or publish is already queued or running; recovery is deferred to the next health check.');
               return;
             }
+            // Dispatches are single-shot: transient 5xx responses must not replay
+            // createWorkflowDispatch and trigger duplicate recovery runs.
             await github.rest.actions.createWorkflowDispatch({
               owner,
               repo,
