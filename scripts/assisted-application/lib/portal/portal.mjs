@@ -2052,6 +2052,22 @@ export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settin
 // control has proved that it belongs to a cookie manager surface.
 export const COOKIE_MANAGE_CONSENT_RE = /^manage consent$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
+// A preference centre (opened by «Einstellungen anzeigen», «Manage options»,
+// or shown in place of the banner) can offer no reject control at all: only
+// its category toggles and a control that saves them. With every optional
+// category withdrawn first, saving is the necessary-only choice. These labels
+// carry no «cookie» word: the control still needs the same cookie context (a
+// cookie dialog or banner) as every other cookie choice.
+export const COOKIE_SAVE_RE = /^(?:(?:save|confirm|submit)(?: my| your| the)? (?:cookie )?(?:preferences|settings|choices?|selection|consent)|(?:allow|accept) (?:the )?selection|(?:einstellungen|auswahl|präferenzen|cookie-einstellungen) (?:speichern|bestätigen|übernehmen)|auswahl (?:erlauben|akzeptieren)|(?:salva|conferma)(?: le| la)? (?:preferenze|impostazioni|scelte|selezione)|(?:enregistrer|confirmer|valider|sauvegarder)(?: mes| les| ma)? (?:préférences|paramètres|choix|sélection))$/i;
+// A category the manager keeps on by itself: its toggle is left as the
+// manager set it. The status marker («Immer aktiv») may sit anywhere in the
+// category's row; the necessary/essential name is read only from the toggle's
+// own name and the row's title, never from a category description (Complianz
+// describes its optional «Preferences» as storage «necessary for» a purpose).
+const COOKIE_ALWAYS_ACTIVE_RE = /(?:always active|immer aktiv|sempre attiv|toujours actif|siempre activ)/i;
+const COOKIE_REQUIRED_CATEGORY_RE = /(?:necessary|essential|notwendig|erforderlich|essenziell|necessari|nécessaire|indispensable|unbedingt)/i;
+// At most this many toggles of one cookie surface are withdrawn.
+const COOKIE_TOGGLE_LIMIT = 40;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
 const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog)\b|\bcookie[-_ ]?(?:policy|manager)\b/i;
 // Generic banner/modal markers are not proof that a bare Manage consent
@@ -2284,7 +2300,131 @@ async function findCookieControl(page, snapshot, pattern, options = {}) {
 
 async function cookieChoice(page, snapshot) {
   return await findCookieControl(page, snapshot, COOKIE_REJECT_RE)
+    || await findCookieControl(page, snapshot, COOKIE_SAVE_RE)
     || await findCookieControl(page, snapshot, COOKIE_ACCEPT_RE);
+}
+
+function cookieControlFrame(page, control) {
+  const frameNumber = Number(control?.frame) || 0;
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  return frames[frameNumber]
+    || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
+}
+
+/**
+ * A cookie preference opener that only reopens a manager already closed: the
+ * floating «Manage consent» tab of Complianz, a «Cookie settings» button that
+ * outlives every choice. The live DOM must prove it collapsed: outside any
+ * form or dialog, no cookie dialog open on the page, and its own ARIA state
+ * says the surface it controls is closed (aria-expanded="false", or every
+ * aria-controls target present and not rendered). Without that proof the
+ * control may be the manager itself and keeps the page unresolved.
+ */
+async function isCollapsedCookieReopener(page, control) {
+  if (!control?.id || control.dialog || control.disabled) return false;
+  const frame = cookieControlFrame(page, control);
+  if (typeof frame?.evaluate !== 'function') return false;
+  const proof = await frame.evaluate(({ reopenerId }) => {
+    const element = [...document.querySelectorAll('[data-aa-id]')].find((node) => node.getAttribute('data-aa-id') === reopenerId);
+    if (!element) return 'missing';
+    if (element.closest('form, [role="form"], dialog, [role="dialog"], [aria-modal="true"]')) return 'scoped';
+    const rendered = (node) => {
+      if (!node || node.closest('[hidden]')) return false;
+      for (let current = node; current && current.nodeType === 1; current = current.parentElement) {
+        const style = window.getComputedStyle(current);
+        if (style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)) return false;
+      }
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    };
+    if (!rendered(element)) return 'hidden';
+    const cookieCopy = /\bcookies?\b/i;
+    const openCookieDialog = [...document.querySelectorAll('dialog[open], [role="dialog"], [aria-modal="true"]')]
+      .slice(0, 50).some((node) => rendered(node) && cookieCopy.test(node.innerText || node.textContent || ''));
+    if (openCookieDialog) return 'surface_open';
+    const expanded = element.getAttribute('aria-expanded');
+    if (expanded === 'true') return 'expanded';
+    const targets = String(element.getAttribute('aria-controls') || '').split(/\s+/).filter(Boolean).slice(0, 5)
+      .map((id) => document.getElementById(id));
+    if (targets.length && targets.every(Boolean)) return targets.some(rendered) ? 'surface_open' : 'collapsed';
+    return expanded === 'false' ? 'collapsed' : 'unproven';
+  }, { reopenerId: String(control.id) }).catch(() => null);
+  return proof === 'collapsed';
+}
+
+/**
+ * Before a save: switch off every optional category of the cookie surface
+ * that owns the save control (checkboxes and ARIA switches), leaving disabled
+ * toggles and the categories the manager keeps on (necessary, functional).
+ * Returns how many were withdrawn, or -1 when the control has no cookie surface.
+ */
+async function withdrawOptionalCookieToggles(page, control) {
+  const frame = cookieControlFrame(page, control);
+  if (!control?.id || typeof frame?.evaluate !== 'function') return -1;
+  const withdrawn = await frame.evaluate(({ controlId, surfacePattern, alwaysActivePattern, requiredPattern, limit }) => {
+    const control = [...document.querySelectorAll('[data-aa-id]')].find((node) => node.getAttribute('data-aa-id') === controlId);
+    if (!control) return -1;
+    const managerSurface = new RegExp(surfacePattern, 'i');
+    const alwaysActive = new RegExp(alwaysActivePattern, 'i');
+    const required = new RegExp(requiredPattern, 'i');
+    let surface = null;
+    for (let node = control.parentElement; node && node !== document.body; node = node.parentElement) {
+      const marker = [node.id, typeof node.className === 'string' ? node.className : '', node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!node.matches('dialog, [role="dialog"], [aria-modal="true"]') && !managerSurface.test(marker)) continue;
+      if (!/\bcookies?\b/i.test(node.innerText || node.textContent || '')) continue;
+      surface = node;
+      break;
+    }
+    if (!surface || surface.matches('form, [role="form"]')) return -1;
+    const toggleSelector = 'input[type="checkbox"], [role="switch"], [role="checkbox"]';
+    let count = 0;
+    for (const toggle of [...surface.querySelectorAll(toggleSelector)].slice(0, limit)) {
+      const native = toggle.tagName === 'INPUT';
+      const on = () => (native ? toggle.checked : toggle.getAttribute('aria-checked') === 'true');
+      if (!on() || toggle.disabled || toggle.getAttribute('aria-disabled') === 'true') continue;
+      // The toggle's own row: the largest ancestor that holds no other toggle.
+      let row = toggle;
+      while (row.parentElement && row.parentElement !== surface && row.parentElement.querySelectorAll(toggleSelector).length === 1) row = row.parentElement;
+      if (alwaysActive.test(row.innerText || row.textContent || '')) continue;
+      const label = toggle.id ? document.querySelector(`label[for="${CSS.escape(toggle.id)}"]`) : toggle.closest('label');
+      const labelledBy = String(toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((id) => document.getElementById(id)?.textContent || '');
+      const titles = [...row.querySelectorAll('h1, h2, h3, h4, h5, h6, legend, summary, strong, b, [class*="title" i], [class*="name" i]')]
+        .map((node) => String(node.textContent || '').trim()).filter((text) => text && text.length <= 80);
+      const name = [label?.textContent, toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...labelledBy, ...titles].join(' ');
+      if (required.test(name)) continue;
+      toggle.click();
+      if (!on()) count += 1;
+    }
+    return count;
+  }, {
+    controlId: String(control.id),
+    surfacePattern: COOKIE_MANAGER_SURFACE_RE.source,
+    alwaysActivePattern: COOKIE_ALWAYS_ACTIVE_RE.source,
+    requiredPattern: COOKIE_REQUIRED_CATEGORY_RE.source,
+    limit: COOKIE_TOGGLE_LIMIT,
+  }).catch(() => -1);
+  return Number.isInteger(withdrawn) ? withdrawn : -1;
+}
+
+/**
+ * The cookie preference controls still waiting for an answer after a choice.
+ * Not waiting: a site-chrome opener outside any dialog (header/footer «Cookie
+ * settings»), the very opener the runner used, unchanged and outside a dialog,
+ * and an opener the live DOM proves collapsed (isCollapsedCookieReopener).
+ */
+async function blockingCookiePreferences(page, current, openedBy = null) {
+  const remaining = (await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
+    genericPreferences: true, manageConsent: true,
+  })).filter((control) => !(control.chrome === true && !control.dialog && !control.dialogId));
+  const blocking = [];
+  for (const control of remaining) {
+    if (openedBy && sameCookieControl(control, openedBy) && !control.dialog && !cookieDialogRemains(current, openedBy)) continue;
+    if (await isCollapsedCookieReopener(page, control)) continue;
+    blocking.push(control);
+  }
+  return blocking;
 }
 
 function pageOrigin(page) {
@@ -2314,6 +2454,7 @@ async function cookiePageSnapshot(page) {
 
 async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {}) {
   const origin = pageOrigin(page);
+  if (COOKIE_SAVE_RE.test(cookieControlLabel(button))) await withdrawOptionalCookieToggles(page, button);
   try {
     await clickButton(page, button);
   } catch {
@@ -2322,13 +2463,22 @@ async function clickCookieChoice(page, snapshot, button, { openedBy = null } = {
   return confirmCookieChoiceDismissed(page, snapshot, origin, button, { openedBy });
 }
 
+// The frame whose shadow root holds the marked cookie control, per page (the
+// page itself for the main document).
+const shadowCookieTargets = new WeakMap();
+const COOKIE_SHADOW_FRAME_LIMIT = 10;
+
+function shadowCookieTarget(page) {
+  return shadowCookieTargets.get(page) || page;
+}
+
 async function clearShadowCookieMarker(page) {
-  await page.locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
+  await shadowCookieTarget(page).locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
 }
 
 async function clickMarkedShadowCookie(page) {
   try {
-    await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
+    await shadowCookieTarget(page).locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
     return true;
   } catch {
     return false;
@@ -2337,93 +2487,125 @@ async function clickMarkedShadowCookie(page) {
   }
 }
 
-async function markShadowCookieButton(page, { includePreferences = false } = {}) {
-  try {
-    return await page.evaluate(([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include]) => {
-    const roots = [document];
-    const shadows = [];
-    for (let index = 0; index < roots.length && index < 50; index += 1) {
-      for (const element of roots[index].querySelectorAll('*')) {
-        if (!element.shadowRoot) continue;
-        roots.push(element.shadowRoot);
-        shadows.push(element.shadowRoot);
-      }
+/**
+ * Marks the first cookie control of a shadow root, in the main document and
+ * then in up to COOKIE_SHADOW_FRAME_LIMIT embedded frames. `act` is set only
+ * when the caller clicks the mark: a save control then has its shadow root's
+ * optional categories withdrawn first; a read-only check changes nothing.
+ */
+async function markShadowCookieButton(page, { includePreferences = false, act = false } = {}) {
+  const args = [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
+    COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences,
+    COOKIE_SAVE_RE.source, COOKIE_ALWAYS_ACTIVE_RE.source, COOKIE_REQUIRED_CATEGORY_RE.source, act, COOKIE_TOGGLE_LIMIT];
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  for (const target of [page, ...frames.slice(1, 1 + COOKIE_SHADOW_FRAME_LIMIT)]) {
+    if (typeof target?.evaluate !== 'function' || typeof target?.locator !== 'function') continue;
+    let kind = '';
+    try {
+      kind = await target.evaluate(markShadowCookieInPage, args);
+    } catch {
+      kind = '';
     }
-    const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
-      for (let node = host; node && node !== document.body; node = node.parentElement) {
-        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
-          .filter(Boolean).join(' ');
-        if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
-          || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
-      }
-      return false;
-    };
-    const cookieShadowManagerSurfaceIsActive = (host) => {
-      const managerSurface = new RegExp(managerSurfacePattern, 'i');
-      for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
-        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
-          .filter(Boolean).join(' ');
-        if (!managerSurface.test(marker)) continue;
-        if (node.matches('form, [role="form"]')) continue;
-        if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
-        return true;
-      }
-      return false;
-    };
-    const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
-    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
-    for (const action of actions) {
-      const pattern = new RegExp(action.source, 'i');
-      const isManageConsent = action.source === manageConsent;
-      for (const shadow of shadows) {
-        const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
-        if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
-          || (manageConsentAction
-            ? !cookieShadowManagerSurfaceIsActive(shadow.host)
-            : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
-        const button = [...shadow.querySelectorAll('button, [role="button"]')]
-          .find((element) => {
-            const label = String(element.innerText || element.textContent || '').trim();
-            return element.getBoundingClientRect().width > 0
-              && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
-              && !(action.kind === 'preferences' && isManageConsent
-                && (element.closest('form, [role="form"]')
-                  || shadow.host.closest('form, [role="form"]')))
-              && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
-          });
-        if (button) {
-          button.setAttribute('data-aa-cookie', '1');
-          return action.kind;
-        }
-      }
-    }
-    return '';
-    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source, COOKIE_MANAGE_CONSENT_RE.source,
-      COOKIE_GENERIC_PREFERENCES_RE.source, COOKIE_MANAGER_SURFACE_RE.source, includePreferences]);
-  } catch {
-    return '';
+    if (typeof kind !== 'string' || !kind) continue;
+    if (target === page) shadowCookieTargets.delete(page);
+    else shadowCookieTargets.set(page, target);
+    return kind;
   }
+  return '';
+}
+
+function markShadowCookieInPage([reject, accept, customize, manageConsent, genericPreferences, managerSurfacePattern, include,
+  save, alwaysActivePattern, requiredPattern, act, toggleLimit]) {
+  const roots = [document];
+  const shadows = [];
+  for (let index = 0; index < roots.length && index < 50; index += 1) {
+    for (const element of roots[index].querySelectorAll('*')) {
+      if (!element.shadowRoot) continue;
+      roots.push(element.shadowRoot);
+      shadows.push(element.shadowRoot);
+    }
+  }
+  const cookieShadowSurfaceIsActive = (host, manageConsentAction = false) => {
+    for (let node = host; node && node !== document.body; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
+        || /\b(?:banner|notice|overlay|modal|dialog)\b/i.test(marker)) return true;
+    }
+    return false;
+  };
+  const cookieShadowManagerSurfaceIsActive = (host) => {
+    const managerSurface = new RegExp(managerSurfacePattern, 'i');
+    for (let node = host; node && node !== document.documentElement; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (!managerSurface.test(marker)) continue;
+      if (node.matches('form, [role="form"]')) continue;
+      if (!/\bcookies?\b/i.test(`${node.innerText || node.textContent || ''} ${host.textContent || ''}`)) continue;
+      return true;
+    }
+    return false;
+  };
+  const withdrawOptional = (shadow) => {
+    const alwaysActive = new RegExp(alwaysActivePattern, 'i');
+    const required = new RegExp(requiredPattern, 'i');
+    const toggleSelector = 'input[type="checkbox"], [role="switch"], [role="checkbox"]';
+    for (const toggle of [...shadow.querySelectorAll(toggleSelector)].slice(0, toggleLimit)) {
+      const native = toggle.tagName === 'INPUT';
+      const on = native ? toggle.checked : toggle.getAttribute('aria-checked') === 'true';
+      if (!on || toggle.disabled || toggle.getAttribute('aria-disabled') === 'true') continue;
+      let row = toggle;
+      while (row.parentElement && row.parentElement.querySelectorAll(toggleSelector).length === 1) row = row.parentElement;
+      if (alwaysActive.test(row.textContent || '')) continue;
+      const titles = [...row.querySelectorAll('h1, h2, h3, h4, h5, h6, legend, summary, strong, b, label, [class*="title" i], [class*="name" i]')]
+        .map((node) => String(node.textContent || '').trim()).filter((text) => text && text.length <= 80);
+      if (required.test([toggle.getAttribute('aria-label'), toggle.getAttribute('title'), ...titles].join(' '))) continue;
+      toggle.click();
+    }
+  };
+  const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: save, save: true }, { kind: 'decision', source: accept }];
+  if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: manageConsent }, { kind: 'preferences', source: genericPreferences });
+  for (const action of actions) {
+    const pattern = new RegExp(action.source, 'i');
+    const isManageConsent = action.source === manageConsent;
+    for (const shadow of shadows) {
+      const manageConsentAction = action.kind === 'preferences' && action.source === manageConsent;
+      if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
+        || (manageConsentAction
+          ? !cookieShadowManagerSurfaceIsActive(shadow.host)
+          : !cookieShadowSurfaceIsActive(shadow.host)))) continue;
+      const button = [...shadow.querySelectorAll('button, [role="button"]')]
+        .find((element) => {
+          const label = String(element.innerText || element.textContent || '').trim();
+          return element.getBoundingClientRect().width > 0
+            && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+            && !(action.kind === 'preferences' && isManageConsent
+              && (element.closest('form, [role="form"]')
+                || shadow.host.closest('form, [role="form"]')))
+            && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
+        });
+      if (button) {
+        if (action.save && act) withdrawOptional(shadow);
+        button.setAttribute('data-aa-cookie', '1');
+        return action.kind;
+      }
+    }
+  }
+  return '';
 }
 
 async function confirmCookieChoiceDismissed(page, snapshot, origin, blockingControl = null, { verifyShadow = false, openedBy = null } = {}) {
   await page.waitForTimeout(800);
   const current = await cookiePageSnapshot(page);
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
-  // Consent law keeps a «Cookie settings» opener in the site's header or
-  // footer after every choice. Once the decision controls are gone, such a
-  // site-chrome opener outside any dialog is the persistent entry point, not
-  // the banner still waiting for an answer.
-  const remainingPreferences = (await findCookieControls(page, current, COOKIE_CUSTOMIZE_RE, {
-    genericPreferences: true, manageConsent: true,
-  })).filter((control) => !(control.chrome === true && !control.dialog && !control.dialogId));
-  const persistentYellowsharkOpener = remainingPreferences.length > 0 && Boolean(openedBy)
-    && remainingPreferences.every((remainingPreference) => COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(remainingPreference))
-      && COOKIE_MANAGE_CONSENT_RE.test(cookieControlLabel(openedBy))
-      && sameCookieControl(remainingPreference, openedBy)
-      && !remainingPreference.dialog
-      && !cookieDialogRemains(current, openedBy));
+  // Consent law keeps an opener after every choice: a «Cookie settings» link
+  // in the site's header or footer, or a floating tab such as Complianz's
+  // «Manage consent» (order 1EpmkrDu: «Ablehnen» closed the banner, the tab
+  // appeared, and the run stopped on cookie_preferences_unresolved). Once the
+  // decision controls are gone, such an opener is the persistent entry point,
+  // not the banner still waiting for an answer (blockingCookiePreferences).
   if (await cookieChoice(page, current)
-    || (remainingPreferences.length > 0 && !persistentYellowsharkOpener)
+    || (await blockingCookiePreferences(page, current, openedBy)).length > 0
     || cookieDialogRemains(current, blockingControl)) return { status: 'unresolved', snapshot: current };
   if (verifyShadow) {
     let shadowAction = await markShadowCookieButton(page);
@@ -2444,7 +2626,15 @@ export async function dismissCookieBanner(page, snapshot) {
   let choice = await cookieChoice(page, snapshot);
   if (choice) return clickCookieChoice(page, snapshot, choice);
 
-  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true });
+  // A collapsed reopener (a consent already given, or a region without a
+  // banner) is no banner waiting for an answer: opening it would only ask the
+  // same question again on every hop.
+  let preferences = null;
+  for (const control of await findCookieControls(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) {
+    if (await isCollapsedCookieReopener(page, control)) continue;
+    preferences = control;
+    break;
+  }
   if (preferences) {
     const origin = pageOrigin(page);
     try {
@@ -2459,7 +2649,7 @@ export async function dismissCookieBanner(page, snapshot) {
     if (!choice) {
       // Manage consent can open a shadow-root preference center whose explicit
       // Reject/Accept controls are absent from the regular DOM snapshot.
-      const shadowDecision = await markShadowCookieButton(page);
+      const shadowDecision = await markShadowCookieButton(page, { act: true });
       if (shadowDecision !== 'decision') return { status: 'unresolved', snapshot: current };
       if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
       return confirmCookieChoiceDismissed(page, current, origin, preferences, {
@@ -2472,13 +2662,13 @@ export async function dismissCookieBanner(page, snapshot) {
   // A banner inside a shadow root (Usercentrics on Coop's career pages,
   // 2026-10-02) is out of the page scan's reach while its overlay takes every
   // click. Only a shadow root's own cookie controls are marked and clicked.
-  let shadowAction = await markShadowCookieButton(page);
+  let shadowAction = await markShadowCookieButton(page, { act: true });
   if (shadowAction === 'decision') {
     if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
     await page.waitForTimeout(800);
     const current = await cookiePageSnapshot(page);
     if (!current || await cookieChoice(page, current)
-      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
+      || (await blockingCookiePreferences(page, current)).length > 0) return { status: 'unresolved', snapshot: current || snapshot };
     shadowAction = await markShadowCookieButton(page, { includePreferences: true });
     if (shadowAction) {
       await clearShadowCookieMarker(page);
@@ -2487,7 +2677,7 @@ export async function dismissCookieBanner(page, snapshot) {
     return { status: 'dismissed', snapshot: current };
   }
 
-  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true, act: true });
   if (shadowAction !== 'preferences') return { status: 'none', snapshot };
   const origin = pageOrigin(page);
   if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
@@ -2496,19 +2686,76 @@ export async function dismissCookieBanner(page, snapshot) {
   if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
   choice = await cookieChoice(page, current);
   if (choice) return clickCookieChoice(page, current, choice);
-  shadowAction = await markShadowCookieButton(page);
+  shadowAction = await markShadowCookieButton(page, { act: true });
   if (shadowAction !== 'decision') return { status: 'unresolved', snapshot: current };
   if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
   await page.waitForTimeout(800);
   current = await cookiePageSnapshot(page);
   if (!current || await cookieChoice(page, current)
-    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true, manageConsent: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    || (await blockingCookiePreferences(page, current)).length > 0) return { status: 'unresolved', snapshot: current || snapshot };
   shadowAction = await markShadowCookieButton(page, { includePreferences: true });
   if (shadowAction) {
     await clearShadowCookieMarker(page);
     return { status: 'unresolved', snapshot: current };
   }
   return { status: 'dismissed', snapshot: current };
+}
+
+// Deterministic passes over one page before the agentic fallback: a manager
+// can redraw or animate between the reads, and a second pass may find the
+// opener's layer (open the preferences, then reject). Each choice is
+// idempotent: refusing optional cookies twice never sends an application.
+const COOKIE_RESOLUTION_ATTEMPTS = 3;
+const COOKIE_RESOLUTION_BACKOFF_MS = 700;
+// The cookie agent: at most this many pages per run, this many rounds each.
+const COOKIE_AGENT_MAX_PAGES = 2;
+const COOKIE_AGENT_ROUNDS = 3;
+// Never the cookie agent's to press (agent.mjs refusal() also keeps every
+// final submit, apply and navigation control): the application's own entry,
+// the account's sign-in and registration.
+export const COOKIE_AGENT_RESERVED_BUTTONS = [
+  /\b(?:apply|bewerb\w*|candid\w*|postul\w*|application|bewerbung)\b/i,
+  SIGN_IN_RE,
+  CREATE_ACCOUNT_RE,
+  /\b(?:log ?in|anmelden|einloggen|accedi|connexion|regist\w*|konto|account)\b/i,
+];
+
+/**
+ * Closes the cookie manager in front of the page: up to
+ * COOKIE_RESOLUTION_ATTEMPTS deterministic passes (dismissCookieBanner) with a
+ * growing pause, then, when the caller passes `agent`, one agentic attempt.
+ * The agent's work counts only when a fresh deterministic pass then finds no
+ * manager left (`none`) or closes what remains (`dismissed`).
+ * @returns {Promise<{status:'none'|'dismissed'|'unresolved', snapshot:object, attempts:string[], agent?:string}>}
+ */
+export async function resolveCookieConsent(page, snapshot, { agent = null } = {}) {
+  const origin = pageOrigin(page);
+  const attempts = [];
+  let current = snapshot;
+  let result = { status: 'none', snapshot };
+  for (let attempt = 1; attempt <= COOKIE_RESOLUTION_ATTEMPTS; attempt += 1) {
+    result = await dismissCookieBanner(page, current);
+    attempts.push(result.status);
+    if (result.status !== 'unresolved') return { ...result, attempts };
+    // A choice that left the site is never retried there.
+    if (!origin || pageOrigin(page) !== origin || attempt === COOKIE_RESOLUTION_ATTEMPTS) break;
+    if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(COOKIE_RESOLUTION_BACKOFF_MS * attempt);
+    current = await cookiePageSnapshot(page) || result.snapshot || current;
+  }
+  if (typeof agent !== 'function' || !origin || pageOrigin(page) !== origin) return { ...result, attempts };
+  let outcome = null;
+  try {
+    outcome = await agent(page, result.snapshot || current);
+  } catch {
+    outcome = { status: 'stuck', acted: false };
+  }
+  const agentStatus = String(outcome?.status || 'unavailable');
+  if (!outcome?.acted || pageOrigin(page) !== origin) return { ...result, attempts, agent: agentStatus };
+  const fresh = await cookiePageSnapshot(page);
+  if (!fresh) return { ...result, attempts, agent: agentStatus };
+  const verified = await dismissCookieBanner(page, fresh);
+  attempts.push(verified.status);
+  return { ...verified, attempts, agent: agentStatus };
 }
 
 /**
@@ -2551,7 +2798,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
-    const cookies = await dismissCookieBanner(page, snapshot);
+    const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
     const allControls = [
       ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
@@ -7506,6 +7753,42 @@ export async function submitViaPortal(ctx) {
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
+  // The agentic fallback for a cookie manager the deterministic passes could
+  // not close (resolveCookieConsent): once per page, COOKIE_AGENT_MAX_PAGES per
+  // run, without candidate data. It may press only the manager's own controls:
+  // apply, sign-in, registration, navigation and submit stay reserved.
+  const cookieAgentPages = new Set();
+  const cookieAgent = ctx.codex ? async (currentPage, current) => {
+    const startUrl = currentPage.url();
+    if (cookieAgentPages.has(startUrl) || cookieAgentPages.size >= COOKIE_AGENT_MAX_PAGES) return { status: 'budget', acted: false };
+    cookieAgentPages.add(startUrl);
+    let agent;
+    try {
+      agent = await completeWithAgent({
+        page: currentPage,
+        hint: 'cookie_preferences_unresolved',
+        candidate: {},
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+        fields: current?.fields || [],
+        maxRounds: COOKIE_AGENT_ROUNDS,
+        reservedButtons: COOKIE_AGENT_RESERVED_BUTTONS,
+        log,
+      });
+    } catch (error) {
+      agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, evidence: { rounds: [] } };
+    }
+    const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
+    (evidence.cookieAgent ||= []).push({
+      status: agent.status,
+      acted,
+      rounds: (agent.evidence?.rounds || []).length,
+      ...(agent.reason ? { reason: String(agent.reason).slice(0, 160) } : {}),
+    });
+    // A cookie choice never leaves the page: whatever moved it is not counted.
+    if (agent.moved || currentPage.url() !== startUrl) return { status: 'moved', acted: false };
+    return { status: agent.status, acted };
+  } : null;
   try {
     context = await browser.newContext(portalContextOptions(ctx));
     registerPortalChannelType(context, channelType);
@@ -7533,7 +7816,12 @@ export async function submitViaPortal(ctx) {
     // the selected posting is the page the browser actually opened; the
     // vacancy and employer checks below remain unchanged after the overlay is
     // gone.
-    const initialCookieState = await dismissCookieBanner(page, snapshot);
+    const initialCookieState = await resolveCookieConsent(page, snapshot, { agent: cookieAgent });
+    evidence.cookieConsent = {
+      status: initialCookieState.status,
+      attempts: initialCookieState.attempts,
+      ...(initialCookieState.agent ? { agent: initialCookieState.agent } : {}),
+    };
     snapshot = initialCookieState.snapshot || snapshot;
     sourceProtocol = snapshot.protocol || sourceProtocol;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
@@ -7602,6 +7890,7 @@ export async function submitViaPortal(ctx) {
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+      cookieAgent,
     });
     ({ page, snapshot } = opened);
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
@@ -7989,6 +8278,7 @@ export async function submitViaPortal(ctx) {
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+            cookieAgent,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
@@ -8122,6 +8412,7 @@ export async function submitViaPortal(ctx) {
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+            cookieAgent,
           });
           ({ page, snapshot } = reopened);
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
