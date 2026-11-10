@@ -5656,6 +5656,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return accountHandoff('account', 'login_unobserved', 'login');
   }
 
+  // A one-time-code page is neither a sign-in nor a registration form, even
+  // when the portal masks the code as a password input (federal
+  // SuccessFactors, 2026-11-10): typing the alias and password there found no
+  // e-mail field and ended as `login_unobserved`. Only this order's unverified
+  // account can answer it, with the e-mailed code.
+  if (kind === 'none' && codeField(snapshot)) {
+    if (account && !account.verifiedAt) return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+    return accountHandoff('account_verification', 'verification_unobserved', 'verification');
+  }
+
   const canResendVerification = hasResendVerificationControl(snapshot);
   // SuccessFactors keeps the pending OTP account in this same sign-in shape;
   // its dedicated recovery below must restart registration instead of trying
