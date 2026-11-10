@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ophtalmique",
-  "assembledAt": "2026-11-10T09:32:34.379Z",
-  "runId": "42789651834",
+  "assembledAt": "2026-11-10T21:43:45.877Z",
+  "runId": "42903770667",
   "jobs": [
     {
       "id": "ophtalmique-0d4dbc86c23b",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1918",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:32:28.960Z",
+      "crawledAt": "2026-11-10T21:43:35.339Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:32:28.960Z",
+      "validThrough": "2027-01-21T21:43:35.339Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:32:28.564Z",
+      "crawledAt": "2026-11-10T21:43:34.909Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:32:28.564Z",
+      "validThrough": "2026-12-10T21:43:34.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:32:28.162Z",
+      "crawledAt": "2026-11-10T21:43:34.482Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -252,41 +252,41 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:32:28.162Z",
+      "validThrough": "2027-01-01T21:43:34.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ophtalmique-906f74c3c81a",
       "slug": "infermiere-da-piscina-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "slugByLocale": {
-        "fr": "infirmier-ere-pooliste-ophtalmique-lausanne",
         "it": "infermiere-da-piscina-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "en": "poolist-nurse-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "de": "poolist-krankenschwester-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        "de": "poolist-krankenschwester-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "fr": "infirmier-ere-pooliste-ophtalmique-lausanne"
       },
       "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
       "companyKey": "ophtalmique",
       "companyDomain": "ophtalmique.ch",
       "title": "Infirmier-ère pooliste",
       "titleByLocale": {
-        "fr": "Infirmier-ère pooliste",
         "it": "Infermiere da piscina",
         "en": "Poolist nurse",
-        "de": "Poolist Krankenschwester"
+        "de": "Poolist Krankenschwester",
+        "fr": "Infirmier-ère pooliste"
       },
       "description": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 670 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe (24/24h et 7/7 j), nous recherchons un-e\n\nInfirmier-ère pooliste\n\nVotre mission\n\n• Prendre en soin et assurer l'accompagnement des patients-es et leurs proches, y compris en pédiatrie, en ambulatoire et en hospitalisations\n\n• Contribuer et promouvoir un travail interprofessionnel, des soins intégrés et individualisés\n\n• Développer les soins infirmiers, les soins ophtalmiques et contribuer à la promotion d'une pratique basée sur des preuves\n\n• Valoriser l'évaluation clinique, l'éducation thérapeutique et développer le rôle autonome\n\nVos atouts\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent (avec reconnaissance Croix-Rouge)\n\n• Expérience professionnelle dans un service de soins aigus, pédiatrie un atout\n\n• Aptitude à travailler de manière autonome et en équipe\n\n• Capacité de décision et d'analyse, bonne gestion du stress\n\n• Sens de l'observation et des relations humaines\n\n• Bonnes connaissances des outils informatiques usuels\n\n• Maîtrise du français, allemand et italien niveau B2, anglais un atout\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\n Taux d'activité: remplacements\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction : à convenir\nLieu de travail: Hôpital ophtalmique Jules-Gonin, Lausanne\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD).",
       "descriptionByLocale": {
-        "fr": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 670 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe (24/24h et 7/7 j), nous recherchons un-e\n\nInfirmier-ère pooliste\n\nVotre mission\n\n• Prendre en soin et assurer l'accompagnement des patients-es et leurs proches, y compris en pédiatrie, en ambulatoire et en hospitalisations\n\n• Contribuer et promouvoir un travail interprofessionnel, des soins intégrés et individualisés\n\n• Développer les soins infirmiers, les soins ophtalmiques et contribuer à la promotion d'une pratique basée sur des preuves\n\n• Valoriser l'évaluation clinique, l'éducation thérapeutique et développer le rôle autonome\n\nVos atouts\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent (avec reconnaissance Croix-Rouge)\n\n• Expérience professionnelle dans un service de soins aigus, pédiatrie un atout\n\n• Aptitude à travailler de manière autonome et en équipe\n\n• Capacité de décision et d'analyse, bonne gestion du stress\n\n• Sens de l'observation et des relations humaines\n\n• Bonnes connaissances des outils informatiques usuels\n\n• Maîtrise du français, allemand et italien niveau B2, anglais un atout\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\n Taux d'activité: remplacements\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction : à convenir\nLieu de travail: Hôpital ophtalmique Jules-Gonin, Lausanne\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD).",
-        "it": "Fondata a Losanna nel 1843, l'Asylum Foundation for the Blind comprende il Jules-Gonin Ophthalmic Hospital, un dipartimento universitario di oftalmologia, un centro di ricerca, il Centre pédagogique pour épupils handicapés de la vue (CPHV), il servizio sociale, la riabilitazione e la visione bassa e lo stabilimento medico-sociale Clair-Soleil.\n\nPiù di 670 dipendenti lavorano quotidianamente nel reparto di salute visiva per fornire servizi di diagnostica, trattamento e supporto alle persone con visione.\n\nPer completare il nostro team (24/24h e 7/7j), stiamo cercando un\n\nInfermiere da piscina\n\nLa tua missione\n\n• Cura e supporto per i pazienti e i loro parenti, tra cui pediatrico, ambulatori e ricovero\n\n• Contribuire e promuovere il lavoro interprofessionale, la cura integrata e individualizzata\n\n• Sviluppare l'allattamento, la cura degli occhi e contribuire a promuovere la pratica basata sulle prove\n\n• Promuovere la valutazione clinica, l'educazione terapeutica e sviluppare il ruolo autonomo\n\nI vostri beni\n\n• Bachelor of Science HES-SO in titolo infermieristico o equivalente (con il riconoscimento della Croce Rossa)\n\n• Esperienza professionale nella cura acuta, pediatrica un bene\n\n• Capacità di lavorare in modo indipendente e come squadra\n\n• Capacità decisionale e di analisi, buona gestione dello stress\n\n• Senso di osservazione e relazioni umane\n\n• Buona conoscenza degli strumenti informatici comuni\n\n• Mastery di francese, tedesco e italiano livello B2, inglese un bene\n\nVi offriamo\n\nUn'attività arricchente all'interno di un ambiente dinamico dove è possibile mostrare i vostri talenti, formazione specifica per la nostra missione, condizioni di stipendio relative alle vostre abilità.\n Tassi di attività: sostituzioni\nNatura del contratto: Contratto di durata indefinita\nEntrata in ufficio: da concordare\nLuogo di lavoro: Jules Gonin Ophthalmic Hospital, Losanna\n\nApplicare\n\nFondazione di asilo per il cieco — Ospedale oftalmico Jules Gonin, Losanna (VD).",
-        "en": "Founded in Lausanne in 1843, the Asylum Foundation for the Blind includes the Jules-Gonin Ophthalmic Hospital, a university department of ophthalmology, a research centre, the Centre pédagogique pour épupils handicapés de la vue (CPHV), the social service, rehabilitation and low vision and the medical-social establishment Clair-Soleil.\n\nMore than 670 employees work daily in the visual health department to provide diagnostic, treatment and support services to people with vision.\n\nIn order to complete our team (24/24h and 7/7j), we are looking for a\n\nPoolist nurse\n\nYour Mission\n\n• Care and support for patients and their relatives, including paediatrics, outpatients and hospitalizations\n\n• Contribute and promote interprofessional work, integrated and individualized care\n\n• Develop nursing, eye care and help promote evidence-based practice\n\n• Promote clinical evaluation, therapeutic education and develop the autonomous role\n\nYour assets\n\n• Bachelor of Science HES-SO in Nursing or equivalent title (with Red Cross recognition)\n\n• Professional experience in acute care, pediatrics an asset\n\n• Ability to work independently and as a team\n\n• Decision-making and analysis capacity, good stress management\n\n• Sense of observation and human relations\n\n• Good knowledge of common computer tools\n\n• Mastery of French, German and Italian level B2, English an asset\n\nWe offer you\n\nAn enriching activity within a dynamic environment where you can showcase your talents, specific training for our mission, salary conditions related to your skills.\n Activity rates: replacements\nNature of contract: Contract of indefinite duration\nEntry into office: to be agreed\nWorkplace: Jules Gonin Ophthalmic Hospital, Lausanne\n\nApply\n\nAsylum Foundation for the Blind — Jules Gonin Ophthalmic Hospital, Lausanne (VD).",
-        "de": "Die 1843 in Lausanne gegründete Asylstiftung für Blinde umfasst das Augenkrankenhaus Jules-Gonin, eine Universitätsabteilung für Augenheilkunde, ein Forschungszentrum, das Centre pédagogique pour épupils handicapés de la vue (CPHV), den Sozialdienst, die Rehabilitation und das Sehvermögen sowie die medizinisch-soziale Einrichtung Clair-Soleil.\n\nMehr als 670 Mitarbeiter arbeiten täglich in der Abteilung für visuelle Gesundheit, um Diagnose-, Behandlungs- und Unterstützungsdienste für Menschen mit Sehvermögen bereitzustellen.\n\nUm unser Team (24/24h und 7/7j) zu vervollständigen, suchen wir eine\n\nPoolist Krankenschwester\n\nDeine Mission\n\n• Betreuung und Unterstützung für Patienten und ihre Angehörigen, einschließlich Kinderheilkunde, ambulante Patienten und Krankenhausaufenthalte\n\n• Beitrag und Förderung interprofessioneller Arbeit, integrierter und individueller Betreuung\n\n• Entwicklung von Pflege, Augenpflege und Unterstützung der evidenzbasierten Praxis\n\n• Förderung der klinischen Bewertung, therapeutische Ausbildung und Entwicklung der autonomen Rolle\n\nIhre Vermögenswerte\n\n• Bachelor of Science HES-SO in Pflege oder gleichwertiger Titel (mit Anerkennung des Roten Kreuzes)\n\n• Berufserfahrung in der Akutpflege, Pädiatrie ein Asset\n\n• Fähigkeit, selbstständig und als Team zu arbeiten\n\n• Entscheidungs- und Analysefähigkeit, gutes Stressmanagement\n\n• Sinn für Beobachtung und menschliche Beziehungen\n\n• Gute Kenntnisse der gängigen Computer-Tools\n\n• Beherrschung der französischen, deutschen und italienischen Ebene B2, Englisch ein Asset\n\nWir bieten Ihnen\n\nEine bereichernde Aktivität in einem dynamischen Umfeld, in dem Sie Ihre Talente, spezifische Schulungen für unsere Mission und Gehaltsbedingungen in Bezug auf Ihre Fähigkeiten präsentieren können.\n Aktivitätsrate: Ersatz\nArt des Vertrags: unbefristeter Vertrag\nAmtsantritt: noch zu vereinbaren\nArbeitsplatz: Jules Gonin Ophthalmic Hospital, Lausanne\n\nBeantragen\n\nAsylstiftung für Blinde — Krankenhaus Jules Gonin, Lausanne (VD)."
+        "it": "Fondata a Losanna nel 1843, l'Asylum Foundation for the Blind comprende il Jules-Gonin Ophthalmic Hospital, un dipartimento universitario di oftalmologia, un centro di ricerca, il Centre pédagogique pour épupils handicapés de la vue (CPHV), il servizio sociale, la riabilitazione e la visione bassa e lo stabilimento medico-sociale Clair-Soleil.\n\nPiù di 670 dipendenti lavorano quotidianamente nel reparto di salute visiva per fornire servizi di diagnostica, trattamento e supporto alle persone con visione.\n\nPer completare il nostro team (24/24h e 7/7j), stiamo cercando un\n\nInfermiere da piscina\n\nLa tua missione\n\n• Cura e supporto per i pazienti e i loro parenti, tra cui pediatrico, ambulatori e ricovero\n\n• Contribuire e promuovere il lavoro interprofessionale, la cura integrata e individualizzata\n\n• Sviluppare l'allattamento, la cura degli occhi e contribuire a promuovere la pratica basata sulle prove\n\n• Promuovere la valutazione clinica, l'educazione terapeutica e sviluppare il ruolo autonomo\n\nI vostri beni\n\n• Bachelor of Science HES-SO in titolo infermieristico o equivalente (con il riconoscimento della Croce Rossa)\n\n• Esperienza professionale nella cura acuta, pediatrica un bene\n\n• Capacità di lavorare in modo indipendente e come squadra\n\n• Capacità decisionale e di analisi, buona gestione dello stress\n\n• Senso di osservazione e relazioni umane\n\n• Buona conoscenza degli strumenti informatici comuni\n\n• Mastery di francese, tedesco e italiano livello B2, inglese un bene\n\nVi offriamo\n\nUn'attività arricchente all'interno di un ambiente dinamico dove è possibile mostrare i vostri talenti, formazione specifica per la nostra missione, condizioni di stipendio relative alle vostre abilità.\nTassi di attività: sostituzioni\nNatura del contratto: Contratto di durata indefinita\nEntrata in ufficio: da concordare\nLuogo di lavoro: Jules Gonin Ophthalmic Hospital, Losanna\n\nApplicare\n\nFondazione di asilo per il cieco — Ospedale oftalmico Jules Gonin, Losanna (VD).",
+        "en": "Founded in Lausanne in 1843, the Asylum Foundation for the Blind includes the Jules-Gonin Ophthalmic Hospital, a university department of ophthalmology, a research centre, the Centre pédagogique pour épupils handicapés de la vue (CPHV), the social service, rehabilitation and low vision and the medical-social establishment Clair-Soleil.\n\nMore than 670 employees work daily in the visual health department to provide diagnostic, treatment and support services to people with vision.\n\nIn order to complete our team (24/24h and 7/7j), we are looking for a\n\nPoolist nurse\n\nYour Mission\n\n• Care and support for patients and their relatives, including paediatrics, outpatients and hospitalizations\n\n• Contribute and promote interprofessional work, integrated and individualized care\n\n• Develop nursing, eye care and help promote evidence-based practice\n\n• Promote clinical evaluation, therapeutic education and develop the autonomous role\n\nYour assets\n\n• Bachelor of Science HES-SO in Nursing or equivalent title (with Red Cross recognition)\n\n• Professional experience in acute care, pediatrics an asset\n\n• Ability to work independently and as a team\n\n• Decision-making and analysis capacity, good stress management\n\n• Sense of observation and human relations\n\n• Good knowledge of common computer tools\n\n• Mastery of French, German and Italian level B2, English an asset\n\nWe offer you\n\nAn enriching activity within a dynamic environment where you can showcase your talents, specific training for our mission, salary conditions related to your skills.\nActivity rates: replacements\nNature of contract: Contract of indefinite duration\nEntry into office: to be agreed\nWorkplace: Jules Gonin Ophthalmic Hospital, Lausanne\n\nApply\n\nAsylum Foundation for the Blind — Jules Gonin Ophthalmic Hospital, Lausanne (VD).",
+        "de": "Die 1843 in Lausanne gegründete Asylstiftung für Blinde umfasst das Augenkrankenhaus Jules-Gonin, eine Universitätsabteilung für Augenheilkunde, ein Forschungszentrum, das Centre pédagogique pour épupils handicapés de la vue (CPHV), den Sozialdienst, die Rehabilitation und das Sehvermögen sowie die medizinisch-soziale Einrichtung Clair-Soleil.\n\nMehr als 670 Mitarbeiter arbeiten täglich in der Abteilung für visuelle Gesundheit, um Diagnose-, Behandlungs- und Unterstützungsdienste für Menschen mit Sehvermögen bereitzustellen.\n\nUm unser Team (24/24h und 7/7j) zu vervollständigen, suchen wir eine\n\nPoolist Krankenschwester\n\nDeine Mission\n\n• Betreuung und Unterstützung für Patienten und ihre Angehörigen, einschließlich Kinderheilkunde, ambulante Patienten und Krankenhausaufenthalte\n\n• Beitrag und Förderung interprofessioneller Arbeit, integrierter und individueller Betreuung\n\n• Entwicklung von Pflege, Augenpflege und Unterstützung der evidenzbasierten Praxis\n\n• Förderung der klinischen Bewertung, therapeutische Ausbildung und Entwicklung der autonomen Rolle\n\nIhre Vermögenswerte\n\n• Bachelor of Science HES-SO in Pflege oder gleichwertiger Titel (mit Anerkennung des Roten Kreuzes)\n\n• Berufserfahrung in der Akutpflege, Pädiatrie ein Asset\n\n• Fähigkeit, selbstständig und als Team zu arbeiten\n\n• Entscheidungs- und Analysefähigkeit, gutes Stressmanagement\n\n• Sinn für Beobachtung und menschliche Beziehungen\n\n• Gute Kenntnisse der gängigen Computer-Tools\n\n• Beherrschung der französischen, deutschen und italienischen Ebene B2, Englisch ein Asset\n\nWir bieten Ihnen\n\nEine bereichernde Aktivität in einem dynamischen Umfeld, in dem Sie Ihre Talente, spezifische Schulungen für unsere Mission und Gehaltsbedingungen in Bezug auf Ihre Fähigkeiten präsentieren können.\nAktivitätsrate: Ersatz\nArt des Vertrags: unbefristeter Vertrag\nAmtsantritt: noch zu vereinbaren\nArbeitsplatz: Jules Gonin Ophthalmic Hospital, Lausanne\n\nBeantragen\n\nAsylstiftung für Blinde — Krankenhaus Jules Gonin, Lausanne (VD).",
+        "fr": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et l'établissement médico-social Clair-Soleil.\n\nPlus de 670 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision.\n\nAfin de compléter notre équipe (24/24h et 7/7 j), nous recherchons un-e\n\nInfirmier-ère pooliste\n\nVotre mission\n\n• Prendre en soin et assurer l'accompagnement des patients-es et leurs proches, y compris en pédiatrie, en ambulatoire et en hospitalisations\n\n• Contribuer et promouvoir un travail interprofessionnel, des soins intégrés et individualisés\n\n• Développer les soins infirmiers, les soins ophtalmiques et contribuer à la promotion d'une pratique basée sur des preuves\n\n• Valoriser l'évaluation clinique, l'éducation thérapeutique et développer le rôle autonome\n\nVos atouts\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent (avec reconnaissance Croix-Rouge)\n\n• Expérience professionnelle dans un service de soins aigus, pédiatrie un atout\n\n• Aptitude à travailler de manière autonome et en équipe\n\n• Capacité de décision et d'analyse, bonne gestion du stress\n\n• Sens de l'observation et des relations humaines\n\n• Bonnes connaissances des outils informatiques usuels\n\n• Maîtrise du français, allemand et italien niveau B2, anglais un atout\n\nNous vous offrons\n\nUne activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences.\nTaux d'activité: remplacements\nNature du contrat: Contrat de durée indéterminée\nEntrée en fonction : à convenir\nLieu de travail: Hôpital ophtalmique Jules-Gonin, Lausanne\n\npostuler\n\nFondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD)."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1746",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:32:27.251Z",
+      "crawledAt": "2026-11-10T21:43:33.360Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -304,10 +304,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1746",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
+      "previousSlugs": [
+        "infirmier-ere-pooliste-ophtalmique-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pooliste-ophtalmique-lausanne"
+        ],
+        "en": [
+          "infirmier-ere-pooliste-ophtalmique-lausanne"
+        ],
+        "de": [
+          "infirmier-ere-pooliste-ophtalmique-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-08-13T22:29:23.842Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -323,23 +336,8 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:32:27.251Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-13T22:29:23.842Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-pooliste-ophtalmique-lausanne"
-        ],
-        "en": [
-          "infirmier-ere-pooliste-ophtalmique-lausanne"
-        ],
-        "de": [
-          "infirmier-ere-pooliste-ophtalmique-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-pooliste-ophtalmique-lausanne"
-      ]
+      "validThrough": "2026-12-10T21:43:33.360Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
