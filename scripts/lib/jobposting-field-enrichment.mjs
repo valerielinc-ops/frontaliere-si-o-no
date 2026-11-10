@@ -167,11 +167,50 @@ function listingTypeCapDays(job) {
 }
 
 /**
+ * The bounded build-clock window. A persisted fallback that is still in the
+ * future stays byte-stable, so repeated slice assembly remains idempotent; once
+ * it lapses, a new employment-type window starts from the current clock.
+ */
+function buildClockFallbackDeadline(job, clock) {
+  if (job?.validThroughSource === 'build-clock-fallback' && job?.validThrough) {
+    const retained = new Date(String(job.validThrough));
+    if (Number.isFinite(retained.getTime()) && retained.getTime() > clock.getTime()) {
+      return {
+        validThrough: retained.toISOString(),
+        validThroughSource: 'build-clock-fallback',
+      };
+    }
+  }
+  return {
+    validThrough: new Date(clock.getTime() + listingTypeCapDays(job) * DAY_MS).toISOString(),
+    validThroughSource: 'build-clock-fallback',
+  };
+}
+
+/**
+ * An active listing is, by definition, open at the moment its page is emitted:
+ * a derived window that has already lapsed is not evidence that the vacancy
+ * closed, it is evidence that no crawler heartbeat refreshed it. Emitting the
+ * lapsed value made active pages publish an already-expired JobPosting (471 of
+ * 35'473 active records on 2026-11-10, 445 of them from crawlers that never
+ * stamp `crawledAt`, anchored to `firstSeenAt` + cap). Such a window yields to
+ * the bounded build-clock fallback, under its own provenance.
+ */
+function activeDeadlineAfterClock(result, job, clock) {
+  const deadline = Date.parse(result?.validThrough);
+  if (Number.isFinite(deadline) && deadline > clock.getTime()) return result;
+  return buildClockFallbackDeadline(job, clock);
+}
+
+/**
  * Active listing deadline. Plausible source deadlines win; otherwise an
  * observation-based window shrinks with listing age and is extended only when
  * the crawler writes a newer real observation. If no date evidence exists at
- * all, an employment-type window anchored to the build clock keeps the active
- * JobPosting contract complete and is marked as a fallback provenance.
+ * all, or the evidence window has already lapsed for a listing that is still
+ * in the active inventory, an employment-type window anchored to the build
+ * clock keeps the active JobPosting contract complete and is marked as a
+ * fallback provenance. The result for an active listing is always strictly
+ * after `now`; only `archive-evidence` (the closed-vacancy path) may be past.
  */
 export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   const clock = Number.isFinite(now?.getTime()) ? now : new Date();
@@ -194,7 +233,13 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   const sourceDeadlineStillOpen = sourceDate && Number.isFinite(sourceDate.getTime())
     && (dateOnly ? sourceDate.getTime() >= todayStart : sourceDate.getTime() > clock.getTime());
   if (explicit && sourceDeadlineStillOpen) {
-    return { validThrough: explicit, validThroughSource: 'source' };
+    // A date-only deadline closes at the end of that day, not at its first
+    // instant: "2026-11-10" read as 2026-11-10T00:00Z is already past on the
+    // very day the source says the listing is still open.
+    const validThrough = dateOnly
+      ? new Date(sourceDate.getTime() + DAY_MS - 1).toISOString()
+      : explicit;
+    return { validThrough, validThroughSource: 'source' };
   }
 
   const observedAt = latestActiveObservation(job, clock);
@@ -202,10 +247,10 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     const capDays = listingTypeCapDays(job);
     const ageDays = postingAgeDays(job, observedAt);
     const windowDays = Math.max(30, capDays - ageDays);
-    return {
+    return activeDeadlineAfterClock({
       validThrough: new Date(observedAt.getTime() + windowDays * DAY_MS).toISOString(),
       validThroughSource: 'last-observed-window',
-    };
+    }, job, clock);
   }
 
   // Retain a prior deadline with its provenance when this snapshot has no
@@ -213,10 +258,10 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   if (storedSource && job?.validThrough) {
     const retained = new Date(String(job.validThrough));
     if (Number.isFinite(retained.getTime())) {
-      return {
+      return activeDeadlineAfterClock({
         validThrough: retained.toISOString(),
         validThroughSource: job.validThroughSource,
-      };
+      }, job, clock);
     }
   }
 
@@ -228,25 +273,18 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   if (buildClockFallback && job?.validThrough) {
     const retained = new Date(String(job.validThrough));
     if (Number.isFinite(retained.getTime()) && retained.getTime() > clock.getTime()) {
-      return {
-        validThrough: retained.toISOString(),
-        validThroughSource: 'build-clock-fallback',
-      };
+      return buildClockFallbackDeadline(job, clock);
     }
   }
 
   const publicationDate = parseDate(job?.datePosted || job?.postedDate || job?.firstSeenAt, clock);
   if (publicationDate) {
     const capDays = listingTypeCapDays(job);
-    return {
+    return activeDeadlineAfterClock({
       validThrough: new Date(publicationDate.getTime() + capDays * DAY_MS).toISOString(),
       validThroughSource: 'job-type-cap',
-    };
+    }, job, clock);
   }
 
-  const fallbackDays = listingTypeCapDays(job);
-  return {
-    validThrough: new Date(clock.getTime() + fallbackDays * DAY_MS).toISOString(),
-    validThroughSource: 'build-clock-fallback',
-  };
+  return buildClockFallbackDeadline(job, clock);
 }

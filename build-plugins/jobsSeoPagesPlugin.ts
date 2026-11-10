@@ -307,7 +307,7 @@ import {
   buildCompanyOrganization,
   buildJobPostingFacts,
   buildJobPostingSchema,
-  resolveJobPostingValidThrough,
+  resolveOpenActiveJobPostingValidThrough,
   sanitizeLocalityForRegion,
   type JobInput,
 } from './shared/jobPostingSchema';
@@ -1171,7 +1171,7 @@ function replaceActiveJobReuseFragment(
 
 /**
  * Read the explicit source deadline for legacy provenance callers. Active
- * fragments use `resolveJobPostingValidThrough` below so the cache and fresh
+ * fragments use `resolveOpenActiveJobPostingValidThrough` below so the cache and fresh
  * render paths share one rule.
  */
 export function activeJobSourceValidThrough(job: unknown): string | null {
@@ -4106,7 +4106,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
- jobPostingValidThrough: resolveJobPostingValidThrough(job as JobInput, jobsSeoReuseBuildNow),
+ jobPostingValidThrough: resolveOpenActiveJobPostingValidThrough(job as JobInput, jobsSeoReuseBuildNow),
    ...(refreshJobPostingDescription
     ? { jobPostingDescription: buildCurrentActiveJobPostingDescription() }
     : {}),
@@ -14726,6 +14726,11 @@ ${staticAnalyticsHtml}
    postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown',
    datePosted: hasRealTitle ? ejData?.datePosted : undefined,
    postedDate: hasRealTitle ? ejData?.postedDate : undefined,
+   // The archive keeps when the vacancy first appeared (cleanup-jobs
+   // buildExpiredEntry). Without it the archived datePosted fell back to the
+   // archive boundary, i.e. the expiry day itself: datePosted == validThrough
+   // day, against the "Pubblicata il" the same page shows from firstSeenAt.
+   firstSeenAt: hasRealTitle ? ejData?.firstSeenAt : undefined,
    crawledAt: ejData?.crawledAt,
    expiredAt: ejData?.expiredAt,
    employmentType: hasRealTitle ? ejData?.employmentType : undefined,
