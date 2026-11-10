@@ -156,6 +156,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    /** The platform's answers the review page proposes (a rule, the CV, the decision engine): not the owner's. */
+    platformAnswers?: Record<string, { value: string; provenance: 'cv_evidence' | 'cv_plausible' | 'platform_decision' | 'platform_rule' | null; principle?: string }>;
     requestedDocumentsOverride?: boolean;
     requestedDocuments?: AutomationRequestedDocumentView[];
     postalSubmission?: PostalSubmissionView | null;

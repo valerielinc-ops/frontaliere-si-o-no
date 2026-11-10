@@ -76,6 +76,12 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   );
 }
 
+/** The label of where a prefilled answer comes from: the CV, a rule of the platform, or the engine's principle. */
+function answerProvenanceKey(question: ReviewQuestion): string | null {
+  if (question.answerProvenance === 'platform_decision') return question.answerDecisionPrinciple ? `decision.${question.answerDecisionPrinciple}` : 'platform_rule';
+  return question.answerProvenance || null;
+}
+
 function QuestionField({ question, value, onChange, disabled, error, locale, savedAnswer }: {
   question: ReviewQuestion;
   value: string;
@@ -124,6 +130,12 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
       {question.required && <span className="text-danger"> *</span>}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
       {question.answeredByPlatform && <span className="mt-0.5 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.answeredByPlatform')}</span>}
+      {question.answeredByPlatform && answerProvenanceKey(question) && (
+        <span className="mt-0.5 block text-xs font-normal text-subtle" data-answer-provenance={answerProvenanceKey(question)}>
+          <span className="font-semibold">{t('jobBoard.assisted.review.answerProvenanceLabel')}: </span>
+          {t(`jobBoard.assisted.review.answerFrom.${answerProvenanceKey(question)}`)}
+        </span>
+      )}
       {question.type === 'yes_no' ? (
         <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass}>
           <option value="">—</option>

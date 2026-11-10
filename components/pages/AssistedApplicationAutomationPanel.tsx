@@ -82,6 +82,9 @@ const HELD_LABELS: Record<string, string> = {
 
 const VERDICT_LABELS: Record<string, string> = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
 const MATCH_STYLES: Record<string, string> = { met: 'text-success', partial: 'text-warning', missing: 'text-danger' };
+const PLATFORM_ANSWER_PROVENANCE: Record<string, string> = {
+  cv_evidence: 'dal CV', cv_plausible: 'descrizione dal CV', platform_decision: 'motore di decisione', platform_rule: 'regola della piattaforma',
+};
 
 function formatMs(ms: number | null | undefined): string {
   if (!ms) return '—';
@@ -709,12 +712,21 @@ export default function AssistedApplicationAutomationPanel({
           {draft.questions.length > 0 && (
             <div className="space-y-2 rounded-stripe border border-edge bg-surface p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted">Domande per il candidato (puoi rispondere tu se te lo ha detto via email)</p>
-              {draft.questions.map((question) => (
-                <label key={question.id} className="block text-xs text-body">
-                  {question.question}{question.required ? ' *' : ''}
-                  <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
-                </label>
-              ))}
+              {draft.questions.map((question) => {
+                const platform = flow?.platformAnswers?.[question.id];
+                return (
+                  <label key={question.id} className="block text-xs text-body">
+                    {question.question}{question.required ? ' *' : ''}
+                    <input value={answers[question.id] || ''} placeholder={platform?.value || undefined} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
+                    {/* The answer the platform proposes to the candidate: the field stays empty, saving it stays the owner's choice. */}
+                    {!answers[question.id] && platform && (
+                      <span className="mt-0.5 block text-muted">
+                        Risposta della piattaforma ({PLATFORM_ANSWER_PROVENANCE[platform.provenance || 'platform_rule']}{platform.principle ? `, ${platform.principle}` : ''}): «{platform.value}». Il candidato la vede già compilata; non conta come domanda aperta.
+                      </span>
+                    )}
+                  </label>
+                );
+              })}
               <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationSetAnswers', { answers, answerQuestionSnapshots: draft.questionSnapshots || {} }, 'Risposte salvate.'); }}>
                 {spinner('automationSetAnswers') || <Save size={14} aria-hidden="true" />} Salva risposte
               </button>
