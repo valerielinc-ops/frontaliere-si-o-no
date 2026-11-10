@@ -11605,6 +11605,7 @@ const ARTICLE_PUBLISH_SEO_FIELDS = Object.freeze([
   'ogTitle',
   'ogDescription',
   'headline',
+  'breadcrumbName',
 ]);
 const ARTICLE_PUBLISH_MIN_BODY_WORDS = 50;
 

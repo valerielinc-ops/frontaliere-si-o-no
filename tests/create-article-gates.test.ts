@@ -142,6 +142,7 @@ describe('create-article gate helpers', () => {
 
     expect(src).toContain('export function assertArticlePublisherContract(data)');
     expect(src).toContain("const ARTICLE_PUBLISH_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);");
+    expect(src).toContain("'breadcrumbName',");
     expect(src).toContain('const ARTICLE_PUBLISH_MIN_BODY_WORDS = 50;');
     expect(contract, 'shared publisher contract is not called').toBeGreaterThan(-1);
     expect(contract, 'publisher validation must precede every source mutation').toBeLessThan(firstWrite);
