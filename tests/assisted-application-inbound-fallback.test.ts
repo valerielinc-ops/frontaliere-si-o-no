@@ -356,6 +356,8 @@ describe('fallback with the model unavailable, through the real handler', () => 
       const account = (createdAt: unknown) => ({ a: { host: 'portal.example', passwordEnc: {}, verifiedAt: null, createdAt } });
       expect(pendingAccountForCode(account('unknown'), 'employer.example', { receivedAt: 1000 })).toBeNull();
       expect(pendingAccountForCode(account(undefined), 'employer.example', { receivedAt: 1000 })).toBeNull();
+      expect(pendingAccountForCode(account(null), 'employer.example', { receivedAt: 1000 })).toBeNull();
+      expect(pendingAccountForCode(account('500'), 'employer.example', { receivedAt: 1000 })).toBeNull();
       expect(pendingAccountForCode(account(500), 'employer.example', { receivedAt: 'later' })).toBeNull();
       expect(pendingAccountForCode(account(500), 'employer.example', { receivedAt: 1000 })?.host).toBe('portal.example');
     });

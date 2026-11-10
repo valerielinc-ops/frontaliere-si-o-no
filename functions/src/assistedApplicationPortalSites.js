@@ -85,8 +85,10 @@ export function pendingAccountForCode(accounts, senderHost, { receivedAt } = {})
   // The sole account is bound only when it provably existed before the message
   // (the runner stamps createdAt when it stores the credential).
   const [sole] = waiting;
-  const createdAt = Number(sole.createdAt);
-  return Number.isFinite(at) && Number.isFinite(createdAt) && createdAt <= at ? sole : null;
+  // A real number only: Number(null) is 0, which would predate every message.
+  const { createdAt } = sole;
+  return typeof receivedAt === 'number' && Number.isFinite(receivedAt)
+    && typeof createdAt === 'number' && Number.isFinite(createdAt) && createdAt <= receivedAt ? sole : null;
 }
 
 /** A verification link on the portal's own site (or its ATS family), over https. */
