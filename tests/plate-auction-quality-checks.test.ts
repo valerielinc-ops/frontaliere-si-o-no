@@ -222,6 +222,15 @@ describe('derivePlateAuctionDataConfidence', () => {
 });
 
 describe('recognizeTimedCatalogueTurnover', () => {
+  it('accepts a complete GE session replacement when the new list is not short', () => {
+    expect(recognizeTimedCatalogueTurnover({
+      sourceKey: 'ge',
+      previousCount: 23,
+      fetchedCount: 23,
+      vanishedCount: 23,
+    })).toEqual({ recognized: true, cap: 23, blockedBy: [] });
+  });
+
   it('accepts a complete VD board replacement when the new board is not short', () => {
     expect(recognizeTimedCatalogueTurnover({
       sourceKey: 'vd',

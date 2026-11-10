@@ -222,6 +222,43 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.history.filter((auction) => auction.sourceKey === sourceCode)).toEqual([]);
   });
 
+  it('keeps GE healthy when a complete OCV session list replaces the prior list', async () => {
+    const geNow = new Date('2026-11-10T20:00:00.000Z');
+    const endsAt = new Date(geNow.getTime() + 2 * 24 * 60 * 60 * 1000).toISOString();
+    const row = (id: string, number: number, sourceFetchedAt: string) => ({
+      ...previousRow,
+      id,
+      sourceKey: 'GE',
+      canton: 'Ginevra',
+      platePrefix: 'GE',
+      plateNumber: String(number),
+      normalizedPlate: `GE${number}`,
+      listingType: 'auction',
+      auctionStatus: 'active',
+      endsAt,
+      sourceFetchedAt,
+      lastVerifiedAt: sourceFetchedAt,
+      lastSeenAt: sourceFetchedAt,
+    });
+    const previousCatalogue = Array.from({ length: 23 }, (_unused, index) => row(`ge-old-${index}`, index + 1, '2026-11-10T14:00:00.000Z'));
+    const currentCatalogue = Array.from({ length: 23 }, (_unused, index) => row(`ge-new-${index}`, index + 101, geNow.toISOString()));
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['ge'],
+      fetchers: { ge: async () => currentCatalogue },
+      previous: {
+        generatedAt: '2026-11-10T14:00:00.000Z',
+        sources: { ge: { lastSuccessAt: '2026-11-10T14:00:00.000Z' } },
+        auctions: previousCatalogue,
+      },
+      now: geNow,
+    });
+
+    expect(snapshot.sources.ge).toMatchObject({ status: 'active', rowCount: 46 });
+    expect(snapshot.sources.ge).not.toHaveProperty('errorCode');
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'GE')).toHaveLength(46);
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'GE' && auction.missingSince)).toHaveLength(23);
+  });
+
   it('accepts TG\'s measured 23-card turnover after a complete 50-card refresh', async () => {
     const endsAt = new Date(NOW.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
     const previousCatalogue = Array.from({ length: 44 }, (_unused, index) => ({
