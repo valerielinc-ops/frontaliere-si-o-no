@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-10T09:38:42.215Z",
-  "runId": "42790102984",
+  "assembledAt": "2026-11-10T21:37:37.923Z",
+  "runId": "42904300357",
   "jobs": [
     {
       "id": "hrc-206aba495c80",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.893Z",
+      "crawledAt": "2026-11-10T21:37:30.299Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:38:30.893Z",
+      "validThrough": "2027-01-10T21:37:30.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.889Z",
+      "crawledAt": "2026-11-10T21:37:30.296Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:38:30.889Z",
+      "validThrough": "2027-01-17T21:37:30.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.884Z",
+      "crawledAt": "2026-11-10T21:37:30.292Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:38:30.884Z",
+      "validThrough": "2027-01-21T21:37:30.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/phel-assistant-en-pharmacie-hf-a-60-100-677",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.876Z",
+      "crawledAt": "2026-11-10T21:37:30.287Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:38:30.876Z",
+      "validThrough": "2027-02-04T21:37:30.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.871Z",
+      "crawledAt": "2026-11-10T21:37:30.282Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:38:30.871Z",
+      "validThrough": "2027-01-27T21:37:30.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +456,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:38:30.837Z",
+      "crawledAt": "2026-11-10T21:37:30.251Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -505,7 +505,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:30.837Z",
+      "validThrough": "2027-02-02T21:37:30.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -590,7 +590,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:37:27.240Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
