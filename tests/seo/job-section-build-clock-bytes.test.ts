@@ -143,7 +143,7 @@ let roots: string[] = [];
 let first: Map<string, string>;
 let later: Map<string, string>;
 let data: ReturnType<typeof fixtureJobs>;
-const ENV_KEYS = ['BUILD_LOCALE', 'JOBS_SEO_FALLBACK_WORKERS', 'JOBPOSTING_COVERAGE_OUT', 'STATIC_BUILD_ID_META'] as const;
+const ENV_KEYS = ['BUILD_LOCALE', 'JOBS_SEO_FALLBACK_WORKERS', 'JOBPOSTING_COVERAGE_OUT', 'STATIC_BUILD_ID_META', 'JOBS_SEO_REUSE', 'INCREMENTAL_MANIFEST'] as const;
 const envBefore = Object.fromEntries(ENV_KEYS.map((key) => [key, process.env[key]]));
 
 beforeAll(async () => {
@@ -153,6 +153,12 @@ beforeAll(async () => {
   // Worker threads would not see the faked clock.
   process.env.JOBS_SEO_FALLBACK_WORKERS = '0';
   process.env.STATIC_BUILD_ID_META = 'off';
+  // The deploy runs `gate:seo-source` with the build leg's env, where reuse and
+  // the incremental manifest are on: the emitter then fingerprints the repo's
+  // asset files from rootDir, which here is a temp fixture root. This test
+  // judges the emitted bytes, not the reuse cache, so it pins both off.
+  process.env.JOBS_SEO_REUSE = '0';
+  process.env.INCREMENTAL_MANIFEST = '0';
   data = fixtureJobs();
   for (const now of [FIRST_BUILD, LATER_BUILD]) {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-section-clock-cov-'));
