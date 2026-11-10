@@ -323,8 +323,8 @@ export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount
 }
 
 /**
- * Decide whether a timed card catalogue has the shape of a healthy board
- * refresh. The returned decision is null for sources without this contract.
+ * Decide whether a timed catalogue has the shape of a healthy board refresh.
+ * The returned decision is null for sources without this contract.
  */
 export function recognizeTimedCatalogueTurnover({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
   const policy = timedCataloguePolicy(sourceKey);
