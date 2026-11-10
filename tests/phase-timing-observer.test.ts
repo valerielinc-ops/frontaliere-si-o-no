@@ -113,7 +113,7 @@ describe('phase-timing-observer', () => {
   });
 
   it('parses one unambiguous job-OG accounting line', () => {
-    const log = '[job-og-images] rendered=12 cached=0 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
+    const log = '[job-og-images] rendered=12 cached=0 skipped=3 errors=0 pruned-stale=1 (~0MB)';
     expect(parseJobOgImageStats(log)).toEqual({ rendered: 12, cached: 0, skipped: 3, errors: 0, pruned: 1 });
     expect(isExpectedColdJobOgCache(log, '')).toBe(true);
     expect(isExpectedColdJobOgCache(log, undefined)).toBe(false);
