@@ -59,8 +59,9 @@ section_shard_publish_resumable() {
   local files_per_checkpoint="${8:-10000}"
   local final_index partial_index work raw_diff chunk_count checkpoint_parent
   local chunk_file chunk_number partial_tree commit_message checkpoint_commit final_commit actual_tree
-  local existing remote_sha checkpoint_message checkpoint_target checkpoint_progress partial_start
+  local existing remote_sha checkpoint_message checkpoint_target checkpoint_progress checkpoint_plan partial_start
   local completed_chunks checkpoint_chunks
+  local chunk_plan_sha
 
   case "$files_per_checkpoint" in
     ''|*[!0-9]*|0)
@@ -151,6 +152,32 @@ section_shard_publish_resumable() {
     return 1
   fi
 
+  if ! chunk_plan_sha="$(perl -MDigest::SHA -e '
+      use strict;
+      use warnings;
+      my ($files_per_chunk, @chunks) = @ARGV;
+      my $sha = Digest::SHA->new(256);
+      $sha->add("files-per-checkpoint=$files_per_chunk\0");
+      my $index = 0;
+      for my $path (@chunks) {
+        open my $input, "<:raw", $path or die "open $path: $!";
+        $sha->add("chunk=" . ++$index . "\0");
+        while (1) {
+          my $bytes = read $input, my $buffer, 65536;
+          die "read $path: $!" unless defined $bytes;
+          last unless $bytes;
+          $sha->add($buffer);
+        }
+        close $input or die "close $path: $!";
+      }
+      die "checkpoint chunk plan is empty" unless $index;
+      print $sha->hexdigest;
+    ' "$files_per_checkpoint" "$work"/chunk-*.info)"; then
+    echo "::error::$label: could not fingerprint the ordered checkpoint chunk plan" >&2
+    rm -rf "$work" "$final_index" "$partial_index"
+    return 1
+  fi
+
   if ! existing="$(git -C "$stage" ls-remote --heads "$repo" "$checkpoint_ref")"; then
     echo "::error::$label: could not inspect checkpoint ref $checkpoint_ref" >&2
     rm -rf "$work" "$final_index" "$partial_index"
@@ -174,8 +201,10 @@ section_shard_publish_resumable() {
       return 1
     fi
     checkpoint_target="$(printf '%s\n' "$checkpoint_message" | sed -nE 's/.*\[resume-target:([0-9a-f]+)\].*/\1/p' | tail -n 1)"
+    checkpoint_plan="$(printf '%s\n' "$checkpoint_message" | sed -nE 's/.*\[resume-plan:([0-9a-f]{64})\].*/\1/p' | tail -n 1)"
     checkpoint_progress="$(printf '%s\n' "$checkpoint_message" | sed -nE 's/.*checkpoint ([0-9]+)\/([0-9]+).*/\1 \2/p' | tail -n 1)"
-    if [ "$checkpoint_target" = "$target_tree" ] && [ -n "$checkpoint_progress" ]; then
+    if [ "$checkpoint_target" = "$target_tree" ] \
+       && [ "$checkpoint_plan" = "$chunk_plan_sha" ] && [ -n "$checkpoint_progress" ]; then
       read -r completed_chunks checkpoint_chunks <<< "$checkpoint_progress"
       case "$completed_chunks:$checkpoint_chunks" in
         *[!0-9:]*|:*|*:) completed_chunks=0 ;;
@@ -224,7 +253,7 @@ section_shard_publish_resumable() {
       rm -rf "$work" "$final_index" "$partial_index"
       return 1
     fi
-    commit_message="$main_message [resume-base:$base_sha] [resume-target:$target_tree] checkpoint $chunk_number/$chunk_count"
+    commit_message="$main_message [resume-base:$base_sha] [resume-target:$target_tree] [resume-plan:$chunk_plan_sha] checkpoint $chunk_number/$chunk_count"
     if ! checkpoint_commit="$(git -C "$stage" commit-tree "$partial_tree" -p "$checkpoint_parent" -m "$commit_message")"; then
       echo "::error::$label: creating checkpoint commit $chunk_number/$chunk_count failed" >&2
       rm -rf "$work" "$final_index" "$partial_index"
