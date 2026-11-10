@@ -3461,12 +3461,13 @@ export function isRoleHeading(heading, title) {
   const text = String(heading || '').trim();
   if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
   const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
-  const seen = normalizeWords(text).split(' ').filter(Boolean);
+  // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the words.
+  const seen = normalizeWords(text.replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')).split(' ').filter(Boolean);
   const shown = new Set(seen);
   // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
   // the title aside, and nothing but those markers or a workload around it.
   return seen.length > 0 && [...wanted].every((word) => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
-    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || /^\d{1,3}$/.test(word));
+    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
 }
 
 /** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */

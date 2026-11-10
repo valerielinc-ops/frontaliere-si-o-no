@@ -64,6 +64,9 @@ describe('selected posting route whose rendered text starts with a skip link', (
   it('reads a role heading only with every word of the role (acceptance of the review of #18003)', () => {
     expect(isRoleHeading('Product Manager', 'IT Product Manager')).toBe(false);
     expect(isRoleHeading('IT Product Manager (m/w/d) 80-100%', 'IT Product Manager')).toBe(true);
+    // Only a workload percentage is a number around the role (review of #18003).
+    expect(isRoleHeading('Product Manager 999', 'Product Manager')).toBe(false);
+    expect(isRoleHeading('Product Manager 100 %', 'Product Manager')).toBe(true);
   });
 
   it('keeps a heading with only part of the role a mismatch (review of #18003)', () => {
