@@ -25,6 +25,7 @@ export function installHouseAds(
   // fill. Skip this optional layer and let the independent recovery continue.
   if (typeof MutationObserver !== 'function') return undefined;
   const variants = config.variants;
+  const occupiedAdSelector = 'ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ad-state="optimized"],[data-ft-ad-state="filled"],[data-ft-ad-state="optimized"],[data-ft-static-ad-state="filled"],[data-ft-static-ad-state="optimized"]';
   const entries = new Map<HTMLElement, Entry>();
   const eligibleFrames = new Set<HTMLElement>();
   const observedFrames = new Set<HTMLElement>();
@@ -246,10 +247,10 @@ export function installHouseAds(
       let host = frame.querySelector<HTMLElement>('[data-ft-house-host]');
       if (!host) { host = document.createElement('span'); host.setAttribute('data-ft-house-host', ''); frame.append(host); }
       const state = google?.getAttribute('data-ft-ad-state') || google?.getAttribute('data-ad-state') || google?.getAttribute('data-ft-static-ad-state') || '';
-      const isFilled = state === 'filled' || state === 'optimized'
-        || !!google?.matches('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"]')
-        || !!google?.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ad-state="filled"],[data-ad-state="optimized"]');
-      if (isFilled) { if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null; remove(frame); continue; }
+      const isOccupied = state === 'filled' || state === 'optimized'
+        || !!google?.matches(occupiedAdSelector)
+        || !!google?.querySelector(occupiedAdSelector);
+      if (isOccupied) { if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null; remove(frame); continue; }
       const gpt = frame.dataset.ftHouseLibrary === 'gpt';
       const requested = !!google && (google.hasAttribute('data-google-query-id') || !!google.querySelector('[data-google-query-id]'));
       const pending = !!google && (google.hasAttribute('data-ft-ad-request-pending') || !!google.querySelector('[data-ft-ad-request-pending]') || state === 'waiting_response' || (state === 'loading' && (!gpt || requested)));
@@ -364,7 +365,7 @@ export function installHouseAds(
     if (records.every(r => (r.target as Element).closest?.('[data-ft-house-host]'))) return;
     schedule();
   });
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-anchor-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   window.addEventListener('frontaliere:auth-state', (event) => {
     const state = (event as CustomEvent).detail;

@@ -54,12 +54,16 @@ export function installAdRecovery(
   const googleMessage = () => Array.from(document.querySelectorAll('.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(onScreen);
   const googleAdBlockRecoveryMessage = () => Array.from(document.querySelectorAll('.fc-ab-root')).some(onScreen);
   const visibleDialog = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')).some(onScreen);
-  const filled = () => !!document.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ft-ad-state="optimized"]');
+  // Several owners publish the same Google result on different nodes: the
+  // AdSense <ins>, our React wrapper, or the static-shell wrapper. Treat all
+  // of them as occupied so recovery only considers genuinely empty slots.
+  const occupiedAdSelector = 'ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ad-state="optimized"],[data-ft-ad-state="filled"],[data-ft-ad-state="optimized"],[data-ft-static-ad-state="filled"],[data-ft-static-ad-state="optimized"]';
+  const occupied = (frame: HTMLElement) => frame.matches(occupiedAdSelector) || !!frame.querySelector(occupiedAdSelector);
+  const hasOccupiedAd = () => !!document.querySelector(occupiedAdSelector);
   const hasUnfilledHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house]')).some((frame) => {
     const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
     if (!google) return false;
-    const state = google.getAttribute('data-ft-ad-state') || google.getAttribute('data-ad-state') || google.getAttribute('data-ft-static-ad-state') || '';
-    return !['filled', 'optimized'].includes(state) && !google.matches('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"]') && !google.querySelector('ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],[data-ad-state="filled"],[data-ft-ad-state="optimized"]');
+    return !occupied(frame);
   });
   const permitted = () => {
     try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !location.pathname.startsWith(jobPath); }
@@ -173,7 +177,7 @@ export function installAdRecovery(
     // Probe once an inline slot can still need replacement. Waiting six
     // seconds left blocked slots blank, while the filled() shortcut below
     // skipped detection when a different placement had filled.
-    if (!probed && (config.inlineHouseAds ? hasUnfilledHouseSlot() : !filled())) {
+    if (!probed && (config.inlineHouseAds ? hasUnfilledHouseSlot() : !hasOccupiedAd())) {
       probed = true;
       const probeStartedAt = Date.now();
       const probePath = location.pathname;
@@ -181,7 +185,7 @@ export function installAdRecovery(
         probeResult = result;
         w.__ftAdBlockProbe = result;
         const reportProbe = () => {
-          const stillRelevant = config.inlineHouseAds ? hasUnfilledHouseSlot() : !filled();
+          const stillRelevant = config.inlineHouseAds ? hasUnfilledHouseSlot() : !hasOccupiedAd();
           if (location.pathname === probePath && stillRelevant) emit('ad_block_probe', { source: 'iab_quick_bait', result });
         };
         const reportDelay = result === 'blocked' ? 0 : Math.max(0, 6000 - (Date.now() - probeStartedAt));
@@ -209,7 +213,7 @@ export function installAdRecovery(
       blockerDetectedAt = 0;
       if (config.inlineHouseAds) closePopup();
     }
-    if (filled() && !(config.inlineHouseAds && inlineSlotPending)) {
+    if (hasOccupiedAd() && !(config.inlineHouseAds && inlineSlotPending)) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
       if (pending > 0 && Date.now() - pending < 300000 && lastOutcome !== 'ads_restored') {

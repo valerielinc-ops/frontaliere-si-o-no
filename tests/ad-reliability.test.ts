@@ -366,6 +366,28 @@ describe('IAB detection and independent recovery surface', () => {
     expect(houseRefresh).not.toHaveBeenCalled();
     expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
   });
+  it.each([
+    ['generic optimized state', 'data-ad-state'],
+    ['React lifecycle state', 'data-ft-ad-state'],
+    ['static-shell lifecycle state', 'data-ft-static-ad-state'],
+  ])('keeps an inline slot occupied when %s is reported on a descendant', async (_label, attribute) => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    const google = w.document.createElement('div');
+    google.setAttribute('data-ft-house-google', '');
+    const state = w.document.createElement('ins');
+    state.setAttribute(attribute, 'optimized');
+    google.append(state);
+    houseSlot.append(google);
+    w.document.body.append(houseSlot);
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
+    recovery('clear', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+    expect(houseRefresh).not.toHaveBeenCalled();
+    expect(emit).not.toHaveBeenCalledWith('ad_block_probe', expect.anything());
+  });
   it('reports a clear inline probe only after the slot remains unfilled for six seconds', async () => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
