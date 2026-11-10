@@ -447,6 +447,53 @@ export function resolveJobPostingValidThrough(job: JobInput, now?: Date): string
   return resolveActiveJobPostingDeadline(job, now).validThrough;
 }
 
+/**
+ * Emission gate, tolerance zero: an ACTIVE JobPosting is never emitted with a
+ * `validThrough` at or before the clock it is emitted with. Google reads such
+ * a posting as expired on arrival. Only the archived path
+ * (`validThroughSource: 'archive-evidence'`, buildArchivedJobPosting) may carry
+ * a past deadline, because that page is the closed vacancy. Every active
+ * emitter funnels here: the full SSG render (buildJobPostingSchema), the
+ * reused-page refresh (jobsSeoPagesPlugin buildActiveReuseFragments) and the
+ * SPA runtime (services/seoService.ts through buildJobPostingSchema).
+ */
+export function assertActiveJobPostingDeadlineOpen(
+  validThrough: string | null | undefined,
+  emittedAt: Date | undefined,
+  label: string,
+): void {
+  const clock = emittedAt && Number.isFinite(emittedAt.getTime()) ? emittedAt : new Date();
+  const deadline = validThrough ? Date.parse(validThrough) : NaN;
+  if (!Number.isFinite(deadline) || deadline <= clock.getTime()) {
+    throw new Error(
+      `active JobPosting "${label || '(unidentified job)'}" would be emitted already expired: validThrough ` +
+      `${validThrough ?? '(missing)'} is not after the emission clock ${clock.toISOString()}`,
+    );
+  }
+}
+
+/**
+ * The active deadline the reused-page refresh (jobsSeoPagesPlugin
+ * buildActiveReuseFragments) writes into cached HTML, under the same emission
+ * gate as a full render.
+ */
+export function resolveOpenActiveJobPostingValidThrough(job: JobInput, now?: Date): string | null {
+  const clock = emissionClock(now);
+  const validThrough = resolveJobPostingValidThrough(job, clock);
+  assertActiveJobPostingDeadlineOpen(validThrough, clock, String(job.id || job.slug || job.title || ''));
+  return validThrough;
+}
+
+/**
+ * One clock per emission. Resolving the deadline and gating it with two
+ * separate `new Date()` reads lets a run that crosses a deadline (e.g. a
+ * date-only source deadline at 23:59:59.999Z) resolve it as open and then
+ * reject it; a single captured instant keeps both decisions consistent.
+ */
+function emissionClock(now?: Date): Date {
+  return now && Number.isFinite(now.getTime()) ? now : new Date();
+}
+
 /** Build a locale-aware fallback description ≥ 50 chars. */
 function buildDescriptionFallback(
   title: string,
@@ -849,7 +896,8 @@ export function buildJobPostingSchema(
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
+  const clock = emissionClock(opts.now);
+  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, clock);
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
@@ -861,11 +909,18 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const validThrough = resolveJobPostingValidThrough(job, opts.now);
+  const validThrough = resolveJobPostingValidThrough(job, clock);
   if (!validThrough) {
     throw new Error(
       `buildJobPostingSchema: could not resolve a source or observed deadline for job ` +
       `"${job.id || job.slug || job.title || companyName}"`,
+    );
+  }
+  if (job.validThroughSource !== 'archive-evidence') {
+    assertActiveJobPostingDeadlineOpen(
+      validThrough,
+      clock,
+      String(job.id || job.slug || job.title || companyName),
     );
   }
   const resolvedEmploymentTypes = resolveEmploymentTypes(job, title);
