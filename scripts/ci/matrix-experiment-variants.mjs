@@ -25,6 +25,7 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // whose parser rejects these candidates; a variant is the only channel.
   // Empty/absent keeps the default release plan (see jobsSeoRetentionProbe.ts).
   'JOBS_SEO_GCFREED_PROBE',
+  'JOBS_SEO_HTML_GC_INTERVAL_MB',
   'JOBS_SEO_SAMPLE',
   'BUILD_PROFILE',
   'BUILD_BENCH',

@@ -33,6 +33,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
       'JOBS_SEO_GCFREED_PROBE',
+      'JOBS_SEO_HTML_GC_INTERVAL_MB',
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_PROBE',
@@ -287,6 +288,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     )).toEqual([
       { name: 'baseline', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '0' } },
       { name: 'candidate', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '1' } },
+    ]);
+  });
+
+  it('accepts the jobs SEO HTML GC cadence switch for a same-corpus comparison', () => {
+    expect(parseVariants(
+      'baseline=\ncandidate=JOBS_SEO_HTML_GC_INTERVAL_MB=512',
+    )).toEqual([
+      { name: 'baseline', env: {} },
+      { name: 'candidate', env: { JOBS_SEO_HTML_GC_INTERVAL_MB: '512' } },
     ]);
   });
 
