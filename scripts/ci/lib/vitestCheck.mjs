@@ -176,8 +176,10 @@ function generationMetadata(run) {
 /**
  * Confronta la generazione di due run. `null` significa che i marcatori sono
  * parziali e non consentono una scelta sicura: il chiamante deve restituire
- * `ambiguous`, mai ricadere sull'id del check-run. L'id è solo il tie-break
- * quando i marcatori presenti sono completi e uguali.
+ * `ambiguous`, mai ricadere sull'id del check-run. L'ID della workflow run è
+ * la generazione globale; `run_attempt` è ordinabile solo dentro quella stessa
+ * run. L'id del check-run resta il tie-break quando i marcatori sono completi
+ * e uguali.
  */
 function compareGenerations(left, right) {
   if (left.createdAt !== null && right.createdAt !== null && left.createdAt !== right.createdAt) {
@@ -189,32 +191,48 @@ function compareGenerations(left, right) {
   // omission rather than on a proved generation.
   if (left.createdAt !== right.createdAt) return null;
 
+  if ((left.workflowRunId === null) !== (right.workflowRunId === null)) return null;
+  if (left.workflowRunId !== null && right.workflowRunId !== null) {
+    const workflowOrder = compareDecimalIds(left.workflowRunId, right.workflowRunId);
+    if (workflowOrder !== 0) return workflowOrder;
+  }
+
+  // `run_attempt` is scoped to one workflow run. Comparing it before the
+  // workflow ID makes an older run's rerun (attempt 2) look newer than a
+  // newer run's first attempt (attempt 1).
   if (left.runAttempt === null || right.runAttempt === null) {
     if (left.runAttempt !== right.runAttempt) return null;
   }
   if (left.runAttempt !== null && right.runAttempt !== null && left.runAttempt !== right.runAttempt) {
     return left.runAttempt - right.runAttempt;
   }
-  if ((left.workflowRunId === null) !== (right.workflowRunId === null)) return null;
-  if (left.workflowRunId !== null && right.workflowRunId !== null) {
-    const workflowOrder = compareDecimalIds(left.workflowRunId, right.workflowRunId);
-    if (workflowOrder !== 0) return workflowOrder;
-  }
   return left.id - right.id;
 }
 
+function normalizedTimestamp(value) {
+  return validTimestamp(value) ? Date.parse(value) : null;
+}
+
+function normalizedSha(value) {
+  return typeof value === 'string' ? value.trim().toLowerCase() : null;
+}
+
+function normalizedDetailsUrl(value) {
+  return typeof value === 'string' ? value.trim() : null;
+}
+
 function sameRunIdentity(left, right) {
-  return left.head_sha === right.head_sha
+  return normalizedSha(left.head_sha) === normalizedSha(right.head_sha)
     && left.status === right.status
     && left.conclusion === right.conclusion
-    && left.created_at === right.created_at
-    && left.completed_at === right.completed_at
+    && normalizedTimestamp(left.created_at) === normalizedTimestamp(right.created_at)
+    && normalizedTimestamp(left.completed_at) === normalizedTimestamp(right.completed_at)
     && left.run_attempt === right.run_attempt
-    && (left.details_url ?? null) === (right.details_url ?? null)
+    && normalizedDetailsUrl(left.details_url) === normalizedDetailsUrl(right.details_url)
     && (typeof left.external_id === 'string' ? left.external_id.trim().toLowerCase() : null)
       === (typeof right.external_id === 'string' ? right.external_id.trim().toLowerCase() : null)
     && (left.check_suite?.id ?? null) === (right.check_suite?.id ?? null)
-    && (left.check_suite?.head_sha ?? null) === (right.check_suite?.head_sha ?? null);
+    && normalizedSha(left.check_suite?.head_sha) === normalizedSha(right.check_suite?.head_sha);
 }
 
 /**
