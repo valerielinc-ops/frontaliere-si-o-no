@@ -659,7 +659,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);
   // The decision engine's choices for the questions no rule and no CV answer cover (2026-11-10,
   // assistedApplicationDecisionAnswers.js), checked again on every read: form-only as well.
-  platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, { postingTitle: draft?.job?.title || '' });
+  platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, {
+    postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
+  });
   return { identity, profile, answers, overrides, personal, platformFacts };
 }
 

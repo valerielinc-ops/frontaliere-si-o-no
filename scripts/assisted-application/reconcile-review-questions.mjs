@@ -181,7 +181,7 @@ async function answerTargets({ order, draft, plan, codex, log }) {
     facts: {
       ...plan.platformFacts,
       cvAnswers: verifiedCvAnswers(cv.questions, cvText),
-      decisionAnswers: verifiedDecisionAnswers(cv.questions, cvText, { postingTitle: draft?.job?.title || '' }),
+      decisionAnswers: verifiedDecisionAnswers(cv.questions, cvText, { postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [] }),
     },
   });
   return {

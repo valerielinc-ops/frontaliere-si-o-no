@@ -286,7 +286,14 @@ function optionIndex(question, value) {
  *   is a source of the answer only for a question on the position applied for (appliedPositionQuestion).
  * @returns {{ok:boolean, reasons:string[], shape:string, value:string, applicationValue:string, principle:string, reason:string}}
  */
-export function verifyDecision(proposal, { question, cvText = '', allowText = true, postingTitle = '' } = {}) {
+/** The posting's requirements as short lines (strings or `{ requirement }`), the same the prompt receives. */
+export function postingRequirementLines(postingRequirements) {
+  return (Array.isArray(postingRequirements) ? postingRequirements : [])
+    .map((item) => String((typeof item === 'string' ? item : item?.requirement) ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200))
+    .filter(Boolean).slice(0, 12);
+}
+
+export function verifyDecision(proposal, { question, cvText = '', allowText = true, postingTitle = '', postingRequirements = [] } = {}) {
   const reasons = [];
   const shape = decisionShape(question);
   if (!decisionQuestionEligible(question, { allowText })) reasons.push('question_not_eligible');
@@ -320,8 +327,10 @@ export function verifyDecision(proposal, { question, cvText = '', allowText = tr
     // Without the CV's text nothing proves the answer stays within it.
     if (!String(cvText ?? '').trim()) reasons.push('text_needs_cv');
     else if (value) {
-      const sources = appliedPositionQuestion(question) && String(postingTitle ?? '').trim()
-        ? `${cvText}\n${String(postingTitle).slice(0, 300)}` : cvText;
+      // The applied-for profile may come from the posting itself: its title or, for a general call, its requirements.
+      const posting = appliedPositionQuestion(question)
+        ? [String(postingTitle ?? '').trim().slice(0, 300), ...postingRequirementLines(postingRequirements)].filter(Boolean) : [];
+      const sources = posting.length ? `${cvText}\n${posting.join('\n')}` : cvText;
       for (const finding of cvAnswerInventions(value, sources)) reasons.push(`invented_${finding.kind}`);
     }
   }
@@ -374,12 +383,12 @@ export function decisionLabels(question) {
  * (candidateWithEdits → platformFacts.decisionAnswers). Checked again on every read.
  * @returns {Record<string,{shape:string, value:string, applicationValue?:string, principle:string, reason:string, labels:string[], version:string}>}
  */
-export function verifiedDecisionAnswers(questions, cvText, { postingTitle = '' } = {}) {
+export function verifiedDecisionAnswers(questions, cvText, { postingTitle = '', postingRequirements = [] } = {}) {
   const out = {};
   for (const question of Array.isArray(questions) ? questions : []) {
     const stored = question?.platformDecision;
     if (!stored || typeof stored !== 'object' || stored.decision !== 'answer') continue;
-    const checked = verifyDecision(stored, { question, cvText, postingTitle });
+    const checked = verifyDecision(stored, { question, cvText, postingTitle, postingRequirements });
     if (!checked.ok) continue;
     out[question.id] = { ...decisionRecord(checked), labels: decisionLabels(question) };
   }
@@ -514,9 +523,7 @@ reason: one short sentence in English naming the principle's ground, without per
  * @param {{questions:object[], employer?:string, jobTitle?:string, cvText?:string, profile?:object, postingRequirements?:Array<string|{requirement:string}>}} input
  */
 export function decisionsUserText({ questions, employer = '', jobTitle = '', cvText = '', profile = null, postingRequirements = [] }) {
-  const requirements = (Array.isArray(postingRequirements) ? postingRequirements : [])
-    .map((item) => String((typeof item === 'string' ? item : item?.requirement) ?? '').replace(/\s+/gu, ' ').trim().slice(0, 200))
-    .filter(Boolean).slice(0, 12);
+  const requirements = postingRequirementLines(postingRequirements);
   return JSON.stringify({
     employer: String(employer || '').slice(0, 200),
     jobTitle: String(jobTitle || '').slice(0, 200),

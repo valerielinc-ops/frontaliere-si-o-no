@@ -490,7 +490,7 @@ export async function buildDraft(ctx) {
     facts: {
       ...edited.platformFacts,
       cvAnswers: verifiedCvAnswers(questions, cvText),
-      decisionAnswers: verifiedDecisionAnswers(questions, cvText, { postingTitle: title }),
+      decisionAnswers: verifiedDecisionAnswers(questions, cvText, { postingTitle: title, postingRequirements: requirements.requirements }),
     },
   });
 

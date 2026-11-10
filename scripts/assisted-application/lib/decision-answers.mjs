@@ -55,7 +55,7 @@ async function decide({ questions, codex, cvText = '', profile = null, employer 
     return questions.map((question) => {
       const proposal = proposals.find((item) => item?.id === question.id);
       if (!proposal) return { question, checked: null, reasons: ['not_decided'] };
-      const checked = verifyDecision(proposal, { question, cvText, allowText, postingTitle: jobTitle });
+      const checked = verifyDecision(proposal, { question, cvText, allowText, postingTitle: jobTitle, postingRequirements });
       return { question, checked, reasons: checked.reasons };
     });
   } catch (error) {

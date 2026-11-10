@@ -96,6 +96,8 @@ describe('support to other sites or branches is a platform rule, like relocation
     for (const question of [
       { question: 'Hai lavorato in una succursale bancaria?', type: 'yes_no' },
       { question: 'Hai svolto servizio di guardia?', type: 'yes_no' },
+      // French «piquet» names a past duty too (review of #18004).
+      { question: 'Avez-vous effectué un service de piquet ?', type: 'yes_no' },
       { question: 'In quale sede preferisci lavorare?', type: 'text' },
       { question: 'Quale esperienza hai maturato nelle succursali?', type: 'text' },
     ]) expect(platformQuestionTopic(question), question.question).toBeNull();
@@ -115,7 +117,8 @@ describe('the review page shows every answer of the platform, filled in and edit
     const payload = buildReviewPayload({ order, flow, draft, round: 1, coverLetterUrl: null, nowMs: NOW });
     expect(payload.questions.map((question: { id: string }) => question.id)).toEqual([branches.id, availability.id, reception.id, profile.id, smallTeam.id]);
     const byId = Object.fromEntries(payload.questions.map((question: { id: string }) => [question.id, question]));
-    expect(byId[branches.id]).toMatchObject({ answeredByPlatform: true, answerProvenance: 'platform_rule' });
+    // A platform rule fills the field on the first read, before any draft mirror (review of #18004).
+    expect(byId[branches.id]).toMatchObject({ answeredByPlatform: true, answerProvenance: 'platform_rule', suggestedAnswer: 'Sì' });
     expect(byId[availability.id]).toMatchObject({ answeredByPlatform: true, answerProvenance: 'platform_rule', suggested: defaultStartDate(NOW) });
     expect(byId[reception.id]).toMatchObject({ answeredByPlatform: true, answerProvenance: 'cv_plausible', answerFromCv: 'cv_plausible', suggestedAnswer: reception.suggestedAnswer });
     expect(byId[profile.id]).toMatchObject({ answeredByPlatform: true, answerProvenance: 'platform_decision', answerDecisionPrinciple: 'plausible_deduction', suggestedAnswer: PROFILE_ANSWER });
@@ -207,6 +210,9 @@ describe('the profile applied for (CVRD…): the posting is a source of the answ
     expect(appliedPositionQuestion(profile)).toBe(true);
     expect(verifyDecision(decision, { question: profile, cvText: CV }).reasons).toContain('invented_name');
     expect(verifyDecision(decision, { question: profile, cvText: CV, postingTitle: TITLE })).toMatchObject({ ok: true, value: PROFILE_ANSWER });
+    // A general call names the profile only in its requirements (review of #18004).
+    expect(verifyDecision(decision, { question: profile, cvText: CV, postingTitle: 'Concorso generale permanente 2026',
+      postingRequirements: [{ requirement: 'Collaboratore Amministrativo' }] })).toMatchObject({ ok: true, value: PROFILE_ANSWER });
     const experience = { ...profile, id: 'experience', question: 'Descrivi la tua esperienza più recente.' };
     expect(appliedPositionQuestion(experience)).toBe(false);
     expect(verifyDecision({ ...decision, value: 'Ho lavorato come Collaboratore Amministrativo.' }, { question: experience, cvText: CV, postingTitle: TITLE }).ok).toBe(false);

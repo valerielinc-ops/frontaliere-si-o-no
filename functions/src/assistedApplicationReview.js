@@ -428,7 +428,12 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
       ...(isDecisionAnswerDefault(defaults[question.id]) ? {
         suggestedAnswer: defaults[question.id].value,
         answerDecisionPrinciple: defaults[question.id].principle,
-      } : {}) };
+      } : {}),
+      // A platform rule (relocation, other sites, the residence region, the start date…) fills the field on the
+      // first read too, without waiting for the draft mirror the recovery writes.
+      ...(defaults[question.id] && !isCvAnswerDefault(defaults[question.id]) && !isDecisionAnswerDefault(defaults[question.id])
+        && String(defaults[question.id].value ?? '').trim() && !String(question.suggestedAnswer ?? '').trim()
+        ? { suggestedAnswer: defaults[question.id].value } : {}) };
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
     answers.work_permit = value;

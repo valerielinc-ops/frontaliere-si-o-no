@@ -482,10 +482,11 @@ const START = /\b(?:start(?:ing)? date|date of (?:start|entry)|earliest (?:possi
 const SCHEDULE = /\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekdays?|lunedi|martedi|mercoledi|giovedi|venerdi|sabato|domenica|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|orari\w*|hours?|ore|stunden|heures|uhr|shift\w*|turn\w*|schicht\w*)\b/;
 const RELOCATION = /\b(?:trasferir\w*|trasferiment\w*|relocat\w*|umzug\w*|umzieh\w*|demenag\w*|willing to move)\b/;
 const HYBRID = /\b(?:ibrid\w*|hybrid\w*|hybride|homeoffice|home office|telelavoro|smart working|presenza (?:presso|in) (?:la )?sede)\b/;
-const ON_CALL = /\b(?:picchett\w*|pikett\w*|piquet\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
+const ON_CALL = /\b(?:picchett\w*|pikett\w*|reperibil\w*|on call|bereitschaft\w*|astreinte|permanence|turni di guardia)\b/;
 // Guard or standby duty asked as an availability (owner decision 2026-11-10: on-call duty in every wording is
 // always yes). Only with an availability word: «Hai svolto servizio di guardia?» asks a fact of the past.
-const GUARD_DUTY = /\b(?:servizi\w* di guardia|turn\w* di guardia|service de garde|services de garde|notfalldienst\w*|stand ?by)\b/;
+// French «piquet» also names a past duty («Avez-vous effectué un service de piquet ?»): only its availability is ours.
+const GUARD_DUTY = /\b(?:piquet\w*|servizi\w* di guardia|turn\w* di guardia|service de garde|services de garde|notfalldienst\w*|stand ?by)\b/;
 // Support to other sites or branches of the employer, or flexibility on the place of work (owner decision
 // 2026-11-10: the same family as relocation, hybrid work and on-call duty, always yes). A yes/no availability
 // only: «Hai lavorato in una succursale?» is a fact, «In quale sede preferisci lavorare?» a choice.
