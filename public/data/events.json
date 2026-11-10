@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T03:13:14.151Z",
+  "generatedAt": "2026-11-10T05:34:54.767Z",
   "totalEvents": 16620,
   "events": [
     {
@@ -390854,7 +390854,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza esamina il rapporto che ogni persona ha con se stessa e il modo in cui questo rapporto si riflette nelle relazioni con gli altri. L’incontro si svolge presso le Scuole Elementari di Tenero ed è aperto a tutti con partecipazione gratuita.",
+      "descriptionByLocale": {
+        "it": "La conferenza esamina il rapporto che ogni persona ha con se stessa e il modo in cui questo rapporto si riflette nelle relazioni con gli altri. L’incontro si svolge presso le Scuole Elementari di Tenero ed è aperto a tutti con partecipazione gratuita.",
+        "en": "The conference considers the relationship people have with themselves and how it can affect their relationships with others. It takes place at the elementary schools in Tenero and is open to everyone free of charge.",
+        "de": "Die Konferenz befasst sich mit der Beziehung, die Menschen zu sich selbst haben, und mit deren Auswirkungen auf ihre Beziehungen zu anderen. Die Veranstaltung findet in der Primarschule von Tenero statt und ist für alle kostenlos zugänglich.",
+        "fr": "La conférence porte sur la relation que chacun entretient avec soi-même et sur ses répercussions dans les rapports avec les autres. La rencontre a lieu dans l’école primaire de Tenero et est ouverte à tous gratuitement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64796",
@@ -391218,7 +391226,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una masterclass musicale al Jazz in Bess di Lugano con il Roberto Pianca Quartet. Il programma approfondisce il lavoro d’insieme e le modalità di accompagnamento nel jazz contemporaneo, con partecipazione aperta ai musicisti previa iscrizione.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una masterclass musicale al Jazz in Bess di Lugano con il Roberto Pianca Quartet. Il programma approfondisce il lavoro d’insieme e le modalità di accompagnamento nel jazz contemporaneo, con partecipazione aperta ai musicisti previa iscrizione.",
+        "en": "This music masterclass takes place at Jazz in Bess in Lugano and features the Roberto Pianca Quartet. It explores ensemble interaction and accompaniment in contemporary jazz and is open to musicians who register in advance.",
+        "de": "Die musikalische Masterclass findet im Jazz in Bess in Lugano mit dem Roberto Pianca Quartet statt. Im Mittelpunkt stehen das Zusammenspiel und die Begleitung im zeitgenössischen Jazz; teilnehmen können Musikerinnen und Musiker nach vorheriger Anmeldung.",
+        "fr": "Cette masterclass musicale se déroule au Jazz in Bess, à Lugano, avec le Roberto Pianca Quartet. Elle explore le jeu collectif et l’accompagnement dans le jazz contemporain et s’adresse aux musiciens sur inscription préalable."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64843",
@@ -392515,7 +392531,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata illustra un percorso formativo annuale rivolto a team di pet therapy e organizzato su base volontaria. L’incontro si svolge nella Sala multiuso di Paradiso e riguarda la formazione per cani da terapia.",
+      "descriptionByLocale": {
+        "it": "La serata illustra un percorso formativo annuale rivolto a team di pet therapy e organizzato su base volontaria. L’incontro si svolge nella Sala multiuso di Paradiso e riguarda la formazione per cani da terapia.",
+        "en": "The information session outlines an annual training programme for pet-therapy teams run on a voluntary basis. It is held at Sala multiuso in Paradiso and concerns training related to therapy dogs.",
+        "de": "Der Informationsabend stellt ein jährlich angebotenes Ausbildungsprogramm für Pet-Therapie-Teams vor, das ehrenamtlich getragen wird. Die Veranstaltung findet in der Sala multiuso in Paradiso statt und befasst sich mit der Ausbildung von Therapiehunden.",
+        "fr": "La soirée d’information présente un parcours annuel de formation destiné aux équipes de pet therapy et organisé sur une base bénévole. La rencontre a lieu à la Sala multiuso de Paradiso et porte sur la formation de chiens de thérapie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AE55sfX",
@@ -396541,7 +396565,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo incontro di studi religiosi per dottorandi esamina le vulnerabilità personali e nei rapporti interpersonali nell’odierna società tecnologica. La discussione considera come le trasformazioni sociali e lo sviluppo tecnologico incidano sul benessere psicologico e sociale dei giovani, introducendo approcci relazionali orientati alla prevenzione e al recupero.",
+      "descriptionByLocale": {
+        "it": "Questo incontro di studi religiosi per dottorandi esamina le vulnerabilità personali e nei rapporti interpersonali nell’odierna società tecnologica. La discussione considera come le trasformazioni sociali e lo sviluppo tecnologico incidano sul benessere psicologico e sociale dei giovani, introducendo approcci relazionali orientati alla prevenzione e al recupero.",
+        "en": "This doctoral meeting in religious studies examines personal vulnerability and difficulties in human relationships within a technology-shaped society. It considers how social change and technological development affect young people psychologically and socially, and discusses relational approaches aimed at prevention and repair.",
+        "de": "Das Treffen der Doktorandinnen und Doktoranden in Religionswissenschaft befasst sich mit persönlichen und zwischenmenschlichen Verletzlichkeiten in einer technologisch geprägten Gesellschaft. Im Mittelpunkt stehen die psychischen und sozialen Folgen gesellschaftlicher sowie technischer Veränderungen für junge Menschen und relationale Ansätze zur Vorbeugung und Bearbeitung solcher Belastungen.",
+        "fr": "Cette rencontre de doctorat en études religieuses porte sur les fragilités personnelles et relationnelles dans une société marquée par la technologie. Elle examine l’effet des évolutions sociales et techniques sur les jeunes, notamment sur les plans psychologique et social, et présente des approches relationnelles de prévention et de réparation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64849",
@@ -402049,7 +402081,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza esamina il disagio durante l’adolescenza, con particolare attenzione all’aggressività e alle dipendenze. L’incontro si svolge presso la Scuola Media di Riva San Vitale.",
+      "descriptionByLocale": {
+        "it": "La conferenza esamina il disagio durante l’adolescenza, con particolare attenzione all’aggressività e alle dipendenze. L’incontro si svolge presso la Scuola Media di Riva San Vitale.",
+        "en": "The conference examines distress during adolescence, with a focus on aggression and addictions. It is held at the Scuola Media in Riva San Vitale.",
+        "de": "Die Konferenz befasst sich mit Belastungen im Jugendalter und nimmt Aggression sowie Abhängigkeiten in den Blick. Sie findet in der Scuola Media in Riva San Vitale statt.",
+        "fr": "La conférence porte sur le mal-être à l’adolescence, en abordant l’agressivité et les dépendances. Elle a lieu à la Scuola Media de Riva San Vitale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A7vJb7i",
@@ -409363,7 +409403,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Entrañas è uno spettacolo di teatro d’oggetti. È presentato in spagnolo con sopratitoli francesi ed è rivolto a un pubblico adulto e adolescente.",
+      "descriptionByLocale": {
+        "it": "Entrañas è uno spettacolo di teatro d’oggetti. È presentato in spagnolo con sopratitoli francesi ed è rivolto a un pubblico adulto e adolescente.",
+        "en": "Entrañas is an object-theatre production. It is performed in Spanish with French surtitles and is intended for adults and teenagers.",
+        "de": "Entrañas ist eine Inszenierung des Objekttheaters. Sie wird auf Spanisch mit französischen Übertiteln gezeigt und richtet sich an Erwachsene und Jugendliche.",
+        "fr": "Entrañas est un spectacle de théâtre d’objets. Il est présenté en espagnol avec des surtitres français et s’adresse aux adultes ainsi qu’aux adolescents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:equinox-kiosque-bastions-house-tech-house",
@@ -438492,7 +438540,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio prevede l’apertura al pubblico di APRÈS-Ge nell’ambito di una settimana mondiale dedicata all’imprenditorialità. Si svolge a Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio prevede l’apertura al pubblico di APRÈS-Ge nell’ambito di una settimana mondiale dedicata all’imprenditorialità. Si svolge a Ginevra, nel cantone di Ginevra.",
+        "en": "The workshop is an open-house event at APRÈS-Ge held during a global week devoted to entrepreneurship. It takes place in Geneva, in the canton of Geneva.",
+        "de": "Der Workshop umfasst einen Tag der offenen Tür bei APRÈS-Ge im Rahmen einer weltweiten Woche zum Unternehmertum. Er findet in Genf im Kanton Genf statt.",
+        "fr": "L’atelier présente l’ouverture au public d’APRÈS-Ge dans le cadre d’une semaine mondiale consacrée à l’entrepreneuriat. Il a lieu à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ATxPiM7",
@@ -459811,7 +459867,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un pomeriggio di ascolto personale e lavoro manuale incentrato sulla realizzazione di una ghirlanda con elementi naturali. L’attività combina ecopsicologia, ecopoesia e mindfulness crafting, e la creazione può essere portata a casa come richiamo all’intenzione scelta.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un pomeriggio di ascolto personale e lavoro manuale incentrato sulla realizzazione di una ghirlanda con elementi naturali. L’attività combina ecopsicologia, ecopoesia e mindfulness crafting, e la creazione può essere portata a casa come richiamo all’intenzione scelta.",
+        "en": "This afternoon activity combines personal reflection with hands-on work to create a garland from natural elements. It brings together ecopsychology, ecopoetry and mindfulness crafting, and the finished garland can be taken home as a reminder of the intention being cultivated.",
+        "de": "Bei diesem Nachmittagsangebot verbinden sich persönliche Einkehr und praktisches Gestalten mit natürlichen Elementen zu einer Girlande. Die Aktivität vereint Ökopsychologie, Ökopoesie und achtsames Gestalten; die fertige Girlande kann als Erinnerung an die eigene Absicht mit nach Hause genommen werden.",
+        "fr": "Cet après-midi associe un temps d’introspection à une activité manuelle consacrée à la création d’une guirlande à partir d’éléments naturels. L’expérience réunit l’écopsychologie, l’écopoésie et le mindfulness crafting, et la création peut être emportée chez soi comme rappel de l’intention à cultiver."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AbYSBRU",
@@ -468265,7 +468329,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una cerimonia di chiusura classificata nella categoria dei concerti. Si svolge all’Alhambra di Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’evento è una cerimonia di chiusura classificata nella categoria dei concerti. Si svolge all’Alhambra di Ginevra.",
+        "en": "The event is a closing ceremony classified as a concert. It takes place at Alhambra in Geneva.",
+        "de": "Die Veranstaltung ist als Konzert eingestuft und bildet den Abschluss. Sie findet im Alhambra in Genf statt.",
+        "fr": "Ce rendez-vous est une cérémonie de clôture classée dans la catégorie des concerts. Il a lieu à l’Alhambra, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d29342c4db9a4bf294dc4c0a11ee60c3",
@@ -474618,7 +474690,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Si tratta di una commedia teatrale proposta al Teatro Sociale di Bellinzona. La trama nasce da un gioco di società in cui un invitato ritenuto ingenuo viene coinvolto per divertire gli altri, ma la situazione porta a conseguenze impreviste.",
+      "descriptionByLocale": {
+        "it": "Si tratta di una commedia teatrale proposta al Teatro Sociale di Bellinzona. La trama nasce da un gioco di società in cui un invitato ritenuto ingenuo viene coinvolto per divertire gli altri, ma la situazione porta a conseguenze impreviste.",
+        "en": "This theatrical comedy is presented at Teatro Sociale in Bellinzona. Its plot begins with a social game in which a guest regarded as naive is brought in for the amusement of others, but the situation leads to unexpected consequences.",
+        "de": "Die Theaterkomödie wird im Teatro Sociale in Bellinzona aufgeführt. Im Mittelpunkt steht ein Gesellschaftsspiel, bei dem ein als naiv geltender Gast zur Unterhaltung der anderen eingeladen wird und dadurch unerwartete Folgen auslöst.",
+        "fr": "Cette comédie théâtrale est présentée au Teatro Sociale de Bellinzone. L’intrigue part d’un jeu mondain où un invité jugé naïf est convié pour divertir les autres, avant que la situation n’entraîne des conséquences inattendues."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:334ffc45388447c5975e6cae4e031fe6",
@@ -491192,7 +491272,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di clubbing si svolge a Ginevra presso il Cercle des Bains ed è rivolto alle donne. L’iniziativa accoglie partecipanti senza discriminazioni e non prevede un codice di abbigliamento, con un’atmosfera caratterizzata da buonumore e paillettes.",
+      "descriptionByLocale": {
+        "it": "L’evento di clubbing si svolge a Ginevra presso il Cercle des Bains ed è rivolto alle donne. L’iniziativa accoglie partecipanti senza discriminazioni e non prevede un codice di abbigliamento, con un’atmosfera caratterizzata da buonumore e paillettes.",
+        "en": "This clubbing event takes place in Geneva at Cercle des Bains and is intended for women. It welcomes participants without discrimination and has no dress code, with a setting featuring a cheerful mood and sequins.",
+        "de": "Die Clubbing-Veranstaltung findet in Genf im Cercle des Bains statt und richtet sich an Frauen. Sie ist diskriminierungsfrei und ohne Kleiderordnung; vorgesehen sind eine heitere Atmosphäre und Pailletten.",
+        "fr": "Cette soirée de clubbing se tient à Genève, au Cercle des Bains, et s’adresse aux femmes. Elle est ouverte sans discrimination et ne prévoit pas de code vestimentaire, dans une ambiance placée sous le signe de la bonne humeur et des paillettes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:stage-festival-celtiques-stage-fiddle-violon-ecossais-iles-shetland-maurice-henderson",
