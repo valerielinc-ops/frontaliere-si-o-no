@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   EXPIRED_JOB_EDGE_DATASET_PREFIX,
   EXPIRED_JOB_EDGE_SCHEMA_VERSION,
@@ -126,9 +127,7 @@ export async function publishExpiredJobEdgeDataset({ distDir = path.resolve('dis
   return { locale: buildLocale, pageCount: manifest.pageCount, shardCount: manifest.shardIds.length };
 }
 
-const invokedDirectly = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-if (invokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   publishExpiredJobEdgeDataset().catch((error) => {
     console.error(`::error::[expired-job-edge-publish] ${error.message}`);
     process.exitCode = 1;
