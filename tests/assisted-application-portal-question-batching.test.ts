@@ -1335,6 +1335,54 @@ describe('assisted portal question batching', () => {
     expect(window.document.querySelector('#next')?.getAttribute('data-clicked')).not.toBe('true');
   });
 
+  it('decides what the engine can before any translation: a failed translation does not stop a decided page', async () => {
+    // Damiani rg82P9MP (2026-11-10): the translation for the candidate failed and the run handed off with
+    // question_localization_unavailable; the decision engine, which ran only after the translation, never ran.
+    const fixture = fakePage({ conditional: false });
+    const { page, window } = fixture;
+    window.document.querySelector('form')!.insertAdjacentHTML('afterbegin',
+      '<label for="shifts">Are you willing to work in shifts? *</label><select id="shifts" name="shifts" required><option value="">Choose one</option><option value="Y">Yes</option><option value="N">No</option></select>');
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    const calls = { plan: 0, decide: 0, localize: 0 };
+    const codex = async ({ prompt, schema }: any) => {
+      if (String(prompt).includes('You localize questions from an online job application')) {
+        calls.localize += 1;
+        throw new Error('provider unavailable');
+      }
+      if (schema?.properties?.decisions) {
+        calls.decide += 1;
+        const ids: string[] = schema.properties.decisions.items.properties.id.enum;
+        return { decisions: ids.map((id) => ({ id, decision: 'answer', value: 'Yes', principle: 'application_success', category: '', reason: 'Availability.' })) };
+      }
+      calls.plan += 1;
+      return {
+        actions: [{ fieldId: fieldId('motivation'), action: 'fill', value: 'Synthetic interest', document: 'none', source: 'draft', evidence: '' }],
+        missingRequired: [{ fieldId: fieldId('shifts'), question: 'Are you willing to work in shifts?', why: '', type: 'choice', options: ['Yes', 'No'] }],
+      };
+    };
+
+    const result = await submitViaPortal({
+      applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'it',
+      candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {}, platformFacts: {} },
+      files: {}, skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(calls.decide).toBe(1);
+    expect(calls.localize).toBe(0);
+    expect(calls.plan).toBeGreaterThanOrEqual(2);
+    expect((window.document.getElementById('shifts') as any).value).toBe('Y');
+    expect(result.event.reason).not.toBe('question_localization_unavailable');
+    expect(result.event.type).not.toBe('submit_needs_candidate');
+  });
+
   it('does not send a partial batch when the required-field surface never settles', async () => {
     const fixture = fakePage({ conditional: false });
     const { page } = fixture;

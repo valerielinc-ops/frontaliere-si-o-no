@@ -48,7 +48,8 @@ import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, 
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v2';
+// v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v3';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -156,7 +157,7 @@ function seedNumber(seed, salt) {
   return createHash('sha256').update(`${salt}\u0000${seed}`).digest().readUInt32BE(0);
 }
 
-const MATURITY_RE = /\b(?:matur\w*|diploma (?:di )?(?:scuola )?(?:media )?superiore|diploma di (?:maturita|liceo|istituto|ragioneria|geometra|perito)|diploma quinquennale|liceo|istituto tecnico|istituto professionale|ragioneria|perito|geometra|high school|secondary school diploma|abitur|baccalaur\w*|gymnas\w*|kantonsschule|liceo cantonale|scuola cantonale di commercio)\b/;
+const MATURITY_RE = /\b(?:matur\w*|diploma (?:di )?(?:scuola )?(?:media )?superiore|diploma di (?:maturita|liceo|istituto|ragioneria|geometra|perito)|diploma quinquennale|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|ipsar|ragioneria|perito|geometra|high school|secondary school diploma|upper secondary|technical (?:high )?school|vocational (?:school|diploma)|abitur|baccalaur\w*|gymnas\w*|kantonsschule|liceo cantonale|scuola cantonale di commercio|efz|eidgenossisches fahigkeitszeugnis|afc|attestato federale di capacita|cfc|certificat federal de capacite|lehrabschluss)\b/;
 const UNIVERSITY_RE = /\b(?:laurea|universit\w*|politecnico|bachelor|master|msc|bsc|ba|ma|phd|dottorato|ingegneria|degree|hochschule|fachhochschule|supsi|usi|eth|epfl|haute ecole|accademia|academy)\b/;
 
 function yearOf(value) {
@@ -178,9 +179,45 @@ export function platformDateOfBirth(profile = {}) {
     .map((item) => yearOf(item?.end) || (yearOf(item?.start) ? yearOf(item.start) + 5 : null)).filter(Boolean);
   const university = education.filter((item) => UNIVERSITY_RE.test(text(item)))
     .map((item) => yearOf(item?.start)).filter(Boolean);
+  // A CV whose titles name neither (an English or a vocational title, «Maintenance and Technical Support»,
+  // Damiani 2026-11-10): the same rule over its education as listed. Its first school finished is the
+  // school-leaving one; with university-level entries only, the first one started.
+  const dated = education.filter((item) => !UNIVERSITY_RE.test(text(item)));
+  const leaving = dated.map((item) => yearOf(item?.end)).filter(Boolean);
+  const started = education.map((item) => yearOf(item?.start)).filter(Boolean);
   const year = maturity.length ? Math.min(...maturity) - PLATFORM_SCHOOL_LEAVING_AGE
-    : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE : null;
+    : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE
+      : leaving.length ? Math.min(...leaving) - PLATFORM_SCHOOL_LEAVING_AGE
+        : started.length ? Math.min(...started) - PLATFORM_SCHOOL_LEAVING_AGE : null;
   return year ? { value: `${year}-01-01`, estimated: true } : null;
+}
+
+// The level of a title of study, highest first (owner mandate 2026-11-10: the education level comes from the
+// CV, its highest and latest title). A title is read against the most specific level first: «Associate degree»
+// is not a bachelor, «Diploma di laurea» is not a school diploma. The same reader ranks a portal's options.
+const EDUCATION_LEVELS = [
+  [6, /\b(?:phd|ph d|doctorate|doctoral|dottorato|doktor\w*|doctorat)\b/],
+  [5, /\b(?:master\w*|msc|mba|laurea (?:magistrale|specialistica)|magistrale|specialistica|diplom ingenieur|lizenziat\w*|licence de master)\b/],
+  [3, /\b(?:associate (?:degree|diploma)|higher (?:national )?diploma|istruzione tecnica superiore|ifts|hohere fachschule|hf|eidgenossisch\w* diplom|brevetto federale|diploma federale|federal (?:diploma|certificate)|post ?secondary|technicien es|tecnico superiore|istituto tecnico superiore|its academy|fondazione its)\b/],
+  [4, /\b(?:bachelor\w*|bsc|laurea|licence|university degree|college degree|degree|universit\w*|politecnico|fachhochschule|hochschule|haute ecole|hes|supsi|eth|epfl)\b/],
+  [2, /\b(?:matur\w*|diploma|liceo|istituto tecnico|istituto professionale|istituto (?:di istruzione )?superiore|scuola superiore|iis|itis|itc|itg|ipsia|perito|ragioneria|geometra|high school|(?<!lower )secondary|abitur|baccalaur\w*|gymnas\w*|kantonsschule|vocational|apprentice\w*|apprendist\w*|lehre|lehrabschluss|efz|afc|cfc|fahigkeitszeugnis|attestato federale di capacita|certificat federal de capacite|qualifica professionale|berufsausbildung|formation professionnelle)\b/],
+  [1, /\b(?:licenza media|scuola media|middle school|lower secondary|primary|elementary|sekundarschule|realschule|hauptschule|scuola dell obbligo|compulsory|obligatoire)\b/],
+];
+
+/** The level of one title or option, or null when it names none. */
+export function educationLevelRank(value) {
+  const text = fold(value);
+  if (!text) return null;
+  for (const [rank, re] of EDUCATION_LEVELS) if (re.test(text)) return rank;
+  return null;
+}
+
+/** The candidate's highest level of study in the CV (degree first, then institution), or null. */
+export function platformEducationLevel(profile = {}) {
+  const ranks = (Array.isArray(profile?.education) ? profile.education : [])
+    .map((item) => educationLevelRank(item?.degree) ?? educationLevelRank(item?.institution))
+    .filter((rank) => rank !== null);
+  return ranks.length ? Math.max(...ranks) : null;
 }
 
 export function ageOn(dateOfBirth, nowMs = Date.now()) {
@@ -284,6 +321,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     salutation,
     dateOfBirth: birth?.value || '',
     dateOfBirthEstimated: Boolean(birth?.estimated),
+    educationLevel: platformEducationLevel(profile),
     age,
     civilStatus,
     civilStatusLabel: civilStatus ? civilStatusOptions(language)[CIVIL_STATUS_ORDER.indexOf(civilStatus)] || '' : '',
@@ -502,7 +540,7 @@ export function platformQuestionTopic(question) {
     const expected = { residence_country: /country/i, work_permit: /permit/i, nationality: /nation/i, birth_date: /birth|dob/i,
       birth_day: /birth|dob/i, birth_month: /birth|dob/i, birth_year: /birth|dob/i, address_street: /address|street/i,
       address_street_name: /address|street/i, address_house_number: /address|street/i, residence_postal_code: /postal|zip|address/i,
-      residence_city: /city|address/i, salary_expectation: /salary/i }[topic];
+      residence_city: /city|address/i, salary_expectation: /salary/i, education_level: /qualification|education|degree/i }[topic];
     if (!expected || !expected.test(identifiers)) return null;
   }
   return topic;
@@ -510,7 +548,9 @@ export function platformQuestionTopic(question) {
 
 const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
 const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
-const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*)\b/;
+// The candidate's own profile and application form own an address too («Profilinformationen»,
+// «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
+const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*|profil\w*|profile\w*|(?:stellen)?bewerbung\w*|application form|modulo di candidatura|formulaire de candidature|my details|meine daten|i miei dati|mes informations)\b/;
 
 /**
  * An address field is the candidate's only when nothing says otherwise: its
@@ -587,6 +627,9 @@ function classifyPlatformSubject(question) {
   if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
+  if (isEducationLevelQuestion(question)) return 'education_level';
+  if (isLanguageRowName(question)) return 'language_row_name';
+  if (isLanguageRowLevel(question)) return 'language_row_level';
   if (SALARY.test(text) && !/\b(?:attuale|current|aktuell\w*|actuel\w*)\b/.test(text)) return 'salary_expectation';
   if (AGE_LIMIT.test(text) && isBinary(question)) return 'age_limit';
   if (START.test(text) && !SCHEDULE.test(text) && (type === 'date' || ['text', 'textarea', ''].includes(type))
@@ -674,11 +717,79 @@ function countryValue(question, facts) {
     || '';
 }
 
+const DATE_PATTERN = /\b(dd|gg|jj|tt|mm)([./-])(dd|gg|jj|tt|mm)([./-])(yyyy|aaaa|jjjj)\b/i;
+
 function dateValue(question, iso, locale) {
   if (!iso) return '';
   if (typeOf(question) === 'date') return iso;
   const [year, month, day] = iso.split('-');
+  // The format the field shows wins over the language's («MM/DD/YYYY», SuccessFactors en_US).
+  const pattern = DATE_PATTERN.exec([question?.placeholder, question?.datePattern, question?.label, question?.question]
+    .filter((value) => typeof value === 'string').join(' '));
+  if (pattern) {
+    const part = (token) => (/^mm$/i.test(token) ? month : /^(?:yyyy|aaaa|jjjj)$/i.test(token) ? year : day);
+    return `${part(pattern[1])}${pattern[2]}${part(pattern[3])}${pattern[4]}${part(pattern[5])}`;
+  }
   return languageOf(locale) === 'en' ? `${day}/${month}/${year}` : `${day}.${month}.${year}`;
+}
+
+// ── Education level and an unnamed language row (owner mandate 2026-11-10) ──
+// SuccessFactors' «Education Level» picklist and its «Language Competencies» row («* Language», «* Level»,
+// Damiani 2026-11-10): the CV answers both, the candidate is never asked.
+
+const EDUCATION_LEVEL_LABEL = /\b(?:(?:highest )?(?:level of )?education(?:al)? (?:level|attainment|degree)|(?:highest )?level of (?:education|study|studies)|highest (?:education|degree|qualification)|education|titolo di studio|livello (?:di )?(?:istruzione|studio|studi)|grado (?:di )?istruzione|istruzione|ausbildungsniveau|bildungsniveau|bildungsabschluss|hochste\w* (?:abschluss|ausbildung)|hochster bildungsabschluss|schulabschluss|niveau (?:d )?(?:etudes|formation|education)|diplome le plus eleve|plus haut diplome|formation)\b/;
+const EDUCATION_NOT_LEVEL = /\b(?:institut\w*|school name|nome (?:della )?scuola|universit\w* name|major|field|subject|indirizzo|fachrichtung|domaine|year|anno|jahr|annee|start|end|from|to|da|al|grade|voto|note|country|paese|land|pays|city|citta|ort|ville)\b/;
+
+function isEducationLevelQuestion(question) {
+  const text = label(question);
+  if (!EDUCATION_LEVEL_LABEL.test(text) || EDUCATION_NOT_LEVEL.test(text) || text.split(' ').length > 8) return false;
+  // A picklist of levels: its options name at least two different levels, so the field asks a level and not a
+  // school (a list of schools names one level only).
+  return new Set(optionsOf(question).map(educationLevelRank).filter((rank) => rank !== null)).size >= 2;
+}
+
+/** The option of the candidate's level; else the highest one below it (never a title the CV does not hold). */
+function educationLevelValue(question, facts) {
+  const rank = facts?.educationLevel;
+  if (!Number.isFinite(rank)) return '';
+  const ranked = optionsOf(question).map((option) => ({ option, rank: educationLevelRank(option) }))
+    .filter((item) => item.rank !== null);
+  const exact = ranked.filter((item) => item.rank === rank);
+  if (exact.length) return exact[0].option;
+  const below = ranked.filter((item) => item.rank < rank).sort((left, right) => right.rank - left.rank);
+  return below[0]?.option || '';
+}
+
+const BARE_LANGUAGE = /^(?:language|lingua|sprache|langue|idioma|foreign language|lingua straniera|fremdsprache|langue etrangere)$/;
+const BARE_LEVEL = /^(?:level|livello|niveau|stufe|proficiency(?: level)?|language level|livello (?:linguistico|di conoscenza)|sprachniveau|niveau de langue|competenza|kenntnisstand)$/;
+const LANGUAGE_SECTION = /\b(?:language\w*|lingu\w*|sprach\w*|langue\w*|idiom\w*)\b/;
+// A selector of the site's own language is no competency row.
+const INTERFACE_LANGUAGE = /\b(?:interface|website|site|display|anzeige\w*|sito|correspondence|corrispondenza|korrespondenz\w*|communication|kommunikation)\b/;
+
+function rowScope(question) {
+  const owners = Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : [];
+  return fold([question?.context, question?.section, question?.addressContext?.section, ...owners]
+    .filter((value) => typeof value === 'string').join(' '));
+}
+
+// An optional bare «Language» is the site's own selector (SuccessFactors' header, Damiani 2026-11-10): only a
+// required row is one the application asks.
+function isLanguageRowName(question) {
+  if (question?.required === false || !BARE_LANGUAGE.test(label(question)) || INTERFACE_LANGUAGE.test(rowScope(question))) return false;
+  return optionsOf(question).filter((option) => languageCodesIn(option).length === 1).length >= 2;
+}
+
+function isLanguageRowLevel(question) {
+  if (question?.required === false || !BARE_LEVEL.test(label(question)) || !LANGUAGE_SECTION.test(rowScope(question))) return false;
+  return optionsOf(question).filter((option) => levelRank(option) !== null).length >= 2;
+}
+
+/** The CV's strongest language (its own language first, the mother tongue): the one a single row names. */
+function primaryLanguage(facts) {
+  const entries = (facts?.languages || []).map((entry, index) => ({
+    ...entry, index, rank: entry.level === 'native' ? 7 : levelRank(entry.level) ?? -1,
+  }));
+  return entries.sort((left, right) => right.rank - left.rank || left.index - right.index)[0] || null;
 }
 
 function languageValue(question, code, facts) {
@@ -829,6 +940,17 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     // The broadest audience inside the same employer; a yes/no or a box: yes.
     case 'profile_visibility': value = options.length && !isBinary(question) ? profileVisibilityOption(question) : yesValue(question, lang); break;
     case 'salary_expectation': value = salaryValue(question, withLocale); break;
+    case 'education_level': value = educationLevelValue(question, known); break;
+    case 'language_row_name': {
+      const primary = primaryLanguage(known);
+      value = primary ? pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === primary.code) : '';
+      break;
+    }
+    case 'language_row_level': {
+      const primary = primaryLanguage(known);
+      value = primary ? languageValue(question, primary.code, withLocale) : '';
+      break;
+    }
     case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:
       if (topic.startsWith('language:')) value = languageValue(question, topic.slice('language:'.length), withLocale);

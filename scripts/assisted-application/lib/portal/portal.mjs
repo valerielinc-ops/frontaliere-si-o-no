@@ -7665,6 +7665,26 @@ export async function submitViaPortal(ctx) {
         candidateLocale: ctx.candidateLocale,
       });
       if (requirements.unreadableFields?.length) return await handoff('question_label_unreadable');
+      // What can be answered is answered before anything is translated for the candidate (owner mandate
+      // 2026-11-10; Damiani rg82P9MP stopped on question_localization_unavailable with the decision engine never
+      // run, because it ran after the translation and a failed translation ended the page). The rules and the
+      // CV already answered in guardPlan; here the decision engine decides, over the portal's own wording, what
+      // they leave, and the page is planned again so the planner fills it. Only what it leaves
+      // (CANDIDATE_ONLY_CATEGORIES, failed checks) is translated and reaches the candidate.
+      if (decide) {
+        const fresh = (requirements.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
+        for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
+        const engine = fresh.length
+          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, log })
+          : { ids: [], decisions: [] };
+        if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
+        if (engine.ids.length) {
+          const facts = ctx.candidate.platformFacts;
+          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
+          return { replan: true };
+        }
+      }
       let request;
       try {
         request = await portalRequirementsForCandidate(requirements, {
@@ -7678,23 +7698,6 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
-      // The decision engine before the candidate (owner mandate 2026-11-10, lib/decision-answers.mjs): what it
-      // decides by the owner's principles joins the platform's proposals and the page is planned again, so the
-      // planner fills it; only what it leaves (CANDIDATE_ONLY_CATEGORIES, failed checks) reaches the candidate.
-      if (decide) {
-        const fresh = (request.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
-        for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
-        const engine = fresh.length
-          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, log })
-          : { ids: [], decisions: [] };
-        if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
-        if (engine.ids.length) {
-          const facts = ctx.candidate.platformFacts;
-          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
-          log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
-          return { replan: true };
-        }
-      }
       return {
         event: {
           type: 'submit_needs_candidate',
