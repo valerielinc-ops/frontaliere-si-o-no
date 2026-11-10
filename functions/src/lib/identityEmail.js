@@ -15,7 +15,7 @@ export function isIdentityEmailConfirmation({ label = '', context = '' } = {}) {
   const ownLabel = String(label || '');
   const text = `${ownLabel} ${String(context || '')}`;
   if (NON_CANDIDATE_RE.test(text)) return false;
-  if (IDENTITY_EMAIL_RE.test(ownLabel)) return EMAIL_CONFIRMATION_RE.test(text);
+  if (IDENTITY_EMAIL_RE.test(ownLabel)) return EMAIL_CONFIRMATION_RE.test(ownLabel);
   const bareLabel = ownLabel.replace(/[*:]/g, ' ').replace(/\s+/g, ' ').trim();
   return BARE_CONFIRMATION_LABEL_RE.test(bareLabel) && IDENTITY_EMAIL_RE.test(String(context || ''));
 }

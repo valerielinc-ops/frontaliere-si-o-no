@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic, targetEmployerNoOption } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
+import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -2920,6 +2921,9 @@ describe('portal runner helpers', () => {
     // A bare «Bestätigen» label still takes the e-mail meaning from its context.
     expect(candidateAnswerForField(candidate, { ...field('Bestätigen: *'), context: 'E-Mail-Adresse' })?.value).toBe(candidate.identity.email);
     expect(candidateAnswerForField(candidate, { ...field('Bestätigen: *'), context: 'Passwort' })).toBeNull();
+    // The primary e-mail field is not a confirmation because a sibling is.
+    expect(isIdentityEmailConfirmation({ label: 'E-Mail-Adresse', context: 'E-Mail-Adresse wiederholen' })).toBe(false);
+    expect(isIdentityEmailConfirmation({ label: 'E-Mail-Adresse wiederholen', context })).toBe(true);
   });
 
   it('keeps legacy profile address data and repeated e-mail fields answerable', () => {
