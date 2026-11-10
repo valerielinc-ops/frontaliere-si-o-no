@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cereneo",
-  "assembledAt": "2026-11-09T21:16:02.642Z",
-  "runId": "42699060732",
+  "assembledAt": "2026-11-10T09:23:46.983Z",
+  "runId": "42787673945",
   "jobs": [
     {
       "id": "cereneo-fff8ea24c29c",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/72f97d28-0cf9-40a7-a6f5-d2dcf5de31c0/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:54.722Z",
+      "crawledAt": "2026-11-10T09:23:38.941Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:15:54.722Z",
+      "validThrough": "2027-01-04T09:23:38.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/36b90089-e903-4c1a-9b85-4434fd0b44f6/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:54.233Z",
+      "crawledAt": "2026-11-10T09:23:38.488Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:15:54.233Z",
+      "validThrough": "2026-12-25T09:23:38.488Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -198,7 +198,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/c8705b31-bcaf-4258-90d1-e1f7dd6487b3/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:53.705Z",
+      "crawledAt": "2026-11-10T09:23:38.032Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:15:53.705Z",
+      "validThrough": "2026-12-24T09:23:38.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +311,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d3f62f11-9c8d-4c27-82d1-948762cd4186/detail?lang=EN",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:15:53.222Z",
+      "crawledAt": "2026-11-10T09:23:37.572Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:15:53.222Z",
+      "validThrough": "2027-02-01T09:23:37.572Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -395,7 +395,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/27d1f7fd-3c30-4ffb-b629-1de325218037/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:52.726Z",
+      "crawledAt": "2026-11-10T09:23:37.112Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -441,8 +441,80 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:15:52.726Z",
+      "validThrough": "2027-02-02T09:23:37.112Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "cereneo-00183027773a",
+      "slug": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
+        "it": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
+        "en": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis",
+        "fr": "oberarztin-oberarzt-neurologie-mit-schwerpunkt-bewegungsstorungen-a-100-cereneo-weggis"
+      },
+      "company": "Cereneo",
+      "companyKey": "cereneo",
+      "companyDomain": "cereneo.ch",
+      "title": "Oberärztin / Oberarzt Neurologie mit Schwerpunkt Bewegungsstörungen (a) 100%",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt Neurologie mit Schwerpunkt Bewegungsstörungen (a) 100%",
+        "it": "Oberärztin / Oberarzt Neurologie con Schwerpunkt Bewegungsstörungen (a) 100%",
+        "en": "Oberärztin / Oberarzt Neurologie mit Schwerpunkt Bewegungsstörungen (a) 100%",
+        "fr": "Oberärztin / Oberarzt Neurologie mit Schwerpunkt Bewegungsstörungen (a) 100%"
+      },
+      "description": "Als eine der weltweit führenden Kliniken für Neurorehabilitation entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\nFür unser ärztliches Team suchen wir eine engagierte Oberärztin / einen engagierten Oberarzt, welche/r eigenverantwortlich arbeitet, den Bereich aktiv mitgestaltet und sich fachlich weiterentwickeln möchte.\nEin besonderer Schwerpunkt liegt auf dem Ausbau unseres Angebots für Patienten:innen mit Bewegungsstörungen in enger Zusammenarbeit mit der Neurochirurgie, insbesondere im Bereich moderner interventioneller Therapieverfahren. Hier bieten wir die Möglichkeit, eigene fachliche Schwerpunkte einzubringen und neue klinische Konzepte mitzuentwickeln.\n\nAufgaben:\n• Eigenverantwortliche medizinische Betreuung stationärer und ambulanter Patient:innen unter Berücksichtigung aller medizinisch-rehabilitativen Aspekte\n• Betreuung von Patient:innen mit Bewegungsstörungen\n• Vorbereitung, Durchführung und Auswertung entsprechender Untersuchungen und Testungen vor und nach therapeutischen Interventionen, beispielsweise fokussiertem Ultraschall (FUS) oder tiefer Hirnstimulation (THS/DBS)\n• Proaktive Mitgestaltung und Weiterentwicklung des eigenen Verantwortungsbereichs\n• Übernahme von Personal- und Fachverantwortung in einem Bereich\n• Sicherstellung einer qualitativ hochwertigen, patientenzentrierten Versorgung\n• Aktive interdisziplinäre Zusammenarbeit mit ärztlichen und nichtärztlichen Berufsgruppen\n• Weiterbildung, Anleitung und Supervision von Assistenzärzt:innen\n\nWas sollten Sie mitbringen?\n• Facharzttitel Neurologie mit MEBEKO-Anerkennung\n• Zertifikat der Deutschen Gesellschaft für Neurologie (DGN) im Bereich Bewegungsstörungen oder entsprechende Erfahrung von Vorteil\n• Ausgeprägtes Interesse an Bewegungsstörungen sowie Bereitschaft zur geförderten Teilnahme von an entsprechenden Kursen und Fortbildungen\n• Erfahrung in der Neurorehabilitation, von Vorteil jedoch keine Voraussetzung\n• Freude an der Arbeit in einem interdisziplinären Umfeld\n• Hohe Kommunikationsfähigkeit, Verantwortungsbewusstsein und Organisationstalent\n• Prozessorientierte, zuverlässige und teamorientierte Arbeitsweise\n• Offene, engagierte und belastbare Persönlichkeit mit Eigeninitiative\n• Bereitschaft zur kontinuierlichen fachlichen Weiterbildung\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen sind von Vorteil\n\nWir bieten:\n• Gestaltungsspielraum: Möglichkeit, einen spezialisierten klinischen Schwerpunkt gemeinsam mit erfahrenen Kollegen:innen und interdisziplinären Partnern aktiv aufzubauen und weiterzuentwickeln\n• Interdisziplinäre Zusammenarbeit: Enge Kooperation mit der Neurochirurgie und weiteren Fachdisziplinen bei der Entwicklung und Umsetzung moderner Behandlungskonzepte\n• Forschung und Innovation: Ein eng vernetztes, wissenschaftlich aktives Umfeld mit angeschlossenem eigenem Forschungsinstitut sowie zahlreichen nationalen und internationalen Forschungskooperationen. Möglichkeit zur Mitarbeit an Forschungsprojekten, insbesondere in den Bereichen Technologie, Therapieforschung und Ernährung\n• Moderne Infrastruktur: Perfekt gelegenes Arbeitsumfeld mit Blick auf Vierwaldstättersee, Pilatus und Rigi\n• Entwicklung: Geförderte individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Sozialleistungen: Gute Sozialleistungen (NBU, Arbeitgeberanteil Pensionskasse 60%)\n• Parkplatz & ÖV: Gratis Parkplätze und Zugang zu E-Ladestationen, Zuschuss für ÖV\n• Verpflegung: Lunch-Check mit 50% Arbeitgeberbeteiligung, gratis Kaffee, Tee, Wasser & Früchte\n• Kita: Rabatt für unsere angeschlossene Kita\n• Rabatte: Diverse Rabatte für Freizeitaktivitäten\n• Fitness: Mitbenutzung von Fitnessgeräten\nUnsere Unternehmenskultur:\n• EXZELLENZ: Nutzung neuester Forschungserkenntnisse und erstklassiger Service\n• HERZLICHKEIT: Wir sind immer mit ganzem Herzen dabei. Natürlich zählt dazu auch der aufrichtige Umgang mit unseren Patient:innen, aber auch untereinander zwischen unserem Personal\n• MOTIVATION: Gemeinsame Zielerreichung und Unterstützung der Patient:innen zur Verbesserung ihrer Lebensqualität\n• TEAMARBEIT: Verlässlichkeit und gegenseitige Unterstützung im Team\n• INNOVATION: Forschung und Testen neuer therapeutischer Ansätze und Geräte\nMöchten Sie Ihre Karriere aktiv vorantreiben und einen Bereich mitgestalten? Dann freuen wir uns auf Ihre Bewerbung.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: nach Vereinbarung\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
+      "descriptionByLocale": {
+        "de": "Als eine der weltweit führenden Kliniken für Neurorehabilitation entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\nFür unser ärztliches Team suchen wir eine engagierte Oberärztin / einen engagierten Oberarzt, welche/r eigenverantwortlich arbeitet, den Bereich aktiv mitgestaltet und sich fachlich weiterentwickeln möchte.\nEin besonderer Schwerpunkt liegt auf dem Ausbau unseres Angebots für Patienten:innen mit Bewegungsstörungen in enger Zusammenarbeit mit der Neurochirurgie, insbesondere im Bereich moderner interventioneller Therapieverfahren. Hier bieten wir die Möglichkeit, eigene fachliche Schwerpunkte einzubringen und neue klinische Konzepte mitzuentwickeln.\n\nAufgaben:\n• Eigenverantwortliche medizinische Betreuung stationärer und ambulanter Patient:innen unter Berücksichtigung aller medizinisch-rehabilitativen Aspekte\n• Betreuung von Patient:innen mit Bewegungsstörungen\n• Vorbereitung, Durchführung und Auswertung entsprechender Untersuchungen und Testungen vor und nach therapeutischen Interventionen, beispielsweise fokussiertem Ultraschall (FUS) oder tiefer Hirnstimulation (THS/DBS)\n• Proaktive Mitgestaltung und Weiterentwicklung des eigenen Verantwortungsbereichs\n• Übernahme von Personal- und Fachverantwortung in einem Bereich\n• Sicherstellung einer qualitativ hochwertigen, patientenzentrierten Versorgung\n• Aktive interdisziplinäre Zusammenarbeit mit ärztlichen und nichtärztlichen Berufsgruppen\n• Weiterbildung, Anleitung und Supervision von Assistenzärzt:innen\n\nWas sollten Sie mitbringen?\n• Facharzttitel Neurologie mit MEBEKO-Anerkennung\n• Zertifikat der Deutschen Gesellschaft für Neurologie (DGN) im Bereich Bewegungsstörungen oder entsprechende Erfahrung von Vorteil\n• Ausgeprägtes Interesse an Bewegungsstörungen sowie Bereitschaft zur geförderten Teilnahme von an entsprechenden Kursen und Fortbildungen\n• Erfahrung in der Neurorehabilitation, von Vorteil jedoch keine Voraussetzung\n• Freude an der Arbeit in einem interdisziplinären Umfeld\n• Hohe Kommunikationsfähigkeit, Verantwortungsbewusstsein und Organisationstalent\n• Prozessorientierte, zuverlässige und teamorientierte Arbeitsweise\n• Offene, engagierte und belastbare Persönlichkeit mit Eigeninitiative\n• Bereitschaft zur kontinuierlichen fachlichen Weiterbildung\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen sind von Vorteil\n\nWir bieten:\n• Gestaltungsspielraum: Möglichkeit, einen spezialisierten klinischen Schwerpunkt gemeinsam mit erfahrenen Kollegen:innen und interdisziplinären Partnern aktiv aufzubauen und weiterzuentwickeln\n• Interdisziplinäre Zusammenarbeit: Enge Kooperation mit der Neurochirurgie und weiteren Fachdisziplinen bei der Entwicklung und Umsetzung moderner Behandlungskonzepte\n• Forschung und Innovation: Ein eng vernetztes, wissenschaftlich aktives Umfeld mit angeschlossenem eigenem Forschungsinstitut sowie zahlreichen nationalen und internationalen Forschungskooperationen. Möglichkeit zur Mitarbeit an Forschungsprojekten, insbesondere in den Bereichen Technologie, Therapieforschung und Ernährung\n• Moderne Infrastruktur: Perfekt gelegenes Arbeitsumfeld mit Blick auf Vierwaldstättersee, Pilatus und Rigi\n• Entwicklung: Geförderte individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Sozialleistungen: Gute Sozialleistungen (NBU, Arbeitgeberanteil Pensionskasse 60%)\n• Parkplatz & ÖV: Gratis Parkplätze und Zugang zu E-Ladestationen, Zuschuss für ÖV\n• Verpflegung: Lunch-Check mit 50% Arbeitgeberbeteiligung, gratis Kaffee, Tee, Wasser & Früchte\n• Kita: Rabatt für unsere angeschlossene Kita\n• Rabatte: Diverse Rabatte für Freizeitaktivitäten\n• Fitness: Mitbenutzung von Fitnessgeräten\nUnsere Unternehmenskultur:\n• EXZELLENZ: Nutzung neuester Forschungserkenntnisse und erstklassiger Service\n• HERZLICHKEIT: Wir sind immer mit ganzem Herzen dabei. Natürlich zählt dazu auch der aufrichtige Umgang mit unseren Patient:innen, aber auch untereinander zwischen unserem Personal\n• MOTIVATION: Gemeinsame Zielerreichung und Unterstützung der Patient:innen zur Verbesserung ihrer Lebensqualität\n• TEAMARBEIT: Verlässlichkeit und gegenseitige Unterstützung im Team\n• INNOVATION: Forschung und Testen neuer therapeutischer Ansätze und Geräte\nMöchten Sie Ihre Karriere aktiv vorantreiben und einen Bereich mitgestalten? Dann freuen wir uns auf Ihre Bewerbung.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: nach Vereinbarung\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
+        "it": "Als eine der weltweit führenden Kliniken für Neurorehabilitation entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\nFür unser ärztliches Team suchen wir eine engagierte Oberärztin / einen engagierten Oberarzt, welche/r eigenverantwortlich arbeitet, den Bereich aktiv mitgestaltet und sich fachlich weiterentwickeln möchte.\nEin besonderer Schwerpunkt liegt auf dem Ausbau unseres Angebots für Patienten:innen mit Bewegungsstörungen in enger Zusammenarbeit mit der Neurochirurgie, insbesondere im Bereich moderner interventioneller Therapieverfahren. Hier bieten wir die Möglichkeit, eigene fachliche Schwerpunkte einzubringen und neue klinische Konzepte mitzuentwickeln.\n\nAufgaben:\n• Eigenverantwortliche medizinische Betreuung stationärer und ambulanter Patient:innen unter Berücksichtigung aller medizinisch-rehabilitativen Aspekte\n• Betreuung von Patient:innen mit Bewegungsstörungen\n• Vorbereitung, Durchführung und Auswertung entsprechender Untersuchungen und Testungen vor und nach therapeutischen Interventionen, beispielsweise fokussiertem Ultraschall (FUS) oder tiefer Hirnstimulation (THS/DBS)\n• Proaktive Mitgestaltung und Weiterentwicklung des eigenen Verantwortungsbereichs\n• Übernahme von Personal- und Fachverantwortung in einem Bereich\n• Sicherstellung einer qualitativ hochwertigen, patientenzentrierten Versorgung\n• Aktive interdisziplinäre Zusammenarbeit mit ärztlichen und nichtärztlichen Berufsgruppen\n• Weiterbildung, Anleitung und Supervision von Assistenzärzt:innen\n\nWas sollten Sie mitbringen?\n• Facharzttitel Neurologie mit MEBEKO-Anerkennung\n• Zertifikat der Deutschen Gesellschaft für Neurologie (DGN) im Bereich Bewegungsstörungen oder entsprechende Erfahrung von Vorteil\n• Ausgeprägtes Interesse an Bewegungsstörungen sowie Bereitschaft zur geförderten Teilnahme von an entsprechenden Kursen und Fortbildungen\n• Erfahrung in der Neurorehabilitation, von Vorteil jedoch keine Voraussetzung\n• Freude an der Arbeit in einem interdisziplinären Umfeld\n• Hohe Kommunikationsfähigkeit, Verantwortungsbewusstsein und Organisationstalent\n• Prozessorientierte, zuverlässige und teamorientierte Arbeitsweise\n• Offene, engagierte und belastbare Persönlichkeit mit Eigeninitiative\n• Bereitschaft zur kontinuierlichen fachlichen Weiterbildung\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen sind von Vorteil\n\nWir bieten:\n• Gestaltungsspielraum: Möglichkeit, einen spezialisierten klinischen Schwerpunkt gemeinsam mit erfahrenen Kollegen:innen und interdisziplinären Partnern aktiv aufzubauen und weiterzuentwickeln\n• Interdisziplinäre Zusammenarbeit: Enge Kooperation mit der Neurochirurgie und weiteren Fachdisziplinen bei der Entwicklung und Umsetzung moderner Behandlungskonzepte\n• Forschung und Innovation: Ein eng vernetztes, wissenschaftlich aktives Umfeld mit angeschlossenem eigenem Forschungsinstitut sowie zahlreichen nationalen und internationalen Forschungskooperationen. Möglichkeit zur Mitarbeit an Forschungsprojekten, insbesondere in den Bereichen Technologie, Therapieforschung und Ernährung\n• Moderne Infrastruktur: Perfekt gelegenes Arbeitsumfeld mit Blick auf Vierwaldstättersee, Pilatus und Rigi\n• Entwicklung: Geförderte individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Sozialleistungen: Gute Sozialleistungen (NBU, Arbeitgeberanteil Pensionskasse 60%)\n• Parkplatz & ÖV: Gratis Parkplätze und Zugang zu E-Ladestationen, Zuschuss für ÖV\n• Verpflegung: Lunch-Check mit 50% Arbeitgeberbeteiligung, gratis Kaffee, Tee, Wasser & Früchte\n• Kita: Rabatt für unsere angeschlossene Kita\n• Rabatte: Diverse Rabatte für Freizeitaktivitäten\n• Fitness: Mitbenutzung von Fitnessgeräten\nUnsere Unternehmenskultur:\n• EXZELLENZ: Nutzung neuester Forschungserkenntnisse und erstklassiger Service\n• HERZLICHKEIT: Wir sind immer mit ganzem Herzen dabei. Natürlich zählt dazu auch der aufrichtige Umgang mit unseren Patient:innen, aber auch untereinander zwischen unserem Personal\n• MOTIVATION: Gemeinsame Zielerreichung und Unterstützung der Patient:innen zur Verbesserung ihrer Lebensqualität\n• TEAMARBEIT: Verlässlichkeit und gegenseitige Unterstützung im Team\n• INNOVATION: Forschung und Testen neuer therapeutischer Ansätze und Geräte\nMöchten Sie Ihre Karriere aktiv vorantreiben und einen Bereich mitgestalten? Dann freuen wir uns auf Ihre Bewerbung.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: nach Vereinbarung\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
+        "en": "Als eine der weltweit führenden Kliniken für Neurorehabilitation entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\nFür unser ärztliches Team suchen wir eine engagierte Oberärztin / einen engagierten Oberarzt, welche/r eigenverantwortlich arbeitet, den Bereich aktiv mitgestaltet und sich fachlich weiterentwickeln möchte.\nEin besonderer Schwerpunkt liegt auf dem Ausbau unseres Angebots für Patienten:innen mit Bewegungsstörungen in enger Zusammenarbeit mit der Neurochirurgie, insbesondere im Bereich moderner interventioneller Therapieverfahren. Hier bieten wir die Möglichkeit, eigene fachliche Schwerpunkte einzubringen und neue klinische Konzepte mitzuentwickeln.\n\nAufgaben:\n• Eigenverantwortliche medizinische Betreuung stationärer und ambulanter Patient:innen unter Berücksichtigung aller medizinisch-rehabilitativen Aspekte\n• Betreuung von Patient:innen mit Bewegungsstörungen\n• Vorbereitung, Durchführung und Auswertung entsprechender Untersuchungen und Testungen vor und nach therapeutischen Interventionen, beispielsweise fokussiertem Ultraschall (FUS) oder tiefer Hirnstimulation (THS/DBS)\n• Proaktive Mitgestaltung und Weiterentwicklung des eigenen Verantwortungsbereichs\n• Übernahme von Personal- und Fachverantwortung in einem Bereich\n• Sicherstellung einer qualitativ hochwertigen, patientenzentrierten Versorgung\n• Aktive interdisziplinäre Zusammenarbeit mit ärztlichen und nichtärztlichen Berufsgruppen\n• Weiterbildung, Anleitung und Supervision von Assistenzärzt:innen\n\nWas sollten Sie mitbringen?\n• Facharzttitel Neurologie mit MEBEKO-Anerkennung\n• Zertifikat der Deutschen Gesellschaft für Neurologie (DGN) im Bereich Bewegungsstörungen oder entsprechende Erfahrung von Vorteil\n• Ausgeprägtes Interesse an Bewegungsstörungen sowie Bereitschaft zur geförderten Teilnahme von an entsprechenden Kursen und Fortbildungen\n• Erfahrung in der Neurorehabilitation, von Vorteil jedoch keine Voraussetzung\n• Freude an der Arbeit in einem interdisziplinären Umfeld\n• Hohe Kommunikationsfähigkeit, Verantwortungsbewusstsein und Organisationstalent\n• Prozessorientierte, zuverlässige und teamorientierte Arbeitsweise\n• Offene, engagierte und belastbare Persönlichkeit mit Eigeninitiative\n• Bereitschaft zur kontinuierlichen fachlichen Weiterbildung\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen sind von Vorteil\n\nWir bieten:\n• Gestaltungsspielraum: Möglichkeit, einen spezialisierten klinischen Schwerpunkt gemeinsam mit erfahrenen Kollegen:innen und interdisziplinären Partnern aktiv aufzubauen und weiterzuentwickeln\n• Interdisziplinäre Zusammenarbeit: Enge Kooperation mit der Neurochirurgie und weiteren Fachdisziplinen bei der Entwicklung und Umsetzung moderner Behandlungskonzepte\n• Forschung und Innovation: Ein eng vernetztes, wissenschaftlich aktives Umfeld mit angeschlossenem eigenem Forschungsinstitut sowie zahlreichen nationalen und internationalen Forschungskooperationen. Möglichkeit zur Mitarbeit an Forschungsprojekten, insbesondere in den Bereichen Technologie, Therapieforschung und Ernährung\n• Moderne Infrastruktur: Perfekt gelegenes Arbeitsumfeld mit Blick auf Vierwaldstättersee, Pilatus und Rigi\n• Entwicklung: Geförderte individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Sozialleistungen: Gute Sozialleistungen (NBU, Arbeitgeberanteil Pensionskasse 60%)\n• Parkplatz & ÖV: Gratis Parkplätze und Zugang zu E-Ladestationen, Zuschuss für ÖV\n• Verpflegung: Lunch-Check mit 50% Arbeitgeberbeteiligung, gratis Kaffee, Tee, Wasser & Früchte\n• Kita: Rabatt für unsere angeschlossene Kita\n• Rabatte: Diverse Rabatte für Freizeitaktivitäten\n• Fitness: Mitbenutzung von Fitnessgeräten\nUnsere Unternehmenskultur:\n• EXZELLENZ: Nutzung neuester Forschungserkenntnisse und erstklassiger Service\n• HERZLICHKEIT: Wir sind immer mit ganzem Herzen dabei. Natürlich zählt dazu auch der aufrichtige Umgang mit unseren Patient:innen, aber auch untereinander zwischen unserem Personal\n• MOTIVATION: Gemeinsame Zielerreichung und Unterstützung der Patient:innen zur Verbesserung ihrer Lebensqualität\n• TEAMARBEIT: Verlässlichkeit und gegenseitige Unterstützung im Team\n• INNOVATION: Forschung und Testen neuer therapeutischer Ansätze und Geräte\nMöchten Sie Ihre Karriere aktiv vorantreiben und einen Bereich mitgestalten? Dann freuen wir uns auf Ihre Bewerbung.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: nach Vereinbarung\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz.",
+        "fr": "Als eine der weltweit führenden Kliniken für Neurorehabilitation entwickeln wir ein individualisiertes Behandlungsprogramm, mit dem Ziel, unseren Patient:innen ein höchstmögliches Mass an Selbstständigkeit und freier Lebensgestaltung zu ermöglichen und dadurch ihre Lebensqualität zu optimieren. Wir richten uns sowohl an Patient:innen aus dem Schweizer Kassensystem als auch an internationale Patient:innen.\ncereneo bietet hochspezialisierte Rehabilitationsprogramme für Menschen mit neurologischen Erkrankungen und Verletzungen an, darunter Schlaganfall, Hirnverletzungen, neurodegenerative Erkrankungen wie Parkinson, Multiple Sklerose und viele andere neurologische Störungen.\nFür unser ärztliches Team suchen wir eine engagierte Oberärztin / einen engagierten Oberarzt, welche/r eigenverantwortlich arbeitet, den Bereich aktiv mitgestaltet und sich fachlich weiterentwickeln möchte.\nEin besonderer Schwerpunkt liegt auf dem Ausbau unseres Angebots für Patienten:innen mit Bewegungsstörungen in enger Zusammenarbeit mit der Neurochirurgie, insbesondere im Bereich moderner interventioneller Therapieverfahren. Hier bieten wir die Möglichkeit, eigene fachliche Schwerpunkte einzubringen und neue klinische Konzepte mitzuentwickeln.\n\nAufgaben:\n• Eigenverantwortliche medizinische Betreuung stationärer und ambulanter Patient:innen unter Berücksichtigung aller medizinisch-rehabilitativen Aspekte\n• Betreuung von Patient:innen mit Bewegungsstörungen\n• Vorbereitung, Durchführung und Auswertung entsprechender Untersuchungen und Testungen vor und nach therapeutischen Interventionen, beispielsweise fokussiertem Ultraschall (FUS) oder tiefer Hirnstimulation (THS/DBS)\n• Proaktive Mitgestaltung und Weiterentwicklung des eigenen Verantwortungsbereichs\n• Übernahme von Personal- und Fachverantwortung in einem Bereich\n• Sicherstellung einer qualitativ hochwertigen, patientenzentrierten Versorgung\n• Aktive interdisziplinäre Zusammenarbeit mit ärztlichen und nichtärztlichen Berufsgruppen\n• Weiterbildung, Anleitung und Supervision von Assistenzärzt:innen\n\nWas sollten Sie mitbringen?\n• Facharzttitel Neurologie mit MEBEKO-Anerkennung\n• Zertifikat der Deutschen Gesellschaft für Neurologie (DGN) im Bereich Bewegungsstörungen oder entsprechende Erfahrung von Vorteil\n• Ausgeprägtes Interesse an Bewegungsstörungen sowie Bereitschaft zur geförderten Teilnahme von an entsprechenden Kursen und Fortbildungen\n• Erfahrung in der Neurorehabilitation, von Vorteil jedoch keine Voraussetzung\n• Freude an der Arbeit in einem interdisziplinären Umfeld\n• Hohe Kommunikationsfähigkeit, Verantwortungsbewusstsein und Organisationstalent\n• Prozessorientierte, zuverlässige und teamorientierte Arbeitsweise\n• Offene, engagierte und belastbare Persönlichkeit mit Eigeninitiative\n• Bereitschaft zur kontinuierlichen fachlichen Weiterbildung\n• Sehr gute Deutsch- und Englischkenntnisse, weitere Sprachen sind von Vorteil\n\nWir bieten:\n• Gestaltungsspielraum: Möglichkeit, einen spezialisierten klinischen Schwerpunkt gemeinsam mit erfahrenen Kollegen:innen und interdisziplinären Partnern aktiv aufzubauen und weiterzuentwickeln\n• Interdisziplinäre Zusammenarbeit: Enge Kooperation mit der Neurochirurgie und weiteren Fachdisziplinen bei der Entwicklung und Umsetzung moderner Behandlungskonzepte\n• Forschung und Innovation: Ein eng vernetztes, wissenschaftlich aktives Umfeld mit angeschlossenem eigenem Forschungsinstitut sowie zahlreichen nationalen und internationalen Forschungskooperationen. Möglichkeit zur Mitarbeit an Forschungsprojekten, insbesondere in den Bereichen Technologie, Therapieforschung und Ernährung\n• Moderne Infrastruktur: Perfekt gelegenes Arbeitsumfeld mit Blick auf Vierwaldstättersee, Pilatus und Rigi\n• Entwicklung: Geförderte individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Sozialleistungen: Gute Sozialleistungen (NBU, Arbeitgeberanteil Pensionskasse 60%)\n• Parkplatz & ÖV: Gratis Parkplätze und Zugang zu E-Ladestationen, Zuschuss für ÖV\n• Verpflegung: Lunch-Check mit 50% Arbeitgeberbeteiligung, gratis Kaffee, Tee, Wasser & Früchte\n• Kita: Rabatt für unsere angeschlossene Kita\n• Rabatte: Diverse Rabatte für Freizeitaktivitäten\n• Fitness: Mitbenutzung von Fitnessgeräten\nUnsere Unternehmenskultur:\n• EXZELLENZ: Nutzung neuester Forschungserkenntnisse und erstklassiger Service\n• HERZLICHKEIT: Wir sind immer mit ganzem Herzen dabei. Natürlich zählt dazu auch der aufrichtige Umgang mit unseren Patient:innen, aber auch untereinander zwischen unserem Personal\n• MOTIVATION: Gemeinsame Zielerreichung und Unterstützung der Patient:innen zur Verbesserung ihrer Lebensqualität\n• TEAMARBEIT: Verlässlichkeit und gegenseitige Unterstützung im Team\n• INNOVATION: Forschung und Testen neuer therapeutischer Ansätze und Geräte\nMöchten Sie Ihre Karriere aktiv vorantreiben und einen Bereich mitgestalten? Dann freuen wir uns auf Ihre Bewerbung.\n\nStandort: cereneo Schweiz AG - Weggis\n\nEintritt: nach Vereinbarung\n\nCereneo — Centre for Neurology & Rehabilitation, Weggis (LU), Schweiz."
+      },
+      "needsRetranslation": true,
+      "location": "Weggis",
+      "canton": "LU",
+      "url": "https://jobs.dualoo.com/portal/muy5swcr/2ab39b3a-b5a1-442c-80b6-187c84fa0a4b/detail?lang=DE",
+      "source": "Cereneo Dedicated Parser (Dualoo)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-10T09:23:36.641Z",
+      "addressLocality": "Weggis",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6353",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10T09:18:33Z",
+      "postedDate": "2026-11-10T09:18:33Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.dualoo.com/portal/muy5swcr/2ab39b3a-b5a1-442c-80b6-187c84fa0a4b/detail?lang=DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T09:23:36.641Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-10T09:23:36.641Z"
     },
     {
       "id": "cereneo-1a200435b981",
@@ -476,7 +548,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/8b74d525-28e8-4483-8f2a-fffebf765fe3/detail?lang=EN",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-09T21:15:52.240Z",
+      "crawledAt": "2026-11-10T09:23:36.178Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -525,7 +597,7 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:15:52.240Z",
+      "validThrough": "2027-02-01T09:23:36.178Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -559,7 +631,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:51.744Z",
+      "crawledAt": "2026-11-10T09:23:35.688Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -606,7 +678,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:15:51.744Z",
+      "validThrough": "2026-12-24T09:23:35.688Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -641,7 +713,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/ffaa9e26-ec92-47f3-8a57-fc99775590cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:51.206Z",
+      "crawledAt": "2026-11-10T09:23:35.041Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -690,7 +762,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:15:51.206Z",
+      "validThrough": "2026-12-15T09:23:35.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -725,7 +797,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/b303bafb-11ef-4528-8d6d-c499c28e527d/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:50.716Z",
+      "crawledAt": "2026-11-10T09:23:34.571Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -810,7 +882,7 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:15:50.716Z",
+      "validThrough": "2026-12-10T09:23:34.571Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -845,7 +917,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/8fd59027-87ef-462f-943a-12eb7e93508a/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:50.224Z",
+      "crawledAt": "2026-11-10T09:23:34.097Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -894,7 +966,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:15:50.224Z",
+      "validThrough": "2027-01-21T09:23:34.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -929,7 +1001,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d77dfdbc-8360-433d-9264-5605bf7899cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:49.697Z",
+      "crawledAt": "2026-11-10T09:23:33.627Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1013,7 +1085,7 @@
       },
       "streetAddress": "Vitznau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:15:49.697Z",
+      "validThrough": "2026-12-24T09:23:33.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1048,7 +1120,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/18f4dfef-73bb-4877-afae-b5209428c208/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:49.205Z",
+      "crawledAt": "2026-11-10T09:23:33.176Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1115,7 +1187,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:15:49.205Z",
+      "validThrough": "2026-12-20T09:23:33.176Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1222,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/657510bb-8bfc-4558-99cc-495a2c449964/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:48.707Z",
+      "crawledAt": "2026-11-10T09:23:32.723Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1193,7 +1265,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:15:48.707Z",
+      "validThrough": "2027-01-22T09:23:32.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1228,7 +1300,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/1ed80bac-4c09-40c7-8cf2-a6a602a2c844/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:15:48.186Z",
+      "crawledAt": "2026-11-10T09:23:32.275Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1288,7 +1360,7 @@
       },
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:15:48.186Z",
+      "validThrough": "2026-12-20T09:23:32.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1367,7 +1439,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:48:15.197Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
