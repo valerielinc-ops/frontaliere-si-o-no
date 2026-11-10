@@ -2902,6 +2902,26 @@ describe('portal runner helpers', () => {
     expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: street.id })]);
   });
 
+  it('keeps name fields on the name when the section context lists the repeated e-mail (#17094)', () => {
+    // SuccessFactors account registration: every field's section context holds all
+    // sibling labels, «E-Mail-Adresse wiederholen» included. The name fields got the
+    // e-mail, the portal truncated it and the registration never converged.
+    const context = 'E-Mail-Adresse: * · E-Mail-Adresse wiederholen: * · Passwort * · Passwort wiederholen: * · Vorname: * · Nachname: * · Land des Wohnorts:*';
+    const candidate = {
+      identity: { firstName: 'Mario', lastName: 'Rossi', fullName: 'Mario Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
+      profile: {},
+      answers: {},
+    };
+    const field = (label: string) => ({ id: label, kind: 'text', inputType: 'text', label, context, required: true, options: [] });
+    expect(candidateAnswerForField(candidate, field('Vorname: *'))).toEqual({ value: 'Mario', source: 'identity' });
+    expect(candidateAnswerForField(candidate, field('Nachname: *'))).toEqual({ value: 'Rossi', source: 'identity' });
+    expect(candidateAnswerForField(candidate, field('E-Mail-Adresse: *'))?.value).toBe(candidate.identity.email);
+    expect(candidateAnswerForField(candidate, field('E-Mail-Adresse wiederholen: *'))?.value).toBe(candidate.identity.email);
+    // A bare «Bestätigen» label still takes the e-mail meaning from its context.
+    expect(candidateAnswerForField(candidate, { ...field('Bestätigen: *'), context: 'E-Mail-Adresse' })?.value).toBe(candidate.identity.email);
+    expect(candidateAnswerForField(candidate, { ...field('Bestätigen: *'), context: 'Passwort' })).toBeNull();
+  });
+
   it('keeps legacy profile address data and repeated e-mail fields answerable', () => {
     const candidate = {
       identity: { email: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
