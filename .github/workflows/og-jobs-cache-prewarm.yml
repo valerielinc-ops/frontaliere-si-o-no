@@ -153,7 +153,11 @@ jobs:
 
   save-cache:
     needs: [prepare, render]
-    if: needs.prepare.outputs.has_missing == 'true' && github.ref == 'refs/heads/main'
+    if: >-
+      ${{ always() &&
+          needs.prepare.result == 'success' &&
+          (needs.render.result == 'success' || needs.render.result == 'skipped') &&
+          github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -177,6 +181,7 @@ jobs:
             og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-
 
       - name: Merge rendered shards
+        if: needs.prepare.outputs.has_missing == 'true'
         uses: actions/download-artifact@v8
         with:
           pattern: og-jobs-cache-*

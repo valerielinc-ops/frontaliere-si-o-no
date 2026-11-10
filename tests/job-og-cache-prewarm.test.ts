@@ -68,6 +68,10 @@ describe('job OG cache prewarm and deferred publication', () => {
     expect(prewarm).toContain('node scripts/cleanup-jobs.mjs');
     expect(prewarm).toContain('node scripts/mine-all-job-slugs.mjs');
     expect(prewarm).toContain('node scripts/migrate-all-known-job-slugs-canton-aware.mjs');
+    const saveJob = prewarm.slice(prewarm.indexOf('  save-cache:'));
+    expect(saveJob).toContain("needs.render.result == 'skipped'");
+    expect(saveJob).toContain("needs.prepare.result == 'success'");
+    expect(saveJob).toContain("if: needs.prepare.outputs.has_missing == 'true'\n        uses: actions/download-artifact@v8");
   });
 
   it('hands deferred slugs to staged section and replayed locale publishers', () => {
