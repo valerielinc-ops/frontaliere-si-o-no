@@ -286,6 +286,45 @@ const POPUP_GRACE_MS = 6_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+// The account page's technical stops (handleAuth's `authStop`) that the agentic fallback may try
+// to complete, once per page and stop and within MAX_AGENT_CALLS, before the owner gets the page.
+// Each one is raised before any account button was pressed on this surface: the form simply did
+// not converge (a value that did not stay, a surface that kept redrawing, replans exhausted). The
+// agent fills fields only; the runner then re-reads the stable surface and walks its own guarded
+// path again (privacy preflight, credential saved right before the create click, OTP after it).
+// Deliberately NOT recoverable, so they still go straight to the owner:
+// - a surface that moved by itself (`*_surface_moved`): a navigation the runner did not ask for
+//   may have been a form submission, and nothing ambiguous is ever retried;
+// - `privacy_not_accepted`, unreadable labels and unhandled required files: their own paths
+//   (consent guard, candidate questions, uploads) decide them;
+// - every stop after an account click (create refused/unanswered, sign-in failed, verification
+//   without the e-mail, control errors): the account state is then unknown or needs the mailbox;
+// - `no_create_button`/`no_sign_in_button`: the agent never presses account buttons;
+// - submit-stage handoffs such as `portal_ambiguous`: they never come from the account page, and
+//   an ambiguous send is never retried.
+const AUTH_AGENT_RECOVERABLE_STOPS = new Set([
+  'registration_replans_exhausted',
+  'registration_answer_unconfirmed',
+  'registration_surface_unstable',
+  'privacy_question_surface_unstable',
+  'privacy_question_answer_unconfirmed',
+  'sign_in_typing_unconfirmed',
+]);
+/**
+ * Whether handleAuth's result is a technical stop the agentic fallback may try (see above).
+ * `portal_ambiguous` is refused even if some path ever tagged it: an ambiguous send is never retried.
+ */
+export function isAgentRecoverableAuthStop(result) {
+  return Boolean(result?.handoff) && result.handoff !== 'portal_ambiguous' && AUTH_AGENT_RECOVERABLE_STOPS.has(result.authStop);
+}
+// Controls of the account page reserved to the runner while the agent fills it: creating the
+// account, signing in, and the privacy statement with its dialog (registrationPrivacyPreflight).
+const AUTH_AGENT_RESERVED_BUTTONS = [
+  CREATE_ACCOUNT_RE,
+  SIGN_IN_RE,
+  /datenschutz|privacy|privacidad|confidentialit|riservatezza|protezione dei dati|einwilligung|einverst|consent|konto|account|profil|regist|anmeld|einlogg|log ?in|accedi|connexion|connecter|inscri/i,
+  /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)\b/i,
+];
 
 function accountFailure(code, stage) {
   return serializeAccountFailure({ code, stage }) || { code: 'unknown', stage: 'unknown' };
@@ -5588,7 +5627,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -5632,7 +5671,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (openedRegistration) {
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
     }
   }
 
@@ -5642,11 +5681,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // and the button pressed is the one of the reading made right before the click.
     let form = snapshot;
     let typed = false;
+    typedSecrets?.add(account.password);
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
       if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
+      // An e-mail already in the field (the agentic fallback typed it where a pasted value does
+      // not stay) is left alone: filling it again would undo it.
+      const emailKept = String(email.value || '').trim().toLowerCase() === String(account.email || '').trim().toLowerCase();
       await applyActions(page, form.fields, [
-        { fieldId: email.id, action: 'fill', value: account.email },
+        ...(emailKept ? [] : [{ fieldId: email.id, action: 'fill', value: account.email }]),
         { fieldId: password.id, action: 'fill', value: account.password },
       ], {});
       await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
@@ -5654,7 +5697,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       const now = loginFields(form);
       typed = Boolean(now.email?.value) && Boolean(now.password?.value);
     }
-    if (!typed) return accountHandoff('account', 'login_unobserved', 'login');
+    if (!typed) return { ...accountHandoff('account', 'login_unobserved', 'login'), authStop: 'sign_in_typing_unconfirmed' };
     const shown = form.errors || [];
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
@@ -5684,7 +5727,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -5823,15 +5866,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       ['fill', 'select', 'check', 'uncheck'].includes(action.action)
       && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
     if (!actions.length) break;
-    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    // `authStop` names the technical stop for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate', authStop: 'registration_replans_exhausted' };
     const registrationUrl = page.url();
     const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
     if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
-      return { handoff: 'portal_needs_candidate' };
+      return { handoff: 'portal_needs_candidate', authStop: 'registration_answer_unconfirmed' };
     }
-    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
+    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_moved' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl, { registration: true });
-    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
+    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate', authStop: 'registration_surface_unstable' };
     registrationSnapshot = accountRegistrationSnapshot(await refreshChoiceCatalogues(page, stable.snapshot));
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
@@ -5851,6 +5895,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     )),
   };
   const password = account?.password || newPortalPassword({ portal: host });
+  // Struck from what the agentic fallback sees of this page, should it be called after a stop.
+  typedSecrets?.add(password);
   const sinceMs = Date.now();
   const saveCredentialBeforeCreate = async () => {
     if (credentialSaved) return;
@@ -5868,6 +5914,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let privacy = 'none';
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
+  // A registration surface that did not converge before the create click: the credential is parked
+  // as on every exit, and the stop is named for the agentic fallback (AUTH_AGENT_RECOVERABLE_STOPS).
+  const technicalStop = async (authStop) => {
+    await parkRegistrationCredential(authStop);
+    return noted({ handoff: 'portal_needs_candidate', authStop });
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -5895,8 +5947,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const { filled } = preflight;
     if (page.url() !== privacyStartUrl || filled.url !== privacyStartUrl) {
-      await parkRegistrationCredential('privacy_question_surface_moved');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_moved');
     }
     // Blur and accepting the notice can both reveal required controls. A fresh,
     // stable read and plan must prove that the account form is still complete
@@ -5908,8 +5959,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     } else {
       const settled = await waitForStableQuestionSurface(page, filled, privacyUrl, { registration: true });
       if (settled.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       // A known answer can redraw the registration form before credentials are
       // typed. Keep one post-credential planner pass in that case: the
@@ -5922,8 +5972,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
     }
     if (privacyPlan.status !== 'stable') {
-      await parkRegistrationCredential('privacy_question_surface_unstable');
-      return noted({ handoff: 'portal_needs_candidate' });
+      return await technicalStop('privacy_question_surface_unstable');
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
@@ -5962,13 +6011,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ));
     if (newlyRequiredActions.length) {
       if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const appliedAfterPrivacy = await applyActions(page, stableRegistrationSnapshot.fields, newlyRequiredActions, ctx.files);
       if (newlyRequiredActions.some((action) => !appliedAfterPrivacy.some((result) => result.fieldId === action.fieldId && result.ok))) {
-        await parkRegistrationCredential('privacy_question_answer_unconfirmed');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_answer_unconfirmed');
       }
       for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
         const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
@@ -5979,18 +6026,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         }
       }
       if (page.url() !== privacyUrl) {
-        await parkRegistrationCredential('privacy_question_surface_moved');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_moved');
       }
       const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl, { registration: true });
       if (afterPrivacyActions.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       const replanned = await planStableRegistrationSurface(afterPrivacyActions.snapshot, privacyUrl);
       if (replanned.status !== 'stable') {
-        await parkRegistrationCredential('privacy_question_surface_unstable');
-        return noted({ handoff: 'portal_needs_candidate' });
+        return await technicalStop('privacy_question_surface_unstable');
       }
       registrationSnapshot = accountRegistrationSnapshot(replanned.snapshot);
       registrationPlan = {
@@ -7347,7 +7391,7 @@ export async function submitViaPortal(ctx) {
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
-    const runAgent = async (current, hint) => {
+    const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
       if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
       agentTried.add(key);
@@ -7362,8 +7406,9 @@ export async function submitViaPortal(ctx) {
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
-          secrets: [...ownPasswords.values()],
+          secrets: [...ownPasswords.values(), ...secrets],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+          reservedButtons,
           log,
         });
       } catch (error) {
@@ -7420,6 +7465,44 @@ export async function submitViaPortal(ctx) {
         },
         evidence,
       };
+    };
+
+    // Passwords handleAuth typed in this run (generated or stored): struck from the agent's snapshot.
+    const authSecrets = new Set();
+    const authAgentTried = new Set();
+    /**
+     * The agentic fallback on an account page that stopped on a technical stop. It never presses an
+     * account button (AUTH_AGENT_RESERVED_BUTTONS) nor types a password (agent.mjs refuses both);
+     * what the candidate data does not say becomes a candidate question (askCandidate). On the same,
+     * stable account page it hands back to handleAuth, whose guards decide the click.
+     * @returns {Promise<{status:string, auth?:object, request?:object}>}
+     */
+    const recoverAuthWithAgent = async (stopped) => {
+      const startUrl = page.url();
+      const current = await extractFields(page, NAVIGATION).catch(() => null);
+      if (!current || !current.passwordVisible || !['create', 'sign_in'].includes(authPageKind(current))) return { status: 'not_account_page' };
+      const key = `${startUrl}|${authPageKind(current)}|${stopped.authStop}`;
+      if (authAgentTried.has(key)) return { status: 'already_tried' };
+      authAgentTried.add(key);
+      const agent = await runAgent(current, authPageKind(current) === 'sign_in' ? 'sign_in_incomplete' : 'registration_incomplete', {
+        secrets: [...authSecrets],
+        reservedButtons: AUTH_AGENT_RESERVED_BUTTONS,
+      });
+      if (!agent) return { status: 'unavailable' };
+      if (agent.status === 'needs_candidate') {
+        const request = await askCandidate(agent.questions, current);
+        return request ? { status: agent.status, request } : { status: agent.status };
+      }
+      const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
+      if (agent.status === 'unavailable' || (agent.status !== 'done' && !acted)) return { status: agent.status };
+      // The agent may not leave the page: whatever it pressed that moved it is not retried here.
+      if (agent.moved || page.url() !== startUrl) return { status: 'moved' };
+      const stable = await waitForStableQuestionSurface(page, current, startUrl, { registration: true });
+      if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
+        return { status: agent.status };
+      }
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+      return { status: agent.status, auth };
     };
 
     let loopAttemptStarted = false;
@@ -7525,8 +7608,27 @@ export async function submitViaPortal(ctx) {
         if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
+        let agentRecovery = null;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+          // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
+          // fallback once per page and stop before the owner does: the agent fills fields only,
+          // then the deterministic path runs again on a stable re-read. Its own outcome stands
+          // unless it stops again on a technical stop: the owner then gets the original handoff.
+          if (isAgentRecoverableAuthStop(auth)) {
+            const stopped = auth;
+            agentRecovery = { stop: stopped.authStop, status: 'not_run' };
+            const recovered = await recoverAuthWithAgent(stopped);
+            agentRecovery.status = recovered.status;
+            if (recovered.request) {
+              evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'questions', agentRecovery };
+              return recovered.request;
+            }
+            if (recovered.auth && !isAgentRecoverableAuthStop(recovered.auth)) {
+              auth = recovered.auth;
+              agentRecovery.outcome = auth.handoff || 'ok';
+            }
+          }
         } catch (error) {
           // A control of the account page that could not be pressed or typed into (covered by a dialog,
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
@@ -7546,6 +7648,8 @@ export async function submitViaPortal(ctx) {
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions?.length || auth.documents?.length ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
+          ...(auth.authStop ? { stop: auth.authStop } : {}),
+          ...(agentRecovery ? { agentRecovery } : {}),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
           // How the sign-in button was found (clickButton): by id, again after a redraw, or scoped role.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
