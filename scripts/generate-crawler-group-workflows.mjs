@@ -1614,62 +1614,70 @@ export function crawlerWorkerWatchdogMinutes(crawler = {}) {
 }
 
 /** Wait for one detached crawler and expose its real exit code to Actions. */
-export function buildCrawlerResultShellBody(crawler, groupIndex) {
+export function buildCrawlerResultShellBody(crawler, groupIndex, { compact = false } = {}) {
   const nn = String(groupIndex).padStart(2, '0');
+  const slug = crawler.slug;
+  const stateVar = compact ? 'd' : 'state_dir';
+  const statusVar = compact ? 'f' : 'status_file';
+  const pidFileVar = compact ? 'p' : 'pid_file';
+  const logVar = compact ? 'l' : 'log_file';
+  const launchVar = compact ? 'o' : 'launch_outcome';
+  const deadlineVar = compact ? 'e' : 'deadline';
+  const pidVar = compact ? 'i' : 'pid';
+  const statusValueVar = compact ? 'v' : 'status';
+  const stateRef = compact ? '$d' : '$state_dir';
+  const member = (suffix) => compact ? `"${stateRef}/$s.${suffix}"` : `"$state_dir/${slug}.${suffix}"`;
+  const label = compact ? '$s' : slug;
   return [
     'set -uo pipefail',
-    // Keep the member identity in the step env instead of repeating the
-    // literal slug through every diagnostic/path line. This waiter is emitted
-    // once per member and is a meaningful part of the portable workflow size;
-    // the generated env is static and remains visible to the step contract.
-    's="$CRAWLER_MEMBER_SLUG"',
-    `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
-    'status_file="$state_dir/$s.status"',
-    'pid_file="$state_dir/$s.pid"',
-    'log_file="$state_dir/$s.log"',
-    'launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',
-    'if [ "$launch_outcome" != "success" ]; then',
-    '  echo "::error::$s: launch step outcome is $launch_outcome; detached crawler was not started"',
+    ...(compact ? ['s="$CRAWLER_MEMBER_SLUG"'] : []),
+    `${stateVar}="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
+    `${statusVar}=${member('status')}`,
+    `${pidFileVar}=${member('pid')}`,
+    `${logVar}=${member('log')}`,
+    `${launchVar}="\${CRAWLER_LAUNCH_OUTCOME:-unknown}"`,
+    `if [ "$${launchVar}" != "success" ]; then`,
+    `  echo "::error::${label}: launch step outcome is $${launchVar}; detached crawler was not started"`,
     '  exit 1',
     'fi',
-    'if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then',
-    '  echo "::error::$s: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"',
+    `if [ ! -s "$${statusVar}" ] && [ ! -s "$${pidFileVar}" ]; then`,
+    `  echo "::error::${label}: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"`,
     '  exit 1',
     'fi',
-    `deadline=$((SECONDS + ${JOB_TIMEOUT_MINUTES} * 60))`,
-    'while [ ! -s "$status_file" ]; do',
-    '  if [ "$SECONDS" -ge "$deadline" ]; then',
-    `    echo "::error::$s: detached crawler did not publish a status before the ${JOB_TIMEOUT_MINUTES} minute group budget"`,
+    `${deadlineVar}=$((SECONDS + ${JOB_TIMEOUT_MINUTES} * 60))`,
+    `while [ ! -s "$${statusVar}" ]; do`,
+    `  if [ "$SECONDS" -ge "$${deadlineVar}" ]; then`,
+    `    echo "::error::${label}: detached crawler did not publish a status before the ${JOB_TIMEOUT_MINUTES} minute group budget"`,
     '    exit 1',
     '  fi',
-    '  if [ -s "$pid_file" ]; then',
-    '    pid="$(cat "$pid_file" 2>/dev/null || true)"',
-    '    if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then',
-    '      echo "::error::$s: invalid detached crawler PID: $pid"',
+    `  if [ -s "$${pidFileVar}" ]; then`,
+    `    ${pidVar}="$(cat "$${pidFileVar}" 2>/dev/null || true)"`,
+    `    if ! [[ "$${pidVar}" =~ ^[1-9][0-9]*$ ]]; then`,
+    `      echo "::error::${label}: invalid detached crawler PID: $${pidVar}"`,
     '      exit 1',
     '    fi',
-    '    if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then',
+    `    if [ -n "$${pidVar}" ] && ! kill -0 "$${pidVar}" 2>/dev/null; then`,
     '      sleep 1',
-    '      if [ ! -s "$status_file" ]; then',
-    '        echo "::error::$s: detached crawler exited without publishing its status"',
+    `      if [ ! -s "$${statusVar}" ]; then`,
+    `        echo "::error::${label}: detached crawler exited without publishing its status"`,
     '        exit 1',
     '      fi',
     '    fi',
     '  fi',
     '  sleep 2',
     'done',
-    'if [ -f "$log_file" ]; then',
-    '  cat "$log_file"',
+    `if [ -f "$${logVar}" ]; then`,
+    `  cat "$${logVar}"`,
     'else',
-    '  echo "::error::$s: crawler log is missing"',
+    `  echo "::error::${label}: crawler log is missing"`,
     '  exit 1',
     'fi',
-    'status="$(cat "$status_file" 2>/dev/null || true)"',
-    'if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
-    '  echo "::error::$s: invalid crawler status: $status"',
+    `${statusValueVar}="$(cat "$${statusVar}" 2>/dev/null || true)"`,
+    `if ! [[ "$${statusValueVar}" =~ ^[0-9]+$ ]]; then`,
+    `  echo "::error::${label}: invalid crawler status: $${statusValueVar}"`,
     '  exit 1',
     'fi',
-    'exit "$status"',
+    `exit "$${statusValueVar}"`,
   ].join('\n');
 }
 
@@ -3158,6 +3166,13 @@ function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs) {
     step.run = normalizeCrawlerInputReferences(
       buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: true }),
     );
+    const result = job.steps.find((candidate) => candidate?.id === `crawler-${crawler.slug}`);
+    if (!result) throw new Error(`crawler-group-${groupIndex}: missing result waiter for ${crawler.slug}`);
+    result.env = {
+      ...(result.env ?? {}),
+      CRAWLER_MEMBER_SLUG: crawler.slug,
+    };
+    result.run = buildCrawlerResultShellBody(crawler, groupIndex, { compact: true });
   }
   return YAML.stringify(logic, { lineWidth: 0 });
 }
