@@ -9448,12 +9448,12 @@
     },
     {
       "id": "uzh-0465d745a1a4",
-      "slug": "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich",
+      "slug": "ricercatore-post-dottorato-in-ricerca-sulla-sepsi-familiare-e-partecipativa-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich",
-        "it": "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich",
-        "de": "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich",
-        "fr": "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich"
+        "it": "ricercatore-post-dottorato-in-ricerca-sulla-sepsi-familiare-e-partecipativa-universitat-zurich-zurich",
+        "de": "postdoktorand-in-familienorientierter-partizipativer-sepsisforschung-universitat-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-recherche-sur-la-septicemie-participative-axee-sur-la-famille-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9516,16 +9516,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:17:26.117Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:17:26.117Z"
+      "firstSeenAt": "2026-11-10T09:17:26.117Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-family-focused-participatory-sepsis-research-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-6c61449cfb8e",
-      "slug": "praktikant-in-per-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat-zurich",
+      "slug": "tirocinante-per-progetto-di-ricerca-psicocardiologica-ospedale-universitario-di-zurigo-e-ospedale-civico-di-triemli",
       "slugByLocale": {
         "de": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-amp",
-        "it": "praktikant-in-per-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat-zurich",
+        "it": "tirocinante-per-progetto-di-ricerca-psicocardiologica-ospedale-universitario-di-zurigo-e-ospedale-civico-di-triemli",
         "en": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat",
-        "fr": "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat"
+        "fr": "stagiaire-en-projet-de-recherche-psychocardiologique-hopital-universitaire-de-zurich-et-hopital-municipal-de-triemli"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9574,11 +9588,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-amp"
+          "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-amp",
+          "praktikant-in-per-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat-zurich"
+        ],
+        "fr": [
+          "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-amp"
+        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-amp",
+        "praktikant-in-per-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat-zurich",
+        "praktikant-in-fur-psychokardiologisches-forschungsprojekt-universitatsspital-zurich-stadtspital-triemli-universitat"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,

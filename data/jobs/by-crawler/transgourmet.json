@@ -1897,12 +1897,12 @@
     },
     {
       "id": "transgourmet-d97738d5-1bb",
-      "slug": "content-marketing-manager-80-transgourmet-dietikon",
+      "slug": "responsabile-marketing-contenuti-80-transgourmet-dietikon",
       "slugByLocale": {
         "de": "content-marketing-manager-80-transgourmet-dietikon",
-        "it": "content-marketing-manager-80-transgourmet-dietikon",
+        "it": "responsabile-marketing-contenuti-80-transgourmet-dietikon",
         "en": "content-marketing-manager-80-transgourmet-dietikon",
-        "fr": "content-marketing-manager-80-transgourmet-dietikon"
+        "fr": "gestionnaire-de-marketing-de-contenu-80-transgourmet-dietikon"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1990,7 +1990,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:16:37.422Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:16:37.422Z"
+      "firstSeenAt": "2026-11-10T09:16:37.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "content-marketing-manager-80-transgourmet-dietikon"
+        ],
+        "fr": [
+          "content-marketing-manager-80-transgourmet-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "content-marketing-manager-80-transgourmet-dietikon"
+      ]
     },
     {
       "id": "transgourmet-be8598e6-5a9",
@@ -2277,12 +2288,12 @@
     },
     {
       "id": "transgourmet-c05437c4-385",
-      "slug": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-e-gemuse-transgourmet-rupperswil",
+      "slug": "vice-capo-reparto-vice-capo-reparto-frutta-e-verdura-transgourmet-rupperswil",
       "slugByLocale": {
         "de": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse",
-        "it": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-e-gemuse-transgourmet-rupperswil",
-        "en": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse",
-        "fr": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse"
+        "it": "vice-capo-reparto-vice-capo-reparto-frutta-e-verdura-transgourmet-rupperswil",
+        "en": "deputy-head-of-department-fruit-and-vegetables-transgourmet-rupperswil",
+        "fr": "chef-adjoint-du-departement-des-fruits-et-legumes-transgourmet-rupperswil"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2346,11 +2357,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse",
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-e-gemuse-transgourmet-rupperswil"
+        ],
+        "en": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse"
+        ],
+        "fr": [
           "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse"
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-und-gemuse",
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-fruchte-e-gemuse-transgourmet-rupperswil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

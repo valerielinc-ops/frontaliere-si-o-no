@@ -1121,12 +1121,12 @@
     },
     {
       "id": "sonova-608646fd4d8c",
-      "slug": "npi-lifecycle-governance-lead-sonova-ch",
+      "slug": "lead-della-governance-dei-png-e-del-ciclo-di-vita-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "npi-lifecycle-governance-lead-sonova-ch",
-        "it": "npi-lifecycle-governance-lead-sonova-ch",
-        "de": "npi-lifecycle-governance-lead-sonova-ch",
-        "fr": "npi-lifecycle-governance-lead-sonova-ch"
+        "it": "lead-della-governance-dei-png-e-del-ciclo-di-vita-sonova-staefa-switzerland",
+        "de": "npi-und-lebenszyklus-governance-leiter-sonova-staefa-switzerland",
+        "fr": "npi-et-gouvernance-du-cycle-de-vie-responsable-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1188,7 +1188,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:13:33.827Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:13:33.827Z"
+      "firstSeenAt": "2026-11-10T09:13:33.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "npi-lifecycle-governance-lead-sonova-ch"
+        ],
+        "de": [
+          "npi-lifecycle-governance-lead-sonova-ch"
+        ],
+        "fr": [
+          "npi-lifecycle-governance-lead-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "npi-lifecycle-governance-lead-sonova-ch"
+      ]
     },
     {
       "id": "sonova-1a652c3368b9",
@@ -1342,11 +1356,11 @@
     },
     {
       "id": "sonova-1435f976284b",
-      "slug": "automation-engineer-m-f-d-sonova-ch",
+      "slug": "automation-ingegnere-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "automation-engineer-m-f-d-sonova-ch",
-        "it": "automation-engineer-m-f-d-sonova-ch",
-        "de": "automation-engineer-m-f-d-sonova-ch",
+        "it": "automation-ingegnere-m-f-d-sonova-staefa-switzerland",
+        "de": "automation-ingenieur-m-f-d-sonova-staefa-switzerland",
         "fr": "automation-engineer-m-f-d-sonova-ch"
       },
       "company": "Sonova",
@@ -1408,7 +1422,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:13:33.815Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:13:33.815Z"
+      "firstSeenAt": "2026-11-10T09:13:33.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "automation-engineer-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-96c3301b33a7",

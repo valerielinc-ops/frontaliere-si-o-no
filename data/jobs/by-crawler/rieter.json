@@ -474,12 +474,12 @@
     },
     {
       "id": "rieter-8b3dde1c9f43",
-      "slug": "it-project-manager-rieter-winterthur",
+      "slug": "responsabile-del-progetto-it-rieter-winterthur",
       "slugByLocale": {
         "en": "it-project-manager-rieter-winterthur",
-        "it": "it-project-manager-rieter-winterthur",
-        "de": "it-project-manager-rieter-winterthur",
-        "fr": "it-project-manager-rieter-winterthur"
+        "it": "responsabile-del-progetto-it-rieter-winterthur",
+        "de": "it-projektmanager-rieter-winterthur",
+        "fr": "gestionnaire-de-projet-informatique-rieter-winterthur"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -542,7 +542,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-10T09:13:09.354Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-27T00:41:07.404Z"
+      "firstSeenAt": "2026-08-27T00:41:07.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-rieter-winterthur"
+        ],
+        "de": [
+          "it-project-manager-rieter-winterthur"
+        ],
+        "fr": [
+          "it-project-manager-rieter-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-manager-rieter-winterthur"
+      ]
     },
     {
       "id": "rieter-b254170c7690",

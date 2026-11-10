@@ -1835,12 +1835,12 @@
     },
     {
       "id": "kanton-solothurn-cf007db60b00",
-      "slug": "collaboratore-trice-in-waffenburo-40-50-kanton-solothurn",
+      "slug": "impiegato-a-ufficio-armi-40-50-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn",
-        "it": "collaboratore-trice-in-waffenburo-40-50-kanton-solothurn",
-        "en": "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn",
-        "fr": "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn"
+        "it": "impiegato-a-ufficio-armi-40-50-kanton-solothurn-solothurn",
+        "en": "weapons-office-employee-40-50-kanton-solothurn-solothurn",
+        "fr": "employe-e-de-bureau-des-armes-40-50-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1889,11 +1889,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn",
+          "collaboratore-trice-in-waffenburo-40-50-kanton-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn"
+        "mitarbeiter-in-waffenburo-40-50-kanton-solothurn-solothurn",
+        "collaboratore-trice-in-waffenburo-40-50-kanton-solothurn"
       ],
       "salaryMin": 34300,
       "salaryMax": 52000,

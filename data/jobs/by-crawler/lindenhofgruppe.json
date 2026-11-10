@@ -3179,12 +3179,12 @@
     },
     {
       "id": "lindenhofgruppe-a8453824f68e",
-      "slug": "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital",
+      "slug": "assistente-infermieristico-a-sala-maternita-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "pflegeassistent-in-gebarsaal-lindenhofgruppe-ch",
-        "it": "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital",
-        "en": "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital",
-        "fr": "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital"
+        "it": "assistente-infermieristico-a-sala-maternita-lindenhofgruppe-lindenhofspital",
+        "en": "nursing-assistant-in-the-childbirth-room-lindenhofgruppe-lindenhofspital",
+        "fr": "assistant-e-infirmiere-en-salle-d-accouchement-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3232,11 +3232,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistent-in-gebarsaal-lindenhofgruppe-ch"
+          "pflegeassistent-in-gebarsaal-lindenhofgruppe-ch",
+          "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital"
+        ],
+        "fr": [
+          "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital"
         ]
       },
       "previousSlugs": [
-        "pflegeassistent-in-gebarsaal-lindenhofgruppe-ch"
+        "pflegeassistent-in-gebarsaal-lindenhofgruppe-ch",
+        "pflegeassistent-in-gebarsaal-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

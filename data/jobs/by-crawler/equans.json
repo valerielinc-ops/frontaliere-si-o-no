@@ -9536,9 +9536,9 @@
       "slug": "capo-progetto-rvcs-equans-monteceneri",
       "slugByLocale": {
         "it": "capo-progetto-rvcs-equans-monteceneri",
-        "en": "capo-progetto-rvcs-equans-monteceneri",
-        "de": "capo-progetto-rvcs-equans-monteceneri",
-        "fr": "capo-progetto-rvcs-equans-monteceneri"
+        "en": "project-head-rvcs-equans-switzerland-monteceneri",
+        "de": "projektleiter-rvcs-equans-switzerland-monteceneri",
+        "fr": "chef-de-projet-rvcs-equans-switzerland-monteceneri"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9604,12 +9604,12 @@
     },
     {
       "id": "equans-b6a3955b9f0f",
-      "slug": "charge-d-39-etudes-cvc-equans-neuchatel",
+      "slug": "responsabile-studi-ccv-equans-switzerland-neuchatel",
       "slugByLocale": {
         "fr": "charge-d-39-etudes-cvc-equans-neuchatel",
-        "it": "charge-d-39-etudes-cvc-equans-neuchatel",
-        "en": "charge-d-39-etudes-cvc-equans-neuchatel",
-        "de": "charge-d-39-etudes-cvc-equans-neuchatel"
+        "it": "responsabile-studi-ccv-equans-switzerland-neuchatel",
+        "en": "ccv-studies-officer-equans-switzerland-neuchatel",
+        "de": "ccv-studienbeauftragter-equans-switzerland-neuchatel"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9682,7 +9682,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:20:59.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T09:20:59.256Z"
+      "firstSeenAt": "2026-11-10T09:20:59.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-39-etudes-cvc-equans-neuchatel"
+        ],
+        "en": [
+          "charge-d-39-etudes-cvc-equans-neuchatel"
+        ],
+        "de": [
+          "charge-d-39-etudes-cvc-equans-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "charge-d-39-etudes-cvc-equans-neuchatel"
+      ]
     },
     {
       "id": "equans-ace9856968b9",
@@ -9690,8 +9704,8 @@
       "slugByLocale": {
         "de": "assistent-in-backoffice-mandatsleitung-bewirtschaftung-equans-schlieren",
         "it": "assistent-in-backoffice-mandatsleitung-bewirtschaftung-equans-schlieren",
-        "en": "assistent-in-backoffice-mandatsleitung-bewirtschaftung-equans-schlieren",
-        "fr": "assistent-in-backoffice-mandatsleitung-bewirtschaftung-equans-schlieren"
+        "en": "back-office-manager-management-assistant-equans-switzerland-schlieren",
+        "fr": "assistant-e-en-back-office-responsable-du-mandat-gestion-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
