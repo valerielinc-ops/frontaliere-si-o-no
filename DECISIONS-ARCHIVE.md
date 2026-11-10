@@ -1,6 +1,6 @@
 # Decisioni del proprietario superate
 
-Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `DECISIONS_MAX_BYTES`): restano qui come storia. Il 2026-11-10, su istruzione del proprietario di compattare il registro, sono state spostate parola per parola le righe superate da righe più recenti (2026-07-05 e 2026-09-17 → riga 2026-09-24 «Nessun veto sul ciclo autonomo»; 2026-09-23 sugli articoli vecchi → riga 2026-09-24 sul refresh) e le decisioni puntuali su issue chiuse (#6280, #4854, corpus #814).
+Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `DECISIONS_MAX_BYTES`): restano qui come storia. Il 2026-11-10, su istruzione del proprietario di compattare il registro, sono state spostate parola per parola le righe superate da righe più recenti (2026-07-05 e 2026-09-17 → riga 2026-09-24 «Nessun veto sul ciclo autonomo»; 2026-09-23 sugli articoli vecchi → riga 2026-09-24 sul refresh) e la decisione puntuale di monitoraggio su corpus #814, issue chiusa. Le righe «SÌ, procedi» su #6280 e #4854 restano nel registro: il pre-pass `needs-human` le usa per sbloccare le issue che le citano.
 
 | Data | Decisione | Fonte |
 |---|---|---|
@@ -15,6 +15,4 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
 | 2026-09-17 | **`needs-human` sulle PR non è più un veto persistente.** La label può restare come tracking/escalation, ma nessun merge, autorebase o dispatch automatico si ferma solo per la sua presenza | istruzione diretta, sessione 17-09 |
 | 2026-09-23 | Gli articoli vecchi non si cancellano: si preservano per SEO e traffico monetizzato (default refresh: riga 2026-09-24) | istruzione diretta, sessione 23-09 |
-| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
-| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
 | 2026-09-05 | **#814 (`TRANSLATION_THINKING_AB`): aperta per MONITORING, non come blocco.** A/B acceso col default; i tre item erano falsi positivi, nessun lavoro in coda | istruzione diretta, sessione 05-09 |
