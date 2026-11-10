@@ -3134,18 +3134,18 @@ describe('portal runner helpers', () => {
       .toMatchObject({ city: 'Lugano', postalCode: '6900' });
   });
 
-  it('does not treat an uncorroborated extracted address as candidate residence', () => {
+  it('keeps explicit profile address fields when abbreviated CV text omits their exact strings', () => {
     const address = { city: 'Lugano', street: 'Via Roma 1', postalCode: '6900', country: 'Svizzera' };
     expect(resolveResidenceAddress(address, '', 'Giulia Rossi\nEsperienza professionale\nImpiegata presso Acme'))
-      .toEqual({ street: '', postalCode: '', city: '', country: '' });
+      .toEqual({ street: 'Via Roma 1', postalCode: '6900', city: 'Lugano', country: 'Svizzera' });
   });
 
   it('does not use a profile address found only in work experience as the candidate residence', () => {
-    const address = { street: 'Via Roma 1', postalCode: '6900', city: 'Lugano', country: 'Svizzera' };
+    const address = { street: 'Via Roma 1', postalCode: '6900', city: 'Lugano', country: 'Switzerland' };
     const candidate = candidateForForm({
       identity: { name: 'Giulia Rossi', email: 'g@example.test', phone: '' },
       profile: { location: 'Lugano', address },
-      draft: { factSources: { text: 'Giulia Rossi\nEsperienza professionale\nAcme AG · Via Roma 1 · 6900 Lugano, Svizzera' } },
+      draft: { factSources: { text: 'Giulia Rossi\nEsperienza professionale\nAcme AG · Via Roma 1 · 6900 Lugano, Switzerland' } },
       answers: {},
     });
     expect(candidate.identity.address).toEqual({ street: '', postalCode: '', city: '', country: '' });

@@ -208,25 +208,40 @@ function explicitPostalCode(cvText, city, province) {
 /** Resolve only stated address fields while preserving the candidate's wording. */
 export function resolveResidenceAddress(rawAddress = {}, location = '', cvText = '') {
   const address = rawAddress && typeof rawAddress === 'object' ? rawAddress : {};
-  const rawCity = compact(address.city) || compact(location);
+  const statedCity = compact(address.city);
+  const rawCity = statedCity || compact(location);
   const province = provinceFrom(address.city) || provinceFrom(location);
   const evidenceLines = cvAddressEvidenceLines(cvText);
+  const sourceLines = String(cvText || '').split(/\r?\n/).map((line) => compact(line)).filter(Boolean);
+  const evidenceKeys = new Set(evidenceLines.map(key));
+  const nonResidenceLines = sourceLines.filter(line => !evidenceKeys.has(key(line)));
   const cityCandidate = cityWithoutProvince(rawCity);
   const hasCvSource = String(cvText || '').trim().length > 0;
-  // The profile address is AI-extracted from the CV, so require candidate-header
-  // or explicit residence evidence before using it; work-history addresses are
-  // deliberately excluded by cvAddressEvidenceLines.
-  const city = !hasCvSource || appearsInEvidence(cityCandidate, evidenceLines) ? cityCandidate : '';
+  // The profile address is extracted from the CV. Keep its explicit fields
+  // even when the text was abbreviated, but reject values found only outside
+  // the candidate header/residence lines (for example, at an employer).
+  const occursOnlyOutsideResidence = value => hasCvSource
+    && appearsInEvidence(value, nonResidenceLines)
+    && !appearsInEvidence(value, evidenceLines);
+  const countryOccursOnlyOutsideResidence = value => hasCvSource
+    && countryAppearsInEvidence(value, nonResidenceLines)
+    && !countryAppearsInEvidence(value, evidenceLines);
+  const locationCity = cityWithoutProvince(location);
+  const city = statedCity && !occursOnlyOutsideResidence(cityCandidate)
+    ? cityCandidate
+    : (!hasCvSource || appearsInEvidence(locationCity, evidenceLines) ? locationCity : '');
   const countryCandidate = explicitCountryFrom(address.country) || explicitCountryFrom(rawCity) || explicitCountryFrom(location);
-  const country = !hasCvSource || countryAppearsInEvidence(countryCandidate, evidenceLines) ? countryCandidate : '';
+  const country = countryCandidate && !countryOccursOnlyOutsideResidence(countryCandidate) ? countryCandidate
+    : (!hasCvSource || countryAppearsInEvidence(countryCandidate, evidenceLines) ? countryCandidate : '');
   const rawStatedPostal = compact(address.postalCode, 20);
   const statedPostal = postalCodeDigits(rawStatedPostal) || rawStatedPostal;
-  const postalCode = explicitPostalCode(cvText, city, province) || (hasCvSource ? '' : statedPostal);
+  const postalCode = statedPostal && !occursOnlyOutsideResidence(statedPostal) ? statedPostal
+    : explicitPostalCode(cvText, city, province) || (hasCvSource ? '' : statedPostal);
   // Remove a known postal code copied into the street field. A bare
   // four/five-digit value is rejected below as an ambiguous postal code, while
   // longer numbers with a street remain eligible as explicit civic numbers.
   const streetCandidate = compact(address.street);
-  const street = !hasCvSource || appearsInEvidence(streetCandidate, evidenceLines) ? streetCandidate : '';
+  const street = occursOnlyOutsideResidence(streetCandidate) ? '' : streetCandidate;
   const knownPostalDigits = postalCodeDigits(postalCode);
   const streetWithoutKnownPostal = knownPostalDigits
     ? street.replace(new RegExp(`\\b${knownPostalDigits}\\b`, 'g'), ' ')
