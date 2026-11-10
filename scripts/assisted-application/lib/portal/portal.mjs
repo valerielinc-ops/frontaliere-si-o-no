@@ -4169,7 +4169,10 @@ async function waitForVerificationOutcome(page) {
     after = await read();
     outcome = after ? verificationOutcome(after) : 'pending';
   }
-  after ||= await extractFields(page);
+  // The same non-throwing read: a page still unreadable at the deadline is a
+  // pending outcome, answered by a bounded handoff, never an uncaught rejection.
+  after ||= await read();
+  if (!after) return { after: null, outcome: 'pending' };
   return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
 }
 
@@ -4215,7 +4218,8 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the
   // inbound handler). That notice, received after the code was sent, is the
   // portal's own word; a refused or expired code is never overridden by it.
-  if (outcome === 'unconfirmed' && typeof ctx.accounts.waitForAccountNotice === 'function'
+  // A page still loading at the deadline (`pending`) is as open as an unconfirmed one.
+  if ((outcome === 'unconfirmed' || outcome === 'pending') && typeof ctx.accounts.waitForAccountNotice === 'function'
     && await ctx.accounts.waitForAccountNotice({ host, sinceMs: submittedAt })) {
     outcome = 'accepted';
   }
@@ -4226,7 +4230,10 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     return accountHandoff(`account_verification_${outcome}`, code, 'verification');
   }
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
-  return { snapshot: after, reopen: true };
+  // Accepted on the portal's notice while the page stayed unreadable: the job is reopened anyway.
+  const snapshotAfter = after || await extractFields(page).catch(() => null)
+    || { url: page.url(), fields: [], buttons: [], links: [], errors: [] };
+  return { snapshot: snapshotAfter, reopen: true };
 }
 
 // SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a

@@ -115,6 +115,27 @@ describe('the answer to an accepted SuccessFactors code', () => {
     expect(accounts.mark).not.toHaveBeenCalled();
   });
 
+  it('answers a page that never reads again with a bounded handoff, not an uncaught rejection', async () => {
+    const started = Date.now();
+    const { page, snapshot } = portal(() => { throw new Error('Execution context was destroyed'); });
+    const accounts = accountsWith(null);
+    const result = await verifyAccount({ page: page as any, host, sinceMs: 0, ctx: { accounts } as any, snapshot: snapshot() as any });
+
+    expect(result).toMatchObject({ handoff: expect.stringMatching(/^account_verification_(?:pending|unconfirmed)$/), accountFailure: { stage: 'verification' } });
+    expect(Date.now() - started).toBeLessThanOrEqual(61_000);
+    expect(accounts.mark).not.toHaveBeenCalled();
+  });
+
+  it('takes the «account created» mail for a page still pending at the deadline', async () => {
+    const { page, snapshot } = portal(() => { throw new Error('Execution context was destroyed'); });
+    const accounts = accountsWith({ messageId: 'in-notice', kind: 'created' });
+    const result = await verifyAccount({ page: page as any, host, sinceMs: 0, ctx: { accounts } as any, snapshot: snapshot() as any });
+
+    expect(result).toMatchObject({ reopen: true });
+    expect(result).not.toHaveProperty('handoff');
+    expect(accounts.mark).toHaveBeenCalledWith(host, { verifiedAt: expect.any(Number) });
+  });
+
   it('never lets a mail overrule a code the portal refused', async () => {
     const values = new Map<string, string>();
     const { page, snapshot } = portal(() => otpPage(values, ['Der eingegebene Code ist ungültig.']));
