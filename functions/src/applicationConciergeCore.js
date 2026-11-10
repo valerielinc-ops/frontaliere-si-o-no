@@ -378,7 +378,11 @@ function assertProfileInput(body) {
   return { name, email, phone };
 }
 
-/** Permit, passport and nationality, asked with the CV (owner decision 2026-11-09). */
+/**
+ * Permit, passport and nationality, asked with the CV (owner decision 2026-11-09), and the two legal facts
+ * (criminal record, debt-enforcement register: 'no' / 'yes', owner decision 2026-11-10). A value outside the
+ * lists is refused, never stored.
+ */
 function candidateFactsPatch(body) {
   if (!Object.hasOwn(body, 'candidateFacts')) return {};
   const facts = sanitizeCandidateFacts(body.candidateFacts);
@@ -834,7 +838,8 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         applicantName: currentService.applicantName || null,
         applicantEmail: currentService.applicantEmail || null,
         applicantPhone: currentService.applicantPhone || null,
-        // The parent's upload answers and residence reach every application (owner decision 2026-11-09).
+        // The parent's upload answers and residence reach every application (owner decision 2026-11-09), the
+        // legal facts with them (2026-11-10): a child order never asks them again.
         candidateFacts: sanitizeCandidateFacts(currentService.candidateFacts),
         applicantLocation: optionalString(currentService.applicantLocation, 120),
         applicantLocationCountry: optionalString(currentService.applicantLocationCountry, 2),

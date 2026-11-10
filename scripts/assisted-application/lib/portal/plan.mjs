@@ -12,6 +12,7 @@ import '../../extension/apply-control.js';
 const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
 import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { isDecisionAnswerDefault } from '../../../../functions/src/assistedApplicationDecisionAnswers.js';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
@@ -2244,8 +2245,13 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
+    // A decision of the engine is checked in code on every read (assistedApplicationDecisionAnswers.js, owner
+    // mandate 2026-11-10): a yes to a certification stands on a verified CV quote, a yes to an experience is the
+    // owner's plausible deduction. It stands for a knock-out like the candidate's own answer; a language level not.
+    const fromDecision = !languageAbility && fromPolicy
+      && isDecisionAnswerDefault(operationalDefaultAnswer(field, { facts: candidate?.platformFacts }));
     const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
-      || answeredByCandidate(candidate, field.label, given, field.context, field)
+      || answeredByCandidate(candidate, field.label, given, field.context, field) || fromDecision
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(`${field.label} ${field.context || ''}`, given, action.evidence));
     if ((languageAbility || KNOCK_OUT.test(field.label))
       && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {

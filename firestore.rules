@@ -1057,15 +1057,18 @@ service cloud.firestore {
           'cvUploadedAt', 'candidateFacts',
           'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
         ])
-        // Asked with the CV (owner decision 2026-11-09): permit, passport and nationality.
+        // Asked with the CV (owner decision 2026-11-09): permit, passport and nationality; since 2026-11-10 also
+        // an entry in the criminal record and in the debt-enforcement register ('no' / 'yes').
         && (!request.resource.data.keys().hasAny(['candidateFacts'])
           || request.resource.data.candidateFacts == null
           || (request.resource.data.candidateFacts is map
-            && request.resource.data.candidateFacts.keys().hasOnly(['workPermit', 'passport', 'nationality'])
+            && request.resource.data.candidateFacts.keys().hasOnly(['workPermit', 'passport', 'nationality', 'criminalRecord', 'debtRecord'])
             && request.resource.data.candidateFacts.get('workPermit', '') in ['', 'swiss', 'permit_c', 'permit_b', 'permit_l', 'permit_g', 'none']
             && request.resource.data.candidateFacts.get('passport', '') in ['', 'swiss', 'eu_efta', 'other']
             && request.resource.data.candidateFacts.get('nationality', '') is string
-            && request.resource.data.candidateFacts.get('nationality', '').size() <= 80))
+            && request.resource.data.candidateFacts.get('nationality', '').size() <= 80
+            && request.resource.data.candidateFacts.get('criminalRecord', '') in ['', 'no', 'yes']
+            && request.resource.data.candidateFacts.get('debtRecord', '') in ['', 'no', 'yes']))
         // v2 names the employer's terms accepted on the candidate's behalf; v1 stays valid for pages opened before.
         && ((resource.data.consentVersion == null
           && request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']

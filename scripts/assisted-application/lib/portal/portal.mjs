@@ -7833,6 +7833,7 @@ export async function readPortalQuestions(ctx) {
  * @param {string} ctx.language posting language (browser locale)
  * @param {string} ctx.candidateLocale language of the questions to the candidate
  * @param {object} ctx.candidate candidateForForm(...)
+ * @param {string} [ctx.cvText] the CV's text (draft.factSources.text): the decision engine checks its evidence against it
  * @param {{cv:string, cover_letter:string}} ctx.files local file paths
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
@@ -8388,7 +8389,7 @@ export async function submitViaPortal(ctx) {
         const fresh = (requirements.questions || []).filter((question) => !engineTried.has(portalQuestionKey(question) || question.id));
         for (const question of fresh) engineTried.add(portalQuestionKey(question) || question.id);
         const engine = fresh.length
-          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, log })
+          ? await decideLiveQuestions({ questions: fresh, candidate: ctx.candidate, codex: ctx.codex, cvText: ctx.cvText, log })
           : { ids: [], decisions: [] };
         if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
         if (engine.ids.length) {
