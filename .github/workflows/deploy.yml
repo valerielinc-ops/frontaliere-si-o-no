@@ -1053,6 +1053,13 @@ jobs:
           echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"
           exit "$build_exit"
 
+      # Publish the compact edge archive before any section shard delta can
+      # remove selected static pages. Each locale build owns its manifest;
+      # missing credentials or a partial upload fail this deploy closed.
+      - name: Publish expired-job edge dataset (before section shard deltas)
+        if: steps.build_step.outcome == 'success'
+        run: node scripts/publish-expired-job-edge-dataset.mjs
+
       # Legge il referto che `buildMemoryGuardPlugin` scrive SEMPRE (verde o
       # rosso) in /tmp/build-memory-peak.json, e lo espone come output. Sta
       # subito dopo il build e gira `always()` perche' il caso che conta e'
