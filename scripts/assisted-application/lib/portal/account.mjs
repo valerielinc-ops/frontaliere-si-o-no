@@ -48,6 +48,12 @@ const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (
 // of 2026-10-07). Whole words otherwise: «Shipping» holds no PIN.
 const OTHER_CODE_RE = /(?:postal|post|zip|plz|area|dial(?:l?ing)?|country|l[aä]nder|landes|phone|telefon|telephone|mobile|promo(?:tion)?|aktions|discount|rabatt|coupon|voucher|gutschein|referral|tax|steuer|bank|swift|bic|sort|employee|company|job|requisition|currency|language|region|state|province)[\s_-]*(?:code|codice|kode)|(?:code|codice)\s+(?:postal|postale|fiscale|pays|paese|promo|sconto|r[ée]gion|area)/gi;
 const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
+// The federal SuccessFactors tenant (career74, 2026-11-10) masks its OTP input:
+// `type=password` behind an «Anzeigen» toggle, labelled only «*Code:», with no
+// e-mail or user field on the page. Such a bare word is the e-mailed code; next
+// to a login identity it stays that form's secret, and «Zugangscode» or
+// «Kennwort» remain passwords.
+const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice)[\s*:]*$/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
@@ -170,9 +176,13 @@ export function verificationIsPending(after) {
   return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }
 
-/** create: two password fields (password + repeat); sign_in: one. */
+/**
+ * create: two password fields (password + repeat); sign_in: one. A masked
+ * one-time-code input is no account password: the OTP page that follows a
+ * SuccessFactors registration is neither a sign-in nor a create form.
+ */
 export function authPageKind(snapshot) {
-  const passwords = snapshot.fields.filter((field) => field.inputType === 'password').length;
+  const passwords = snapshot.fields.filter((field) => field.inputType === 'password' && !isCodeField(field, snapshot.fields)).length;
   if (passwords >= 2) return 'create';
   if (passwords === 1) return 'sign_in';
   return 'none';
@@ -472,19 +482,29 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
   };
 }
 
+/** The field asks for a verification code (plain or masked), not for a postal, phone or account secret. */
+function isCodeField(field, fields = []) {
+  const label = `${field.label} ${field.name}`.replace(OTHER_CODE_RE, ' ');
+  if (!CODE_FIELD_RE.test(label)) return false;
+  if (field.kind === 'text' && field.inputType !== 'password') return true;
+  if (field.inputType !== 'password') return false;
+  return PASSWORD_CODE_FIELD_RE.test(label)
+    || (BARE_CODE_LABEL_RE.test(String(field.label ?? '')) && !loginIdentityField(fields));
+}
+
 export function codeField(snapshot) {
-  return snapshot.fields.find((field) => {
-    const label = `${field.label} ${field.name}`.replace(OTHER_CODE_RE, ' ');
-    return CODE_FIELD_RE.test(label)
-      && (field.kind === 'text' && field.inputType !== 'password'
-        || field.inputType === 'password' && PASSWORD_CODE_FIELD_RE.test(label));
-  }) || null;
+  return snapshot.fields.find((field) => isCodeField(field, snapshot.fields)) || null;
+}
+
+/** The e-mail or user name a sign-in form asks for. */
+function loginIdentityField(fields) {
+  return fields.find((field) => field.inputType === 'email')
+    || fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && /e-?mail|benutzer|user|login/i.test(`${field.label} ${field.name} ${field.autocomplete}`))
+    || null;
 }
 
 export function loginFields(snapshot) {
   const password = snapshot.fields.find((field) => field.inputType === 'password') || null;
-  const email = snapshot.fields.find((field) => field.inputType === 'email')
-    || snapshot.fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && /e-?mail|benutzer|user|login/i.test(`${field.label} ${field.name} ${field.autocomplete}`))
-    || null;
+  const email = loginIdentityField(snapshot.fields);
   return { email, password };
 }
