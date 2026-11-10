@@ -25,6 +25,7 @@ import {
 } from './assistedApplicationEmployerResponse.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
+import { isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown, transition } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
 import { submissionGuard, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
@@ -424,7 +425,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
         suggestedAnswer: defaults[question.id].value,
         answerEvidence: defaults[question.id].evidence,
         answerFromCv: defaults[question.id].origin,
-      } : {}) };
+      } : {}),
+      // A choice of the decision engine (2026-11-10): the owner's principle it rests on, for the page.
+      ...(isDecisionAnswerDefault(defaults[question.id]) ? { answerDecisionPrinciple: defaults[question.id].principle } : {}) };
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
     answers.work_permit = value;

@@ -40,6 +40,7 @@ import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQ
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
 import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
 import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
+import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -632,6 +633,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
   // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);
+  // The decision engine's choices for the questions no rule and no CV answer cover (2026-11-10,
+  // assistedApplicationDecisionAnswers.js), checked again on every read: form-only as well.
+  platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text);
   return { identity, profile, answers, overrides, personal, platformFacts };
 }
 

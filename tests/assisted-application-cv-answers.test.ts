@@ -53,6 +53,10 @@ const travel = {
   id: 'travel_availability', source: 'match', type: 'yes_no', required: true, options: [],
   question: 'Are you fully available for national and international business travel?',
 };
+// An identifier nobody can deduce (assistedApplicationDecisionAnswers.js CANDIDATE_ONLY_CATEGORIES): it stays open.
+const ahv = {
+  id: 'ahv_number', source: 'portal', type: 'text', required: true, options: [], question: 'AHV-Nummer',
+};
 const draftOf = (cvText: string, questions: object[]) => ({
   verdict: 'good', job: { source: 'job_detail' }, channel: { type: 'email' }, factCheck: { ok: true, unsupported: [] },
   factSources: { text: cvText }, questions, language: 'it',
@@ -69,9 +73,9 @@ describe('technical questions: answered only with CV evidence', () => {
       { id: windows.id, kind: 'technical', suggestedAnswer: windowsAnswer, evidence: [windowsQuote], missingDetail: '' },
     ] }, [windows], CV_WITH_WINDOWS);
     expect(question).toMatchObject({ suggestedAnswer: windowsAnswer, answerEvidence: [windowsQuote], answerKind: 'technical' });
-    const draft = draftOf(CV_WITH_WINDOWS, [question, travel]);
-    // Only the travel question (not a rule of the owner, a fact only the candidate knows) is still open.
-    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['travel_availability']);
+    const draft = draftOf(CV_WITH_WINDOWS, [question, travel, ahv]);
+    // Travel is a platform rule since 2026-11-10 (always available): only the AHV number is still open.
+    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual(['ahv_number']);
     const { answers, profile, platformFacts } = candidateWithEdits({ order, draft, flow: {} });
     // Form-only: never in the answers or the profile the letter and the CV are written from.
     expect(answers[windows.id]).toBeUndefined();
@@ -80,14 +84,18 @@ describe('technical questions: answered only with CV evidence', () => {
     const { defaults } = withOperationalQuestionAnswers(draft.questions, answers, { facts: platformFacts });
     expect(defaults[windows.id]).toMatchObject({ source: 'policy_default', topic: 'cv_answer:technical', origin: 'cv_evidence' });
     // The e-mail carries the CV: no separate line for an answer the CV gives.
-    expect(operationalEmailBody({ ...draft, applicationEmail: { body: 'Gentili signori' } }, {}, { facts: platformFacts })).toBe('Gentili signori');
+    // A platform rule (travel, 2026-11-10) keeps its line, as every required platform default.
+    const body = operationalEmailBody({ ...draft, applicationEmail: { body: 'Gentili signori' } }, {}, { facts: platformFacts });
+    expect(body).not.toContain(windowsAnswer);
+    expect(body).toBe(`Gentili signori\n\n${travel.question}: Sì`);
   });
 
   it('shows it on the review page as an editable proposal of the platform, with its evidence', () => {
     const [question] = sanitizeApplicationAnswerSuggestions({ answers: [
       { id: windows.id, kind: 'technical', suggestedAnswer: windowsAnswer, evidence: [windowsQuote], missingDetail: '' },
     ] }, [windows], CV_WITH_WINDOWS);
-    const draft = draftOf(CV_WITH_WINDOWS, [question, travel]);
+    // A question still open (the AHV number) shows the platform's proposals with it.
+    const draft = draftOf(CV_WITH_WINDOWS, [question, travel, ahv]);
     const payload = buildReviewPayload({ order, flow: { state: 'candidate_review', round: 1 }, draft, round: 1, coverLetterUrl: null });
     const shown = payload.questions.find((item: { id: string }) => item.id === windows.id);
     expect(shown).toMatchObject({ answeredByPlatform: true, suggestedAnswer: windowsAnswer, answerEvidence: [windowsQuote], answerFromCv: 'cv_evidence' });
@@ -168,7 +176,7 @@ describe('generic questions: a plausible description built from the CV', () => {
 });
 
 describe('what stays with the candidate', () => {
-  it('a yes/no fact the owner rules do not cover (travel) is never answered from the CV', () => {
+  it('a yes/no question (travel) is never answered from the CV: the platform rule answers it', () => {
     expect(cvAnswerQuestionEligible(travel)).toBe(false);
     const [question] = sanitizeApplicationAnswerSuggestions({ answers: [
       { id: travel.id, kind: 'behavioral', suggestedAnswer: 'Yes', evidence: [], missingDetail: '' },

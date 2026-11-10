@@ -35,6 +35,8 @@ import {
 import { classifyApplicationChannel, fetchJobPosting, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { draftCvAnswers } from './cv-answers.mjs';
+import { draftDecisionAnswers } from './decision-answers.mjs';
+import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -450,6 +452,13 @@ export async function buildDraft(ctx) {
   // one with cited excerpts, a behavioural one with a plausible description built from the CV. A verified
   // answer is a platform proposal (platformFacts.cvAnswers): shown and editable, never in flow.answers.
   ({ questions } = await draftCvAnswers({ questions, answers, facts: edited.platformFacts, cvText, codex, locale, log }));
+  // What neither a platform rule nor the CV answered, the decision engine decides by the owner's principles
+  // (lib/decision-answers.mjs, 2026-11-10): a platform proposal too (platformFacts.decisionAnswers), only the
+  // categories of CANDIDATE_ONLY_CATEGORIES stay with the candidate.
+  ({ questions } = await draftDecisionAnswers({
+    questions, answers, cvText, codex, log, employer: order.companyName || '', jobTitle: title,
+    facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText) },
+  }));
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
   // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.

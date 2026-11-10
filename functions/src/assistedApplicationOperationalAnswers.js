@@ -6,10 +6,14 @@ import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
+import { decisionAnswerFor } from './assistedApplicationDecisionAnswers.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v5';
+// v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
+// (assistedApplicationDecisionAnswers.js); a new version lets reconcile-operational-answers.mjs release
+// the waits these now answer.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v6';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -179,7 +183,10 @@ export function operationalDefaultAnswer(question, { locale, facts } = {}) {
   return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale })
     // What the CV answers to an open text question (owner decisions 2026-11-10): a proposal like the
     // platform's, verified against the CV (assistedApplicationCvAnswers.js).
-    || cvAnswerFor(question, facts);
+    || cvAnswerFor(question, facts)
+    // Last, what the decision engine chose by the owner's principles for a question nothing above covers
+    // (assistedApplicationDecisionAnswers.js, 2026-11-10): a proposal too, checked again on every read.
+    || decisionAnswerFor(question, facts);
 }
 
 function ownerPreferenceAnswer(question, { locale } = {}) {
