@@ -15,9 +15,9 @@ import { realpathSync } from 'node:fs';
 //
 // Failure semantics:
 //   - 0 fetcher failures → exit 0
-//   - 1 fetcher failure  → exit 0 (degraded — log warning)
-//   - 2 fetcher failures → exit 1 only when both results are empty
-//     (a full data outage); preserved partial observations remain degraded
+//   - 1 or 2 fetcher failures → exit 0 (degraded — log warning)
+//   - all 3 fetchers fail with no observed evidence → exit 1 (full data outage)
+//   - all 3 fail but any source preserves observed evidence → exit 0 (degraded)
 //
 // Optional flag: `--embeddings` triggers `scripts/build-article-embeddings.mjs`
 // at the end (delegated to keep this script focused on the JSON ETL).
@@ -29,6 +29,7 @@ import { spawn } from 'node:child_process';
 
 import { fetchGscQueries } from './lib/evidence/gscFetcher.mjs';
 import { fetchGa4Pages } from './lib/evidence/ga4Fetcher.mjs';
+import { fetchExpiredJobGa4Traffic } from './lib/evidence/expiredJobGa4Traffic.mjs';
 import { buildClusterStats } from './lib/evidence/clusterStatsBuilder.mjs';
 import { DEFAULT_WINDOW_DAYS } from './lib/evidence/constants.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
@@ -69,7 +70,10 @@ export function hasObservedEvidence(result) {
   if (!result || typeof result !== 'object') return false;
   return hasEntries(result.queries)
     || hasEntries(result.pages)
-    || (Array.isArray(result.orphanQueries) && result.orphanQueries.length > 0);
+    || (Array.isArray(result.orphanQueries) && result.orphanQueries.length > 0)
+    // A complete empty report is affirmative evidence of zero rows, not an
+    // outage. This is important for the dedicated expired-job GA4 sweep.
+    || result.coverage?.complete === true;
 }
 
 /**
@@ -103,21 +107,28 @@ async function main() {
   console.error(`EVIDENCE_BUILD start=${startDate} end=${endDate} window=${windowDays}d`);
 
   // Run fetchers in parallel — each is internally resilient (returns error key on failure).
-  const [gscResult, ga4Result] = await Promise.all([
+  let ga4TokenPromise;
+  const getGa4Token = () => {
+    ga4TokenPromise ??= getServiceAccountToken([GA4_READONLY_SCOPE]);
+    return ga4TokenPromise;
+  };
+  const [gscResult, ga4Result, expiredJobGa4Traffic] = await Promise.all([
     fetchGscQueries({ startDate, endDate }),
     // GA4 is the analytics source (H9); the explicit token call keeps the
     // auth path visible at this consumer, not only inside the fetcher.
     fetchGa4Pages({
       startDate,
       endDate,
-      getTokenImpl: () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+      getTokenImpl: getGa4Token,
     }),
+    fetchExpiredJobGa4Traffic({ startDate, endDate, getTokenImpl: getGa4Token }),
   ]);
 
   const failures = [];
   if (gscResult.error) failures.push(`gsc: ${gscResult.error}`);
   if (ga4Result.error) failures.push(`ga4: ${ga4Result.error}`);
-  const fetcherResults = [gscResult, ga4Result];
+  if (expiredJobGa4Traffic.error) failures.push(`expired-job-ga4: ${expiredJobGa4Traffic.error}`);
+  const fetcherResults = [gscResult, ga4Result, expiredJobGa4Traffic];
 
   for (const f of failures) console.error(`EVIDENCE_FETCHER_FAIL ${f}`);
 
@@ -145,6 +156,9 @@ async function main() {
       ...(ga4Result.error ? { error: ga4Result.error } : {}),
       ...(ga4Result.coverage ? { coverage: ga4Result.coverage } : {}),
     },
+    // Separate evidence: the main GA4 pages block excludes newsletter traffic
+    // and uses a >=3-session floor, so it cannot prove zero traffic for a job.
+    expiredJobGa4Traffic,
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,
   };
@@ -154,10 +168,12 @@ async function main() {
   const queryCount = Object.keys(gscResult.queries || {}).length;
   const gscPageCount = Object.keys(gscResult.pages || {}).length;
   const ga4PageCount = Object.keys(ga4Result.pages || {}).length;
+  const expiredJobGa4PageCount = Object.keys(expiredJobGa4Traffic.pages || {}).length;
   const clusterCount = Object.keys(clusterStats).length;
 
   console.error(
     `EVIDENCE_BUILD_DONE queries=${queryCount} gscPages=${gscPageCount} ga4Pages=${ga4PageCount} `
+    + `expiredJobGa4Pages=${expiredJobGa4PageCount} expiredJobGa4Complete=${expiredJobGa4Traffic.coverage?.complete === true} `
     + `clusters=${clusterCount} failures=${failures.length}`,
   );
 
