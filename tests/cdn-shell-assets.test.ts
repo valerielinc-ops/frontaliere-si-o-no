@@ -1,4 +1,5 @@
 // @vitest-environment node
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -453,16 +454,65 @@ describe('ensureCdnShellAssets', () => {
     expect(results.filter((result) => result.outcome === 'uploaded').map((result) => result.key)).toEqual([versioned]);
     expect(cdn.bucket.has(versioned)).toBe(true);
   });
+
+  it('fails closed on a stale stable global alias without overwriting it from a possibly old emitter', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const versioned = `assets/${GTAG_INIT_VERSIONED_FILENAME}`;
+    const stable = 'assets/gtag-init.js';
+    const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== versioned), {
+      probeAnswer: (key, has) => key === stable ? 'stale' : has ? 'present' : 'absent',
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+
+    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(message).toContain(`only the full deploy may publish it from ${versioned}`);
+    expect(cdn.calls.upload).toEqual([[versioned, GTAG_INIT_CONTENT]]);
+    expect(cdn.calls.purge.flat()).not.toContain(stable);
+  });
+
+  it('fails closed when a stable global alias is missing instead of publishing it from a fast emitter', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
+      probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+
+    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
+    expect(cdn.calls.purge.flat()).not.toContain(stable);
+  });
+
+  it('refuses a global stable alias whose local bytes differ from its current hashed target', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const staleAssets = assets.map((asset) => asset.key === 'assets/adsense-loader.js'
+      ? { ...asset, content: `${asset.content}\n// stale alias` }
+      : asset);
+    const cdn = fakeCdn(assets.map((asset) => asset.key));
+
+    await expect(ensureCdnShellAssets({ assets: staleAssets, ...cdn }))
+      .rejects.toThrow('stable alias bytes differ from assets/adsense-loader-');
+    expect(cdn.calls.probe).toEqual([]);
+  });
 });
 
 describe('shellAssetsFromStaticScripts', () => {
-  it('turns every file the static-scripts plugin writes into an assets/ key', () => {
+  it('publishes stable global aliases byte-identical to their current content-addressed targets', () => {
     const files = listStaticScriptFiles();
     const assets = shellAssetsFromStaticScripts(files);
+    const contents = new Map(files);
 
     expect(assets.map((asset) => asset.key)).toEqual(files.map(([name]) => `assets/${name}`));
     expect(assets.map((asset) => asset.key)).toContain(`assets/${GTAG_INIT_VERSIONED_FILENAME}`);
-    expect(assets.some((asset) => /assets\/meta-pixel-base-code-[a-f0-9]{12}\.js$/.test(asset.key))).toBe(true);
+    for (const name of ['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code']) {
+      const stableFilename = `${name}.js`;
+      const versionedFilename = assets.find((asset) => new RegExp(`^assets/${name}-[a-f0-9]{12}\\.js$`).test(asset.key))?.key.slice('assets/'.length);
+      expect(contents.get(stableFilename), `${stableFilename} must be emitted`).toBeTruthy();
+      expect(versionedFilename, `${name} must retain its content-addressed file`).toBeTruthy();
+      expect(contents.get(stableFilename)).toBe(contents.get(versionedFilename!));
+    }
   });
 
   it.each([
@@ -514,6 +564,29 @@ describe('probeCdnAsset', () => {
     })).resolves.toBe('stale');
   });
 
+  it('marks a stable global alias stale when a weak ETag matches but the response bytes differ', async () => {
+    const expectedContentMd5 = createHash('md5').update(GTAG_INIT_CONTENT).digest('hex');
+    const seenMethods: string[] = [];
+    const fetchImpl = (async (_url: string | URL, init?: RequestInit) => {
+      seenMethods.push(String(init?.method));
+      return new Response(`${GTAG_INIT_CONTENT}\n// stale bytes`, {
+        status: 200,
+        headers: {
+          'content-type': 'application/javascript',
+          'cache-control': SHELL_ASSET_CACHE_CONTROL,
+          etag: `W/"${expectedContentMd5}"`,
+        },
+      });
+    }) as unknown as typeof fetch;
+
+    await expect(probeCdnAsset('assets/gtag-init.js', {
+      fetchImpl,
+      expectedCacheControl: SHELL_ASSET_CACHE_CONTROL,
+      expectedContentMd5,
+    })).resolves.toBe('stale');
+    expect(seenMethods).toEqual(['GET']);
+  });
+
   it('reads a request that does not complete as unknown', async () => {
     const fetchImpl = (async () => {
       throw new Error('timeout');
@@ -559,6 +632,23 @@ describe('confirmCdnAsset', () => {
     expect(seen[0].init.method).toBe('GET');
     expect(String(seen[0].init.headers?.['User-Agent'])).toMatch(/FrontaliereTicino/);
     expect(seen[0].init.headers?.Origin).toBeUndefined();
+  });
+
+  it('confirms a stable alias by body bytes even when a weak ETag claims those producer bytes', async () => {
+    const md5 = createHash('md5').update(GTAG_INIT_CONTENT).digest('hex');
+    const response = (etag: string, body: string) => (async () => new Response(body, {
+      status: 200,
+      headers: { 'content-type': 'application/javascript', etag },
+    })) as unknown as typeof fetch;
+
+    await expect(confirmCdnAsset('assets/gtag-init.js', {
+      fetchImpl: response(`W/"${md5}"`, GTAG_INIT_CONTENT),
+      expectedContentMd5: md5,
+    })).resolves.toBe('present');
+    await expect(confirmCdnAsset('assets/gtag-init.js', {
+      fetchImpl: response(`W/"${md5}"`, `${GTAG_INIT_CONTENT}\n// stale bytes`),
+      expectedContentMd5: md5,
+    })).resolves.toBe('unknown');
   });
 
   it('sends the page origin only to read the cross-origin cache entry', async () => {

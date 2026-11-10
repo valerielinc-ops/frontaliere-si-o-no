@@ -82,10 +82,13 @@ describe('public config edge route', () => {
       worker.fetch(new Request(`${CACHE_KEY}?concurrent=1`), {}),
     ]);
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(200);
     expect(response.headers.get('Cache-Control')).toBe('no-store');
-    expect(concurrentResponse.status).toBe(503);
+    expect(response.headers.get('Content-Type')).toContain('application/json');
+    expect(await response.json()).toEqual({});
+    expect(concurrentResponse.status).toBe(200);
     expect(concurrentResponse.headers.get('Cache-Control')).toBe('no-store');
+    expect(await concurrentResponse.json()).toEqual({});
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(errorLog).toHaveBeenCalledTimes(2);
     expect(errorLog.mock.calls.map(([entry]) => JSON.parse(String(entry)))).toEqual([
@@ -94,18 +97,20 @@ describe('public config edge route', () => {
     ]);
   });
 
-  it('logs an upstream 503 before returning it to the browser', async () => {
+  it.each([500, 503])('logs an upstream %i and fails open before returning it to the browser', async (status) => {
     const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('temporarily unavailable', { status: 503 }));
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('temporarily unavailable', { status }));
 
     const response = await worker.fetch(new Request(CACHE_KEY), {});
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(await response.json()).toEqual({});
     expect(errorLog).toHaveBeenCalledExactlyOnceWith(JSON.stringify({
       event: 'origin_failure',
       reason: 'public-config',
       path: '/api/public-config/',
-      status: 503,
+      status,
     }));
   });
 });

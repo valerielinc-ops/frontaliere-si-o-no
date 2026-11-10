@@ -3509,11 +3509,19 @@ export function stripStaleAssetIntegrity(request, response) {
 
 let publicConfigFetchPromise = null;
 
-function publicConfigUnavailableResponse(url) {
-  return edgeFailureResponse(url, 'public-config', 'Public config unavailable', {
-    'Retry-After': '30',
-    'Cache-Control': 'no-store',
+function publicConfigFailOpenResponse() {
+  return new Response('{}', {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
   });
+}
+
+function publicConfigUnavailableResponse(url) {
+  logEdgeFailure('public-config', url);
+  return publicConfigFailOpenResponse();
 }
 
 /** Proxy the allowlisted Remote Config through the production edge cache. */
@@ -3530,6 +3538,7 @@ export async function servePublicConfig(request) {
     try {
       const response = await publicConfigFetchPromise;
       logUpstreamFailure('public-config', url, response);
+      if (response.status >= 500) return publicConfigFailOpenResponse();
       return response.clone();
     } catch {
       return publicConfigUnavailableResponse(url);
@@ -3552,6 +3561,7 @@ export async function servePublicConfig(request) {
   try {
     const response = await pending;
     logUpstreamFailure('public-config', url, response);
+    if (response.status >= 500) return publicConfigFailOpenResponse();
     return response.clone();
   } catch {
     return publicConfigUnavailableResponse(url);

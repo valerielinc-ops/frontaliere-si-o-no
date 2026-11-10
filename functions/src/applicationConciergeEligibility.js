@@ -18,7 +18,8 @@ import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SC
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility, hasUncoveredLanguageRequirements } from './assistedApplicationFitNotice.js';
 import { isLanguageAbilityQuestion, languageCodeOf } from './lib/languageFacts.js';
-import { SOURCE_CITATIONS_VERSION, sourceCitations, candidateConfirmedEvidenceSources, citationSchema, resolveCitations } from './lib/sourceCitations.js';
+import { SOURCE_CITATIONS_VERSION, sourceCitations, candidateConfirmedEvidenceSources, citationSchema, resolveCitations, platformAnswerEvidenceSources } from './lib/sourceCitations.js';
+import { answerConciergeClarifications, conciergePlatformFacts, conciergePlatformInputs, platformAnswerInputs, platformAnswersView } from './applicationConciergePlatformAnswers.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v7-${SOURCE_CITATIONS_VERSION}`;
 export const CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID = 'candidate-language-facts';
@@ -218,7 +219,7 @@ function candidateFactsDependency(requirements, cached = null, result = null) {
 }
 
 async function evaluateConciergePosting({ job, profile, languageFacts = null, answers = {}, typedAnswerRecord = null,
-  locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting, metadata = null,
+  platformAnswerRecord = null, locale = 'it', sourceText = '', generate = generateJson, readPosting = fetchJobPosting, metadata = null,
   suppliedRequirements = null }) {
   job = normalizeConciergeJobRecord(job);
   const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
@@ -247,7 +248,10 @@ async function evaluateConciergePosting({ job, profile, languageFacts = null, an
   }
   const normalizedProfile = profileForEligibility(profile, languageFacts);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
-  const typedSources = candidateConfirmedEvidenceSources({ languageFacts, answers: typedAnswerRecord });
+  const typedSources = {
+    ...candidateConfirmedEvidenceSources({ languageFacts, answers: typedAnswerRecord }),
+    ...platformAnswerEvidenceSources(platformAnswerRecord),
+  };
   const candidateSources = sourceCitations({ cv: evidenceText, ...typedSources });
   const candidateEvidenceText = Object.values(typedSources).join('\n');
   let matchRaw;
@@ -334,6 +338,10 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       .map(item => [String(item?.languageCode || '').toLowerCase(), String(item?.level || 'unknown')]),
   })) : '';
   const emptyAnswerHash = eligibilityHash('{}');
+  // What the platform's clarification answers depend on, per listing (its salary estimate answers a salary
+  // question); a change re-runs only the rows that used them.
+  const platformInputsHashFor = job => eligibilityHash(conciergePlatformInputs(service, job));
+  const platformProfile = profileForEligibility(profile, candidateLanguageFacts);
   let analyses = 0;
   const postingPrefetches = new Map();
   const postingReadKey = job => `${job.id}\0${job.url}`;
@@ -378,7 +386,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     return { sourceFingerprint, cacheId, metadata, postingHash };
   };
-  const matchInputFor = async ({ cacheId, sourceFingerprint, cached }) => {
+  const matchInputFor = async ({ cacheId, sourceFingerprint, cached, job }) => {
+    const platformInputsHash = platformInputsHashFor(job);
     const cachedRequirements = cached?.sourceFingerprint === sourceFingerprint
       && Array.isArray(cached?.requirements?.requirements)
       ? cached.requirements
@@ -397,9 +406,12 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       : emptyAnswerHash;
     const usesLanguageFacts = Boolean(cachedRequirements && questionsNeedCandidateFacts(cachedRequirements));
     const appliedLanguageFactsHash = usesLanguageFacts ? languageFactsHash : '';
+    // A clarification cached before the platform answered it is checked again, now with the platform's answers.
+    const platformApplies = cached?.result?.status === 'clarification_required' || Boolean(cached?.platformAnswersHash);
     const matchInputHash = eligibilityHash(JSON.stringify({
       candidateLanguageFacts: appliedLanguageFactsHash,
       candidateAnswers: answerHash,
+      ...(platformApplies ? { platformAnswers: platformInputsHash } : {}),
     }));
     return {
       cachedRequirements,
@@ -419,7 +431,55 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const posting = normalizePosting(loaded.posting);
     const source = fingerprintForPosting(job, posting);
     const cached = (await cache.doc(source.cacheId).get()).data();
-    return (await matchInputFor({ ...source, cached })).fingerprint;
+    return (await matchInputFor({ ...source, cached, job })).fingerprint;
+  };
+  /**
+   * A clarification is answered by the platform first (applicationConciergePlatformAnswers.js): the match runs
+   * again with those answers as evidence of provenance `platform`. What the platform cannot answer stays with
+   * the candidate; a no on a decisive experience or qualification is a known gap. At most one model decision
+   * call and one more match per listing.
+   */
+  const answeredByPlatform = async (analysis, { job, posting, metadata, typedAnswers }) => {
+    const facts = conciergePlatformFacts({ service, profile: platformProfile, job });
+    const common = { cvText, candidateAnswers: typedAnswers.answers, employer: job.company, jobTitle: job.title,
+      locale: service.locale };
+    const first = await answerConciergeClarifications({ ...common, facts, questions: analysis.questions, generate });
+    const knownGap = (base, refusals, questions, entries) => ({
+      ...base,
+      status: 'incompatible',
+      reason: 'platform_answer_requirement_missing',
+      gaps: [...(base.gaps || []).filter(gap => !gap.knownMissing), ...refusals.map(entry => ({
+        requirement: String(questions.find(question => question?.id === entry.questionId)?.question || entry.question).slice(0, 300),
+        importance: 'critical', status: 'missing', knownMissing: true, source: 'platform',
+      }))],
+      questions: [],
+      platformAnswers: platformAnswersView(entries),
+    });
+    if (first.refusals.length) return knownGap(analysis, first.refusals, analysis.questions, first.entries);
+    if (!first.entries.length) return analysis;
+    const inputs = platformAnswerInputs(first.entries, analysis.questions);
+    const second = await evaluateConciergePosting({ job, profile, languageFacts: candidateLanguageFacts,
+      answers: { ...inputs.answers, ...typedAnswers.answers }, typedAnswerRecord: typedAnswers.record,
+      platformAnswerRecord: inputs.record, locale: service.locale, sourceText: cvText, generate,
+      readPosting: async () => posting, metadata, suppliedRequirements: analysis.requirements });
+    if (second.status !== 'clarification_required') return { ...second, platformAnswers: platformAnswersView(first.entries) };
+    // The match may ask again what the platform already answered: the rules and the first decisions answer it
+    // (no further model call); only what nothing answers is the candidate's.
+    const again = await answerConciergeClarifications({ ...common, questions: second.questions,
+      facts: { ...facts, decisionAnswers: first.decisions }, answered: first.entries, generate: null });
+    const entries = [...first.entries, ...again.entries.filter(entry => !first.entries.some(prior => prior.questionId === entry.questionId))];
+    if (again.refusals.length) return knownGap(second, again.refusals, second.questions, entries);
+    if (!again.left.length) {
+      // Every question the posting raised has an answer: one last match reads them all as evidence, so the cached
+      // match and its eligibility are the ones of the answered questions (never the match that asked them).
+      const finalInputs = platformAnswerInputs(entries, [...analysis.questions, ...second.questions]);
+      const final = await evaluateConciergePosting({ job, profile, languageFacts: candidateLanguageFacts,
+        answers: { ...finalInputs.answers, ...typedAnswers.answers }, typedAnswerRecord: typedAnswers.record,
+        platformAnswerRecord: finalInputs.record, locale: service.locale, sourceText: cvText, generate,
+        readPosting: async () => posting, metadata, suppliedRequirements: analysis.requirements });
+      return { ...final, platformAnswers: platformAnswersView(entries) };
+    }
+    return { ...second, questions: again.left, platformAnswers: platformAnswersView(entries) };
   };
   const check = async (job) => {
     job = normalizeConciergeJobRecord(job);
@@ -438,7 +498,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const ref = cache.doc(cacheId);
     try {
       cached = (await ref.get()).data();
-      matchInput = await matchInputFor({ cacheId, sourceFingerprint, cached });
+      matchInput = await matchInputFor({ cacheId, sourceFingerprint, cached, job });
     } catch (error) {
       if (error && typeof error === 'object') {
         error.eligibilityFingerprint = sourceFingerprint;
@@ -468,6 +528,9 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
         answers: matchInput.typedAnswers.answers, typedAnswerRecord: matchInput.typedAnswers.record,
         locale: service.locale, sourceText: cvText, generate, readPosting: async () => posting, metadata,
         suppliedRequirements: matchInput.cachedRequirements });
+      if (analysis.status === 'clarification_required') {
+        analysis = await answeredByPlatform(analysis, { job, posting, metadata, typedAnswers: matchInput.typedAnswers });
+      }
     } catch (error) {
       if (error && typeof error === 'object') {
         error.eligibilityFingerprint = fingerprint;
@@ -482,9 +545,12 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     }
     const { postingHash: _analysisPostingHash, requirements, match, posting: _analysisPosting, ...result } = analysis;
     const appliedLanguageFactsHash = questionsNeedCandidateFacts(requirements) ? languageFactsHash : '';
+    // Every clarification went through the platform's answers; their inputs are part of the result.
+    const usedPlatform = Array.isArray(result.platformAnswers) || result.status === 'clarification_required';
     const finalMatchInputHash = eligibilityHash(JSON.stringify({
       candidateLanguageFacts: appliedLanguageFactsHash,
       candidateAnswers: matchInput.answerHash,
+      ...(usedPlatform ? { platformAnswers: platformInputsHashFor(job) } : {}),
     }));
     fingerprint = eligibilityHash(`${sourceFingerprint}|${finalMatchInputHash}`);
     const candidateAnswerQuestionSetHash = result.status === 'clarification_required'
@@ -496,7 +562,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       try {
         await ref.set({ fingerprint, sourceFingerprint, matchInputHash: finalMatchInputHash,
           languageFactsHash: appliedLanguageFactsHash, candidateAnswerQuestionSetHash,
-          cvHash, answerHash: matchInput.answerHash, postingHash, promptVersion: PROMPT_VERSION,
+          cvHash, answerHash: matchInput.answerHash, platformAnswersHash: usedPlatform ? platformInputsHashFor(job) : '',
+          postingHash, promptVersion: PROMPT_VERSION,
           version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
       } catch (error) {
         if (error && typeof error === 'object') {
@@ -560,6 +627,8 @@ export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingT
     || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
   const answerHash = eligibilityHash(JSON.stringify({}));
+  // A qualification the platform's answers completed is no CV evidence for the letter: the writer analyses afresh.
+  if (cached?.platformAnswersHash) return null;
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;

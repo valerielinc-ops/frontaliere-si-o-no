@@ -1160,16 +1160,21 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
 function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-'))): { code: number; stdout: string } {
   const dir = workspace;
-  // Since #12150 the CDN push fails closed unless dist carries the GA4
-  // producer pair (stable alias + the one content-addressed file the HTML
-  // names), so the smallest dist that reaches the push section has both.
+  // The CDN push now requires each global shell stable alias and its current
+  // content-addressed target, plus stable references in generated HTML.
   mkdirSync(join(dir, 'dist', 'assets'), { recursive: true });
   writeFileSync(
     join(dir, 'dist', 'index.html'),
-    '<!doctype html><title>t</title><script src="/assets/gtag-init-0a1b2c3d.js"></script>',
+    [
+      '<!doctype html><title>t</title>',
+      ...['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code']
+        .map((name) => `<script src="/assets/${name}.js"></script>`),
+    ].join(''),
   );
-  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init.js'), '');
-  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init-0a1b2c3d.js'), '');
+  for (const name of ['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code']) {
+    writeFileSync(join(dir, 'dist', 'assets', `${name}.js`), `${name} bytes`);
+    writeFileSync(join(dir, 'dist', 'assets', `${name}-0a1b2c3d4e5f.js`), `${name} bytes`);
+  }
   try {
     const stdout = execFileSync('bash', [PREP_SH], {
       cwd: dir,
@@ -1220,7 +1225,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
-  it('a retry clears a partial stage and rebuilds the GA4 pair from dist', () => {
+  it('a retry clears a partial stage and rebuilds all global shell pairs from dist', () => {
     const workspace = mkdtempSync(join(tmpdir(), 'prep-cdn-retry-'));
     try {
       const interruptedStage = join(workspace, 'cdn-stage');
@@ -1235,10 +1240,10 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
 
       expect(r.code).toBe(1); // The missing Pages key is the expected final handshake failure.
       expect(r.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
-      expect(r.stdout).not.toMatch(/CDN asset stage must contain gtag-init/);
+      expect(r.stdout).not.toMatch(/CDN asset stage must contain|stable shell asset/);
       expect(r.stdout).not.toMatch(/partial-file\.js/);
-      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('');
-      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d.js'), 'utf8')).toBe('');
+      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init.js'), 'utf8')).toBe('gtag-init bytes');
+      expect(readFileSync(join(workspace, 'dist', 'assets', 'gtag-init-0a1b2c3d4e5f.js'), 'utf8')).toBe('gtag-init bytes');
     } finally {
       rmSync(workspace, { recursive: true, force: true });
     }
