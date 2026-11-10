@@ -4153,15 +4153,27 @@ async function clickFirst(page, snapshot, patterns) {
 
 /** SuccessFactors leaves the OTP field and a loading live-region in place while the code is checked. */
 async function waitForVerificationOutcome(page) {
-  let after = await extractFields(page);
-  let outcome = verificationOutcome(after);
+  // After «Weiter» the federal SuccessFactors tenant posts two documents
+  // (`/career`, then `/portalcareer`) and draws the application form in its
+  // UI5 shell (2026-11-10): a read can fail between them, and a page with
+  // nothing to act on is still drawing, not an unconfirmed verification.
+  const read = () => extractFields(page).catch(() => null);
+  const actionable = (view) => Boolean(view?.fields?.length) || (view?.buttons || []).some((button) => !button.disabled);
+  const unsettled = (view, result) => !view || result === 'pending' || verificationIsPending(view)
+    || (result === 'unconfirmed' && !actionable(view));
+  let after = await read();
+  let outcome = after ? verificationOutcome(after) : 'pending';
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
-  while ((outcome === 'pending' || verificationIsPending(after)) && Date.now() < deadline) {
+  while (unsettled(after, outcome) && Date.now() < deadline) {
     await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
-    after = await extractFields(page);
-    outcome = verificationOutcome(after);
+    after = await read();
+    outcome = after ? verificationOutcome(after) : 'pending';
   }
-  return { after, outcome };
+  // The same non-throwing read: a page still unreadable at the deadline is a
+  // pending outcome, answered by a bounded handoff, never an uncaught rejection.
+  after ||= await read();
+  if (!after) return { after: null, outcome: 'pending' };
+  return { after, outcome: outcome === 'pending' && !verificationIsPending(after) ? verificationOutcome(after) : outcome };
 }
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
@@ -4189,6 +4201,7 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
   });
   if (!verification) return accountHandoff('account_verification_timeout', 'verification_timeout', 'verification');
+  const submittedAt = Date.now();
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
@@ -4199,7 +4212,17 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return accountHandoff('account', 'verification_unobserved', 'verification');
     await settle(page);
   }
-  const { after, outcome } = await waitForVerificationOutcome(page);
+  let { after, outcome } = await waitForVerificationOutcome(page);
+  // The page may never settle on something the runner can read, while the
+  // portal itself mails that the account now exists (the federal tenant's
+  // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the
+  // inbound handler). That notice, received after the code was sent, is the
+  // portal's own word; a refused or expired code is never overridden by it.
+  // A page still loading at the deadline (`pending`) is as open as an unconfirmed one.
+  if ((outcome === 'unconfirmed' || outcome === 'pending') && typeof ctx.accounts.waitForAccountNotice === 'function'
+    && await ctx.accounts.waitForAccountNotice({ host, sinceMs: submittedAt })) {
+    outcome = 'accepted';
+  }
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
   if (outcome !== 'accepted') {
@@ -4207,7 +4230,10 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     return accountHandoff(`account_verification_${outcome}`, code, 'verification');
   }
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
-  return { snapshot: after, reopen: true };
+  // Accepted on the portal's notice while the page stayed unreadable: the job is reopened anyway.
+  const snapshotAfter = after || await extractFields(page).catch(() => null)
+    || { url: page.url(), fields: [], buttons: [], links: [], errors: [] };
+  return { snapshot: snapshotAfter, reopen: true };
 }
 
 // SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
@@ -5828,6 +5854,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Restart the registration flow with the same password so the portal can
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+    && typeof ctx.accounts.accountNotice === 'function'
+    && await ctx.accounts.accountNotice({ host, sinceMs: Number(account.createdAt) || 0 })) {
+    // An earlier run's code was accepted, and the portal mailed that the
+    // account exists, but that run never saw its answer. A new registration
+    // would be refused for an existing address: record it and sign in.
+    account.verifiedAt = Date.now();
+    await ctx.accounts.mark(host, { status: 'created', verifiedAt: account.verifiedAt });
+  }
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
