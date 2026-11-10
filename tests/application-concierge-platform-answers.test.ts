@@ -20,7 +20,7 @@ vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({
 
 const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const {
-  answerConciergeClarifications, conciergePlatformFacts, platformAnswerInputs, platformQuestionShape,
+  answerConciergeClarifications, conciergePlatformFacts, conciergePlatformInputs, platformAnswerInputs, platformQuestionShape,
 } = await import('../functions/src/applicationConciergePlatformAnswers.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { decisionsSystemPrompt } = await import('../functions/src/assistedApplicationDecisionAnswers.js');
@@ -185,15 +185,33 @@ describe('a concierge proposal never waits on a deducible question', () => {
   });
 
   it('accepts a requirement the platform answered when the match asks it again, without a second model decision', async () => {
+    // The second match asks again; the last one reads every platform answer as evidence (review of #18010).
+    let later = 0;
     const f = fixture({
       firstMatch: gap([permitQuestion, payrollQuestion]),
-      secondMatch: gap([{ ...payrollQuestion, id: 'payroll_years' }]),
+      secondMatch: (user: string) => {
+        later += 1;
+        if (later === 1) return gap([{ ...payrollQuestion, id: 'payroll_years' }]);
+        const id = /\[\[platform_answers:\d+\]\]/.exec(user)?.[0] || '';
+        return { matches: [{ index: 0, status: 'met', evidence: id }], verdict: 'good', summaryIt: '', checksIt: [], questions: [] };
+      },
       decided: decisions([{ id: 'payroll_experience', value: 'yes' }]),
     });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     const result = await check(JOB);
-    expect(result).toMatchObject({ status: 'compatible', reason: 'platform_answered', questions: [] });
+    expect(result).toMatchObject({ status: 'compatible' });
+    expect(result.questions ?? []).toEqual([]);
+    expect(later).toBe(2);
     expect(callsOf(f.generate, decisionsSystemPrompt())).toHaveLength(1);
+    // The cached match is the final one, with the platform's answer as evidence, never the match that asked.
+    expect(cacheRow(f.records).match.matches[0]).toMatchObject({ status: 'met' });
+    expect(cacheRow(f.records).match.matches[0].evidence).toContain('Platform answer on the candidate\'s behalf');
+  });
+
+  it('keeps the platform fingerprint per listing: a new salary estimate is a new platform answer (review of #18010)', () => {
+    const service = { candidateFacts: null, applicantLocation: 'Como', locale: 'it' };
+    expect(conciergePlatformInputs(service, { salaryMax: 60000 })).not.toBe(conciergePlatformInputs(service, { salaryMax: 80000 }));
+    expect(conciergePlatformInputs(service, { salaryMax: 60000 })).toBe(conciergePlatformInputs(service, { salaryMax: 60000 }));
   });
 
   it('treats a no to a formal title the CV lacks as a known gap, not a question', async () => {

@@ -66,12 +66,17 @@ const fold = (value) => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g,
 const localeOf = (value) => (['it', 'en', 'de', 'fr'].includes(String(value || '').slice(0, 2)) ? String(value).slice(0, 2) : 'it');
 const bounded = (value, max) => String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
 
-/** The inputs the platform's answers depend on, for the eligibility cache fingerprint (never the answers themselves). */
-export function conciergePlatformInputs(service = {}) {
+/**
+ * The inputs the platform's answers depend on, for the eligibility cache fingerprint (never the answers
+ * themselves): the service's facts and the listing's salary estimate, which answers a salary question.
+ */
+export function conciergePlatformInputs(service = {}, job = {}) {
   return JSON.stringify([
     CONCIERGE_PLATFORM_ANSWERS_VERSION, PLATFORM_DEFAULTS_VERSION, OPERATIONAL_DEFAULTS_VERSION, DECISION_ANSWERS_VERSION,
     service.candidateFacts || null, String(service.applicantLocation || ''), String(service.applicantLocationCountry || ''),
     localeOf(service.locale),
+    Number(job?.salaryMin) || null, Number(job?.salaryMax) || null, String(job?.salaryCurrency || job?.currency || ''),
+    job?.baseSalary ?? null,
   ]);
 }
 

@@ -338,8 +338,9 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       .map(item => [String(item?.languageCode || '').toLowerCase(), String(item?.level || 'unknown')]),
   })) : '';
   const emptyAnswerHash = eligibilityHash('{}');
-  // What the platform's clarification answers depend on; a change re-runs only the rows that used them.
-  const platformInputsHash = eligibilityHash(conciergePlatformInputs(service));
+  // What the platform's clarification answers depend on, per listing (its salary estimate answers a salary
+  // question); a change re-runs only the rows that used them.
+  const platformInputsHashFor = job => eligibilityHash(conciergePlatformInputs(service, job));
   const platformProfile = profileForEligibility(profile, candidateLanguageFacts);
   let analyses = 0;
   const postingPrefetches = new Map();
@@ -385,7 +386,8 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     return { sourceFingerprint, cacheId, metadata, postingHash };
   };
-  const matchInputFor = async ({ cacheId, sourceFingerprint, cached }) => {
+  const matchInputFor = async ({ cacheId, sourceFingerprint, cached, job }) => {
+    const platformInputsHash = platformInputsHashFor(job);
     const cachedRequirements = cached?.sourceFingerprint === sourceFingerprint
       && Array.isArray(cached?.requirements?.requirements)
       ? cached.requirements
@@ -429,7 +431,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const posting = normalizePosting(loaded.posting);
     const source = fingerprintForPosting(job, posting);
     const cached = (await cache.doc(source.cacheId).get()).data();
-    return (await matchInputFor({ ...source, cached })).fingerprint;
+    return (await matchInputFor({ ...source, cached, job })).fingerprint;
   };
   /**
    * A clarification is answered by the platform first (applicationConciergePlatformAnswers.js): the match runs
@@ -468,9 +470,14 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const entries = [...first.entries, ...again.entries.filter(entry => !first.entries.some(prior => prior.questionId === entry.questionId))];
     if (again.refusals.length) return knownGap(second, again.refusals, second.questions, entries);
     if (!again.left.length) {
-      // Every question the posting raised has an answer: the requirement is accepted as the platform answered it
-      // (owner principle «application_success»), editable in the application it leads to.
-      return { ...second, status: 'compatible', reason: 'platform_answered', gaps: [], questions: [], platformAnswers: platformAnswersView(entries) };
+      // Every question the posting raised has an answer: one last match reads them all as evidence, so the cached
+      // match and its eligibility are the ones of the answered questions (never the match that asked them).
+      const finalInputs = platformAnswerInputs(entries, [...analysis.questions, ...second.questions]);
+      const final = await evaluateConciergePosting({ job, profile, languageFacts: candidateLanguageFacts,
+        answers: { ...finalInputs.answers, ...typedAnswers.answers }, typedAnswerRecord: typedAnswers.record,
+        platformAnswerRecord: finalInputs.record, locale: service.locale, sourceText: cvText, generate,
+        readPosting: async () => posting, metadata, suppliedRequirements: analysis.requirements });
+      return { ...final, platformAnswers: platformAnswersView(entries) };
     }
     return { ...second, questions: again.left, platformAnswers: platformAnswersView(entries) };
   };
@@ -491,7 +498,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const ref = cache.doc(cacheId);
     try {
       cached = (await ref.get()).data();
-      matchInput = await matchInputFor({ cacheId, sourceFingerprint, cached });
+      matchInput = await matchInputFor({ cacheId, sourceFingerprint, cached, job });
     } catch (error) {
       if (error && typeof error === 'object') {
         error.eligibilityFingerprint = sourceFingerprint;
@@ -543,7 +550,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     const finalMatchInputHash = eligibilityHash(JSON.stringify({
       candidateLanguageFacts: appliedLanguageFactsHash,
       candidateAnswers: matchInput.answerHash,
-      ...(usedPlatform ? { platformAnswers: platformInputsHash } : {}),
+      ...(usedPlatform ? { platformAnswers: platformInputsHashFor(job) } : {}),
     }));
     fingerprint = eligibilityHash(`${sourceFingerprint}|${finalMatchInputHash}`);
     const candidateAnswerQuestionSetHash = result.status === 'clarification_required'
@@ -555,7 +562,7 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
       try {
         await ref.set({ fingerprint, sourceFingerprint, matchInputHash: finalMatchInputHash,
           languageFactsHash: appliedLanguageFactsHash, candidateAnswerQuestionSetHash,
-          cvHash, answerHash: matchInput.answerHash, platformAnswersHash: usedPlatform ? platformInputsHash : '',
+          cvHash, answerHash: matchInput.answerHash, platformAnswersHash: usedPlatform ? platformInputsHashFor(job) : '',
           postingHash, promptVersion: PROMPT_VERSION,
           version: CONCIERGE_ELIGIBILITY_VERSION, profile, requirements, match, result, updatedAt: FieldValue.serverTimestamp() });
       } catch (error) {
