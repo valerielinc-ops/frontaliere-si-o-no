@@ -13,7 +13,7 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
 // (assistedApplicationDecisionAnswers.js); a new version lets reconcile-operational-answers.mjs release
 // the waits these now answer.
-// v7 (2026-11-10): support to other sites or branches, guard and piquet duty (platform-defaults-v5).
+// v7 (2026-11-10): support to other sites or branches, guard and piquet duty (platform-defaults-v7).
 export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v7';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');

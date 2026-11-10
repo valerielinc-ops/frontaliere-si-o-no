@@ -75,7 +75,8 @@ export interface ApplicationConciergeService {
   applicantLocation?: string | null;
   /** Explicit selector confirmation; absent on legacy services, so consumers must not infer country from the label. */
   applicantLocationCountry?: string | null;
-  candidateFacts?: { workPermit: string; passport: string; nationality: string } | null;
+  /** Upload answers; the two legal facts ('no' | 'yes') are absent on services saved before 2026-11-10. */
+  candidateFacts?: { workPermit: string; passport: string; nationality: string; criminalRecord?: string; debtRecord?: string } | null;
   hasConsent: boolean;
   hasCv: boolean;
   consentedAt?: string | null;
@@ -264,7 +265,7 @@ export async function saveApplicationConciergeProfile(
     applicantPhone?: string;
     applicantLocation?: string;
     applicantLocationCountry?: string;
-    candidateFacts?: { workPermit?: string; passport?: string; nationality?: string };
+    candidateFacts?: { workPermit?: string; passport?: string; nationality?: string; criminalRecord?: string; debtRecord?: string };
     consent?: boolean;
     cvStorageKey?: string;
     cvFileName?: string;

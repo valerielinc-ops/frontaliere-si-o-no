@@ -27,7 +27,11 @@
  * What no rule here covers goes to the decision engine (assistedApplicationDecisionAnswers.js).
  *
  * The work permit, the passport (Swiss / EU-EFTA / other) and the nationality
- * are asked at CV upload instead (order.candidateFacts).
+ * are asked at CV upload instead (order.candidateFacts). So are, since
+ * 2026-11-10, the two legal facts nobody may invent: an entry in the criminal
+ * record and one in the debt-enforcement or bankruptcy register. A portal's
+ * yes/no on them is answered from those answers (legalRecordValue); an order
+ * uploaded before has none, and the question stays the candidate's.
  *
  * Every value here is a platform choice, not a candidate statement: it is
  * projected with `source: 'policy_default'` (assistedApplicationOperationalAnswers.js)
@@ -52,8 +56,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
 // v4 (2026-11-10): first and correspondence language, the Swiss Army school of a candidate who is not Swiss.
 // v5 (2026-11-10): the residence canton or province, from the CV town.
-// v6 (2026-11-10): support to other sites or branches, flexibility of the place of work, guard and piquet duty.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v6';
+// v6 (2026-11-10): an entry in the criminal record or in the debt-enforcement register, from the upload answers.
+// v7 (2026-11-10): support to other sites or branches, flexibility of the place of work, guard and piquet duty.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v7';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -371,6 +376,9 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     permitStatus,
     nationality,
     passport,
+    // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
+    criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
+    debtRecord: legalRecordAnswer(uploaded.debtRecord),
   };
 }
 
@@ -390,14 +398,32 @@ export function uploadResidenceCountry(uploaded = {}) {
 export const CANDIDATE_PASSPORTS = Object.freeze(['swiss', 'eu_efta', 'other']);
 const UPLOAD_PERMITS = new Set(['swiss', 'permit_c', 'permit_b', 'permit_l', 'permit_g', 'none']);
 
-/** The candidate's upload answers as stored, or null when the input is not a complete, valid set. */
+/**
+ * The two legal facts asked at CV upload (owner decision 2026-11-10): an entry in the criminal record, an entry
+ * in the debt-enforcement or bankruptcy register. Each is 'no' or 'yes'; an order uploaded before has neither.
+ */
+export const CANDIDATE_LEGAL_FACTS = Object.freeze(['criminalRecord', 'debtRecord']);
+const LEGAL_RECORD_ANSWERS = Object.freeze(['no', 'yes']);
+const legalRecordAnswer = (value) => (LEGAL_RECORD_ANSWERS.includes(value) ? value : '');
+
+/**
+ * The candidate's upload answers as stored, or null when the input is not a complete, valid set. The legal facts
+ * are optional (an order or a page opened before they were asked), but a value given must be 'no' or 'yes'.
+ */
 export function sanitizeCandidateFacts(value) {
   if (!value || typeof value !== 'object') return null;
   const workPermit = clean(value.workPermit, 20);
   const passport = clean(value.passport, 20);
   const nationality = clean(value.nationality, 80);
   if (!UPLOAD_PERMITS.has(workPermit) || !CANDIDATE_PASSPORTS.includes(passport) || !nationality) return null;
-  return { workPermit, passport, nationality };
+  const legal = {};
+  for (const key of CANDIDATE_LEGAL_FACTS) {
+    const answer = clean(value[key], 5);
+    if (!answer) continue;
+    if (!LEGAL_RECORD_ANSWERS.includes(answer)) return null;
+    legal[key] = answer;
+  }
+  return { workPermit, passport, nationality, ...legal };
 }
 
 /**
@@ -630,6 +656,8 @@ function classifyPlatformSubject(question) {
   // A residence condition left by lib/mobilityRequirements.js is a fact (where the candidate lives), not a
   // willingness: the platform's relocation declaration already met every clause relocation satisfies.
   if (/^mobility_requirement_/.test(id)) return null;
+  const legal = legalRecordTopic(question);
+  if (legal) return legal;
   if (isProfileVisibilityQuestion(question)) return 'profile_visibility';
   if (id === 'salutation' || /\bcome vuoi essere indicat\w*\b|\bform of address\b/.test(text)) return 'salutation';
   if (BIRTH.test(text) && !CITY.test(text) && !COUNTRY.test(text) && !/\bluogo\b|\bort\b|\bplace\b|\blieu\b/.test(text)) {
@@ -928,6 +956,35 @@ function swissArmyValue(question, facts, lang) {
   return knownForeign ? noValue(question, lang) : '';
 }
 
+// ── Criminal record and debt-enforcement register (owner decision 2026-11-10) ──
+// SBB ifB89NW2: «* Hast du einen Eintrag im Strafregister oder im Betreibungsregister?» (Nein/Ja). A legal fact
+// nobody may deduce: answered only from the candidate's answers at CV upload (order.candidateFacts). Only the
+// question whether the register holds an entry: never a request for the extract, a pending proceeding, a
+// conviction asked as such («Have you ever been convicted…?») nor a statement to confirm or sign.
+const CRIMINAL_REGISTER = /\b(?:strafregister\w*|vorstraf\w*|vorbestraft\w*|casellario\w*|precedenti penali|fedina penale|criminal records?|police records?|casier judiciaire)\b/;
+const DEBT_REGISTER = /\b(?:betreibung\w*|konkurs\w*|verlustschein\w*|registro (?:delle )?esecuzion\w*|esecuzioni (?:forzate|e fallimenti|o fallimenti)|fallimen\w*|poursuites?|faillites?|actes? de defaut de biens|debt enforcement\w*|debt collection register\w*|bankrupt\w*)\b/;
+const LEGAL_PENDING = /\b(?:hangig\w*|laufend\w*|pending|ongoing|in corso|pendent\w*|en cours|\w*verfahren\w*|procediment\w*|procedur\w*|proceeding\w*|investigat\w*|ermittlung\w*|untersuchung\w*|indagin\w*|enquete\w*|anklage\w*|accusat\w*|charged)\b/;
+const LEGAL_DOCUMENT_REQUEST = /\b(?:\w*auszug\w*|extracts?|estratt\w*|extraits?|certificat\w*|certificate\w*|zeugnis\w*|bescheinigung\w*|vorleg\w*|vorweis\w*|einreich\w*|beileg\w*|beibring\w*|bring|provide|submit|present|presentar\w*|furnish|fornir\w*|produrr\w*|upload\w*|hochlad\w*|carica\w*|allega\w*|joindre|fournir|copy|kopie|copia|copie|obtain|bestell\w*|richied\w*|richiest\w*|proofs?|prove|nachweis\w*|beleg\w*|prova|prove|preuves?|justificati\w*|evidence|attestat\w*|documentation|dokumentation|documentazione)\b/;
+const LEGAL_STATEMENT = /\b(?:kein\w*|nicht|not|non|nessun\w*|senza|sans|aucun\w*|without|ohne|frei|free|privo|priva|exempt\w*|libero|libera|vierge|never|nie|niemals|mai|jamais|leer\w*|clean|einwandfrei\w*|unbescholten\w*|sauber\w*|bestatig\w*|confirm\w*|conferm\w*|dichiar\w*|declar\w*|erklar\w*|atteste\w*|certif\w*|versicher\w*|garant\w*|eidesstattlich\w*|sworn|signature|unterschrift\w*|firma)\b/;
+
+/** 'criminal_record', 'debt_record' or 'criminal_or_debt_record' for a yes/no on a register entry, else null. */
+function legalRecordTopic(question) {
+  const text = label(question);
+  const criminal = CRIMINAL_REGISTER.test(text);
+  const debt = DEBT_REGISTER.test(text);
+  if ((!criminal && !debt) || !isBinary(question)) return null;
+  if (LEGAL_PENDING.test(text) || LEGAL_DOCUMENT_REQUEST.test(text) || LEGAL_STATEMENT.test(text)) return null;
+  return criminal && debt ? 'criminal_or_debt_record' : criminal ? 'criminal_record' : 'debt_record';
+}
+
+/** Yes when an answer the question asks is yes, no when every one is no; '' when one it needs is unknown. */
+function legalRecordValue(question, topic, facts, lang) {
+  const keys = { criminal_record: ['criminalRecord'], debt_record: ['debtRecord'], criminal_or_debt_record: ['criminalRecord', 'debtRecord'] }[topic];
+  const answers = keys.map((key) => legalRecordAnswer(facts?.[key]));
+  if (answers.includes('yes')) return yesValue(question, lang);
+  return answers.every((answer) => answer === 'no') ? noValue(question, lang) : '';
+}
+
 function languageValue(question, code, facts) {
   const entry = (facts?.languages || []).find((item) => item.code === code);
   if (!entry) return '';
@@ -1092,6 +1149,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     case 'first_language': value = firstLanguageValue(question, known); break;
     case 'correspondence_language': value = correspondenceLanguageValue(question, known); break;
     case 'swiss_army_service': value = swissArmyValue(question, known, lang); break;
+    case 'criminal_record':
+    case 'debt_record':
+    case 'criminal_or_debt_record': value = legalRecordValue(question, topic, known, lang); break;
     case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:
       if (topic.startsWith('language:')) value = languageValue(question, topic.slice('language:'.length), withLocale);

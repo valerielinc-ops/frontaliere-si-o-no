@@ -6,19 +6,30 @@ import { PERMIT_STATUSES, permitOptions } from '@/functions/src/lib/permitLabels
  * Asked with the CV (owner decision 2026-11-09): the work permit, the passport
  * and the nationality are the candidate's to say, so they are asked once here
  * and never again on the application forms (functions/src/assistedApplicationPlatformDefaults.js).
+ * Since 2026-11-10 also the two legal facts nobody may deduce for them: an entry
+ * in the criminal record and one in the debt-enforcement or bankruptcy register.
+ * All five are required, so a new order is never held by a portal that asks them.
  */
 export interface CandidateFacts {
   workPermit?: string;
   passport?: string;
   nationality?: string;
+  criminalRecord?: string;
+  debtRecord?: string;
 }
 
 export const CANDIDATE_PASSPORTS = ['swiss', 'eu_efta', 'other'] as const;
+/** The answers of the two legal facts, as stored (sanitizeCandidateFacts, firestore.rules). */
+export const CANDIDATE_LEGAL_ANSWERS = ['no', 'yes'] as const;
+
+const legalAnswer = (value: unknown) => (CANDIDATE_LEGAL_ANSWERS as readonly string[]).includes(String(value || ''));
 
 export function candidateFactsComplete(facts: CandidateFacts) {
   return PERMIT_STATUSES.includes(String(facts.workPermit || ''))
     && (CANDIDATE_PASSPORTS as readonly string[]).includes(String(facts.passport || ''))
-    && String(facts.nationality || '').trim().length > 0;
+    && String(facts.nationality || '').trim().length > 0
+    && legalAnswer(facts.criminalRecord)
+    && legalAnswer(facts.debtRecord);
 }
 
 export function cleanCandidateFacts(facts: CandidateFacts): CandidateFacts {
@@ -26,6 +37,8 @@ export function cleanCandidateFacts(facts: CandidateFacts): CandidateFacts {
     workPermit: String(facts.workPermit || ''),
     passport: String(facts.passport || ''),
     nationality: String(facts.nationality || '').trim().slice(0, 80),
+    criminalRecord: String(facts.criminalRecord || ''),
+    debtRecord: String(facts.debtRecord || ''),
   };
 }
 
@@ -34,6 +47,16 @@ const PASSPORT_LABELS = {
   eu_efta: 'jobBoard.assisted.passport.eu_efta',
   other: 'jobBoard.assisted.passport.other',
 } as const;
+
+const LEGAL_ANSWER_LABELS = {
+  no: 'jobBoard.assisted.legalRecord.no',
+  yes: 'jobBoard.assisted.legalRecord.yes',
+} as const;
+
+const LEGAL_FACTS = [
+  { key: 'criminalRecord', label: 'jobBoard.assisted.criminalRecord' },
+  { key: 'debtRecord', label: 'jobBoard.assisted.debtRecord' },
+] as const;
 
 export function AssistedApplicationCandidateFacts({ value, onChange, locale, disabled = false }: {
   value: CandidateFacts;
@@ -67,6 +90,18 @@ export function AssistedApplicationCandidateFacts({ value, onChange, locale, dis
           {t('jobBoard.assisted.nationality')}
           <input value={value.nationality || ''} onChange={(event) => onChange({ ...value, nationality: event.target.value })} placeholder={t('jobBoard.assisted.nationalityPlaceholder')} className={fieldClass} autoComplete="off" maxLength={80} required />
         </label>
+      </div>
+      <p className="text-xs text-subtle">{t('jobBoard.assisted.legalRecordsHint')}</p>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {LEGAL_FACTS.map(({ key, label }) => (
+          <label key={key} className="text-sm font-medium text-body">
+            {t(label)}
+            <select value={value[key] || ''} onChange={(event) => onChange({ ...value, [key]: event.target.value })} className={fieldClass} required>
+              <option value="">—</option>
+              {CANDIDATE_LEGAL_ANSWERS.map((answer) => <option key={answer} value={answer}>{t(LEGAL_ANSWER_LABELS[answer])}</option>)}
+            </select>
+          </label>
+        ))}
       </div>
     </fieldset>
   );
