@@ -9,6 +9,7 @@ import {
   cvAnswerFor,
   cvAnswerInventions,
   cvAnswerQuestionEligible,
+  cvQuestionKind,
   verifiedCvAnswers,
   verifyCvAnswer,
 } from '../functions/src/assistedApplicationCvAnswers.js';
@@ -66,6 +67,8 @@ const order = { locale: 'it', applicantName: 'Candidato Prova', userId: 'u-test'
 const windowsAnswer = 'I administered Windows Server 2019 and Active Directory for the offices of the site, and supported users.';
 const windowsQuote = 'Gestione di Windows Server 2019 e Active Directory per gli uffici della sede.';
 const leadershipAnswer = 'Come tecnico di sistema presso Alfa Servizi SA ho coordinato con i colleghi la risoluzione dei guasti della rete, stabilendo le priorità e tenendo informati gli utenti.';
+// The CV line a plausible answer is built from (its role and employer).
+const leadershipAnchor = '2019 – 2024 Tecnico di sistema, Alfa Servizi SA, Lugano';
 
 describe('technical questions: answered only with CV evidence', () => {
   it('answers the Windows Server question from a CV that cites it, with the quote, and no longer holds the application', () => {
@@ -108,8 +111,10 @@ describe('technical questions: answered only with CV evidence', () => {
       { kind: 'technical', suggestedAnswer: windowsAnswer, evidence: [windowsQuote] },
       // No quote at all.
       { kind: 'technical', suggestedAnswer: 'I managed Windows Server environments.', evidence: [] },
-      // Labelled behavioural to dodge the evidence: the tools it names are not in the CV.
-      { kind: 'behavioral', suggestedAnswer: 'In the warehouse I also managed Windows Server and Active Directory.', evidence: [] },
+      // Labelled behavioural to dodge the evidence, anchored to an unrelated CV line: the question names
+      // technologies, so it is technical, and the tools it names are in no cited excerpt.
+      { kind: 'behavioral', suggestedAnswer: 'In the warehouse I also managed Windows Server and Active Directory.',
+        evidence: ['Ricevimento merci, inventario e preparazione delle spedizioni con il team del turno.'] },
     ]) {
       const [question] = sanitizeApplicationAnswerSuggestions({ answers: [{ id: windows.id, missingDetail: '', ...item }] }, [windows], CV_WITHOUT_WINDOWS);
       expect(question.suggestedAnswer).toBe('');
@@ -135,9 +140,9 @@ describe('generic questions: a plausible description built from the CV', () => {
   it('accepts a leadership example the CV does not report, anchored to its role and employer', () => {
     expect(CV_WITH_WINDOWS).not.toMatch(/coordin|guid|leader/i);
     const [question] = sanitizeApplicationAnswerSuggestions({ answers: [
-      { id: leadership.id, kind: 'behavioral', suggestedAnswer: leadershipAnswer, evidence: [], missingDetail: '' },
+      { id: leadership.id, kind: 'behavioral', suggestedAnswer: leadershipAnswer, evidence: [leadershipAnchor], missingDetail: '' },
     ] }, [leadership], CV_WITH_WINDOWS);
-    expect(question).toMatchObject({ suggestedAnswer: leadershipAnswer, answerKind: 'behavioral', answerEvidence: [] });
+    expect(question).toMatchObject({ suggestedAnswer: leadershipAnswer, answerKind: 'behavioral', answerEvidence: [leadershipAnchor] });
     const draft = draftOf(CV_WITH_WINDOWS, [question]);
     expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([]);
     const { platformFacts } = candidateWithEdits({ order, draft, flow: {} });
@@ -158,7 +163,7 @@ describe('generic questions: a plausible description built from the CV', () => {
     };
     for (const [why, answer] of Object.entries(invented)) {
       const [question] = sanitizeApplicationAnswerSuggestions({ answers: [
-        { id: leadership.id, kind: 'behavioral', suggestedAnswer: answer, evidence: [], missingDetail: '' },
+        { id: leadership.id, kind: 'behavioral', suggestedAnswer: answer, evidence: [leadershipAnchor], missingDetail: '' },
       ] }, [leadership], CV_WITH_WINDOWS);
       expect(question.suggestedAnswer, why).toBe('');
       expect(evaluateRedFlags(draftOf(CV_WITH_WINDOWS, [question]), {}, {}, {}, null, order).candidate, why).toEqual([leadership.id]);
@@ -172,6 +177,67 @@ describe('generic questions: a plausible description built from the CV', () => {
     expect(cvAnswerInventions('Ich habe die Sekundarschule im Niveau E besucht und meine Aufgaben immer zuverlässig erledigt.', cv)).toEqual([]);
     expect(cvAnswerInventions('Ich habe bei der Firma Contoso gearbeitet und mit dem Team Projekte geplant.', cv))
       .toContainEqual({ kind: 'name', token: 'Contoso' });
+  });
+});
+
+describe('the kind comes from the question, every answer from the CV (review of #17898)', () => {
+  const portal = (applicationQuestion: string) => ({ id: 'q', source: 'portal', type: 'text', applicationQuestion });
+
+  it('a technical question relabelled «behavioral» by the model still needs CV evidence', () => {
+    expect(cvQuestionKind(portal('What experience do you have with SAP?'))).toBe('technical');
+    expect(verifyCvAnswer({ kind: 'behavioral', answer: 'I work with business systems.', evidence: [] },
+      { question: portal('What experience do you have with SAP?'), cvText: 'Office administration' }))
+      .toMatchObject({ ok: false, kind: 'technical', reasons: expect.arrayContaining(['technical_without_evidence']) });
+    // Questions on studies are technical too; the generic ones stay behavioural.
+    expect(cvQuestionKind(portal('Haben Sie die Sekundarschule A oder das Niveau E besucht?'))).toBe('technical');
+    expect(cvQuestionKind(portal('Descrivi brevemente un caso in cui hai preso decisioni in autonomia durante un’emergenza tecnica.'))).toBe('behavioral');
+    expect(cvQuestionKind(leadership)).toBe('behavioral');
+  });
+
+  it('a technical answer names no tool beyond the excerpts it cites', () => {
+    const extra = 'I administered Windows Server 2019 and Active Directory, and SAP for the offices of the site.';
+    expect(verifyCvAnswer({ kind: 'technical', answer: extra, evidence: [windowsQuote] }, { cvText: `${CV_WITH_WINDOWS}\nSAP`, question: windows }))
+      .toMatchObject({ ok: false, reasons: expect.arrayContaining(['tool_not_in_cited_evidence']) });
+  });
+
+  it('a plausible answer needs at least one verified CV excerpt it is built from', () => {
+    expect(verifyCvAnswer({ kind: 'behavioral', answer: 'I organize work carefully.', evidence: [] },
+      { question: portal('Describe your leadership.'), cvText: 'Administrative support' }))
+      .toMatchObject({ ok: false, reasons: ['not_anchored_to_cv'] });
+    expect(verifyCvAnswer({ kind: 'behavioral', answer: 'I organize the work of the office carefully.', evidence: ['Administrative support'] },
+      { question: portal('Describe your leadership.'), cvText: 'Administrative support' }).ok).toBe(true);
+  });
+});
+
+describe('figures and dates in words, it/de/fr/en (lib/numberDateMentions.js)', () => {
+  const cv = 'Expérience en administration';
+  const kinds = (answer: string, source = cv) => cvAnswerInventions(answer, source).map((item: { kind: string, token: string }) => `${item.kind}:${item.token}`);
+
+  it('reads an article before a unit of time as a quantity, and an ambiguous month in a date context', () => {
+    expect(kinds("J'ai travaillé un an en mai.")).toEqual(['number:un an', 'date:mai']);
+    for (const answer of ['Ho lavorato un anno con il team.', 'Ich war ein Jahr im Team.', 'I spent one month on support.', 'Ho lavorato a maggio.', 'Im Mai habe ich begonnen.', 'In May I started.'])
+      expect(kinds(answer, 'Support').length, answer).toBeGreaterThan(0);
+  });
+
+  it('reads cardinals, compounds, multiplicatives, quantities, weekdays and relative dates', () => {
+    for (const answer of ['Ho gestito ventidue clienti.', 'Ich habe zweiundzwanzig Kunden betreut.', 'J’ai géré dix-sept dossiers.', 'I handled twenty-two requests.',
+      'Ho seguito trecento pratiche.', 'Ich habe das dreimal gemacht.', 'I did it twice.', 'Ho gestito decine di clienti.', 'Ogni lunedì preparo il piano.',
+      'L’anno scorso ho guidato il team.', 'Last year I led the team.', 'Letztes Jahr habe ich das Team geführt.', 'L’année dernière j’ai géré l’équipe.', 'Ho ridotto i tempi del 30%.'])
+      expect(kinds(answer, 'Support').length, answer).toBeGreaterThan(0);
+  });
+
+  it('does not read articles, «mai» (never), «may» (modal) or «once» as figures or dates', () => {
+    for (const answer of ["J'ai mené un projet.", 'Non ho mai perso una scadenza.', 'You may contact me.', 'Una volta ho gestito un guasto.',
+      'Ich habe einen Kunden noch einmal angerufen.', 'Describe a time when the team needed me.', 'One of my tasks was support.', 'I did this due to the deadline.'])
+      expect(kinds(answer, 'Support'), answer).toEqual([]);
+  });
+
+  it('accepts a figure or a month the CV states, in any of its forms', () => {
+    expect(kinds('Ho lavorato due anni nel supporto.', 'Supporto clienti, 2 anni')).toEqual([]);
+    expect(kinds('Ho lavorato ventidue anni.', '22 anni di esperienza')).toEqual([]);
+    expect(kinds('Ho iniziato a maggio.', 'Dal Mai 2020 im Support')).toEqual([]);
+    // The same figure with another unit is not the CV's.
+    expect(kinds('Ho lavorato tre anni.', '3 colleghi')).toEqual(['number:tre']);
   });
 });
 
@@ -193,7 +259,7 @@ describe('what stays with the candidate', () => {
 
   it('the candidate\'s own answer always wins over the CV answer', () => {
     const [question] = sanitizeApplicationAnswerSuggestions({ answers: [
-      { id: leadership.id, kind: 'behavioral', suggestedAnswer: leadershipAnswer, evidence: [], missingDetail: '' },
+      { id: leadership.id, kind: 'behavioral', suggestedAnswer: leadershipAnswer, evidence: [leadershipAnchor], missingDetail: '' },
     ] }, [leadership], CV_WITH_WINDOWS);
     const draft = draftOf(CV_WITH_WINDOWS, [question]);
     const { platformFacts } = candidateWithEdits({ order, draft, flow: {} });

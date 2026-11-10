@@ -12,10 +12,13 @@
  *     emergency, structured work, motivation, strengths…). A plausible first-person description anchored
  *     to the roles, employers, sectors and skills of the CV, even when the CV does not report the episode.
  *
- * Whatever the kind, the hard limit is checked here, in code, on every read of the answer: it never
- * introduces an employer, a school or institute, a job title, a degree, a certification, a date, a year,
- * a month, a number or a metric that the CV does not contain. A technical answer's evidence must be
- * verbatim in the CV. A failed check drops the answer and the question goes back to the candidate.
+ * The kind is read from the question too (cvQuestionKind): a question that names a technology or asks
+ * about studies is technical whatever the model calls it. Whatever the kind, the hard limit is checked
+ * here, in code, on every read of the answer: at least one CV excerpt, verbatim in the CV, anchors it
+ * (a technical answer names no tool beyond its excerpts), and it never introduces an employer, a school
+ * or institute, a job title, a degree, a certification, a date, a month, a number or a quantity that the
+ * CV does not contain (figures and dates in words too: lib/numberDateMentions.js). A failed check drops
+ * the answer and the question goes back to the candidate.
  *
  * A verified answer is projected like a platform default (assistedApplicationOperationalAnswers.js,
  * `source: 'policy_default'`): shown and editable on the review page, it no longer holds the application,
@@ -24,6 +27,9 @@
  * Pure JavaScript, no Node API: imported by the functions and by the runner scripts.
  */
 import { validateAnswer } from './lib/answerRules.js';
+import { unsupportedNumberDateMentions } from './lib/numberDateMentions.js';
+import { toolTokens } from './assistedApplicationAiFactCheck.js';
+import { vocabularyTools } from './lib/toolVocabulary.js';
 
 export const CV_ANSWERS_VERSION = 'cv-answers-v1';
 export const CV_ANSWER_KINDS = Object.freeze(['technical', 'behavioral']);
@@ -48,19 +54,17 @@ export function cvAnswerQuestionEligible(question) {
 
 // ── The hard limit ────────────────────────────────────────────────────────────
 
-const SPELLED_NUMBERS = new Set([
-  'tre', 'quattro', 'cinque', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici', 'quindici', 'venti', 'trenta', 'quaranta', 'cinquanta', 'cento', 'mille', 'decine', 'centinaia', 'migliaia',
-  'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'fifteen', 'twenty', 'thirty', 'forty', 'fifty', 'hundred', 'hundreds', 'thousand', 'thousands', 'dozen', 'dozens',
-  'zwei', 'drei', 'vier', 'funf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwolf', 'zwanzig', 'dreissig', 'hundert', 'tausend', 'dutzend', 'dutzende',
-  'deux', 'trois', 'quatre', 'cinq', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze', 'vingt', 'trente', 'cent', 'mille', 'dizaine', 'dizaines', 'centaine', 'centaines',
-]);
-const PERCENT = /(?:%|\bper ?cento\b|\bpercent\w*\b|\bprozent\b|\bpour ?cent\b)/i;
-const MONTHS = new Set([
-  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
-  'january', 'february', 'march', 'april', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
-  'januar', 'februar', 'marz', 'juni', 'juli', 'oktober', 'dezember',
-  'janvier', 'fevrier', 'mars', 'avril', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'decembre',
-]);
+// A question about a technology, a tool, a method, studies or a qualification: answered only with what the
+// CV names. Read from the question, never from the model's label (a technical question the model calls
+// «behavioral» is still technical).
+const TECHNICAL_QUESTION = /\b(?:experience (?:with|using|in using|of using)|hands on|working knowledge|knowledge of|proficien\w*|esperienz\w* (?:con|nell uso|nell utilizzo|di utilizzo|pratica con)|utilizz\w* (?:di|del|della|dei|degli)|erfahrung\w* (?:mit|im umgang|in der anwendung)|umgang mit|experience (?:avec|de l utilisation|pratique)|maitrise|conoscenz\w*|kenntnis\w*|connaissance\w*|software|tools?|strument\w*|werkzeug\w*|outils?|systems?|sistem\w*|system\w*|systeme\w*|technolog\w*|tecnologi\w*|technologie\w*|platforms?|piattaform\w*|plattform\w*|plateforme\w*|programm\w*|framework\w*|database\w*|cloud|network\w*|certific\w*|zertifi\w*|diplom\w*|degree\w*|laurea|qualific\w*|qualifikation\w*|licen[cs]\w*|patent\w*|abilitazion\w*|\w*(?:school|scuol|schul|ecole|lycee|gymnas|liceo)\w*|studi|studies|studium|education|formazione|ausbildung|lehre|apprenticeship|apprendistato|apprentissage|grades?|voti|noten|notes scolaires)\b/;
+
+/** The kind the question itself asks for: `technical` when it names a technology or asks about one. */
+export function cvQuestionKind(question) {
+  const raw = [question?.applicationQuestion, question?.question, question?.label].filter((value) => typeof value === 'string').join(' ');
+  if (toolTokens(raw).length || vocabularyTools(raw).length || TECHNICAL_QUESTION.test(fold(raw))) return 'technical';
+  return 'behavioral';
+}
 // A degree or a certification the answer claims: its word must be in the CV.
 const QUALIFICATION_STEMS = ['laurea', 'bachelor', 'master', 'mba', 'msc', 'bsc', 'dottorat', 'phd', 'doctorat', 'doktor', 'diplom',
   'maturita', 'matura', 'abitur', 'baccalaureat', 'certific', 'certified', 'zertifi', 'attestat', 'abilitazion', 'brevet',
@@ -97,18 +101,15 @@ export function cvAnswerInventions(answer, cvText) {
   const text = String(answer ?? '');
   const cvFolded = fold(cvText);
   const cvWords = wordsOf(cvFolded);
-  const cvDigits = new Set(String(cvText ?? '').match(/\d+/g) || []);
   const findings = [];
   const add = (kind, token) => {
     if (!findings.some((item) => item.kind === kind && item.token === token)) findings.push({ kind, token });
   };
-  for (const digits of text.match(/\d+/g) || []) if (!cvDigits.has(digits)) add('number', digits);
-  if (PERCENT.test(text) && !PERCENT.test(String(cvText ?? ''))) add('number', '%');
+  // Figures, quantities and dates in digits or in words, it/de/fr/en (lib/numberDateMentions.js).
+  for (const mention of unsupportedNumberDateMentions(text, cvText)) add(mention.kind, mention.token);
   const answerFolded = fold(text);
   const answerWords = answerFolded.split(' ').filter(Boolean);
   for (const word of answerWords) {
-    if (SPELLED_NUMBERS.has(word) && !cvWords.has(word)) add('number', word);
-    if (MONTHS.has(word) && !cvWords.has(word)) add('date', word);
     if (!NOT_QUALIFICATION.test(word)) {
       const stem = QUALIFICATION_STEMS.find((item) => word.startsWith(item));
       if (stem && !cvFolded.includes(stem)) add('qualification', word);
@@ -161,7 +162,9 @@ export function cvAnswerInventions(answer, cvText) {
 export function verifyCvAnswer(proposal, { cvText, question }) {
   const reasons = [];
   const value = String(proposal?.answer ?? '').replace(/\s+/gu, ' ').trim();
-  const kind = CV_ANSWER_KINDS.includes(proposal?.kind) ? proposal.kind : '';
+  // The model may refuse (`factual`), never downgrade: a question that names a technology is technical.
+  const modelKind = CV_ANSWER_KINDS.includes(proposal?.kind) ? proposal.kind : '';
+  const kind = modelKind && (cvQuestionKind(question) === 'technical' ? 'technical' : modelKind);
   const evidence = (Array.isArray(proposal?.evidence) ? proposal.evidence : [])
     .map((item) => String(item ?? '').replace(/\s+/gu, ' ').trim()).filter(Boolean).slice(0, MAX_EVIDENCE);
   const cv = evidenceText(cvText);
@@ -173,7 +176,17 @@ export function verifyCvAnswer(proposal, { cvText, question }) {
   if (value.length > maxLength) reasons.push('too_long');
   // A citation that is not in the CV is an invention, whatever the kind.
   if (evidence.some((quote) => !cv.includes(evidenceText(quote)))) reasons.push('evidence_not_in_cv');
-  if (kind === 'technical' && !evidence.length) reasons.push('technical_without_evidence');
+  // Every answer stands on the CV: a technical one on the excerpts that state it, a plausible one on the
+  // role, employer, sector or skill it is built from. No verified excerpt, no answer.
+  if (!evidence.length) reasons.push(kind === 'technical' ? 'technical_without_evidence' : 'not_anchored_to_cv');
+  // A technical answer names no tool beyond the excerpts it cites (not merely somewhere in the CV).
+  if (kind === 'technical' && value && evidence.length) {
+    const cited = evidence.join('\n');
+    const citedTools = new Set(vocabularyTools(cited).map((tool) => tool.name));
+    const citedFolded = ` ${fold(cited)} `;
+    for (const tool of vocabularyTools(value)) if (!citedTools.has(tool.name)) reasons.push('tool_not_in_cited_evidence');
+    for (const { token } of toolTokens(value)) if (!citedFolded.includes(` ${fold(token)} `)) reasons.push('tool_not_in_cited_evidence');
+  }
   if (value && !validateAnswer(value, { ...question, required: true, type: 'text' }).ok) reasons.push('invalid_for_field');
   if (value && cv) for (const finding of cvAnswerInventions(value, cvText)) reasons.push(`invented_${finding.kind}`);
   return { ok: reasons.length === 0, reasons: [...new Set(reasons)], value, kind, evidence };
@@ -195,7 +208,7 @@ export function verifiedCvAnswers(questions, cvText) {
     const checked = verifyCvAnswer({ kind, answer: question.suggestedAnswer, evidence: question.answerEvidence }, { cvText, question });
     if (!checked.ok) continue;
     const labels = [...new Set([question.applicationQuestion, question.question].map(labelKey).filter(Boolean))];
-    out[question.id] = { value: checked.value, kind, evidence: checked.evidence, labels, version: CV_ANSWERS_VERSION };
+    out[question.id] = { value: checked.value, kind: checked.kind, evidence: checked.evidence, labels, version: CV_ANSWERS_VERSION };
   }
   return out;
 }
