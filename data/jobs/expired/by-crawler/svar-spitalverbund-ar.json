@@ -1630,6 +1630,12 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-15T21:15:33.619Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-64c46277",
+      "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-53c39a76"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-64c46277",
@@ -1660,13 +1666,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4080242",
-    "firstSeenAt": "2026-10-06T09:13:12.775Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-      "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau-64c46277",
-      "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau-53c39a76"
-    ]
+    "firstSeenAt": "2026-10-06T09:13:12.775Z"
   },
   {
     "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-4b594829",

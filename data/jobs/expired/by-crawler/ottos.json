@@ -434,6 +434,12 @@
     },
     "sector": "Commercio al Dettaglio",
     "expiredAt": "2026-11-09T13:40:50.756Z",
+    "previousSlugs": [
+      "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly",
+      "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
+      "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly-24e7f3b4",
+      "vendeur-auxiliaire-food-non-food-h-f-ottos-marly-0d750f8f"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "vendeur-auxiliaire-food-non-food-h-f-ottos-marly-cfecd955",
@@ -465,13 +471,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ottosag/job/details/4096898",
-    "firstSeenAt": "2026-11-04T09:29:32.169Z",
-    "previousSlugs": [
-      "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly",
-      "vendeur-auxiliaire-food-non-food-h-f-ottos-marly",
-      "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-marly-24e7f3b4",
-      "vendeur-auxiliaire-food-non-food-h-f-ottos-marly-0d750f8f"
-    ]
+    "firstSeenAt": "2026-11-04T09:29:32.169Z"
   },
   {
     "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-spreitenbach",
