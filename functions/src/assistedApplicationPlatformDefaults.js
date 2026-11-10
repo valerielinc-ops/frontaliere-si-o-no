@@ -51,7 +51,7 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
 // v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
 // v4 (2026-11-10): first and correspondence language, the Swiss Army school of a candidate who is not Swiss.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v4';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v5';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -347,6 +347,8 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
       city: town,
       country,
       countryName: countryName(country, language),
+      // The canton or province of the town: the one the CV states, else the directory's for that town.
+      region: region || (directory && (!country || directory.country === country) ? directory.region : '') || '',
       synthesizedStreet: !statedStreet,
     },
     salutation,
@@ -438,6 +440,10 @@ const STREET_NAME_ONLY = /\b(?:nome (?:della )?(?:sua |tua )?via|street name|str
 const NOT_ADDRESS = /\b(?:whatsapp|sms|telefon\w*|phone|cellulare|mobile|handy|e ?mail|email|courriel)\b/;
 const AGE_LIMIT = /\b(?:(meno di|under|unter|moins de|almeno|at least|mindestens|au moins|piu di|over|uber|plus de))\s+(\d{1,2})\s+(?:anni|years?|jahre?|ans)\b/;
 const CITY = /\b(?:citta|city|ort|wohnort|localita|ville|town|comune|lieu|gemeinde)\b/;
+// The canton or province of the address («State», «Kanton», «Canton», «Provincia», «Region»); never «Stato», the country.
+const REGION = /\b(?:state|province|provinz|provincia|kanton|canton|cantone|region|regione|bundesland|county|departement|department)\b/;
+// A region the candidate would work in is a preference, not the address («Preferred region», «Arbeitsregion»).
+const REGION_PREFERENCE = /\b(?:prefer\w*|desired|wish\w*|wunsch\w*|gewunscht\w*|bevorzug\w*|preferit\w*|desiderat\w*|souhait\w*|einsatz\w*|arbeits\w*|work\w*|lavoro|travail|job|stelle|mobilit\w*)\b/;
 const COUNTRY = /\b(?:paese|nazione|country|land|pays|stato)\b/;
 const RESIDENCE = /\b(?:residen\w*|domicil\w*|wohn\w*|vivi|abiti|live|living|reside)\b/;
 const CITIZENSHIP = /\b(?:nazionalita|nationalit\w*|staatsangeh\w*|citizenship|cittadinanza|citoyennete|passport|passaporto|passeport|pass|nascita|birth|geburt)\b/;
@@ -573,13 +579,13 @@ export function platformQuestionTopic(question) {
     const expected = { residence_country: /country/i, work_permit: /permit/i, nationality: /nation/i, birth_date: /birth|dob/i,
       birth_day: /birth|dob/i, birth_month: /birth|dob/i, birth_year: /birth|dob/i, address_street: /address|street/i,
       address_street_name: /address|street/i, address_house_number: /address|street/i, residence_postal_code: /postal|zip|address/i,
-      residence_city: /city|address/i, salary_expectation: /salary/i, education_level: /qualification|education|degree/i }[topic];
+      residence_city: /city|address/i, residence_region: /state|province|region|canton|kanton|county|address/i, salary_expectation: /salary/i, education_level: /qualification|education|degree/i }[topic];
     if (!expected || !expected.test(identifiers)) return null;
   }
   return topic;
 }
 
-const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'address_street', 'address_street_name', 'address_house_number']);
+const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'residence_region', 'address_street', 'address_street_name', 'address_house_number']);
 const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
 // The candidate's own profile and application form own an address too («Profilinformationen»,
 // «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
@@ -650,6 +656,7 @@ function classifyPlatformSubject(question) {
     if (STREET_NAME_ONLY.test(text) && !otherParty) return 'address_street_name';
     if (STREET.test(text) && !CITIZENSHIP.test(text) && !otherParty) return 'address_street';
     if (CITY.test(text) && !CITIZENSHIP.test(text) && !otherParty && (RESIDENCE.test(text) || text.split(' ').length <= 5)) return 'residence_city';
+    if (REGION.test(text) && !CITIZENSHIP.test(text) && !REGION_PREFERENCE.test(text) && !otherParty && (RESIDENCE.test(text) || text.split(' ').length <= 4)) return 'residence_region';
   }
   if (MARKETING.test(text) && !PRIVACY.test(text)) return 'marketing_opt_in';
   if (RECORDING.test(text) && CONSENT.test(text)) return 'recording_consent';
@@ -731,6 +738,27 @@ function noValue(question, locale) {
   if (options.length) return pickOption(question, (option) => NO.test(fold(option)));
   if (['checkbox'].includes(typeOf(question))) return 'false';
   return { it: 'No', en: 'No', de: 'Nein', fr: 'Non' }[languageOf(locale)];
+}
+
+// Swiss cantons by the directory's code: a «State» / «Kanton» text field takes the canton's name.
+const SWISS_CANTONS = {
+  AG: 'Aargau', AI: 'Appenzell Innerrhoden', AR: 'Appenzell Ausserrhoden', BE: 'Bern', BL: 'Basel-Landschaft',
+  BS: 'Basel-Stadt', FR: 'Fribourg', GE: 'Genève', GL: 'Glarus', GR: 'Graubünden', JU: 'Jura', LU: 'Luzern',
+  NE: 'Neuchâtel', NW: 'Nidwalden', OW: 'Obwalden', SG: 'St. Gallen', SH: 'Schaffhausen', SO: 'Solothurn',
+  SZ: 'Schwyz', TG: 'Thurgau', TI: 'Ticino', UR: 'Uri', VD: 'Vaud', VS: 'Valais', ZG: 'Zug', ZH: 'Zürich',
+};
+
+/** The residence region for the field: the option naming its code or name, else the canton's name or the province code. */
+function regionValue(question, address) {
+  const code = String(address?.region || '').toUpperCase();
+  if (!/^[A-Z]{2}$/.test(code)) return '';
+  const name = address.country === 'CH' ? SWISS_CANTONS[code] || '' : '';
+  const options = optionsOf(question);
+  if (!options.length) return name || code;
+  return options.find((option) => fold(option) === fold(code))
+    || (name && options.find((option) => fold(option) === fold(name)))
+    || options.find((option) => new RegExp(`\\(\\s*${code}\\s*\\)`, 'i').test(option))
+    || '';
 }
 
 function choose(question, value) {
@@ -948,6 +976,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   switch (topic) {
     case 'residence_postal_code': value = address.postalCode ? choose(question, address.postalCode) : ''; break;
     case 'residence_city': value = address.city ? choose(question, address.city.replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())) : ''; break;
+    case 'residence_region': value = address.city ? regionValue(question, address) : ''; break;
     case 'residence_country': value = countryValue(question, withLocale); break;
     case 'address_street': value = address.city ? address.street : ''; break;
     case 'address_street_name': value = address.city ? address.streetName : ''; break;
