@@ -770,6 +770,32 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   });
 });
 
+describe('deploy.yml — expired archive memory delta observation (#17888)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+
+  it('observes anon peak, RSS and duration without changing the deploy gate', () => {
+    const observer = steps.find((step) => step.name === 'Observe expired archive memory delta');
+    expect(observer, 'deploy.yml: manca l osservatore della memoria dell archivio scaduto').toBeDefined();
+    expect(observer!.id).toBe('expired_archive_memory_delta');
+    expect(observer!.if).toBe('always()');
+    expect(observer!['continue-on-error']).toBe(true);
+    expect(observer!.env).toMatchObject({
+      EXPIRED_ARCHIVE_BASELINE_PEAK_ANON_MB: '20002',
+      EXPIRED_ARCHIVE_BREACH: '${{ steps.memguard.outputs.breach }}',
+      EXPIRED_ARCHIVE_PEAK_ANON_MB: '${{ steps.memguard.outputs.peak_anon_mb }}',
+      EXPIRED_ARCHIVE_PEAK_RSS_MB: '${{ steps.memguard.outputs.peak_rss_mb }}',
+      EXPIRED_ARCHIVE_WALL_SECONDS: '${{ steps.build_step.outputs.wall_seconds }}',
+    });
+    expect(observer!.run).toContain('expiredArchiveMemoryDeltaObserved()');
+    expect(observer!.run).toContain('peak_anon_mb');
+    expect(observer!.run).toContain('peak_rss_mb');
+    expect(observer!.run).toContain('wall_seconds');
+    expect(observer!.run).toContain('20.002 MB');
+    expect(observer!.run).toContain('revert: dynamic memory threshold breached');
+  });
+});
+
 describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
