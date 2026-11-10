@@ -7256,6 +7256,9 @@ export async function submitViaPortal(ctx) {
     // What went into the form, question by question (career-ops application-answers):
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
+    // Explicit semantic checkbox answers are needed for planner retries, while
+    // `given` remains the human-readable evidence record (✓/✗).
+    const plannerGiven = new Map();
     evidence.answers = [];
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
@@ -7264,7 +7267,7 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}, plannerAnswer = '') => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
@@ -7272,7 +7275,7 @@ export async function submitViaPortal(ctx) {
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
       const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
-      given.set(key, {
+      const recordedAnswer = {
         question: label,
         ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
@@ -7280,7 +7283,11 @@ export async function submitViaPortal(ctx) {
         ...(surrounding ? { context: surrounding } : {}),
         ...(heading ? { section: heading } : {}),
         ...(fieldAutocomplete ? { autocomplete: fieldAutocomplete } : {}),
-      });
+      };
+      given.set(key, recordedAnswer);
+      const semanticAnswer = String(plannerAnswer ?? '').trim();
+      if (semanticAnswer) plannerGiven.set(key, { ...recordedAnswer, answer: semanticAnswer.slice(0, 2000) });
+      else plannerGiven.delete(key);
       evidence.answers = [...given.values()].slice(0, 80);
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
@@ -7288,14 +7295,12 @@ export async function submitViaPortal(ctx) {
       const isHeldPermitQuestion = (question) => isPermitField(question) && asksHeldStatus(question);
       // A held-permit value recorded during this run describes a runner form
       // action, not a separate candidate portal response. Keep it in run
-      // evidence, but do not present it as an answered portal question.
-      // The evidence log represents checkbox actions as ✓/✗. Those marks are
-      // display-only, not candidate answers; including them beside an explicit
-      // Yes/No answer makes the consent matcher treat the candidate's answer
-      // as conflicting on the next planner pass. `visibleAnswers` below
-      // reconstructs a checkbox answer only when it matches candidate data.
-      const recorded = [...given.values()].filter((item) => !isHeldPermitQuestion(item.question)
-        && !['✓', '✗'].includes(String(item.answer || '').trim()));
+      // evidence, but do not present it as an answered portal question. For an
+      // explicit checkbox answer, use its semantic Yes/No planner projection;
+      // the evidence record keeps its display-only check mark unchanged.
+      const recorded = [...given.entries()]
+        .filter(([, item]) => !isHeldPermitQuestion(item.question))
+        .map(([key, item]) => plannerGiven.get(key) || item);
       const recordedKeys = new Set(recorded.map(answerKey));
       const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
       const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
@@ -7772,7 +7777,9 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
+          const plannerAnswer = ['check', 'uncheck'].includes(action.action)
+            && ['answers', 'candidate', 'user'].includes(action.source) ? action.value : '';
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field, plannerAnswer);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
