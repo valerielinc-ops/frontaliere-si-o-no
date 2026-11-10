@@ -110012,6 +110012,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-peso-burocrazia-imprese-svizzera': {
+    title: 'Peso burocrazia imprese Svizzera: 67% lo giudica elevato',
+    description: 'Sondaggio gfs.bern: 67% delle aziende svizzere giudica elevato l\'onere amministrativo. Il 64% rileva un incremento in cinque anni. Tre su dieci rinunciano a investimenti.',
+    keywords: 'burocrazia svizzera, imprese svizzere, onere amministrativo, economiesuisse, gfs.bern, obblighi federali',
+    ogTitle: 'Peso burocrazia imprese Svizzera: 67% lo giudica elevato',
+    ogDescription: 'Ricerca gfs.bern per economiesuisse: 67% delle 1\'527 aziende intervistate giudica elevato l\'onere amministrativo; il 64% nota un incremento in cinque anni. Le richieste includono digitalizzazione e sportelli unici.',
+    canonicalPath: '/articoli-svizzera/peso-burocrazia-imprese-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Peso burocrazia imprese Svizzera: 67% lo giudica elevato",
+      "description": "Sondaggio gfs.bern: 67% delle aziende svizzere giudica elevato l'onere amministrativo. Il 64% rileva un incremento in cinque anni. Tre su dieci rinunciano a investimenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-peso-burocrazia-imprese-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-10T01:49:37+00:00",
+      "dateModified": "2026-11-10T01:49:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/peso-burocrazia-imprese-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

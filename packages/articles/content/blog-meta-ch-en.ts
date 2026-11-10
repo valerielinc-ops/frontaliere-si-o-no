@@ -8702,6 +8702,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-sostitutiva-pensioni-svizzere.title': '5% substitute tax on Swiss pensions',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.excerpt': 'In response No. 125/2024, the Italian Revenue Agency examined the tax treatment of benefits paid by the Swiss pension schemes of the first pillar AVS and the second pillar LPP.',
     'blog.article.imposta-sostitutiva-pensioni-svizzere.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.peso-burocrazia-imprese-svizzera.title': 'Bureaucratic burden on Swiss companies: 67% consider it high',
+    'blog.article.peso-burocrazia-imprese-svizzera.excerpt': 'According to the national survey conducted by gfs.bern on behalf of economiesuisse and published today, 67% of the 1’527 companies surveyed consider the administrative burden to be high, as reported by Keystone-ATS.',
+    'blog.article.peso-burocrazia-imprese-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

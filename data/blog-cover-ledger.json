@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1125,
+      "5": 1128,
       "6": 5061
     },
-    "publishedCovers": 7868,
+    "publishedCovers": 7871,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217121,6 +217121,105 @@
         "provider": "openai-codex",
         "assetId": "article-tredicesima-avs-pensionati-italia",
         "imageUrl": "/images/blog/article-tredicesima-avs-pensionati-italia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-consiglio-gruppo-caldo-scuola": {
+      "cover": "/images/blog/article-consiglio-gruppo-caldo-scuola.webp",
+      "hash": "8659316978eee89a599e6fbc425c62cf4954a7011227889b0bed217f58ca6359",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "consiglio-gruppo-caldo-scuola",
+          "category": "novita",
+          "date": "2026-11-10T02:51:13.479Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consiglio-gruppo-caldo-scuola.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consiglio-gruppo-caldo-scuola",
+        "imageUrl": "/images/blog/article-consiglio-gruppo-caldo-scuola.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-grand-conseil-nuova-legge-scuola": {
+      "cover": "/images/blog/article-grand-conseil-nuova-legge-scuola.webp",
+      "hash": "6e4421198feedaca50bde30d242481ebb1cdba9903d584bed4ddeea4e9f96023",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "grand-conseil-nuova-legge-scuola",
+          "category": "novita",
+          "date": "2026-11-10T01:33:52.436Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-grand-conseil-nuova-legge-scuola.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-grand-conseil-nuova-legge-scuola",
+        "imageUrl": "/images/blog/article-grand-conseil-nuova-legge-scuola.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-peso-burocrazia-imprese-svizzera": {
+      "cover": "/images/blog/article-peso-burocrazia-imprese-svizzera.webp",
+      "hash": "eadac15bb1f8fd62f598c9d7dda6b0fadd56a92b1add88cee5080ed5b51b2d59",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "peso-burocrazia-imprese-svizzera",
+          "category": "fiscale",
+          "date": "2026-11-10T01:49:36.072Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-peso-burocrazia-imprese-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-peso-burocrazia-imprese-svizzera",
+        "imageUrl": "/images/blog/article-peso-burocrazia-imprese-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     }
