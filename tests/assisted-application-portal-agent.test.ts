@@ -7,6 +7,7 @@ import {
   advanceName,
   agentSystemPrompt,
   agentUserText,
+  bindAgentConsentRefs,
   compactSnapshot,
   completeWithAgent,
   guardAgentStep,
@@ -19,7 +20,7 @@ import {
 import { isoDates, knownAnswer, knownValuesOf, planSystemPrompt } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateForForm, machineLabel } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
-const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'widget', ...action });
+const act = (action: Record<string, unknown>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'widget', ...action });
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
 
 describe('pre-dispatch locator click classification', () => {
@@ -115,22 +116,505 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   });
 
   // Giro di prova 2026-10-01 on JOIN: "Quando sei nato?" is a calendar of day buttons.
-  it('never lets the model invent a birth date: the question goes to the candidate, with every move on it', () => {
+  it('requires candidate confirmation for a birth date and a privacy checkbox', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const guarded = guardAgentStep(turn('act', [
       act({ ref: 'e45', action: 'select', value: '1985', question: 'Quando sei nato?', answer: '1985-01-01', source: 'rule' }),
       act({ ref: 'e46', action: 'click', question: 'Quando sei nato?', source: 'widget' }),
-      act({ ref: 'e60', action: 'click', question: 'Accetto l’informativa privacy', source: 'consent' }),
+      act({ ref: 'e60', action: 'click', question: 'Accetto l’informativa privacy', source: 'consent', kind: 'checkbox', required: true }),
     ]), empty);
     expect(guarded.status).toBe('needs_candidate');
-    expect(guarded.questions).toEqual([expect.objectContaining({ question: 'Quando sei nato?', type: 'date' })]);
-    expect(guarded.actions.map((action: any) => action.ref)).toEqual(['e60']);
+    expect(guarded.questions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ question: 'Quando sei nato?', type: 'date' }),
+      expect.objectContaining({ question: 'Accetto l’informativa privacy' }),
+    ]));
+    expect(guarded.actions).toEqual([]);
+
+    const confirmed = { ...empty, portalQuestionsAnswered: [{ question: 'Accetto l’informativa privacy', answer: 'Sì', source: 'answers' }] };
+    const consent = guardAgentStep(turn('act', [
+      act({ ref: 'e60', action: 'click', question: 'Accetto l’informativa privacy', source: 'consent', kind: 'checkbox', required: true, checked: false }),
+    ]), confirmed);
+    expect(consent.status).toBe('act');
+    expect(consent.questions).toEqual([]);
+    expect(consent.actions).toContainEqual(expect.objectContaining({ ref: 'e60', source: 'answers', answer: 'Sì' }));
 
     // The candidate's answer, in another format, is used on the next run.
     const answered = { answers: { portal_quando_sei_nato: '12.05.1990' }, profile: {}, portalQuestionsAnswered: [{ question: 'Quando sei nato?', answer: '12.05.1990' }] };
     const run = guardAgentStep(turn('act', [act({ ref: 'e238', question: 'Quando sei nato?', answer: '1990-05-12', source: 'answers' })]), answered);
     expect(run).toMatchObject({ status: 'act', questions: [] });
     expect(run.actions).toHaveLength(1);
+  });
+
+  it('does not reuse an old automatic consent and clears an unconfirmed prechecked box', () => {
+    const field = { question: 'Accetto l’informativa privacy', kind: 'checkbox', required: true };
+    const oldAutomaticConsent = {
+      answers: {}, profile: {},
+      portalQuestionsAnswered: [{ question: field.question, answer: 'Sì', source: 'consent' }],
+    };
+    const action = (checked = false) => act({ ref: 'e60', action: 'click', ...field, source: 'consent', checked });
+
+    const unchecked = guardAgentStep(turn('act', [action()]), oldAutomaticConsent);
+    expect(unchecked).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(unchecked.questions).toContainEqual(expect.objectContaining({ question: field.question }));
+
+    const legacyUnprovenConsent = guardAgentStep(turn('act', [action()]), {
+      answers: {}, profile: {},
+      portalQuestionsAnswered: [{ question: field.question, answer: 'Sì' }],
+    });
+    expect(legacyUnprovenConsent).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(legacyUnprovenConsent.questions).toContainEqual(expect.objectContaining({ question: field.question }));
+
+    const prechecked = guardAgentStep(turn('act', [action(true)]), {
+      ...oldAutomaticConsent,
+      portalQuestionsAnswered: [],
+    });
+    expect(prechecked.status).toBe('needs_candidate');
+    expect(prechecked.questions).toContainEqual(expect.objectContaining({ question: field.question }));
+    expect(prechecked.actions).toContainEqual(expect.objectContaining({ ref: 'e60', action: 'click', source: 'rule' }));
+  });
+
+  it('uses the narrow policy default for a mandatory privacy-reading acknowledgement', () => {
+    const question = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e60', action: 'click', question, source: 'consent', kind: 'checkbox', required: true, checked: false,
+    })]), candidate);
+    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({
+      ref: 'e60', action: 'click', source: 'policy_default', answer: 'true', consentGuarded: true,
+    }));
+  });
+
+  it('honors native optionality over a stale required marker for the privacy acknowledgement', () => {
+    const question = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    const raw = turn('act', [act({
+      ref: 'e60', action: 'click', question, source: 'consent', kind: 'checkbox', required: true, checked: false,
+    })]);
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, [{
+      label: question, required: true, portalNativeContract: { required: false },
+    }]), candidate);
+    expect(guarded.status).toBe('done');
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.questions).toEqual([]);
+  });
+
+  it('holds an optional privacy acknowledgement that is already checked without candidate evidence', () => {
+    const question = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    const raw = turn('act', [act({
+      ref: 'e60', action: 'click', question, source: 'consent', kind: 'checkbox', required: true, checked: true,
+    })]);
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, [{
+      label: question, required: true, checked: true, portalNativeContract: { required: false },
+    }]), candidate);
+    expect(guarded).toMatchObject({ status: 'stuck', reason: 'consent_answer_unmappable', actions: [], questions: [] });
+  });
+
+  it('stops when the candidate refuses a required consent', () => {
+    const question = 'I consent to the processing of my personal data.';
+    const candidate = { identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }] };
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e60', action: 'click', question, source: 'consent', kind: 'checkbox', required: true, checked: false,
+    })]), candidate);
+    expect(guarded).toMatchObject({ status: 'stuck', reason: 'required_consent_refused', actions: [], questions: [] });
+  });
+
+  it('keeps an optional consent refusal as No without holding the page', () => {
+    const question = 'Would you like to receive marketing updates?';
+    const candidate = { identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }] };
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e61', action: 'select', question, source: 'answers', kind: 'select', required: false,
+      answer: 'No', options: [{ label: 'Yes' }, { label: 'No' }],
+    })]), candidate);
+    expect(guarded.status).toBe('act');
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ ref: 'e61', value: 'No', answer: 'No', source: 'answers' }));
+  });
+
+  it('uses the candidate’s exact consent polarity for select and radio choices', () => {
+    const question = 'I agree to the Privacy Policy Statement';
+    const options = [
+      { label: 'I agree to the Privacy Policy Statement' },
+      { label: 'I do not agree to the Privacy Policy Statement' },
+    ];
+    const candidate = {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }],
+    };
+
+    for (const kind of ['select', 'radio']) {
+      const action = kind === 'radio' ? 'click' : 'select';
+      const raw = turn('act', [act({
+        ref: 'e1', action, kind, question, value: options[0].label, answer: options[0].label, source: 'profile',
+      })]);
+      const fields = [{ id: 'privacy', label: question, kind, required: false, options }];
+      const guarded = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate);
+
+      expect(guarded).toMatchObject({ status: 'act', questions: [] });
+      expect(guarded.actions[0]).toMatchObject({
+        ref: 'e1', action, value: options[1].label, answer: 'No', source: 'answers', consentGuarded: true,
+      });
+      if (kind === 'radio') expect(guarded.actions[0]).toMatchObject({ expectedConsentOption: options[1].label });
+    }
+  });
+
+  it('stops instead of keeping a model choice when consent options cannot express the candidate answer', () => {
+    const question = 'I agree to the Privacy Policy Statement';
+    const candidate = {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }],
+    };
+    const fields = [{ id: 'privacy', label: question, kind: 'select', required: false, options: [{ label: 'I agree' }, { label: 'Ask me later' }] }];
+    const raw = turn('act', [act({ ref: 'e1', action: 'select', question, value: 'I agree', source: 'profile' })]);
+
+    expect(guardAgentStep(withAgentFieldProvenance(raw, fields), candidate)).toMatchObject({
+      status: 'stuck', reason: 'consent_answer_unmappable', actions: [], questions: [],
+    });
+  });
+
+  it('refuses a radio click whose accessible label differs from the consent option', () => {
+    const action = { action: 'click', expectedConsentOption: 'I do not agree', question: 'Privacy consent' };
+    const info = { name: 'I agree', button: false, tag: 'input', inputType: 'radio', editable: false, inList: false, submits: false, leaves: false };
+    expect(refusal(action, info)).toBe('consent_option_mismatch');
+    expect(refusal(action, { ...info, name: 'I do not agree' })).toBe('');
+  });
+
+  it('stops when a consent question is paired with a ref for another native control', async () => {
+    const question = 'I consent to processing my personal data for this application.';
+    const fields = [
+      { id: 'f_consent', frame: 0, label: question, kind: 'checkbox', required: true, checked: false },
+      { id: 'f_newsletter', frame: 0, label: 'Subscribe to the newsletter', kind: 'checkbox', required: false, checked: false },
+    ];
+    const raw = turn('act', [act({ ref: 'e3', question, source: 'consent', kind: 'checkbox', required: true })]);
+    const page = { locator: () => ({ evaluate: async () => ({ aaId: 'f_newsletter' }) }) };
+    const bound = await bindAgentConsentRefs(page as any, withAgentFieldProvenance(raw, fields), fields);
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    expect(guardAgentStep(bound, candidate)).toMatchObject({
+      status: 'stuck', reason: 'native_ref_mismatch', actions: [],
+    });
+  });
+
+  it('uses the native consent section rather than the model supplied section for saved answers', async () => {
+    const question = 'Do you consent to processing your personal data?';
+    const fields = [
+      { id: 'f_application', frame: 0, label: question, kind: 'checkbox', required: true, checked: false,
+        context: 'Application submission', section: 'Application' },
+      { id: 'f_future', frame: 0, label: question, kind: 'checkbox', required: true, checked: false,
+        context: 'Future opportunities', section: 'Talent pool' },
+    ];
+    const raw = turn('act', [act({ ref: 'e4', question, context: 'Application submission', section: 'Application',
+      source: 'answers', kind: 'checkbox', required: true, checked: false })]);
+    const page = { locator: () => ({ evaluate: async () => ({ aaId: 'f_future' }) }) };
+    const bound = await bindAgentConsentRefs(page as any, withAgentFieldProvenance(raw, fields), fields);
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{
+      question, context: 'Application submission', section: 'Application', answer: 'Yes', source: 'answers',
+    }] };
+
+    expect(bound.actions[0]).toMatchObject({ context: 'Future opportunities', section: 'Talent pool' });
+    expect(guardAgentStep(bound, candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question, context: 'Future opportunities', section: 'Talent pool' })],
+    });
+  });
+
+  it('clicks the native radio option matching the candidate answer and verifies it became checked', async () => {
+    const question = 'I agree to the Privacy Policy Statement';
+    const options = [
+      { value: 'yes', label: 'I agree', aaId: 'f_yes' },
+      { value: 'no', label: 'I do not agree', aaId: 'f_no' },
+    ];
+    const fields = [{ id: 'f_yes', frame: 0, label: question, kind: 'radio', required: false, value: '', options }];
+    const raw = turn('act', [act({ ref: 'e1', action: 'click', question, kind: 'radio', value: 'I agree', source: 'profile' })]);
+    const candidate = { identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: 'No', source: 'answers' }] };
+    const selectedIds: string[] = [];
+    const page = {
+      locator: () => ({ evaluate: async () => ({ aaId: 'f_yes' }) }),
+      frames: () => [{
+        locator: (selector: string) => {
+          selectedIds.push(selector);
+          const id = selector.includes('f_no') ? 'f_no' : 'f_yes';
+          const element: any = {
+            tagName: 'INPUT', type: 'radio', value: id === 'f_no' ? 'no' : 'yes', checked: false,
+            labels: [{ innerText: id === 'f_no' ? 'I do not agree' : 'I agree' }],
+            closest: () => null, matches: () => false,
+            getAttribute: (name: string) => name === 'data-aa-id' ? id : '',
+          };
+          return {
+            count: async () => 1,
+            evaluate: async (read: (node: any) => unknown) => read(element),
+            click: async () => { element.checked = true; },
+          };
+        },
+      }],
+    };
+    const bound = await bindAgentConsentRefs(page as any, withAgentFieldProvenance(raw, fields), fields);
+    const guarded = guardAgentStep(bound, candidate);
+    expect(guarded.actions[0]).toMatchObject({ expectedConsentOption: 'I do not agree', consentGuarded: true });
+    const result = await runAction(page as any, guarded.actions[0]);
+    expect(result).toEqual({ ok: true });
+    expect(selectedIds).toContain('[data-aa-id="f_no"]');
+    expect(selectedIds).not.toContain('[data-aa-id="f_yes"]');
+  });
+
+  it('does not report a custom consent choice selected when the control keeps its old value', async () => {
+    const element: any = {
+      tagName: 'BUTTON', innerText: 'I agree — I do not agree', textContent: 'I agree — I do not agree',
+      closest: (selector: string) => selector.startsWith('button,') ? element : null,
+      matches: () => false,
+      getAttribute: (name: string) => name === 'data-aa-id' ? 'f_choice' : name === 'role' ? 'combobox'
+        : name === 'aria-label' ? 'I do not agree' : '',
+    };
+    const locator = {
+      count: async () => 1,
+      evaluate: async (read: (node: any) => unknown) => read(element),
+      click: async () => {},
+    };
+    const page = {
+      frames: () => [{ locator: () => locator }],
+      getByRole: () => ({ first: () => ({ waitFor: async () => {}, click: async () => {} }) }),
+    };
+    const result = await runAction(page as any, {
+      ref: 'e8', action: 'select', value: 'I do not agree', question: 'Privacy consent', answer: 'No', source: 'answers',
+      consentGuarded: true, expectedConsentOption: 'I do not agree',
+      nativeConsentTarget: { frame: 0, fieldId: 'f_choice', kind: 'combobox', optionIds: [] },
+    } as any);
+    expect(result).toEqual({ ok: false, error: 'consent_selection_unconfirmed' });
+  });
+
+  it('confirms a SuccessFactors consent choice from its bound combobox after the owned list closes', async () => {
+    const question = 'I agree to the Privacy Policy Statement';
+    const expectedOption = 'I do not agree to the Privacy Policy Statement';
+    const fields = [{
+      id: 'f_choice', frame: 0, label: question, kind: 'combobox', required: true,
+      ownedList: 'nat:_listSelect',
+    }];
+    const raw = turn('act', [act({
+      ref: 'e10', action: 'select', question, value: expectedOption, answer: 'No', source: 'answers',
+      consentGuarded: true, expectedConsentOption: expectedOption,
+    })]);
+    const element: any = {
+      tagName: 'INPUT', type: 'text', value: '', ownerDocument: { getElementById: () => null },
+      closest: () => null,
+      matches: (selector: string) => selector.includes('[role="combobox"]'),
+      getAttribute: (name: string) => name === 'data-aa-id' ? 'f_choice'
+        : name === 'role' ? 'combobox' : '',
+    };
+    let listOpen = false;
+    const frameSelectors: string[] = [];
+    const comboLocator = {
+      count: async () => 1,
+      evaluate: async (read: (node: any, arg?: unknown) => unknown, arg?: unknown) => read(element, arg),
+      click: async () => { listOpen = true; },
+      pressSequentially: async (value: string) => { element.value = value; },
+    };
+    const listLocator = { allInnerTexts: async () => listOpen ? [expectedOption] : [] };
+    const page = {
+      locator: () => ({ evaluate: async () => ({ aaId: 'f_choice' }) }),
+      frames: () => [{
+        locator: (selector: string) => {
+          frameSelectors.push(selector);
+          return selector.includes('[data-aa-id="f_choice"]') ? comboLocator : listLocator;
+        },
+      }],
+      getByRole: (_role: string, options: { name?: string } = {}) => ({
+        first: () => ({
+          waitFor: async () => { if (!listOpen) throw new Error('option_not_visible'); },
+          click: async () => { element.value = options.name || ''; listOpen = false; },
+        }),
+      }),
+    };
+
+    const bound = await bindAgentConsentRefs(page as any, raw, fields);
+    expect(bound.actions[0].nativeConsentTarget).toMatchObject({ ownedList: 'nat:_listSelect' });
+    const result = await runAction(page as any, bound.actions[0]);
+
+    expect(result).toEqual({ ok: true });
+    expect(element.value).toBe(expectedOption);
+    expect(listOpen).toBe(false);
+    expect(frameSelectors.some((selector) => selector.includes('[id="nat:_listSelect"]'))).toBe(true);
+  });
+
+  it.each(['filter query', 'pre-existing value'] as const)(
+    'does not accept a %s as proof when clicking the exact option does not commit it', async (scenario) => {
+      const question = 'I agree to the Privacy Policy Statement';
+      const expectedOption = 'I do not agree to the Privacy Policy Statement';
+      const fields = [{
+        id: 'f_choice', frame: 0, label: question, kind: 'combobox', required: true,
+        ownedList: 'nat:_listSelect',
+      }];
+      const initialValue = scenario === 'pre-existing value' ? expectedOption : '';
+      const raw = turn('act', [act({
+        ref: 'e11', action: 'select', question, value: expectedOption, answer: 'No', source: 'answers',
+        consentGuarded: true, expectedConsentOption: expectedOption,
+      })]);
+      const element: any = {
+        tagName: 'INPUT', type: 'text', value: initialValue, ownerDocument: { getElementById: () => null },
+        closest: () => null,
+        matches: (selector: string) => selector.includes('[role="combobox"]'),
+        getAttribute: (name: string) => name === 'data-aa-id' ? 'f_choice'
+          : name === 'role' ? 'combobox' : '',
+      };
+      let listOpen = false;
+      let queryEntered = false;
+      const comboLocator = {
+        count: async () => 1,
+        evaluate: async (read: (node: any, arg?: unknown) => unknown, arg?: unknown) => read(element, arg),
+        click: async () => { listOpen = true; },
+        fill: async (query: string) => { element.value = query; queryEntered = true; },
+        press: async () => {},
+      };
+      const listLocator = { allInnerTexts: async () => listOpen ? [expectedOption] : [] };
+      const page = {
+        locator: () => ({ evaluate: async () => ({ aaId: 'f_choice' }) }),
+        frames: () => [{
+          locator: (selector: string) => selector.includes('[data-aa-id="f_choice"]') ? comboLocator : listLocator,
+        }],
+        getByRole: (_role: string, _options: { name?: string } = {}) => ({
+          first: () => ({
+            waitFor: async () => {
+              if (!listOpen || (scenario === 'filter query' && !queryEntered)) throw new Error('option_not_visible');
+            },
+            click: async () => { listOpen = false; },
+          }),
+        }),
+      };
+
+      const bound = await bindAgentConsentRefs(page as any, raw, fields);
+      const result = await runAction(page as any, bound.actions[0]);
+
+      if (scenario === 'filter query') expect(element.value).not.toBe(expectedOption);
+      else expect(element.value).toBe(expectedOption);
+      expect(result).toEqual({ ok: false, error: 'consent_selection_unconfirmed' });
+    });
+
+  it.each([
+    { question: 'What is your nationality?', value: 'italiana', nativeOption: 'italienne', options: ['allemande', 'italienne', 'suisse'] },
+    { question: 'What is your nationality?', value: 'italiana', nativeOption: 'italienne', options: [] },
+    {
+      question: 'Do you hold a valid work permit for Switzerland?', value: 'Yes', nativeOption: 'Ja, I have a valid permit',
+      options: ['Ja, I have a valid permit', 'Nein, I do not have a permit'],
+    },
+    {
+      question: 'Do you hold a valid work permit for Switzerland?', value: 'Yes', nativeOption: 'Ja, I have a valid permit',
+      options: [],
+    },
+  ])('maps translated native options for $question before filtering', async ({ question, value, nativeOption, options }) => {
+    const element: any = {
+      tagName: 'INPUT', type: 'text', value: '', ownerDocument: { getElementById: () => null },
+      closest: () => null,
+      matches: (selector: string) => selector.includes('[role="combobox"]'),
+      getAttribute: (name: string) => name === 'data-aa-id' ? 'f_domain_choice'
+        : name === 'role' ? 'combobox' : '',
+    };
+    let listOpen = false;
+    const requestedOptions: string[] = [];
+    const typedQueries: string[] = [];
+    const locator = {
+      evaluate: async (read: (node: any, arg?: unknown) => unknown, arg?: unknown) => read(element, arg),
+      click: async () => { listOpen = true; },
+      fill: async (query: string) => { typedQueries.push(query); element.value = query; },
+    };
+    const page = {
+      locator: () => locator,
+      getByRole: (_role: string, option: { name?: string } = {}) => {
+        requestedOptions.push(option.name || '');
+        return {
+          first: () => ({
+            waitFor: async () => {
+              if (!listOpen || (option.name && option.name !== nativeOption)) throw new Error('option_not_visible');
+            },
+            click: async () => { element.value = nativeOption; listOpen = false; },
+          }),
+          allInnerTexts: async () => listOpen ? [nativeOption] : [],
+        };
+      },
+    };
+
+    const result = await runAction(page as any, {
+      ref: 'e12', action: 'select', question, value, answer: value, source: 'profile', options,
+    } as any);
+
+    expect(result).toEqual({ ok: true });
+    expect(requestedOptions).toContain(nativeOption);
+    expect(typedQueries).toEqual([]);
+    expect(element.value).toBe(nativeOption);
+  });
+
+  it('does not accept an option that appears in a select catalogue but is not selected', async () => {
+    const element: any = {
+      tagName: 'SELECT', value: 'yes',
+      options: [{ textContent: 'I agree' }, { textContent: 'I do not agree' }],
+      selectedOptions: [{ label: 'I agree', textContent: 'I agree' }],
+      closest: () => null, matches: () => false,
+      getAttribute: (name: string) => name === 'data-aa-id' ? 'f_select' : '',
+    };
+    const locator = {
+      count: async () => 1,
+      evaluate: async (read: (node: any) => unknown) => read(element),
+      selectOption: async () => {},
+    };
+    const page = { frames: () => [{ locator: () => locator }] };
+    const result = await runAction(page as any, {
+      ref: 'e9', action: 'select', value: 'I do not agree', question: 'Privacy consent', answer: 'No', source: 'answers',
+      consentGuarded: true, expectedConsentOption: 'I do not agree',
+      nativeConsentTarget: { frame: 0, fieldId: 'f_select', kind: 'select', optionIds: [] },
+    } as any);
+    expect(result).toEqual({ ok: false, error: 'consent_selection_unconfirmed' });
+  });
+
+  it('requires a candidate answer when a privacy click is paraphrased and loses native field metadata', () => {
+    const label = 'I agree to the Privacy Policy Statement';
+    const fields = [{ id: 'privacy', label, kind: 'checkbox', required: true, checked: false }];
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [] };
+    const raw = turn('act', [act({
+      ref: 'e1', action: 'click', question: 'Do you accept the privacy policy?',
+      answer: 'Yes', source: 'answers',
+    })]);
+
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate);
+
+    expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(guarded.questions).toContainEqual(expect.objectContaining({ question: 'Do you accept the privacy policy?' }));
+  });
+
+  it('stops on unresolved native ownership even when the candidate answered yes', () => {
+    const label = 'I agree to the Privacy Policy Statement';
+    const fields = [{
+      id: 'privacy', label, kind: 'checkbox', required: true, checked: false,
+      consentOwnershipUnknown: true, controlId: 'workPermit',
+    }];
+    const candidate = {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question: label, answer: 'Yes', source: 'answers' }],
+    };
+    const raw = turn('act', [act({
+      ref: 'e1', action: 'click', question: label, answer: 'Yes', source: 'answers', kind: 'checkbox', required: true,
+    })]);
+
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate);
+
+    expect(guarded).toMatchObject({ status: 'stuck', reason: 'native_contract_unresolved', actions: [] });
+  });
+
+  it('keeps an explicit data-retention choice instead of treating it as yes/no consent', () => {
+    const question = 'How long may we retain your personal data?';
+    const choice = 'Delete my data after this application process';
+    const fields = [{ id: 'retention', label: question, kind: 'select', required: true, options: [{ label: choice }] }];
+    const candidate = {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question, answer: choice, source: 'answers' }],
+    };
+    const raw = turn('act', [act({
+      ref: 'e1', action: 'select', value: choice, question, answer: choice, source: 'answers',
+    })]);
+
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate);
+
+    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ ref: 'e1', action: 'select', value: choice, source: 'answers' }));
   });
 
   it('requires the candidate’s own answer for a language-intent question in a custom widget', async () => {
@@ -693,7 +1177,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(absent).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question })] });
   });
 
-  it('grounds a native-language choice from the CV language and contrasting language levels', () => {
+  it('keeps native language unknown unless the candidate marks it native', () => {
     const candidate = {
       answers: {},
       profile: {
@@ -704,13 +1188,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     };
     const question = 'Qual è il livello di italiano scritto?';
     const native = guardAgentStep(turn('act', [act({ action: 'select', value: 'Lingua madre', answer: 'Lingua madre', question, source: 'profile' })]), candidate);
-    expect(native).toMatchObject({ status: 'act', questions: [] });
-    expect(native.actions).toHaveLength(1);
+    expect(native).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
 
     const invented = guardAgentStep(turn('act', [act({ action: 'select', value: 'Fluente', answer: 'Fluente', question, source: 'profile' })]), candidate);
-    // A wrong non-native level is dropped rather than sent or turned into a
-    // new candidate question: the CV-derived native fact is already known.
-    expect(invented).toMatchObject({ status: 'done', actions: [], questions: [] });
+    expect(invented).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
   });
 
   it('presses an unusual step button only when its name says next step', () => {
@@ -772,15 +1253,14 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       act({ ref: 'e2', action: 'select', value: 'Svizzera', question: 'Qual è la tua nazione di residenza?', answer: 'Svizzera', source: 'rule' }),
       act({ ref: 'e3', action: 'fill', value: '99', question: 'House number', answer: '99', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
-    expect(guarded.actions.map((action: any) => [action.value, action.source])).toEqual([
-      ['43039', 'identity'],
-      ['Italia', 'identity'],
-      ['12', 'identity'],
-    ]);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: expect.arrayContaining([
+      expect.objectContaining({ question: 'Qual è il tuo CAP di residenza?' }),
+      expect.objectContaining({ question: 'Qual è la tua nazione di residenza?' }),
+    ]) });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ value: '12', source: 'identity' }));
 
     const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    expect(asked).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Qual è il tuo CAP di residenza?' })] });
   });
 
   it('carries the fieldset context into the fallback guard for a bare CAP', () => {
@@ -796,8 +1276,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const guarded = guardAgentStep(turn('act', [
       act({ ref: 'e1', action: 'fill', value: '00000', question: 'CAP', context, answer: '00000', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
-    expect(guarded.actions).toEqual([expect.objectContaining({ value: '43039', source: 'identity', context })]);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+    expect(guarded.actions).toEqual([]);
   });
 
   it('does not reuse the candidate CAP for a bare employer address', () => {
