@@ -3617,12 +3617,12 @@
     },
     {
       "id": "css-versicherung-8ebde4f5302a",
-      "slug": "kundenberater-in-per-privatkunden-langenthal-css-versicherung-langenthal",
+      "slug": "consulente-clienti-privati-langenthal-css-versicherung-langenthal",
       "slugByLocale": {
         "de": "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal",
-        "it": "kundenberater-in-per-privatkunden-langenthal-css-versicherung-langenthal",
-        "en": "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal",
-        "fr": "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal"
+        "it": "consulente-clienti-privati-langenthal-css-versicherung-langenthal",
+        "en": "client-advisor-for-private-clients-langenthal-css-versicherung-langenthal",
+        "fr": "conseiller-ere-a-la-clientele-privee-langenthal-css-versicherung-langenthal"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3671,11 +3671,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal",
+          "kundenberater-in-per-privatkunden-langenthal-css-versicherung-langenthal"
+        ],
+        "en": [
+          "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal"
+        ],
+        "fr": [
           "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal"
+        "kundenberater-in-fur-privatkunden-langenthal-css-versicherung-langenthal",
+        "kundenberater-in-per-privatkunden-langenthal-css-versicherung-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

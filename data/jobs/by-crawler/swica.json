@@ -2708,12 +2708,12 @@
     },
     {
       "id": "swica-db570922f4db",
-      "slug": "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel",
+      "slug": "servizi-di-supporto-del-processo-del-personale-tutti-swica-gesundheitsorganisation-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel",
-        "it": "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel",
-        "en": "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel",
-        "fr": "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel"
+        "it": "servizi-di-supporto-del-processo-del-personale-tutti-swica-gesundheitsorganisation-basel",
+        "en": "personnel-process-support-services-all-swica-gesundheitsorganisation-basel",
+        "fr": "services-de-soutien-des-processus-de-personnel-tous-swica-gesundheitsorganisation-basel"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2775,7 +2775,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:34:16.121Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:34:16.121Z"
+      "firstSeenAt": "2026-11-09T21:34:16.121Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel"
+        ],
+        "en": [
+          "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-prozesssupport-leistungen-alle-swica-basel"
+      ]
     },
     {
       "id": "swica-172f0232da6a",

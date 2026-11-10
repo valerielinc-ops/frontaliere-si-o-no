@@ -4409,12 +4409,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-7e741b84c6b1",
-      "slug": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
+      "slug": "addetto-a-all-accettazione-dei-pazienti-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
-        "it": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
-        "en": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        "it": "addetto-a-all-accettazione-dei-pazienti-spitaler-schaffhausen-schaffhausen",
+        "en": "patient-admission-clerk-spitaler-schaffhausen-schaffhausen",
+        "fr": "responsable-de-l-admission-des-patients-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4463,11 +4463,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
+          "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
+        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
+        "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4493,8 +4501,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-spitaeler-schaffhausen-schaffhausen",
         "it": "addetto-a-alla-logistica-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-logistik-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-logistik-spitaler-schaffhausen-schaffhausen"
+        "en": "logistics-employee-spitaler-schaffhausen-schaffhausen",
+        "fr": "collaborateur-trice-en-logistique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4544,10 +4552,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-logistik-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-logistik-spitaeler-schaffhausen-schaffhausen",
+        "mitarbeiter-in-logistik-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

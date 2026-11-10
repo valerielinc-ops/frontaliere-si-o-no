@@ -633,12 +633,12 @@
     },
     {
       "id": "apg-sga-48c5158cac7e",
-      "slug": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
+      "slug": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
       "slugByLocale": {
         "de": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
-        "it": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
-        "en": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch",
-        "fr": "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        "it": "consulenza-vendita-servizio-di-campo-100-berna-apg-sga-bern",
+        "en": "sales-consultancy-field-service-100-bern-apg-sga-bern",
+        "fr": "conseil-en-vente-service-sur-le-terrain-100-berne-apg-sga-bern"
       },
       "company": "APG|SGA",
       "companyKey": "apg-sga",
@@ -700,7 +700,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:24:53.853Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:24:53.853Z"
+      "firstSeenAt": "2026-11-09T21:24:53.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ],
+        "en": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ],
+        "fr": [
+          "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberatung-aussendienst-100-bern-apg-sga-ch"
+      ]
     }
   ]
 }

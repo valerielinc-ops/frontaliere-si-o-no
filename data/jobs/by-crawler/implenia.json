@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "implenia-29d44f94ec72",
-      "slug": "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-o-onex-geneve-implenia-onex",
+      "slug": "collaboratore-commerciale-di-progetto-bilingue-m-f-d-opfikon-zurigo-o-onex-geneve-implenia-onex",
       "slugByLocale": {
         "de": "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia",
-        "it": "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-o-onex-geneve-implenia-onex",
-        "en": "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia",
-        "fr": "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia"
+        "it": "collaboratore-commerciale-di-progetto-bilingue-m-f-d-opfikon-zurigo-o-onex-geneve-implenia-onex",
+        "en": "commercial-project-employee-bilingual-m-f-d-opfikon-zurich-or-onex-geneve-implenia-onex",
+        "fr": "employe-de-projet-commercial-bilingue-h-f-d-opfikon-zurich-ou-onex-geneve-implenia-onex"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia",
+          "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-o-onex-geneve-implenia-onex"
+        ],
+        "en": [
+          "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia"
+        ],
+        "fr": [
           "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia"
         ]
       },
       "previousSlugs": [
-        "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia"
+        "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-oder-onex-geneve-implenia",
+        "kaufmannischer-projektmitarbeiter-bilingual-m-w-d-opfikon-zurich-o-onex-geneve-implenia-onex"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1893,7 +1901,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1940,7 +1948,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1951,7 +1959,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",

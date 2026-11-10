@@ -157,7 +157,7 @@
         "en": "senior-finance-business-partner-m-w-d-rieter-pfaffikon-zh",
         "it": "senior-finance-business-partner-m-w-d-rieter-pfaffikon-zh",
         "de": "senior-finance-business-partner-m-w-d-rieter-pfaffikon-zh",
-        "fr": "senior-finance-business-partner-m-w-d-rieter-pfaffikon-zh"
+        "fr": "partenaire-principal-des-finances-h-f-d-rieter-pfaffikon-zh"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -224,12 +224,12 @@
     },
     {
       "id": "rieter-dab6ae555e89",
-      "slug": "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur",
+      "slug": "addetto-a-finanza-50-100-m-f-d-rieter-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur",
-        "it": "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur",
-        "en": "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur",
-        "fr": "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur"
+        "it": "addetto-a-finanza-50-100-m-f-d-rieter-winterthur",
+        "en": "finance-clerk-50-100-m-f-d-rieter-winterthur",
+        "fr": "responsable-des-finances-50-100-h-f-d-rieter-winterthur"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -293,7 +293,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T21:16:17.097Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:17.097Z"
+      "firstSeenAt": "2026-11-09T21:16:17.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur"
+        ],
+        "en": [
+          "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur"
+        ],
+        "fr": [
+          "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-finanzen-50-100-w-m-d-rieter-winterthur"
+      ]
     },
     {
       "id": "rieter-cacf243c01cb",

@@ -3239,12 +3239,12 @@
     },
     {
       "id": "csd-engineers-1c9243b03ae8",
-      "slug": "projekt-e-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-pratteln",
+      "slug": "capo-progetto-e-capo-cantiere-in-ingegneria-ambientale-m-f-d-80-100-csd-engineers-pratteln",
       "slugByLocale": {
         "de": "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch",
-        "it": "projekt-e-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-pratteln",
-        "en": "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch",
-        "fr": "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch"
+        "it": "capo-progetto-e-capo-cantiere-in-ingegneria-ambientale-m-f-d-80-100-csd-engineers-pratteln",
+        "en": "project-and-construction-manager-in-environmental-technology-m-f-d-80-100-csd-engineers-pratteln",
+        "fr": "gestionnaire-de-projet-et-de-construction-en-technologie-environnementale-h-f-d-80-100-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3292,11 +3292,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch",
+          "projekt-e-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-pratteln"
+        ],
+        "en": [
+          "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch"
+        ],
+        "fr": [
           "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
-        "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch"
+        "projekt-und-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-ch",
+        "projekt-e-bauleiter-in-der-umwelttechnik-m-w-d-80-100-csd-engineers-pratteln"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3319,12 +3327,12 @@
     },
     {
       "id": "csd-engineers-608c9a3399b1",
-      "slug": "geologe-umweltingenieur-o-umweltnaturwissenschaftler-come-projektmitarbeiter-bauschadstoffe-m-w-d-80-100-csd-engineers-chur",
+      "slug": "geologo-ingegnere-ambientale-o-naturalista-ambientale-come-collaboratore-di-progetto-inquinanti-da-costruzione-m-f-d-80",
       "slugByLocale": {
         "de": "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter",
-        "it": "geologe-umweltingenieur-o-umweltnaturwissenschaftler-come-projektmitarbeiter-bauschadstoffe-m-w-d-80-100-csd-engineers-chur",
-        "en": "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter",
-        "fr": "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter"
+        "it": "geologo-ingegnere-ambientale-o-naturalista-ambientale-come-collaboratore-di-progetto-inquinanti-da-costruzione-m-f-d-80",
+        "en": "geologist-environmental-engineer-or-environmental-scientist-as-project-employee-building-pollutants-m-f-d-80-100-csd",
+        "fr": "geologue-ingenieur-en-environnement-ou-specialiste-de-l-environnement-en-tant-qu-employe-de-projet-construction-de"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3372,11 +3380,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter",
+          "geologe-umweltingenieur-o-umweltnaturwissenschaftler-come-projektmitarbeiter-bauschadstoffe-m-w-d-80-100-csd-engineers-chur"
+        ],
+        "en": [
+          "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter"
+        ],
+        "fr": [
           "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter"
         ]
       },
       "previousSlugs": [
-        "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter"
+        "geologe-umweltingenieur-oder-umweltnaturwissenschaftler-als-projektmitarbeiter",
+        "geologe-umweltingenieur-o-umweltnaturwissenschaftler-come-projektmitarbeiter-bauschadstoffe-m-w-d-80-100-csd-engineers-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

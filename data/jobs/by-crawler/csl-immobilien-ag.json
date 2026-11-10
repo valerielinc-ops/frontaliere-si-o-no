@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "csl-immobilien-ag-9e5ee263ca24",
-      "slug": "leiter-in-marketing-kommunikation-csl-immobilien-ag-zurich",
+      "slug": "responsabile-marketing-e-comunicazione-csl-immobilien-ag-zurich-zh",
       "slugByLocale": {
         "de": "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch",
-        "it": "leiter-in-marketing-kommunikation-csl-immobilien-ag-zurich",
-        "en": "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch",
-        "fr": "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch"
+        "it": "responsabile-marketing-e-comunicazione-csl-immobilien-ag-zurich-zh",
+        "en": "head-of-marketing-communication-csl-immobilien-ag-zurich-zh",
+        "fr": "chef-communication-amp-marketing-csl-immobilien-ag-zurich-zh"
       },
       "company": "CSL Immobilien AG",
       "companyKey": "csl-immobilien-ag",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch",
+          "leiter-in-marketing-kommunikation-csl-immobilien-ag-zurich"
+        ],
+        "en": [
+          "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "fr": [
           "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch"
+        "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch",
+        "leiter-in-marketing-kommunikation-csl-immobilien-ag-zurich"
       ],
       "salaryMin": 114500,
       "salaryMax": 203000,

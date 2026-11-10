@@ -2678,12 +2678,12 @@
     },
     {
       "id": "etat-de-vaud-6148",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2745,16 +2745,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:10.345Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:10.345Z"
+      "firstSeenAt": "2026-11-09T21:23:10.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6144",
-      "slug": "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges",
+      "slug": "operaio-di-manutenzione-stradale-cantonale-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges",
-        "it": "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges",
-        "en": "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges",
-        "de": "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges"
+        "it": "operaio-di-manutenzione-stradale-cantonale-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "en": "cantonal-road-maintenance-worker-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "de": "kantonale-stra-enbauarbeiter-etat-de-vaud-administration-cantonale-vaudoise-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2816,16 +2830,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:09.949Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:09.949Z"
+      "firstSeenAt": "2026-11-09T21:23:09.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges"
+        ],
+        "en": [
+          "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges"
+        ],
+        "de": [
+          "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-des-routes-cantonales-etat-de-vaud-morges"
+      ]
     },
     {
       "id": "etat-de-vaud-6145",
-      "slug": "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
+      "slug": "agente-di-polizia-giudiziario-specializzato-nel-campo-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
-        "it": "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
-        "en": "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne",
-        "de": "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+        "it": "agente-di-polizia-giudiziario-specializzato-nel-campo-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "judicial-police-officer-specialized-in-the-legal-field-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "justizpolizist-spezialisiert-auf-den-rechtsbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2887,16 +2915,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:09.550Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-police-judiciaire-specialise-e-dans-le-domaine-juridique-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6141",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2958,16 +3000,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:09.146Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:09.146Z"
+      "firstSeenAt": "2026-11-09T21:23:09.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-yverdon-les-bains"
+      ]
     },
     {
       "id": "etat-de-vaud-6137",
-      "slug": "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle",
+      "slug": "capo-squadra-di-ricambio-per-ingegneria-civile-etat-de-vaud-administration-cantonale-vaudoise-aigle",
       "slugByLocale": {
         "fr": "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle",
-        "it": "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle",
-        "en": "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle",
-        "de": "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle"
+        "it": "capo-squadra-di-ricambio-per-ingegneria-civile-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+        "en": "replacement-team-leader-for-civil-engineering-etat-de-vaud-administration-cantonale-vaudoise-aigle",
+        "de": "ersatzteamleiter-fur-bauingenieurwesen-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3029,16 +3085,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:08.737Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:08.737Z"
+      "firstSeenAt": "2026-11-09T21:23:08.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle"
+        ],
+        "en": [
+          "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle"
+        ],
+        "de": [
+          "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-d-equipe-remplacant-e-du-genie-civil-etat-de-vaud-aigle"
+      ]
     },
     {
       "id": "etat-de-vaud-6135",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne-80f922",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne-80f922",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne-80f922",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-lausanne-80f922"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3100,16 +3170,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:08.334Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:08.334Z"
+      "firstSeenAt": "2026-11-09T21:23:08.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-lausanne-2"
+      ]
     },
     {
       "id": "etat-de-vaud-6131",
-      "slug": "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres",
+      "slug": "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres",
       "slugByLocale": {
         "fr": "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres",
-        "it": "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres",
-        "en": "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres",
-        "de": "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres"
+        "it": "psicomoticista-nelle-scuole-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres",
+        "en": "psychomotician-in-schools-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres",
+        "de": "psychotherapeut-in-schulen-etat-de-vaud-administration-cantonale-vaudoise-jorat-mezieres"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3171,16 +3255,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:07.933Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:07.933Z"
+      "firstSeenAt": "2026-11-09T21:23:07.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres"
+        ],
+        "en": [
+          "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres"
+        ],
+        "de": [
+          "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres"
+        ]
+      },
+      "previousSlugs": [
+        "psychomoticien-ne-en-milieu-scolaire-etat-de-vaud-jorat-mezieres"
+      ]
     },
     {
       "id": "etat-de-vaud-6132",
-      "slug": "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe",
+      "slug": "dipendente-di-manutenzione-stradale-cantonale-con-permesso-pl-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe",
-        "it": "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe",
-        "en": "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe",
-        "de": "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe"
+        "it": "dipendente-di-manutenzione-stradale-cantonale-con-permesso-pl-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "cantonal-road-maintenance-employee-with-pl-permit-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "de": "mitarbeiter-der-kantonalen-stra-eninstandhaltung-mit-pl-genehmigung-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3242,16 +3340,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:07.528Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe"
+        ],
+        "en": [
+          "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe"
+        ],
+        "de": [
+          "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-des-routes-cantonales-avec-permis-pl-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-6133",
-      "slug": "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins",
+      "slug": "capo-del-national-road-maintenance-team-etat-de-vaud-administration-cantonale-vaudoise-bursins",
       "slugByLocale": {
         "fr": "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins",
-        "it": "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins",
-        "en": "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins",
-        "de": "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins"
+        "it": "capo-del-national-road-maintenance-team-etat-de-vaud-administration-cantonale-vaudoise-bursins",
+        "en": "head-of-national-road-maintenance-team-etat-de-vaud-administration-cantonale-vaudoise-bursins",
+        "de": "leiter-des-nationalen-stra-eninstandhaltungsteams-etat-de-vaud-administration-cantonale-vaudoise-bursins"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3313,16 +3425,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:07.129Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:07.129Z"
+      "firstSeenAt": "2026-11-09T21:23:07.129Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins"
+        ],
+        "en": [
+          "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins"
+        ],
+        "de": [
+          "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-d-equipe-d-entretien-des-routes-nationales-etat-de-vaud-bursins"
+      ]
     },
     {
       "id": "etat-de-vaud-6129",
-      "slug": "charge-e-de-projet-etat-de-vaud-lausanne",
+      "slug": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "charge-e-de-projet-etat-de-vaud-lausanne",
-        "it": "charge-e-de-projet-etat-de-vaud-lausanne",
-        "en": "charge-e-de-projet-etat-de-vaud-lausanne",
-        "de": "charge-e-de-projet-etat-de-vaud-lausanne"
+        "it": "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "projektmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3384,16 +3510,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:06.732Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:06.732Z"
+      "firstSeenAt": "2026-11-09T21:23:06.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-projet-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "charge-e-de-projet-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "charge-e-de-projet-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-projet-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6123",
-      "slug": "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand",
+      "slug": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-yvonand",
       "slugByLocale": {
         "fr": "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand",
-        "it": "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand",
-        "en": "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand",
-        "de": "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand"
+        "it": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-yvonand",
+        "en": "school-psychologist-etat-de-vaud-administration-cantonale-vaudoise-yvonand",
+        "de": "schulpsychologin-etat-de-vaud-administration-cantonale-vaudoise-yvonand"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3455,16 +3595,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:06.331Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:06.331Z"
+      "firstSeenAt": "2026-11-09T21:23:06.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand"
+        ],
+        "en": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand"
+        ],
+        "de": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-en-milieu-scolaire-etat-de-vaud-yvonand"
+      ]
     },
     {
       "id": "etat-de-vaud-6116",
-      "slug": "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne",
+      "slug": "pianificatori-specializzati-nel-riscaldamento-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne",
-        "it": "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne",
-        "en": "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne",
-        "de": "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne"
+        "it": "pianificatori-specializzati-nel-riscaldamento-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "heating-specialist-planners-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "heizungsfachplaner-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3526,16 +3680,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:05.913Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:05.913Z"
+      "firstSeenAt": "2026-11-09T21:23:05.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-trice-specialiste-chauffage-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6094",
-      "slug": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6",
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne",
-        "it": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3",
-        "de": "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3"
+        "it": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6",
+        "en": "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6",
+        "de": "spezialisierter-dateimanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne-e121c6"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3583,11 +3751,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3"
+        ],
+        "de": [
           "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3"
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-lausanne-3",
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3609,12 +3785,12 @@
     },
     {
       "id": "etat-de-vaud-6090",
-      "slug": "secretaire-pedagogique-etat-de-vaud-lausanne",
+      "slug": "segreteria-didattica-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "secretaire-pedagogique-etat-de-vaud-lausanne",
-        "it": "secretaire-pedagogique-etat-de-vaud-lausanne",
-        "en": "secretaire-pedagogique-etat-de-vaud-lausanne",
-        "de": "secretaire-pedagogique-etat-de-vaud-lausanne"
+        "it": "segreteria-didattica-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "educational-secretary-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "bildungssekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3676,16 +3852,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:05.106Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:05.106Z"
+      "firstSeenAt": "2026-11-09T21:23:05.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-pedagogique-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-pedagogique-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-pedagogique-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-pedagogique-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6058",
-      "slug": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "slug": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd",
-        "it": "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "en": "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2",
-        "de": "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2"
+        "it": "gestore-di-file-specializzato-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "en": "specialist-file-manager-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "spezialisierter-dateimanager-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3733,11 +3923,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2",
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2"
+        ],
+        "de": [
           "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2"
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-renens-vd-2",
+        "gestionnaire-de-dossiers-specialises-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3759,12 +3957,12 @@
     },
     {
       "id": "etat-de-vaud-6033",
-      "slug": "geomaticien-ne-etat-de-vaud-lausanne",
+      "slug": "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "geomaticien-ne-etat-de-vaud-lausanne",
-        "it": "geomaticien-ne-etat-de-vaud-lausanne",
-        "en": "geomaticien-ne-etat-de-vaud-lausanne",
-        "de": "geomaticien-ne-etat-de-vaud-lausanne"
+        "it": "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "geomatician-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "geomatiker-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3826,16 +4024,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:03.901Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:03.901Z"
+      "firstSeenAt": "2026-11-09T21:23:03.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "geomaticien-ne-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5987",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3897,7 +4109,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:23:03.503Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:35:33.691Z"
+      "firstSeenAt": "2026-10-05T21:35:33.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+      ]
     },
     {
       "id": "etat-de-vaud-6043",

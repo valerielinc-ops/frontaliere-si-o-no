@@ -19401,12 +19401,12 @@
     },
     {
       "id": "physioswiss-b77e637a6529",
-      "slug": "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden",
+      "slug": "fisioterapista-a-fuoco-geriatrics-50-100-in-heiden-ar-physio-swiss-9410-heiden",
       "slugByLocale": {
         "de": "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-9410-heiden-physioswiss-ch",
-        "it": "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden",
-        "en": "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden",
-        "fr": "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden"
+        "it": "fisioterapista-a-fuoco-geriatrics-50-100-in-heiden-ar-physio-swiss-9410-heiden",
+        "en": "physiotherapist-in-focus-geriatrics-50-100-in-heiden-ar-physio-swiss-9410-heiden",
+        "fr": "physiotherapeute-en-bref-geriatrie-50-100-dans-heiden-ar-physio-swiss-9410-heiden"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19454,11 +19454,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-9410-heiden-physioswiss-ch"
+          "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-9410-heiden-physioswiss-ch",
+          "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden"
+        ],
+        "en": [
+          "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden"
+        ],
+        "fr": [
+          "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-9410-heiden-physioswiss-ch"
+        "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-9410-heiden-physioswiss-ch",
+        "physiotherapeut-in-schwerpunkt-geriatrie-50-100-in-heiden-ar-physio-swiss-heiden"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -19485,8 +19493,8 @@
       "slugByLocale": {
         "de": "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale",
         "it": "physiotherapeut-in-per-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale-flexibilitat-physio-swiss-nafels",
-        "en": "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale",
-        "fr": "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale"
+        "en": "physicaltherapist-for-mobile-deployments-40-100-chf100-000-130-000-4-day-week-maximum-flexibility-physio-swiss-glarona",
+        "fr": "physiotherapeute-dans-pour-les-affectations-mobiles-40-100-physio-swiss-glarona"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19534,6 +19542,12 @@
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale"
+        ],
+        "en": [
+          "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale"
+        ],
+        "fr": [
+          "physiotherapeut-in-fur-mobile-einsatze-40-100-chf-100-000-130-000-4-tage-woche-maximale"
         ]
       },
       "previousSlugs": [
@@ -19561,12 +19575,12 @@
     },
     {
       "id": "physioswiss-c1f3423c6276",
-      "slug": "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve",
+      "slug": "fisioterapista-dipendente-o-autonomo-geneva-m-f-60-80-physio-swiss-1204-geneve",
       "slugByLocale": {
         "fr": "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve",
-        "it": "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve",
-        "en": "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve",
-        "de": "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve"
+        "it": "fisioterapista-dipendente-o-autonomo-geneva-m-f-60-80-physio-swiss-1204-geneve",
+        "en": "physiotherapist-employed-or-self-employed-geneva-m-f-60-80-physio-swiss-1204-geneve",
+        "de": "physiotherapeut-angestellt-oder-selbststandig-genf-m-w-60-80-physio-swiss-1204-geneve"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19613,11 +19627,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve",
+          "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve"
+        ],
+        "en": [
+          "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve"
+        ],
+        "de": [
           "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve"
         ]
       },
       "previousSlugs": [
-        "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve"
+        "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-1204-geneve",
+        "physiotherapeute-vestibulaire-salarie-e-ou-independant-e-geneve-h-f-60-80-physio-swiss-geneve"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -19640,12 +19662,12 @@
     },
     {
       "id": "physioswiss-a534b8d6d2a2",
-      "slug": "suchst-du-das-spezielle-familiare-umfeld-dann-komm-e-schau-bei-uns-vorbei-physio-swiss-lachen",
+      "slug": "cerchi-un-ambiente-familiare-speciale-allora-vieni-a-trovarci-physio-swiss-8853-lachen",
       "slugByLocale": {
         "de": "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen",
-        "it": "suchst-du-das-spezielle-familiare-umfeld-dann-komm-e-schau-bei-uns-vorbei-physio-swiss-lachen",
-        "en": "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen",
-        "fr": "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen"
+        "it": "cerchi-un-ambiente-familiare-speciale-allora-vieni-a-trovarci-physio-swiss-8853-lachen",
+        "en": "are-you-looking-for-a-special-family-environment-then-come-and-see-us-physio-swiss-8853-lachen",
+        "fr": "vous-cherchez-un-environnement-familial-alors-venez-nous-voir-physio-swiss-8853-lachen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19693,11 +19715,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen",
+          "suchst-du-das-spezielle-familiare-umfeld-dann-komm-e-schau-bei-uns-vorbei-physio-swiss-lachen"
+        ],
+        "en": [
+          "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen"
+        ],
+        "fr": [
           "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen"
         ]
       },
       "previousSlugs": [
-        "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen"
+        "suchst-du-das-spezielle-familiare-umfeld-dann-komm-und-schau-bei-uns-vorbei-8853-lachen",
+        "suchst-du-das-spezielle-familiare-umfeld-dann-komm-e-schau-bei-uns-vorbei-physio-swiss-lachen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

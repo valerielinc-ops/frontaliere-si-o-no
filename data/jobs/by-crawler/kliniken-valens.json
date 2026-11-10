@@ -1765,7 +1765,7 @@
       "id": "kliniken-valens-2623e3cb87d2",
       "slug": "specialista-tariffe-m-f-a-40-60-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "specialista-tariffe-m-f-a-40-60-kliniken-valens-sargans",
+        "it": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
         "en": "tariff-specialist-m-f-a-40-60-kliniken-valens-sargans",
         "de": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "fr": "specialiste-des-tarifs-h-f-a-40-60-kliniken-valens-sargans"
@@ -1833,13 +1833,11 @@
       },
       "previousSlugs": [
         "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans",
-        "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
-        "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
+        "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
-          "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
+          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
         ],
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
@@ -2731,9 +2729,9 @@
       "slug": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
       "slugByLocale": {
         "it": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
-        "en": "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "en": "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "de": "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "fr": "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+        "fr": "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -2781,7 +2779,9 @@
         "specialista-nel-settore-alberghiero-m-f-a-80-kliniken-valens-wald",
         "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald",
-        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
+        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
+        "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2791,10 +2791,10 @@
           "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "professional-hotel-industry-m-f-a-80-kliniken-valens-wald"
+          "hospitality-specialist-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
+          "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:08.923Z",
@@ -8450,12 +8450,12 @@
     },
     {
       "id": "kliniken-valens-67335604dc51",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens-gais",
+      "slug": "infermiere-dipl-sss-sup-riabilitazione-cardiovascolare-f-m-a-80-100-kliniken-valens-gais",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens-gais",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens"
+        "it": "infermiere-dipl-sss-sup-riabilitazione-cardiovascolare-f-m-a-80-100-kliniken-valens-gais",
+        "en": "qualified-nurse-hf-fh-cardiovascular-rehabilitation-f-m-a-80-100-kliniken-valens-gais",
+        "fr": "dipl-infirmiere-infirmier-hf-hes-reeducation-cardiovasculaire-h-f-a-80-100-kliniken-valens-gais"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8504,11 +8504,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens",
+          "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens-gais"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens"
+        "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens",
+        "dipl-pflegefachfrau-mann-hf-fh-kardiovaskulare-rehabilitation-w-m-a-80-100-kliniken-valens-gais"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -8530,12 +8538,12 @@
     },
     {
       "id": "kliniken-valens-7a4a5db16c1a",
-      "slug": "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais",
+      "slug": "fisioterapista-m-f-a-80-100-kliniken-valens-gais",
       "slugByLocale": {
         "de": "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais",
-        "it": "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais",
-        "en": "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais",
-        "fr": "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais"
+        "it": "fisioterapista-m-f-a-80-100-kliniken-valens-gais",
+        "en": "physiotherapist-m-f-a-80-100-kliniken-valens-gais",
+        "fr": "physiotherapeute-h-f-a-80-100-kliniken-valens-gais"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8598,16 +8606,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:36:29.710Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:36:29.710Z"
+      "firstSeenAt": "2026-11-09T21:36:29.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais"
+        ],
+        "en": [
+          "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais"
+        ],
+        "fr": [
+          "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-m-w-a-80-100-kliniken-valens-gais"
+      ]
     },
     {
       "id": "kliniken-valens-fb1b5ac52617",
-      "slug": "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais",
+      "slug": "esperto-nella-diagnostica-m-f-a-40-70-kliniken-valens-gais",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais",
-        "it": "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais",
-        "en": "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais",
-        "fr": "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais"
+        "it": "esperto-nella-diagnostica-m-f-a-40-70-kliniken-valens-gais",
+        "en": "expert-in-diagnostics-m-f-a-40-70-kliniken-valens-gais",
+        "fr": "expert-en-diagnostic-m-f-a-40-70-kliniken-valens-gais"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8670,16 +8692,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:36:29.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:36:29.707Z"
+      "firstSeenAt": "2026-11-09T21:36:29.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-diagnostik-m-w-a-40-70-kliniken-valens-gais"
+      ]
     },
     {
       "id": "kliniken-valens-ebe7bd9156b7",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken-valens-st-gallen",
+      "slug": "infermiere-diplomato-sss-sup-riabilitazione-con-obbligo-di-sorveglianza-f-m-a-70-100-kliniken-valens-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken-valens-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken"
+        "it": "infermiere-diplomato-sss-sup-riabilitazione-con-obbligo-di-sorveglianza-f-m-a-70-100-kliniken-valens-st-gallen",
+        "en": "qualified-nurse-hf-fh-rehabilitation-subject-to-monitoring-f-m-a-70-100-kliniken-valens-st-gallen",
+        "fr": "infirmiere-infirmier-diplome-hf-hes-reeducation-sous-surveillance-w-m-a-70-100-kliniken-valens-st-gallen"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8728,11 +8764,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken",
+          "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken-valens-st-gallen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken"
+        "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken",
+        "dipl-pflegefachfrau-mann-hf-fh-uberwachungspflichtige-rehabilitation-w-m-a-70-100-kliniken-valens-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

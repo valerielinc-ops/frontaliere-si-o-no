@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "city-pop-47302ecce4ab",
-      "slug": "techniker-allrounder-city-pop-zurich",
+      "slug": "allrounder-tecnico-city-pop-zurich",
       "slugByLocale": {
         "de": "techniker-allrounder-city-pop-zurich",
-        "it": "techniker-allrounder-city-pop-zurich",
-        "en": "techniker-allrounder-city-pop-zurich",
-        "fr": "techniker-allrounder-city-pop-zurich"
+        "it": "allrounder-tecnico-city-pop-zurich",
+        "en": "technician-allrounder-city-pop-zurich",
+        "fr": "technicien-polyvalent-city-pop-zurich"
       },
       "company": "City Pop",
       "companyKey": "city-pop",
@@ -73,16 +73,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:20:14.395Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:14.395Z"
+      "firstSeenAt": "2026-11-09T21:20:14.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-allrounder-city-pop-zurich"
+        ],
+        "en": [
+          "techniker-allrounder-city-pop-zurich"
+        ],
+        "fr": [
+          "techniker-allrounder-city-pop-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-allrounder-city-pop-zurich"
+      ]
     },
     {
       "id": "city-pop-b465e8c4d6e3",
-      "slug": "technical-supervisor-city-pop-lausanne",
+      "slug": "technical-supervisore-city-pop-lausanne",
       "slugByLocale": {
         "en": "technical-supervisor-city-pop-lausanne",
-        "it": "technical-supervisor-city-pop-lausanne",
-        "de": "technical-supervisor-city-pop-lausanne",
-        "fr": "technical-supervisor-city-pop-lausanne"
+        "it": "technical-supervisore-city-pop-lausanne",
+        "de": "technical-vorgesetzter-city-pop-lausanne",
+        "fr": "technical-superviseur-city-pop-lausanne"
       },
       "company": "City Pop",
       "companyKey": "city-pop",
@@ -145,7 +159,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:20:13.986Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:13.986Z"
+      "firstSeenAt": "2026-11-09T21:20:13.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-supervisor-city-pop-lausanne"
+        ],
+        "de": [
+          "technical-supervisor-city-pop-lausanne"
+        ],
+        "fr": [
+          "technical-supervisor-city-pop-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technical-supervisor-city-pop-lausanne"
+      ]
     }
   ]
 }

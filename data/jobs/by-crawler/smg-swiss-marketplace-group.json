@@ -979,12 +979,12 @@
     },
     {
       "id": "smg-swiss-marketplace-group-4d2c45ac8ef6",
-      "slug": "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz",
+      "slug": "sales-account-manager-immobiliare-m-f-d-100-modello-di-lavoro-ibrido-northwestern-svizzera-region-smg-swiss-marketplace",
       "slugByLocale": {
         "de": "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz",
-        "it": "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz",
+        "it": "sales-account-manager-immobiliare-m-f-d-100-modello-di-lavoro-ibrido-northwestern-svizzera-region-smg-swiss-marketplace",
         "en": "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz",
-        "fr": "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz"
+        "fr": "directeur-de-compte-de-ventes-immobilier-h-f-d-100-modele-de-travail-hybride-region-nord-ouest-de-la-suisse-smg-swiss"
       },
       "company": "SMG Swiss Marketplace Group",
       "companyKey": "smg-swiss-marketplace-group",
@@ -1047,7 +1047,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:16:13.183Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:16:13.183Z"
+      "firstSeenAt": "2026-11-09T21:16:13.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz"
+        ],
+        "fr": [
+          "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "sales-account-manager-real-estate-w-m-d-100-hybrid-working-model-region-nordwestschweiz"
+      ]
     },
     {
       "id": "smg-swiss-marketplace-group-e20f3687fa12",

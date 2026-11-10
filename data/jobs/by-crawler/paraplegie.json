@@ -2078,12 +2078,12 @@
     },
     {
       "id": "paraplegie-ed17057df5ba",
-      "slug": "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "gestore-della-stazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "stationsdisponent-in-pflege-paraplegie-nottwil",
-        "it": "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "gestore-della-stazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "warddispatcher-nursing-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "prepose-e-aux-soins-de-la-station-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2132,11 +2132,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stationsdisponent-in-pflege-paraplegie-nottwil"
+          "stationsdisponent-in-pflege-paraplegie-nottwil",
+          "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "stationsdisponent-in-pflege-paraplegie-nottwil"
+        "stationsdisponent-in-pflege-paraplegie-nottwil",
+        "stationsdisponent-in-pflege-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

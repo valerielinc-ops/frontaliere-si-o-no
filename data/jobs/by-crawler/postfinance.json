@@ -2209,8 +2209,8 @@
       "slugByLocale": {
         "de": "leiter-in-customer-excellence-privatkunden-postfinance",
         "it": "responsabile-customer-excellence-privatkunden-postfinance-bern",
-        "en": "leiter-in-customer-excellence-privatkunden-postfinance",
-        "fr": "leiter-in-customer-excellence-privatkunden-postfinance"
+        "en": "head-of-customer-excellence-private-clients-postfinance-bern",
+        "fr": "responsable-in-customer-excellence-clientele-privee-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -2237,6 +2237,12 @@
       "id": "postfinance-1e0dafd98d10",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-customer-excellence-privatkunden-postfinance"
+        ],
+        "en": [
+          "leiter-in-customer-excellence-privatkunden-postfinance"
+        ],
+        "fr": [
           "leiter-in-customer-excellence-privatkunden-postfinance"
         ]
       },

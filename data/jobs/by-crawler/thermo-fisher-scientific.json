@@ -1060,7 +1060,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -1111,7 +1111,8 @@
         "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
         "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
         "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1126,7 +1127,8 @@
           "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
         ],
         "de": [
-          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil"
@@ -1152,10 +1154,10 @@
     },
     {
       "id": "thermo-fisher-scientific-bc771db68a58",
-      "slug": "technician-print-production-thermo-fisher-scientific-ch",
+      "slug": "tecnico-produzione-di-stampa-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
         "en": "technician-print-production-thermo-fisher-scientific-ch",
-        "it": "technician-print-production-thermo-fisher-scientific-ch",
+        "it": "tecnico-produzione-di-stampa-thermo-fisher-scientific-schweiz-ag-allschwil",
         "de": "technician-print-production-thermo-fisher-scientific-ch",
         "fr": "technician-print-production-thermo-fisher-scientific-ch"
       },
@@ -1219,7 +1221,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:21:47.776Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:21:47.776Z"
+      "firstSeenAt": "2026-11-09T21:21:47.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-print-production-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technician-print-production-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-3872543f041f",

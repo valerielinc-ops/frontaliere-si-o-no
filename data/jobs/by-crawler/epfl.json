@@ -5986,12 +5986,12 @@
     },
     {
       "id": "epfl-e1f9fbf6ff48",
-      "slug": "lecturer-in-computer-science-epfl-lausanne",
+      "slug": "docente-in-informatica-epfl-lausanne",
       "slugByLocale": {
         "en": "lecturer-in-computer-science-epfl-lausanne",
-        "it": "lecturer-in-computer-science-epfl-lausanne",
-        "de": "lecturer-in-computer-science-epfl-lausanne",
-        "fr": "lecturer-in-computer-science-epfl-lausanne"
+        "it": "docente-in-informatica-epfl-lausanne",
+        "de": "dozent-fur-informatik-epfl-lausanne",
+        "fr": "enseignant-en-informatique-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6056,7 +6056,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:23:24.145Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:23:24.145Z"
+      "firstSeenAt": "2026-11-09T21:23:24.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lecturer-in-computer-science-epfl-lausanne"
+        ],
+        "de": [
+          "lecturer-in-computer-science-epfl-lausanne"
+        ],
+        "fr": [
+          "lecturer-in-computer-science-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "lecturer-in-computer-science-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-e2e7220070f5",

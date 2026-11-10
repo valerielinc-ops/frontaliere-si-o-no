@@ -945,7 +945,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -995,7 +995,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1004,7 +1004,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4228,12 +4228,12 @@
     },
     {
       "id": "unibe-c60a4fed7221",
-      "slug": "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and",
+      "slug": "posizione-phd-4-anni-si-ricordano-i-sistemi-ecologici-informazioni-debito-ecologico-ed-evoluzione-sotto-gli-estremi",
       "slugByLocale": {
         "en": "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and",
-        "it": "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and",
-        "de": "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and",
-        "fr": "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and"
+        "it": "posizione-phd-4-anni-si-ricordano-i-sistemi-ecologici-informazioni-debito-ecologico-ed-evoluzione-sotto-gli-estremi",
+        "de": "phd-stelle-4-jahre-konnen-sich-okologische-systeme-erinnern-information-okologische-verschuldung-und-evolution-unter",
+        "fr": "doctorat-4-ans-les-systemes-ecologiques-peuvent-ils-se-rappeler-information-dette-ecologique-et-evolution-sous-les"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4295,7 +4295,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:39:50.390Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:39:50.390Z"
+      "firstSeenAt": "2026-11-09T21:39:50.390Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and"
+        ],
+        "de": [
+          "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and"
+        ],
+        "fr": [
+          "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-4-years-can-ecological-systems-remember-information-ecological-debt-and"
+      ]
     },
     {
       "id": "unibe-c5c1a434b610",
@@ -4464,12 +4478,12 @@
     },
     {
       "id": "unibe-9035a35c017c",
-      "slug": "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches",
+      "slug": "collaboratore-70-80-universitat-bern-avenches",
       "slugByLocale": {
         "fr": "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches",
-        "it": "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches",
-        "en": "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches",
-        "de": "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches"
+        "it": "collaboratore-70-80-universitat-bern-avenches",
+        "en": "secretariat-collaborator-70-80-universitat-bern-avenches",
+        "de": "sekretariat-mitarbeiter-70-80-universitat-bern-avenches"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4531,16 +4545,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:39:50.379Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:39:50.379Z"
+      "firstSeenAt": "2026-11-09T21:39:50.379Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches"
+        ],
+        "en": [
+          "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches"
+        ],
+        "de": [
+          "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-pour-le-secretariat-70-80-unibe-avenches"
+      ]
     },
     {
       "id": "unibe-38e04b5c354c",
-      "slug": "hilfsassistenz-25-35-unibe-bern",
+      "slug": "assistenza-25-35-universitat-bern-bern",
       "slugByLocale": {
         "de": "hilfsassistenz-25-35-unibe-bern",
-        "it": "hilfsassistenz-25-35-unibe-bern",
-        "en": "hilfsassistenz-25-35-unibe-bern",
-        "fr": "hilfsassistenz-25-35-unibe-bern"
+        "it": "assistenza-25-35-universitat-bern-bern",
+        "en": "assistance-25-35-universitat-bern-bern",
+        "fr": "aide-de-25-a-35-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4602,16 +4630,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:39:50.347Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:39:50.347Z"
+      "firstSeenAt": "2026-11-09T21:39:50.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistenz-25-35-unibe-bern"
+        ],
+        "en": [
+          "hilfsassistenz-25-35-unibe-bern"
+        ],
+        "fr": [
+          "hilfsassistenz-25-35-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistenz-25-35-unibe-bern"
+      ]
     },
     {
       "id": "unibe-381878d823e7",
-      "slug": "doktorandin-doktorand-precise-mdd-unibe-bern",
+      "slug": "dottorato-candidato-medico-precise-mdd-universitat-bern-bern",
       "slugByLocale": {
         "de": "doktorandin-doktorand-precise-mdd-unibe-bern",
-        "it": "doktorandin-doktorand-precise-mdd-unibe-bern",
-        "en": "doktorandin-doktorand-precise-mdd-unibe-bern",
-        "fr": "doktorandin-doktorand-precise-mdd-unibe-bern"
+        "it": "dottorato-candidato-medico-precise-mdd-universitat-bern-bern",
+        "en": "doctoral-candidate-doctoral-candidate-precise-mdd-universitat-bern-bern",
+        "fr": "candidate-au-doctorat-candidate-au-doctorat-precise-mdd-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4673,7 +4715,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:39:50.338Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:39:50.338Z"
+      "firstSeenAt": "2026-11-09T21:39:50.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorandin-doktorand-precise-mdd-unibe-bern"
+        ],
+        "en": [
+          "doktorandin-doktorand-precise-mdd-unibe-bern"
+        ],
+        "fr": [
+          "doktorandin-doktorand-precise-mdd-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "doktorandin-doktorand-precise-mdd-unibe-bern"
+      ]
     },
     {
       "id": "unibe-12d39a0c8ed0",

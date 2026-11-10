@@ -176,12 +176,12 @@
     },
     {
       "id": "saint-gobain-weber-isover-52020b1d9697",
-      "slug": "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil",
+      "slug": "specialista-transport-management-sap-logistica-100-saint-gobain-weber-ag-volketswil",
       "slugByLocale": {
         "de": "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil",
-        "it": "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil",
+        "it": "specialista-transport-management-sap-logistica-100-saint-gobain-weber-ag-volketswil",
         "en": "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil",
-        "fr": "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil"
+        "fr": "specialiste-transport-management-sap-logistique-100-saint-gobain-weber-ag-volketswil"
       },
       "company": "Saint-Gobain Weber AG",
       "companyKey": "saint-gobain-weber-isover",
@@ -244,16 +244,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:43:17.065Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:43:17.065Z"
+      "firstSeenAt": "2026-11-09T21:43:17.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil"
+        ],
+        "fr": [
+          "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-transport-management-sap-logistics-100-saint-gobain-weber-isover-volketswil"
+      ]
     },
     {
       "id": "saint-gobain-weber-isover-50c496e06cd6",
-      "slug": "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil",
+      "slug": "deviseur-specialist-tenders-for-construction-saint-gobain-weber-ag-volketswil",
       "slugByLocale": {
         "de": "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil",
-        "it": "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil",
+        "it": "deviseur-specialist-tenders-for-construction-saint-gobain-weber-ag-volketswil",
         "en": "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil",
-        "fr": "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil"
+        "fr": "conseiller-offres-de-specialistes-pour-la-construction-saint-gobain-weber-ag-volketswil"
       },
       "company": "Saint-Gobain Weber AG",
       "companyKey": "saint-gobain-weber-isover",
@@ -315,7 +326,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:43:16.273Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:43:16.273Z"
+      "firstSeenAt": "2026-11-09T21:43:16.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil"
+        ],
+        "fr": [
+          "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "deviseur-fachspezialist-ausschreibungen-bauwesen-saint-gobain-weber-isover-volketswil"
+      ]
     }
   ]
 }

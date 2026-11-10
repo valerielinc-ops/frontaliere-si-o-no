@@ -3843,12 +3843,12 @@
     },
     {
       "id": "senevita-9f15685823fc",
-      "slug": "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon",
+      "slug": "professionista-attivazione-40-60-senevita-zh-dietikon",
       "slugByLocale": {
         "de": "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon",
-        "it": "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon",
-        "en": "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon",
-        "fr": "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon"
+        "it": "professionista-attivazione-40-60-senevita-zh-dietikon",
+        "en": "specialist-activation-40-60-senevita-zh-dietikon",
+        "fr": "specialiste-activation-40-60-senevita-zh-dietikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3911,7 +3911,21 @@
       "streetAddress": "ZH Dietikon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T21:29:59.789Z"
+      "firstSeenAt": "2026-11-09T21:29:59.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon"
+        ],
+        "en": [
+          "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon"
+        ],
+        "fr": [
+          "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-aktivierung-40-60-senevita-zh-dietikon"
+      ]
     },
     {
       "id": "senevita-4d1e2de9d9ef",
@@ -8975,7 +8989,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9021,7 +9035,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9031,7 +9045,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,

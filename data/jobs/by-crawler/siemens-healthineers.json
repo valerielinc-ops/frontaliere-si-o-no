@@ -421,11 +421,11 @@
     },
     {
       "id": "siemens-healthineers-093ed63f135c",
-      "slug": "software-engineer-siemens-healthineers-ch",
+      "slug": "software-ingegnere-siemens-healthineers-baden",
       "slugByLocale": {
         "en": "software-engineer-siemens-healthineers-ch",
-        "it": "software-engineer-siemens-healthineers-ch",
-        "de": "software-engineer-siemens-healthineers-ch",
+        "it": "software-ingegnere-siemens-healthineers-baden",
+        "de": "software-ingenieur-siemens-healthineers-baden",
         "fr": "software-engineer-siemens-healthineers-ch"
       },
       "company": "Siemens Healthineers",
@@ -489,7 +489,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:29:48.333Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:29:48.333Z"
+      "firstSeenAt": "2026-11-09T21:29:48.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-siemens-healthineers-ch"
+        ],
+        "de": [
+          "software-engineer-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-f64c15516f90",

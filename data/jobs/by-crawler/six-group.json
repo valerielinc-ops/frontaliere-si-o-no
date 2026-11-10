@@ -2230,12 +2230,12 @@
     },
     {
       "id": "six-group-aea7657d2fe4",
-      "slug": "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten",
+      "slug": "addetto-a-alle-cartelle-ipotecarie-100-six-group-olten",
       "slugByLocale": {
         "de": "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten",
-        "it": "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten",
-        "en": "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten",
-        "fr": "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten"
+        "it": "addetto-a-alle-cartelle-ipotecarie-100-six-group-olten",
+        "en": "registrar-of-registered-debts-100-six-group-olten",
+        "fr": "responsable-des-cedules-hypothecaires-100-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2298,7 +2298,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:45:53.700Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:45:53.700Z"
+      "firstSeenAt": "2026-11-09T21:45:53.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten"
+        ],
+        "en": [
+          "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten"
+        ],
+        "fr": [
+          "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-registerschuldbriefe-100-six-group-olten"
+      ]
     },
     {
       "id": "six-group-6383d5dc71c2",

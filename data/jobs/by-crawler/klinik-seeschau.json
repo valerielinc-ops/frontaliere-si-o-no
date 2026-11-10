@@ -257,12 +257,12 @@
     },
     {
       "id": "klinik-seeschau-3a1bddae9a28",
-      "slug": "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen",
+      "slug": "gestione-della-stazione-vice-gestione-servizio-di-infermiera-klinik-seeschau-kreuzlingen",
       "slugByLocale": {
         "de": "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen",
-        "it": "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen",
-        "en": "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen",
-        "fr": "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen"
+        "it": "gestione-della-stazione-vice-gestione-servizio-di-infermiera-klinik-seeschau-kreuzlingen",
+        "en": "station-management-deputy-management-nursing-service-klinik-seeschau-kreuzlingen",
+        "fr": "gestion-des-postes-gestion-adjointe-services-infirmiers-klinik-seeschau-kreuzlingen"
       },
       "company": "Klinik Seeschau",
       "companyKey": "klinik-seeschau",
@@ -335,7 +335,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:45:58.005Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:45:58.005Z"
+      "firstSeenAt": "2026-11-09T21:45:58.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen"
+        ],
+        "en": [
+          "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen"
+        ],
+        "fr": [
+          "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleitung-stellvertretende-leitung-pflegedienst-klinik-seeschau-kreuzlingen"
+      ]
     }
   ]
 }

@@ -837,8 +837,8 @@
       "slugByLocale": {
         "de": "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch",
         "it": "montage-collaboratore-trice-schicht-100-m-w-d-georg-fischer-seewis",
-        "en": "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch",
-        "fr": "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch"
+        "en": "assembly-employee-layer-100-m-f-d-georg-fischer-seewis",
+        "fr": "assemblage-couche-employe-100-h-f-d-georg-fischer-seewis"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -885,6 +885,12 @@
       "jobReqId": "JR11589",
       "previousSlugsByLocale": {
         "it": [
+          "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
           "montage-mitarbeiter-schicht-100-m-w-d-georg-fischer-ch"
         ]
       },

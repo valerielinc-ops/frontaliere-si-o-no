@@ -2130,12 +2130,12 @@
     },
     {
       "id": "asana-spital-73f1030d4d15",
-      "slug": "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern",
+      "slug": "dirigente-di-reparto-infermiera-a-lungo-termine-100-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
         "de": "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern",
-        "it": "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern",
-        "en": "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern",
-        "fr": "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern"
+        "it": "dirigente-di-reparto-infermiera-a-lungo-termine-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "head-of-ward-long-term-care-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "chef-fe-de-service-soins-de-longue-duree-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2198,7 +2198,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:24:00.905Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:24:00.905Z"
+      "firstSeenAt": "2026-11-09T21:24:00.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern"
+        ],
+        "en": [
+          "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern"
+        ],
+        "fr": [
+          "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-langzeitpflege-100-asana-spital-leuggern"
+      ]
     }
   ]
 }

@@ -692,12 +692,12 @@
     },
     {
       "id": "tschuggen-2b6a8385ccbe",
-      "slug": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "colazione-cuoco-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "en": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "it": "colazione-cuoco-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+        "en": "breakfast-cook-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
+        "fr": "petit-dejeuner-cuisinier-h-f-d-hiver-saison-2026-2027-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -775,7 +775,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:18:59.845Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:18:59.845Z"
+      "firstSeenAt": "2026-11-09T21:18:59.845Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "en": [
+          "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fruhstuckskoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     }
   ]
 }

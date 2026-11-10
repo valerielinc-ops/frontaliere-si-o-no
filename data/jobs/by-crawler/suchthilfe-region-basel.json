@@ -258,12 +258,12 @@
     },
     {
       "id": "suchthilfe-region-basel-0e01d672c8c7",
-      "slug": "collaboratore-trice-in-dibs-beratungszentrum-50-suchthilfe-region-basel",
+      "slug": "collaboratore-tricea-dibs-e-centro-di-consulenza-50-suchthilfe-region-basel-basel",
       "slugByLocale": {
         "de": "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel",
-        "it": "collaboratore-trice-in-dibs-beratungszentrum-50-suchthilfe-region-basel",
-        "en": "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel",
-        "fr": "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel"
+        "it": "collaboratore-tricea-dibs-e-centro-di-consulenza-50-suchthilfe-region-basel-basel",
+        "en": "employee-dibs-consulting-centre-50-suchthilfe-region-basel-basel",
+        "fr": "employe-e-dibs-et-centre-de-conseil-50-suchthilfe-region-basel-basel"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -311,11 +311,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel",
+          "collaboratore-trice-in-dibs-beratungszentrum-50-suchthilfe-region-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel"
+        "mitarbeiter-in-dibs-beratungszentrum-50-suchthilfe-region-basel-basel",
+        "collaboratore-trice-in-dibs-beratungszentrum-50-suchthilfe-region-basel"
       ],
       "salaryMin": 44000,
       "salaryMax": 61500,

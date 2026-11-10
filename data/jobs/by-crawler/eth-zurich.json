@@ -9296,12 +9296,12 @@
     },
     {
       "id": "eth-zurich-a33378287634",
-      "slug": "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch",
+      "slug": "assistente-studentesco-analisi-dei-dati-per-la-contabilita-a-gas-serra-eth-zurich-zurich",
       "slugByLocale": {
         "en": "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch",
-        "it": "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch",
+        "it": "assistente-studentesco-analisi-dei-dati-per-la-contabilita-a-gas-serra-eth-zurich-zurich",
         "de": "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch",
-        "fr": "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch"
+        "fr": "assistant-etudiant-analyse-des-donnees-pour-la-comptabilite-des-gaz-a-effet-de-serre-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9363,7 +9363,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:48:54.990Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:48:54.990Z"
+      "firstSeenAt": "2026-11-09T21:48:54.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch"
+        ],
+        "fr": [
+          "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-data-analysis-for-greenhouse-gas-accounting-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1ae4f295f080",
@@ -9454,8 +9465,8 @@
       "slugByLocale": {
         "de": "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch",
         "it": "laboringenieur-robotik-e-simulation-m-w-d-eth-zurich",
-        "en": "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch",
-        "fr": "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch"
+        "en": "laboratory-engineer-robotics-and-simulation-m-f-d-eth-zurich-zurich",
+        "fr": "ingenieur-de-laboratoire-robotique-et-simulation-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9500,6 +9511,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "laboringenieur-robotik-und-simulation-m-w-d-eth-zurich-ch"
         ]
       },

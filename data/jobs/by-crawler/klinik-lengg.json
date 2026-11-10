@@ -1633,12 +1633,12 @@
     },
     {
       "id": "klinik-lengg-2b4b7aad11f0",
-      "slug": "pflegeassistentin-pflegeassistent-srk-o-assistentin-assistent-gesundheit-e-soziales-klinik-lengg-zurich",
+      "slug": "assistente-infermieristica-crs-o-assistente-assistente-sanitario-e-sociale-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales",
-        "it": "pflegeassistentin-pflegeassistent-srk-o-assistentin-assistent-gesundheit-e-soziales-klinik-lengg-zurich",
-        "en": "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales",
-        "fr": "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales"
+        "it": "assistente-infermieristica-crs-o-assistente-assistente-sanitario-e-sociale-klinik-lengg-zurich",
+        "en": "nursing-assistant-nursing-assistant-srk-or-assistant-health-and-social-assistant-klinik-lengg-zurich",
+        "fr": "assistant-infirmier-assistant-infirmier-srk-ou-assistant-assistant-en-sante-et-social-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1687,11 +1687,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales",
+          "pflegeassistentin-pflegeassistent-srk-o-assistentin-assistent-gesundheit-e-soziales-klinik-lengg-zurich"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales"
+        ],
+        "fr": [
           "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales"
         ]
       },
       "previousSlugs": [
-        "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales"
+        "pflegeassistentin-pflegeassistent-srk-oder-assistentin-assistent-gesundheit-und-soziales",
+        "pflegeassistentin-pflegeassistent-srk-o-assistentin-assistent-gesundheit-e-soziales-klinik-lengg-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

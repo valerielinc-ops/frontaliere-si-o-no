@@ -3060,12 +3060,12 @@
     },
     {
       "id": "sro-872e204626b5",
-      "slug": "bereichsleiter-in-patientenadministration-100-sro-langenthal",
+      "slug": "responsabile-area-amministrazione-pazienti-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "bereichsleiter-in-patientenadministration-100-sro-langenthal",
-        "it": "bereichsleiter-in-patientenadministration-100-sro-langenthal",
-        "en": "bereichsleiter-in-patientenadministration-100-sro-langenthal",
-        "fr": "bereichsleiter-in-patientenadministration-100-sro-langenthal"
+        "it": "responsabile-area-amministrazione-pazienti-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "head-of-patient-administration-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "responsable-du-secteur-administration-des-patients-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3132,7 +3132,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-09T21:20:19.447Z"
+      "firstSeenAt": "2026-11-09T21:20:19.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-patientenadministration-100-sro-langenthal"
+        ],
+        "en": [
+          "bereichsleiter-in-patientenadministration-100-sro-langenthal"
+        ],
+        "fr": [
+          "bereichsleiter-in-patientenadministration-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-patientenadministration-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-a2112ffe394d",

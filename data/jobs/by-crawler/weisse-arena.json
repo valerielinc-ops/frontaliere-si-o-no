@@ -1107,12 +1107,12 @@
     },
     {
       "id": "weisse-arena-4ab91669ba4a",
-      "slug": "multimedia-producer-weisse-arena-ch",
+      "slug": "produttore-multimediale-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "multimedia-producer-weisse-arena-ch",
-        "it": "multimedia-producer-weisse-arena-ch",
+        "it": "produttore-multimediale-weisse-arena-gruppe-laax",
         "en": "multimedia-producer-weisse-arena-ch",
-        "fr": "multimedia-producer-weisse-arena-ch"
+        "fr": "producteur-multimedia-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1179,7 +1179,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:20:57.641Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:20:57.641Z"
+      "firstSeenAt": "2026-11-09T21:20:57.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "multimedia-producer-weisse-arena-ch"
+        ],
+        "fr": [
+          "multimedia-producer-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "multimedia-producer-weisse-arena-ch"
+      ]
     }
   ]
 }

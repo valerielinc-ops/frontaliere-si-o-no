@@ -800,12 +800,12 @@
     },
     {
       "id": "logitech-d7e6b52fa1f9",
-      "slug": "technology-innovation-lead-logitech-ch",
+      "slug": "leader-dell-innovazione-tecnologica-logitech-lausanne",
       "slugByLocale": {
         "en": "technology-innovation-lead-logitech-ch",
-        "it": "technology-innovation-lead-logitech-ch",
+        "it": "leader-dell-innovazione-tecnologica-logitech-lausanne",
         "de": "technology-innovation-lead-logitech-ch",
-        "fr": "technology-innovation-lead-logitech-ch"
+        "fr": "chef-de-file-de-l-innovation-technologique-logitech-lausanne"
       },
       "company": "Logitech",
       "companyKey": "logitech",
@@ -867,7 +867,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:45:43.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:45:43.666Z"
+      "firstSeenAt": "2026-11-09T21:45:43.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-innovation-lead-logitech-ch"
+        ],
+        "fr": [
+          "technology-innovation-lead-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technology-innovation-lead-logitech-ch"
+      ]
     }
   ]
 }

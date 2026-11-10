@@ -4164,12 +4164,12 @@
     },
     {
       "id": "pantr-ch-b9ee48790605",
-      "slug": "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605",
+      "slug": "referente-fiduciario-pantr-gmbh-riedholz-solothurn-b9ee48790605",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605",
-        "it": "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605",
-        "en": "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605",
-        "fr": "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605"
+        "it": "referente-fiduciario-pantr-gmbh-riedholz-solothurn-b9ee48790605",
+        "en": "clerk-trustee-pantr-gmbh-riedholz-solothurn-b9ee48790605",
+        "fr": "responsable-fiduciaire-pantr-gmbh-riedholz-solothurn-b9ee48790605"
       },
       "slugDisambiguator": "b9ee48790605",
       "company": "Pantr GmbH",
@@ -4233,7 +4233,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:40:27.857Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:40:27.857Z"
+      "firstSeenAt": "2026-11-09T21:40:27.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605"
+        ],
+        "en": [
+          "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605"
+        ],
+        "fr": [
+          "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-treuhand-pantr-gmbh-riedholz-solothurn-b9ee48790605"
+      ]
     }
   ]
 }

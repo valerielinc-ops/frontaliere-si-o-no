@@ -706,12 +706,12 @@
     },
     {
       "id": "arxada-854f45dc6ee9",
-      "slug": "manager-occupational-safety-and-hygiene-arxada-ch",
+      "slug": "responsabile-sicurezza-sul-lavoro-e-igiene-arxada-visp",
       "slugByLocale": {
         "de": "manager-occupational-safety-and-hygiene-arxada-ch",
-        "it": "manager-occupational-safety-and-hygiene-arxada-ch",
+        "it": "responsabile-sicurezza-sul-lavoro-e-igiene-arxada-visp",
         "en": "manager-occupational-safety-and-hygiene-arxada-ch",
-        "fr": "manager-occupational-safety-and-hygiene-arxada-ch"
+        "fr": "gestionnaire-securite-et-hygiene-au-travail-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -786,7 +786,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:37:43.771Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T21:37:43.771Z"
+      "firstSeenAt": "2026-11-09T21:37:43.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-occupational-safety-and-hygiene-arxada-ch"
+        ],
+        "fr": [
+          "manager-occupational-safety-and-hygiene-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-occupational-safety-and-hygiene-arxada-ch"
+      ]
     }
   ]
 }
