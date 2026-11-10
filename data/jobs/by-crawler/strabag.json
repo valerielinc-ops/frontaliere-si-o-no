@@ -964,10 +964,10 @@
     },
     {
       "id": "strabag-a80c68d6c4c0",
-      "slug": "technische-r-controller-in-strabag-schlieren",
+      "slug": "controllore-tecnico-strabag-ag-schlieren",
       "slugByLocale": {
         "de": "technische-r-controller-in-strabag-schlieren",
-        "it": "technische-r-controller-in-strabag-schlieren",
+        "it": "controllore-tecnico-strabag-ag-schlieren",
         "en": "technical-controller-strabag-ag-schlieren",
         "fr": "controleur-technique-strabag-ag-schlieren"
       },
@@ -1044,7 +1044,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T09:35:56.375Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T21:49:41.196Z"
+      "firstSeenAt": "2026-10-07T21:49:41.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-controller-in-strabag-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-controller-in-strabag-schlieren"
+      ]
     },
     {
       "id": "strabag-b88c3df8994a",

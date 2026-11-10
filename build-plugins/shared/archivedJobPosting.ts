@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
-import { buildJobPostingSchema, type BuildJobPostingOptions, type JobInput } from './jobPostingSchema';
+import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type BuildJobPostingOptions, type JobInput } from './jobPostingSchema';
 import { jobDescriptionPlainText } from '../../services/jobs/descriptionPreview';
 
 const ARCHIVE_FALLBACK_DAYS = 1;
@@ -43,5 +43,13 @@ export function buildArchivedJobPosting(job: JobInput, notice: string, options: 
     datePosted: datePosted || undefined,
     validThrough: new Date(archiveValidThrough).toISOString(),
     validThroughSource: 'archive-evidence',
-  }, { ...options, now: schemaNow });
+  }, {
+    ...options,
+    now: schemaNow,
+    // The assisted application (directApply: true on active pages, owner
+    // decision 2026-11-10) is not offered for a closed vacancy, so an archive
+    // keeps the evidence-only rule: true only when the recorded apply URL is
+    // on the employer's own domain.
+    directApply: isEmployerOwnedApplyUrl(job),
+  });
 }

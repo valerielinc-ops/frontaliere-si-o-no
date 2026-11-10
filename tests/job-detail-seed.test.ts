@@ -46,9 +46,11 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(seed.descriptionPreview).toBe('lange Beschreibung');
     });
 
-    it("keeps the employer's original title in every locale (only the UI is translated)", () => {
-      expect(buildSlimSeed(sampleJob, 'de').title).toBe('Assistant base');
-      expect(buildSlimSeed(sampleJob, 'it').title).toBe('Assistant base');
+    it("seeds the title in the page's language, the original only without a translation", () => {
+      // Owner decision 2026-11-10: the SPA paints the locale's translated title.
+      expect(buildSlimSeed(sampleJob, 'de').title).toBe('Assistant DE');
+      expect(buildSlimSeed(sampleJob, 'it').title).toBe('Assistant IT');
+      expect(buildSlimSeed(sampleJob, 'fr').title).toBe('Assistant base');
     });
 
     it('falls back to base fields when the locale is missing', () => {

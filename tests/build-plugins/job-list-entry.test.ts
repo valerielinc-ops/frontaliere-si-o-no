@@ -5,15 +5,15 @@ const opts = { locale: 'it', url: 'https://frontaliereticino.ch/cerca-lavoro-tic
 describe('job-list structured data', () => {
   it('links to the detail without declaring a second JobPosting', () => {
     expect(buildJobListEntry({ title: 'Nurse', titleByLocale: { it: 'Infermiere' }, description: 'a'.repeat(4000) }, opts))
-      .toEqual({ '@type': 'WebPage', name: 'Nurse', url: opts.url });
+      .toEqual({ '@type': 'WebPage', name: 'Infermiere', url: opts.url });
   });
-  it("names the employer's original title, never the translated slot", () => {
+  it('falls back to the original title when the locale slot only truncates it', () => {
     expect(buildJobListEntry({ title: 'Macchinista M1, M2,M3', titleByLocale: { it: 'Macchinista M1, M2,M3', de: 'M1, M2' } }, { ...opts, locale: 'de' }))
       .toEqual({ '@type': 'WebPage', name: 'Macchinista M1, M2,M3', url: opts.url });
   });
   it('uses the display title in JSON-LD when a title contains AI narrative', () => {
     const narrative = 'I need to see the current job data before translating: **Assistente vendite 80%** However, the translation breaks down because the context is missing.';
-    expect(buildJobListEntry({ title: narrative, titleByLocale: { it: 'Sales assistant' } }, opts))
+    expect(buildJobListEntry({ title: 'Sales assistant', titleByLocale: { it: narrative } }, opts))
       .toEqual({ '@type': 'WebPage', name: 'Assistente vendite 80%', url: opts.url });
   });
   it('does not invent a listing when the title or detail URL is absent', () => {
