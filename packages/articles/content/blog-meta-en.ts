@@ -13696,6 +13696,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contro-aumento-iva-pesa-meno.title': 'Against a VAT increase: a tax that weighs more heavily on those who have less',
     'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'The position of the Communist Party does not call into question the payment of the thirteenth pension.',
     'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.tredicesima-avs-pensionati-italia.title': '13th AVS payment for Italian pensioners starting in December 2026',
+    'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'A retiree who was a cross-border worker, is enrolled in the Swiss social security system and receives a full AVS pension of 2’520 francs per month will receive an identical amount as a thirteenth monthly payment.',
+    'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

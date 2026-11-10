@@ -13697,6 +13697,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contro-aumento-iva-pesa-meno.title': 'Contro aumento IVA: imposta che pesa più su chi ha meno',
     'blog.article.contro-aumento-iva-pesa-meno.excerpt': 'La posizione del Partito Comunista non mette in discussione l\'erogazione della tredicesima rendita.',
     'blog.article.contro-aumento-iva-pesa-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tredicesima-avs-pensionati-italia.title': '13esima AVS per pensionati italiani da dicembre 2026',
+    'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'Un pensionato che è stato frontaliere, è iscritto al sistema previdenziale elvetico e percepisce una rendita completa AVS di 2’520 franchi mensili riceverà una somma identica a titolo di tredicesima mensilità.',
+    'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
