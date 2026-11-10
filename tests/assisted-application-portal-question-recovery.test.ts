@@ -65,15 +65,14 @@ const recoveryPreferenceQuestions = [
   { id: 'whatsapp', source: 'portal', required: true, question: 'Comunicazione via WhatsApp', type: 'yes_no', options: [], validation: {} },
 ];
 
-function recoveryContext({ answer = 'Candidate-confirmed answer', question = hardRecoveryQuestion,
-  savedOperationalAnswers = { notice: '1 mese', whatsapp: 'No' } } = {}) {
+function recoveryContext({ answer = 'Candidate-confirmed answer', question = hardRecoveryQuestion } = {}) {
   const questions = [...recoveryPreferenceQuestions, question];
   return {
     order: { paymentStatus: 'paid', consentVersion: 'assisted-application-v2', consentedAt: daysAgo(1) },
     flow: {
       state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'],
       dispatch: { mode: 'submit', round: 1, requestedAt: now - 1_000 }, portalAutoRetryCount: 0,
-      answers: { ...savedOperationalAnswers, ...(answer === null ? {} : { [question.id]: answer }) }, questionAnswers: {},
+      answers: answer === null ? {} : { [question.id]: answer }, questionAnswers: {},
     },
     draft: {
       status: 'ready', round: 1, completedAt: now - 2_000, questions,
@@ -95,12 +94,10 @@ it('allows discovery only when an unknown required portal question has a valid s
   expect(operationalPortalRecoveryReady(noHardAnswer)).toBe(false);
 });
 
-it('keeps only the approved workload default while asking about notice and WhatsApp', () => {
-  const current = recoveryContext({ answer: null, savedOperationalAnswers: {} });
+it('keeps the allowlisted preference defaults while never defaulting the hard question', () => {
+  const current = recoveryContext({ answer: null });
   const projected = withOperationalQuestionAnswers(current.draft.questions, current.flow.answers).answers;
-  expect(projected).toMatchObject({ workload: '100%' });
-  expect(projected.notice).toBeUndefined();
-  expect(projected.whatsapp).toBeUndefined();
+  expect(projected).toMatchObject({ notice: '3 mesi', workload: '100%', whatsapp: 'Sì' });
   expect(projected[hardRecoveryQuestion.id]).toBeUndefined();
   expect(operationalPortalRecoveryReady(current)).toBe(false);
 });
@@ -189,7 +186,7 @@ describe('legacy operational portal contract reconciliation', () => {
       { ...question, applicationOptions: Array.from({ length: 20 }, (_, index) => `Source ${index}`) },
     ];
     store.docs.set(base, { ...store.read(base), automationState: 'owner_takeover' });
-    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], answers: { notice: '7 giorni', whatsapp: 'No' } });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], answers: { notice: '7 giorni' } });
     store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions });
     const before = context(store);
     const seen = proof({ fields: [{ ...native, options: Array.from({ length: 20 }, (_, index) => ({ label: `Source ${index}`, value: `${index}` })) }, ...proof().fields.slice(1)] });
@@ -237,7 +234,7 @@ describe('legacy operational portal contract reconciliation', () => {
     const expressible = noticeField(['3 mesi', 'Meno di 1 mese']);
     expect(guardPlan({ actions: [], missingRequired: [] }, [expressible], candidate).actions)
       .toEqual([expect.objectContaining({ fieldId: expressible.id, action: 'select', value: 'Meno di 1 mese', source: 'answers' })]);
-    expect(context(store).flow.answers).toEqual({ notice: '7 giorni', whatsapp: 'No' });
+    expect(context(store).flow.answers).toEqual({ notice: '7 giorni' });
   });
 
   it.each([

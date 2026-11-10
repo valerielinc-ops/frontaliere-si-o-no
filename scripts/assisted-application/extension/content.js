@@ -176,9 +176,6 @@
         return;
       }
       const result = await F.fillPage(document, state.kit, { getFile, getFiles, attempts, uploaded });
-      const manualReview = result.missing.some((item) => [
-        'unconfirmed_checkbox_could_not_be_cleared', 'unconfirmed_consent_choice', 'required_consent_refused', 'required_factual_checkbox_refused', 'consent_choice_unresolved', 'native_contract_unavailable',
-      ].includes(item.reason));
       if (result.entries && !state.sawForm) {
         state.sawForm = true;
         await send({ type: 'mark', sawForm: true });
@@ -188,7 +185,7 @@
         state.sawFinal = true;
         await send({ type: 'mark', sawFinal: true });
         if (result.missing.length) {
-          show(manualReview ? 'Verifica questi campi prima dell’invio:' : 'Mancano risposte prima dell’invio:', 'warn', result.missing.map((item) => item.label));
+          show('Mancano risposte prima dell’invio:', 'warn', result.missing.map((item) => item.label));
           await report('needs', result.missing.map((item) => item.label).join(' · '));
           return;
         }
@@ -199,7 +196,7 @@
         return;
       }
       if (result.missing.length) {
-        show(manualReview ? 'Verifica questi campi prima di continuare:' : 'Completa questi campi obbligatori:', 'warn', result.missing.map((item) => item.label));
+        show('Completa questi campi obbligatori:', 'warn', result.missing.map((item) => item.label));
         await report('needs', result.missing.map((item) => item.label).join(' · '));
         return;
       }

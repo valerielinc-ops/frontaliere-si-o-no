@@ -20,10 +20,8 @@ import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, 
 import { asksHeldStatus, BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField, isPermitField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { isOperationalDefaultValue, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { platformQuestionTopic } from '../../../../functions/src/assistedApplicationPlatformDefaults.js';
-import { isOptionalPurpose } from '../../../../functions/src/lib/applicationConsent.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, consentAnswerPolarity, consentOptionForAnswer, evidenceInData, evidenceSupports, hasExplicitCandidateAnswerSource, hasExplicitConsentAnswerSource, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownConsent, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic, requiresExplicitCandidateAnswer, requiresExplicitConsentAnswer } from './plan.mjs';
+import { isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -77,24 +75,6 @@ export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)
 const INTERMEDIATE_SUBMIT_RE = /^(?:add|insert|hinzufügen|hinzufuegen|einfügen|einfuegen|aggiungi|aggiungere|inserisci|ajouter|ajoutez|añadir|agregar|adicionar|upload|hochladen|carica|caricare|téléverser|televerser|save|salva|speichern|enregistrer)\b/i;
 const APPLICATION_ACTION_RE = /\b(?:application|bewerbung|candidatur\w*|candidature\w*|postulation\w*)\b/i;
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
-const SAFE_NATIVE_ID_RE = /^[A-Za-z0-9_:-]+$/;
-
-const agentLabelKey = (value) => questionFromLabel(value)
-  .replace(/\b\d+\s*\/\s*\d+\s*(?:zeichen|characters?|chars|caratteri|caractères)\b/gi, '')
-  .replace(/\s+/g, ' ').trim().toLowerCase();
-
-function consentSensitiveAction(action) {
-  const field = {
-    ...action,
-    label: action.applicationQuestion || action.question || '',
-    question: action.applicationQuestion || action.question || '',
-    kind: action.kind || (action.action === 'click' ? 'checkbox' : ''),
-  };
-  return action.source === 'consent' || requiresExplicitConsentAnswer(field)
-    || ownConsent({ ...field, required: action.required !== false })
-    || (['select', 'radio', 'combobox', 'listbox'].includes(action.kind)
-      && isOptionalPurpose(field.question, field.context));
-}
 
 function normalizeOptionAnswer(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -280,17 +260,12 @@ const agentTopicKey = (question, context = '') => {
  */
 export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const knownValues = knownValuesOf(candidate);
-  const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question
-    && (!requiresExplicitCandidateAnswer(item)
-      || (requiresExplicitConsentAnswer(item)
-        ? hasExplicitConsentAnswerSource(item?.source)
-        : hasExplicitCandidateAnswerSource(item?.source))));
+  const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
     ...answeredItems.map((item) => questionKey(item.question, item.context, item.section, item.autocomplete)).filter(Boolean),
     ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
   ]);
-  const suppressedActions = new Set();
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
   const isAnswered = (question, context = '', section = '', autocomplete = '') => Boolean(candidateAnswerForQuestion(candidate, question, context, { section, autocomplete }))
     || nativeLanguageKnown(candidate, question, context)
@@ -306,10 +281,6 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     || answeredTopics.has(questionKey(question, context, section, autocomplete))
     || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
-  let unresolvedNativeContract = false;
-  let unresolvedNativeRef = false;
-  let unresolvedConsentAnswer = false;
-  let requiredConsentRefused = false;
   const ask = (item) => {
     const question = questionFromLabel(item.question);
     const context = boundedPortalContext(item.context);
@@ -344,27 +315,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const question = String(action.question || '').trim();
     const context = boundedPortalContext(action.context);
     const { languageAction } = languageActionKind(action);
-    const formQuestion = { question, label: question, applicationQuestion: question, context,
-      section: action.section, autocomplete: action.autocomplete, name: action.nativeName || action.name,
-      id: action.nativeFieldId || action.id, fieldId: action.nativeFieldId || action.fieldId,
-      controlId: action.nativeControlId || action.controlId, options: action.options || [],
-      ...(typeof action.required === 'boolean' ? { required: action.required } : {}),
-      ...(action.portalNativeContract && typeof action.portalNativeContract === 'object' ? { portalNativeContract: action.portalNativeContract } : {}),
-      ...(action.kind ? { kind: action.kind, type: action.kind } : {}) };
-    const operationalTopic = operationalQuestionTopic(formQuestion);
-    const consentTopic = ['application_data_processing_consent', 'privacy_review_ack', 'whatsapp_contact']
-      .includes(operationalTopic);
-    const retentionTopic = operationalTopic === 'application_data_retention';
-    const platformConsentTopic = platformQuestionTopic(formQuestion) === 'marketing_opt_in';
-    const inferredConsent = ownConsent({ ...formQuestion, kind: action.kind || 'checkbox', type: action.kind || 'checkbox', required: action.required !== false });
-    const optionalPurposeConsent = isOptionalPurpose(action.question, context);
-    const checkboxConsent = action.action === 'click' && action.kind === 'checkbox'
-      && (ownConsent({ ...action, label: question, required: action.required !== false })
-        || action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true);
-    const unresolvedNativeConsent = action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true;
     return action.source === 'policy_default'
-      || action.source === 'consent' || consentTopic || retentionTopic || platformConsentTopic
-      || requiresExplicitConsentAnswer(formQuestion) || inferredConsent || optionalPurposeConsent || checkboxConsent || unresolvedNativeConsent
       || (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
@@ -374,168 +325,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const context = boundedPortalContext(action.context);
     const section = boundedPortalContext(action.section);
     const autocomplete = String(action.autocomplete || '').slice(0, 100);
-    const metadata = {
-      section, autocomplete,
-      name: action.nativeName || action.name,
-      id: action.nativeFieldId || action.id,
-      fieldId: action.nativeFieldId || action.fieldId,
-      controlId: action.nativeControlId || action.controlId,
-    };
+    const metadata = { section, autocomplete };
     const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
-    const formQuestion = { question: action.question, label: action.question, applicationQuestion: action.question, context,
-      section, autocomplete, name: action.nativeName || action.name, id: action.nativeFieldId || action.id,
-      fieldId: action.nativeFieldId || action.fieldId, controlId: action.nativeControlId || action.controlId,
-      options: action.options || [],
-      ...(typeof action.required === 'boolean' ? { required: action.required } : {}),
-      ...(action.portalNativeContract && typeof action.portalNativeContract === 'object' ? { portalNativeContract: action.portalNativeContract } : {}),
-      ...(action.kind ? { kind: action.kind, type: action.kind } : {}) };
-    const operationalTopic = operationalQuestionTopic(formQuestion);
-    const consentTopic = ['application_data_processing_consent', 'privacy_review_ack', 'whatsapp_contact']
-      .includes(operationalTopic);
-    const retentionTopic = operationalTopic === 'application_data_retention';
-    const platformConsentTopic = platformQuestionTopic(formQuestion) === 'marketing_opt_in';
-    const inferredConsent = ownConsent({ ...formQuestion, kind: action.kind || 'checkbox', type: action.kind || 'checkbox', required: action.required !== false });
-    const optionalPurposeConsent = isOptionalPurpose(action.question, context);
-    const checkboxConsent = action.action === 'click' && action.kind === 'checkbox'
-      && (ownConsent({ ...action, label: action.question, required: action.required !== false })
-        || action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true);
-    const unresolvedNativeConsent = action.consentOwnershipUnknown === true || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true;
-    if (action.nativeRefMismatch === true) {
-      unresolvedNativeRef = true;
-      suppressedActions.add(action.ref);
-      continue;
-    }
-    if (unresolvedNativeConsent) {
-      unresolvedNativeContract = true;
-      suppressedActions.add(action.ref);
-      continue;
-    }
-    if (retentionTopic) {
-      const stated = String(candidateAnswerForQuestion(candidate, action.question, context, metadata) || '').trim();
-      if (!stated) {
-        if (action.required !== false) ask(action);
-        continue;
-      }
-      if (['fill', 'type', 'select'].includes(action.action)) {
-        action.value = stated;
-        action.answer = stated;
-        action.source = 'answers';
-        grounded.add(questionKey(action.question, context, section, autocomplete));
-        continue;
-      }
-      const target = String(action.answer || action.value || '').trim();
-      if (target && answeredByCandidate(candidate, action.question, target, context, metadata)) {
-        action.answer = stated;
-        action.source = 'answers';
-        grounded.add(questionKey(action.question, context, section, autocomplete));
-        continue;
-      }
-      if (action.required !== false) ask(action);
-      continue;
-    }
-    const consentAction = action.source === 'consent' || consentTopic || platformConsentTopic
-      || requiresExplicitConsentAnswer(formQuestion) || inferredConsent || optionalPurposeConsent || checkboxConsent;
-    if (consentAction) {
-      const consentAnswer = candidateAnswerForField(candidate, formQuestion);
-      const savedAnswer = candidateAnswerForQuestion(candidate, action.question, context, metadata);
-      const explicitSource = ['answers', 'candidate', 'user'].includes(consentAnswer?.source) || Boolean(savedAnswer);
-      const policyPrivacyReadAck = consentAnswer?.source === 'policy_default'
-        && operationalTopic === 'privacy_review_ack';
-      const nativeRequired = action.portalNativeContract?.required;
-      const required = nativeRequired === false ? false
-        : nativeRequired === true ? true
-          : action.required !== false && String(action.required ?? '').trim().toLowerCase() !== 'false';
-      const policyDecline = !explicitSource && !required && (platformConsentTopic || optionalPurposeConsent);
-      const stated = explicitSource ? String(savedAnswer || consentAnswer?.value || '').trim()
-        : policyPrivacyReadAck ? String(consentAnswer.value ?? '').trim()
-          : policyDecline ? 'No' : '';
-      const polarity = consentAnswerPolarity(stated);
-      const answerSource = explicitSource ? 'answers' : policyPrivacyReadAck ? 'policy_default' : 'rule';
-      const key = questionKey(action.question, context, section, autocomplete);
-      if (explicitSource && required && polarity === false) {
-        requiredConsentRefused = true;
-        unresolvedConsentAnswer = true;
-        suppressedActions.add(action.ref);
-        continue;
-      }
-      if (polarity === null) {
-        if (required) ask(action);
-        else if (operationalTopic === 'privacy_review_ack') {
-          // Reading an optional notice is not an application decision; omit
-          // the unchecked acknowledgement without asking the candidate.
-          suppressedActions.add(action.ref);
-          grounded.add(key);
-        }
-        if (savedAnswer) unresolvedConsentAnswer = true;
-        if (action.kind === 'checkbox' && action.checked === true) {
-          if (operationalTopic === 'privacy_review_ack') {
-            // A prechecked reading attestation cannot be silently submitted.
-            // Keep it out of candidate Q&A and stop for operator review.
-            unresolvedConsentAnswer = true;
-          } else if (action.action !== 'click') unresolvedConsentAnswer = true;
-          else {
-            action.answer = '';
-            action.source = 'rule';
-            action.consentGuarded = true;
-            grounded.add(key);
-          }
-        } else if (action.kind === 'checkbox' && action.checked === false && action.action === 'click') {
-          suppressedActions.add(action.ref);
-        }
-        continue;
-      }
-      if (action.kind === 'checkbox') {
-        if (typeof action.checked !== 'boolean') {
-          unresolvedConsentAnswer = true;
-          continue;
-        }
-        if (action.checked === polarity) suppressedActions.add(action.ref);
-        else if (action.action !== 'click') {
-          unresolvedConsentAnswer = true;
-          continue;
-        }
-        action.answer = stated;
-        action.source = answerSource;
-        action.consentGuarded = true;
-        action.expectedConsentChecked = polarity;
-      } else {
-        const choiceControl = action.action === 'select'
-          || ['select', 'radio', 'combobox', 'listbox'].includes(action.kind)
-          || (Array.isArray(action.options) && action.options.length > 0);
-        if (choiceControl) {
-          const selected = consentOptionForAnswer(action.options, stated);
-          if (!selected) {
-            unresolvedConsentAnswer = true;
-            continue;
-          }
-          const current = action.options.find((option) => option?.selected === true || option?.checked === true);
-          const currentLabel = String(current?.label ?? current ?? '').trim();
-          if (currentLabel && consentOptionForAnswer([currentLabel], stated) === currentLabel) {
-            suppressedActions.add(action.ref);
-          } else if (action.action === 'select'
-            || (action.action === 'click' && action.kind === 'radio')) {
-            action.value = selected;
-            action.answer = stated;
-            action.source = answerSource;
-            action.consentGuarded = true;
-            if (action.kind === 'radio' || action.action === 'select') action.expectedConsentOption = selected;
-          } else {
-            unresolvedConsentAnswer = true;
-            continue;
-          }
-        } else if (['fill', 'type'].includes(action.action)) {
-          action.value = stated;
-          action.answer = stated;
-          action.source = answerSource;
-          action.consentGuarded = true;
-        } else {
-          unresolvedConsentAnswer = true;
-          continue;
-        }
-      }
-      grounded.add(key);
-      continue;
-    }
     if (!String(action.question || '').trim() && languageLabelOnly) {
       action.question = languageLabelFallback(context);
     } else if (!String(action.question || '').trim() && (languageIntent || languageAbility || languageContextPresent)) {
@@ -649,26 +440,19 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const autocomplete = String(action.autocomplete || '').slice(0, 100);
     const key = questionKey(action.question, context, section, autocomplete);
     if (grounded.has(key)) continue;
-    // An unresolved native control is an operator-side metadata problem, not
-    // a question the candidate can answer. Keep that hold out of candidate Q&A.
-    if (action.nativeRefMismatch === true || action.consentOwnershipUnknown === true
-      || action.nativeContractUnavailable === true || action.privacyMetadataIncomplete === true) continue;
     refused.add(key);
     ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}), ...(autocomplete ? { autocomplete } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !suppressedActions.has(action.ref)
-    && !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
-  if (unresolvedNativeContract || unresolvedNativeRef || unresolvedConsentAnswer) status = 'stuck';
-  else if (questions.length) status = 'needs_candidate';
+  if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
   else if (status === 'act' && !actions.length) status = 'done';
   return {
     status,
-    reason: (unresolvedNativeContract ? 'native_contract_unresolved' : unresolvedNativeRef ? 'native_ref_mismatch' : requiredConsentRefused ? 'required_consent_refused'
-      : unresolvedConsentAnswer ? 'consent_answer_unmappable' : String(raw.reason || '')).slice(0, 300),
+    reason: String(raw.reason || '').slice(0, 300),
     actions: actions.slice(0, MAX_ACTIONS),
     // The model asked for more than one turn runs: the evidence says so.
     truncated: actions.length > MAX_ACTIONS,
@@ -688,25 +472,11 @@ async function describe(locator) {
     const form = control.closest('form');
     const submits = Boolean(form) && ((control.tagName === 'BUTTON' && (control.getAttribute('type') || 'submit').toLowerCase() === 'submit') || (control.tagName === 'INPUT' && control.type === 'submit'));
     const href = control.tagName === 'A' ? control.getAttribute('href') || '' : '';
-    const labelledBy = String(element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
-      .map((id) => element.ownerDocument.getElementById(id)?.textContent || '').join(' ');
-    const optionName = tag === 'input' && element.type === 'radio'
-      ? [...(element.labels || [])].map((label) => label.innerText || label.textContent || '').join(' ').replace(/\s+/g, ' ').trim()
-        || element.getAttribute('aria-label') || labelledBy
-      : element.getAttribute('role') === 'radio'
-        ? (element.getAttribute('aria-label') || labelledBy || element.innerText || element.textContent || '').replace(/\s+/g, ' ').trim()
-        : '';
-    const selectedOption = tag === 'select' ? element.selectedOptions?.[0] : null;
     return {
       name,
-      optionName: optionName.slice(0, 160),
       button: Boolean(button),
       tag,
       inputType: tag === 'input' ? element.type : '',
-      role: element.getAttribute('role') || '',
-      dataAaId: element.getAttribute('data-aa-id') || '',
-      checked: typeof element.checked === 'boolean' ? element.checked : element.getAttribute('aria-checked') === 'true',
-      selectedOption: selectedOption ? String(selectedOption.label || selectedOption.textContent || '').replace(/\s+/g, ' ').trim() : '',
       editable: element.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea, [contenteditable="true"], [role="textbox"], [role="combobox"], [role="searchbox"], [role="spinbutton"]'),
       inList: Boolean(element.closest('[role="combobox"], [role="listbox"], [role="option"], [role="menu"], [role="grid"], [aria-autocomplete]')) || element.matches('[aria-autocomplete], [aria-haspopup]'),
       submits,
@@ -719,10 +489,6 @@ async function describe(locator) {
 export function refusal(action, info) {
   const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
   const languageAction = languageIntent || languageAbility || languageLabelOnly || languageContextPresent;
-  if (action.expectedConsentOption && action.action === 'click'
-    && normalizeOptionAnswer(info.optionName || info.name) !== normalizeOptionAnswer(action.expectedConsentOption)) {
-    return 'consent_option_mismatch';
-  }
   if (action.action === 'press' && languageIntent
     && !(action.value === 'Enter' && action.source === 'answers' && String(action.answer || '').trim())) {
     return 'language_choice_keyboard_selection_unsupported';
@@ -762,81 +528,39 @@ export function refusal(action, info) {
   return '';
 }
 
-async function chooseOption(page, locator, info, value, question = '', nativeOptions = []) {
-  const nationality = isNationalityField(question);
-  const permit = isPermitField(question) && asksHeldStatus(question);
-  const domainField = nationality || permit;
-  const labelsOf = (items) => (Array.isArray(items) ? items : []).map((option) => {
-    const label = option && typeof option === 'object' ? option.label ?? option.value ?? '' : option ?? '';
-    return String(label).replace(/\s+/g, ' ').trim();
-  }).filter(Boolean);
-  const mapDomainLabel = (labels) => permit
-    ? permitBooleanOptionLabel(value, labels)
-    : nationality ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(question)) : '';
+async function chooseOption(page, locator, info, value, question = '') {
   if (info.tag === 'select') {
     const labels = await locator.evaluate((element) => [...element.options].map((option) => option.textContent || ''));
-    const selectedLabel = mapDomainLabel(labels) || value;
+    const selectedLabel = isNationalityField(question) ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(question)) || value : value;
     await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
     return;
   }
-  if (info.inputType === 'radio' || info.role === 'radio') {
-    const radio = page.getByRole('radio', { name: value, exact: true });
-    if (await radio.count() !== 1) throw new Error('option_not_found');
-    await radio.click({ timeout: ACTION_TIMEOUT_MS });
-    return;
-  }
-  const suppliedLabels = labelsOf(nativeOptions);
-  const suppliedDomainLabel = domainField ? mapDomainLabel(suppliedLabels) : '';
-  let selectedLabel = suppliedDomainLabel || value;
-  let filterLabelKnown = !domainField || Boolean(suppliedDomainLabel);
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
-  if (domainField && !filterLabelKnown) {
-    const available = page.getByRole('option');
-    await available.first().waitFor({ state: 'visible', timeout: 4000 }).catch(() => {});
-    const mapped = mapDomainLabel(labelsOf(await available.allInnerTexts()));
-    if (mapped) {
-      selectedLabel = mapped;
-      filterLabelKnown = true;
-    }
-  }
+  if (info.editable) await locator.pressSequentially(value.slice(0, 40), { delay: 50, timeout: ACTION_TIMEOUT_MS });
   // Only the exact label: "1990" never picks "1990s" (second review of #10707).
-  // Prefer options already shown. If the widget needs a filter, type a strict
-  // prefix so that query text alone can never look like the committed choice.
+  // Without it the action fails and the model, seeing the open list on the
+  // next snapshot, names an option that exists.
+  let selectedLabel = value;
   let exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
-  let exactVisible = false;
   try {
     await exact.waitFor({ state: 'visible', timeout: 4000 });
-    exactVisible = true;
-  } catch { /* Some custom widgets load options only after a query. */ }
-  if (!exactVisible && info.editable && filterLabelKnown) {
-    const trimmed = selectedLabel.trim();
-    const query = trimmed.slice(0, Math.min(40, Math.max(0, trimmed.length - 1))).trimEnd();
-    if (query && normalizeOptionAnswer(query) !== normalizeOptionAnswer(selectedLabel)) {
-      await locator.fill(query, { timeout: ACTION_TIMEOUT_MS });
-      exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
-      try {
-        await exact.waitFor({ state: 'visible', timeout: 4000 });
-        exactVisible = true;
-      } catch { /* The exact native option still may not be available. */ }
-    }
-  }
-  if (!exactVisible && domainField) {
-    const mapped = mapDomainLabel(labelsOf(await page.getByRole('option').allInnerTexts()));
-    if (mapped) {
-      selectedLabel = mapped;
-      exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
-      await exact.waitFor({ state: 'visible', timeout: 4000 }).then(() => { exactVisible = true; }).catch(() => {});
-    }
-  }
-  // If the exact choice is not present, only the two fields with explicit
-  // domain mappings may resolve a translated/native option label.
-  if (!exactVisible) {
-    if (!domainField) {
+  } catch {
+    const permit = isPermitField(question) && asksHeldStatus(question);
+    if (!isNationalityField(question) && !permit) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    await locator.press('Escape').catch(() => {});
-    throw new Error('option_not_found');
+    const options = page.getByRole('option');
+    const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
+    selectedLabel = permit
+      ? permitBooleanOptionLabel(value, labels)
+      : nationalityOptionLabel(value, labels, nationalityFieldLanguage(question));
+    if (!selectedLabel) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
+    await exact.waitFor({ state: 'visible', timeout: 4000 });
   }
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
   // SuccessFactors stores a custom permit choice on blur; Enter is unsafe
@@ -870,99 +594,21 @@ async function upload(page, locator, info, paths) {
 /** One action on its ref; never throws. `files`: how many files an upload set. */
 export async function runAction(page, action, files = {}) {
   try {
-    const binding = action.nativeConsentTarget;
-    if (action.consentGuarded && !binding) return { ok: false, error: 'native_ref_mismatch' };
-    let nativeTargetId = '';
-    let locator;
-    if (binding) {
-      const frame = page.frames?.()[binding.frame];
-      if (!frame || !SAFE_NATIVE_ID_RE.test(String(binding.fieldId || ''))) return { ok: false, error: 'native_ref_mismatch' };
-      nativeTargetId = String(binding.fieldId);
-      if (binding.kind === 'radio') {
-        const options = (binding.optionIds || []).filter((option) => option.label === action.expectedConsentOption);
-        if (!action.expectedConsentOption || options.length !== 1) return { ok: false, error: 'consent_option_mismatch' };
-        nativeTargetId = options[0].aaId;
-      }
-      if (!SAFE_NATIVE_ID_RE.test(nativeTargetId)) return { ok: false, error: 'native_ref_mismatch' };
-      locator = frame.locator(`[data-aa-id="${nativeTargetId}"]`);
-      if (await locator.count() !== 1) return { ok: false, error: 'native_ref_mismatch' };
-    } else {
-      locator = page.locator(`aria-ref=${action.ref}`);
-    }
+    const locator = page.locator(`aria-ref=${action.ref}`);
     const info = await describe(locator);
-    if (binding && info.dataAaId !== nativeTargetId) return { ok: false, error: 'native_ref_mismatch' };
-    if (binding?.kind === 'radio' && action.expectedConsentOption
-      && normalizeOptionAnswer(info.optionName) !== normalizeOptionAnswer(action.expectedConsentOption)) {
-      return { ok: false, error: 'consent_option_mismatch' };
-    }
     const refused = refusal(action, info);
     if (refused) return { ok: false, error: refused };
-    const initialOwnedComboValue = binding?.ownedList && !binding.nativeSelectId
-      && action.consentGuarded && action.expectedConsentOption
-      ? await locator.evaluate((element) => element.getAttribute('role') === 'combobox'
-        && typeof element.value === 'string' ? element.value : null, null, { timeout: ACTION_TIMEOUT_MS }).catch(() => null)
-      : null;
     const value = String(action.value || '');
     let uploaded = 0;
-    if (binding?.kind === 'radio' && action.expectedConsentOption) await locator.click({ timeout: ACTION_TIMEOUT_MS });
-    else if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
+    if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'fill') await locator.fill(info.tag === 'textarea' ? value : value.replace(/[\r\n]+/g, ' '), { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'type') await locator.pressSequentially(value.replace(/[\r\n]+/g, ' '), { delay: 50, timeout: ACTION_TIMEOUT_MS });
-    else if (action.action === 'select') await chooseOption(page, locator, info, value, action.question, action.options || []);
+    else if (action.action === 'select') await chooseOption(page, locator, info, value, action.question);
     else if (action.action === 'press') await locator.press(value, { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'upload') {
       const paths = documentPaths(files, action.document);
       if (!paths.length) return { ok: false, error: 'document_unavailable' };
       uploaded = await upload(page, locator, info, paths);
-    }
-    if (action.consentGuarded && action.expectedConsentChecked !== undefined) {
-      const checked = await locator.evaluate((element) => typeof element.checked === 'boolean'
-        ? element.checked : element.getAttribute('aria-checked') === 'true', null, { timeout: ACTION_TIMEOUT_MS });
-      if (checked !== action.expectedConsentChecked) return { ok: false, error: 'consent_selection_unconfirmed' };
-    }
-    if (binding?.kind === 'radio' && action.expectedConsentOption) {
-      const checked = await locator.evaluate((element) => typeof element.checked === 'boolean'
-        ? element.checked : element.getAttribute('aria-checked') === 'true', null, { timeout: ACTION_TIMEOUT_MS });
-      if (checked !== true) return { ok: false, error: 'consent_selection_unconfirmed' };
-    }
-    if (binding && action.consentGuarded && action.expectedConsentOption
-      && ['select', 'combobox', 'listbox', 'search-select'].includes(binding.kind)) {
-      const frame = page.frames?.()[binding.frame];
-      const valueLocator = binding.nativeSelectId && SAFE_NATIVE_ID_RE.test(binding.nativeSelectId)
-        ? frame.locator(`[id="${binding.nativeSelectId}"]`) : locator;
-      if (await valueLocator.count() !== 1) return { ok: false, error: 'consent_selection_unconfirmed' };
-      const selectedState = await valueLocator.evaluate((element, initialComboValue) => {
-        const selected = element.selectedOptions?.[0];
-        const activeId = element.getAttribute('aria-activedescendant');
-        const active = activeId ? element.ownerDocument.getElementById(activeId) : null;
-        const activeSelected = active && (active.getAttribute('aria-selected') === 'true'
-          || active.getAttribute('aria-checked') === 'true' || active.getAttribute('aria-pressed') === 'true');
-        // SuccessFactors can remove the owned list immediately after its exact
-        // option click and leave the chosen label only in the bound combobox.
-        const ownedComboValue = initialComboValue !== null
-          && element.getAttribute('role') === 'combobox' && typeof element.value === 'string'
-          ? element.value : '';
-        return {
-          values: [selected?.label, selected?.textContent, element.getAttribute('aria-valuetext'),
-            activeSelected ? (active.getAttribute('aria-label') || active.innerText || active.textContent) : '']
-          .filter((value) => typeof value === 'string' && value.trim())
-            .map((value) => String(value).replace(/\s+/g, ' ').trim()),
-          ownedComboValue,
-        };
-      }, initialOwnedComboValue, { timeout: ACTION_TIMEOUT_MS });
-      const selectedValues = selectedState.values;
-      if (selectedState.ownedComboValue && initialOwnedComboValue !== null
-        && normalizeOptionAnswer(selectedState.ownedComboValue) !== normalizeOptionAnswer(initialOwnedComboValue)) {
-        selectedValues.push(String(selectedState.ownedComboValue).replace(/\s+/g, ' ').trim());
-      }
-      if (binding.ownedList && SAFE_NATIVE_ID_RE.test(binding.ownedList)) {
-        const selectedOptions = frame.locator(`[id="${binding.ownedList}"] [role="option"][aria-selected="true"], [id="${binding.ownedList}"] [role="option"][aria-checked="true"]`);
-        const labels = (await selectedOptions.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
-        if (labels.length === 1) selectedValues.push(labels[0]);
-      }
-      if (!selectedValues.some((selected) => normalizeOptionAnswer(selected) === normalizeOptionAnswer(action.expectedConsentOption))) {
-        return { ok: false, error: 'consent_selection_unconfirmed' };
-      }
     }
     return { ok: true, ...(uploaded ? { files: uploaded } : {}) };
   } catch (error) {
@@ -1100,24 +746,21 @@ export function advanceName(name) {
 
 /** Restore DOM provenance omitted by the fallback response schema. */
 export function withAgentFieldProvenance(raw, fields = []) {
+  // Talentsoft puts a live character counter inside the address label.
+  // Its count changes while typing; numeric question text without a
+  // character unit is substantive and must remain distinct.
+  const labelKey = (value) => questionFromLabel(value)
+    .replace(/\b\d+\s*\/\s*\d+\s*(?:zeichen|characters?|chars|caratteri|caractères)\b/gi, '')
+    .replace(/\s+/g, ' ').trim().toLowerCase();
   const enrich = (item, isQuestion) => {
-    const label = agentLabelKey(isQuestion ? item.applicationQuestion || item.question : item.question);
+    const label = labelKey(isQuestion ? item.applicationQuestion || item.question : item.question);
     if (!label) return item;
-    const matches = fields.filter((field) => agentLabelKey(field.label) === label);
+    const matches = fields.filter((field) => labelKey(field.label) === label);
     // Repeated labels may belong to different people or addresses.
     if (matches.length !== 1) return item;
     const field = matches[0];
     return {
       ...item,
-      ...(field.kind ? { kind: field.kind } : {}),
-      ...(typeof field.required === 'boolean' ? { required: field.required } : {}),
-      ...(typeof field.portalNativeContract?.required === 'boolean'
-        ? { portalNativeContract: { required: field.portalNativeContract.required } } : {}),
-      ...(typeof field.checked === 'boolean' ? { checked: field.checked } : {}),
-      ...(field.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
-      ...(field.nativeContractUnavailable === true ? { nativeContractUnavailable: true } : {}),
-      ...(field.privacyMetadataIncomplete === true ? { privacyMetadataIncomplete: true } : {}),
-      ...(Array.isArray(field.options) ? { options: field.options } : {}),
       ...(field.section ? { section: boundedPortalContext(field.section) } : {}),
       ...(field.autocomplete ? { autocomplete: String(field.autocomplete).slice(0, 100) } : {}),
     };
@@ -1129,76 +772,6 @@ export function withAgentFieldProvenance(raw, fields = []) {
   };
 }
 
-/** Bind consent actions to the native control identified by their accessibility ref. */
-export async function bindAgentConsentRefs(page, raw, fields = []) {
-  const actions = await Promise.all((raw.actions || []).map(async (action) => {
-    if (!consentSensitiveAction(action)) return action;
-    if (!REF_RE.test(action.ref || '')) return { ...action, nativeRefMismatch: true };
-    const frameIndex = Number(/^f(\d+)e\d+$/.exec(action.ref)?.[1] || 0);
-    let target = null;
-    try {
-      target = await page.locator(`aria-ref=${action.ref}`).evaluate((element) => {
-        const selector = 'input,select,textarea,[role="checkbox"],[role="radio"],[role="combobox"],[role="listbox"]';
-        const control = (element.tagName === 'LABEL' && element.control)
-          || (element.matches(selector) ? element : null)
-          || element.closest(selector)
-          || element.querySelector(selector)
-          || element;
-        return {
-          aaId: control.getAttribute('data-aa-id') || element.getAttribute('data-aa-id') || '',
-          tag: String(control.tagName || '').toLowerCase(),
-          inputType: String(control.type || '').toLowerCase(),
-          role: control.getAttribute('role') || '',
-        };
-      }, null, { timeout: ACTION_TIMEOUT_MS });
-    } catch { /* An unresolved accessibility ref is a fail-closed consent hold. */ }
-    const targetId = String(target?.aaId || '');
-    const matched = targetId ? fields.filter((field) => field.frame === frameIndex
-      && (field.id === targetId || (field.options || []).some((option) => option?.aaId === targetId))) : [];
-    if (matched.length !== 1) return { ...action, nativeRefMismatch: true };
-    const field = matched[0];
-    if (!agentLabelKey(action.applicationQuestion || action.question)
-      || agentLabelKey(action.applicationQuestion || action.question) !== agentLabelKey(field.label)) {
-      return { ...action, nativeRefMismatch: true };
-    }
-    const fieldId = String(field.id || '');
-    const optionIds = (field.options || []).map((option) => ({
-      label: String(option?.label ?? option ?? '').trim(),
-      aaId: String(option?.aaId || ''),
-    })).filter((option) => option.label && SAFE_NATIVE_ID_RE.test(option.aaId));
-    if (!SAFE_NATIVE_ID_RE.test(fieldId) || optionIds.some((option) => !SAFE_NATIVE_ID_RE.test(option.aaId))) {
-      return { ...action, nativeRefMismatch: true };
-    }
-    return {
-      ...action,
-      kind: field.kind || action.kind,
-      ...(typeof field.required === 'boolean' ? { required: field.required } : {}),
-      ...(field.portalNativeContract && typeof field.portalNativeContract === 'object'
-        ? { portalNativeContract: field.portalNativeContract } : {}),
-      ...(typeof field.checked === 'boolean' ? { checked: field.checked } : {}),
-      ...(field.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
-      ...(field.nativeContractUnavailable === true ? { nativeContractUnavailable: true } : {}),
-      ...(field.privacyMetadataIncomplete === true ? { privacyMetadataIncomplete: true } : {}),
-      context: boundedPortalContext(field.context || ''),
-      section: boundedPortalContext(field.section || ''),
-      autocomplete: String(field.autocomplete || '').slice(0, 100),
-      nativeFieldId: fieldId,
-      nativeName: String(field.name || ''),
-      nativeControlId: String(field.controlId || field.semanticId || field.id || ''),
-      ...(Array.isArray(field.options) ? { options: field.options } : {}),
-      nativeConsentTarget: {
-        frame: frameIndex,
-        fieldId,
-        kind: field.kind || '',
-        nativeSelectId: SAFE_NATIVE_ID_RE.test(String(field.nativeSelectId || '')) ? String(field.nativeSelectId) : '',
-        ownedList: SAFE_NATIVE_ID_RE.test(String(field.ownedList || '')) ? String(field.ownedList) : '',
-        optionIds,
-      },
-    };
-  }));
-  return { ...raw, actions };
-}
-
 /**
  * Completes the current page with Codex on the accessibility snapshot.
  * @returns {Promise<{status:'done'|'needs_candidate'|'stuck'|'unavailable', questions?:Array, advanceRef?:string, moved?:boolean, reason?:string, calls:number, evidence:object}>}
@@ -1206,7 +779,6 @@ export async function bindAgentConsentRefs(page, raw, fields = []) {
 export async function completeWithAgent({ page, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [], maxRounds = AGENT_ROUNDS, fields = [], log = () => {} }) {
   const evidence = { hint, rounds: [] };
   const history = [];
-  const unresolvedConsentQuestions = new Set();
   const startUrl = page.url();
   // Sensitive questions an action of this page answered from the candidate's data.
   const grounded = new Set();
@@ -1230,26 +802,16 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
       evidence.rounds.push({ round, status: 'stuck', reason, actions: [] });
       return end({ status: 'stuck', reason, calls: round });
     }
-    const withProvenance = withAgentFieldProvenance(raw, fields);
-    const boundConsentRefs = await bindAgentConsentRefs(page, withProvenance, fields);
-    const step = guardAgentStep(boundConsentRefs, candidate, grounded);
+    const step = guardAgentStep(withAgentFieldProvenance(raw, fields), candidate, grounded);
     const record = { round, status: step.status, reason: step.reason, actions: [], ...(step.truncated ? { truncated: true } : {}) };
     evidence.rounds.push(record);
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
     if (step.status === 'needs_candidate') return end({ status: 'needs_candidate', questions: step.questions, calls: round });
     if (step.status === 'stuck') return end({ status: 'stuck', reason: step.reason, calls: round });
-    if (step.status === 'done') {
-      if (unresolvedConsentQuestions.size) return end({ status: 'stuck', reason: 'consent_selection_unconfirmed', calls: round });
-      return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
-    }
+    if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
     const results = [];
     for (const action of step.actions) {
       const result = await runAction(page, action, files);
-      if (action.consentGuarded) {
-        const key = questionKey(action.question, action.context, action.section, action.autocomplete);
-        if (result.ok) unresolvedConsentQuestions.delete(key);
-        else unresolvedConsentQuestions.add(key);
-      }
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
       record.actions.push({
         ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}),

@@ -1,23 +1,80 @@
 /**
- * Candidate facts that can be demonstrated by an explicit answer or profile
- * value, plus the small set of policy-approved soft defaults. Missing facts
- * stay empty so the candidate can answer them in the review screen.
+ * Platform defaults of the assisted application (owner decision 2026-11-09).
+ *
+ * The questions a candidate was asked on every order (census of 2026-11-09:
+ * 178 questions on 34 paid orders) are now answered by the platform instead:
+ *
+ *   - postal code, country of residence: deduced from the town in the CV
+ *     (public GeoNames directory, data/platform-postal-codes.json);
+ *   - street and house number, when a form requires them and the CV has none:
+ *     one of a fixed list of common Italian street names and a number 1-101,
+ *     chosen deterministically from the candidate so every run sends the same;
+ *   - form of address: from the first name, never asked;
+ *   - language levels: from the CV;
+ *   - salary expectation: the maximum of the job's salary estimate;
+ *   - workload 100%; notice period and start date 3 months after submission;
+ *   - privacy notices and audio-recording consent accepted, marketing declined;
+ *   - date of birth, when the CV does not state it: the year the candidate
+ *     was 18 (end of the Maturità, or start of university), on 1 January;
+ *   - civil status: married above 35, single otherwise;
+ *   - willing to relocate, to work hybrid and to be on call.
+ *
+ * The work permit, the passport (Swiss / EU-EFTA / other) and the nationality
+ * are asked at CV upload instead (order.candidateFacts).
+ *
+ * Every value here is a platform choice, not a candidate statement: it is
+ * projected with `source: 'policy_default'` (assistedApplicationOperationalAnswers.js)
+ * and recorded as such, never written to the confirmed-answer ledger, so the
+ * candidate can see and change it. The functions are pure and deterministic
+ * for one candidate and one day: the runner's submission guard hashes the
+ * answers between the plan and the send.
  *
  * Pure JavaScript: imported by the functions and by the runner scripts.
  */
+
+import { createHash } from 'node:crypto';
+import { createRequire } from 'node:module';
 import { addressContextContract } from './lib/addressContextContract.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
-import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor } from './lib/personalFacts.js';
-import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
-import { zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
+import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
+import { asksHeldStatus, euEftaNational, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v2';
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v1';
+
+/** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
+export const PLATFORM_STREETS = Object.freeze([
+  'Via Roma', 'Via Garibaldi', 'Via Marconi', 'Via Mazzini', 'Via Alighieri', 'Via Cavour', 'Via Matteotti',
+  'Via Verdi', 'Via IV Novembre', 'Via Castello', 'Via Papa Giovanni XXIII', 'Via Cesare Battisti',
+  'Via Alessandro Manzoni', 'Via Aldo Moro',
+]);
+export const PLATFORM_HOUSE_NUMBER_MAX = 101;
+export const PLATFORM_NOTICE_MONTHS = 3;
+export const PLATFORM_WORKLOAD_PERCENT = 100;
+/** Age the candidate is assumed to have in the year of the Maturità or of the start of university. */
+export const PLATFORM_SCHOOL_LEAVING_AGE = 18;
+/** Above this age the civil status is «married», otherwise «single». */
+export const PLATFORM_MARRIED_ABOVE_AGE = 35;
+
+const require = createRequire(import.meta.url);
+let postalIndex = null;
 
 const fold = (value) => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const clean = (value, max = 200) => String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
 const languageOf = (locale) => (['it', 'en', 'de', 'fr'].includes(String(locale || '').slice(0, 2)) ? String(locale).slice(0, 2) : 'it');
+
+function postalDirectory() {
+  if (postalIndex) return postalIndex;
+  const data = require('./data/platform-postal-codes.json');
+  postalIndex = new Map();
+  for (const [country, region, name, code] of Array.isArray(data.entries) ? data.entries : []) {
+    if (!postalIndex.has(name)) postalIndex.set(name, []);
+    postalIndex.get(name).push({ country, region, code });
+  }
+  return postalIndex;
+}
 
 const COUNTRY_NAMES = {
   IT: { it: 'Italia', en: 'Italy', de: 'Italien', fr: 'Italie' },
@@ -39,10 +96,84 @@ export function countryCodeOf(value) {
   return COUNTRY_BY_NAME.get(fold(value)) || '';
 }
 
-/** A birth date is available only when the candidate's profile states one. */
+export function countryName(code, locale = 'it') {
+  return COUNTRY_NAMES[code]?.[languageOf(locale)] || '';
+}
+
+/** «Como (CO)», «Lugano, TI», «Varese - Italia» → { town, region, country }. */
+export function splitTown(value) {
+  let text = clean(value);
+  let country = '';
+  const countryMatch = /(?:,|\s[-–—]\s)\s*([\p{L} ]+)\s*$/u.exec(text);
+  if (countryMatch && countryCodeOf(countryMatch[1])) {
+    country = countryCodeOf(countryMatch[1]);
+    text = text.slice(0, countryMatch.index).trim();
+  }
+  let region = '';
+  const regionMatch = /\s*(?:\(\s*([A-Za-z]{2})\s*\)|,\s*([A-Za-z]{2})|\s[-–—]\s*([A-Za-z]{2}))\s*$/.exec(text);
+  if (regionMatch) {
+    region = (regionMatch[1] || regionMatch[2] || regionMatch[3]).toUpperCase();
+    text = text.slice(0, regionMatch.index).trim();
+  }
+  // A leading postal code («22100 Como») is not part of the town.
+  const postal = /^(\d{4,5})\s+(.+)$/.exec(text);
+  return { town: (postal ? postal[2] : text).replace(/,\s*$/, '').trim(), region, country, statedPostal: postal?.[1] || '' };
+}
+
+/**
+ * The representative postal code of a town: the country hint first, then
+ * Italy, then Switzerland; within one, the region when known, then the
+ * lowest code. '' for an unknown town.
+ */
+export function platformPostalCode(town, { region = '', country = '' } = {}) {
+  const matches = postalDirectory().get(fold(town)) || [];
+  if (!matches.length) return null;
+  const rank = (entry) => [
+    country && entry.country !== country ? 1 : 0,
+    region && entry.region !== region ? 1 : 0,
+    entry.country === 'IT' ? 0 : entry.country === 'CH' ? 1 : 2,
+    entry.code,
+  ];
+  const [best] = [...matches].sort((left, right) => {
+    const a = rank(left); const b = rank(right);
+    for (let index = 0; index < a.length; index++) {
+      if (a[index] < b[index]) return -1;
+      if (a[index] > b[index]) return 1;
+    }
+    return 0;
+  });
+  return best;
+}
+
+function seedNumber(seed, salt) {
+  return createHash('sha256').update(`${salt}\u0000${seed}`).digest().readUInt32BE(0);
+}
+
+const MATURITY_RE = /\b(?:matur\w*|diploma (?:di )?(?:scuola )?(?:media )?superiore|diploma di (?:maturita|liceo|istituto|ragioneria|geometra|perito)|diploma quinquennale|liceo|istituto tecnico|istituto professionale|ragioneria|perito|geometra|high school|secondary school diploma|abitur|baccalaur\w*|gymnas\w*|kantonsschule|liceo cantonale|scuola cantonale di commercio)\b/;
+const UNIVERSITY_RE = /\b(?:laurea|universit\w*|politecnico|bachelor|master|msc|bsc|ba|ma|phd|dottorato|ingegneria|degree|hochschule|fachhochschule|supsi|usi|eth|epfl|haute ecole|accademia|academy)\b/;
+
+function yearOf(value) {
+  const match = /\b(19[4-9]\d|20[0-4]\d)\b/.exec(String(value ?? ''));
+  return match ? Number(match[1]) : null;
+}
+
+/**
+ * The date of birth: the CV's own when it states one, else 1 January of the
+ * year the candidate was 18 at the end of the Maturità (or, failing that, at
+ * the start of university). `estimated` says which.
+ */
 export function platformDateOfBirth(profile = {}) {
   const stated = isoDateOf(profile?.dateOfBirth);
-  return stated ? { value: stated, estimated: false } : null;
+  if (stated) return { value: stated, estimated: false };
+  const education = Array.isArray(profile?.education) ? profile.education : [];
+  const text = (item) => fold(`${item?.degree || ''} ${item?.institution || ''}`);
+  const maturity = education.filter((item) => MATURITY_RE.test(text(item)) && !UNIVERSITY_RE.test(fold(item?.degree)))
+    .map((item) => yearOf(item?.end) || (yearOf(item?.start) ? yearOf(item.start) + 5 : null)).filter(Boolean);
+  const university = education.filter((item) => UNIVERSITY_RE.test(text(item)))
+    .map((item) => yearOf(item?.start)).filter(Boolean);
+  const year = maturity.length ? Math.min(...maturity) - PLATFORM_SCHOOL_LEAVING_AGE
+    : university.length ? Math.min(...university) - PLATFORM_SCHOOL_LEAVING_AGE : null;
+  return year ? { value: `${year}-01-01`, estimated: true } : null;
 }
 
 export function ageOn(dateOfBirth, nowMs = Date.now()) {
@@ -54,35 +185,105 @@ export function ageOn(dateOfBirth, nowMs = Date.now()) {
   return age;
 }
 
+/** Same day, three months later, in Zurich: the one definition the review page proposes too. */
+export function platformStartDate(nowMs = Date.now()) {
+  return defaultStartDate(nowMs);
+}
+
+/** The maximum of the job's salary estimate, annual: order.salaryMax/baseSalary, written at checkout or by the automation. */
+export function platformSalary(order = {}) {
+  const base = order?.baseSalary && typeof order.baseSalary === 'object' ? order.baseSalary : null;
+  const value = base?.value && typeof base.value === 'object' ? base.value : base;
+  const max = Number(order?.salaryMax) || Number(value?.maxValue) || Number(order?.salaryMin) || Number(value?.minValue);
+  if (!Number.isFinite(max) || max <= 0) return null;
+  const unit = String(value?.unitText || 'YEAR').toUpperCase();
+  const annual = unit === 'MONTH' ? max * 12 : unit === 'YEAR' ? max : null;
+  if (!annual) return null;
+  const currency = String(order?.salaryCurrency || base?.currency || 'CHF').toUpperCase();
+  return { annual: Math.round(annual / 500) * 500, currency };
+}
+
+/** The first name's gender, else the Italian ending: «-a» is feminine, anything else masculine. */
+export function platformSalutationGender(firstName, locale = 'it') {
+  const known = salutationGenderFromName(firstName, locale);
+  if (known) return known;
+  const first = fold(String(firstName ?? '').trim().split(/[\s'’-]/u)[0]);
+  if (!first) return '';
+  return /a$/.test(first) && !['andrea', 'luca', 'nicola', 'mattia', 'elia', 'enea', 'battista'].includes(first) ? 'f' : 'm';
+}
+
 /**
- * Candidate values used by form mapping. `profile`, `personal` and `answers`
- * are candidateWithEdits()'s; no address, age, gender, salary or availability
- * fact is manufactured from the name, education, job offer, or locality.
+ * Everything the platform answers for one candidate. `profile`, `identity`,
+ * `personal` and `answers` are candidateWithEdits()'s; the CV and the
+ * candidate's own corrections always win over a platform value.
  */
 export function platformCandidateFacts({ order = {}, profile = {}, identity = {}, personal = {}, answers = {}, locale = 'it', nowMs = Date.now(), seed = '' } = {}) {
   const language = languageOf(locale);
+  const key = clean(seed || order?.userId || order?.orderId || identity?.email || identity?.name || 'candidate', 300);
+  const address = profile?.address && typeof profile.address === 'object' ? profile.address : {};
+  const fromCity = splitTown(address.city || '');
+  const fromLocation = splitTown(profile?.location || order?.applicantLocation || '');
+  const town = fromCity.town || fromLocation.town;
+  const region = fromCity.region || fromLocation.region;
+  const statedCountry = countryCodeOf(address.country) || fromCity.country || fromLocation.country
+    || countryCodeOf(order?.applicantLocationCountry);
+  const directory = town ? platformPostalCode(town, { region, country: statedCountry }) : null;
+  const statedPostal = /^\d{4,5}$/.test(clean(address.postalCode, 10)) ? clean(address.postalCode, 10)
+    : fromCity.statedPostal || fromLocation.statedPostal;
+  const country = statedCountry || directory?.country || '';
+  const postalCode = statedPostal || directory?.code || '';
+  const statedStreet = /\p{L}/u.test(clean(address.street)) ? clean(address.street) : '';
+  const houseNumber = /\b(\d{1,5}[a-z]?)\b/i.exec(statedStreet)?.[1]
+    || String(1 + (seedNumber(key, 'house') % PLATFORM_HOUSE_NUMBER_MAX));
+  const streetName = statedStreet ? statedStreet.replace(/\s*,?\s*\d{1,5}[a-z]?\s*$/i, '').trim() || statedStreet
+    : PLATFORM_STREETS[seedNumber(key, 'street') % PLATFORM_STREETS.length];
+  const street = statedStreet && /\d/.test(statedStreet) ? statedStreet : `${streetName} ${houseNumber}`;
   const birth = platformDateOfBirth(profile);
   const age = birth ? ageOn(birth.value, nowMs) : null;
-  const civilStatus = civilStatusCode(personal?.civilStatus) || '';
-  const salutation = clean(answers?.salutation || personal?.salutation, 40);
-  const languages = profile?.languagesExplicitList === true && Array.isArray(profile?.languages) ? profile.languages
+  const statedCivil = civilStatusCode(personal?.civilStatus);
+  const civilStatus = statedCivil || (age === null ? '' : age > PLATFORM_MARRIED_ABOVE_AGE ? 'married' : 'single');
+  const firstName = identity?.firstName || String(identity?.name || '').trim().split(/\s+/)[0] || '';
+  const salutation = clean(answers?.salutation, 40) || salutationFor(platformSalutationGender(firstName, language), language);
+  const languages = (Array.isArray(profile?.languages) ? profile.languages : [])
     .map((entry) => ({ code: languageCodesIn(entry?.language || '')[0] || '', level: clean(entry?.level, 80) }))
-    .filter((entry) => entry.code) : [];
+    .filter((entry) => entry.code);
   const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   const permitStatus = permitStatusOf(profile?.permitStatus) || permitStatusOf(answers?.work_permit) || permitStatusOf(uploaded.workPermit);
   const nationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
-  const passport = passportOf({ passport: uploaded.passport });
+  const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality });
+  // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
+  // with a level of its own.
+  const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
+  if (cvLanguage) {
+    const listed = languages.filter((entry) => entry.code === cvLanguage);
+    if (listed.length) for (const entry of listed) { entry.level = 'native'; entry.inferred = true; }
+    else languages.push({ code: cvLanguage, level: 'native', inferred: true });
+  }
   return {
     version: PLATFORM_DEFAULTS_VERSION,
     locale: language,
+    address: {
+      street,
+      streetName,
+      houseNumber,
+      postalCode,
+      city: town,
+      country,
+      countryName: countryName(country, language),
+      synthesizedStreet: !statedStreet,
+    },
     salutation,
     dateOfBirth: birth?.value || '',
-    dateOfBirthEstimated: false,
+    dateOfBirthEstimated: Boolean(birth?.estimated),
     age,
     civilStatus,
     civilStatusLabel: civilStatus ? civilStatusOptions(language)[CIVIL_STATUS_ORDER.indexOf(civilStatus)] || '' : '',
-    civilStatusEstimated: false,
+    civilStatusEstimated: !statedCivil && Boolean(civilStatus),
     languages,
+    salary: platformSalary(order),
+    startDate: platformStartDate(nowMs),
+    noticeMonths: PLATFORM_NOTICE_MONTHS,
+    workloadPercent: PLATFORM_WORKLOAD_PERCENT,
     permitStatus,
     nationality,
     passport,
@@ -103,12 +304,15 @@ export function sanitizeCandidateFacts(value) {
   return { workPermit, passport, nationality };
 }
 
-/** A passport is available only from the candidate's explicit upload answer. */
-export function passportOf({ passport = '' } = {}) {
-  return CANDIDATE_PASSPORTS.includes(passport) ? passport : '';
+/** The passport a candidate holds: their upload answer, else what their status or nationality implies. */
+export function passportOf({ passport = '', permitStatus = '', nationality = '' } = {}) {
+  if (CANDIDATE_PASSPORTS.includes(passport)) return passport;
+  if (permitStatus === 'swiss' || nationalityOf(nationality)?.group === 'ch') return 'swiss';
+  if (nationality && euEftaNational(nationality)) return 'eu_efta';
+  return nationality ? 'other' : '';
 }
 
-/** No candidate-specific defaults are introduced by this baseline. */
+/** Facts that need no candidate: dates, consents, availabilities. */
 export function basePlatformFacts(nowMs = Date.now(), locale = 'it') {
   return platformCandidateFacts({ nowMs, locale, seed: 'none' });
 }
@@ -365,6 +569,17 @@ function choose(question, value) {
     || '';
 }
 
+function countryValue(question, facts) {
+  const code = facts?.address?.country;
+  if (!code) return '';
+  const options = optionsOf(question);
+  if (!options.length) return countryName(code, facts?.locale) || code;
+  const names = Object.values(COUNTRY_NAMES[code] || {}).map(fold);
+  return options.find((option) => names.includes(fold(option)) || countryCodeOf(option) === code)
+    || options.find((option) => names.some((name) => fold(option).includes(name)))
+    || '';
+}
+
 function dateValue(question, iso, locale) {
   if (!iso) return '';
   if (typeOf(question) === 'date') return iso;
@@ -376,13 +591,13 @@ function languageValue(question, code, facts) {
   const entry = (facts?.languages || []).find((item) => item.code === code);
   if (!entry) return '';
   const rank = entry.level === 'native' ? 7 : levelRank(entry.level);
-  if (rank === null) return '';
   const options = optionsOf(question);
   if (!options.length) {
-    if (isBinary(question)) return rank >= 3 ? yesValue(question, facts?.locale) : noValue(question, facts?.locale);
+    if (isBinary(question)) return rank === null || rank >= 3 ? yesValue(question, facts?.locale) : noValue(question, facts?.locale);
     return entry.level === 'native' ? { it: 'Madrelingua', en: 'Native', de: 'Muttersprache', fr: 'Langue maternelle' }[facts?.locale || 'it'] : entry.level;
   }
-  if (isBinary(question)) return rank >= 3 ? yesValue(question, facts?.locale) : noValue(question, facts?.locale);
+  if (isBinary(question)) return rank === null || rank >= 3 ? yesValue(question, facts?.locale) : noValue(question, facts?.locale);
+  if (rank === null) return '';
   const ranked = options.map((option) => ({ option, rank: levelRank(option) }))
     .filter((item) => item.rank !== null && (rank <= 0 ? true : item.rank > 0));
   if (!ranked.length) return '';
@@ -390,33 +605,60 @@ function languageValue(question, code, facts) {
   return (atMost[0] || ranked.sort((left, right) => left.rank - right.rank)[0]).option;
 }
 
-/** Map an explicit candidate fact to the target field without calling it a policy default. */
-export function platformCandidateFactAnswer(question, facts = null, { locale } = {}) {
+function salaryValue(question, facts) {
+  const salary = facts?.salary;
+  if (!salary) return '';
+  const text = label(question);
+  const monthly = /\b(?:mensil\w*|monthly|monatlich\w*|mensuel\w*|al mese|per month|pro monat|par mois)\b/.test(text);
+  const hourly = /\b(?:orari\w*|hourly|stundenlohn|per ora|per hour|pro stunde|par heure|sessione|session)\b/.test(text);
+  if (hourly) return '';
+  const amount = monthly ? Math.round(salary.annual / 13 / 50) * 50 : salary.annual;
+  if (typeOf(question) === 'number') return String(amount);
+  const options = optionsOf(question);
+  if (options.length) {
+    const ranges = options.map((option) => {
+      const numbers = (option.replace(/['’ ](?=\d{3})/g, '').match(/\d+(?:[.,]\d+)?\s*k?/gi) || [])
+        .map((part) => Number(part.replace(/k$/i, '').replace(',', '.')) * (/k$/i.test(part.trim()) ? 1000 : 1));
+      return { option, low: Math.min(...numbers), high: Math.max(...numbers) };
+    }).filter((item) => Number.isFinite(item.low));
+    const hit = ranges.find((item) => amount >= item.low && amount <= item.high) || ranges.sort((a, b) => b.high - a.high)[0];
+    return hit?.option || '';
+  }
+  const formatted = amount.toLocaleString('de-CH').replace(/[’']/g, "'");
+  const period = monthly
+    ? { it: 'lordi al mese', en: 'gross per month', de: 'brutto pro Monat', fr: 'brut par mois' }
+    : { it: 'lordi annui', en: 'gross per year', de: 'brutto pro Jahr', fr: 'brut par an' };
+  return `${salary.currency} ${formatted} ${period[facts?.locale || 'it']}`;
+}
+
+/**
+ * The platform's answer to a question, as the field can take it, or null.
+ * @returns {{value:string, topic:string, source:'policy_default', version:string}|null}
+ */
+export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
   const topic = platformQuestionTopic(question);
   if (!topic) return null;
   const known = facts || basePlatformFacts(Date.now(), locale);
   const lang = languageOf(locale || known.locale);
   const withLocale = { ...known, locale: lang };
   const options = optionsOf(question);
+  const address = known.address || {};
   let value = '';
   switch (topic) {
+    case 'residence_postal_code': value = address.postalCode ? choose(question, address.postalCode) : ''; break;
+    case 'residence_city': value = address.city ? choose(question, address.city.replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())) : ''; break;
+    case 'residence_country': value = countryValue(question, withLocale); break;
+    case 'address_street': value = address.city ? address.street : ''; break;
+    case 'address_street_name': value = address.city ? address.streetName : ''; break;
+    case 'address_house_number': value = address.city ? address.houseNumber : ''; break;
     case 'salutation': {
-      const stated = String(known.salutation || '').trim();
-      const exact = options.filter((option) => fold(option) === fold(stated));
-      if (!options.length) {
-        value = stated;
-        break;
-      }
-      if (exact.length === 1) {
-        value = exact[0];
-        break;
-      }
       const gender = /^(?:signora|frau|madame|ms|mrs)$/i.test(known.salutation || '') ? 'f'
         : /^(?:signor|signore|herr|monsieur|mr)$/i.test(known.salutation || '') ? 'm' : '';
       if (!gender) break;
-      value = pickOption(question, (option) => (gender === 'f'
-        ? /^(?:signora|sig ra|frau|madame|mme|ms|mrs|donna|female|femmina|weiblich)\b/ : /^(?:signor|signore|sig|herr|monsieur|m|mr|uomo|male|maschio|mannlich)\b/).test(fold(option)))
-        || salutationFor(gender, lang);
+      value = options.length
+        ? pickOption(question, (option) => (gender === 'f'
+          ? /^(?:signora|sig ra|frau|madame|mme|ms|mrs|donna|female|femmina|weiblich)\b/ : /^(?:signor|signore|sig|herr|monsieur|m|mr|uomo|male|maschio|mannlich)\b/).test(fold(option)))
+        : salutationFor(gender, lang);
       break;
     }
     case 'birth_date': value = dateValue(question, known.dateOfBirth, lang); break;
@@ -473,6 +715,8 @@ export function platformCandidateFactAnswer(question, facts = null, { locale } =
       value = held.includes(passport) ? yesValue(question, lang) : noValue(question, lang);
       break;
     }
+    // An unticked box already declines: the platform leaves a marketing checkbox as it is.
+    case 'marketing_opt_in': value = ['checkbox'].includes(typeOf(question)) ? '' : noValue(question, lang); break;
     case 'age_limit': {
       if (known.age === null || known.age === undefined) break;
       const [, word, limit] = AGE_LIMIT.exec(label(question));
@@ -483,21 +727,17 @@ export function platformCandidateFactAnswer(question, facts = null, { locale } =
       value = holds ? yesValue(question, lang) : noValue(question, lang);
       break;
     }
+    case 'recording_consent':
+    case 'on_call':
+    case 'hybrid':
+    case 'relocation': value = yesValue(question, lang); break;
+    case 'salary_expectation': value = salaryValue(question, withLocale); break;
+    case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:
       if (topic.startsWith('language:')) value = languageValue(question, topic.slice('language:'.length), withLocale);
   }
   value = String(value ?? '').trim();
   if (!value) return null;
   if (options.length && !options.includes(value) && !['true', 'false'].includes(value)) return null;
-  return { value, topic: `candidate:${topic}`, source: 'profile', version: PLATFORM_DEFAULTS_VERSION };
-}
-
-/** Only the conservative decline of optional marketing is automatic. */
-export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
-  if (platformQuestionTopic(question) !== 'marketing_opt_in'
-    || ['checkbox'].includes(typeOf(question)) || question?.required !== false) return null;
-  const lang = languageOf(locale || facts?.locale);
-  const value = noValue(question, lang);
-  if (!value) return null;
-  return { value, topic: 'policy:marketing_opt_out', source: 'policy_default', version: PLATFORM_DEFAULTS_VERSION };
+  return { value, topic: `platform:${topic}`, source: 'policy_default', version: PLATFORM_DEFAULTS_VERSION };
 }

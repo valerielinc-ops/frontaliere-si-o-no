@@ -673,7 +673,7 @@ describe('candidate review API', () => {
     // T0 is 30-09-2026 10:00 UTC: the start date may be today at the earliest; a birth date has no minimum.
     expect(view.body.questions).toEqual([
       // Proposed start: three months after the submission (owner decision 2026-11-09).
-      expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2026-12-30' }),
+      expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2026-12-30', answeredByPlatform: true }),
       expect.objectContaining({ id: 'birth_date', minDate: null, suggested: null }),
       expect.objectContaining({ id: 'licence' }),
     ]);

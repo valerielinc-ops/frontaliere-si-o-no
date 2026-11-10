@@ -2,7 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-11-09 | Candidature: non inferire fatti personali; consensi per trattamento, contatto o conservazione richiedono risposta esplicita. Default solo per presa visione obbligatoria e inequivocabile dell’informativa; rifiutare marketing facoltativo. | 09-11 |
+| 2026-11-09 | Candidature assistite: le domande stabili le risponde la piattaforma (regole in `functions/src/assistedApplicationPlatformDefaults.js`); permesso, passaporto e nazionalità all'upload | sessione 09-11, riconfermata 10-11 |
 | 2026-10-05 | Eventi: MySwitzerland: UA da browser autorizzato SOLO per i dettagli (eccezione alla regola dello UA identificativo dei crawler; 1 req/s, stop a 403/429/challenge) (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
 | 2026-10-05 | Traduzioni lavori: Codex Luna Max di riserva se falliscono le chiavi, tetto per run (H7); copie sorgente marcate tenute (I2) | 05-10 |
 | 2026-10-05 | Monitor: GA4 invece di PostHog (H9); CTR senza query promo/operatori, soglia invariata (I5); argomenti harvester solo nel report (I3); GA4 non si archivia (H4) | 05-10 |
