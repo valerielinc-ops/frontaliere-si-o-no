@@ -58,6 +58,9 @@ import {
   resolveArticleRouteHref,
 } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
+import { buildProfessionCantonPath } from '../../build-plugins/professionCantonData';
+import { buildProfessionLandingPath } from '../../build-plugins/professionLandingsData';
+import { renderSalaryProfessionCantonPage } from '../../build-plugins/salaryProfessionCantonPages';
 import { filterEmployerProfileJobLinks } from '../../build-plugins/shared/employerProfileJobLinks';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
@@ -1387,6 +1390,75 @@ describe('Bing-compatible full-tree crawler', () => {
       html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
     });
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+  });
+
+  it('keeps salary-profession links on final detail, intent and profession routes in every locale', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString();
+    const job = {
+      id: 'salary-profession-frontier-job',
+      title: 'Infermiere/a diplomato/a',
+      titleByLocale: {
+        it: 'Infermiere/a diplomato/a',
+        en: 'Registered Nurse',
+        de: 'Diplomierte Pflegefachperson',
+        fr: 'Infirmier·ère diplômé·e',
+      },
+      company: 'Klinik Hirslanden',
+      companyKey: 'hirslanden',
+      companyDomain: 'hirslanden.ch',
+      city: 'Zürich',
+      addressLocality: 'Zürich',
+      canton: 'ZH',
+      contract: 'permanent',
+      salaryMin: 82000,
+      salaryMax: 98000,
+      postedDate: daysAgo(3),
+      daysAgo: 3,
+      slug: 'infermiere-zurigo',
+      // Whitespace around a source slug must be normalized at the route boundary.
+      slugByLocale: {
+        it: ' infermiere-zurigo ',
+        en: ' nurse-zurich ',
+        de: ' pflegefachperson-zuerich ',
+        fr: ' infirmier-zurich ',
+      },
+      employmentType: 'FULL_TIME',
+      url: 'https://hirslanden.ch/apply/1',
+    };
+    const preset = {
+      id: 'infermiere',
+      label: { it: 'Infermiere', en: 'Nurse', de: 'Pflegefachperson', fr: 'Infirmier·ère' },
+      medianSalaryChf: 75250,
+    };
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = renderSalaryProfessionCantonPage({
+        locale,
+        cantonKey: 'ZH',
+        id: 'infermiere',
+        preset,
+        snapshot: {
+          liveCount: 14,
+          fresh30Count: 6,
+          medianSalaryChf: 90000,
+          featured: [job],
+          topEmployers: [{ name: 'Klinik Hirslanden', count: 5 }],
+        },
+        distDir: '',
+      });
+      const links = extractInternalLinks(html, `${BASE}/stipendio-infermiere-zurigo/`, BASE);
+      const slug = job.slugByLocale[locale] ?? job.slug;
+      const expected = [
+        `${BASE}${buildCanonicalJobDetailPath(locale, job, slug, job.canton)}`,
+        `${BASE}${buildProfessionCantonPath(locale, 'ZH', 'infermiere')}`,
+        `${BASE}${buildProfessionLandingPath(locale, 'infermiere')}`,
+      ];
+
+      for (const href of expected) {
+        expect(links).toContain(href);
+        expect(new URL(href).pathname).toMatch(/\/$/);
+      }
+    }
   });
 
   it('keeps cathedral legacy job redirects on shared canonical detail paths for every locale', () => {
