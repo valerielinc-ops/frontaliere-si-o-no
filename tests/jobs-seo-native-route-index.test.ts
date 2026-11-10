@@ -107,6 +107,21 @@ describe('native job route ownership with interned prefixes', () => {
     }
   });
 
+  it('clears compact route and prefix tables after their final reader', () => {
+    const index = buildNativeJobPrefixIndex({
+      'route-owner': { de: '/de/jobs-in-zurich/route-owner' },
+    }, prefixes, sections);
+
+    expect(index.size).toBe(1);
+    expect(index.get('de:route-owner')).toBe('/de/jobs-in-zurich/');
+
+    index.clear();
+
+    expect(index.size).toBe(0);
+    expect(index.get('de:route-owner')).toBeUndefined();
+    expect([...index]).toEqual([]);
+  });
+
   it('appends expired owners in place while preserving active owners and expired last-wins order', () => {
     const activeRouteOwners = new Map<string, number>();
     const active = buildNativeJobPrefixIndex({

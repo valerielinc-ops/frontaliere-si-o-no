@@ -73,4 +73,21 @@ describe('self-heal tracking retention', () => {
     expect(prune).toBeGreaterThan(lastExpiredPathRead);
     expect(previousSlugPhase).toBeGreaterThan(prune);
   });
+
+  it('releases native route and tracking indexes after the final self-heal readers', () => {
+    const lastNativeRouteReader = pluginSource.lastIndexOf('return nativeJobPathRecoveredByWorker(');
+    const nativeRouteRelease = pluginSource.indexOf('nativeJobPrefixByLocaleAndSlug.clear();');
+    const lastTrackingReader = pluginSource.lastIndexOf('Object.entries(tracking)', nativeRouteRelease);
+    const afterSelfHeal = pluginSource.indexOf("logBuildMem('jobsSeoPages: after-self-heal'");
+    const trackingRelease = pluginSource.indexOf('tracking = Object.create(null)', afterSelfHeal);
+    const trackingProbeRelease = pluginSource.indexOf('jobsSeoMemContext.tracking = undefined', trackingRelease);
+
+    expect(lastNativeRouteReader).toBeGreaterThan(-1);
+    expect(nativeRouteRelease).toBeGreaterThan(lastNativeRouteReader);
+    expect(lastTrackingReader).toBeGreaterThan(-1);
+    expect(nativeRouteRelease).toBeGreaterThan(lastTrackingReader);
+    expect(afterSelfHeal).toBeGreaterThan(nativeRouteRelease);
+    expect(trackingRelease).toBeGreaterThan(afterSelfHeal);
+    expect(trackingProbeRelease).toBeGreaterThan(trackingRelease);
+  });
 });
