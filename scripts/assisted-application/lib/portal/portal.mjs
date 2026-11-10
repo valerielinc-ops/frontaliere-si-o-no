@@ -856,7 +856,11 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     postalCode: resolved.postalCode || factAddress.postalCode,
     city: resolved.city || factAddress.city,
     country: resolved.country || factAddress.countryName,
-  } : resolved;
+  } : {
+    ...resolved,
+    // No town: the country the platform still knows (the CV's or the order's, else the upload answers).
+    country: resolved.country || facts?.address?.countryName || '',
+  };
   return {
     // The target employer is needed for employer-specific eligibility fields
     // such as «Are you already an employee?». It is public posting data, not a
