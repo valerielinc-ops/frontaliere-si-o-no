@@ -1789,7 +1789,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collector's active Map is now also bounded at the jobs-SEO threshold for
  // every page family, including phases that do not release a page cache
  // chunk. The generic collector default remains unchanged for other plugins.
- const JOBS_SEO_HTML_GC_INTERVAL_MB = 512;
+ const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024;
  const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
  let jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
  let jobsSeoHtmlGcAvailable: boolean | null = null;
@@ -3844,7 +3844,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
  // A full re-render creates short-lived HTML/parser strings faster than V8
  // returns their pages to the OS. The cache itself is chunked, and the same
- // bounded collector is used by company hubs below; the shared 512-MiB
+ // bounded collector is used by company hubs below; the shared one-GiB
  // last-resort interval prevents either phase from retaining garbage for the
  // whole corpus. `forceGc()` is a no-op outside CI's `--expose-gc` process,
  // and its return value keeps that path from retrying.
