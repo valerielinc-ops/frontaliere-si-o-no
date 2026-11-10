@@ -16,6 +16,7 @@ import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-sto
 import { selectJobBoardInventory } from '../../services/jobBoardInventory';
 import { runActiveJobPostingCoverageGate } from '../../scripts/ci/assert-active-jobposting-coverage.mjs';
 import { buildJobBoardListingMetadata } from '../../services/seo/jobBoardListingMetadata';
+import { findRelativePostedText } from '../helpers/relativePostedText';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const prefix = (locale: string) => locale === 'it' ? '' : `/${locale}`;
@@ -464,6 +465,30 @@ describe('job-board emitted output', () => {
       }
     }
     for (const locale of locales) expect(seen[locale], `${locale} ItemList entries naming an audit job`).toBeGreaterThan(0);
+  }, 120000);
+
+  it('emits no relative publication age on any job detail or job-card page', () => {
+    // A relative "N giorni fa / days ago / vor N Tagen / il y a N jours" in
+    // static HTML is false after a day and rewrites every page at every build:
+    // the emitted date must be an absolute <time datetime="YYYY-MM-DD">.
+    const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true })
+      .flatMap((entry) => entry.isDirectory() ? walk(path.join(dir, entry.name)) : entry.name === 'index.html' ? [path.join(dir, entry.name)] : []);
+    const dist = path.join(root, 'dist');
+    const offenders: string[] = [];
+    const scanned = { detail: 0, cards: 0, datedDetail: 0 };
+    for (const file of walk(dist)) {
+      const html = fs.readFileSync(file, 'utf8');
+      const isDetail = /class="?mobile-action-block/.test(html);
+      if (!isDetail && !html.includes('data-posted=')) continue;
+      if (isDetail) scanned.detail += 1; else scanned.cards += 1;
+      if (isDetail && /<time datetime="?\d{4}-\d{2}-\d{2}/.test(html)) scanned.datedDetail += 1;
+      const hit = findRelativePostedText(html);
+      if (hit) offenders.push(`${path.relative(dist, file)}: "${hit}"`);
+    }
+    expect(scanned.detail).toBeGreaterThan(0);
+    expect(scanned.cards).toBeGreaterThan(0);
+    expect(scanned.datedDetail).toBeGreaterThan(0);
+    expect(offenders).toEqual([]);
   }, 120000);
 
   it('keeps every mandatory field on active details in all four locales', () => {

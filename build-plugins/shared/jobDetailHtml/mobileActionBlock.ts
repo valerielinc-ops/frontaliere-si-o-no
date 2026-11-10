@@ -15,6 +15,7 @@ import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../../../sc
  */
 import type { JobDetailLocale, JobDetailRenderContext } from './context';
 import { resolveJobApplicationUrl } from '../../../services/jobApplicationDestination';
+import { renderPostedDateTime } from '../jobPostedDate';
 
 const PUBLISHED_LABEL: Record<JobDetailLocale, string> = {
   it: 'Pubblicato',
@@ -28,14 +29,6 @@ const SALARY_LABEL: Record<JobDetailLocale, string> = {
   en: 'Salary',
   de: 'Lohn',
   fr: 'Salaire',
-};
-
-const DAYS_AGO_FORMATTER: Record<JobDetailLocale, (n: number) => string> = {
-  it: (n) => (n === 0 ? 'Oggi' : n === 1 ? 'Ieri' : `${n} giorni fa`),
-  en: (n) => (n === 0 ? 'Today' : n === 1 ? 'Yesterday' : `${n} days ago`),
-  de: (n) => (n === 0 ? 'Heute' : n === 1 ? 'Gestern' : `vor ${n} Tagen`),
-  fr: (n) =>
-    n === 0 ? "Aujourd'hui" : n === 1 ? 'Hier' : `il y a ${n} jours`,
 };
 
 export type MobileActionBlockContext = Pick<
@@ -69,14 +62,14 @@ export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): st
     esc,
     now,
   } = ctx;
-  const daysAgo = (() => {
-    const dateStr = resolveRolloutPostingDate(job, () => String(job.postedDate ?? job.crawledAt ?? ''), now);
-    if (!dateStr) return '—';
-    const t = new Date(dateStr).getTime();
-    if (!Number.isFinite(t)) return '—';
-    const days = Math.max(0, Math.round(((now || new Date()).getTime() - t) / 86400000));
-    return DAYS_AGO_FORMATTER[locale](days);
-  })();
+  // Absolute <time> derived only from the posting date: a relative age
+  // ("10 giorni fa") went false the day after the build and rewrote every job
+  // page at every build. `now` still bounds the date (a future one is rejected).
+  const postedHtml = renderPostedDateTime(
+    resolveRolloutPostingDate(job, () => String(job.postedDate ?? job.crawledAt ?? ''), now),
+    locale,
+    { sentence: false },
+  ) || '—';
   // Same resolution as the JobPosting employmentType and the hero "Contratto"
   // label (scripts/lib/job-employment-type.mjs): never the raw "other".
   const contractText = formatJobEmploymentTypes(
@@ -96,7 +89,7 @@ export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): st
  <dl class="mab-grid">
  <div class="mab-tile"><dt>${esc(localeLabels.location)}</dt><dd>${esc(addressLocality)}</dd></div>
  <div class="mab-tile"><dt>${esc(localeLabels.contract)}</dt><dd>${esc(contractText)}</dd></div>
- <div class="mab-tile"><dt>${esc(PUBLISHED_LABEL[locale])}</dt><dd>${esc(daysAgo)}</dd></div>
+ <div class="mab-tile"><dt>${esc(PUBLISHED_LABEL[locale])}</dt><dd>${postedHtml}</dd></div>
  </dl>${salaryLineHtml}
  </section>`;
 }

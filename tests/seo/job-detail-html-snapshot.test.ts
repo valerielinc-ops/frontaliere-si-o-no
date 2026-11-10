@@ -147,11 +147,13 @@ describe('jobDetailHtml emitters — output regression', () => {
       // Same resolution as the JobPosting employmentType, localized.
       expect(html).toContain('<dd>Tempo pieno</dd>');
       expect(html).toContain('mab-salary');
-      // 1-day-ago fixture → "Ieri" in Italian
-      expect(html).toContain('Ieri');
+      // Absolute posting day, never a relative "Ieri"/"N giorni fa".
+      const day = String(ctx.job.postedDate).slice(0, 10);
+      expect(html).toContain(`<dd><time datetime="${day}">`);
+      expect(html).not.toContain('Ieri');
     });
 
-    it('uses the explicit render clock for the published-age label', () => {
+    it('keeps the published date identical across build clocks', () => {
       const fixedClock = new Date('2026-09-18T12:00:00.000Z');
       const fixedCtx = buildCtx({
         ...ctx,
@@ -162,9 +164,9 @@ describe('jobDetailHtml emitters — output regression', () => {
         },
       });
       const first = renderMobileActionBlock({ ...fixedCtx, now: fixedClock });
-      const second = renderMobileActionBlock({ ...fixedCtx, now: fixedClock });
-      expect(first).toBe(second);
-      expect(first).toContain('2 giorni fa');
+      const later = renderMobileActionBlock({ ...fixedCtx, now: new Date(fixedClock.getTime() + 3 * 86400000) });
+      expect(later).toBe(first);
+      expect(first).toContain('<dd><time datetime="2026-09-16">16 settembre 2026</time></dd>');
     });
 
     it('highlights prefers canonicalLocale.highlights over canonicalKeywords', () => {
@@ -291,14 +293,14 @@ describe('jobDetailHtml emitters — output regression', () => {
       expect(html).toContain('CHF 130 000 - 180 000');
     });
 
-    it('mobile action block uses French labels and "Today" formatter', () => {
+    it('mobile action block uses French labels and an absolute posting date', () => {
       const html = renderMobileActionBlock(ctx);
       expect(html).toContain('Postuler');
       expect(html).toContain('Détails');
-      // Today → "Aujourd'hui" (raw apostrophe — the plugin's `esc` only
-      // escapes & < > " to match the established jobsSeoPagesPlugin
-      // convention; the emitter preserves that contract).
-      expect(html).toContain("Aujourd'hui");
+      // Posted today → the absolute day, not "Aujourd'hui".
+      const day = String(ctx.job.postedDate).slice(0, 10);
+      expect(html).toContain(`<dd><time datetime="${day}">`);
+      expect(html).not.toContain("Aujourd'hui");
     });
 
     it('right rail omits the postal row when postalCode is empty', () => {

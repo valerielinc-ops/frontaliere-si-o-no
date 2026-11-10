@@ -378,7 +378,7 @@ function isSuccessFactorsCareerPath(value) {
     const url = new URL(String(value || ''));
     return url.protocol === 'https:' && !url.username && !url.password && !url.hash
       && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
-      && url.pathname.replace(/\/+$/, '') === '/career';
+      && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
   }
@@ -396,6 +396,38 @@ function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
       && expected.company === actual.company
       && expected.requisition === actual.requisition
       && expected.namespace === actual.namespace;
+  } catch {
+    return false;
+  }
+}
+
+function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postingRouteProof } = {}) {
+  try {
+    const current = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
+    if (!source || postingRouteProof?.via !== 'successfactors'
+      || !isSuccessFactorsCareerPath(current.href)
+      || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
+      || current.origin !== source.origin
+      || !samePostingAddress(postingRouteProof.postingUrl, posting.href)) return false;
+
+    const valuesFor = (key) => [...current.searchParams.entries()]
+      .filter(([name]) => name.toLowerCase() === key)
+      .map(([, value]) => value);
+    const company = valuesFor('company');
+    const requisition = valuesFor('career_job_req_id');
+    const namespace = valuesFor('career_ns');
+    // A redirect may drop the module query entirely, but an identity it keeps
+    // must still agree with the source module. Duplicate identity parameters
+    // are ambiguous and therefore never inherit the source posting.
+    if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    if (company.length && (company[0].toLowerCase() !== source.company
+      || !/^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0]))) return false;
+    if (requisition.length && (requisition[0] !== source.requisition
+      || !/^[0-9]{1,20}$/.test(requisition[0]))) return false;
+    if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
+    return true;
   } catch {
     return false;
   }
@@ -419,7 +451,12 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     return isSuccessFactorsModuleRoute(apply)
       && postingRouteProof?.via === 'successfactors'
       && sameSuccessFactorsModuleAddress(postingRouteProof.applyUrl, apply.href)
-      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href)
+      || isSuccessFactorsPortalCareerContinuation({
+        applyUrl: apply.href,
+        postingUrl: posting.href,
+        postingRouteProof,
+      });
   } catch {
     return false;
   }
@@ -848,7 +885,9 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
   // say, a form receives from the platform: the town's postal code and country, and a street when a form
   // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
-  const facts = platformFacts && typeof platformFacts === 'object' ? platformFacts : null;
+  // With the form's language: the posting's, for the correspondence-language rule (assistedApplicationPlatformDefaults.js).
+  const facts = platformFacts && typeof platformFacts === 'object'
+    ? { ...platformFacts, applicationLanguage: String(language || '').slice(0, 2).toLowerCase() } : null;
   const factAddress = facts?.address?.city ? facts.address : null;
   const address = factAddress ? {
     ...resolved,
@@ -4592,6 +4631,25 @@ function stableUploadTriggerDiscriminator(button) {
  * account/application pages, so the document name must still be present in
  * the control's DOM context and the candidate must be unique.
  */
+// SuccessFactors draws each document slot as one button: the slot's caption, its action and the dialog it opens
+// («* Lebenslauf - Zeugnisse - Diplome Lebenslauf Öffnet ein Dialogfeld», Helsana s2Tbwwjd; «* Lebenslauf
+// Lebenslauf hinzufügen Öffnet ein Dialogfeld», Bund eHSYErA1, 2026-11-10). Its action has no verb the upload
+// patterns know (none at all on Helsana), so the CV was never attached (trigger_not_found) and the empty slot
+// came back as a text question. The caption says which document the slot takes; a slot that already holds one
+// («Edit document <file>») is not a new upload.
+const SUCCESS_FACTORS_DIALOG_SLOT_RE = /\s(?:öffnet\s+ein\s+dialog(?:feld|fenster)?|opens\s+a\s+dialog(?:\s+box)?|ouvre\s+une\s+(?:boîte\s+de\s+)?dialogue|apre\s+(?:una\s+)?(?:finestra\s+di\s+)?dialogo)\s*$/iu;
+const SUCCESS_FACTORS_FILLED_SLOT_RE = /\b(?:edit\s+document|dokument\s+bearbeiten|modifica\s+(?:il\s+)?documento|modifier\s+(?:le\s+)?document)\b/i;
+
+/** The document a SuccessFactors slot button takes ('cv' | 'cover_letter'), or '' for any other control. */
+export function successFactorsDocumentSlotKind(button) {
+  const text = String(button?.text || '').replace(/\s+/g, ' ').trim();
+  if (!SUCCESS_FACTORS_DIALOG_SLOT_RE.test(text) || SUCCESS_FACTORS_FILLED_SLOT_RE.test(text)) return '';
+  const caption = text.replace(SUCCESS_FACTORS_DIALOG_SLOT_RE, '');
+  const cv = CV_DOCUMENT_CONTEXT_RE.test(caption);
+  const coverLetter = COVER_LETTER_DOCUMENT_CONTEXT_RE.test(caption);
+  return cv && !coverLetter ? 'cv' : coverLetter && !cv ? 'cover_letter' : '';
+}
+
 export function uploadButtonCandidatesFor(snapshot, kind) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
   const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
@@ -4614,6 +4672,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   };
   const named = findButton(snapshot?.buttons || [], pattern);
   if (named && buttonMatchesDocumentContext(named, contextPattern)) add(named);
+  for (const button of snapshot?.buttons || []) {
+    if (!button.disabled && !button.chrome && successFactorsDocumentSlotKind(button) === kind) add(button);
+  }
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
