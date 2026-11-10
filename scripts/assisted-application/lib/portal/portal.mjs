@@ -3042,10 +3042,13 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */
+// Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
+const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
 function titleWordsOnly(line, title) {
   const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
   const seen = normalizeWords(line).split(' ').filter(Boolean);
-  return seen.length > 0 && seen.filter((word) => !wanted.has(word) && word.length >= 3).length <= 1;
+  // Every other word is a different role or an employer («Senior …», «… bei X»).
+  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
 }
 
 export function formPostingMatch(formText, job = {}, {

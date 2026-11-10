@@ -37,6 +37,10 @@ describe('SuccessFactors after sign-in: the requisition the runner entered binds
     expect(formPostingMatch(form('Application Manager/-in'), job, { pageUrl, applyUrl })).toBe('mismatch');
     // The requisition next to a longer heading that names another role or employer.
     expect(formPostingMatch(form('Senior Application Manager/-in Logistikbasis der Armee (20604)'), job, { pageUrl, applyUrl })).toBe('mismatch');
+    // A single non-title word is already another role (review of #17984).
+    expect(formPostingMatch(form('Senior Application Manager/-in (20604)'), job, { pageUrl, applyUrl })).toBe('mismatch');
+    // Gender markers the portal adds to the title name no other role.
+    expect(formPostingMatch(form('Application Manager/-in (m/w/d) (20604)'), job, { pageUrl, applyUrl })).toBe('match');
     // The candidate's home or the list of applications: no role heading with this requisition.
     expect(formPostingMatch(['Stellenportal Bund', 'Meine Bewerbungen', 'Application Manager/-in', 'Status: Entwurf', pageUrl].join('\n'), job, { pageUrl, applyUrl })).toBe('mismatch');
     // Another SuccessFactors host, or an apply address that is not a job-application module.
