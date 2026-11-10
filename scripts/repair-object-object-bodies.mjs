@@ -29,7 +29,7 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { extractBodies, escapeForTS, unescapeFromTS, BODY_DIRS } from './lib/blog-body-io.mjs';
-import { maskNavLinks } from './lib/article-free-mt.mjs';
+import { maskNavLinks, restoreIndexedSentinels } from './lib/article-free-mt.mjs';
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
 import { hasUsableContentText } from './lib/usable-content-text.mjs';
@@ -102,6 +102,7 @@ const KEEP_ACRONYMS = [
   'AVS', 'AHV', 'LPP', 'BVG', 'LAINF', 'UVG', 'LAMal', 'KVG', 'IPG', 'LADI', 'AVIG',
 ];
 const ACRONYM_RE = new RegExp(`\\b(${KEEP_ACRONYMS.join('|')})\\b`, 'g');
+const ACRONYM_SENTINEL_RE = /0ACR(\d+)0/g;
 
 /** Same digit-delimited sentinel trick as the nav-link mask. */
 function maskAcronyms(text) {
@@ -111,16 +112,7 @@ function maskAcronyms(text) {
     store.push(m);
     return token;
   });
-  const restore = (s) => {
-    let n = 0;
-    const out = String(s).replace(/0ACR(\d+)0/g, (_, i) => {
-      const original = store[Number(i)];
-      if (original === undefined) return '';
-      n += 1;
-      return original;
-    });
-    return { text: out, ok: n === store.length };
-  };
+  const restore = (s) => restoreIndexedSentinels(s, ACRONYM_SENTINEL_RE, store);
   return { masked, expected: store.length, restore };
 }
 

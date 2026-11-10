@@ -28,15 +28,13 @@ function normalizePassthroughText(value) {
   return String(value ?? '')
     .normalize('NFKC')
     .replace(/\u00a0/g, ' ')
-    .replace(/\r\n/g, '\n')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/[ \t]*\n[ \t]*/g, '\n')
-    .replace(/\n{3,}/g, '\n\n')
+    .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
 }
 
-function isSourcePassthrough(sourceText, translatedText) {
+export function isSourcePassthrough(translatedText, sourceText) {
+  if (typeof translatedText !== 'string' || typeof sourceText !== 'string') return false;
   const source = normalizePassthroughText(sourceText);
   return source.length > 0 && source === normalizePassthroughText(translatedText);
 }
@@ -82,17 +80,51 @@ export function translatedStringOrNull(value, targetLang) {
  * @param {unknown[]} results  per-chunk parsed JSON objects
  * @param {string} bodyKey     'body1' | 'body2' | 'body3'
  * @param {string} [targetLang] locale dei chunk tradotti ('en' | 'de' | 'fr')
+ * @param {string[]|null} [sourceChunks] chunk italiani nello stesso ordine
  * @returns {string|null}
  */
-export function joinTranslatedChunks(results, bodyKey, targetLang) {
+export function joinTranslatedChunks(results, bodyKey, targetLang, sourceChunks = null) {
   if (!Array.isArray(results) || results.length === 0) return null;
   const parts = [];
-  for (const r of results) {
+  for (const [index, r] of results.entries()) {
     const part = translatedStringOrNull(r?.[bodyKey], targetLang);
     if (part === null) return null;
+    if (Array.isArray(sourceChunks) && isSourcePassthrough(part, sourceChunks[index])) return null;
     parts.push(part);
   }
   return parts.join('\n\n');
+}
+
+/**
+ * Restore indexed sentinels only when every original appears exactly once.
+ * A count-only check accepts a duplicated index and silently loses another
+ * protected token, which is worse than refusing the translation.
+ *
+ * @param {unknown} value translated text
+ * @param {RegExp} pattern global sentinel pattern with one numeric capture
+ * @param {string[]} originals protected source values by index
+ * @returns {{ text: string, ok: boolean }}
+ */
+export function restoreIndexedSentinels(value, pattern, originals) {
+  pattern.lastIndex = 0;
+  const seen = new Set();
+  let valid = true;
+  const text = String(value ?? '').replace(pattern, (_, rawIndex) => {
+    const index = Number(rawIndex);
+    if (!Number.isInteger(index)
+      || index < 0
+      || index >= originals.length
+      || seen.has(index)) {
+      valid = false;
+      return '';
+    }
+    seen.add(index);
+    return originals[index];
+  });
+  const complete = valid
+    && seen.size === originals.length
+    && originals.every((_, index) => seen.has(index));
+  return { text, ok: complete };
 }
 
 /**
@@ -124,16 +156,7 @@ export function maskNavLinks(text) {
     store.push(m);
     return token;
   });
-  const restore = (s) => {
-    let n = 0;
-    const out = String(s ?? '').replace(NAV_SENTINEL_RE, (_, i) => {
-      const original = store[Number(i)];
-      if (original === undefined) return '';
-      n += 1;
-      return original;
-    });
-    return { text: out, ok: n === store.length };
-  };
+  const restore = (s) => restoreIndexedSentinels(s, NAV_SENTINEL_RE, store);
   return { masked, expected: store.length, restore };
 }
 
@@ -229,7 +252,7 @@ export async function translateFieldFreeMt({
   // tradotto: `Null` è una parola valida in tedesco, mentre `null` resta un
   // marker serializzato. Non-stringa e marker → ''.
   if (!hasUsableTranslatedText(out, targetLang)) return '';
-  if (isSourcePassthrough(masked, out)) {
+  if (sourceLang !== targetLang && isSourcePassthrough(out, masked)) {
     onWarn(`free-MT ${targetLang}:${fieldType} ha restituito la sorgente senza tradurla`);
     return '';
   }
