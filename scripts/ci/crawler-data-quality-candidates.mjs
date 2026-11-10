@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { processFiles as scanPreviousSlugContamination } from '../decontaminate-prev-slugs.mjs';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { extractStableJobId } from '../lib/job-match-key.mjs';
+import { measureHeartbeatlessActiveJobs } from '../lib/job-observation-heartbeat.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, '..', '..');
@@ -259,7 +260,12 @@ function housekeepingSignals(slices, nowMs) {
       }
     }
   }
-  return { emptyLocaleBuckets, staleActive };
+  // `staleActive` above only sees records that HAVE a crawledAt. An active
+  // record without one is outside every freshness window, so it is measured
+  // separately: target 0 once each crawler has written its slice through the
+  // heartbeat-stamping writer (lib/job-observation-heartbeat.mjs).
+  const heartbeatlessActive = measureHeartbeatlessActiveJobs(slices);
+  return { emptyLocaleBuckets, staleActive, heartbeatlessActive };
 }
 
 function finding({ key, title, category, summary, evidence, affectedFiles, nextStep }) {
@@ -380,6 +386,20 @@ export function buildCrawlerDataQualityReport({
     }));
   }
 
+  const heartbeatless = housekeeping.heartbeatlessActive || null;
+  if (heartbeatless && heartbeatless.heartbeatless > 0) {
+    findings.push(finding({
+      key: 'active-records-without-crawledAt',
+      title: '[data-quality] housekeeping: record attivi senza crawledAt',
+      category: 'freshness-contract',
+      summary: `${heartbeatless.heartbeatless} record attivi su ${heartbeatless.active} non hanno crawledAt`,
+      evidence: heartbeatless.byCrawler.slice(0, MAX_EXAMPLES)
+        .map((entry) => `${entry.crawler}: ${entry.heartbeatless}/${entry.active} senza crawledAt`),
+      affectedFiles: heartbeatless.byCrawler.map((entry) => `data/jobs/by-crawler/${entry.crawler}.json`),
+      nextStep: 'Verificare che il crawler scriva lo slice con writeJobsCrawlerSlice dopo una run riuscita (lo stamp di crawledAt è nel writer); misura: node scripts/measure-heartbeatless-active-jobs.mjs.',
+    }));
+  }
+
   return {
     schemaVersion: 1,
     generatedAt,
@@ -399,6 +419,7 @@ export function buildCrawlerDataQualityReport({
       needsRetranslationBaselineUnavailable: !translation,
       emptyLocaleBuckets: housekeeping.emptyLocaleBuckets.length,
       staleActiveRecords: housekeeping.staleActive.length,
+      heartbeatlessActiveRecords: heartbeatless ? heartbeatless.heartbeatless : null,
     },
     findings,
   };
