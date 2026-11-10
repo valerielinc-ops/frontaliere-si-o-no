@@ -131,6 +131,49 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe(false);
   });
 
+  it('keeps a SuccessFactors portalcareer continuation bound to its source module', () => {
+    const postingUrl = 'https://jobs.admin.example/job/Example-Role/123456/';
+    const moduleUrl = 'https://career74.sapsf.eu/career?company=examplefed&career_job_req_id=34525&career_ns=job_application';
+    const portalCareerUrl = 'https://career74.sapsf.eu/portalcareer';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const job = { company: 'Bundesverwaltung', title: 'Example Role' };
+    const form = [
+      'Karrierechancen: Bewerbung',
+      'Optionen',
+      'Alle Abschnitte einblenden',
+      'Alle Abschnitte ausblenden',
+      'Meine Dokumente',
+      'Lebenslauf Lebenslauf hinzufügen Öffnet ein Dialogfeld',
+      'Motivationsschreiben Motivationsschreiben hinzufügen Öffnet ein Dialogfeld',
+      'Zeugnisse, Diplome und weitere Dokumente Dokument hinzufügen Öffnet ein Dialogfeld',
+      'Meine persönlichen Informationen',
+      'Stellenspezifische Informationen',
+      'Bewerbungsprofil anzeigen',
+      'Sprache',
+      'Speichern',
+      'Bewerben',
+    ].join('\n');
+
+    expect(isVerifiedPostingEntry({ applyUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(isPostingRouteBound({ pageUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: portalCareerUrl,
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
+
+    const sameIdentity = `${portalCareerUrl}?company=examplefed&career_ns=job_application&career_job_req_id=34525&login_ns=login`;
+    expect(isVerifiedPostingEntry({ applyUrl: sameIdentity, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(isVerifiedPostingEntry({
+      applyUrl: `${portalCareerUrl}?company=examplefed&career_ns=job_application&career_job_req_id=34526`,
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe(false);
+    expect(isVerifiedPostingEntry({ applyUrl: portalCareerUrl.replace('career74', 'career75'), postingUrl, postingRouteProof: proof })).toBe(false);
+  });
+
   it('keeps a same-posting Jobs2Web shell bound while only the language control is visible', () => {
     const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';
     const applyUrl = 'https://jobs.stadt-zuerich.ch/talentcommunity/apply/1373719857/?locale=de_DE';

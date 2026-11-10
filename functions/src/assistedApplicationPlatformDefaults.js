@@ -49,7 +49,8 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
 // v3 (2026-11-10): the education level and an unnamed language row («Language» + «Level») from the CV.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v3';
+// v4 (2026-11-10): first and correspondence language, the Swiss Army school of a candidate who is not Swiss.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v4';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -627,7 +628,10 @@ function classifyPlatformSubject(question) {
   if (TRAVEL.test(text) && AVAILABLE.test(text) && !TRAVEL_NOT_AVAILABILITY.test(text) && isBinary(question)) return 'business_travel';
   const languages = languageCodesIn(text);
   if (languages.length === 1 && LANGUAGE_LEVEL.test(text)) return `language:${languages[0]}`;
+  if (isSwissArmyQuestion(question)) return 'swiss_army_service';
   if (isEducationLevelQuestion(question)) return 'education_level';
+  if (isFirstLanguageQuestion(question)) return 'first_language';
+  if (isCorrespondenceLanguageQuestion(question)) return 'correspondence_language';
   if (isLanguageRowName(question)) return 'language_row_name';
   if (isLanguageRowLevel(question)) return 'language_row_level';
   if (SALARY.test(text) && !/\b(?:attuale|current|aktuell\w*|actuel\w*)\b/.test(text)) return 'salary_expectation';
@@ -786,10 +790,70 @@ function isLanguageRowLevel(question) {
 
 /** The CV's strongest language (its own language first, the mother tongue): the one a single row names. */
 function primaryLanguage(facts) {
+  return rankedLanguages(facts)[0] || null;
+}
+
+/** The CV's languages, strongest first (the mother tongue, then by level, then in the CV's order). */
+function rankedLanguages(facts) {
   const entries = (facts?.languages || []).map((entry, index) => ({
     ...entry, index, rank: entry.level === 'native' ? 7 : levelRank(entry.level) ?? -1,
   }));
-  return entries.sort((left, right) => right.rank - left.rank || left.index - right.index)[0] || null;
+  return entries.sort((left, right) => right.rank - left.rank || left.index - right.index);
+}
+
+// ── Federal portal (Stellenportal Bund, eHSYErA1, 2026-11-10) ──
+const languageOptionOf = (question, code) => pickOption(question, (option) => languageCodesIn(option).length === 1 && languageCodesIn(option)[0] === code);
+const OTHER_LANGUAGE_OPTION = /^(?:andere\w*|other\w*|altr[ae]|autre\w*|weitere)\b/;
+const languageOptions = (question) => optionsOf(question).filter((option) => languageCodesIn(option).length === 1);
+
+const FIRST_LANGUAGE = /^(?:erstsprache|muttersprache|mother tongue|first language|native language|lingua madre|madrelingua|prima lingua|langue maternelle|premiere langue)$/;
+function isFirstLanguageQuestion(question) {
+  return FIRST_LANGUAGE.test(label(question)) && languageOptions(question).length >= 2;
+}
+
+/** The mother tongue (the CV's own language, owner decision 2026-11-09); not offered: «Andere», never another language. */
+function firstLanguageValue(question, facts) {
+  const native = (facts?.languages || []).find((entry) => entry.level === 'native');
+  if (!native) return '';
+  return languageOptionOf(question, native.code) || pickOption(question, (option) => OTHER_LANGUAGE_OPTION.test(fold(option)));
+}
+
+const CORRESPONDENCE_LANGUAGE = /^(?:korrespondenzsprache|sprache (?:der|fur die) korrespondenz|correspondence language|language (?:of|for) correspondence|preferred (?:communication |correspondence )?language|lingua (?:di|per la) corrispondenza|lingua di comunicazione|langue de correspondance|langue de communication)$/;
+function isCorrespondenceLanguageQuestion(question) {
+  return CORRESPONDENCE_LANGUAGE.test(label(question)) && languageOptions(question).length >= 2;
+}
+
+/**
+ * The language the employer writes to the candidate in (rule of 2026-11-10, proposed with the federal portal): the
+ * mother tongue when the list offers it; else the posting's language when the CV lists it; else the strongest
+ * language of the CV the list offers; else the posting's language, the one the candidate applied in.
+ */
+function correspondenceLanguageValue(question, facts) {
+  const native = (facts?.languages || []).find((entry) => entry.level === 'native');
+  const posting = String(facts?.applicationLanguage || '').slice(0, 2).toLowerCase();
+  const listed = new Set((facts?.languages || []).map((entry) => entry.code));
+  if (native && languageOptionOf(question, native.code)) return languageOptionOf(question, native.code);
+  if (posting && listed.has(posting) && languageOptionOf(question, posting)) return languageOptionOf(question, posting);
+  for (const entry of rankedLanguages(facts)) {
+    const option = languageOptionOf(question, entry.code);
+    if (option) return option;
+  }
+  return posting ? languageOptionOf(question, posting) : '';
+}
+
+// The Swiss Army's recruit school, NCO or officer school: only a Swiss citizen serves, so a candidate known not to
+// be Swiss has not attended it (a fact, deterministic). A Swiss citizen, or an unknown nationality, is left to the
+// decision engine (plausible deduction from the CV).
+const SWISS_ARMY = /\b(?:rekrutenschule|unteroffiziers\w*|offiziersschule|schweizer armee|militardienst|militaerdienst|scuola reclute|scuola (?:sottufficiali|ufficiali)|esercito svizzero|ecole de recrues|ecole (?:de sous officiers|d officiers)|armee suisse|swiss army|swiss armed forces|military service in switzerland)\b/;
+function isSwissArmyQuestion(question) {
+  return SWISS_ARMY.test(label(question)) && isBinary(question);
+}
+
+function swissArmyValue(question, facts, lang) {
+  const nationality = nationalityOf(facts?.nationality)?.code || '';
+  const swiss = facts?.passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
+  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(facts?.passport));
+  return knownForeign ? noValue(question, lang) : '';
 }
 
 function languageValue(question, code, facts) {
@@ -951,6 +1015,9 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       value = primary ? languageValue(question, primary.code, withLocale) : '';
       break;
     }
+    case 'first_language': value = firstLanguageValue(question, known); break;
+    case 'correspondence_language': value = correspondenceLanguageValue(question, known); break;
+    case 'swiss_army_service': value = swissArmyValue(question, known, lang); break;
     case 'start_date': value = dateValue(question, known.startDate, lang); break;
     default:
       if (topic.startsWith('language:')) value = languageValue(question, topic.slice('language:'.length), withLocale);
