@@ -215,7 +215,12 @@ function nativeQuestionText(value, counter = null) {
       element.innerText, element.textContent, element.getAttribute('aria-label'), element.getAttribute('title'),
     ].some(value => COOKIE_MANAGE_CONSENT_RE.test(String(value || '').replace(/\s+/g, ' ').trim()));
     for (let node = element.parentElement; node; node = node.parentElement) {
-      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+      // `role="banner"` is the ARIA landmark of the site header, not a cookie
+      // banner: SBB's SuccessFactors header carries it around a persistent
+      // «Cookie-Einstellungen» link that outlives every consent choice. The
+      // node's own id, class and label still prove a real banner surface.
+      const role = String(node.getAttribute('role') || '').trim();
+      const marker = [node.id, node.className, /^banner$/i.test(role) ? '' : role, node.getAttribute('aria-label')]
         .filter(Boolean).join(' ');
       if (manageConsent && COOKIE_MANAGER_SURFACE_RE.test(marker)) {
         return node.matches(DIALOG_SELECTOR) ? 'dialog' : 'banner';
@@ -1239,9 +1244,27 @@ function nativeQuestionText(value, counter = null) {
   // semantic `<button>` (the visible value can be «cliccando qui»). Keep it
   // in the action snapshot; portal.mjs applies the stricter route-bound
   // provenance check before it is ever clicked.
-  const BUTTONS = 'button, input[type="submit"], input[type="button"], a[role="button"], a[href], [role="button"]';
+  const BUTTONS = 'button, input[type="submit"], input[type="button"], a[role="button"], a[href], [role="button"], a[role="menuitem"]';
   const actionLink = (element) => element.tagName === 'A' && (Boolean(element.closest('.css_button')) || element.classList.contains('button') || element.classList.contains('btn'));
-  const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
+  // SuccessFactors Career Site Builder renders «Jetzt bewerben» as a dropdown
+  // toggle; the actual entries («Jetzt bewerben», «Apply with LinkedIn») are
+  // plain `role="menuitem"` links in the menu it opens. Mark the toggle, and
+  // keep a menu item only while the toggle owning its menu reports itself
+  // expanded, so closed menus and navigation menubars stay out of the snapshot.
+  const DISCLOSURE_TOGGLE = '[aria-haspopup="true"], [aria-haspopup="menu"], [data-toggle="dropdown"], [data-bs-toggle="dropdown"]';
+  const disclosureToggle = (element) => element.matches(DISCLOSURE_TOGGLE);
+  const openedMenuItem = (element) => {
+    if (element.getAttribute('role') !== 'menuitem') return false;
+    let depth = 0;
+    for (let node = element.parentElement; node && node !== document.body && depth < 5; node = node.parentElement, depth += 1) {
+      const toggle = [...node.querySelectorAll(DISCLOSURE_TOGGLE)]
+        .find((candidate) => candidate !== element && !candidate.contains(element) && !element.contains(candidate));
+      if (toggle) return toggle.getAttribute('aria-expanded') === 'true';
+    }
+    return false;
+  };
+  const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element)
+    || openedMenuItem(element);
   const buttonName = (element) => [
     // `innerText` is the rendered label in a browser. JSDOM does not expose
     // it, so inspect text content before accessibility attributes; normalize
@@ -1355,6 +1378,8 @@ function nativeQuestionText(value, counter = null) {
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
+      ...(disclosureToggle(element) ? { popup: true } : {}),
+      ...(openedMenuItem(element) ? { menuItem: true } : {}),
       ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
