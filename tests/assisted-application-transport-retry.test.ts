@@ -13,7 +13,7 @@ const draft = { status: 'ready', round: 1, questions: [], job: { source: 'job_de
 const approved = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1 } };
 
 describe('infrastructure failures use the scheduler without a manual retry', () => {
-  it.each(['navigation_unavailable', 'email_provider_unavailable', 'question_localization_unavailable'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
+  it.each(['navigation_unavailable', 'email_provider_unavailable', 'question_localization_unavailable', 'application_region_unsupported'])('backs off %s, notifies operations once and continues without manual intervention', reason => {
     let flow: any = approved;
     let at = now;
     const fail = reason === 'email_provider_unavailable' ? { type: 'submit_failed', error: reason } : { type: 'submit_handoff', reason };
@@ -117,5 +117,15 @@ describe('legacy recovery is general, idempotent and only repairs the query cloc
     const record = { state: 'failed', channel: 'portal', reason: 'error: page.goto: net::ERR_NAME_NOT_RESOLVED', releasedAt: now - 1000, clickedAt: null };
     expect(legacyTransportHoldReason({ flow, submission: { r1: record }, draft })).toBe('navigation_unavailable');
     expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBeNull();
+  });
+
+  it('requeues a regional-notice hold only when its pre-form claim was released as not sent', () => {
+    const flow = { state: 'owner_takeover', round: 1, heldBy: ['portal:application_region_unsupported'] };
+    const record = { state: 'failed', channel: 'portal', reason: 'application_region_unsupported', releasedAt: now - 1000, clickedAt: null, confirmedNotSent: true };
+    expect(legacyTransportHoldReason({ flow, submission: { r1: record }, draft })).toBe('application_region_unsupported');
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBeNull();
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, confirmedNotSent: false } }, draft })).toBeNull();
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, state: 'sending' } }, draft })).toBeNull();
+    expect(legacyTransportHoldReason({ flow: { ...flow, technicalRecoveryVersion: 'transport-recovery-v1' }, submission: { r1: record }, draft })).toBeNull();
   });
 });

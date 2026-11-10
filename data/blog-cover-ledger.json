@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1128,
+      "5": 1129,
       "6": 5061
     },
-    "publishedCovers": 7871,
+    "publishedCovers": 7872,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217220,6 +217220,39 @@
         "provider": "openai-codex",
         "assetId": "article-peso-burocrazia-imprese-svizzera",
         "imageUrl": "/images/blog/article-peso-burocrazia-imprese-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-pamini-contributi-salari-svizzera": {
+      "cover": "/images/blog/article-pamini-contributi-salari-svizzera.webp",
+      "hash": "3b38d4a2ea7157b6e6f458c8068a22983fdbea923a62ecae278d14e1f033b96b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "pamini-contributi-salari-svizzera",
+          "category": "pratico",
+          "date": "2026-11-10T09:09:47.527Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pamini-contributi-salari-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-10",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pamini-contributi-salari-svizzera",
+        "imageUrl": "/images/blog/article-pamini-contributi-salari-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     }
