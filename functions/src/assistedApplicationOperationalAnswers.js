@@ -5,6 +5,7 @@
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
+import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
@@ -175,7 +176,10 @@ export function operationalQuestionTopic(question) {
  * candidate (dates, consents, availabilities) apply.
  */
 export function operationalDefaultAnswer(question, { locale, facts } = {}) {
-  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale });
+  return ownerPreferenceAnswer(question, { locale }) || platformDefaultAnswer(question, facts || null, { locale })
+    // What the CV answers to an open text question (owner decisions 2026-11-10): a proposal like the
+    // platform's, verified against the CV (assistedApplicationCvAnswers.js).
+    || cvAnswerFor(question, facts);
 }
 
 function ownerPreferenceAnswer(question, { locale } = {}) {
@@ -269,7 +273,8 @@ export function isOperationalDefaultValue(question, value, options = {}) {
 /** Required form preferences also leave with an email application. Never edit the CV. */
 export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {}) {
   const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language, facts });
-  const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id])
+  // A CV answer is already in the CV the e-mail carries: no line of its own.
+  const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id] && !isCvAnswerDefault(defaults[question.id]))
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);
   const body = draft?.applicationEmail?.body || '';
   return lines.length ? `${body}\n\n${lines.join('\n')}` : body;

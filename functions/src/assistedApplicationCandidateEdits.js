@@ -39,6 +39,7 @@ import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, per
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
 import { platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
+import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -628,6 +629,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // Form-only values (assistedApplicationPlatformDefaults.js): kept apart from `profile`, which the letter
   // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
   const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '' });
+  // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
+  // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
+  platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);
   return { identity, profile, answers, overrides, personal, platformFacts };
 }
 
