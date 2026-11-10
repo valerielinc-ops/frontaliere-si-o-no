@@ -17,8 +17,9 @@
  * da solo). La selezione deve seguire la GENERAZIONE del run, non l'istante in
  * cui un runner ha finito: un rerun vecchio può concludersi dopo una
  * generazione nuova. Il selettore quindi verifica l'identità del check
- * (`id` + `head_sha`) e ordina per `created_at`, `run_attempt`, l'ID del
- * workflow nel `details_url` e infine l'ID del check-run; almeno un marcatore
+ * (`id` + `head_sha`) e ordina per `created_at`, l'ID del workflow nel
+ * `details_url`, `run_attempt` dentro quella workflow run e infine l'ID del
+ * check-run; almeno un marcatore
  * di generazione deve essere presente e confrontabile fra i candidati.
  * `completed_at` serve solo a verificare che un run completato sia utilizzabile.
  * Se la generazione più nuova è ancora in volo, oppure l'identità non è
