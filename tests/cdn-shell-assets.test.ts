@@ -490,7 +490,7 @@ describe('ensureCdnShellAssets', () => {
   it('does not overwrite a stable global alias already stored in R2 when its edge response is absent', async () => {
     const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
     const stable = 'assets/adsense-loader.js';
-    const cdn = fakeCdn(assets, {
+    const cdn = fakeCdn(assets.map((asset) => asset.key), {
       probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
     });
 
