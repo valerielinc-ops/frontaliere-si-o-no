@@ -115,9 +115,10 @@ describe('typecheck gate wiring (#5540)', () => {
     const typecheckAt = workflow.indexOf('      - name: Typecheck after detached source gates');
     expect(collectGates, 'manca la raccolta dei gate indipendenti').not.toBe('');
     expect(typecheckStep, 'manca lo step TSC separato').not.toBe('');
-    const drainComplete = collectGates.indexOf('done < "$expected_file"');
-    const safeOutput = collectGates.indexOf('if ! printf');
+    const drainComplete = collectGates.indexOf('done 9< "$expected_file"');
+    const safeOutput = collectGates.indexOf('tsc_safe_to_start=$tsc_safe_to_start');
     expect(drainComplete, 'il collector deve attendere tutti i gate detached').toBeGreaterThan(-1);
+    expect(collectGates).toContain('while IFS= read -r -u 9 label; do');
     expect(safeOutput, 'il collector deve esporre l esito dopo il drain').toBeGreaterThan(drainComplete);
     const publishOutput = collectGates.slice(safeOutput, collectGates.indexOf('exit "$failures"'));
     expect(publishOutput).toContain('tsc_safe_to_start=$tsc_safe_to_start');
@@ -139,13 +140,13 @@ describe('typecheck gate wiring (#5540)', () => {
     const collectGates = namedStepBlock(workflow, 'Collect independent source gates');
     const typecheckStep = namedStepBlock(workflow, 'Typecheck after detached source gates');
     const cleanup = collectGates.indexOf(
-      'node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode"',
+      'node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode" </dev/null',
     );
-    const safeOutput = collectGates.indexOf('if ! printf');
+    const safeOutput = collectGates.indexOf('tsc_safe_to_start=$tsc_safe_to_start');
     expect(cleanup, 'manca l attesa/terminazione del process group detached').toBeGreaterThan(-1);
     expect(safeOutput).toBeGreaterThan(cleanup);
     expect(collectGates).toContain('gate_timed_out=true');
-    expect(collectGates).toContain('cleanup_mode=terminate-now');
+    expect(collectGates).toContain('cleanup_mode="terminate-now"');
     expect(collectGates).toContain('tsc_safe_to_start=false');
     expect(typecheckStep).toContain('!cancelled()');
     expect(typecheckStep).toContain("steps.collect-independent-gates.outputs.tsc_safe_to_start == 'true'");

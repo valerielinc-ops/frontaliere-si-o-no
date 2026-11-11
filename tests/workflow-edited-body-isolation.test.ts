@@ -331,7 +331,8 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(launchScript).not.toContain('>> "$state_dir/labels"');
     expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
     expect(collectScript).toContain('expected roster is missing or empty');
-    expect(collectScript).toContain('done < "$expected_file"');
+    expect(collectScript).toContain('while IFS= read -r -u 9 label; do');
+    expect(collectScript).toContain('done 9< "$expected_file"');
     expect(collectScript).not.toContain('if [ -s "$state_dir/labels" ]');
   });
 

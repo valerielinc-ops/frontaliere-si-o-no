@@ -2732,7 +2732,8 @@ jobs:
       # mantiene `tsconfig.ci.json`, `--noEmit`, `--listFiles`, l'intero programma
       # e la baseline. Sul runner da 16 GiB, le misure PR del 2026-11-11 mostrano
       # RSS TSC di 8,45 GiB e almeno 6,4 GiB disponibili quando non si sovrappone
-      # agli altri gate; il cap heap dedicato è quindi 10 GiB.
+      # agli altri gate. Il wrapper riceve NODE_OPTIONS da 10 GiB; il limite
+      # esplicito da 12 GiB del processo TSC resta nel gate di baseline.
       #
       # Il collector attende Vitest e tutti i gate detached. Prima di proseguire
       # verifica l'uscita di ciascun process group; al timeout lo termina e lo
@@ -2761,7 +2762,7 @@ jobs:
               failures=1
               tsc_safe_to_start=false
             else
-              while IFS= read -r label; do
+              while IFS= read -r -u 9 label; do
                 [ -n "$label" ] || {
                   echo "::error::independent gate expected roster contains an empty label"
                   failures=1
@@ -2837,7 +2838,7 @@ jobs:
                     if [ "$gate_timed_out" = "true" ]; then
                       cleanup_mode="terminate-now"
                     fi
-                    node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode"
+                    node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode" </dev/null
                     cleanup_status=$?
                     case "$cleanup_status" in
                       0) ;;
@@ -2853,7 +2854,7 @@ jobs:
                     esac
                   fi
                 fi
-              done < "$expected_file"
+              done 9< "$expected_file"
             fi
           else
             echo "independent gate step skipped; no detached gates were expected"
