@@ -26,6 +26,7 @@ import {
   fetchImageBytes,
   resizeToOgJpeg,
   slugifyName,
+  writeWebcamReplayManifest,
 } from '../scripts/fetch-webcam-snapshots-for-og.mjs';
 import {
   generateBorderWaitPages,
@@ -251,6 +252,49 @@ describe('snapshotWebcamsForOg', () => {
     for (const name of ['chiasso-brogeda.jpg', 'chiasso-brogeda.jpg.meta.json']) {
       expect(readFileSync(path.join(replayed, name))).toEqual(readFileSync(path.join(first, name)));
     }
+  });
+
+  it('replays intentional capture skips from the prepared manifest as the production fallback', async () => {
+    const replay = path.join(tmp, 'replay-skipped');
+    const captured = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: replay,
+      fetchFn: fakeFetchFactory(async () => new Response('unavailable', { status: 404 })),
+      log: () => {},
+    });
+    await writeWebcamReplayManifest(path.join(replay, 'manifest.json'), captured.results);
+
+    const out = path.join(tmp, 'out-skipped');
+    const replayed = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: out,
+      replayDir: replay,
+      log: () => {},
+    });
+
+    expect(replayed).toMatchObject({
+      snapshotted: 0,
+      skipped: 1,
+      total: 1,
+      results: [{ slug: 'chiasso-brogeda', ok: false, skipped: true }],
+    });
+    expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('still fails closed when the manifest says a captured replay file should exist', async () => {
+    const replay = path.join(tmp, 'replay-captured-missing');
+    await writeWebcamReplayManifest(path.join(replay, 'manifest.json'), [
+      { slug: 'chiasso-brogeda', ok: true },
+    ]);
+
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: path.join(tmp, 'out-captured-missing'),
+        replayDir: replay,
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
   });
 
   it('fails closed when a crossing is missing from the replay dir', async () => {

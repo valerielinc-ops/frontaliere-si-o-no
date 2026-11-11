@@ -29,6 +29,7 @@ import { realpathSync } from 'node:fs';
  * Usage:
  *   node scripts/fetch-webcam-snapshots-for-og.mjs              # dist/og/border-wait/
  *   node scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=X  # custom dir
+ *   node scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=X --manifest-out=Y
  *
  * Exit code: always 0 unless a hard filesystem error (mkdir) fails.
  */
@@ -55,6 +56,7 @@ const TARGET_HEIGHT = 675;
 const JPEG_QUALITY = 80;
 const MAX_BYTES = 200 * 1024; // 200 KB per file
 const MAX_CONCURRENT_ORIGINS = 4;
+const REPLAY_MANIFEST_FILENAME = 'manifest.json';
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*,
 // TS*) on the first response. Subsequent requests from a CI Azure datacenter
@@ -167,6 +169,28 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
   let snapshotted = 0;
   let skipped = 0;
   const results = [];
+  const manifestPath = path.join(replayDir, REPLAY_MANIFEST_FILENAME);
+  let manifestEntries = null;
+  try {
+    const parsed = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
+    if (parsed?.schemaVersion !== 1 || !Array.isArray(parsed.entries)) {
+      throw new Error(`Unsupported webcam replay manifest: ${manifestPath}`);
+    }
+    manifestEntries = new Map();
+    for (const entry of parsed.entries) {
+      if (
+        typeof entry?.slug !== 'string' ||
+        !entry.slug ||
+        !['captured', 'skipped'].includes(entry.status) ||
+        manifestEntries.has(entry.slug)
+      ) {
+        throw new Error(`Invalid webcam replay manifest entry: ${manifestPath}`);
+      }
+      manifestEntries.set(entry.slug, entry.status);
+    }
+  } catch (err) {
+    if (err?.code !== 'ENOENT') throw err;
+  }
   const withWebcams = crossings.filter((c) =>
     Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),
   );
@@ -174,6 +198,15 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
     const slug = slugifyName(c.name);
     if (seen.has(slug)) continue;
     seen.add(slug);
+    const replayStatus = manifestEntries?.get(slug);
+    if (manifestEntries && !replayStatus) {
+      throw new Error(`Replay manifest missing crossing ${slug} in ${manifestPath}`);
+    }
+    if (replayStatus === 'skipped') {
+      skipped++;
+      results.push({ slug, ok: false, skipped: true });
+      continue;
+    }
     const src = path.join(replayDir, `${slug}.jpg`);
     try {
       await fs.copyFile(src, path.join(outDir, `${slug}.jpg`));
@@ -181,9 +214,9 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
       snapshotted++;
       results.push({ slug, ok: true });
     } catch (err) {
-      // Replay inputs are captured once for every matrix leg, so a missing or
-      // unreadable source would make the byte comparison invalid. Fail closed
-      // instead of silently comparing a fallback OG image.
+      // Replay inputs are captured once for every matrix leg. Only a missing
+      // source marked `captured` is artifact corruption; intentional fetch
+      // skips are recorded in the manifest and reproduce the production fallback.
       await fs.rm(path.join(outDir, `${slug}.jpg`), { force: true });
       await fs.rm(path.join(outDir, `${slug}.jpg.meta.json`), { force: true });
       throw new Error(
@@ -196,6 +229,31 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
     `\x1b[36m[og-webcam]\x1b[0m replayed ${snapshotted} of ${withWebcams.length} crossings from ${replayDir} (${skipped} skipped).`,
   );
   return { snapshotted, skipped, total: withWebcams.length, results };
+}
+
+/**
+ * Persist which optional live captures were available so a benchmark replay
+ * can reproduce intentional production fallbacks without treating them as a
+ * corrupted artifact. Missing files for entries marked `captured` still fail
+ * closed during replay.
+ *
+ * @param {string} manifestPath
+ * @param {Array<{slug: string, ok: boolean}>} results
+ */
+export async function writeWebcamReplayManifest(manifestPath, results) {
+  const seen = new Set();
+  const entries = results.map(({ slug, ok }) => {
+    if (typeof slug !== 'string' || !slug || typeof ok !== 'boolean' || seen.has(slug)) {
+      throw new Error(`Invalid or duplicate webcam replay result slug: ${slug}`);
+    }
+    seen.add(slug);
+    return { slug, status: ok ? 'captured' : 'skipped' };
+  });
+  await fs.mkdir(path.dirname(manifestPath), { recursive: true });
+  await fs.writeFile(
+    manifestPath,
+    JSON.stringify({ schemaVersion: 1, entries }, null, 2) + '\n',
+  );
 }
 
 export async function snapshotWebcamsForOg({
@@ -321,10 +379,14 @@ async function main() {
     : path.join(distDir, DEFAULT_OUT_SUBDIR);
 
   const crossings = await loadRegistryForCli();
-  const { snapshotted, skipped, total } = await snapshotWebcamsForOg({
+  const result = await snapshotWebcamsForOg({
     crossings,
     outDir,
   });
+  if (args['manifest-out']) {
+    await writeWebcamReplayManifest(path.resolve(args['manifest-out']), result.results);
+  }
+  const { snapshotted, skipped, total } = result;
 
   console.log(
     `\x1b[32m[og-webcam]\x1b[0m done — ${snapshotted}/${total} written to ${outDir} (${skipped} skipped).`,

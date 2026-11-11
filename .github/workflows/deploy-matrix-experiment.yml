@@ -155,10 +155,10 @@ env:
   # Data oltre la quale lo studio non parte più senza una riconferma esplicita
   # (formato YYYY-MM-DD, UTC). Spostarla è una PR di una riga: serve proprio a
   # rendere visibile la scelta di continuare a spendere capacità.
-  # Riaperto il 2026-10-24 per la campagna «durata del deploy al minimo»: ogni
-  # ottimizzazione di build/publish va misurata qui sul proprio branch (wall
-  # time per plugin, picco memoria, byte-identità) prima del merge.
-  EXPERIMENT_EXPIRES_ON: '2026-11-10'
+  # Riaperto il 2026-10-24 per la campagna «durata del deploy al minimo» e
+  # prorogato il 2026-11-11 per verificare la correzione del replay e mantenere
+  # una finestra per la misura heap quando sarà disponibile il confronto fra ref.
+  EXPERIMENT_EXPIRES_ON: '2026-11-18'
 
 # Gruppo STABILE PER BRANCH, mai `github.run_id`: al più un run vivo per ref
 # (vedi «BUDGET DI CAPACITÀ» in testa al file). Un solo gruppo globale faceva sì
@@ -379,13 +379,18 @@ jobs:
       # into dist/og/border-wait during the build, so two variants built
       # hours apart differ there by construction (bench run 40105860066, clock
       # frozen: those files were the non-article half of the 51 differences).
-      # Capture them ONCE here; every leg replays this copy through
-      # OG_WEBCAM_REPLAY_DIR. data/ already travels in the snapshot.
+      # Capture them ONCE here, recording intentional fetch skips as well as
+      # successful files; every leg replays the same production fallback set.
+      # data/ already travels in the prepared snapshot.
       - name: Capture live build inputs once (compare_variants)
         if: inputs.compare_variants == true
         run: |
           set -euo pipefail
-          ./node_modules/.bin/tsx scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=data/.bench-inputs/og-border-wait
+          rm -rf data/.bench-inputs/og-border-wait
+          ./node_modules/.bin/tsx scripts/fetch-webcam-snapshots-for-og.mjs \
+            --out-dir=data/.bench-inputs/og-border-wait \
+            --manifest-out=data/.bench-inputs/og-border-wait/manifest.json
+          test -s data/.bench-inputs/og-border-wait/manifest.json
           ls -la data/.bench-inputs/og-border-wait
       - name: Pack prepared snapshot (generated data + thumbnails)
         env:
@@ -549,6 +554,8 @@ jobs:
           name: prepared-snapshot
           path: /tmp/snapshot
       - name: Restore prepared snapshot (data + thumbnails)
+        env:
+          REQUIRE_OG_WEBCAM_REPLAY: ${{ inputs.compare_variants }}
         run: |
           set -eo pipefail
           GZ="$(command -v pigz || command -v gzip)"
@@ -560,6 +567,14 @@ jobs:
           else
             echo "✖ data/jobs.json missing after restore"
             exit 1
+          fi
+          if [ "$REQUIRE_OG_WEBCAM_REPLAY" = 'true' ]; then
+            if [ -s data/.bench-inputs/og-border-wait/manifest.json ]; then
+              echo "✓ webcam replay manifest restored from prepared snapshot"
+            else
+              echo "✖ webcam replay manifest missing after prepared snapshot restore"
+              exit 1
+            fi
           fi
 
       - name: Resolve job OG image cache version

@@ -116,6 +116,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const capture = (WORKFLOW.jobs.prep.steps as Array<Record<string, any>>)
       .find((step) => String(step.name).startsWith('Capture live build inputs once'));
     expect(String(capture?.run)).toContain('--out-dir=data/.bench-inputs/og-border-wait');
+    expect(String(capture?.run)).toContain('--manifest-out=data/.bench-inputs/og-border-wait/manifest.json');
+    const restore = (WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Restore prepared snapshot (data + thumbnails)');
+    expect(restore?.env?.REQUIRE_OG_WEBCAM_REPLAY).toBe('${{ inputs.compare_variants }}');
+    expect(String(restore?.run)).toContain('webcam replay manifest missing after prepared snapshot restore');
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
