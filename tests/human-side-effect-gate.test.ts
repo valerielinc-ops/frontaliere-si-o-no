@@ -453,6 +453,12 @@ describe('publisher dispatch provenance verifier', () => {
 });
 
 describe('workflow wiring without the human approval gate', () => {
+  it('persists the LinkedIn posted ledger after an authorization failure', () => {
+    const ledgerCommit = step(workflow('linkedin-member-daily.yml'), 'Commit posted ledger');
+    expect(ledgerCommit).toContain('if: always() && !cancelled()');
+    expect(ledgerCommit).not.toContain('if: success()');
+  });
+
   it('fail-closes inventoried scheduled side effects without a trusted marker', () => {
     for (const [name, sideEffectName, commitName, usesDryRunEnv] of TRUSTED_SCHEDULE_SIDE_EFFECTS) {
       const source = workflow(name);
