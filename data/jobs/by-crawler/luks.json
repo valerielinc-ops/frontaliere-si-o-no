@@ -946,7 +946,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -993,7 +993,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1001,7 +1001,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18125,12 +18125,12 @@
     },
     {
       "id": "luks-0d8dcbec1b07",
-      "slug": "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern",
+      "slug": "assistente-medico-medicina-di-emergenza-ospedale-per-bambini-fellowship-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern",
-        "it": "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern",
-        "en": "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern",
-        "fr": "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern"
+        "it": "assistente-medico-medicina-di-emergenza-ospedale-per-bambini-fellowship-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "assistant-physician-emergency-medicine-children-s-hospital-fellowship-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "medecin-adjoint-medecine-d-urgence-hopital-pour-enfants-fellowship-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18192,16 +18192,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:24:48.350Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:24:48.350Z"
+      "firstSeenAt": "2026-11-11T09:24:48.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-notfallmedizin-kinderspital-fellowship-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-e85c3f89becf",
-      "slug": "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern",
+      "slug": "performance-manager-performance-manager-clinic-femminile-40-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern",
-        "it": "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern",
-        "en": "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern",
-        "fr": "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern"
+        "it": "performance-manager-performance-manager-clinic-femminile-40-luzerner-kantonsspital-luks-luzern",
+        "en": "performance-manager-performance-manager-women-s-clinic-40-luzerner-kantonsspital-luks-luzern",
+        "fr": "gestionnaire-du-rendement-gestionnaire-du-rendement-clinique-pour-femmes-40-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18263,7 +18277,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:24:48.347Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:24:48.347Z"
+      "firstSeenAt": "2026-11-11T09:24:48.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern"
+        ],
+        "en": [
+          "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern"
+        ],
+        "fr": [
+          "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "leistungsmanagerin-leistungsmanager-frauenklinik-40-luks-luzern"
+      ]
     },
     {
       "id": "luks-8ad62c546c57",
@@ -18368,12 +18396,12 @@
     },
     {
       "id": "luks-bd5f5015cbaa",
-      "slug": "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern",
+      "slug": "case-handler-case-handler-account-pagabili-50-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern",
-        "it": "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern",
-        "en": "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern",
-        "fr": "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern"
+        "it": "case-handler-case-handler-account-pagabili-50-60-luzerner-kantonsspital-luks-luzern",
+        "en": "case-handler-case-handler-accounts-payable-50-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "gestionnaire-de-cas-gestionnaire-de-cas-crediteurs-50-60-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18435,7 +18463,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:24:48.337Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:24:48.337Z"
+      "firstSeenAt": "2026-11-11T09:24:48.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-kreditorenbuchhaltung-50-60-luks-luzern"
+      ]
     },
     {
       "id": "luks-667cfee4e162",

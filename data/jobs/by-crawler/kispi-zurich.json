@@ -3249,7 +3249,7 @@
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3296,14 +3296,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -4694,12 +4695,12 @@
     },
     {
       "id": "kispi-zurich-ebb64880d0a2",
-      "slug": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich",
+      "slug": "riscossione-del-debito-del-gestore-del-caso-70-80-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich",
-        "it": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich",
-        "en": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich",
-        "fr": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich"
+        "it": "riscossione-del-debito-del-gestore-del-caso-70-80-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "case-handler-debt-collection-70-80-m-f-d-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "collecte-des-creances-70-80-h-f-d-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4761,7 +4762,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:14:07.970Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:14:07.970Z"
+      "firstSeenAt": "2026-11-11T09:14:07.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich-zurich"
+      ]
     }
   ]
 }

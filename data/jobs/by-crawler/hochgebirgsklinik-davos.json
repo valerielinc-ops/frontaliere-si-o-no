@@ -1576,12 +1576,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-fba139aff499",
-      "slug": "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik",
+      "slug": "assistente-medico-medicina-interna-pneumologia-m-f-d-100-da-01-novembre-2027-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik",
-        "it": "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik",
-        "en": "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik",
-        "fr": "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik"
+        "it": "assistente-medico-medicina-interna-pneumologia-m-f-d-100-da-01-novembre-2027-hochgebirgsklinik-davos-davos",
+        "en": "assistant-physician-internal-medicine-pneumology-m-f-d-100-from-01-november-2027-hochgebirgsklinik-davos-davos",
+        "fr": "medecin-adjoint-medecine-interne-pneumologie-h-f-d-100-a-partir-de-01-novembre-2027-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1649,7 +1649,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:23:58.807Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:23:58.807Z"
+      "firstSeenAt": "2026-11-11T09:23:58.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik"
+        ],
+        "en": [
+          "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik"
+        ],
+        "fr": [
+          "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-innere-medizin-pneumologie-m-w-d-100-ab-01-november-2027-hochgebirgsklinik"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-acd10818a6e9",

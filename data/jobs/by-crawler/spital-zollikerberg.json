@@ -424,12 +424,12 @@
     },
     {
       "id": "spital-zollikerberg-293b8a10d35b",
-      "slug": "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-e-beratung-spital-zollikerberg",
+      "slug": "responsabile-del-centro-terapeutico-ospedale-di-zollikerberg-terapia-e-consulenza-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital",
-        "it": "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-e-beratung-spital-zollikerberg",
-        "en": "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital",
-        "fr": "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital"
+        "it": "responsabile-del-centro-terapeutico-ospedale-di-zollikerberg-terapia-e-consulenza-spital-zollikerberg-zollikerberg",
+        "en": "head-head-of-therapy-center-spital-zollikerberg-therapy-and-consulting-spital-zollikerberg-zollikerberg",
+        "fr": "chef-chef-du-centre-de-therapie-spital-zollikerberg-therapie-et-conseil-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -477,11 +477,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital",
+          "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-e-beratung-spital-zollikerberg"
+        ],
+        "en": [
+          "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital"
+        ],
+        "fr": [
           "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital"
+        "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-und-beratung-spital",
+        "leiterin-leiter-therapiezentrum-spital-zollikerberg-therapie-e-beratung-spital-zollikerberg"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

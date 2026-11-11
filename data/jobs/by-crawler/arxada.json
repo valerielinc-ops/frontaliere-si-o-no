@@ -799,12 +799,12 @@
     },
     {
       "id": "arxada-d12b8f3140a8",
-      "slug": "collaboratore-trice-trocknerbewirtschaftung-tagesarbeit-arxada-visp",
+      "slug": "collaboratore-trice-gestione-asciugatrici-lavoro-diurno-arxada-visp",
       "slugByLocale": {
         "de": "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch",
-        "it": "collaboratore-trice-trocknerbewirtschaftung-tagesarbeit-arxada-visp",
-        "en": "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch",
-        "fr": "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch"
+        "it": "collaboratore-trice-gestione-asciugatrici-lavoro-diurno-arxada-visp",
+        "en": "dryer-management-employee-day-job-arxada-visp",
+        "fr": "employe-e-de-gestion-de-la-secheuse-travail-de-jour-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -851,11 +851,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch",
+          "collaboratore-trice-trocknerbewirtschaftung-tagesarbeit-arxada-visp"
+        ],
+        "en": [
+          "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch"
+        "mitarbeiter-in-trocknerbewirtschaftung-tagesarbeit-arxada-ch",
+        "collaboratore-trice-trocknerbewirtschaftung-tagesarbeit-arxada-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
