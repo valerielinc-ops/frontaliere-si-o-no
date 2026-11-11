@@ -212,7 +212,9 @@ describe('expired archive publication evidence', () => {
     const validate = fs.readFileSync('.github/workflows/post-deploy-validate-dist.yml', 'utf8');
 
     expect(deploy).toContain('expired-archive-evidence-${{ matrix.locale }}-${{ github.run_id }}');
-    expect(deploy).toContain('--evidence-manifest "dist/assets/expired-archive-evidence-it.json"');
+    const itGroupHelper = fs.readFileSync('scripts/ci/push-it-shard-group.sh', 'utf8');
+    expect(publisher).toContain('name: it-shard-source-plan-${{ inputs.source_run_id }}');
+    expect(itGroupHelper).toContain('--evidence-manifest "$RUNNER_TEMP/it-publish-plan/expired-archive-evidence-it.json"');
     expect(publisher).toContain('--evidence-manifest "$PUBLISHER_DIST/assets/expired-archive-evidence-$loc.json"');
     expect(validate).toContain('pattern: expired-archive-evidence-*-${{ inputs.deploy_run_id }}');
     expect(validate).toContain('--archive-evidence-dir "$RUNNER_TEMP/publisher-fast-gate/archive-evidence"');

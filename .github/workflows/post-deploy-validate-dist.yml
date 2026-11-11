@@ -149,14 +149,14 @@ jobs:
       - name: Create receipt workspace
         run: mkdir -p ${{ runner.temp }}/publisher-fast-gate/{sitemaps,page-manifests,section-manifests,archive-evidence}
 
-      - name: Download source sitemap bundle
+      - name: Download publisher sitemap bundle
         uses: actions/download-artifact@v8
         with:
-          name: sitemaps-${{ inputs.deploy_run_id }}
+          name: sitemaps-${{ inputs.shard_artifact_run_id || github.run_id }}
           path: ${{ runner.temp }}/publisher-fast-gate/sitemaps
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
-          run-id: ${{ inputs.deploy_run_id }}
+          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
 
       - name: Download source page manifests
         uses: actions/download-artifact@v8
@@ -168,6 +168,16 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.deploy_run_id }}
 
+      - name: Download publisher IT page manifest
+        uses: actions/download-artifact@v8
+        with:
+          pattern: sitemap-page-manifest-it-*
+          path: ${{ runner.temp }}/publisher-fast-gate/page-manifests
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || github.run_id }}
+
       - name: Download expired archive publication evidence
         uses: actions/download-artifact@v8
         with:
@@ -178,17 +188,7 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.deploy_run_id }}
 
-      - name: Download source IT section manifest
-        uses: actions/download-artifact@v8
-        with:
-          pattern: section-page-manifest-it-*
-          path: ${{ runner.temp }}/publisher-fast-gate/section-manifests
-          merge-multiple: true
-          github-token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          run-id: ${{ inputs.deploy_run_id }}
-
-      - name: Download publisher non-IT section manifests
+      - name: Download publisher section manifests
         uses: actions/download-artifact@v8
         with:
           pattern: section-page-manifest-*

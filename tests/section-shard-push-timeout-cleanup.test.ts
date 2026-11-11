@@ -14,16 +14,18 @@ import { spawnSync } from 'node:child_process';
 const ROOT = resolve(import.meta.dirname, '..');
 const CLEANUP_SCRIPT = resolve(ROOT, 'scripts/lib/section-shard-push-cleanup.sh');
 const PUSH_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/push-section-shard.sh'), 'utf8');
-const DEPLOY_WORKFLOW = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8');
+const GROUP_HELPER = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
 
 describe('section shard push timeout cleanup', () => {
-  it('derives the worker timeout from the six-hour job clock and keeps cleanup/publish reserves', () => {
-    const fanout = DEPLOY_WORKFLOW.slice(DEPLOY_WORKFLOW.indexOf('name: Push section shards (IT'));
-    expect(fanout).toContain('job_start="${CDN_JOB_START_EPOCH:-}"');
-    expect(fanout).toContain('job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds');
-    expect(fanout).toContain('cleanup_grace_seconds=600');
-    expect(fanout).toContain('post_push_reserve_seconds=1200');
-    expect(fanout).not.toContain('3600s bash scripts/lib/push-section-shard.sh');
+  it('derives each worker timeout from the six-hour group job clock and keeps cleanup/publish reserves', () => {
+    expect(GROUP_HELPER).toContain('job_start="${CDN_JOB_START_EPOCH:-}"');
+    expect(GROUP_HELPER).toContain('job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds');
+    expect(GROUP_HELPER).toContain('cleanup_grace_seconds=600');
+    expect(GROUP_HELPER).toContain('post_push_reserve_seconds=1200');
+    expect(GROUP_HELPER).toContain('timeout_seconds=$((available_seconds / (sections_remaining + 1)))');
+    expect(GROUP_HELPER).toContain('section_timeout_cap_seconds=3600');
+    expect(GROUP_HELPER).toContain('"${timeout_seconds}s" bash scripts/lib/push-section-shard.sh');
+    expect(GROUP_HELPER).not.toContain('3600s bash scripts/lib/push-section-shard.sh');
   });
 
   it('installs the cleanup trap in the real publisher before starting the worker', () => {

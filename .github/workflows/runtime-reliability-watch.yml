@@ -18,23 +18,15 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 # separate, post-deploy workflow — loud (annotations + issue), not a gate.
 
 on:
-  # The CDN half of a deploy lands in deploy.yml's BUILD leg: the IT shard
-  # syncs /assets/ to R2 and purges the keys it re-uploaded
-  # (deploy-it-pages-prep.sh → scripts/ci/purge-changed-cdn-assets.mjs). That
-  # is when a missed purge starts breaking pages — on 2026-09-25 ~1h36 after
-  # the build started, hours before deploy-publish.yml finished. So the first
-  # check fires on the completion of that build. It is the same one-hop
-  # `workflow_run` deploy-publish.yml itself is started by, and that one
-  # demonstrably fires.
-  #
-  # The previous trigger — `workflow_run` on "Publish to GitHub Pages (deploy
-  # + validate)" — never fired once: 0 of the last 100 runs (2026-09-14 →
-  # 2026-09-25) had event `workflow_run`, while that workflow completed 4-5
-  # real publishes a day. deploy-publish.yml is itself started by workflow_run,
-  # and GitHub does not deliver the next hop of that chain; its explicit
-  # `gh workflow run` dispatch (job `runtime-watchdog`) is what actually ran
-  # after a publish, and now runs after EVERY successful Pages deploy, not only
-  # when validate-live is green.
+  # This source-build completion probe is a baseline observation only: the
+  # build now hands its validated artifacts to deploy-publish.yml, which owns
+  # the CDN and Pages tail. It does not certify that this source run's CDN
+  # payload has landed. The publisher's explicit workflow_dispatch from its
+  # `runtime-watchdog` job remains the post-publish check after every successful
+  # Pages deploy. A workflow_run on deploy-publish itself is not reliable here:
+  # 0 of its last 100 runs (2026-09-14 → 2026-09-25) arrived as workflow_run,
+  # because it is itself started by workflow_run and GitHub does not deliver
+  # the next hop of that chain.
   #
   # A direct push is intentionally still not a trigger: nothing reaches the CDN
   # before the build leg does.

@@ -369,6 +369,710 @@ jobs:
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # ───────────────────────────────────────────────────────────────────────
+  # Publish the IT CDN payload before either IT or non-IT HTML shard pushes.
+  # Its success is an explicit dependency of both fan-outs.
+  publish-it-cdn:
+    name: Publish IT CDN assets first
+    needs: [resolve-publish-plan]
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    concurrency:
+      group: it-cdn-assets-publish
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      cdn_build_id: ${{ steps.cdn-ready.outputs.build_id }}
+      cdn_base: ${{ steps.cdn-ready.outputs.cdn_base }}
+    steps:
+      - name: Checkout IT publisher sources
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 1
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+      - name: Restore last published R2 OG manifest
+        if: ${{ vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both' }}
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}
+          restore-keys: r2-og-published-
+      - name: Download IT root source artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: it-publish-root-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-publish-root
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract IT root source artifact
+        run: |
+          set -euo pipefail
+          mapfile -t root_parts < <(find "$RUNNER_TEMP/it-publish-root" -maxdepth 1 -type f \
+            \( -name 'it-publish-root.part-*.tar.zst' -o -name 'it-publish-root.tar.zst' \) | sort)
+          (( ${#root_parts[@]} > 0 )) || { echo '::error::IT root source archive parts are missing'; exit 1; }
+          source scripts/lib/parallel-tar.sh
+          ptar_extract "$GITHUB_WORKSPACE" "${root_parts[@]}"
+      - name: Push generated assets to CDN (early — ahead of the shard pushes)
+        id: cdn-push-early
+        continue-on-error: true
+        timeout-minutes: 45
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          DEPLOY_CDN_PUSH_ONLY: '1'
+          R2_TIMEOUT_OG_S: '900'
+        run: bash scripts/lib/deploy-it-pages-prep.sh
+      - name: Save R2 OG manifest after early CDN push
+        if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+      - name: Retry early CDN push (before the section shards give up)
+        id: cdn-push-early-retry
+        if: steps.cdn-push-early.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 45
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          DEPLOY_CDN_PUSH_ONLY: '1'
+        run: bash scripts/lib/deploy-it-pages-prep.sh
+      - name: Save R2 OG manifest after early CDN retry
+        if: ${{ always() && steps.cdn-push-early-retry.outcome != 'skipped' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+      - name: Require IT CDN build id before shard pushes
+        id: cdn-ready
+        if: always()
+        env:
+          EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
+          RETRY_OUTCOME: ${{ steps.cdn-push-early-retry.outcome }}
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+        run: |
+          set -euo pipefail
+          if [ "$EARLY_OUTCOME" != success ] && [ "$RETRY_OUTCOME" != success ]; then
+            echo "::error::IT CDN push failed twice; section and locale shard pushes must not run."
+            exit 1
+          fi
+          echo "build_id=$EXPECTED_BUILD_ID" >> "$GITHUB_OUTPUT"
+          echo "cdn_base=https://cdn.frontaliereticino.ch" >> "$GITHUB_OUTPUT"
+      - name: Save final R2 OG manifest cache
+        if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-final-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+
+  # Six balanced groups run concurrently. Zurich and Switzerland each retain
+  # a dedicated runner; the other live sections are greedily balanced by file
+  # count in the immutable source plan.
+  push-it-shard-groups:
+    name: Push IT section group (${{ matrix.group }})
+    needs: [resolve-publish-plan, publish-it-cdn]
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') &&
+          needs.publish-it-cdn.result == 'success' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [zurigo, svizzera, small-1, small-2, small-3, small-4]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    environment: shard-secrets-overflow
+    concurrency:
+      group: it-section-tail-${{ matrix.group }}
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Record IT shard group job start (#7106 deadline safety margin)
+        run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
+      - name: Checkout source workflow SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+      - name: Download IT shard source plan
+        uses: actions/download-artifact@v8
+        with:
+          name: it-shard-source-plan-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-publish-plan
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download IT shard source group
+        uses: actions/download-artifact@v8
+        with:
+          name: it-shard-source-group-${{ matrix.group }}-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-shard-source-group
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Restore source-side shard inputs
+        run: |
+          set -euo pipefail
+          mkdir -p .cache/incremental-manifest .cache/og-jobs
+          if [ -d "$RUNNER_TEMP/it-publish-plan/incremental-manifest" ]; then
+            cp -a "$RUNNER_TEMP/it-publish-plan/incremental-manifest/." .cache/incremental-manifest/
+          fi
+          if [ -f "$RUNNER_TEMP/it-publish-plan/og-jobs/.deferred-fallbacks.json" ]; then
+            cp "$RUNNER_TEMP/it-publish-plan/og-jobs/.deferred-fallbacks.json" .cache/og-jobs/.deferred-fallbacks.json
+          fi
+          mapfile -t group_parts < <(find "$RUNNER_TEMP/it-shard-source-group" -maxdepth 1 -type f \
+            \( -name 'it-shard-source-group-${{ matrix.group }}.part-*.tar.zst' \
+               -o -name 'it-shard-source-group-${{ matrix.group }}.tar.zst' \) | sort)
+          (( ${#group_parts[@]} > 0 )) || { echo '::error::IT shard source group archive parts are missing'; exit 1; }
+          source scripts/lib/parallel-tar.sh
+          ptar_extract "$GITHUB_WORKSPACE" "${group_parts[@]}"
+      - name: Wait for current IT CDN build id before IT section pushes
+        id: cdn-gate
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CDN_IT_RUN_ID: ${{ github.run_id }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          CDN_WAIT_TIMEOUT_S: 2700
+          CDN_WAIT_MARGIN_WARN_S: 600
+          CDN_IT_JOB_NAME: Publish IT CDN assets first
+          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
+          CDN_IT_READY_TIMEOUT_S: 10800
+          CDN_IT_READY_INTERVAL_S: 30
+          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
+          CDN_JOB_DEADLINE_S: 21600
+          CDN_JOB_FINISH_RESERVE_S: 180
+        run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
+      - name: Verify IT CDN handoff
+        if: steps.cdn-gate.outcome == 'success'
+        env:
+          CDN_BUILD_ID: ${{ needs.publish-it-cdn.outputs.cdn_build_id }}
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+        run: test -n "$CDN_BUILD_ID" && test "$CDN_BUILD_ID" = "$EXPECTED_BUILD_ID"
+      - name: Push and package IT section group
+        id: push-section-group
+        if: steps.cdn-gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == '' && 'changed' || vars.SHARD_DELTA_CDN_REWRITE }}
+          SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+          OFFLOAD_CDN_WORKERS: '4'
+          SHARD_STAGE_RM_ASYNC: '1'
+          ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          IT_SHARD_PLAN_FILE: ${{ runner.temp }}/it-publish-plan/it-shard-group-plan.json
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GROUP_ID: ${{ matrix.group }}
+        shell: bash
+        run: |
+          trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          bash scripts/ci/push-it-shard-group.sh "$GROUP_ID"
+      - name: Upload IT section group results and ok-markers
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-result-group-${{ matrix.group }}-${{ inputs.source_run_id }}
+          path: |
+            ${{ runner.temp }}/it-shard-results/*.tar
+            ${{ runner.temp }}/shard-content-manifests/it/*.json
+            ${{ runner.temp }}/shard-ok-*-it
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: ignore
+      - name: Require IT section group and CDN gate success
+        if: always()
+        env:
+          PUSH_OUTCOME: ${{ steps.push-section-group.outcome }}
+          CDN_GATE_OUTCOME: ${{ steps.cdn-gate.outcome }}
+        run: |
+          set -euo pipefail
+          if [ "$CDN_GATE_OUTCOME" != success ]; then
+            echo "::error::IT section group ${{ matrix.group }} did not pass the CDN ordering gate."
+            exit 1
+          fi
+          if [ "$PUSH_OUTCOME" != success ]; then
+            echo "::error::IT section group ${{ matrix.group }} push/package step concluded $PUSH_OUTCOME."
+            exit 1
+          fi
+
+  # IT section-manifest finalization keeps its current fail-closed required set.
+  finalize-it-publish:
+    name: Finalize IT section manifests and Pages artifact
+    needs: [resolve-publish-plan, publish-it-cdn, push-it-shard-groups]
+    if: >-
+      ${{ always() &&
+          needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    concurrency:
+      group: it-pages-finalize
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+      statuses: write
+    steps:
+      - name: Record IT finalizer job start (#7106 deadline safety margin)
+        run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
+      - name: Checkout source workflow SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 1
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+      - name: Download IT root source artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: it-publish-root-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-publish-root
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download IT shard source plan
+        uses: actions/download-artifact@v8
+        with:
+          name: it-shard-source-plan-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-publish-plan
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download IT section group results
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: it-shard-result-group-*-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-shard-results
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Assemble IT root, section manifests and validation tars
+        run: bash scripts/ci/assemble-it-publish-root.sh
+      - name: Restore R2 OG manifest from the early CDN job
+        if: ${{ vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both' }}
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}
+          restore-keys: r2-og-published-${{ github.run_id }}-
+      - name: Package IT post-push validation batches
+        if: needs.push-it-shard-groups.result == 'success'
+        run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"
+      - name: Upload shard batch 1 dist for post-deploy validation
+        id: upload-shard-batch-1
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-1-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/1/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload shard batch 2 dist for post-deploy validation
+        id: upload-shard-batch-2
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-2-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/2/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload shard batch 3 dist for post-deploy validation
+        id: upload-shard-batch-3
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-3-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/3/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload shard batch 4 dist for post-deploy validation
+        id: upload-shard-batch-4
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-4-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/4/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload shard batch 5 dist for post-deploy validation
+        id: upload-shard-batch-5
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-5-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/5/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload shard batch 6 dist for post-deploy validation
+        id: upload-shard-batch-6
+        if: needs.push-it-shard-groups.result == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-6-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/6/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Finalize IT section content manifests
+        id: finalize-section-manifests-it
+        env:
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          ARTIFACT_RUN_ID: ${{ github.run_id }}
+          SECTION_BATCH_DIGESTS: >-
+            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+        run: |
+          set -euo pipefail
+          required_sections="$(jq -r '.requiredSections | join(",")' "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json")"
+          printf '%s\n' "$SECTION_BATCH_DIGESTS" > "$RUNNER_TEMP/it-section-batch-digests.json"
+          node scripts/ci/shard-content-manifest.mjs finalize-sections \
+            --input "$RUNNER_TEMP/shard-content-manifests/it" \
+            --locale it \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$ARTIFACT_RUN_ID" \
+            --artifact-digests "$RUNNER_TEMP/it-section-batch-digests.json" \
+            --required-sections "$required_sections" \
+            --manifest-artifact-name "section-page-manifest-it-$ARTIFACT_RUN_ID" \
+            --out "$RUNNER_TEMP/section-page-manifest-it.json"
+      - name: Upload IT section content manifest
+        if: steps.finalize-section-manifests-it.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-page-manifest-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/section-page-manifest-it.json
+          retention-days: 8
+          if-no-files-found: error
+      - name: Recheck current IT CDN build id before Pages preparation
+        id: cdn-current
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CDN_IT_RUN_ID: ${{ github.run_id }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          CDN_WAIT_TIMEOUT_S: 2700
+          CDN_WAIT_MARGIN_WARN_S: 600
+          CDN_IT_JOB_NAME: Publish IT CDN assets first
+          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
+          CDN_IT_READY_TIMEOUT_S: 10800
+          CDN_IT_READY_INTERVAL_S: 30
+          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
+          CDN_JOB_DEADLINE_S: 21600
+          CDN_JOB_FINISH_RESERVE_S: 180
+        run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
+      - name: Strip section subtrees (IT)
+        run: |
+          set -euo pipefail
+          for marker in "$RUNNER_TEMP"/shard-ok-*-it; do
+            [ -e "$marker" ] || continue
+            section="$(basename "$marker" | sed -e 's/^shard-ok-//' -e 's/-it$//')"
+            slug="$(jq -er --arg section "$section" '.[$section].it' scripts/lib/section-shard-slugs.json)"
+            if [ -d "dist/$slug" ]; then
+              bash scripts/lib/strip-section-subtree.sh "$section" it dist
+            fi
+          done
+      - name: Deploy prep (IT → Pages + CDN)
+        id: deploy-prep-it
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          CDN_BASE: ${{ needs.publish-it-cdn.outputs.cdn_base }}
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          OFFLOAD_CDN_WORKERS: '4'
+        run: bash scripts/lib/deploy-it-pages-prep.sh
+      - name: Save final R2 OG manifest cache
+        if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        continue-on-error: true
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ github.run_id }}-final-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+      - name: Publish edge files (refresh the R2 copies the Worker prefers)
+        continue-on-error: true
+        run: node scripts/publish-edge-files.mjs --producer=build
+      - name: Upload Pages artifact (compression-level 9)
+        id: upload-pages-artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 8
+          if-no-files-found: error
+          compression-level: 9
+      - name: Save deploy metadata to Firestore
+        if: success()
+        continue-on-error: true
+        env:
+          METADATA_FILE: ${{ runner.temp }}/it-publish-plan/deploy-metadata.json
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_EVENT_NAME: ${{ inputs.source_event_name }}
+        run: |
+          set -euo pipefail
+          node scripts/deploy-registry.mjs save \
+            --run-id="$SOURCE_RUN_ID" \
+            --sha="$SOURCE_SHA" \
+            --trigger="$SOURCE_EVENT_NAME" \
+            --article-id="$(jq -r '.ARTICLE_ID // ""' "$METADATA_FILE")" \
+            --article-url="$(jq -r '.ARTICLE_URL // ""' "$METADATA_FILE")" \
+            --og-title="$(jq -r '.OG_TITLE // ""' "$METADATA_FILE")" \
+            --og-description="$(jq -r '.OG_DESCRIPTION // ""' "$METADATA_FILE")" \
+            --og-image="$(jq -r '.OG_IMAGE // ""' "$METADATA_FILE")" \
+            --article-category="$(jq -r '.ARTICLE_CATEGORY // ""' "$METADATA_FILE")"
+      - name: Upload sitemaps bundle artifact
+        id: upload-sitemaps-bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemaps-${{ github.run_id }}
+          path: /tmp/sitemaps-bundle/
+          retention-days: 8
+          if-no-files-found: ignore
+      - name: Upload pre-deploy snapshot for post-deploy validation
+        uses: actions/upload-artifact@v7
+        with:
+          name: pre-deploy-snapshot-${{ inputs.source_run_id }}
+          path: /tmp/pre-deploy-sitemap-urls.json
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload dist-size-history + url-first-seen for the history commit
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-history-${{ inputs.source_run_id }}
+          path: |
+            data/dist-size-history.jsonl
+            data/url-first-seen.json
+          retention-days: 2
+          if-no-files-found: ignore
+      - name: Bind sitemap page manifest to publisher artifact digests
+        id: bind-sitemap-page-manifest
+        if: >-
+          always() &&
+          steps.upload-pages-artifact.outcome == 'success' &&
+          steps.upload-sitemaps-bundle.outcome == 'success'
+        env:
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          ARTIFACT_RUN_ID: ${{ github.run_id }}
+          BASE_ARTIFACT_DIGEST: ${{ steps.upload-pages-artifact.outputs.artifact-digest }}
+          SITEMAPS_ARTIFACT_DIGEST: ${{ steps.upload-sitemaps-bundle.outputs.artifact-digest }}
+          SECTION_ARTIFACT_DIGESTS_JSON: >-
+            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+        run: |
+          set -euo pipefail
+          printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$RUNNER_TEMP/it-section-artifact-digests.json"
+          node scripts/ci/shard-content-manifest.mjs bind-page \
+            --input "$RUNNER_TEMP/locale-sitemap-manifest-it.json" \
+            --out "$RUNNER_TEMP/sitemap-page-manifest-it.json" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$ARTIFACT_RUN_ID" \
+            --base-artifact-name github-pages \
+            --base-artifact-digest "$BASE_ARTIFACT_DIGEST" \
+            --section-artifact-digests "$RUNNER_TEMP/it-section-artifact-digests.json" \
+            --sitemaps-artifact-name "sitemaps-$ARTIFACT_RUN_ID" \
+            --sitemaps-artifact-digest "$SITEMAPS_ARTIFACT_DIGEST" \
+            --manifest-artifact-name "sitemap-page-manifest-it-$ARTIFACT_RUN_ID"
+      - name: Upload sitemap page manifest for publisher gate
+        if: always() && steps.bind-sitemap-page-manifest.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemap-page-manifest-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/sitemap-page-manifest-it.json
+          retention-days: 8
+          if-no-files-found: error
+      - name: Write IT publish provenance
+        if: always()
+        env:
+          BUILD_LOCALE: it
+          DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          PROVENANCE_SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          PROVENANCE_SOURCE_SHA: ${{ inputs.source_sha }}
+          PROVENANCE_ARTIFACT_RUN_ID: ${{ github.run_id }}
+          PROVENANCE_BUILD_OUTCOME: success
+          PROVENANCE_VALIDATE_OUTCOME: success
+          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: success
+          PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
+          PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
+          PROVENANCE_OFFLOAD_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
+          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ needs.push-it-shard-groups.result }}
+          PROVENANCE_CDN_GATE_OUTCOME: ${{ needs.publish-it-cdn.result }}
+          PROVENANCE_LOCALE_PUSH_OUTCOME: deferred
+          PROVENANCE_LOCALE_PACK_OUTCOME: deferred
+          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: deferred
+        run: node scripts/ci/locale-publish-provenance.mjs --output "$RUNNER_TEMP/locale-publish-provenance/it.json" --dist-dir dist
+      - name: Write durable IT shard receipt
+        if: >-
+          ${{ always() && steps.finalize-section-manifests-it.outcome == 'success' &&
+              steps.deploy-prep-it.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs --write locale --source-run-id "$SOURCE_RUN_ID" --source-sha "$SOURCE_SHA" --locale it
+      - name: Upload IT publish provenance
+        id: upload-it-provenance
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: tail-publish-provenance-it-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/locale-publish-provenance/it.json
+          retention-days: 8
+          if-no-files-found: error
+
+  # ───────────────────────────────────────────────────────────────────────
+  # publish-nonit-shards: the expensive non-IT section/locale tail runs after
+
   # ───────────────────────────────────────────────────────────────────────
   # publish-nonit-shards: the expensive non-IT section/locale tail runs after
   # the build matrix has released its six-hour critical path. The source
@@ -378,13 +1082,14 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   publish-nonit-shards:
     name: Publish non-IT shard tail (${{ matrix.locale }})
-    needs: [resolve-publish-plan, resolve-publish-receipts]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
           needs.resolve-publish-receipts.outputs.pending_locales != '[]' &&
-          needs.resolve-publish-receipts.result == 'success' }}
+          needs.resolve-publish-receipts.result == 'success' &&
+          needs.publish-it-cdn.result == 'success' }}
     strategy:
       fail-fast: false
       matrix:
@@ -656,7 +1361,7 @@ jobs:
         if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
         run: npm run validate:jobposting-schema
 
-      - name: Wait for IT CDN push (cross-shard ordering guard)
+      - name: Wait for current IT CDN build id before non-IT shard pushes
         id: cdn-gate
         if: always() && env.DURABLE_LOCALE_PUBLISHED != 'true'
         continue-on-error: true
@@ -669,12 +1374,12 @@ jobs:
           # exists: phase 1 answered `unobservable` for its whole 3 h budget and
           # every non-IT shard tail stayed unpublished (run 37255215160). The id
           # travels under a free name and becomes GITHUB_RUN_ID only in `run:`.
-          CDN_IT_RUN_ID: ${{ inputs.source_run_id }}
+          CDN_IT_RUN_ID: ${{ github.run_id }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
-          CDN_IT_JOB_NAME: build-locale (it)
-          CDN_IT_READY_STEP_NAME: Push generated assets to CDN (early — ahead of the shard pushes)
+          CDN_IT_JOB_NAME: Publish IT CDN assets first
+          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
           CDN_IT_READY_TIMEOUT_S: 10800
           CDN_IT_READY_INTERVAL_S: 30
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
@@ -1915,16 +2620,103 @@ jobs:
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
-          name: nonit-publish-provenance-${{ matrix.locale }}-${{ github.run_id }}
+          name: tail-publish-provenance-${{ matrix.locale }}-${{ inputs.source_run_id }}
           path: ${{ runner.temp }}/nonit-publish-provenance/${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
-  # Resolve the second half of the handoff. A source-ready receipt is not a
-  # live publish; only complete post-build receipts for every non-IT locale
-  # from this workflow run can move the snapshot into validation/live.
+  # Preserve the IT accumulator writer after moving deploy-prep to this run.
+  # It consumes only the post-prep artifact and keeps the guarded merge-driver
+  # plus retry path that prevents concurrent producers from losing history.
+  commit-it-dist-history:
+    name: Commit IT dist-size history and first-seen URLs
+    needs: [finalize-it-publish]
+    if: ${{ always() && needs.finalize-it-publish.result != 'skipped' && needs.finalize-it-publish.result != 'cancelled' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Checkout IT history writer
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 1
+          sparse-checkout: |
+            /.gitattributes
+            /data/dist-size-history.jsonl
+            /data/url-first-seen.json
+            /scripts/lib/
+            /scripts/ci/assert-accumulator-write.mjs
+            /scripts/ci/merge-json-first-seen.mjs
+            /scripts/load-rc-env.mjs
+            /scripts/lib/remote-config-template-url.mjs
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+      - name: Download dist-size-history + url-first-seen from IT publisher
+        id: dist-history-download
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-history-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/dist-history
+      - name: Commit dist-size-history row + url-first-seen updates
+        if: always() && steps.dist-history-download.outcome == 'success'
+        continue-on-error: true
+        env:
+          DIST_HISTORY_DIR: ${{ runner.temp }}/dist-history
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          for f in dist-size-history.jsonl url-first-seen.json; do
+            if [ -f "$DIST_HISTORY_DIR/$f" ]; then cp "$DIST_HISTORY_DIR/$f" "data/$f"; fi
+          done
+          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
+            echo "[dist-history] no diff to commit"
+            exit 0
+          fi
+          git config user.name "dist-history-bot"
+          git config user.email "dist-history-bot@frontaliereticino.ch"
+          git config merge.json-first-seen.driver 'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
+          for accumulator in data/dist-size-history.jsonl data/url-first-seen.json; do
+            node scripts/ci/assert-accumulator-write.mjs "$accumulator"
+          done
+          git add -- data/dist-size-history.jsonl data/url-first-seen.json
+          unexpected_paths="$(git diff --cached --name-only | while IFS= read -r path; do
+            case "$path" in
+              data/dist-size-history.jsonl|data/url-first-seen.json) ;;
+              *) printf '%s\n' "$path" ;;
+            esac
+          done)"
+          if [ -n "$unexpected_paths" ]; then
+            echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
+            printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+            exit 1
+          fi
+          git commit --only \
+            -m "chore(dist-history): append source run ${SOURCE_RUN_ID} (${SOURCE_SHA::8})" \
+            -- data/dist-size-history.jsonl data/url-first-seen.json
+          bash scripts/lib/configure-main-push-auth.sh
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
+
+  # Resolve the post-build handoff. IT is mandatory for Pages; non-IT failures
+  # retain their last-known-good shard and remain explicitly stale.
   resolve-nonit-publish:
     name: Resolve non-IT shard tail
-    needs: [resolve-publish-plan, resolve-publish-receipts, publish-nonit-shards]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-nonit-shards, finalize-it-publish]
     if: >-
       ${{ always() &&
           needs.resolve-publish-plan.result == 'success' &&
@@ -1968,7 +2760,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
-          pattern: nonit-publish-provenance-*
+          pattern: tail-publish-provenance-*
           path: ${{ runner.temp }}/nonit-publish-provenance
           merge-multiple: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -2138,9 +2930,9 @@ jobs:
       - name: Download and validate IT provenance
         uses: actions/download-artifact@v8
         with:
-          name: locale-publish-provenance-it-${{ inputs.source_run_id }}
+          name: tail-publish-provenance-it-${{ inputs.source_run_id }}
           path: ${{ runner.temp }}/locale-publish-provenance-it
-          run-id: ${{ inputs.source_run_id }}
+          run-id: ${{ github.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Enforce IT provenance identity
         env:
@@ -2163,43 +2955,6 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
-
-      # Cross-run handoff of the Pages artifact. The `github-pages` artifact (a
-      # single ~816 MB zip envelope over an uncompressed `artifact.tar`) was
-      # uploaded by the BUILD run.
-      # actions/deploy-pages can only publish an artifact that lives in the
-      # CURRENT run (Pages binds the deployment to the run via OIDC), so download
-      # the build's artifact and re-upload it here under the same name. This is a
-      # download+upload of one tarball, not a rebuild.
-      - name: Download github-pages artifact from the build run
-        uses: actions/download-artifact@v8
-        with:
-          name: github-pages
-          path: pages-artifact
-          run-id: ${{ inputs.source_run_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Re-upload github-pages artifact into this run
-        uses: actions/upload-artifact@v7
-        with:
-          name: github-pages
-          path: pages-artifact/artifact.tar
-          # cathedral-seo-gates-check may replay the exact deploy run for up
-          # to the artifact retention window. Keep the Pages payload alive for
-          # the same eight days as the resolver contract; the weekly full audit
-          # uses the locale/section shard artifacts below on that same window.
-          retention-days: 8
-          if-no-files-found: error
-          # artifact.tar is an UNCOMPRESSED tar (deploy-it-pages-prep.sh packs it
-          # with `tar -cf`, no -z) — all the size reduction comes from the zip
-          # envelope upload-artifact wraps it in. The build run uploads at
-          # compression-level 9 (816 MB envelope over a ~6.5 GB tar). Re-upload at
-          # the SAME level here: a previous `compression-level: 0` stored the tar
-          # raw → the github-pages artifact ballooned 816 MB → 6.5 GB, an 8× blob
-          # for deploy-pages to push to the Pages backend (slower, hits the 10-min
-          # cap, wastes storage). Served content is identical either way — Pages
-          # extracts the tar — so the only effect of level 0 was the bloat.
-          compression-level: 9
 
       # Reset a stuck Pages `errored` state BEFORE publishing. After bursts of
       # failed/cancelled deployments GitHub Pages can latch into status=errored
@@ -2394,6 +3149,7 @@ jobs:
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ inputs.source_run_id }}
+      publisher_artifact_run_id: ${{ github.run_id }}
       deploy_event_name: ${{ inputs.source_event_name }}
       deploy_ref: ${{ inputs.source_sha }}
       healthy_locales: ${{ needs.resolve-nonit-publish.outputs.healthy_locales }}
@@ -2494,6 +3250,7 @@ jobs:
     uses: ./.github/workflows/post-deploy-publish.yml
     with:
       deploy_run_id: ${{ inputs.source_run_id }}
+      publisher_artifact_run_id: ${{ github.run_id }}
       deploy_event_name: ${{ inputs.source_event_name }}
       deploy_ref: ${{ inputs.source_sha }}
       source_branch: ${{ inputs.source_branch }}
@@ -2537,6 +3294,21 @@ jobs:
           gh workflow run runtime-reliability-watch.yml \
             --repo "$GITHUB_REPOSITORY" \
             --ref main
+      - name: Dispatch exact published dist to Cathedral SEO gates
+        if: >-
+          ${{ needs.publish.result == 'success' &&
+              needs.validate-dist.result == 'success' &&
+              needs.validate-live.result == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISHER_RUN_ID: ${{ github.run_id }}
+          PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          gh workflow run cathedral-seo-gates-check.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f deploy_run_id="$PUBLISHER_RUN_ID" \
+            -f source_sha="$PUBLISHER_SOURCE_SHA"
 
   # The caller run can be red because a reusable validator failed. Reporters
   # inside those callees correctly open their gate-specific issues, but the

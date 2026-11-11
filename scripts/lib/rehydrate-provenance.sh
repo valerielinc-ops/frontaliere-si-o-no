@@ -30,10 +30,10 @@ rehydrate_provenance() {
   fi
 }
 
-# Run that holds the en/de/fr shard artifacts. Locales can be published by
+# Run that holds each locale's shard artifacts. Locales can be published by
 # different deploy-publish runs (publish receipts let a re-dispatch skip a
 # locale that already went out), so a per-locale override wins over the
-# shared SHARD_ARTIFACT_RUN_ID, which wins over the build run itself.
+# shared SHARD_ARTIFACT_RUN_ID, which wins over the source build run.
 rehydrate_artifact_run_id() {
   local loc="$1" var
   var="SHARD_ARTIFACT_RUN_ID_$(printf '%s' "$loc" | tr '[:lower:]' '[:upper:]')"

@@ -64,7 +64,14 @@ function requiredChecks(locale, outcomes) {
     ['validate', outcomes.validate],
   ];
   if (locale === 'it') {
-    checks.push(['itPrep', outcomes.itPrep], ['pagesArtifact', outcomes.pagesArtifact]);
+    checks.push(
+      ['sourceArtifact', outcomes.sourceArtifact],
+      ['itPrep', outcomes.itPrep],
+      ['pagesArtifact', outcomes.pagesArtifact],
+      ['offload', outcomes.offload],
+      ['sectionPush', outcomes.sectionPush],
+      ['cdnGate', outcomes.cdnGate],
+    );
   } else {
     checks.push(
       ['offload', outcomes.offload],
@@ -80,7 +87,6 @@ function requiredChecks(locale, outcomes) {
 }
 
 function sourceReadyChecks(locale, outcomes) {
-  if (locale === 'it') return [];
   return [
     ['build', outcomes.build],
     ['validate', outcomes.validate],
@@ -95,11 +101,10 @@ function checksPass(checks) {
 /**
  * Create the receipt written by a build-locale leg.
  *
- * A non-IT leg is publishable only when the complete local payload was
- * validated, offloaded, ordered after the IT CDN marker, pushed, and captured
- * in the same-run validation artifact. IT additionally needs the Pages
- * artifact and the full IT/CDN preparation. A failed leg therefore never
- * advertises a partial payload as healthy.
+ * A source leg is ready only after the validated build payload and its
+ * immutable artifact handoff both exist. IT is promoted to a complete receipt
+ * later by deploy-publish, after its CDN, section, and Pages tail succeeds.
+ * Non-IT receipts keep the same deferred-tail/complete-publish distinction.
  */
 export function createLocalePublishProvenance({
   locale,
@@ -129,8 +134,7 @@ export function createLocalePublishProvenance({
   const fullChecks = requiredChecks(normalizedLocale, normalizedOutcomes);
   const sourceChecks = sourceReadyChecks(normalizedLocale, normalizedOutcomes);
   const fullChecksPass = checksPass(fullChecks);
-  const sourceReady = normalizedLocale !== 'it'
-    && identityReasons.length === 0
+  const sourceReady = identityReasons.length === 0
     && checksPass(sourceChecks);
   const shardMarkerPresent = normalizedLocale === 'it'
     || fs.existsSync(path.join(runnerTemp, `shard-ok-${normalizedLocale}`));
@@ -158,7 +162,7 @@ export function createLocalePublishProvenance({
       ? 'deferred'
       : 'unknown';
   const artifactName = normalizedLocale === 'it'
-    ? 'github-pages'
+    ? (sourceHandoff ? `it-publish-root-${artifactRun}` : 'github-pages')
     : `${sourceHandoff ? 'locale-shard-source' : 'locale-dist'}-${normalizedLocale}-${artifactRun}`;
 
   return {
@@ -180,7 +184,7 @@ export function createLocalePublishProvenance({
     publishStatus: published ? 'published' : sourceHandoff ? 'ready-for-tail' : 'not-published',
     published,
     stale: !published,
-    fallback: published ? null : sourceHandoff ? 'post-build-shard-tail' : 'last-known-good',
+    fallback: published ? null : sourceHandoff ? (normalizedLocale === 'it' ? 'post-build-it-tail' : 'post-build-shard-tail') : 'last-known-good',
     crossLocaleSkew: published ? 'verified-none' : sourceHandoff ? 'deferred' : 'not-admitted',
     outcomes: normalizedOutcomes,
     reasons,
@@ -237,13 +241,12 @@ export function validateLocalePublishProvenance(manifest, {
     }
   }
   const expectedArtifact = manifest.locale === 'it'
-    ? 'github-pages'
+    ? (manifest.payloadStatus === 'source-ready' ? `it-publish-root-${artifactRun}` : 'github-pages')
     : `${manifest.payloadStatus === 'source-ready' ? 'locale-shard-source' : 'locale-dist'}-${manifest.locale}-${artifactRun}`;
   if (manifest.artifactName !== expectedArtifact) {
     pushError(errors, `artifactName ${JSON.stringify(manifest.artifactName)} does not match ${JSON.stringify(expectedArtifact)}`);
   }
   if (requireSourceReady) {
-    if (manifest.locale === 'it') pushError(errors, 'IT cannot use a deferred non-IT source receipt');
     if (manifest.payloadStatus !== 'source-ready') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);
     if (manifest.publishStatus !== 'ready-for-tail') pushError(errors, `publishStatus is ${JSON.stringify(manifest.publishStatus)}`);
     if (manifest.published !== false) pushError(errors, 'source receipt is marked published');

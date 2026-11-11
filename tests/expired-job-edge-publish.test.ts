@@ -24,16 +24,16 @@ afterEach(() => {
 });
 
 describe('expired job edge R2 publisher plan', () => {
-  it('publishes each locale dataset after its build and before section shard deltas', () => {
+  it('publishes each locale dataset after its build and before the IT source handoff', () => {
     const deploy = fs.readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8');
     const buildIndex = deploy.indexOf('- name: Build (BUILD_LOCALE=${{ matrix.locale }})');
     const publishIndex = deploy.indexOf('- name: Publish expired-job edge dataset (before section shard deltas)');
-    const sectionPushIndex = deploy.indexOf('- name: Push section shards (IT → frontaliere-<section>-it)');
+    const sourceHandoffIndex = deploy.indexOf('- name: Package IT publication source artifacts');
     const publishStep = deploy.slice(publishIndex, deploy.indexOf('\n      - name:', publishIndex + 1));
 
     expect(buildIndex).toBeGreaterThanOrEqual(0);
     expect(publishIndex).toBeGreaterThan(buildIndex);
-    expect(sectionPushIndex).toBeGreaterThan(publishIndex);
+    expect(sourceHandoffIndex).toBeGreaterThan(publishIndex);
     expect(publishStep).toContain("if: steps.build_step.outcome == 'success'");
     expect(publishStep).toContain('node scripts/publish-expired-job-edge-dataset.mjs');
     expect(publishStep).not.toContain('matrix.locale ==');

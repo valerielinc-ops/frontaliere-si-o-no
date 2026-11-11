@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import YAML from 'yaml';
 import { scanFiles, stripShellComments } from '../scripts/lib/stdin-sharing-loop-scan.mjs';
 
 /**
@@ -126,12 +127,12 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     );
     expect(offenders).toEqual([]);
     // Positive assertion: the negative scan is not vacuous after a refactor.
-    // Both the shared action and manual restore must retain the two-part
-    // filter, because the REST API can list an expired artifact by name.
-    const liveFilters = [ACTION_PATH, join(WORKFLOWS_DIR, 'restore-from-artifact.yml')].filter((f) =>
+    // The shared action owns the two-part filter, because the REST API can
+    // list an expired artifact by name.
+    const liveFilters = [ACTION_PATH].filter((f) =>
       /select\(\s*\.name\s*==\s*["']github-pages["']\s+and\s+\.expired\s*==\s*false\s*\)/.test(codeOnly(f)),
     );
-    expect(liveFilters).toHaveLength(2);
+    expect(liveFilters).toHaveLength(1);
   });
 
   it('#7393 — no loop iterates a `gh api` command substitution directly', () => {
@@ -328,7 +329,7 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
 
   it('#7397 — the chosen run is logged with its created_at', () => {
     expect(actionSource).toContain('created_at');
-    expect(actionSource).toMatch(/Using deploy run \$cand \(created_at \$created/);
+    expect(actionSource).toMatch(/Using run \$cand \(created_at \$created/);
     // The four seed workflows must not resolve a run themselves any more:
     // `gh run list --limit=1 --json databaseId` gave no branch filter, no
     // expiry check and no timestamp to reason about afterwards.
@@ -340,9 +341,6 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
   it('downloading the artifact zip happens only inside the composite action', () => {
     const offenders = allGithubShellFiles().filter((f) => {
       if (f === ACTION_PATH) return false;
-      // restore-from-artifact.yml re-uploads the raw zip instead of extracting
-      // artifact.tar, so it is a different contract — see the PR body.
-      if (f.endsWith('restore-from-artifact.yml')) return false;
       return /actions\/artifacts\/\S*\/zip/.test(codeOnly(f));
     });
     expect(offenders).toEqual([]);
@@ -417,29 +415,22 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(callers.length).toBeGreaterThanOrEqual(7);
     for (const f of callers) {
       const src = readFileSync(f, 'utf8');
-      const checkoutAt = src.indexOf('actions/checkout@');
-      const usesAt = src.indexOf('uses: ./.github/actions/fetch-pages-artifact');
-      expect(checkoutAt, `${f}: no checkout step`).toBeGreaterThan(-1);
-      expect(checkoutAt, `${f}: checkout must precede the action`).toBeLessThan(usesAt);
-      if (f.endsWith('/audit-dist-from-run.yml')) {
-        const validatorCheckoutAt = src.indexOf('name: Checkout current publisher index validator');
-        expect(validatorCheckoutAt, `${f}: current validator checkout is missing`).toBeGreaterThan(checkoutAt);
-        expect(src.slice(checkoutAt, validatorCheckoutAt)).not.toContain('sparse-checkout:');
-      }
-      // A sparse checkout must actually include the action directory — in
-      // BOTH YAML spellings. The block-scalar-only form of this regex skipped
-      // inspect-dist-composition.yml, whose `sparse-checkout: <path>` is the
-      // inline scalar, i.e. it skipped the one checkout this work added and
-      // the only one narrow enough to plausibly lose the action.
-      // Anchored at line start: the inline-scalar branch would otherwise match
-      // the string inside a prose comment (recover-prev-slugs.yml and
-      // audit-missing-company-logos.yml already contain one), and `.exec`
-      // takes the FIRST match in the file.
-      const sparse = /^[ \t]*sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/m.exec(src);
-      if (sparse && !sparse[1].includes('/*') && !f.endsWith('/audit-dist-from-run.yml')) {
-        expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
-          '.github/actions/fetch-pages-artifact/',
-        );
+      const workflow = YAML.parse(src) as { jobs?: Record<string, { steps?: Array<Record<string, any>> }> };
+      for (const [jobName, job] of Object.entries(workflow.jobs ?? {})) {
+        const steps = job.steps ?? [];
+        for (let usesAt = 0; usesAt < steps.length; usesAt += 1) {
+          if (steps[usesAt].uses !== './.github/actions/fetch-pages-artifact') continue;
+          const checkoutAt = steps.slice(0, usesAt).findLastIndex((step) => (
+            String(step.uses ?? '').startsWith('actions/checkout@') && !step.with?.path
+          ));
+          expect(checkoutAt, `${f} job ${jobName}: no checkout before the action`).toBeGreaterThan(-1);
+          const sparse = steps[checkoutAt].with?.['sparse-checkout'];
+          if (sparse && !String(sparse).includes('/*')) {
+            expect(String(sparse), `${f} job ${jobName}: sparse checkout omits the action`).toContain(
+              '.github/actions/fetch-pages-artifact/',
+            );
+          }
+        }
       }
     }
   });

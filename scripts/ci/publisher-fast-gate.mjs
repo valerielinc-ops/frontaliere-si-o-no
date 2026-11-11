@@ -240,18 +240,19 @@ export function validatePublisherFastGate({
   for (const manifest of pageManifests) {
     const locale = manifest?.locale;
     const label = `page manifest ${String(locale)}`;
+    const expectedArtifactRunId = locale === 'it' ? String(publisherRunId) : String(sourceRunId);
     assertManifestHeader(manifest, expected, errors, label);
     if (!LOCALES.includes(locale)) { errors.push(`${label}: locale is unsupported`); continue; }
     if (pageManifestByLocale.has(locale)) { errors.push(`${label}: duplicate locale manifest`); continue; }
-    if (String(manifest.artifactRunId) !== String(sourceRunId)) errors.push(`${label}: artifactRunId mismatch`);
+    if (String(manifest.artifactRunId) !== expectedArtifactRunId) errors.push(`${label}: artifactRunId mismatch`);
     pageManifestByLocale.set(locale, manifest);
     if (!Array.isArray(manifest.entries)) { errors.push(`${label}: entries is not an array`); continue; }
     if (!Array.isArray(manifest.artifactRefs) || manifest.artifactRefs.length === 0) errors.push(`${label}: artifactRefs is empty`);
     for (const ref of manifest.artifactRefs ?? []) {
-      assertArtifactRef(ref, sourceRunId, artifactMetadata, errors);
+      assertArtifactRef(ref, expectedArtifactRunId, artifactMetadata, errors);
     }
     if (!manifest.manifestArtifactName) errors.push(`${label}: manifest artifact name is missing`);
-    else assertArtifactRef({ runId: sourceRunId, name: manifest.manifestArtifactName, digest: artifactMetadata.get(`${sourceRunId}:${manifest.manifestArtifactName}`)?.digest }, sourceRunId, artifactMetadata, errors);
+    else assertArtifactRef({ runId: expectedArtifactRunId, name: manifest.manifestArtifactName, digest: artifactMetadata.get(`${expectedArtifactRunId}:${manifest.manifestArtifactName}`)?.digest }, expectedArtifactRunId, artifactMetadata, errors);
     for (const entry of manifest.entries) {
       const url = String(entry?.url ?? '');
       if (!url || pageByUrl.has(url)) { errors.push(`${label}: missing or duplicate URL ${JSON.stringify(url)}`); continue; }
@@ -267,15 +268,15 @@ export function validatePublisherFastGate({
   }
   for (const locale of LOCALES) if (!pageManifestByLocale.has(locale)) errors.push(`page manifest missing for locale ${locale}`);
   const sitemapRefs = pageManifests.flatMap((manifest) => manifest.artifactRefs ?? [])
-    .filter((ref) => ref.purpose === 'sitemaps' && ref.name === `sitemaps-${sourceRunId}`);
-  if (sitemapRefs.length !== 1) errors.push(`expected one source sitemaps artifact receipt for sitemaps-${sourceRunId}`);
+    .filter((ref) => ref.purpose === 'sitemaps' && ref.name === `sitemaps-${publisherRunId}`);
+  if (sitemapRefs.length !== 1) errors.push(`expected one publisher sitemaps artifact receipt for sitemaps-${publisherRunId}`);
 
   const sectionByKey = new Map();
   const sectionManifestByLocale = new Map();
   const shardUrlOwners = new Map();
   for (const manifest of sectionManifests) {
     const locale = manifest?.locale;
-    const expectedArtifactRunId = locale === 'it' ? String(sourceRunId) : String(publisherRunId);
+    const expectedArtifactRunId = String(publisherRunId);
     const label = `section manifest ${String(locale)}`;
     assertManifestHeader(manifest, {
       sourceRunId,
@@ -409,8 +410,7 @@ export function validatePublisherFastGate({
     }
   }
   for (const name of manifestArtifactNames) {
-    const runId = name.startsWith('section-page-manifest-it-') ? String(sourceRunId)
-      : name.startsWith('section-page-manifest-') ? String(publisherRunId)
+    const runId = name.startsWith('section-page-manifest-') || name.startsWith('sitemap-page-manifest-it-') ? String(publisherRunId)
         : String(sourceRunId);
     assertArtifactRef({ runId, name, digest: artifactMetadata.get(`${runId}:${name}`)?.digest }, runId, artifactMetadata, errors);
   }

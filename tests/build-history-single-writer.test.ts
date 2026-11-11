@@ -33,7 +33,10 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf8');
 const WORKFLOW = YAML.parse(DEPLOY_YML) as { jobs: Record<string, any> };
+const PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf8');
+const PUBLISH_WORKFLOW = YAML.parse(PUBLISH_YML) as { jobs: Record<string, any> };
 const BUILD_LOCALE_STEPS: Array<Record<string, any>> = WORKFLOW.jobs['build-locale'].steps;
+const IT_PUBLISH_STEPS: Array<Record<string, any>> = PUBLISH_WORKFLOW.jobs['finalize-it-publish'].steps;
 const STAGER = resolve(ROOT, 'scripts/lib/append-build-history-row.sh');
 const WRITER = resolve(ROOT, 'scripts/lib/commit-build-history-rows.sh');
 const PRODUCERS = [
@@ -125,20 +128,20 @@ describe('deploy.yml — la storia di build ha un solo scrittore per run (#9247)
     }
   });
 
-  it('dist-size-history + url-first-seen: artifact dalla gamba it, commit nel job dedicato sulla base della build', () => {
-    const upload = BUILD_LOCALE_STEPS.find((s) => s.name === 'Upload dist-size-history + url-first-seen for the history commit');
+  it('dist-size-history + url-first-seen: artifact dal tail IT, commit nel job dedicato sulla base della build', () => {
+    const upload = IT_PUBLISH_STEPS.find((s) => s.name === 'Upload dist-size-history + url-first-seen for the history commit');
     expect(upload?.uses).toBe('actions/upload-artifact@v7');
-    expect(upload?.if).toBe("matrix.locale == 'it'");
-    expect(String(upload?.with?.name)).toBe('dist-history-${{ github.run_id }}');
-    const job = WORKFLOW.jobs['build-history-commit'];
+    expect(upload?.if).toBe('always()');
+    expect(String(upload?.with?.name)).toBe('dist-history-${{ inputs.source_run_id }}');
+    const job = PUBLISH_WORKFLOW.jobs['commit-it-dist-history'];
+    expect([].concat(job.needs)).toContain('finalize-it-publish');
     const names: string[] = job.steps.map((s: Record<string, any>) => s.name);
     const commitIdx = names.indexOf('Commit dist-size-history row + url-first-seen updates');
     expect(commitIdx).toBeGreaterThan(names.indexOf('Download dist-size-history + url-first-seen (IT leg)'));
-    // Prima del commit delle righe: HEAD e' ancora la SHA della build, la base
-    // su cui la gamba committava, quindi il rebase e i merge driver vedono lo
-    // stesso three-way merge di prima.
-    expect(commitIdx).toBeLessThan(names.indexOf('Commit build-history rows (one commit per run)'));
-    const sparse = String(job.steps.find((s: Record<string, any>) => s.name === 'Checkout build-history writer')?.with?.['sparse-checkout']);
+    // Questo job committa solo gli accumulatori arrivati dal publish tail;
+    // le righe build restano nel writer dedicato del workflow sorgente.
+    expect(names).not.toContain('Commit build-history rows (one commit per run)');
+    const sparse = String(job.steps.find((s: Record<string, any>) => s.name === 'Checkout IT history writer')?.with?.['sparse-checkout']);
     for (const p of ['/data/dist-size-history.jsonl', '/data/url-first-seen.json', '/scripts/ci/merge-json-first-seen.mjs']) {
       expect(sparse).toContain(p);
     }

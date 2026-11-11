@@ -20,8 +20,8 @@ set -uo pipefail
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
 # entry in section-shard-slugs.json (set by the calling workflow step).
-# `SHARD_ARTIFACT_RUN_ID` optionally points at the post-build run that holds
-# non-IT section artifacts; IT continues to use DEPLOY_RUN_ID.
+# `SHARD_ARTIFACT_RUN_ID` optionally points at the publisher run that holds
+# section artifacts; per-locale overrides take precedence, including for IT.
 #
 # REPLACE, NOT MERGE — and why that stays true (issue #5327, the class behind
 # #5290's incident). Every `rm -rf "dist/$sub"` below (tar/cache/clone paths)
@@ -39,7 +39,7 @@ set -uo pipefail
 # snapshots the subtree before each replace and reports every trunk file the
 # shard did not carry, failing the step when any of them is an indexable page.
 #
-# deploy.yml uploads section tars BATCHED (~5 sections/artifact per
+# deploy-publish.yml uploads section tars BATCHED (~5 sections/artifact per
 # scripts/lib/section-shard-batches.json — GitHub Actions doesn't
 # parallelize `uses:` steps natively, and background:/wait-all: on
 # `uses:` steps broke production twice, PR #4777 reverted by #4779), so
@@ -78,10 +78,8 @@ ensure_batch_downloaded() {
   local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
   local lock="$dl.lock"
   local done="$dl.done"
-  local artifact_run_id="$DEPLOY_RUN_ID"
-  case "$loc" in
-    en|de|fr) artifact_run_id="$(rehydrate_artifact_run_id "$loc")" ;;
-  esac
+  local artifact_run_id
+  artifact_run_id="$(rehydrate_artifact_run_id "$loc")"
   local name="shard-batch-$batch-dist-$loc-$artifact_run_id"
   local repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
   local id members
