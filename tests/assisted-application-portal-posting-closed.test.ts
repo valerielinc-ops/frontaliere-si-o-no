@@ -6,7 +6,7 @@ import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/
 // SuccessFactors, Stadt Zürich (career2.successfactors.eu, run 42818412495, 2026-11-10): the account was
 // created and the privacy statement accepted, then /portalcareer said the posting could no longer be applied
 // for, and the run stopped as `posting_mismatch` instead of the closed posting it was.
-const { submitViaPortal } = portal as any;
+const { initialPortalHandoffReason, submitViaPortal } = portal as any;
 
 
 // A bounded stand-in for the browser: the real extractFields/applyActions/
@@ -183,6 +183,65 @@ describe('a posting that closes behind the registration', () => {
   });
 
   it.each([
+    'We retain application information, including after a specific job has been filled, as required by law.',
+    'Once a specific job has been filled, application information remains in our records.',
+    'When a specific job has been filled, application information remains in our records.',
+    'If a specific job has been filled, application information remains in our records.',
+    'Application information is retained until a specific job has been filled.',
+    'Nachdem die Stelle bereits besetzt wurde, bewahren wir die Unterlagen auf.',
+    'Sobald die Stelle bereits besetzt wurde, bewahren wir die Unterlagen auf.',
+    'Wenn die Stelle bereits besetzt wurde, bewahren wir die Unterlagen auf.',
+    'Dopo che la posizione è stata coperta, conserviamo i dati.',
+    'Una volta che la posizione è stata coperta, conserviamo i dati.',
+    'Quando la posizione è stata coperta, conserviamo i dati.',
+    "Une fois que l'offre a été supprimée, les données sont conservées.",
+    "Lorsque l'offre a été supprimée, les données sont conservées.",
+    "Après que l'annonce a été supprimée, les données sont conservées.",
+  ])('does not treat a conditional or temporal privacy statement as a current closure: «%s»', (text) => {
+    const page = classifyLiveness({ status: 200, bodyText: `${text} ${'x '.repeat(200)}`, applyControls: ['Apply'] });
+    expect(page).toMatchObject({ result: 'active', code: 'apply_control_visible' });
+    expect(isHardClosed(page)).toBe(false);
+  });
+
+  it('routes access blocks to the existing egress recovery reason', () => {
+    expect(initialPortalHandoffReason({ liveness: { code: 'access_blocked' } })).toBe('application_region_unsupported');
+    expect(initialPortalHandoffReason({ liveness: { code: 'bot_challenge' } })).toBe('captcha');
+  });
+
+  it.each([
+    '<label for="application">Application details</label><input id="application" name="application" type="text">',
+    '<label for="password">Password</label><input id="password" name="password" type="password">',
+    '<label for="attachment">Attachment</label><input id="attachment" name="attachment" type="file">',
+  ])('does not reclassify a still-interactive form as closed (%s)', async (field) => {
+    const landing = `<main><p>Die Stelle wurde leider bereits besetzt.</p><form>${field}<button type="submit">Weiter</button></form></main>`;
+    const { result } = await run(landing);
+    expect(result.event.type).not.toBe('posting_closed');
+  });
+
+  it.each([
+    ['BitNinja Security challenge. Please verify that you are human.', 'bot_challenge'],
+    ['Verify you are human to continue.', 'bot_challenge'],
+    ['Verifica di essere umano per continuare.', 'bot_challenge'],
+    ['Sicherheitsüberprüfung: Bitte bestätigen Sie, dass Sie kein Roboter sind.', 'bot_challenge'],
+    ['Complete the CAPTCHA to continue.', 'bot_challenge'],
+    ['CAPTCHA verification is required to continue.', 'bot_challenge'],
+    ['Il tuo indirizzo IP è stato bloccato da BitNinja.', 'access_blocked'],
+  ])('classifies access challenges without calling the posting closed: «%s»', (text, code) => {
+    expect(classifyLiveness({ status: 200, bodyText: text })).toMatchObject({ result: 'uncertain', code });
+  });
+
+  it.each([
+    'We use CAPTCHA to protect candidate accounts and keep application forms safe.',
+    'BitNinja provides security services to our careers website.',
+    'If your IP address is blocked, contact support for help.',
+    'Candidates may be asked to verify their identity at an interview.',
+    'Sicherheitsüberprüfung gehört zu unserem üblichen Einstellungsverfahren.',
+  ])('does not mistake ordinary prose for an access challenge: «%s»', (text) => {
+    expect(classifyLiveness({ status: 200, bodyText: `${text} ${'x '.repeat(80)}`, applyControls: ['Apply'] }))
+      .toMatchObject({ result: 'active', code: 'apply_control_visible' });
+  });
+
+  it.each([
     'Diese Stelle kann derzeit nicht angezeigt werden. Sie wurde gelöscht.',
     'Sie können sich nicht mehr auf diese Stelle bewerben.',
     'Die Stelle wurde gelöscht.',
@@ -195,6 +254,7 @@ describe('a posting that closes behind the registration', () => {
     'You can no longer apply to this job.',
     'We are no longer accepting applications for this role.',
     'This position has been filled.',
+    'Die Stelle wurde bereits besetzt.',
   ])('closes on «%s»', (text) => {
     const page = classifyLiveness({ status: 200, bodyText: `${text} ${'x '.repeat(200)}` });
     expect(page).toMatchObject({ result: 'expired', code: 'expired_body' });

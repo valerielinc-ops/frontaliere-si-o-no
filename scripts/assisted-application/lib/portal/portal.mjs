@@ -1896,12 +1896,12 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
 }
 
 /**
- * An anti-bot interstitial is not evidence that the application belongs to a
- * different posting. The initial page is checked before the form loop, so an
- * unresolved challenge must take the same CAPTCHA handoff as a challenge
- * discovered on a later form step.
+ * An anti-bot interstitial or denied runner IP is not evidence that the
+ * application belongs to a different posting. Challenges take the CAPTCHA
+ * handoff; a denied IP takes the existing egress recovery lane.
  */
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
+  if (liveness?.code === 'access_blocked') return 'application_region_unsupported';
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
@@ -8449,12 +8449,26 @@ export async function submitViaPortal(ctx) {
     // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
     // kann zurzeit nicht angezeigt werden … nicht länger darauf bewerben», and the run stopped as a mismatch.
     // The page in front of the runner is read with the same classifier as the posting at the start; only a
-    // certain closure (isHardClosed) changes the outcome.
+    // certain closure (isHardClosed) changes the outcome. Still-interactive forms are left as-is, and their
+    // buttons and links are supplied as apply controls on pages without fields.
     if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
-      const current = classifyLiveness({ finalUrl: page.url(), bodyText: await pageText(page).catch(() => '') });
-      if (isHardClosed(current)) {
-        evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
-        return { event: { type: 'posting_closed', reason: current.code }, evidence };
+      const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+      const formFields = Array.isArray(currentSnapshot?.fields) ? currentSnapshot.fields : [];
+      const applicationFormVisible = currentSnapshot?.passwordVisible === true || formFields.length > 0;
+      if (!applicationFormVisible) {
+        const applyControls = [
+          ...(currentSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
+          ...(currentSnapshot?.links || []).map((link) => link.text || link.label || ''),
+        ];
+        const current = classifyLiveness({
+          finalUrl: page.url(),
+          bodyText: await pageText(page).catch(() => ''),
+          applyControls,
+        });
+        if (isHardClosed(current)) {
+          evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
+          return { event: { type: 'posting_closed', reason: current.code }, evidence };
+        }
       }
     }
     // A posting that refuses applications from this connection's region (the
