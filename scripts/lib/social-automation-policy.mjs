@@ -1,12 +1,14 @@
 const AUTOMATED_DELIVERY_HOLDS = Object.freeze({
-  tiktok: 'TikTok automated delivery is held pending an eligible, policy-compliant publishing use case.',
-  instagram: 'Instagram browser delivery is held until Meta express permission for this route is verified.',
+  tiktok: 'TikTok browser publishing is held until the owner-approved uploader flag is enabled.',
+  instagram: 'Instagram browser publishing is held until the owner-approved publisher flag is enabled.',
 });
 
-export function socialAutomatedDeliveryPolicy(channel, { instagramBrowserPublishingApproved = false } = {}) {
-  if (channel === 'instagram' && instagramBrowserPublishingApproved) {
-    return { allowed: true, reason: null };
-  }
+export function socialAutomatedDeliveryPolicy(channel, {
+  instagramBrowserPublishingApproved = false,
+  tiktokBrowserPublishingApproved = false,
+} = {}) {
+  if (channel === 'instagram' && instagramBrowserPublishingApproved) return { allowed: true, reason: null };
+  if (channel === 'tiktok' && tiktokBrowserPublishingApproved) return { allowed: true, reason: null };
   const reason = AUTOMATED_DELIVERY_HOLDS[channel];
   return reason
     ? { allowed: false, reason }
@@ -14,7 +16,12 @@ export function socialAutomatedDeliveryPolicy(channel, { instagramBrowserPublish
 }
 
 export function isInstagramBrowserPublishingApproved(env = process.env) {
-  return env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED === 'true';
+  return env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED === 'true'
+    || env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED === 'true';
+}
+
+export function isTikTokBrowserPublishingApproved(env = process.env) {
+  return env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED === 'true';
 }
 
 export function isInstagramBrowserInsightsApproved(env = process.env) {

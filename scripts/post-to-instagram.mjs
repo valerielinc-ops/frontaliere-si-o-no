@@ -38,9 +38,9 @@
  *   INSTAGRAM_LOGIN_ACCESS_TOKEN / INSTAGRAM_LOGIN_USER_ID
  *                                    GitHub Actions Secret plus server RC
  *                                    account metadata; refreshed by the token workflow.
- *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
- *                                   Playwright queue, held unless Meta
- *                                   browser-publishing permission is verified
+ *   SOCIAL_ROBOT_PUBLISHING_MODE    off | dry (default) | live — API or the
+ *                                   Playwright queue, enabled by the owner
+ *                                   flag or the legacy Meta permission flag
  *   INSTAGRAM_CAROUSEL_BACKGROUND_AB_* Firebase-controlled four-arm background
  *                                   test; absent/invalid values keep the navy
  *                                   control and retries keep the same arm
@@ -96,7 +96,7 @@ import {
   dequeuePosts,
   enqueuePost,
   queuePathFor,
-  resolveSocialRobotMode,
+  resolveSocialPublishingMode,
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
@@ -141,9 +141,10 @@ const CAROUSEL_SIZE = 5;
 
 // ─────────────────────────── delivery ───────────────────────────
 //
-// Official API or the Playwright robot's queue, chosen by SOCIAL_ROBOT_MODE
-// and the Meta browser-publishing permission flag. The ledger is written here
-// only for an API publish; browser posts reach it after robot confirmation.
+// Official API or the Playwright robot's queue, chosen by
+// SOCIAL_ROBOT_PUBLISHING_MODE and enabled by the owner flag or the legacy Meta
+// browser-publishing permission flag. Browser posts reach the ledger only
+// after robot confirmation.
 
 async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish, onAccepted, igUserId }) {
   const publishAt = new Date();
@@ -593,8 +594,8 @@ async function main() {
 
   console.log(`─── Instagram daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const robotMode = resolveSocialRobotMode();
-  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
+  const robotMode = resolveSocialPublishingMode();
+  console.log(`ℹ️  SOCIAL_ROBOT_PUBLISHING_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
 
   const publisher = getInstagramPublisherCredentials();
   const accessToken = dryRun ? null : publisher.accessToken;

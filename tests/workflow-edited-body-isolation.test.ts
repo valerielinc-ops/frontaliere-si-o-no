@@ -320,6 +320,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     const launchScript = launcher.run as string;
     const collectScript = collector.run as string;
     expect(launchScript).toContain('expected_labels=()');
+    // TSC is a following serial step after this detached roster has drained.
     expect(launchScript).not.toContain('expected_labels+=(tsc)');
     expect(launchScript).toContain('expected_labels+=(audit-markers)');
     expect(launchScript).toContain('expected_labels+=(action-runtimes)');
@@ -330,7 +331,8 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(launchScript).not.toContain('>> "$state_dir/labels"');
     expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
     expect(collectScript).toContain('expected roster is missing or empty');
-    expect(collectScript).toContain('done < "$expected_file"');
+    expect(collectScript).toContain('while IFS= read -r -u 9 label; do');
+    expect(collectScript).toContain('done 9< "$expected_file"');
     expect(collectScript).not.toContain('if [ -s "$state_dir/labels" ]');
   });
 

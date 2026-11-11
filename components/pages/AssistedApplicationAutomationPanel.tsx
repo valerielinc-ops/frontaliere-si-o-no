@@ -68,7 +68,8 @@ const HELD_LABELS: Record<string, string> = {
   legitimacy: 'annuncio sospetto (Block G)',
   max_rounds: '3 rifiuti del candidato',
   draft_failed: 'bozza non generata',
-  posting_closed: 'annuncio chiuso (rimborso automatico)',
+  // Owner decision 2026-11-11: the automatic refund holds only for an order under the Terms before that day.
+  posting_closed: 'annuncio chiuso (rimborso automatico solo con i Termini precedenti)',
   portal_needs_candidate: 'il portale richiede il candidato',
   fact_check_not_acknowledged: 'correzione automatica dei testi prima di riprovare',
   fact_repair_failed: 'correzione automatica non riuscita: serve una verifica tecnica',

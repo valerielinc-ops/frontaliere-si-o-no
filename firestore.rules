@@ -1069,11 +1069,12 @@ service cloud.firestore {
             && request.resource.data.candidateFacts.get('nationality', '').size() <= 80
             && request.resource.data.candidateFacts.get('criminalRecord', '') in ['', 'no', 'yes']
             && request.resource.data.candidateFacts.get('debtRecord', '') in ['', 'no', 'yes']))
-        // v2 names the employer's terms accepted on the candidate's behalf; v1 stays valid for pages opened before.
+        // v2 names the employer's terms accepted on the candidate's behalf; v3 (2026-11-11) adds the express request
+        // to start at once and the acknowledgement of Terms 6.5 (no refund once started); v1 and v2 stay valid.
         && ((resource.data.consentVersion == null
-          && request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
+          && request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2', 'assisted-application-v3']
           && request.resource.data.consentedAt is timestamp)
-          || (resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
+          || (resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2', 'assisted-application-v3']
             && request.resource.data.consentVersion == resource.data.consentVersion
             && request.resource.data.consentedAt == resource.data.consentedAt))
         && (request.resource.data.applicantName == null

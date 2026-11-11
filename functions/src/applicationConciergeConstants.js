@@ -18,7 +18,7 @@ export const APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS = 3;
 // consent. v2 (owner decision 2026-11-11): the proposals the candidate does not decide within 12 hours are
 // accepted and sent by the platform. A consent given under an earlier version is still honoured, never asked
 // (nor rewritten) again; storage.rules accepts exactly these.
-export const APPLICATION_CONCIERGE_CONSENT_VERSIONS = Object.freeze(['application-concierge-v1', 'application-concierge-v2']);
+export const APPLICATION_CONCIERGE_CONSENT_VERSIONS = Object.freeze(['application-concierge-v1', 'application-concierge-v2', 'application-concierge-v3']);
 export const APPLICATION_CONCIERGE_CONSENT_VERSION = APPLICATION_CONCIERGE_CONSENT_VERSIONS.at(-1);
 export const APPLICATION_CONCIERGE_CV_PREFIX = 'application-concierge-uploads';
 export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v18-verified-letter-evidence';

@@ -8,7 +8,7 @@ const WORKFLOWS = [
   ['.github/workflows/telegram-channel-broadcast.yml', 'broadcast', 'Broadcast jobs digest'],
   ['.github/workflows/linkedin-member-daily.yml', 'post', 'Post to LinkedIn (member)'],
   ['.github/workflows/instagram-daily-broadcast.yml', 'post', 'Post to Instagram'],
-  ['.github/workflows/tiktok-daily-broadcast.yml', 'preview', 'Generate TikTok content preview'],
+  ['.github/workflows/tiktok-daily-broadcast.yml', 'post', 'Post to TikTok browser queue'],
 ] as const;
 
 function workflow(file: string): any {

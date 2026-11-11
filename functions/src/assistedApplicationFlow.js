@@ -38,6 +38,7 @@ import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReas
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
+import { refundEndsAtStart } from './assistedApplicationConstants.js';
 import {
   REGION_UNSUPPORTED_HOLD,
   REGION_UNSUPPORTED_REASON,
@@ -356,9 +357,19 @@ function waitedForCandidate(flow) {
 }
 
 /**
- * Owner decision 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
- * while this round waited for the candidate (Terms 6.5, not refunded). The application is withdrawn and
- * archived, every clock and retry stops, and the candidate is told once why. Nothing is refunded.
+ * The employer withdrew or closed the posting where Terms 6.5 refund nothing (assistedApplicationEmployerWithdrawal.js):
+ * an order whose process started under the Terms of 2026-11-11 (refundEndsAtStart), or, under the older ones,
+ * a round that waited for the candidate. The round waited, or the order's Terms no longer refund once started.
+ */
+function closesWithoutRefund(flow, order) {
+  return refundEndsAtStart(order) || waitedForCandidate(flow);
+}
+
+/**
+ * Owner decisions 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
+ * while this round waited for the candidate, or after the process started under the Terms that refund nothing
+ * once it started (Terms 6.5). The application is withdrawn and archived, every clock and retry stops, and the
+ * candidate is told once why. Nothing is refunded.
  * `closure`: the native proof ({ code, source, at }); never a reading of ours.
  */
 function withdrawForEmployer(next, closure, nowMs) {
@@ -377,16 +388,17 @@ function withdrawForEmployer(next, closure, nowMs) {
 }
 
 /**
- * The posting's native proof of closure is on record and this round waited for the candidate, on an order
- * stopped for that closure: held for Valerie (owner_takeover, posting_closed), or waiting in silence for the
- * candidate since the sweep found the ad closed (postingExpiredAt). The employer's withdrawal closes it: the
- * sweep applies `posting_closure_recorded`; scripts/assisted-application/reconcile-posting-withdrawals.mjs
- * records the proof of the orders stopped before this rule. A send that may have left is checked by the
- * caller (sendMayHaveLeft), in the same transaction.
+ * The posting's native proof of closure is on record and this round waited for the candidate (or `order`'s
+ * Terms refund nothing once the process started, refundEndsAtStart), on an order stopped for that closure:
+ * held for Valerie (owner_takeover, posting_closed), or waiting in silence for the candidate since the sweep
+ * found the ad closed (postingExpiredAt). The employer's withdrawal closes it: the sweep applies
+ * `posting_closure_recorded`; scripts/assisted-application/reconcile-posting-withdrawals.mjs records the proof
+ * of the orders stopped before this rule. A send that may have left is checked by the caller
+ * (sendMayHaveLeft), in the same transaction. Without `order`, the older Terms' condition (a round that waited).
  */
-export function employerWithdrawalPending(flow) {
+export function employerWithdrawalPending(flow, order = null) {
   const current = base(flow);
-  if (!current.postingClosure || !waitedForCandidate(current)) return false;
+  if (!current.postingClosure || !closesWithoutRefund(current, order)) return false;
   if (current.state === 'owner_takeover') return current.heldBy.length === 1 && current.heldBy[0] === 'posting_closed';
   return ['candidate_review', 'needs_candidate_action'].includes(current.state) && Boolean(current.postingExpiredAt);
 }
@@ -795,10 +807,12 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The candidate's own approval still sends it, and the runner then looks at the ad itself.
       // Owner decision 2026-11-11: when the look read the posting's own word (a native closure) and the round
       // waits for the candidate's documents or answers, the employer withdrew it (Terms 6.5): the application
-      // is withdrawn, the candidate told, nothing refunded. Any other look keeps the silent wait below.
+      // is withdrawn, the candidate told, nothing refunded. The same for any round of an order under the Terms
+      // that refund nothing once the process started (owner decision 2026-11-11, refundEndsAtStart): the wait
+      // for the candidate no longer decides anything there. Any other look keeps the silent wait below.
       const tickClosure = event.postingExpired ? nativeClosureOf(event.postingClosure, nowMs) : null;
       if (tickClosure && tickClosure.source !== 'employer_mail' && remindsCandidate(current, nowMs)
-        && current.state !== 'candidate_handoff' && waitedForCandidate(current) && !sendMayHaveLeft) {
+        && current.state !== 'candidate_handoff' && closesWithoutRefund(current, order) && !sendMayHaveLeft) {
         effects = withdrawForEmployer(next, tickClosure, nowMs);
         break;
       }
@@ -1034,9 +1048,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       // The posting's own word (its page, its ATS, the employer's e-mail), or null for a reading of ours.
       const closure = nativeClosureOf(event, nowMs);
-      // Owner decision 2026-11-11 (Terms 6.5): withdrawn by the employer while this round waited for the
-      // candidate's documents or answers. Withdrawn and archived, the candidate told, nothing refunded.
-      if (closure && waitedForCandidate(current) && !sendMayHaveLeft) {
+      // Owner decisions 2026-11-11 (Terms 6.5): withdrawn by the employer while this round waited for the
+      // candidate's documents or answers, or, for an order under the Terms that refund nothing once the process
+      // started (refundEndsAtStart: «il rimborso non è mai consentito una volta che il processo è stato
+      // avviato»), whenever it closed: every state this event accepts comes after the start. Withdrawn and
+      // archived, the candidate told, nothing refunded.
+      const noRefund = refundEndsAtStart(order);
+      if (closure && closesWithoutRefund(current, order) && !sendMayHaveLeft) {
         effects = withdrawForEmployer(next, closure, nowMs);
         break;
       }
@@ -1047,6 +1065,12 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = ['posting_closed'];
+      // Owner decision 2026-11-11: after the start nothing is refunded by itself. Only a reading of ours (no
+      // native proof) or a send that may have left gets here: nothing to withdraw on that, so Valerie decides.
+      if (noRefund) {
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_after_start' }];
+        break;
+      }
       // Terms 6.5 (owner decision 2026-10-08): an ad that closes while the application waits for documents
       // or answers only the candidate can give is not refunded. The robot cannot tell when the ad closed,
       // only that this round waited for the candidate: it refunds nothing by itself, and Valerie decides
@@ -1056,8 +1080,8 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }];
         break;
       }
-      // Owner decision 2026-09-30: the refund the welcome e-mail promises is
-      // "the ad closed before we could send it" — so it is automatic.
+      // An order under the Terms before 2026-11-11 (a mandate v1/v2, or none). Owner decision 2026-09-30: the
+      // refund the welcome e-mail promised then is "the ad closed before we could send it" — so it is automatic.
       // The candidate's "we refunded you" e-mail is sent by the refund effect
       // itself, only once the refund went through (retried if it fails).
       effects = [
@@ -1069,7 +1093,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     case 'posting_closure_recorded':
       // An order stopped for a closed ad before the owner decision of 2026-11-11, with the posting's proof
       // recorded since (employerWithdrawalPending): closed now as posting_closed would close it today.
-      if (!employerWithdrawalPending(current)) return ignore('no_recorded_withdrawal');
+      if (!employerWithdrawalPending(current, order)) return ignore('no_recorded_withdrawal');
       if (sendMayHaveLeft) return ignore('send_may_have_left');
       effects = withdrawForEmployer(next, current.postingClosure, nowMs);
       break;

@@ -137,16 +137,17 @@ async function render({ template, data, files = {}, fileData = {}, legacy, mode,
 /**
  * The tailored CV from its document (assistedApplicationCvDocument.js).
  * @param {object} document buildCvDocument's result; `photo` (a Buffer) is printed when present
- * @param {{mode?: string, log?: Function}} [options]
+ * @param {{mode?: string, log?: Function, bilingual?: boolean}} [options]
  * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy', photo: boolean}>} photo: this PDF carries it
  *   (false with the standard-font writer, and when Typst could not read the image)
  */
-export async function renderCvPdf(document, { mode = 'typst', log } = {}) {
+export async function renderCvPdf(document, { mode = 'typst', log, bilingual = false } = {}) {
   const { photo, photoType = 'jpg', ...rest } = document;
   // A name of its own per compile: one candidate's photo can never be read for another's CV.
   const photoFile = photo ? `photo-${randomUUID()}.${photoType}` : null;
+  const template = bilingual ? 'assisted-cv-bilingual.typ' : 'assisted-cv.typ';
   const { pdf, renderer, files } = await render({
-    template: 'assisted-cv.typ',
+    template,
     data: rest,
     files: photo ? { [photoFile]: photo } : {},
     fileData: photo ? { photo: photoFile } : {},

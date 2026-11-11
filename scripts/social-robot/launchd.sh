@@ -2,7 +2,8 @@
 
 # Launch agent of the social robot on the agents' Mac host: two windows a day
 # in which the robot publishes (or, in a dry run, prepares) queued Instagram
-# content from the owner's Chrome profile. TikTok delivery is held. The same
+# and TikTok content from the owner's Chrome profile. Each channel has a
+# separate owner-publishing flag. The same
 # pass reads Instagram Insights and Business Suite through that profile only
 # when each browser use has an explicit Meta permission flag in Remote Config.
 #
@@ -16,7 +17,7 @@
 # (the plist runs that copy), and `run` fetches origin/main, extracts the robot's files of that
 # commit into a frozen snapshot under the state folder, links
 # the checkout's node_modules (Playwright) and runs it from there. The mode
-# comes from Remote Config (SOCIAL_ROBOT_MODE, read with the site's own
+# comes from Remote Config (SOCIAL_ROBOT_PUBLISHING_MODE, read with the site's own
 # loader and the service account in ~/.config/frontaliere): the plist always
 # passes --publish, and only `live` makes the robot press the button.
 #
@@ -229,13 +230,13 @@ snapshot() {
 
 # Load only the Remote Config values this worker needs. The values stay in this
 # process and are never logged; existing environment variables win inside the
-# loader. Browser routes stay disabled unless their separate Meta permission
-# flags are exactly true. Graph API community work remains an explicit route.
+# loader. Publishing uses the per-channel owner flags; Insights and Community
+# keep their separate Meta permission flags.
 load_rc_environment() {
   runner=$1
   [ -f "$sa_file" ] || { log "service account missing ($sa_file): Remote Config unavailable, dry run"; return 0; }
   rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" \
-    --only-env=SOCIAL_ROBOT_MODE,SOCIAL_ROBOT_INSIGHTS_SOURCE,META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED,META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED,META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,INSTAGRAM_INSIGHTS_WINDOWS \
+    --only-env=SOCIAL_ROBOT_PUBLISHING_MODE,SOCIAL_ROBOT_MODE,SOCIAL_ROBOT_INSIGHTS_SOURCE,SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED,SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED,META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED,META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED,META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED,INSTAGRAM_ACCESS_TOKEN,INSTAGRAM_BUSINESS_ACCOUNT_ID,FB_PAGE_ID,FB_PAGE_ACCESS_TOKEN,INSTAGRAM_INSIGHTS_WINDOWS \
     2>/dev/null) || rc_exports=''
   [ -n "$rc_exports" ] || return 0
   eval "$rc_exports"
@@ -259,9 +260,10 @@ cmd_run() {
   export NODE_PATH
   load_rc_environment "$runner"
   mode=${SOCIAL_ROBOT_MODE:-}
-  log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
+  publishing_mode=${SOCIAL_ROBOT_PUBLISHING_MODE:-}
+  log "run ${sha:0:8} SOCIAL_ROBOT_PUBLISHING_MODE=${publishing_mode:-<absent>} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
   run_status=0
-  GOOGLE_APPLICATION_CREDENTIALS="$sa_file" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
+  GOOGLE_APPLICATION_CREDENTIALS="$sa_file" SOCIAL_ROBOT_PUBLISHING_MODE="$publishing_mode" SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
     node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
   insights_status=0
   if [ "$mode" != 'off' ] && [ "${META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED:-}" = 'true' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'off' ] && [ "${SOCIAL_ROBOT_INSIGHTS_SOURCE:-browser}" != 'graph' ] && [ -f "$state_dir/instagram-insights.json" ]; then
