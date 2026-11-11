@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -76,5 +77,70 @@ describe('IT section shard group plan', () => {
     expect(validateItShardGroupPlan(plan, { sourceRunId: '12345', sourceSha: 'b'.repeat(40) }).valid).toBe(false);
     plan.groups.find((group) => group.id === 'small-1')!.sections.push('zurigo');
     expect(validateItShardGroupPlan(plan).errors).toContain('group sections do not partition requiredSections');
+  });
+
+  it('fails closed when the required section set is empty', () => {
+    expect(() => createItShardGroupPlan({
+      repoRoot: ROOT,
+      sections: [],
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+    })).toThrow('non-empty required section set');
+
+    const emptyPlan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: [],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({ id, sections: [], files: 0 })),
+    };
+    expect(validateItShardGroupPlan(emptyPlan).errors).toContain('requiredSections is empty or missing');
+  });
+
+  it('fails a publisher group with an empty assignment before attempting a shard push', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-empty-group-'));
+    const planFile = path.join(temp, 'plan.json');
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: ['ticino'],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? ['ticino'] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(planFile, JSON.stringify(plan));
+    try {
+      let failure: any;
+      try {
+        execFileSync('bash', ['scripts/ci/push-it-shard-group.sh', 'zurigo'], {
+          cwd: ROOT,
+          env: {
+            ...process.env,
+            IT_SHARD_PLAN_FILE: planFile,
+            SOURCE_RUN_ID: '12345',
+            SOURCE_SHA: 'a'.repeat(40),
+            DEPLOY_BUILD_ID: '98765',
+            CDN_JOB_START_EPOCH: String(Math.floor(Date.now() / 1000)),
+            RUNNER_TEMP: temp,
+          },
+          stdio: 'pipe',
+        });
+      } catch (error) {
+        failure = error;
+      }
+      expect(failure).toBeDefined();
+      expect(failure.status).toBe(2);
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('has an empty assigned section set');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 });

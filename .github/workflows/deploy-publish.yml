@@ -343,6 +343,7 @@ jobs:
       published_locales: ${{ steps.receipts.outputs.published_locales }}
       published_locales_csv: ${{ steps.receipts.outputs.published_locales_csv }}
       pending_locales: ${{ steps.receipts.outputs.pending_locales }}
+      pending_nonit_locales: ${{ steps.receipts.outputs.pending_nonit_locales }}
     steps:
       - name: Checkout receipt resolver
         uses: actions/checkout@v7
@@ -1093,13 +1094,13 @@ jobs:
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
-          needs.resolve-publish-receipts.outputs.pending_locales != '[]' &&
+          needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]' &&
           needs.resolve-publish-receipts.result == 'success' &&
           needs.publish-it-cdn.result == 'success' }}
     strategy:
       fail-fast: false
       matrix:
-        locale: ${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_locales) }}
+        locale: ${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_nonit_locales) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     # shard-secrets-overflow: stesso environment del build-locale di deploy.yml
@@ -1180,6 +1181,7 @@ jobs:
             /scripts/offload-generated-images-cdn.mjs
             /build-plugins/shared/
             /infra/cloudflare-worker/
+            /services/publicConfigConstants.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

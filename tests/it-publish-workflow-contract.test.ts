@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, relative, resolve } from 'node:path';
+import ts from 'typescript';
 import YAML from 'yaml';
 
 const root = resolve(import.meta.dirname, '..');
@@ -14,7 +15,110 @@ const groupSteps = publish.jobs['push-it-shard-groups'].steps as Array<Record<st
 const finalizeSteps = publish.jobs['finalize-it-publish'].steps as Array<Record<string, any>>;
 const namedStep = (steps: Array<Record<string, any>>, name: string) => steps.find((step) => step.name === name);
 
+const publisherEntrypoints = [
+  'scripts/ci/list-live-shard-sections.mjs',
+  'scripts/ci/report-shard-push-failure.mjs',
+  'scripts/ci/section-shard-purge-urls.mjs',
+  'scripts/ci/shard-content-manifest.mjs',
+  'scripts/ci/shard-manifest-delta.mjs',
+  'scripts/ci/shard-push-verify.mjs',
+  'scripts/lib/externally-served-paths.mjs',
+  'scripts/lib/shrink-ack-check.mjs',
+  'scripts/offload-generated-images-cdn.mjs',
+];
+const publisherRuntimePaths = [
+  'scripts/lib/bounded-parallel.sh',
+  'scripts/lib/deploy-shard-sections.sh',
+  'scripts/lib/push-section-shard.sh',
+  'scripts/lib/shard-cdn-rewrite.sh',
+  'scripts/lib/section-shard-slugs.json',
+  'scripts/lib/section-shard-owners.json',
+];
+
+function resolveModulePath(fromFile: string, specifier: string): string {
+  const base = resolve(dirname(fromFile), specifier);
+  const candidates = [base, ...['.mjs', '.js', '.cjs', '.ts', '.json'].map((extension) => `${base}${extension}`),
+    ...['index.mjs', 'index.js', 'index.cjs', 'index.ts'].map((name) => resolve(base, name))];
+  const found = candidates.find((candidate) => existsSync(candidate));
+  if (!found) throw new Error(`${relative(root, fromFile)} imports missing local module ${specifier}`);
+  return found;
+}
+
+function importedModules(entrypoint: string): Set<string> {
+  const visited = new Set<string>();
+  const pending = [resolve(root, entrypoint)];
+  while (pending.length) {
+    const file = pending.pop()!;
+    if (visited.has(file)) continue;
+    visited.add(file);
+    const source = ts.createSourceFile(file, readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    const visit = (node: ts.Node) => {
+      const moduleSpecifier = ts.isImportDeclaration(node) || ts.isExportDeclaration(node)
+        ? node.moduleSpecifier
+        : ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword
+          ? node.arguments[0]
+          : undefined;
+      if (moduleSpecifier && ts.isStringLiteral(moduleSpecifier) && moduleSpecifier.text.startsWith('.')) {
+        pending.push(resolveModulePath(file, moduleSpecifier.text));
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(source);
+  }
+  return new Set([...visited].map((file) => relative(root, file).split('\\').join('/')));
+}
+
+function sparseCheckoutIncludes(patterns: string[], file: string): boolean {
+  return patterns.some((rawPattern) => {
+    const pattern = rawPattern.trim().replace(/^\/+/, '');
+    if (!pattern || pattern.startsWith('!')) return false;
+    const prefix = pattern.endsWith('/') ? pattern : `${pattern}/`;
+    return file === pattern.replace(/\/$/u, '') || file.startsWith(prefix);
+  });
+}
+
 describe('deploy IT build-to-publish handoff', () => {
+  it('resolves the non-IT tail matrix without ever scheduling IT', () => {
+    const receiptSteps = publish.jobs['resolve-publish-receipts'].steps as Array<Record<string, any>>;
+    const receiptResolver = namedStep(receiptSteps, 'Resolve source-run receipts');
+    const nonIt = publish.jobs['publish-nonit-shards'];
+    const outputs = publish.jobs['resolve-publish-receipts'].outputs;
+
+    expect(outputs.pending_nonit_locales).toBe('${{ steps.receipts.outputs.pending_nonit_locales }}');
+    expect(receiptResolver?.run).toContain('--resolve');
+    expect(nonIt.if).toContain("needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]'");
+    expect(nonIt.strategy.matrix.locale).toContain('pending_nonit_locales');
+    expect(nonIt.strategy.matrix.locale).not.toContain('pending_locales }}');
+  });
+
+  it('keeps the sparse current publisher checkout closed over every runtime import', () => {
+    const checkout = namedStep(
+      publish.jobs['publish-nonit-shards'].steps as Array<Record<string, any>>,
+      'Checkout current shard publisher',
+    );
+    const sparsePaths = String(checkout.with['sparse-checkout']).split('\n').map((line) => line.trim()).filter(Boolean);
+    const closure = new Set(publisherEntrypoints.flatMap((entrypoint) => [...importedModules(entrypoint)]));
+    const missing = [...new Set([...closure, ...publisherRuntimePaths])]
+      .filter((file) => !sparseCheckoutIncludes(sparsePaths, file));
+
+    expect(checkout.with.ref).toBe('refs/heads/main');
+    expect(missing).toEqual([]);
+    expect(closure.has('services/publicConfigConstants.mjs')).toBe(true);
+  });
+
+  it('builds the IT plan from the canonical full-deploy section order and fails closed on an empty result', () => {
+    const sourcePackager = readFileSync(resolve(root, 'scripts/ci/package-it-publish-source.sh'), 'utf8');
+    expect(sourcePackager).toContain('bp_section_order "$repo_root/dist" it "$repo_root"');
+    expect(sourcePackager).toContain('cannot compute the IT section set from the full deploy contract');
+    expect(sourcePackager).toContain('the full deploy contract produced an empty IT section set');
+    expect(sourcePackager).not.toContain('list-live-shard-sections.mjs');
+
+    const assembler = readFileSync(resolve(root, 'scripts/ci/assemble-it-publish-root.sh'), 'utf8');
+    expect(assembler).toContain('--validate-plan "$plan_dir/it-shard-group-plan.json"');
+    expect(assembler).toContain('missing the required ok-marker for $section');
+    expect(assembler).toContain('missing the required section manifest for $section');
+  });
+
   it('keeps build and rearm lanes non-cancelling while moving only the publish tail', () => {
     expect(deploy.concurrency.group).toContain('pages-build-run');
     expect(deploy.concurrency.group).toContain('pages-build-rearm');

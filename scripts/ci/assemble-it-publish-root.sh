@@ -5,6 +5,8 @@ plan_dir="$RUNNER_TEMP/it-publish-plan"
 results_dir="$RUNNER_TEMP/it-shard-results"
 cd "$repo_root"
 test -s "$plan_dir/it-shard-group-plan.json"
+node scripts/ci/it-shard-group-plan.mjs \
+  --validate-plan "$plan_dir/it-shard-group-plan.json"
 mapfile -t root_parts < <(find "$RUNNER_TEMP/it-publish-root" -maxdepth 1 -type f \
   \( -name 'it-publish-root.part-*.tar.zst' -o -name 'it-publish-root.tar.zst' \) | sort)
 (( ${#root_parts[@]} > 0 )) || { echo '::error::IT root source archive parts are missing'; exit 1; }
@@ -21,4 +23,11 @@ cp "$plan_dir/locale-sitemap-manifest-it.json" "$RUNNER_TEMP/locale-sitemap-mani
 find "$results_dir" -type f -path '*/shard-content-manifests/it/*.json' -exec cp {} "$RUNNER_TEMP/shard-content-manifests/it/" \; 2>/dev/null || true
 find "$results_dir" -type f -path '*/it-shard-results/*.tar' -exec cp {} "$RUNNER_TEMP/" \; 2>/dev/null || true
 find "$results_dir" -type f -name 'shard-ok-*-it' -exec cp {} "$RUNNER_TEMP/" \; 2>/dev/null || true
-echo "[it-publish] root extracted; section manifests=$(find "$RUNNER_TEMP/shard-content-manifests/it" -maxdepth 1 -type f -name '*.json' | wc -l | tr -d '[:space:]')"
+mapfile -t required_sections < <(jq -er '.requiredSections[]' "$plan_dir/it-shard-group-plan.json")
+for section in "${required_sections[@]}"; do
+  marker="$RUNNER_TEMP/shard-ok-$section-it"
+  manifest="$RUNNER_TEMP/shard-content-manifests/it/$section.json"
+  [[ -f "$marker" ]] || { echo "::error::IT publish results are missing the required ok-marker for $section"; exit 1; }
+  [[ -s "$manifest" ]] || { echo "::error::IT publish results are missing the required section manifest for $section"; exit 1; }
+done
+echo "[it-publish] root extracted; required section manifests and ok-markers=${#required_sections[@]}"

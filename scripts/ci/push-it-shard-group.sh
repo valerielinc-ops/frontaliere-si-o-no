@@ -22,6 +22,8 @@ group_sections="$(jq -r --arg group "$group_id" '.groups[] | select(.id == $grou
 group_count="$(jq -r --arg group "$group_id" '[.groups[] | select(.id == $group)] | length' "$plan_file")"
 [[ "$group_count" == 1 ]] || { echo "::error::unknown IT shard group $group_id"; exit 2; }
 sections_remaining="$(jq -r --arg group "$group_id" '.groups[] | select(.id == $group) | .sections | length' "$plan_file")"
+[[ "$sections_remaining" =~ ^[0-9]+$ ]] || { echo "::error::invalid assigned section count for IT shard group $group_id"; exit 2; }
+(( sections_remaining > 0 )) || { echo "::error::IT shard group $group_id has an empty assigned section set in the source plan"; exit 2; }
 mkdir -p "$RUNNER_TEMP/shard-content-manifests/it" "$RUNNER_TEMP/it-shard-results"
 source scripts/lib/shard-cdn-rewrite.sh
 cleanup_grace_seconds=600

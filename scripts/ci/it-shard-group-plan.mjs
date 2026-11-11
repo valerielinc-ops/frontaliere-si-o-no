@@ -56,6 +56,9 @@ export function createItShardGroupPlan({
   const normalizedSections = [...new Set((Array.isArray(sections) ? sections : [])
     .map((section) => text(section).toLowerCase())
     .filter(Boolean))].sort();
+  if (normalizedSections.length === 0) {
+    throw new Error('IT shard source plan must contain a non-empty required section set');
+  }
   const slugMap = JSON.parse(fs.readFileSync(path.join(repoRoot, 'scripts/lib/section-shard-slugs.json'), 'utf8'));
   for (const section of normalizedSections) {
     if (!slugMap[section]?.it) throw new Error(`unknown IT shard section: ${section}`);
@@ -122,6 +125,9 @@ export function validateItShardGroupPlan(plan, { sourceRunId, sourceSha, buildId
   if (!RUN_ID_RE.test(text(plan.sourceRunId))) errors.push('sourceRunId is missing or malformed');
   if (!SHA_RE.test(text(plan.sourceSha))) errors.push('sourceSha is missing or malformed');
   if (!RUN_ID_RE.test(text(plan.buildId))) errors.push('buildId is missing or malformed');
+  const required = Array.isArray(plan.requiredSections) ? plan.requiredSections : [];
+  if (required.length === 0) errors.push('requiredSections is empty or missing');
+  if (new Set(required).size !== required.length) errors.push('requiredSections contains duplicate sections');
   if (!Array.isArray(plan.groups)) errors.push('groups is not an array');
   else {
     const ids = plan.groups.map((group) => text(group?.id));
@@ -129,7 +135,6 @@ export function validateItShardGroupPlan(plan, { sourceRunId, sourceSha, buildId
       errors.push('groups do not match the required group ids');
     }
     const sections = plan.groups.flatMap((group) => Array.isArray(group?.sections) ? group.sections : []);
-    const required = Array.isArray(plan.requiredSections) ? plan.requiredSections : [];
     if ([...sections].sort().join('\n') !== [...required].sort().join('\n')) {
       errors.push('group sections do not partition requiredSections');
     }
