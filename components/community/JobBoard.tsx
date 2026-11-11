@@ -30,6 +30,8 @@ import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { SwissBubbleMap, type CantonJobsData } from '@/components/community/SwissBubbleMap';
 import { JobDetailLinkedInPeopleButton } from '@/components/community/JobDetailPresentation';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { JobCvFitMatcher } from '@/components/community/JobCvFitMatcher';
+import { DOWNLOAD_BILINGUAL_CV_URL } from '@/services/functionsBase';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
@@ -3158,6 +3160,80 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // React yield that recompute to a concurrent tap instead of queueing the tap
  // behind it. Output unchanged, only the scheduling.
  const deferredPopularity = useDeferredValue(popularity);
+
+ const [bilingualCvStatus, setBilingualCvStatus] = useState<'checking' | 'signed_out' | 'ready' | 'unavailable' | 'downloading' | 'failed'>('checking');
+ const bilingualCvDownloadRef = useRef(false);
+
+ useEffect(() => {
+  if (authLoading) {
+   setBilingualCvStatus('checking');
+   return;
+  }
+  if (!authUser?.uid || authUser.isAnonymous === true) {
+   setBilingualCvStatus('signed_out');
+   return;
+  }
+  if (isCrawlerVisitor) {
+   setBilingualCvStatus('unavailable');
+   return;
+  }
+
+  let cancelled = false;
+  setBilingualCvStatus('checking');
+  void import('@/services/profileFirestore').then(({ loadUserCvProfile }) => loadUserCvProfile(authUser.uid))
+   .then((record) => {
+    if (cancelled) return;
+    const profile = record?.profile;
+    const hasContent = [
+     ...(profile?.experienceSummary || []),
+     ...(profile?.skills || []),
+     ...(profile?.languages || []),
+    ].some((value) => typeof value === 'string' && value.trim().length > 0);
+    setBilingualCvStatus(record?.status === 'ready' && Boolean(profile?.fullName?.trim()) && hasContent ? 'ready' : 'unavailable');
+   })
+   .catch(() => {
+    if (!cancelled) setBilingualCvStatus('unavailable');
+   });
+  return () => { cancelled = true; };
+ }, [authLoading, authUser?.isAnonymous, authUser?.uid, isCrawlerVisitor]);
+
+ const downloadBilingualCv = useCallback(async () => {
+  if ((bilingualCvStatus !== 'ready' && bilingualCvStatus !== 'failed') || bilingualCvDownloadRef.current || !authUser?.uid || authUser.isAnonymous === true || typeof authUser.getIdToken !== 'function') return;
+  bilingualCvDownloadRef.current = true;
+  setBilingualCvStatus('downloading');
+  try {
+   const token = await authUser.getIdToken();
+   const response = await fetch(DOWNLOAD_BILINGUAL_CV_URL, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+   });
+   if (response.status === 401) {
+    setBilingualCvStatus('signed_out');
+    return;
+   }
+   if (response.status === 409) {
+    setBilingualCvStatus('unavailable');
+    return;
+   }
+   if (!response.ok || !response.headers.get('content-type')?.includes('application/pdf')) {
+    setBilingualCvStatus('failed');
+    return;
+   }
+   const pdfUrl = URL.createObjectURL(await response.blob());
+   const link = document.createElement('a');
+   link.href = pdfUrl;
+   link.download = 'CV-IT-DE.pdf';
+   document.body.append(link);
+   link.click();
+   link.remove();
+   window.setTimeout(() => URL.revokeObjectURL(pdfUrl), 1000);
+   setBilingualCvStatus('ready');
+  } catch {
+   setBilingualCvStatus('failed');
+  } finally {
+   bilingualCvDownloadRef.current = false;
+  }
+ }, [authUser, bilingualCvStatus]);
 
  // Popularity only changes the below-fold recommendation order. Require a
  // real interaction with the board as well as proximity to that section, so
@@ -11495,6 +11571,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
  </JobDetailHeaderCard>
+
+ <div className="space-y-2">
+  <JobCvFitMatcher
+   jobTitle={selectedJobTitle}
+   requirements={Array.isArray(requirements) ? requirements : []}
+   onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
+  />
+  {!isCrawlerVisitor && bilingualCvStatus !== 'ready' && (
+   <p role="status" className="text-xs text-muted">
+    {bilingualCvStatus === 'signed_out'
+     ? t('jobBoard.cvDownload.signIn')
+     : bilingualCvStatus === 'checking'
+      ? t('jobBoard.cvDownload.checking')
+      : bilingualCvStatus === 'downloading'
+       ? t('jobBoard.cvDownload.downloading')
+       : bilingualCvStatus === 'failed'
+        ? t('jobBoard.cvDownload.failed')
+        : t('jobBoard.cvDownload.unavailable')}
+   </p>
+  )}
+ </div>
 
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
