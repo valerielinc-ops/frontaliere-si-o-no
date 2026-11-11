@@ -1,0 +1,27 @@
+{
+  "companyKey": "vending-ch",
+  "companyName": "Vending Service AG",
+  "companyHost": "vending.ch",
+  "verifiedEmployerDomain": "vending.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vending.ch/ueber-uns/jobs-karriere/"
+  ],
+  "detailTemplate": "/fileadmin/files/Stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren zürich"
+  ],
+  "canton": "ZG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:29:21.781Z",
+  "candidateKey": "vending-service@fulenbach"
+}

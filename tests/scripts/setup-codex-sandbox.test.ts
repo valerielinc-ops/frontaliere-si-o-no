@@ -29,7 +29,7 @@ describe('Codex sandbox prerequisites on Ubuntu', () => {
     const aptEnv = run.split('\n').find((line) => line.trim().startsWith('apt_env=('))?.trim() ?? '';
     expect(aptEnv).toMatch(/^apt_env=\(\/usr\/bin\/env /);
     // L'array vero, espanso da bash: le variabili arrivano davvero al comando.
-    const probe = spawnSync('/bin/bash', ['-c', `${aptEnv}\n"\${apt_env[@]}" /usr/bin/printenv NEEDRESTART_SUSPEND NEEDRESTART_MODE DEBIAN_FRONTEND`], {
+    const probe = spawnSync('/bin/bash', ['-c', `${aptEnv}\nfor v in NEEDRESTART_SUSPEND NEEDRESTART_MODE DEBIAN_FRONTEND; do "\${apt_env[@]}" /usr/bin/printenv "$v"; done`], {
       encoding: 'utf8',
       env: { PATH: '/usr/bin:/bin' },
     });
