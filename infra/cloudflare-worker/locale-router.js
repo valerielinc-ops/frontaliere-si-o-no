@@ -735,6 +735,56 @@ const SHARD_ORIGIN_FETCH_CF = publicOriginCacheOptions(ORIGIN_CACHE_TTL);
 // transiently 404'd retries fresh soon after.
 const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 
+// Freehire-grade Edge Cache Policies (sub-50ms TTFB on Cloudflare PoPs)
+export const JOB_DETAIL_CACHE_CONTROL = 'public, max-age=0, s-maxage=86400, stale-while-revalidate=86400';
+export const JOB_LISTING_CACHE_CONTROL = 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
+export const INSIGHTS_CACHE_CONTROL = 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800';
+export const PRIVATE_NO_STORE_CACHE_CONTROL = 'private, no-cache, no-store, must-revalidate';
+
+export function determineCachePolicy(request, url) {
+  // 1. Sessione autenticata o checkout: MAI memorizzare in cache
+  const hasAuthCookie = request?.headers?.get('Cookie')?.match(/(?:session|token|__session|user_id|cart)=/i);
+  const hasAuthHeader = Boolean(request?.headers?.get('Authorization'));
+  const isPrivatePath = /^\/(?:candidatura-assistita|checkout|account|admin|api\/private)\b/i.test(url.pathname);
+
+  if (hasAuthCookie || hasAuthHeader || isPrivatePath) {
+    return {
+      cacheControl: PRIVATE_NO_STORE_CACHE_CONTROL,
+      bypassEdgeCache: true,
+    };
+  }
+
+  // 2. Dettaglio annuncio di lavoro
+  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/[^/]+$/i.test(url.pathname)) {
+    return {
+      cacheControl: JOB_DETAIL_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 86400,
+    };
+  }
+
+  // 3. Listing principale delle offerte
+  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/?$/i.test(url.pathname)) {
+    return {
+      cacheControl: JOB_LISTING_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 300,
+    };
+  }
+
+  // 4. Pagine Programmatiche Market Insights
+  if (/^\/(?:[a-z]{2}\/)?(?:insights|stipendi)\b/i.test(url.pathname)) {
+    return {
+      cacheControl: INSIGHTS_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 86400,
+    };
+  }
+
+  return null;
+}
+
+
 // Canton-drift 404 recovery — real HTTP 301 (upgrade of the soft-404+JS path).
 //
 // A job slug is globally unique, but the canton (URL section) was re-derived
@@ -3529,7 +3579,12 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       const employerRedirect = await recoverEmployerProfileAlias(url, origin);
       if (employerRedirect) return employerRedirect;
       const headers = new Headers(resp.headers);
-      headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      const cachePolicy = determineCachePolicy(request, url);
+      if (cachePolicy) {
+        headers.set('Cache-Control', cachePolicy.cacheControl);
+      } else {
+        headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      }
       storeLastGoodCopy(request, url, ctx, body, resp.headers);
       return new Response(body, { status: 200, statusText: resp.statusText, headers });
     }
