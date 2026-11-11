@@ -2,18 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "arresto-droga-capolago-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/arresto-droga-capolago-2026/",
-      "ts": "2026-05-07T08:17:59.125Z",
-      "seed": true
-    },
-    {
-      "id": "lugano-saluta-stadio-cornaredo-2024",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/lugano-saluta-stadio-cornaredo-2024/",
-      "ts": "2026-05-07T08:35:07.169Z",
-      "seed": true
-    },
-    {
       "id": "giro-ditalia-ticino-strade-chiuse",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse/",
       "ts": "2026-05-07T08:51:38.187Z",
@@ -6154,6 +6142,40 @@
       "url": "https://frontaliereticino.ch/articoli-svizzera/pamini-contributi-salari-svizzera/",
       "ts": "2026-11-10T18:01:09.086Z",
       "fbPostId": "951226518080080_122131053111272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "burocrazia-frena-investimenti-svizzera",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/burocrazia-frena-investimenti-svizzera/",
+      "ts": "2026-11-10T23:33:10.720Z",
+      "fbPostId": "951226518080080_122131072683272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "frontalieri-svizzera-calo-ticino",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-svizzera-calo-ticino/",
+      "ts": "2026-11-10T23:33:19.155Z",
+      "fbPostId": "951226518080080_122131072719272498",
       "copyMode": "codex",
       "copySlot": "article",
       "copyPromptVersion": "frontaliere-social-copy-v4",
