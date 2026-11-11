@@ -3,6 +3,7 @@ import {
   collectDescriptionFixTasks,
   descriptionFixConcurrency,
   orderDescriptionFixTasks,
+  orderDescriptionFixTasksAcrossSlices,
   runDescriptionFixPool,
 } from '../scripts/fix-untranslated-descriptions.mjs';
 
@@ -191,6 +192,26 @@ describe('collectDescriptionFixTasks groups the slots by language pair', () => {
       'it-1', 'it-2', 'it-3', 'it-4', 'it-5', 'it-6',
       'en-1',
       'it-7', 'it-8',
+    ]);
+  });
+
+  it('orders candidates across slice boundaries before the lane budget is applied', () => {
+    const task = (id: string) => ({
+      job: { id, slug: id },
+      sl: 'de',
+      locale: 'it',
+    });
+    const tasks = orderDescriptionFixTasksAcrossSlices([
+      { sliceState: { file: 'alpha.json' }, tasks: [task('alpha')] },
+      { sliceState: { file: 'zulu.json' }, tasks: [task('zulu')] },
+    ], {
+      zulu: 100,
+      alpha: 1,
+    });
+
+    expect(tasks.map((item) => `${item.sliceState.file}:${item.job.id}`)).toEqual([
+      'zulu.json:zulu',
+      'alpha.json:alpha',
     ]);
   });
 });
