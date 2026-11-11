@@ -2388,12 +2388,12 @@
     },
     {
       "id": "transgourmet-f0e6ba32-600",
-      "slug": "logistikerin-logistiker-transgourmet-basel",
+      "slug": "logisticista-logistica-transgourmet-basel",
       "slugByLocale": {
         "de": "logistikerin-logistiker-transgourmet-basel",
-        "it": "logistikerin-logistiker-transgourmet-basel",
-        "en": "logistikerin-logistiker-transgourmet-basel",
-        "fr": "logistikerin-logistiker-transgourmet-basel"
+        "it": "logisticista-logistica-transgourmet-basel",
+        "en": "logistician-logistician-transgourmet-basel",
+        "fr": "logisticien-logisticien-transgourmet-basel"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2470,7 +2470,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:28:25.413Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:28:25.413Z"
+      "firstSeenAt": "2026-11-11T09:28:25.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikerin-logistiker-transgourmet-basel"
+        ],
+        "en": [
+          "logistikerin-logistiker-transgourmet-basel"
+        ],
+        "fr": [
+          "logistikerin-logistiker-transgourmet-basel"
+        ]
+      },
+      "previousSlugs": [
+        "logistikerin-logistiker-transgourmet-basel"
+      ]
     },
     {
       "id": "transgourmet-5652bab2-7a8",
@@ -2478,8 +2492,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
         "it": "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
-        "fr": "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        "en": "fruit-and-vegetable-sales-employee-transgourmet-risch-rotkreuz",
+        "fr": "collaboratrice-collaborateur-de-la-vente-de-fruits-et-legumes-transgourmet-risch-rotkreuz"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2546,6 +2560,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
         ]
       },
       "previousSlugs": [
@@ -2571,11 +2591,11 @@
     },
     {
       "id": "transgourmet-fdcf1769-f3f",
-      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-basel",
+      "slug": "cat-c-chauffeur-transgourmet-basel",
       "slugByLocale": {
         "de": "chauffeuse-chauffeur-kat-c-transgourmet-basel",
-        "it": "chauffeuse-chauffeur-kat-c-transgourmet-basel",
-        "en": "chauffeuse-chauffeur-kat-c-transgourmet-basel",
+        "it": "cat-c-chauffeur-transgourmet-basel",
+        "en": "chauffeur-cat-c-transgourmet-basel",
         "fr": "chauffeuse-chauffeur-kat-c-transgourmet-basel"
       },
       "company": "Transgourmet",
@@ -2653,16 +2673,27 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:28:25.411Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:28:25.411Z"
+      "firstSeenAt": "2026-11-11T09:28:25.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-basel"
+        ],
+        "en": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-basel"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeuse-chauffeur-kat-c-transgourmet-basel"
+      ]
     },
     {
       "id": "transgourmet-362bf3b5-1c2",
-      "slug": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
+      "slug": "ordina-pick-up-80-100-transgourmet-winterthur",
       "slugByLocale": {
         "de": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
-        "it": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
-        "en": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur",
-        "fr": "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+        "it": "ordina-pick-up-80-100-transgourmet-winterthur",
+        "en": "order-picker-80-100-transgourmet-winterthur",
+        "fr": "commandeur-80-100-transgourmet-winterthur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2745,16 +2776,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:28:25.410Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-08T22:15:36.755Z"
+      "firstSeenAt": "2026-10-08T22:15:36.755Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+        ],
+        "en": [
+          "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+        ],
+        "fr": [
+          "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-80-100-transgourmet-winterthur"
+      ]
     },
     {
       "id": "transgourmet-e39980d5-59b",
-      "slug": "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
+      "slug": "centro-clienti-personale-personale-transgourmet-kriens",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
-        "it": "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
-        "en": "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens",
-        "fr": "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+        "it": "centro-clienti-personale-personale-transgourmet-kriens",
+        "en": "personnel-personnel-customer-center-transgourmet-kriens",
+        "fr": "personnel-centre-client-du-personnel-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2834,7 +2879,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:28:25.406Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-kundencenter-transgourmet-kriens"
+      ]
     }
   ]
 }

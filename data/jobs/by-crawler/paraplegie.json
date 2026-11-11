@@ -2254,12 +2254,12 @@
     },
     {
       "id": "paraplegie-9529a1699fd7",
-      "slug": "aushilfe-gastronomie-befristet-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "gastronomia-temporanea-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "aushilfe-gastronomie-befristet-paraplegie-nottwil",
-        "it": "aushilfe-gastronomie-befristet-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "aushilfe-gastronomie-befristet-paraplegie-nottwil",
-        "fr": "aushilfe-gastronomie-befristet-paraplegie-nottwil"
+        "it": "gastronomia-temporanea-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "gastronomy-temporary-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "gastronomie-temporaire-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2307,11 +2307,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "aushilfe-gastronomie-befristet-paraplegie-nottwil",
+          "aushilfe-gastronomie-befristet-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "aushilfe-gastronomie-befristet-paraplegie-nottwil"
+        ],
+        "fr": [
           "aushilfe-gastronomie-befristet-paraplegie-nottwil"
         ]
       },
       "previousSlugs": [
-        "aushilfe-gastronomie-befristet-paraplegie-nottwil"
+        "aushilfe-gastronomie-befristet-paraplegie-nottwil",
+        "aushilfe-gastronomie-befristet-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,

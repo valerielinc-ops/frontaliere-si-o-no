@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pallas-kliniken-56be3068efe2",
-      "slug": "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau",
+      "slug": "assistente-ambulatoriale-al-100-nel-campo-dell-oftalmologia-pallas-kliniken-aarau",
       "slugByLocale": {
         "de": "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau",
-        "it": "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau",
-        "en": "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau",
-        "fr": "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau"
+        "it": "assistente-ambulatoriale-al-100-nel-campo-dell-oftalmologia-pallas-kliniken-aarau",
+        "en": "practice-assistant-100-in-the-field-of-ophthalmology-pallas-kliniken-aarau",
+        "fr": "assistant-e-en-cabinet-a-100-dans-le-domaine-de-l-ophtalmologie-pallas-kliniken-aarau"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:44:22.742Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:44:22.742Z"
+      "firstSeenAt": "2026-11-11T09:44:22.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau"
+        ],
+        "en": [
+          "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau"
+        ],
+        "fr": [
+          "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "praxisassistent-in-100-im-bereich-ophthalmologie-pallas-kliniken-aarau"
+      ]
     },
     {
       "id": "pallas-kliniken-e53734f35084",

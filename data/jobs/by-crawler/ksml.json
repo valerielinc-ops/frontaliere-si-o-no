@@ -2700,12 +2700,12 @@
     },
     {
       "id": "ksml-7524c900f0db",
-      "slug": "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761",
+      "slug": "insegnante-supplente-di-1a-2a-classe-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40761",
       "slugByLocale": {
         "de": "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761",
-        "it": "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761",
-        "en": "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761",
-        "fr": "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761"
+        "it": "insegnante-supplente-di-1a-2a-classe-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40761",
+        "en": "deputy-teacher-1st-2nd-class-12-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40761",
+        "fr": "enseignant-suppleant-1re-2e-classe-12-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40761"
       },
       "slugDisambiguator": "40761",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -2769,7 +2769,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:36:40.769Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:36:40.769Z"
+      "firstSeenAt": "2026-11-11T09:36:40.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761"
+        ],
+        "en": [
+          "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761"
+        ],
+        "fr": [
+          "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761"
+        ]
+      },
+      "previousSlugs": [
+        "stv-lehrperson-1-2-klasse-12-lektionen-schule-meiringen-meiringen-40761"
+      ]
     },
     {
       "id": "ksml-477fc0a43764",
@@ -8617,7 +8631,7 @@
         "it": "rappresentanza-di-maternita-tp-6-8-lezioni-1-2-classe-dal-previsto-25-01-2027-31-12-2027-ksml-kantonaler-40196",
         "en": "maternity-representation-tp-6-8-lessons-1-2-class-from-expected-25-01-2027-31-12-2027-ksml-kantonaler-stellenmarkt-40196",
         "de": "mutterschaftsvertretung-tp-6-8-lektionen-1-2-klasse-ab-voraussichtlich-25-01-2027-31-12-40196",
-        "fr": "flute-elective-le-mercredi-apres-midi-attendue-le-25-01-2027-02-07-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lotzwil"
+        "fr": "representation-de-la-maternite-tp-6-8-lecons-1-2-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40196"
       },
       "slugDisambiguator": "40196",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8671,13 +8685,13 @@
         ],
         "fr": [
           "mutterschaftsvertretung-wahlfach-flote-am-mittwoch-nachmittag-voraussichtlich-25-01-2027-02-07-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lotzwil",
-          "representation-de-la-maternite-tp-6-8-lecons-1-2-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40196"
+          "flute-elective-le-mercredi-apres-midi-attendue-le-25-01-2027-02-07-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lotzwil"
         ]
       },
       "previousSlugs": [
         "mutterschaftsvertretung-wahlfach-flote-am-mittwoch-nachmittag-voraussichtlich-25-01-2027-40196",
         "mutterschaftsvertretung-wahlfach-flote-am-mittwoch-nachmittag-voraussichtlich-25-01-2027-02-07-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lotzwil",
-        "representation-de-la-maternite-tp-6-8-lecons-1-2-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40196"
+        "flute-elective-le-mercredi-apres-midi-attendue-le-25-01-2027-02-07-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lotzwil"
       ],
       "firstSeenAt": "2026-09-07T23:39:14.411Z",
       "salaryMin": 59000,
@@ -15286,7 +15300,7 @@
       "slug": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
       "slugByLocale": {
         "it": "insegnante-di-classe-1-2-kl-dal-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40406",
-        "en": "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+        "en": "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
         "de": "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
         "fr": "professeur-1-2-kl-a-partir-du-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
       },
@@ -15337,7 +15351,8 @@
         "klassenlehrperson-1-2-kl-ab-01-02-27-schule-laupen-laupen-40406",
         "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
         "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
-        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
+        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
+        "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15347,7 +15362,7 @@
         "en": [
           "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
           "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406",
-          "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+          "class-teacher-1-2-kl-from-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
         ],
         "fr": [
           "klassenlehrperson-1-2-kl-ab-01-02-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen-40406"
@@ -15376,7 +15391,7 @@
       "slug": "insegnante-di-classe-1-2-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
       "slugByLocale": {
         "it": "insegnante-di-classe-1-2-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
-        "en": "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "en": "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
         "de": "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
         "fr": "enseignant-1-2-categorie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen-40072"
       },
@@ -15425,14 +15440,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072",
-        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+        "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen",
+        "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klassenlehrperson-1-2-klasse-schulzentrum-schlossmatt-sagegasse-12-16-munsingen-40072"
         ],
         "en": [
-          "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
+          "class-teacher-1-2-category-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
         ],
         "fr": [
           "klassenlehrperson-1-2-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-munsingen"
@@ -17573,9 +17589,9 @@
       "slug": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
       "slugByLocale": {
         "de": "fachperson-logopadie-schule-signau-signau-40616",
-        "it": "fachperson-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "en": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
-        "fr": "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
+        "it": "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "en": "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
+        "fr": "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
       },
       "slugDisambiguator": "40616",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -17630,28 +17646,25 @@
         "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
         "fachperson-logopadie-schule-signau-signau-40616",
-        "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-        "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616",
-        "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+        "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau",
           "fachperson-logopadie-schule-signau-signau-40617",
           "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "fachperson-logopadie-schule-signau-signau-40616",
-          "specialista-in-logopedia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-schule-signau-signau-40616"
         ],
         "en": [
           "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "speech-pediatrician-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ],
         "de": [
           "fachperson-logopadie-schule-signau-signau-40617"
         ],
         "fr": [
           "pediatre-de-la-parole-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40617",
-          "pediatre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau-40616"
+          "fachperson-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-signau"
         ]
       },
       "salaryMin": 59000,

@@ -1873,12 +1873,12 @@
     },
     {
       "id": "stadt-luzern-5085101ab794",
-      "slug": "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern",
+      "slug": "addetto-a-all-amministrazione-scolastica-40-mariahilf-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern",
-        "it": "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern",
-        "en": "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern",
-        "fr": "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern"
+        "it": "addetto-a-all-amministrazione-scolastica-40-mariahilf-stadt-luzern-luzern",
+        "en": "school-administration-clerk-40-mariahilf-stadt-luzern-luzern",
+        "fr": "responsabledel-administration-scolaire-40-mariahilf-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -1941,16 +1941,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:30:57.471Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:30:57.471Z"
+      "firstSeenAt": "2026-11-11T09:30:57.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern"
+        ],
+        "en": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-schuladministration-40-mariahilf-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-424118e21105",
-      "slug": "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern",
+      "slug": "assistente-sociale-60-80-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern",
-        "it": "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern",
-        "en": "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern",
-        "fr": "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern"
+        "it": "assistente-sociale-60-80-stadt-luzern-luzern",
+        "en": "socialworker-social-assistance-60-80-stadt-luzern-luzern",
+        "fr": "travailleur-e-social-le-de-l-aide-sociale-60-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2013,7 +2027,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:30:57.469Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:30:57.469Z"
+      "firstSeenAt": "2026-11-11T09:30:57.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern"
+        ],
+        "en": [
+          "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-sozialhilfe-60-80-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-c7b2434f0a5f",

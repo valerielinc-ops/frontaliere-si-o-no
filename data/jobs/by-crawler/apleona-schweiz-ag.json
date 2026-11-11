@@ -555,12 +555,12 @@
     },
     {
       "id": "apleona-schweiz-ag-bc2c3f392dcf",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root",
+      "slug": "gestione-immobiliare-housing-commercial-m-f-d-apleona-schweiz-ag-root",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root"
+        "it": "gestione-immobiliare-housing-commercial-m-f-d-apleona-schweiz-ag-root",
+        "en": "property-manager-real-estate-management-housing-commercial-m-f-d-apleona-schweiz-ag-root",
+        "fr": "gestionnaire-immobilier-gestion-immobiliere-logement-commercial-h-f-d-apleona-schweiz-ag-root"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -622,16 +622,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:38:45.114Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:38:45.114Z"
+      "firstSeenAt": "2026-11-11T09:38:45.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-root"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-29480b8a16ad",
-      "slug": "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root",
+      "slug": "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root",
-        "it": "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root",
-        "en": "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root",
-        "fr": "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root"
+        "it": "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-root",
+        "en": "real-estate-manager-m-f-d-apleona-schweiz-ag-root",
+        "fr": "directeur-immobilier-h-f-d-apleona-schweiz-ag-root"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -693,16 +707,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T09:38:44.811Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-25T10:06:15.264Z"
+      "firstSeenAt": "2026-08-25T10:06:15.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-apleona-schweiz-ag-root"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-991111f86970",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
+      "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
+        "it": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
+        "en": "property-manager-m-f-d-apleona-schweiz-ag-st-gallen-neumarkt-4",
+        "fr": "gestionnaire-de-proprietes-h-f-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -764,7 +792,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:38:44.506Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:38:44.506Z"
+      "firstSeenAt": "2026-11-11T09:38:44.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-st-gallen-neumarkt-4"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-0f285264230e",

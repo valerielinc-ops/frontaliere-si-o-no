@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-f7dceb317c62",
-      "slug": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
+      "slug": "vice-direttore-di-filiale-100-nella-zona-di-zurigo-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
-        "it": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
+        "it": "vice-direttore-di-filiale-100-nella-zona-di-zurigo-confiserie-sprungli-ag-zurich",
         "en": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-        "fr": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
+        "fr": "responsable-adjoint-de-succursale-100-dans-la-region-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -61,11 +61,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich"
+          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
+        ],
+        "fr": [
+          "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-100-raum-zurich-spruengli-zurich"
+        "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+        "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

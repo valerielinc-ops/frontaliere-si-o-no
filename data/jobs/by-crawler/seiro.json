@@ -268,12 +268,12 @@
     },
     {
       "id": "seiro-fbf69bb28a62",
-      "slug": "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch",
+      "slug": "specialista-specialista-heimarztpraxis-aargau-seiro-seiro-gmbh-aarau-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch",
-        "it": "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch",
-        "en": "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch",
-        "fr": "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch"
+        "it": "specialista-specialista-heimarztpraxis-aargau-seiro-seiro-gmbh-aarau-aargau",
+        "en": "specialist-specialist-heimarztpraxis-aargau-seiro-seiro-gmbh-aarau-aargau",
+        "fr": "specialiste-specialiste-heimarztpraxis-aargau-seiro-gmbh-aarau-aargau"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -335,16 +335,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:43:33.195Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T09:35:29.098Z"
+      "firstSeenAt": "2026-10-27T09:35:29.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-heimarztpraxis-aargau-seiro-aarau-aargau-seiro-ch"
+      ]
     },
     {
       "id": "seiro-35b4043b764e",
-      "slug": "facharztin-facharzt-psychiatrie-e-psychosomatik-aadorf-seiro-gmbh-aadorf",
+      "slug": "specialista-in-psichiatria-e-psicosomatica-aadorf-seiro-seiro-gmbh-aadorf",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch",
-        "it": "facharztin-facharzt-psychiatrie-e-psychosomatik-aadorf-seiro-gmbh-aadorf",
-        "en": "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch",
-        "fr": "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch"
+        "it": "specialista-in-psichiatria-e-psicosomatica-aadorf-seiro-seiro-gmbh-aadorf",
+        "en": "specialist-psychiatry-and-psychosomatics-aadorf-seiro-seiro-gmbh-aadorf",
+        "fr": "specialiste-de-la-psychiatrie-et-de-la-psychosomatique-seiro-gmbh-aadorf"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -391,11 +405,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch",
+          "facharztin-facharzt-psychiatrie-e-psychosomatik-aadorf-seiro-gmbh-aadorf"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch"
+        "facharztin-facharzt-psychiatrie-und-psychosomatik-aadorf-seiro-aadorf-seiro-ch",
+        "facharztin-facharzt-psychiatrie-e-psychosomatik-aadorf-seiro-gmbh-aadorf"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -419,12 +441,12 @@
     },
     {
       "id": "seiro-7dcd6930398f",
-      "slug": "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro",
+      "slug": "gp-gp-medicina-interna-generale-liestal-seiro-seiro-gmbh-liestal-basel-landschaft",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro",
-        "it": "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro",
-        "en": "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro",
-        "fr": "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro"
+        "it": "gp-gp-medicina-interna-generale-liestal-seiro-seiro-gmbh-liestal-basel-landschaft",
+        "en": "gp-gp-general-internal-medicine-liestal-seiro-seiro-gmbh-liestal-basel-landschaft",
+        "fr": "gp-gp-medecine-generale-interne-liestal-seiro-seiro-gmbh-liestal-basel-landschaft"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -486,16 +508,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:43:33.191Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:43:33.191Z"
+      "firstSeenAt": "2026-11-11T09:43:33.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro"
+        ],
+        "en": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-allgemeine-innere-medizin-liestal-seiro-liestal-basel-landschaft-seiro"
+      ]
     },
     {
       "id": "seiro-e39a457e9727",
-      "slug": "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch",
+      "slug": "dermatologo-dermatology-clinical-group-aargau-seiro-seiro-gmbh-lenzburg-aargau",
       "slugByLocale": {
         "de": "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch",
-        "it": "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch",
-        "en": "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch",
-        "fr": "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch"
+        "it": "dermatologo-dermatology-clinical-group-aargau-seiro-seiro-gmbh-lenzburg-aargau",
+        "en": "dermatologist-dermatology-clinical-group-aargau-seiro-seiro-gmbh-lenzburg-aargau",
+        "fr": "dermatologue-dermatologie-groupe-clinique-argovie-seiro-seiro-gmbh-lenzburg-aargau"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -557,16 +593,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:43:33.190Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:43:33.190Z"
+      "firstSeenAt": "2026-11-11T09:43:33.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch"
+        ],
+        "en": [
+          "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch"
+        ],
+        "fr": [
+          "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hautarztin-hautarzt-dermatologie-klinikgruppe-aargau-seiro-lenzburg-aargau-seiro-ch"
+      ]
     },
     {
       "id": "seiro-bc557a12f9d7",
-      "slug": "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen",
+      "slug": "specialista-in-psichiatria-con-funzione-dirigenziale-forense-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-st-gallen-sankt",
-        "it": "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen",
-        "en": "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen",
-        "fr": "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen"
+        "it": "specialista-in-psichiatria-con-funzione-dirigenziale-forense-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "en": "specialist-specialist-psychiatry-with-leadership-function-forensics-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "fr": "specialiste-psychiatrie-specialisee-avec-fonction-de-leadership-medico-legale-seiro-gmbh-st-gallen-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -614,11 +664,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-st-gallen-sankt"
+          "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-st-gallen-sankt",
+          "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-st-gallen-sankt"
+        "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-st-gallen-sankt",
+        "facharztin-facharzt-psychiatrie-mit-leitungsfunktion-forensik-wil-seiro-seiro-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -641,12 +699,12 @@
     },
     {
       "id": "seiro-2f7b85e3c6c4",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch",
+      "slug": "medico-senior-medicina-interna-generale-senior-seiro-seiro-gmbh-aarau-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch",
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch",
-        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch",
-        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch"
+        "it": "medico-senior-medicina-interna-generale-senior-seiro-seiro-gmbh-aarau-aargau",
+        "en": "senior-physician-senior-physician-general-internal-medicine-seiro-seiro-gmbh-aarau-aargau",
+        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-seiro-gmbh-aarau-aargau"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -708,16 +766,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:43:33.186Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:43:33.186Z"
+      "firstSeenAt": "2026-11-11T09:43:33.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-seiro-aarau-aargau-seiro-ch"
+      ]
     },
     {
       "id": "seiro-ef6053e7abf7",
-      "slug": "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch",
+      "slug": "medico-di-famiglia-pratica-del-gruppo-medico-di-famiglia-aarau-seiro-seiro-gmbh-aarau-aargau",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch",
-        "it": "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch",
-        "en": "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch",
-        "fr": "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch"
+        "it": "medico-di-famiglia-pratica-del-gruppo-medico-di-famiglia-aarau-seiro-seiro-gmbh-aarau-aargau",
+        "en": "family-doctor-family-doctor-group-practice-aarau-seiro-seiro-gmbh-aarau-aargau",
+        "fr": "medecin-de-famille-medecin-de-famille-pratique-de-groupe-aarau-seiro-gmbh-aarau-aargau"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -779,7 +851,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:43:33.184Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:43:33.184Z"
+      "firstSeenAt": "2026-11-11T09:43:33.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-gruppenpraxis-aarau-seiro-aarau-aargau-seiro-ch"
+      ]
     },
     {
       "id": "seiro-5abc1d7f0906",

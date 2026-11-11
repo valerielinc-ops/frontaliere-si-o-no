@@ -3273,12 +3273,12 @@
     },
     {
       "id": "concordia-ed29c00aabcf",
-      "slug": "kundenberater-in-100-in-sursee-concordia-sursee",
+      "slug": "consulentealla-clientela-100-a-sursee-concordia-sursee",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-sursee-concordia-sursee",
-        "it": "kundenberater-in-100-in-sursee-concordia-sursee",
-        "en": "kundenberater-in-100-in-sursee-concordia-sursee",
-        "fr": "kundenberater-in-100-in-sursee-concordia-sursee"
+        "it": "consulentealla-clientela-100-a-sursee-concordia-sursee",
+        "en": "client-advisor-100-in-sursee-concordia-sursee",
+        "fr": "conseiller-ere-a-la-clientele-100-a-sursee-concordia-sursee"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3341,7 +3341,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:17:37.920Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T23:06:17.359Z"
+      "firstSeenAt": "2026-09-09T23:06:17.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-sursee-concordia-sursee"
+        ],
+        "en": [
+          "kundenberater-in-100-in-sursee-concordia-sursee"
+        ],
+        "fr": [
+          "kundenberater-in-100-in-sursee-concordia-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-sursee-concordia-sursee"
+      ]
     },
     {
       "id": "concordia-cb7f36d37e9f",
@@ -3350,7 +3364,7 @@
         "de": "software-tester-in-fach-100-concordia-luzern",
         "it": "software-tester-in-fach-100-concordia-luzern",
         "en": "software-tester-in-fach-100-concordia-luzern",
-        "fr": "software-tester-in-fach-100-concordia-luzern"
+        "fr": "testeur-de-logiciel-dans-le-compartiment-100-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3422,7 +3436,7 @@
         "de": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
         "it": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
         "en": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
-        "fr": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
+        "fr": "conseiller-a-la-clientele-dans-le-bureau-environ-87-a-grosswangen-concordia-grosswangen"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3491,7 +3505,7 @@
       "id": "concordia-8847cdb66fb6",
       "slug": "consulente-assicurativo-a-100-a-baar-concordia-baar-6f97c8bc27",
       "slugByLocale": {
-        "it": "consulente-assicurativo-a-100-a-baar-concordia-baar-6f97c8bc27",
+        "it": "consulente-assicurativo-a-100-a-baar-concordia-baar",
         "en": "insurance-advisor-100-in-baar-concordia-baar",
         "de": "versicherungsberater-in-100-in-baar-concordia-baar",
         "fr": "conseiller-conseillere-en-assurances-100-a-baar-concordia-baar"
@@ -3540,13 +3554,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "versicherungsberater-in-100-in-baar-concordia-baar",
-        "consulente-assicurativo-a-100-a-baar-concordia-baar"
+        "versicherungsberater-in-100-in-baar-concordia-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-100-in-baar-concordia-baar",
-          "consulente-assicurativo-a-100-a-baar-concordia-baar"
+          "versicherungsberater-in-100-in-baar-concordia-baar"
         ],
         "en": [
           "versicherungsberater-in-100-in-baar-concordia-baar"
