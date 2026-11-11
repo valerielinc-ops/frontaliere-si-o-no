@@ -29,6 +29,9 @@
  *   - nationality, when the candidate gave none (2026-11-11): the country of the upper secondary school of the
  *     CV, else two concordant signals of the CV (place of birth, mother tongue, compulsory school, confirmed by
  *     university or residence) and no strong one against (deducedNationality, `nationalitySource: 'deduced'`);
+ *     the same day, more offline signals: the CV's own declaration is the value (`nationalitySource: 'cv'`), the
+ *     codice fiscale's place of birth a strong signal, the phone prefix and the CV's language weak ones that
+ *     count only beside a strong one; never the name;
  *   - criminal record (2026-11-11): always no conviction, no entry, no pending proceeding, unless the candidate
  *     said otherwise at upload; never a request for the extract, never the debt-enforcement register;
  *   - a title of study or a certificate asked in a text or a choice field (2026-11-11): the CV's own title
@@ -63,7 +66,8 @@ import { addressContextContract } from './lib/addressContextContract.js';
 import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
-import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
+import { phoneCountryCode } from './lib/phoneNormalization.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
@@ -79,7 +83,10 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v10 (2026-11-11): the nationality deduced from the CV when the candidate gave none (deducedNationality); the
 // criminal record always «no conviction» (criminalRecordValue); a title of study or certificate asked in a text or
 // a choice field declared from the CV (held_title).
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v10';
+// v11 (2026-11-11): more offline signals for the nationality: the CV's own declaration («Nazionalità: italiana»,
+// `nationalitySource: 'cv'`), the place of birth of an Italian codice fiscale, the phone's country prefix and the
+// CV's language (these two only beside a strong signal); a dual nationality picks Swiss first on a list.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v11';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -392,9 +399,21 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const statedNationality = clean(profile?.nationality, 80) || clean(uploaded.nationality, 80);
   // Nothing stated by the candidate, at upload, in an answer or a correction (even a cleared one:
   // `nationalityDeduction` false): the nationality the CV implies (owner decision 2026-11-11), like the permit.
-  const deduced = !statedNationality && nationalityDeduction && !clean(answers?.nationality)
-    ? deducedNationality({ profile, cvText, residenceCountry: statedCountry || directory?.country || '' }) : null;
-  const nationality = statedNationality || (deduced ? nationalityLabelOf(deduced.code, language) || countryName(deduced.code, language) : '');
+  const open = !statedNationality && nationalityDeduction && !clean(answers?.nationality);
+  // The CV's own declaration («Nazionalità: italiana») the parser left out is the value, not a deduction.
+  const declared = open ? cvDeclaredNationality(cvText) : null;
+  const deduced = open && !declared
+    ? deducedNationality({
+      profile, cvText, residenceCountry: statedCountry || directory?.country || '',
+      phoneCountry: candidatePhoneCountry({ identity, order, profile, cvText }),
+    }) : null;
+  const platformNationality = declared || deduced;
+  const nationality = statedNationality
+    || (platformNationality ? nationalityLabelOf(platformNationality.code, language) || countryName(platformNationality.code, language) : '');
+  // Two nationalities the candidate wrote together («italiana e svizzera»): a single choice takes Swiss first.
+  const statedCodes = statedNationality ? [...nationalityCodes(statedNationality)] : [];
+  const statedCode = statedNationality ? nationalityOf(statedNationality)?.code || countryCodeOf(statedNationality)
+    || (statedCodes.includes('CH') ? 'CH' : statedCodes[0] || '') : '';
   const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality: statedNationality });
   // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
   // with a level of its own.
@@ -440,9 +459,14 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     // 'candidate' for a status the candidate stated, 'deduced' for the one the platform deduced from the CV.
     permitStatusSource: statedPermit ? 'candidate' : deducedPermit ? 'deduced' : '',
     nationality,
-    // 'candidate' for a nationality the candidate stated, 'deduced' for the one the platform read from the CV.
-    nationalitySource: statedNationality ? 'candidate' : deduced ? 'deduced' : '',
-    nationalityCode: statedNationality ? nationalityOf(statedNationality)?.code || countryCodeOf(statedNationality) || '' : deduced?.code || '',
+    // 'candidate' for a nationality the candidate stated (at upload, in a correction, or as the parser read it from
+    // the CV), 'cv' for one the CV text declares and the parser left out, 'deduced' for the one the platform read
+    // from the CV's signals.
+    nationalitySource: statedNationality ? 'candidate' : declared ? 'cv' : deduced ? 'deduced' : '',
+    nationalityCode: statedNationality ? statedCode : platformNationality?.code || '',
+    // Every nationality a dual national declared (CV text), the signals of a deduced one: for the record.
+    nationalityCodes: statedNationality ? statedCodes : declared ? declared.codes : deduced ? [deduced.code] : [],
+    nationalitySignals: declared ? ['cv_declaration'] : deduced ? deduced.signals : [],
     passport,
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
@@ -533,6 +557,19 @@ const UPLOAD_RESIDENCE_COUNTRIES = new Set(['CH', 'IT', 'DE', 'FR', 'AT', 'LI'])
 //     compulsory school. Weak, never against a strong one: the university, the residence. Confirmation only: a
 //     mother tongue of several countries (German: DE, AT, CH);
 //   - anything less: no nationality, never an invented one.
+//
+// Second part, the same day («più dati per la deduzione», offline only; cvDeclaredNationality and below):
+//   - a nationality the CV declares in so many words is no deduction: it is the value (`nationalitySource: 'cv'`);
+//   - the codice fiscale's place of birth is a place of birth: in Italy a strong signal for IT; abroad («Z») names
+//     no country and only contradicts a place of birth in Italy the text writes;
+//   - the phone's country prefix (weak, like the residence) and the CV's language (weak, like a mother tongue)
+//     count only beside a strong signal: two weak signals alone never name a country through them. The prefix
+//     and the residence are one kind (both say where the candidate lives), the CV's language and the mother
+//     tongue one kind too (an Italian CV of an Italian mother tongue is one fact, and a Ticinese writes both);
+//   - the Swiss AHV/AVS number (756.…) is not read: it says the candidate was insured in Switzerland, which a
+//     cross-border commuter is as well, never a nationality, and as a signal against one it would be wrong for
+//     every Italian frontaliere;
+//   - never the name or the surname: their origin is no evidence, and reading it would discriminate.
 
 /** The country of a place as a CV writes it («Como (CO)», «Lugano», «Annecy, France»), '' when not unique. */
 export function placeCountry(value) {
@@ -625,6 +662,103 @@ export function cvBirthplaceCountry(cvText) {
   return '';
 }
 
+// ── More offline signals (owner decision 2026-11-11, second part) ────────────
+// Only what the CV or the order already holds. The candidate's name is never read for a nationality (its origin
+// is no evidence of one, and reading it would discriminate), and it never leaves the platform (no web search).
+
+// «Nazionalità: italiana», «Cittadinanza italiana e svizzera», «Nationality: Swiss / Italian»,
+// «Staatsangehörigkeit: deutsch», «Nationalité : française», on a line of its own or between separators.
+const NATIONALITY_LABEL = /(?:^|[|•·;\t]\s*)(?:doppia |dual |double |doppelte )?(?:nazionalita|cittadinanza|cittadinanze|nationality|nationalities|citizenship|citizenships|staatsangehorigkeit(?:en)?|staatsburgerschaft|nationalite|nationalites|nationalitat(?:en)?)(?:\s*[:\-–]\s*|\s+)([^|•·;\t]{2,80})/iu;
+const declarationFold = (value) => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ß/g, 'ss');
+// The words around a declared nationality that name none («italiana (UE)», «Swiss citizen», «cittadino italiano»).
+const DECLARATION_NOISE = /\s*\((?:eu|ue|efta|aele|aels)\)\s*|\b(?:citizen|cittadin[oa]|staatsburger(?:in)?|national)\b/giu;
+const DECLARATION_PARTS = /\s*(?:[/,&+]|\s(?:e|ed|und|et|and)\s|\s[-–—]\s)\s*/i;
+
+/**
+ * The nationality the CV declares in so many words, or null: every country it names, and the one a single-choice
+ * field takes (Swiss first, decision of 2026-10-04 on dual nationals, else the first written). Every part of the
+ * declaration must be a nationality or a country the tables know, and two declarations must agree; anything else
+ * is no declaration. The parser reads the same line into `profile.nationality`, which wins: this reads the CV text
+ * of an order whose profile has none.
+ * @returns {{code:string, codes:string[]}|null}
+ */
+export function cvDeclaredNationality(cvText) {
+  let found = null;
+  for (const raw of String(cvText ?? '').normalize('NFC').split(/\r?\n/)) {
+    const line = declarationFold(raw.replace(/^[\s•·▪●○■□*–—-]+/u, '').trim());
+    if (!line || line.length > 200) continue;
+    const match = NATIONALITY_LABEL.exec(line);
+    if (!match) continue;
+    // Up to the next column («Nazionalità: italiana     Patente: B») or label («…, Patente: B»).
+    const said = match[1].split(/\s{3,}|,\s*[\p{L} ]{2,30}:/u)[0];
+    const value = said.replace(DECLARATION_NOISE, ' ').replace(/[.\s]+$/u, '').replace(/\s+/g, ' ').trim();
+    const parts = value.split(DECLARATION_PARTS).filter(Boolean);
+    const codes = parts.map((part) => nationalityOf(part)?.code || (part.length > 3 ? countryCodeOf(part) : ''));
+    if (!codes.length || codes.some((code) => !code)) continue;
+    const unique = [...new Set(codes)];
+    const declared = { code: unique.includes('CH') ? 'CH' : unique[0], codes: unique };
+    if (found && [...found.codes].sort().join() !== [...declared.codes].sort().join()) return null;
+    found = found || declared;
+  }
+  return found;
+}
+
+// The Italian codice fiscale: 16 characters, digits replaceable by letters (omocodia). Its 12th–15th characters are
+// the cadastral code of the place of birth: a letter other than Z is an Italian municipality, Z a foreign country.
+const CODICE_FISCALE = /(?<![A-Z0-9])[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z](?![A-Z0-9])/g;
+const CF_ODD = [1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23];
+const cfValue = (char) => (/\d/.test(char) ? Number(char) : char.charCodeAt(0) - 65);
+
+/** Whether the 16th character is the check character of the first 15 (the ministerial algorithm). */
+export function codiceFiscaleValid(code) {
+  const text = String(code ?? '').toUpperCase();
+  if (!/^[A-Z0-9]{16}$/.test(text)) return false;
+  let sum = 0;
+  for (let index = 0; index < 15; index += 1) sum += index % 2 === 0 ? CF_ODD[cfValue(text[index])] : cfValue(text[index]);
+  return String.fromCharCode(65 + (sum % 26)) === text[15];
+}
+
+/**
+ * Where the codice fiscale in the CV says the candidate was born: 'IT' for an Italian municipality, 'abroad' for a
+ * foreign country (the repository holds no public table of the Z codes, so the country is not named), '' with no
+ * valid code or with two different ones (another person's code is no evidence). The code is read here only, for
+ * this signal: never returned, stored, logged or printed.
+ * @returns {''|'IT'|'abroad'}
+ */
+export function codiceFiscaleBirthCountry(cvText) {
+  const codes = new Set();
+  for (const match of String(cvText ?? '').toUpperCase().matchAll(CODICE_FISCALE)) {
+    if (codiceFiscaleValid(match[0])) codes.add(match[0]);
+  }
+  if (codes.size !== 1) return '';
+  return [...codes][0][11] === 'Z' ? 'abroad' : 'IT';
+}
+
+// A phone line of the CV («Tel. +39 …», «Mobile: 0041 …»); only an international prefix names a country.
+const PHONE_LINE = /\b(?:tel|telefono|telephone|telefon|phone|cell|cellulare|mobile|mobil|handy|natel|portable|cellphone|whatsapp)\b/i;
+const INTERNATIONAL_NUMBER = /(?:\+|(?<!\d)00)\s?\d[\d\s./()-]{6,20}\d/g;
+
+/**
+ * The country of the candidate's phone prefix (+39, 0041…), '' for a national number or none: the phone the
+ * candidate gave or corrected first, then the order's, then the parser's, then the phone lines of the CV text
+ * (one country only). A prefix is never guessed from a national number (lib/phoneNormalization.js).
+ */
+export function candidatePhoneCountry({ identity = {}, order = {}, profile = {}, cvText = '' } = {}) {
+  for (const value of [identity?.phone, order?.applicantPhone, profile?.phone]) {
+    const code = phoneCountryCode(clean(value, 80));
+    if (code) return code;
+  }
+  const countries = new Set();
+  for (const line of String(cvText ?? '').split(/\r?\n/)) {
+    if (!PHONE_LINE.test(line)) continue;
+    for (const match of line.matchAll(INTERNATIONAL_NUMBER)) {
+      const code = phoneCountryCode(match[0]);
+      if (code) countries.add(code);
+    }
+  }
+  return countries.size === 1 ? [...countries][0] : '';
+}
+
 // A mother tongue spoken as such in one country only names it; one of several countries only confirms.
 const MOTHER_TONGUE = /\b(?:madrelingua|lingua madre|native|mother tongue|muttersprach\w*|erstsprache|langue maternelle|first language|prima lingua)\b/;
 const LANGUAGE_COUNTRY = { it: 'IT', pl: 'PL', hu: 'HU', cs: 'CZ', sk: 'SK', sl: 'SI', bg: 'BG', ro: 'RO', hr: 'HR', lt: 'LT', lv: 'LV', et: 'EE', fi: 'FI', da: 'DK', sv: 'SE' };
@@ -636,11 +770,11 @@ const isCompulsory = (item) => !isUpperSecondary(item) && (educationLevelRank(it
 const isUniversity = (item) => !isUpperSecondary(item) && UNIVERSITY_RE.test(schoolText(item));
 
 /**
- * The nationality the CV implies, or null (owner decision 2026-11-11). `signals` lists the kinds read, for the
- * record; the value is a country code of the platform's tables.
+ * The nationality the CV implies, or null (owner decision 2026-11-11). `signals` lists the signals read, for the
+ * record; the value is a country code of the platform's tables. `phoneCountry` is candidatePhoneCountry()'s.
  * @returns {{code:string, signals:string[]}|null}
  */
-export function deducedNationality({ profile = {}, cvText = '', residenceCountry = '' } = {}) {
+export function deducedNationality({ profile = {}, cvText = '', residenceCountry = '', phoneCountry = '' } = {}) {
   const education = (Array.isArray(profile?.education) ? profile.education : []).filter((item) => item && typeof item === 'object');
   const located = (predicate) => [...new Set(education.filter(predicate)
     .map((item) => institutionCountry(`${item.institution || ''}, ${item.degree || ''}`)).filter(Boolean))];
@@ -648,9 +782,14 @@ export function deducedNationality({ profile = {}, cvText = '', residenceCountry
   if (schools.length === 1) return { code: schools[0], signals: ['upper_secondary_school'] };
   const strong = [];
   const confirming = [];
+  // Weak signals that count only beside a strong one (second part of the decision), each of the kind it repeats.
+  const besideStrong = [];
   for (const code of schools) strong.push({ kind: 'upper_secondary_school', codes: [code] });
   const birth = cvBirthplaceCountry(cvText);
-  if (birth) strong.push({ kind: 'birthplace', codes: [birth] });
+  const fiscalBirth = codiceFiscaleBirthCountry(cvText);
+  // A codice fiscale of a birth abroad contradicts a place of birth in Italy the text writes: neither is read.
+  if (birth && !(fiscalBirth === 'abroad' && birth === 'IT')) strong.push({ kind: 'birthplace', codes: [birth] });
+  if (fiscalBirth === 'IT') strong.push({ kind: 'birthplace', name: 'codice_fiscale_birthplace', codes: ['IT'] });
   for (const code of located(isCompulsory)) strong.push({ kind: 'compulsory_school', codes: [code] });
   for (const entry of Array.isArray(profile?.languages) ? profile.languages : []) {
     if (!MOTHER_TONGUE.test(fold(entry?.level)) || /\bbilingu/.test(fold(entry?.level))) continue;
@@ -660,21 +799,29 @@ export function deducedNationality({ profile = {}, cvText = '', residenceCountry
   }
   for (const code of located(isUniversity)) confirming.push({ kind: 'university', codes: [code] });
   if (residenceCountry) confirming.push({ kind: 'residence', codes: [residenceCountry] });
+  // The phone's prefix says where the candidate lives, as the residence does; the CV's language what they speak,
+  // as a mother tongue does (lists of several countries, like German, only confirm).
+  if (phoneCountry) besideStrong.push({ kind: 'residence', name: 'phone_prefix', codes: [phoneCountry] });
+  const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
+  const cvLanguageCodes = LANGUAGE_COUNTRY[cvLanguage] ? [LANGUAGE_COUNTRY[cvLanguage]] : LANGUAGE_COUNTRIES[cvLanguage] || [];
+  if (cvLanguageCodes.length) besideStrong.push({ kind: 'mother_tongue', name: 'cv_language', codes: cvLanguageCodes });
   // A strong signal for another country stops the deduction; without a strong one, the country a weak signal
-  // names (a university, the residence) may still gather two.
+  // names (a university, the residence) may still gather two, and the phone and the CV's language are not read.
   const strongCodes = new Set(strong.flatMap((signal) => signal.codes));
   if (strongCodes.size > 1) return null;
   const countries = strongCodes.size ? [...strongCodes]
     : [...new Set(confirming.filter((signal) => signal.codes.length === 1).map((signal) => signal.codes[0]))];
-  // Kinds, not entries: two universities in one country are one signal.
-  const supported = countries.map((code) => ({
-    code, kinds: [...new Set([...strong, ...confirming].filter((signal) => signal.codes.includes(code)).map((signal) => signal.kind))],
-  })).filter((item) => item.kinds.length >= 2);
+  const signals = [...strong, ...confirming, ...(strongCodes.size ? besideStrong : [])];
+  // Kinds, not entries: two universities in one country are one signal, the prefix beside the residence too.
+  const supported = countries.map((code) => {
+    const naming = signals.filter((signal) => signal.codes.includes(code));
+    return { code, kinds: new Set(naming.map((signal) => signal.kind)), names: [...new Set(naming.map((signal) => signal.name || signal.kind))] };
+  }).filter((item) => item.kinds.size >= 2);
   if (supported.length !== 1) return null;
-  const [{ code, kinds }] = supported;
+  const [{ code, names }] = supported;
   // Only a country the forms can name (nationality table, country names).
   if (!nationalityLabelOf(code, 'en') && !countryName(code, 'en')) return null;
-  return { code, signals: kinds };
+  return { code, signals: names };
 }
 
 /** The upload-time answers (order.candidateFacts, owner decision 2026-11-09). */
@@ -1338,7 +1485,8 @@ function isSwissArmyQuestion(question) {
 
 function swissArmyValue(question, facts, lang) {
   // A fact for a candidate who said they are not Swiss: a nationality deduced from the CV is no such statement.
-  const nationality = facts?.nationalitySource === 'deduced' ? '' : nationalityOf(facts?.nationality)?.code || '';
+  // The CV's own declaration ('cv') is the candidate's statement; a dual one carries Swiss first.
+  const nationality = facts?.nationalitySource === 'deduced' ? '' : nationalityOf(facts?.nationality)?.code || facts?.nationalityCode || '';
   const swiss = facts?.passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
   const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(facts?.passport));
   return knownForeign ? noValue(question, lang) : '';
@@ -1557,15 +1705,19 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       break;
     }
     case 'nationality': {
-      const deducedCode = known.nationalitySource === 'deduced' ? known.nationalityCode || '' : '';
-      const code = nationalityOf(known.nationality)?.code || deducedCode || (known.passport === 'swiss' ? 'CH' : '');
+      const source = known.nationalitySource;
+      // The platform's own reading: the CV's declaration ('cv') or the deduction ('deduced').
+      const platformCode = ['deduced', 'cv'].includes(source) ? known.nationalityCode || '' : '';
+      // A dual nationality the candidate wrote («italiana e svizzera») has its code too (Swiss first).
+      const code = nationalityOf(known.nationality)?.code || known.nationalityCode || (known.passport === 'swiss' ? 'CH' : '');
       // A list needs a recognized nationality: an unknown one never picks an option; a free field takes
-      // the candidate's own words, or the deduced country's name in the form's language.
+      // the candidate's own words, or the country's name in the form's language.
       if (options.length) {
         if (!code) break;
         value = pickOption(question, (option) => nationalityOf(option)?.code === code || countryCodeOf(option) === code);
-      } else value = code ? nationalityLabelOf(code, lang) || countryName(code, lang) : known.nationality;
-      if (value && deducedCode && code === deducedCode) basis = 'deduced';
+      } else if (source === 'candidate' && !nationalityOf(known.nationality)) value = known.nationality;
+      else value = code ? nationalityLabelOf(code, lang) || countryName(code, lang) : known.nationality;
+      if (value && platformCode && code === platformCode) basis = source;
       break;
     }
     case 'passport_type': {

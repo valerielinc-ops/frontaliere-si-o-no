@@ -1194,9 +1194,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       availability: profile.availability || '',
       // In the form the portals read.
       dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || facts?.dateOfBirth || '',
-      // The candidate's own, else the one the platform deduced from the CV (owner decision 2026-11-11,
-      // platformCandidateFacts `nationalitySource: 'deduced'`): a nationality field of the form takes it.
-      nationality: profile.nationality || (facts?.nationalitySource === 'deduced' ? facts.nationality || '' : ''),
+      // The candidate's own, else the one the CV text declares or the platform deduced from the CV (owner
+      // decisions 2026-11-11, platformCandidateFacts `nationalitySource: 'cv'` or 'deduced'): a nationality field
+      // of the form takes it.
+      nationality: profile.nationality || (['cv', 'deduced'].includes(facts?.nationalitySource) ? facts.nationality || '' : ''),
       // What the CV says in its own words, or the candidate corrected (candidateWithEdits `personal`): a
       // portal that asks the civil status is answered from it, not by a question to the candidate. The form
       // of address the CV states is in `answers.salutation` already.

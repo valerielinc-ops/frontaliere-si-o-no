@@ -4,7 +4,9 @@
  *  1. Nationality deduced from the CV when the candidate gave none (Yellowshark 1EpmkrDu, an order uploaded
  *     before the nationality was asked): «se ha studiato il liceo lì la sua nazionalità è di quel paese,
  *     utilizza regole multiple per avere più segnali di deduzione». The upper secondary school wins; without it,
- *     two concordant signals and no strong one against; otherwise unknown. Never a web search.
+ *     two concordant signals and no strong one against; otherwise unknown. Never a web search. Second part, the
+ *     same day: more offline signals (the CV's declaration, the codice fiscale's place of birth, the phone prefix,
+ *     the CV's language), never the name.
  *  2. Criminal record: always «no conviction» (SBB ifB89NW2). A question is «no», a statement of none «yes», a
  *     choice its option of none. The extract to attach stays a document; the debt-enforcement register is not
  *     this rule.
@@ -14,7 +16,11 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
+  candidatePhoneCountry,
+  codiceFiscaleBirthCountry,
+  codiceFiscaleValid,
   cvBirthplaceCountry,
+  cvDeclaredNationality,
   deducedNationality,
   institutionCountry,
   PLATFORM_DEFAULTS_VERSION,
@@ -39,8 +45,8 @@ const nationalityQuestion = (options: string[] = [], question = 'Nationalität')
 
 describe('versions', () => {
   it('lets the recovery by version read the held questions again', () => {
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v10');
-    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v9');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v11');
+    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v10');
   });
 });
 
@@ -136,7 +142,7 @@ describe('the nationality deduced from the CV (owner decision 2026-11-11)', () =
     const known = facts({ education: [liceo], location: 'Como' });
     // The Yellowshark list of country names in German, its prompt first.
     expect(platformDefaultAnswer(nationalityQuestion(['Nationalität', 'Albanien', 'Italien', 'Schweiz']), known))
-      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: 'platform-defaults-v10' });
+      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: 'platform-defaults-v11' });
     expect(platformDefaultAnswer(nationalityQuestion(['Aucune sélection', 'Allemand', 'Italien', 'Suisse'], 'Qual è la tua nazionalità?'), known)?.value).toBe('Italien');
     expect(platformDefaultAnswer(nationalityQuestion(['Selezionare', 'Svizzera', 'Tedesca', 'Italiana'], 'Nazionalità'), known)?.value).toBe('Italiana');
     expect(platformDefaultAnswer(nationalityQuestion(['Germany', 'Italy', 'Switzerland'], 'Citizenship'), known)?.value).toBe('Italy');
@@ -159,6 +165,166 @@ describe('the nationality deduced from the CV (owner decision 2026-11-11)', () =
     const stated = candidateForForm({ identity: { name: 'Prova Candidata', email: 'alias@example.test' }, profile: { nationality: 'Svizzera' }, language: 'de', platformFacts: known });
     expect(stated.profile.nationality).toBe('Svizzera');
     expect(candidateForForm({ identity: { name: 'Prova Candidata', email: 'alias@example.test' }, profile: {}, language: 'de', platformFacts: facts({}) }).profile.nationality).toBe('');
+  });
+});
+
+describe('more offline signals for the nationality (owner decision 2026-11-11, second part)', () => {
+  // A synthetic codice fiscale: its check character computed here with the ministerial algorithm, on a body no
+  // person can have (day 00 does not exist, A000 is no Italian municipality, Z000 no foreign country).
+  const ODD = [1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23];
+  const valueOf = (char: string) => (/\d/.test(char) ? Number(char) : char.charCodeAt(0) - 65);
+  const withCheck = (body: string) => {
+    let sum = 0;
+    for (let index = 0; index < 15; index += 1) sum += index % 2 === 0 ? ODD[valueOf(body[index])] : valueOf(body[index]);
+    return `${body}${String.fromCharCode(65 + (sum % 26))}`;
+  };
+  const bornInItaly = withCheck('TSTPRV90A00A000');
+  const bornAbroad = withCheck('TSTPRV90A00Z000');
+  // Omocodia: the last digits written as letters (0 → L).
+  const omocodia = withCheck('TSTPRV90A00A0LL');
+  const wrongCheck = `${bornInItaly.slice(0, 15)}${bornInItaly[15] === 'A' ? 'B' : 'A'}`;
+  // Numbers no one is reached at: a national block of zeros after each prefix.
+  const PHONE_IT = '+39 000 000 0000';
+  const PHONE_CH = '0041 00 000 00 00';
+  const PHONE_DE = '+49 000 0000000';
+  // An AHV/AVS number of the right shape with a wrong EAN-13 check digit.
+  const AVS = '756.0000.0000.00';
+  const italian = [{ language: 'Italiano', level: 'Madrelingua' }];
+
+  it('reads a nationality the CV declares, in the four languages, a dual one Swiss first', () => {
+    expect(cvDeclaredNationality('Nazionalità: italiana')).toEqual({ code: 'IT', codes: ['IT'] });
+    expect(cvDeclaredNationality('Cittadinanza italiana')).toEqual({ code: 'IT', codes: ['IT'] });
+    expect(cvDeclaredNationality('Staatsangehörigkeit: deutsch')?.code).toBe('DE');
+    expect(cvDeclaredNationality('Nationalité : française')?.code).toBe('FR');
+    expect(cvDeclaredNationality('Nationality: Italian (EU)')?.code).toBe('IT');
+    expect(cvDeclaredNationality('Data di nascita: 01.01.1990 | Nazionalità: italiana | Patente B')?.code).toBe('IT');
+    expect(cvDeclaredNationality('Nazionalità: italiana, Patente: B')?.code).toBe('IT');
+    expect(cvDeclaredNationality('Nationalität: Schweiz      Zivilstand: ledig')?.code).toBe('CH');
+    expect(cvDeclaredNationality('Doppia cittadinanza: italiana e svizzera')).toEqual({ code: 'CH', codes: ['IT', 'CH'] });
+    expect(cvDeclaredNationality('Nationality: Italian / German')).toEqual({ code: 'IT', codes: ['IT', 'DE'] });
+    // No declaration: a word of another meaning, an unknown part, two declarations that disagree.
+    expect(cvDeclaredNationality('Cittadinanza attiva e Costituzione')).toBeNull();
+    expect(cvDeclaredNationality('Nationality: Atlantean')).toBeNull();
+    expect(cvDeclaredNationality('Nationality: Italian\nNationalité : française')).toBeNull();
+    expect(cvDeclaredNationality('Nationality: Italian\nNazionalità: italiana')?.code).toBe('IT');
+    expect(cvDeclaredNationality('')).toBeNull();
+  });
+
+  it('reads the place of birth of a valid codice fiscale only, and never returns the code', () => {
+    expect(codiceFiscaleValid(bornInItaly)).toBe(true);
+    expect(codiceFiscaleValid(omocodia)).toBe(true);
+    expect(codiceFiscaleValid(wrongCheck)).toBe(false);
+    expect(codiceFiscaleBirthCountry(`Codice fiscale: ${bornInItaly}`)).toBe('IT');
+    expect(codiceFiscaleBirthCountry(`C.F. ${omocodia.toLowerCase()}`)).toBe('IT');
+    expect(codiceFiscaleBirthCountry(`CF: ${bornAbroad}`)).toBe('abroad');
+    // A wrong check character, two different codes (one may be another person's), none: nothing.
+    expect(codiceFiscaleBirthCountry(`CF: ${wrongCheck}`)).toBe('');
+    expect(codiceFiscaleBirthCountry(`CF: ${bornInItaly}\nRef. ${omocodia}`)).toBe('');
+    expect(codiceFiscaleBirthCountry('Nessun codice')).toBe('');
+    // A birth in Italy is a strong signal; the deduction records the kind of signal, never the code.
+    const deduced = deducedNationality({ profile: { languages: italian }, cvText: `Codice fiscale: ${bornInItaly}` });
+    expect(deduced).toEqual({ code: 'IT', signals: ['codice_fiscale_birthplace', 'mother_tongue'] });
+    expect(JSON.stringify(platformCandidateFacts({ profile: { languages: italian }, cvText: `CF ${bornInItaly}`, nowMs: NOW }))).not.toContain(bornInItaly);
+    // Alone it is one signal; against a mother tongue of another country it stops the deduction.
+    expect(deducedNationality({ profile: {}, cvText: `CF ${bornInItaly}` })).toBeNull();
+    expect(deducedNationality({ profile: { languages: [{ language: 'Polski', level: 'Native' }] }, cvText: `CF ${bornInItaly}` })).toBeNull();
+    // A birth abroad names no country, and contradicts a place of birth in Italy the text writes.
+    expect(deducedNationality({ profile: { languages: italian }, cvText: `CF ${bornAbroad}` })).toBeNull();
+    expect(deducedNationality({ profile: { languages: italian }, cvText: `Nato a Como il 3 aprile 1990\nCF ${bornAbroad}` })).toBeNull();
+    expect(deducedNationality({ profile: { languages: italian }, cvText: 'Nato a Como il 3 aprile 1990' })?.code).toBe('IT');
+  });
+
+  it('reads the phone prefix of the candidate, the order or the CV, never a national number or an AHV number', () => {
+    expect(candidatePhoneCountry({ identity: { phone: PHONE_IT } })).toBe('IT');
+    expect(candidatePhoneCountry({ order: { applicantPhone: PHONE_CH } })).toBe('CH');
+    expect(candidatePhoneCountry({ profile: { phone: PHONE_DE } })).toBe('DE');
+    // The phone the candidate gave or corrected comes first.
+    expect(candidatePhoneCountry({ identity: { phone: PHONE_CH }, order: { applicantPhone: PHONE_IT } })).toBe('CH');
+    expect(candidatePhoneCountry({ cvText: `Tel. ${PHONE_IT}` })).toBe('IT');
+    expect(candidatePhoneCountry({ cvText: `Mobile: ${PHONE_CH}` })).toBe('CH');
+    // Two countries in the CV, a national number, a number outside a phone line, an AHV number: nothing.
+    expect(candidatePhoneCountry({ cvText: `Tel. ${PHONE_IT}\nCell ${PHONE_CH}` })).toBe('');
+    expect(candidatePhoneCountry({ identity: { phone: '079 000 00 00' } })).toBe('');
+    expect(candidatePhoneCountry({ cvText: `Fattura ${PHONE_IT}` })).toBe('');
+    expect(candidatePhoneCountry({ cvText: `AHV-Nr. ${AVS}` })).toBe('');
+  });
+
+  it('counts the phone prefix and the CV\'s language only beside a strong signal', () => {
+    // A strong signal and the prefix of its country: two kinds.
+    expect(deducedNationality({ profile: { languages: italian }, phoneCountry: 'IT' })).toEqual({ code: 'IT', signals: ['mother_tongue', 'phone_prefix'] });
+    expect(deducedNationality({ profile: { cvLanguage: 'it' }, cvText: 'Nato a Como il 3 aprile 1990' })).toEqual({ code: 'IT', signals: ['birthplace', 'cv_language'] });
+    // Two weak signals are not enough: the prefix with the residence (both say where the candidate lives), with a
+    // university, or with the CV's language.
+    expect(deducedNationality({ profile: {}, phoneCountry: 'IT', residenceCountry: 'IT' })).toBeNull();
+    expect(deducedNationality({ profile: { education: [university] }, phoneCountry: 'IT' })).toBeNull();
+    expect(deducedNationality({ profile: { cvLanguage: 'it' }, phoneCountry: 'IT' })).toBeNull();
+    expect(deducedNationality({ profile: { cvLanguage: 'it' } })).toBeNull();
+    // An Italian CV of an Italian mother tongue is one fact (a Ticinese writes both): still one kind.
+    expect(deducedNationality({ profile: { languages: italian, cvLanguage: 'it' } })).toBeNull();
+    // The prefix with the residence beside a strong signal adds no second kind of its own.
+    expect(deducedNationality({ profile: { languages: italian }, phoneCountry: 'IT', residenceCountry: 'IT' })?.signals).toEqual(['mother_tongue', 'residence', 'phone_prefix']);
+    // Never against a strong signal; the legacy pair of #18085 (university and residence) is unchanged.
+    expect(deducedNationality({ profile: { languages: italian }, cvText: 'Nato a Como il 3 aprile 1990', phoneCountry: 'CH' })?.code).toBe('IT');
+    expect(deducedNationality({ profile: { languages: italian }, phoneCountry: 'CH' })).toBeNull();
+    expect(deducedNationality({ profile: { education: [university] }, residenceCountry: 'IT', phoneCountry: 'CH' })).toEqual({ code: 'IT', signals: ['university', 'residence'] });
+    // German as the CV's language confirms Switzerland, Germany or Austria only beside a strong signal.
+    expect(deducedNationality({ profile: { cvLanguage: 'de' }, cvText: 'Geburtsort: Zürich' })?.code).toBe('CH');
+    // An AHV number in the CV is no signal for or against anything.
+    expect(deducedNationality({ profile: { languages: italian }, cvText: `AHV ${AVS}`, residenceCountry: 'CH' })).toBeNull();
+    expect(deducedNationality({ profile: { languages: italian }, cvText: `AHV ${AVS}`, residenceCountry: 'IT' })?.code).toBe('IT');
+  });
+
+  it('makes the CV\'s declaration the value, as the CV\'s, below the parser and the candidate', () => {
+    const declared = facts({ location: 'Como' }, { cvText: 'Nazionalità: italiana', locale: 'de' });
+    expect(declared).toMatchObject({ nationality: 'Italien', nationalitySource: 'cv', nationalityCode: 'IT', nationalityCodes: ['IT'], nationalitySignals: ['cv_declaration'] });
+    // A dual national: Swiss first on a list, both kept for the record.
+    const dual = facts({}, { cvText: 'Cittadinanza: italiana e svizzera', locale: 'it' });
+    expect(dual).toMatchObject({ nationality: 'svizzera', nationalitySource: 'cv', nationalityCode: 'CH', nationalityCodes: ['IT', 'CH'] });
+    // The declaration wins over a deduction that would say otherwise.
+    expect(facts({ education: [{ degree: 'Abitur', institution: 'Gymnasium, Deutschland' }] }, { cvText: 'Nationality: Italian' })).toMatchObject({ nationalitySource: 'cv', nationalityCode: 'IT' });
+    // The parser's reading of the same line, an upload answer, an answer or a cleared correction win.
+    expect(facts({ nationality: 'Svizzera' }, { cvText: 'Nazionalità: italiana' })).toMatchObject({ nationalitySource: 'candidate', nationalityCode: 'CH' });
+    expect(facts({}, { cvText: 'Nazionalità: italiana', answers: { nationality: 'Francese' } })).toMatchObject({ nationality: '', nationalitySource: '' });
+    expect(facts({}, { cvText: 'Nazionalità: italiana', nationalityDeduction: false })).toMatchObject({ nationality: '', nationalitySource: '' });
+    // The candidate's own dual nationality carries Swiss first as its code.
+    expect(facts({ nationality: 'italiana e svizzera' })).toMatchObject({ nationalitySource: 'candidate', nationalityCode: 'CH', nationalityCodes: ['IT', 'CH'] });
+  });
+
+  it('answers the form from the declaration, and the phone reaches the deduction through the facts', () => {
+    const declared = facts({}, { cvText: 'Nationality: Italian' });
+    expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), declared)).toMatchObject({ value: 'Italien', basis: 'cv', version: 'platform-defaults-v11' });
+    const dual = facts({}, { cvText: 'Cittadinanza: italiana e svizzera' });
+    expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), dual)?.value).toBe('Schweiz');
+    // The candidate's own dual nationality: Swiss first on a list, their own words in a free field.
+    const ownDual = facts({ nationality: 'italiana e svizzera' });
+    expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), ownDual)?.value).toBe('Schweiz');
+    expect(platformDefaultAnswer(nationalityQuestion([], 'Nazionalità'), ownDual, { locale: 'it' })?.value).toBe('italiana e svizzera');
+    // A declaration is the candidate's own word for the Swiss Army question; a deduction is not.
+    const army = { id: 'army', question: 'Haben Sie die Rekrutenschule absolviert?', type: 'choice', options: ['Ja', 'Nein'] };
+    expect(platformDefaultAnswer(army, declared)?.value).toBe('Nein');
+    expect(platformDefaultAnswer(army, dual)).toBeNull();
+    const phoned = platformCandidateFacts({ order: { userId: 'u-test' }, identity: { phone: PHONE_IT }, profile: { languages: italian }, nowMs: NOW, seed: 'u-test' });
+    expect(phoned).toMatchObject({ nationalitySource: 'deduced', nationalityCode: 'IT', nationalitySignals: ['mother_tongue', 'phone_prefix'] });
+    expect(platformCandidateFacts({ order: { userId: 'u-test', applicantPhone: PHONE_IT }, profile: { location: 'Como' }, nowMs: NOW, seed: 'u-test' }))
+      .toMatchObject({ nationality: '', nationalitySource: '' });
+  });
+
+  it('reaches the review page and the runner\'s nationality field (candidateWithEdits, candidateForForm)', () => {
+    const order = { userId: 'u-test', locale: 'de' };
+    const draft = { profile: { location: 'Como' }, questions: [], factSources: { text: 'Nazionalità: italiana' } };
+    const known = platformFactsOf({ order, draft, flow: { answers: {} } });
+    expect(known).toMatchObject({ nationalitySource: 'cv', nationalityCode: 'IT' });
+    expect(platformFactsOf({ order, draft, flow: { answers: {}, formOverrides: { nationality: '' } } })).toMatchObject({ nationality: '', nationalitySource: '' });
+    const form = candidateForForm({ identity: { name: 'Prova Candidata', email: 'alias@example.test' }, profile: {}, language: 'de', platformFacts: known });
+    expect(form.profile.nationality).toBe('Italien');
+    // The order's phone with a mother tongue: a deduction the candidate can still change.
+    const phoned = { profile: { languages: italian }, questions: [], factSources: { text: '' } };
+    expect(platformFactsOf({ order: { ...order, applicantPhone: PHONE_IT }, draft: phoned, flow: { answers: {} } })).toMatchObject({ nationalitySource: 'deduced', nationalityCode: 'IT' });
+  });
+
+  it('never reads the name: a name alone gives no nationality', () => {
+    expect(platformCandidateFacts({ order: { userId: 'u-test' }, identity: { name: 'Prova Candidata', firstName: 'Prova' }, profile: {}, nowMs: NOW, seed: 'u-test' }))
+      .toMatchObject({ nationality: '', nationalitySource: '', nationalitySignals: [] });
   });
 });
 
