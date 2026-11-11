@@ -2039,6 +2039,10 @@ jobs:
             echo "::error::independent gate roster is empty"
             exit 1
           fi
+          if ! command -v setsid >/dev/null 2>&1; then
+            echo "::error::setsid is required to isolate and reap detached source gates"
+            exit 1
+          fi
           # Write the expected roster before launching anything. If a launcher
           # fails between fork and PID registration, the collector still
           # knows which gate was required and cannot mistake an empty/partial
@@ -2050,6 +2054,15 @@ jobs:
             local script="$state_dir/$label.sh"
             cat > "$script" <<EOF
           set +e
+          gate_pgid="\$(ps -o pgid= -p "\$\$" | tr -d '[:space:]')"
+          if ! printf '%s\\n' "\$gate_pgid" | grep -Eq '^[0-9]+$'; then
+            echo "::error::$label could not publish its detached process group"
+            status_tmp="$state_dir/$label.status.tmp.\$\$"
+            printf '%s\\n' 70 > "\$status_tmp"
+            mv "\$status_tmp" "$state_dir/$label.status"
+            exit 70
+          fi
+          printf '%s\\n' "\$gate_pgid" > "$state_dir/$label.pgid"
           $command
           status=\$?
           status_tmp="$state_dir/$label.status.tmp.\$\$"
@@ -2058,15 +2071,10 @@ jobs:
           exit "\$status"
           EOF
             chmod +x "$script"
-            if command -v setsid >/dev/null 2>&1; then
-              # GNU setsid forks when the caller is a process-group leader;
-              # --wait keeps the recorded PID alive until the wrapper writes
-              # its status file, so the collector cannot mistake that fork
-              # for a vanished gate.
-              nohup setsid --wait bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
-            else
-              nohup bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
-            fi
+            # GNU setsid forks when the caller is a process-group leader;
+            # --wait keeps the recorded launcher alive until the isolated gate
+            # exits, while the wrapper publishes its actual process-group ID.
+            nohup setsid --wait bash "$script" > "$state_dir/$label.log" 2>&1 < /dev/null &
             printf '%s\n' "$!" > "$state_dir/$label.pid"
           }
           if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
@@ -2106,17 +2114,20 @@ jobs:
       # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
       # sta sulla testata della famiglia 4/4.
       #
-      # I cinque lint qui sotto sono in `background:`, insieme agli altri gate
-      # deterministici leggeri. Non includono `tsc`: dopo il rosso OOM osservato
-      # nella run 43020643535, il typecheck parte dopo Vitest per avere un heap
-      # isolato. I gate in background leggono il working tree e non consumano
-      # l'output degli altri, quindi non serve un join prima della suite.
+      # I CINQUE LINT QUI SOTTO RESTANO DETACHED e girano in parallelo fra loro;
+      # TSC parte in modo sincrono nel collector solo dopo che i gate sono
+      # terminati o sono stati terminati. Nessuno dei cinque consuma l'output
+      # di un altro: sono script node che leggono il working tree e il cui unico
+      # effetto è far fallire il job, quindi l'ordine fra loro non porta
+      # informazione.
       #
-      # La misura storica della run 32939112340 era 78s in fila per `tsc` e i
-      # cinque lint. I lint si sovrappongono all'assemble e a entrambi i gruppi
-      # Vitest e vengono rijoinati in fondo al job; il typecheck ora ha un
-      # passaggio esplicito dopo Vitest. La regola resta: si aspetta un task
-      # prima solo quando se ne consuma il RISULTATO.
+      # Prima, TSC e questi cinque lint costavano 78s in fila (67 di `tsc` +
+      # 8+0+1+0+1 di lint, run 32939112340). I cinque lint non aggiungono wall:
+      # senza un join prima della suite, si sovrappongono all'assemble e ai due
+      # gruppi Vitest; il collector li raccoglie in fondo al job. La regola
+      # applicata qui, e che vale per ogni `wait-all` di questo file: si aspetta
+      # un task solo quando se ne consuma il RISULTATO. Fra questi cinque e la
+      # suite non c'è consumo, solo coesistenza.
       #
       # Il costo accettato è diagnostico, non di correttezza: un lint rosso non
       # ferma più il job sulla riga che lo ha causato, emerge al join finale.
@@ -2739,6 +2750,7 @@ jobs:
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           failures=0
+          tsc_safe_to_start=true
           if [ "$SOURCE_GUARDS_OUTCOME" = "failure" ]; then
             echo "source guards failed"
             failures=1
@@ -2748,53 +2760,59 @@ jobs:
             if [ ! -s "$expected_file" ]; then
               echo "::error::independent gate expected roster is missing or empty"
               failures=1
+              tsc_safe_to_start=false
             else
               while IFS= read -r label; do
                 [ -n "$label" ] || {
                   echo "::error::independent gate expected roster contains an empty label"
                   failures=1
+                  tsc_safe_to_start=false
                   continue
                 }
                 status_file="$state_dir/$label.status"
                 pid_file="$state_dir/$label.pid"
+                pgid_file="$state_dir/$label.pgid"
+                gate_pid=""
+                gate_timed_out=false
                 if [ ! -s "$pid_file" ]; then
                   echo "::error::$label did not publish a PID"
                   failures=1
+                  tsc_safe_to_start=false
+                else
+                  gate_pid="$(cat "$pid_file" 2>/dev/null || true)"
+                  if ! printf '%s\n' "$gate_pid" | grep -Eq '^[0-9]+$'; then
+                    echo "::error::$label published an invalid launcher PID: $gate_pid"
+                    echo "[$label] launcher log:"
+                    cat "$state_dir/$label.log" 2>/dev/null || true
+                    failures=1
+                    tsc_safe_to_start=false
+                    gate_pid=""
+                  fi
                 fi
                 gate_waited=0
                 gate_wait_limit=300
                 launcher_gone_reported=0
-                while [ ! -s "$status_file" ]; do
-                  if [ ! -s "$pid_file" ]; then
-                    echo "::error::$label cannot be monitored because its PID is missing"
-                    failures=1
-                    break
-                  fi
-                  if [ "$gate_waited" -ge "$gate_wait_limit" ]; then
-                    echo "::error::$label did not publish a status within ${gate_wait_limit}s"
-                    echo "[$label] launcher log:"
-                    cat "$state_dir/$label.log" 2>/dev/null || true
-                    failures=1
-                    break
-                  fi
-                  pid="$(cat "$pid_file" 2>/dev/null || true)"
-                  if ! printf '%s\n' "$pid" | grep -Eq '^[0-9]+$'; then
-                    echo "::error::$label published an invalid launcher PID: $pid"
-                    echo "[$label] launcher log:"
-                    cat "$state_dir/$label.log" 2>/dev/null || true
-                    failures=1
-                    break
-                  fi
-                  # The launcher PID is advisory: setsid can hand the actual
-                  # wrapper to a child while that child still writes status.
-                  # Wait on the atomic status file, but keep the wait bounded.
-                  if ! kill -0 "$pid" 2>/dev/null && [ "$launcher_gone_reported" -eq 0 ]; then
-                    echo "::warning::$label launcher PID ended; waiting for the wrapper status file up to ${gate_wait_limit}s"
-                    launcher_gone_reported=1
-                  fi
-                  sleep 1
-                  gate_waited=$((gate_waited + 1))
-                done
+                if [ -n "$gate_pid" ]; then
+                  while [ ! -s "$status_file" ]; do
+                    if [ "$gate_waited" -ge "$gate_wait_limit" ]; then
+                      echo "::error::$label did not publish a status within ${gate_wait_limit}s"
+                      echo "[$label] launcher log:"
+                      cat "$state_dir/$label.log" 2>/dev/null || true
+                      failures=1
+                      gate_timed_out=true
+                      break
+                    fi
+                    # The launcher PID is advisory: setsid can hand the actual
+                    # wrapper to a child while that child still writes status.
+                    # Wait on the atomic status file, but keep the wait bounded.
+                    if ! kill -0 "$gate_pid" 2>/dev/null && [ "$launcher_gone_reported" -eq 0 ]; then
+                      echo "::warning::$label launcher PID ended; waiting for the wrapper status file up to ${gate_wait_limit}s"
+                      launcher_gone_reported=1
+                    fi
+                    sleep 1
+                    gate_waited=$((gate_waited + 1))
+                  done
+                fi
                 if [ -s "$status_file" ]; then
                   status="$(cat "$status_file" 2>/dev/null || true)"
                   echo "[$label] exit=$status"
@@ -2808,12 +2826,40 @@ jobs:
                     *) failures=1 ;;
                   esac
                 fi
+                if [ -n "$gate_pid" ]; then
+                  gate_pgid="$(cat "$pgid_file" 2>/dev/null || true)"
+                  if ! printf '%s\n' "$gate_pgid" | grep -Eq '^[0-9]+$'; then
+                    echo "::error::$label did not publish a valid isolated process group ID"
+                    failures=1
+                    tsc_safe_to_start=false
+                  else
+                    collector_pgid="$(ps -o pgid= -p "$$" 2>/dev/null | tr -d '[:space:]')"
+                    cleanup_mode=wait
+                    if [ "$gate_timed_out" = "true" ]; then
+                      cleanup_mode=terminate-now
+                    fi
+                    node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode"
+                    cleanup_status=$?
+                    case "$cleanup_status" in
+                      0) ;;
+                      2)
+                        echo "::error::$label outlived its status; terminated its detached process group"
+                        failures=1
+                        ;;
+                      *)
+                        echo "::error::$label process group could not be confirmed stopped; TSC will not start"
+                        failures=1
+                        tsc_safe_to_start=false
+                        ;;
+                    esac
+                  fi
+                fi
               done < "$expected_file"
             fi
           else
             echo "independent gate step skipped; no detached gates were expected"
           fi
-          if [ "${RUN_TSC:-false}" = "true" ]; then
+          if [ "${RUN_TSC:-false}" = "true" ] && [ "$tsc_safe_to_start" = "true" ]; then
             echo "[tsc] starting after detached independent gates"
             env NODE_OPTIONS=--max-old-space-size=10240 \
               bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
@@ -2822,6 +2868,9 @@ jobs:
             if [ "$tsc_status" -ne 0 ]; then
               failures=1
             fi
+          elif [ "${RUN_TSC:-false}" = "true" ]; then
+            echo "::error::TSC not started because detached gate process termination could not be verified"
+            failures=1
           fi
           exit "$failures"
 

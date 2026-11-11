@@ -123,6 +123,20 @@ describe('typecheck gate wiring (#5540)', () => {
     expect(workflow).not.toContain('Typecheck after related Vitest');
   });
 
+  it('termina e verifica ogni process group detached prima di avviare TSC', () => {
+    const collectGates = namedStepBlock(workflow, 'Collect independent source gates');
+    const cleanup = collectGates.indexOf(
+      'node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode"',
+    );
+    const runTsc = collectGates.indexOf('sample-mem-during.sh -- npm run typecheck:gate');
+    expect(cleanup, 'manca l attesa/terminazione del process group detached').toBeGreaterThan(-1);
+    expect(runTsc).toBeGreaterThan(cleanup);
+    expect(collectGates).toContain('gate_timed_out=true');
+    expect(collectGates).toContain('cleanup_mode=terminate-now');
+    expect(collectGates).toContain('tsc_safe_to_start=false');
+    expect(collectGates).toContain('[ "$tsc_safe_to_start" = "true" ]');
+  });
+
   it('contract gira nel job gating; il detector non e\' piu\' qui', () => {
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
