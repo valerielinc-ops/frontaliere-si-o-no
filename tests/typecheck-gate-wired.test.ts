@@ -108,37 +108,47 @@ describe('typecheck gate wiring (#5540)', () => {
     ).toBe(true);
   });
 
-  it('esegue TSC dopo tutti i gate detached, con heap dedicato da 10 GB', () => {
-    const startGates = namedStepBlock(workflow, 'Start independent source gates');
+  it('esegue TSC dopo il drain e rispetta la cancellazione al momento di avvio', () => {
     const collectGates = namedStepBlock(workflow, 'Collect independent source gates');
-    const eligibility = namedStepBlock(workflow, 'Mark TypeScript gate eligibility');
-    expect(startGates, 'manca il lancio dei gate indipendenti').not.toBe('');
+    const typecheckStep = namedStepBlock(workflow, 'Typecheck after detached source gates');
+    const collectAt = workflow.indexOf('      - name: Collect independent source gates');
+    const typecheckAt = workflow.indexOf('      - name: Typecheck after detached source gates');
     expect(collectGates, 'manca la raccolta dei gate indipendenti').not.toBe('');
-    expect(eligibility, 'manca la valutazione dell annullamento prima del collector').not.toBe('');
-    expect(eligibility).toContain("if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}");
-    expect(eligibility).toContain('id: typecheck-eligibility');
-    expect(startGates).not.toMatch(/RUN_TSC|start_gate\s+tsc/);
-    const waitForAll = collectGates.indexOf('done < "$expected_file"');
-    const runTsc = collectGates.indexOf('sample-mem-during.sh -- npm run typecheck:gate');
-    expect(waitForAll, 'TSC deve attendere tutti i gate detached').toBeGreaterThan(-1);
-    expect(runTsc, 'TSC deve essere lanciato dopo la raccolta').toBeGreaterThan(waitForAll);
-    expect(collectGates).toContain("RUN_TSC: ${{ steps.typecheck-eligibility.outputs.run == 'true' }}");
-    expect(collectGates).toContain('NODE_OPTIONS=--max-old-space-size=10240');
+    expect(typecheckStep, 'manca lo step TSC separato').not.toBe('');
+    const drainComplete = collectGates.indexOf('done < "$expected_file"');
+    const safeOutput = collectGates.indexOf('if ! printf');
+    expect(drainComplete, 'il collector deve attendere tutti i gate detached').toBeGreaterThan(-1);
+    expect(safeOutput, 'il collector deve esporre l esito dopo il drain').toBeGreaterThan(drainComplete);
+    const publishOutput = collectGates.slice(safeOutput, collectGates.indexOf('exit "$failures"'));
+    expect(publishOutput).toContain('tsc_safe_to_start=$tsc_safe_to_start');
+    expect(publishOutput).toContain('GITHUB_OUTPUT');
+    expect(publishOutput).toContain('could not publish tsc_safe_to_start output');
+    expect(publishOutput).toContain('failures=1');
+    expect(collectGates).not.toMatch(/typecheck:gate|RUN_TSC/);
+    expect(typecheckAt, 'TSC deve seguire il collector').toBeGreaterThan(collectAt);
+    expect(typecheckStep).toContain(
+      "if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() && steps.collect-independent-gates.outputs.tsc_safe_to_start == 'true' && steps.body_contract.outcome != 'failure' }}",
+    );
+    expect(typecheckStep).toMatch(GATE_RUN_RE);
+    expect(typecheckStep).toContain('set -euo pipefail');
+    expect(typecheckStep).toContain('NODE_OPTIONS=--max-old-space-size=10240');
     expect(workflow).not.toContain('Typecheck after related Vitest');
   });
 
   it('termina e verifica ogni process group detached prima di avviare TSC', () => {
     const collectGates = namedStepBlock(workflow, 'Collect independent source gates');
+    const typecheckStep = namedStepBlock(workflow, 'Typecheck after detached source gates');
     const cleanup = collectGates.indexOf(
       'node scripts/ci/wait-for-detached-gate.mjs "$gate_pid" "$gate_pgid" "$collector_pgid" "$cleanup_mode"',
     );
-    const runTsc = collectGates.indexOf('sample-mem-during.sh -- npm run typecheck:gate');
+    const safeOutput = collectGates.indexOf('if ! printf');
     expect(cleanup, 'manca l attesa/terminazione del process group detached').toBeGreaterThan(-1);
-    expect(runTsc).toBeGreaterThan(cleanup);
+    expect(safeOutput).toBeGreaterThan(cleanup);
     expect(collectGates).toContain('gate_timed_out=true');
     expect(collectGates).toContain('cleanup_mode=terminate-now');
     expect(collectGates).toContain('tsc_safe_to_start=false');
-    expect(collectGates).toContain('[ "$tsc_safe_to_start" = "true" ]');
+    expect(typecheckStep).toContain('!cancelled()');
+    expect(typecheckStep).toContain("steps.collect-independent-gates.outputs.tsc_safe_to_start == 'true'");
   });
 
   it('contract gira nel job gating; il detector non e\' piu\' qui', () => {
