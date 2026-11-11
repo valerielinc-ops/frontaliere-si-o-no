@@ -5,8 +5,11 @@
  * rules hold for the orders written before, the pending ones first).
  *
  * A draft written before a rule of the platform, the CV answers or the decision engine keeps the
- * `question:<id>` holds it was shown with: nothing asked again the pipeline of today. This script does, for
- * every paid order in `candidate_review` (or `owner_review`, before its questions become holds):
+ * `question:<id>` holds it was shown with: nothing asked again the pipeline of today. The same for a portal
+ * step that stopped for the candidate (`needs_candidate_action`): the runner wrote the portal's questions on
+ * the draft and held them, keyless or not (an order-local question is still a question of this draft, by its
+ * id). This script does, for every paid order in `candidate_review`, `needs_candidate_action` (or
+ * `owner_review`, before its questions become holds):
  *
  *   1. the questions a deterministic rule now answers (a start date three months ahead, a platform rule…)
  *      need no model: the normal tick drops their holds;
@@ -16,7 +19,10 @@
  *      editable on the review page, never written into the candidate's own answers;
  *   3. when a hold can drop, the order's clock is set due and the scheduled sweep runs the tick of the flow
  *      (assistedApplicationFlow.js): the holds the platform answers drop, and with none left the review goes
- *      on as when the candidate answers the last question (the 12 h clock). Nothing is dispatched here;
+ *      on as when the candidate answers the last question (the 12 h clock), and a portal step resumes the
+ *      submission (`resolved_candidate_answers`) through the sweep's own checks and the submission guard.
+ *      Nothing is dispatched here, and an order whose application may already have left (submitted, a send
+ *      on record, a final click nothing proved failed) is never touched;
  *   4. every answer the platform gives (a rule, a decision of the engine) is mirrored on its question in the
  *      field's shape (`suggestedAnswer`, `answerOrigin`, withPlatformSuggestions), as a new draft has it: also
  *      on the orders with nothing held, without a model. A mirror already right is not rewritten.
@@ -39,6 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { evaluateRedFlags, transition } from '../../functions/src/assistedApplicationFlow.js';
+import { sendMayHaveLeft } from '../../functions/src/assistedApplicationEmployerWithdrawal.js';
 import { candidateWithEdits } from '../../functions/src/assistedApplicationCandidateEdits.js';
 import { verifiedCvAnswers } from '../../functions/src/assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from '../../functions/src/assistedApplicationDecisionAnswers.js';
@@ -47,7 +54,12 @@ import { cvAnswerable, draftCvAnswers } from './lib/cv-answers.mjs';
 import { decisionAnswerable, draftDecisionAnswers } from './lib/decision-answers.mjs';
 import { releasesWait } from './reconcile-operational-answers.mjs';
 
-export const REVIEW_QUESTION_STATES = Object.freeze(['candidate_review', 'owner_review']);
+// needs_candidate_action: a portal step held by questions of the draft resumes the submission once the
+// platform answers them (the tick's `resolved_candidate_answers`), as a review goes on.
+export const REVIEW_QUESTION_STATES = Object.freeze(['candidate_review', 'owner_review', 'needs_candidate_action']);
+// The states where the application may already be on its way: the submission record is read before any write.
+const SUBMISSION_STATES = new Set(['needs_candidate_action']);
+const SETTLED_SUBMISSIONS = new Set(['submitted', 'withdrawn']);
 export const REVIEW_QUESTION_MAX_ATTEMPTS = 2;
 export const REVIEW_QUESTION_RETRY_MS = 6 * 60 * 60 * 1000;
 // What the draft keeps on a question it answered (lib/cv-answers.mjs, lib/decision-answers.mjs, and the
@@ -96,6 +108,7 @@ const sameHolds = (left, right) => JSON.stringify([...(left?.heldBy || [])].map(
 /** An order whose current draft the reconciliation may touch: paid, in review, the draft of the round. */
 function reviewDraftOf({ order, flow, draft }) {
   if (order?.paymentStatus !== 'paid' || order.refundStatus === 'pending') return false;
+  if (SETTLED_SUBMISSIONS.has(order.submissionStatus)) return false;
   if (!REVIEW_QUESTION_STATES.includes(flow?.state)) return false;
   return Boolean(draft && Array.isArray(draft.questions) && Number(draft.round) === (Number(flow.round) || 1));
 }
@@ -135,10 +148,23 @@ export function reviewQuestionPlan({ order, flow, draft }) {
   return { held, open, targets, candidateOnly: open.filter((id) => !targets.includes(id)), answers, platformFacts };
 }
 
-/** One episode of an order: the same pipeline, round, open questions and holds. */
+/** The application of the order may already have left: settled, or a send on record in a submission state. */
+function mayHaveLeft(order, flow, draft, submission) {
+  return SETTLED_SUBMISSIONS.has(order?.submissionStatus)
+    || (SUBMISSION_STATES.has(flow?.state) && sendMayHaveLeft({ draft, submission: submission || {} }));
+}
+
+/**
+ * One episode of an order: the same pipeline, round, open questions and holds. A question hold a platform rule
+ * already answers is left out: the tick that drops it changes nothing the model is asked, so it opens no new
+ * episode and no further model attempt.
+ */
 export function reviewQuestionEpisodeKey({ version, flow, plan }) {
+  const open = new Set(plan.open);
+  const holds = (flow?.heldBy || []).map(String)
+    .filter((held) => !held.startsWith('question:') || open.has(held.slice('question:'.length)));
   return createHash('sha256').update(JSON.stringify([
-    version, Number(flow?.round) || 1, [...plan.open].sort(), [...(flow?.heldBy || [])].map(String).sort(),
+    version, Number(flow?.round) || 1, [...plan.open].sort(), holds.sort(),
   ])).digest('hex');
 }
 
@@ -194,7 +220,7 @@ async function answerTargets({ order, draft, plan, codex, log }) {
 export async function reconcileReviewQuestions({
   db, codex = null, apply = false, nowMs = Date.now(), version = currentReviewQuestionVersion(), orderPrefixes = [], log = () => {},
 }) {
-  const report = { apply, scanned: 0, withQuestions: 0, asked: 0, answered: 0, mirrored: 0, queued: 0, written: 0, exhausted: 0, orders: [] };
+  const report = { apply, scanned: 0, withQuestions: 0, asked: 0, answered: 0, mirrored: 0, queued: 0, written: 0, exhausted: 0, sendMayHaveLeft: 0, orders: [] };
   for (const state of REVIEW_QUESTION_STATES) {
     let cursor;
     do {
@@ -208,9 +234,18 @@ export async function reconcileReviewQuestions({
         const order = doc.data() || {};
         const flowRef = doc.ref.collection('automation').doc('flow');
         const draftRef = doc.ref.collection('ai_drafts').doc('current');
+        const submissionRef = doc.ref.collection('automation').doc('submission');
         const [flowDoc, draftDoc] = await Promise.all([flowRef.get(), draftRef.get()]);
         const flow = flowDoc.data() || {};
         const draft = draftDoc.data() || null;
+        // A portal step that stopped after the application may have left is never resumed from here: the
+        // owner's tools and the submission guard own it (no second send).
+        if (SUBMISSION_STATES.has(flow.state)
+          && sendMayHaveLeft({ draft, submission: (await submissionRef.get()).data() || {} })) {
+          report.sendMayHaveLeft++;
+          report.orders.push({ order: doc.id.slice(0, 8), state: flow.state, skipped: 'send_may_have_left' });
+          continue;
+        }
         const plan = reviewQuestionPlan({ order, flow, draft });
         if (!plan) {
           // Nothing held or open: only the mirror of the platform's answers, without a model (step 4).
@@ -220,11 +255,12 @@ export async function reconcileReviewQuestions({
           report.orders.push({ order: doc.id.slice(0, 8), state: flow.state, mirrored: mirror.ids });
           if (!apply) continue;
           const written = await db.runTransaction(async (transaction) => {
-            const [orderNow, flowNow, draftNow] = await Promise.all([transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef)]);
+            const [orderNow, flowNow, draftNow, submissionNow] = await Promise.all([transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef), transaction.get(submissionRef)]);
             const freshFlow = flowNow.data() || {};
             const freshDraft = draftNow.data() || {};
             if (freshFlow.state !== flow.state || Number(freshFlow.round) !== Number(flow.round)
               || Number(freshDraft.round) !== Number(draft.round) || questionIdentity(freshDraft) !== questionIdentity(draft)) return false;
+            if (mayHaveLeft(orderNow.data(), freshFlow, freshDraft, submissionNow.data())) return false;
             const fresh = platformSuggestionUpdate({ order: orderNow.data() || {}, flow: freshFlow, draft: freshDraft });
             if (!fresh.ids.length) return false;
             transaction.set(draftRef, { questions: fresh.questions }, { merge: true });
@@ -273,10 +309,12 @@ export async function reconcileReviewQuestions({
           continue;
         }
         const written = await db.runTransaction(async (transaction) => {
-          const [orderNow, flowNow, draftNow] = await Promise.all([transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef)]);
+          const [orderNow, flowNow, draftNow, submissionNow] = await Promise.all([transaction.get(doc.ref), transaction.get(flowRef), transaction.get(draftRef), transaction.get(submissionRef)]);
           const freshOrder = orderNow.data() || {};
           const freshFlow = flowNow.data() || {};
           const freshDraft = draftNow.data() || {};
+          // Sent, or on its way since the read: nothing is resumed.
+          if (mayHaveLeft(freshOrder, freshFlow, freshDraft, submissionNow.data())) return false;
           // A new round, another state, other holds or edited questions since the read: the next run (or the
           // next draft) starts from them.
           if (freshFlow.state !== flow.state || Number(freshFlow.round) !== Number(flow.round) || !sameHolds(freshFlow, flow)

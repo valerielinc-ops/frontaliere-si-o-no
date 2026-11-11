@@ -2,12 +2,15 @@ name: Recover assisted-application reviews after answer-pipeline changes
 
 # Owner directive 2026-11-10 (DECISIONS.md): every question is answered by the
 # platform (rules, CV, plausible deduction), also for the orders written
-# before. A review held by questions of its draft is re-evaluated whenever the
-# answer pipeline changes, and once a day for the bounded second attempt:
-# scripts/assisted-application/reconcile-review-questions.mjs asks the same
-# model steps the draft runs, stores the verified answers on the draft and
-# sets the order due; the Cloud Functions sweep runs the flow's tick. Nothing
-# is dispatched or sent from here.
+# before. A review, or a portal step waiting for the candidate
+# (needs_candidate_action), held by questions of its draft is re-evaluated
+# whenever the answer pipeline changes, and once a day for the bounded second
+# attempt: scripts/assisted-application/reconcile-review-questions.mjs asks the
+# same model steps the draft runs (the CV, then the decision engine, through
+# the Codex broker), stores the verified answers on the draft and sets the
+# order due; the Cloud Functions sweep runs the flow's tick, which resumes a
+# portal step whose questions are all answered. Nothing is dispatched or sent
+# from here, and an application that may have left is never touched.
 #
 # This repository is PUBLIC: the apply run prints counts only, never an order,
 # an answer or a CV line.
@@ -109,7 +112,7 @@ jobs:
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
-        run: node scripts/assisted-application/reconcile-review-questions.mjs --apply
+        run: node scripts/assisted-application/reconcile-review-questions.mjs --apply --codex broker
         timeout-minutes: 30
       - name: Cleanup Codex auth broker
         if: always()
