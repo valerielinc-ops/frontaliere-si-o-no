@@ -1,10 +1,10 @@
-name: Recover Cloud Functions deploy after hosted runner allocation failure
+name: Recover Cloud Functions deploy startup and runner failures
 
-# A hosted-runner allocation failure is reported after the job has been
-# cancelled, so the deploy workflow cannot run its own failure/retry step.
-# Observe the completed run from a separate workflow and replay only the exact
-# platform signature. API-only recovery keeps the source checkout out of the
-# decision and never retries a Firebase/API failure.
+# Startup and hosted-runner allocation failures are reported before the deploy
+# job can run its own failure/retry step. Observe the completed run from a
+# separate workflow and replay only the exact platform signatures. API-only
+# recovery keeps the source checkout out of the decision and never retries a
+# Firebase/API failure.
 on:
   workflow_run:
     workflows: [Deploy Cloud Functions]
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   retry:
     if: >-
-      github.event.workflow_run.conclusion == 'failure' &&
+      (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.conclusion == 'startup_failure') &&
       github.event.workflow_run.path == '.github/workflows/deploy-cloud-functions.yml' &&
       github.event.workflow_run.head_branch == 'main' &&
       github.event.workflow_run.run_attempt == 1
@@ -43,7 +43,7 @@ jobs:
             scripts/ci/lib/workflow-run-list-recovery.mjs
           sparse-checkout-cone-mode: false
 
-      - name: Retry only an unassigned hosted-runner deploy
+      - name: Retry only an unstarted or unassigned deploy
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -86,11 +86,11 @@ jobs:
               );
             }
             if (!shouldRetryCloudFunctionsRun({ run, jobs, annotationsByJob, workflowRuns })) {
-              core.info(`Run ${run.id} does not match the bounded hosted-runner recovery signature.`);
+              core.info(`Run ${run.id} does not match the bounded startup/runner recovery signature.`);
               return;
             }
             core.warning(
-              `Run ${run.id} failed before acquiring a hosted runner; `
+              `Run ${run.id} failed before the deploy job could run; `
               + 'requesting one bounded replay of the same deploy run.',
             );
             await github.rest.actions.reRunWorkflow({
