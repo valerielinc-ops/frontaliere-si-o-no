@@ -1024,7 +1024,8 @@ describe('lockstep with the full deploy', () => {
   it('offers an R2-atomic create-only mode for stable alias bootstraps', () => {
     const uploader = read('scripts/lib/upload-cdn-file.sh');
     expect(uploader).toContain('--create-if-absent');
-    expect(uploader).toContain("upload_flags+=(--header-upload 'If-None-Match: *')");
+    expect(uploader).toContain('aws --no-cli-pager --endpoint-url');
+    expect(uploader).toContain("--if-none-match '*'");
   });
 });
 
