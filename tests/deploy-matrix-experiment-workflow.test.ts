@@ -262,6 +262,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('fails clearly for an invalid name or env key', () => {
     expect(() => parseVariants('BadName=')).toThrow(/invalid variant name/);
     expect(() => parseVariants('bad=NOT_A_BUILD_FLAG=1')).toThrow(/disallowed env key/);
+    expect(() => parseVariants('bad=JOBS_SEO_HTML_GC_INTERVAL_MB=256')).toThrow(/expected 512 or 1024/);
   });
 
   it('keeps compare variants on the complete border-wait corpus', () => {

@@ -98,6 +98,12 @@ function parseVariantLine(line, lineNumber) {
           + `allowed keys: ${ALLOWED_ENV_KEYS.join(', ')}`,
       );
     }
+    if (key === 'JOBS_SEO_HTML_GC_INTERVAL_MB' && !['512', '1024'].includes(value)) {
+      fail(
+        `variant ${JSON.stringify(name)} uses invalid JOBS_SEO_HTML_GC_INTERVAL_MB ${JSON.stringify(value)}; `
+          + 'expected 512 or 1024',
+      );
+    }
     if (Object.hasOwn(env, key)) {
       fail(`variant ${JSON.stringify(name)} repeats env key ${JSON.stringify(key)}`);
     }

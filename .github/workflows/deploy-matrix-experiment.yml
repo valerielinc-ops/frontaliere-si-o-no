@@ -10,10 +10,12 @@
 # leaves BUILD_LOCALE unset, measuring the proposed single-process four-locale
 # build on the production-sized runner.
 #
-# SAFETY: manual (workflow_dispatch) only. It NEVER pushes to the production
-# shard repos (frontaliere-{en,de,fr}/cdn) and NEVER touches GitHub Pages — it
-# builds, validates, reports timing, and discards the output. The live
-# deploy.yml is completely untouched.
+# SAFETY: normal use is manual (workflow_dispatch); the temporary push trigger
+# below is restricted to the issue-fix branch that needs this pre-merge
+# measurement. It NEVER pushes to the production shard repos
+# (frontaliere-{en,de,fr}/cdn) and NEVER touches GitHub Pages — it builds,
+# validates, reports timing, and discards the output. The live deploy.yml is
+# completely untouched.
 #
 # Each matrix job self-prepares the dataset (assemble + derived files). Because
 # every job checks out the SAME commit and the assemble cache is keyed on the
@@ -161,7 +163,9 @@ env:
   # Riaperto il 2026-10-24 per la campagna «durata del deploy al minimo»: ogni
   # ottimizzazione di build/publish va misurata qui sul proprio branch (wall
   # time per plugin, picco memoria, byte-identità) prima del merge.
-  EXPERIMENT_EXPIRES_ON: '2026-11-10'
+  # Reconfirmed 2026-11-11 for issue #17896: the required full IT/EN/DE/FR
+  # 512 MiB vs 1 GiB same-snapshot benchmark must finish before this date.
+  EXPERIMENT_EXPIRES_ON: '2026-11-18'
 
 # Gruppo STABILE PER BRANCH, mai `github.run_id`: al più un run vivo per ref
 # (vedi «BUDGET DI CAPACITÀ» in testa al file). Un solo gruppo globale faceva sì
@@ -171,7 +175,7 @@ env:
 # branch di campagna aperti, non dal numero di dispatch. `cancel-in-progress:
 # false` protegge la misura già partita.
 concurrency:
-  group: deploy-matrix-experiment-${{ github.ref_name }}${{ github.event_name == 'push' && format('-{0}', github.sha) || '' }}
+  group: deploy-matrix-experiment-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
