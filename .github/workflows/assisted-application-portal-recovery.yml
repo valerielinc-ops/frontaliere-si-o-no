@@ -99,7 +99,7 @@ jobs:
             sudo mkdir -p /etc/apt/apt.conf.d
             printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99network-tuning >/dev/null
           fi
-          npx playwright install --with-deps chromium || npx playwright install chromium
+          npx playwright install chromium || npx playwright install --with-deps chromium
         # `--with-deps` also downloads Ubuntu packages; five minutes cut off a
         # normal 21 MB dependency install on a slow mirror in run 41899569696.
         timeout-minutes: 15
