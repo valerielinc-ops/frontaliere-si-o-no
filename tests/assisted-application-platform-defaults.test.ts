@@ -20,7 +20,7 @@ import {
   sanitizeCandidateFacts,
   passportOf,
 } from '../functions/src/assistedApplicationPlatformDefaults.js';
-import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
@@ -148,6 +148,41 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(operationalDefaultAnswer({ question: 'Il datore richiede un grado di occupazione del 100%', type: 'text' }, { facts })).toBeNull();
     expect(answer({ question: 'Da quale data puoi iniziare a lavorare?', type: 'date' })).toBe('2027-02-09');
     expect(answer({ question: 'Quando potresti iniziare? Indica una data oppure specifica se sei disponibile subito.', type: 'text' })).toBe('09.02.2027');
+  });
+
+  it('does not put platform availability dates into historical experience or education rows', () => {
+    const historyRows = [
+      { label: 'Start Date', section: 'Work Experience' },
+      { label: 'Start Date', section: 'Education' },
+      { label: 'Eintrittsdatum', section: 'Berufserfahrung' },
+      { label: 'Eintrittsdatum', section: 'Ausbildung' },
+      { label: 'Data di inizio', section: 'Esperienza professionale' },
+      { label: 'Data di inizio', section: 'Formazione' },
+      { label: 'Date de début', section: 'Expérience professionnelle' },
+      { label: 'Date de début', section: 'Formation' },
+      { label: 'Date de début', section: 'Éducation' },
+      { label: 'Start Date', group: { label: 'Previous Employment' } },
+      { label: 'Start Date', context: 'Education · Institution · Start Date · End Date' },
+    ];
+    const candidate = { answers: {}, identity: {}, profile: {}, platformFacts: facts };
+
+    for (const row of historyRows) {
+      const question = { ...row, type: 'date' };
+      expect(platformQuestionTopic(question), `${row.label} in ${row.section || row.group?.label || row.context}`).toBeNull();
+      expect(platformDefaultAnswer(question, facts), row.label).toBeNull();
+      expect(candidateAnswerForField(candidate, { ...row, kind: 'text', inputType: 'date' }), row.label).toBeNull();
+    }
+  });
+
+  it('keeps standalone start-date questions on the platform default', () => {
+    const candidate = { answers: {}, identity: {}, profile: {}, platformFacts: facts };
+    for (const label of ['Start Date', 'Earliest start date', 'Frühestmögliches Eintrittsdatum']) {
+      const question = { label, type: 'date' };
+      expect(platformQuestionTopic(question), label).toBe('start_date');
+      expect(platformDefaultAnswer(question, facts)).toMatchObject({ topic: 'platform:start_date', source: 'policy_default' });
+      expect(candidateAnswerForField(candidate, { label, kind: 'text', inputType: 'date' }))
+        .toMatchObject({ topic: 'platform:start_date', source: 'policy_default' });
+    }
   });
 
   it('consents, marketing and availabilities', () => {
