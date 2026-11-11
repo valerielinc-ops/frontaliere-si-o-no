@@ -6,6 +6,20 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
+// A runner context whose validated projection shows an answer the raw flow does not hold (review
+// PRR_kwDORN5k2M8AAAABXQXIpw): injected into every loadRunnerAnswerContext read, the commit's included.
+const runnerInjection = vi.hoisted(() => ({ answers: null as null | Record<string, string> }));
+vi.mock('../functions/src/assistedApplicationAnswerEvidence.js', async (importOriginal) => {
+  const actual: any = await importOriginal();
+  return { ...actual, loadRunnerAnswerContext: async (input: any) => {
+    const context = await actual.loadRunnerAnswerContext(input);
+    if (!runnerInjection.answers) return context;
+    const raw = input?.flow?.answers || {};
+    const shown = Object.fromEntries(Object.entries(runnerInjection.answers).filter(([id]) => !Object.hasOwn(raw, id)));
+    return { ...context, flow: { ...context.flow, answers: { ...(context.flow?.answers || {}), ...shown } } };
+  } };
+});
+
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken: mintToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 // The module's JSDoc documents the options only; the call takes the whole input object.
@@ -67,6 +81,7 @@ function seed(questions: any[], order: Record<string, any> = {}) {
 
 beforeEach(() => {
   runEffect.mockClear();
+  runnerInjection.answers = null;
   seed([unownedPortalQuestion, salaryQuestion, noticeQuestion]);
 });
 
@@ -156,6 +171,23 @@ describe('review page save: contract and concurrency', () => {
     const racing = await save(reloaded, { portal_record_entry: '' });
     expect(racing).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
     expect(store.read(FLOW)?.answers?.portal_record_entry).toBe('Ja');
+  });
+
+  // Review PRR_kwDORN5k2M8AAAABXQXIpw (#18091): the page's revisions, the save's read and the commit guard
+  // all hash the candidate-visible projection (candidateVisibleAnswers), runner context included.
+  it('refuses a second save from the GET revision when the shown answer exists only in the runner context', async () => {
+    seed([salaryQuestion, noticeQuestion]);
+    runnerInjection.answers = { salary_expectation: 'first' };
+    const page = await load();
+    expect(store.read(FLOW)?.answers).not.toHaveProperty('salary_expectation');
+    expect(page.answers.salary_expectation).toBe('first');
+
+    expect(await save(page, { salary_expectation: 'second' })).toMatchObject({ status: 200, body: { ok: true } });
+    expect(store.read(FLOW)?.answers?.salary_expectation).toBe('second');
+    // Cleared from the same loaded page: a change of the shown value, not an untouched field.
+    const late = await save(page, { salary_expectation: '' });
+    expect(late).toMatchObject({ status: 409, body: { ok: false, error: 'changed_meanwhile' } });
+    expect(store.read(FLOW)?.answers?.salary_expectation).toBe('second');
   });
 
   it('keeps a newer answer from another tab that this tab did not touch, and saves the rest', async () => {

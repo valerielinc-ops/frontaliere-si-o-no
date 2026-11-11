@@ -70,12 +70,17 @@ export function candidateEditSnapshot({ secret, orderId, order, flow, draft, com
 }
 
 /**
- * The stored answers the review compares, by question id: the order-aware projection the page is
- * built from (the flow's answers with the order's confirmed answers over them). The page's
- * revisions, the save's comparison and the commit-time guard all read this one projection.
+ * The answers the candidate sees on the review page, by question id: the runner's validated
+ * projection (with the display-only legacy answers, candidateReviewFlow), then the order's
+ * confirmed answers over it (candidateEditFlow), the chain the page itself is built from. The
+ * only source of the values the review compares: the page's revisions (GET), the values the save
+ * reads and compares (POST) and the commit-time guard, which rebuilds it from the transaction's
+ * own reads, the runner context included.
+ * @param {object} runnerContext loadRunnerAnswerContext's result for this order, flow and draft
  */
-export function reviewAnswerValues({ orderId, order, flow = {}, draft, nowMs = Date.now() }) {
-  return candidateEditFlow({ orderId, order, flow, draft, nowMs }).answers || {};
+export function candidateVisibleAnswers({ orderId, order, flow = {}, draft, runnerContext, nowMs = Date.now() }) {
+  const reviewFlow = candidateReviewFlow(flow, runnerContext || { retained: true, flow });
+  return candidateEditFlow({ orderId, order, flow: reviewFlow, draft, nowMs }).answers || {};
 }
 
 /** A stored answer as the review page compares it: whitespace-normalized text, absent and empty alike. */

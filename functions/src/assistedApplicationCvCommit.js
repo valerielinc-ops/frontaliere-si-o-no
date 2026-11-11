@@ -12,7 +12,7 @@ import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
-import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, reviewAnswerValues, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
+import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, candidateVisibleAnswers, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -129,9 +129,14 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   // must still be the one read, or already the one this request writes (the same save retried).
   const storedAnswers = guard.storedAnswers && typeof guard.storedAnswers === 'object' && !Array.isArray(guard.storedAnswers)
     ? guard.storedAnswers : {};
-  // The same order-aware projection the page and the save compared, rebuilt from the transaction's reads.
+  // The candidate's runner context, read inside this transaction: the projection the page and the
+  // save compared (candidateVisibleAnswers) is rebuilt from it, and so is the candidate's contract below.
+  const runner = guard.actor === 'candidate' || Object.keys(storedAnswers).length
+    ? await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
+      getDocument: ref => transaction.get(ref) })
+    : null;
   const storedNow = Object.keys(storedAnswers).length
-    ? reviewAnswerValues({ orderId, order, flow, draft, nowMs: guard.nowMs }) : {};
+    ? candidateVisibleAnswers({ orderId, order, flow, draft, runnerContext: runner, nowMs: guard.nowMs }) : {};
   for (const [id, expected] of Object.entries(storedAnswers)) {
     const now = answerRevisionText(storedNow[id]);
     if (now !== expected?.before && now !== expected?.after) return false;
@@ -145,8 +150,6 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   if (guardedLocale && communicationLocale !== guardedLocale) return false;
   let currentFlow;
   if (guard.actor === 'candidate') {
-    const runner = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
-      getDocument: ref => transaction.get(ref) });
     const displayLegacyAnswers = runner.retained
       && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
     currentFlow = runner.retained ? { ...runner.flow,
