@@ -107,7 +107,9 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
     stopReport.path,
     ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
   ].filter(Boolean).map(String).join(' ');
-  const accessBlocked = event.reason === 'access_blocked' || liveness?.page?.code === 'access_blocked';
+  const portalAccessBlocked = event.reason === 'access_blocked';
+  const livenessAccessBlocked = liveness?.page?.code === 'access_blocked';
+  const accessBlocked = portalAccessBlocked || livenessAccessBlocked;
   const connectionError = navigationInfrastructureFailure(diagnostics);
   const kind = accessBlocked
     ? 'access_blocked'
@@ -119,7 +121,8 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
   if (!kind) return null;
 
   // A liveness block applies to the page being checked. Do not attribute it to a different form host.
-  if (accessBlocked && postingUrl) {
+  if (livenessAccessBlocked && !portalAccessBlocked) {
+    if (!postingUrl) return null;
     try {
       if (new URL(postingUrl).hostname.toLowerCase().replace(/\.$/, '') !== host) return null;
     } catch { return null; }

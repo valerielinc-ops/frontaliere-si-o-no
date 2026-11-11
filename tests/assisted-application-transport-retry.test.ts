@@ -106,6 +106,11 @@ describe('network evidence passed to the shared flow', () => {
       liveness: { page: { code: 'access_blocked' } },
       postingUrl: 'https://forms.example.test/job/', draft: verifiedDraft,
     })).toEqual({ host: 'forms.example.test', kind: 'access_blocked' });
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'access_blocked' },
+      liveness: { page: { code: 'access_blocked' } },
+      postingUrl: 'https://jobs.example.test/role/', draft: verifiedDraft,
+    })).toEqual({ host: 'forms.example.test', kind: 'access_blocked' });
 
     expect(portalNetworkFailureMetadata({
       event: { type: 'submit_handoff', reason: 'navigation_unavailable' },
@@ -127,6 +132,10 @@ describe('network evidence passed to the shared flow', () => {
       event: { type: 'submit_handoff', reason: 'portal_needs_candidate' },
       liveness: { page: { code: 'access_blocked' } },
       postingUrl: 'https://postings.example.test/job/', draft: verifiedDraft,
+    })).toBeNull();
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'portal_needs_candidate' },
+      liveness: { page: { code: 'access_blocked' } }, draft: verifiedDraft,
     })).toBeNull();
     expect(portalNetworkFailureMetadata({
       event: { type: 'submit_succeeded', reason: 'navigation_unavailable' }, draft: verifiedDraft,
