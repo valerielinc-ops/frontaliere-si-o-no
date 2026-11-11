@@ -1,0 +1,25 @@
+{
+  "companyKey": "abba-personnel-services-inc",
+  "companyName": "ABBA Personnel Services Inc.",
+  "companyHost": "20240502153505_pujp6qesgr2syy9v.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://20240502153505_pujp6qesgr2syy9v.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 43,
+  "sampleTitles": [
+    "Accounting Assistant",
+    "Anesthesia Technologist",
+    "Cath Lab - Cardiovascular Technician",
+    "Civil Engineer",
+    "CSSD Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:04.238Z",
+  "candidateKey": "20240502153505_pujp6qesgr2syy9v@applytojob.com"
+}

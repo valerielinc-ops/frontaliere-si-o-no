@@ -1,0 +1,25 @@
+{
+  "companyKey": "westernconnecticutstateuniversity",
+  "companyName": "Western Connecticut State University",
+  "companyHost": "westernconnecticutstateuniversity.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://westernconnecticutstateuniversity.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "AccessAbility Services Learning Specialist",
+    "Assistant Bursar - Collections",
+    "Assistant Professor - Educational Psychlogy",
+    "Associate Director - Facilities Planning, Architecture and Design",
+    "Deputy to the President and Chief of Staff"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:01.368Z",
+  "candidateKey": "westernconnecticutstateuniversity@applytojob.com"
+}
