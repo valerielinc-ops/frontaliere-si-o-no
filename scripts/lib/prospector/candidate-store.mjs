@@ -193,7 +193,7 @@ function subdomainTenantFallbackKey(candidate, source) {
     const verifiedOwners = owners.map(registrableCandidateDomain);
     if (verifiedOwners.some((owner) => !owner || !owner.includes('.'))
       || new Set(verifiedOwners).size !== 1) return '';
-  } else if (platformEntry.hostEmployerUnknown?.[host] === true && !stableUmantisTenantHost) {
+  } else if (!stableUmantisTenantHost) {
     // Unknown hosts on a mixed platform can still be shared front doors
     // (`api.vendor.com`, `ats.vendor.com`). Their hostname alone cannot name
     // an employer. Umantis tenant IDs have a stable, provider-specific shape.
