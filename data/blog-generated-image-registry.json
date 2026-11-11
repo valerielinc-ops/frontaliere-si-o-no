@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1136,
-  "generatedAt": "2026-11-11T02:45:08.512Z",
+  "assetCount": 1137,
+  "generatedAt": "2026-11-11T07:14:39.055Z",
   "assets": [
     {
       "schema": 1,
@@ -48610,6 +48610,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a healthcare worker commuting at a lakeside train station; no text, logos, identifiable face, or specific real event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-fuoriuscita-acido-liestal",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "148c90ef8923827f546b175065d8c8d175cf2af9a4d8e79394fcd62b97e4ac6b",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "3911897f46cf3e71cc2b0207e42ad0f7f06b5ccf58e08f532431e40320bd29e5",
+      "bytes": 139696,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-11T06:50:38.365Z",
+      "verifiedAt": "2026-11-11T06:50:50.290Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-fuoriuscita-acido-liestal.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic industrial safety illustration showing chemical-leak containment equipment; no people, text, logos, or event-specific cues."
       }
     }
   ]
