@@ -188,7 +188,6 @@ function subdomainTenantFallbackKey(candidate, source) {
   // the registry has not yet verified the employer behind that host.
   const stableUmantisTenantHost = platform === 'umantis.com'
     && /^recruitingapp-\d+(?:\.de)?$/.test(hostPrefix);
-  if (platformEntry.hostEmployerUnknown?.[host] === true && !stableUmantisTenantHost) return '';
   const owners = platformEntry.hostEmployers?.[host];
   if (Array.isArray(owners) && owners.length) {
     const verifiedOwners = owners.map(registrableCandidateDomain);
