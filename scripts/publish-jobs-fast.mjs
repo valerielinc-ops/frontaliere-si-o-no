@@ -150,7 +150,7 @@ function extractAttr(tag, name) {
     tag
       .match(
         new RegExp(
-          `\\b${escaped}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
+          `(?:^|\\s)${escaped}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
           "iu",
         ),
       )

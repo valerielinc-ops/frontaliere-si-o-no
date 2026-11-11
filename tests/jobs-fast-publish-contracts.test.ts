@@ -53,6 +53,11 @@ describe("jobs fast-publish HTML asset contract", () => {
     ).toBe(true);
     expect(
       hasGoogleAnalyticsRuntime(
+        '<script data-src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script>',
+      ),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
         '<script type="module" src="/assets/index-entry.js"></script>',
       ),
     ).toBe(true);
