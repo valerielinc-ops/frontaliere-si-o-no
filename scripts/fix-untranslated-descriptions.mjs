@@ -281,6 +281,12 @@ async function main() {
     deadlineReached = true;
   } else {
     for (const file of files) {
+      // Collection itself consumes the shared run budget: do not retain later
+      // slices after a slow read/scan has crossed the deadline.
+      if (!budgetOk()) {
+        deadlineReached = true;
+        break;
+      }
       const slicePath = path.join(BY_CRAWLER_DIR, file);
       const sliceData = readJson(slicePath);
       const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
