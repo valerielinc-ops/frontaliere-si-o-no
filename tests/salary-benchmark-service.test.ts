@@ -17,9 +17,15 @@ describe('salaryBenchmarkService', () => {
   it('matches role key correctly across Italian and English titles', () => {
     expect(matchRoleKey('Sviluppatore React Full-Stack')).toBe('software_engineer');
     expect(matchRoleKey('Senior Cloud & DevOps Specialist')).toBe('devops_cloud_engineer');
+    expect(matchRoleKey('System Engineer')).toBe('devops_cloud_engineer');
+    expect(matchRoleKey('Site Reliability Engineer')).toBe('devops_cloud_engineer');
     expect(matchRoleKey('Analista Finanziario & Controller')).toBe('financial_analyst');
+    expect(matchRoleKey('Compliance Officer')).toBe('financial_analyst');
     expect(matchRoleKey('Tecnico di Laboratorio Controllo Qualità')).toBe('pharma_specialist');
+    expect(matchRoleKey('Chemical Engineer')).toBe('pharma_specialist');
     expect(matchRoleKey('Ingegnere Meccanico Progettista')).toBe('mechanical_engineer');
+    expect(matchRoleKey('Mechanical Engineer')).toBe('mechanical_engineer');
+    expect(matchRoleKey('Automation Engineer')).toBe('mechanical_engineer');
     expect(matchRoleKey('Infermiera di Reparto')).toBe('nurse_healthcare');
   });
 
@@ -59,5 +65,27 @@ describe('salaryBenchmarkService', () => {
     expect(briefing.deferralScript).toContain('In questa fase iniziale sono concentrato');
     expect(briefing.recruiterQuestions.length).toBeGreaterThanOrEqual(3);
     expect(briefing.recruiterQuestions[0]).toContain('range retributivo previsto');
+  });
+
+  it('supports all 26 Swiss cantons with BFS grossregion scaling and names', () => {
+    const geneva = lookupSalaryBenchmark({
+      roleTitle: 'Responsabile Amministrativo',
+      canton: 'GE',
+      seniority: 'mid',
+    });
+    expect(geneva.canton).toBe('GE');
+    expect(geneva.cantonName).toBe('Canton Ginevra');
+    expect(geneva.cantonMultiplier).toBeGreaterThan(1.2);
+    // Geneva has a statutory minimum wage floor of 51,100 CHF
+    expect(geneva.annual.p25).toBeGreaterThanOrEqual(51100);
+
+    const basel = lookupSalaryBenchmark({
+      roleTitle: 'Ingegnere Meccanico',
+      canton: 'BS',
+      seniority: 'senior',
+    });
+    expect(basel.canton).toBe('BS');
+    expect(basel.cantonName).toBe('Canton Basilea Città');
+    expect(basel.cantonMultiplier).toBeGreaterThan(1.2);
   });
 });
