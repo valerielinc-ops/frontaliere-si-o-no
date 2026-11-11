@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-11T14:24:14.565Z",
+  "updatedAt": "2026-11-11T14:24:49.424Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -173319,12 +173319,12 @@
     },
     "benisa@cadempino": {
       "key": "benisa@cadempino",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:33:16.568Z",
-      "updatedAt": "2026-11-11T13:35:39.524Z",
+      "updatedAt": "2026-11-11T14:24:49.355Z",
       "name": "BENISA SA",
       "city": "Cadempino",
       "zip": "6814",
@@ -173722,7 +173722,9 @@
           "logoSourceUrl": "https://static.wixstatic.com/media/c8e1c7_74c3e7e9a8594009b650efaa86aabbd4%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/c8e1c7_74c3e7e9a8594009b650efaa86aabbd4%7Emv2.png",
           "employerSiteName": "Benisa SA"
         }
-      ]
+      ],
+      "promotionPr": "18150",
+      "promotionBranch": "prospector/promote-2026-11-11"
     },
     "benisasa.ch": {
       "key": "benisasa.ch",
@@ -893696,12 +893698,12 @@
     },
     "lip@geneve": {
       "key": "lip@geneve",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-26T04:08:56.713Z",
-      "updatedAt": "2026-11-10T14:05:21.900Z",
+      "updatedAt": "2026-11-11T14:24:49.355Z",
       "name": "LIP SUISSE",
       "city": "Genève",
       "zip": "1201",
@@ -893940,7 +893942,9 @@
           "logoSourceUrl": "https://www.lipsuisse.ch/wp-content/uploads/Favicon.svg",
           "employerSiteName": "LIP Suisse"
         }
-      ]
+      ],
+      "promotionPr": "18150",
+      "promotionBranch": "prospector/promote-2026-11-11"
     },
     "lip@st-moritz": {
       "key": "lip@st-moritz",
@@ -1141824,12 +1141828,12 @@
     },
     "proplaning@zurich": {
       "key": "proplaning@zurich",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-06T08:09:55.301Z",
-      "updatedAt": "2026-11-10T14:05:26.925Z",
+      "updatedAt": "2026-11-11T14:24:49.356Z",
       "name": "Proplaning AG",
       "city": "Zürich",
       "zip": "8005",
@@ -1142070,7 +1142074,9 @@
           "logoSourceUrl": "https://www.proplaning.ch/wp-content/uploads/2025/02/favicon-1-150x150.png",
           "employerSiteName": "Proplaning verwirklicht Architektur"
         }
-      ]
+      ],
+      "promotionPr": "18150",
+      "promotionBranch": "prospector/promote-2026-11-11"
     },
     "propre-service-jovandic@buttes": {
       "key": "propre-service-jovandic@buttes",

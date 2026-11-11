@@ -51416,3 +51416,6 @@
 {"eventType":"candidate_transition","key":"prodyna@basel","from":"awaiting_first_crawl","to":"production","at":"2026-11-11T14:24:14.468Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"191e8c086996ee6d5450164f"}
 {"eventType":"candidate_attempt","key":"skan","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-11T14:24:14.468Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"01d060b355b097228064fd7b"}
 {"eventType":"candidate_attempt","key":"creditx@sion","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-11T14:24:14.468Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"47be6478dbe14b70934114fe"}
+{"eventType":"candidate_transition","key":"benisa@cadempino","from":"promoted","to":"promoting","at":"2026-11-11T14:24:49.355Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"8c7aac6875e52e8cf56d15ea"}
+{"eventType":"candidate_transition","key":"lip@geneve","from":"promoted","to":"promoting","at":"2026-11-11T14:24:49.355Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"4d5bf9d233f33bc2916bf054"}
+{"eventType":"candidate_transition","key":"proplaning@zurich","from":"promoted","to":"promoting","at":"2026-11-11T14:24:49.356Z","runId":"43009007561","runAttempt":1,"phase":"promote","eventId":"a4b9da485c97b85f764896d7"}
