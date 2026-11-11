@@ -2313,7 +2313,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // inline read silently lost the writeBundle race in CI (run 25151657070
  // produced 123,184 bundle-less pages on this exact path).
  const { resolveSpaBundle } = await import('./spaBundleResolver');
- const spaBundle = resolveSpaBundle(distDir);
+ // Fast-lane distDir is an empty output staging area. Resolve the shared SPA
+ // bundle from the canonical full-build dist instead; the fixed resolver
+ // returns its stable asset names without reading disk.
+ const bundleDistDir = options.fastLane
+  ? np.resolve(rootDir, 'dist')
+  : distDir;
+ const spaBundle = resolveSpaBundle(bundleDistDir);
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
  const hasSpaBundle = spaBundle.hasSpaBundle;

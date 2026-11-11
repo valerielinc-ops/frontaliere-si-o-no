@@ -102,6 +102,11 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(renderer).toContain("fastLaneDistDir?: string;");
     expect(renderer).toContain("!options.fastLaneDistDir");
     expect(renderer).toContain("np.resolve(rootDir, options.fastLaneDistDir)");
+    expect(renderer).toContain("const bundleDistDir = options.fastLane");
+    expect(renderer).toContain("? np.resolve(rootDir, 'dist')");
+    expect(renderer).toContain("const spaBundle = resolveSpaBundle(bundleDistDir);");
+    expect(renderer).toContain("asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)");
+    expect(renderer).toContain('src="/assets/${entryJs}"');
     expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
   });
 });
