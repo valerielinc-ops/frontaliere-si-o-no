@@ -122,7 +122,12 @@ jobs:
       # questions ahead (career-ops apply.md: identify all questions first).
       # Install the stock Playwright browser and its system libraries.
       - name: Install Chromium for the portal runner
-        run: npx playwright install --with-deps chromium
+        run: |
+          if command -v sudo >/dev/null 2>&1; then
+            sudo mkdir -p /etc/apt/apt.conf.d
+            printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99network-tuning >/dev/null
+          fi
+          npx playwright install --with-deps chromium || npx playwright install chromium
         timeout-minutes: 15
 
       # The application uses stock Chromium. It never impersonates a user's
