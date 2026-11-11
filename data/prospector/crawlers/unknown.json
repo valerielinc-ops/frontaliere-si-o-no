@@ -1,0 +1,22 @@
+{
+  "companyKey": "unknown",
+  "companyName": "24G",
+  "companyHost": "24g.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://24g.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Experiential Project Manager",
+    "General Application"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:05.654Z",
+  "candidateKey": "24g@applytojob.com"
+}
