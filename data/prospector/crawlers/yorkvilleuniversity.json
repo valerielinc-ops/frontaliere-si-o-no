@@ -1,0 +1,25 @@
+{
+  "companyKey": "yorkvilleuniversity",
+  "companyName": "Yorkville University",
+  "companyHost": "yorkvilleuniversity.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://yorkvilleuniversity.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Talent Community",
+    "Workflow Automations Specialist",
+    "Accessibility and Learning Strategies Specialist",
+    "Accessibility and Learning Strategies Specialist",
+    "Accounts Payable Associate"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:02.773Z",
+  "candidateKey": "yorkvilleuniversity@applytojob.com"
+}

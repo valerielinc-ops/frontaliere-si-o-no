@@ -2,21 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "myswitzerland:012a3d91664b415baf868357133d1775",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
-      "id": "myswitzerland:21ae8a0ecb3e4f04b6adb1df9bd04f53",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
-      "id": "myswitzerland:96bc5a2e2b2141a295a1a78dfb98d6ad",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
       "id": "myswitzerland:e636bc4cb5bf4656b67d198f167a4a14",
       "viaDigest": "weekend-digest-ZH-2026-11-07",
       "postedAt": "2026-11-06T16:23:20.337Z"
@@ -5300,6 +5285,57 @@
       "copyAngleIntent": "both",
       "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
       "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:e74f70a63a4d4d4bbfbf8deee07ec272",
+      "url": "https://frontaliereticino.ch/eventi/zurigo/dorf/",
+      "postId": "951226518080080_122131135533272498",
+      "postedAt": "2026-11-11T16:42:10.797Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:05aa35295b1f44b79494e10aa019be6a",
+      "url": "https://frontaliereticino.ch/eventi/zurigo/dubendorf/",
+      "postId": "951226518080080_122131135563272498",
+      "postedAt": "2026-11-11T16:42:15.618Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:0a361d2168d14a4083d3babd6d97aff4",
+      "url": "https://frontaliereticino.ch/eventi/zurigo/dubendorf/",
+      "postId": "951226518080080_122131135665272498",
+      "postedAt": "2026-11-11T16:42:20.355Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
     }
   ]
 }
