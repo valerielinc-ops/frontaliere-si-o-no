@@ -3,14 +3,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+import { validateItShardGroupPlan } from './it-shard-group-plan.mjs';
 import { sectionBatch } from './shard-content-manifest.mjs';
 
 export function packageItShardValidationBatches({ planFile, tarDir, outDir }) {
   const plan = JSON.parse(fs.readFileSync(planFile, 'utf8'));
-  const required = Array.isArray(plan.requiredSections) ? plan.requiredSections : [];
-  if (plan.kind !== 'it-shard-push-group-plan' || !required.length) {
-    throw new Error('IT shard source plan is missing its required section set');
+  const verdict = validateItShardGroupPlan(plan);
+  if (!verdict.valid) {
+    throw new Error(`IT shard source plan is invalid: ${verdict.errors.join('; ')}`);
   }
+  const required = plan.requiredSections;
   const batches = new Map(Array.from({ length: 6 }, (_, index) => [index + 1, []]));
   for (const section of required) {
     const tar = path.join(tarDir, section + '-dist-it.tar');

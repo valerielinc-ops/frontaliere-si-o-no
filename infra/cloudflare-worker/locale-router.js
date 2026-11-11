@@ -735,6 +735,56 @@ const SHARD_ORIGIN_FETCH_CF = publicOriginCacheOptions(ORIGIN_CACHE_TTL);
 // transiently 404'd retries fresh soon after.
 const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 
+// Freehire-grade Edge Cache Policies (sub-50ms TTFB on Cloudflare PoPs)
+export const JOB_DETAIL_CACHE_CONTROL = 'public, max-age=0, s-maxage=86400, stale-while-revalidate=86400';
+export const JOB_LISTING_CACHE_CONTROL = 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400';
+export const INSIGHTS_CACHE_CONTROL = 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800';
+export const PRIVATE_NO_STORE_CACHE_CONTROL = 'private, no-cache, no-store, must-revalidate';
+
+export function determineCachePolicy(request, url) {
+  // 1. Sessione autenticata o checkout: MAI memorizzare in cache
+  const hasAuthCookie = request?.headers?.get('Cookie')?.match(/(?:session|token|__session|user_id|cart)=/i);
+  const hasAuthHeader = Boolean(request?.headers?.get('Authorization'));
+  const isPrivatePath = /^\/(?:candidatura-assistita|checkout|account|admin|api\/private)\b/i.test(url.pathname);
+
+  if (hasAuthCookie || hasAuthHeader || isPrivatePath) {
+    return {
+      cacheControl: PRIVATE_NO_STORE_CACHE_CONTROL,
+      bypassEdgeCache: true,
+    };
+  }
+
+  // 2. Dettaglio annuncio di lavoro
+  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/[^/]+\/?$/i.test(url.pathname)) {
+    return {
+      cacheControl: JOB_DETAIL_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 86400,
+    };
+  }
+
+  // 3. Listing principale delle offerte
+  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/?$/i.test(url.pathname)) {
+    return {
+      cacheControl: JOB_LISTING_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 300,
+    };
+  }
+
+  // 4. Pagine Programmatiche Market Insights
+  if (/^\/(?:[a-z]{2}\/)?(?:insights|stipendi)\b/i.test(url.pathname)) {
+    return {
+      cacheControl: INSIGHTS_CACHE_CONTROL,
+      bypassEdgeCache: false,
+      edgeTtl: 86400,
+    };
+  }
+
+  return null;
+}
+
+
 // Canton-drift 404 recovery — real HTTP 301 (upgrade of the soft-404+JS path).
 //
 // A job slug is globally unique, but the canton (URL section) was re-derived
@@ -1366,7 +1416,24 @@ async function recoverCantonDriftOrphan(url, locale) {
 // entry's declared producer matches a real automatic publisher (in-repo
 // where that's checkable; documented here with its source cited where it
 // isn't, i.e. 'corpus').
+const JOB_SITEMAP_CANTON_SLUGS = new Set([
+  'argovia', 'appenzello', 'berna', 'basilea', 'friburgo', 'ginevra', 'glarona', 'grigioni',
+  'giura', 'lucerna', 'neuchatel', 'nidvaldo', 'obvaldo', 'san-gallo', 'sciaffusa', 'soletta',
+  'svitto', 'turgovia', 'ticino', 'uri', 'vaud', 'vallese', 'zugo', 'zurigo', 'svizzera',
+]);
+const JOB_FAST_SITEMAP_ENTRIES = Object.fromEntries([
+  '/sitemap-jobs.xml',
+  '/sitemap-index.xml',
+  ...[...JOB_SITEMAP_CANTON_SLUGS].flatMap((canton) =>
+    ['en', 'de', 'fr'].map((locale) => `/sitemap-jobs-${canton}-${locale}.xml`)),
+].map((pathname) => [pathname, {
+  cdnKey: `/edge${pathname}`,
+  contentType: 'application/xml; charset=utf-8',
+  producer: 'jobs-fast',
+}]));
+
 export const EDGE_PUSHED_FILES = {
+  ...JOB_FAST_SITEMAP_ENTRIES,
   // Registered for CORRECTNESS, not just freshness (issue #4974). Measured on
   // the live site: the committed public/sitemap-blog.xml carries 3046 <url> and
   // 15230 <xhtml:link> hreflang alternates, while the copy served from the apex
@@ -1478,6 +1545,19 @@ export const EDGE_PUSHED_FILES = {
     producer: 'build',
   },
 };
+
+/** Resolve exact sitemap entries and numbered locale-shard parts. */
+export function resolveEdgePushedFileEntry(pathname) {
+  const exact = EDGE_PUSHED_FILES[pathname];
+  if (exact) return exact;
+  const match = /^\/sitemap-jobs-([a-z0-9-]+)-(en|de|fr)-(\d{3})\.xml$/u.exec(pathname);
+  if (!match || !JOB_SITEMAP_CANTON_SLUGS.has(match[1])) return null;
+  return {
+    cdnKey: `/edge${pathname}`,
+    contentType: 'application/xml; charset=utf-8',
+    producer: 'jobs-fast',
+  };
+}
 const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
 // Short TTL by design, and NOT a substitute for the purge below: the zone's
 // it-apex-html-cache Cache Rule (scripts/cf-locale-failover-setup.mjs) matches
@@ -1530,7 +1610,7 @@ export function pruneNewsSitemapToWindow(xml, nowMs) {
 // already serves this file today. An entry whose R2 object is absent is
 // therefore byte-identical in behavior to before this table existed.
 async function servePushedEdgeFile(pathname) {
-  const entry = EDGE_PUSHED_FILES[pathname];
+  const entry = resolveEdgePushedFileEntry(pathname);
   if (!entry) return null;
 
   const controller = new AbortController();
@@ -3529,7 +3609,12 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       const employerRedirect = await recoverEmployerProfileAlias(url, origin);
       if (employerRedirect) return employerRedirect;
       const headers = new Headers(resp.headers);
-      headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      const cachePolicy = determineCachePolicy(request, url);
+      if (cachePolicy) {
+        headers.set('Cache-Control', cachePolicy.cacheControl);
+      } else {
+        headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+      }
       storeLastGoodCopy(request, url, ctx, body, resp.headers);
       return new Response(body, { status: 200, statusText: resp.statusText, headers });
     }

@@ -193,6 +193,7 @@ describe('RC_TO_ENV keeps the switches the assisted-application runner reads fro
 describe('RC_TO_ENV keeps site-only Remote Config parameters on the site side', () => {
   it('maps every newsletter/Eventfrog key without introducing a client alias', () => {
     expect([...SITE_ONLY_RC_KEYS]).toEqual([
+      'JOBS_FAST_PUBLISH_ENABLED',
       'NEWSLETTER_SECRET',
       'NEWSLETTER_FROM',
       'NEWSLETTER_AC_SCHEME',

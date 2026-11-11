@@ -55,7 +55,11 @@ describe('nessun test NUOVO puo` leggere dati vivi', () => {
           + 'KNOWN_LIVE_DATA_TESTS in scripts/ci/live-data-test-guard.mjs spiegando perche\'.'
         : '',
     ).toEqual([]);
-  });
+    // `diffAgainstInventory` walks every test recursively. Keep its timeout
+    // aligned with the full-tree partition scan below: the assertion and
+    // inventory stay unchanged, while CI load cannot turn the valid scan into
+    // a default-15s false red.
+  }, 120_000);
 
   it('l`inventario non nomina test spariti o gia` riparati', () => {
     // Una voce fantasma e' peggio di nessuna voce: sembra debito tracciato e

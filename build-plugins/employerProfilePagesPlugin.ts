@@ -810,7 +810,12 @@ function breadcrumbLd(locale: Locale, slug: string, name: string): string {
   });
 }
 
-export function employerProfilePagesPlugin(rootDir: string): Plugin {
+export interface EmployerProfilePagesPluginOptions {
+  /** Resolve only these profile identities and publish their metadata signal without writing profile pages. */
+  metadataOnlySlugs?: readonly string[];
+}
+
+export function employerProfilePagesPlugin(rootDir: string, options: EmployerProfilePagesPluginOptions = {}): Plugin {
   return {
     name: 'employer-profile-pages',
     apply: 'build',
@@ -955,6 +960,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         resolveEmployerProfilesFlushed([]);
         return;
       }
+      const metadataOnlySlugs = options.metadataOnlySlugs === undefined
+        ? null
+        : new Set(options.metadataOnlySlugs.map((slug) => String(slug).trim()).filter(Boolean));
+      if (metadataOnlySlugs && metadataOnlySlugs.size !== options.metadataOnlySlugs?.length) {
+        throw new Error('[employer-profile-pages] metadataOnlySlugs must contain unique, non-empty slugs');
+      }
 
       // Company-keyed search demand, read ONCE for the whole emit. Empty on
       // every unknown — artifact absent (the normal state until the weekly
@@ -983,6 +994,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       for (const profile of profiles) {
         const slug = profile.slug;
         if (!slug) continue;
+        if (metadataOnlySlugs && !metadataOnlySlugs.has(slug)) continue;
         const group = (bySlug.get(slug) || [])
           .slice()
           .sort((a, b) =>
@@ -1161,6 +1173,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           }
           if (locale === 'it') employerJobCounts.set(slug, liveActive);
         }
+      }
+
+      if (metadataOnlySlugs) {
+        releaseJobsJson(rootDir);
+        resolveEmployerProfilesFlushed(emittedProfiles);
+        return;
       }
 
       // ── Release the jobs corpus: this loop was its last reader ─────────────

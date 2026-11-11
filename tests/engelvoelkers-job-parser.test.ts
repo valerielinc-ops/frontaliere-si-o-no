@@ -99,6 +99,12 @@ describe('Engel & Völkers parser', () => {
     expect(junior.description).not.toBe(senior.description);
   });
 
+  it('extracts applyUrl from __NEXT_DATA__ when present in Lever posting payload', () => {
+    const htmlWithApply = leverPosting('Senior', '5').replace('"content":', '"urls":{"apply":"https://jobs.eu.lever.co/engelvoelkers/123/apply"},"content":');
+    const result = parseEngelvoelkersDetailPage(htmlWithApply, 'fallback');
+    expect(result.applyUrl).toBe('https://jobs.eu.lever.co/engelvoelkers/123/apply');
+  });
+
   it('accepts Swiss licensee locations across cantons and rejects foreign locations', () => {
     expect(isEngelvoelkersSwissRelevant('Zürich, Switzerland')).toBe(true);
     expect(isEngelvoelkersSwissRelevant('Lugano, Switzerland')).toBe(true);

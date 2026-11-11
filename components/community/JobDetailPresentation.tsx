@@ -1,4 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+import { Users, ExternalLink } from 'lucide-react';
+import { getLinkedInPeopleSearchUrl } from '../../services/referralPeople';
 
 export const JOB_DETAIL_HEADER_CONTENT_CLASS = 'flex items-start gap-3 sm:gap-4';
 export const JOB_DETAIL_HEADER_LOGO_FRAME_CLASS = 'w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm';
@@ -72,4 +74,34 @@ export function JobDetailMetaPill({
    {children}
   </span>
  );
+}
+
+export interface JobDetailLinkedInPeopleButtonProps extends HTMLAttributes<HTMLAnchorElement> {
+  companyName: string;
+  linkedInUrl?: string | null;
+}
+
+export function JobDetailLinkedInPeopleButton({
+  companyName,
+  linkedInUrl,
+  className = '',
+  ...props
+}: JobDetailLinkedInPeopleButtonProps) {
+  const peopleUrl = getLinkedInPeopleSearchUrl(companyName, linkedInUrl);
+  if (!peopleUrl) return null;
+
+  return (
+    <a
+      {...props}
+      href={peopleUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 ${className}`}
+      aria-label={`Trova persone che lavorano in ${companyName} su LinkedIn`}
+    >
+      <Users className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+      <span>Trova colleghi su LinkedIn</span>
+      <ExternalLink className="w-3 h-3 text-slate-400 shrink-0" />
+    </a>
+  );
 }

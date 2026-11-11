@@ -30295,6 +30295,36 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'eteria-gioielleria-berta-serret',
+    category: 'novita',
+    date: '2026-11-11T10:30:00.000Z',
+    image: '/images/blog/article-eteria-gioielleria-berta-serret.webp',
+    hasCalculator: false,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'regime-fiscale-rendite-elvetiche',
+    category: 'fiscale',
+    date: '2026-11-11T12:22:02.452Z',
+    image: '/images/blog/article-regime-fiscale-rendite-elvetiche.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'revisione-tardoc-2027',
+    category: 'novita',
+    date: '2026-11-11T18:29:22.688Z',
+    image: '/images/blog/article-revisione-tardoc-2027.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
