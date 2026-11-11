@@ -8,6 +8,7 @@ import {
   IT_SHARD_GROUP_IDS,
   validateItShardGroupPlan,
 } from '../scripts/ci/it-shard-group-plan.mjs';
+import { packageItShardValidationBatches } from '../scripts/ci/package-it-shard-validation-batches.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SLUGS = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf8'));
@@ -139,6 +140,93 @@ describe('IT section shard group plan', () => {
       expect(failure).toBeDefined();
       expect(failure.status).toBe(2);
       expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('has an empty assigned section set');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects malformed required sections before rewriting validation batches', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-validation-batches-invalid-plan-'));
+    const planFile = path.join(temp, 'plan.json');
+    const outDir = path.join(temp, 'out');
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'keep.txt'), 'keep');
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: [false],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? [false] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(planFile, JSON.stringify(plan));
+
+    try {
+      expect(() => packageItShardValidationBatches({
+        planFile,
+        tarDir: path.join(temp, 'tars'),
+        outDir,
+      })).toThrow('requiredSections contains an invalid section key');
+      expect(fs.readFileSync(path.join(outDir, 'keep.txt'), 'utf8')).toBe('keep');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('fails final assembly when jq cannot read the required section set', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-assembly-jq-failure-'));
+    const runnerTemp = path.join(temp, 'runner');
+    const planDir = path.join(runnerTemp, 'it-publish-plan');
+    const rootParts = path.join(runnerTemp, 'it-publish-root');
+    const fakeBin = path.join(temp, 'bin');
+    fs.mkdirSync(planDir, { recursive: true });
+    fs.mkdirSync(rootParts, { recursive: true });
+    fs.mkdirSync(fakeBin, { recursive: true });
+
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: ['ticino'],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? ['ticino'] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(path.join(planDir, 'it-shard-group-plan.json'), JSON.stringify(plan));
+    fs.writeFileSync(path.join(planDir, 'locale-sitemap-manifest-it.json'), '{}\n');
+    fs.writeFileSync(path.join(rootParts, 'it-publish-root.tar.zst'), 'fixture');
+    fs.writeFileSync(path.join(fakeBin, 'jq'), '#!/bin/sh\nexit 1\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(fakeBin, 'zstd'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(fakeBin, 'tar'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+
+    try {
+      let failure: any;
+      try {
+        execFileSync('bash', ['scripts/ci/assemble-it-publish-root.sh'], {
+          cwd: ROOT,
+          env: {
+            ...process.env,
+            PATH: `${fakeBin}:${process.env.PATH}`,
+            RUNNER_TEMP: runnerTemp,
+          },
+          stdio: 'pipe',
+        });
+      } catch (error) {
+        failure = error;
+      }
+      expect(failure).toBeDefined();
+      expect(failure.status, String(failure.stderr)).toBe(1);
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('cannot read the required IT section set');
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).not.toContain('[it-publish] root extracted');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
     }

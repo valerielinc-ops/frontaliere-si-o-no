@@ -229,6 +229,8 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(groupSteps[pushIndex].env.SHARD_PUSH_VERIFY).toBe("${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}");
     expect(namedStep(groupSteps, 'Upload IT section group results and ok-markers')?.if).toBe('always()');
     expect(namedStep(groupSteps, 'Require IT section group and CDN gate success')?.if).toBe('always()');
+    const batchPackager = readFileSync(resolve(root, 'scripts/ci/package-it-shard-validation-batches.mjs'), 'utf8');
+    expect(batchPackager).toContain('validateItShardGroupPlan(plan)');
     const itGroupHelper = readFileSync(resolve(root, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
     expect(itGroupHelper).toContain('job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds');
     expect(itGroupHelper).toContain('timeout_seconds=$((available_seconds / (sections_remaining + 1)))');
