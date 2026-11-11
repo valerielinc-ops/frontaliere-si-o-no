@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-11-10T21:44:38.816Z",
+  "generatedAt": "2026-11-11T09:30:41.541Z",
   "total": 1,
   "discovered": 22,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 29948,
-  "avgDurationMs": 29948,
+  "durationMs": 28575,
+  "avgDurationMs": 28575,
   "durationHistory": [
-    29948
+    28575
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/2013/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:44:13.480Z",
+      "crawledAt": "2026-11-11T09:30:25.264Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "8730",
       "streetAddress": "Uznach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:44:13.480Z",
+      "validThrough": "2027-02-04T09:30:25.264Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

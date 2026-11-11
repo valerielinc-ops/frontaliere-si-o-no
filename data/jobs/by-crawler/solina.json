@@ -1,14 +1,14 @@
 {
   "crawlerKey": "solina",
-  "assembledAt": "2026-11-10T21:25:18.854Z",
-  "runId": "42902356222",
+  "assembledAt": "2026-11-11T09:16:25.479Z",
+  "runId": "42992907697",
   "jobs": [
     {
       "id": "solina-e0e02df7e063",
       "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "interno-in-stiftung-solina-standortubergreifend",
-        "en": "intern-in-stiftung-solina-standortubergreifend",
+        "en": "trainee-stiftung-solina-standortubergreifend",
         "de": "praktikant-in-solina-standortubergreifend",
         "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
@@ -35,7 +35,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:10.442Z",
+      "crawledAt": "2026-11-11T09:16:18.937Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
         "stagiaire-stagiaire-stiftung-solina-spiez",
         "praktikantin-praktikant-solina-spiez",
         "praktikant-in-solina-standortubergreifend",
-        "trainee-stiftung-solina-standortubergreifend"
+        "intern-in-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -77,7 +77,7 @@
         "en": [
           "praktikant-in-stiftung-solina-standortubergreifend",
           "intern-intern-stiftung-solina-spiez",
-          "trainee-stiftung-solina-standortubergreifend"
+          "intern-in-stiftung-solina-standortubergreifend"
         ],
         "de": [
           "praktikantin-praktikant-solina-standortubergreifend",
@@ -104,7 +104,7 @@
       },
       "streetAddress": "Standortübergreifend",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:10.442Z",
+      "validThrough": "2026-12-11T09:16:18.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -139,7 +139,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:10.063Z",
+      "crawledAt": "2026-11-11T09:16:18.531Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:10.063Z",
+      "validThrough": "2026-12-11T09:16:18.531Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -233,7 +233,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-8ph7l588",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:09.685Z",
+      "crawledAt": "2026-11-11T09:16:18.127Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:09.685Z",
+      "validThrough": "2026-12-11T09:16:18.127Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +311,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-43ghowzt",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:09.306Z",
+      "crawledAt": "2026-11-11T09:16:17.721Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:09.306Z",
+      "validThrough": "2026-12-11T09:16:17.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betreuung-dahbks3c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:08.928Z",
+      "crawledAt": "2026-11-11T09:16:17.314Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:08.928Z",
+      "validThrough": "2026-12-11T09:16:17.314Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -495,7 +495,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-x959hdzq",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:08.550Z",
+      "crawledAt": "2026-11-11T09:16:16.907Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -538,7 +538,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:25:08.550Z",
+      "validThrough": "2026-12-17T09:16:16.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -572,7 +572,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-fax39qeg",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:08.172Z",
+      "crawledAt": "2026-11-11T09:16:16.499Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -629,7 +629,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:08.172Z",
+      "validThrough": "2026-12-11T09:16:16.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -664,7 +664,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-pn26ljh7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:07.797Z",
+      "crawledAt": "2026-11-11T09:16:16.091Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -731,7 +731,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:07.797Z",
+      "validThrough": "2026-12-11T09:16:16.091Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +766,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-tb2xa9yv",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:07.417Z",
+      "crawledAt": "2026-11-11T09:16:15.686Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -894,7 +894,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:07.417Z",
+      "validThrough": "2026-12-11T09:16:15.686Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -929,7 +929,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-pc99jrf8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:07.034Z",
+      "crawledAt": "2026-11-11T09:16:15.279Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -988,7 +988,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:07.034Z",
+      "validThrough": "2026-12-11T09:16:15.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1023,7 +1023,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:06.655Z",
+      "crawledAt": "2026-11-11T09:16:14.871Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1073,7 +1073,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:06.655Z",
+      "validThrough": "2026-12-11T09:16:14.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1108,7 +1108,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-f2mc96am",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:06.273Z",
+      "crawledAt": "2026-11-11T09:16:14.463Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1157,7 +1157,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:06.273Z",
+      "validThrough": "2026-12-11T09:16:14.463Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1192,7 +1192,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-betreuung-3ca3t28y",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:05.893Z",
+      "crawledAt": "2026-11-11T09:16:14.054Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1276,7 +1276,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:05.893Z",
+      "validThrough": "2026-12-11T09:16:14.054Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1310,7 +1310,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachperson-fachperson-gesundheit-nachtdienst-ja0t5x3v",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:05.513Z",
+      "crawledAt": "2026-11-11T09:16:13.645Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1367,7 +1367,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:05.513Z",
+      "validThrough": "2026-12-11T09:16:13.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1401,7 +1401,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:05.134Z",
+      "crawledAt": "2026-11-11T09:16:13.238Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1450,7 +1450,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:05.134Z",
+      "validThrough": "2026-12-11T09:16:13.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1485,7 +1485,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-qo6r5vk5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:04.753Z",
+      "crawledAt": "2026-11-11T09:16:12.827Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1544,7 +1544,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:25:04.753Z",
+      "validThrough": "2026-12-11T09:16:12.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1579,7 +1579,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:04.373Z",
+      "crawledAt": "2026-11-11T09:16:12.421Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1639,7 +1639,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:04.373Z",
+      "validThrough": "2026-12-11T09:16:12.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1649,7 +1649,7 @@
         "it": "vice-responsabile-dell-area-abitativa-stiftung-solina-steffisburg-ziegelei",
         "en": "deputy-residential-areamanager-stiftung-solina-steffisburg-ziegelei",
         "de": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-        "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
+        "fr": "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1674,7 +1674,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-embpvyh4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:03.993Z",
+      "crawledAt": "2026-11-11T09:16:12.010Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1696,7 +1696,7 @@
       "previousSlugs": [
         "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
         "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-        "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
+        "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1704,7 +1704,7 @@
         ],
         "fr": [
           "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
-          "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
+          "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:36.820Z",
@@ -1723,7 +1723,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:25:03.993Z",
+      "validThrough": "2026-12-11T09:16:12.010Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1758,7 +1758,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-6wryvsu8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:03.611Z",
+      "crawledAt": "2026-11-11T09:16:11.603Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1801,7 +1801,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:25:03.611Z",
+      "validThrough": "2026-12-15T09:16:11.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1836,7 +1836,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-15lpybev",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:03.221Z",
+      "crawledAt": "2026-11-11T09:16:11.195Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1879,7 +1879,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:25:03.221Z",
+      "validThrough": "2026-12-15T09:16:11.195Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1914,7 +1914,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-jvvhh4o6",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:02.834Z",
+      "crawledAt": "2026-11-11T09:16:10.789Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1957,7 +1957,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:25:02.834Z",
+      "validThrough": "2026-12-17T09:16:10.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1991,7 +1991,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/dipl-physiotherapeutin-hvg2ob2q",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:02.421Z",
+      "crawledAt": "2026-11-11T09:16:10.379Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2042,7 +2042,7 @@
       },
       "streetAddress": "Standortübergreifend",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:25:02.421Z",
+      "validThrough": "2026-12-24T09:16:10.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2077,7 +2077,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/hotellerie-gastronomie/mitarbeiterin-hauswirtschaft-5mlj7z2k",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:02.011Z",
+      "crawledAt": "2026-11-11T09:16:09.953Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2137,7 +2137,7 @@
       },
       "streetAddress": "Stockhornstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-28T21:25:02.011Z",
+      "validThrough": "2026-12-28T09:16:09.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2171,7 +2171,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleitung-uffrmq4l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:01.628Z",
+      "crawledAt": "2026-11-11T09:16:09.544Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2220,7 +2220,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:25:01.628Z",
+      "validThrough": "2027-01-06T09:16:09.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2254,7 +2254,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-c1pzot5c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:01.246Z",
+      "crawledAt": "2026-11-11T09:16:09.134Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2302,7 +2302,7 @@
       },
       "streetAddress": "Steffisburg Ziegelei",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:25:01.246Z",
+      "validThrough": "2027-01-17T09:16:09.134Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2336,7 +2336,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/weitere-bereiche/fuehrungsverantwortlicher-front-office-81b6pn15",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:00.863Z",
+      "crawledAt": "2026-11-11T09:16:08.723Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2383,7 +2383,7 @@
       },
       "streetAddress": "Standortübergreifend",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:25:00.863Z",
+      "validThrough": "2027-01-24T09:16:08.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2418,7 +2418,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/aktivierungsfachfrau-aktivierungsfachmann-hf-cunjr3o2",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:25:00.428Z",
+      "crawledAt": "2026-11-11T09:16:08.298Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2467,7 +2467,7 @@
       },
       "streetAddress": "Steffisburg Kirchbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:25:00.428Z",
+      "validThrough": "2027-02-03T09:16:08.298Z",
       "validThroughSource": "last-observed-window"
     }
   ]

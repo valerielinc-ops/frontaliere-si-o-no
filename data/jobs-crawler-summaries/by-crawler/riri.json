@@ -1,7 +1,7 @@
 {
   "key": "riri",
   "label": "Riri Group",
-  "generatedAt": "2026-11-10T21:41:16.231Z",
+  "generatedAt": "2026-11-11T09:27:14.842Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,63 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6013,
-  "avgDurationMs": 6013,
+  "durationMs": 4808,
+  "avgDurationMs": 4808,
   "durationHistory": [
-    6013
+    4808
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "riri-b82e4b900fa3",
-      "slug": "receptionist-riri-group-mendrisio",
-      "company": "Riri Group",
-      "companyKey": "riri-group",
-      "companyDomain": "riri.com",
-      "title": "Receptionist",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6850",
-      "category": "Altro",
-      "sector": "Manifatturiero / Moda",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
-      "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
-      "source": "Riri Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-11-09T09:37:13.330Z",
-      "firstSeenAt": "2026-09-09T23:09:36.396Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Mendrisio",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:37:13.330Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "riri-83c0db6110e6",
@@ -99,7 +52,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Marketing-Specialist-TI-6850/1454662233/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T21:40:48.205Z",
+      "crawledAt": "2026-11-11T09:26:52.273Z",
       "firstSeenAt": "2026-11-05T21:36:17.966Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -107,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:40:48.205Z",
+      "validThrough": "2027-02-04T09:26:52.273Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -118,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }
