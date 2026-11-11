@@ -816,9 +816,11 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // Some of those holds are answered now (a platform rule, the CV, the decision engine: owner directive
       // 2026-11-10, also for the orders written before it) while the rest, a document for example, is still
       // the candidate's: the answered ones drop and the wait goes on for the rest, with its own clock and no
-      // e-mail. Only holds of this draft, and never one that was not held before.
+      // e-mail. Only holds of this draft, and never one that was not held before. The same for a portal step
+      // waiting for the candidate (needs_candidate_action): its answered questions drop, and with none left the
+      // release below resumes the submission.
       if (
-        state === 'candidate_review'
+        (state === 'candidate_review' || state === 'needs_candidate_action')
         && current.heldBy.length > 0
         && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
         && candidateHoldsBelongToDraft(current.heldBy, draft, flow)
