@@ -28,6 +28,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { JobCvFitMatcher } from '@/components/community/JobCvFitMatcher';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
@@ -11430,6 +11431,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
  </JobDetailHeaderCard>
+
+ <JobCvFitMatcher
+  jobTitle={selectedJobTitle}
+  requirements={Array.isArray(requirements) ? requirements : []}
+  onDownloadBilingualCv={() => {
+   window.open(`/api/assisted-application/download-cv?jobId=${encodeURIComponent(selectedJob.id)}&bilingual=true`, '_blank');
+  }}
+ />
 
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
