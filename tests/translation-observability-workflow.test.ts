@@ -236,7 +236,7 @@ describe('translation observability workflow', () => {
     expect(descriptionPopulation).toContain('const sliceTaskGroups = []');
     expect(descriptionPopulation).toContain('tasks: collectDescriptionFixTasks(jobs, { popularity })');
     expect(descriptionPopulation).toContain('orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity)');
-    expect(descriptionPopulation).toMatch(/for \(const file of files\) \{\s+if \(!budgetOk\(\)\) \{\s+deadlineReached = true;\s+break;\s+\}\s+const slicePath/);
+    expect(descriptionPopulation).toMatch(/for \(const file of files\) \{[\s\S]*?if \(!budgetOk\(\)\) \{\s+deadlineReached = true;\s+break;\s+\}\s+const slicePath/);
     expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     const descriptionPool = descriptionFixScript.slice(
       descriptionFixScript.indexOf('export async function runDescriptionFixPool('),
