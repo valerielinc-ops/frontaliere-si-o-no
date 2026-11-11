@@ -194,7 +194,8 @@
         "kundenberater-in-100-in-sursee-concordia-sursee-303eb175",
         "kundenberater-in-100-in-sursee-concordia-sursee-75b7940a",
         "kundenberater-in-100-in-sursee-concordia-sursee-344e6c3b",
-        "kundenberater-in-100-in-sursee-concordia-sursee-fabe70f7"
+        "kundenberater-in-100-in-sursee-concordia-sursee-fabe70f7",
+        "kundenberater-in-100-in-sursee-concordia-sursee"
       ],
       "fr": [
         "kundenberater-in-100-in-sursee-concordia-sursee-303eb175",
@@ -275,7 +276,8 @@
         "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen-3792bf83",
         "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen-c7f9607f",
         "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen-8019979f",
-        "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen-0de4e940"
+        "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen-0de4e940",
+        "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen"
       ]
     },
     "postalCode": "6022",
@@ -4218,16 +4220,23 @@
     "slugByLocale": {
       "it": "consulente-clienti-100-a-zurigo-concordia-zurich",
       "en": "customer-advisor-100-in-zurich-concordia-zurich",
-      "de": "kundenberater-in-100-in-zurich-concordia-zurich",
+      "de": "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2",
       "fr": "conseiller-client-100-a-zurich-concordia-zurich"
     },
     "sector": "Assicurazioni",
     "expiredAt": "2026-10-12T09:20:14.943Z",
-    "previousSlugs": [
-      "kundenberater-in-100-in-zurich-concordia-zurich"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2",
+        "kundenberater-in-100-in-zurich-concordia-zurich"
+      ],
+      "en": [
+        "kundenberater-in-100-in-zurich-concordia-zurich"
+      ],
+      "de": [
+        "kundenberater-in-100-in-zurich-concordia-zurich-8e9190a2"
+      ],
+      "fr": [
         "kundenberater-in-100-in-zurich-concordia-zurich"
       ]
     },
@@ -4238,7 +4247,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/b127bf65-4aa2-4233-a37a-c65fe2090b77",
-    "firstSeenAt": "2026-08-31T17:10:04.500Z"
+    "firstSeenAt": "2026-08-31T17:10:04.500Z",
+    "previousSlugs": [
+      "kundenberater-in-100-in-zurich-concordia-zurich"
+    ]
   },
   {
     "slug": "consulente-clienti-f-m-nb-100-in-nyon-concordia-nyon",
