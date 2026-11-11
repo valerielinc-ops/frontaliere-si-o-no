@@ -1222,15 +1222,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // Unpredicted fields wait for bounded operator escalation; a candidate
       // is never asked to approve a field the review page cannot show.
       if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
-        const visibleQuestions = new Set((flags.candidate || []).map(String));
-        const unpredictedFields = unresolvedQuestions
-          .filter((id) => !visibleQuestions.has(id))
-          .map((id) => detailsById.get(id) || { id });
-        if (unpredictedFields.length) {
-          Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
-        } else {
-          effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
-        }
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;
