@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-11-10T21:53:46.071Z",
-  "runId": "42903591771",
+  "assembledAt": "2026-11-11T09:40:57.383Z",
+  "runId": "42993976021",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -35,7 +35,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:42.021Z",
+      "crawledAt": "2026-11-11T09:40:50.480Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:53:42.021Z",
+      "validThrough": "2026-12-11T09:40:50.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:41.886Z",
+      "crawledAt": "2026-11-11T09:40:50.339Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:53:41.886Z",
+      "validThrough": "2026-12-11T09:40:50.339Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -191,7 +191,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:41.756Z",
+      "crawledAt": "2026-11-11T09:40:50.209Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:53:41.756Z",
+      "validThrough": "2026-12-11T09:40:50.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:41.623Z",
+      "crawledAt": "2026-11-11T09:40:50.048Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:53:41.623Z",
+      "validThrough": "2026-12-11T09:40:50.048Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-60-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:41.490Z",
+      "crawledAt": "2026-11-11T09:40:49.908Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -405,7 +405,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:53:41.490Z",
+      "validThrough": "2027-01-03T09:40:49.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +440,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:53:41.223Z",
+      "crawledAt": "2026-11-11T09:40:49.631Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -483,7 +483,7 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:53:41.223Z",
+      "validThrough": "2027-01-03T09:40:49.631Z",
       "validThroughSource": "last-observed-window"
     }
   ]
