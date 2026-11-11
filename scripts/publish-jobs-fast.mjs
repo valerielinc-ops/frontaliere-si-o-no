@@ -1339,6 +1339,7 @@ export async function runJobsFastPublish({
     await jobsSeoPagesPlugin(rootDir, {
       activeJobIds: batchIds,
       fastLaneVisibleJobIdsByLocale,
+      fastLaneDistDir: distDir,
       fastLane: true,
       fastLaneResultFile: receiptFile,
     }).closeBundle();

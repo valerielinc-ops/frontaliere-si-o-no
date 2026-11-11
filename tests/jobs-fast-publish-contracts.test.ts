@@ -88,4 +88,25 @@ describe("jobs fast-publish HTML asset contract", () => {
       "filterFastLaneHubInventory(cantonInventory, visibleIds)",
     );
   });
+
+  it("renders into the fast publisher's isolated staging directory", () => {
+    const renderer = readFileSync(
+      new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),
+      "utf8",
+    );
+    const fastPublisher = readFileSync(
+      new URL("../scripts/publish-jobs-fast.mjs", import.meta.url),
+      "utf8",
+    );
+
+    expect(renderer).toContain("fastLaneDistDir?: string;");
+    expect(renderer).toContain("!options.fastLaneDistDir");
+    expect(renderer).toContain("np.resolve(rootDir, options.fastLaneDistDir)");
+    expect(renderer).toContain("const bundleDistDir = options.fastLane");
+    expect(renderer).toContain("? np.resolve(rootDir, 'dist')");
+    expect(renderer).toContain("const spaBundle = resolveSpaBundle(bundleDistDir);");
+    expect(renderer).toContain("asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)");
+    expect(renderer).toContain('src="/assets/${entryJs}"');
+    expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
+  });
 });
