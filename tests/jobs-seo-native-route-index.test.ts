@@ -554,9 +554,9 @@ describe('native job route ownership with interned prefixes', () => {
         // from tracking by the compact historical lookup.
         const expectedKeys = mode === 'active'
           ? 6774
-          : mode === 'in-place-append' && process.env.JOBS_SEO_NATIVE_ROUTE_INDEX !== 'legacy'
-            ? 18972
-            : 67764;
+          : mode === 'in-place-append' && process.env.JOBS_SEO_NATIVE_ROUTE_INDEX === 'legacy'
+            ? 67764
+            : 18972;
         expect(sample.keys).toBe(expectedKeys);
         console.log('NATIVE_ROUTE_HEAP_SAMPLE', sample);
         samples.push(sample);
