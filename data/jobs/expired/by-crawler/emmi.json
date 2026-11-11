@@ -27772,16 +27772,23 @@
     "slugByLocale": {
       "it": "betriebsmitarbeiter-in-produktion-emmi-landquart",
       "en": "production-operations-officer-emmi-landquart-graubunden",
-      "de": "betriebsmitarbeiter-in-produktion-emmi-ch",
+      "de": "betriebsmitarbeiter-in-produktion-emmi-ch-77fda59c",
       "fr": "employeoperationnel-en-production-emmi-landquart-graubunden"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-10-06T09:25:13.522Z",
-    "previousSlugs": [
-      "betriebsmitarbeiter-in-produktion-emmi-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "betriebsmitarbeiter-in-produktion-emmi-ch-77fda59c",
+        "betriebsmitarbeiter-in-produktion-emmi-ch"
+      ],
+      "en": [
+        "betriebsmitarbeiter-in-produktion-emmi-ch"
+      ],
+      "de": [
+        "betriebsmitarbeiter-in-produktion-emmi-ch-77fda59c"
+      ],
+      "fr": [
         "betriebsmitarbeiter-in-produktion-emmi-ch"
       ]
     },
@@ -27792,7 +27799,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmitarbeiter-in-produktion/87f848fe-fbfd-414b-a539-bdf1d0edcaef",
-    "firstSeenAt": "2026-09-26T13:56:43.654Z"
+    "firstSeenAt": "2026-09-26T13:56:43.654Z",
+    "previousSlugs": [
+      "betriebsmitarbeiter-in-produktion-emmi-ch"
+    ]
   },
   {
     "slug": "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen-b9d19b0c",
@@ -28570,16 +28580,14 @@
     "slugByLocale": {
       "it": "capo-turno-in-glace-1-2-turno-emmi-ostermundigen-bern",
       "en": "shift-leader-in-glace-1-2-shift-emmi-ostermundigen-bern",
-      "de": "schichtfuhrer-in-glace-1-2-schicht-emmi-ch",
+      "de": "schichtfuhrer-in-glace-1-2-schicht-emmi-ch-ca47b368",
       "fr": "chef-de-quart-dans-glace-1-2-quart-emmi-ostermundigen-bern"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-09-22T00:03:25.601Z",
-    "previousSlugs": [
-      "schichtfuhrer-in-glace-1-2-schicht-emmi-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch-ca47b368",
         "schichtfuhrer-in-glace-1-2-schicht-emmi-ch"
       ],
       "en": [
@@ -28587,6 +28595,9 @@
       ],
       "fr": [
         "schichtfuhrer-in-glace-1-2-schicht-emmi-ch"
+      ],
+      "de": [
+        "schichtfuhrer-in-glace-1-2-schicht-emmi-ch-ca47b368"
       ]
     },
     "postalCode": "3072",
@@ -28596,7 +28607,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/schichtfuehrer-in-glace-1-2-schicht/7a419c95-c22e-4ce8-b2af-5ed72e65529f",
-    "firstSeenAt": "2026-07-31T11:58:33.627Z"
+    "firstSeenAt": "2026-07-31T11:58:33.627Z",
+    "previousSlugs": [
+      "schichtfuhrer-in-glace-1-2-schicht-emmi-ch"
+    ]
   },
   {
     "slug": "leadership-development-specialista-emmi-luzern",
@@ -32530,16 +32544,23 @@
     "slugByLocale": {
       "it": "gestore-dell-impianto-in-uht-past-emmi-ostermundigen",
       "en": "plant-manager-uht-past-emmi-ostermundigen",
-      "de": "anlagenfuhrer-in-uht-past-emmi-ch",
+      "de": "anlagenfuhrer-in-uht-past-emmi-ch-f3cd8f3d",
       "fr": "conducteur-d-installation-en-uht-passe-emmi-ostermundigen"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-07-15T12:11:04.927Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-uht-past-emmi-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "anlagenfuhrer-in-uht-past-emmi-ch-f3cd8f3d",
+        "anlagenfuhrer-in-uht-past-emmi-ch"
+      ],
+      "en": [
+        "anlagenfuhrer-in-uht-past-emmi-ch"
+      ],
+      "de": [
+        "anlagenfuhrer-in-uht-past-emmi-ch-f3cd8f3d"
+      ],
+      "fr": [
         "anlagenfuhrer-in-uht-past-emmi-ch"
       ]
     },
@@ -32550,7 +32571,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-uht-past/4c743be1-45a3-4aae-b3f8-060531a04ca1",
-    "firstSeenAt": "2026-06-10T07:51:39.206Z"
+    "firstSeenAt": "2026-06-10T07:51:39.206Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-uht-past-emmi-ch"
+    ]
   },
   {
     "slug": "operatore-macchine-confezionatrici-uht-past-emmi-ostermundigen",
