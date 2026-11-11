@@ -212,6 +212,11 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain("import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';");
     expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
+    const titlePopulation = titleFixScript.slice(
+      titleFixScript.indexOf('// Discover the whole queue before calling the cascade.'),
+      titleFixScript.indexOf('candidates.sort('),
+    );
+    expect(titlePopulation).toMatch(/for \(const file of files\) \{[\s\S]*?if \(!budgetOk\(\)\) \{\s+collectionDeadlineReached = true;\s+break;\s+\}\s+const slicePath/);
 
     const pool = titleFixScript.slice(titleFixScript.indexOf('export function runTitleFixCandidatePool'));
     expect(pool.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
