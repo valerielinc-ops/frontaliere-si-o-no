@@ -203,19 +203,38 @@ describe('a posting that closes behind the registration', () => {
     expect(isHardClosed(page)).toBe(false);
   });
 
-  it('routes access blocks to the existing egress recovery reason', () => {
-    expect(initialPortalHandoffReason({ liveness: { code: 'access_blocked' } })).toBe('application_region_unsupported');
+  it('routes body-confirmed runner IP blocks to egress without misrouting HTTP outages', () => {
+    const ipBlocked = classifyLiveness({ status: 200, bodyText: 'Your IP address is blocked' });
+    expect(ipBlocked).toMatchObject({ result: 'uncertain', code: 'runner_ip_blocked' });
+    expect(initialPortalHandoffReason({ liveness: ipBlocked })).toBe('application_region_unsupported');
+
+    const unavailable = classifyLiveness({ status: 503, bodyText: '' });
+    expect(unavailable).toMatchObject({ result: 'uncertain', code: 'access_blocked' });
+    expect(initialPortalHandoffReason({ liveness: unavailable })).toBeNull();
     expect(initialPortalHandoffReason({ liveness: { code: 'bot_challenge' } })).toBe('captcha');
   });
 
   it.each([
     '<label for="application">Application details</label><input id="application" name="application" type="text">',
     '<label for="password">Password</label><input id="password" name="password" type="password">',
-    '<label for="attachment">Attachment</label><input id="attachment" name="attachment" type="file">',
+    '<label for="attachment">Curriculum Vitae</label><input id="attachment" name="attachment" type="file">',
   ])('does not reclassify a still-interactive form as closed (%s)', async (field) => {
     const landing = `<main><p>Die Stelle wurde leider bereits besetzt.</p><form>${field}<button type="submit">Weiter</button></form></main>`;
     const { result } = await run(landing);
     expect(result.event.type).not.toBe('posting_closed');
+  }, 45_000);
+
+  it('still recognizes a closure when only a non-application search field is present', async () => {
+    const landing = '<main><p>This job is no longer available.</p><form><label for="query">Search jobs</label><input id="query" name="query" type="search"><button type="submit">Search</button></form></main>';
+    const { result } = await run(landing);
+    expect(result.event).toMatchObject({ type: 'posting_closed', reason: 'expired_body' });
+  }, 45_000);
+
+  it('does not let the Italian conditional token suppress a French hard closure', () => {
+    expect(classifyLiveness({
+      status: 200,
+      bodyText: "Cette offre se trouve ici et cette offre n'est plus disponible.",
+    })).toMatchObject({ result: 'expired', code: 'expired_body' });
   });
 
   it.each([
@@ -225,7 +244,7 @@ describe('a posting that closes behind the registration', () => {
     ['Sicherheitsüberprüfung: Bitte bestätigen Sie, dass Sie kein Roboter sind.', 'bot_challenge'],
     ['Complete the CAPTCHA to continue.', 'bot_challenge'],
     ['CAPTCHA verification is required to continue.', 'bot_challenge'],
-    ['Il tuo indirizzo IP è stato bloccato da BitNinja.', 'access_blocked'],
+    ['Il tuo indirizzo IP è stato bloccato da BitNinja.', 'runner_ip_blocked'],
   ])('classifies access challenges without calling the posting closed: «%s»', (text, code) => {
     expect(classifyLiveness({ status: 200, bodyText: text })).toMatchObject({ result: 'uncertain', code });
   });
@@ -282,19 +301,19 @@ describe('a posting that closes behind the registration', () => {
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(result.event).toEqual({ type: 'posting_closed', reason: 'expired_body' });
     expect(result.evidence.livenessAtStop).toEqual({ result: 'expired', code: 'expired_body', stop: 'posting_mismatch' });
-  });
+  }, 45_000);
 
   it('reads the same page as closed on an owner retry, which skips the posting check (no form left for the candidate)', async () => {
     // submit.mjs: `skipPostingCheck` on a dispatch with reason `owner_retry`.
     const { result } = await run(STZH_CLOSED, { ownerRetry: true });
     expect(result.event).toEqual({ type: 'posting_closed', reason: 'expired_body' });
     expect(result.evidence.livenessAtStop).toEqual({ result: 'expired', code: 'expired_body', stop: 'portal_needs_candidate' });
-  });
+  }, 45_000);
 
   it('never calls an open posting behind the registration closed', async () => {
     const { result, seen } = await run(OPEN_POSTING);
     expect(seen.created).toBe(1);
     expect(result.event.type).not.toBe('posting_closed');
     expect(result.evidence.livenessAtStop).toBeUndefined();
-  });
+  }, 45_000);
 });

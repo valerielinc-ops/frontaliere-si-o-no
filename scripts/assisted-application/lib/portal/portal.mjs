@@ -1903,7 +1903,7 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
  * handoff; a denied IP takes the existing egress recovery lane.
  */
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
-  if (liveness?.code === 'access_blocked') return 'application_region_unsupported';
+  if (liveness?.code === 'runner_ip_blocked') return 'application_region_unsupported';
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
@@ -8463,6 +8463,24 @@ const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_p
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
 // (the flow notifies and refunds it), not a page to teach.
 const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
+const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
+
+function isApplicationOwnedPortalField(field) {
+  const fieldText = [
+    field?.label,
+    field?.name,
+    field?.id,
+    field?.context,
+    field?.section,
+    field?.applicationQuestion,
+  ].filter(Boolean).join(' ');
+  const explicitApplicationField = APPLICATION_CONTROL_RE.test(fieldText)
+    || isCvFileField(field)
+    || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(fieldText)
+    || (isFileField(field) && field.required === true);
+  if (explicitApplicationField) return true;
+  return !PORTAL_AUTH_FIELD_RE.test(fieldText) && APPLICATION_IDENTITY_FIELD_RE.test(fieldText);
+}
 
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
@@ -8522,7 +8540,8 @@ export async function submitViaPortal(ctx) {
     if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
       const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
       const formFields = Array.isArray(currentSnapshot?.fields) ? currentSnapshot.fields : [];
-      const applicationFormVisible = currentSnapshot?.passwordVisible === true || formFields.length > 0;
+      const applicationFormVisible = currentSnapshot?.passwordVisible === true
+        || formFields.some(isApplicationOwnedPortalField);
       if (!applicationFormVisible) {
         const applyControls = [
           ...(currentSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
@@ -8532,6 +8551,7 @@ export async function submitViaPortal(ctx) {
           finalUrl: page.url(),
           bodyText: await pageText(page).catch(() => ''),
           applyControls,
+          locale: ctx.language,
         });
         if (isHardClosed(current)) {
           evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
@@ -8685,6 +8705,7 @@ export async function submitViaPortal(ctx) {
       finalUrl: page.url(),
       bodyText: initialPageText,
       applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
+      locale: ctx.language,
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
