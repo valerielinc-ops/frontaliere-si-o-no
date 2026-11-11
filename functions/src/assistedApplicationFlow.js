@@ -66,6 +66,26 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
+// instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
+export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
+
+/**
+ * Gestisce l'escalation immediata per campi ATS non previsti a runtime.
+ * Imposta lo stato a operator_expedited_review con scadenza a 4 ore.
+ * @param {object} flow
+ * @param {object} event
+ * @returns {object}
+ */
+export function handleUnresolvedAtsQuestions(flow, event) {
+  return {
+    ...flow,
+    state: 'operator_expedited_review',
+    heldReason: 'unpredicted_ats_field',
+    pendingFields: event?.missingFields || [],
+    deadlineAt: new Date(Date.now() + URGENT_FIELD_DISPATCH_TIMEOUT_MS).toISOString()
+  };
+}
 // Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
 // portal pages have a bounded repair window; definite infrastructure outages
 // stay in the normal queue with a capped delay until the posting closes.
