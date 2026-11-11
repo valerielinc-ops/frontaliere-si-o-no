@@ -29,6 +29,8 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { advancedToFinalReview } from './final-review.mjs';
+export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
@@ -6641,16 +6643,27 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       } catch {
         plan = null;
       }
-      if (plan?.missingRequired.length) {
-        const unresolved = [];
-        const recoveredActions = [...plan.actions];
-        for (const missing of plan.missingRequired) {
-          const field = rowFields.find((item) => item.id === missing.fieldId);
+      if (plan) {
+        const actions = Array.isArray(plan.actions) ? plan.actions : [];
+        const missingRequired = Array.isArray(plan.missingRequired) ? plan.missingRequired : [];
+        const profileActions = new Map();
+        for (const field of rowFields) {
           const answer = profileEntryAnswer(entry, kind, field);
-          if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
-          else unresolved.push(missing);
+          if (!answer) continue;
+          profileActions.set(field.id, {
+            ...actions.find((action) => action.fieldId === field.id),
+            fieldId: field.id,
+            action: field.options?.length ? 'select' : 'fill',
+            ...answer,
+            document: 'none',
+            evidence: '',
+          });
         }
-        plan = { ...plan, actions: recoveredActions, missingRequired: unresolved };
+        plan = {
+          ...plan,
+          actions: [...actions.filter((action) => !profileActions.has(action.fieldId)), ...profileActions.values()],
+          missingRequired: missingRequired.filter((missing) => !profileActions.has(missing.fieldId)),
+        };
       }
       const cancel = async () => {
         current = await extractFields(page);
@@ -7649,28 +7662,46 @@ export function urlConfirms(url, snapshot, context = {}) {
  * Apply opened /ApplicationReview «please select Submit to finalise your
  * application»). The portal itself states that nothing was submitted yet.
  */
-export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
-  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
-  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
-}
-
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
+  let lastSnapshot = null;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     // The portal says it did not send: nothing left, by its own word.
-    if (REFUSED_RE.test(text)) return 'refused';
+    if (REFUSED_RE.test(text)) return { outcome: 'refused', snapshot: lastSnapshot };
     // Refusal takes precedence when an error page retains generic thank-you copy.
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
-    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
-    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
-    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
-    if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
+    if (snapshot) lastSnapshot = { ...snapshot, text, url: page.url() };
+    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
+    if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
+    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return { outcome: 'validation', snapshot: lastSnapshot };
   }
-  return 'ambiguous';
+  return { outcome: 'ambiguous', snapshot: lastSnapshot };
+}
+
+function finalReviewEvidenceSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot.text !== 'string') return null;
+  return {
+    url: String(snapshot.url || ''),
+    text: snapshot.text,
+    protocol: snapshot.protocol || null,
+    errors: (snapshot.errors || []).length ? ['observed'] : [],
+    fields: (snapshot.fields || []).map(field => ({
+      inputType: field?.inputType || '',
+      disabled: Boolean(field?.disabled),
+      chrome: Boolean(field?.chrome),
+      invalid: field?.invalid === true,
+    })).slice(0, 120),
+    buttons: (snapshot.buttons || []).map(button => ({
+      text: String(button?.text || '').slice(0, 160),
+      disabled: Boolean(button?.disabled),
+      chrome: Boolean(button?.chrome),
+    })).slice(0, 80),
+  };
 }
 
 // Forms that can be read without creating an account or sending an
@@ -9812,6 +9843,7 @@ export async function submitViaPortal(ctx) {
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
+      evidence.submissionUrl = finalUrl;
       await diagnostics.beforeSubmit(page);
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
@@ -9848,12 +9880,14 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }
       await clearActiveFinalFormGuard();
-      const outcome = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
+      evidence.afterSubmitSnapshot = finalReviewEvidenceSnapshot(observed.snapshot);
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
         // The application went, and with it the account its form asked a password for.

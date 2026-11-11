@@ -5,6 +5,7 @@
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
+import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
 import { decisionAnswerFor, isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
 import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
@@ -135,6 +136,7 @@ export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
+  const historyContext = isWorkHistoryContext(question);
   const privacyRepresentations = [question?.question, question?.label, question?.applicationQuestion]
     .filter(value => typeof value === 'string' && value.trim());
   const supplementalPrivacyLabels = Array.isArray(question?.labels)
@@ -155,6 +157,7 @@ export function operationalQuestionTopic(question) {
   if (RETENTION_ACTION.test(retentionFolded) && RETENTION_DATA.test(retentionFolded) && RETENTION_TIME.test(retentionFolded)) {
     return 'application_data_retention';
   }
+  if (historyContext && NOTICE.test(text)) return null;
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
   const workloadPrompt = [
@@ -164,6 +167,7 @@ export function operationalQuestionTopic(question) {
   ].filter(value => typeof value === 'string' && value.trim())
     // A portal's required marker («* (required)») is not a workload requirement.
     .map(value => value.replace(/\*?\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*/gi, ' ')).join(' ');
+  if (historyContext && isPreferredWorkloadQuestion(workloadPrompt)) return null;
   // A percentage preference fills a percentage field; «available at 80%?» (yes/no) asks a fixed pensum instead.
   if (isPreferredWorkloadQuestion(workloadPrompt)
     && !['yes_no', 'checkbox', 'boolean'].includes(question?.type || question?.kind)) return 'preferred_workload';
