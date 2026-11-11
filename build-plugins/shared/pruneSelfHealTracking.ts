@@ -4,10 +4,12 @@ export function pruneSelfHealTracking<TPaths extends Readonly<Record<string, str
   emittedLocales: readonly string[],
   isPathClaimed: (relativePath: string) => boolean,
 ): { pruned: number; retained: number } {
-  const slugs = Object.keys(tracking);
+  let visited = 0;
   let pruned = 0;
 
-  for (const slug of slugs) {
+  for (const slug in tracking) {
+    if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+    visited += 1;
     const paths = tracking[slug];
     let hasUnclaimedEmittedPath = false;
 
@@ -23,5 +25,5 @@ export function pruneSelfHealTracking<TPaths extends Readonly<Record<string, str
     pruned += 1;
   }
 
-  return { pruned, retained: slugs.length - pruned };
+  return { pruned, retained: visited - pruned };
 }

@@ -727,4 +727,42 @@ describe('selezione generation-aware del check-run (#1648)', () => {
     const older = make(799, '2001', 'failure');
     expect(latestCompletedRunByName([newer, older], VITEST_CHECK_NAME)).toBe(newer);
   });
+
+  it('ordina il workflow-run prima del run_attempt locale quando manca created_at', () => {
+    const make = (id: number, runId: string, attempt: number, conclusion: string) => ({
+      id,
+      name: VITEST_CHECK_NAME,
+      status: 'completed',
+      conclusion,
+      head_sha: HEAD,
+      created_at: null,
+      completed_at: '2026-09-20T15:00:00Z',
+      run_attempt: attempt,
+      details_url: `https://github.com/owner/repo/actions/runs/${runId}/job/${id}`,
+      check_suite: { id: id + 1000, head_sha: HEAD },
+      external_id: `00000000-0000-4000-8000-${String(id).padStart(12, '0')}`,
+    });
+    const oldRerun = make(801, '3001', 2, 'failure');
+    const newerFirstAttempt = make(802, '3002', 1, 'success');
+
+    expect(latestCompletedRunByName([oldRerun, newerFirstAttempt], VITEST_CHECK_NAME))
+      .toBe(newerFirstAttempt);
+  });
+
+  it('considera equivalente una duplicate identity con SHA e timestamp normalizzati', () => {
+    const first = vitest('success', '2026-09-20T16:00:00Z', 'completed', { id: 900 });
+    const equivalent = {
+      ...first,
+      head_sha: HEAD.toUpperCase(),
+      created_at: '2026-09-20T16:00:00.000Z',
+      completed_at: '2026-09-20T16:00:00.000Z',
+    };
+
+    const selection = latestCompletedRunSelectionByName(
+      [first, equivalent],
+      VITEST_CHECK_NAME,
+    );
+    expect(selection.state).toBe(RUN_SELECTION_STATES.SELECTED);
+    expect(selection.run).toBe(equivalent);
+  });
 });

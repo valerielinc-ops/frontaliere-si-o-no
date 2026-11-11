@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T21:53:51.180Z",
+  "generatedAt": "2026-11-11T00:31:20.964Z",
   "totalEvents": 16694,
   "events": [
     {
@@ -385194,7 +385194,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+      "descriptionByLocale": {
+        "it": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+        "en": "The event commemorates the 750th anniversary of La Collégiale de Neuchâtel. It addresses historical, cultural and spiritual themes.",
+        "de": "Die Veranstaltung würdigt das 750-jährige Bestehen der Collégiale de Neuchâtel. Inhaltlich verbindet sie Geschichte, Kultur und Spiritualität.",
+        "fr": "Le rendez-vous commémore les 750 ans de la Collégiale de Neuchâtel. Il aborde des thèmes historiques, culturels et spirituels."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:action-lumieres-ville-geneve",
@@ -395216,7 +395224,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è un laboratorio dedicato alla realizzazione di un calendario dell’Avvento di cioccolato. Si svolge a Ginevra, nel Canton Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un laboratorio dedicato alla realizzazione di un calendario dell’Avvento di cioccolato. Si svolge a Ginevra, nel Canton Ginevra.",
+        "en": "This workshop focuses on making a chocolate Advent calendar. It takes place in Geneva, in the canton of Geneva.",
+        "de": "Die Veranstaltung ist ein Workshop zur Herstellung eines Schokoladen-Adventskalenders. Sie findet in Genf im Kanton Genf statt.",
+        "fr": "Cet atelier est consacré à la création d’un calendrier de l’Avent en chocolat. Il a lieu à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:5b0bc51ce1994790be81f85b41b58dbc",
@@ -402977,7 +402993,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Biblioteca centrale di Zurigo ospita una serie ricorrente di sessioni dal vivo dedicate a D&D. Nel corso degli incontri, i partecipanti esplorano ambientazioni immaginarie, affrontano enigmi e vivono avventure.",
+      "descriptionByLocale": {
+        "it": "La Biblioteca centrale di Zurigo ospita una serie ricorrente di sessioni dal vivo dedicate a D&D. Nel corso degli incontri, i partecipanti esplorano ambientazioni immaginarie, affrontano enigmi e vivono avventure.",
+        "en": "The Zentralbibliothek Zürich hosts a recurring live-play series based on D&D. During the sessions, participants explore imaginary settings, solve puzzles and take part in adventures.",
+        "de": "In der Zentralbibliothek Zürich gibt es eine regelmässige Live-Spielrunde rund um D&D. Die Teilnehmenden erkunden fantastische Schauplätze, lösen Rätsel und erleben gemeinsame Abenteuer.",
+        "fr": "La Zentralbibliothek Zürich accueille une série récurrente de parties de D&D jouées en direct. Les séances comprennent l’exploration d’univers imaginaires, la résolution d’énigmes et des aventures partagées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3372fc1c8d0641dca7dee98e6e763a62",
@@ -411511,7 +411535,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa mostra fotografica ricorrente presenta immagini realizzate durante prove con artisti e attori. Si svolge a Mauren FL.",
+      "descriptionByLocale": {
+        "it": "Questa mostra fotografica ricorrente presenta immagini realizzate durante prove con artisti e attori. Si svolge a Mauren FL.",
+        "en": "This recurring photography exhibition presents images made during rehearsals with artists and actors. It takes place in Mauren FL.",
+        "de": "Die wiederkehrende Fotoausstellung zeigt Aufnahmen aus Proben mit Künstlern und Schauspielern. Sie findet in Mauren FL statt.",
+        "fr": "Cette exposition photographique récurrente présente des images prises pendant des répétitions avec des artistes et des acteurs. Elle se tient à Mauren FL."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64881",
@@ -415237,7 +415269,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Pub Quiz è un appuntamento ricorrente dedicato ai giochi a quiz al Gallus Pub. Oltre al quiz, il pubblico sceglie anche i propri «vincitori del cuore».",
+      "descriptionByLocale": {
+        "it": "Il Pub Quiz è un appuntamento ricorrente dedicato ai giochi a quiz al Gallus Pub. Oltre al quiz, il pubblico sceglie anche i propri «vincitori del cuore».",
+        "en": "Pub Quiz is a recurring quiz event held at Gallus Pub. In addition to the quiz, the audience also selects its own “winners of hearts”.",
+        "de": "Das Pub Quiz ist eine wiederkehrende Quizveranstaltung im Gallus Pub. Zusätzlich bestimmt das Publikum seine eigenen «Sieger:innen der Herzen».",
+        "fr": "Le Pub Quiz est une activité de quiz récurrente au Gallus Pub. En plus du quiz, le public choisit également ses propres « gagnants du cœur »."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b8e68113de4b43df92a21a0660b9dbd1",
@@ -461617,7 +461657,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un atelier dedicato alla riflessione condivisa. L’evento si svolge a Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un atelier dedicato alla riflessione condivisa. L’evento si svolge a Ginevra, nel cantone di Ginevra.",
+        "en": "This workshop focuses on shared reflection. The event takes place in Geneva, in the canton of Geneva.",
+        "de": "Der Workshop ist auf gemeinsames Nachdenken ausgerichtet. Die Veranstaltung findet in Genf im Kanton Genf statt.",
+        "fr": "Cet atelier est consacré à une réflexion collective. L’événement se déroule à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:democratie-totalitarisme-partir-oeuvre-ismail-kadare",
