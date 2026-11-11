@@ -152,7 +152,9 @@ export function candidateOnlyCategory(question) {
 
 const EXPERIENCE_WORDS = /\b(?:\w*erfahrung\w*|experience\w*|esperienz\w*|kenntnis\w*|knowledge|conoscenz\w*|connaissance\w*|familiar\w*|vertraut\w*|skills?|kompetenz\w*|competenz\w*|competence\w*|know how|hands on|proficien\w*|praxis\w*|gearbeitet|worked|lavorato|travaille|expertise|background)\b/;
 // A formal qualification: a yes to it states a fact of the CV, never a plausible one.
-const QUALIFICATION_WORDS = /\b(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*|accredit\w*|akkredit\w*|licen[cs]\w*|lizenz\w*|fachausweis\w*|brevet\w*|diplom\w*|degree\w*|laurea\w*|abschluss\w*|titolo di studio)\b/;
+// «Attestato» and «Fähigkeitszeugnis» name a title too (the federal AFC/EFZ, owner decision 2026-11-11): asked whether
+// the candidate holds it, the CV answers; only a request for the paper stays a document (candidate_document).
+const QUALIFICATION_WORDS = /\b(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*|attestat\w*|\w*fahigkeitszeugnis\w*|accredit\w*|akkredit\w*|licen[cs]\w*|lizenz\w*|fachausweis\w*|brevet\w*|diplom\w*|degree\w*|laurea\w*|abschluss\w*|titolo di studio)\b/;
 // A degree named alone («Haben Sie einen Master?»); with an experience word it is a role («Scrum Master Erfahrung»).
 const DEGREE_WORDS = /\b(?:bachelor\w*|master|msc|bsc|mba|phd|dottorat\w*|doktor\w*|doctorat\w*)\b/;
 const ALTERNATIVE = /\b(?:oder|or|o|ou|oppure|ovvero|bzw|beziehungsweise|respektive|resp)\b/;
@@ -180,7 +182,7 @@ function asksHeldQualification(question, text) {
   const document = new RegExp(CANDIDATE_ONLY_CATEGORIES.find((category) => category.id === 'candidate_document').re.source, 'g');
   return (text.match(document) || []).every((word) => CERTIFICATE_WORD.test(word));
 }
-const CERTIFICATE_WORD = /^(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*)$/;
+const CERTIFICATE_WORD = /^(?:\w*zertifi\w*|certific\w*|certified|certifie\w*|certificat\w*|attestat\w*|\w*fahigkeitszeugnis\w*)$/;
 
 // Words of a question that name nothing: the CV's evidence must share another one with it.
 const GENERIC_WORDS = new Set(`hast hat habe haben hatten sind bist ist sie du ihr ich wir einen einer eines eine ein im in mit und oder von zu zur zum fur der die das den dem des als bei auf an aus uber auch schon bereits bisher jemals mindestens erste ersten gute guten sehr

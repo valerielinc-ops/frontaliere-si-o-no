@@ -655,7 +655,13 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // and the CV are written from, so a synthesized street or an estimated birth date is never printed there.
   // A permit field the candidate corrected or answered, even to empty, is their word: no permit is deduced over it.
   const permitDeduction = !has(overrides, 'workPermit') && !has(flow?.answers || {}, 'work_permit');
-  const platformFacts = platformCandidateFacts({ order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '', permitDeduction });
+  // The same for the nationality (owner decision 2026-11-11): a correction or an answer of theirs, even emptied,
+  // is their word, and no nationality is deduced from the CV over it.
+  const nationalityDeduction = !has(overrides, 'nationality') && !has(flow?.answers || {}, 'nationality');
+  const platformFacts = platformCandidateFacts({
+    order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '', permitDeduction,
+    nationalityDeduction, cvText: draft?.factSources?.text || '',
+  });
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
   // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);

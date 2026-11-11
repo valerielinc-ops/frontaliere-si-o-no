@@ -16,7 +16,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // v7 (2026-11-10): support to other sites or branches, guard and piquet duty (platform-defaults-v7).
 // v8 (2026-11-10): the deduced permit G and the declaration of suitability for the position (platform-defaults-v8;
 // v7 is the other sites and guard duty of #18004).
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v8';
+// v9 (2026-11-11): the deduced nationality, the criminal record without conviction and the title asked in a text or
+// a choice field (platform-defaults-v10): the waits on them are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v9';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
