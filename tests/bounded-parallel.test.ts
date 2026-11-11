@@ -289,7 +289,7 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
     }
   });
 
-  it('every step that fans out over the section list sources bounded-parallel.sh and runs bp_run_bounded', () => {
+  it('every inline section fan-out uses bounded-parallel and IT uses parallel matrix groups', () => {
     const fanOutSteps: string[] = [];
     for (const wf of workflows) {
       const doc = YAML.parse(readFileSync(resolve(ROOT, wf), 'utf-8')) as {
@@ -309,9 +309,20 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
         }
       }
     }
-    // Guard against the assertions above passing vacuously if the steps are
-    // ever renamed out from under this test.
-    expect(fanOutSteps.length, `found: ${fanOutSteps.join(' | ')}`).toBe(5);
+    // IT shard pushes are now separate matrix jobs, not an inline shell fan-out.
+    // The remaining direct fan-outs still need the shared sliding-window driver.
+    expect(fanOutSteps.length, `found: ${fanOutSteps.join(' | ')}`).toBe(3);
+
+    const publisher = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8')) as {
+      jobs?: Record<string, { strategy?: { matrix?: { group?: string[] } }; 'timeout-minutes'?: number }>;
+    };
+    expect(publisher.jobs?.['push-it-shard-groups']?.strategy?.matrix?.group).toEqual([
+      'zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4',
+    ]);
+    expect(publisher.jobs?.['push-it-shard-groups']?.['timeout-minutes']).toBe(360);
+    const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf-8');
+    expect(helper).toContain('bash scripts/lib/push-section-shard.sh "$section" it dist');
+    expect(helper).toContain('node scripts/ci/it-shard-group-plan.mjs --validate-plan');
   });
 
   it('the two push steps treat an unusable section order as fatal, never as a shorter list', () => {
@@ -323,12 +334,15 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
       // Steps that INVOKE the push script, not the pack steps that only
       // reference it in a comment.
       .filter((s) => /bash scripts\/lib\/push-section-shard\.sh/.test(s.run ?? ''));
-    expect(pushSteps.length).toBe(2);
+    expect(pushSteps.length).toBe(1);
     for (const s of pushSteps) {
       expect(s.run, `${s.name} does not abort on an unusable section order`).toMatch(
         /order="\$\(bp_section_order[\s\S]*?\|\|\s*\{[\s\S]*?exit 1/,
       );
     }
+    const itGroup = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf-8');
+    expect(itGroup).toContain('node scripts/ci/it-shard-group-plan.mjs --validate-plan');
+    expect(itGroup).toContain('group_sections="$(jq -r --arg group "$group_id"');
   });
 });
 

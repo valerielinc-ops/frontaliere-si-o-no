@@ -840,6 +840,43 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('releases previous-manifest and pack-index maps after their final consumer', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/pack-release/';
+    const input = { value: 'release' };
+    let seed: Awaited<ReturnType<typeof createReuse>> | null = null;
+    let reuse: Awaited<ReturnType<typeof createReuse>> | null = null;
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      seed = await createReuse(rootDir);
+      const created = seed.lookup('it', pagePath, 'active-job', input, 'active');
+      seed.finish(created, '<html>release</html>');
+      seed.release();
+
+      reuse = await createReuse(rootDir);
+      expect(reuse.lookup('it', pagePath, 'active-job', input, 'active')).toMatchObject({ hit: true });
+      const store = reuse.packStore('it', 'active');
+      const previous = reuse.previousByLocale.get('it');
+      expect(store.entries.size).toBe(1);
+      expect(previous.entries.size).toBe(1);
+
+      expect(reuse.release()).toEqual({
+        packStores: 1,
+        packEntries: 1,
+        previousLocales: 1,
+        previousEntries: 1,
+      });
+      expect(store.entries.size).toBe(0);
+      expect(previous.entries.size).toBe(0);
+      expect(reuse.packStores.size).toBe(0);
+      expect(reuse.previousByLocale.size).toBe(0);
+    } finally {
+      seed?.release();
+      reuse?.release();
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('promotes a legacy entry to the pack and prunes the old file', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/pack-migration/';
@@ -868,6 +905,38 @@ describe('jobs SEO disk HTML reuse', () => {
       expect(fs.existsSync(legacyPath)).toBe(false);
       expect(fs.existsSync(htmlReusePackPath(rootDir, 'it', 'active'))).toBe(true);
     } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('streams legacy-cache pruning and preserves only live entries missing from the pack', async () => {
+    const rootDir = fixtureRoot();
+    const livePath = '/cerca-lavoro-ticino/legacy-live/';
+    const stalePath = '/cerca-lavoro-ticino/legacy-stale/';
+    const input = { value: 'legacy-live' };
+    const staleInput = { value: 'legacy-stale' };
+    const liveCachePath = htmlReuseCachePath(
+      rootDir, 'it', livePath, null, 'active-job', computeInputHash(input, 'active-job'),
+    );
+    const staleCachePath = htmlReuseCachePath(
+      rootDir, 'it', stalePath, null, 'active-job', computeInputHash(staleInput, 'active-job'),
+    );
+    let reuse: Awaited<ReturnType<typeof createReuse>> | null = null;
+    try {
+      writePreviousManifest(rootDir, livePath, 'active-job', input);
+      writeCachedHtml(rootDir, livePath, 'active-job', input, '<html>live legacy</html>');
+      writeCachedHtml(rootDir, stalePath, 'active-job', staleInput, '<html>stale legacy</html>');
+      reuse = await createReuse(rootDir);
+      reuse.prune('it', {
+        entries: new Map([[livePath, {
+          kind: 'active-job',
+          inputHash: computeInputHash(input, 'active-job'),
+        }]]),
+      });
+      expect(fs.existsSync(liveCachePath)).toBe(true);
+      expect(fs.existsSync(staleCachePath)).toBe(false);
+    } finally {
+      reuse?.release();
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
   });

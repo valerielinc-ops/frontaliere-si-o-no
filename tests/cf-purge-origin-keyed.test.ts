@@ -337,18 +337,19 @@ describe('the section-shard purge list deploy.yml emits (#5513)', () => {
   });
 });
 
-describe('deploy.yml purges where it pushes', () => {
+describe('publisher purges where it pushes', () => {
   it('section shard steps purge what they just pushed, on both legs (#5513)', () => {
-    // Same shape as the locale assertion below: the purge call must appear
-    // AFTER the push it purges, for each leg independently.
-    const pushItAt = DEPLOY.indexOf('Push section shards (IT');
-    const purgeItAt = DEPLOY.indexOf('section-shard-purge-urls.mjs it');
+    // IT is a section-group helper; the non-IT loop remains in the publisher
+    // workflow. Each leg must purge only after its own push succeeds.
+    const itHelper = read('scripts/ci/push-it-shard-group.sh');
+    const pushItAt = itHelper.indexOf('bash scripts/lib/push-section-shard.sh "$section" it dist');
+    const purgeItAt = itHelper.indexOf('section-shard-purge-urls.mjs it "${sections[@]}"');
     const pushNonItAt = DEPLOY.indexOf('Push section shards (non-IT');
     const purgeNonItAt = DEPLOY.indexOf('section-shard-purge-urls.mjs "$LOCALE"');
-    expect(pushItAt, 'deploy.yml no longer pushes the IT section shards').toBeGreaterThan(-1);
-    expect(purgeItAt, 'the IT leg pushes section shards and purges nothing').toBeGreaterThan(-1);
+    expect(pushItAt, 'the IT group helper no longer pushes section shards').toBeGreaterThan(-1);
+    expect(purgeItAt, 'the IT group helper pushes section shards and purges nothing').toBeGreaterThan(-1);
     expect(purgeItAt, 'the IT purge must run after the IT push').toBeGreaterThan(pushItAt);
-    expect(pushNonItAt, 'deploy.yml no longer pushes the non-IT section shards').toBeGreaterThan(-1);
+    expect(pushNonItAt, 'the publisher no longer pushes non-IT section shards').toBeGreaterThan(-1);
     expect(purgeNonItAt, 'the non-IT leg pushes section shards and purges nothing').toBeGreaterThan(-1);
     expect(purgeNonItAt, 'the non-IT purge must run after the non-IT push').toBeGreaterThan(pushNonItAt);
   });
@@ -357,7 +358,7 @@ describe('deploy.yml purges where it pushes', () => {
     // The push step's fan-out returns non-zero when ANY ONE section fails —
     // gating the purge on that outcome would skip every OTHER section that
     // pushed fine (unlike the single-locale push this pattern mirrors).
-    expect(DEPLOY).toContain('shard-ok-*-it');
+    expect(read('scripts/ci/push-it-shard-group.sh')).toContain('"$RUNNER_TEMP/shard-ok-$section-it"');
     expect(DEPLOY).toContain('shard-ok-*-"$LOCALE"');
   });
 
@@ -365,7 +366,7 @@ describe('deploy.yml purges where it pushes', () => {
     // The exact hole #5483 was reopened for: the job wrote the shard and purged
     // nothing. `grep -c cf-purge-cache` on main returned 0.
     const pushAt = DEPLOY.indexOf('push-locale-shard.sh');
-    const genAt = DEPLOY.indexOf('locale-shard-purge-urls.mjs');
+    const genAt = DEPLOY.indexOf('locale-shard-purge-urls.mjs "$LOCALE" dist', pushAt);
     expect(pushAt, 'deploy.yml no longer pushes a locale shard').toBeGreaterThan(-1);
     expect(genAt, 'deploy.yml pushes the locale shard and purges nothing').toBeGreaterThan(-1);
     expect(genAt, 'the purge runs before the push').toBeGreaterThan(pushAt);

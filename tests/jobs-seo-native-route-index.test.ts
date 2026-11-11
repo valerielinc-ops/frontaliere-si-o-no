@@ -50,6 +50,78 @@ function oldRecovered(locale: Locale, slug: string, relPath: string, tracking: T
 }
 
 describe('native job route ownership with interned prefixes', () => {
+  it('preserves Map membership, insertion order, and emitted fixture bytes in compact mode', () => {
+    const originalMode = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+    const activeRouteOwners = new Map<string, number>();
+    const activeTracking: Tracking = {
+      'active-master': { de: '/de/jobs-in-zurich/shared-route', en: '/en/jobs-in-zurich/active-en' },
+    };
+    const expiredTracking: Tracking = {
+      'expired-first': { de: '/de/jobs-in-bern/shared-route', fr: '/fr/emploi-au-tessin/expired-fr' },
+      'expired-last': { de: '/de/jobs-in-luzern/shared-route', en: '/en/jobs-in-bern/expired-en' },
+    };
+    const activeCandidates = new Set(Object.keys(activeTracking));
+    const expiredCandidates = new Set(Object.keys(expiredTracking));
+    const snapshots = new Map<string, string[]>();
+
+    try {
+      delete process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+      const compactOwners = new Map<string, number>();
+      const compact = buildNativeJobPrefixIndex(activeTracking, prefixes, sections, activeCandidates, compactOwners);
+      appendNativeJobPrefixIndex(compact, expiredTracking, prefixes, sections, expiredCandidates, compactOwners);
+
+      process.env.JOBS_SEO_NATIVE_ROUTE_INDEX = 'legacy';
+      const legacyOwners = new Map<string, number>();
+      const legacy = buildNativeJobPrefixIndex(activeTracking, prefixes, sections, activeCandidates, legacyOwners);
+      appendNativeJobPrefixIndex(legacy, expiredTracking, prefixes, sections, expiredCandidates, legacyOwners);
+
+      expect(compact.size).toBe(legacy.size);
+      expect([...compact.keys()]).toEqual([...legacy.keys()]);
+      expect([...compact.values()]).toEqual([...legacy.values()]);
+      expect([...compact]).toEqual([...legacy]);
+
+      const candidatePaths = [
+        ['de', 'shared-route', '/de/jobs-im-tessin/shared-route'],
+        ['de', 'expired-first', '/de/jobs-im-tessin/shared-route'],
+        ['de', 'expired-last', '/de/jobs-im-tessin/shared-route'],
+        ['en', 'expired-en', '/en/jobs-im-tessin/expired-en'],
+        ['fr', 'expired-fr', '/fr/emploi-au-tessin/expired-fr'],
+      ] as const;
+      for (const [name, index] of [['compact', compact], ['legacy', legacy]] as const) {
+        const decisions = candidatePaths.map(([locale, slug, relPath]) =>
+          nativeJobPathRecoveredByWorker(locale, slug, relPath, { ...activeTracking, ...expiredTracking }, index));
+        const html = candidatePaths
+          .filter((_, index) => !decisions[index])
+          .map(([, slug, relPath]) => `<article data-slug="${slug}" data-path="${relPath}"></article>`)
+          .join('\n');
+        const sitemap = `<urlset>${candidatePaths
+          .filter((_, index) => !decisions[index])
+          .map(([, , relPath]) => `<url><loc>https://frontaliereticino.ch${relPath}</loc></url>`)
+          .join('')}</urlset>`;
+        snapshots.set(name, [html, sitemap]);
+      }
+      expect(snapshots.get('compact')).toEqual(snapshots.get('legacy'));
+    } finally {
+      if (originalMode === undefined) delete process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+      else process.env.JOBS_SEO_NATIVE_ROUTE_INDEX = originalMode;
+    }
+  });
+
+  it('clears compact route and prefix tables after their final reader', () => {
+    const index = buildNativeJobPrefixIndex({
+      'route-owner': { de: '/de/jobs-in-zurich/route-owner' },
+    }, prefixes, sections);
+
+    expect(index.size).toBe(1);
+    expect(index.get('de:route-owner')).toBe('/de/jobs-in-zurich/');
+
+    index.clear();
+
+    expect(index.size).toBe(0);
+    expect(index.get('de:route-owner')).toBeUndefined();
+    expect([...index]).toEqual([]);
+  });
+
   it('appends expired owners in place while preserving active owners and expired last-wins order', () => {
     const activeRouteOwners = new Map<string, number>();
     const active = buildNativeJobPrefixIndex({
@@ -76,6 +148,84 @@ describe('native job route ownership with interned prefixes', () => {
     expect([...active]).toEqual([...expected]);
     expect(active.get('de:shared-active')).toBe('/de/jobs-in-bern/');
     expect(active.get('en:shared-expired')).toBe('/en/jobs-in-bern/');
+  });
+
+  it('recovers identity routes directly and keeps only expired alias winners in order', () => {
+    const originalMode = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+    const identityOnly: Tracking = { shared: { de: '/de/jobs-in-bern/shared' } };
+    const cases = [
+      {
+        entries: [
+          ['identity', { de: '/de/jobs-in-bern/shared' }],
+          ['alias', { de: '/de/jobs-in-zurich/shared' }],
+        ],
+        winner: '/de/jobs-in-zurich/shared',
+      },
+      {
+        entries: [
+          ['alias', { de: '/de/jobs-in-zurich/shared' }],
+          ['identity', { de: '/de/jobs-in-bern/shared' }],
+        ],
+        winner: '/de/jobs-in-bern/shared',
+      },
+    ] as const;
+
+    try {
+      delete process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+      const identityIndex = buildNativeJobPrefixIndex({}, prefixes, sections);
+      appendNativeJobPrefixIndex(
+        identityIndex,
+        identityOnly,
+        prefixes,
+        sections,
+        new Set(Object.keys(identityOnly)),
+        new Map(),
+      );
+      expect(identityIndex.size).toBe(0);
+      expect(nativeJobPathRecoveredByWorker(
+        'de',
+        'missing-key',
+        '/de/jobs-in-zurich/shared',
+        identityOnly,
+        identityIndex,
+      )).toBe(true);
+      expect(nativeJobPathRecoveredByWorker(
+        'de',
+        'missing-key',
+        '/de/jobs-in-bern/shared',
+        identityOnly,
+        identityIndex,
+      )).toBe(false);
+
+      for (const fixture of cases) {
+        const tracking = Object.fromEntries(fixture.entries) as Tracking;
+        const candidates = new Set(Object.keys(tracking));
+        delete process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+        const compact = buildNativeJobPrefixIndex({}, prefixes, sections);
+        appendNativeJobPrefixIndex(compact, tracking, prefixes, sections, candidates, new Map());
+        expect(compact.has('de:shared')).toBe(true);
+
+        process.env.JOBS_SEO_NATIVE_ROUTE_INDEX = 'legacy';
+        const legacy = buildNativeJobPrefixIndex({}, prefixes, sections);
+        appendNativeJobPrefixIndex(legacy, tracking, prefixes, sections, candidates, new Map());
+        const routes = [
+          '/de/jobs-in-bern/shared',
+          '/de/jobs-in-zurich/shared',
+          '/de/jobs-im-tessin/shared',
+          '/de/jobs-im-tessin/nested/shared',
+        ];
+        for (const relPath of routes) {
+          for (const slug of ['missing-key', 'identity', 'alias']) {
+            expect(nativeJobPathRecoveredByWorker('de', slug, relPath, tracking, compact))
+              .toBe(nativeJobPathRecoveredByWorker('de', slug, relPath, tracking, legacy));
+          }
+        }
+        expect(nativeJobPathRecoveredByWorker('de', 'missing-key', fixture.winner, tracking, compact)).toBe(false);
+      }
+    } finally {
+      if (originalMode === undefined) delete process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+      else process.env.JOBS_SEO_NATIVE_ROUTE_INDEX = originalMode;
+    }
   });
 
   it('protects active ownership per locale without blocking a historical sibling locale', () => {
@@ -360,7 +510,10 @@ describe('native job route ownership with interned prefixes', () => {
             const paths = {};
             for (const locale of ['it', 'en', 'de', 'fr']) {
               const section = i % 17 === 0 ? sections[locale] : 'jobs-in-canton-' + (i % 26);
-              paths[locale] = prefixes[locale] + '/' + section + '/' + locale + '-senior-engineering-specialist-production-quality-assurance-company-' + i;
+            const routeSlug = i % 5 === 0
+              ? locale + '-senior-engineering-specialist-production-quality-assurance-company-' + i
+              : 'master-key-' + i;
+            paths[locale] = prefixes[locale] + '/' + section + '/' + routeSlug;
             }
             tracking['master-key-' + i] = paths;
           }
@@ -396,9 +549,16 @@ describe('native job route ownership with interned prefixes', () => {
         expect(line, result.stdout).toBeDefined();
         const sample = JSON.parse(line!.slice('NATIVE_ROUTE_HEAP_SAMPLE '.length));
         expect(sample.trackingKeys).toBe(24000);
-        // Active rows contribute 3 foreign locales each; 142 legacy rows
-        // (i % 17 === 0, including zero) are excluded in each locale.
-        expect(sample.keys).toBe(mode === 'active' ? 6774 : 67764);
+        // Each non-TI route contributes three locales; `i % 5 === 0` models
+        // localized aliases, while the remaining 80% can be read directly
+        // from tracking by the compact historical lookup.
+        const nativeRouteMode = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
+        const expectedKeys = mode === 'active'
+          ? 6774
+          : mode === 'in-place-append' && nativeRouteMode !== 'legacy'
+            ? 18972
+            : 67764;
+        expect(sample.keys).toBe(expectedKeys);
         console.log('NATIVE_ROUTE_HEAP_SAMPLE', sample);
         samples.push(sample);
       }

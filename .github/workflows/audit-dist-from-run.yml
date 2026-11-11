@@ -67,10 +67,9 @@ on:
       shard_artifact_run_id:
         description: >-
           Run ID containing the en/de/fr shard artifacts (locale-dist-*,
-          shard-batch-*-dist-{en,de,fr}): a deploy-publish run, NOT the build.
-          Empty = resolved from the deploy-publish runs titled "Publish Pages
-          build <deploy_run_id> @ …" (any conclusion: the run that really
-          published is often `cancelled` by its own report job).
+          shard-batch-*-dist-{en,de,fr}): a successful deploy-publish run, NOT
+          the build. Empty = resolved from the source build's Pages artifact
+          and its successful matching deploy-publish runs.
         required: false
         default: ''
         type: string
@@ -128,7 +127,7 @@ on:
         default: ''
         type: string
       shard_artifact_run_id:
-        description: 'Run ID containing the locale/section shard artifacts to rehydrate.'
+        description: 'Successful publisher run ID containing the locale/section artifacts; empty resolves successful runs per locale.'
         required: false
         default: ''
         type: string
@@ -207,13 +206,29 @@ jobs:
       - name: Install minimal deps (no build)
         run: npm ci --no-audit --no-fund --ignore-scripts
 
+      # A replay must use artifacts belonging to the selected run (or to the
+      # explicitly supplied publisher run). Resolve every live subtree before
+      # rehydrate can reach its git-clone resilience path; an expired artifact
+      # is an inconclusive replay, never permission to read today's shard-main.
+      - name: Resolve replay shard artifacts and provenance (fail closed)
+        if: ${{ inputs.shard_artifact_run_id == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
+          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
+        run: bash scripts/ci/resolve-replay-shard-runs.sh
+
+
       - name: Fetch the deployed dist (github-pages artifact)
         id: pages
         uses: ./.github/actions/fetch-pages-artifact
         with:
-          # Required input of this workflow: an operator names the run to
-          # replay, so the action pins it and does NOT walk back to another.
-          run-id: ${{ inputs.deploy_run_id }}
+          # A supplied publisher ID is exact. Otherwise pin the source build
+          # and let the shared resolver walk only successful matching publishers.
+          run-id: ${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
 
@@ -227,21 +242,6 @@ jobs:
           rm -f "$TAR_PATH"
           echo "Restored $(find dist -type f | wc -l) files into dist/"
 
-      # A replay must use artifacts belonging to the selected run (or to the
-      # explicitly supplied publisher run). Resolve every live subtree before
-      # rehydrate can reach its git-clone resilience path; an expired artifact
-      # is an inconclusive replay, never permission to read today's shard-main.
-      - name: Resolve replay shard artifacts and provenance (fail closed)
-        if: ${{ inputs.shard_artifact_run_id == '' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
-          REPO_VARS_JSON: ${{ toJSON(vars) }}
-          REPLAY_DIST_DIR: dist
-          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
-        run: bash scripts/ci/resolve-replay-shard-runs.sh
 
       # The `github-pages` artifact is the TRUNK only. With LOCALE_SHARDS_LIVE /
       # <SECTION>_SHARD_LIVE on, deploy.yml strips the en/de/fr subtrees and the
@@ -464,7 +464,20 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.deploy_run_id }}
 
-      - name: Download source IT section manifest
+      - name: Download publisher IT page manifest
+        if: ${{ inputs.shard_artifact_run_id != '' || env.SHARD_ARTIFACT_RUN_ID_IT != '' }}
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: sitemap-page-manifest-it-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/pages
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_IT }}
+
+      - name: Download publisher IT section manifests
+        if: ${{ inputs.shard_artifact_run_id != '' || env.SHARD_ARTIFACT_RUN_ID_IT != '' }}
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
@@ -473,19 +486,43 @@ jobs:
           merge-multiple: true
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
-          run-id: ${{ inputs.deploy_run_id }}
+          run-id: ${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_IT }}
 
-      - name: Download publisher non-IT section manifests
-        if: ${{ inputs.shard_artifact_run_id != '' }}
+      - name: Download publisher EN section manifests
+        if: ${{ inputs.shard_artifact_run_id != '' || env.SHARD_ARTIFACT_RUN_ID_EN != '' }}
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
-          pattern: section-page-manifest-*
+          pattern: section-page-manifest-en-*
           path: ${{ runner.temp }}/publisher-audit-manifests/sections
           merge-multiple: true
           github-token: ${{ github.token }}
           repository: ${{ github.repository }}
-          run-id: ${{ inputs.shard_artifact_run_id }}
+          run-id: ${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_EN }}
+
+      - name: Download publisher DE section manifests
+        if: ${{ inputs.shard_artifact_run_id != '' || env.SHARD_ARTIFACT_RUN_ID_DE != '' }}
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-de-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/sections
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_DE }}
+
+      - name: Download publisher FR section manifests
+        if: ${{ inputs.shard_artifact_run_id != '' || env.SHARD_ARTIFACT_RUN_ID_FR != '' }}
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-page-manifest-fr-*
+          path: ${{ runner.temp }}/publisher-audit-manifests/sections
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_FR }}
 
       - name: Detect a complete schema v2 publisher page index
         id: publisher-index

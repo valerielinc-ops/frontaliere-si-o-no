@@ -11,7 +11,7 @@ describe('historical archive fallback hreflang', () => {
   it('forwards a complete tracked locale cluster into indexable archive pages', () => {
     const rendererStart = JOBS_SEO_SOURCE.indexOf('const buildHistoricalArchiveHtml = (');
     const rendererEnd = JOBS_SEO_SOURCE.indexOf(
-      'for (const [slug, paths] of Object.entries(tracking)',
+      'for (const slug in tracking)',
       rendererStart,
     );
     expect(rendererStart).toBeGreaterThan(-1);

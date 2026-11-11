@@ -128,12 +128,12 @@ describe('workflow env never assigns a default GITHUB_*/RUNNER_* variable a diff
     expect(findIgnoredDefaultEnv(good, 'x.yml')).toEqual([]);
   });
 
-  it('deploy-publish.yml: the CDN gate gets the deploy run id inside run:, not through env', () => {
+  it('deploy-publish.yml: the IT group CDN gate gets the publisher run id inside run:, not through env', () => {
     const src = readFileSync(join(WORKFLOWS, 'deploy-publish.yml'), 'utf8');
-    const start = src.indexOf('      - name: Wait for IT CDN push (cross-shard ordering guard)');
+    const start = src.indexOf('      - name: Wait for current IT CDN build id before IT section pushes');
     expect(start, 'CDN gate step not found').toBeGreaterThan(-1);
     const step = src.slice(start, src.indexOf('\n      - name: ', start + 1));
-      expect(step).toMatch(/CDN_IT_RUN_ID: \$\{\{ inputs\.source_run_id \}\}/);
+      expect(step).toMatch(/CDN_IT_RUN_ID: \$\{\{ github\.run_id \}\}/);
     expect(step).toMatch(/run: GITHUB_RUN_ID="\$CDN_IT_RUN_ID" bash scripts\/lib\/wait-cdn-build-id\.sh/);
   });
 });

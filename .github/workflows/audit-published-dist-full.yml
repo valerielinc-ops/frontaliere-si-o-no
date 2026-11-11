@@ -96,14 +96,17 @@ jobs:
             has_name() { printf '%s\n' "$1" | grep -Fxq -- "$2"; }
 
             complete=true
-            for name in "github-pages" "sitemaps-$source_id" "jobs-master-$source_id" \
-              "sitemap-page-manifest-it-$source_id" "sitemap-page-manifest-en-$source_id" \
-              "sitemap-page-manifest-de-$source_id" "sitemap-page-manifest-fr-$source_id" \
-              "section-page-manifest-it-$source_id"; do
+            for name in "jobs-master-$source_id" \
+              "sitemap-page-manifest-en-$source_id" \
+              "sitemap-page-manifest-de-$source_id" "sitemap-page-manifest-fr-$source_id"; do
               has_name "$source_names" "$name" || complete=false
             done
+            for name in "github-pages" "sitemaps-$publisher_id" \
+              "sitemap-page-manifest-it-$publisher_id" "section-page-manifest-it-$publisher_id"; do
+              has_name "$publisher_names" "$name" || complete=false
+            done
             for batch in 1 2 3 4 5 6; do
-              has_name "$source_names" "shard-batch-$batch-dist-it-$source_id" || complete=false
+              has_name "$publisher_names" "shard-batch-$batch-dist-it-$publisher_id" || complete=false
             done
             for locale in en de fr; do
               has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false

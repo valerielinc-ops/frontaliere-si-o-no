@@ -102,8 +102,9 @@ describe('canonical job detail paths', () => {
     expect(source).toContain('const perLocaleCanonicalPath = {');
     expect(source).toContain('const relPath = perLocaleCanonicalPath[locale];');
     expect(source).toContain('const canonicalPath = withSlash(relPath);');
-    expect(source).toContain('const perJob_relatedCanonicalPaths = perJob_related.map');
-    expect(source).toContain('const href = rPaths[locale];');
+    expect(source).toContain('const related = perJob_related.flatMap');
+    expect(source).toContain('const href = activeCanonicalJobHref(relatedJob, locale);');
+    expect(source).not.toContain('const href = rPaths[locale];');
     expect(source).not.toContain(
       'buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)',
     );

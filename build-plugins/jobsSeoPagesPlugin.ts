@@ -83,6 +83,8 @@ import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { createExpiredArchivePublicationEvidence } from './shared/expiredArchivePublicationEvidence.mjs';
+import { isEdgeServedExpiredJob, isExpiredJobGa4EvidenceUsable } from './shared/expiredJobEdgePolicy.mjs';
+import { createExpiredJobEdgeDatasetWriter } from '../scripts/lib/expired-job-edge-dataset-writer.mjs';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -433,6 +435,203 @@ const normalizedRoutePath = (value: string): string => {
  return `/${raw.replace(/^\/+|\/+$/g, '')}/`;
 };
 
+/**
+ * Compact map-compatible native-route snapshot. A regular Map stores one
+ * composite `locale:slug` string and one heap entry per locale route. The
+ * corpus has several million such routes, while route slugs and prefixes are
+ * shared across locales. This representation stores each slug once, prefix
+ * strings once, and locale prefix IDs plus insertion order in typed arrays.
+ * `JOBS_SEO_NATIVE_ROUTE_INDEX=legacy` exists only to compare the previous
+ * Map implementation in the no-deploy memory experiment.
+ */
+class NativeJobPrefixIndex implements ReadonlyMap<string, string> {
+ private routeIdBySlug = new Map<string, number>();
+ private slugByRouteId: string[] = [''];
+ private prefixIdByValue = new Map<string, number>();
+ private prefixById: string[] = [''];
+ private prefixIdsByLocale: Uint32Array[] = JOB_SEO_LOCALES.map(() => new Uint32Array(0));
+ private insertionOrder = new Uint32Array(0);
+ private entryCount = 0;
+ private insertionCount = 0;
+ private readonly legacy: Map<string, string> | null;
+ private readonly legacyPrefixByLocale: Record<JobSeoLocale, string>;
+
+ constructor(
+  legacyPrefixByLocale: Record<JobSeoLocale, string>,
+  useLegacyMap = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX === 'legacy',
+ ) {
+  this.legacyPrefixByLocale = legacyPrefixByLocale;
+  this.legacy = useLegacyMap ? new Map<string, string>() : null;
+ }
+
+ get size(): number {
+  return this.legacy?.size ?? this.entryCount;
+ }
+
+ get(key: string): string | undefined {
+  if (this.legacy) return this.legacy.get(key);
+  const separator = key.indexOf(':');
+  if (separator <= 0) return undefined;
+  const localeIndex = JOB_SEO_LOCALES.indexOf(key.slice(0, separator) as JobSeoLocale);
+  if (localeIndex < 0) return undefined;
+  return this.getFor(JOB_SEO_LOCALES[localeIndex], key.slice(separator + 1));
+ }
+
+ has(key: string): boolean {
+  if (this.legacy) return this.legacy.has(key);
+  const separator = key.indexOf(':');
+  if (separator <= 0) return false;
+  const localeIndex = JOB_SEO_LOCALES.indexOf(key.slice(0, separator) as JobSeoLocale);
+  if (localeIndex < 0) return false;
+  const routeId = this.routeIdBySlug.get(key.slice(separator + 1));
+  return routeId !== undefined && this.prefixIdsByLocale[localeIndex][routeId] !== 0;
+ }
+
+ getFor(locale: JobSeoLocale, slug: string): string | undefined {
+  if (this.legacy) return this.legacy.get(`${locale}:${slug}`);
+  const routeId = this.routeIdBySlug.get(slug);
+  if (routeId === undefined) return undefined;
+  const prefixId = this.prefixIdsByLocale[JOB_SEO_LOCALES.indexOf(locale)][routeId];
+  return prefixId === 0 ? undefined : this.prefixById[prefixId];
+ }
+
+ hasFor(locale: JobSeoLocale, slug: string): boolean {
+  if (this.legacy) return this.legacy.has(`${locale}:${slug}`);
+  const routeId = this.routeIdBySlug.get(slug);
+  return routeId !== undefined && this.prefixIdsByLocale[JOB_SEO_LOCALES.indexOf(locale)][routeId] !== 0;
+ }
+
+ nativePrefixFor(locale: JobSeoLocale, slug: string, tracking: JobRouteTracking): string | undefined {
+  const indexedPrefix = this.getFor(locale, slug);
+  if (indexedPrefix !== undefined || this.legacy) return indexedPrefix;
+  const value = tracking[slug]?.[locale];
+  if (!value) return undefined;
+  const normalized = normalizedRoutePath(value);
+  const legacyPrefix = this.legacyPrefixByLocale[locale];
+  if (normalized.startsWith(legacyPrefix)) {
+   const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+   if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) return undefined;
+  }
+  const routeEnd = normalized.length - 1;
+  const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
+  const routeSlug = normalized.slice(routeStart, routeEnd);
+  if (routeSlug !== slug) return undefined;
+  return normalized.slice(0, -(routeSlug.length + 1));
+ }
+
+ get isLegacyMode(): boolean {
+  return this.legacy !== null;
+ }
+
+ setFor(locale: JobSeoLocale, slug: string, prefix: string): this {
+  if (this.legacy) {
+   this.legacy.set(`${locale}:${slug}`, prefix);
+   return this;
+  }
+  const localeIndex = JOB_SEO_LOCALES.indexOf(locale);
+  let routeId = this.routeIdBySlug.get(slug);
+  if (routeId === undefined) {
+   routeId = this.slugByRouteId.length;
+   this.routeIdBySlug.set(slug, routeId);
+   this.slugByRouteId.push(slug);
+   this.ensureRouteCapacity(routeId + 1);
+  }
+  let prefixId = this.prefixIdByValue.get(prefix);
+  if (prefixId === undefined) {
+   prefixId = this.prefixById.length;
+   this.prefixIdByValue.set(prefix, prefixId);
+   this.prefixById.push(prefix);
+  }
+  const previousPrefixId = this.prefixIdsByLocale[localeIndex][routeId];
+  if (previousPrefixId === 0) {
+   this.entryCount += 1;
+   this.appendInsertionOrder(routeId, localeIndex);
+  }
+  this.prefixIdsByLocale[localeIndex][routeId] = prefixId;
+  return this;
+ }
+
+ set(key: string, prefix: string): this {
+  const separator = key.indexOf(':');
+  if (separator <= 0) throw new Error(`Invalid native route index key: ${key}`);
+  const locale = key.slice(0, separator) as JobSeoLocale;
+  if (!(JOB_SEO_LOCALES as readonly string[]).includes(locale)) {
+   throw new Error(`Invalid native route locale: ${locale}`);
+  }
+  return this.setFor(locale, key.slice(separator + 1), prefix);
+ }
+
+ keys(): MapIterator<string> {
+  if (this.legacy) return this.legacy.keys();
+  return this.iterateEntries('key') as MapIterator<string>;
+ }
+
+ values(): MapIterator<string> {
+  if (this.legacy) return this.legacy.values();
+  return this.iterateEntries('value') as MapIterator<string>;
+ }
+
+ entries(): MapIterator<[string, string]> {
+  if (this.legacy) return this.legacy.entries();
+  return this.iterateEntries('entry') as MapIterator<[string, string]>;
+ }
+
+ [Symbol.iterator](): MapIterator<[string, string]> {
+  return this.entries();
+ }
+
+ forEach(callbackfn: (value: string, key: string, map: ReadonlyMap<string, string>) => void, thisArg?: unknown): void {
+  for (const [key, value] of this.entries()) callbackfn.call(thisArg, value, key, this);
+ }
+
+ clear(): void {
+  this.legacy?.clear();
+  this.routeIdBySlug.clear();
+  this.slugByRouteId = [''];
+  this.prefixIdByValue.clear();
+  this.prefixById = [''];
+  this.prefixIdsByLocale = JOB_SEO_LOCALES.map(() => new Uint32Array(0));
+  this.insertionOrder = new Uint32Array(0);
+  this.entryCount = 0;
+  this.insertionCount = 0;
+ }
+
+ private *iterateEntries(mode: 'key' | 'value' | 'entry'): Generator<string | [string, string]> {
+  for (let index = 0; index < this.insertionCount; index += 1) {
+   const encoded = this.insertionOrder[index];
+   const routeId = encoded >>> 2;
+   const localeIndex = encoded & 3;
+   const prefixId = this.prefixIdsByLocale[localeIndex][routeId];
+   if (prefixId === 0) continue;
+   const value = this.prefixById[prefixId];
+   if (mode === 'value') yield value;
+   else {
+    const key = `${JOB_SEO_LOCALES[localeIndex]}:${this.slugByRouteId[routeId]}`;
+    yield mode === 'key' ? key : [key, value];
+   }
+  }
+ }
+
+ private ensureRouteCapacity(required: number): void {
+  if (this.prefixIdsByLocale[0].length >= required) return;
+  const capacity = Math.max(4096, this.prefixIdsByLocale[0].length * 2, required);
+  this.prefixIdsByLocale = this.prefixIdsByLocale.map((current) => {
+   const next = new Uint32Array(capacity);
+   next.set(current);
+   return next;
+  });
+ }
+
+ private appendInsertionOrder(routeId: number, localeIndex: number): void {
+  if (this.insertionCount === this.insertionOrder.length) {
+   const next = new Uint32Array(Math.max(4096, this.insertionOrder.length * 2));
+   next.set(this.insertionOrder);
+   this.insertionOrder = next;
+  }
+  this.insertionOrder[this.insertionCount++] = (routeId << 2) | localeIndex;
+ }
+}
+
 /** Snapshot native ownership for a bounded set of tracking rows.
  * The caller may pass the active or historical slug candidates relevant to
  * the current emit phase; omitting it is reserved for small standalone tests.
@@ -443,15 +642,15 @@ export function buildNativeJobPrefixIndex(
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs?: ReadonlySet<string>,
  activeRouteOwners?: Map<string, number>,
-): Map<string, string> {
- const index = new Map<string, string>();
- const prefixes = new Map<string, string>();
+): NativeJobPrefixIndex {
  const legacyPrefixByLocale = Object.fromEntries(
   JOB_SEO_LOCALES.map((locale) => [
    locale,
    normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`),
   ]),
  ) as Record<JobSeoLocale, string>;
+ const index = new NativeJobPrefixIndex(legacyPrefixByLocale);
+ const prefixes = new Map<string, string>();
  for (const trackingSlug in tracking) {
   if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
   if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
@@ -464,8 +663,10 @@ export function buildNativeJobPrefixIndex(
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
    const legacyPrefix = legacyPrefixByLocale[locale];
-   const rest = normalized.slice(legacyPrefix.length);
-   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   if (normalized.startsWith(legacyPrefix)) {
+    const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+    if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) continue;
+   }
    const slugEnd = normalized.length - 1;
    const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
    const slug = normalized.slice(slugStart, slugEnd);
@@ -478,7 +679,7 @@ export function buildNativeJobPrefixIndex(
    const prefix = normalized.slice(0, -(slug.length + 1));
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
-   index.set(`${locale}:${slug}`, sharedPrefix);
+   index.setFor(locale, slug, sharedPrefix);
   }
  }
  return index;
@@ -486,13 +687,13 @@ export function buildNativeJobPrefixIndex(
 
 /** Append historical ownership in place, keeping active route owners intact. */
 export function appendNativeJobPrefixIndex(
- index: Map<string, string>,
+ index: NativeJobPrefixIndex,
  tracking: JobRouteTracking,
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
  compatEligibleTrackingSlugs: ReadonlySet<string>,
  activeRouteOwners: ReadonlyMap<string, number>,
-): Map<string, string> {
+): NativeJobPrefixIndex {
  const prefixes = new Map<string, string>();
  const legacyPrefixByLocale = Object.fromEntries(
   JOB_SEO_LOCALES.map((locale) => [
@@ -510,13 +711,14 @@ export function appendNativeJobPrefixIndex(
    if (!value) continue;
    const normalized = normalizedRoutePath(value);
    const legacyPrefix = legacyPrefixByLocale[locale];
-   const rest = normalized.slice(legacyPrefix.length);
-   if (normalized.startsWith(legacyPrefix) && rest.length > 1 && !rest.slice(0, -1).includes('/')) continue;
+   if (normalized.startsWith(legacyPrefix)) {
+    const nextSlash = normalized.indexOf('/', legacyPrefix.length);
+    if (nextSlash === normalized.length - 1 && nextSlash > legacyPrefix.length) continue;
+   }
    const slugEnd = normalized.length - 1;
    const slugStart = normalized.lastIndexOf('/', slugEnd - 1) + 1;
    const slug = normalized.slice(slugStart, slugEnd);
    if (!slug) continue;
-   const key = `${locale}:${slug}`;
    // Active route ownership is carried by the locale mask in the caller's
    // existing slug map. This avoids copying every active key into a second
    // Set while still distinguishing active entries from historical entries
@@ -526,8 +728,13 @@ export function appendNativeJobPrefixIndex(
    const sharedPrefix = prefixes.get(prefix) ?? prefix;
    prefixes.set(sharedPrefix, sharedPrefix);
    // Later expired rows retain the same last-owner-wins behavior as the
-   // standalone index; only pre-existing active owners are protected.
-   index.set(key, sharedPrefix);
+   // standalone index; only pre-existing active owners are protected. In the
+   // compact mode ordinary identity routes are recovered from tracking on
+   // lookup. Keep locale aliases and later identity owners that must override
+   // an alias already seen, preserving the old Map's last-owner-wins result.
+   if (index.isLegacyMode || slug !== trackingSlug || index.hasFor(locale, slug)) {
+    index.setFor(locale, slug, sharedPrefix);
+   }
   }
  }
  return index;
@@ -538,7 +745,7 @@ export function nativeJobPathRecoveredByWorker(
  slug: string,
  relPath: string,
  tracking: JobRouteTracking,
- nativeJobPrefixByLocaleAndSlug: ReadonlyMap<string, string>,
+ nativeJobPrefixByLocaleAndSlug: NativeJobPrefixIndex,
 ): boolean {
  if (locale === 'it') return false;
  const normalized = normalizedRoutePath(relPath);
@@ -548,7 +755,7 @@ export function nativeJobPathRecoveredByWorker(
  const routeStart = normalized.lastIndexOf('/', routeEnd - 1) + 1;
  const routeSlug = normalized.slice(routeStart, routeEnd);
  if (!routeSlug) return false;
- const nativePrefix = nativeJobPrefixByLocaleAndSlug.get(`${locale}:${routeSlug}`);
+ const nativePrefix = nativeJobPrefixByLocaleAndSlug.nativePrefixFor(locale, routeSlug, tracking);
  return nativePrefix !== undefined && nativePrefix !== normalized.slice(0, -(routeSlug.length + 1));
 }
 
@@ -1569,6 +1776,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const trafficFilter = getTrafficEvidenceFilter(rootDir);
  // P1 noindex plan: Search Console demand evidence (90 d page impressions).
  const gscDemand = trafficFilter.gscDemand();
+ // Separate, unfiltered GA4 pagePath evidence is the only source that can
+ // prove an expired URL had zero sessions, including newsletter traffic.
+ const expiredJobGa4Evidence = trafficFilter.getExpiredJobGa4TrafficEvidence();
+ const expiredJobEdgeEvidenceNowMs = Date.now();
+ const expiredJobEdgeGa4EvidenceUsable = isExpiredJobGa4EvidenceUsable(
+  expiredJobGa4Evidence,
+  expiredJobEdgeEvidenceNowMs,
+ );
+ const expiredJobEdgeEvidenceCoverage = {
+  complete: expiredJobEdgeGa4EvidenceUsable,
+  generatedAt: expiredJobGa4Evidence?.generatedAt ?? null,
+  dateRange: expiredJobGa4Evidence?.dateRange ?? null,
+  returnedRows: expiredJobGa4Evidence?.coverage?.returnedRows ?? null,
+  reportedRows: expiredJobGa4Evidence?.coverage?.reportedRows ?? null,
+ };
+ let expiredJobEdgeCandidateCount = 0;
+ let expiredJobEdgeRecordCount = 0;
  // Day-granular clock for the expired-job grace window, so every
  // BUILD_LOCALE shard of one deploy reaches the same verdict for a job.
  const p1TodayMs = Date.parse(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
@@ -1789,9 +2013,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collector's active Map is now also bounded at the jobs-SEO threshold for
  // every page family, including phases that do not release a page cache
  // chunk. The generic collector default remains unchanged for other plugins.
- // Keep the existing 1-GiB cadence until an identical-corpus full-locale
- // benchmark supports changing it.
- const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024;
+ // Keep production on the existing 1-GiB cadence. The matrix experiment may
+ // select the 512-MiB candidate only when it explicitly marks the build as a
+ // benchmark, so the comparison cannot silently change a deploy build.
+ const JOBS_SEO_HTML_GC_INTERVAL_MB = process.env.BUILD_BENCH === '1'
+  && process.env.JOBS_SEO_HTML_GC_INTERVAL_MB === '512'
+  ? 512
+  : 1024;
  const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
  let jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
  let jobsSeoHtmlGcAvailable: boolean | null = null;
@@ -3969,22 +4197,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    }
   }
  }
- // The HTML renderer selects six cards from the full candidate pool. The
- // manifest carries those same six records; their projections cover every
- // related link the renderer emits, so an unrelated pool candidate must not
- // invalidate this page.
- const perJob_relatedCanonicalPaths = perJob_related.map((relatedJob: any) => {
-   const relatedCanton = sharedResolveJobCanton(relatedJob as { canton?: string; location?: string });
-   return {
-     job: relatedJob,
-     paths: {
-       it: buildCanonicalJobDetailPath('it', relatedJob, localizedSlug(relatedJob, 'it'), relatedCanton),
-       en: buildCanonicalJobDetailPath('en', relatedJob, localizedSlug(relatedJob, 'en'), relatedCanton),
-       de: buildCanonicalJobDetailPath('de', relatedJob, localizedSlug(relatedJob, 'de'), relatedCanton),
-       fr: buildCanonicalJobDetailPath('fr', relatedJob, localizedSlug(relatedJob, 'fr'), relatedCanton),
-     },
-   };
- });
  const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
  : Number(job?.baseSalary?.value?.minValue);
@@ -4372,15 +4584,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const related = perJob_relatedCanonicalPaths.filter(({ job: relatedJob }) =>
-  activeCanonicalJobHref(relatedJob, locale) !== null,
- );
+ const related = perJob_related.flatMap((relatedJob: any) => {
+  const href = activeCanonicalJobHref(relatedJob, locale);
+  return href ? [{ job: relatedJob, href }] : [];
+ });
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
  const relatedHtml = related
- .map(({ job: r, paths: rPaths }, i: number) => {
- // Relative href — internal navigation resolves against canonical (absolute).
- const href = rPaths[locale];
+ .map(({ job: r, href }, i: number) => {
  const relatedTitle = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(r, locale));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
@@ -13386,7 +13597,7 @@ ${staticAnalyticsHtml}
  const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  expiredSliceOverflow = new ExpiredSliceOverflow();
  if (fs.existsSync(expiredSlicesDir)) {
- const emittedSlugs = new Set(Object.keys(tracking));
+ const isTrackedSlug = (slug: string): boolean => Object.prototype.hasOwnProperty.call(tracking, slug);
  // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
  // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
  // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
@@ -13401,7 +13612,7 @@ ${staticAnalyticsHtml}
  }
  }
  const sliceAugmented = augmentExpiredSliceIndex(
- expiredSliceJobs(), emittedSlugs, expiredBySlug, expiredSliceOverflow,
+ expiredSliceJobs(), isTrackedSlug, expiredBySlug, expiredSliceOverflow,
  SLICE_AUGMENT_CAP, _jobRecency,
  );
  if (sliceAugmented > 0) {
@@ -13683,7 +13894,7 @@ ${staticAnalyticsHtml}
  // NB: the hub-pagination compound keys were already `delete`d from `tracking`
  // up at the reserved-hub strip block (before the tracking write AND before this
  // expiredSlugs computation), so they are absent from BOTH `expiredSlugs` here
- // and the self-healing `Object.entries(tracking)` loop below — no second strip
+ // and the self-healing tracking loop below — no second strip
  // is needed (a duplicate one here would re-declare hubPaginationKeysRemoved and
  // also runs AFTER expiredSlugs is captured, missing the expired loop anyway).
 
@@ -14179,6 +14390,63 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:shell:minify', __tShellMinify);
  return markJobBoardNoindexTargetHtml(out);
  };
+
+ // Build one exact static-shell template per locale. The Worker fills only
+ // the page slots; analytics, AdSense, the nav/footer, CSS and SPA bundle stay
+ // byte-for-byte sourced from the same builder as static soft-landings.
+ const edgeTemplateByLocale = new Map<string, string>();
+ for (const locale of localeList) {
+  edgeTemplateByLocale.set(locale, buildSoftLandingHtml(
+   locale,
+   '__FT_EDGE_TITLE__',
+   '__FT_EDGE_DESCRIPTION__',
+   ROBOTS_NOINDEX_FOLLOW,
+   `${BASE_URL}/__FT_EDGE_CANONICAL_PATH__`,
+   '__FT_EDGE_HREFLANG__',
+   '__FT_EDGE_JSONLD__',
+   '__FT_EDGE_DATA__',
+   '__FT_EDGE_BODY__',
+   '__FT_EDGE_AD_SNIPPET__',
+   {
+    title: '__FT_EDGE_SOCIAL_TITLE__',
+    description: '__FT_EDGE_SOCIAL_DESCRIPTION__',
+   },
+  ));
+ }
+ const edgeSectionSlugs = JSON.parse(
+  fs.readFileSync(np.resolve(rootDir, 'scripts/lib/section-shard-slugs.json'), 'utf8'),
+ ) as Record<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>;
+ const expiredJobEdgeSectionForPath = (relPath: string, locale: string): string | null => {
+  const segments = relPath.split('/').filter(Boolean);
+  const sectionSlug = locale === 'it' ? segments[0] : segments[1];
+  if (!sectionSlug) return null;
+  for (const [section, localizedSlugs] of Object.entries(edgeSectionSlugs)) {
+   if (localizedSlugs && typeof localizedSlugs === 'object' && localizedSlugs[locale as 'it' | 'en' | 'de' | 'fr'] === sectionSlug) {
+    return section;
+   }
+  }
+  return null;
+ };
+ const edgeRunLabel = String(process.env.GITHUB_RUN_ID || `local-${Date.now()}`)
+  .replace(/[^a-zA-Z0-9._-]/g, '-')
+  .slice(0, 64);
+ const edgeRunAttempt = /^\d+$/.test(process.env.GITHUB_RUN_ATTEMPT || '')
+  ? process.env.GITHUB_RUN_ATTEMPT
+  : '1';
+ const expiredJobEdgeGeneration = `run-${edgeRunLabel}-${edgeRunAttempt}`;
+ const expiredJobEdgeWriters = new Map<string, ReturnType<typeof createExpiredJobEdgeDatasetWriter>>();
+ for (const locale of localeList) {
+  if (!shouldEmitLocale(locale)) continue;
+  expiredJobEdgeWriters.set(locale, createExpiredJobEdgeDatasetWriter({
+   distDir,
+   locale,
+   generation: expiredJobEdgeGeneration,
+   template: edgeTemplateByLocale.get(locale)!,
+   adSnippetHtml: ADSENSE_SNIPPET,
+   coverage: expiredJobEdgeEvidenceCoverage,
+   requestedSections: [], // PR B ships the dataset with the rollout safely off.
+  }));
+ }
  const writeSoftLandingPage = (outRelPath: string, html: string) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
  const normPath = outRelPath.replace(/\/+$/, '');
@@ -14377,6 +14645,13 @@ ${staticAnalyticsHtml}
   p1TodayMs,
  );
  if (!expiredDemandIndexable) expiredDemandNoindexCount++;
+ const expiredJobEdgeSelected = isEdgeServedExpiredJob({
+  p1Noindex: !expiredDemandIndexable,
+  paths: __slDemandPaths,
+  ga4Evidence: expiredJobGa4Evidence,
+  nowMs: expiredJobEdgeEvidenceNowMs,
+ });
+ if (expiredJobEdgeSelected) expiredJobEdgeCandidateCount++;
 
  // ── Per-slug invariants (hoisted out of the per-locale loop) ──
  // These values depend only on the slug, not on the locale. Computing
@@ -14682,6 +14957,76 @@ ${staticAnalyticsHtml}
  ? __slCandidatePaths
  : [...__slCandidatePaths, __slItLegacyMirror];
  const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
+ // PR B only prepares the edge copy. The manifest deliberately keeps every
+ // section inactive until the separate, owner-approved rollout PR.
+ if (expiredJobEdgeSelected) {
+  const section = expiredJobEdgeSectionForPath(relPath, locale);
+  const writer = expiredJobEdgeWriters.get(locale);
+  if (section && writer) {
+   const similarSource = sameCompanyActiveJobs.length > 0
+    ? sameCompanyActiveJobs
+    : selectRecentJobs(slug, slug, jobCanton);
+   const similarActiveJobs = similarSource.flatMap((job: any) => {
+    const href = activeCanonicalJobHref(job, locale);
+    const title = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(job, locale));
+    if (!href || !title) return [];
+    return [{
+     href,
+     title,
+     employer: String(job.company || ''),
+     place: String(job.location || ''),
+    }];
+   }).slice(0, 5);
+   const similarHeading = sameCompanyActiveJobs.length > 0
+    ? locale === 'it' ? `Altre offerte di ${jobCompany}`
+     : locale === 'en' ? `More jobs at ${jobCompany}`
+      : locale === 'de' ? `Weitere Stellen bei ${jobCompany}`
+       : `Autres offres chez ${jobCompany}`
+    : locale === 'it' ? 'Altre posizioni attive'
+     : locale === 'en' ? 'Other active positions'
+      : locale === 'de' ? 'Weitere offene Stellen'
+       : 'Autres postes actifs';
+   const alternates = expiredClusterHasHreflang
+    ? buildLocaleAlternateEntries({
+     eligibleLocales: ALTERNATE_LOCALES,
+     hrefFor: (alternateLocale) => `${BASE_URL}${withSlash(paths[alternateLocale] ?? '')}`,
+    }).map((entry) => ({ locale: entry.hreflang, href: entry.href }))
+    : [];
+   const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
+   const added = writer.addPage(relPath, section, {
+    canonicalPath: relPath,
+    section,
+    slug,
+    title: jobTitle,
+    pageTitle: finalizeJobBoardTitle(pageTitleRaw),
+    socialTitle: hasRealTitle
+     ? finalizeJobBoardTitle(pageTitleRaw)
+     : UNVERIFIED_JOB_SOCIAL_PREVIEW[locale].title,
+    metaDescription: softLandingMetaDescription(locale, pageDesc),
+    socialDescription: hasRealTitle
+     ? softLandingMetaDescription(locale, pageDesc)
+     : UNVERIFIED_JOB_SOCIAL_PREVIEW[locale].description,
+    employer: jobCompany,
+    place: jobLocation,
+    canton: jobCanton,
+    expiredAt: jobExpiredAt,
+    expiredMessage: copy.banner,
+    boardUrl: `${BASE_URL}${listingPath}`,
+    similarHeading,
+    similarActiveJobs,
+    hasTrafficAdSnippet: __slKeepProse,
+    alternates,
+    breadcrumbs: [
+     { name: 'Frontaliere Ticino', href: `${BASE_URL}/` },
+     { name: cantonSectionName(locale, displayCanton), href: `${BASE_URL}${listingPath}` },
+     { name: jobTitle, href: selfUrl },
+    ],
+    titleByLocale: recordedJobTitleByLocale,
+    slugByLocale: ejData?.slugByLocale || gscInfo?.slugByLocale || {},
+   });
+   if (added) expiredJobEdgeRecordCount++;
+  }
+ }
  const __tEjpDecide = phaseTimer();
  // Owner contract: every expired URL keeps the complete generated body.
  // `action` is part of the reuse input so older cached thin shells are invalidated.
@@ -16478,7 +16823,13 @@ ${staticAnalyticsHtml}
    unverifiedSocialPreview,
   );
  };
- for (const [slug, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
+ // Iterate the large registry directly instead of materializing one tuple
+ // array per slug. The registry is close to 900k entries on production builds;
+ // for-in preserves Object.entries' own-key enumeration order here, while the
+ // ownership check excludes Object.prototype properties.
+ for (const slug in tracking) {
+ if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+ const paths = tracking[slug];
  for (const locale of localeList) {
  const relPath = paths?.[locale];
  if (!relPath) continue;
@@ -16592,11 +16943,24 @@ ${staticAnalyticsHtml}
  }));
 
  // Last-reader release, proven by after-self-heal: the final safety-net loop
- // has consumed tracking and activeJobDirs. Do not clear
- // pathHistory; the write-registry report still owns that cross-plugin state.
- for (const key of Object.keys(tracking)) delete tracking[key];
+ // has consumed tracking and activeJobDirs. Replace the giant registry in one
+ // assignment instead of allocating Object.keys(tracking) and deleting over
+ // a million properties. Drop the memory probe's second reference at the same
+ // boundary. Do not clear pathHistory; the write-registry report still owns
+ // that cross-plugin state.
+ tracking = Object.create(null) as typeof tracking;
+ jobsSeoMemContext.tracking = undefined;
  activeJobDirs.clear();
  historicalArchiveFallbacks.clear();
+
+ for (const [locale, writer] of expiredJobEdgeWriters) {
+  const { manifest } = writer.finish();
+  console.log(
+   `[expired-job-edge-dataset] ${locale}: candidates=${expiredJobEdgeCandidateCount} `
+   + `records=${expiredJobEdgeRecordCount} sections=${manifest.availableSections.length} `
+   + `active=${manifest.activeSections.length} evidence-complete=${manifest.coverage.complete}`,
+  );
+ }
 
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();
@@ -16725,6 +17089,7 @@ ${staticAnalyticsHtml}
   }
   jobsSeoReuse?.logSummary();
  } finally {
+  jobsSeoReuse?.release();
   // Resolve after the shared manifest write. The related plugin awaits this
   // barrier before writing its own entries into the same per-locale map.
   resolveJobsSeoPagesFlushed();

@@ -121,7 +121,7 @@ describe('main data writers use the shared retry contract', () => {
     expect(read('.github/workflows/guard-data-integrity.yml')).toContain(
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
-    expect(read('.github/workflows/deploy.yml')).toContain('--stash-dirty');
+    expect(read('.github/workflows/deploy-publish.yml')).toContain('--stash-dirty');
     // build-history: the matrix legs only stage rows (#9247); the single
     // writer is scripts/lib/commit-build-history-rows.sh, run once per deploy
     // by the build-history-commit job on a clean sparse checkout, so it
@@ -178,10 +178,10 @@ describe('main data writers use the shared retry contract', () => {
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {
-    const deploy = read('.github/workflows/deploy.yml');
+    const deploy = read('.github/workflows/deploy-publish.yml');
     expect(deploy).toContain('node scripts/ci/assert-accumulator-write.mjs "$accumulator"');
     expect(deploy).toContain('git commit --only \\');
-    expect(deploy).toContain('-m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})" \\');
+    expect(deploy).toContain('-m "chore(dist-history): append source run ${SOURCE_RUN_ID} (${SOURCE_SHA::8})" \\');
     expect(deploy).toContain('-- data/dist-size-history.jsonl data/url-first-seen.json');
   });
 });

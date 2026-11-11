@@ -169,7 +169,7 @@ describe('cathedral-seo-gates-check.yml wiring', () => {
 
   it('does not replay scheduled deploy reconcilers as Pages sources', () => {
     const condition = String(checkJob.if);
-    expect(condition).toContain("github.event_name != 'workflow_run'");
-    expect(condition).toContain("github.event.workflow_run.event != 'schedule'");
+    expect(condition).toContain("github.event_name != 'pull_request'");
+    expect(condition).not.toContain('workflow_run');
   });
 });

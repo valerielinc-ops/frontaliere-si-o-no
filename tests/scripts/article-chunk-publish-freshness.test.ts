@@ -58,6 +58,10 @@ const REPLAY_CODE_THAT_WRITES_NOTHING: Record<string, string> = {
   // Article replay reads the Worker route table, but these do not affect the
   // article chunks or URLs published by that replay.
   'services/publicConfigConstants.mjs': 'public-config Worker route, unrelated to article replay outputs',
+  // The Worker also imports this renderer for expired-job landings. Article
+  // replay reads the Worker route table but neither runs this renderer nor
+  // publishes its dataset, so these bytes do not change article replay output.
+  'scripts/lib/expired-job-edge-dataset.mjs': 'expired-job Worker renderer, unrelated to article replay outputs',
 };
 
 type ReplayStep = { name?: string; run?: string };

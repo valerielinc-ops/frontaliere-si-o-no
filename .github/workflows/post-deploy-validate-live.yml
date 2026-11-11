@@ -20,8 +20,9 @@ name: Post-deploy Validate (live)
 # validate-live success.
 #
 # Inputs:
-#   deploy_run_id     — caller's github.run_id (for cross-job artifact
-#                       names like sitemaps-${run_id})
+#   deploy_run_id     — run id of the source build.
+#   publisher_artifact_run_id — run id containing the finalized sitemap bundle;
+#                       empty keeps the legacy source-run lookup.
 #   deploy_event_name — kept for parity with publish.yml signature.
 on:
   workflow_call:
@@ -34,6 +35,11 @@ on:
         description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
         required: true
         type: string
+      publisher_artifact_run_id:
+        description: 'Run ID containing the finalized publisher sitemap artifact.'
+        required: false
+        type: string
+        default: ''
       deploy_ref:
         description: 'Commit SHA of the build the artifacts came from. Pass when the caller runs at a different SHA than the build (e.g. deploy-publish.yml on workflow_run). Empty = checkout the caller default.'
         required: false
@@ -111,9 +117,9 @@ jobs:
         uses: actions/download-artifact@v8
         continue-on-error: true
         with:
-          name: sitemaps-${{ inputs.deploy_run_id }}
+          name: sitemaps-${{ inputs.publisher_artifact_run_id || inputs.deploy_run_id }}
           path: /tmp/sitemaps-bundle
-          run-id: ${{ inputs.deploy_run_id }}
+          run-id: ${{ inputs.publisher_artifact_run_id || inputs.deploy_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Stage build-id.txt into dist/

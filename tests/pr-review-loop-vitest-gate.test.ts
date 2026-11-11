@@ -225,6 +225,30 @@ describe('generation-aware check selection used by the PR loop', () => {
       .toBe('failure');
   });
 
+  it('ordina il workflow-run prima del tentativo locale senza created_at', () => {
+    const oldRerun = {
+      id: 40,
+      name: CURRENT_NAME,
+      status: 'completed',
+      conclusion: 'failure',
+      head_sha: HEAD,
+      created_at: null,
+      completed_at: '2026-09-20T10:10:00Z',
+      run_attempt: 2,
+      details_url: 'https://github.com/owner/repo/actions/runs/4001/job/40',
+    };
+    const newerFirstAttempt = {
+      ...oldRerun,
+      id: 41,
+      conclusion: 'success',
+      run_attempt: 1,
+      details_url: 'https://github.com/owner/repo/actions/runs/4002/job/41',
+    };
+
+    expect(jqState([{ check_runs: [oldRerun, newerFirstAttempt] }]))
+      .toEqual({ conclusion: 'success', pending: 0 });
+  });
+
   it('fails closed on malformed paginated API pages before any rescue mutation', () => {
     const valid = {
       check_runs: [{

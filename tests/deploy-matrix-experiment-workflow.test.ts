@@ -33,7 +33,9 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
       'JOBS_SEO_GCFREED_PROBE',
+      'JOBS_SEO_HTML_GC_INTERVAL_MB',
       'JOBS_SEO_MEM_GC',
+      'JOBS_SEO_NATIVE_ROUTE_INDEX',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_PROBE',
       'JOBS_SEO_REUSE_PROBE_MAX',
@@ -59,6 +61,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'SEQUENTIAL_PROFILE',
       'UV_THREADPOOL_SIZE',
     ]);
+    expect(parseVariants('baseline=JOBS_SEO_NATIVE_ROUTE_INDEX=legacy\ncandidate='))
+      .toEqual([
+        { name: 'baseline', env: { JOBS_SEO_NATIVE_ROUTE_INDEX: 'legacy' } },
+        { name: 'candidate', env: {} },
+      ]);
   });
 
   it('declares variants as a multiline string input and keeps monolith comparison opt-in', () => {
@@ -110,6 +117,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const capture = (WORKFLOW.jobs.prep.steps as Array<Record<string, any>>)
       .find((step) => String(step.name).startsWith('Capture live build inputs once'));
     expect(String(capture?.run)).toContain('--out-dir=data/.bench-inputs/og-border-wait');
+    expect(String(capture?.run)).toContain('--manifest-out=data/.bench-inputs/og-border-wait/manifest.json');
+    const restore = (WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Restore prepared snapshot (data + thumbnails)');
+    expect(restore?.env?.REQUIRE_OG_WEBCAM_REPLAY).toBe('${{ inputs.compare_variants }}');
+    expect(String(restore?.run)).toContain('webcam replay manifest missing after prepared snapshot restore');
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
@@ -261,6 +273,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('fails clearly for an invalid name or env key', () => {
     expect(() => parseVariants('BadName=')).toThrow(/invalid variant name/);
     expect(() => parseVariants('bad=NOT_A_BUILD_FLAG=1')).toThrow(/disallowed env key/);
+    expect(() => parseVariants('bad=JOBS_SEO_HTML_GC_INTERVAL_MB=256')).toThrow(/expected 512 or 1024/);
   });
 
   it('keeps compare variants on the complete border-wait corpus', () => {
@@ -287,6 +300,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     )).toEqual([
       { name: 'baseline', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '0' } },
       { name: 'candidate', env: { RELATED_SEARCH_CONTEXT_GC_CHECKPOINTS: '1' } },
+    ]);
+  });
+
+  it('accepts the jobs SEO HTML GC cadence switch for a same-corpus comparison', () => {
+    expect(parseVariants(
+      'baseline=\ncandidate=JOBS_SEO_HTML_GC_INTERVAL_MB=512',
+    )).toEqual([
+      { name: 'baseline', env: {} },
+      { name: 'candidate', env: { JOBS_SEO_HTML_GC_INTERVAL_MB: '512' } },
     ]);
   });
 

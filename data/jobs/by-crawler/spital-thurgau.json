@@ -3050,9 +3050,9 @@
       "slug": "sostanze-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "sostanze-spital-thurgau-stgag-diessenhofen",
-        "en": "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "en": "unterassistent-in-stgag-ch",
         "de": "unterassistent-in-spital-thurgau-stgag-diessenhofen",
-        "fr": "sous-assistant-spital-thurgau-stgag-diessenhofen"
+        "fr": "unterassistent-in-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3106,17 +3106,19 @@
         ],
         "en": [
           "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sub-assistant-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
           "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sous-assistant-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-stgag-ch",
         "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-        "sous-assistant-in-spital-thurgau-stgag-diessenhofen"
+        "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
+        "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "sous-assistant-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
       "salaryMin": 57500,
@@ -3144,7 +3146,7 @@
         "it": "tirocinante-fisioterapista-ergoterapista-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "pre-practical-in-physio-occupational-therapy-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "vorpraktikant-in-physio-ergotherapie-stgag-ch",
-        "fr": "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "fr": "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3200,7 +3202,7 @@
         "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "stv-capo-medico-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "praktikant-in-psychosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3224,7 +3226,7 @@
         "fr": [
           "vorpraktikant-in-physio-ergotherapie-stgag-ch",
           "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.131Z",
@@ -5547,9 +5549,9 @@
       "slug": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "en": "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "en": "praktikant-in-langzeitpflege-stgag-ch",
         "de": "praktikant-in-langzeitpflege-spital-thurgau-stgag-diessenhofen",
-        "fr": "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
+        "fr": "praktikant-in-langzeitpflege-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5605,10 +5607,10 @@
         ],
         "en": [
           "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "internship-long-term-care-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
@@ -5621,7 +5623,9 @@
         "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen",
         "fachmann-frau-gesundheit-stgag-ch",
         "praktikant-in-langzeitpflege-stgag-munsterlingen",
-        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen"
+        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 73000,
@@ -9005,9 +9009,9 @@
       "slug": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
-        "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "en": "neuropsychologists-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
-        "fr": "neuropsychologue-spital-thurgau-stgag-munsterlingen"
+        "fr": "neuropsychologues-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -9055,8 +9059,8 @@
       "previousSlugs": [
         "neuropsychologen-in-stgag-ch",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologists-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+        "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "neuropsychologue-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9064,11 +9068,11 @@
         ],
         "en": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologists-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologist-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologue-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
@@ -9181,7 +9185,7 @@
       "slug": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ambulateurium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
@@ -9231,7 +9235,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9240,7 +9244,7 @@
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
-          "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch"
@@ -15011,12 +15015,12 @@
     },
     {
       "id": "spital-thurgau-f994e33474a4",
-      "slug": "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch",
+      "slug": "segretario-a-medico-a-ospedale-cantonale-di-frauenfeld-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
         "de": "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch",
-        "it": "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch",
-        "en": "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch",
-        "fr": "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch"
+        "it": "segretario-a-medico-a-ospedale-cantonale-di-frauenfeld-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "medical-secretary-at-the-frauenfeld-cantonal-hospital-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "secretaire-medical-de-l-hopital-cantonal-de-frauenfeld-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -15024,16 +15028,16 @@
       "title": "Arztsekretär/-in Kantonsspital Frauenfeld",
       "titleByLocale": {
         "de": "Arztsekretär/-in Kantonsspital Frauenfeld",
-        "it": "Arztsekretär/-in Kantonsspital Frauenfeld",
-        "en": "Arztsekretär/-in Kantonsspital Frauenfeld",
-        "fr": "Arztsekretär/-in Kantonsspital Frauenfeld"
+        "it": "Segretario/a medico/a Ospedale cantonale di Frauenfeld",
+        "en": "Medical Secretary at the Frauenfeld Cantonal Hospital",
+        "fr": "Secrétaire médical de l'hôpital cantonal de Frauenfeld"
       },
       "description": "Zur Ergänzung unserer modernen Chirurgischen Klinik STGAG suchen wir per 1. Februar 2027 oder nach Vereinbarung\n\nArztsekretär/-in Kantonsspital Frauenfeld\n\n80-100%\n\nWir bieten viel Eigenverantwortung und ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Sie eine moderne Infrastruktur in einem zukunftsorientierten und erfolgreichem Dienstleistungsunternehmen. Auf Wunsch mit Parkplatz, sehr guter ÖV-Anbindung, firmeneigene Kita und gutem Personalrestaurant.\n\nSie übernehmen\n• Erstellen von Sprechstunden-, Notfall-, OP-, Austritt und Versicherungsberichten\n• Erstellen von elektronischen Patientenakten\n• Organisation und Mithilfe in der chirurgischen Sprechstunde\n• Allgemeine administrative und organisatorische Sekretariatsaufgaben\n• Abrechnung nach Tarmed\n• Neben dem Sekretariat Chirurgie arbeiten Sie auch im interdisziplinären Ambulatorium (Empfangsarbeit) in Zusammenarbeit mit der Orthopädie, Hand- und Plastischen Chirurgie und Anästhesie\n\nSie bringen mit\n• Mehrjährige Berufserfahrung als Arztsekretärin\n• Stilsicheres Deutsch\n• Beherrschen der medizinischen Terminologie\n• Sehr gute PC-Kenntnisse mit und können mit verschiedensten Programmen wie MC-Office, Kisim, SAP und IBICare umgehen und das Erlernen weiterer betriebsinterner Software bereitet Ihnen keine Probleme.\n• zuverlässige, flexible und belastbare Persönlichkeit\n• Teamfähigkeit, Kontaktfreudigkeit, Flexibilität und Belastbarkeit mit und haben angenehme Umgangsformen\n• Speditives und exaktes Arbeiten sind für sie selbstverständlich uns Sie verfügen über eine rasche Auffassungsgabe.\n\nDie Spital Thurgau AG stellt sich vor\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.02.2027",
       "descriptionByLocale": {
         "de": "Zur Ergänzung unserer modernen Chirurgischen Klinik STGAG suchen wir per 1. Februar 2027 oder nach Vereinbarung\n\nArztsekretär/-in Kantonsspital Frauenfeld\n\n80-100%\n\nWir bieten viel Eigenverantwortung und ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Sie eine moderne Infrastruktur in einem zukunftsorientierten und erfolgreichem Dienstleistungsunternehmen. Auf Wunsch mit Parkplatz, sehr guter ÖV-Anbindung, firmeneigene Kita und gutem Personalrestaurant.\n\nSie übernehmen\n• Erstellen von Sprechstunden-, Notfall-, OP-, Austritt und Versicherungsberichten\n• Erstellen von elektronischen Patientenakten\n• Organisation und Mithilfe in der chirurgischen Sprechstunde\n• Allgemeine administrative und organisatorische Sekretariatsaufgaben\n• Abrechnung nach Tarmed\n• Neben dem Sekretariat Chirurgie arbeiten Sie auch im interdisziplinären Ambulatorium (Empfangsarbeit) in Zusammenarbeit mit der Orthopädie, Hand- und Plastischen Chirurgie und Anästhesie\n\nSie bringen mit\n• Mehrjährige Berufserfahrung als Arztsekretärin\n• Stilsicheres Deutsch\n• Beherrschen der medizinischen Terminologie\n• Sehr gute PC-Kenntnisse mit und können mit verschiedensten Programmen wie MC-Office, Kisim, SAP und IBICare umgehen und das Erlernen weiterer betriebsinterner Software bereitet Ihnen keine Probleme.\n• zuverlässige, flexible und belastbare Persönlichkeit\n• Teamfähigkeit, Kontaktfreudigkeit, Flexibilität und Belastbarkeit mit und haben angenehme Umgangsformen\n• Speditives und exaktes Arbeiten sind für sie selbstverständlich uns Sie verfügen über eine rasche Auffassungsgabe.\n\nDie Spital Thurgau AG stellt sich vor\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.02.2027",
-        "it": "Zur Ergänzung unserer modernen Chirurgischen Klinik STGAG suchen wir per 1. Februar 2027 oder nach Vereinbarung\n\nArztsekretär/-in Kantonsspital Frauenfeld\n\n80-100%\n\nWir bieten viel Eigenverantwortung und ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Sie eine moderne Infrastruktur in einem zukunftsorientierten und erfolgreichem Dienstleistungsunternehmen. Auf Wunsch mit Parkplatz, sehr guter ÖV-Anbindung, firmeneigene Kita und gutem Personalrestaurant.\n\nSie übernehmen\n• Erstellen von Sprechstunden-, Notfall-, OP-, Austritt und Versicherungsberichten\n• Erstellen von elektronischen Patientenakten\n• Organisation und Mithilfe in der chirurgischen Sprechstunde\n• Allgemeine administrative und organisatorische Sekretariatsaufgaben\n• Abrechnung nach Tarmed\n• Neben dem Sekretariat Chirurgie arbeiten Sie auch im interdisziplinären Ambulatorium (Empfangsarbeit) in Zusammenarbeit mit der Orthopädie, Hand- und Plastischen Chirurgie und Anästhesie\n\nSie bringen mit\n• Mehrjährige Berufserfahrung als Arztsekretärin\n• Stilsicheres Deutsch\n• Beherrschen der medizinischen Terminologie\n• Sehr gute PC-Kenntnisse mit und können mit verschiedensten Programmen wie MC-Office, Kisim, SAP und IBICare umgehen und das Erlernen weiterer betriebsinterner Software bereitet Ihnen keine Probleme.\n• zuverlässige, flexible und belastbare Persönlichkeit\n• Teamfähigkeit, Kontaktfreudigkeit, Flexibilität und Belastbarkeit mit und haben angenehme Umgangsformen\n• Speditives und exaktes Arbeiten sind für sie selbstverständlich uns Sie verfügen über eine rasche Auffassungsgabe.\n\nDie Spital Thurgau AG stellt sich vor\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.02.2027",
-        "en": "Zur Ergänzung unserer modernen Chirurgischen Klinik STGAG suchen wir per 1. Februar 2027 oder nach Vereinbarung\n\nArztsekretär/-in Kantonsspital Frauenfeld\n\n80-100%\n\nWir bieten viel Eigenverantwortung und ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Sie eine moderne Infrastruktur in einem zukunftsorientierten und erfolgreichem Dienstleistungsunternehmen. Auf Wunsch mit Parkplatz, sehr guter ÖV-Anbindung, firmeneigene Kita und gutem Personalrestaurant.\n\nSie übernehmen\n• Erstellen von Sprechstunden-, Notfall-, OP-, Austritt und Versicherungsberichten\n• Erstellen von elektronischen Patientenakten\n• Organisation und Mithilfe in der chirurgischen Sprechstunde\n• Allgemeine administrative und organisatorische Sekretariatsaufgaben\n• Abrechnung nach Tarmed\n• Neben dem Sekretariat Chirurgie arbeiten Sie auch im interdisziplinären Ambulatorium (Empfangsarbeit) in Zusammenarbeit mit der Orthopädie, Hand- und Plastischen Chirurgie und Anästhesie\n\nSie bringen mit\n• Mehrjährige Berufserfahrung als Arztsekretärin\n• Stilsicheres Deutsch\n• Beherrschen der medizinischen Terminologie\n• Sehr gute PC-Kenntnisse mit und können mit verschiedensten Programmen wie MC-Office, Kisim, SAP und IBICare umgehen und das Erlernen weiterer betriebsinterner Software bereitet Ihnen keine Probleme.\n• zuverlässige, flexible und belastbare Persönlichkeit\n• Teamfähigkeit, Kontaktfreudigkeit, Flexibilität und Belastbarkeit mit und haben angenehme Umgangsformen\n• Speditives und exaktes Arbeiten sind für sie selbstverständlich uns Sie verfügen über eine rasche Auffassungsgabe.\n\nDie Spital Thurgau AG stellt sich vor\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.02.2027",
-        "fr": "Zur Ergänzung unserer modernen Chirurgischen Klinik STGAG suchen wir per 1. Februar 2027 oder nach Vereinbarung\n\nArztsekretär/-in Kantonsspital Frauenfeld\n\n80-100%\n\nWir bieten viel Eigenverantwortung und ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Sie eine moderne Infrastruktur in einem zukunftsorientierten und erfolgreichem Dienstleistungsunternehmen. Auf Wunsch mit Parkplatz, sehr guter ÖV-Anbindung, firmeneigene Kita und gutem Personalrestaurant.\n\nSie übernehmen\n• Erstellen von Sprechstunden-, Notfall-, OP-, Austritt und Versicherungsberichten\n• Erstellen von elektronischen Patientenakten\n• Organisation und Mithilfe in der chirurgischen Sprechstunde\n• Allgemeine administrative und organisatorische Sekretariatsaufgaben\n• Abrechnung nach Tarmed\n• Neben dem Sekretariat Chirurgie arbeiten Sie auch im interdisziplinären Ambulatorium (Empfangsarbeit) in Zusammenarbeit mit der Orthopädie, Hand- und Plastischen Chirurgie und Anästhesie\n\nSie bringen mit\n• Mehrjährige Berufserfahrung als Arztsekretärin\n• Stilsicheres Deutsch\n• Beherrschen der medizinischen Terminologie\n• Sehr gute PC-Kenntnisse mit und können mit verschiedensten Programmen wie MC-Office, Kisim, SAP und IBICare umgehen und das Erlernen weiterer betriebsinterner Software bereitet Ihnen keine Probleme.\n• zuverlässige, flexible und belastbare Persönlichkeit\n• Teamfähigkeit, Kontaktfreudigkeit, Flexibilität und Belastbarkeit mit und haben angenehme Umgangsformen\n• Speditives und exaktes Arbeiten sind für sie selbstverständlich uns Sie verfügen über eine rasche Auffassungsgabe.\n\nDie Spital Thurgau AG stellt sich vor\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.02.2027"
+        "it": "Per completare la nostra moderna clinica chirurgica STGAG stiamo cercando 1. Febbraio 2027 o d'accordo\n\nSegretario medico/ospedale cantonale Frauenfeld\n\n80-100%\n\nOffriamo un sacco di responsabilità personale e una vasta gamma di compiti con un focus sul lavoro di squadra. Una moderna infrastruttura vi aspetta in una società di servizi orientata al futuro e di successo. Su richiesta con parcheggio, ottima connessione di trasporto pubblico, servizio diurno aziendale e buon ristorante personale.\n\nSi prendono\n• Preparazione delle ore di ufficio, di emergenza, di chirurgia, di uscita e di assicurazione\n• Preparazione dei registri della salute elettronica\n• Organizzazione e assistenza nella consultazione chirurgica\n• Compiti generali di segreteria amministrativa e organizzativa\n• Settlement in Tarmed\n• Oltre al segretariato di chirurgia, si lavora anche nell'imboslatorio interdisciplinare (lavoro di recezione) in collaborazione con ortopedia, chirurgia della mano e plastica e anestesia\n\nPortano con loro\n• Diversi anni di esperienza professionale come segretario medico\n• Stylistic tedesco\n• Mastering terminologia medica\n• Conoscenza del PC molto buona e può trattare con vari programmi come MC-Office, Kisim, SAP e IBICare e imparare più software interno non vi causerà problemi.\n• Personalità affidabile, flessibile e resiliente\n• Lavoro di squadra, socialità, flessibilità e resilienza con e hanno buone maniere\n• Il lavoro in avanti e preciso è per voi, naturalmente, abbiamo una rapida comprensione.\n\nSpital Thurgau AG si presenta\n\nLa società di successo Spital Thurgau AG comprende gli ospedali cantonali a Frauenfeld e Münsterlingen, i servizi psichiatrici Thurgau a Münsterlingen e Weinfelden e Klink St. Katharinental per la riabilitazione e la cura a lungo termine a Diessenhofen. Operiamo anche servizi e istituti medici e amministrativi centrali. Offriamo una gamma completa di servizi e investiamo costantemente in infrastrutture di alta qualità. Offriamo ai nostri circa 4.100 dipendenti ambienti di lavoro attraenti, cooperazione interdisciplinare e opportunità di sviluppo mirate. Diventa anche parte della nostra storia di successo!\n\nPreferiamo applicazioni dirette, agenti di lavoro si prega di astenersi dal contatto.\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Amministrazione\n• Divisione: Spital Thurgau AG\n• Pensum: a tempo pieno\n• Occupazione: permanente\n• Data di entrata: 01.02.2027",
+        "en": "To complement our modern surgical clinic STGAG we are looking for 1. February 2027 or by agreement\n\nMedical Secretary/-in Cantonal Hospital Frauenfeld\n\n80-100%\n\nWe offer a lot of personal responsibility and a wide range of tasks with a focus on teamwork. A modern infrastructure awaits you in a future-oriented and successful service company. On request with parking, very good public transport connection, company-owned daycare and good staff restaurant.\n\nThey take over\n• Preparation of office hours, emergency, surgical, exit and insurance reports\n• Preparation of electronic health records\n• Organization and assistance in the surgical consultation\n• General administrative and organisational secretarial tasks\n• Settlement in Tarmed\n• In addition to the surgery secretariat, you also work in the interdisciplinary ambulatorium (reception work) in cooperation with orthopaedics, hand and plastic surgery and anesthesia\n\nThey bring with them\n• Several years of professional experience as medical secretary\n• Stylistic German\n• Mastering medical terminology\n• Very good PC knowledge and can deal with various programs such as MC-Office, Kisim, SAP and IBICare and learning more in-house software will not cause you any problems.\n• Reliable, flexible and resilient personality\n• Teamwork, sociability, flexibility and resilience with and have pleasant manners\n• Freight forward and exact work are for you of course us You have a quick understanding.\n\nSpital Thurgau AG introduces itself\n\nThe successful company Spital Thurgau AG includes the cantonal hospitals in Frauenfeld and Münsterlingen, the psychiatric services Thurgau in Münsterlingen and Weinfelden and the Klink St. Katharinental for rehabilitation and long-term care in Diessenhofen. We also operate central medical and administrative services and institutes. We offer a comprehensive range of services and constantly invest in high-quality infrastructure. We offer our approximately 4,100 employees attractive working environments, interdisciplinary cooperation and targeted development opportunities. Become part of our success story too!\n\nWe prefer direct applications, job agents please refrain from contacting.\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Administration\n• Division: Spital Thurgau AG\n• Pensum: Full-time\n• Employment: Permanent\n• Date of entry: 01.02.2027",
+        "fr": "Pour compléter notre clinique chirurgicale moderne STGAG nous cherchons 1. Février 2027 ou par accord\n\nSecrétaire médical/-à l'hôpital cantonal Frauenfeld\n\n80-100%\n\nNous offrons beaucoup de responsabilité personnelle et un large éventail de tâches avec un accent sur le travail d'équipe. Une infrastructure moderne vous attend dans une entreprise de services orientée vers l'avenir et prospère. Sur demande avec parking, très bonne connexion de transport public, garderie d'entreprise et bon restaurant du personnel.\n\nIls prennent le relais\n• Préparation des rapports d'heures de bureau, d'urgence, de chirurgie, de sortie et d'assurance\n• Préparation des dossiers médicaux électroniques\n• Organisation et assistance à la consultation chirurgicale\n• Tâches générales de secrétariat administratif et organisationnel\n• Établissement à Tarmed\n• En plus du secrétariat de chirurgie, vous travaillez également dans l'ambulatorium interdisciplinaire (travail de réception) en coopération avec l'orthopédie, la chirurgie manuelle et plastique et l'anesthésie\n\nIls apportent avec eux\n• Plusieurs années d'expérience professionnelle en tant que secrétaire médical\n• Allemand stylistique\n• Maîtrise de la terminologie médicale\n• Très bonne connaissance de PC et peut traiter avec divers programmes tels que MC-Office, Kisim, SAP et IBICare et apprendre plus de logiciels internes ne vous causera aucun problème.\n• Personnalité fiable, flexible et résistante\n• Travail d'équipe, sociabilité, flexibilité et résilience avec et avec des manières agréables\n• Fret avant et travail exact sont pour vous bien sûr nous Vous avez une compréhension rapide.\n\nSpital Thurgau AG se présente\n\nLa société à succès Spital Thurgau AG comprend les hôpitaux cantonaux de Frauenfeld et Münsterlingen, les services psychiatriques Thurgau de Münsterlingen et Weinfelden et le Klink St. Katharinental pour la réadaptation et les soins de longue durée à Diessenhofen. Nous gérons également des services et des instituts médicaux et administratifs centraux. Nous offrons une gamme complète de services et investissons constamment dans des infrastructures de haute qualité. Nous offrons à nos quelque 4 100 employés des environnements de travail attrayants, une coopération interdisciplinaire et des possibilités de développement ciblées. Faites partie de notre histoire de réussite aussi!\n\nNous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter.\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département : Administration\n• Division: Spital Thurgau AG\n• Pensum: Temps plein\n• Emploi permanent\n• Date d'entrée: 01.02.2027"
       },
       "location": "Kantonsspital Frauenfeld",
       "canton": "TG",
@@ -15081,7 +15085,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:27:52.482Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:27:52.482Z"
+      "firstSeenAt": "2026-11-10T21:27:52.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch"
+        ],
+        "en": [
+          "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-kantonsspital-frauenfeld-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-5e8b2cd64350",

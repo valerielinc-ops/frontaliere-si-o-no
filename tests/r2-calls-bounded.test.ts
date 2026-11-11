@@ -158,12 +158,12 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     expect(read('scripts/ci/purge-changed-cdn-assets.mjs')).toMatch(/execFileSync\('node', \[purgeScript[\s\S]{0,200}timeout: Math\.max\(1000, Math\.min\(batchTimeout, remainingMs\)\)/);
   });
 
-  it('deploy.yml: the CDN push step has a timeout-minutes coherent with its measured duration', () => {
-    const wf = parse(read('.github/workflows/deploy.yml'));
+  it('deploy-publish.yml: the CDN push step has a timeout-minutes coherent with its measured duration', () => {
+    const wf = parse(read('.github/workflows/deploy-publish.yml'));
     const steps = Object.values(wf.jobs as Record<string, { steps?: { name?: string; 'timeout-minutes'?: number }[] }>)
       .flatMap((j) => j.steps ?? []);
     const push = steps.find((s) => s.name === 'Push generated assets to CDN (early — ahead of the shard pushes)');
-    expect(push, 'early CDN push step not found').toBeTruthy();
+    expect(push, 'early CDN push step not found in publisher').toBeTruthy();
     // Measured 449-531 s; a limit near the 360-min job default is no limit.
     expect(push!['timeout-minutes']).toBeGreaterThanOrEqual(15);
     expect(push!['timeout-minutes']).toBeLessThanOrEqual(45);
