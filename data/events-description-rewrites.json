@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-11T04:21:34.022Z",
+  "generatedAt": "2026-11-11T05:27:59.925Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -188600,9 +188600,9 @@
     "guidle:AtHsMuh::471b6f33d592184cdb9b54bb59ae92508b606a562f2f7d0c75c6aaca46b6791f": {
       "id": "guidle:AtHsMuh",
       "sourceDescriptionHash": "471b6f33d592184cdb9b54bb59ae92508b606a562f2f7d0c75c6aaca46b6791f",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-11T02:23:17.413Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T05:24:01.547Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188762,9 +188762,9 @@
     "guidle:AVc3cxi::253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96": {
       "id": "guidle:AVc3cxi",
       "sourceDescriptionHash": "253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-11T02:29:39.047Z",
+      "code": "sentence-count",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T05:22:59.232Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
