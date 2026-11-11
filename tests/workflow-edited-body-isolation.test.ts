@@ -320,6 +320,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     const launchScript = launcher.run as string;
     const collectScript = collector.run as string;
     expect(launchScript).toContain('expected_labels=()');
+    // TSC runs synchronously after this detached roster has fully drained.
     expect(launchScript).not.toContain('expected_labels+=(tsc)');
     expect(launchScript).toContain('expected_labels+=(audit-markers)');
     expect(launchScript).toContain('expected_labels+=(action-runtimes)');
