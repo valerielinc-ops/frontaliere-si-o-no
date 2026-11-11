@@ -1,7 +1,7 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-11-10T21:41:44.128Z",
+  "generatedAt": "2026-11-11T09:26:21.423Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,64 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5554,
-  "avgDurationMs": 5554,
+  "durationMs": 5081,
+  "avgDurationMs": 5081,
   "durationHistory": [
-    5554
+    5081
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "sophia-genetics-4985cff6e1c7",
-      "slug": "compliance-specialist-temporary-6-months-sophia-genetics-rolle",
-      "company": "SOPHiA GENETICS",
-      "companyKey": "sophia-genetics",
-      "companyDomain": "sophiagenetics.com",
-      "title": "Compliance Specialist - Temporary 6 months",
-      "location": "Rolle",
-      "canton": "VD",
-      "url": "https://apply.workable.com/sophia-genetics/j/0514367146/",
-      "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-09T09:37:35.265Z",
-      "addressLocality": "Rolle",
-      "addressRegion": "Vaud",
-      "streetAddress": "La Pièce 12",
-      "postalCode": "1180",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Health-Tech / Genomica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T00:00:00.000Z",
-      "postedDate": "2026-09-24T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.workable.com/sophia-genetics/j/0514367146/",
-      "jobReqId": "0514367146",
-      "firstSeenAt": "2026-09-24T14:26:03.584Z",
-      "salaryMin": 69000,
-      "salaryMax": 118000,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:37:35.265Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "sophia-genetics-69b5583b6d1c",
@@ -85,7 +37,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:19.426Z",
+      "crawledAt": "2026-11-11T09:26:01.386Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -109,7 +61,7 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:41:19.426Z",
+      "validThrough": "2026-12-11T09:26:01.386Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -131,7 +83,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:19.347Z",
+      "crawledAt": "2026-11-11T09:26:01.318Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -155,7 +107,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:41:19.347Z",
+      "validThrough": "2026-12-11T09:26:01.318Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -177,7 +129,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:19.189Z",
+      "crawledAt": "2026-11-11T09:26:01.191Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -201,7 +153,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:41:19.189Z",
+      "validThrough": "2026-12-11T09:26:01.191Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +175,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/5282592E1F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:18.705Z",
+      "crawledAt": "2026-11-11T09:26:00.798Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -247,7 +199,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:41:18.705Z",
+      "validThrough": "2027-01-26T09:26:00.798Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -269,7 +221,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:18.315Z",
+      "crawledAt": "2026-11-11T09:26:00.496Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -293,7 +245,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:41:18.315Z",
+      "validThrough": "2026-12-17T09:26:00.496Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -304,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }
