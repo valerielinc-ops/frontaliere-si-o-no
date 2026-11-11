@@ -1325,3 +1325,28 @@ export function checkDraftTexts(texts, sources, { language } = {}) {
   const advisories = [...(facts.advisories || []), ...issues.filter((issue) => issue.severity === 'advisory').map(({ severity, ...issue }) => issue)];
   return { ok: unsupported.length === 0, unsupported, advisories };
 }
+
+/**
+ * Filtra gli atomi di evidenza ammissibili per la generazione AI dei documenti.
+ * Rigetta rigorosamente gli atomi inferiti dall'agente ('agent_inferred')
+ * a meno che non siano stati esplicitamente confermati dal candidato ('approvedByCandidate === true').
+ * Invariante di sicurezza: zero allucinazioni su titoli di studio o competenze non verificate.
+ *
+ * @param {Array<object>} atoms Elenco di atomi di evidenza
+ * @returns {Array<object>} Atomi autorizzati
+ */
+export function filterAuthorizedEvidenceAtoms(atoms) {
+  if (!Array.isArray(atoms)) return [];
+  return atoms.filter(atom => {
+    if (!atom || typeof atom !== 'object') return false;
+    const prov = atom.provenance;
+    if (prov === 'manual' || prov === 'stated_in_chat') {
+      return true;
+    }
+    if (prov === 'agent_inferred' && atom.approvedByCandidate === true) {
+      return true;
+    }
+    return false;
+  });
+}
+
