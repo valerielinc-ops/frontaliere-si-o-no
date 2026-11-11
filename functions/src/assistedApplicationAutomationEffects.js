@@ -4,7 +4,9 @@
  * `runAutomationEffect` is the `runEffect` callback that
  * assistedApplicationAutomation.js calls after each committed transition:
  *   - email          one keyed message (sent at most once per key and round);
- *   - dispatch       the GitHub Actions agent (draft or submit);
+ *   - dispatch       the GitHub Actions agent (draft or submit), or, for an
+ *                    order whose portal refuses GitHub's network, a request
+ *                    queued for the Swiss runner (assistedApplicationSwissRunner.js);
  *   - mark_submitted the order moves to `submitted` (the existing concierge
  *                    trigger then sends the customer's "inviata" e-mail);
  *   - refund         the ad closed before sending (the one refund the welcome
@@ -14,6 +16,7 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
+import { enqueueLocalDispatch, requiresSwissEgress } from './assistedApplicationSwissRunner.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail } from './assistedApplicationAutomationEmails.js';
 import {
   buildReviewPageUrl,
@@ -254,6 +257,12 @@ export async function runAutomationEffect(context, deps = {}) {
   const { db, orderId, effect, flow } = context;
   switch (effect.type) {
     case 'dispatch':
+      // A Swiss-egress order never goes back to GitHub's network: the portal refuses it there.
+      if (requiresSwissEgress(flow)) {
+        return (deps.enqueueLocal || enqueueLocalDispatch)({
+          db, orderId, flow, mode: effect.mode, reason: effect.reason || null, nowMs: context.nowMs || Date.now(),
+        });
+      }
       return (deps.dispatch || dispatchAgentWorkflow)({ orderId, mode: effect.mode, round: flow.round || 1 });
     case 'email':
       return sendAutomationEmail({ ...context, deps });
