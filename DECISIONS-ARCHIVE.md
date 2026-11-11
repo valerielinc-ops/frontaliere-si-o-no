@@ -1,6 +1,6 @@
 # Decisioni del proprietario superate
 
-Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `DECISIONS_MAX_BYTES`): restano qui come storia. Il 2026-11-10, su istruzione del proprietario di compattare il registro, sono state spostate parola per parola le righe superate da righe più recenti (2026-07-05 e 2026-09-17 → riga 2026-09-24 «Nessun veto sul ciclo autonomo»; 2026-09-23 sugli articoli vecchi → riga 2026-09-24 sul refresh) e la decisione puntuale di monitoraggio su corpus #814, issue chiusa. Il 2026-11-11 sono state archiviate due righe già riprodotte in `AGENTS.md` per mantenere `DECISIONS.md` sotto il limite di 12 KiB. Le righe «SÌ, procedi» su #6280 e #4854 restano nel registro: il pre-pass `needs-human` le usa per sbloccare le issue che le citano.
+Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `DECISIONS_MAX_BYTES`): restano qui come storia. Il 2026-11-10, su istruzione del proprietario di compattare il registro, sono state spostate parola per parola le righe superate da righe più recenti (2026-07-05 e 2026-09-17 → riga 2026-09-24 «Nessun veto sul ciclo autonomo»; 2026-09-23 sugli articoli vecchi → riga 2026-09-24 sul refresh) e la decisione puntuale di monitoraggio su corpus #814, issue chiusa. Le righe «SÌ, procedi» su #6280 e #4854 restano nel registro: il pre-pass `needs-human` le usa per sbloccare le issue che le citano.
 
 | Data | Decisione | Fonte |
 |---|---|---|
@@ -22,5 +22,3 @@ Righe tolte da `DECISIONS.md` (iniettato nel prompt di issue-fix con il tetto `D
 | 2026-09-04 | **Gate sibling sul pre-push: ADVISORY.** Il pre-push elenca i candidati senza bloccare; l'enforcement resta su `sibling-check-gate.mjs` (su `gh pr create`) e sul 🔴 del reviewer | istruzione diretta, sessione 04-09 |
 | 2026-08-25 | #5921 (PostHog fermo per quota): **non si paga più quota subito** — fallback su GA4 (tracking duplicato o monitor che leggono GA4); #5921 non resta in attesa | istruzione diretta, sessione 25-08, issue #6458 |
 | 2026-11-11 | Candidature assistite: nazionalità mancante dal CV (paese del liceo, più segnali); casellario: sempre «nessuna condanna»; concierge accettato dopo 12 h; annuncio ritirato dal datore → ritirata, archiviata, senza rimborso | istruzione diretta, 11-11 |
-| 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
-| 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
