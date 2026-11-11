@@ -7,7 +7,7 @@
  * Italian and German, "vous" in French): the draft to review with the EXACT
  * time of the automatic approval (owner decision 2026-09-30: the e-mail must
  * say it), the reminder, the portal handoff, the extra questions, the closed
- * ad and its refund.
+ * ad and its refund, the posting the employer withdrew (no refund).
  */
 
 import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
@@ -115,6 +115,15 @@ const CANDIDATE_COPY = {
       preheader: 'Rispondi e l’invio riprende da solo.',
       lead: 'durante l’invio della candidatura per {job} il portale di {company} ha chiesto informazioni che solo tu puoi darmi. Rispondi dalla pagina della candidatura e l’invio riprende automaticamente.',
     },
+    // Owner decision 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
+    // while the round waited for the candidate. Withdrawn and archived, nothing refunded (Terms 6.5).
+    withdrawn: {
+      subject: 'La posizione {job} è stata ritirata dal datore di lavoro',
+      hero: 'Posizione ritirata dal datore di lavoro',
+      preheader: 'La candidatura è stata ritirata e archiviata.',
+      lead: '{company} ha ritirato la posizione {job}. La candidatura non può più essere inviata ed è stata quindi ritirata: la trovi archiviata tra le tue candidature, con lo stato «Ritirata».',
+      terms: 'Per i Termini (punto 6.5), quando l’annuncio viene ritirato mentre la candidatura attende documenti o risposte che solo tu puoi fornire, l’importo non è rimborsato.',
+    },
     closed: {
       subject: 'L’annuncio {job} è stato chiuso: ti abbiamo rimborsato',
       hero: 'Annuncio chiuso prima dell’invio',
@@ -187,6 +196,13 @@ const CANDIDATE_COPY = {
       hero: 'Wir brauchen deine Antwort',
       preheader: 'Antworte und der Versand läuft automatisch weiter.',
       lead: 'beim Versand deiner Bewerbung für {job} hat das Portal von {company} Angaben verlangt, die nur du machen kannst. Antworte auf der Seite deiner Bewerbung, dann läuft der Versand automatisch weiter.',
+    },
+    withdrawn: {
+      subject: 'Die Stelle {job} wurde vom Arbeitgeber zurückgezogen',
+      hero: 'Stelle vom Arbeitgeber zurückgezogen',
+      preheader: 'Die Bewerbung wurde zurückgezogen und archiviert.',
+      lead: '{company} hat die Stelle {job} zurückgezogen. Die Bewerbung kann nicht mehr versendet werden und wurde deshalb zurückgezogen: Du findest sie archiviert bei deinen Bewerbungen, mit dem Status «Zurückgezogen».',
+      terms: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) wird der Betrag nicht erstattet, wenn die Stelle zurückgezogen wird, während die Bewerbung auf Unterlagen oder Antworten wartet, die nur du geben kannst.',
     },
     closed: {
       subject: 'Das Inserat {job} wurde geschlossen: Rückerstattung veranlasst',
@@ -261,6 +277,13 @@ const CANDIDATE_COPY = {
       preheader: 'Répondez et l’envoi reprend automatiquement.',
       lead: 'pendant l’envoi de votre candidature pour {job}, le portail de {company} a demandé des informations que vous seul pouvez donner. Répondez depuis la page de votre candidature et l’envoi reprend automatiquement.',
     },
+    withdrawn: {
+      subject: 'Le poste {job} a été retiré par l’employeur',
+      hero: 'Poste retiré par l’employeur',
+      preheader: 'La candidature a été retirée et archivée.',
+      lead: '{company} a retiré le poste {job}. La candidature ne peut plus être envoyée et a donc été retirée : vous la trouvez archivée parmi vos candidatures, avec le statut « Retirée ».',
+      terms: 'Selon les Conditions (point 6.5), lorsque l’annonce est retirée pendant que la candidature attend des documents ou des réponses que vous seul pouvez fournir, le montant n’est pas remboursé.',
+    },
     closed: {
       subject: 'L’annonce {job} a été fermée : vous êtes remboursé',
       hero: 'Annonce fermée avant l’envoi',
@@ -333,6 +356,13 @@ const CANDIDATE_COPY = {
       hero: 'We need your answer',
       preheader: 'Answer and the submission resumes on its own.',
       lead: 'while sending your application for {job}, the {company} portal asked for information only you can give. Answer on your application page and the submission resumes automatically.',
+    },
+    withdrawn: {
+      subject: 'The {job} position was withdrawn by the employer',
+      hero: 'Position withdrawn by the employer',
+      preheader: 'The application has been withdrawn and archived.',
+      lead: '{company} withdrew the {job} position. The application can no longer be sent and has therefore been withdrawn: you will find it archived among your applications, with the status “Withdrawn”.',
+      terms: 'Under the Terms (section 6.5), when the job listing is withdrawn while the application is waiting for documents or answers only you can provide, the amount is not refunded.',
     },
     closed: {
       subject: 'The {job} ad was closed: you have been refunded',
@@ -630,6 +660,7 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
  *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
+ *   candidate_posting_withdrawn |
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
@@ -650,6 +681,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_action_needed: copy.action,
     candidate_questions_reminder: copy.questionsReminder,
     candidate_posting_closed: copy.closed,
+    candidate_posting_withdrawn: copy.withdrawn,
     candidate_followup_review: copy.followup,
   }[kind];
   const section = sectionBase && vars.postalSubmission === true && POSTAL_COPY[locale]?.[kind]
@@ -668,7 +700,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
   const greeting = copy.greeting(clean(vars.name, 80).split(' ')[0] || '');
   const html = [brandParagraph(esc(greeting)), brandParagraph(esc(fill(section.lead, values)))];
   const text = [greeting, fill(section.lead, values)];
-  if (vars.job && kind !== 'candidate_posting_closed') {
+  // A closed or withdrawn posting has nothing left to open: no job card, no link to the application page.
+  const postingGone = kind === 'candidate_posting_closed' || kind === 'candidate_posting_withdrawn';
+  if (vars.job && !postingGone) {
     html.push(brandJobCard({ title: values.job, company: values.company, url: vars.jobUrl || '', linkLabel: copy.jobLink }));
   }
   if (kind === 'candidate_review') {
@@ -689,7 +723,10 @@ export function buildCandidateAutomationEmail(kind, vars) {
   } else if (kind === 'candidate_handoff') {
     html.push(brandChecklist(section.steps), brandButton(vars.reviewUrl, copy.openCta), brandFinePrint(esc(section.after)));
     text.push(section.steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), `${copy.openCta}: ${vars.reviewUrl}`, section.after);
-  } else if (kind !== 'candidate_posting_closed') {
+  } else if (kind === 'candidate_posting_withdrawn') {
+    html.push(brandFinePrint(esc(section.terms)));
+    text.push(section.terms);
+  } else if (!postingGone) {
     html.push(brandButton(vars.reviewUrl, kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta));
     text.push(`${kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta}: ${vars.reviewUrl}`);
   }
