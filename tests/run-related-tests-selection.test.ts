@@ -156,6 +156,31 @@ describe('run-related-tests selection contract', () => {
     expect(result.stdout).not.toContain('tests/unrelated.test.ts');
   });
 
+  it('selects SEO source readers when any build plugin changes', () => {
+    const sourceReaders = [
+      'tests/seo/cathedral-expired-tracking-canton.test.ts',
+      'tests/seo/historical-archive-heading.test.ts',
+      'tests/seo/historical-pages-full-content-policy.test.ts',
+      'tests/seo/jobs-seo-self-heal-tracking-retention.test.ts',
+      'tests/seo/one-static-main-landmark.test.ts',
+      'tests/seo/static-job-page-spa-alignment.test.ts',
+    ];
+    const files = {
+      'build-plugins/jobsSeoPagesPlugin.ts': 'export const jobsPlugin = true;\n',
+      'build-plugins/faqHubPlugin.ts': 'export const faqPlugin = true;\n',
+      ...Object.fromEntries(sourceReaders.map((test) => [test, 'export const sourceReader = true;\n'])),
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    };
+
+    for (const changedPlugin of ['build-plugins/jobsSeoPagesPlugin.ts', 'build-plugins/faqHubPlugin.ts']) {
+      const root = fixture(files);
+      const result = select(root, [changedPlugin]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      for (const sourceReader of sourceReaders) expect(result.stdout).toContain(sourceReader);
+      expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    }
+  });
+
   it('selects the source-backed AIL, JobBoard and Google News tests', () => {
     const contracts = [
       {

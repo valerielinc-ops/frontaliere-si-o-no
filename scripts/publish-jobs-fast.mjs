@@ -39,6 +39,12 @@ const MAX_PAGES_PER_RUN = 200;
 const MAX_OFFERS_PER_RUN = 50;
 const REQUEST_TIMEOUT_MS = 15_000;
 const RENDER_RECEIPT_SCHEMA = "jobs-fast-render/v1";
+const FAST_LANE_USER_AGENT =
+  "FrontaliereJobsFastPublisher/1.0 (+https://frontaliereticino.ch)";
+
+export function buildFastLaneRequestHeaders(accept = "*/*") {
+  return { accept, "user-agent": FAST_LANE_USER_AGENT };
+}
 
 function parseArgs(argv) {
   const args = { dryRun: false };
@@ -77,7 +83,7 @@ function canonicalPathsForFastLaneJob(
 async function getLiveBuildId() {
   const response = await fetch(`${BASE_URL}/build-id.txt`, {
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    headers: { accept: "text/plain" },
+    headers: buildFastLaneRequestHeaders("text/plain"),
   });
   if (!response.ok)
     throw new Error(
@@ -92,7 +98,9 @@ async function getLiveBuildId() {
 async function fetchLiveText(url, { allowMissing = false } = {}) {
   const response = await fetch(url, {
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    headers: { accept: "text/html,application/xml,text/plain;q=0.9,*/*;q=0.5" },
+    headers: buildFastLaneRequestHeaders(
+      "text/html,application/xml,text/plain;q=0.9,*/*;q=0.5",
+    ),
   });
   if (allowMissing && response.status === 404) return null;
   if (!response.ok)
@@ -130,7 +138,7 @@ async function fetchLiveStatus(url) {
   const response = await fetch(url, {
     method: "GET",
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    headers: { accept: "text/html" },
+    headers: buildFastLaneRequestHeaders("text/html"),
   });
   return response.status;
 }
@@ -490,6 +498,7 @@ async function validateFirstPartyAssets(receipt) {
           let response = await fetch(url, {
             method: "HEAD",
             signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+            headers: buildFastLaneRequestHeaders(),
           });
           if (
             !response.ok &&
@@ -498,6 +507,7 @@ async function validateFirstPartyAssets(receipt) {
             response = await fetch(url, {
               method: "GET",
               signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+              headers: buildFastLaneRequestHeaders(),
             });
           }
           if (!response.ok)
