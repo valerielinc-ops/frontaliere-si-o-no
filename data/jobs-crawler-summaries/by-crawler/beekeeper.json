@@ -1,24 +1,29 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-11-10T21:43:41.402Z",
+  "generatedAt": "2026-11-11T09:36:20.501Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 1827,
+  "avgDurationMs": 1827,
+  "durationHistory": [
+    1827
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

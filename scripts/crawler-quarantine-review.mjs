@@ -174,7 +174,7 @@ ${lines.join('\n')}
 
 ## Non implementato (ancora)
 
-${pendingLines.length > 0 ? pendingLines.join('\n') : '- Nessuno.'}
+${pendingLines.length > 0 ? pendingLines.join('\n') : '- Nessuno — in questa PR.'}
 
 Decisioni di \`scripts/crawler-quarantine-review.mjs\` sulle ondate osservate di \`crawler-group-${String(registry.group).padStart(2, '0')}.yml\` in \`${corpusRepo}\`: rientro dopo ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi consecutive; ${QUARANTINE_RED_ESCALATION_WAVES} ondate rosse o ${QUARANTINE_FAILURE_ESCALATION_DAYS} giorni tengono aperta l'escalation senza disattivare il crawler. Il ritiro richiede una decisione esplicita del proprietario.
 `;

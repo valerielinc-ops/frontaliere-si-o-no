@@ -60,7 +60,7 @@ section_shard_publish_resumable() {
   local final_index partial_index work raw_diff chunk_count checkpoint_parent
   local chunk_file chunk_number partial_tree commit_message checkpoint_commit final_commit actual_tree
   local existing remote_sha checkpoint_message checkpoint_target checkpoint_progress checkpoint_plan partial_start
-  local completed_chunks checkpoint_chunks
+  local completed_chunks checkpoint_chunks phase_started
   local chunk_plan_sha
 
   case "$files_per_checkpoint" in
@@ -243,29 +243,37 @@ section_shard_publish_resumable() {
       echo "[$label] checkpoint $chunk_number/$chunk_count already persisted; reusing it"
       continue
     fi
+    phase_started=$SECONDS
     if ! GIT_INDEX_FILE="$partial_index" git -C "$stage" -c core.quotePath=false update-index -z --index-info < "$chunk_file"; then
       echo "::error::$label: applying checkpoint chunk $chunk_number/$chunk_count failed" >&2
       rm -rf "$work" "$final_index" "$partial_index"
       return 1
     fi
+    echo "[$label] checkpoint $chunk_number/$chunk_count index-update $((SECONDS - phase_started))s"
+    phase_started=$SECONDS
     if ! partial_tree="$(GIT_INDEX_FILE="$partial_index" git -C "$stage" write-tree --missing)"; then
       echo "::error::$label: writing checkpoint tree $chunk_number/$chunk_count failed" >&2
       rm -rf "$work" "$final_index" "$partial_index"
       return 1
     fi
+    echo "[$label] checkpoint $chunk_number/$chunk_count write-tree $((SECONDS - phase_started))s"
     commit_message="$main_message [resume-base:$base_sha] [resume-target:$target_tree] [resume-plan:$chunk_plan_sha] checkpoint $chunk_number/$chunk_count"
+    phase_started=$SECONDS
     if ! checkpoint_commit="$(git -C "$stage" commit-tree "$partial_tree" -p "$checkpoint_parent" -m "$commit_message")"; then
       echo "::error::$label: creating checkpoint commit $chunk_number/$chunk_count failed" >&2
       rm -rf "$work" "$final_index" "$partial_index"
       return 1
     fi
+    echo "[$label] checkpoint $chunk_number/$chunk_count commit-tree $((SECONDS - phase_started))s"
     echo "[$label] checkpoint $chunk_number/$chunk_count paths=$(perl -0ne '$count += 1; END { print $count + 0 }' < "$chunk_file")"
+    phase_started=$SECONDS
     if ! section_shard_push_fast_forward "$stage" "$repo" "$checkpoint_commit:$checkpoint_ref" \
         "$label checkpoint $chunk_number/$chunk_count"; then
       echo "::error::$label: checkpoint $chunk_number/$chunk_count was not persisted; main remains unchanged" >&2
       rm -rf "$work" "$final_index" "$partial_index"
       return 1
     fi
+    echo "[$label] checkpoint $chunk_number/$chunk_count push $((SECONDS - phase_started))s"
     checkpoint_parent="$checkpoint_commit"
   done
 

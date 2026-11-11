@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-11-10T09:17:33.777Z",
+  "generatedAt": "2026-11-11T09:25:28.862Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7222,
-  "avgDurationMs": 7222,
+  "durationMs": 6684,
+  "avgDurationMs": 6684,
   "durationHistory": [
-    7222
+    6684
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:11.281Z",
+      "crawledAt": "2026-11-11T09:25:10.882Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:17:11.281Z",
+      "validThrough": "2026-12-11T09:25:10.882Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -100,7 +100,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:10.825Z",
+      "crawledAt": "2026-11-11T09:25:10.433Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:17:10.825Z",
+      "validThrough": "2026-12-11T09:25:10.433Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -162,7 +162,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:10.380Z",
+      "crawledAt": "2026-11-11T09:25:09.982Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:17:10.380Z",
+      "validThrough": "2026-12-11T09:25:09.982Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:09.934Z",
+      "crawledAt": "2026-11-11T09:25:09.529Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:17:09.934Z",
+      "validThrough": "2026-12-11T09:25:09.529Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -287,7 +287,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:17:09.477Z",
+      "crawledAt": "2026-11-11T09:25:09.045Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:17:09.477Z",
+      "validThrough": "2026-12-11T09:25:09.045Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -338,5 +338,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

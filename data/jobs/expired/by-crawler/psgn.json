@@ -958,11 +958,14 @@
       "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg",
       "oberarztin-oberarzt-mbf-psgn-pfafers-a0d9a95a",
       "oberarztin-oberarzt-mbf-psgn-pfafers-5687776c",
-      "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
-      "oberarztin-oberarzt-mbf-psgn-pfafers",
       "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers-a0ea68aa",
       "oberarztin-oberarzt-mbf-psgn-pfafers-c056ddcd",
-      "medecin-principal-psychiatrie-st-gallen-pfafers"
+      "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
+      "oberarztin-oberarzt-mbf-psgn-pfafers",
+      "medecin-principal-psychiatrie-st-gallen-pfafers",
+      "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers-6ab6b01b",
+      "oberarztin-oberarzt-mbf-psgn-pfafers-e73403c7",
+      "medecin-principal-psychiatrie-st-gallen-pfafers-319ec5a5"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -988,6 +991,9 @@
         "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers-a0ea68aa",
         "oberarztin-oberarzt-mbf-psgn-pfafers-5687776c",
         "oberarztin-oberarzt-mbf-psgn-pfafers-c056ddcd",
+        "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers-6ab6b01b",
+        "oberarztin-oberarzt-mbf-psgn-pfafers-e73403c7",
+        "medecin-principal-psychiatrie-st-gallen-pfafers",
         "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
         "oberarztin-oberarzt-mbf-psgn-pfafers"
       ],
@@ -996,6 +1002,8 @@
         "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-wil-sg",
         "oberarztin-oberarzt-mbf-psgn-pfafers-ac8aa016",
         "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
+        "oberarztin-oberarzt-mbf-psgn-pfafers-c8ae04c8",
+        "medecin-principal-psychiatrie-st-gallen-pfafers",
         "oberarztin-oberarzt-mbf-psgn-pfafers"
       ],
       "fr": [
@@ -1003,6 +1011,8 @@
         "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg",
         "oberarztin-oberarzt-mbf-psgn-pfafers-ac8aa016",
         "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
+        "oberarztin-oberarzt-mbf-psgn-pfafers-c8ae04c8",
+        "medecin-principal-psychiatrie-st-gallen-pfafers-319ec5a5",
         "oberarztin-oberarzt-mbf-psgn-pfafers",
         "medecin-principal-psychiatrie-st-gallen-pfafers"
       ],
@@ -1011,7 +1021,9 @@
         "oberarztin-oberarzt-mbf-psgn-pfafers-ffdf8894",
         "oberarztin-oberarzt-mbf-psgn-pfafers-ac8aa016",
         "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
-        "oberarztin-oberarzt-mbf-psgn-pfafers-c8ae04c8"
+        "oberarztin-oberarzt-mbf-psgn-pfafers-c8ae04c8",
+        "oberarztin-oberarzt-mbf-psgn-pfafers",
+        "medecin-principal-psychiatrie-st-gallen-pfafers"
       ]
     },
     "postalCode": "7312",
@@ -2493,8 +2505,9 @@
       "oberarztin-oberarzt-psgn-pfafers-6b473b88",
       "oberarztin-oberarzt-psgn-pfafers-f6664eda",
       "oberarztin-oberarzt-psgn-pfafers-2-6b6d0f07",
+      "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea",
       "oberarztin-oberarzt-psgn-pfafers-2",
-      "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea"
+      "oberarztin-oberarzt-psgn-pfafers-2-886e19d6"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2631,6 +2644,7 @@
         "oberarztin-oberarzt-psgn-pfafers-6b473b88",
         "oberarztin-oberarzt-psgn-pfafers-f6664eda",
         "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea",
+        "oberarztin-oberarzt-psgn-pfafers-2-886e19d6",
         "oberarztin-oberarzt-psgn-pfafers-2"
       ],
       "en": [
@@ -2649,7 +2663,8 @@
         "oberarztin-oberarzt-psgn-pfafers-49b6be58",
         "oberarztin-oberarzt-psgn-pfafers-48bb6d0c",
         "oberarztin-oberarzt-psgn-pfafers-2-6b6d0f07",
-        "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea"
+        "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea",
+        "oberarztin-oberarzt-psgn-pfafers-2"
       ],
       "de": [
         "oberarztin-oberarzt-psgn-wil-sg",
@@ -2684,7 +2699,8 @@
         "oberarztin-oberarzt-psgn-pfafers-49b6be58",
         "oberarztin-oberarzt-psgn-pfafers-48bb6d0c",
         "oberarztin-oberarzt-psgn-pfafers-2-6b6d0f07",
-        "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea"
+        "oberarztin-oberarzt-psgn-pfafers-2-03bf5aea",
+        "oberarztin-oberarzt-psgn-pfafers-2"
       ]
     },
     "postalCode": "7312",

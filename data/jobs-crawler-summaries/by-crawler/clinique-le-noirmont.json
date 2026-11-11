@@ -1,23 +1,26 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-11-10T21:45:30.295Z",
+  "generatedAt": "2026-11-11T09:43:54.609Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 4839,
-  "avgDurationMs": 4839,
+  "unchangedCount": 5,
+  "durationMs": 4957,
+  "avgDurationMs": 4957,
   "durationHistory": [
-    4839
+    4957
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Infirmier (F/H) 70%",
-      "slug": "infirmier-f-h-70-clinique-le-noirmont",
+      "slug": "infermiera-m-f-70-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1059",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -39,34 +42,29 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-08T21:45:19.781Z",
-      "needsRetranslation": true,
+      "validThrough": "2027-02-09T09:43:40.949Z",
       "_meta": {
         "sourceIdentifier": "dl:1059"
       },
       "id": "clinique-le-noirmont-3c593d56b691",
+      "firstSeenAt": "2026-11-10T21:45:19.781Z",
       "salaryMin": 60200,
       "salaryMax": 84000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-10T21:45:19.781Z",
+      "crawledAt": "2026-11-11T09:43:40.949Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:45:19.781Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Diététicien (F/H) 90%",
       "slug": "dietician-m-f-90-clinique-le-noirmont-le-noirmont",
@@ -91,7 +89,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-03T21:45:19.781Z",
+      "validThrough": "2027-02-04T09:43:40.949Z",
       "_meta": {
         "sourceIdentifier": "dl:1054"
       },
@@ -101,7 +99,7 @@
       "salaryMax": 108000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-10T21:45:19.781Z",
+      "crawledAt": "2026-11-11T09:43:40.949Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -138,7 +136,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-01-29T21:45:19.781Z",
+      "validThrough": "2027-01-29T09:43:40.949Z",
       "_meta": {
         "sourceIdentifier": "dl:1053"
       },
@@ -148,7 +146,7 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-10T21:45:19.781Z",
+      "crawledAt": "2026-11-11T09:43:40.949Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -185,7 +183,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-24T21:45:19.781Z",
+      "validThrough": "2026-12-25T09:43:40.949Z",
       "_meta": {
         "sourceIdentifier": "dl:1046"
       },
@@ -195,7 +193,7 @@
       "salaryMax": 162000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-10T21:45:19.781Z",
+      "crawledAt": "2026-11-11T09:43:40.949Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -232,7 +230,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-10T21:45:19.781Z",
+      "validThrough": "2026-12-11T09:43:40.949Z",
       "_meta": {
         "sourceIdentifier": "dl:1037"
       },
@@ -242,7 +240,7 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-10T21:45:19.781Z",
+      "crawledAt": "2026-11-11T09:43:40.949Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -256,5 +254,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }
