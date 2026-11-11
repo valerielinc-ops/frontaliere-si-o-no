@@ -471,7 +471,7 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.purge.flat()).not.toContain(stable);
   });
 
-  it('bootstraps a stable global alias when both the CDN and R2 confirm it is absent', async () => {
+  it('bootstraps a stable global alias missing from both the CDN and R2', async () => {
     const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
     const stable = 'assets/adsense-loader.js';
     const stableContent = assets.find((asset) => asset.key === stable)!.content;
@@ -546,6 +546,20 @@ describe('ensureCdnShellAssets', () => {
     expect(results).toContainEqual({ key: stable, outcome: 'stored' });
     expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
     expect(cdn.calls.purge).toEqual([[stable]]);
+  });
+
+  it('keeps an indeterminate stable alias fail-closed', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
+      probeAnswer: (key, has) => key === stable ? 'unknown' : has ? 'present' : 'absent',
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+
+    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(cdn.calls.checkStored).not.toContain(stable);
+    expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
   });
 
   it('fails closed when an absent stable alias is stored with the wrong cache policy', async () => {
