@@ -17,6 +17,8 @@ export function normalizeExpiredJobPagePath(value) {
 /**
  * Missing, partial, malformed, stale, or future-dated GA4 evidence cannot
  * establish zero traffic. The build must keep every affected page static.
+ * @param {any} evidence
+ * @param {number} [nowMs]
  */
 export function isExpiredJobGa4EvidenceUsable(evidence, nowMs = Date.now()) {
   if (!evidence || evidence.coverage?.complete !== true) return false;
@@ -51,6 +53,7 @@ export function isExpiredJobGa4EvidenceUsable(evidence, nowMs = Date.now()) {
  * The existing P1 policy remains authoritative for GSC demand and age. Only
  * a P1-noindex page with complete, fresh GA4 evidence and zero sessions on
  * every tracked locale/legacy path may move to the edge.
+ * @param {{ p1Noindex?: boolean, paths?: string[], ga4Evidence?: any, nowMs?: number }} [options]
  */
 export function isEdgeServedExpiredJob({ p1Noindex, paths, ga4Evidence, nowMs = Date.now() } = {}) {
   if (p1Noindex !== true || !Array.isArray(paths) || paths.length === 0) return false;

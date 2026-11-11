@@ -25,6 +25,7 @@ on:
     branches: [main]
     paths:
       - 'infra/cloudflare-worker/**'
+      - 'scripts/lib/expired-job-edge-dataset.mjs'
       - 'scripts/cf-locale-failover-setup.mjs'
       - 'scripts/cf-worker-observability-settings.mjs'
       - 'scripts/cf-purge-worker-origin-cache.mjs'
