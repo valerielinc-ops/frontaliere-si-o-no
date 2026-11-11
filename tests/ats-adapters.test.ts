@@ -169,6 +169,14 @@ describe('JobsChAdapter', () => {
     const html = '<script>window.__INITIAL_STATE__ = {"job":{"id":"111","title":"Engineer"}};</script>';
     expect(adapter.extractJobDataFromHtml(html, 'https://www.jobs.ch/en/jobs/detail/111/')).toBeNull();
   });
+
+  it('does not borrow a date from a related JSON-LD JobPosting', () => {
+    const html = [
+      '<script type="application/ld+json">{"@type":"JobPosting","title":"Current role"}</script>',
+      '<script type="application/ld+json">{"@type":"JobPosting","title":"Related role","datePosted":"2026-11-01T08:00:00Z"}</script>',
+    ].join('');
+    expect(adapter.extractJobDataFromHtml(html, 'https://www.jobs.ch/en/jobs/detail/111/')).toBeNull();
+  });
 });
 
 describe('SwissDevJobsAdapter', () => {
