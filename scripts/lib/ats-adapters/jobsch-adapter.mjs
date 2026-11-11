@@ -30,7 +30,7 @@ export class JobsChAdapter {
           const jobId = idMatch ? idMatch[1] : String(Date.now());
 
           const publishedAt = parsed.datePosted || null;
-          if (!publishedAt) continue;
+          if (!publishedAt) break;
 
           return {
             id: `jobsch_${jobId}`,
