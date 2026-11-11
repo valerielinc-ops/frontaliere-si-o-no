@@ -237,6 +237,8 @@ export interface ReviewPayload {
   dismissedAnswerSuggestionIds?: string[];
   /** Opaque version of the exact question payload shown; contains no answer values. */
   answerQuestionSnapshots?: Record<string, string>;
+  /** Opaque revision (keyed HMAC) of each shown answer as stored when the page loaded. */
+  answerRevisions?: Record<string, string>;
   /** School reports, test results… the posting requires besides the CV and the letter. */
   documents?: ReviewDocument[];
   documentLimits?: { maxBytes: number; maxFiles: number };
@@ -368,6 +370,8 @@ export async function sendReviewAction(
     prepared?: boolean;
     exemption?: string;
     editSnapshot?: string;
+    answerQuestionSnapshots?: Record<string, string>;
+    answerRevisions?: Record<string, string>;
   } = {},
 ): Promise<{ ok: true; state: string }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {

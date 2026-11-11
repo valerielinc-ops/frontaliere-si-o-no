@@ -47,7 +47,7 @@ import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationRe
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
-import { candidateEditFlow, candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
+import { answerRevision, answerRevisionsFor, answerRevisionText, candidateEditFlow, candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
@@ -992,10 +992,15 @@ export async function handleAssistedApplicationReview(req, deps) {
         loadEmployerResponse(orderRef, order),
         loadEmployerResponseTimeline(orderRef, order),
       ]);
-      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, documentUrls, keptDocuments, submission,
+      const payload = buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, documentUrls, keptDocuments, submission,
         answerEvidence: runnerContext.answerEvidence,
         communicationLocale: normalizeAnswerCommunicationLocale(runnerContext.communicationLocale)
-          || normalizeAnswerCommunicationLocale(order?.locale) || 'it', editSnapshotSecret: authorization.reviewSecret, nowMs }),
+          || normalizeAnswerCommunicationLocale(order?.locale) || 'it', editSnapshotSecret: authorization.reviewSecret, nowMs });
+      return { status: 200, body: { ...payload,
+        // What each shown answer is stored as now: the save tells a newer answer from another tab
+        // apart from a technical write, which never touches these values.
+        answerRevisions: answerRevisionsFor({ secret: authorization.reviewSecret, orderId, round: Number(flow?.round) || 1,
+          ids: (payload.questions || []).map((question) => question.id), answers: flow?.answers }),
         employerResponse: employerResponseView(employerResponse),
         employerResponseTimeline: employerResponseTimelineView(employerResponseTimeline),
       } };
@@ -1103,6 +1108,27 @@ export async function handleAssistedApplicationReview(req, deps) {
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
       const answers = sanitizeAnswers(body.answers, draft, nowMs, communicationLocale, storedAnswers, questionAnswers, order);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
+      // Each answer against the stored value the page loaded (answerRevisions): one another save changed
+      // meanwhile is either left alone (this page did not touch it: the newer answer stays) or a conflict
+      // (both changed it). The same save sent twice finds its own value and goes through.
+      const loadedRevisions = body.answerRevisions && typeof body.answerRevisions === 'object' && !Array.isArray(body.answerRevisions)
+        ? body.answerRevisions : null;
+      if (loadedRevisions) {
+        const flowRound = Number(flow?.round) || 1;
+        for (const id of Object.keys(answers)) {
+          const loaded = loadedRevisions[id];
+          if (typeof loaded !== 'string') continue;
+          const revisionOf = (value) => answerRevision({ secret: claims.reviewSecret, orderId, round: flowRound, id, value });
+          if (revisionOf(flow?.answers?.[id]) === loaded) continue;
+          if (revisionOf(answers[id]) === loaded) {
+            delete answers[id];
+            continue;
+          }
+          if (answerRevisionText(flow?.answers?.[id]) === answerRevisionText(answers[id])) continue;
+          throw new ReviewError('changed_meanwhile', 409);
+        }
+        if (!Object.keys(answers).length) return { status: 200, body: { ok: true, state: flow.state } };
+      }
       const currentRound = Number(runnerContext.flow?.round || flow?.round) || 1;
       const previousDismissals = runnerContext.flow?.answerSuggestionDismissals || flow?.answerSuggestionDismissals;
       const dismissedAnswerSuggestionIds = new Set(
@@ -1151,7 +1177,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       const confirmedOrigins = answerOriginsForQuestions({ questions: visibleQuestions, answers, answerEvidence: runnerContext.answerEvidence, flow: reviewFlow });
       await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow: confirmationFlow, draft, answers,
         answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, confirmedAnswerOrigins: confirmedOrigins,
-        answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true });
+        answerSuggestionDismissals, nowMs, answerActor: 'candidate', communicationLocale, requireAnswerContracts: deps.requireAnswerContracts === true,
+        readAnswers: flow?.answers || {} });
     }
     const postalPacket = flow?.postalSubmission?.enabled === true
       ? postalPacketReadiness({ order, orderId, flow, draft })
