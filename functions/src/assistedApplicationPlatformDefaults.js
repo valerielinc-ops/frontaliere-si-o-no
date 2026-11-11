@@ -668,7 +668,7 @@ export function cvBirthplaceCountry(cvText) {
 
 // «Nazionalità: italiana», «Cittadinanza italiana e svizzera», «Nationality: Swiss / Italian»,
 // «Staatsangehörigkeit: deutsch», «Nationalité : française», on a line of its own or between separators.
-const NATIONALITY_LABEL = /(?:^|[|•·;\t]\s*)(?:doppia |dual |double |doppelte )?(?:nazionalita|cittadinanza|cittadinanze|nationality|nationalities|citizenship|citizenships|staatsangehorigkeit(?:en)?|staatsburgerschaft|nationalite|nationalites|nationalitat(?:en)?)(?:\s*[:\-–]\s*|\s+)([^|•·;\t]{2,80})/iu;
+const NATIONALITY_LABEL = /(?:^|[|•·;\t]\s*)(?:doppia |dual |double |doppelte )?(?:nazionalita|cittadinanza|cittadinanze|nationality|nationalities|citizenship|citizenships|staatsangehorigkeit(?:en)?|staatsburgerschaft|nationalite|nationalites|nationalitat(?:en)?)(\s*[:\-–]\s*|\s+)([^|•·;\t]{2,80})/iu;
 const declarationFold = (value) => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ß/g, 'ss');
 // The words around a declared nationality that name none («italiana (UE)», «Swiss citizen», «cittadino italiano»).
 const DECLARATION_NOISE = /\s*\((?:eu|ue|efta|aele|aels)\)\s*|\b(?:citizen|cittadin[oa]|staatsburger(?:in)?|national)\b/giu;
@@ -677,9 +677,11 @@ const DECLARATION_PARTS = /\s*(?:[/,&+]|\s(?:e|ed|und|et|and)\s|\s[-–—]\s)\s
 /**
  * The nationality the CV declares in so many words, or null: every country it names, and the one a single-choice
  * field takes (Swiss first, decision of 2026-10-04 on dual nationals, else the first written). Every part of the
- * declaration must be a nationality or a country the tables know, and two declarations must agree; anything else
- * is no declaration. The parser reads the same line into `profile.nationality`, which wins: this reads the CV text
- * of an order whose profile has none.
+ * declaration must be a nationality or a country the tables know, and two declarations must agree: a declaration
+ * with a part the tables do not know («Nazionalità: italiana e marziana») makes the whole CV give none, whatever
+ * another line says (review of #18097). A label without a colon and without a known nationality («Cittadinanza
+ * attiva e Costituzione») is no declaration. The parser reads the same line into `profile.nationality`, which
+ * wins: this reads the CV text of an order whose profile has none.
  * @returns {{code:string, codes:string[]}|null}
  */
 export function cvDeclaredNationality(cvText) {
@@ -690,11 +692,15 @@ export function cvDeclaredNationality(cvText) {
     const match = NATIONALITY_LABEL.exec(line);
     if (!match) continue;
     // Up to the next column («Nazionalità: italiana     Patente: B») or label («…, Patente: B»).
-    const said = match[1].split(/\s{3,}|,\s*[\p{L} ]{2,30}:/u)[0];
+    const said = match[2].split(/\s{3,}|,\s*[\p{L} ]{2,30}:/u)[0];
     const value = said.replace(DECLARATION_NOISE, ' ').replace(/[.\s]+$/u, '').replace(/\s+/g, ' ').trim();
     const parts = value.split(DECLARATION_PARTS).filter(Boolean);
     const codes = parts.map((part) => nationalityOf(part)?.code || (part.length > 3 ? countryCodeOf(part) : ''));
-    if (!codes.length || codes.some((code) => !code)) continue;
+    // A declaration: the label with a colon, or a nationality the tables know after it.
+    const declaration = /[:\-–]/.test(match[1]) || codes.some(Boolean);
+    if (!declaration) continue;
+    // A part the tables do not know: the CV's declaration is ambiguous, and no other line overrides it.
+    if (!codes.length || codes.some((code) => !code)) return null;
     const unique = [...new Set(codes)];
     const declared = { code: unique.includes('CH') ? 'CH' : unique[0], codes: unique };
     if (found && [...found.codes].sort().join() !== [...declared.codes].sort().join()) return null;
@@ -709,7 +715,12 @@ const CODICE_FISCALE = /(?<![A-Z0-9])[A-Z]{6}[0-9LMNPQRSTUV]{2}[ABCDEHLMPRST][0-
 const CF_ODD = [1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23];
 const cfValue = (char) => (/\d/.test(char) ? Number(char) : char.charCodeAt(0) - 65);
 
-/** Whether the 16th character is the check character of the first 15 (the ministerial algorithm). */
+/**
+ * Whether the 16th character is the check character of the first 15 (the ministerial algorithm, DM 23/12/1976).
+ * The check is computed on the characters as written: an omocodia letter counts as a letter, because the check
+ * character of an omocodic code is computed again on the substituted code (the variant of a code that keeps the
+ * original's check character is no valid code; review of #18097, verified).
+ */
 export function codiceFiscaleValid(code) {
   const text = String(code ?? '').toUpperCase();
   if (!/^[A-Z0-9]{16}$/.test(text)) return false;

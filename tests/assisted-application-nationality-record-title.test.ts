@@ -210,6 +210,28 @@ describe('more offline signals for the nationality (owner decision 2026-11-11, s
     expect(cvDeclaredNationality('')).toBeNull();
   });
 
+  it('gives none when a declaration has a part the tables do not know, whatever another line says (review of #18097)', () => {
+    expect(cvDeclaredNationality('Nazionalità: italiana e marziana\nNazionalità: italiana')).toBeNull();
+    expect(cvDeclaredNationality('Nazionalità: italiana\nNazionalità: italiana e marziana')).toBeNull();
+    expect(cvDeclaredNationality('Nationality: Atlantean\nNationality: Italian')).toBeNull();
+    expect(facts({}, { cvText: 'Nazionalità: italiana e marziana\nNazionalità: italiana' })).toMatchObject({ nationality: '', nationalitySource: '' });
+    // A label of another meaning, with no colon and no known nationality, is no declaration and blocks nothing.
+    expect(cvDeclaredNationality('Cittadinanza attiva e Costituzione\nNazionalità: italiana')?.code).toBe('IT');
+  });
+
+  it('reads an omocodic codice fiscale whose check character is computed again, as the ministerial algorithm does (review of #18097)', () => {
+    // One digit of the year written as its omocodia letter (5 → R), on a synthetic body no person can have.
+    const parent = withCheck('TSTPRV95A00A000');
+    const variant = withCheck('TSTPRV9RA00A000');
+    expect(codiceFiscaleValid(variant)).toBe(true);
+    expect(codiceFiscaleBirthCountry(`Codice fiscale: ${variant}`)).toBe('IT');
+    // The substitution changes the check character: the variant that keeps the parent's is no valid code.
+    const stale = `${variant.slice(0, 15)}${parent[15]}`;
+    expect(stale).not.toBe(variant);
+    expect(codiceFiscaleValid(stale)).toBe(false);
+    expect(codiceFiscaleBirthCountry(`Codice fiscale: ${stale}`)).toBe('');
+  });
+
   it('reads the place of birth of a valid codice fiscale only, and never returns the code', () => {
     expect(codiceFiscaleValid(bornInItaly)).toBe(true);
     expect(codiceFiscaleValid(omocodia)).toBe(true);
