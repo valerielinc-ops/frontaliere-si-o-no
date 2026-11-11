@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-10T23:33:08.991Z",
+  "generatedAt": "2026-11-11T00:28:31.683Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -35033,6 +35033,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T20:21:28.948Z"
+    },
+    "guidle:AfG33R1::356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e": {
+      "id": "guidle:AfG33R1",
+      "sourceDescriptionHash": "356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e",
+      "description": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+      "descriptionByLocale": {
+        "it": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+        "en": "The event commemorates the 750th anniversary of La Collégiale de Neuchâtel. It addresses historical, cultural and spiritual themes.",
+        "de": "Die Veranstaltung würdigt das 750-jährige Bestehen der Collégiale de Neuchâtel. Inhaltlich verbindet sie Geschichte, Kultur und Spiritualität.",
+        "fr": "Le rendez-vous commémore les 750 ans de la Collégiale de Neuchâtel. Il aborde des thèmes historiques, culturels et spirituels."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T00:18:40.331Z"
     },
     "guidle:AfGBbU1::701946f489c69d8865fc4d1eb708ebea45cedb701bff4b276d4d4548bd9719e2": {
       "id": "guidle:AfGBbU1",
@@ -187300,15 +187314,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AfG33R1::356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e": {
-      "id": "guidle:AfG33R1",
-      "sourceDescriptionHash": "356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:22:55.972Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AFjgF6a::ed1763a762af4de75e7fc11232625a7e59b0c4ee91bce60f439ae115dc75ec27": {
       "id": "guidle:AFjgF6a",
       "sourceDescriptionHash": "ed1763a762af4de75e7fc11232625a7e59b0c4ee91bce60f439ae115dc75ec27",
@@ -188177,8 +188182,8 @@
       "id": "guidle:Ar4UyBq",
       "sourceDescriptionHash": "abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T23:15:18.035Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-11T00:17:21.489Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188924,8 +188929,8 @@
       "id": "guidle:AYJ4xQA",
       "sourceDescriptionHash": "0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:20:57.133Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-11T00:24:23.460Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
