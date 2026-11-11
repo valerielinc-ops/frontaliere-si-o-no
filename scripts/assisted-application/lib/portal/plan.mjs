@@ -2114,6 +2114,11 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
+    // A policy default may choose the required checkbox, but an owned consent
+    // keeps its consent provenance even when the native label was empty.
+    if (action.action === 'check' && action.source === 'policy_default' && ownConsent(field)) {
+      action = { ...action, source: 'consent' };
+    }
     if (action.action === 'check'
       && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
