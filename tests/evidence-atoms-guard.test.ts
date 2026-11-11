@@ -36,3 +36,35 @@ describe('filterAuthorizedEvidenceAtoms', () => {
     expect(filterAuthorizedEvidenceAtoms([null, undefined, {} as any])).toEqual([]);
   });
 });
+
+import { matchUserText, documentsUserText } from '../functions/src/assistedApplicationAiPrompts.js';
+import { tailoredCvUserText } from '../functions/src/assistedApplicationTailoredCv.js';
+
+describe('prompt boundaries filter unapproved evidence atoms', () => {
+  const atoms = [
+    { id: 'auth1', claim: 'Approved claim', provenance: 'agent_inferred', approvedByCandidate: true },
+    { id: 'unauth1', claim: 'Unapproved hallucination', provenance: 'agent_inferred', approvedByCandidate: false },
+    { id: 'unauth2', claim: 'Unapproved missing prop', provenance: 'agent_inferred' },
+  ];
+
+  it('filters unapproved atoms from matchUserText', () => {
+    const text = matchUserText({ profile: {}, requirements: { requirements: [] }, answers: {}, candidateEvidenceAtoms: atoms });
+    expect(text).toContain('Approved claim');
+    expect(text).not.toContain('Unapproved hallucination');
+    expect(text).not.toContain('Unapproved missing prop');
+  });
+
+  it('filters unapproved atoms from documentsUserText', () => {
+    const text = documentsUserText({ profile: {}, requirements: { requirements: [] }, matches: [], answers: {}, candidateEvidenceAtoms: atoms, postingExcerpt: '' });
+    expect(text).toContain('Approved claim');
+    expect(text).not.toContain('Unapproved hallucination');
+    expect(text).not.toContain('Unapproved missing prop');
+  });
+
+  it('filters unapproved atoms from tailoredCvUserText', () => {
+    const text = tailoredCvUserText({ profile: {}, requirements: [], roleTitle: 'Dev', postingExcerpt: '', answers: {}, candidateEvidenceAtoms: atoms });
+    expect(text).toContain('Approved claim');
+    expect(text).not.toContain('Unapproved hallucination');
+    expect(text).not.toContain('Unapproved missing prop');
+  });
+});

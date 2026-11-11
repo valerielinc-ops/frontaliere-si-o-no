@@ -27,6 +27,7 @@ import { normalizeText } from './assistedApplicationAts.js';
 import { apprenticeHeadline } from './assistedApplicationCandidateType.js';
 import { buildCvDocument, cvDocumentBlocks } from './assistedApplicationCvDocument.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
+import { filterAuthorizedEvidenceAtoms } from './assistedApplicationAiDraftCore.js';
 
 const S = (description) => (description ? { type: 'string', description } : { type: 'string' });
 const LIST = (items) => ({ type: 'array', items });
@@ -143,6 +144,7 @@ export function withoutWorkload(title) {
  *   not find in the previous version, for the one repair (draft.mjs)
  */
 export function tailoredCvUserText({ profile, requirements, roleTitle, postingExcerpt, answers, candidateType = 'qualified', factCheckFindings = [], candidateEvidenceAtoms = null }) {
+  const authorizedAtoms = filterAuthorizedEvidenceAtoms(candidateEvidenceAtoms);
   return JSON.stringify({
     candidateType,
     posting: { roleTitle: withoutWorkload(roleTitle), requirements: (requirements || []).map(({ requirement, importance }, index) => ({ index, requirement, importance })), excerpt: postingExcerpt },
@@ -165,7 +167,7 @@ export function tailoredCvUserText({ profile, requirements, roleTitle, postingEx
       cvLanguage: profile.cvLanguage,
     },
     answers,
-    ...(Array.isArray(candidateEvidenceAtoms) && candidateEvidenceAtoms.length ? { candidateEvidenceAtoms } : {}),
+    ...(Array.isArray(authorizedAtoms) && authorizedAtoms.length ? { candidateEvidenceAtoms: authorizedAtoms } : {}),
     ...(factCheckFindings.length ? { factCheckFindings } : {}),
   });
 }

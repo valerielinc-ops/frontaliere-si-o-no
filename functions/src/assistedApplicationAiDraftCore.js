@@ -1290,8 +1290,11 @@ const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationSho
  * tool-shaped part, a canton code, is never a claim (NOT_A_CLAIM).
  */
 export function checkDraftFacts(texts, sources) {
+  const rawAtoms = Array.isArray(sources?.evidenceAtoms) ? sources.evidenceAtoms : (Array.isArray(sources?.atoms) ? sources.atoms : []);
+  const authorizedAtoms = filterAuthorizedEvidenceAtoms(rawAtoms);
+  const authorizedClaims = authorizedAtoms.map((a) => (typeof a?.claim === 'string' ? a.claim : '')).filter(Boolean).join('\n');
   // `candidate`: what the candidate wrote on the review page vouches for itself.
-  const candidate = [sources?.text, sources?.answers, sources?.candidate];
+  const candidate = [sources?.text, sources?.answers, sources?.candidate, ...(authorizedClaims ? [authorizedClaims] : [])];
   const index = buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate], {
     // Only the candidate's own texts back a tool. The order line (company, job title) and the
     // posting's place are names: quoted whole they are not claims, and they never back one
