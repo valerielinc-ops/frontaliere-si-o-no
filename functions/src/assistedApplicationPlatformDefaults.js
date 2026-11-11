@@ -79,7 +79,10 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v10 (2026-11-11): the nationality deduced from the CV when the candidate gave none (deducedNationality); the
 // criminal record always «no conviction» (criminalRecordValue); a title of study or certificate asked in a text or
 // a choice field declared from the CV (held_title).
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v10';
+// v11 (2026-11-11): every address block of the candidate's own (a second extraction of the same form, a postal or
+// correspondence address, a second step with the same fields) receives the same address, and the one the candidate
+// typed in another block of the order wins over the platform's (candidateAddressTopics, withCandidateAddress).
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v12';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -891,9 +894,13 @@ function nativeIdentifiers(question) {
     .join(' ').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ');
 }
 
-/** The platform topic of a question, or null for one the platform does not answer. */
-export function platformQuestionTopic(question) {
-  const topic = classifyPlatformTopic(question);
+/**
+ * The platform topic of a question, or null for one the platform does not answer.
+ * `ownedAddressFields` (platformCandidateFacts' `ownedAddressFields`, from ownedAddressTwinFields): the address
+ * fields of a block the order's own questions prove to be the candidate's, by the same set of fields.
+ */
+export function platformQuestionTopic(question, { ownedAddressFields = null } = {}) {
+  const topic = classifyPlatformTopic(question, ownedAddressFields);
   if (!topic) return null;
   const text = label(question);
   const family = TOPIC_FAMILY[topic] || null;
@@ -914,7 +921,12 @@ export function platformQuestionTopic(question) {
 }
 
 const ADDRESS_TOPICS = new Set(['residence_postal_code', 'residence_country', 'residence_city', 'residence_region', 'address_street', 'address_street_name', 'address_house_number']);
-const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|company|firma|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego)\b/;
+const OTHER_PARTY = /\b(?:datore|employer\w*|arbeitgeber\w*|azienda|aziendale|company|firma|firmen\w*|entreprise|employeur|referenz\w*|reference\w*|referee|contatto di emergenza|emergency|notfall\w*|urgence|genitor\w*|parent\w*|eltern|tutore|guardian|fatturazione|billing|rechnung\w*|facturation|consegna|delivery|lieferung|livraison|lavoro precedente|previous job|ultimo impiego|kontaktperson\w*|ansprechperson\w*|ansprechpartner\w*|contact person|persona di contatto|personne de contact|geschaftsadresse|business address|work address|adresse professionnelle|vorgesetzt\w*)\b/;
+// A heading that names an address of the candidate's own, without saying whose («Postadresse»,
+// «Korrespondenzadresse», «Adresse», «Indirizzo postale», «Mailing address»): in the candidate's application
+// form it is theirs (owner decision 2026-11-11, Yellowshark 1EpmkrDu). Another party's is named, and OTHER_PARTY
+// is read first.
+const OWN_ADDRESS = /\b(?:(?:post|wohn|korrespondenz|zustell|privat|heim|haupt)?adresse|address|mailing address|postal address|indirizzo(?: postale| di corrispondenza)?|recapito|anschrift|adresse postale|adresse de correspondance|correspondence|corrispondenza|domicile|domicilio)\b/;
 // The candidate's own profile and application form own an address too («Profilinformationen»,
 // «Stellenbewerbungsformular», Helsana 2026-11-10; «My profile», «Il mio profilo», «Mon profil»).
 const SELF_OWNER = /\b(?:personal\w*|persona\w*|personlich\w*|personnel\w*|candidat\w*|applicant\w*|bewerber\w*|your|tu[oa]i?|dati anagrafici|anagrafica|contact (?:details|information)|kontakt\w*|coordonnees|residen\w*|wohn\w*|domicil\w*|profil\w*|profile\w*|(?:stellen)?bewerbung\w*|application form|modulo di candidatura|formulaire de candidature|my details|meine daten|i miei dati|mes informations)\b/;
@@ -933,7 +945,8 @@ function candidateFormContext(context) {
   return new Set(fold(context).match(IDENTITY_FIELD_RE) || []).size >= 2;
 }
 
-function candidateOwnsAddress(question) {
+/** Whether anything around an address field names another party, or its native contract cannot be read. */
+function addressNamesOtherParty(question) {
   const context = typeof question?.context === 'string' ? question.context : '';
   const section = typeof question?.section === 'string' ? question.section : '';
   const around = fold([context, section].join(' '));
@@ -941,21 +954,163 @@ function candidateOwnsAddress(question) {
   // Herr · Vorname · Nachname · E-Mail · Strasse …») is theirs even when a sibling label names a company (here a
   // form-of-address option); the field's own section and label still decide against another party.
   const otherAround = candidateFormContext(context) ? OTHER_PARTY.test(fold(section)) : OTHER_PARTY.test(around);
-  if (otherAround || OTHER_PARTY.test(label(question))) return false;
+  if (otherAround || OTHER_PARTY.test(label(question))) return true;
   const contract = addressContextContract(question);
-  if (contract === undefined) return true;
-  if (contract === null || contract.unknown) return false;
-  const owners = [contract.section, ...contract.owners].map(fold).filter(Boolean);
-  return owners.every((owner) => !OTHER_PARTY.test(owner)) && (owners.length === 0 || owners.some((owner) => SELF_OWNER.test(owner)));
+  if (contract === undefined) return false;
+  if (contract === null || contract.unknown) return true;
+  return [contract.section, ...contract.owners].map(fold).filter(Boolean).some((owner) => OTHER_PARTY.test(owner));
 }
 
-function classifyPlatformTopic(question) {
+function candidateOwnsAddress(question) {
+  if (addressNamesOtherParty(question)) return false;
+  const contract = addressContextContract(question);
+  if (contract === undefined) return true;
+  const owners = [contract.section, ...contract.owners].map(fold).filter(Boolean);
+  // A native contract that names no party is the candidate's when a heading names their own data or an address of
+  // theirs, or when the field sits among the candidate's own identity fields: Yellowshark 1EpmkrDu (2026-11-11)
+  // read its second extraction of the same form under the neutral heading «Hier sind Sie richtig», and the
+  // candidate was asked street, number, postal code and town a second time.
+  return owners.length === 0 || owners.some((owner) => SELF_OWNER.test(owner) || OWN_ADDRESS.test(owner))
+    || candidateFormContext(typeof question?.context === 'string' ? question.context : '');
+}
+
+/** The address part a field asks, whoever's address it is; '' for no address field. */
+function addressFieldTopic(question) {
   const subject = classifyPlatformSubject(question);
   // A street field beside its own house-number field («Strasse · Hausnummer») takes the street name only. Only a
   // real house-number label counts («Numero di telefono» is no such field).
   const topic = subject === 'address_street' && typeof question?.context === 'string'
     && HOUSE_NUMBER_FIELD.test(fold(question.context)) && !HOUSE_NUMBER.test(label(question)) ? 'address_street_name' : subject;
-  return topic && ADDRESS_TOPICS.has(topic) && !candidateOwnsAddress(question) ? null : topic;
+  return topic || '';
+}
+
+/**
+ * The identity of an address field across the draft and the live form: its native caption, its heading and its
+ * ownership contract. The live planner's field (`label`) and the draft's question (`applicationQuestion`) agree.
+ */
+export function addressFieldSignature(question) {
+  const caption = fold(question?.applicationQuestion || question?.label || question?.question);
+  if (!caption) return '';
+  const contract = addressContextContract(question);
+  return `${caption}|${fold(question?.section)}|${contract === undefined ? '' : JSON.stringify(contract)}`;
+}
+
+function addressBlockKey(question) {
+  const contract = addressContextContract(question);
+  return `${fold(question?.section)}|${contract === undefined ? `context:${fold(question?.context)}` : JSON.stringify(contract)}`;
+}
+
+function classifyPlatformTopic(question, ownedAddressFields = null) {
+  const topic = addressFieldTopic(question);
+  if (!topic || !ADDRESS_TOPICS.has(topic)) return topic || null;
+  if (candidateOwnsAddress(question)) return topic;
+  // A block the order proved the candidate's by its fields (ownedAddressTwinFields), never one naming another party.
+  const owned = Array.isArray(ownedAddressFields) && ownedAddressFields.includes(addressFieldSignature(question));
+  return owned && !addressNamesOtherParty(question) ? topic : null;
+}
+
+/**
+ * The candidate's address blocks of one order, by question id → address topic (owner decision 2026-11-11): every
+ * block the candidate owns (candidateOwnsAddress), and a block whose heading names nobody but whose fields are the
+ * same as, or a part of, those of a block of the candidate's (a second step, a postal or correspondence block).
+ * A block that names another party (employer, reference, billing…) stays out, and so does a topic a block asks
+ * twice (two street lines): which line takes the street is not known.
+ * @returns {Map<string, string>}
+ */
+export function candidateAddressTopics(questions = []) {
+  const blocks = new Map();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id) continue;
+    const topic = addressFieldTopic(question);
+    if (!ADDRESS_TOPICS.has(topic) || addressNamesOtherParty(question)) continue;
+    const key = addressBlockKey(question);
+    if (!blocks.has(key)) blocks.set(key, { owned: false, fields: [] });
+    const block = blocks.get(key);
+    block.owned ||= candidateOwnsAddress(question);
+    block.fields.push({ question, topic });
+  }
+  const topicsOf = (block) => {
+    const counts = new Map();
+    for (const { topic } of block.fields) counts.set(topic, (counts.get(topic) || 0) + 1);
+    return counts;
+  };
+  const ownedTopicSets = [...blocks.values()].filter((block) => block.owned).map((block) => new Set(topicsOf(block).keys()));
+  const result = new Map();
+  for (const block of blocks.values()) {
+    const counts = topicsOf(block);
+    const twin = !block.owned && counts.size >= 2
+      && ownedTopicSets.some((owned) => [...counts.keys()].every((topic) => owned.has(topic)));
+    if (!block.owned && !twin) continue;
+    for (const { question, topic } of block.fields) if (counts.get(topic) === 1) result.set(String(question.id), topic);
+  }
+  return result;
+}
+
+/** The signatures of the fields candidateAddressTopics adds by twin blocks, for platformQuestionTopic. */
+export function ownedAddressTwinFields(questions = []) {
+  const topics = candidateAddressTopics(questions);
+  return [...new Set((Array.isArray(questions) ? questions : [])
+    .filter((question) => topics.has(String(question?.id ?? '')) && !candidateOwnsAddress(question))
+    .map(addressFieldSignature).filter(Boolean))].slice(0, 64);
+}
+
+/**
+ * What the candidate stated about their own address in this order, by address topic: the one value they gave to
+ * every field of that topic in their address blocks (candidateAddressTopics), or nothing where they gave none or
+ * gave two different ones. Their word wins over the platform's address (withCandidateAddress).
+ * @returns {Record<string, string>}
+ */
+export function candidateAddressStatements(questions = [], answers = {}) {
+  const topics = candidateAddressTopics(questions);
+  const values = new Map();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const topic = topics.get(String(question?.id ?? ''));
+    const value = clean(answers?.[question?.id], 200);
+    if (!topic || !value) continue;
+    if (!values.has(topic)) values.set(topic, new Map());
+    values.get(topic).set(fold(value), value);
+  }
+  return Object.fromEntries([...values].filter(([, seen]) => seen.size === 1).map(([topic, seen]) => [topic, [...seen.values()][0]]));
+}
+
+/**
+ * The platform facts with the address the candidate stated (candidateAddressStatements) above the platform's:
+ * a second address block of theirs then receives the same street, number, postal code and town they typed in the
+ * first. A part they did not state keeps the platform's; a town of theirs takes its own postal code and region.
+ */
+export function withCandidateAddress(facts, statements = {}) {
+  if (!facts || typeof facts !== 'object' || !statements || !Object.keys(statements).length) return facts;
+  const address = { ...(facts.address || {}) };
+  const stated = (topic) => clean(statements[topic], 200);
+  const street = stated('address_street');
+  const streetName = stated('address_street_name') || (street ? street.replace(/\s*,?\s*\d{1,5}[a-z]?\s*$/i, '').trim() || street : '');
+  const houseNumber = stated('address_house_number') || (/\b(\d{1,5}[a-z]?)\s*$/i.exec(street)?.[1] || '');
+  if (streetName || houseNumber) {
+    address.streetName = streetName || address.streetName || '';
+    address.houseNumber = houseNumber || address.houseNumber || '';
+    address.street = street && /\d/.test(street) ? street : [address.streetName, address.houseNumber].filter(Boolean).join(' ');
+    address.synthesizedStreet = false;
+  }
+  const city = stated('residence_city');
+  const country = countryCodeOf(stated('residence_country'));
+  if (country) {
+    address.country = country;
+    address.countryName = countryName(country, facts.locale || 'it');
+  }
+  const town = splitTown(city);
+  if (city && fold(town.town || city) !== fold(address.city)) {
+    const directory = platformPostalCode(town.town || city, { region: town.region, country: country || town.country });
+    address.city = town.town || city;
+    address.postalCode = town.statedPostal || directory?.code || '';
+    address.region = directory?.region || '';
+    if (!country && directory?.country) {
+      address.country = directory.country;
+      address.countryName = countryName(directory.country, facts.locale || 'it');
+    }
+  }
+  if (stated('residence_postal_code')) address.postalCode = stated('residence_postal_code');
+  if (stated('residence_region')) address.region = stated('residence_region');
+  return { ...facts, address: { ...address, candidateStated: true } };
 }
 
 function classifyPlatformSubject(question) {
@@ -1507,7 +1662,7 @@ function salaryValue(question, facts) {
  * @returns {{value:string, topic:string, source:'policy_default', version:string}|null}
  */
 export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
-  const topic = platformQuestionTopic(question);
+  const topic = platformQuestionTopic(question, { ownedAddressFields: facts?.ownedAddressFields });
   if (!topic) return null;
   const known = facts || basePlatformFacts(Date.now(), locale);
   const lang = languageOf(locale || known.locale);

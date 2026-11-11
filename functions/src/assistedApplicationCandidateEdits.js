@@ -38,7 +38,7 @@ import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.j
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
-import { candidateStatementsOf, platformCandidateFacts, platformSalutationGender } from './assistedApplicationPlatformDefaults.js';
+import { candidateAddressStatements, candidateAddressTopics, candidateStatementsOf, ownedAddressTwinFields, platformCandidateFacts, platformSalutationGender, withCandidateAddress } from './assistedApplicationPlatformDefaults.js';
 import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 
@@ -285,6 +285,36 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
         : source;
     }
   }
+  return withTwinAddressAnswers(Array.isArray(questions) ? questions : [], answers, memory, result, unknownKeys);
+}
+
+/**
+ * The candidate's own address blocks of one order (assistedApplicationPlatformDefaults.js candidateAddressTopics):
+ * what they typed in one block answers the same field of the other (owner decision 2026-11-11, Yellowshark
+ * 1EpmkrDu: a second block of the same form asked street, number, postal code and town again). Only one value
+ * per field: two different ones stay the candidate's to reconcile. A field they cleared, marked unknown or
+ * emptied in the ledger stays theirs, and another party's address never takes it.
+ */
+function withTwinAddressAnswers(questions, answers, memory, result, unknownKeys) {
+  const topics = candidateAddressTopics(questions);
+  if (!topics.size) return result;
+  const given = new Map();
+  for (const question of questions) {
+    const topic = topics.get(String(question?.id ?? ''));
+    const value = result[question?.id];
+    if (!topic || typeof value !== 'string' || !hasQuestionAnswer(value)) continue;
+    if (!given.has(topic)) given.set(topic, new Map());
+    given.get(topic).set(answerValueKey(value), value);
+  }
+  for (const question of questions) {
+    const topic = topics.get(String(question?.id ?? ''));
+    if (!topic || given.get(topic)?.size !== 1 || hasQuestionAnswer(result[question.id])) continue;
+    if (Object.hasOwn(answers || {}, question.id)) continue;
+    const key = candidateQuestionAnswerKey(question);
+    if (key && (unknownKeys.has(key) || (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(memory[key])))) continue;
+    const [value] = given.get(topic).values();
+    if (answerFitsQuestion(value, question)) result[question.id] = value;
+  }
   return result;
 }
 
@@ -340,11 +370,18 @@ export function questionsForCandidate(questions, profile, answers = {}, memory =
     .map(question => hasPortalQuestionEvidence(question) ? { ...question, question: portalQuestionText(question),
       ...(question.portalNativeContract && question.required === false
         && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question);
+  // The same field of two address blocks of the candidate's own (candidateAddressTopics) is one request: shown
+  // once, its answer reaches the other block (withTwinAddressAnswers). Two different answers show both again.
+  const addressTopics = candidateAddressTopics(questions);
+  const groupKey = (question) => {
+    const topic = addressTopics.get(String(question?.id ?? ''));
+    return topic ? `candidate_address_${topic}` : candidateQuestionAnswerKey(question);
+  };
   const answerValues = new Map();
   const conflictingKeys = new Set();
   const questionsByKey = new Map();
   for (const question of candidates) {
-    const key = candidateQuestionAnswerKey(question);
+    const key = groupKey(question);
     if (key) {
       if (!questionsByKey.has(key)) questionsByKey.set(key, []);
       questionsByKey.get(key).push(question);
@@ -365,7 +402,7 @@ export function questionsForCandidate(questions, profile, answers = {}, memory =
   const result = [];
   const seen = new Map();
   for (const question of candidates) {
-    const key = candidateQuestionAnswerKey(question);
+    const key = groupKey(question);
     if (!key) {
       result.push(question);
       continue;
@@ -658,10 +695,14 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // The same for the nationality (owner decision 2026-11-11): a correction or an answer of theirs, even emptied,
   // is their word, and no nationality is deduced from the CV over it.
   const nationalityDeduction = !has(overrides, 'nationality') && !has(flow?.answers || {}, 'nationality');
-  const platformFacts = platformCandidateFacts({
+  // The address the candidate typed in one of their own address blocks wins over the platform's, so every other
+  // block of theirs receives the same one; a block proved theirs only by its fields is named for the platform
+  // rule (owner decision 2026-11-11, assistedApplicationPlatformDefaults.js candidateAddressTopics).
+  const platformFacts = withCandidateAddress(platformCandidateFacts({
     order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '', permitDeduction,
     nationalityDeduction, cvText: draft?.factSources?.text || '',
-  });
+  }), candidateAddressStatements(draft?.questions, answers));
+  platformFacts.ownedAddressFields = ownedAddressTwinFields(draft?.questions);
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
   // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);

@@ -39,8 +39,8 @@ const nationalityQuestion = (options: string[] = [], question = 'Nationalität')
 
 describe('versions', () => {
   it('lets the recovery by version read the held questions again', () => {
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v10');
-    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v9');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v12');
+    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v11');
   });
 });
 
@@ -136,7 +136,7 @@ describe('the nationality deduced from the CV (owner decision 2026-11-11)', () =
     const known = facts({ education: [liceo], location: 'Como' });
     // The Yellowshark list of country names in German, its prompt first.
     expect(platformDefaultAnswer(nationalityQuestion(['Nationalität', 'Albanien', 'Italien', 'Schweiz']), known))
-      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: 'platform-defaults-v10' });
+      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: PLATFORM_DEFAULTS_VERSION });
     expect(platformDefaultAnswer(nationalityQuestion(['Aucune sélection', 'Allemand', 'Italien', 'Suisse'], 'Qual è la tua nazionalità?'), known)?.value).toBe('Italien');
     expect(platformDefaultAnswer(nationalityQuestion(['Selezionare', 'Svizzera', 'Tedesca', 'Italiana'], 'Nazionalità'), known)?.value).toBe('Italiana');
     expect(platformDefaultAnswer(nationalityQuestion(['Germany', 'Italy', 'Switzerland'], 'Citizenship'), known)?.value).toBe('Italy');

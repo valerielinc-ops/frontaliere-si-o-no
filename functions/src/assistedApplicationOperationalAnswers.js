@@ -18,7 +18,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // v7 is the other sites and guard duty of #18004).
 // v9 (2026-11-11): the deduced nationality, the criminal record without conviction and the title asked in a text or
 // a choice field (platform-defaults-v10): the waits on them are read again.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v9';
+// v10 (2026-11-11): every address block of the candidate's own takes the same address, the one they typed in
+// another block first (platform-defaults-v11): the waits on a second address block are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v11';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
