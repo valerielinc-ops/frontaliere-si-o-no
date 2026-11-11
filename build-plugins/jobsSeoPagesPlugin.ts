@@ -13890,7 +13890,7 @@ ${staticAnalyticsHtml}
  // NB: the hub-pagination compound keys were already `delete`d from `tracking`
  // up at the reserved-hub strip block (before the tracking write AND before this
  // expiredSlugs computation), so they are absent from BOTH `expiredSlugs` here
- // and the self-healing `Object.entries(tracking)` loop below — no second strip
+ // and the self-healing tracking loop below — no second strip
  // is needed (a duplicate one here would re-declare hubPaginationKeysRemoved and
  // also runs AFTER expiredSlugs is captured, missing the expired loop anyway).
 
@@ -16819,7 +16819,13 @@ ${staticAnalyticsHtml}
    unverifiedSocialPreview,
   );
  };
- for (const [slug, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
+ // Iterate the large registry directly instead of materializing one tuple
+ // array per slug. The registry is close to 900k entries on production builds;
+ // for-in preserves Object.entries' own-key enumeration order here, while the
+ // ownership check excludes Object.prototype properties.
+ for (const slug in tracking) {
+ if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
+ const paths = tracking[slug];
  for (const locale of localeList) {
  const relPath = paths?.[locale];
  if (!relPath) continue;
