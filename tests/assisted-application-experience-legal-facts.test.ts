@@ -232,7 +232,8 @@ describe('the criminal record and the debt-enforcement register (owner decision 
     const record = factsOf({ ...UPLOAD, criminalRecord: 'yes', debtRecord: 'no' });
     expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Do you have a criminal record?' }, record, { locale: 'en' })?.value).toBe('Yes');
     expect(platformDefaultAnswer(choice('Ich bestätige, dass ich keinen Eintrag im Strafregister habe'), record)).toBeNull();
-    expect(platformDefaultAnswer(choice('Have you ever been convicted of a criminal offence?'), record)).toBeNull();
+    // An entry in the register is a conviction: the upload «yes» answers the conviction question too (review of #18085).
+    expect(platformDefaultAnswer(choice('Have you ever been convicted of a criminal offence?'), record)?.value).toBe('Ja');
   });
 
   it('stores the two answers validated, and keeps the orders that predate them valid', () => {

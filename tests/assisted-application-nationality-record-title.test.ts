@@ -233,6 +233,14 @@ describe('the criminal record: always no conviction (owner decision 2026-11-11)'
     expect(value(choice('Gibt es Einträge im Strafregister?'), record)).toBe('Ja');
     expect(value({ id: 'c', type: 'checkbox', question: 'Dichiaro di non avere condanne penali' }, record)).toBeNull();
     expect(value(choice('Sind gegen Sie laufende Strafverfahren hängig?'), record)).toBeNull();
+    // Review of #18085: a conviction asked without the register's name keeps the upload «yes».
+    expect(value(choice('Hai avuto una condanna penale?', ['Sì', 'No']), record)).toBe('Sì');
+  });
+
+  it('reads a conviction named beside the debt register as the combined question (review of #18085)', () => {
+    const both = { id: 'q', source: 'portal', type: 'yes_no', question: 'Have you ever been convicted or do you have an entry in the debt-enforcement register?' };
+    expect(platformQuestionTopic(both)).toBe('criminal_or_debt_record');
+    expect(platformDefaultAnswer(both, legacy, { locale: 'en' })?.value).toBe('No');
   });
 });
 

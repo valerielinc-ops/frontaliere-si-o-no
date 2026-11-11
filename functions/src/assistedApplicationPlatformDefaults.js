@@ -1416,7 +1416,9 @@ function legalRecordTopic(question) {
   if (!debt) return isCriminalRecordField(question) ? 'criminal_record' : null;
   // The debt-enforcement register, alone or beside the criminal record: only the yes/no on a register entry, from
   // the candidate's answers at upload (2026-11-10), «no» when they gave none (2026-11-11).
-  if (!isBinary(question) || (criminal && !CRIMINAL_REGISTER.test(text))) return null;
+  // A conviction named beside the debt register («convicted or an entry in the debt-enforcement register») is the
+  // same combined yes/no (review of #18085); a pending proceeding, a document or a statement is not.
+  if (!isBinary(question)) return null;
   if (LEGAL_PENDING.test(text) || LEGAL_DOCUMENT_REQUEST.test(text) || LEGAL_STATEMENT.test(text)) return null;
   return criminal ? 'criminal_or_debt_record' : 'debt_record';
 }
@@ -1441,8 +1443,10 @@ const NO_CONVICTION = { it: 'Nessuna condanna', en: 'No convictions', de: 'Keine
 function criminalRecordValue(question, facts, lang) {
   const polarity = criminalRecordPolarity(question);
   const options = optionsOf(question);
+  // The candidate's «yes» at upload answers every yes/no on a register entry or a conviction (review of #18085); a
+  // pending proceeding is another fact, and nothing else is declared for them.
   if (legalRecordAnswer(facts?.criminalRecord) === 'yes') {
-    return polarity === 'presence' && isBinary(question) && CRIMINAL_REGISTER.test(label(question)) ? yesValue(question, lang) : '';
+    return polarity === 'presence' && isBinary(question) && !LEGAL_PENDING.test(label(question)) ? yesValue(question, lang) : '';
   }
   if (isBinary(question)) return polarity === 'absence' ? yesValue(question, lang) : noValue(question, lang);
   if (!options.length) return polarity === 'presence' ? NO_CONVICTION[lang] : '';
