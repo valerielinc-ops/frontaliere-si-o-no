@@ -237,6 +237,10 @@ describe('the employer\'s own e-mail', () => {
       'Die Stelle wurde bereits besetzt.',
       'The position has not been withdrawn.',
       'Thank you for your application for the position. We have received it.',
+      // On hold may reopen: never a withdrawal (review of #18084).
+      'The position has been put on hold.',
+      'Die Stelle wurde vorübergehend sistiert.',
+      'La selezione è stata sospesa.',
     ]) expect(postingWithdrawnByMail({ subject: 'Update', text }), text).toBe(false);
   });
 

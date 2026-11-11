@@ -339,15 +339,16 @@ const CONTRACT_SENT_RE = phrases(String.raw`attached|enclosed|anbei|beigefügt|a
 // «the position has been withdrawn», «die Ausschreibung wurde zurückgezogen», «la posizione è stata ritirata»,
 // «le poste a été annulé». The subject is the posting, never the application («your application was
 // withdrawn» is not this), and «filled / besetzt» stays a rejection (REJECTION_RE): a post given to someone
-// else is no withdrawal of the posting.
+// else is no withdrawal of the posting. A posting put on hold («put on hold», «sistiert», «sospesa») may reopen:
+// it is no withdrawal either (review of #18084).
 const POSTING_NOUN = String.raw`(?:position|vacancy|job (?:posting|opening|advert(?:isement)?|ad)|posting|opening|requisition|recruitment|stelle|stellenausschreibung|ausschreibung|stellenanzeige|stelleninserat|inserat|vakanz|rekrutierung|posizione|offerta(?: di lavoro)?|annuncio|selezione|ricerca di personale|concorso|poste|offre(?: d['’]emploi)?|annonce|recrutement)`;
 const POSTING_WITHDRAWN_RE = phrases([
-  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:has been|have been|was|is now|had to be)\s+(?:\S+\s+)?(?:withdrawn|cancell?ed|retracted|taken down|put on hold)`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:has been|have been|was|is now|had to be)\s+(?:\S+\s+)?(?:withdrawn|cancell?ed|retracted|taken down)`,
   String.raw`(?:withdraw|cancel|retract)\p{L}*\s+(?:the|this|our)\s+(?:\S+\s+){0,2}?${POSTING_NOUN}`,
-  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:wurde|ist|wird|musste)\s+(?:\S+\s+){0,2}?(?:zurückgezogen|storniert|annulliert|abgesagt|sistiert|gestrichen)`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:wurde|ist|wird|musste)\s+(?:\S+\s+){0,2}?(?:zurückgezogen|storniert|annulliert|abgesagt|gestrichen)`,
   String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?zurück(?:zu)?ziehen`,
-  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:zurückgezogen|storniert|annulliert|abgesagt|sistiert|gestrichen)\s+(?:wurde|worden ist|werden musste)`,
-  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:è|e) stat[ao]\s+(?:\S+\s+)?(?:ritirat[ao]|annullat[ao]|revocat[ao]|sospes[ao])`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:zurückgezogen|storniert|annulliert|abgesagt|gestrichen)\s+(?:wurde|worden ist|werden musste)`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:è|e) stat[ao]\s+(?:\S+\s+)?(?:ritirat[ao]|annullat[ao]|revocat[ao])`,
   String.raw`(?:ritirare|annullare|revocare) (?:la|il|l['’]|questa|questo) ?(?:\S+\s+){0,2}?${POSTING_NOUN}`,
   String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:a été|est)\s+(?:\S+\s+)?(?:retiré|annulé|supprimé)e?s?`,
 ].join('|'));
