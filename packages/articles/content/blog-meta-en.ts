@@ -13710,6 +13710,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Cross-border workers’ salaries in 2027: 1% nominal increase according to UBS',
     'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'In 2027, the wages of cross-border workers in Switzerland are expected to increase by 1% in nominal terms.',
     'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.como-rinnovo-illuminazione-varese.title': 'Como renews lighting on Viale Varese, 80-thousand-euro project',
+    'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'The Municipality of Como officially launched the public lighting renewal project along two sections of Varese Avenue.',
+    'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

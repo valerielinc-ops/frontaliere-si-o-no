@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-11-11T09:55:42.236Z",
+  "generatedAt": "2026-11-11T21:38:54.355Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8937,
-  "avgDurationMs": 8937,
+  "unchangedCount": 3,
+  "durationMs": 8572,
+  "avgDurationMs": 8572,
   "durationHistory": [
-    8937
+    8572
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medartis-4bb51ef9dc30",
       "slug": "ispettore-di-qualita-100-medartis-basel",
@@ -36,7 +38,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:23.951Z",
+      "crawledAt": "2026-11-11T21:38:36.619Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -59,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:55:23.951Z",
+      "validThrough": "2027-02-08T21:38:36.619Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -68,10 +70,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medartis-62427cab689e",
       "slug": "plm-support-specialista-medartis-basel",
@@ -84,7 +83,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:22.561Z",
+      "crawledAt": "2026-11-11T21:38:35.339Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -107,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:55:22.561Z",
+      "validThrough": "2026-12-18T21:38:35.339Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +129,7 @@
       "url": "https://careers.medartis.com/job/FP&A-and-Digitalization-Manager/1455279733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:21.526Z",
+      "crawledAt": "2026-11-11T21:38:34.415Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -153,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:55:21.526Z",
+      "validThrough": "2027-02-04T21:38:34.415Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -164,5 +163,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

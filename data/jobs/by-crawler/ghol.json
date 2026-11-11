@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-11T09:37:24.990Z",
-  "runId": "42993976021",
+  "assembledAt": "2026-11-11T21:34:14.680Z",
+  "runId": "43102113794",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.845Z",
+      "crawledAt": "2026-11-11T21:34:06.786Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:37:17.845Z",
+      "validThrough": "2026-12-11T21:34:06.786Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.843Z",
+      "crawledAt": "2026-11-11T21:34:06.785Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -192,7 +192,7 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:37:17.843Z",
+      "validThrough": "2026-12-11T21:34:06.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +242,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.841Z",
+      "crawledAt": "2026-11-11T21:34:06.784Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -268,7 +268,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:37:17.841Z",
+      "validThrough": "2026-12-11T21:34:06.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.840Z",
+      "crawledAt": "2026-11-11T21:34:06.783Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:37:17.840Z",
+      "validThrough": "2026-12-23T21:34:06.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.838Z",
+      "crawledAt": "2026-11-11T21:34:06.781Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -425,7 +425,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:37:17.838Z",
+      "validThrough": "2027-01-01T21:34:06.781Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -475,7 +475,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.837Z",
+      "crawledAt": "2026-11-11T21:34:06.780Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -506,7 +506,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:37:17.837Z",
+      "validThrough": "2027-01-10T21:34:06.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -556,7 +556,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.836Z",
+      "crawledAt": "2026-11-11T21:34:06.779Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -588,7 +588,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:37:17.836Z",
+      "validThrough": "2027-01-17T21:34:06.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -638,7 +638,7 @@
       "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.832Z",
+      "crawledAt": "2026-11-11T21:34:06.775Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -670,7 +670,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:37:17.832Z",
+      "validThrough": "2027-01-21T21:34:06.775Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -720,7 +720,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.831Z",
+      "crawledAt": "2026-11-11T21:34:06.774Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -751,7 +751,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:37:17.831Z",
+      "validThrough": "2026-12-26T21:34:06.774Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -801,7 +801,7 @@
       "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.830Z",
+      "crawledAt": "2026-11-11T21:34:06.773Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -827,7 +827,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:37:17.830Z",
+      "validThrough": "2027-01-03T21:34:06.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -877,7 +877,7 @@
       "applyUrl": "https://app.beehire.com/invite/Vom0mKPyO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:37:17.829Z",
+      "crawledAt": "2026-11-11T21:34:06.771Z",
       "previousSlugs": [
         "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
       ],
@@ -908,7 +908,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:37:17.829Z",
+      "validThrough": "2027-02-09T21:34:06.771Z",
       "validThroughSource": "last-observed-window"
     }
   ]
