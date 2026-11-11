@@ -35,7 +35,7 @@ import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, isPostingDocumentUrl, portalQuestionKey, postingAddressForPortal, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { resolvePostingAddressOf, resolvePublishedPostingAddressOf } from './liveness.mjs';
@@ -507,7 +507,14 @@ export async function submitApplication(ctx) {
   const reResolveFromPosting = channel.type === 'employer_site'
     || (channel.type === 'successfactors' && channel.via === 'successfactors'
       && Boolean(currentPostingRoute) && currentPostingRoute !== applyUrl);
-  if (reResolveFromPosting && (postingUrl || applyUrl)) {
+  // A posting published as a document (a PDF notice) has no Apply control to resolve: the employer's page
+  // the order's data names for applications is where the application starts (ECAM, CVRDEqJ3 2026-11-11: the
+  // re-resolution put the PDF in place of the career page that links it and its online form). The runner
+  // reads the document and binds that page to it (portal.mjs postingDocumentHostBound).
+  const documentPostingRoute = publishedPostingUrl || channel.postingUrl || postingUrl;
+  const keepsDocumentApplyPage = channel.type === 'employer_site' && isPostingDocumentUrl(documentPostingRoute)
+    && /^https:\/\//i.test(applyUrl) && !isPostingDocumentUrl(applyUrl) && applyUrl !== documentPostingRoute;
+  if (reResolveFromPosting && !keepsDocumentApplyPage && (postingUrl || applyUrl)) {
     const routeUrl = publishedPostingUrl || channel.postingUrl || channel.applyUrl || draft.job?.applyUrl || postingUrl;
     const directChannel = classifyApplicationChannel({ applyUrl: routeUrl }).type;
     if (directChannel !== 'employer_site' && WAVE1_CHANNELS.has(directChannel)) {
