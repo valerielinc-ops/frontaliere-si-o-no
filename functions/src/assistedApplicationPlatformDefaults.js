@@ -68,6 +68,7 @@ import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityCodes, nationalityLabelOf, nationalityOf, permitLabel, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
 import { phoneCountryCode } from './lib/phoneNormalization.js';
+import { isUnknownAnswer } from './lib/unknownAnswer.js';
 import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 
 // v2 (2026-11-10): business travel and profile visibility inside the employer.
@@ -1224,7 +1225,8 @@ export function candidateAddressStatements(questions = [], answers = {}) {
   for (const question of Array.isArray(questions) ? questions : []) {
     const topic = topics.get(String(question?.id ?? ''));
     const value = clean(answers?.[question?.id], 200);
-    if (!topic || !value) continue;
+    // «non so» states no address: the field stays the candidate's, the platform's facts stay (review of #18103).
+    if (!topic || !value || isUnknownAnswer(value)) continue;
     if (!values.has(topic)) values.set(topic, new Map());
     values.get(topic).set(fold(value), value);
   }

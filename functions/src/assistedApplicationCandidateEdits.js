@@ -1,3 +1,4 @@
+import { UNKNOWN_ANSWER_VALUES, isUnknownAnswer } from './lib/unknownAnswer.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
 import { hasPortalQuestionEvidence, portalQuestionText, readablePortalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
@@ -91,16 +92,8 @@ function optionValues(question) {
     .map(normalizeQuestionValue).filter(Boolean);
 }
 
-const UNKNOWN_ANSWER_VALUES = new Set([
-  'unknown', 'not known', 'not sure', 'i do not know', 'i don t know', 'i dont know', 'dont know', 'no idea',
-  'non lo so', 'non so', 'non conosco', 'keine angabe', 'weiss nicht', 'weiß nicht', 'ich weiss es nicht', 'ich weiß es nicht', 'nicht bekannt',
-  'je ne sais pas', 'je ne sais plus', 'inconnu', 'inconnue', 'non renseigne', 'non renseignee',
-]);
-
-export function isUnknownAnswer(value) {
-  if (Array.isArray(value)) return value.length > 0 && value.every(isUnknownAnswer);
-  return typeof value === 'string' && UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(value));
-}
+// «I don't know»: shared with the platform facts (lib/unknownAnswer.js), which cannot import this module.
+export { isUnknownAnswer };
 
 function sortedOptionValues(question) {
   return [...new Set(optionValues(question))].sort();

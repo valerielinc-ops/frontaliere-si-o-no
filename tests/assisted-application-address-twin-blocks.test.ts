@@ -9,9 +9,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   PLATFORM_DEFAULTS_VERSION,
+  candidateAddressStatements,
   candidateAddressTopics,
   platformDefaultAnswer,
   platformQuestionTopic,
+  withCandidateAddress,
 } from '../functions/src/assistedApplicationPlatformDefaults.js';
 import { candidateAnswersForQuestions, candidateWithEdits as candidateWithEditsJs, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
@@ -184,5 +186,15 @@ describe('what the candidate typed in one block', () => {
     expect(candidateWithEdits({ order, draft, flow: { answers: conflicting } }).platformFacts.address.postalCode).toBe('');
     const cleared = candidateAnswersForQuestions(draft.questions, { portal_plz_1: '6900', portal_plz_2: '' });
     expect(cleared.portal_plz_2).toBe('');
+  });
+});
+
+describe('an «I don\'t know» states no address (review of #18103)', () => {
+  it('keeps the platform address when the candidate answered «non so» in a block of theirs', () => {
+    const questions = [...firstBlock, ...secondBlock];
+    const statements = candidateAddressStatements(questions, { portal_plz_1: 'non so' });
+    expect(statements).toEqual({});
+    const facts = { address: { postalCode: '22100', city: 'Como', country: 'IT' } };
+    expect(withCandidateAddress(facts, statements).address).toEqual(facts.address);
   });
 });
