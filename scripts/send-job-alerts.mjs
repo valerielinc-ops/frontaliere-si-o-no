@@ -2742,7 +2742,7 @@ function planAlertMatch(alert, {
     ? profile.applicationIntentJobKeys || new Set()
     : new Set();
   const scored = [];
-  const compactMetadataByJob = compactMatches ? new Map() : null;
+  const compactMetadataByJob = compactMatches ? new WeakMap() : null;
   let candidateCount = 0;
   for (const job of recentJobs) {
     if (!ownerAlert && isCanaryJob(job)) continue;
@@ -2860,12 +2860,7 @@ function planAlertMatch(alert, {
   const result = { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
     ...(discoveryMode ? { discoveryMode: true } : {}) };
   if (compactMatches) {
-    const rankingMetadata = new WeakMap();
-    for (const job of matched) {
-      const metadata = compactMetadataByJob?.get(job);
-      if (metadata) rankingMetadata.set(job, metadata);
-    }
-    result.rankingMetadata = rankingMetadata;
+    result.rankingMetadata = compactMetadataByJob;
   }
   return result;
 }
