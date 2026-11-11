@@ -27,6 +27,8 @@ import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
+import { SwissBubbleMap, type CantonJobsData } from '@/components/community/SwissBubbleMap';
+import { JobDetailLinkedInPeopleButton } from '@/components/community/JobDetailPresentation';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
@@ -2416,6 +2418,19 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
+ {Boolean((job as any).copies && Array.isArray((job as any).copies) && (job as any).copies.length > 0) && (
+ <div className="mt-1 flex flex-wrap items-center gap-1 text-[11px] text-muted">
+ <span className="font-medium text-subtle">Altre sedi:</span>
+ {((job as any).copies as Array<{ location?: string; canton?: string; city?: string }>).slice(0, 3).map((copy, cIdx) => (
+ <span key={cIdx} className="px-1.5 py-0.5 rounded bg-surface-raised border border-edge font-medium">
+ {copy.location || copy.canton || copy.city}
+ </span>
+ ))}
+ {((job as any).copies as Array<unknown>).length > 3 && (
+ <span className="text-accent font-semibold">+{((job as any).copies as Array<unknown>).length - 3}</span>
+ )}
+ </div>
+ )}
  {salary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
  <Euro className="w-3.5 h-3.5" />
@@ -3597,6 +3612,39 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [modalGoogleButtonReady, setModalGoogleButtonReady] = useState(false);
  const [inlineGoogleButtonReady, setInlineGoogleButtonReady] = useState(false);
  const [emailInput, setEmailInput] = useState('');
+ const [showSwissBubbleMap, setShowSwissBubbleMap] = useState(true);
+ const swissCantonMapData: CantonJobsData[] = useMemo(() => {
+  const counts: Record<string, number> = { TI: 0, GR: 0, ZH: 0, GE: 0, BS: 0, VS: 0 };
+  const names: Record<string, string> = {
+   TI: 'Ticino',
+   GR: 'Grigioni',
+   ZH: 'Zurigo',
+   GE: 'Ginevra',
+   BS: 'Basilea',
+   VS: 'Vallese',
+  };
+  for (const j of jobs) {
+   const c = String(j.canton || '').toUpperCase();
+   if (c in counts) {
+    counts[c]++;
+   }
+  }
+  return (['TI', 'GR', 'ZH', 'GE', 'BS', 'VS'] as const).map((code) => ({
+   cantonCode: code,
+   name: names[code],
+   count: counts[code] || 0,
+  }));
+ }, [jobs]);
+
+ const handleSelectSwissMapCanton = useCallback((code: string | null) => {
+  jobBoardSearchResumeInteractionRef.current = true;
+  if (onJobRouteChange) {
+   onJobRouteChange('', code || undefined);
+  } else {
+   setSelectedLocation(code ? code.toLowerCase() : 'all');
+  }
+ }, [onJobRouteChange]);
+
  const [emailAccessGranted, setEmailAccessGranted] = useState(
  () => !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY)
  );
@@ -10752,6 +10800,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
+ {Boolean((job as any).copies && Array.isArray((job as any).copies) && (job as any).copies.length > 0) && (
+ <div className="mt-1 flex flex-wrap items-center gap-1 text-[11px] text-muted">
+ <span className="font-medium text-subtle">Altre sedi:</span>
+ {((job as any).copies as Array<{ location?: string; canton?: string; city?: string }>).slice(0, 3).map((copy, cIdx) => (
+ <span key={cIdx} className="px-1.5 py-0.5 rounded bg-surface-raised border border-edge font-medium">
+ {copy.location || copy.canton || copy.city}
+ </span>
+ ))}
+ {((job as any).copies as Array<unknown>).length > 3 && (
+ <span className="text-accent font-semibold">+{((job as any).copies as Array<unknown>).length - 3}</span>
+ )}
+ </div>
+ )}
  {jobSalary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
  <Euro className="w-3.5 h-3.5" />
@@ -11549,6 +11610,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ArrowUpRight className="w-4 h-4" />
  {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')}
  </button>
+ <JobDetailLinkedInPeopleButton
+ companyName={selectedJob.company}
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-edge text-body rounded-lg hover:bg-surface-raised transition-colors"
+ />
  {renderApplicationIntentConsent()}
  {appliedNoticeJsx}
  <dl className="grid grid-cols-3 gap-2 text-xs">
@@ -11615,7 +11680,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1">
+ <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" >
+ <ArrowUpRight className="w-4 h-4" />
+ {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')}
+ </button>
+ <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" >
+ <ArrowUpRight className="w-4 h-4" />
+ {t('common.share')}
+ </button>
+ <JobDetailLinkedInPeopleButton companyName={selectedJob.company} />
+ </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
  {detailAlertButtonJsx}
@@ -12021,6 +12096,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  ))}
  </div>
+ )}
+ </div>
+
+ {/* Mappa Vettoriale Offerte Svizzera (FreeHire-inspired SVG Bubble Map) */}
+ <div className="rounded-2xl border border-edge bg-surface/80 p-3 sm:p-4 mb-3" data-testid="jobboard-swiss-map-container">
+ <div className="flex items-center justify-between mb-2">
+ <span className="text-xs font-bold font-display uppercase tracking-wider text-heading flex items-center gap-1.5">
+ <MapPin className="w-3.5 h-3.5 text-accent" />
+ Mappa Offerte Svizzera
+ </span>
+ <button
+ type="button"
+ onClick={() => setShowSwissBubbleMap((prev) => !prev)}
+ className="text-xs font-semibold text-accent hover:underline py-1"
+ aria-expanded={showSwissBubbleMap}
+ >
+ {showSwissBubbleMap ? 'Nascondi mappa' : 'Mostra mappa'}
+ </button>
+ </div>
+ {showSwissBubbleMap && (
+ <SwissBubbleMap
+ data={swissCantonMapData}
+ selectedCanton={currentJobBoardCanton || null}
+ onSelectCanton={handleSelectSwissMapCanton}
+ className="pt-1"
+ />
  )}
  </div>
 
