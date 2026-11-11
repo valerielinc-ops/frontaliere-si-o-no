@@ -124,6 +124,7 @@ function parseArgs(argv) {
     else if (arg.startsWith('--scope=')) args.scope = arg.slice('--scope='.length);
     else if (arg.startsWith('--source-root=')) args.sourceRoot = arg.slice('--source-root='.length);
     else if (arg.startsWith('--out=')) args.out = arg.slice('--out='.length);
+    else if (arg.startsWith('--full-rewrite-threshold=')) args.fullRewriteThreshold = arg.slice('--full-rewrite-threshold='.length);
     else if (arg === '--snapshot-only') args.snapshotOnly = true;
     else if (arg === '--help' || arg === '-h') args.help = true;
   }
@@ -133,6 +134,7 @@ function parseArgs(argv) {
 function usage() {
   return [
     'Uso: node scripts/ci/shard-manifest-delta.mjs --current=... --previous=... --scope=... --source-root=... --out=...',
+    '     aggiungi --full-rewrite-threshold=0.9 per abilitare il fast path quasi totale',
     '     node scripts/ci/shard-manifest-delta.mjs --current=... --scope=... --source-root=... --out=... --snapshot-only',
   ].join('\n');
 }
@@ -204,37 +206,35 @@ function selectEntries(manifest, scope) {
   )));
 }
 
-function assertPayload(entries, sourceRoot) {
+function assertPayload(entries, sourceRoot, payloadPaths) {
   for (const entry of entries.values()) {
     const base = entry.path.replace(/\/+$/, '');
     const candidates = [
       path.join(sourceRoot, entry.path),
       path.join(sourceRoot, base, 'index.html'),
       path.join(sourceRoot, `${base}.html`),
-    ];
-    if (!candidates.some((candidate) => {
-      try {
-        return fs.statSync(candidate).isFile();
-      } catch {
-        return false;
-      }
-    })) {
+    ].map((candidate) => path.relative(sourceRoot, candidate).split(path.sep).join('/'));
+    if (!candidates.some((candidate) => payloadPaths.has(candidate))) {
       throw new Error(`payload mancante per ${entry.path}`);
     }
   }
 }
 
-function listPayloadFiles(root, relative = '') {
+function listPayloadFiles(root) {
   const files = [];
-  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
-    const childRelative = relative ? path.join(relative, entry.name) : entry.name;
-    const childAbsolute = path.join(root, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...listPayloadFiles(childAbsolute, childRelative));
-    } else if (entry.isFile()) {
-      files.push(childRelative.split(path.sep).join('/'));
-    } else {
-      throw new Error('payload non-regular: ' + childRelative);
+  const pending = [{ absolute: root, relative: '' }];
+  while (pending.length > 0) {
+    const current = pending.pop();
+    for (const entry of fs.readdirSync(current.absolute, { withFileTypes: true })) {
+      const childRelative = current.relative ? path.join(current.relative, entry.name) : entry.name;
+      const childAbsolute = path.join(current.absolute, entry.name);
+      if (entry.isDirectory()) {
+        pending.push({ absolute: childAbsolute, relative: childRelative });
+      } else if (entry.isFile()) {
+        files.push(childRelative.split(path.sep).join('/'));
+      } else {
+        throw new Error('payload non-regular: ' + childRelative);
+      }
     }
   }
   return files.sort();
@@ -317,15 +317,32 @@ async function main() {
   if (!args.snapshotOnly && !args.previous) throw new Error(usage());
 
   const scope = normalizeScope(args.scope);
+  let fullRewriteThreshold = null;
+  if (args.fullRewriteThreshold !== undefined) {
+    fullRewriteThreshold = Number(args.fullRewriteThreshold);
+    if (!Number.isFinite(fullRewriteThreshold) || fullRewriteThreshold <= 0 || fullRewriteThreshold > 1) {
+      throw new Error('full rewrite threshold must be greater than 0 and at most 1');
+    }
+  }
   const current = await loadManifest(args.current);
   validateManifest(current, 'current');
   if (current.data.locale.length === 0) throw new Error('current: locale vuota');
   const currentEntries = selectEntries(current, scope);
-  assertPayload(currentEntries, args.sourceRoot);
   const payloadRoot = path.join(args.sourceRoot, scope);
-  if (!fs.statSync(payloadRoot).isDirectory()) {
+  let payloadRootStat;
+  try {
+    payloadRootStat = fs.statSync(payloadRoot);
+  } catch {
     throw new Error(`payload root mancante per ${scope || '/'}`);
   }
+  if (!payloadRootStat.isDirectory()) {
+    throw new Error(`payload root mancante per ${scope || '/'}`);
+  }
+  const payloadFiles = listPayloadFiles(payloadRoot);
+  const payloadPaths = new Set(payloadFiles.map((relativePath) => (
+    scope ? `${scope}/${relativePath}` : relativePath
+  )));
+  assertPayload(currentEntries, args.sourceRoot, payloadPaths);
 
   const currentRenderFingerprint = renderFingerprints(current);
   let previousEntries = new Map();
@@ -354,15 +371,49 @@ async function main() {
   }
 
   fs.mkdirSync(args.out, { recursive: true });
-  const payloadFiles = listPayloadFiles(payloadRoot);
   const currentBases = new Set([...currentEntries.keys()].map((pagePath) => relativeManifestPath(pagePath, scope)));
   const changedBases = new Set(changed.map((pagePath) => relativeManifestPath(pagePath, scope)));
-  const changedFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, changedBases));
-  const manifestCoveredFiles = payloadFiles.filter((relativePath) => isCoveredByManifest(relativePath, currentBases));
-  const unmanifestedFiles = payloadFiles.filter((relativePath) => !isCoveredByManifest(relativePath, currentBases));
-  const unchangedFiles = manifestCoveredFiles.filter((relativePath) => (
-    !isCoveredByManifest(relativePath, changedBases)
-  ));
+  const rewriteRatio = !args.snapshotOnly && currentEntries.size + removed.length > 0
+    ? (changed.length + removed.length) / (currentEntries.size + removed.length)
+    : 0;
+  const fullRewrite = fullRewriteThreshold !== null && rewriteRatio >= fullRewriteThreshold;
+  const changedFiles = [];
+  const manifestCoveredFiles = [];
+  const unmanifestedFiles = [];
+  const unchangedFiles = [];
+  let manifestCoveredCount = 0;
+  let unmanifestedCount = 0;
+  let unchangedCount = 0;
+  if (fullRewrite) {
+    for (const relativePath of payloadFiles) {
+      if (isCoveredByManifest(relativePath, currentBases)) {
+        changedFiles.push(relativePath);
+        manifestCoveredFiles.push(relativePath);
+        manifestCoveredCount += 1;
+        if (!isCoveredByManifest(relativePath, changedBases)) unchangedCount += 1;
+      } else {
+        unmanifestedFiles.push(relativePath);
+        unmanifestedCount += 1;
+      }
+    }
+  } else {
+    for (const relativePath of payloadFiles) {
+      const current = isCoveredByManifest(relativePath, currentBases);
+      const changed = isCoveredByManifest(relativePath, changedBases);
+      if (changed) changedFiles.push(relativePath);
+      if (current) {
+        manifestCoveredFiles.push(relativePath);
+        manifestCoveredCount += 1;
+        if (!changed) {
+          unchangedFiles.push(relativePath);
+          unchangedCount += 1;
+        }
+      } else {
+        unmanifestedFiles.push(relativePath);
+        unmanifestedCount += 1;
+      }
+    }
+  }
   writeSnapshot(current, currentEntries, path.join(args.out, 'snapshot.jsonl'), currentRenderFingerprint);
   writePathList(path.join(args.out, 'changed.txt'), changed);
   writePathList(path.join(args.out, 'removed.txt'), removed);
@@ -371,21 +422,26 @@ async function main() {
   writePathList(path.join(args.out, 'manifest-covered-files.txt'), manifestCoveredFiles);
   writePathList(path.join(args.out, 'unmanifested-files.txt'), unmanifestedFiles);
   writePathList(path.join(args.out, 'unchanged-files.txt'), unchangedFiles);
+  fs.writeFileSync(path.join(args.out, 'full-rewrite.txt'), `${fullRewrite ? '1' : '0'}\n`);
   fs.writeFileSync(path.join(args.out, 'summary.json'), `${JSON.stringify({
+    mode: fullRewrite ? 'full-rewrite' : args.snapshotOnly ? 'snapshot' : 'delta',
+    fullRewrite,
+    rewriteRatio,
     locale: current.data.locale,
     scope,
     current: currentEntries.size,
     previous: previousEntries.size,
     changed: changed.length,
     removed: removed.length,
-    unchanged: unchangedFiles.length,
-    unmanifested: unmanifestedFiles.length,
+    unchanged: unchangedCount,
+    unmanifested: unmanifestedCount,
+    manifestCovered: manifestCoveredCount,
     renderStale,
   })}\n`);
   const renderStaleLog = args.snapshotOnly
     ? ''
     : ` render-stale=${Object.entries(renderStale).map(([kind, count]) => `${kind}:${count}`).join(',') || 'none'}`;
-  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} unmanifested=${unmanifestedFiles.length} removed=${removed.length}${renderStaleLog}`);
+  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : fullRewrite ? 'full-rewrite' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedCount} unmanifested=${unmanifestedCount} removed=${removed.length}${fullRewrite ? ` rewrite-ratio=${rewriteRatio.toFixed(3)}` : ''}${renderStaleLog}`);
 }
 
 if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {

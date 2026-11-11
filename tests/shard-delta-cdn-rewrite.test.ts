@@ -56,7 +56,8 @@ function page(label: string): string {
   // No /assets/ ref: that family triggers a live CDN existence check.
   return '<!doctype html><html><head><meta charset="utf-8">'
     + `<meta property="og:image" content="https://frontaliereticino.ch/og/jobs/${label}.webp">`
-    + `</head><body><a href="/data/${label}.json">${label}</a></body></html>`;
+    + `</head><body><img src="/images/brands/${label}.svg">`
+    + `<a href="/data/${label}.json">${label}</a></body></html>`;
 }
 
 function git(args: string[], cwd?: string): string {
@@ -83,35 +84,51 @@ function snapshotTree(dir: string): Record<string, string> {
 describe('offload --files-from', () => {
   it('riscrive solo i file elencati, con gli stessi byte del pass completo', () => {
     const tmp = mkdtempSync(join(tmpdir(), 'offload-files-from-'));
+    const serial = mkdtempSync(join(tmpdir(), 'offload-files-serial-'));
     const full = mkdtempSync(join(tmpdir(), 'offload-files-full-'));
+    const fullParallel = mkdtempSync(join(tmpdir(), 'offload-files-full-parallel-'));
     const runnerTemp = mkdtempSync(join(tmpdir(), 'offload-files-runner-'));
     try {
-      for (const root of [tmp, full]) {
+      for (const root of [tmp, serial, full, fullParallel]) {
         for (const name of ['a', 'b', 'c']) {
           mkdirSync(join(root, 'dist', 'en', name), { recursive: true });
           writeFileSync(join(root, 'dist', 'en', name, 'index.html'), page(name));
         }
       }
       writeFileSync(join(tmp, 'list.txt'), 'en/b/index.html\0');
+      writeFileSync(join(serial, 'list.txt'), 'en/b/index.html\0');
       execFileSync('node', [OFFLOAD, '--files-from', join(tmp, 'list.txt')], {
-        cwd: tmp, env: { ...process.env, CDN_BASE, RUNNER_TEMP: runnerTemp }, stdio: 'pipe',
+        cwd: tmp, env: { ...process.env, CDN_BASE, RUNNER_TEMP: runnerTemp, OFFLOAD_CDN_WORKERS: '4' }, stdio: 'pipe',
+      });
+      execFileSync('node', [OFFLOAD, '--files-from', join(serial, 'list.txt')], {
+        cwd: serial, env: { ...process.env, CDN_BASE, OFFLOAD_CDN_WORKERS: '1' }, stdio: 'pipe',
       });
       execFileSync('node', [OFFLOAD], { cwd: full, env: { ...process.env, CDN_BASE }, stdio: 'pipe' });
+      execFileSync('node', [OFFLOAD], {
+        cwd: fullParallel,
+        env: { ...process.env, CDN_BASE, OFFLOAD_CDN_WORKERS: '4' },
+        stdio: 'pipe',
+      });
+      expect(snapshotTree(join(fullParallel, 'dist'))).toEqual(snapshotTree(join(full, 'dist')));
 
       const read = (root: string, name: string) => readFileSync(join(root, 'dist', 'en', name, 'index.html'), 'utf8');
       expect(read(tmp, 'a')).toBe(page('a'));
       expect(read(tmp, 'c')).toBe(page('c'));
       expect(read(tmp, 'b')).not.toBe(page('b'));
       expect(read(tmp, 'b')).toBe(read(full, 'b'));
+      expect(snapshotTree(join(tmp, 'dist'))).toEqual(snapshotTree(join(serial, 'dist')));
       expect(read(tmp, 'b')).toContain(`${CDN_BASE}/og/jobs/b.webp`);
+      expect(read(tmp, 'b')).toContain(`${CDN_BASE}/images/brands/b.svg`);
       expect(existsSync(join(runnerTemp, 'assets-same-origin.marker'))).toBe(false);
 
       // Idempotent completion: a full pass after the partial one gives the
       // same bytes as a single full pass.
       execFileSync('node', [OFFLOAD, '--strict'], { cwd: tmp, env: { ...process.env, CDN_BASE }, stdio: 'pipe' });
       expect(snapshotTree(join(tmp, 'dist'))).toEqual(snapshotTree(join(full, 'dist')));
+      execFileSync('node', [OFFLOAD, '--strict'], { cwd: serial, env: { ...process.env, CDN_BASE }, stdio: 'pipe' });
+      expect(snapshotTree(join(serial, 'dist'))).toEqual(snapshotTree(join(full, 'dist')));
     } finally {
-      for (const d of [tmp, full, runnerTemp]) rmSync(d, { recursive: true, force: true });
+      for (const d of [tmp, serial, full, fullParallel, runnerTemp]) rmSync(d, { recursive: true, force: true });
     }
   });
 
