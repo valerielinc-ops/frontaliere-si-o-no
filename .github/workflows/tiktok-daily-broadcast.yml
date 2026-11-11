@@ -1,16 +1,18 @@
-name: TikTok Content Preview (delivery held)
+name: TikTok Daily/Weekly Browser Broadcast
 
-# This workflow is a manual, read-only content preview. TikTok automated
-# delivery is held by scripts/lib/social-automation-policy.mjs while the
-# internal team uploader is ineligible under current platform guidelines.
-# It loads only the GA4 service account for analytics.readonly; it never loads
-# TikTok tokens, Remote Config, or the browser profile.
+# The poster renders the same daily/weekly content pipeline as before and
+# queues an MP4 for the owner's existing browser uploader. The TikTok API is
+# not used. Publishing is controlled by the per-channel owner flag in Remote
+# Config and the robot's SOCIAL_ROBOT_PUBLISHING_MODE.
 
 on:
+  schedule:
+    - cron: '25 8 * * *'  # daily job/article carousels
+    - cron: '10 7 * * 1'  # weekly dogane carousel (Monday)
   workflow_dispatch:
     inputs:
       only:
-        description: 'Limit the preview to article, job, or border'
+        description: 'Limit to article, job, or border'
         required: false
         default: ''
         type: string
@@ -19,22 +21,30 @@ on:
         required: false
         default: ''
         type: string
+      dry_run:
+        description: 'Preview only (do not create or publish a queue entry)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
 
 concurrency:
   group: tiktok-daily-broadcast
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write  # commit data/tiktok-queue.json
 
 jobs:
-  preview:
+  post:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     env:
-      ONLY: ${{ inputs.only || '' }}
-      REPORT_DATE: ${{ inputs.date || '' }}
+      APPROVAL_TRUSTED_SCHEDULE: 'true'
+      ONLY: ${{ github.event.inputs.only || (github.event.schedule == '10 7 * * 1' && 'border' || '') }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      REPORT_DATE: ${{ github.event.inputs.date || '' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -42,7 +52,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Prepare GA4 read-only credentials
+      - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -51,16 +61,26 @@ jobs:
           echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
+      - name: Load browser publishing configuration from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: >-
+          node scripts/load-rc-env.mjs
+          --only-env=SOCIAL_ROBOT_PUBLISHING_MODE,SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG
+
+      - name: Warn when the owner-approved browser route is disabled
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && (env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED != 'true' || env.SOCIAL_ROBOT_PUBLISHING_MODE == 'off')
+        run: echo "::warning::TikTok browser queue is disabled by its owner flag or SOCIAL_ROBOT_PUBLISHING_MODE=off; no item will be queued."
+
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        if: env.ONLY != 'article' && env.ONLY != 'border'
+        if: env.ONLY != 'article' && env.ONLY != 'border' && (inputs.dry_run == true || inputs.dry_run == 'true' || (env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off'))
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
           args: --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
-        if: env.ONLY != 'article' && env.ONLY != 'border' && steps.assemble_cache_key.outputs.key != ''
+        if: env.ONLY != 'article' && env.ONLY != 'border' && (inputs.dry_run == true || inputs.dry_run == 'true' || (env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off')) && steps.assemble_cache_key.outputs.key != ''
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
@@ -68,7 +88,7 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
-        if: env.ONLY != 'article' && env.ONLY != 'border'
+        if: env.ONLY != 'article' && env.ONLY != 'border' && (inputs.dry_run == true || inputs.dry_run == 'true' || (env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off'))
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: Save assemble-jobs cache
@@ -79,10 +99,43 @@ jobs:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
+      - name: Post to TikTok browser queue
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off'
+        env:
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+          ALLOW_SIDE_EFFECT: ${{ github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true' }}
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' || (github.event_name == 'schedule' && env.APPROVAL_TRUSTED_SCHEDULE != 'true') }}
+        run: |
+          set -euo pipefail
+          ARGS=()
+          if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
+          if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
+          npx --no-install tsx scripts/post-to-tiktok.mjs "${ARGS[@]}"
+
       - name: Generate TikTok content preview
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
         run: |
           set -euo pipefail
           ARGS=(--dry-run)
           if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
           if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
           npx --no-install tsx scripts/post-to-tiktok.mjs "${ARGS[@]}"
+
+      - name: Commit TikTok browser queue
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true' && env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off' && (github.event_name != 'schedule' || env.APPROVAL_TRUSTED_SCHEDULE == 'true')
+        run: |
+          set -euo pipefail
+          if [ ! -f data/tiktok-queue.json ]; then
+            echo "no queue written — nothing to commit"; exit 0
+          fi
+          git add data/tiktok-queue.json
+          if git diff --cached --quiet; then
+            echo "no queue changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(tiktok): queue browser posts [skip ci]"
+          rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
+          eval "$rc_exports"
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 20 --stash-dirty

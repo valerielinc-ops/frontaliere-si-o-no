@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 /**
- * run.mjs — the Playwright robot that publishes queued Instagram carousels
- * from the owner's browser profile on the agents' Mac host. TikTok delivery
- * is held by the current platform policy guard.
+ * run.mjs — the Playwright robot that publishes queued Instagram and TikTok
+ * content from the owner's browser profile on the agents' Mac host.
  *
  *   node scripts/social-robot/run.mjs                    # dry run (default)
  *   node scripts/social-robot/run.mjs --publish          # press, if Remote Config says live
- *   node scripts/social-robot/run.mjs --platform=tiktok  # policy-held, no upload
+ *   node scripts/social-robot/run.mjs --platform=tiktok  # owner-approved uploader
  *   node scripts/social-robot/run.mjs --login            # owner: log in once, then close the window
  *
  * Instagram's Insights and Community browser routes stay held until their
  * separate Meta permission flags are verified. Business Suite Inbox is
  * read-only because it does not reliably identify inbound direction and
  * message age; permitted community actions and static Stories use the
- * explicitly selected Graph API path. TikTok's current
- * Content Sharing Guidelines make this internal team uploader ineligible, so
- * the browser robot skips TikTok even when a pending queue exists.
+ * explicitly selected Graph API path. The owner has explicitly selected the
+ * existing browser uploader for Instagram and TikTok; this records owner
+ * authorization, not approval of either platform's API product.
  *
  * What it publishes: data/<channel>-queue.json on origin/main, filled by the
  * daily posters (see scripts/lib/social-publish-queue.mjs). What it records:
@@ -23,14 +22,19 @@
  * social-robot-confirm.yml, which writes the ledger on main.
  *
  * Effective mode = the command line AND Remote Config: --publish presses the
- * button only when SOCIAL_ROBOT_MODE is `live`; `off` stops the robot; absent
- * or `dry` → dry run. In a dry run it goes up to the publish button, takes a
+ * button only when SOCIAL_ROBOT_PUBLISHING_MODE is `live`; `off` stops posting; absent
+ * or unknown → dry run. In a dry run it goes up to the publish button, takes a
  * screenshot and stops.
  *
  * Env:
- *   SOCIAL_ROBOT_MODE          off | dry | live (Remote Config; launchd.sh loads it)
+ *   SOCIAL_ROBOT_PUBLISHING_MODE off | dry | live (Remote Config; posting only)
+ *   SOCIAL_ROBOT_MODE           off | dry | live (Remote Config; Community/Insights)
  *   META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED
- *                              browser queue is held unless exactly `true`
+ *                              legacy Meta route-approval flag; exactly `true` permits queueing
+ *   SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED
+ *                              owner permission for the existing browser publisher
+ *   SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED
+ *                              owner permission for the existing browser uploader
  *   META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED
  *                              Dashboard reader is held unless exactly `true`
  *   META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED
@@ -65,11 +69,12 @@ import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { mergeInstagramCommunityOutcomeSnapshots } from '../lib/instagram-community-outcomes.mjs';
 import { buildSocialRobotDeliverySnapshot } from '../lib/social-robot-delivery-health.mjs';
-import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
+import { SOCIAL_CHANNELS, resolveSocialPublishingMode, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import {
   isInstagramBrowserCommunityApproved,
   isInstagramBrowserInsightsApproved,
   isInstagramBrowserPublishingApproved,
+  isTikTokBrowserPublishingApproved,
   partitionAutomatedDeliveryChannels,
 } from '../lib/social-automation-policy.mjs';
 import {
@@ -123,6 +128,7 @@ export function runHasErrors({ results = [], confirmationRetries = [], community
 export function filterAutomatedDeliveryPlatforms(platforms, env = process.env) {
   return partitionAutomatedDeliveryChannels(platforms, {
     instagramBrowserPublishingApproved: isInstagramBrowserPublishingApproved(env),
+    tiktokBrowserPublishingApproved: isTikTokBrowserPublishingApproved(env),
   });
 }
 
@@ -287,8 +293,9 @@ async function main() {
       throw new Error('social robot state cleanup failed: ' + stateCleanup.errors.join('; '));
     }
     const rcMode = resolveSocialRobotMode();
+    const publishingMode = resolveSocialPublishingMode();
     const launch = resolveBrowserLaunch();
-    console.log(`─── social robot — ${opts.mode}, SOCIAL_ROBOT_MODE=${rcMode}, browser ${launch.kind} ───`);
+    console.log(`─── social robot — ${opts.mode}, SOCIAL_ROBOT_PUBLISHING_MODE=${publishingMode}, SOCIAL_ROBOT_MODE=${rcMode}, browser ${launch.kind} ───`);
     if (opts.jitter) await new Promise((r) => setTimeout(r, randomBetween(Math.random, { min: 0, max: START_JITTER_MAX_MS })));
 
     const repoDir = process.env.SOCIAL_ROBOT_SITE_REPO || path.resolve(__dirname, '..', '..');
@@ -302,7 +309,7 @@ async function main() {
       const robotStartedAt = new Date();
       const robotResult = await runRobot({
         cliMode: opts.mode,
-        rcMode,
+        rcMode: publishingMode,
         platforms: opts.platforms,
         confirmationPlatforms: requestedPlatforms,
         reader,
@@ -379,7 +386,7 @@ async function main() {
       const deliverySnapshot = buildSocialRobotDeliverySnapshot({
         startedAt: robotStartedAt,
         recordedAt: deliverySnapshotAt,
-        mode: rcMode,
+        mode: publishingMode,
         dryRun: robotResult.dryRun,
         channels: deliveryChannels,
         results,
@@ -495,7 +502,7 @@ function readUsage() {
     'node scripts/social-robot/run.mjs [--dry-run | --publish] [--platform=instagram|tiktok|all] [--jitter]',
     'node scripts/social-robot/run.mjs --login [--platform=...]',
     '',
-    '--publish presses the button only when Remote Config SOCIAL_ROBOT_MODE=live. See scripts/social-robot/README.md.',
+    '--publish presses the button only when Remote Config SOCIAL_ROBOT_PUBLISHING_MODE=live. See scripts/social-robot/README.md.',
     '--jitter (the launchd job) waits up to 20 minutes first and takes each queue entry to the button once in a dry run.',
   ].join('\n');
 }

@@ -350,9 +350,12 @@ export const RC_TO_ENV = {
   // separate Meta browser-Insights permission flag is exactly true. Graph is
   // an explicit API selection and is not enabled by this selector alone.
   SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
-  // Browser routes require a recorded Meta express-permission basis. Missing
-  // flags fail closed; owner authorization alone does not set them.
+  // The Meta flag records platform permission for the legacy browser route.
+  // Owner flags separately record the owner's explicit choice to use the
+  // existing private browser publishers.
   META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED: ['META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED'],
+  SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: ['SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED'],
+  SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: ['SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED'],
   META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED: ['META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED'],
   META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED: ['META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED'],
   // Insights collection and descriptive candidate reporting. The browser
@@ -403,12 +406,12 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
 
-  // Instagram/TikTok transport switch: off | dry | live (absent or unknown =
-  // dry). Read by the two posters above, which either call the API or queue
-  // the post, and by the Playwright robot on the agents' Mac host
-  // (scripts/social-robot/), which presses the publish button only on `live`.
-  // See scripts/lib/social-publish-queue.mjs. Every value is shorter than six
+  // Instagram/TikTok content publishing switch. Kept separate from
+  // SOCIAL_ROBOT_MODE so enabling posts cannot enable Community actions.
+  // Absent or unknown values default to dry. Every value is shorter than six
   // characters, so isTrivialSecret() never masks it in CI logs.
+  SOCIAL_ROBOT_PUBLISHING_MODE:       ['SOCIAL_ROBOT_PUBLISHING_MODE'],
+  // Legacy switch still controls the robot's non-publishing features.
   SOCIAL_ROBOT_MODE:                   ['SOCIAL_ROBOT_MODE'],
 
   // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
