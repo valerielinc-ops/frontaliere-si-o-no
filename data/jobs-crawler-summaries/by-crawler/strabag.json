@@ -1,7 +1,7 @@
 {
   "key": "strabag",
   "label": "STRABAG AG",
-  "generatedAt": "2026-11-11T09:45:11.488Z",
+  "generatedAt": "2026-11-11T21:34:21.959Z",
   "total": 12,
   "discovered": null,
   "parsed": 12,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 16489,
-  "avgDurationMs": 16489,
+  "durationMs": 16913,
+  "avgDurationMs": 16913,
   "durationHistory": [
-    16489
+    16913
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/0bf7c7ec-4ecd-4b6f-81a4-c482cab68ad2/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:50.547Z",
+      "crawledAt": "2026-11-11T21:33:59.764Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:44:50.547Z",
+      "validThrough": "2027-01-27T21:33:59.764Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -98,7 +98,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3d279a8f-0444-402e-b8d9-48026fd1312f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:49.878Z",
+      "crawledAt": "2026-11-11T21:33:58.299Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "salaryMax": 119500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:44:49.878Z",
+      "validThrough": "2027-01-31T21:33:58.299Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -144,7 +144,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/ca27813c-fdfc-45d2-a036-6283252f1d16/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:48.699Z",
+      "crawledAt": "2026-11-11T21:33:57.349Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:44:48.699Z",
+      "validThrough": "2027-02-01T21:33:57.349Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -204,7 +204,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/80dedf97-9c08-42bf-b322-4d56330ecb9e/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:47.963Z",
+      "crawledAt": "2026-11-11T21:33:56.486Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -227,7 +227,7 @@
       "salaryMax": 89000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:47.963Z",
+      "validThrough": "2027-02-02T21:33:56.486Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -250,7 +250,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/111b2616-4939-416f-b6b7-ccc8313859cf/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:46.889Z",
+      "crawledAt": "2026-11-11T21:33:55.754Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "salaryMax": 89000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:46.889Z",
+      "validThrough": "2027-02-02T21:33:55.754Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -295,7 +295,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/c772714d-5a2e-4790-929d-7e97f71822ef/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:46.154Z",
+      "crawledAt": "2026-11-11T21:33:54.970Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -318,7 +318,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:46.154Z",
+      "validThrough": "2027-02-03T21:33:54.970Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -341,7 +341,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/87755852-2265-44c2-b940-a8529bf2b8b4/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:44.996Z",
+      "crawledAt": "2026-11-11T21:33:54.160Z",
       "addressLocality": "Disentis und Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -364,7 +364,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:44.996Z",
+      "validThrough": "2027-02-03T21:33:54.160Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -387,7 +387,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/9294703d-0e8e-446c-a4f3-599c847be9cc/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:43.879Z",
+      "crawledAt": "2026-11-11T21:33:53.030Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -410,7 +410,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:43.879Z",
+      "validThrough": "2027-02-03T21:33:53.030Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -433,7 +433,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221cf7e6-dd11-4f45-8f2c-17c8a2394925/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:42.700Z",
+      "crawledAt": "2026-11-11T21:33:52.277Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -456,7 +456,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:44:42.700Z",
+      "validThrough": "2027-02-03T21:33:52.277Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -479,7 +479,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8d070c96-5cc4-4fbb-8a72-55857355859a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:42.016Z",
+      "crawledAt": "2026-11-11T21:33:51.232Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -502,7 +502,7 @@
       "salaryMax": 98500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:44:42.016Z",
+      "validThrough": "2027-02-03T21:33:51.232Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -525,7 +525,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/19809f6c-74b3-429f-b152-712f5c67bdf1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:41.110Z",
+      "crawledAt": "2026-11-11T21:33:50.201Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       "salaryMax": 89000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:44:41.110Z",
+      "validThrough": "2027-02-03T21:33:50.201Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -571,7 +571,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/97134f90-53ca-4c05-ab1e-0d73680d4164/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:44:40.125Z",
+      "crawledAt": "2026-11-11T21:33:49.309Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -608,7 +608,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:44:40.125Z",
+      "validThrough": "2027-02-07T21:33:49.309Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -619,5 +619,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }
