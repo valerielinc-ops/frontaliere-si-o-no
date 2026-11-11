@@ -14,9 +14,9 @@
  *
  * Env: R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_S3_ENDPOINT, R2_BUCKET — read
  *   by scripts/lib/upload-cdn-file.sh, for missing content-addressed assets
- *   and a stable alias that R2 confirms is absent. Stable global aliases are
- *   never replaced here; a stale or unreadable alias makes this gate fail
- *   closed and remains owned by the full deploy.
+ *   and a stable alias that is absent from both the CDN and R2.
+ *   Stable aliases are never overwritten here: a stored or stale alias makes
+ *   this gate fail closed until the full deploy repairs it.
  * Exit: 0 when every file is available, 1 otherwise (nothing may be pushed).
  */
 import { listStaticScriptFiles } from '../../build-plugins/staticScriptsPlugin.ts';

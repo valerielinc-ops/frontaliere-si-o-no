@@ -26,15 +26,14 @@
  * Stable global shell aliases are checked against the digest of their current
  * producer bytes, read from the CDN response body. ETags are only validators:
  * a weak ETag cannot prove byte identity.
- * Fast emitters never replace a served mutable alias: they can run from an
- * older inputs.sha and must never roll a newer script back. A truly absent
- * alias is different: after R2 confirms that no object exists, the emitter
- * may bootstrap it from the byte-identical current content-addressed pair.
- * A stale or unreadable alias therefore remains fail-closed; an already-stored
- * alias is never overwritten and is revalidated after the edge purge. Only the
- * full deploy may replace that object. A content-addressed key may be PUT
- * again only when its cache metadata is stale; the producer bytes are still
- * the same content that the key names.
+ * Fast emitters never overwrite a mutable alias: they can run from an older
+ * inputs.sha and must never roll a newer script back. An alias that is absent
+ * from both the CDN and R2 is the bootstrap case after a new producer lands;
+ * it may be uploaded from the current producer, then purged and verified like
+ * every other asset. A stored or stale alias remains fail-closed until the
+ * full deploy repairs it. A content-addressed key may be PUT again only when
+ * its cache metadata is stale; the producer bytes are still the same content
+ * that the key names.
  *
  * An object on R2 is not yet a file the pages get. Each edge location keeps
  * the 404 it gave a browser while the object was missing (about three minutes

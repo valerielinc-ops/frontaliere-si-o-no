@@ -311,10 +311,10 @@ jobs:
       # publishes within minutes. A file the last deploy did not upload would be
       # referenced by every page pushed below: on 2026-10-07 that was
       # gtag-init-<hash>.js, a 404 on every re-rendered article (#12270). This
-      # uploads missing content-addressed files, bootstraps a stable global
-      # alias only when R2 confirms that it is absent, and fails the job when
-      # an alias is stale or unreadable. Only the full deploy may replace an
-      # existing alias —
+      # uploads missing content-addressed files and bootstraps a stable alias
+      # only when it is absent from both the CDN and R2. Stored aliases are
+      # never overwritten; stale or indeterminate aliases fail closed until a
+      # full deploy repairs them —
       # scripts/lib/cdn-shell-assets.mjs.
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
