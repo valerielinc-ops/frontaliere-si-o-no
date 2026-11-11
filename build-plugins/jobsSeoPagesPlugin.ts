@@ -4193,22 +4193,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    }
   }
  }
- // The HTML renderer selects six cards from the full candidate pool. The
- // manifest carries those same six records; their projections cover every
- // related link the renderer emits, so an unrelated pool candidate must not
- // invalidate this page.
- const perJob_relatedCanonicalPaths = perJob_related.map((relatedJob: any) => {
-   const relatedCanton = sharedResolveJobCanton(relatedJob as { canton?: string; location?: string });
-   return {
-     job: relatedJob,
-     paths: {
-       it: buildCanonicalJobDetailPath('it', relatedJob, localizedSlug(relatedJob, 'it'), relatedCanton),
-       en: buildCanonicalJobDetailPath('en', relatedJob, localizedSlug(relatedJob, 'en'), relatedCanton),
-       de: buildCanonicalJobDetailPath('de', relatedJob, localizedSlug(relatedJob, 'de'), relatedCanton),
-       fr: buildCanonicalJobDetailPath('fr', relatedJob, localizedSlug(relatedJob, 'fr'), relatedCanton),
-     },
-   };
- });
  const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
  : Number(job?.baseSalary?.value?.minValue);
@@ -4596,15 +4580,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const related = perJob_relatedCanonicalPaths.filter(({ job: relatedJob }) =>
-  activeCanonicalJobHref(relatedJob, locale) !== null,
- );
+ const related = perJob_related.flatMap((relatedJob: any) => {
+  const href = activeCanonicalJobHref(relatedJob, locale);
+  return href ? [{ job: relatedJob, href }] : [];
+ });
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
  const relatedHtml = related
- .map(({ job: r, paths: rPaths }, i: number) => {
- // Relative href — internal navigation resolves against canonical (absolute).
- const href = rPaths[locale];
+ .map(({ job: r, href }, i: number) => {
  const relatedTitle = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(r, locale));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
