@@ -1051,8 +1051,9 @@ _publish_cdn_r2() {
   fi
   # The exact-object check against all 207k data keys cost up to 18 min even
   # when only a small subset changed. Checkpoint verified groups of 20 × 1,000
-  # changed keys in R2, bounding retries to at most 19,000 copied objects; a
-  # missing/corrupt manifest bootstraps with the additive full copy.
+  # changed keys in R2; a failure before the next checkpoint may replay at most
+  # 20,000 copied objects. A missing/corrupt manifest bootstraps with the
+  # additive full copy.
   local _t_data
   _t_data="$(_r2_timeout_s R2_TIMEOUT_DATA_S 1800)"
   if ! _r2_sync_data_delta "$_t_data" "$stage/data"; then
