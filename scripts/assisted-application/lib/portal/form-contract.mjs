@@ -113,12 +113,26 @@ export function armFinalFormClickGuardInPage(button, {
       required: Boolean(node.required) || String(node.getAttribute?.('aria-required') || '').trim().toLowerCase() === 'true',
     };
   };
+  const isCaptchaControl = node => {
+    const name = String(node?.getAttribute?.('name') || node?.name || '').toLowerCase();
+    const id = String(node?.getAttribute?.('id') || node?.id || '').toLowerCase();
+    const cls = String(node?.className || '').toLowerCase();
+    if (/h-?captcha|recaptcha|cf-turnstile|turnstile/i.test(name)
+      || /h-?captcha|recaptcha|cf-turnstile|turnstile/i.test(id)
+      || /h-?captcha|g-recaptcha|cf-turnstile/i.test(cls)) {
+      return true;
+    }
+    if (node?.hasAttribute?.('data-sitekey') || node?.hasAttribute?.('data-hcaptcha-widget-id')) {
+      return true;
+    }
+    return false;
+  };
   const collect = () => {
     const selector = 'input, select, textarea, button, a[href], [role="button"], [role="checkbox"], [role="radio"], [role="combobox"], [role="listbox"]';
     const controls = [...new Set([
       ...document.querySelectorAll(selector),
       ...owner.querySelectorAll(selector),
-    ])].filter(node => ownerFor(node) === owner);
+    ])].filter(node => ownerFor(node) === owner && (node === button || !isCaptchaControl(node)));
     return JSON.stringify({
       page: `${view.location.origin}${view.location.pathname}${view.location.search}`,
       owner: {
@@ -153,13 +167,20 @@ export function armFinalFormClickGuardInPage(button, {
       return;
     }
     const path = typeof event.composedPath === 'function' ? event.composedPath() : [event.target];
-    const candidate = path.includes(button) ? button : path.find(node => node && node.nodeType === 1 && (
-      node === button || node.matches?.('button, input[type="submit"], input[type="button"], a[href], [role="button"]')
-    ));
+    const candidate = (path.includes(button) || (event.target && button.contains(event.target)))
+      ? button
+      : path.find(node => node && node.nodeType === 1 && (
+        node === button || node.matches?.('button, input[type="submit"], input[type="button"], a[href], [role="button"]')
+      ));
     if (!candidate) return;
     const sameName = expectedName && accessibleName(candidate) === expectedName;
     if (ownerFor(candidate) !== owner && candidate !== button && !sameName) return;
-    if (candidate !== button || ownerFor(candidate) !== owner || collect() !== contractJson) {
+
+    const isSecondaryFormSubmitter = state.status === 'click_checked'
+      && ownerFor(candidate) === owner
+      && (isCaptchaControl(candidate) || String(candidate.type || '').toLowerCase() === 'submit');
+
+    if ((candidate !== button && !isSecondaryFormSubmitter) || ownerFor(candidate) !== owner || collect() !== contractJson) {
       block(event, 'blocked_before_click');
       return;
     }
