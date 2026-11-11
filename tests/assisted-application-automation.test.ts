@@ -663,6 +663,9 @@ describe('applying events', () => {
   });
 });
 
+// Owner decision 2026-11-11: the automatic refund of a closed ad holds only for an order under the older Terms
+// (this order has no mandate v3). An order under the new Terms is never refunded by the effect:
+// assisted-application-no-refund-after-start.test.ts.
 describe('closed ad refund', () => {
   it('sends the "refunded" e-mail only after the refund went through, retrying a failed one', async () => {
     const sent: string[] = [];

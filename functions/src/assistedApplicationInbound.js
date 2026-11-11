@@ -1466,8 +1466,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
     // The employer's authenticated e-mail says the posting was withdrawn (owner decision 2026-11-11): the flow
-    // withdraws the application when its round waited for the candidate and nothing may have left
-    // (assistedApplicationFlow.js); otherwise it changes nothing, and the runner reads the posting itself.
+    // withdraws the application when its round waited for the candidate, or its order is under the Terms that
+    // refund nothing once the process started (refundEndsAtStart, owner decision of the same day), and nothing
+    // may have left (assistedApplicationFlow.js); otherwise it changes nothing, and the runner reads the posting.
     const employerWithdrawal = runEffect && !settled?.ok && authenticated && !keptFromCandidate && rules.postingWithdrawn
       ? await withdrawForEmployerMail({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;

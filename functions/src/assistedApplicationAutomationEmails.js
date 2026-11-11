@@ -7,7 +7,8 @@
  * Italian and German, "vous" in French): the draft to review with the EXACT
  * time of the automatic approval (owner decision 2026-09-30: the e-mail must
  * say it), the reminder, the portal handoff, the extra questions, the closed
- * ad and its refund, the posting the employer withdrew (no refund).
+ * ad and its refund (an order under the Terms before 2026-11-11), the posting
+ * the employer withdrew (no refund).
  */
 
 import { isCaptchaHandoffReason, isInfrastructureRetryHold } from './assistedApplicationPortalRetryPolicy.js';
@@ -123,6 +124,8 @@ const CANDIDATE_COPY = {
       preheader: 'La candidatura è stata ritirata e archiviata.',
       lead: '{company} ha ritirato la posizione {job}. La candidatura non può più essere inviata ed è stata quindi ritirata: la trovi archiviata tra le tue candidature, con lo stato «Ritirata».',
       terms: 'Per i Termini (punto 6.5), quando l’annuncio viene ritirato mentre la candidatura attende documenti o risposte che solo tu puoi fornire, l’importo non è rimborsato.',
+      // Owner decision 2026-11-11: the Terms 6.5 the candidate accepted with the mandate v3 (refundEndsAtStart).
+      termsAfterStart: 'Per i Termini (punto 6.5), una volta avviata la preparazione della candidatura l’importo non è rimborsabile, anche quando l’annuncio viene chiuso o ritirato dal datore di lavoro.',
     },
     closed: {
       subject: 'L’annuncio {job} è stato chiuso: ti abbiamo rimborsato',
@@ -203,6 +206,7 @@ const CANDIDATE_COPY = {
       preheader: 'Die Bewerbung wurde zurückgezogen und archiviert.',
       lead: '{company} hat die Stelle {job} zurückgezogen. Die Bewerbung kann nicht mehr versendet werden und wurde deshalb zurückgezogen: Du findest sie archiviert bei deinen Bewerbungen, mit dem Status «Zurückgezogen».',
       terms: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) wird der Betrag nicht erstattet, wenn die Stelle zurückgezogen wird, während die Bewerbung auf Unterlagen oder Antworten wartet, die nur du geben kannst.',
+      termsAfterStart: 'Gemäss den Nutzungsbedingungen (Ziffer 6.5) ist der Betrag nicht erstattungsfähig, sobald die Vorbereitung der Bewerbung begonnen hat, auch wenn das Unternehmen die Stelle schliesst oder zurückzieht.',
     },
     closed: {
       subject: 'Das Inserat {job} wurde geschlossen: Rückerstattung veranlasst',
@@ -283,6 +287,7 @@ const CANDIDATE_COPY = {
       preheader: 'La candidature a été retirée et archivée.',
       lead: '{company} a retiré le poste {job}. La candidature ne peut plus être envoyée et a donc été retirée : vous la trouvez archivée parmi vos candidatures, avec le statut « Retirée ».',
       terms: 'Selon les Conditions (point 6.5), lorsque l’annonce est retirée pendant que la candidature attend des documents ou des réponses que vous seul pouvez fournir, le montant n’est pas remboursé.',
+      termsAfterStart: 'Selon les Conditions (point 6.5), une fois la préparation de la candidature commencée, le montant n’est pas remboursable, même lorsque l’employeur ferme ou retire l’annonce.',
     },
     closed: {
       subject: 'L’annonce {job} a été fermée : vous êtes remboursé',
@@ -363,6 +368,7 @@ const CANDIDATE_COPY = {
       preheader: 'The application has been withdrawn and archived.',
       lead: '{company} withdrew the {job} position. The application can no longer be sent and has therefore been withdrawn: you will find it archived among your applications, with the status “Withdrawn”.',
       terms: 'Under the Terms (section 6.5), when the job listing is withdrawn while the application is waiting for documents or answers only you can provide, the amount is not refunded.',
+      termsAfterStart: 'Under the Terms (section 6.5), once the preparation of the application has started the amount is non-refundable, including when the employer closes or withdraws the job listing.',
     },
     closed: {
       subject: 'The {job} ad was closed: you have been refunded',
@@ -548,6 +554,9 @@ const TAKEOVER_REASONS = {
   runner_timeout: 'il runner non ha dato notizie per due volte di seguito',
   max_rounds: 'il candidato ha rifiutato la bozza per 3 volte',
   posting_closed: 'l’annuncio risulta chiuso: rimborso automatico avviato (se non riesce ricevi un secondo avviso)',
+  // Owner decision 2026-11-11 (Terms 6.5, mandate v3 or a concierge application): nothing is refunded once the
+  // process started. Only a closure without the posting's own proof, or a send that may have left, reaches her.
+  posting_closed_after_start: 'l’annuncio risulta chiuso secondo una nostra lettura (non c’è la prova della pagina, dell’ATS o del datore) oppure un invio potrebbe essere partito: NESSUN rimborso automatico, perché per i Termini accettati dal candidato (punto 6.5) dopo l’avvio del processo l’importo non è rimborsabile. Verifica l’annuncio e decidi dalla coda come chiudere l’ordine',
   // Terms 6.5: no automatic refund when the round waited for the candidate (assistedApplicationFlow.js).
   posting_closed_waited: 'l’annuncio risulta chiuso, e in questo giro la candidatura ha atteso documenti o risposte del candidato: NESSUN rimborso automatico. Per i Termini (punto 6.5) un annuncio ritirato durante quell’attesa non è rimborsato. Decidi tu come chiudere l’ordine e scrivi al candidato; se l’annuncio era già chiuso prima dell’attesa, rimborsa dalla coda',
   refund_failed: 'il rimborso automatico non è riuscito: va fatto a mano dalla coda (il candidato non ha ancora ricevuto l’email di rimborso)',
@@ -676,8 +685,9 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
- *   openQuestions?:number, reason?:string, price?:string, orderId:string}} vars `fit` and `fitVia` as
- *   fitNoticeWording (assistedApplicationFitNotice.js) gives them
+ *   openQuestions?:number, reason?:string, price?:string, orderId:string, postalSubmission?:boolean,
+ *   refundEndsAtStart?:boolean}} vars `fit` and `fitVia` as fitNoticeWording (assistedApplicationFitNotice.js)
+ *   gives them; `refundEndsAtStart`: the candidate accepted the Terms 6.5 of 2026-11-11 (no refund once started)
  */
 export function buildCandidateAutomationEmail(kind, vars) {
   if (kind === 'candidate_handoff' && isCaptchaHandoffReason(vars.reason)) {
@@ -736,8 +746,11 @@ export function buildCandidateAutomationEmail(kind, vars) {
     html.push(brandChecklist(section.steps), brandButton(vars.reviewUrl, copy.openCta), brandFinePrint(esc(section.after)));
     text.push(section.steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), `${copy.openCta}: ${vars.reviewUrl}`, section.after);
   } else if (kind === 'candidate_posting_withdrawn') {
-    html.push(brandFinePrint(esc(section.terms)));
-    text.push(section.terms);
+    // The clause the candidate accepted: no refund once started (mandate v3, a concierge application), or the
+    // older exception of a round that waited for them.
+    const terms = vars.refundEndsAtStart ? section.termsAfterStart : section.terms;
+    html.push(brandFinePrint(esc(terms)));
+    text.push(terms);
   } else if (!postingGone) {
     html.push(brandButton(vars.reviewUrl, kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta));
     text.push(`${kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta}: ${vars.reviewUrl}`);
@@ -773,7 +786,8 @@ export function buildCandidateAutomationEmail(kind, vars) {
  * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'|'owner_posting_expired'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
  *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number,
- *   portalAutoRetryAt?:number}} vars
+ *   portalAutoRetryAt?:number, refundEndsAtStart?:boolean}} vars `refundEndsAtStart`: the order is under the
+ *   Terms 6.5 of 2026-11-11 (assistedApplicationConstants.js), nothing refunded once the process started
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -831,7 +845,11 @@ export function buildOwnerAutomationEmail(kind, vars) {
     subject = `[Candidatura] Annuncio chiuso durante l’attesa del candidato: ${job} — ${company}`;
     hero = 'L’annuncio risulta chiuso: solleciti sospesi';
     const lead = 'Prima di sollecitare il candidato ho controllato l’annuncio: risulta chiuso o ritirato. Il sollecito NON è partito e non ne partiranno altri, perché la candidatura non potrebbe più essere inviata; anche l’approvazione automatica dopo 12 ore è sospesa. L’ordine resta in attesa e non è stato rimborsato nulla: verifica l’annuncio e decidi dalla coda come chiuderlo.';
-    const owed = 'Per i Termini (punto 6.5) un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato. Se invece era già chiuso prima che glieli chiedessimo, rimborsa dalla coda.';
+    // Owner decision 2026-11-11: under the Terms the candidate accepted with the mandate v3 (or a concierge
+    // application), nothing is refunded once the process started.
+    const owed = vars.refundEndsAtStart
+      ? 'Per i Termini accettati dal candidato (punto 6.5) dopo l’avvio del processo l’importo non è rimborsabile, nemmeno se l’annuncio è stato chiuso o ritirato: non rimborsare.'
+      : 'Per i Termini (punto 6.5) un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato. Se invece era già chiuso prima che glieli chiedessimo, rimborsa dalla coda.';
     html.push(brandParagraph(esc(lead)), brandParagraph(esc(owed)));
     text.push(lead, owed);
     const email = clean(vars.candidateEmail, 200);

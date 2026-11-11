@@ -155,7 +155,9 @@ function takeoverStep(heldBy: string[]): NextStep {
   if (held === 'posting_closed') {
     return {
       group: 'done', code: 'posting_closed', label: 'Annuncio chiuso',
-      detail: 'L’annuncio è stato chiuso prima dell’invio: il rimborso automatico è partito (se non riesce ricevi un avviso).',
+      // Owner decision 2026-11-11 (Terms 6.5): no automatic refund once the process started, under the Terms the
+      // candidate accepted with the mandate v3; the older Terms keep theirs (functions/src/assistedApplicationFlow.js).
+      detail: 'L’annuncio è stato chiuso prima dell’invio. Il rimborso automatico parte solo per un ordine con i Termini precedenti e senza attesa del candidato (se non riesce ricevi un avviso); per gli altri nessun rimborso: l’email ti dice come chiudere l’ordine.',
     };
   }
   // The runner checks the facts again right before sending: nothing left, and a plain retry would stop again.
