@@ -4697,12 +4697,12 @@
     },
     {
       "id": "kispi-7890994102dc",
-      "slug": "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich",
+      "slug": "riscossione-del-debito-del-gestore-del-caso-70-80-m-f-d-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich",
-        "it": "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich",
-        "en": "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich",
-        "fr": "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich"
+        "it": "riscossione-del-debito-del-gestore-del-caso-70-80-m-f-d-universitats-kinderspital-zurich-zurich",
+        "en": "case-handler-debt-collection-70-80-m-f-d-universitats-kinderspital-zurich-zurich",
+        "fr": "collecte-des-creances-70-80-h-f-d-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4750,11 +4750,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich"
+          "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich",
+          "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich"
+        "sachbearbeiterin-inkasso-70-80-m-w-d-kispi-zurich",
+        "sachbearbeiterin-inkasso-70-80-m-w-d-universitats-kinderspital-zurich-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,

@@ -4474,11 +4474,11 @@
     },
     {
       "id": "coopers-698069db411b",
-      "slug": "project-engineer-m-w-d-coopers-wallis",
+      "slug": "project-ingegnere-m-w-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "project-engineer-m-w-d-coopers-wallis",
-        "it": "project-engineer-m-w-d-coopers-wallis",
-        "de": "project-engineer-m-w-d-coopers-wallis",
+        "it": "project-ingegnere-m-w-d-coopers-group-ag-wallis",
+        "de": "project-ingenieur-m-w-d-coopers-group-ag-wallis",
         "fr": "project-engineer-m-w-d-coopers-wallis"
       },
       "company": "Coopers Group AG",
@@ -4555,7 +4555,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-09T09:29:55.901Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:55.901Z"
+      "firstSeenAt": "2026-11-11T09:29:55.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-engineer-m-w-d-coopers-wallis"
+        ],
+        "de": [
+          "project-engineer-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "project-engineer-m-w-d-coopers-wallis"
+      ]
     },
     {
       "id": "coopers-e0355f870dbb",

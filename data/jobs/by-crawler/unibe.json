@@ -776,7 +776,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -826,7 +826,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -835,7 +835,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4481,12 +4481,12 @@
     },
     {
       "id": "unibe-024fb25a9664",
-      "slug": "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern",
+      "slug": "decano-della-facolta-di-medicina-dell-universita-di-berna-universitat-bern-bern",
       "slugByLocale": {
         "de": "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern",
-        "it": "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern",
-        "en": "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern",
-        "fr": "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern"
+        "it": "decano-della-facolta-di-medicina-dell-universita-di-berna-universitat-bern-bern",
+        "en": "dean-of-the-faculty-of-medicine-of-the-university-of-bern-universitat-bern-bern",
+        "fr": "doyen-de-la-faculte-de-medecine-de-l-universite-de-berne-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4548,16 +4548,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:54:31.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:54:31.658Z"
+      "firstSeenAt": "2026-11-11T09:54:31.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern"
+        ],
+        "en": [
+          "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern"
+        ],
+        "fr": [
+          "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dekanin-dekan-der-medizinischen-fakultat-der-universitat-bern-unibe-bern"
+      ]
     },
     {
       "id": "unibe-ffe822523a99",
-      "slug": "postdoc-in-forensic-meta-science-unibe-bern",
+      "slug": "postdoc-in-meta-scienza-forensica-universitat-bern-bern",
       "slugByLocale": {
         "en": "postdoc-in-forensic-meta-science-unibe-bern",
-        "it": "postdoc-in-forensic-meta-science-unibe-bern",
-        "de": "postdoc-in-forensic-meta-science-unibe-bern",
-        "fr": "postdoc-in-forensic-meta-science-unibe-bern"
+        "it": "postdoc-in-meta-scienza-forensica-universitat-bern-bern",
+        "de": "postdoc-in-forensischer-meta-wissenschaft-universitat-bern-bern",
+        "fr": "postdoc-en-metascience-medico-legale-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4620,7 +4634,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:54:31.656Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:54:31.656Z"
+      "firstSeenAt": "2026-11-11T09:54:31.656Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-in-forensic-meta-science-unibe-bern"
+        ],
+        "de": [
+          "postdoc-in-forensic-meta-science-unibe-bern"
+        ],
+        "fr": [
+          "postdoc-in-forensic-meta-science-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-in-forensic-meta-science-unibe-bern"
+      ]
     },
     {
       "id": "unibe-ee6e96c9c45d",
@@ -4628,8 +4656,8 @@
       "slugByLocale": {
         "de": "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern",
         "it": "administrative-koordination-kommission-per-chancengleichheit-25-universitat-bern",
-        "en": "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern",
-        "fr": "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern"
+        "en": "administrative-coordination-commission-for-equal-opportunities-25-universitat-bern-bern",
+        "fr": "coordination-administrative-commission-pour-l-egalite-des-chances-25-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4677,6 +4705,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern"
+        ],
+        "en": [
+          "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern"
+        ],
+        "fr": [
           "administrative-koordination-kommission-fur-chancengleichheit-25-unibe-bern"
         ]
       },

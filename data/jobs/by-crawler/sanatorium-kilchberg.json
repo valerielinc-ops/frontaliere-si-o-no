@@ -1210,12 +1210,12 @@
     },
     {
       "id": "sanatorium-kilchberg-71df3392e703",
-      "slug": "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg",
+      "slug": "formatore-formatrice-professionale-centrale-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg",
-        "it": "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg",
-        "en": "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg",
-        "fr": "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg"
+        "it": "formatore-formatrice-professionale-centrale-sanatorium-kilchberg-kilchberg",
+        "en": "central-vocational-trainer-sanatorium-kilchberg-kilchberg",
+        "fr": "formateur-trice-professionnel-trice-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1279,16 +1279,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:25:20.978Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:25:20.978Z"
+      "firstSeenAt": "2026-11-11T09:25:20.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "zentrale-r-berufsbildner-in-sanatorium-kilchberg-kilchberg"
+      ]
     },
     {
       "id": "sanatorium-kilchberg-c51d24dedf45",
-      "slug": "stationsassistent-in-sanatorium-kilchberg-kilchberg",
+      "slug": "assistente-di-reparto-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "stationsassistent-in-sanatorium-kilchberg-kilchberg",
-        "it": "stationsassistent-in-sanatorium-kilchberg-kilchberg",
-        "en": "stationsassistent-in-sanatorium-kilchberg-kilchberg",
-        "fr": "stationsassistent-in-sanatorium-kilchberg-kilchberg"
+        "it": "assistente-di-reparto-sanatorium-kilchberg-kilchberg",
+        "en": "ward-assistant-sanatorium-kilchberg-kilchberg",
+        "fr": "assistant-e-de-station-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1352,7 +1366,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:25:20.048Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:25:20.048Z"
+      "firstSeenAt": "2026-11-11T09:25:20.048Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsassistent-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "stationsassistent-in-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "stationsassistent-in-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "stationsassistent-in-sanatorium-kilchberg-kilchberg"
+      ]
     },
     {
       "id": "sanatorium-kilchberg-ad2a286928b6",

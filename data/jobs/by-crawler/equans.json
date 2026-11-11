@@ -9809,12 +9809,12 @@
     },
     {
       "id": "equans-33ebfaf22d3b",
-      "slug": "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren",
+      "slug": "servizio-di-sicurezza-di-assistenza-lodge-control-equans-switzerland-schlieren",
       "slugByLocale": {
         "de": "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren",
-        "it": "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren",
-        "en": "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren",
-        "fr": "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren"
+        "it": "servizio-di-sicurezza-di-assistenza-lodge-control-equans-switzerland-schlieren",
+        "en": "security-assisting-security-lodge-control-service-equans-switzerland-schlieren",
+        "fr": "services-d-aide-a-la-securite-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9877,7 +9877,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:16:08.328Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:16:08.328Z"
+      "firstSeenAt": "2026-11-11T09:16:08.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren"
+        ],
+        "en": [
+          "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren"
+        ],
+        "fr": [
+          "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsmitarbeitende-sicherheitsloge-amp-kontrolldienst-equans-schlieren"
+      ]
     },
     {
       "id": "equans-c695250ee4c7",
@@ -9886,7 +9900,7 @@
         "it": "team-leader-facility-management-cvrs-equans-monteceneri",
         "en": "team-leader-facility-management-cvrs-equans-monteceneri",
         "de": "team-leader-facility-management-cvrs-equans-monteceneri",
-        "fr": "team-leader-facility-management-cvrs-equans-monteceneri"
+        "fr": "chef-d-equipe-gestion-des-installations-cvrs-equans-switzerland-monteceneri"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
