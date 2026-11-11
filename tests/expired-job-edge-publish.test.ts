@@ -37,6 +37,22 @@ describe('expired job edge R2 publisher plan', () => {
     expect(publishStep).toContain("if: steps.build_step.outcome == 'success'");
     expect(publishStep).toContain('node scripts/publish-expired-job-edge-dataset.mjs');
     expect(publishStep).not.toContain('matrix.locale ==');
+    expect(publishStep).not.toContain('continue-on-error');
+  });
+
+  it('accepts the edge record before skipping the full static soft-landing body', () => {
+    const plugin = fs.readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
+    const edgeRecord = plugin.indexOf('const added = writer.addPage(relPath, section, {');
+    const skipGate = plugin.indexOf('shouldSkipExpiredJobStaticPage({', edgeRecord);
+    const staticSkip = plugin.indexOf('if (skipStaticForExpiredJobEdge && !expiredCacheKeys.has(expiredJobEdgeCacheKey)) {', skipGate);
+    const staticBody = plugin.indexOf('const staticBodyParts: string[] = [];', staticSkip);
+
+    expect(edgeRecord).toBeGreaterThanOrEqual(0);
+    expect(skipGate).toBeGreaterThan(edgeRecord);
+    expect(staticSkip).toBeGreaterThan(skipGate);
+    expect(staticBody).toBeGreaterThan(staticSkip);
+    expect(plugin).toContain('requestedSections: expiredJobEdgeRequestedSections');
+    expect(plugin).toContain('expiredJobEdgeStaticSkipPaths.add(canonicalPath)');
   });
 
   it('uploads immutable shards first and publishes the mutable manifest last', () => {

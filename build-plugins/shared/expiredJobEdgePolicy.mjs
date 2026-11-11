@@ -68,3 +68,19 @@ export function isEdgeServedExpiredJob({ p1Noindex, paths, ga4Evidence, nowMs = 
   }
   return true;
 }
+
+/**
+ * A static page is removable only after its edge record has been accepted by
+ * the dataset writer and its exact section is enabled for this build.
+ * @param {{ selected?: boolean, section?: string | null, requestedSections?: string[], datasetRecordAdded?: boolean }} [options]
+ */
+export function shouldSkipExpiredJobStaticPage({
+  selected,
+  section,
+  requestedSections,
+  datasetRecordAdded,
+} = {}) {
+  if (selected !== true || datasetRecordAdded !== true || typeof section !== 'string' || !section) return false;
+  if (!Array.isArray(requestedSections)) return false;
+  return requestedSections.includes(section);
+}
