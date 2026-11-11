@@ -13,9 +13,10 @@
  *   npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
  *
  * Env: R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_S3_ENDPOINT, R2_BUCKET — read
- *   by scripts/lib/upload-cdn-file.sh, for missing content-addressed assets.
- *   Stable global aliases are read-only here and are published by the full
- *   deploy; an absent or stale alias makes this gate fail closed.
+ *   by scripts/lib/upload-cdn-file.sh, for missing content-addressed assets
+ *   and a stable alias that R2 confirms is absent. Stable global aliases are
+ *   never replaced here; a stale or unreadable alias makes this gate fail
+ *   closed and remains owned by the full deploy.
  * Exit: 0 when every file is available, 1 otherwise (nothing may be pushed).
  */
 import { listStaticScriptFiles } from '../../build-plugins/staticScriptsPlugin.ts';
