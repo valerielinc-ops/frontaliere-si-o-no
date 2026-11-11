@@ -141,8 +141,9 @@ function hasVerifiedSubdomainTenantKey(suppliedKey, candidate, source) {
   const host = normalizeHost(tenantUrl.hostname);
   const hostPlatform = registrableCandidateDomain(host);
   const hostPrefix = host && host.endsWith(`.${platform}`) ? host.slice(0, -(platform.length + 1)) : '';
-  if (platformEntry.hostEmployerUnknown?.[host] === true) return false;
   const hostEmployers = platformEntry.hostEmployers?.[host];
+  if (platformEntry.hostEmployerUnknown?.[host] === true
+    && (!Array.isArray(hostEmployers) || !hostEmployers.length)) return false;
   if (!Array.isArray(hostEmployers) || !hostEmployers.length) return false;
   const verifiedOwners = hostEmployers.map(registrableCandidateDomain);
   if (verifiedOwners.some((owner) => !owner || !owner.includes('.'))
