@@ -2717,36 +2717,24 @@ jobs:
               ;;
           esac
 
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 2/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
-      # Vite compila con esbuild, che le annotazioni di tipo le rimuove senza
-      # verificarle; questo gate confronta con `data/typecheck-baseline.json`
-      # e fallisce su errori nuovi fuori da `tests/`.
+      # Il typecheck resta nello stesso check-run che governa l'auto-merge e
+      # mantiene `tsconfig.ci.json`, `--noEmit`, `--listFiles`, l'intero programma
+      # e la baseline. Sul runner da 16 GiB, le misure PR del 2026-11-11 mostrano
+      # RSS TSC di 8,45 GiB e almeno 6,4 GiB disponibili quando non si sovrappone
+      # agli altri gate; il cap heap dedicato è quindi 10 GiB.
       #
-      # Resta nello stesso check richiesto dall'auto-merge, ma dal 2026-11-11
-      # parte dopo Vitest. La run 43020643535 ha selezionato 369 file e `tsc`
-      # ha esaurito l'heap di 8 GiB mentre Vitest era attivo (`MemAvailable`
-      # minima 1.719 MB). Sul runner da 16 GiB, serializzare i due processi e
-      # alzare l'heap massimo a 12 GiB lascia margine al typecheck.
-      # `sample-mem-during.sh` registra MemAvailable fino alla fine del comando.
-      # `tests/typecheck-gate-wired.test.ts` fissa il nuovo ordine.
-      # ══════════════════════════════════════════════════════════════════════
-      - name: Typecheck after related Vitest
-        id: typecheck-gate
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() && steps.body_contract.outcome != 'failure' }}
-        env:
-          NODE_OPTIONS: --max-old-space-size=12288
-        run: bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
-
-      # Collect the detached gate processes after the Vitest run. Each process
-      # publishes an atomic status file; a missing status from a dead process is
-      # a failure, and a non-zero status remains blocking.
+      # Il collector attende Vitest e tutti i gate detached. Prima di proseguire
+      # verifica l'uscita di ciascun process group; al timeout lo termina e lo
+      # attende. Se non può dimostrare la fine dei processi, il job resta rosso e
+      # non avvia TSC in concorrenza. `sample-mem-during.sh` misura RSS e
+      # MemAvailable durante il comando; i test fissano ordine e baseline.
       - name: Collect independent source gates
         id: collect-independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
         env:
           SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
           INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
+          RUN_TSC: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -2824,6 +2812,16 @@ jobs:
             fi
           else
             echo "independent gate step skipped; no detached gates were expected"
+          fi
+          if [ "${RUN_TSC:-false}" = "true" ]; then
+            echo "[tsc] starting after detached independent gates"
+            env NODE_OPTIONS=--max-old-space-size=10240 \
+              bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+            tsc_status=$?
+            echo "[tsc] exit=$tsc_status"
+            if [ "$tsc_status" -ne 0 ]; then
+              failures=1
+            fi
           fi
           exit "$failures"
 
