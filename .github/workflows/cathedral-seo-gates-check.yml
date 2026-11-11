@@ -228,12 +228,25 @@ jobs:
     env:
       NODE_OPTIONS: '--max-old-space-size=8192'
     steps:
+      - name: Resolve publisher source SHA
+        id: publisher-source-sha
+        if: github.event_name == 'workflow_run'
+        env:
+          PUBLISHER_DISPLAY_TITLE: ${{ github.event.workflow_run.display_title }}
+        run: |
+          set -euo pipefail
+          if [[ "$PUBLISHER_DISPLAY_TITLE" =~ ^Publish\ Pages\ build\ [0-9]+\ @\ ([0-9a-f]{40})$ ]]; then
+            echo "sha=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::publisher workflow run title does not contain a source SHA"
+            exit 1
+          fi
       - name: Checkout
         uses: actions/checkout@v7
         with:
           # workflow_run checks the source SHA embedded in the publisher title;
           # schedule/push/dispatch keep the existing main checkout behavior.
-          ref: ${{ github.event_name == 'workflow_run' && split(github.event.workflow_run.display_title, ' @ ')[1] || github.ref_name }}
+          ref: ${{ github.event_name == 'workflow_run' && steps.publisher-source-sha.outputs.sha || github.ref_name }}
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*

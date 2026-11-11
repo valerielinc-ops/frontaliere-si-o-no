@@ -272,7 +272,10 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
       /workflow_run:\s*\n\s*workflows:\s*\["Publish to GitHub Pages \(deploy \+ validate\)"\]\s*\n\s*types:\s*\[completed\]\s*\n\s*branches:\s*\[main\]/,
     );
     expect(active).toContain("github.event.workflow_run.conclusion == 'success'");
-    expect(active).toContain('ref: ${{ github.event_name == \'workflow_run\' && split(github.event.workflow_run.display_title, \' @ \')[1] || github.ref_name }}');
+    expect(active).toContain('id: publisher-source-sha');
+    expect(active).toContain('PUBLISHER_DISPLAY_TITLE: ${{ github.event.workflow_run.display_title }}');
+    expect(active).toContain('echo "sha=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"');
+    expect(active).toContain('ref: ${{ github.event_name == \'workflow_run\' && steps.publisher-source-sha.outputs.sha || github.ref_name }}');
     expect(active).toContain(
       'run-id: ${{ github.event_name == \'workflow_run\' && github.event.workflow_run.id || inputs.deploy_run_id }}',
     );

@@ -56,6 +56,8 @@ describe('deferred same-run hreflang exchange', () => {
     expect(bind.if).toContain("steps.validate-owned-sitemap-pages.outcome == 'success'");
     expect(bind.if).toContain("matrix.locale != 'it'");
     expect(bind.if).toContain("steps.upload-locale-source.outcome == 'success'");
+    expect(bind.env.SECTION_ARTIFACT_DIGESTS_JSON).toBeUndefined();
+    expect(bind.run).not.toContain('--section-artifact-digests');
     expect(uploadReceipt).toBeDefined();
     expect(uploadReceipt.if).toBe("always() && steps.bind-sitemap-page-manifest.outcome == 'success'");
 

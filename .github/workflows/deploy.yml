@@ -2249,14 +2249,10 @@ jobs:
           BASE_ARTIFACT_DIGEST: ${{ steps.upload-locale-source.outputs.artifact-digest }}
           SITEMAPS_ARTIFACT_NAME: ''
           SITEMAPS_ARTIFACT_DIGEST: ''
-          SECTION_ARTIFACT_DIGESTS_JSON: >-
-            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
         run: |
           set -euo pipefail
           input="$RUNNER_TEMP/locale-sitemap-manifest-${BUILD_LOCALE}.json"
           output="$RUNNER_TEMP/sitemap-page-manifest-${BUILD_LOCALE}.json"
-          digests="$RUNNER_TEMP/section-artifact-digests.json"
-          printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$digests"
           node scripts/ci/shard-content-manifest.mjs bind-page \
             --input "$input" \
             --out "$output" \
@@ -2265,7 +2261,6 @@ jobs:
             --artifact-run-id "$SOURCE_RUN_ID" \
             --base-artifact-name "$BASE_ARTIFACT_NAME" \
             --base-artifact-digest "$BASE_ARTIFACT_DIGEST" \
-            --section-artifact-digests "$digests" \
             --sitemaps-artifact-name "$SITEMAPS_ARTIFACT_NAME" \
             --sitemaps-artifact-digest "$SITEMAPS_ARTIFACT_DIGEST" \
             --manifest-artifact-name "sitemap-page-manifest-${BUILD_LOCALE}-${SOURCE_RUN_ID}"
