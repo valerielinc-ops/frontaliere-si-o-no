@@ -5204,18 +5204,6 @@ export function signedInApplicationSurface(view) {
     && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
 }
 
-// SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).
-const restartedRegistrations = new WeakMap();
-function registrationRestarted(ctx, host) {
-  return Boolean(ctx?.accounts && restartedRegistrations.get(ctx.accounts)?.has(host));
-}
-function noteRegistrationRestart(ctx, host) {
-  if (!ctx?.accounts) return;
-  const hosts = restartedRegistrations.get(ctx.accounts) || new Set();
-  hosts.add(host);
-  restartedRegistrations.set(ctx.accounts, hosts);
-}
-
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -6919,7 +6907,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null, registrationRestarts = new Set() }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -6978,17 +6966,17 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // page, and every step restarted it again until `auth_steps_exhausted`. The
   // second time the saved credential signs in; a failed sign-in is handed over.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
-    && !registrationRestarted(ctx, host)) {
+    && !registrationRestarts.has(host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
     // there; only restart registration when the page actually offers that
     // navigation control.
     const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
     if (openedRegistration) {
-      noteRegistrationRestart(ctx, host);
+      registrationRestarts.add(host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets, registrationRestarts });
     }
   }
 
@@ -7044,7 +7032,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets, registrationRestarts });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -8404,6 +8392,7 @@ export async function submitViaPortal(ctx) {
   // start date, the employer's own questions, review): 8 pages were not enough.
   const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
+  const registrationRestarts = new Set();
   let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
     ? Math.min(1000, Math.max(0, Number(ctx.candidateRequestRound))) : 0;
   const knownPortalQuestionKeys = new Set((Array.isArray(ctx.knownPortalQuestionKeys) ? ctx.knownPortalQuestionKeys : [])
@@ -9016,7 +9005,7 @@ export async function submitViaPortal(ctx) {
       if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
         return { status: agent.status };
       }
-      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
       return { status: agent.status, auth };
     };
 
@@ -9132,7 +9121,7 @@ export async function submitViaPortal(ctx) {
         let agentRecovery = null;
         const authHost = new URL(page.url()).hostname;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
           // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
           // fallback once per page and stop before the owner does: the agent fills fields only,
           // then the deterministic path runs again on a stable re-read. Its own outcome stands
