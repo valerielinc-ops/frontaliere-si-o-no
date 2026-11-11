@@ -1142,6 +1142,12 @@
     },
     "sector": "Alimentare / Confetteria",
     "expiredAt": "2026-11-01T09:23:07.666Z",
+    "previousSlugs": [
+      "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
+      "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+      "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich-5514fbfc",
+      "stv-filialleiter-in-100-raum-zurich-spruengli-zurich-3ff340ce"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "stv-filialleiter-in-100-raum-zurich-spruengli-zurich-93dd53e7",
@@ -1173,13 +1179,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://apply.refline.ch/116352/1125/pub/60/index.html",
-    "firstSeenAt": "2026-09-01T00:41:48.695Z",
-    "previousSlugs": [
-      "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
-      "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
-      "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich-5514fbfc",
-      "stv-filialleiter-in-100-raum-zurich-spruengli-zurich-3ff340ce"
-    ]
+    "firstSeenAt": "2026-09-01T00:41:48.695Z"
   },
   {
     "slug": "responsabiledi-reparto-in-controlling-70-100-confiserie-sprungli-ag-dietikon",
