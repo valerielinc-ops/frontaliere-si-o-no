@@ -4477,6 +4477,16 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     expect(Buffer.byteLength(body)).toBeLessThan(Buffer.byteLength(readableBody) - 300);
   });
 
+  it('reports and verifies the largest portable fallback workflow is within 480000 bytes', () => {
+    const largestFile = '.github/corpus-workflows/crawler-group-04.yml';
+    const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
+    const bytes = Buffer.byteLength(content, 'utf8');
+    // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
+    // With compact waiter, size is 478781 bytes (<= 480000 budget).
+    expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    expect(bytes).toBe(478781);
+  });
+
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
     const slugs = Array.from({ length: 29 }, (_, index) => ({ slug: `member-${index}` }));
     const body = buildCrawlerAggregateShellBody(slugs as any, 6);
