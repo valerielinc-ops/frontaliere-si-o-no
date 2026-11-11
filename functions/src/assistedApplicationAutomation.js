@@ -861,8 +861,9 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       if (receiptResult?.receiptVerified) continue;
       // A closed ad whose native proof is on record, on an order stopped for it in a round that waited for the
-      // candidate: withdrawn by the employer (owner decision 2026-11-11), never retried nor reminded.
-      if (!needsFactRepair(flow) && employerWithdrawalPending(flow)) {
+      // candidate, or under the Terms that refund nothing once the process started: withdrawn by the employer
+      // (owner decisions 2026-11-11), never retried nor reminded.
+      if (!needsFactRepair(flow) && employerWithdrawalPending(flow, order)) {
         const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'posting_closure_recorded' }, actor: 'employer-withdrawal', runEffect, nowMs });
         if (result.ok) summary.employerWithdrawals = (summary.employerWithdrawals || 0) + 1;
         else {

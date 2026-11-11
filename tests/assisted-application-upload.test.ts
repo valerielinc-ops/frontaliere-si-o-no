@@ -51,7 +51,7 @@ describe('assisted application post-payment upload', () => {
     expect(block).toContain("'cvUploadedAt'");
     expect(block).toContain('request.resource.data.cvUploadedAt is timestamp');
     expect(block).toContain('request.resource.data.cvStorageKey == resource.data.cvStorageKey');
-    expect(block).toContain("request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
+    expect(block).toContain("request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2', 'assisted-application-v3']");
     expect(block).toContain('allow delete: if false;');
   });
 
@@ -60,7 +60,7 @@ describe('assisted application post-payment upload', () => {
 
     expect(block).toContain('request.auth != null');
     expect(block).toContain(".data.paymentStatus == 'paid'");
-    expect(block).toContain(".data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']");
+    expect(block).toContain(".data.consentVersion in ['assisted-application-v1', 'assisted-application-v2', 'assisted-application-v3']");
     expect(block).toContain('.data.consentedAt is timestamp');
     expect(block).toContain('allow read: if false;');
     expect(block).toContain('allow update, delete: if false;');
@@ -74,6 +74,8 @@ describe('assisted application post-payment upload', () => {
     expect(storageRules).toContain(`.data.consentVersion in ${versions}`);
     expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v1', consentedAt: { seconds: 1 } })).toBe(true);
     expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 } })).toBe(true);
+    // v3 (owner decision 2026-11-11): the express request to start at once and the acknowledgement of Terms 6.5.
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v3', consentedAt: { seconds: 1 } })).toBe(true);
     expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: null })).toBe(false);
     expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v0', consentedAt: { seconds: 1 } })).toBe(false);
   });

@@ -933,7 +933,7 @@ describe('application concierge candidate API', () => {
     expect(second.status).toBe(200);
     expect(mocks.documents.get('application_concierge_services/service-1')!.consentedAt).toBe(firstConsent);
     // A new consent records the current text (owner decision 2026-11-11: undecided proposals accepted after 12 hours).
-    expect(mocks.documents.get('application_concierge_services/service-1')!.consentVersion).toBe('application-concierge-v2');
+    expect(mocks.documents.get('application_concierge_services/service-1')!.consentVersion).toBe('application-concierge-v3');
   });
 
   it('honours a consent given under the previous text and never rewrites it', async () => {

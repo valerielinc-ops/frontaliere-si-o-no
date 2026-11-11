@@ -30,6 +30,9 @@ export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
 export const ASSISTED_APPLICATION_PRICE_CENTS = ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 export const ASSISTED_APPLICATION_CURRENCY = 'eur';
 // v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
+// The version an application of the automated search records (applicationConciergeCore.js): its candidate gave
+// the concierge's own consent, never the page's mandate v3 (services/assistedApplicationExperiment.ts), so it
+// stays v2; Terms 6.5 of 2026-11-11 hold for it through its billing mode (refundEndsAtStart).
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
 const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_checkout_requests';

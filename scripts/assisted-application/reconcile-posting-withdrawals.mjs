@@ -15,7 +15,8 @@
  * the transition and its one keyed e-mail to the candidate. Nothing is refunded, sent or dispatched here.
  *
  * Skipped, and left to Valerie: a proof that is a reading of ours (our dataset, a page that looked empty), a
- * round that never waited for the candidate (the Terms promise a refund there), an application that may
+ * round that never waited for the candidate on an order under the Terms before 2026-11-11 (they promise a
+ * refund there), an application that may
  * have reached the employer, a refund on record, a purged order.
  *
  * Second pass (owner decision 2026-11-11, «si per il concierge lo libera»): a concierge child the employer's
@@ -74,7 +75,8 @@ export function postingWithdrawalBlocker({ order = {}, flow = {}, draft = null, 
   if (order.retentionPurgingAt || order.retentionPurgedAt || order.retentionPayloadPurgedAt) return 'purged';
   if (!stoppedForClosedPosting(flow)) return 'not_stopped_for_closed_posting';
   if (!closure) return 'no_native_proof';
-  if (!employerWithdrawalPending({ ...flow, postingClosure: closure })) return 'round_did_not_wait';
+  // An order under the Terms of 2026-11-11 (refundEndsAtStart) is withdrawn whether or not the round waited.
+  if (!employerWithdrawalPending({ ...flow, postingClosure: closure }, order)) return 'round_did_not_wait';
   if (sendMayHaveLeft({ draft, submission })) return 'send_may_have_left';
   return '';
 }

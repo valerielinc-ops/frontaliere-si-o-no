@@ -8,10 +8,14 @@
  *   - mark_submitted the order moves to `submitted` (the existing concierge
  *                    trigger then sends the customer's "inviata" e-mail);
  *   - refund         the ad closed before sending (the one refund the welcome
- *                    e-mail promises when automation is on).
+ *                    e-mail promised when automation was on), only for an
+ *                    order under the Terms before 2026-11-11: once the
+ *                    process started nothing is refunded by itself under the
+ *                    Terms of 2026-11-11 (refundEndsAtStart).
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
+import { refundEndsAtStart } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail } from './assistedApplicationAutomationEmails.js';
@@ -143,6 +147,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         candidateEmail: customerEmailFor(order),
         days: effect.days,
         nudges: effect.nudges,
+        // Which Terms 6.5 the order is under: the advice on a closed ad differs (refundEndsAtStart).
+        refundEndsAtStart: refundEndsAtStart(order),
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {
@@ -159,6 +165,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       postalSubmission: flow.postalSubmission?.enabled === true,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
+      // Which Terms 6.5 the candidate accepted: the withdrawn posting's e-mail cites that one.
+      refundEndsAtStart: refundEndsAtStart(order),
     });
   };
   return (deps.sendNotification || sendOrderNotification)({
@@ -220,9 +228,17 @@ const REFUND_PERMANENT_ERRORS = new Set(['payment_not_refundable', 'already_subm
  * last attempt, or at once for a permanent refusal, Valerie is alerted.
  */
 async function refund({ db, orderId, effect, flow, nowMs, deps }) {
-  const issue = deps.issueRefund || (await import('./assistedApplicationAdminCore.js')).issueAssistedApplicationRefund;
   const orderRef = orderRefFor(db, orderId);
-  const previous = (await orderRef.get()).data()?.automationRefund || {};
+  const order = (await orderRef.get()).data() || {};
+  const previous = order.automationRefund || {};
+  // Owner decision 2026-11-11 (Terms 6.5): an order whose process started under the Terms that say so is never
+  // refunded by itself, whatever asked for it (the flow emits no such effect for it; a retry written before, or
+  // any other caller, stops here). The owner's manual refund from the queue is another path, unchanged.
+  if (refundEndsAtStart(order)) {
+    if (order.automationRefundDueAt != null) await orderRef.set({ automationRefundDueAt: null }, { merge: true });
+    return { ok: false, skipped: 'no_refund_after_start' };
+  }
+  const issue = deps.issueRefund || (await import('./assistedApplicationAdminCore.js')).issueAssistedApplicationRefund;
   try {
     const result = await issue(db, { orderId, submissionNotes: `Rimborso automatico: ${effect.reason || 'annuncio chiuso'} prima dell'invio.` }, 'automation');
     await orderRef.set({ automationRefund: { ...previous, status: 'refunded', refundedAt: nowMs }, automationRefundDueAt: null }, { merge: true });

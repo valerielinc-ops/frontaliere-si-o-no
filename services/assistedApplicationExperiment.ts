@@ -51,7 +51,10 @@ export interface AssistedApplicationJobDetails {
   description: string;
 }
 // v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
-export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
+// v3 (2026-11-11, owner decision): the candidate also asks for the service to start at once and acknowledges
+// that once the preparation started the amount is not refundable (Terms 6.5). The functions read it
+// (functions/src/assistedApplicationConstants.js refundEndsAtStart); the rules accept v1, v2 and v3.
+export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v3';
 
 /**
  * Owner decision 2026-09-29: on the rewarded job-board arm, when the Offerwall
