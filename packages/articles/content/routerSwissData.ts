@@ -2926,6 +2926,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'peso-burocrazia-imprese-svizzera': { it: 'peso-burocrazia-imprese-svizzera', en: 'burden-bureaucracy-swiss-firms', de: 'burokratie-last-schweizer-firmen', fr: 'poids-bureaucratie-entreprises-suisse' },
  'pamini-contributi-salari-svizzera': { it: 'pamini-contributi-salari-svizzera', en: 'pamini-swiss-salaries-contributions', de: 'pamini-schweizer-loehne-beitraege', fr: 'pamini-salaires-suisses-cotisations' },
  'burocrazia-frena-investimenti-svizzera': { it: 'burocrazia-frena-investimenti-svizzera', en: 'bureaucracy-hinders-investments-switzerland', de: 'burokratie-bremst-investitionen-schweiz', fr: 'bureaucratie-freine-investissements-suisse' },
+ 'eteria-gioielleria-berta-serret': { it: 'eteria-gioielleria-berta-serret', en: 'eteria-jewellery-berta-serret', de: 'eteria-schmuck-berta-serret', fr: 'eteria-joaillerie-berta-serret' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

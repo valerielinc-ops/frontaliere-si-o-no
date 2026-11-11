@@ -8711,6 +8711,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': 'Tre imprese su dieci rinviano o riducono investimenti per vincoli amministrativi',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Secondo il servizio RG 12.30 del 9 novembre 2026, per tre aziende svizzere su dieci i vincoli amministrativi comportano il rinvio, la riduzione o la cancellazione di investimenti.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti da laboratorio e oro riciclato',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'L’11 novembre 2026 Berta Serret lancia ufficialmente online ETERIA JEWELLERY: alta gioielleria sostenibile sotto il segno dello Smart Luxury, con oro riciclato CoC, diamanti lab-grown IGI e tracciabilità TRACEMARK.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Anello solitario con diamante brillante in oro riciclato firmato ETERIA',
 };
 
 export default blogMetaChIt;

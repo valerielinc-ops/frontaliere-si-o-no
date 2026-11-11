@@ -110129,6 +110129,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eteria-gioielleria-berta-serret': {
+    title: 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti da laboratorio e oro riciclato',
+    description: 'L’11 novembre 2026 debutta online ETERIA JEWELLERY: alta gioielleria sostenibile sotto il segno dello Smart Luxury, creata da Berta Serret con oro riciclato CoC e diamanti IGI.',
+    keywords: 'ETERIA, Berta Serret, Smart Luxury, gioielli oro riciclato, diamanti da laboratorio, Tracemark, Facet Barcelona, gioielleria sostenibile, acquisto gioielli online',
+    ogTitle: 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti da laboratorio',
+    ogDescription: 'Debutto ufficiale online per ETERIA JEWELLERY: oro riciclato certificato CoC, diamanti lab-grown IGI e tracciabilità TRACEMARK con il nuovo modello Smart Luxury.',
+    canonicalPath: '/articoli-svizzera/eteria-gioielleria-berta-serret/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti da laboratorio e oro riciclato",
+      "description": "L’11 novembre 2026 debutta online ETERIA JEWELLERY: alta gioielleria sostenibile sotto il segno dello Smart Luxury, creata da Berta Serret con oro riciclato CoC e diamanti IGI.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://ai.google.dev/gemini-api/terms",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://ai.google.dev/gemini-api/terms",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-eteria-gioielleria-berta-serret.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Anello solitario con diamante brillante in oro riciclato firmato ETERIA"
+      },
+      "datePublished": "2026-11-11T10:30:00+00:00",
+      "dateModified": "2026-11-11T10:30:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eteria-gioielleria-berta-serret/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

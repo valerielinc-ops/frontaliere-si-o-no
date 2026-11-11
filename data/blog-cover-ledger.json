@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1135,
+      "5": 1141,
       "6": 5061
     },
-    "publishedCovers": 7877,
+    "publishedCovers": 7883,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217217,6 +217217,204 @@
         "provider": "openai-codex",
         "assetId": "article-fuoriuscita-acido-liestal",
         "imageUrl": "/images/blog/article-fuoriuscita-acido-liestal.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cambio-orari-bus-lucerna": {
+      "cover": "/images/blog/article-cambio-orari-bus-lucerna.webp",
+      "hash": "cbf80e2b933dba8a57268e6688bddb6a10568c4fad63e4fa18b60237bd6704a2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "cambio-orari-bus-lucerna",
+          "category": "pratico",
+          "date": "2026-11-11T07:24:28.627Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cambio-orari-bus-lucerna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cambio-orari-bus-lucerna",
+        "imageUrl": "/images/blog/article-cambio-orari-bus-lucerna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-eteria-gioielleria-berta-serret": {
+      "cover": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
+      "hash": "cca46c83cc2a1ea8ef7c61e38479567efba0b0f71b4c246837a47e27118de74f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "eteria-gioielleria-berta-serret",
+          "category": "novita",
+          "date": "2026-11-11T10:30:00.000Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-eteria-gioielleria-berta-serret.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "gemini",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "gemini",
+        "assetId": "article-eteria-gioielleria-berta-serret",
+        "imageUrl": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fiscalita-coppie-sposate-voto": {
+      "cover": "/images/blog/article-fiscalita-coppie-sposate-voto.webp",
+      "hash": "463c3456d353b9b5218bc4b94c16688611e659cee1f5f41205e4bd32d390d7f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "fiscalita-coppie-sposate-voto",
+          "category": "fiscale",
+          "date": "2026-11-11T07:48:47.468Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fiscalita-coppie-sposate-voto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fiscalita-coppie-sposate-voto",
+        "imageUrl": "/images/blog/article-fiscalita-coppie-sposate-voto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-gdk-premi-piu-bassi": {
+      "cover": "/images/blog/article-gdk-premi-piu-bassi.webp",
+      "hash": "ab46ed4290011c98e971ba977b0e43ef8078318c9b6240ae62a590c0e5f0099c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "gdk-premi-piu-bassi",
+          "category": "novita",
+          "date": "2026-11-11T08:13:12.113Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gdk-premi-piu-bassi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-gdk-premi-piu-bassi",
+        "imageUrl": "/images/blog/article-gdk-premi-piu-bassi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-oit-protesta-tagli-ginevra": {
+      "cover": "/images/blog/article-oit-protesta-tagli-ginevra.webp",
+      "hash": "588c5434fc7bbd53b686a908491b12580579d247723e0dc2a3bc51386ba96c4a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "oit-protesta-tagli-ginevra",
+          "category": "novita",
+          "date": "2026-11-11T08:27:02.804Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-oit-protesta-tagli-ginevra.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-oit-protesta-tagli-ginevra",
+        "imageUrl": "/images/blog/article-oit-protesta-tagli-ginevra.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-referendum-costruzione-alloggi-hbm": {
+      "cover": "/images/blog/article-referendum-costruzione-alloggi-hbm.webp",
+      "hash": "da7c6ca2b339aecb2a1446eadabf2b6ab2053cc3466574ed60a46699084a9ba8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "referendum-costruzione-alloggi-hbm",
+          "category": "novita",
+          "date": "2026-11-11T07:28:07.329Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-costruzione-alloggi-hbm.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-referendum-costruzione-alloggi-hbm",
+        "imageUrl": "/images/blog/article-referendum-costruzione-alloggi-hbm.webp",
         "evidence": "generated-engine-record"
       }
     }

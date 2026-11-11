@@ -8711,6 +8711,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 entreprises sur 10 freinent leurs investissements',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Selon le service RG 12.30 du 9 novembre 2026, pour trois entreprises suisses sur dix, les contraintes administratives entraînent le report, la réduction ou l’annulation d’investissements.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA : Berta Serret lance le Smart Luxury avec diamants de synthèse et or recyclé',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Le 11 novembre 2026, Berta Serret lance officiellement en ligne ETERIA JEWELLERY : haute joaillerie écoresponsable alliant or recyclé CoC, diamants de laboratoire IGI et traçabilité TRACEMARK.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Bague solitaire avec diamant de synthèse en or recyclé signée ETERIA',
 };
 
 export default blogMetaChFr;

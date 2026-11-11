@@ -30295,6 +30295,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'eteria-gioielleria-berta-serret',
+    category: 'novita',
+    date: '2026-11-11T10:30:00.000Z',
+    image: '/images/blog/article-eteria-gioielleria-berta-serret.webp',
+    hasCalculator: false,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

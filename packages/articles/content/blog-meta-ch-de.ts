@@ -8711,6 +8711,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 von 10 Unternehmen: Auflagen bremsen Investitionen',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Laut dem Beitrag RG 12.30 vom 9. November 2026 führen administrative Auflagen bei drei von zehn Schweizer Unternehmen dazu, dass Investitionen verschoben, reduziert oder gestrichen werden.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lanciert Smart Luxury mit Labordiamanten und Recyclinggold',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Am 11. November 2026 startet Berta Serret offiziell ETERIA JEWELLERY online: nachhaltiger Echtschmuck im Zeichen von Smart Luxury mit CoC-Recyclinggold, IGI-Labordiamanten und TRACEMARK-Herkunftspass.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Solitärring mit Brillant aus Recyclinggold von ETERIA',
 };
 
 export default blogMetaChDe;

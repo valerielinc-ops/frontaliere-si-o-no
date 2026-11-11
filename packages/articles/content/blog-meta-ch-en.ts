@@ -8711,6 +8711,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 in 10 businesses delay or cut investments: red tape',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'According to the RG 12.30 service of November 9, 2026, for three out of ten Swiss companies, administrative constraints result in the postponement, reduction or cancellation of investments.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret launches Smart Luxury brand with lab-grown diamonds and recycled gold',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'On November 11, 2026, Berta Serret officially launches ETERIA JEWELLERY online: sustainable fine jewelry blending IGI-certified lab-grown diamonds, CoC recycled gold, and TRACEMARK traceability.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Diamond solitaire ring in recycled gold by ETERIA',
 };
 
 export default blogMetaChEn;
