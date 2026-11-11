@@ -122,6 +122,7 @@ import {
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
 import { cleanupConciergeMaterialCopies } from './src/applicationConciergeMaterialCopy.js';
+import { runConciergeAutoAcceptSweep } from './src/applicationConciergeAutoAccept.js';
 import { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, shouldInheritConciergeRenewalMaterials, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
@@ -2342,6 +2343,14 @@ export const sweepApplicationConciergeLifecycle = onSchedule(
   async () => {
     const db = getAdminDb();
     const failures = [];
+    // Owner decision 2026-11-11: proposals left undecided for 12 hours are accepted by the platform, first,
+    // so the matching run each acceptance queues is coalesced by the lifecycle sweep below.
+    try {
+      await runConciergeAutoAcceptSweep({ db });
+    } catch (error) {
+      failures.push(error);
+      console.error('[sweepApplicationConciergeLifecycle] auto-accept failed', error instanceof Error ? error.message : String(error));
+    }
     try {
       await runConciergeLifecycleSweep({ db });
     } catch (error) {

@@ -18,6 +18,9 @@ export interface ApplicationConciergeProposal {
   proposedAt?: string | null;
   acceptedAt?: string | null;
   declinedAt?: string | null;
+  /** When the platform accepts this undecided proposal for the candidate (owner decision 2026-11-11). */
+  autoAcceptAt?: string | null;
+  decidedBy?: 'candidate' | 'platform_timeout' | null;
   childApplicationId?: string | null;
   childApplicationState?: string | null;
   childSubmissionStatus?: string | null;

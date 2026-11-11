@@ -26,10 +26,14 @@ const SERVICE_LABELS: Record<string, string> = { active: 'Attivo', awaiting_paym
 const PAYMENT_LABELS: Record<string, string> = { paid: 'Confermato', pending: 'In attesa', failed: 'Non riuscito', refunded: 'Rimborsato' };
 const PROPOSAL_LABELS: Record<string, string> = { proposed: 'In attesa del candidato', accepted: 'Accettata', declined: 'Rifiutata', expired: 'Scaduta', retracted: 'Ritirata' };
 // A proposal the candidate cannot accept yet waits on the platform's own re-check, not on the candidate.
-const proposalDecisionLabel = (proposal: { status: string; eligibilityStatus?: string | null }) =>
-  proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification'
-    ? 'In verifica dalla piattaforma'
-    : PROPOSAL_LABELS[proposal.status] || proposal.status;
+const dateTime = (value: string) => new Intl.DateTimeFormat('it-CH', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(value));
+// Owner decision 2026-11-11: the platform accepts a proposal left undecided for 12 hours.
+const proposalDecisionLabel = (proposal: { status: string; eligibilityStatus?: string | null; autoAcceptAt?: string | null; decidedBy?: string | null }) => {
+  if (proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification') return 'In verifica dalla piattaforma';
+  if (proposal.status === 'proposed' && proposal.autoAcceptAt) return `${PROPOSAL_LABELS.proposed} · accettata automaticamente alle ${dateTime(proposal.autoAcceptAt)} se non decide`;
+  if (proposal.status === 'accepted' && proposal.decidedBy === 'platform_timeout') return 'Accettata dalla piattaforma (12 ore senza decisione)';
+  return PROPOSAL_LABELS[proposal.status] || proposal.status;
+};
 const date = (value?: string | null) => value ? new Date(value).toLocaleDateString('it-CH') : '—';
 
 const EMPTY_FORM = { serviceId: '', jobId: '', jobUrl: '', companyId: '', companyName: '', jobTitle: '', location: '', applyMode: '' };

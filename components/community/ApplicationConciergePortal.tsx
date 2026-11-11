@@ -1404,6 +1404,11 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
   }, [proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const displayStatus = conciergeProposalDisplayStatus(proposal);
+  // Owner decision 2026-11-11: an undecided proposal the candidate could accept is accepted by the platform at
+  // autoAcceptAt. A proposal still being verified waits on the platform, not on that clock.
+  const autoAcceptMs = proposed && canAccept && proposal.eligibilityStatus === 'compatible' && displayStatus === 'proposed' && proposal.autoAcceptAt
+    ? Date.parse(proposal.autoAcceptAt) : Number.NaN;
+  const autoAcceptDate = Number.isFinite(autoAcceptMs) ? new Date(autoAcceptMs) : null;
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : displayStatus === 'failed' ? 'bg-danger-subtle text-danger'
     : ['proposed', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
@@ -1464,5 +1469,12 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     </div>}
     {proposed && displayStatus === 'needs_verification' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityNeedsVerification')}</p>}
     {proposed && proposal.eligibilityStatus === 'compatible' && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
+    {autoAcceptDate && <p className="mt-2 text-xs text-subtle">{autoAcceptDate.getTime() > Date.now()
+      ? t('jobBoard.concierge.autoAcceptAt', {
+        time: new Intl.DateTimeFormat(locale, { timeStyle: 'short' }).format(autoAcceptDate),
+        date: new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(autoAcceptDate),
+      })
+      : t('jobBoard.concierge.autoAcceptDue')}</p>}
+    {accepted && proposal.decidedBy === 'platform_timeout' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.autoAccepted')}</p>}
   </article>;
 }
