@@ -100,14 +100,19 @@
  * `node scripts/load-rc-env.mjs`, already run earlier in this workflow for
  * the CDN image-upload step).
  */
-import { realpathSync } from 'node:fs';
+import { realpathSync, readdirSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { existsSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { EDGE_PUSHED_FILES, CDN_BASE, EDGE_PUSHED_CACHE_TTL } from '../infra/cloudflare-worker/locale-router.js';
+import {
+  EDGE_PUSHED_FILES,
+  resolveEdgePushedFileEntry,
+  CDN_BASE,
+  EDGE_PUSHED_CACHE_TTL,
+} from '../infra/cloudflare-worker/locale-router.js';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -186,7 +191,17 @@ export function selectedEntries(argv = process.argv) {
           `Known producers: ${known}`,
       );
     }
-    return matches;
+    if (producer !== 'jobs-fast') return matches;
+    const fromDirFlag = argv.find((a) => a.startsWith('--from-dir='));
+    if (!fromDirFlag) return matches;
+    const fromDir = path.resolve(fromDirFlag.slice('--from-dir='.length));
+    if (!existsSync(fromDir) || !realpathSync(fromDir)) return matches;
+    const dynamic = readdirSync(fromDir)
+      .filter((filename) => /^sitemap-jobs-[a-z0-9-]+-(?:en|de|fr)-\d{3}\.xml$/u.test(filename))
+      .map((filename) => [`/${filename}`, resolveEdgePushedFileEntry(`/${filename}`)])
+      .filter(([, entry]) => entry?.producer === 'jobs-fast');
+    const byPath = new Map([...matches, ...dynamic]);
+    return [...byPath.entries()].sort(([a], [b]) => a.localeCompare(b));
   }
 
   if (!flag) {
@@ -205,7 +220,8 @@ export function selectedEntries(argv = process.argv) {
     throw new Error('--only was passed with no pathnames');
   }
 
-  const unknown = wanted.filter((p) => !(p in EDGE_PUSHED_FILES));
+  const resolved = wanted.map((pathname) => [pathname, resolveEdgePushedFileEntry(pathname)]);
+  const unknown = resolved.filter(([, entry]) => !entry).map(([pathname]) => pathname);
   if (unknown.length > 0) {
     throw new Error(
       `--only names ${unknown.join(', ')}, which ${unknown.length === 1 ? 'is' : 'are'} not registered in ` +
@@ -213,13 +229,14 @@ export function selectedEntries(argv = process.argv) {
     );
   }
 
-  return wanted.map((p) => [p, EDGE_PUSHED_FILES[p]]);
+  return resolved;
 }
 
-function main() {
+function main(argv = process.argv) {
+  const strict = argv.includes('--strict');
   const purgeUrls = [];
-  const entries = selectedEntries();
-  const fromDirFlag = process.argv.find((a) => a.startsWith('--from-dir='));
+  const entries = selectedEntries(argv);
+  const fromDirFlag = argv.find((a) => a.startsWith('--from-dir='));
   const fromDir = fromDirFlag ? path.resolve(fromDirFlag.slice('--from-dir='.length)) : null;
 
   // A --from-dir run publishes already-rendered bytes; nothing to generate.
@@ -234,6 +251,7 @@ function main() {
         ? path.join(GENERATED_SCRATCH_DIR, pathname.slice(1))
         : path.join(REPO_ROOT, 'public', pathname);
     if (!existsSync(localFile)) {
+      if (strict) throw new Error(`strict publish source is missing for ${pathname}`);
       console.warn(
         `::warning::[publish-edge-files] no local file at ${localFile} for registered path ${pathname} — skipping (edge just keeps serving the previous R2 copy or falls open to origin)`,
       );
@@ -243,6 +261,7 @@ function main() {
     const cacheControl = `public, max-age=${EDGE_PUSHED_CACHE_TTL}`;
     const uploaded = uploadFile(localFile, entry.cdnKey, cacheControl);
     if (!uploaded) {
+      if (strict) throw new Error(`strict publish PUT failed for ${pathname}`);
       console.warn(
         `::warning::[publish-edge-files] upload-cdn-file.sh did not report a successful PUT for ${entry.cdnKey} — not purging (nothing changed at that key; see upload-cdn-file.sh's own warning above for the reason)`,
       );
@@ -265,6 +284,7 @@ function main() {
     { stdio: 'inherit' },
   );
   if (purge.status !== 0) {
+    if (strict) throw new Error('strict publish cache purge failed');
     // cf-purge-cache.mjs already emits its own ::warning:: with the real
     // staleness window on this path (targeted-purge failure) — no need to
     // duplicate that message, just don't let it fail this step.
@@ -285,7 +305,7 @@ const invokedDirectly = (() => {
 
 if (invokedDirectly) {
   try {
-    main();
+    main(process.argv);
   } catch (err) {
     console.error(`::error::[publish-edge-files] unexpected failure: ${err.message}`);
     process.exit(1);

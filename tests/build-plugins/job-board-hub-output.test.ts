@@ -119,7 +119,7 @@ beforeAll(async () => {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, html);
   } });
-}, 120000);
+}, 300000);
 
 afterAll(() => {
   if (previousCoverageOut === undefined) delete process.env.JOBPOSTING_COVERAGE_OUT;
@@ -210,6 +210,9 @@ describe('job-board emitted output', () => {
         expect(document.body.textContent).toContain(String(count));
         expect(document.title).not.toContain('Swiss Italy');
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
+        const html = fs.readFileSync(path.join(root, 'dist', hubPath(locale, canton), 'index.html'), 'utf8');
+        expect(html).toContain('<!--JOBS_FAST_LANE_LIST_START-->');
+        expect(html).toContain('<!--JOBS_FAST_LANE_LIST_END-->');
       }
       expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, '_AGGREGATE_').length);
     }

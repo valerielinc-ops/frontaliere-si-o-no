@@ -27,6 +27,28 @@ describe('selectMaxWorkers', () => {
     ).toBe('2');
   });
 
+  it('keeps exceptionally large related selections serial beside typecheck', () => {
+    expect(
+      selectMaxWorkers({
+        usedFullFallback: false,
+        maxWorkers: '1',
+        maxWorkersFallback: '3',
+        relatedTestCount: 300,
+      }),
+    ).toBe('1');
+  });
+
+  it('retains two workers just below the exceptionally large threshold', () => {
+    expect(
+      selectMaxWorkers({
+        usedFullFallback: false,
+        maxWorkers: '1',
+        maxWorkersFallback: '3',
+        relatedTestCount: 299,
+      }),
+    ).toBe('2');
+  });
+
   it('keeps the serial cap below the large-selection threshold', () => {
     expect(
       selectMaxWorkers({

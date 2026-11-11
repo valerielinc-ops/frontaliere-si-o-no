@@ -24,7 +24,13 @@ describe('section shard push timeout cleanup', () => {
     expect(GROUP_HELPER).toContain('post_push_reserve_seconds=1200');
     expect(GROUP_HELPER).toContain('timeout_seconds=$((available_seconds / (sections_remaining + 1)))');
     expect(GROUP_HELPER).toContain('section_timeout_cap_seconds=3600');
-    expect(GROUP_HELPER).toContain('"${timeout_seconds}s" bash scripts/lib/push-section-shard.sh');
+    const timeoutAt = GROUP_HELPER.indexOf('"${timeout_seconds}s"');
+    const lockAt = GROUP_HELPER.indexOf('node scripts/ci/with-shard-writer-lock.mjs', timeoutAt);
+    const pushAt = GROUP_HELPER.indexOf('bash scripts/lib/push-section-shard.sh "$section" it dist', lockAt);
+    expect(timeoutAt).toBeGreaterThan(-1);
+    expect(lockAt).toBeGreaterThan(timeoutAt);
+    expect(GROUP_HELPER.slice(lockAt, pushAt)).toContain('--section "$section" --locale it --policy wait');
+    expect(pushAt).toBeGreaterThan(lockAt);
     expect(GROUP_HELPER).not.toContain('3600s bash scripts/lib/push-section-shard.sh');
   });
 
