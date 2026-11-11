@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-11-10T21:28:16.523Z",
-  "runId": "42903245552",
+  "assembledAt": "2026-11-11T09:41:35.082Z",
+  "runId": "42993675098",
   "jobs": [
     {
       "id": "selecta-b92530adfcbe",
@@ -10,7 +10,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:02.699Z",
+      "crawledAt": "2026-11-11T09:41:24.266Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "Tessin",
@@ -63,8 +63,7 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin",
-        "technicien-de-service-m-w-d-selecta-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +75,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "technicien-de-service-m-w-d-selecta-tessin"
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -94,7 +93,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:02.699Z",
+      "validThrough": "2026-12-11T09:41:24.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +127,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:02.568Z",
+      "crawledAt": "2026-11-11T09:41:24.121Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "Zürich / Aargau",
@@ -182,17 +181,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:02.568Z",
+      "validThrough": "2026-12-11T09:41:24.121Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -216,7 +215,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:02.418Z",
+      "crawledAt": "2026-11-11T09:41:23.992Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "Wallis",
@@ -245,19 +244,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -275,7 +275,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:02.418Z",
+      "validThrough": "2026-12-11T09:41:23.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -309,7 +309,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:02.280Z",
+      "crawledAt": "2026-11-11T09:41:23.876Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Reinach BL / Kirchberg BE",
@@ -358,7 +358,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:28:02.280Z",
+      "validThrough": "2026-12-15T09:41:23.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -392,7 +392,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:02.106Z",
+      "crawledAt": "2026-11-11T09:41:23.218Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -444,7 +444,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:28:02.106Z",
+      "validThrough": "2026-12-15T09:41:23.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +478,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.972Z",
+      "crawledAt": "2026-11-11T09:41:22.504Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "Wädenswil bis Glarus",
@@ -527,7 +527,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.972Z",
+      "validThrough": "2026-12-11T09:41:22.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -561,7 +561,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.828Z",
+      "crawledAt": "2026-11-11T09:41:22.389Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "Dübendorf / Volketswil / Pfäffikon",
@@ -610,7 +610,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.828Z",
+      "validThrough": "2026-12-11T09:41:22.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -644,7 +644,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.637Z",
+      "crawledAt": "2026-11-11T09:41:22.275Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -693,7 +693,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.637Z",
+      "validThrough": "2026-12-11T09:41:22.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -727,7 +727,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.501Z",
+      "crawledAt": "2026-11-11T09:41:22.160Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -776,7 +776,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.501Z",
+      "validThrough": "2026-12-11T09:41:22.160Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -810,7 +810,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.366Z",
+      "crawledAt": "2026-11-11T09:41:22.047Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -867,7 +867,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.366Z",
+      "validThrough": "2026-12-11T09:41:22.047Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.235Z",
+      "crawledAt": "2026-11-11T09:41:21.930Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "Sargans / Landquart",
@@ -950,7 +950,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.235Z",
+      "validThrough": "2026-12-11T09:41:21.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -984,7 +984,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:01.079Z",
+      "crawledAt": "2026-11-11T09:41:21.221Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "primär Spiez",
@@ -1033,7 +1033,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:01.079Z",
+      "validThrough": "2026-12-11T09:41:21.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1067,7 +1067,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.950Z",
+      "crawledAt": "2026-11-11T09:41:21.106Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "Wolhusen / Luzern",
@@ -1116,7 +1116,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:00.950Z",
+      "validThrough": "2026-12-11T09:41:21.106Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1150,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.816Z",
+      "crawledAt": "2026-11-11T09:41:20.442Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "Oberwallis und Berner Oberland",
@@ -1205,7 +1205,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:00.816Z",
+      "validThrough": "2027-01-14T09:41:20.442Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1239,7 +1239,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.681Z",
+      "crawledAt": "2026-11-11T09:41:20.328Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1294,7 +1294,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:00.681Z",
+      "validThrough": "2026-12-11T09:41:20.328Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1328,7 +1328,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.549Z",
+      "crawledAt": "2026-11-11T09:41:20.207Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1377,7 +1377,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:00.549Z",
+      "validThrough": "2026-12-11T09:41:20.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1411,7 +1411,7 @@
       "url": "https://careers.selecta.ch/Job/4638",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.404Z",
+      "crawledAt": "2026-11-11T09:41:20.080Z",
       "addressLocality": "Bern - Betreuung der Kantine im Bundeshaus",
       "addressRegion": "BE",
       "streetAddress": "Bern - Betreuung der Kantine im Bundeshaus",
@@ -1466,16 +1466,16 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:28:00.404Z",
+      "validThrough": "2027-01-26T09:41:20.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-c7afcb1204c4",
       "slug": "servizi-del-personale-m-f-d-selecta-kirchberg-be",
       "slugByLocale": {
-        "de": "sachbearbeiter-services-m-w-d-selecta-kirchberg-be",
         "it": "servizi-del-personale-m-f-d-selecta-kirchberg-be",
         "en": "personnel-services-m-f-d-selecta-kirchberg-be",
+        "de": "sachbearbeiter-services-m-w-d-selecta-kirchberg-be",
         "fr": "services-du-personnel-h-f-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
@@ -1483,16 +1483,16 @@
       "companyDomain": "selecta.com",
       "title": "Sachbearbeiter Services (m/w/d)",
       "titleByLocale": {
-        "de": "Sachbearbeiter Services (m/w/d)",
         "it": "Servizi del personale (m/f/d)",
         "en": "Personnel Services (m/f/d)",
+        "de": "Sachbearbeiter Services (m/w/d)",
         "fr": "Services du personnel (h/f/d)"
       },
       "description": "Sachbearbeiter Services (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Betreuung des zentralen Postfachs\n• Bearbeitung von Rückerstattungsanfragen\n• Bestellung von Ersatzteilen und Verbrauchsmaterial\n• Kontrolle und Kontierung von Rechnungen\n• Verwaltung von Kleidung und Schlüsseln\n• Pflege und Verwaltung von Mitarbeiter-Stammdaten\n• Bearbeitung von Strafanträgen im Zusammenhang mit Sachbeschädigungen an Automaten\n• Organisation und Verwaltung der Zutritte bei Grosskunden\n• Unterstützung bei der halbjährlichen Inventur\n• Mitarbeit in Projekten zur Prozessoptimierung\n• Einführung neuer Mitarbeitender in die Aufgaben der Abteilung\n• Betreuung von Lernenden\n• Übernahme allgemeiner administrativer und organisatorischer Aufgaben Ausbildung\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation Profil\n• Erfahrung in administrativen Tätigkeiten\n• Ausgeprägte Kommunikationsfähigkeit und sicheres Auftreten\n• Sehr gute Deutsch- und Französischkenntnisse\n• Schnelle Auffassungsgabe und strukturierte Arbeitsweise\n• Selbstständig, belastbar und zuverlässig\n• Teamorientiert und proaktiv\n• Erfahrung in der Betreuung von Lernenden von Vorteil Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
-        "de": "Sachbearbeiter Services (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Betreuung des zentralen Postfachs\n• Bearbeitung von Rückerstattungsanfragen\n• Bestellung von Ersatzteilen und Verbrauchsmaterial\n• Kontrolle und Kontierung von Rechnungen\n• Verwaltung von Kleidung und Schlüsseln\n• Pflege und Verwaltung von Mitarbeiter-Stammdaten\n• Bearbeitung von Strafanträgen im Zusammenhang mit Sachbeschädigungen an Automaten\n• Organisation und Verwaltung der Zutritte bei Grosskunden\n• Unterstützung bei der halbjährlichen Inventur\n• Mitarbeit in Projekten zur Prozessoptimierung\n• Einführung neuer Mitarbeitender in die Aufgaben der Abteilung\n• Betreuung von Lernenden\n• Übernahme allgemeiner administrativer und organisatorischer Aufgaben Ausbildung\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation Profil\n• Erfahrung in administrativen Tätigkeiten\n• Ausgeprägte Kommunikationsfähigkeit und sicheres Auftreten\n• Sehr gute Deutsch- und Französischkenntnisse\n• Schnelle Auffassungsgabe und strukturierte Arbeitsweise\n• Selbstständig, belastbar und zuverlässig\n• Teamorientiert und proaktiv\n• Erfahrung in der Betreuung von Lernenden von Vorteil Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "it": "Servizi del personale (m/f/d) 100% Il Gruppo Selecta, con sede in Svizzera dal 1957, è leader europeo nella fornitura di caffè e soluzioni innovative per la tecnologia alimentare sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Kirchberg BE Inizio del lavoro immediatamente o d'accordo\n• Gestione della centrale casella postale\n• Trattamento delle richieste di rimborso\n• Ordinazione di pezzi di ricambio e materiali di consumo\n• Controllo e contabilità delle fatture\n• Gestione di abbigliamento e chiavi\n• Manutenzione e gestione dei dati di riferimento dei dipendenti\n• Trattamento di denunce penali in relazione ai danni alla proprietà sulle macchine\n• Organizzazione e gestione dell'accesso ai grandi clienti\n• Sostegno all'inventario semestrale\n• Collaborazione in progetti per l'ottimizzazione dei processi\n• Introduzione di nuovi dipendenti ai compiti del dipartimento\n• Cura degli studenti\n• Assunzione di compiti amministrativi e organizzativi generali\n• Formazione commerciale completa o profilo di qualificazione comparabile\n• Esperienza nelle attività amministrative\n• Forte capacità di comunicazione e presenza sicura\n• Ottima conoscenza del tedesco e del francese\n• Comprensione rapida e metodi di lavoro strutturati\n• Lavoratori autonomi, resilienti e affidabili\n• Gruppo orientato e proattivo\n• Esperienza nella cura degli studenti di vantaggio Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
         "en": "Personnel Services (m/f/d) 100% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, committed and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work Kirchberg BE Start of work immediately or by agreement Main tasks\n• Management of the central post office box\n• Processing of refund requests\n• Ordering of spare parts and consumables\n• Control and accounting of invoices\n• Management of clothing and keys\n• Maintenance and management of employee reference data\n• Processing of criminal complaints in connection with damage to property on machines\n• Organisation and management of access to large customers\n• Support for the semi-annual inventory\n• Collaboration in projects for process optimization\n• Introduction of new employees to the tasks of the department\n• Care of learners\n• Taking on general administrative and organisational tasks\n• Completed commercial training or comparable qualification profile\n• Experience in administrative activities\n• Strong communication capability and safe presence\n• Very good knowledge of German and French\n• Quick comprehension and structured working methods\n• Self-employed, resilient and reliable\n• Team-oriented and proactive\n• Experience in the care of learners of advantage Special application Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
+        "de": "Sachbearbeiter Services (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Betreuung des zentralen Postfachs\n• Bearbeitung von Rückerstattungsanfragen\n• Bestellung von Ersatzteilen und Verbrauchsmaterial\n• Kontrolle und Kontierung von Rechnungen\n• Verwaltung von Kleidung und Schlüsseln\n• Pflege und Verwaltung von Mitarbeiter-Stammdaten\n• Bearbeitung von Strafanträgen im Zusammenhang mit Sachbeschädigungen an Automaten\n• Organisation und Verwaltung der Zutritte bei Grosskunden\n• Unterstützung bei der halbjährlichen Inventur\n• Mitarbeit in Projekten zur Prozessoptimierung\n• Einführung neuer Mitarbeitender in die Aufgaben der Abteilung\n• Betreuung von Lernenden\n• Übernahme allgemeiner administrativer und organisatorischer Aufgaben Ausbildung\n• Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation Profil\n• Erfahrung in administrativen Tätigkeiten\n• Ausgeprägte Kommunikationsfähigkeit und sicheres Auftreten\n• Sehr gute Deutsch- und Französischkenntnisse\n• Schnelle Auffassungsgabe und strukturierte Arbeitsweise\n• Selbstständig, belastbar und zuverlässig\n• Teamorientiert und proaktiv\n• Erfahrung in der Betreuung von Lernenden von Vorteil Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "fr": "Services du personnel (h/f/d) 100% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de café et de solutions innovantes en matière de technologie alimentaire sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 employés hautement qualifiés, engagés et passionnés: des femmes qui créent des millions de moments de joie pour nos clients chaque jour: des femmes et leurs consommateurs: des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Kirchberg BE Début du travail immédiatement ou d'un commun accord Principales tâches\n• Gestion de la boîte postale centrale\n• Traitement des demandes de remboursement\n• Commande de pièces détachées et consommables\n• Contrôle et comptabilisation des factures\n• Gestion des vêtements et des clés\n• Entretien et gestion des données de référence des employés\n• Traitement des plaintes pénales pour dommages aux biens sur machines\n• Organisation et gestion de l'accès aux grands clients\n• Appui à l'inventaire semestriel\n• Collaboration dans des projets d'optimisation des processus\n• Introduction des nouveaux employés aux tâches du département\n• Prise en charge des apprenants\n• Prise en charge des tâches administratives et organisationnelles générales\n• Formation commerciale terminée ou profil de qualification comparable\n• Expérience des activités administratives\n• Forte capacité de communication et présence sûre\n• Très bonne connaissance de l'allemand et du français\n• Compréhension rapide et méthodes de travail structurées\n• Travailleurs indépendants, résilients et fiables\n• Orienté vers l'équipe et proactif\n• Expérience dans le soin des apprenants d'avantage Application spéciale Avons-nous suscité votre intérêt? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
       },
       "location": "Kirchberg BE",
@@ -1500,7 +1500,7 @@
       "url": "https://careers.selecta.ch/Job/4595",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:00.263Z",
+      "crawledAt": "2026-11-11T09:41:19.946Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -1521,13 +1521,26 @@
       "department": "",
       "jobReqId": "4595",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "_targetScope": {
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "previousSlugs": [
+        "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
+        ],
+        "en": [
+          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
+        ],
+        "fr": [
+          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
+        ]
+      },
+      "firstSeenAt": "2026-11-10T21:28:00.263Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1542,23 +1555,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:28:00.263Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:00.263Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
-        ],
-        "en": [
-          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
-        ],
-        "fr": [
-          "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-services-m-w-d-selecta-kirchberg-be"
-      ]
+      "validThrough": "2026-12-11T09:41:19.946Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-4c3d1a616231",
@@ -1642,7 +1640,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T09:36:20.829Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "selecta-0957b3462a29",
@@ -1729,7 +1727,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T09:36:20.697Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
