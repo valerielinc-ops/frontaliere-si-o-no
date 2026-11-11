@@ -10,7 +10,9 @@ import {
   isNonCvDocumentLabel,
   applicationEntryControls,
   formPostingMatch,
+  hasVacancySpecificPostingEvidence,
   hasApplicationSurface,
+  applicationEntryCarriesPostingId,
   initialPortalHandoffReason,
   namesAnotherEmployer,
   pageControls,
@@ -1541,5 +1543,70 @@ describe('translated historical answer identity', () => {
       portalQuestions: [question], draft: { portalAnswers: { answers: [{ answerId: 'portal_english_fluency_old', question: 'English fluency?', answer: 'Professional' }] } } });
     expect(candidate.portalQuestionsAnswered).toEqual([expect.objectContaining({ answerId: 'portal_english_fluency_old', answer: 'Professional' })]);
     expect(candidateAnswerForField(candidate, { label: question.question, kind: 'select', options: question.options.map(label => ({ label })) })).toEqual({ value: 'Professional', source: 'answers' });
+  });
+});
+
+describe('portal: identity on an exact posting route without a heading', () => {
+  const job = { company: 'Azienda Esempio SA', title: 'Project Manager' };
+  const postingUrl = 'https://jobs.example.test/jobs/01234567-89ab-cdef-0123-456789abcdef/details/';
+  const route = { pageUrl: postingUrl, postingUrl };
+  const pageText = `open navigation\n${job.company}\nDescrizione del ruolo\n${job.title}`;
+
+  it('uses the matching document title when the route has no h1 and ignores leading navigation chrome', () => {
+    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: job.title })).toBe(true);
+  });
+
+  it.each(['open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content'])
+  ('does not treat the «%s» row as an employer title candidate', (navigationLabel) => {
+    expect(hasVacancySpecificPostingEvidence(`${navigationLabel}\n${job.company}\n${job.title}`, job, route)).toBe(true);
+  });
+
+  it('rejects a different document title, another h1, and another employer in the page text', () => {
+    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: 'Office Coordinator' })).toBe(false);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, pageTitle: job.title, pageHeading: 'Office Coordinator',
+    })).toBe(false);
+    const otherEmployerJob = { company: 'Grand Hotel Esempio', title: 'Concierge' };
+    expect(hasVacancySpecificPostingEvidence('open navigation\nCONCIERGE | HOTEL SPLENDIDE', otherEmployerJob, {
+      ...route, pageTitle: otherEmployerJob.title,
+    })).toBe(false);
+  });
+
+  it('recognizes only standalone Italian application labels', () => {
+    for (const label of ['Applica', 'Applica ora', 'Applica adesso', 'Applica subito']) {
+      expect(startsApplication(label)).toBe(true);
+    }
+    expect(startsApplication('Si applica il CCL')).toBe(false);
+  });
+
+  it('does not read an Italian application label in the vacancy card as another employer', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUrl = `https://jobs.example.test/jobs/${uuid}/details/`;
+    const entry = {
+      text: 'Applica ora',
+      href: `https://apply.example.test/${uuid}/apply`,
+      vacancyContext: 'Grand Hotel Esempio Concierge Host (m/w/d) Applica ora',
+      frame: 0,
+    };
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [],
+      links: [entry],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Concierge Host (m/w/d)',
+      job: { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([entry]);
+  });
+
+  it('binds a full UUID posting segment and rejects a different UUID', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const otherUuid = 'fedcba98-7654-3210-fedc-ba9876543210';
+    const addressedPosting = `https://jobs.example.test/jobs/${uuid}/details/`;
+    expect(applicationEntryCarriesPostingId(`https://apply.example.test/${uuid}/apply`, addressedPosting)).toBe(true);
+    expect(applicationEntryCarriesPostingId(`https://apply.example.test/${otherUuid}/apply`, addressedPosting)).toBe(false);
   });
 });

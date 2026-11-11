@@ -139,6 +139,7 @@ const BOT_CHALLENGE_PATTERNS = [
 ];
 const EXPIRED_URL_PATTERNS = [/[?&]error=true/i];
 const APPLY_PATTERNS = [
+  /^applica(?: ora| adesso| subito)?$/i,
   /\bapply\b/i,
   /\bbewerben\b/i,
   /\bpostuler\b/i,
