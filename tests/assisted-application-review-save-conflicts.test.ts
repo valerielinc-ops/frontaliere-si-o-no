@@ -123,6 +123,41 @@ describe('review page save: contract and concurrency', () => {
     expect(store.read(FLOW)?.answers?.salary_expectation).toBe('CHF 100000');
   });
 
+  // Review PRR_kwDORN5k2M8AAAABXP_Row (#18091): the revisions, the save's comparison and the commit guard
+  // read the order-aware answer projection, the one an order-local answer is confirmed in.
+  it('refuses the second of two saves from one loaded page on an order-local answer, keeping the first', async () => {
+    const confirmed = await save(await load(), { portal_record_entry: 'Ja' });
+    expect(confirmed).toMatchObject({ status: 200 });
+    const order = store.read(BASE); const current = store.read(`${BASE}/ai_drafts/current`);
+    const projected = await loadRunnerAnswerContext({ db: store.db, orderId: ORDER, order, flow: store.read(FLOW), draft: current, nowMs: T0 });
+    expect(projected.orderAnswerSnapshots[orderQuestionAnswerIdentity(unownedPortalQuestion)]).toMatch(/^[a-f0-9]{64}$/);
+    expect(projected.flow.answers.portal_record_entry).toBe('Ja');
+
+    const page = await load();
+    expect(page.answers.portal_record_entry).toBe('Ja');
+    expect(await save(page, { portal_record_entry: 'Nein' })).toMatchObject({ status: 200, body: { ok: true } });
+    // A value other than the one this page loaded (here: cleared). The loaded value itself is what an
+    // untouched field sends back, which leaves another tab's newer answer alone (test below).
+    const second = await save(page, { portal_record_entry: '' });
+    expect(second).toMatchObject({ status: 409, body: { ok: false, error: 'changed_meanwhile' } });
+    expect(store.read(FLOW)?.answers?.portal_record_entry).toBe('Nein');
+
+    // The same answer changed between the save's read and its commit is refused by the transaction too.
+    const reloaded = await load();
+    const originalRunTransaction = store.db.runTransaction.bind(store.db);
+    let raced = false;
+    store.db.runTransaction = async (callback: (transaction: any) => Promise<any>) => {
+      if (!raced) {
+        raced = true;
+        await flowRef().set({ answers: { portal_record_entry: 'Ja' } }, { merge: true });
+      }
+      return originalRunTransaction(callback);
+    };
+    const racing = await save(reloaded, { portal_record_entry: '' });
+    expect(racing).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
+    expect(store.read(FLOW)?.answers?.portal_record_entry).toBe('Ja');
+  });
+
   it('keeps a newer answer from another tab that this tab did not touch, and saves the rest', async () => {
     seed([salaryQuestion, noticeQuestion]);
     const tabA = await load();

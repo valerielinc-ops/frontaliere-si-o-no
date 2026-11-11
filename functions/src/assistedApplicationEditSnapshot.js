@@ -69,6 +69,15 @@ export function candidateEditSnapshot({ secret, orderId, order, flow, draft, com
   return createHmac('sha256', key).update(material).digest('hex');
 }
 
+/**
+ * The stored answers the review compares, by question id: the order-aware projection the page is
+ * built from (the flow's answers with the order's confirmed answers over them). The page's
+ * revisions, the save's comparison and the commit-time guard all read this one projection.
+ */
+export function reviewAnswerValues({ orderId, order, flow = {}, draft, nowMs = Date.now() }) {
+  return candidateEditFlow({ orderId, order, flow, draft, nowMs }).answers || {};
+}
+
 /** A stored answer as the review page compares it: whitespace-normalized text, absent and empty alike. */
 export function answerRevisionText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();

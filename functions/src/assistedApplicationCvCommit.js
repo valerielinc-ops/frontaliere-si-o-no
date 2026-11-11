@@ -12,7 +12,7 @@ import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
-import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
+import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, reviewAnswerValues, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -129,8 +129,11 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   // must still be the one read, or already the one this request writes (the same save retried).
   const storedAnswers = guard.storedAnswers && typeof guard.storedAnswers === 'object' && !Array.isArray(guard.storedAnswers)
     ? guard.storedAnswers : {};
+  // The same order-aware projection the page and the save compared, rebuilt from the transaction's reads.
+  const storedNow = Object.keys(storedAnswers).length
+    ? reviewAnswerValues({ orderId, order, flow, draft, nowMs: guard.nowMs }) : {};
   for (const [id, expected] of Object.entries(storedAnswers)) {
-    const now = answerRevisionText(flow?.answers?.[id]);
+    const now = answerRevisionText(storedNow[id]);
     if (now !== expected?.before && now !== expected?.after) return false;
   }
   const answerIds = Array.isArray(guard.answerIds) ? guard.answerIds : [];
