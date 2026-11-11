@@ -1,0 +1,25 @@
+{
+  "companyKey": "scherrer-conseils-ch",
+  "companyName": "Scherrer Conseils",
+  "companyHost": "scherrer-conseils.ch",
+  "verifiedEmployerDomain": "scherrer-conseils.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://scherrer-conseils.ch/emploi/emploi/immobilier/"
+  ],
+  "detailTemplate": "/post-ouvert/emploi/immobilier/2026/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Gérant(e) PPE confirmé(e)",
+    "Gérant(e) technique confirmé(e)",
+    "Gestionnaire Contentieux"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-11T13:18:02.662Z",
+  "candidateKey": "scherrer-conseils@geneve"
+}

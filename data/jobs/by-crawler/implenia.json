@@ -1989,7 +1989,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2036,7 +2036,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2047,7 +2047,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -5068,9 +5068,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5122,15 +5122,16 @@
           "initiativbewerbung-implenia-ch"
         ],
         "en": [
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,

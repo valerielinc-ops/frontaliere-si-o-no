@@ -66,7 +66,12 @@ jobs:
         uses: ./.github/actions/ci-npm-setup
 
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        run: |
+          if command -v sudo >/dev/null 2>&1; then
+            sudo mkdir -p /etc/apt/apt.conf.d
+            printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99network-tuning >/dev/null
+          fi
+          npx playwright install chromium || npx playwright install --with-deps chromium
 
       - name: Portal runner on the fake portal
         env:
@@ -143,7 +148,12 @@ jobs:
         uses: ./.github/actions/ci-npm-setup
 
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        run: |
+          if command -v sudo >/dev/null 2>&1; then
+            sudo mkdir -p /etc/apt/apt.conf.d
+            printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99network-tuning >/dev/null
+          fi
+          npx playwright install chromium || npx playwright install --with-deps chromium
 
       - name: Fill extension on a JOIN-like wizard
         run: node scripts/assisted-application/extension-e2e.mjs
