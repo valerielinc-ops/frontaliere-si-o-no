@@ -29,6 +29,7 @@ const CANDIDATE_EMAIL_LABELS: Array<[RegExp, (match: RegExpMatchArray) => string
   [/^auto_candidate_handoff$/, () => 'Invio dal portale affidato al candidato'],
   [/^auto_candidate_handoff_reminder$/, () => 'Promemoria invio dal portale'],
   [/^auto_candidate_posting_closed$/, () => 'Annuncio chiuso e rimborso'],
+  [/^auto_candidate_posting_withdrawn$/, () => 'Posizione ritirata dal datore (nessun rimborso)'],
   [/^followup_review_(\d+)$/, (m) => `Follow-up ${m[1]} da rivedere`],
   [/^interview_prep$/, () => 'Preparazione al colloquio'],
   [/^employer_message_forward$/, () => 'Risposta del datore inoltrata'],

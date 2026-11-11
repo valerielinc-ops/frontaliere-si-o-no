@@ -36,7 +36,7 @@ import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
-import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
+import { applyAutomationEvent, confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandButton, brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { buildOrderPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
@@ -335,6 +335,27 @@ const REFUSAL_WORD_RE = phrases(String.raw`absag\p{L}*|abgesagt|abgelehnt|reject
 const OFFER_RE = phrases(String.raw`(?:pleased|happy|delighted) to offer you|offer you the (?:position|role|job)|your (?:job|employment) offer|freuen uns[,:;]?\s+${words(5)}anzubieten|lieti di (?:offrir|proporl)\p{L}*|offre de poste`);
 const CONTRACT_RE = phrases(String.raw`employment contract|arbeitsvertrag|contratto di lavoro|contrat de travail`);
 const CONTRACT_SENT_RE = phrases(String.raw`attached|enclosed|anbei|beigefügt|allegato|ci-jointe?|sign\p{L}*|unterschreib\p{L}*|unterzeich\p{L}*|firmar\p{L}*`);
+// The employer withdrew or cancelled the posting itself (owner decision 2026-11-11), in the four languages:
+// «the position has been withdrawn», «die Ausschreibung wurde zurückgezogen», «la posizione è stata ritirata»,
+// «le poste a été annulé». The subject is the posting, never the application («your application was
+// withdrawn» is not this), and «filled / besetzt» stays a rejection (REJECTION_RE): a post given to someone
+// else is no withdrawal of the posting. A posting put on hold («put on hold», «sistiert», «sospesa») may reopen:
+// it is no withdrawal either (review of #18084).
+const POSTING_NOUN = String.raw`(?:position|vacancy|job (?:posting|opening|advert(?:isement)?|ad)|posting|opening|requisition|recruitment|stelle|stellenausschreibung|ausschreibung|stellenanzeige|stelleninserat|inserat|vakanz|rekrutierung|posizione|offerta(?: di lavoro)?|annuncio|selezione|ricerca di personale|concorso|poste|offre(?: d['’]emploi)?|annonce|recrutement)`;
+const POSTING_WITHDRAWN_RE = phrases([
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:has been|have been|was|is now|had to be)\s+(?:\S+\s+)?(?:withdrawn|cancell?ed|retracted|taken down)`,
+  String.raw`(?:withdraw|cancel|retract)\p{L}*\s+(?:the|this|our)\s+(?:\S+\s+){0,2}?${POSTING_NOUN}`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:wurde|ist|wird|musste)\s+(?:\S+\s+){0,2}?(?:zurückgezogen|storniert|annulliert|abgesagt|gestrichen)`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?zurück(?:zu)?ziehen`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:zurückgezogen|storniert|annulliert|abgesagt|gestrichen)\s+(?:wurde|worden ist|werden musste)`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:è|e) stat[ao]\s+(?:\S+\s+)?(?:ritirat[ao]|annullat[ao]|revocat[ao])`,
+  String.raw`(?:ritirare|annullare|revocare) (?:la|il|l['’]|questa|questo) ?(?:\S+\s+){0,2}?${POSTING_NOUN}`,
+  String.raw`${POSTING_NOUN}\s+(?:\S+\s+){0,6}?(?:a été|est)\s+(?:\S+\s+)?(?:retiré|annulé|supprimé)e?s?`,
+].join('|'));
+const OWN_APPLICATION_RE = phrases(String.raw`your application|ihre bewerbung|deine bewerbung|la (?:sua|tua) candidatura|votre candidature`);
+const withdrawsPosting = (sentence) => POSTING_WITHDRAWN_RE.test(sentence)
+  && !HYPOTHETICAL_RE.test(sentence) && !NEGATED.test(sentence) && !OWN_APPLICATION_RE.test(sentence) && !/\?\s*$/.test(sentence);
+
 const ASSESSMENT_RE = phrases(String.raw`assessment\p{L}*|online[- ]test|test online|case study|video[- ]interview|hirevue|codility`);
 const COMPLETE_RE = phrases(String.raw`complete|completare|compl[ée]ter|absolvieren|durchf[üu]hren|ausf[üu]llen|svolgere|passer`);
 const DOCUMENT_REQUEST_RE = phrases(String.raw`please send|inviarci|zusenden|nous faire parvenir`);
@@ -501,8 +522,17 @@ function readByRules({ subject = '', text = '' }) {
     sourceText,
     category: categoryOfSentences(sentences, topic, body),
     verificationAsked: sentences.some(asksAccountVerification),
+    postingWithdrawn: sentences.some(withdrawsPosting),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
+}
+
+/**
+ * The employer's own e-mail says it withdrew or cancelled the posting (POSTING_WITHDRAWN_RE): proof for the
+ * flow (assistedApplicationEmployerWithdrawal.js, `employer_mail`), from an authenticated sender only.
+ */
+export function postingWithdrawnByMail(message) {
+  return readByRules(message).postingWithdrawn;
 }
 
 /**
@@ -938,6 +968,18 @@ async function linkOfWaitingAccount(orderRef, { sourceText, linkAsked, authentic
  * with Valerie, as before, and never forwards the message twice (a retry of
  * the trigger would). The employer's next message settles it again.
  */
+async function withdrawForEmployerMail({ db, orderId, receivedAt, runEffect, nowMs }) {
+  try {
+    return await applyAutomationEvent({
+      db, orderId, runEffect, nowMs, actor: 'employer-mail',
+      event: { type: 'posting_closed', reason: 'employer_mail', closedAt: Number(receivedAt) || nowMs },
+    });
+  } catch (error) {
+    console.error('[assistedApplicationInbound] employer withdrawal not applied', orderId, error instanceof Error ? error.message : String(error));
+    return null;
+  }
+}
+
 async function settleSubmission(args) {
   try {
     return await confirmSubmissionByEmployer(args);
@@ -1313,11 +1355,18 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
+    // The employer's authenticated e-mail says the posting was withdrawn (owner decision 2026-11-11): the flow
+    // withdraws the application when its round waited for the candidate and nothing may have left
+    // (assistedApplicationFlow.js); otherwise it changes nothing, and the runner reads the posting itself.
+    const employerWithdrawal = runEffect && !settled?.ok && authenticated && !keptFromCandidate && rules.postingWithdrawn
+      ? await withdrawForEmployerMail({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
+      : null;
     return {
       ok: true,
       category: classification.category,
       forwarded,
       ...(settled?.ok ? { submissionConfirmed: true } : {}),
+      ...(employerWithdrawal?.ok ? { postingWithdrawn: true } : {}),
     };
   } catch (error) {
     // Back to `received`: the trigger's retry processes it again.

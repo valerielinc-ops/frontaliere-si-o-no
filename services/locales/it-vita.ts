@@ -348,6 +348,7 @@ const translations: Record<string, string> = {
  'profile.paidApplications.help.awaitingMaterials': 'Carica il CV per avviare la candidatura.',
  'profile.paidApplications.help.needsCandidate': 'Ti abbiamo inviato un’email con il passaggio da completare.',
  'profile.paidApplications.help.underReview': 'Il team sta verificando i prossimi passaggi. Ti aggiorneremo via email.',
+ 'profile.paidApplications.help.withdrawnByEmployer': 'Il datore di lavoro ha ritirato la posizione: la candidatura non può più essere inviata ed è stata ritirata.',
  'profile.paidApplications.upload': 'Completa la candidatura',
  'profile.cv.title': 'Documento associato al profilo',
  'profile.cv.subtitle': 'Qui trovi il file associato e i dati testuali estratti. Controlla il nome per verificare che sia il tuo CV.',

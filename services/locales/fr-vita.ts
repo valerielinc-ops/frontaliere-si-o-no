@@ -341,6 +341,7 @@ const frVita: Record<string, string> = {
  'profile.paidApplications.help.awaitingMaterials': 'Importez votre CV pour démarrer la candidature.',
  'profile.paidApplications.help.needsCandidate': 'Nous vous avons envoyé un e-mail avec l’étape à compléter.',
  'profile.paidApplications.help.underReview': 'Notre équipe vérifie les prochaines étapes. Nous vous informerons par e-mail.',
+ 'profile.paidApplications.help.withdrawnByEmployer': 'L’employeur a retiré le poste : la candidature ne peut plus être envoyée et a été retirée.',
  'profile.paidApplications.upload': 'Compléter la candidature',
  'profile.cv.title': 'Document associé au profil',
  'profile.cv.subtitle': 'Cette section indique le fichier associé et le texte qui en a été extrait. Vérifiez le nom du fichier pour confirmer qu’il s’agit de votre CV.',

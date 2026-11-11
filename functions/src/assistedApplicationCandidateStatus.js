@@ -8,6 +8,7 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { CANDIDATE_ACTION_STATES, candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
+import { EMPLOYER_WITHDRAWAL_REASON } from './assistedApplicationEmployerWithdrawal.js';
 import { flowRefFor } from './assistedApplicationAutomation.js';
 import {
   buildOrderPageUrl,
@@ -106,6 +107,8 @@ async function serializeCandidateApplication(db, doc, order, getSecret) {
     jobUrl: safeHttpsUrl(order.jobUrl),
     source: order.billingMode === 'application_concierge' ? 'concierge' : 'single',
     status,
+    // Who withdrew it, when it was the employer (owner decision 2026-11-11): the page says why it is archived.
+    ...(status === 'withdrawn' && order.withdrawalReason === EMPLOYER_WITHDRAWAL_REASON ? { withdrawnBy: 'employer' } : {}),
     ...(employerResponseViewValue ? { employerResponse: employerResponseViewValue } : {}),
     ...(employerResponseTimelineViewValue.length ? { employerResponseTimeline: employerResponseTimelineViewValue } : {}),
     updatedAt: latestIsoDate(employerResponseViewValue?.receivedAt, order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),

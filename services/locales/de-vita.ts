@@ -341,6 +341,7 @@ const deVita: Record<string, string> = {
  'profile.paidApplications.help.awaitingMaterials': 'Lade deinen Lebenslauf hoch, damit die Bewerbung starten kann.',
  'profile.paidApplications.help.needsCandidate': 'Wir haben dir eine E-Mail mit dem nächsten Schritt geschickt.',
  'profile.paidApplications.help.underReview': 'Unser Team prüft die nächsten Schritte. Wir informieren dich per E-Mail.',
+ 'profile.paidApplications.help.withdrawnByEmployer': 'Der Arbeitgeber hat die Stelle zurückgezogen: Die Bewerbung kann nicht mehr versendet werden und wurde zurückgezogen.',
  'profile.paidApplications.upload': 'Bewerbung vervollständigen',
  'profile.cv.title': 'Mit deinem Profil verknüpftes Dokument',
  'profile.cv.subtitle': 'Hier siehst du die verknüpfte Datei und den daraus extrahierten Text. Prüfe den Dateinamen, um sicherzugehen, dass es dein Lebenslauf ist.',

@@ -341,6 +341,7 @@ const enVita: Record<string, string> = {
  'profile.paidApplications.help.awaitingMaterials': 'Upload your CV to get the application started.',
  'profile.paidApplications.help.needsCandidate': 'We emailed you a link with the next step to complete.',
  'profile.paidApplications.help.underReview': 'Our team is checking the next steps. We’ll update you by email.',
+ 'profile.paidApplications.help.withdrawnByEmployer': 'The employer withdrew the position: the application can no longer be sent and has been withdrawn.',
  'profile.paidApplications.upload': 'Complete application',
  'profile.cv.title': 'Document linked to your profile',
  'profile.cv.subtitle': 'This shows the linked file and any text extracted from it. Check the filename to confirm it is your CV.',
