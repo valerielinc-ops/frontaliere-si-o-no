@@ -288,6 +288,7 @@ describe('jobs SEO disk HTML reuse', () => {
       new Date(),
     );
     const fragments: ActiveJobReuseFragments = {
+      jobSeed: '{}',
       jobPostingDatePosted: resolved.value,
       jobPostingDateProvenance: resolved.provenance,
       jobPostingValidThrough: new Date(Date.now() + 86_400_000).toISOString(),
@@ -379,15 +380,18 @@ describe('jobs SEO disk HTML reuse', () => {
       marker('hero-badges', 'old badges'),
       marker('mobile-action', 'old action'),
       marker('recent-articles', 'old feed'),
+      '<script>window.__JOB_SEED__={"crawledAt":"2026-10-23T08:00:00.000Z"};</script>',
     ].join('');
     const expected = [
       marker('job-posting', currentPosting),
       marker('hero-badges', 'new badges'),
       marker('mobile-action', 'new action'),
       marker('recent-articles', 'new feed'),
+      '<script>window.__JOB_SEED__={"crawledAt":"2026-10-24T08:00:00.000Z"};</script>',
     ].join('');
 
     expect(rewriteActiveJobHtml(cached, {
+      jobSeed: '{"crawledAt":"2026-10-24T08:00:00.000Z"}',
       jobPostingDatePosted: '2026-10-20T08:00:00.000Z',
       jobPostingDateProvenance: 'reported',
       jobPostingValidThrough: '2026-12-21T08:00:00.000Z',
@@ -411,18 +415,21 @@ describe('jobs SEO disk HTML reuse', () => {
     )).toThrow('missing JobPosting JSON-LD field: crawledAt');
   });
 
-  it('fails closed when the current job has no crawledAt to publish', () => {
+  it('removes a cached crawledAt when the current job has no value to publish', () => {
     const fragment = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
-    expect(() => replaceActiveJobPostingDates(
+    expect(replaceActiveJobPostingDates(
       fragment,
       '2026-10-20T08:00:00.000Z',
       '2026-12-21T08:00:00.000Z',
       null,
-    )).toThrow('current JobPosting crawledAt unavailable');
+    )).toBe('<script type="application/ld+json">'
+      + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
+      + '"validThrough":"2026-12-21T08:00:00.000Z"}'
+      + '</script>');
   });
 
   it('keeps related-job order and the reuse digest stable across crawl heartbeats', () => {
@@ -487,12 +494,14 @@ describe('jobs SEO disk HTML reuse', () => {
       + marker('hero-badges', 'old-badges')
       + marker('mobile-action', 'old-action')
       + marker('recent-articles', 'old-feed')
+      + '<script>window.__JOB_SEED__={"crawledAt":"old"};</script>'
       + '</body></html>';
     const currentCanonical = '<html><head></head><body>'
       + marker('job-posting', 'current-date')
       + marker('hero-badges', 'current-badges')
       + marker('mobile-action', 'current-action')
       + marker('recent-articles', 'current-feed')
+      + '<script>window.__JOB_SEED__={"crawledAt":"current"};</script>'
       + '</body></html>';
     const cachedBridge = previousCanonical.replace(
       '</head>',
@@ -552,6 +561,76 @@ describe('jobs SEO disk HTML reuse', () => {
         mismatches: 0,
       });
     } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('persists current raw HTML after a cache hit for later active bridge rewrites', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/fixture/';
+    const input = { jobId: 'job-1', locale: 'it', slug: 'fixture' };
+    const oldHtml = '<html><head><meta name="ft-build-id" content="old-build"></head>'
+      + '<!-- jobs-seo-reuse:job-posting:start -->old-crawl<!-- jobs-seo-reuse:job-posting:end --></html>';
+    const currentHtml = oldHtml.replace('old-crawl', 'today-crawl');
+    const inputHash = computeInputHash(input, 'active-job');
+    let firstReuse: Awaited<ReturnType<typeof createReuse>> | null = null;
+    let secondReuse: Awaited<ReturnType<typeof createReuse>> | null = null;
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, oldHtml);
+      firstReuse = await createReuse(rootDir);
+      const legacyCandidate = firstReuse.lookup('it', pagePath, 'active-job', input, 'active');
+      firstReuse.finish(legacyCandidate, oldHtml);
+
+      secondReuse = await createReuse(rootDir);
+      const candidate = secondReuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        input,
+        'active',
+        null,
+        { rewriteHtml: (html: string) => html.replace('old-crawl', 'today-crawl') },
+      );
+      expect(candidate).toMatchObject({ hit: true, storage: 'pack' });
+      expect(candidate.html).toBe(currentHtml);
+      secondReuse.finish(candidate, currentHtml);
+
+      expect(secondReuse.readHtml('it', pagePath, 'active-job', inputHash, 'today-build'))
+        .toBe(refreshHtmlBuildId(currentHtml, 'today-build'));
+    } finally {
+      firstReuse?.release();
+      secondReuse?.release();
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('does not return a stale raw bridge source when refreshing its cache entry fails', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/fixture/';
+    const input = { jobId: 'job-1', locale: 'it', slug: 'fixture' };
+    const oldHtml = '<html><!-- jobs-seo-reuse:job-posting:start -->old-crawl<!-- jobs-seo-reuse:job-posting:end --></html>';
+    const inputHash = computeInputHash(input, 'active-job');
+    let reuse: Awaited<ReturnType<typeof createReuse>> | null = null;
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', input);
+      writeCachedHtml(rootDir, pagePath, 'active-job', input, oldHtml);
+      reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        input,
+        'active',
+        null,
+        { rewriteHtml: (html: string) => html.replace('old-crawl', 'today-crawl') },
+      );
+      vi.spyOn(reuse.packStore('it', 'active'), 'append').mockReturnValue(false);
+      reuse.finish(candidate, candidate.html);
+
+      expect(reuse.readHtml('it', pagePath, 'active-job', inputHash)).toBeNull();
+    } finally {
+      reuse?.release();
       fs.rmSync(rootDir, { recursive: true, force: true });
     }
   });
