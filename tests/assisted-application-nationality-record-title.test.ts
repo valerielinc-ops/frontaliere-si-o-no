@@ -184,7 +184,9 @@ describe('the criminal record: always no conviction (owner decision 2026-11-11)'
     expect(value({ id: 'c', type: 'checkbox', question: 'Ich bestätige, dass keine Einträge im Strafregister bestehen.' })).toBe('true');
     expect(value(choice('Dichiaro di non avere condanne penali e di non avere procedimenti penali in corso', ['Sì', 'No']))).toBe('Sì');
     expect(value(choice('Ist Ihr Strafregisterauszug einwandfrei?'))).toBe('Ja');
-    expect(value(choice('Puoi fornire un casellario giudiziale pulito?', ['Yes', 'No']))).toBe('Yes');
+    // A request to provide the paper stays with the candidate, clean or not (review of #18085).
+    expect(value(choice('Puoi fornire un casellario giudiziale pulito?', ['Yes', 'No']))).toBeNull();
+    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Can you provide a clean criminal-record extract?' }, legacy, { locale: 'en' })).toBeNull();
     // A statement of an entry is not made: the box stays unticked.
     expect(value({ id: 'c', type: 'checkbox', question: 'Ich habe Einträge im Strafregister' })).toBe('false');
     // A negated question reads both ways: it stays with the candidate.

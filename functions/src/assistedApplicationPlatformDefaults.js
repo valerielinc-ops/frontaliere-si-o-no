@@ -1367,6 +1367,8 @@ const NOT_DEBT = /\bpoursuites? penales?\b/g;
 const ATTACH = /\b(?:allega\w*|alleg[ao]|upload\w*|hochlad\w*|carica\w*|attach\w*|beileg\w*|beifug\w*|joindre|anhang\w*|scan\w*|pdf|file|datei\w*|fichier\w*|kopie|copia|copy|copie)\b/;
 // A record with no entry: the words that make a sentence say «there is none».
 const CLEAN_RECORD = /\b(?:pulit\w*|incensurat\w*|einwandfrei\w*|unbescholten\w*|leer\w*|blank|clean|vierge|(?:frei von|ohne) (?:jeglich\w* )?(?:vorstraf\w*|eintrag\w*|eintrage\w*|strafregistereintrag\w*)|free (?:of|from) (?:any )?(?:criminal|conviction\w*|record\w*)|without (?:a |any )?(?:criminal|conviction\w*|record\w*)|(?:privo|priva|senza) (?:di )?(?:precedenti|condann\w*|carichi)|sans (?:aucun\w* )?(?:condamnation\w*|antecedent\w*|inscription\w*))\b/;
+// A request to hand over the paper (review of #18085): the candidate's, even when it says the paper is clean.
+const PROVIDE_DOCUMENT = /\b(?:vorleg\w*|vorweis\w*|einreich\w*|beileg\w*|beibring\w*|bring|provide|submit|present|presentar\w*|furnish|fornir\w*|produrr\w*|obtain|bestell\w*|richied\w*|joindre|fournir|upload\w*|hochlad\w*|carica\w*|allega\w*)\b/;
 // Consent to a check of the record is a consent, never a statement about it.
 const RECORD_CHECK = /\b(?:consens\w*|acconsent\w*|consent\w*|einwillig\w*|zustimm\w*|einverstanden|autoris\w*|accett\w*|accept\w*|agree\w*|d accord|verific\w*|check\w*|prufung\w*|uberprufung\w*|kontroll\w*|controll\w*|background)\b/;
 const NEGATION = /\b(?:kein\w*|nicht|not|non|nessun\w*|aucun\w*|never|nie|niemals|mai|jamais|no (?:criminal|conviction\w*|record\w*|entr\w*|pending))\b/;
@@ -1398,9 +1400,9 @@ function isCriminalRecordField(question) {
   if (ATTACH.test(text) || RECORD_CHECK.test(text)) return false;
   const polarity = criminalRecordPolarity(question);
   if (!polarity) return false;
-  // «Puoi fornire un casellario giudiziale pulito?» says the record is clean; «Puoi fornire l'estratto del
-  // casellario?» only asks for the paper.
-  if (LEGAL_DOCUMENT_REQUEST.test(text) && polarity !== 'absence') return false;
+  // «Puoi fornire l'estratto del casellario?» and «Can you provide a clean criminal-record extract?» ask for the
+  // paper: the candidate's (review of #18085). «Ist Ihr Strafregisterauszug einwandfrei?» asks about the record.
+  if (LEGAL_DOCUMENT_REQUEST.test(text) && (polarity !== 'absence' || PROVIDE_DOCUMENT.test(text))) return false;
   if (isBinary(question) || optionsOf(question).length) return true;
   // A free text field only when it asks («Hai precedenti penali?»): a bare caption («Strafregister») may be the slot
   // of the extract a runner reported as text.
