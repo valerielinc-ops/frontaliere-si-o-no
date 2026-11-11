@@ -3699,8 +3699,8 @@
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-frauenfeld",
         "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-frauenfeld",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-frauenfeld",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-frauenfeld"
+        "en": "food-non-food-sales-associate-otto-s-ag-frauenfeld",
+        "fr": "collaborateur-commercial-in-food-non-food-otto-s-ag-frauenfeld"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3708,7 +3708,7 @@
       "title": "Verkaufsmitarbeiter:in Food/Non-Food",
       "titleByLocale": {
         "de": "Verkaufsmitarbeiter:in Food/Non-Food",
-        "it": "Verkaufsmitarbeiter:in Food/Non-Food",
+        "it": "Addetto/a alle vendite Food/Non Food",
         "en": "Food/Non-Food Sales Associate",
         "fr": "Collaborateur commercial :in Food/Non-Food"
       },
@@ -4233,9 +4233,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4286,17 +4286,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -7238,12 +7239,12 @@
     },
     {
       "id": "ottos-23de6ed88cf8",
-      "slug": "gerant-m-w-d-otto-s-ag-lausanne",
+      "slug": "manager-m-f-otto-s-ag-lausanne",
       "slugByLocale": {
         "fr": "gerant-h-f-ottos-lausanne",
-        "it": "gerant-m-w-d-otto-s-ag-lausanne",
+        "it": "manager-m-f-otto-s-ag-lausanne",
         "en": "gerant-h-f-ottos-lausanne",
-        "de": "gerant-h-f-ottos-lausanne"
+        "de": "manager-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7295,11 +7296,16 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "gerant-h-f-ottos-lausanne",
+          "gerant-m-w-d-otto-s-ag-lausanne"
+        ],
+        "de": [
           "gerant-h-f-ottos-lausanne"
         ]
       },
       "previousSlugs": [
-        "gerant-h-f-ottos-lausanne"
+        "gerant-h-f-ottos-lausanne",
+        "gerant-m-w-d-otto-s-ag-lausanne"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

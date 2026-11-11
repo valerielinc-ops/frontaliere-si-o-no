@@ -857,12 +857,12 @@
     },
     {
       "id": "privatklinik-bethanien-fa1508f16603",
-      "slug": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
+      "slug": "curatore-trice-di-magazzinaggio-sala-operatoria-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "it": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "en": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "fr": "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        "it": "curatore-trice-di-magazzinaggio-sala-operatoria-privatklinik-bethanien-zurich",
+        "en": "storage-nurse-in-the-operating-room-privatklinik-bethanien-zurich",
+        "fr": "infirmier-infirmiere-de-stockage-en-salle-d-operation-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -923,7 +923,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:25:28.300Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "en": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "fr": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ]
+      },
+      "previousSlugs": [
+        "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+      ]
     },
     {
       "id": "privatklinik-bethanien-9393d055282f",

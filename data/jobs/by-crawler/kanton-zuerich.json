@@ -9957,8 +9957,8 @@
       "slugByLocale": {
         "de": "leiter-in-amtssekretariat-kanton-zuerich-zurich",
         "it": "responsabile-amtssekretariat-kantonale-verwaltung-zurich",
-        "en": "leiter-in-amtssekretariat-kantonale-verwaltung-zurich-zurich",
-        "fr": "leiter-in-amtssekretariat-kantonale-verwaltung-zurich-zurich"
+        "en": "head-of-the-official-secretariat-kantonale-verwaltung-zurich-zurich",
+        "fr": "responsable-du-secretariat-officiel-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10011,10 +10011,17 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-amtssekretariat-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "leiter-in-amtssekretariat-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "leiter-in-amtssekretariat-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-in-amtssekretariat-kanton-zuerich-zurich"
+        "leiter-in-amtssekretariat-kanton-zuerich-zurich",
+        "leiter-in-amtssekretariat-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -13564,12 +13571,12 @@
     },
     {
       "id": "kanton-zuerich-7ec62a45016b",
-      "slug": "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf",
+      "slug": "meccatronico-a-di-automobili-kantonale-verwaltung-zurich-urdorf",
       "slugByLocale": {
         "de": "automobilmechatroniker-in-kanton-zuerich-urdorf",
-        "it": "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf",
-        "en": "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf",
-        "fr": "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf"
+        "it": "meccatronico-a-di-automobili-kantonale-verwaltung-zurich-urdorf",
+        "en": "automotive-mechatronics-engineer-kantonale-verwaltung-zurich-urdorf",
+        "fr": "mecatronicien-ne-automobile-kantonale-verwaltung-zurich-urdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13621,11 +13628,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "automobilmechatroniker-in-kanton-zuerich-urdorf"
+          "automobilmechatroniker-in-kanton-zuerich-urdorf",
+          "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf"
+        ],
+        "en": [
+          "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf"
+        ],
+        "fr": [
+          "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf"
         ]
       },
       "previousSlugs": [
-        "automobilmechatroniker-in-kanton-zuerich-urdorf"
+        "automobilmechatroniker-in-kanton-zuerich-urdorf",
+        "automobilmechatroniker-in-kantonale-verwaltung-zurich-urdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13648,12 +13663,12 @@
     },
     {
       "id": "kanton-zuerich-dbe14e8f512c",
-      "slug": "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich",
+      "slug": "gestione-del-team-in-custodia-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "teamleitung-untersuchungshaft-kanton-zuerich-zurich",
-        "it": "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich",
-        "en": "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich",
-        "fr": "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich"
+        "it": "gestione-del-team-in-custodia-kantonale-verwaltung-zurich-zurich",
+        "en": "team-management-in-custody-kantonale-verwaltung-zurich-zurich",
+        "fr": "gestion-de-l-equipe-en-detention-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13704,11 +13719,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-untersuchungshaft-kanton-zuerich-zurich"
+          "teamleitung-untersuchungshaft-kanton-zuerich-zurich",
+          "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleitung-untersuchungshaft-kanton-zuerich-zurich"
+        "teamleitung-untersuchungshaft-kanton-zuerich-zurich",
+        "teamleitung-untersuchungshaft-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

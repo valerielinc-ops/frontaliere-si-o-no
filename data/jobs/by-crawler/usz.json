@@ -18318,7 +18318,7 @@
       "companyDomain": "usz.ch",
       "title": "Verwaltungssekretär:in für das Institut für Notfallmedizin (Departement für Innere Medizin) 50-100%",
       "titleByLocale": {
-        "it": "Verwaltungssekretär:in per das Institut per Notfallmedizin (Departement per Innere Medizin) 50-100%",
+        "it": "Segretario/a amministrativo/a per l'Istituto di Medicina d'Urgenza (Dipartimento di Medicina Interna) 50-100%",
         "en": "Administrative Assistant for the Institute of Emergency Medicine (Department of Internal Medicine) 50-100%",
         "de": "Verwaltungssekretär:in für das Institut für Notfallmedizin (Departement für Innere Medizin) 50-100%",
         "fr": "Assistant administratif pour l'Institut de médecine d'urgence (Département de médecine interne) 50-100 %"
@@ -18474,12 +18474,12 @@
     },
     {
       "id": "usz-643deb3e04bf",
-      "slug": "verwaltungsassistent-in-per-la-klinik-per-infektionskrankheiten-e-spitalhygiene-40-60-universitatsspital-zurich-usz-zurich",
+      "slug": "assistente-amministrativo-per-la-clinica-per-le-malattie-infettive-e-l-igiene-ospedaliera-40-60-universitatsspital",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60",
-        "it": "verwaltungsassistent-in-per-la-klinik-per-infektionskrankheiten-e-spitalhygiene-40-60-universitatsspital-zurich-usz-zurich",
-        "en": "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60",
-        "fr": "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60"
+        "it": "assistente-amministrativo-per-la-clinica-per-le-malattie-infettive-e-l-igiene-ospedaliera-40-60-universitatsspital",
+        "en": "infectious-disease-and-hospital-hygiene-clinic-administrative-assistant-40-60-universitatsspital-zurich-usz-zurich",
+        "fr": "assistant-e-administratif-e-de-la-clinique-des-maladies-infectieuses-et-de-l-hygiene-hospitaliere-40-60"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18527,11 +18527,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60",
+          "verwaltungsassistent-in-per-la-klinik-per-infektionskrankheiten-e-spitalhygiene-40-60-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60"
+        ],
+        "fr": [
           "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60"
         ]
       },
       "previousSlugs": [
-        "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60"
+        "verwaltungsassistent-in-fur-die-klinik-fur-infektionskrankheiten-und-spitalhygiene-40-60",
+        "verwaltungsassistent-in-per-la-klinik-per-infektionskrankheiten-e-spitalhygiene-40-60-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -18636,7 +18644,7 @@
       "id": "usz-9c73a19de18d",
       "slug": "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-zurich-54eb1f8219",
       "slugByLocale": {
-        "it": "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-zurich-54eb1f8219",
+        "it": "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-zurich",
         "en": "temporary-nurse-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
         "de": "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
         "fr": "temporaire-infirmiere-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
@@ -18683,13 +18691,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
-        "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-zurich"
+        "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
-          "temporaneo-infermiera-emato-oncologia-60-100-universitatsspital-zurich-usz-zurich"
+          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
