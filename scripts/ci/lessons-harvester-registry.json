@@ -197,6 +197,13 @@
       "decidedAt": "2026-11-01T11:59:28Z",
       "ref": "#16262, #16193, #14938",
       "reason": "Fingerprint catch-all eterogeneo: #16262/#16193 trattano literal editoriali/calcolati obsoleti, #14938 una guardia di lunghezza sui target filesystem; AGENTS.md #6 copre gia' verifica di classe, sibling e consumer, quindi non esiste una regola preventiva unica."
+    },
+    {
+      "key": "reviewer-finding/fp:functions-correctness-does-not",
+      "outcome": "added",
+      "decidedAt": "2026-11-11T12:54:53Z",
+      "ref": "#18036, #18012, #16596",
+      "reason": "Regola in AGENTS.md #6: regex/pattern testuali in functions/** devono coprire varianti di lingua/locale, sinonimi, negazioni e near-match del consumer; la forma italiana/nominale non basta."
     }
   ]
 }
