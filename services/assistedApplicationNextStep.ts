@@ -31,6 +31,8 @@ export interface NextStepOrder {
     flow: {
       state: string | null;
       heldBy: string[];
+      /** Set on a withdrawn flow: `posting_withdrawn_by_employer` when the employer withdrew the posting. */
+      withdrawnReason?: string | null;
       deadlineAt: number | null;
       reminderAt?: number | null;
       portalAutoRetryAt?: number | null;
@@ -172,6 +174,16 @@ function takeoverStep(heldBy: string[]): NextStep {
 export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): NextStep {
   if (order.submissionStatus === 'refunded') return { group: 'done', code: 'refunded', label: 'Rimborsata', detail: 'Ordine rimborsato.' };
   if (order.submissionStatus === 'submitted') return { group: 'done', code: 'submitted', label: 'Inviata', detail: 'La candidatura è arrivata al datore.' };
+  if (order.submissionStatus === 'withdrawn' || order.automation?.flow?.state === 'withdrawn') {
+    // Owner decision 2026-11-11: the employer withdrew the posting while the candidate was awaited.
+    if (order.automation?.flow?.withdrawnReason === 'posting_withdrawn_by_employer') {
+      return {
+        group: 'done', code: 'posting_withdrawn', label: 'Ritirata dal datore',
+        detail: 'Il datore ha ritirato l’annuncio mentre la candidatura aspettava documenti o risposte del candidato: candidatura ritirata e archiviata, candidato avvisato, nessun rimborso (Termini, punto 6.5).',
+      };
+    }
+    return { group: 'done', code: 'withdrawn', label: 'Ritirata', detail: 'La candidatura è stata ritirata.' };
+  }
   if (order.submissionStatus === 'blocked') {
     return { group: 'owner', code: 'blocked_by_owner', label: 'Bloccata da te', detail: '«Riprendi lavorazione» per rimetterla in coda, oppure avvia il rimborso.' };
   }

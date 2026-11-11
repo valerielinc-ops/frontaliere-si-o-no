@@ -154,6 +154,10 @@ export interface AssistedApplicationAutomationView {
     reminderAt: number | null;
     portalAutoRetryAt?: number | null;
     heldBy: string[];
+    /** `posting_withdrawn_by_employer` when the employer withdrew the posting (no refund, Terms 6.5). */
+    withdrawnReason?: string | null;
+    /** The posting's own proof of that withdrawal: liveness code, where it was read, when. */
+    withdrawalEvidence?: { kind: string; source: string; at: number } | null;
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
     /** The platform's answers the review page proposes (a rule, the CV, the decision engine): not the owner's. */

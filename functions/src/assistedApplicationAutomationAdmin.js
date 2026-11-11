@@ -191,6 +191,9 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       reminderAt: flow.reminderAt || null,
       portalAutoRetryAt: portalRetryDueAt(flow),
       heldBy: flow.heldBy || [],
+      // Why a withdrawn order was withdrawn (assistedApplicationEmployerWithdrawal.js), and the posting's proof.
+      withdrawnReason: flow.withdrawnReason || null,
+      withdrawalEvidence: flow.withdrawalEvidence || null,
       feedback: flow.feedback || [],
       answers: candidateState.answers,
       platformAnswers,
