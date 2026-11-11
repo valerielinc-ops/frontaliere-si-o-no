@@ -979,7 +979,7 @@ describe('explicit paid concierge renewal', () => {
     }), expect.anything());
     expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toMatchObject({
       expectedAmountTotal: 2999, amountTotal: 2999, renewalOfServiceId: 'original-service',
-      renewal: true, renewalConsentVersion: 'application-concierge-v2', serviceStatus: 'awaiting_payment',
+      renewal: true, renewalConsentVersion: 'application-concierge-v3', serviceStatus: 'awaiting_payment',
     });
     expect(mocks.store.get('application_concierge_services/original-service')?.renewedByServiceId).toBeUndefined();
   });

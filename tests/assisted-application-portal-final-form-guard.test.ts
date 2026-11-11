@@ -165,3 +165,158 @@ it('rejects a missing or mismatched native form link before the click can be arm
   expect(armFinalFormClickGuardInPage(linkedButton, { token: 'wrong-form', expectedButtonId: 'b1', expectedFormId: 'f1', expectedButtonName: 'Apply' }))
     .toMatchObject({ ok: false, reason: 'form_binding_changed', buttonId: 'b1', formId: 'different-form' });
 });
+
+it('allows secondary programmatic submit click in the same form after the primary submit button was checked', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <input type="hidden" id="hcaptchaResponseInput" name="h-captcha-response" value="">
+    <button id="hcaptchaSubmitBtn" type="submit" class="hidden">Hidden Submit</button>
+    <button data-aa-id="b1" id="btn-submit" type="button">Apply</button>
+  </form>`);
+  const form = dom.window.document.querySelector('form') as HTMLFormElement;
+  const hiddenSubmit = dom.window.document.querySelector('#hcaptchaSubmitBtn') as HTMLButtonElement;
+  const captchaInput = dom.window.document.querySelector('#hcaptchaResponseInput') as HTMLInputElement;
+
+  const hiddenSubmitClicks = vi.fn();
+  hiddenSubmit.addEventListener('click', hiddenSubmitClicks);
+
+  button.addEventListener('click', () => {
+    // Simulate ATS/Lever captcha callback: populates captcha token and clicks hidden submit button
+    captchaInput.value = 'token-12345';
+    hiddenSubmit.click();
+  });
+
+  expect(arm(button).ok).toBe(true);
+
+  // Dispatch click on the armed visible button
+  const click = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(click);
+
+  expect(click.defaultPrevented).toBe(false);
+  expect(hiddenSubmitClicks).toHaveBeenCalledTimes(1);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('ignores dynamic captcha tokens and injected captcha controls in contract collection', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <input type="hidden" name="cf-turnstile-response" value="">
+    <button data-aa-id="b1" type="submit">Apply</button>
+  </form>`);
+  const form = dom.window.document.querySelector('form') as HTMLFormElement;
+  const turnstileInput = dom.window.document.querySelector('input[name="cf-turnstile-response"]') as HTMLInputElement;
+
+  expect(arm(button).ok).toBe(true);
+
+  // Dynamic token populated and injected captcha textarea
+  turnstileInput.value = 'cf-token-dynamic-999';
+  const injected = dom.window.document.createElement('textarea');
+  injected.name = 'g-recaptcha-response';
+  injected.value = 'dynamic-g-recaptcha-token';
+  form.appendChild(injected);
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(false);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('resolves the submitter when clicking a child element inside the button', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <button data-aa-id="b1" type="submit"><span id="inner-label">Apply Now</span></button>
+  </form>`);
+  const span = dom.window.document.querySelector('#inner-label') as HTMLSpanElement;
+
+  expect(arm(button, 'fixture-token').ok).toBe(true);
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  span.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(false);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('allows secondary submit and submitter UI transitions (disabled, loading text) after primary click', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <button id="hcaptchaSubmitBtn" type="submit" class="hidden">Hidden Submit</button>
+    <button data-aa-id="b1" id="btn-submit" type="button">Apply</button>
+  </form>`);
+  const hiddenSubmit = dom.window.document.querySelector('#hcaptchaSubmitBtn') as HTMLButtonElement;
+
+  const hiddenSubmitClicks = vi.fn();
+  hiddenSubmit.addEventListener('click', hiddenSubmitClicks);
+
+  button.addEventListener('click', () => {
+    button.disabled = true;
+    button.setAttribute('aria-disabled', 'true');
+    button.textContent = 'Submitting application...';
+    hiddenSubmit.click();
+  });
+
+  expect(arm(button).ok).toBe(true);
+
+  const click = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(click);
+
+  expect(click.defaultPrevented).toBe(false);
+  expect(hiddenSubmitClicks).toHaveBeenCalledTimes(1);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('ignores clicks on non-submitter links or utility controls within the same form', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <a id="privacy-link" href="https://example.test/privacy">Privacy Policy</a>
+    <a id="upload-link" class="postings-btn template-btn-utility">Attach Resume</a>
+    <button data-aa-id="b1" type="submit">Apply</button>
+  </form>`);
+  const privacyLink = dom.window.document.querySelector('#privacy-link') as HTMLAnchorElement;
+  const uploadLink = dom.window.document.querySelector('#upload-link') as HTMLAnchorElement;
+
+  expect(arm(button).ok).toBe(true);
+
+  const linkClick1 = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  privacyLink.dispatchEvent(linkClick1);
+  expect(linkClick1.defaultPrevented).toBe(false);
+
+  const linkClick2 = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  uploadLink.dispatchEvent(linkClick2);
+  expect(linkClick2.defaultPrevented).toBe(false);
+
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('armed');
+
+  const submitClick = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(submitClick);
+
+  expect(submitClick.defaultPrevented).toBe(false);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('ignores dynamic ATS telemetry fields like resumeStorageId, timezone, and referrer', () => {
+  const { dom, button } = fixture(`<form data-aa-id="f1" id="application" action="/submit" method="post">
+    <input data-aa-id="i1" name="email" value="candidate@example.test" required>
+    <input type="hidden" name="resumeStorageId" value="">
+    <input type="hidden" name="timezone" id="applicant-timezone" value="UTC">
+    <input type="hidden" name="source" value="">
+    <input type="hidden" name="referer" value="">
+    <button data-aa-id="b1" type="submit">Apply</button>
+  </form>`);
+  const resumeStorage = dom.window.document.querySelector('input[name="resumeStorageId"]') as HTMLInputElement;
+  const timezone = dom.window.document.querySelector('input[name="timezone"]') as HTMLInputElement;
+  const source = dom.window.document.querySelector('input[name="source"]') as HTMLInputElement;
+
+  expect(arm(button).ok).toBe(true);
+
+  resumeStorage.value = 'parsed-resume-storage-uuid-999';
+  timezone.value = 'Europe/Zurich';
+  source.value = 'frontaliere';
+
+  const submitClick = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(submitClick);
+
+  expect(submitClick.defaultPrevented).toBe(false);
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});

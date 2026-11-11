@@ -1,7 +1,7 @@
 {
   "crawlerKey": "favresa-ch",
-  "assembledAt": "2026-11-11T09:51:57.897Z",
-  "runId": "42995191167",
+  "assembledAt": "2026-11-11T21:43:10.699Z",
+  "runId": "43103359344",
   "jobs": [
     {
       "id": "favresa-ch-c34c38934628",
@@ -34,7 +34,7 @@
       "url": "https://www.groupe-r.ch/emploi.html?id=19",
       "source": "Favre SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:51:47.125Z",
+      "crawledAt": "2026-11-11T21:42:55.743Z",
       "addressLocality": "Corcelles-près-Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,10 +53,11 @@
       "applyUrl": "https://www.groupe-r.ch/emploi.html?id=19",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-logistique-100-h-f-corcelles-pres-payerne-vd-favresa-ch-ch",
+        "responsable-logistique-100-h-f-favre-sa-corcelles-pres-payerne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "responsable-logistique-100-h-f-favre-sa-corcelles-pres-payerne"
-        ],
         "it": [
           "responsable-logistique-100-h-f-corcelles-pres-payerne-vd-favresa-ch-ch"
         ],
@@ -65,12 +66,11 @@
         ],
         "de": [
           "responsable-logistique-100-h-f-corcelles-pres-payerne-vd-favresa-ch-ch"
+        ],
+        "fr": [
+          "responsable-logistique-100-h-f-favre-sa-corcelles-pres-payerne"
         ]
       },
-      "previousSlugs": [
-        "responsable-logistique-100-h-f-corcelles-pres-payerne-vd-favresa-ch-ch",
-        "responsable-logistique-100-h-f-favre-sa-corcelles-pres-payerne"
-      ],
       "firstSeenAt": "2026-11-04T21:49:47.679Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Corcelles-près-Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:51:47.125Z",
+      "validThrough": "2027-01-25T21:42:55.743Z",
       "validThroughSource": "last-observed-window"
     }
   ]

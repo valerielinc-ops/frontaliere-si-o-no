@@ -215,6 +215,11 @@ describe('pagination source identity contract', () => {
     expect(confederazione).toContain('progress.scannedRows < declaredTotal');
     expect(confederazione).not.toContain('recordUniquePageProgress(sourceIdentities, items');
     expect(confederazione).not.toContain('sourceIdentities.size >= declaredTotal');
+    const coop = readFileSync(new URL('../scripts/update-coop-jobs.mjs', import.meta.url), 'utf8');
+    expect(coop).toContain('createMutableFeedPaginationTracker({');
+    expect(coop).toContain('progress.hasReached(apiTotal)');
+    expect(coop).toContain('progress.scannedRows < apiTotal');
+    expect(coop).toContain('progress.hasMinimumUniqueCoverage(apiTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('createMutableFeedPaginationTracker({');
     expect(postfinance).toContain('recordMutableFeedPageWithRetry({');

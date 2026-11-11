@@ -386,13 +386,13 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
       'utf8',
     );
-    const sweepStart = source.indexOf('for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {');
+    const sweepStart = source.indexOf('const drainExpiredSweepSlot = async (expiredSlugIndex: number): Promise<void> => {');
     const sweepEnd = source.indexOf("logJobsSeoMem('after-expired-cache-population'");
     expect(sweepStart).toBeGreaterThan(-1);
     expect(sweepEnd).toBeGreaterThan(sweepStart);
     const sweep = source.slice(sweepStart, sweepEnd);
     // Chunk boundary: release the HTML chunk, then the 1 GB-gated GC.
-    expect(sweep).toMatch(/await releaseExpiredHtmlCacheChunk\(\);\n\s+\/\/[^\n]*\n(?:\s+\/\/[^\n]*\n)*\s+maybeForceJobsSeoHtmlGc\(\);/);
+    expect(sweep).toMatch(/await releaseExpiredHtmlCacheChunk\(\);\n(?:\s+\/\/[^\n]*\n)*\s+maybeForceJobsSeoHtmlGc\(\);/);
     expect(sweep).toContain("logJobsSeoMem('expired-sweep-progress'");
     expect(source).toContain('const EXPIRED_MEM_MILESTONE_EVERY_CHUNKS = 64;');
     // The final partial chunk gets the same treatment before the marker.

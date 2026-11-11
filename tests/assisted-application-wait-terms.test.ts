@@ -330,23 +330,25 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
     return (section?.blocks || []).map((block: any) => String(block.html || '')).find((html) => html.includes('6.5')) || '';
   };
 
-  it('says the exception in the four languages, and names no day from which it holds', () => {
+  // Owner decision 2026-11-11 («aggiungiamo ai termini che il rimborso non è mai consentito una volta che il
+  // processo è stato avviato o trova la forma migliore»): the exception of a wait for the candidate is now inside
+  // the wider rule, and the automatic refund of a closed ad is gone from 6.5. The detailed checks of the new
+  // clause are in assisted-application-no-refund-after-start.test.ts.
+  it('says in the four languages that nothing is refunded once started, and names no day from which it holds', () => {
     const words = {
-      it: 'in attesa di documenti o risposte che ti abbiamo chiesto e che solo tu puoi fornire',
-      en: 'waiting for documents or answers that we have asked you for and that only you can provide',
-      de: 'auf Unterlagen oder Antworten wartet, die wir bei Ihnen angefordert haben und die nur Sie liefern können',
-      fr: 'attend des documents ou des réponses que nous vous avons demandés et que vous seul pouvez fournir',
+      it: 'Una volta avviato il processo, il corrispettivo non è rimborsabile in nessun caso',
+      en: 'Once the process has started, the fee is non-refundable in all cases',
+      de: 'Nach Beginn des Prozesses ist das Entgelt in keinem Fall erstattungsfähig',
+      fr: 'Une fois le processus commencé, le prix n’est remboursable dans aucun cas',
     };
-    const notRefunded = { it: 'l&apos;importo non è rimborsato', en: 'the amount is not refunded', de: 'der Betrag wird nicht erstattet', fr: 'le montant n’est pas remboursé' };
     for (const [locale, sentence] of Object.entries(words)) {
       const block = refundBlock(locale);
       expect(block, locale).toContain(sentence);
-      expect(block, locale).toContain((notRefunded as any)[locale]);
-      // Owner, 2026-10-08: «aggiorniamo senza riferimento alla data». No year, no month: the rule holds for every order.
-      expect(block, locale).not.toMatch(/20\d\d|ottobre|October|Oktober|octobre/);
+      // Owner, 2026-10-08: «aggiorniamo senza riferimento alla data». No year, no month in the clause itself.
+      expect(block, locale).not.toMatch(/20\d\d|ottobre|October|Oktober|octobre|novembre|November/);
     }
-    // The refund the service still promises stands next to it.
-    expect(refundBlock('it')).toContain('ti rimborsiamo automaticamente l&apos;intero importo');
+    // No automatic refund of a closed ad is promised any more.
+    expect(refundBlock('it')).not.toContain('ti rimborsiamo automaticamente');
   });
 
   it('refunds nothing by itself when the round waited for the candidate, whenever the order was placed', () => {
@@ -417,17 +419,52 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
     }
   });
 
-  it('writes the exception next to the promise of a refund in every welcome e-mail', () => {
-    const order = (locale: string) => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 199, currency: 'eur', paidAt: T0 });
-    const exception = { it: 'in quel caso l\'importo non è rimborsato (Termini, punto 6.5)', fr: 'le montant n\'est pas remboursé (Conditions, point 6.5)', de: 'wird der Betrag nicht erstattet (Nutzungsbedingungen, Ziffer 6.5)', en: 'the amount is not refunded (Terms, section 6.5)' };
-    const promise = { it: 'rimbors', fr: 'rembours', de: 'erstatte', en: 'refund' };
-    for (const [locale, words] of Object.entries(exception)) {
-      for (const automation of [true, false]) {
-        const text = buildCustomerEmail('intro', order(locale), 'o1', { nowMs: T0, automation }).text;
-        expect(text, `${locale} ${automation}`).toContain(words);
-        // After the promise it qualifies, never instead of it.
-        expect(text.indexOf((promise as any)[locale]), `${locale} ${automation}`).toBeGreaterThan(-1);
-        expect(text.indexOf((promise as any)[locale]), `${locale} ${automation}`).toBeLessThan(text.indexOf(words));
+  // Owner decision 2026-11-11: the welcome e-mail no longer promises the refund of a closed ad; it says that
+  // nothing is refunded once the preparation started, and that a refund can be asked for before.
+  // Owner decision 2026-11-11, and review PRR_kwDORN5k2M8AAAABXRUNfA of #18104: the welcome e-mail says the
+  // refund rule of the Terms the order is under, by the same criterion as the flow (refundEndsAtStart). Under
+  // the Terms 6.5 of 2026-11-11 (mandate v3, an application of the automated search): no refund once the
+  // preparation started. Any other order (no mandate yet, v1, v2) keeps the prior wording: the refund of a
+  // closed ad, with the exception of a wait for the candidate after it.
+  const welcomeOrder = (locale: string, terms: Record<string, unknown> = {}) => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 199, currency: 'eur', paidAt: T0, ...terms });
+  const noRefundRule = { it: 'l\'importo non è rimborsabile, nemmeno se l\'annuncio viene chiuso o ritirato dal datore di lavoro (Termini, punto 6.5)', fr: 'le montant n\'est pas remboursable, même si l\'employeur ferme ou retire l\'annonce (Conditions, point 6.5)', de: 'ist der Betrag nicht erstattungsfähig, auch wenn das Unternehmen die Stelle schliesst oder zurückzieht (Nutzungsbedingungen, Ziffer 6.5)', en: 'the amount is non-refundable, even if the employer closes or withdraws the ad (Terms, section 6.5)' };
+  // Up to the price, which is formatted with the locale's own spacing.
+  const priorPromise = {
+    it: { auto: 'Se l\'annuncio viene chiuso prima che riusciamo a inviare la candidatura, ti rimborsiamo i', manual: 'Se l\'annuncio è chiuso o l\'invio non è possibile, ti rimborso i' },
+    fr: { auto: 'Si l\'annonce est fermée avant que nous puissions envoyer la candidature, nous vous remboursons les', manual: 'Si l\'annonce est fermée ou si l\'envoi est impossible, je vous rembourse les' },
+    de: { auto: 'Wird die Stelle geschlossen, bevor wir die Bewerbung senden können, erstatten wir dir die', manual: 'Ist die Stelle geschlossen oder der Versand nicht möglich, erstatte ich dir die' },
+    en: { auto: 'If the ad is closed before we manage to send the application, we refund your', manual: 'If the ad is closed or the application can\'t be sent, I\'ll refund your' },
+  };
+  const priorException = { it: 'in quel caso l\'importo non è rimborsato (Termini, punto 6.5)', fr: 'le montant n\'est pas remboursé (Conditions, point 6.5)', de: 'wird der Betrag nicht erstattet (Nutzungsbedingungen, Ziffer 6.5)', en: 'the amount is not refunded (Terms, section 6.5)' };
+  const anyPromise = { it: /ti rimbors(o|iamo) i/, fr: /vous rembours(e|ons) les/, de: /erstatte[nt]? (ich|wir) dir/, en: /(we|I'll) refund your/ };
+
+  it('says no refund once started in the welcome e-mail of an order under the Terms of 2026-11-11', () => {
+    for (const terms of [{ consentVersion: 'assisted-application-v3', consentedAt: T0 }, { billingMode: 'application_concierge' }]) {
+      for (const [locale, words] of Object.entries(noRefundRule)) {
+        for (const automation of [true, false]) {
+          for (const kind of ['intro', 'recovery'] as const) {
+            const text = buildCustomerEmail(kind, welcomeOrder(locale, terms), 'o1', { nowMs: T0, automation }).text;
+            expect(text, `${locale} ${automation} ${kind}`).toContain(words);
+            expect(text, `${locale} ${automation} ${kind}`).not.toContain((priorException as any)[locale]);
+            if (kind === 'intro') expect(text, `${locale} ${automation}`).not.toMatch((anyPromise as any)[locale]);
+          }
+        }
+      }
+    }
+  });
+
+  it('keeps the prior refund wording in the welcome e-mail of an order with no mandate, or a v1/v2 one', () => {
+    for (const terms of [{}, { consentVersion: 'assisted-application-v2', consentedAt: T0 }, { consentVersion: 'assisted-application-v1', consentedAt: T0 }]) {
+      for (const [locale, words] of Object.entries(priorException)) {
+        for (const automation of [true, false]) {
+          const text = buildCustomerEmail('intro', welcomeOrder(locale, terms), 'o1', { nowMs: T0, automation }).text;
+          const promise = (priorPromise as any)[locale][automation ? 'auto' : 'manual'];
+          expect(text, `${locale} ${automation} ${JSON.stringify(terms)}`).toContain(promise);
+          expect(text, `${locale} ${automation}`).toContain(words);
+          // The exception qualifies the promise, after it, never instead of it.
+          expect(text.indexOf(promise), `${locale} ${automation}`).toBeLessThan(text.indexOf(words));
+          expect(text, `${locale} ${automation}`).not.toContain((noRefundRule as any)[locale]);
+        }
       }
     }
   });

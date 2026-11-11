@@ -1705,6 +1705,8 @@ export interface JobsSeoPagesPluginOptions {
  activeJobIds?: readonly string[];
  /** Per-locale active details already live or emitted in this fast-lane batch. */
  fastLaneVisibleJobIdsByLocale?: Readonly<Record<CantonLocale, readonly string[]>>;
+ /** Output directory for an isolated fast-lane render. */
+ fastLaneDistDir?: string;
  /** Write a machine-readable receipt for targeted active-page renders. */
  fastLaneResultFile?: string;
  /** Stop after active job pages have been rendered and flushed. */
@@ -1720,9 +1722,10 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  if (options.fastLane && (
   options.activeJobIds === undefined
   || !options.fastLaneVisibleJobIdsByLocale
+  || !options.fastLaneDistDir
   || !options.fastLaneResultFile
  )) {
-  throw new Error('[jobs-seo-pages] fastLane requires activeJobIds, fastLaneVisibleJobIdsByLocale and fastLaneResultFile');
+  throw new Error('[jobs-seo-pages] fastLane requires activeJobIds, fastLaneVisibleJobIdsByLocale, fastLaneDistDir and fastLaneResultFile');
  }
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
  try {
@@ -1740,7 +1743,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  assertSectorHubTablesComplete();
  const retentionProbeCandidate = parseJobsSeoRetentionProbe(process.env[JOBS_SEO_RETENTION_PROBE_ENV]);
  const extraGcFreedProbeCandidate = parseJobsSeoGcFreedProbe(process.env[JOBS_SEO_GCFREED_PROBE_ENV]);
- const distDir = np.resolve(rootDir, 'dist');
+ const distDir = options.fastLane && options.fastLaneDistDir
+  ? np.resolve(rootDir, options.fastLaneDistDir)
+  : np.resolve(rootDir, 'dist');
  const jobOgLogoFingerprint = createJobOgLogoFingerprintResolver(rootDir);
  const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(rootDir);
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
@@ -2308,7 +2313,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // inline read silently lost the writeBundle race in CI (run 25151657070
  // produced 123,184 bundle-less pages on this exact path).
  const { resolveSpaBundle } = await import('./spaBundleResolver');
- const spaBundle = resolveSpaBundle(distDir);
+ // Fast-lane distDir is an empty output staging area. Resolve the shared SPA
+ // bundle from the canonical full-build dist instead; the fixed resolver
+ // returns its stable asset names without reading disk.
+ const bundleDistDir = options.fastLane
+  ? np.resolve(rootDir, 'dist')
+  : distDir;
+ const spaBundle = resolveSpaBundle(bundleDistDir);
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
  const hasSpaBundle = spaBundle.hasSpaBundle;

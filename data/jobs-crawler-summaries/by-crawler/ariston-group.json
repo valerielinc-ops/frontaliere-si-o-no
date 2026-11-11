@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-11-11T09:37:57.466Z",
+  "generatedAt": "2026-11-11T21:35:12.823Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 7421,
-  "avgDurationMs": 7421,
+  "durationMs": 6620,
+  "avgDurationMs": 6620,
   "durationHistory": [
-    7421
+    6620
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "streetAddress": "Gerlafingen, CH, 4563",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "streetAddress": "Bern, CH, 3004",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-11T09:37:43.680Z",
+      "validThrough": "2026-12-11T21:34:49.959Z",
       "id": "ariston-group-f88fbd22a192",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -138,7 +138,7 @@
       "streetAddress": "Fontaines, CH, 2046",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -171,14 +171,14 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-09T09:37:43.680Z",
+      "validThrough": "2027-02-09T21:34:49.959Z",
       "id": "ariston-group-8d4e64af9aa1",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8400",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Winterthur (Vilters), CH, 8400",
       "streetAddressSource": "to-enrich",
@@ -215,7 +215,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-19T09:37:43.680Z",
+      "validThrough": "2026-12-19T21:34:49.959Z",
       "id": "ariston-group-7ba06c921aef",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -226,7 +226,7 @@
       "streetAddress": "Freiburg, CH, 1700",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -270,7 +270,7 @@
       "streetAddress": "Winterthur, CH, 8400",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -315,7 +315,7 @@
       "streetAddress": "Rothenburg, CH, 6023",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -360,7 +360,7 @@
       "streetAddress": "Bern, CH, 3004",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -405,7 +405,7 @@
       "streetAddress": "Gerlafingen, CH, 4563",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -450,7 +450,7 @@
       "streetAddress": "St. Moritz, CH, 7500",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -483,7 +483,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-24T09:37:43.680Z",
+      "validThrough": "2026-12-23T21:34:49.959Z",
       "id": "ariston-group-53c74dd45e26",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -494,7 +494,7 @@
       "streetAddress": "Genève, CH, 1202",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T09:37:43.680Z",
+      "crawledAt": "2026-11-11T21:34:49.959Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -505,5 +505,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }
