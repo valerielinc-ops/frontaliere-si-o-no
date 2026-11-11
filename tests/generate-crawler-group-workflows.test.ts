@@ -4416,9 +4416,10 @@ esac
         expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
           `\${{ steps['crawler-launch-${member}'].outcome }}`,
         );
-        expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
-        expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
-        expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
+        expect(result.run).toContain('o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"');
+        expect(result.run).toContain('if [ "$o" != "success" ]; then');
+        expect(result.run).toContain('if [ ! -s "$f" ] && [ ! -s "$p" ]; then');
+        expect(result.run).toContain('if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then');
         expect(result.run).toContain('invalid detached crawler PID');
         expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
         expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
