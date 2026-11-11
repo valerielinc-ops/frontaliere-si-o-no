@@ -21,6 +21,8 @@ const TEMPLATE = `<!doctype html><html lang="en"><head><title>__FT_EDGE_TITLE__<
 <link rel="canonical" href="https://frontaliereticino.ch/__FT_EDGE_CANONICAL_PATH__">
 __FT_EDGE_HREFLANG____FT_EDGE_JSONLD__<script>window.__EXPIRED_JOB_DATA__=__FT_EDGE_DATA__;</script>
 __FT_EDGE_AD_SNIPPET__
+<script defer src="/assets/site-support.js"></script>
+<script defer src="/assets/adsense-loader.js"></script>
 <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script></head><body>__FT_EDGE_BODY__</body></html>`;
 const page = {
@@ -130,7 +132,11 @@ describe('locale-router expired job R2 soft landings', () => {
     expect(response.headers.get('X-Frontaliere-Edge-Verification')).toBe('expired-job-dataset');
     expect(response.headers.get('Cache-Control')).toBe('no-store');
     expect(response.headers.get('X-Robots-Tag')).toMatch(/noindex,\s*follow/i);
+    expect(html).toContain(`rel="canonical" href="${APEX}${PAGE_PATH}"`);
+    expect(html).toContain(`hreflang="en" href="${APEX}${PAGE_PATH}"`);
     expect(html).toContain('href="https://frontaliereticino.ch/en/find-jobs-zurich/active-engineer/"');
+    expect(html).toContain('src="/assets/site-support.js"');
+    expect(html).toContain('src="/assets/adsense-loader.js"');
     expect(html).toContain('adsbygoogle.js');
     expect(html).toContain('googletagmanager.com/gtag/js');
     expect(html).not.toContain('JobPosting');
