@@ -60,4 +60,26 @@ describe('salaryBenchmarkService', () => {
     expect(briefing.recruiterQuestions.length).toBeGreaterThanOrEqual(3);
     expect(briefing.recruiterQuestions[0]).toContain('range retributivo previsto');
   });
+
+  it('supports all 26 Swiss cantons with BFS grossregion scaling and names', () => {
+    const geneva = lookupSalaryBenchmark({
+      roleTitle: 'Responsabile Amministrativo',
+      canton: 'GE',
+      seniority: 'mid',
+    });
+    expect(geneva.canton).toBe('GE');
+    expect(geneva.cantonName).toBe('Canton Ginevra');
+    expect(geneva.cantonMultiplier).toBeGreaterThan(1.2);
+    // Geneva has a statutory minimum wage floor of 51,100 CHF
+    expect(geneva.annual.p25).toBeGreaterThanOrEqual(51100);
+
+    const basel = lookupSalaryBenchmark({
+      roleTitle: 'Ingegnere Meccanico',
+      canton: 'BS',
+      seniority: 'senior',
+    });
+    expect(basel.canton).toBe('BS');
+    expect(basel.cantonName).toBe('Canton Basilea Città');
+    expect(basel.cantonMultiplier).toBeGreaterThan(1.2);
+  });
 });
