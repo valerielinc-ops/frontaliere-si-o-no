@@ -5801,7 +5801,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -5848,7 +5848,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5857,7 +5857,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -17130,12 +17130,12 @@
     },
     {
       "id": "lonza-8e641e2803d5",
-      "slug": "project-leader-process-development-bioconjugates-80-100-lonza-ch",
+      "slug": "sviluppo-del-processo-di-leader-del-progetto-bioconjugates-80-100-lonza-visp",
       "slugByLocale": {
         "en": "project-leader-process-development-bioconjugates-80-100-lonza-ch",
-        "it": "project-leader-process-development-bioconjugates-80-100-lonza-ch",
-        "de": "project-leader-process-development-bioconjugates-80-100-lonza-ch",
-        "fr": "project-leader-process-development-bioconjugates-80-100-lonza-ch"
+        "it": "sviluppo-del-processo-di-leader-del-progetto-bioconjugates-80-100-lonza-visp",
+        "de": "projektleiter-prozessentwicklung-biokonjugate-80-100-lonza-visp",
+        "fr": "bioconjugaison-des-processus-d-elaboration-du-chef-de-projet-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17209,7 +17209,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:29:37.548Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:37.548Z"
+      "firstSeenAt": "2026-11-10T21:29:37.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-leader-process-development-bioconjugates-80-100-lonza-ch"
+        ],
+        "de": [
+          "project-leader-process-development-bioconjugates-80-100-lonza-ch"
+        ],
+        "fr": [
+          "project-leader-process-development-bioconjugates-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-leader-process-development-bioconjugates-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-65553d5c3a1c",
@@ -17327,12 +17341,12 @@
     },
     {
       "id": "lonza-96879e17ddfb",
-      "slug": "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch",
+      "slug": "maurer-afc-tecnico-di-rivestimento-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch",
-        "it": "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch",
-        "en": "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch",
-        "fr": "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch"
+        "it": "maurer-afc-tecnico-di-rivestimento-80-100-m-f-d-lonza-visp",
+        "en": "maurer-efz-expert-in-coating-technology-80-100-m-f-d-lonza-visp",
+        "fr": "maurer-efz-expert-en-technologie-de-revetement-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17407,7 +17421,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:29:36.209Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:36.209Z"
+      "firstSeenAt": "2026-11-10T21:29:36.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-efz-fachmann-beschichtungstechnik-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-2d7f2a512b51",
@@ -17741,11 +17769,11 @@
     },
     {
       "id": "lonza-ac270e6ccc8b",
-      "slug": "operation-cleaning-bpe-lonza-ch",
+      "slug": "operazione-pulizia-bpe-lonza-visp",
       "slugByLocale": {
         "en": "operation-cleaning-bpe-lonza-ch",
-        "it": "operation-cleaning-bpe-lonza-ch",
-        "de": "operation-cleaning-bpe-lonza-ch",
+        "it": "operazione-pulizia-bpe-lonza-visp",
+        "de": "betrieb-reinigung-von-bpe-lonza-visp",
         "fr": "operation-cleaning-bpe-lonza-ch"
       },
       "company": "Lonza",
@@ -17820,16 +17848,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:29:32.913Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:32.913Z"
+      "firstSeenAt": "2026-11-10T21:29:32.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operation-cleaning-bpe-lonza-ch"
+        ],
+        "de": [
+          "operation-cleaning-bpe-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operation-cleaning-bpe-lonza-ch"
+      ]
     },
     {
       "id": "lonza-09644d3bc567",
-      "slug": "technical-proposals-manager-drug-product-services-lonza-ch",
+      "slug": "responsabile-delle-proposte-tecniche-drug-product-services-lonza-basel",
       "slugByLocale": {
         "en": "technical-proposals-manager-drug-product-services-lonza-ch",
-        "it": "technical-proposals-manager-drug-product-services-lonza-ch",
+        "it": "responsabile-delle-proposte-tecniche-drug-product-services-lonza-basel",
         "de": "technical-proposals-manager-drug-product-services-lonza-ch",
-        "fr": "technical-proposals-manager-drug-product-services-lonza-ch"
+        "fr": "gestionnaire-des-propositions-techniques-services-des-produits-pharmaceutiques-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17892,7 +17931,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:29:32.219Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:32.219Z"
+      "firstSeenAt": "2026-11-10T21:29:32.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-proposals-manager-drug-product-services-lonza-ch"
+        ],
+        "fr": [
+          "technical-proposals-manager-drug-product-services-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-proposals-manager-drug-product-services-lonza-ch"
+      ]
     },
     {
       "id": "lonza-8ef07da1f148",
@@ -17979,12 +18029,12 @@
     },
     {
       "id": "lonza-89759cf6b68f",
-      "slug": "scientist-stability-80-100-f-m-d-lonza-ch",
+      "slug": "stabilita-degli-scienziati-80-100-m-f-d-lonza-basel",
       "slugByLocale": {
         "en": "scientist-stability-80-100-f-m-d-lonza-ch",
-        "it": "scientist-stability-80-100-f-m-d-lonza-ch",
-        "de": "scientist-stability-80-100-f-m-d-lonza-ch",
-        "fr": "scientist-stability-80-100-f-m-d-lonza-ch"
+        "it": "stabilita-degli-scienziati-80-100-m-f-d-lonza-basel",
+        "de": "wissenschaftler-stabilitat-80-100-m-w-d-lonza-basel",
+        "fr": "stabilite-scientifique-80-100-h-f-d-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -18047,7 +18097,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:29:30.862Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:30.862Z"
+      "firstSeenAt": "2026-11-10T21:29:30.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-stability-80-100-f-m-d-lonza-ch"
+        ],
+        "de": [
+          "scientist-stability-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "scientist-stability-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-stability-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-5bf91c8f7ade",

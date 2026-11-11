@@ -3430,10 +3430,10 @@
     },
     {
       "id": "vontobel-ed4e65dba8b6",
-      "slug": "client-associate-80-100-vontobel-ch",
+      "slug": "cliente-associato-80-100-vontobel-zurich-gotthardstrasse-43",
       "slugByLocale": {
         "de": "client-associate-80-100-vontobel-ch",
-        "it": "client-associate-80-100-vontobel-ch",
+        "it": "cliente-associato-80-100-vontobel-zurich-gotthardstrasse-43",
         "en": "client-associate-80-100-vontobel-ch",
         "fr": "client-associate-80-100-vontobel-ch"
       },
@@ -3499,7 +3499,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:36:44.142Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:36:44.142Z"
+      "firstSeenAt": "2026-11-10T21:36:44.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-80-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-80-100-vontobel-ch"
+      ]
     }
   ]
 }

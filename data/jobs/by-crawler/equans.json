@@ -9453,8 +9453,8 @@
       "slugByLocale": {
         "de": "allrounder-in-equans-zug",
         "it": "allrounder-in-equans-zug",
-        "en": "allrounder-in-equans-zug",
-        "fr": "allrounder-in-equans-zug"
+        "en": "all-rounder-equans-switzerland-zug",
+        "fr": "polyvalent-e-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9521,12 +9521,12 @@
     },
     {
       "id": "equans-5fc148eb4e4b",
-      "slug": "hauswart-in-equans-wallisellen",
+      "slug": "custode-equans-switzerland-wallisellen",
       "slugByLocale": {
         "de": "hauswart-in-equans-wallisellen",
-        "it": "hauswart-in-equans-wallisellen",
-        "en": "hauswart-in-equans-wallisellen",
-        "fr": "hauswart-in-equans-wallisellen"
+        "it": "custode-equans-switzerland-wallisellen",
+        "en": "caretaker-equans-switzerland-wallisellen",
+        "fr": "femme-de-menage-equans-switzerland-wallisellen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9589,7 +9589,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:00.908Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-30T21:14:14.374Z"
+      "firstSeenAt": "2026-09-30T21:14:14.374Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-equans-wallisellen"
+        ],
+        "en": [
+          "hauswart-in-equans-wallisellen"
+        ],
+        "fr": [
+          "hauswart-in-equans-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-equans-wallisellen"
+      ]
     },
     {
       "id": "equans-c5bcf29d42f3",
@@ -9831,8 +9845,8 @@
       "slugByLocale": {
         "de": "objektleiter-in-equans-basel",
         "it": "objektleiter-in-equans-basel",
-        "en": "objektleiter-in-equans-basel",
-        "fr": "objektleiter-in-equans-basel"
+        "en": "propertymanager-equans-switzerland-basel",
+        "fr": "responsable-de-projet-equans-switzerland-basel"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9903,8 +9917,8 @@
       "slugByLocale": {
         "de": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
         "it": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
-        "en": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
-        "fr": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich"
+        "en": "security-officer-security-headquarters-equans-switzerland-zurich",
+        "fr": "employe-de-securite-dans-le-centre-de-securite-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9971,12 +9985,12 @@
     },
     {
       "id": "equans-109b1c98033c",
-      "slug": "technische-r-hauswart-in-equans-mannedorf",
+      "slug": "custode-tecnico-equans-switzerland-mannedorf",
       "slugByLocale": {
         "de": "technische-r-hauswart-in-equans-mannedorf",
-        "it": "technische-r-hauswart-in-equans-mannedorf",
-        "en": "technische-r-hauswart-in-equans-mannedorf",
-        "fr": "technische-r-hauswart-in-equans-mannedorf"
+        "it": "custode-tecnico-equans-switzerland-mannedorf",
+        "en": "technical-caretaker-equans-switzerland-mannedorf",
+        "fr": "technique-equans-switzerland-mannedorf"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10039,7 +10053,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:00.876Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:24:00.876Z"
+      "firstSeenAt": "2026-11-10T21:24:00.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-hauswart-in-equans-mannedorf"
+        ],
+        "en": [
+          "technische-r-hauswart-in-equans-mannedorf"
+        ],
+        "fr": [
+          "technische-r-hauswart-in-equans-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-hauswart-in-equans-mannedorf"
+      ]
     },
     {
       "id": "equans-9eba618527e0",

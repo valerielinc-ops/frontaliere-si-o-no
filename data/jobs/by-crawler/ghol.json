@@ -90,8 +90,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -161,8 +161,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -170,10 +170,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -832,12 +832,12 @@
     },
     {
       "id": "ghol-3ca0cca0700b",
-      "slug": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
+      "slug": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
-        "it": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
-        "en": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
-        "de": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        "it": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "medical-secretary-private-office-of-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medical-secretary-private-office-von-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -895,7 +895,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:51:18.880Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:51:18.880Z"
+      "firstSeenAt": "2026-11-10T21:51:18.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+      ]
     }
   ]
 }

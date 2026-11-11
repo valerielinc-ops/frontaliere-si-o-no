@@ -2165,12 +2165,12 @@
     },
     {
       "id": "paraplegie-f1361742fcad",
-      "slug": "dipl-architekt-in-fh-o-eth-schweizer-paraplegiker-gruppe-muhen",
+      "slug": "architetto-dipl-in-sup-o-eth-schweizer-paraplegiker-gruppe-muhen",
       "slugByLocale": {
         "de": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
-        "it": "dipl-architekt-in-fh-o-eth-schweizer-paraplegiker-gruppe-muhen",
-        "en": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
-        "fr": "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
+        "it": "architetto-dipl-in-sup-o-eth-schweizer-paraplegiker-gruppe-muhen",
+        "en": "graduate-architect-fh-or-eth-schweizer-paraplegiker-gruppe-muhen",
+        "fr": "dipl-architecte-en-fh-ou-eth-schweizer-paraplegiker-gruppe-muhen"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2219,11 +2219,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
+          "dipl-architekt-in-fh-o-eth-schweizer-paraplegiker-gruppe-muhen"
+        ],
+        "en": [
+          "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
+        ],
+        "fr": [
           "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
         ]
       },
       "previousSlugs": [
-        "dipl-architekt-in-fh-oder-eth-paraplegie-muhen"
+        "dipl-architekt-in-fh-oder-eth-paraplegie-muhen",
+        "dipl-architekt-in-fh-o-eth-schweizer-paraplegiker-gruppe-muhen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2245,12 +2253,12 @@
     },
     {
       "id": "paraplegie-0a51a3c320ac",
-      "slug": "collaboratore-trice-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "dipendentein-servizio-notturno-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "mitarbeiter-in-nachtdienst-paraplegie-nottwil",
-        "it": "collaboratore-trice-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "mitarbeiter-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "mitarbeiter-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "dipendentein-servizio-notturno-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "nightshift-employee-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "employe-e-de-nuit-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2299,11 +2307,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-nachtdienst-paraplegie-nottwil"
+          "mitarbeiter-in-nachtdienst-paraplegie-nottwil",
+          "collaboratore-trice-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "mitarbeiter-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-nachtdienst-paraplegie-nottwil"
+        "mitarbeiter-in-nachtdienst-paraplegie-nottwil",
+        "collaboratore-trice-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil",
+        "mitarbeiter-in-nachtdienst-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medimeo-a4ce8a410c7c",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-ambulant-e-familienfreundlich-teilzeit-o-vollzeit-medimeo-ag-basel",
+      "slug": "specialista-in-ginecologia-e-ostetricia-ambulatoriale-e-adatto-alle-famiglie-part-time-o-full-time-medimeo-ag-region",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-ambulant-e-familienfreundlich-teilzeit-o-vollzeit-medimeo-ag-basel",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit"
+        "it": "specialista-in-ginecologia-e-ostetricia-ambulatoriale-e-adatto-alle-famiglie-part-time-o-full-time-medimeo-ag-region",
+        "en": "specialist-gynecology-and-obstetrics-outpatient-and-family-friendly-part-time-or-full-time-medimeo-ag-region-basel",
+        "fr": "gynecologie-et-obstetrique-patient-ambulatoire-et-familial-a-temps-partiel-ou-a-temps-plein-medimeo-ag-region-basel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -57,11 +57,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-ambulant-e-familienfreundlich-teilzeit-o-vollzeit-medimeo-ag-basel"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-ambulant-und-familienfreundlich-teilzeit",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-ambulant-e-familienfreundlich-teilzeit-o-vollzeit-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -85,12 +93,12 @@
     },
     {
       "id": "medimeo-f2e9f8f01f9d",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-operativ-wachsen-in-einem-eingespielten-team-medimeo-ag-solothurn",
+      "slug": "capoclinica-ginecologia-e-ostetricia-80-100-crescono-chirurgicamente-in-un-team-affiatato-medimeo-ag-biel-solothurn",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-operativ-wachsen-in-einem-eingespielten-team-medimeo-ag-solothurn",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem"
+        "it": "capoclinica-ginecologia-e-ostetricia-80-100-crescono-chirurgicamente-in-un-team-affiatato-medimeo-ag-biel-solothurn",
+        "en": "senior-physician-gynecology-and-obstetrics-80-100-growing-surgically-in-a-well-established-team-medimeo-ag-biel",
+        "fr": "medecin-principal-gynecologie-et-obstetrique-80-100-croissance-chirurgicale-dans-une-equipe-bien-etablie-medimeo-ag-biel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -137,11 +145,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-operativ-wachsen-in-einem-eingespielten-team-medimeo-ag-solothurn"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-operativ-wachsen-in-einem",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-operativ-wachsen-in-einem-eingespielten-team-medimeo-ag-solothurn"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -335,12 +351,12 @@
     },
     {
       "id": "medimeo-107cedc1803d",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-la-praxis-medimeo-ag-olten",
+      "slug": "specialista-in-ginecologia-e-ostetricia-40-100-il-tuo-passaggio-dall-ospedale-allo-studio-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-la-praxis-medimeo-ag-olten",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die"
+        "it": "specialista-in-ginecologia-e-ostetricia-40-100-il-tuo-passaggio-dall-ospedale-allo-studio-medimeo-ag-olten-aargau",
+        "en": "specialist-gynecology-and-obstetrics-40-100-your-change-from-hospital-to-practice-medimeo-ag-olten-aargau",
+        "fr": "gynecologie-et-obstetrique-specialisees-40-100-votre-changement-d-hopital-a-la-pratique-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -387,11 +403,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-la-praxis-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-die",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-ihr-wechsel-vom-spital-in-la-praxis-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -415,12 +439,12 @@
     },
     {
       "id": "medimeo-ab3a090e4bf2",
-      "slug": "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner",
+      "slug": "specialista-specialista-medicina-interna-generale-80-100-direttore-medico-medimeo-ag-region-bern-berner-oberland",
       "slugByLocale": {
         "de": "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner",
-        "it": "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner",
-        "en": "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner",
-        "fr": "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner"
+        "it": "specialista-specialista-medicina-interna-generale-80-100-direttore-medico-medimeo-ag-region-bern-berner-oberland",
+        "en": "specialist-specialist-general-internal-medicine-80-100-medical-director-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "specialiste-specialiste-general-medecine-interne-80-100-directeur-medical-medimeo-ag-region-bern-berner-oberland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -482,16 +506,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:25:38.009Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:25:38.009Z"
+      "firstSeenAt": "2026-11-10T21:25:38.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner"
+        ],
+        "en": [
+          "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner"
+        ],
+        "fr": [
+          "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-allgemeine-innere-medizin-80-100-arztliche-leitung-region-bern-berner"
+      ]
     },
     {
       "id": "medimeo-3a8732d940f2",
-      "slug": "facharzt-facharztin-per-allgemeinmedizin-o-allgemeine-innere-medizin-80-100-medimeo-ag-zurich",
+      "slug": "specialista-in-medicina-generale-o-medicina-interna-generale-80-100-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-region",
-        "it": "facharzt-facharztin-per-allgemeinmedizin-o-allgemeine-innere-medizin-80-100-medimeo-ag-zurich",
-        "en": "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-medimeo-ag-zurich",
-        "fr": "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-medimeo-ag-zurich"
+        "it": "specialista-in-medicina-generale-o-medicina-interna-generale-80-100-medimeo-ag-region-zurich",
+        "en": "specialist-in-general-medicine-or-general-internal-medicine-80-100-medimeo-ag-region-zurich",
+        "fr": "specialiste-en-medecine-generale-ou-en-medecine-interne-generale-80-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -538,11 +576,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-region"
+          "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-region",
+          "facharzt-facharztin-per-allgemeinmedizin-o-allgemeine-innere-medizin-80-100-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-medimeo-ag-zurich"
+        ],
+        "fr": [
+          "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-medimeo-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-region"
+        "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-region",
+        "facharzt-facharztin-per-allgemeinmedizin-o-allgemeine-innere-medizin-80-100-medimeo-ag-zurich",
+        "facharzt-facharztin-fur-allgemeinmedizin-oder-allgemeine-innere-medizin-80-100-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -566,12 +613,12 @@
     },
     {
       "id": "medimeo-2375f42ad93b",
-      "slug": "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch",
+      "slug": "medico-di-famiglia-50-100-con-una-base-di-pazienti-gia-esistente-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch",
-        "it": "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch",
-        "en": "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch",
-        "fr": "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch"
+        "it": "medico-di-famiglia-50-100-con-una-base-di-pazienti-gia-esistente-medimeo-ag-region-zurich",
+        "en": "gp-50-100-with-already-existing-patient-base-medimeo-ag-region-zurich",
+        "fr": "gp-50-100-avec-une-base-de-patients-deja-existante-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -634,7 +681,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:25:38.003Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:25:38.003Z"
+      "firstSeenAt": "2026-11-10T21:25:38.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch"
+        ],
+        "en": [
+          "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch"
+        ],
+        "fr": [
+          "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarzt-hausarztin-50-100-mit-bereits-vorhandenem-patientenstamm-region-zurich-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-fc402cb86320",

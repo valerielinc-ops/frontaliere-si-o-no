@@ -1264,12 +1264,12 @@
     },
     {
       "id": "schulthess-klinik-a1ec7e6b1019",
-      "slug": "collaboratore-trice-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
+      "slug": "dipendente-fatturazione-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
-        "it": "collaboratore-trice-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
-        "en": "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
-        "fr": "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
+        "it": "dipendente-fatturazione-schulthess-klinik-zurich",
+        "en": "employee-employee-invoicing-schulthess-klinik-zurich",
+        "fr": "facturation-des-employes-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -1318,11 +1318,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
+          "collaboratore-trice-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
+        "mitarbeiter-mitarbeiterin-fakturierung-schulthess-klinik-zurich",
+        "collaboratore-trice-mitarbeiterin-fakturierung-schulthess-klinik-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1344,12 +1352,12 @@
     },
     {
       "id": "schulthess-klinik-fdbbd07f18fc",
-      "slug": "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich",
+      "slug": "fatturazione-e-tariffe-del-team-management-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich",
-        "it": "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich",
-        "en": "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich",
-        "fr": "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich"
+        "it": "fatturazione-e-tariffe-del-team-management-schulthess-klinik-zurich",
+        "en": "team-management-billing-tariffs-schulthess-klinik-zurich",
+        "fr": "facturation-et-tarifs-de-gestion-d-equipe-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -1411,7 +1419,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:56:50.614Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:56:50.614Z"
+      "firstSeenAt": "2026-11-10T21:56:50.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-fakturierung-amp-tarife-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

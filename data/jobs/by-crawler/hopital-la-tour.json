@@ -1956,12 +1956,12 @@
     },
     {
       "id": "hopital-la-tour-3ed8eade02ba",
-      "slug": "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin",
+      "slug": "segretario-medico-in-angiografia-80-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin",
-        "it": "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin",
-        "en": "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin",
-        "de": "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin"
+        "it": "segretario-medico-in-angiografia-80-cdi-hopital-de-la-tour-meyrin",
+        "en": "medical-secretary-in-angiography-80-cdi-hopital-de-la-tour-meyrin",
+        "de": "medizinische-sekretarin-in-angiographie-80-cdi-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -2034,7 +2034,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:52:25.081Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:52:25.081Z"
+      "firstSeenAt": "2026-11-10T21:52:25.081Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-en-angiographie-80-cdi-hopital-la-tour-meyrin"
+      ]
     }
   ]
 }

@@ -89,12 +89,12 @@
     },
     {
       "id": "bcv-52288c26195e",
-      "slug": "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-banque-cantonale-vaudoise-lausanne",
+      "slug": "assistant-payment-support-manager-csd-3-mesi-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv",
-        "it": "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-banque-cantonale-vaudoise-lausanne",
-        "en": "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv",
-        "de": "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv"
+        "it": "assistant-payment-support-manager-csd-3-mesi-banque-cantonale-vaudoise-lausanne",
+        "en": "assistant-payment-support-manager-csd-3-months-banque-cantonale-vaudoise-lausanne",
+        "de": "assistentin-oder-assistent-support-manager-zahlungsverkehr-befristeter-vertrag-3-monate-banque-cantonale-vaudoise"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -144,11 +144,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv",
+          "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-banque-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv"
+        ],
+        "de": [
           "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv"
         ]
       },
       "previousSlugs": [
-        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv"
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-bcv",
+        "assistante-ou-assistant-gestionnaire-de-support-trafic-des-paiements-cdd-3-mois-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -258,12 +266,12 @@
     },
     {
       "id": "bcv-9a2b3150a3b6",
-      "slug": "responsable-de-projet-digital-bcv-lausanne",
+      "slug": "responsabile-del-progetto-digitale-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-projet-digital-bcv-lausanne",
-        "it": "responsable-de-projet-digital-bcv-lausanne",
-        "en": "responsable-de-projet-digital-bcv-lausanne",
-        "de": "responsable-de-projet-digital-bcv-lausanne"
+        "it": "responsabile-del-progetto-digitale-banque-cantonale-vaudoise-lausanne",
+        "en": "digital-project-manager-banque-cantonale-vaudoise-lausanne",
+        "de": "digitaler-projektmanager-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -326,7 +334,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:28:08.282Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:08.282Z"
+      "firstSeenAt": "2026-11-10T21:28:08.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-projet-digital-bcv-lausanne"
+        ],
+        "en": [
+          "responsable-de-projet-digital-bcv-lausanne"
+        ],
+        "de": [
+          "responsable-de-projet-digital-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-projet-digital-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-aa39eef178bd",
@@ -1519,7 +1541,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -1580,7 +1602,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -1589,7 +1611,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

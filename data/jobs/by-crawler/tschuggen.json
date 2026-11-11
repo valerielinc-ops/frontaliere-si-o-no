@@ -695,12 +695,12 @@
     },
     {
       "id": "tschuggen-c163a7f48e2f",
-      "slug": "floor-supervisor-m-w-d-tschuggen-ch",
+      "slug": "floor-supervisore-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "floor-supervisor-m-w-d-tschuggen-ch",
-        "it": "floor-supervisor-m-w-d-tschuggen-ch",
+        "it": "floor-supervisore-m-w-d-tschuggen-collection-ascona",
         "en": "floor-supervisor-m-w-d-tschuggen-ch",
-        "fr": "floor-supervisor-m-w-d-tschuggen-ch"
+        "fr": "floor-superviseur-m-w-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -764,7 +764,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:00.706Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:00.706Z"
+      "firstSeenAt": "2026-11-10T21:28:00.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "floor-supervisor-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "floor-supervisor-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "floor-supervisor-m-w-d-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-78a6b843bd89",

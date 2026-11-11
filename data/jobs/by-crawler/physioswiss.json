@@ -20404,12 +20404,12 @@
     },
     {
       "id": "physioswiss-be90446a4d7d",
-      "slug": "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon",
+      "slug": "fisioterapista-w-m-60-80-physio-swiss-zumikon-bei-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-w-m-60-80-zumikon-bei-zurich-physioswiss-ch",
-        "it": "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon",
-        "en": "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon",
-        "fr": "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon"
+        "it": "fisioterapista-w-m-60-80-physio-swiss-zumikon-bei-zurich",
+        "en": "physiotherapist-w-m-60-80-physio-swiss-zumikon-bei-zurich",
+        "fr": "physiotherapeute-w-m-60-80-physio-swiss-zumikon-bei-zurich"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20456,11 +20456,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-w-m-60-80-zumikon-bei-zurich-physioswiss-ch"
+          "physiotherapeut-in-w-m-60-80-zumikon-bei-zurich-physioswiss-ch",
+          "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon"
+        ],
+        "en": [
+          "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon"
+        ],
+        "fr": [
+          "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-w-m-60-80-zumikon-bei-zurich-physioswiss-ch"
+        "physiotherapeut-in-w-m-60-80-zumikon-bei-zurich-physioswiss-ch",
+        "physiotherapeut-in-w-m-60-80-physio-swiss-zumikon"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -20484,10 +20492,10 @@
     },
     {
       "id": "physioswiss-74970ea18b6d",
-      "slug": "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch",
+      "slug": "fisio-ricercato-st-gallen-shopping-arena-physio-swiss-9015-st-gallen-dcd6cb",
       "slugByLocale": {
         "de": "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch",
-        "it": "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch",
+        "it": "fisio-ricercato-st-gallen-shopping-arena-physio-swiss-9015-st-gallen-dcd6cb",
         "en": "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch",
         "fr": "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch"
       },
@@ -20551,16 +20559,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:42:10.363Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T14:41:46.597Z"
+      "firstSeenAt": "2026-10-29T14:41:46.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "physio-gesucht-st-gallen-shopping-arena-9015-st-gallen-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-802897ab1970",
-      "slug": "physiotherapeutin-40-100-per-zentrum-in-solothurn-gesucht-physio-swiss-olten",
+      "slug": "fisioterapista-40-100-per-il-centro-di-soletta-physio-swiss-soletta",
       "slugByLocale": {
         "de": "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physiozentrum-ag-baslerstrasse",
-        "it": "physiotherapeutin-40-100-per-zentrum-in-solothurn-gesucht-physio-swiss-olten",
-        "en": "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physio-swiss-olten",
-        "fr": "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physio-swiss-olten"
+        "it": "fisioterapista-40-100-per-il-centro-di-soletta-physio-swiss-soletta",
+        "en": "physical-therapist-40-100-wanted-for-centre-in-solothurn-physio-swiss-soletta",
+        "fr": "physiotherapeute-40-100-recherche-pour-le-centre-a-soleure-physio-swiss-soletta"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20607,11 +20623,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physiozentrum-ag-baslerstrasse"
+          "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physiozentrum-ag-baslerstrasse",
+          "physiotherapeutin-40-100-per-zentrum-in-solothurn-gesucht-physio-swiss-olten"
+        ],
+        "en": [
+          "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physio-swiss-olten"
+        ],
+        "fr": [
+          "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physio-swiss-olten"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physiozentrum-ag-baslerstrasse"
+        "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physiozentrum-ag-baslerstrasse",
+        "physiotherapeutin-40-100-per-zentrum-in-solothurn-gesucht-physio-swiss-olten",
+        "physiotherapeutin-40-100-fur-zentrum-in-solothurn-gesucht-physio-swiss-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -20638,9 +20663,9 @@
       "slug": "fisioterapista-laureato-6830-chiasso-physioswiss-ch",
       "slugByLocale": {
         "it": "fisioterapista-laureato-6830-chiasso-physioswiss-ch",
-        "en": "fisioterapista-laureato-6830-chiasso-physioswiss-ch",
-        "de": "fisioterapista-laureato-6830-chiasso-physioswiss-ch",
-        "fr": "fisioterapista-laureato-6830-chiasso-physioswiss-ch"
+        "en": "physiotherapist-graduate-physio-swiss-6830-chiasso",
+        "de": "physiotherapeuten-absolvent-physio-swiss-6830-chiasso",
+        "fr": "physiotherapeute-diplome-physio-swiss-6830-chiasso"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20709,9 +20734,9 @@
       "slug": "fisioterapista-50-80-agno-ti-6982-agno-physioswiss-ch",
       "slugByLocale": {
         "it": "fisioterapista-50-80-agno-ti-6982-agno-physioswiss-ch",
-        "en": "fisioterapista-50-80-agno-ti-6982-agno-physioswiss-ch",
-        "de": "fisioterapista-50-80-agno-ti-6982-agno-physioswiss-ch",
-        "fr": "fisioterapista-50-80-agno-ti-6982-agno-physioswiss-ch"
+        "en": "physiotherapist-50-80-agno-ti-physio-swiss-6982-agno",
+        "de": "physiotherapeut-50-80-agno-ti-physio-swiss-6982-agno",
+        "fr": "physiotherapeute-50-80-agno-ti-physio-swiss-6982-agno"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20777,12 +20802,12 @@
     },
     {
       "id": "physioswiss-69c633652a6c",
-      "slug": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh",
+      "slug": "grande-stipendio-e-molta-flessibilita-fisioterapia-domiciliare-80-100-a-berna-physio-swiss-spitexphysio",
       "slugByLocale": {
         "de": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh",
-        "it": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh",
-        "en": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh",
-        "fr": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh"
+        "it": "grande-stipendio-e-molta-flessibilita-fisioterapia-domiciliare-80-100-a-berna-physio-swiss-spitexphysio",
+        "en": "great-salary-a-lot-of-flexibility-domicile-physiotherapy-80-100-in-bern-physio-swiss-spitexphysio",
+        "fr": "excellent-salaire-et-beaucoup-de-flexibilite-physiotherapie-au-domicile-80-100-a-berne-physio-swiss-spitexphysio"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20844,16 +20869,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:42:10.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:42:10.360Z"
+      "firstSeenAt": "2026-11-10T21:42:10.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh"
+        ],
+        "en": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh"
+        ],
+        "fr": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh"
+        ]
+      },
+      "previousSlugs": [
+        "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-bern-spitexphysio-ch-gmbh"
+      ]
     },
     {
       "id": "physioswiss-077b07363fdb",
-      "slug": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich",
+      "slug": "grande-stipendio-e-molta-flessibilita-fisioterapia-domiciliare-80-100-in-winterthur-zurigo-physio-swiss-spitexphysio",
       "slugByLocale": {
         "de": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich",
-        "it": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich",
-        "en": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich",
-        "fr": "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich"
+        "it": "grande-stipendio-e-molta-flessibilita-fisioterapia-domiciliare-80-100-in-winterthur-zurigo-physio-swiss-spitexphysio",
+        "en": "great-salary-a-lot-of-flexibility-domicile-physiotherapy-80-100-in-winterthur-zurich-physio-swiss-spitexphysio",
+        "fr": "excellent-salaire-beaucoup-de-flexibilite-physiotherapie-domicile-80-100-a-winterthur-zurich-physio-swiss-spitexphysio"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20915,16 +20954,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:42:10.359Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:42:10.359Z"
+      "firstSeenAt": "2026-11-10T21:42:10.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich"
+        ],
+        "en": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich"
+        ],
+        "fr": [
+          "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "tolles-gehalt-viel-flexibilitat-domizil-physiotherapie-80-100-in-winterthur-zurich"
+      ]
     },
     {
       "id": "physioswiss-2e9f663bf860",
-      "slug": "physiotherapeut-in-40-80-physio-swiss-chur",
+      "slug": "fisioterapista-40-80-physio-swiss-7000-chur",
       "slugByLocale": {
         "de": "physiotherapeut-in-40-80-7000-chur-physioswiss-ch",
-        "it": "physiotherapeut-in-40-80-physio-swiss-chur",
-        "en": "physiotherapeut-in-40-80-physio-swiss-chur",
-        "fr": "physiotherapeut-in-40-80-physio-swiss-chur"
+        "it": "fisioterapista-40-80-physio-swiss-7000-chur",
+        "en": "physiotherapist-40-80-physio-swiss-7000-chur",
+        "fr": "physiotherapeute-40-80-physio-swiss-7000-chur"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20972,11 +21025,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-40-80-7000-chur-physioswiss-ch"
+          "physiotherapeut-in-40-80-7000-chur-physioswiss-ch",
+          "physiotherapeut-in-40-80-physio-swiss-chur"
+        ],
+        "en": [
+          "physiotherapeut-in-40-80-physio-swiss-chur"
+        ],
+        "fr": [
+          "physiotherapeut-in-40-80-physio-swiss-chur"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-40-80-7000-chur-physioswiss-ch"
+        "physiotherapeut-in-40-80-7000-chur-physioswiss-ch",
+        "physiotherapeut-in-40-80-physio-swiss-chur"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,

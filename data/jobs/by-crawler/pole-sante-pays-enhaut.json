@@ -558,12 +558,12 @@
     },
     {
       "id": "pole-sante-pays-enhaut-b208baa86979",
-      "slug": "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "apprendisti-del-commercio-cfc-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
         "fr": "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "it": "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        "it": "apprendisti-del-commercio-cfc-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "apprentices-of-cfc-trade-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "auszubildende-des-fckw-handels-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -625,7 +625,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:11.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:11.950Z"
+      "firstSeenAt": "2026-11-10T21:28:11.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-d6dc7e701508",
@@ -700,12 +714,12 @@
     },
     {
       "id": "pole-sante-pays-enhaut-f593f44deb1f",
-      "slug": "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "apprendisti-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
         "fr": "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "it": "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        "it": "apprendisti-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "apprentices-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "auszubildende-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -767,7 +781,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:10.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:10.658Z"
+      "firstSeenAt": "2026-11-10T21:28:10.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-ase-cfc-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     }
   ]
 }

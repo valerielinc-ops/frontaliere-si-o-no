@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "suva-1d6db1eb6e9e",
-      "slug": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
+      "slug": "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-argovia",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "it": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "en": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "fr": "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        "it": "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-argovia",
+        "en": "assistant-doctor-insurance-medicine-all-genders-80-100-suva-argovia",
+        "fr": "medecin-adjoint-en-assurance-tous-les-sexes-80-100-suva-argovia"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -69,7 +69,21 @@
       "streetAddress": "Argovia",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:27:59.168Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
+      ]
     },
     {
       "id": "suva-d1365e4c0b50",

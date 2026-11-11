@@ -293,12 +293,12 @@
     },
     {
       "id": "opacc-software-ag-cf3cc644fd34",
-      "slug": "system-engineer-rothenburg-opacc-software-ag-ch",
+      "slug": "system-ingegnere-opacc-software-ag-rothenburg",
       "slugByLocale": {
         "de": "system-engineer-rothenburg-opacc-software-ag-ch",
-        "it": "system-engineer-rothenburg-opacc-software-ag-ch",
+        "it": "system-ingegnere-opacc-software-ag-rothenburg",
         "en": "system-engineer-rothenburg-opacc-software-ag-ch",
-        "fr": "system-engineer-rothenburg-opacc-software-ag-ch"
+        "fr": "system-ingenieur-opacc-software-ag-rothenburg"
       },
       "company": "Opacc Software AG",
       "companyKey": "opacc-software-ag",
@@ -375,7 +375,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T21:29:08.752Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:08.752Z"
+      "firstSeenAt": "2026-11-10T21:29:08.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-rothenburg-opacc-software-ag-ch"
+        ],
+        "fr": [
+          "system-engineer-rothenburg-opacc-software-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-rothenburg-opacc-software-ag-ch"
+      ]
     },
     {
       "id": "opacc-software-ag-1a71b3bebac3",

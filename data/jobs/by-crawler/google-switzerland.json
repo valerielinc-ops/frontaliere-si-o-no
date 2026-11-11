@@ -2310,12 +2310,12 @@
     },
     {
       "id": "google-switzerland-c74ff5af4062",
-      "slug": "staff-security-engineer-security-research-google-switzerland-zurich",
+      "slug": "staff-security-ingegnere-security-ricerca-google-switzerland-zurich",
       "slugByLocale": {
         "en": "staff-security-engineer-security-research-google-switzerland-zurich",
-        "it": "staff-security-engineer-security-research-google-switzerland-zurich",
-        "de": "staff-security-engineer-security-research-google-switzerland-zurich",
-        "fr": "staff-security-engineer-security-research-google-switzerland-zurich"
+        "it": "staff-security-ingegnere-security-ricerca-google-switzerland-zurich",
+        "de": "staff-security-ingenieur-security-forschung-google-switzerland-zurich",
+        "fr": "staff-security-ingenieur-security-recherche-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -2392,7 +2392,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:23:55.956Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:23:55.956Z"
+      "firstSeenAt": "2026-11-10T21:23:55.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-security-engineer-security-research-google-switzerland-zurich"
+        ],
+        "de": [
+          "staff-security-engineer-security-research-google-switzerland-zurich"
+        ],
+        "fr": [
+          "staff-security-engineer-security-research-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "staff-security-engineer-security-research-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-12890118f613",

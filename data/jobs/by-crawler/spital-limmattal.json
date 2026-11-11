@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-152c7d38cd9c",
-      "slug": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
+      "slug": "ingegneria-operativa-professionale-specialistica-hf-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "it": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "en": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        "it": "ingegneria-operativa-professionale-specialistica-hf-spital-limmattal-schlieren",
+        "en": "professional-specialist-operational-engineering-hf-spital-limmattal-schlieren",
+        "fr": "professionnel-specialiste-genie-operationnel-hf-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -71,16 +71,30 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:23:58.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-hf-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-206f5b2224fd",
-      "slug": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal-schlieren",
+      "slug": "infermiere-dipl-mpa-endoscopia-in-gastroenterologia-60-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal",
-        "it": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal",
-        "fr": "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal"
+        "it": "infermiere-dipl-mpa-endoscopia-in-gastroenterologia-60-100-spital-limmattal-schlieren",
+        "en": "qualified-nurse-mpa-endoscopy-in-gastroenterology-60-100-spital-limmattal-schlieren",
+        "fr": "infirmier-diplome-endoscopie-mpa-en-gastro-enterologie-60-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -131,11 +145,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal",
+          "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal"
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal",
+        "dipl-pflegefachfrau-mann-mpa-endoskopie-in-der-gastroenterologie-60-100-spital-limmattal-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5936,7 +5958,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -5999,9 +6021,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

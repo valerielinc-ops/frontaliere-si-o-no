@@ -2232,12 +2232,12 @@
     },
     {
       "id": "volksschule-luzern-a4a0476c8bec",
-      "slug": "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern",
+      "slug": "addetto-a-all-amministrazione-scolastica-40-mariahilf-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern",
-        "it": "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern",
-        "en": "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern",
-        "fr": "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern"
+        "it": "addetto-a-all-amministrazione-scolastica-40-mariahilf-volksschule-stadt-luzern-luzern",
+        "en": "school-administration-clerk-40-mariahilf-volksschule-stadt-luzern-luzern",
+        "fr": "responsabledel-administration-scolaire-40-mariahilf-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2300,7 +2300,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:23:27.367Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:23:27.367Z"
+      "firstSeenAt": "2026-11-10T21:23:27.367Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-schuladministration-40-mariahilf-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-b5c508cf738f",
@@ -2457,7 +2471,7 @@
       "id": "volksschule-luzern-e1db80ea6681",
       "slug": "vice-insegnante-5-6-classe-62-scuola-grenzhof-volksschule-stadt-luzern-luzern-a5aec97e5d",
       "slugByLocale": {
-        "it": "vice-insegnante-5-6-classe-62-scuola-grenzhof-volksschule-stadt-luzern-luzern-a5aec97e5d",
+        "it": "vice-insegnante-5-6-classe-62-scuola-grenzhof-volksschule-stadt-luzern-luzern",
         "en": "deputy-teacher-5-6-class-62-schoolhouse-grenzhof-volksschule-stadt-luzern-luzern",
         "de": "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern",
         "fr": "professeur-adjoint-5-6-classe-62-ecole-grenzhof-volksschule-stadt-luzern-luzern"
@@ -2506,13 +2520,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern",
-        "vice-insegnante-5-6-classe-62-scuola-grenzhof-volksschule-stadt-luzern-luzern"
+        "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern",
-          "vice-insegnante-5-6-classe-62-scuola-grenzhof-volksschule-stadt-luzern-luzern"
+          "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern"
         ],
         "en": [
           "stellvertretung-lehrperson-5-6-klasse-62-schulhaus-grenzhof-volksschule-luzern-luzern"

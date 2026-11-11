@@ -1303,7 +1303,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -1351,15 +1351,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-ch"
@@ -10003,7 +9999,7 @@
       "id": "bkw-acc27b6b93f1",
       "slug": "spezialist-in-engineering-alle-bkw-oberkirch",
       "slugByLocale": {
-        "it": "spezialist-in-engineering-alle-bkw-oberkirch",
+        "it": "ingegneria-specialistica-tutti-bkw-oberkirch",
         "en": "specialist-engineering-all-bkw-oberkirch",
         "de": "spezialist-in-engineering-alle-bkw-ch-06j0xi",
         "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch"
@@ -10051,13 +10047,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-engineering-alle-bkw-ch",
-        "ingegneria-specialistica-tutti-bkw-oberkirch"
+        "spezialist-in-engineering-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-engineering-alle-bkw-ch",
-          "ingegneria-specialistica-tutti-bkw-oberkirch"
+          "spezialist-in-engineering-alle-bkw-ch"
         ],
         "de": [
           "spezialist-in-engineering-alle-bkw-ch"
@@ -15218,7 +15212,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "ressources-humaines-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -15263,11 +15257,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "ressources-humaines-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "ressources-humaines-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -25116,7 +25110,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -25165,7 +25159,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25173,7 +25167,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -25995,8 +25989,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-hochbau-architektur-alle-bkw-ch",
         "it": "responsabile-di-progetto-hochbau-architektur-alle-bkw-bern",
-        "en": "projektleiter-in-hochbau-architektur-alle-bkw-ch",
-        "fr": "projektleiter-in-hochbau-architektur-alle-bkw-ch"
+        "en": "project-managerin-building-construction-architecture-all-bkw-bern",
+        "fr": "chef-de-projet-en-architecture-de-batiments-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26045,6 +26039,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-hochbau-architektur-alle-bkw-ch"
+        ],
+        "en": [
+          "projektleiter-in-hochbau-architektur-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-hochbau-architektur-alle-bkw-ch"
         ]
       },
@@ -26319,7 +26319,7 @@
       "slugByLocale": {
         "de": "service-monteur-in-alle-bkw-ch",
         "it": "service-monteur-in-alle-bkw-ch",
-        "en": "service-monteur-in-alle-bkw-ch",
+        "en": "serviceengineer-all-bkw-allschwil",
         "fr": "service-monteur-in-alle-bkw-ch"
       },
       "company": "BKW",
@@ -26463,8 +26463,8 @@
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-alle-bkw-ch",
         "it": "bauleitende-r-monteur-in-alle-bkw-ch",
-        "en": "bauleitende-r-monteur-in-alle-bkw-ch",
-        "fr": "bauleitende-r-monteur-in-alle-bkw-ch"
+        "en": "sitesupervisor-installer-all-bkw-zurich",
+        "fr": "chef-fe-de-chantier-monteur-trice-tous-bkw-zurich"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26616,7 +26616,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -26665,15 +26665,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-zuchwil"
@@ -26873,7 +26869,7 @@
       "id": "bkw-751504bffdbb",
       "slug": "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne-6049368abf",
       "slugByLocale": {
-        "it": "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne-6049368abf",
+        "it": "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne",
         "en": "cleaner-installer-electrician-ne-cfc-all-bkw-lausanne",
         "de": "cleaner-installer-electrician-ne-cfc-alle-bkw-lausanne",
         "fr": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
@@ -26921,13 +26917,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne"
+        "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-          "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne"
+          "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
         ],
         "en": [
           "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"

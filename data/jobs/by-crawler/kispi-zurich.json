@@ -3249,7 +3249,7 @@
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3296,14 +3296,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -4608,12 +4609,12 @@
     },
     {
       "id": "kispi-zurich-740bd4b2d1e7",
-      "slug": "leiter-leiterin-business-applications-m-w-d-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "testa-di-applicazioni-aziendali-m-f-d-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich",
-        "it": "leiter-leiterin-business-applications-m-w-d-100-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "testa-di-applicazioni-aziendali-m-f-d-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich",
-        "fr": "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich"
+        "fr": "responsable-des-applications-commerciales-h-f-d-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4660,11 +4661,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich",
+          "leiter-leiterin-business-applications-m-w-d-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
           "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich"
+        "leiter-leiterin-business-applications-m-w-d-100-kispi-zurich-zurich",
+        "leiter-leiterin-business-applications-m-w-d-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

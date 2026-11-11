@@ -2128,12 +2128,12 @@
     },
     {
       "id": "ukbb-be0a69427f6c",
-      "slug": "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel",
+      "slug": "segretario-medico-a-in-pediatria-ambulatoriale-80-sostituto-maternita-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-ukbb-basel",
-        "it": "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel",
-        "en": "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel",
-        "fr": "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
+        "it": "segretario-medico-a-in-pediatria-ambulatoriale-80-sostituto-maternita-universitats-kinderspital-beider-basel-basel",
+        "en": "physiciansecretary-outpatient-pediatrics-80-maternity-substitute-universitats-kinderspital-beider-basel-basel",
+        "fr": "secretaire-medical-en-pediatrie-ambulatoire-80-remplacement-de-la-maternite-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -2182,11 +2182,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-ukbb-basel"
+          "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-ukbb-basel",
+          "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
+        ],
+        "en": [
+          "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-ukbb-basel"
+        "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-ukbb-basel",
+        "arztsekretar-in-ambulante-padiatrie-80-mutterschaftsvertretung-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 70400,
       "salaryMax": 98400,

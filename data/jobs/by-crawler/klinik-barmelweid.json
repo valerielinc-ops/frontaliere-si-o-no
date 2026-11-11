@@ -3089,12 +3089,12 @@
     },
     {
       "id": "klinik-barmelweid-9f428a5cd0aa",
-      "slug": "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik",
+      "slug": "specialista-codifica-medica-specialistica-controllo-medico-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik",
-        "it": "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik",
-        "en": "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik",
-        "fr": "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik"
+        "it": "specialista-codifica-medica-specialistica-controllo-medico-a-klinik-barmelweid-barmelweid",
+        "en": "specialist-specialist-medical-coding-medical-controlling-a-klinik-barmelweid-barmelweid",
+        "fr": "specialiste-specialiste-du-codage-medical-controle-medical-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -3156,7 +3156,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:24.626Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:24.626Z"
+      "firstSeenAt": "2026-11-10T21:28:24.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik"
+        ],
+        "en": [
+          "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik"
+        ],
+        "fr": [
+          "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-fachspezialistin-medizinische-codierung-medizincontrolling-a-klinik"
+      ]
     }
   ]
 }

@@ -3097,7 +3097,7 @@
       "id": "kliniken-valens-2623e3cb87d2",
       "slug": "specialista-tariffe-m-f-a-40-60-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "specialista-tariffe-m-f-a-40-60-kliniken-valens-sargans",
+        "it": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
         "en": "tariff-specialist-m-f-a-40-60-kliniken-valens-sargans",
         "de": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "fr": "specialiste-des-tarifs-h-f-a-40-60-kliniken-valens-sargans"
@@ -3165,13 +3165,11 @@
       },
       "previousSlugs": [
         "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans",
-        "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
-        "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
+        "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
-          "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
+          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
         ],
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
@@ -3799,9 +3797,9 @@
       "slug": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
       "slugByLocale": {
         "it": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
-        "en": "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "en": "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "de": "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "fr": "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+        "fr": "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -3849,7 +3847,9 @@
         "specialista-nel-settore-alberghiero-m-f-a-80-kliniken-valens-wald",
         "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald",
-        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
+        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
+        "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3859,10 +3859,10 @@
           "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "professional-hotel-industry-m-f-a-80-kliniken-valens-wald"
+          "hospitality-specialist-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
+          "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:08.923Z",
@@ -8790,12 +8790,12 @@
     },
     {
       "id": "kliniken-valens-b2e0906ef49e",
-      "slug": "physiotherapeut-in-o-sporttherapeut-in-con-zusatzausbildung-herztherapeut-in-scprs-m-w-a-40-kliniken-valens-zurich",
+      "slug": "fisioterapista-o-terapista-dello-sport-con-formazione-aggiuntiva-cardioterapista-scprs-m-f-a-40-kliniken-valens-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w",
-        "it": "physiotherapeut-in-o-sporttherapeut-in-con-zusatzausbildung-herztherapeut-in-scprs-m-w-a-40-kliniken-valens-zurich",
-        "en": "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w",
-        "fr": "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w"
+        "it": "fisioterapista-o-terapista-dello-sport-con-formazione-aggiuntiva-cardioterapista-scprs-m-f-a-40-kliniken-valens-zurich",
+        "en": "physical-therapist-or-sports-therapist-with-additional-training-cardiac-therapist-scprs-m-f-a-40-kliniken-valens-zurich",
+        "fr": "physiotherapeute-ou-therapeute-du-sport-avec-une-formation-supplementaire-de-cardiotherapeute-scprs-h-f-a-40-kliniken"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8844,11 +8844,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w",
+          "physiotherapeut-in-o-sporttherapeut-in-con-zusatzausbildung-herztherapeut-in-scprs-m-w-a-40-kliniken-valens-zurich"
+        ],
+        "en": [
+          "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w"
+        ],
+        "fr": [
           "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w"
+        "physiotherapeut-in-oder-sporttherapeut-in-mit-zusatzausbildung-herztherapeut-in-scprs-m-w",
+        "physiotherapeut-in-o-sporttherapeut-in-con-zusatzausbildung-herztherapeut-in-scprs-m-w-a-40-kliniken-valens-zurich"
       ],
       "salaryMin": 36600,
       "salaryMax": 51200,
@@ -8870,12 +8878,12 @@
     },
     {
       "id": "kliniken-valens-01b21fad5999",
-      "slug": "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich",
+      "slug": "infermiere-a-guardia-notturna-m-f-a-30-80-kliniken-valens-zurich",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich",
-        "it": "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich",
-        "en": "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich",
-        "fr": "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich"
+        "it": "infermiere-a-guardia-notturna-m-f-a-30-80-kliniken-valens-zurich",
+        "en": "nursing-specialist-night-watch-m-f-a-30-80-kliniken-valens-zurich",
+        "fr": "infirmiere-infirmier-veilleur-de-nuit-h-f-a-30-80-kliniken-valens-zurich"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8938,7 +8946,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:33:07.329Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:33:07.329Z"
+      "firstSeenAt": "2026-11-10T21:33:07.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich"
+        ],
+        "en": [
+          "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-nachtwache-m-w-a-30-80-kliniken-valens-zurich"
+      ]
     }
   ]
 }

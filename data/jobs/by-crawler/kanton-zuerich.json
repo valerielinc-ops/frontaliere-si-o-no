@@ -4805,12 +4805,12 @@
     },
     {
       "id": "kanton-zuerich-ceb2ca8d4229",
-      "slug": "hausmeister-in-kanton-zuerich-bulach",
+      "slug": "custode-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
         "de": "hausmeister-in-kanton-zuerich-bulach",
-        "it": "hausmeister-in-kanton-zuerich-bulach",
-        "en": "hausmeister-in-kanton-zuerich-bulach",
-        "fr": "hausmeister-in-kanton-zuerich-bulach"
+        "it": "custode-kantonale-verwaltung-zurich-bulach",
+        "en": "caretaker-kantonale-verwaltung-zurich-bulach",
+        "fr": "concierge-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4877,7 +4877,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T22:06:46.413Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:06:46.413Z"
+      "firstSeenAt": "2026-11-10T22:06:46.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausmeister-in-kanton-zuerich-bulach"
+        ],
+        "en": [
+          "hausmeister-in-kanton-zuerich-bulach"
+        ],
+        "fr": [
+          "hausmeister-in-kanton-zuerich-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "hausmeister-in-kanton-zuerich-bulach"
+      ]
     },
     {
       "id": "kanton-zuerich-1c6ea8a39b5b",
@@ -5342,12 +5356,12 @@
     },
     {
       "id": "kanton-zuerich-74ebb3e48285",
-      "slug": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen",
+      "slug": "dipl-professionista-medico-hf-fh-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-horgen",
-        "it": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen",
-        "en": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen",
-        "fr": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen"
+        "it": "dipl-professionista-medico-hf-fh-kantonale-verwaltung-zurich-horgen",
+        "en": "dipl-medical-professional-hf-fh-kantonale-verwaltung-zurich-horgen",
+        "fr": "dipl-professionnels-de-la-sante-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5398,11 +5412,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-horgen"
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-horgen",
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-horgen"
+        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-horgen",
+        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-horgen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11921,12 +11943,12 @@
     },
     {
       "id": "kanton-zuerich-34746d11fef6",
-      "slug": "auditor-in-jurist-in-kanton-zuerich-zurich",
+      "slug": "auditor-giurista-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "auditor-in-jurist-in-kanton-zuerich-zurich",
-        "it": "auditor-in-jurist-in-kanton-zuerich-zurich",
-        "en": "auditor-in-jurist-in-kanton-zuerich-zurich",
-        "fr": "auditor-in-jurist-in-kanton-zuerich-zurich"
+        "it": "auditor-giurista-kantonale-verwaltung-zurich-zurich",
+        "en": "auditor-lawyer-kantonale-verwaltung-zurich-zurich",
+        "fr": "auditeur-juriste-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11993,7 +12015,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T22:06:05.088Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:06:05.088Z"
+      "firstSeenAt": "2026-11-10T22:06:05.088Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditor-in-jurist-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "auditor-in-jurist-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "auditor-in-jurist-in-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "auditor-in-jurist-in-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-7378945a2576",
@@ -12821,10 +12857,10 @@
     },
     {
       "id": "kanton-zuerich-27d99cf5ebab",
-      "slug": "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich",
+      "slug": "capo-dell-amministrazione-biz-oerlikon-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
         "de": "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich",
-        "it": "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich",
+        "it": "capo-dell-amministrazione-biz-oerlikon-kantonale-verwaltung-zurich-8050-zurich",
         "en": "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich",
         "fr": "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich"
       },
@@ -12892,7 +12928,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T22:05:59.751Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:05:59.751Z"
+      "firstSeenAt": "2026-11-10T22:05:59.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-administration-biz-oerlikon-kanton-zuerich-8050-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-45147a226bba",
@@ -15004,12 +15048,12 @@
     },
     {
       "id": "kanton-zuerich-9008a8633843",
-      "slug": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur",
+      "slug": "dipl-professionista-medico-hf-fh-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-winterthur",
-        "it": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur",
-        "en": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur",
-        "fr": "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur"
+        "it": "dipl-professionista-medico-hf-fh-kantonale-verwaltung-zurich-winterthur",
+        "en": "dipl-medical-professional-hf-fh-kantonale-verwaltung-zurich-winterthur",
+        "fr": "dipl-professionnels-de-la-sante-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15060,11 +15104,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-winterthur"
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-winterthur",
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-winterthur"
+        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kanton-zuerich-winterthur",
+        "dipl-pflegefachperson-hf-fh-im-medizinischen-dienst-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "integra-biosciences-20ac990943c5",
-      "slug": "logistiker-m-w-d-100-befristet-integra-biosciences-zizers",
+      "slug": "logisticista-m-f-d-100-integra-biosciences-zizers",
       "slugByLocale": {
         "de": "logistiker-m-w-d-100-befristet-integra-biosciences-ch",
-        "it": "logistiker-m-w-d-100-befristet-integra-biosciences-zizers",
-        "en": "logistiker-m-w-d-100-befristet-integra-biosciences-ch",
-        "fr": "logistiker-m-w-d-100-befristet-integra-biosciences-ch"
+        "it": "logisticista-m-f-d-100-integra-biosciences-zizers",
+        "en": "logistician-m-f-d-100-integra-biosciences-zizers",
+        "fr": "logistique-h-f-d-100-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",
@@ -61,11 +61,19 @@
       "pensumMax": 100,
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-m-w-d-100-befristet-integra-biosciences-ch",
+          "logistiker-m-w-d-100-befristet-integra-biosciences-zizers"
+        ],
+        "en": [
+          "logistiker-m-w-d-100-befristet-integra-biosciences-ch"
+        ],
+        "fr": [
           "logistiker-m-w-d-100-befristet-integra-biosciences-ch"
         ]
       },
       "previousSlugs": [
-        "logistiker-m-w-d-100-befristet-integra-biosciences-ch"
+        "logistiker-m-w-d-100-befristet-integra-biosciences-ch",
+        "logistiker-m-w-d-100-befristet-integra-biosciences-zizers"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

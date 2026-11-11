@@ -3372,12 +3372,12 @@
     },
     {
       "id": "decathlon-58a19c762375",
-      "slug": "conseiller-ere-ski-contrat-horaire-decathlon-ch",
+      "slug": "consigliere-ski-contratto-orario-decathlon-bussigny",
       "slugByLocale": {
         "fr": "conseiller-ere-ski-contrat-horaire-decathlon-ch",
-        "it": "conseiller-ere-ski-contrat-horaire-decathlon-ch",
-        "en": "conseiller-ere-ski-contrat-horaire-decathlon-ch",
-        "de": "conseiller-ere-ski-contrat-horaire-decathlon-ch"
+        "it": "consigliere-ski-contratto-orario-decathlon-bussigny",
+        "en": "counsellor-ski-hourly-contract-decathlon-bussigny",
+        "de": "berater-ski-stundenvertrag-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3438,7 +3438,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:51:48.227Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:51:48.227Z"
+      "firstSeenAt": "2026-11-10T21:51:48.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-ski-contrat-horaire-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-ski-contrat-horaire-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-ski-contrat-horaire-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-ski-contrat-horaire-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-e574c51edd3e",

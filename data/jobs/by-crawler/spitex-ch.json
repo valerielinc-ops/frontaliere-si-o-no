@@ -1829,8 +1829,8 @@
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
         "it": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
-        "en": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
-        "fr": "pflegehelfer-in-srk-spitex-spitex-ch-weggis"
+        "en": "nursingassistant-srk-spitex-spitex-der-seegemeinden-weggis",
+        "fr": "auxiliaire-de-sante-a-la-crs-a-l-asd-spitex-der-seegemeinden-weggis"
       },
       "company": "Spitex der Seegemeinden",
       "companyKey": "spitex-ch",
@@ -1897,12 +1897,12 @@
     },
     {
       "id": "spitex-ch-8dfe9775d85e",
-      "slug": "leiter-in-team-entlebuch-spitex-region-entlebuch",
+      "slug": "responsabiledel-team-entlebuch-spitex-region-entlebuch-entlebuch",
       "slugByLocale": {
         "de": "leiter-in-team-entlebuch-spitex-ch-entlebuch",
-        "it": "leiter-in-team-entlebuch-spitex-region-entlebuch",
-        "en": "leiter-in-team-entlebuch-spitex-ch-entlebuch",
-        "fr": "leiter-in-team-entlebuch-spitex-ch-entlebuch"
+        "it": "responsabiledel-team-entlebuch-spitex-region-entlebuch-entlebuch",
+        "en": "team-entlebuch-manager-spitex-region-entlebuch-entlebuch",
+        "fr": "responsabledel-equipe-entlebuch-spitex-region-entlebuch-entlebuch"
       },
       "company": "Spitex Region Entlebuch",
       "companyKey": "spitex-ch",
@@ -1951,11 +1951,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-team-entlebuch-spitex-ch-entlebuch",
+          "leiter-in-team-entlebuch-spitex-region-entlebuch"
+        ],
+        "en": [
+          "leiter-in-team-entlebuch-spitex-ch-entlebuch"
+        ],
+        "fr": [
           "leiter-in-team-entlebuch-spitex-ch-entlebuch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-team-entlebuch-spitex-ch-entlebuch"
+        "leiter-in-team-entlebuch-spitex-ch-entlebuch",
+        "leiter-in-team-entlebuch-spitex-region-entlebuch"
       ],
       "salaryMin": 117000,
       "salaryMax": 163000,

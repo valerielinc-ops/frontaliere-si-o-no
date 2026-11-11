@@ -24300,12 +24300,12 @@
     },
     {
       "id": "interdiscount-b0452f57-fd5",
-      "slug": "weihnachtsaushilfe-vendita-interdiscount-bern",
+      "slug": "ausiliario-natalizio-vendita-interdiscount-bern",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-verkauf-interdiscount-bern",
-        "it": "weihnachtsaushilfe-vendita-interdiscount-bern",
-        "en": "weihnachtsaushilfe-verkauf-interdiscount-bern",
-        "fr": "weihnachtsaushilfe-verkauf-interdiscount-bern"
+        "it": "ausiliario-natalizio-vendita-interdiscount-bern",
+        "en": "christmas-temporary-sales-interdiscount-bern",
+        "fr": "vente-d-aide-de-noel-interdiscount-bern"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24362,11 +24362,19 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "weihnachtsaushilfe-verkauf-interdiscount-bern",
+          "weihnachtsaushilfe-vendita-interdiscount-bern"
+        ],
+        "en": [
+          "weihnachtsaushilfe-verkauf-interdiscount-bern"
+        ],
+        "fr": [
           "weihnachtsaushilfe-verkauf-interdiscount-bern"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-verkauf-interdiscount-bern"
+        "weihnachtsaushilfe-verkauf-interdiscount-bern",
+        "weihnachtsaushilfe-vendita-interdiscount-bern"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

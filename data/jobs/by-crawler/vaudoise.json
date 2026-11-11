@@ -2915,12 +2915,12 @@
     },
     {
       "id": "vaudoise-b45da78b38c1",
-      "slug": "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch",
+      "slug": "vantaggi-specialistici-accident-csd-12-mesi-m-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch",
-        "it": "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch",
-        "en": "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch",
-        "de": "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch"
+        "it": "vantaggi-specialistici-accident-csd-12-mesi-m-f-x-100-vaudoise-assurances-lausanne",
+        "en": "specialist-benefits-accident-csd-12-months-m-f-x-100-vaudoise-assurances-lausanne",
+        "de": "specialist-benefits-csd-12-monate-m-w-x-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2983,16 +2983,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:53.330Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:53.330Z"
+      "firstSeenAt": "2026-11-10T21:28:53.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-prestations-accident-cdd-12-mois-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-62f9ef647ecc",
-      "slug": "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch",
+      "slug": "apprendista-impiegato-di-commercio-servizio-amministrazione-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch",
-        "it": "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch",
-        "en": "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch",
-        "de": "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch"
+        "it": "apprendista-impiegato-di-commercio-servizio-amministrazione-m-f-x-vaudoise-assurances-lausanne",
+        "en": "apprentice-commercial-employee-service-administration-m-f-x-vaudoise-assurances-lausanne",
+        "de": "auszubildender-kaufmannischer-mitarbeiter-service-administration-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3056,7 +3070,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:53.065Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:53.065Z"
+      "firstSeenAt": "2026-11-10T21:28:53.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-service-administration-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-32e8b58bf0d2",

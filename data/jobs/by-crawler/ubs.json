@@ -8715,7 +8715,7 @@
       "id": "ubs-ad0bfedbc346",
       "slug": "product-manager-white-label-funds-18-mesi-ubs-northern-switzerland-switzerland-zurich-f9d28ff509",
       "slugByLocale": {
-        "it": "product-manager-white-label-funds-18-mesi-ubs-northern-switzerland-switzerland-zurich-f9d28ff509",
+        "it": "product-manager-white-label-funds-18-mesi-ubs-northern-switzerland-switzerland-zurich",
         "en": "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland",
         "de": "produktmanager-white-label-funds-18-monatiger-befristeter-vertrag-ubs-northern-switzerland-switzerland-zurich",
         "fr": "product-manager-white-label-funds-contrat-a-duree-determinee-de-18-mois-ubs-northern-switzerland-switzerland-zurich"
@@ -8770,13 +8770,11 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland",
-        "product-manager-white-label-funds-18-mesi-ubs-northern-switzerland-switzerland-zurich"
+        "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland",
-          "product-manager-white-label-funds-18-mesi-ubs-northern-switzerland-switzerland-zurich"
+          "product-manager-white-label-funds-18-month-fixed-term-contract-ubs-northern-switzerland"
         ]
       },
       "firstSeenAt": "2026-10-15T09:15:10.727Z",
@@ -9485,7 +9483,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9538,11 +9536,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -12716,12 +12718,12 @@
     },
     {
       "id": "ubs-b50bdaa987fc",
-      "slug": "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande",
+      "slug": "bank-now-advisor-client-advisor-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande",
-        "it": "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande",
+        "it": "bank-now-advisor-client-advisor-ubs-suisse-romande",
         "en": "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande",
-        "de": "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande"
+        "de": "bank-now-berater-kundenberater-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12792,16 +12794,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T22:17:04.623Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:17:04.623Z"
+      "firstSeenAt": "2026-11-10T22:17:04.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande"
+        ],
+        "de": [
+          "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "bank-now-conseillere-conseiller-a-la-clientele-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-cf2fa34d0bd9",
-      "slug": "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande",
+      "slug": "bank-now-capo-di-branch-ginevra-80-100-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande",
-        "it": "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande",
-        "en": "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande",
-        "de": "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande"
+        "it": "bank-now-capo-di-branch-ginevra-80-100-ubs-suisse-romande",
+        "en": "bank-now-head-of-branch-geneva-80-100-ubs-suisse-romande",
+        "de": "bank-now-zweigstellenleiter-genf-80-100-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12872,7 +12885,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T22:17:04.024Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:17:04.024Z"
+      "firstSeenAt": "2026-11-10T22:17:04.024Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande"
+        ],
+        "en": [
+          "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande"
+        ],
+        "de": [
+          "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "bank-now-responsable-de-succursale-geneve-80-100-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-511b13d5bb35",
@@ -13358,7 +13385,7 @@
         "de": "manager-ubs-escreen-marketing-design-digital-sales-80-100-ubs-zurich",
         "it": "manager-ubs-escreen-marketing-design-digital-sales-80-100-ubs-zurich",
         "en": "manager-ubs-escreen-marketing-design-digital-sales-80-100-ubs-zurich",
-        "fr": "manager-ubs-escreen-marketing-design-digital-sales-80-100-ubs-zurich"
+        "fr": "gestionnaire-ubs-escreen-marketing-design-et-ventes-numeriques-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -13453,7 +13480,7 @@
         "en": "rechtsanwalt-rechtsanwaltin-investment-bank-global-markets-legal-ubs-zurich",
         "fr": "rechtsanwalt-rechtsanwaltin-banque-d-investissement-marches-mondiaux-legal-ubs-zurich",
         "it": "law-investment-bank-global-market-legal-ubs-zurich",
-        "de": "law-investment-bank-global-market-legal-ubs-zurich"
+        "de": "rechtsanwalt-rechtsanwaltin-investmentbank-globale-markte-legal-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",

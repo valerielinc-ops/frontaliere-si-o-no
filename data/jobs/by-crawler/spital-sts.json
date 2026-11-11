@@ -4505,12 +4505,12 @@
     },
     {
       "id": "spital-sts-3bb5dd7f3c61",
-      "slug": "collaboratore-trice-patientenabrechnung-ambulant-spital-sts-thun",
+      "slug": "collaboratore-ambulatoriale-nella-fattura-del-paziente-spital-sts-thun",
       "slugByLocale": {
         "de": "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun",
-        "it": "collaboratore-trice-patientenabrechnung-ambulant-spital-sts-thun",
-        "en": "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun",
-        "fr": "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun"
+        "it": "collaboratore-ambulatoriale-nella-fattura-del-paziente-spital-sts-thun",
+        "en": "outpatient-billing-associate-spital-sts-thun",
+        "fr": "employe-e-dans-la-facturation-des-patients-en-ambulatoire-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4559,11 +4559,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun",
+          "collaboratore-trice-patientenabrechnung-ambulant-spital-sts-thun"
+        ],
+        "en": [
+          "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun"
+        ],
+        "fr": [
           "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun"
+        "mitarbeiter-in-patientenabrechnung-ambulant-spital-sts-thun",
+        "collaboratore-trice-patientenabrechnung-ambulant-spital-sts-thun"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

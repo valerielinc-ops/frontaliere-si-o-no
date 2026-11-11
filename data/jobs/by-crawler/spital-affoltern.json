@@ -1622,12 +1622,12 @@
     },
     {
       "id": "spital-affoltern-5fb540c1b161",
-      "slug": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "specialista-clinico-specialista-clinico-centro-di-medicina-anziana-e-cure-palliative-spital-affoltern-ag-affoltern-am",
       "slugByLocale": {
         "de": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und",
-        "it": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis",
-        "en": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und",
-        "fr": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und"
+        "it": "specialista-clinico-specialista-clinico-centro-di-medicina-anziana-e-cure-palliative-spital-affoltern-ag-affoltern-am",
+        "en": "clinical-specialist-centre-for-age-medicine-and-palliative-care-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "specialiste-clinique-centre-de-medecine-de-l-age-et-de-soins-palliatifs-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1675,11 +1675,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und",
+          "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und"
+        ],
+        "fr": [
           "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und"
         ]
       },
       "previousSlugs": [
-        "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und"
+        "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-altersmedizin-und",
+        "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-per-altersmedizin-e-palliative-care-spital-affoltern-ag-affoltern-am-albis"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18000,12 +18000,12 @@
     },
     {
       "id": "luks-77bd964f7da1",
-      "slug": "fage-o-mpa-con-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80-luzerner-kantonsspital-luks-sursee",
+      "slug": "fage-o-mpa-con-perfezionamento-come-segretaria-segretario-medico-segreteria-pneumologia-80-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80",
-        "it": "fage-o-mpa-con-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80-luzerner-kantonsspital-luks-sursee",
-        "en": "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80",
-        "fr": "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80"
+        "it": "fage-o-mpa-con-perfezionamento-come-segretaria-segretario-medico-segreteria-pneumologia-80-luzerner-kantonsspital-luks",
+        "en": "fage-or-mpa-with-further-training-as-medical-secretary-medical-secretary-secretariat-pneumology-80-luzerner",
+        "fr": "fage-ou-mpa-avec-formation-continue-comme-secretaire-medical-secretaire-medical-secretariat-pneumologie-80-luzerner"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18054,11 +18054,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80",
+          "fage-o-mpa-con-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80-luzerner-kantonsspital-luks-sursee"
+        ],
+        "en": [
+          "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80"
+        ],
+        "fr": [
           "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80"
         ]
       },
       "previousSlugs": [
-        "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80"
+        "fage-oder-mpa-mit-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80",
+        "fage-o-mpa-con-weiterbildung-zur-arztsekretarin-arztsekretar-sekretariat-pneumologie-80-luzerner-kantonsspital-luks-sursee"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -18164,12 +18172,12 @@
     },
     {
       "id": "luks-c38894a8fbb0",
-      "slug": "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern",
+      "slug": "coder-medico-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern",
-        "it": "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern",
-        "en": "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern",
-        "fr": "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern"
+        "it": "coder-medico-60-100-luzerner-kantonsspital-luks-luzern",
+        "en": "medical-coder-60-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "codeur-medical-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18231,7 +18239,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:25:14.956Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:25:14.956Z"
+      "firstSeenAt": "2026-11-10T21:25:14.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern"
+        ],
+        "en": [
+          "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern"
+        ],
+        "fr": [
+          "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-codiererin-medizinischer-codierer-60-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-ca2fd9874c44",

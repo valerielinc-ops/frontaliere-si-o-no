@@ -87,8 +87,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-hr-operations-80-100-spital-schwyz-schwyz",
         "it": "teamleiter-in-hr-operations-80-100-spital-schwyz-schwyz",
-        "en": "teamleiter-in-hr-operations-80-100-spital-schwyz-schwyz",
-        "fr": "teamleiter-in-hr-operations-80-100-spital-schwyz-schwyz"
+        "en": "hr-operations-team-leader-80-100-spital-schwyz-schwyz",
+        "fr": "chef-d-equipe-dans-les-operations-rh-80-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1274,12 +1274,12 @@
     },
     {
       "id": "spital-schwyz-7d35173f6db4",
-      "slug": "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz",
+      "slug": "specialista-hr-in-payroll-e-gestione-del-tempo-40-60-spital-schwyz-schwyz",
       "slugByLocale": {
         "de": "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz",
-        "it": "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz",
-        "en": "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz",
-        "fr": "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz"
+        "it": "specialista-hr-in-payroll-e-gestione-del-tempo-40-60-spital-schwyz-schwyz",
+        "en": "hr-specialist-payroll-time-management-40-60-spital-schwyz-schwyz",
+        "fr": "specialiste-rh-en-paie-et-gestion-du-temps-40-60-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1342,7 +1342,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:30:42.073Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:30:42.073Z"
+      "firstSeenAt": "2026-11-10T21:30:42.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "hr-spezialist-in-payroll-zeitwirtschaft-40-60-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-9d36d3b7fa7a",

@@ -9312,7 +9312,7 @@
       "slugByLocale": {
         "de": "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch",
         "it": "fachspezialist-in-aus-e-weiterbildung-datennetze-m-w-d-eth-zurich",
-        "en": "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch",
+        "en": "specialist-in-education-and-training-data-networks-m-f-d-eth-zurich-zurich",
         "fr": "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -9360,6 +9360,9 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
@@ -9388,10 +9391,10 @@
     },
     {
       "id": "eth-zurich-16fde2b96d20",
-      "slug": "gebaudetechniker-in-specializzazione-sanitar-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+      "slug": "tecnico-edile-specializzato-in-sanitari-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich",
       "slugByLocale": {
         "de": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
-        "it": "gebaudetechniker-in-specializzazione-sanitar-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich",
+        "it": "tecnico-edile-specializzato-in-sanitari-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich",
         "en": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
         "fr": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
       },
@@ -9439,11 +9442,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
+          "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
+          "gebaudetechniker-in-specializzazione-sanitar-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
         ]
       },
       "previousSlugs": [
-        "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
+        "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
+        "gebaudetechniker-in-specializzazione-sanitar-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

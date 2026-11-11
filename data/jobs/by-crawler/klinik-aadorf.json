@@ -193,8 +193,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf",
         "it": "mitarbeiterin-collaboratore-trice-empfang-m-w-d-klinik-aadorf",
-        "en": "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf",
-        "fr": "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf"
+        "en": "worker-worker-receiving-m-f-d-klinik-aadorf-aadorf",
+        "fr": "travailleur-travailleur-recevant-h-f-d-klinik-aadorf-aadorf"
       },
       "company": "Klinik Aadorf",
       "companyKey": "klinik-aadorf",
@@ -242,6 +242,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-empfang-w-m-d-klinik-aadorf-aadorf"
         ]
       },

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "otis-4788bb24c785",
-      "slug": "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier",
+      "slug": "ammodernamento-e-sostituzione-dell-ingegnere-commerciale-mod-bex-otis-sa-vernier",
       "slugByLocale": {
         "fr": "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier",
-        "it": "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier",
+        "it": "ammodernamento-e-sostituzione-dell-ingegnere-commerciale-mod-bex-otis-sa-vernier",
         "en": "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier",
-        "de": "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier"
+        "de": "modernisierung-und-ersatz-von-wirtschaftsingenieuren-mod-bex-otis-sa-vernier"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -69,7 +69,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:46:00.084Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:46:00.084Z"
+      "firstSeenAt": "2026-11-10T21:46:00.084Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier"
+        ],
+        "de": [
+          "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-commercial-modernisation-remplacement-mod-bex-otis-vernier"
+      ]
     },
     {
       "id": "otis-5164b63732fb",
@@ -616,8 +627,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -659,8 +670,8 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp",
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -668,11 +679,11 @@
         ],
         "de": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-betrieb-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
       "needsRetranslation": true,

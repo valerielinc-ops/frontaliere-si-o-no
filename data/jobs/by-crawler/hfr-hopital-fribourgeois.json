@@ -1281,12 +1281,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-2251c74ebe6c",
-      "slug": "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez",
+      "slug": "neuropsicologo-riconosciuto-a-livello-federale-ean-hopital-fribourgeois-hfr-meyriez-switzerland",
       "slugByLocale": {
         "fr": "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez",
-        "it": "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez",
-        "en": "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez",
-        "de": "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez"
+        "it": "neuropsicologo-riconosciuto-a-livello-federale-ean-hopital-fribourgeois-hfr-meyriez-switzerland",
+        "en": "neuropsychologist-recognized-at-the-federal-level-ean-hopital-fribourgeois-hfr-meyriez-switzerland",
+        "de": "neuropsychologe-anerkannt-auf-bundesebene-ean-hopital-fribourgeois-hfr-meyriez-switzerland"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1350,7 +1350,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:41:10.071Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:41:10.071Z"
+      "firstSeenAt": "2026-11-10T21:41:10.071Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez"
+        ],
+        "en": [
+          "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez"
+        ],
+        "de": [
+          "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez"
+        ]
+      },
+      "previousSlugs": [
+        "neuropsychologue-reconnu-e-au-niveau-federal-ean-hfr-hopital-fribourgeois-meyriez"
+      ]
     }
   ]
 }

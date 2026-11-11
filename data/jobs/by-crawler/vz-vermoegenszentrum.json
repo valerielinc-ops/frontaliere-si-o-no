@@ -6895,12 +6895,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-af8b9f82a917",
-      "slug": "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich",
+      "slug": "junior-consultant-consulenza-aziendale-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "junior-consultant-unternehmensberatung-vz-vermoegenszentrum-ch",
-        "it": "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich",
-        "en": "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich",
-        "fr": "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich"
+        "it": "junior-consultant-consulenza-aziendale-vz-vermogenszentrum-zurich-zurich",
+        "en": "junior-consultant-management-consulting-vz-vermogenszentrum-zurich-zurich",
+        "fr": "junior-consultant-conseil-en-gestion-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6960,11 +6960,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "junior-consultant-unternehmensberatung-vz-vermoegenszentrum-ch"
+          "junior-consultant-unternehmensberatung-vz-vermoegenszentrum-ch",
+          "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "junior-consultant-unternehmensberatung-vz-vermoegenszentrum-ch"
+        "junior-consultant-unternehmensberatung-vz-vermoegenszentrum-ch",
+        "junior-consultant-unternehmensberatung-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6985,12 +6993,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-997c1162dbde",
-      "slug": "sachbearbeiter-in-berufliche-previdenza-con-italienischkenntnissen-vz-vermogenszentrum-bern",
+      "slug": "addetto-a-alla-previdenza-professionale-con-conoscenza-dell-italiano-vz-vermogenszentrum-bern-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermoegenszentrum-ch",
-        "it": "sachbearbeiter-in-berufliche-previdenza-con-italienischkenntnissen-vz-vermogenszentrum-bern",
-        "en": "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermogenszentrum-bern",
-        "fr": "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermogenszentrum-bern"
+        "it": "addetto-a-alla-previdenza-professionale-con-conoscenza-dell-italiano-vz-vermogenszentrum-bern-bern",
+        "en": "clerk-for-occupational-pensions-with-knowledge-of-italian-vz-vermogenszentrum-bern-bern",
+        "fr": "responsable-de-la-prevoyance-professionnelle-ayant-des-connaissances-en-italien-vz-vermogenszentrum-bern-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7050,11 +7058,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-berufliche-previdenza-con-italienischkenntnissen-vz-vermogenszentrum-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermogenszentrum-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermogenszentrum-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-berufliche-previdenza-con-italienischkenntnissen-vz-vermogenszentrum-bern",
+        "sachbearbeiter-in-berufliche-vorsorge-mit-italienischkenntnissen-vz-vermogenszentrum-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,

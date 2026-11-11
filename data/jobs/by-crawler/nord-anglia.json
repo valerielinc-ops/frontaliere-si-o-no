@@ -852,7 +852,7 @@
       "slug": "insegnante-di-filosofia-al-30-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "it": "insegnante-di-filosofia-al-30-nord-anglia-education-switzerland-pully",
-        "en": "30-teacher-in-philosophy-nord-anglia-education-switzerland-pully",
+        "en": "enseignant-e-en-philosophie-a-30-nord-anglia-pully",
         "de": "insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt-insgesamt",
         "fr": "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
       },
@@ -900,14 +900,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
+        "enseignant-e-en-philosophie-a-30-nord-anglia-pully",
+        "30-teacher-in-philosophy-nord-anglia-education-switzerland-pully"
       ],
       "previousSlugsByLocale": {
         "it": [
           "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
         ],
         "en": [
-          "enseignant-e-en-philosophie-a-30-nord-anglia-pully"
+          "30-teacher-in-philosophy-nord-anglia-education-switzerland-pully"
         ]
       },
       "firstSeenAt": "2026-10-06T21:17:18.179Z",
@@ -1249,7 +1250,7 @@
       "slug": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "it": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
-        "en": "primary-teachers-nord-anglia-education-switzerland-pully",
+        "en": "enseignants-es-primaire-nord-anglia-pully",
         "de": "enseignants-es-primaire-nord-anglia-pully",
         "fr": "s-es-primaire-nord-anglia-education-switzerland-pully"
       },
@@ -1305,12 +1306,13 @@
           "enseignants-es-primaire-nord-anglia-pully"
         ],
         "en": [
-          "enseignants-es-primaire-nord-anglia-pully"
+          "primary-teachers-nord-anglia-education-switzerland-pully"
         ]
       },
       "previousSlugs": [
         "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne",
-        "enseignants-es-primaire-nord-anglia-pully"
+        "enseignants-es-primaire-nord-anglia-pully",
+        "primary-teachers-nord-anglia-education-switzerland-pully"
       ],
       "firstSeenAt": "2026-09-19T22:53:24.102Z",
       "salaryMin": 51000,
@@ -1332,11 +1334,11 @@
     },
     {
       "id": "nord-anglia-97da0b4e0a03",
-      "slug": "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva",
+      "slug": "assistente-di-classe-prescolastico-bilingue-sostituto-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "fr": "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva",
-        "it": "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva",
-        "en": "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva",
+        "it": "assistente-di-classe-prescolastico-bilingue-sostituto-nord-anglia-education-switzerland-geneva",
+        "en": "class-assistant-bilingual-preschool-replacement-nord-anglia-education-switzerland-geneva",
         "de": "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -1400,7 +1402,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:25:48.393Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:25:48.393Z"
+      "firstSeenAt": "2026-11-10T21:25:48.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva"
+        ],
+        "en": [
+          "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-classe-bilingue-fr-angl-prescolaire-remplacement-nord-anglia-geneva"
+      ]
     }
   ]
 }

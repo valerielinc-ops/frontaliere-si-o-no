@@ -1303,12 +1303,12 @@
     },
     {
       "id": "zuger-kantonsspital-45ce348c6045",
-      "slug": "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar",
+      "slug": "assistente-tecnico-di-sterilizzazione-80-100-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar",
-        "it": "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar",
-        "en": "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar",
-        "fr": "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar"
+        "it": "assistente-tecnico-di-sterilizzazione-80-100-m-f-zuger-kantonsspital-baar",
+        "en": "technical-sterilization-assistant-80-100-m-f-zuger-kantonsspital-baar",
+        "fr": "assistant-e-technique-de-sterilisation-80-100-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1371,15 +1371,29 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T22:06:06.317Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:06:06.317Z"
+      "firstSeenAt": "2026-11-10T22:06:06.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "technische-sterilisationsassistent-in-80-100-m-w-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-7c4a56e2329c",
-      "slug": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
+      "slug": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
-        "it": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
-        "en": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
+        "it": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
+        "en": "chief-medical-secretary-women-s-clinic-100-zuger-kantonsspital-baar",
         "fr": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
@@ -1442,7 +1456,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T22:06:05.659Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-08T09:31:46.560Z"
+      "firstSeenAt": "2026-10-08T09:31:46.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-b96f5a114328",
@@ -1450,8 +1475,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-notfallempfang-40-50-w-m-zuger-kantonsspital-baar",
         "it": "ricevimento-di-emergenza-del-dipendente-40-50-m-f-zuger-kantonsspital-baar",
-        "en": "mitarbeiter-in-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar",
-        "fr": "mitarbeiter-in-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
+        "en": "employee-emergency-reception-40-50-m-f-zuger-kantonsspital-baar",
+        "fr": "reception-d-urgence-des-employes-40-50-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1506,16 +1531,15 @@
           "mitarbeiter-in-notfallempfang-40-50-m-w-zuger-kantonsspital-baar"
         ],
         "en": [
-          "employee-emergency-reception-40-50-m-f-zuger-kantonsspital-baar"
+          "mitarbeiter-in-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
         ],
         "fr": [
-          "reception-d-urgence-des-employes-40-50-h-f-zuger-kantonsspital-baar"
+          "mitarbeiter-in-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-notfallempfang-40-50-m-w-zuger-kantonsspital-baar",
-        "employee-emergency-reception-40-50-m-f-zuger-kantonsspital-baar",
-        "reception-d-urgence-des-employes-40-50-h-f-zuger-kantonsspital-baar"
+        "mitarbeiter-in-notfallempfang-40-50-m-w-d-zuger-kantonsspital-baar"
       ],
       "salaryMin": 43300,
       "salaryMax": 60300,

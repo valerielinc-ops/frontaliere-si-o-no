@@ -777,7 +777,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -827,7 +827,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -836,7 +836,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4480,12 +4480,12 @@
     },
     {
       "id": "unibe-0990b04e4a08",
-      "slug": "wissenschaftliche-assistenz-universitat-bern-bern",
+      "slug": "assistenza-scientifica-universitat-bern-bern-d766be",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-unibe-bern",
-        "it": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "en": "wissenschaftliche-assistenz-universitat-bern-bern",
-        "fr": "wissenschaftliche-assistenz-universitat-bern-bern"
+        "it": "assistenza-scientifica-universitat-bern-bern-d766be",
+        "en": "scientific-assistance-universitat-bern-bern-d766be",
+        "fr": "assistance-scientifique-universitat-bern-bern-d766be"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4533,11 +4533,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-unibe-bern-2"
+          "wissenschaftliche-assistenz-unibe-bern-2",
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-assistenz-unibe-bern-2"
+        "wissenschaftliche-assistenz-unibe-bern-2",
+        "wissenschaftliche-assistenz-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

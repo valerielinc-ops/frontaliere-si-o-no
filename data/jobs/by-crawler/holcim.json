@@ -268,12 +268,12 @@
     },
     {
       "id": "holcim-f0d80ba61d34",
-      "slug": "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch",
+      "slug": "plant-ot-engineer-ingegnere-ot-in-fabbrica-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch",
-        "it": "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch",
+        "it": "plant-ot-engineer-ingegnere-ot-in-fabbrica-holcim-group-wurenlingen",
         "en": "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch",
-        "fr": "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch"
+        "fr": "plant-ingenieur-ot-ingenieur-ot-en-usine-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -336,7 +336,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:32:31.283Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:32:31.283Z"
+      "firstSeenAt": "2026-11-10T21:32:31.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch"
+        ],
+        "fr": [
+          "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "plant-ot-engineer-ot-ingenieur-in-werk-holcim-ch"
+      ]
     },
     {
       "id": "holcim-51111e111e16",

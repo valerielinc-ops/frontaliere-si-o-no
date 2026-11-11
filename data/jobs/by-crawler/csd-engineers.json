@@ -3411,12 +3411,12 @@
     },
     {
       "id": "csd-engineers-d0c937a0ab02",
-      "slug": "abteilungsleiter-in-geotechnik-e-wasserbau-80-100-csd-engineers-bern",
+      "slug": "capo-reparto-geotecnica-e-ingegneria-idraulica-80-100-csd-engineers-bern",
       "slugByLocale": {
         "de": "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch",
-        "it": "abteilungsleiter-in-geotechnik-e-wasserbau-80-100-csd-engineers-bern",
-        "en": "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch",
-        "fr": "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch"
+        "it": "capo-reparto-geotecnica-e-ingegneria-idraulica-80-100-csd-engineers-bern",
+        "en": "head-of-geotechnical-and-hydraulic-engineering-department-80-100-csd-engineers-bern",
+        "fr": "chef-fe-de-service-geotechnique-et-genie-hydraulique-80-100-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3464,11 +3464,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch",
+          "abteilungsleiter-in-geotechnik-e-wasserbau-80-100-csd-engineers-bern"
+        ],
+        "en": [
+          "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch"
+        ],
+        "fr": [
           "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch"
+        "abteilungsleiter-in-geotechnik-und-wasserbau-80-100-csd-engineers-ch",
+        "abteilungsleiter-in-geotechnik-e-wasserbau-80-100-csd-engineers-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

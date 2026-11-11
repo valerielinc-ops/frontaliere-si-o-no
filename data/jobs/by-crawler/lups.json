@@ -6087,12 +6087,12 @@
     },
     {
       "id": "lups-1cafda17ec97",
-      "slug": "fachperson-betreuung-w-m-d-70-100-lups-st-urban",
+      "slug": "supporto-professionale-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "fachperson-betreuung-w-m-d-70-100-lups-st-urban",
-        "it": "fachperson-betreuung-w-m-d-70-100-lups-st-urban",
-        "en": "fachperson-betreuung-w-m-d-70-100-lups-st-urban",
-        "fr": "fachperson-betreuung-w-m-d-70-100-lups-st-urban"
+        "it": "supporto-professionale-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "professional-support-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "fr": "support-professionnel-h-f-d-70-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6154,16 +6154,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:31:35.393Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:31:35.393Z"
+      "firstSeenAt": "2026-11-10T21:31:35.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-w-m-d-70-100-lups-st-urban"
+        ],
+        "en": [
+          "fachperson-betreuung-w-m-d-70-100-lups-st-urban"
+        ],
+        "fr": [
+          "fachperson-betreuung-w-m-d-70-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-w-m-d-70-100-lups-st-urban"
+      ]
     },
     {
       "id": "lups-1c15b0a46b98",
-      "slug": "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban",
+      "slug": "insegnante-sociale-hf-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban",
-        "it": "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban",
-        "en": "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban",
-        "fr": "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban"
+        "it": "insegnante-sociale-hf-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "social-teacher-hf-m-f-d-70-100-luzerner-psychiatrie-lups-st-urban",
+        "fr": "professeur-social-hf-h-f-d-70-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6225,7 +6239,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:31:34.901Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:31:34.901Z"
+      "firstSeenAt": "2026-11-10T21:31:34.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban"
+        ],
+        "en": [
+          "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban"
+        ],
+        "fr": [
+          "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagoge-hf-w-m-d-70-100-lups-st-urban"
+      ]
     }
   ]
 }

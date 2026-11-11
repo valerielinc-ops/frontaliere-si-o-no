@@ -2426,12 +2426,12 @@
     },
     {
       "id": "novartis-975ac85a5d06",
-      "slug": "global-lead-legal-brand-protection-support-novartis-ch",
+      "slug": "global-lead-supporto-legale-per-la-protezione-del-marchio-novartis-basel-city",
       "slugByLocale": {
         "en": "global-lead-legal-brand-protection-support-novartis-ch",
-        "it": "global-lead-legal-brand-protection-support-novartis-ch",
-        "de": "global-lead-legal-brand-protection-support-novartis-ch",
-        "fr": "global-lead-legal-brand-protection-support-novartis-ch"
+        "it": "global-lead-supporto-legale-per-la-protezione-del-marchio-novartis-basel-city",
+        "de": "global-lead-rechtliche-markenschutzunterstutzung-novartis-basel-city",
+        "fr": "leader-mondial-soutien-a-la-protection-de-la-marque-juridique-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2494,16 +2494,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:44:47.693Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:44:47.693Z"
+      "firstSeenAt": "2026-11-10T21:44:47.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-lead-legal-brand-protection-support-novartis-ch"
+        ],
+        "de": [
+          "global-lead-legal-brand-protection-support-novartis-ch"
+        ],
+        "fr": [
+          "global-lead-legal-brand-protection-support-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-lead-legal-brand-protection-support-novartis-ch"
+      ]
     },
     {
       "id": "novartis-83fdfa8116c6",
-      "slug": "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical",
+      "slug": "leader-del-processo-di-scienze-cliniche-trial-leadership-medicina-traduttiva-farmacologia-clinica-80-100-novartis-basel",
       "slugByLocale": {
         "en": "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical",
-        "it": "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical",
-        "de": "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical",
-        "fr": "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical"
+        "it": "leader-del-processo-di-scienze-cliniche-trial-leadership-medicina-traduttiva-farmacologia-clinica-80-100-novartis-basel",
+        "de": "clinical-sciences-trial-leader-studienleitung-translationale-medizin-klinische-pharmakologie-80-100-novartis-basel-city",
+        "fr": "chef-d-essais-en-sciences-cliniques-chef-d-essais-medecine-translationnelle-pharmacologie-clinique-80-100-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2566,7 +2580,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:44:46.872Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:44:46.872Z"
+      "firstSeenAt": "2026-11-10T21:44:46.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical"
+        ],
+        "de": [
+          "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical"
+        ],
+        "fr": [
+          "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-sciences-trial-leader-trial-leadership-translational-medicine-clinical"
+      ]
     },
     {
       "id": "novartis-0e63791a8dc3",

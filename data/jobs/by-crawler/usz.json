@@ -18127,12 +18127,12 @@
     },
     {
       "id": "usz-bcb7edd9c270",
-      "slug": "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch",
+      "slug": "medico-senior-m-f-d-nephrology-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch",
-        "it": "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch",
-        "en": "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch",
-        "fr": "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch"
+        "it": "medico-senior-m-f-d-nephrology-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "senior-physician-m-f-d-nephrology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-principal-h-f-d-nephrologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18194,7 +18194,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:17.185Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:17.185Z"
+      "firstSeenAt": "2026-11-10T21:28:17.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-w-m-d-nephrologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-bf40a9d30c7b",
@@ -18202,8 +18216,8 @@
       "slugByLocale": {
         "de": "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch",
         "it": "direktionssekretar-in-nuklearmedizin-con-predisposizione-per-zahlen-40-universitatsspital-zurich-usz-zurich",
-        "en": "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch",
-        "fr": "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch"
+        "en": "directorate-secretary-for-nuclear-medicine-with-a-flair-for-numbers-40-universitatsspital-zurich-usz-zurich",
+        "fr": "secretaire-de-direction-en-medecine-nucleaire-avec-un-flair-pour-les-chiffres-40-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18252,6 +18266,12 @@
       "previousSlugsByLocale": {
         "it": [
           "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch"
+        ],
+        "en": [
+          "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch"
+        ],
+        "fr": [
+          "direktionssekretar-in-nuklearmedizin-mit-flair-fur-zahlen-40-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -18283,7 +18303,7 @@
         "de": "hochschulpraktikant-in-process-and-data-analytics-80-100-usz-ch",
         "it": "hochschulpraktikant-in-process-and-data-analytics-80-100-usz-ch",
         "en": "hochschulpraktikant-in-process-and-data-analytics-80-100-usz-ch",
-        "fr": "hochschulpraktikant-in-process-and-data-analytics-80-100-usz-ch"
+        "fr": "stagiaire-universitaire-dans-les-processus-et-l-analyse-de-donnees-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18354,8 +18374,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz",
         "it": "collaboratore-trice-administration-klinik-per-konsiliarpsychiatrie-e-psychosomatik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz",
-        "fr": "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz"
+        "en": "employee-administrationclinic-for-consultant-psychiatry-and-psychosomatics-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "collaborateur-en-administration-clinique-de-psychiatrie-consultative-et-de-psychosomatique-80-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18404,6 +18424,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz"
+        ],
+        "en": [
+          "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz"
+        ],
+        "fr": [
+          "mitarbeiter-in-administration-klinik-fur-konsiliarpsychiatrie-und-psychosomatik-80-100-usz"
         ]
       },
       "previousSlugs": [
@@ -18430,12 +18456,12 @@
     },
     {
       "id": "usz-e56ad18b1cfa",
-      "slug": "studienkoordinator-in-per-la-klinik-per-radio-onkologie-60-100-universitatsspital-zurich-usz-zurich",
+      "slug": "coordinatore-dello-studio-per-la-clinica-di-radio-oncologia-60-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch",
-        "it": "studienkoordinator-in-per-la-klinik-per-radio-onkologie-60-100-universitatsspital-zurich-usz-zurich",
-        "en": "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch",
-        "fr": "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch"
+        "it": "coordinatore-dello-studio-per-la-clinica-di-radio-oncologia-60-100-universitatsspital-zurich-usz-zurich",
+        "en": "radiation-oncology-clinic-study-coordinator-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "coordinateur-d-etude-pour-la-clinique-de-radio-oncologie-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18483,11 +18509,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch",
+          "studienkoordinator-in-per-la-klinik-per-radio-onkologie-60-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch"
+        ],
+        "fr": [
           "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch"
+        "studienkoordinator-in-fur-die-klinik-fur-radio-onkologie-60-100-usz-ch",
+        "studienkoordinator-in-per-la-klinik-per-radio-onkologie-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18510,12 +18544,12 @@
     },
     {
       "id": "usz-85be6497c578",
-      "slug": "spezialpflege-fachexpertin-fachexperte-m-w-d-per-la-intensivstation-con-schwerpunkt-viszeral-thorax-e-transplantationschirurgie-90-100-universitatsspital-zurich-usz-zurich",
+      "slug": "cure-specialistiche-specialista-m-f-d-per-unita-di-terapia-intensiva-con-specializzazione-in-chirurgia-viscerale",
       "slugByLocale": {
         "de": "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt",
-        "it": "spezialpflege-fachexpertin-fachexperte-m-w-d-per-la-intensivstation-con-schwerpunkt-viszeral-thorax-e-transplantationschirurgie-90-100-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt",
-        "fr": "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt"
+        "it": "cure-specialistiche-specialista-m-f-d-per-unita-di-terapia-intensiva-con-specializzazione-in-chirurgia-viscerale",
+        "en": "specialist-care-specialist-expert-m-f-d-for-the-intensive-care-unit-with-focus-on-visceral-thoracic-and-transplantation",
+        "fr": "soins-specialises-expert-specialise-h-f-d-pour-l-unite-de-soins-intensifs-avec-l-accent-sur-la-chirurgie-viscerale"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18563,11 +18597,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt",
+          "spezialpflege-fachexpertin-fachexperte-m-w-d-per-la-intensivstation-con-schwerpunkt-viszeral-thorax-e-transplantationschirurgie-90-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt"
+        ],
+        "fr": [
           "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt"
+        "spezialpflege-fachexpertin-fachexperte-w-m-d-fur-die-intensivstation-mit-schwerpunkt",
+        "spezialpflege-fachexpertin-fachexperte-m-w-d-per-la-intensivstation-con-schwerpunkt-viszeral-thorax-e-transplantationschirurgie-90-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18594,8 +18636,8 @@
       "slugByLocale": {
         "de": "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin",
         "it": "verwaltungsassistent-in-per-das-institut-per-notfallmedizin-departement-per-innere-medizin-50-100-universitatsspital-zurich-usz-zurich",
-        "en": "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin",
-        "fr": "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin"
+        "en": "administrative-assistant-for-the-institute-of-emergency-medicine-department-of-internal-medicine-50-100",
+        "fr": "assistant-administratif-pour-l-institut-de-medecine-d-urgence-departement-de-medecine-interne-50-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18643,6 +18685,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin"
+        ],
+        "en": [
+          "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin"
+        ],
+        "fr": [
           "verwaltungsassistent-in-fur-das-institut-fur-notfallmedizin-departement-fur-innere-medizin"
         ]
       },
@@ -18835,7 +18883,7 @@
       "id": "usz-74ab59f92640",
       "slug": "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich-a402bd79d6",
       "slugByLocale": {
-        "it": "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich-a402bd79d6",
+        "it": "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich",
         "en": "bma-bmld-as-educational-manager-r-in-hematological-diagnostics-80-100-universitatsspital-zurich-usz-zurich",
         "de": "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
         "fr": "bma-bmld-en-tant-que-responsable-de-l-education-r-dans-le-diagnostic-hematologique-80-100-universitatsspital-zurich-usz"
@@ -18883,14 +18931,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
-        "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich",
-        "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich"
+        "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch",
-          "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich",
-          "bma-bmld-come-responsabile-della-formazione-nella-diagnostica-ematologica-80-100-universitatsspital-zurich-usz-zurich"
+          "bma-bmld-come-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "bma-bmld-als-bildungsverantwortliche-r-in-der-hamatologischen-diagnostik-80-100-usz-ch"

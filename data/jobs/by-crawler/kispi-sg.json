@@ -906,12 +906,12 @@
     },
     {
       "id": "kispi-sg-e74d2747c9bd",
-      "slug": "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen",
+      "slug": "centro-di-protezione-per-bambini-80-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "fachperson-beratung-kinderschutzzentrum-80-kispi-sg-st-gallen",
-        "it": "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen",
-        "en": "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen",
-        "fr": "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen"
+        "it": "centro-di-protezione-per-bambini-80-ostschweizer-kinderspital-st-gallen",
+        "en": "specialist-counselling-child-protection-center-80-ostschweizer-kinderspital-st-gallen",
+        "fr": "centre-de-conseil-specialise-pour-la-protection-de-l-enfance-80-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -958,11 +958,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-beratung-kinderschutzzentrum-80-kispi-sg-st-gallen"
+          "fachperson-beratung-kinderschutzzentrum-80-kispi-sg-st-gallen",
+          "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachperson-beratung-kinderschutzzentrum-80-kispi-sg-st-gallen"
+        "fachperson-beratung-kinderschutzzentrum-80-kispi-sg-st-gallen",
+        "fachperson-beratung-kinderschutzzentrum-80-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 65200,
       "salaryMax": 91200,

@@ -157,12 +157,12 @@
     },
     {
       "id": "oerlikon-a72a73319303",
-      "slug": "servicetechniker-gn-oerlikon-wohlen",
+      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
       "slugByLocale": {
         "de": "servicetechniker-gn-oerlikon-ch",
-        "it": "servicetechniker-gn-oerlikon-wohlen",
-        "en": "servicetechniker-gn-oerlikon-wohlen",
-        "fr": "servicetechniker-gn-oerlikon-wohlen"
+        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
+        "en": "service-technician-gn-oerlikon-wohlen",
+        "fr": "technicien-des-services-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -209,11 +209,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-gn-oerlikon-ch"
+          "servicetechniker-gn-oerlikon-ch",
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "servicetechniker-gn-oerlikon-wohlen"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-gn-oerlikon-ch"
+        "servicetechniker-gn-oerlikon-ch",
+        "servicetechniker-gn-oerlikon-wohlen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

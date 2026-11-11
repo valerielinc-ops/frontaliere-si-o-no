@@ -8613,12 +8613,12 @@
     },
     {
       "id": "roche-43dd71934251",
-      "slug": "qa-manager-quality-control-2-jahre-befristung-roche-ch",
+      "slug": "qa-manager-controllo-qualita-2-anni-di-termine-roche-kaiseraugst",
       "slugByLocale": {
         "de": "qa-manager-quality-control-2-jahre-befristung-roche-ch",
-        "it": "qa-manager-quality-control-2-jahre-befristung-roche-ch",
-        "en": "qa-manager-quality-control-2-jahre-befristung-roche-ch",
-        "fr": "qa-manager-quality-control-2-jahre-befristung-roche-ch"
+        "it": "qa-manager-controllo-qualita-2-anni-di-termine-roche-kaiseraugst",
+        "en": "qa-manager-quality-control-2-years-term-roche-kaiseraugst",
+        "fr": "gestionnaire-de-l-assurance-qualite-controle-de-la-qualite-delai-de-2-ans-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8681,7 +8681,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:26:45.015Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:26:45.015Z"
+      "firstSeenAt": "2026-11-10T21:26:45.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-manager-quality-control-2-jahre-befristung-roche-ch"
+        ],
+        "en": [
+          "qa-manager-quality-control-2-jahre-befristung-roche-ch"
+        ],
+        "fr": [
+          "qa-manager-quality-control-2-jahre-befristung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qa-manager-quality-control-2-jahre-befristung-roche-ch"
+      ]
     },
     {
       "id": "roche-28269ff24ebf",
@@ -8690,7 +8704,7 @@
         "de": "senior-learning-specialist-im-bereich-qa-training-roche-ch",
         "it": "senior-learning-specialist-im-bereich-qa-training-roche-ch",
         "en": "senior-learning-specialist-im-bereich-qa-training-roche-ch",
-        "fr": "senior-learning-specialist-im-bereich-qa-training-roche-ch"
+        "fr": "specialiste-senior-de-l-apprentissage-dans-le-domaine-de-la-formation-a-l-assurance-qualite-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8757,12 +8771,12 @@
     },
     {
       "id": "roche-d8d2860f4830",
-      "slug": "praktikum-im-bereich-zellkultur-per-la-antikorperproduktion-roche-basel",
+      "slug": "tirocinio-in-coltura-cellulare-per-la-produzione-di-anticorpi-roche-basel",
       "slugByLocale": {
         "de": "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch",
-        "it": "praktikum-im-bereich-zellkultur-per-la-antikorperproduktion-roche-basel",
-        "en": "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch",
-        "fr": "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch"
+        "it": "tirocinio-in-coltura-cellulare-per-la-produzione-di-anticorpi-roche-basel",
+        "en": "internship-in-cell-culture-for-antibody-production-roche-basel",
+        "fr": "stage-en-culture-cellulaire-pour-la-production-d-anticorps-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8808,11 +8822,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch",
+          "praktikum-im-bereich-zellkultur-per-la-antikorperproduktion-roche-basel"
+        ],
+        "en": [
+          "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch"
+        ],
+        "fr": [
           "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch"
+        "praktikum-im-bereich-zellkultur-fur-die-antikorperproduktion-roche-ch",
+        "praktikum-im-bereich-zellkultur-per-la-antikorperproduktion-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

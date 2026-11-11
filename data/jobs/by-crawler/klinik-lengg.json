@@ -1366,12 +1366,12 @@
     },
     {
       "id": "klinik-lengg-801935d40ff7",
-      "slug": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
+      "slug": "specialista-specialista-in-salute-neuroriabilitazione-a-in-servizio-mattutino-e-posticipato-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
-        "it": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
-        "en": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
-        "fr": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"
+        "it": "specialista-specialista-in-salute-neuroriabilitazione-a-in-servizio-mattutino-e-posticipato-klinik-lengg-zurich",
+        "en": "specialist-health-neurorehabilitation-a-in-early-and-late-service-klinik-lengg-zurich",
+        "fr": "specialiste-sante-neuroreadaptation-a-en-debut-de-service-et-en-fin-de-service-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1420,11 +1420,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
+          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

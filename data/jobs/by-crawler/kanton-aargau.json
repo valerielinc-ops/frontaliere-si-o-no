@@ -5747,12 +5747,12 @@
     },
     {
       "id": "kanton-aargau-f31cbc1a738f",
-      "slug": "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch",
+      "slug": "personale-personale-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch"
+        "it": "personale-personale-80-100-kanton-aargau-aarau",
+        "en": "personnel-personnel-80-100-kanton-aargau-aarau",
+        "fr": "personnel-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5815,7 +5815,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-10T21:33:41.994Z"
+      "firstSeenAt": "2026-11-10T21:33:41.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-f5a46ffb8568",
@@ -5991,12 +6005,12 @@
     },
     {
       "id": "kanton-aargau-8d2b09a092f4",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-unterkulm",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-unterkulm",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-unterkulm",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-unterkulm"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6059,16 +6073,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-07-04T11:08:20.236Z"
+      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+      ]
     },
     {
       "id": "kanton-aargau-29a6f4c69c3e",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-unterkulm-7e69e5",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-unterkulm-7e69e5",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-unterkulm-7e69e5",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-unterkulm-7e69e5"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6131,7 +6159,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-07-04T11:08:20.236Z"
+      "firstSeenAt": "2026-07-04T11:08:20.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+      ]
     },
     {
       "id": "kanton-aargau-718f5ce0b5d9",
@@ -6222,12 +6264,12 @@
     },
     {
       "id": "kanton-aargau-2cb50d6e5730",
-      "slug": "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch",
+      "slug": "auditore-del-personale-70-kanton-aargau-brugg",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch"
+        "it": "auditore-del-personale-70-kanton-aargau-brugg",
+        "en": "personnel-personnel-auditor-70-kanton-aargau-brugg",
+        "fr": "verificateur-du-personnel-70-kanton-aargau-brugg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6290,7 +6332,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-10T21:33:30.021Z"
+      "firstSeenAt": "2026-11-10T21:33:30.021Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-revisorat-70-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-6095bf9fd9f1",
@@ -6466,12 +6522,12 @@
     },
     {
       "id": "kanton-aargau-878ad4b620f6",
-      "slug": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
+      "slug": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
       "slugByLocale": {
         "de": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "it": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "en": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "fr": "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        "it": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
+        "en": "craftsman-craftsman-80-100-kanton-aargau-wohlen",
+        "fr": "artisan-artisan-80-100-kanton-aargau-wohlen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6534,7 +6590,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-03T09:24:05.909Z"
+      "firstSeenAt": "2026-10-03T09:24:05.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-86900a891dfe",
