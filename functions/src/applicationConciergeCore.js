@@ -54,6 +54,7 @@ import {
   APPLICATION_CONCIERGE_PROPOSAL_STATUSES,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
+  hasApplicationConciergeConsent,
   openProposalsCount,
   serviceIsActive,
   serviceIsExpired,
@@ -261,7 +262,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     applicantLocation: optionalString(data.applicantLocation, 120),
     applicantLocationCountry: optionalString(data.applicantLocationCountry, 2),
     candidateFacts: sanitizeCandidateFacts(data.candidateFacts),
-    hasConsent: data.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(data.consentedAt) > 0,
+    hasConsent: hasApplicationConciergeConsent(data),
     hasCv: Boolean(cvKeyForService(serviceId, data.cvStorageKey)),
     consentedAt: timestampToIso(data.consentedAt),
     cvUploadedAt: timestampToIso(data.cvUploadedAt),
@@ -427,7 +428,7 @@ function applicantLocationPatch(service, serviceId, body) {
 }
 
 function assertConciergeProcessingConsent(service) {
-  if (service?.consentVersion !== APPLICATION_CONCIERGE_CONSENT_VERSION || timestampMillis(service?.consentedAt) <= 0) {
+  if (!hasApplicationConciergeConsent(service)) {
     throw new ApplicationConciergeError('consent_required', 409);
   }
 }
@@ -612,7 +613,7 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
   assertCandidateOwns(service, uid);
   assertActive(service);
   const { name, email, phone } = assertProfileInput(body);
-  const hasConsent = service.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION && timestampMillis(service.consentedAt) > 0;
+  const hasConsent = hasApplicationConciergeConsent(service);
   // `consent: false` was used by the first client version as an explicit
   // attempt to save the whole form. Keep that request fail-closed when the
   // service has never been authorized, while an omitted consent field means
@@ -670,8 +671,8 @@ async function recordCandidateConsent(db, serviceId, uid, body) {
   assertCandidateOwns(service, uid);
   assertActive(service);
   const { name, email, phone } = assertProfileInput(body);
-  const alreadyRecorded = service.consentVersion === APPLICATION_CONCIERGE_CONSENT_VERSION
-    && timestampMillis(service.consentedAt) > 0;
+  // A consent under an earlier honoured version stays as given: never rewritten to the current text.
+  const alreadyRecorded = hasApplicationConciergeConsent(service);
   await ref.set({
     applicantName: name,
     applicantEmail: email,
@@ -755,7 +756,7 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   }
   const sourceKey = cvKeyForService(serviceId, service.cvStorageKey);
   if (!sourceKey) throw new ApplicationConciergeError('cv_required', 409);
-  if (service.consentVersion !== APPLICATION_CONCIERGE_CONSENT_VERSION || timestampMillis(service.consentedAt) <= 0) {
+  if (!hasApplicationConciergeConsent(service)) {
     throw new ApplicationConciergeError('consent_required', 409);
   }
   if (matchingNeedsVerification(service)

@@ -38,7 +38,8 @@ function underCap(service) {
 export function isFreshConciergeProposalRefreshRequest(before, after) {
   const requestedBy = after?.proposalRefreshRequestedBy;
   return Boolean(
-    (requestedBy === 'lifecycle' || requestedBy === 'candidate_withdrawal')
+    // A position given back by a withdrawn child (the candidate's, or the employer's withdrawal of the posting).
+    (requestedBy === 'lifecycle' || requestedBy === 'candidate_withdrawal' || requestedBy === 'employer_withdrawal')
       && after?.proposalRefreshRequestId
       && after.proposalRefreshRequestId !== before?.proposalRefreshRequestId,
   );

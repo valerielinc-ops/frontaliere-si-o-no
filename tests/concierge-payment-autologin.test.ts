@@ -31,6 +31,23 @@ describe('concierge payment email authentication', () => {
     expect(url.searchParams.get('utm_campaign')).toBe('application_concierge');
   });
 
+  // Owner decision 2026-11-11: an undecided proposal is accepted and sent by the platform after 12 hours, so no
+  // reminder promises a send only after the candidate's approval.
+  it.each([
+    ['it', /12 ore/, /via libera|dopo la tua approvazione|posizioni approvate|che hai approvato|tu approvi/i],
+    ['en', /12 hours/, /after you approve|after your approval|once you approve|positions you approve|approved by you|role you approve|you approve opportunities/i],
+    ['de', /12 Stunden/, /Zustimmung|Freigabe|freigibst|bestätigte Stellen|ohne dein Okay|stimmst Stellen zu/i],
+    ['fr', /12 heures/, /après votre accord|après votre validation|validés par vous|que vous validez|vous validez/i],
+  ])('promises no send only after approval in the %s reminders', (locale, twelveHours, approvalOnly) => {
+    // JavaScript with a JSDoc default narrower than its contract: called loosely here.
+    const build: (args: Record<string, unknown>) => { text: string } = buildApplicationConciergePaymentReminderEmail as any;
+    const texts = [3, 7, 14, 30].map((day) => build({
+      day, locale, serviceId: 'service-test', unsubscribeUrl: 'https://example.test/unsubscribe/',
+    }).text);
+    for (const text of texts) expect(text).not.toMatch(approvalOnly);
+    expect(texts.filter((text) => twelveHours.test(text)).length).toBeGreaterThanOrEqual(3);
+  });
+
   it.each([true, false])('only restores the signed recipient checkout owner: match=%s', async (match) => {
     mocks.createCustomToken.mockClear();
     const service = { userId: 'anonymous-checkout-owner', customerEmail: match ? email : 'other@example.test' };

@@ -16,6 +16,36 @@ export function canWithdrawApplication({ order, flow, draft = null, submission =
     && !Object.values(submission || {}).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record));
 }
 
+/**
+ * The concierge slot a child application holds: its parent service and proposal, read in `transaction` (every
+ * Firestore read comes before the first write). Null for an application that is no concierge child.
+ */
+export async function readConciergeSlot(transaction, db, order) {
+  if (order?.billingMode !== 'application_concierge' || !order.parentServiceId || !order.parentProposalId) return null;
+  const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(String(order.parentServiceId));
+  const proposalRef = serviceRef.collection('proposals').doc(String(order.parentProposalId));
+  const [serviceDoc, proposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(proposalRef)]);
+  return { serviceRef, proposalRef, service: serviceDoc.data(), proposal: proposalDoc.data() };
+}
+
+/**
+ * Gives one accepted position back to the service, in the caller's transaction: the proposal is closed
+ * (`declined` with `withdrawnAt` and why, the shape the portal shows as withdrawn and the matcher leaves out of
+ * its ranking feedback), the counter drops by one and never below zero, and an active service asks the matcher
+ * for a replacement through the existing worker. The expiry never moves. The caller marks the child
+ * (`conciergeSlotReleasedAt`) in the same transaction, so a second pass releases nothing.
+ */
+export function releaseConciergeSlot(transaction, slot, { orderId, nowMs, declineReason, requestedBy, requestPrefix }) {
+  transaction.set(slot.proposalRef, { status: 'declined', declinedAt: new Date(nowMs), withdrawnAt: nowMs, declineReason }, { merge: true });
+  transaction.set(slot.serviceRef, {
+    acceptedPositionsCount: Math.max(0, acceptedPositionsCount(slot.service) - 1), updatedAt: new Date(nowMs),
+    // Queue replenishment through the existing worker; do not extend expiry.
+    ...(serviceIsActive(slot.service, nowMs) ? {
+      proposalRefreshRequestId: `${requestPrefix}-${orderId}`, proposalRefreshRequestedBy: requestedBy,
+    } : {}),
+  }, { merge: true });
+}
+
 export class WithdrawalError extends Error {
   constructor(code, status = 409) { super(code); this.code = code; this.status = status; }
 }
@@ -55,18 +85,10 @@ export async function withdrawAssistedApplication({ db, orderId, round, withdraw
       throw new WithdrawalError('withdrawal_unavailable');
     }
     const conciergeChild = order?.billingMode === 'application_concierge';
-    let serviceRef = null;
-    let proposalRef = null;
-    let service = null;
-    if (conciergeChild) {
-      serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(order.parentServiceId);
-      proposalRef = serviceRef.collection('proposals').doc(order.parentProposalId);
-      const [serviceDoc, proposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(proposalRef)]);
-      service = serviceDoc.data();
-      const proposal = proposalDoc.data();
-      if (service?.userId !== order.userId || proposal?.status !== 'accepted' || proposal?.childApplicationId !== orderId) {
-        throw new WithdrawalError('withdrawal_unavailable');
-      }
+    const slot = conciergeChild ? await readConciergeSlot(transaction, db, order) : null;
+    if (conciergeChild && (slot?.service?.userId !== order.userId || slot?.proposal?.status !== 'accepted'
+      || slot?.proposal?.childApplicationId !== orderId)) {
+      throw new WithdrawalError('withdrawal_unavailable');
     }
     // A portal run may already be filling fields. Its markClicked and an
     // email's claim read this same fence, so exactly one action can win.
@@ -83,14 +105,9 @@ export async function withdrawAssistedApplication({ db, orderId, round, withdraw
       updatedAt: nowMs,
     }, { merge: true });
     if (conciergeChild) {
-      transaction.set(proposalRef, { status: 'declined', declinedAt: new Date(nowMs), withdrawnAt: nowMs, declineReason: 'candidate_withdrawn' }, { merge: true });
-      transaction.set(serviceRef, {
-        acceptedPositionsCount: Math.max(0, acceptedPositionsCount(service) - 1), updatedAt: new Date(nowMs),
-        // Queue replenishment through the existing worker; do not extend expiry.
-        ...(serviceIsActive(service, nowMs) ? {
-          proposalRefreshRequestId: `withdraw-${orderId}`, proposalRefreshRequestedBy: 'candidate_withdrawal',
-        } : {}),
-      }, { merge: true });
+      releaseConciergeSlot(transaction, slot, {
+        orderId, nowMs, declineReason: 'candidate_withdrawn', requestedBy: 'candidate_withdrawal', requestPrefix: 'withdraw',
+      });
     }
     transaction.set(orderRef.collection('events').doc(), {
       type: 'candidate_withdrawn', actor: 'candidate', at: nowMs, slotReleased: conciergeChild, reason,

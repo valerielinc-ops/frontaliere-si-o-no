@@ -18,6 +18,13 @@
  * round that never waited for the candidate (the Terms promise a refund there), an application that may
  * have reached the employer, a refund on record, a purged order.
  *
+ * Second pass (owner decision 2026-11-11, «si per il concierge lo libera»): a concierge child the employer's
+ * withdrawal closed before the transition gave its position back (assistedApplicationAutomation.js) gets it
+ * back here, in one transaction with its service: the counter drops by one and never below zero, the proposal
+ * is closed for the employer's withdrawal, an active service asks the matcher for a replacement, and the child
+ * is marked (`conciergeSlotReleasedAt`), so a second run releases nothing. Skipped: a send that may have left,
+ * a proposal no longer accepted for that child, a service of someone else.
+ *
  * Dry run by default; `--apply` writes. `--list` also prints the first 8 characters of each order id with
  * its outcome (never in a public CI log: this repository is public).
  */
@@ -25,9 +32,17 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { employerWithdrawalPending } from '../../functions/src/assistedApplicationFlow.js';
 import { postingClosureForOrder } from '../../functions/src/assistedApplicationAutomation.js';
-import { nativeClosureOf, sendMayHaveLeft } from '../../functions/src/assistedApplicationEmployerWithdrawal.js';
+import {
+  EMPLOYER_WITHDRAWAL_REASON,
+  EMPLOYER_WITHDRAWAL_SLOT_RELEASE,
+  employerWithdrawalSlotBlocker,
+  nativeClosureOf,
+  sendMayHaveLeft,
+} from '../../functions/src/assistedApplicationEmployerWithdrawal.js';
+import { readConciergeSlot, releaseConciergeSlot } from '../../functions/src/assistedApplicationWithdrawal.js';
 
 export const POSTING_WITHDRAWAL_RECONCILE_VERSION = 'posting-withdrawal-v1';
+export const CONCIERGE_SLOT_RECONCILE_VERSION = 'posting-withdrawal-slot-v1';
 const PAGE = 100;
 
 /** The latest applied posting_closed of the round, with its native proof, from the runner's events. */
@@ -145,6 +160,65 @@ export async function reconcilePostingWithdrawals({ db, apply = false, nowMs = D
       cursor = page.docs.length === PAGE ? page.docs.at(-1) : null;
     } while (cursor);
   }
+  summary.slots = await reconcileConciergeSlots({ db, apply, nowMs });
+  return summary;
+}
+
+/** Re-reads a withdrawn child in a transaction; with `apply`, gives its concierge position back. */
+async function releaseSlot({ db, doc, apply, nowMs }) {
+  return db.runTransaction(async (transaction) => {
+    const orderDoc = await transaction.get(doc.ref);
+    const order = orderDoc.data() || {};
+    const [flowDoc, draftDoc, submissionDoc, slot] = await Promise.all([
+      transaction.get(doc.ref.collection('automation').doc('flow')),
+      transaction.get(doc.ref.collection('ai_drafts').doc('current')),
+      transaction.get(doc.ref.collection('automation').doc('submission')),
+      readConciergeSlot(transaction, db, order),
+    ]);
+    const blocker = employerWithdrawalSlotBlocker({
+      orderId: doc.id,
+      order,
+      flow: flowDoc.data() || {},
+      draft: draftDoc.exists ? draftDoc.data() || {} : null,
+      submission: submissionDoc.data() || {},
+      slot,
+    });
+    if (blocker || !apply) return blocker;
+    releaseConciergeSlot(transaction, slot, { orderId: doc.id, nowMs, ...EMPLOYER_WITHDRAWAL_SLOT_RELEASE });
+    transaction.set(doc.ref, { conciergeSlotReleasedAt: nowMs, updatedAt: nowMs }, { merge: true });
+    transaction.set(doc.ref.collection('events').doc(), {
+      type: 'concierge_slot_released', actor: 'system', at: nowMs, reason: EMPLOYER_WITHDRAWAL_REASON,
+      version: CONCIERGE_SLOT_RECONCILE_VERSION,
+    });
+    return '';
+  });
+}
+
+/** The concierge children already withdrawn for the employer's withdrawal whose position is still held. */
+export async function reconcileConciergeSlots({ db, apply = false, nowMs = Date.now() } = {}) {
+  const summary = { scanned: 0, eligible: 0, released: 0, skipped: {}, orders: [] };
+  let cursor;
+  do {
+    let query = db.collection('assisted_applications').where('withdrawalReason', '==', EMPLOYER_WITHDRAWAL_REASON)
+      .orderBy('__name__').limit(PAGE);
+    if (cursor) query = query.startAfter(cursor);
+    const page = await query.get();
+    for (const doc of page.docs) {
+      const order = doc.data() || {};
+      // Only concierge children hold a position; the order read decides, the transaction reads it again.
+      if (order.billingMode !== 'application_concierge' || order.conciergeSlotReleasedAt) continue;
+      summary.scanned += 1;
+      const outcome = await releaseSlot({ db, doc, apply, nowMs });
+      summary.orders.push({ id: doc.id.slice(0, 8), outcome: outcome || (apply ? 'released' : 'eligible') });
+      if (outcome) {
+        summary.skipped[outcome] = (summary.skipped[outcome] || 0) + 1;
+        continue;
+      }
+      summary.eligible += 1;
+      if (apply) summary.released += 1;
+    }
+    cursor = page.docs.length === PAGE ? page.docs.at(-1) : null;
+  } while (cursor);
   return summary;
 }
 
@@ -154,6 +228,8 @@ if (isInvokedDirectly(import.meta.url)) {
   if (args.some((arg) => !known.includes(arg)) || (args.includes('--apply') && args.includes('--dry-run'))) {
     throw new Error('Usage: reconcile-posting-withdrawals.mjs [--dry-run | --apply] [--list]');
   }
-  const { orders, ...counts } = await reconcilePostingWithdrawals({ db: await getFirestoreDb(), apply: args.includes('--apply') });
-  console.log(JSON.stringify(args.includes('--list') ? { ...counts, orders } : counts));
+  const { orders, slots: { orders: slotOrders, ...slotCounts }, ...counts } = await reconcilePostingWithdrawals({ db: await getFirestoreDb(), apply: args.includes('--apply') });
+  console.log(JSON.stringify(args.includes('--list')
+    ? { ...counts, orders, slots: { ...slotCounts, orders: slotOrders } }
+    : { ...counts, slots: slotCounts }));
 }

@@ -2,7 +2,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { FieldPath } from 'firebase-admin/firestore';
 import {
-  APPLICATION_CONCIERGE_CONSENT_VERSION, APPLICATION_CONCIERGE_SERVICES_COLLECTION,
+  APPLICATION_CONCIERGE_CONSENT_VERSIONS, APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount, serviceIsActive, servicePositionLimit, timestampMillis,
 } from './applicationConciergeConstants.js';
 import { uploadOwnedArtifact, ownedArtifactGeneration, deleteOwnedArtifactGeneration } from './lib/ownedGcsArtifact.js';
@@ -23,7 +23,8 @@ const revoked = value => !value || value.retentionPurgingAt != null || value.ret
 const sourceKeyValid = (serviceId, key) => typeof key === 'string' && key.length <= 600
   && key.startsWith(`application-concierge-uploads/${serviceId}/`)
   && /^[A-Za-z0-9._-]+$/.test(key.slice(`application-concierge-uploads/${serviceId}/`.length)) && !key.includes('..');
-const freshConsent = (value, version, now) => value?.[version] === APPLICATION_CONCIERGE_CONSENT_VERSION
+// Any consent version still honoured (a renewal checkout opened before the current text was published included).
+const freshConsent = (value, version, now) => APPLICATION_CONCIERGE_CONSENT_VERSIONS.includes(String(value?.[version] || ''))
   && timestampMillis(value?.[version === 'consentVersion' ? 'consentedAt' : 'renewalConsentedAt']) > 0
   && timestampMillis(value?.[version === 'consentVersion' ? 'consentedAt' : 'renewalConsentedAt']) <= now;
 
