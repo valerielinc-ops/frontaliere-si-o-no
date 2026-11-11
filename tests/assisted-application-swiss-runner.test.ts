@@ -6,7 +6,7 @@ import { applyAutomationEvent, handleRunnerEvent, runAutomationSweep } from '../
 import { runAutomationEffect } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
-import { TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { PORTAL_AUTO_RETRY_DELAYS_MS, TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 import {
   LOCAL_DISPATCH_COLLECTION,
   LOCAL_DISPATCH_LEASE_MS,
@@ -116,13 +116,13 @@ describe('dispatch of a marked order', () => {
     expect(store.read(queuePath)).toMatchObject({ status: 'pending', mode: 'submit' });
   });
 
-  it('routes the first Swiss retry locally when repeated verified network failures exhaust portal retries', async () => {
+  it('routes the exhausted navigation retry locally after repeated verified network failures', async () => {
     const host = 'forms.example.test';
     const requestedAt = now - 1_000;
     const priorAt = now - 10_000;
     const flow = {
-      state: 'submitting', round: 1, heldBy: [], portalAutoRetryCount: 2,
-      transportAutoRetryCount: 0,
+      state: 'submitting', round: 1, heldBy: [], portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      transportAutoRetryCount: TRANSPORT_AUTO_RETRY_DELAYS_MS.length,
       dispatch: { mode: 'submit', round: 1, attempts: 3, requestedAt },
       swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'connection_failure', at: priorAt }],
     };
@@ -135,8 +135,8 @@ describe('dispatch of a marked order', () => {
     });
     const events = store.db.collection('assisted_applications').doc(orderId).collection('automation_events');
     const eventRef = await events.add({
-      type: 'submit_handoff', round: 1, reason: 'posting_mismatch',
-      portalNetworkFailure: { host, kind: 'connection_failure' },
+      type: 'submit_handoff', round: 1, reason: 'navigation_unavailable',
+      portalNetworkFailure: { host, kind: 'navigation_unavailable' },
     });
     const github = vi.fn(async () => ({ ok: true }));
 
@@ -146,9 +146,9 @@ describe('dispatch of a marked order', () => {
     });
     expect(failure).toMatchObject({ ok: true });
     expect(store.read(flowPath)).toMatchObject({
-      state: 'owner_takeover', heldBy: ['portal:posting_mismatch'],
+      state: 'owner_takeover', heldBy: ['portal:navigation_unavailable'],
       egress: { required: 'ch', reason: 'repeated_network_failure', source: 'repeated_network_failure' },
-      portalAutoRetryCount: 2, portalAutoRetryAt: now,
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1, portalAutoRetryAt: now,
     });
     expect(github).not.toHaveBeenCalled();
 
@@ -162,7 +162,7 @@ describe('dispatch of a marked order', () => {
       orderId, mode: 'submit', round: 1, requestedAt: now, status: 'pending', egress: 'ch',
     });
     expect(store.read(flowPath)).toMatchObject({
-      state: 'submitting', portalAutoRetryCount: 3,
+      state: 'submitting', transportAutoRetryCount: TRANSPORT_AUTO_RETRY_DELAYS_MS.length + 1,
       portalExhaustedRecoveryVersion: expect.any(String),
       egress: { required: 'ch', source: 'repeated_network_failure' },
     });

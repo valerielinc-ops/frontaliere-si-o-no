@@ -34,7 +34,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
@@ -47,7 +47,7 @@ import {
   requiresSwissEgress,
   swissEgressMark,
 } from './assistedApplicationSwissRunner.js';
-import { navigationInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
+import { chromeErrorPageFailure, navigationInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -312,7 +312,7 @@ function portalNetworkFailureKind(event) {
   const diagnostic = [reason, event?.error?.message, event?.error?.code, event?.error, event?.code]
     .filter(Boolean).map(String).join(' ');
   if (reason === 'access_blocked') return 'access_blocked';
-  if (/chrome-error/i.test(diagnostic)) return 'chrome_error';
+  if (chromeErrorPageFailure(diagnostic)) return 'chrome_error';
   if (reason === 'navigation_unavailable') return 'navigation_unavailable';
   return navigationInfrastructureFailure(diagnostic) ? 'connection_failure' : null;
 }
@@ -343,8 +343,10 @@ function swissEgressNetworkFailures(flow) {
 function verifiedNetworkFailureObservation(flow, event, draft, nowMs) {
   const round = Number(flow?.round) || 1;
   const dispatch = flow?.dispatch;
+  const eventRound = Number(event?.round);
+  const dispatchRound = dispatch?.round == null ? round : Number(dispatch.round);
   if (flow?.state !== 'submitting' || !roundWasSent(flow, round) || dispatch?.mode !== 'submit'
-    || (dispatch.round != null && Number(dispatch.round) !== round)
+    || !Number.isSafeInteger(eventRound) || eventRound !== round || dispatchRound !== round
     || Number(draft?.round) !== round || draft?.status !== 'ready') return null;
   const kind = portalNetworkFailureKind(event);
   const verifiedHost = verifiedPortalHost(draft);
@@ -358,15 +360,23 @@ function verifiedNetworkFailureObservation(flow, event, draft, nowMs) {
 }
 
 function scheduleSwissNetworkRetry(next, flow, nowMs) {
-  if (isInfrastructureRetryHold(next) || Number(next.portalAutoRetryAt) > 0) return;
   const attempts = portalAutoRetryCountValue(flow);
   if (attempts === null) return;
-  const delays = autoRetryDelaysForFlow(next);
-  if (attempts < delays.length) {
-    next.portalAutoRetryAt = nowMs + delays[attempts];
+  const infrastructureHold = isInfrastructureRetryHold(next);
+  const portalRetryLimit = PORTAL_RETRY_DELAYS.length;
+  const oneShotRetryLimit = portalRetryLimit + 1;
+  if (attempts < portalRetryLimit) {
+    if (Number(next.portalAutoRetryAt) > 0) return;
+    const delay = autoRetryDelaysForFlow(next)[attempts];
+    if (delay) next.portalAutoRetryAt = nowMs + delay;
     return;
   }
-  if (attempts !== PORTAL_RETRY_DELAYS.length
+  // Keep the existing transport backoff while that ladder is still running.
+  // The portal counter can be 3 in older flows where the initial submit was
+  // included; that count also proves the ordinary portal retry ladder ended.
+  if (infrastructureHold && attempts === portalRetryLimit
+    && (Number(flow?.transportAutoRetryCount) || 0) < TRANSPORT_AUTO_RETRY_DELAYS_MS.length) return;
+  if (attempts > oneShotRetryLimit
     || flow?.portalRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION
     || flow?.portalExhaustedRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION) return;
   next.portalRecoveryVersion = SWISS_EGRESS_NETWORK_RECOVERY_VERSION;

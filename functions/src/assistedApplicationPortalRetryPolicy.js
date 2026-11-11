@@ -82,15 +82,16 @@ export function portalFinalReviewAmbiguousRecoveryPending(flow) {
 
 /**
  * A source-version repair may spend one bounded extra attempt after the
- * ordinary two-attempt ladder, but only after the reconciler has recorded the
- * exact version and queued it with a due time. The marker remains after the
- * dispatch, so a later deployment can never mint another repair for the same
- * application.
+ * ordinary two-attempt ladder. Accept the exhausted counter or one legacy
+ * count that included the original submit, but only after the exact version
+ * is recorded and queued with a due time. The marker remains after dispatch,
+ * so a later deployment cannot mint another repair for the application.
  */
 export function portalExhaustedRecoveryPending(flow) {
   const attempts = portalAutoRetryCountValue(flow);
   const version = String(flow?.portalExhaustedRecoveryVersion || '');
-  return attempts === PORTAL_AUTO_RETRY_DELAYS_MS.length
+  return attempts >= PORTAL_AUTO_RETRY_DELAYS_MS.length
+    && attempts <= PORTAL_AUTO_RETRY_DELAYS_MS.length + 1
     && /^[a-f0-9]{64}$/.test(version)
     && version === String(flow?.portalRecoveryVersion || '')
     && Number(flow?.portalAutoRetryAt) > 0;

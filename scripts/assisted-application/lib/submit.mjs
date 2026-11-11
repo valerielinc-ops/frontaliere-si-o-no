@@ -31,7 +31,7 @@ import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } fr
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
-import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { chromeErrorPageFailure, emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -113,7 +113,7 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
   const connectionError = navigationInfrastructureFailure(diagnostics);
   const kind = accessBlocked
     ? 'access_blocked'
-    : /chrome-error/i.test(diagnostics)
+    : chromeErrorPageFailure(diagnostics)
       ? 'chrome_error'
       : event.reason === 'navigation_unavailable'
         ? 'navigation_unavailable'

@@ -480,7 +480,7 @@ describe('approval flow', () => {
         form: { observed: true },
       },
     };
-    const networkFailure = (host: string) => ({ type: 'submit_handoff', reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } });
+    const networkFailure = (host: string) => ({ type: 'submit_handoff', round: 1, reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } });
     const firstDispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 1 };
     const first = transition({ state: 'submitting', round: 1, dispatch: firstDispatch }, networkFailure(hostA), { draft: verifiedDraft, nowMs: T0 });
     expect(first.flow.egress).toBeUndefined();
@@ -515,7 +515,7 @@ describe('approval flow', () => {
       portalContract: { postingMatch: 'unknown', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
     };
     const dispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 1 };
-    const event = { type: 'submit_handoff', reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } };
+    const event = { type: 'submit_handoff', round: 1, reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } };
     const unverified = transition({ state: 'submitting', round: 1, dispatch }, event, { draft, nowMs: T0 });
     expect(unverified.flow.egress).toBeUndefined();
     expect(unverified.flow.swissEgressNetworkFailures).toBeUndefined();
@@ -539,7 +539,7 @@ describe('approval flow', () => {
     const held = transition({ state: 'submitting', round: 1, dispatch,
       portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length,
       swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'connection_failure', at: priorAt }] },
-    { type: 'submit_handoff', reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
+    { type: 'submit_handoff', round: 1, reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
     { draft, nowMs: T0 });
 
     expect(held.flow).toMatchObject({
@@ -555,9 +555,54 @@ describe('approval flow', () => {
     expect(retry.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1 });
     expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
     const exhaustedAgain = transition({ ...retry.flow, dispatch },
-      { type: 'submit_handoff', reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
+      { type: 'submit_handoff', round: 1, reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
       { draft, nowMs: T0 + 1 });
     expect(portalRetryDueAt(exhaustedAgain.flow)).toBeNull();
+  });
+
+  it('schedules one Swiss retry for an exhausted navigation hold', () => {
+    const host = 'forms.example.test';
+    const draft = {
+      ...cleanDraft, status: 'ready', round: 1,
+      portalContract: { postingMatch: 'match', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
+    };
+    const priorAt = T0 - 2_000;
+    const dispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 3 };
+    const held = transition({ state: 'submitting', round: 1, dispatch,
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      transportAutoRetryCount: 3,
+      swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'navigation_unavailable', at: priorAt }] },
+    { type: 'submit_handoff', round: 1, reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } },
+    { draft, nowMs: T0 });
+
+    expect(held.flow).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:navigation_unavailable'],
+      egress: { required: 'ch', source: 'repeated_network_failure' },
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      portalAutoRetryAt: T0,
+      portalRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,
+      portalExhaustedRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,
+    });
+    expect(portalRetryDueAt(held.flow)).toBe(T0);
+
+    const retry = transition({ ...held.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: T0 });
+    expect(retry.flow).toMatchObject({ state: 'submitting', transportAutoRetryCount: 4 });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
+  it('requires the network failure round to match the active dispatch round', () => {
+    const host = 'forms.example.test';
+    const draft = {
+      ...cleanDraft, status: 'ready', round: 2,
+      portalContract: { postingMatch: 'match', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
+    };
+    const dispatch = { mode: 'submit', round: 2, requestedAt: T0, attempts: 1 };
+    const event = { type: 'submit_handoff', round: null, reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } };
+    const mismatched = transition({ state: 'submitting', round: 2, dispatch }, event, { draft, nowMs: T0 });
+    expect(mismatched.flow.swissEgressNetworkFailures).toBeUndefined();
+
+    const matched = transition({ state: 'submitting', round: 2, dispatch }, { ...event, round: 2 }, { draft, nowMs: T0 });
+    expect(matched.flow.swissEgressNetworkFailures).toEqual([{ host, round: 2, requestedAt: T0, kind: 'navigation_unavailable', at: T0 }]);
   });
 
   it('retries once without a candidate email when the portal repeats questions that already have answers', () => {
