@@ -43,6 +43,23 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function isProplaningAgUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    const host = parsed.hostname.toLowerCase();
+    const isJobalinoHost = host === PROPLANING_AG_COMPANY_DOMAIN
+      || host.endsWith(`.${PROPLANING_AG_COMPANY_DOMAIN}`);
+    if (!isJobalinoHost) return false;
+
+    return parsed.pathname
+      .split('/')
+      .filter(Boolean)
+      .some((segment) => decodeURIComponent(segment).toLowerCase() === PROPLANING_AG_KEY);
+  } catch {
+    return false;
+  }
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -57,13 +74,13 @@ export function isProplaningAgJob(job) {
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
+  const matchesCompanyIdentity = key === PROPLANING_AG_KEY
+    || key.startsWith('proplaning-ag-')
+    || company.includes('proplaning ag');
 
-  return (
-    key === PROPLANING_AG_KEY ||
-    key.startsWith('proplaning-ag-') ||
-    company.includes('proplaning ag') ||
-    url.includes('my.jobalino.ch')
-  );
+  if (matchesCompanyIdentity) return true;
+  if (key || company) return false;
+  return isProplaningAgUrl(url);
 }
 
 /**

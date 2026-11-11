@@ -24,8 +24,18 @@ describe('Proplaning AG crawler parser', () => {
       expect(isProplaningAgJob({ company: 'Proplaning AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isProplaningAgJob({ url: 'https://my.jobalino.ch/jobs/123' })).toBe(true);
+    it('matches by Proplaning tenant path on the shared Jobalino host', () => {
+      expect(isProplaningAgJob({
+        url: 'https://my.jobalino.ch/job/abc/proplaning-ag/role',
+      })).toBe(true);
+    });
+
+    it('rejects another Jobalino employer even when the host is shared', () => {
+      expect(isProplaningAgJob({
+        companyKey: 'other-employer',
+        company: 'Other Employer',
+        url: 'https://my.jobalino.ch/job/abc/other-employer/role',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
