@@ -27,6 +27,7 @@ import {
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
 import {
+  buildCanonicalLocaleJobSeed,
   compareActiveJobsByStableOrder,
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
@@ -152,6 +153,17 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it('seeds the active page with its canonical locale route slug', () => {
+    const seed = buildCanonicalLocaleJobSeed({
+      id: 'job-1',
+      slug: 'legacy-route',
+      slugByLocale: { de: 'localized-alias' },
+      title: 'Pflegefachperson',
+    }, 'de', 'canonical-bridge-target');
+
+    expect(seed.slug).toBe('canonical-bridge-target');
+  });
+
   it('binds the HTML cache key to the packed storage format', () => {
     const fingerprints = { active: 'renderer-v1', expired: 'renderer-v1' };
     expect(computeJobsSeoHtmlCacheFingerprint(fingerprints, 'pack@1'))

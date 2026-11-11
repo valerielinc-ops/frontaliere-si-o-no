@@ -1345,6 +1345,19 @@ export type ActiveJobReuseFragments = {
  recentArticles: string;
 };
 
+/** Keep the active page seed aligned with the canonical route, including on
+ * legacy-slug bridge pages. Both a full render and an HTML-cache rewrite must
+ * expose the same slug that the SPA uses to resolve the selected job. */
+export function buildCanonicalLocaleJobSeed(
+ job: Parameters<typeof buildSlimSeed>[0],
+ locale: string,
+ canonicalSlug: string,
+): ReturnType<typeof buildSlimSeed> {
+ const seed = buildSlimSeed(job, locale);
+ seed.slug = canonicalSlug;
+ return seed;
+}
+
 /**
  * Return the stable ordering timestamp used by the active-job corpus.
  *
@@ -4363,7 +4376,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    jobsSeoReuseBuildNow,
   );
    return {
-   jobSeed: inlineScriptJson(buildSlimSeed(job, locale)),
+   jobSeed: inlineScriptJson(buildCanonicalLocaleJobSeed(job, locale, perLocaleSlug[locale])),
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
@@ -4910,8 +4923,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // seed must match that, not the legacy URL slug. Shape is identical to a
  // jobs-<locale>-index.json entry (shared buildSlimSeed). `<` is escaped so a
  // title/company containing it cannot break out of the inline <script>.
- const __jobSeed = buildSlimSeed(job, locale);
- __jobSeed.slug = perLocaleSlug[locale];
+ const __jobSeed = buildCanonicalLocaleJobSeed(job, locale, perLocaleSlug[locale]);
  const seedScript = `<script>window.__JOB_SEED__=${inlineScriptJson(__jobSeed)};</script>`;
  // Individual job descriptions vary widely in length (604/25,386 jobs have
  // <50-word descriptions) -- unlike the fixed-prose hub/guide pages below
