@@ -1,0 +1,24 @@
+{
+  "companyKey": "metzgereikuenzli-ch",
+  "companyName": "Metzgerei Künzli AG",
+  "companyHost": "metzgereikuenzli.ch",
+  "verifiedEmployerDomain": "metzgereikuenzli.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://metzgereikuenzli.ch/de/unternehmen/offene-stellen"
+  ],
+  "detailTemplate": "/de/karriere/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Weiter Lesen",
+    "Weiter Lesen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:29:04.735Z",
+  "candidateKey": "metzgerei-kunzli@stallikon"
+}

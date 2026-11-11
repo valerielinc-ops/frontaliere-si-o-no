@@ -1,0 +1,27 @@
+{
+  "companyKey": "miduca-ag",
+  "companyName": "Miduca AG",
+  "companyHost": "jobs.migros.ch",
+  "verifiedEmployerDomain": "miduca.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/miduca-ag/offene-stellen"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/klubschule-migros/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Klubschule Migros, Miduca AG Lehrperson Pilates Reformer (w/​m/​d) - Klubschule Zug und Luzern ‧ 5 – 20% 6300 Zug Nebenerwerb / Auf Stundenbasis",
+    "Klubschule Migros, Miduca AG Lehrperson Standard und Lateinamerikanische Tänze und Hochzeitstanz (w/​m/​d) - Klubschule Rapperswil ‧ 5 – 20% 8640 Rapperswil Neb",
+    "Klubschule Migros, Miduca AG Lehrperson Dudelsack (w/​m/​d) - Klubschule Luzern ‧ 5 – 20% 6004 Luzern Nebenerwerb / Auf Stundenbasis",
+    "Klubschule Migros, Miduca AG Stv. Centerleiter*​in /​ Teamleiter*​in Kundenberatung & Verkauf ‧ 80 – 100% 8050 Oerlikon Festanstellung (unbefristet)",
+    "Klubschule Migros, Miduca AG Lehrperson Tai Chi Chuan (w/​m/​d) - Klubschule Bern ‧ 5 – 20% 3008 Bern Nebenerwerb / Auf Stundenbasis"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:28:18.241Z",
+  "candidateKey": "miduca@zurich"
+}
