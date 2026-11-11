@@ -28,6 +28,7 @@ import {
   isListingInventoryJob,
   normalizeListingIdentity,
 } from "../services/jobBoardInventory.ts";
+import { SPA_ENTRY_JS_FILENAME } from "../build-plugins/shared/spaEntryFilenames.ts";
 import { validateMandatoryJobPostingFields } from "./lib/jobposting-mandatory-fields.mjs";
 import { APEX_HOST } from "./lib/cf-worker-routes.mjs";
 import { MAX_TARGETED_FILES } from "./lib/cf-purge-limits.mjs";
@@ -149,13 +150,40 @@ function extractAttr(tag, name) {
     tag
       .match(
         new RegExp(
-          `\\b${escaped}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
+          `(?:^|\\s)${escaped}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
           "iu",
         ),
       )
       ?.slice(1)
       .find((value) => value != null) || ""
   );
+}
+
+/** A static page has analytics through gtag.js or the hydrating SPA entry. */
+export function hasGoogleAnalyticsRuntime(html) {
+  const scriptTags = [...String(html || "").matchAll(/<script\b[^>]*>/giu)].map(
+    (match) => match[0],
+  );
+  return scriptTags.some((tag) => {
+    const src = extractAttr(tag, "src");
+    if (!src) return false;
+    try {
+      const asset = new URL(src, BASE_URL);
+      if (
+        asset.protocol === "https:" &&
+        asset.hostname === "www.googletagmanager.com" &&
+        asset.pathname === "/gtag/js"
+      ) {
+        return true;
+      }
+      return (
+        asset.origin === BASE_URL &&
+        asset.pathname === `/assets/${SPA_ENTRY_JS_FILENAME}`
+      );
+    } catch {
+      return false;
+    }
+  });
 }
 
 function extractJobPosting(html) {
@@ -351,10 +379,10 @@ function checkJobPageContracts(receipt, batchIds) {
     }
     if (
       !html.includes("adsbygoogle") ||
-      !html.includes("googletagmanager.com/gtag/js")
+      !hasGoogleAnalyticsRuntime(html)
     ) {
       throw new Error(
-        `[jobs-fast] AdSense or Google Analytics shell is missing for ${page.locale} offer page`,
+        `[jobs-fast] AdSense or Google Analytics runtime is missing for ${page.locale} offer page`,
       );
     }
     page._html = html;
@@ -913,10 +941,10 @@ async function verifyPublishedPagesAndSitemaps(
     }
     if (
       !html.includes("adsbygoogle") ||
-      !html.includes("googletagmanager.com/gtag/js")
+      !hasGoogleAnalyticsRuntime(html)
     ) {
       throw new Error(
-        `[jobs-fast] live AdSense or analytics shell is missing for ${page.locale} ${page.path}`,
+        `[jobs-fast] live AdSense or analytics runtime is missing for ${page.locale} ${page.path}`,
       );
     }
     const robots = extractRobots(html);

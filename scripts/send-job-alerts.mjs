@@ -3473,8 +3473,9 @@ async function main() {
   // 3a. Plan every alert (CPU only), letting the live-link prefetcher check
   // the URLs of the plans already made in the background. The yield after each
   // alert is what lets the pool's I/O callbacks run between two plans. Job-side
-  // scoring features are memoised across alerts (the pool is not mutated here).
-  const featureCache = createJobFeatureCache();
+  // scoring features are memoised within each bounded plan batch; retaining the
+  // keyword bitmaps across the entire audience made the cache grow with every
+  // distinct alert and defeated the batch memory boundary.
   // Row timestamps and expiry are recipient-independent: parsed once for the
   // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
   const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
@@ -3707,6 +3708,7 @@ async function main() {
   let quotaExhausted = quotaCapacity <= 0;
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
     const batchPlans = [];
+    const featureCache = createJobFeatureCache();
     const batchPlanningStartedAt = Date.now();
     for (const alert of alertBatch) {
       const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
@@ -4013,7 +4015,10 @@ async function main() {
     now,
     locationIndex,
     cityToCanton,
-    featureCache,
+    // Matcher health is a small, independent probe set. Keep its memoization
+    // separate from the per-batch sender cache so it cannot retain the last
+    // audience batch while the report is assembled.
+    featureCache: createJobFeatureCache(),
   });
   if (matcherHealth.error) {
     console.warn(`   ⚠️ matcher-health probe failed (non-fatal, deliveries already processed; monitor left untouched) after ${matcherHealth.durationMs} ms: ${redactEmailAddresses(matcherHealth.error)}`);

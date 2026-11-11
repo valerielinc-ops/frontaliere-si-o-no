@@ -29,6 +29,8 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { advancedToFinalReview } from './final-review.mjs';
+export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
@@ -2273,6 +2275,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   // locator for several seconds before dispatching a target="_blank" popup.
   const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
   const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
+  const before = page.url();
   try {
     await link.click({ timeout: 6_000 });
   } catch (error) {
@@ -2288,13 +2291,45 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   if (!popup) return null;
   // A link without a popup should continue promptly after a short grace
   // window; clear the timer as soon as the popup arrives.
-  return new Promise((resolve) => {
+  const opened = await new Promise((resolve) => {
     const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
     popup.then((opened) => {
       clearTimeout(timer);
       resolve(opened);
     });
   });
+  if (opened) return opened;
+  // The browser announces a new window only once its address has answered. A
+  // link that opens another window (target="_blank") and left none, with this
+  // page where it was, has no answer from its address yet: ECAM's DocuWare
+  // form accepts no connection from the GitHub runner's country (CVRDEqJ3,
+  // run 42990206160, 2026-11-11), and the runner read the career page again
+  // as the application form (posting_mismatch). The address is opened in this
+  // page, where it loads or fails as a navigation (net::ERR_*, timeout:
+  // navigation_unavailable in submit.mjs, retried by the transport ladder).
+  if (page.url() !== before) return null;
+  const linkTarget = await link.getAttribute('target', { timeout: 2_000 }).catch(() => null);
+  const target = opensAnotherWindow(linkTarget) ? linkNavigationTarget(href, before) : '';
+  if (target && target !== before) await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  return null;
+}
+
+/** A link target that opens another browsing context: `_blank` or a named window, not this page or its parents. */
+function opensAnotherWindow(target) {
+  const name = String(target || '').trim().toLowerCase();
+  return Boolean(name) && !['_self', '_parent', '_top'].includes(name);
+}
+
+/** The absolute http(s) address a link's href opens from `base`, or '' (fragment, script, mail, phone, other scheme). */
+function linkNavigationTarget(href, base) {
+  const value = String(href || '').trim();
+  if (!value || /^(?:#|javascript:|mailto:|tel:)/i.test(value)) return '';
+  try {
+    const url = new URL(value, base);
+    return /^https?:$/.test(url.protocol) ? url.href : '';
+  } catch {
+    return '';
+  }
 }
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
@@ -4015,6 +4050,10 @@ const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 // planner: only a CV/resume label counts as the CV being present.
 const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
 const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
+// Documents that prove a qualification (certificates, diplomas, references): asked by an application, never by
+// a bare account registration.
+const QUALIFICATION_DOCUMENT_TERMS = '(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
+  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze';
 const documentContextRe = (terms) => new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
@@ -4120,7 +4159,9 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const profileDetails = new Set();
   for (const field of fields) {
     const label = `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`;
-    const residenceRole = residenceFieldRole(label);
+    // The caption alone first: the role is read whole («PLZ», «Ort»), and a technical name beside it
+    // («form_data20», Bank Cler's tenant) would hide it.
+    const residenceRole = residenceFieldRole(umantisIdentityCaption(field)) || residenceFieldRole(label);
     if (residenceRole === 'postalCode' || residenceRole === 'city') profileDetails.add(residenceRole);
     if (UMANTIS_PHONE_CONTEXT_RE.test(label)) profileDetails.add('phone');
     if (/\b(?:birth date|date of birth|data di nascita|geburtsdatum|date de naissance)\b/iu.test(label)) profileDetails.add('birthDate');
@@ -5665,9 +5706,7 @@ export function successFactorsDocumentSlotKind(button) {
 
 // The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
 // s2Tbwwjd). Every part of the caption must be one of these nouns: a caption with any other word is a question.
-const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}`
-  + '|(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
-  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze'
+const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|${QUALIFICATION_DOCUMENT_TERMS}`
   + '|dokumente|documents|documenti|(?:bewerbungs)?unterlagen|bewerbungsdossier|anh[aä]nge|beilagen|attachments|allegati'
   + '|pi[eè]ces\\s+jointes)$', 'iu');
 const SLOT_CAPTION_SEPARATOR_RE = /\s*[-–—/,;|+&·]\s*|\s+(?:und|and|et|e|ed|sowie)\s+/iu;
@@ -7612,28 +7651,46 @@ export function urlConfirms(url, snapshot, context = {}) {
  * Apply opened /ApplicationReview «please select Submit to finalise your
  * application»). The portal itself states that nothing was submitted yet.
  */
-export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
-  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
-  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
-}
-
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
+  let lastSnapshot = null;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     // The portal says it did not send: nothing left, by its own word.
-    if (REFUSED_RE.test(text)) return 'refused';
+    if (REFUSED_RE.test(text)) return { outcome: 'refused', snapshot: lastSnapshot };
     // Refusal takes precedence when an error page retains generic thank-you copy.
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
-    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
-    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
-    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
-    if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
+    if (snapshot) lastSnapshot = { ...snapshot, text, url: page.url() };
+    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
+    if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
+    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return { outcome: 'validation', snapshot: lastSnapshot };
   }
-  return 'ambiguous';
+  return { outcome: 'ambiguous', snapshot: lastSnapshot };
+}
+
+function finalReviewEvidenceSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot.text !== 'string') return null;
+  return {
+    url: String(snapshot.url || ''),
+    text: snapshot.text,
+    protocol: snapshot.protocol || null,
+    errors: (snapshot.errors || []).length ? ['observed'] : [],
+    fields: (snapshot.fields || []).map(field => ({
+      inputType: field?.inputType || '',
+      disabled: Boolean(field?.disabled),
+      chrome: Boolean(field?.chrome),
+      invalid: field?.invalid === true,
+    })).slice(0, 120),
+    buttons: (snapshot.buttons || []).map(button => ({
+      text: String(button?.text || '').slice(0, 160),
+      disabled: Boolean(button?.disabled),
+      chrome: Boolean(button?.chrome),
+    })).slice(0, 80),
+  };
 }
 
 // Forms that can be read without creating an account or sending an
@@ -9789,6 +9846,7 @@ export async function submitViaPortal(ctx) {
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
+      evidence.submissionUrl = finalUrl;
       await diagnostics.beforeSubmit(page);
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
@@ -9825,12 +9883,14 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }
       await clearActiveFinalFormGuard();
-      const outcome = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
+      evidence.afterSubmitSnapshot = finalReviewEvidenceSnapshot(observed.snapshot);
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
         // The application went, and with it the account its form asked a password for.

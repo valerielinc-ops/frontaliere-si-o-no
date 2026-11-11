@@ -366,3 +366,62 @@ export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {
   const body = draft?.applicationEmail?.body || '';
   return lines.length ? `${body}\n\n${lines.join('\n')}` : body;
 }
+
+function explicitProfileValue(profile, keys) {
+  if (!profile || typeof profile !== 'object' || Array.isArray(profile)) return null;
+  for (const key of keys) {
+    const value = profile[key];
+    if (typeof value !== 'string' && !(typeof value === 'number' && Number.isFinite(value))) continue;
+    const text = String(value).trim();
+    if (!text || /^(?:unknown|not known|not provided|n\/?a|none|null|sconosciuto|non indicato|keine angabe|inconnu)$/i.test(text)) continue;
+    return text;
+  }
+  return null;
+}
+
+function explicitAnswerForField(field, value) {
+  const options = optionsOf(field);
+  if (options.length) {
+    const matches = options.filter(option => norm(option.label) === norm(value) || norm(option.value) === norm(value));
+    return matches.length === 1 ? matches[0].value : null;
+  }
+  if (field.type === 'number' || field.inputType === 'number') {
+    const number = Number(value);
+    return Number.isFinite(number) && String(value).trim() !== '' ? String(number) : null;
+  }
+  return value;
+}
+
+/**
+ * Returns only an explicit value already present in the candidate profile.
+ * Employer benchmarks, nationality, option wording and Swiss-market conventions
+ * are not evidence of the candidate's own permit, notice, salary or workload.
+ *
+ * @param {object} field ATS field { label, name, type, options }
+ * @param {object} [candidateProfile] Candidate-provided profile facts
+ * @param {object} [jobData] Legacy input ignored; an employer benchmark is not a candidate salary expectation
+ * @returns {string|null}
+ */
+export function resolveFrontaliereSmartDefaults(field, candidateProfile = null, jobData = null) {
+  void jobData;
+  if (!field) return null;
+  const text = (field.label || field.name || '').toLowerCase();
+
+  let keys = null;
+  if (/(?:permit|bewillig|permesso|permis|autorizzaz|authoriz)/i.test(text)) {
+    keys = ['workPermit'];
+  } else if (/(?:notice|preavvis|k[uü]ndigung|preavis)/i.test(text)) {
+    keys = ['noticePeriod'];
+  } else if (/(?:salary|gehalt|lohn|salari|remuneraz|stipend|pretention)/i.test(text)) {
+    if (/(?:current|attual|derzeit|actuel|pr[eé]sent|bisher|jetzig)/i.test(text)) {
+      keys = ['currentSalaryChf', 'currentSalary'];
+    } else {
+      keys = ['salaryExpectationChf', 'salaryExpectation'];
+    }
+  } else if (/(?:workload|pensum|occupaz|grado|taux)/i.test(text)) {
+    keys = ['preferredWorkload', 'workloadPercent', 'workload', 'pensum'];
+  }
+  if (!keys) return null;
+  const value = explicitProfileValue(candidateProfile, keys);
+  return value === null ? null : explicitAnswerForField(field, value);
+}

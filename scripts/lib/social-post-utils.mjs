@@ -437,7 +437,10 @@ export function buildTikTokCaption({ kind, dayLabel, picks, hashtags, socialCopy
   const lead = tiktokLead(kind);
   const summary = tiktokSummary(kind, dayLabel);
   const generatedCopy = isGeneratedSocialCopyMode(socialCopy?.copyMode) ? socialCopy : null;
-  const itemLines = (picks || []).map((p, i) => `${i + 1}. ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
+  // TikTok Studio treats a paragraph-leading `1.` as an ordered-list marker
+  // and removes it while typing. Parenthesized ranks stay literal and keep the
+  // editor text equal to the queued caption.
+  const itemLines = (picks || []).map((p, i) => `${i + 1}) ${String(p.title || '').replace(/\s+/g, ' ').trim()} — ${p.statValue}`);
   const footer = [
     generatedCopy
       ? generatedCopy.cta + (/link in bio/i.test(generatedCopy.cta) ? '' : ' · Link in bio: frontaliereticino.ch')

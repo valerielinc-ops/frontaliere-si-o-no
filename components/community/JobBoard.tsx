@@ -27,6 +27,8 @@ import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
+import { CompanyDossierCard } from '@/components/community/CompanyDossierCard';
+import { JobPreApplyChecklist } from '@/components/community/JobPreApplyChecklist';
 import { SwissBubbleMap, type CantonJobsData } from '@/components/community/SwissBubbleMap';
 import { JobDetailLinkedInPeopleButton } from '@/components/community/JobDetailPresentation';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
@@ -11765,6 +11767,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="my-4"
  />
  )}
+
+ {/* Pre-Apply ATS Checklist & Smart Defaults (FreeHire-inspired) */}
+ <JobPreApplyChecklist
+ companyName={selectedJob.company}
+ canton={selectedJob.canton}
+ salaryBenchmarkChf={salary || null}
+ />
+
+ <CompanyDossierCard
+ data={{
+ companyName: selectedJob.company,
+ ceo: (selectedJob as any).companyCeo || (selectedJob as any).ceo || null,
+ employees: (selectedJob as any).companyEmployees || (selectedJob as any).employees || null,
+ website: (selectedJob as any).companyWebsite || (selectedJob as any).website || null,
+ linkedinUrl: (selectedJob as any).companyLinkedin || null,
+ wikipediaSummary: (selectedJob as any).companySummary || (selectedJob as any).wikipediaSummary || null,
+ }}
+ />
 
  <a
  href={companySearchHref}

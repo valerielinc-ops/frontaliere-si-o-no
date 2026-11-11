@@ -1,7 +1,7 @@
 {
   "key": "ronda-ch",
   "label": "Ronda AG",
-  "generatedAt": "2026-11-11T09:17:29.381Z",
+  "generatedAt": "2026-11-11T21:17:37.646Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 13643,
-  "avgDurationMs": 13643,
+  "durationMs": 14300,
+  "avgDurationMs": 14300,
   "durationHistory": [
-    13643
+    14300
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12171194-kaufmann-frau-kv-efz-lausen-bl-ronda-ag",
       "source": "Ronda AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:17:12.431Z",
+      "crawledAt": "2026-11-11T21:17:19.626Z",
       "addressLocality": "Lausen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salaryMax": 78500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:17:12.431Z",
+      "validThrough": "2026-12-11T21:17:19.626Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12746540-produktionsmechaniker-in-efz-lausen-bl-ronda-ag",
       "source": "Ronda AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:17:12.430Z",
+      "crawledAt": "2026-11-11T21:17:19.625Z",
       "addressLocality": "Lausen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salaryMax": 78500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:17:12.430Z",
+      "validThrough": "2026-12-11T21:17:19.625Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12645221-polymechaniker-in-efz-lausen-bl-ronda-ag",
       "source": "Ronda AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:17:12.427Z",
+      "crawledAt": "2026-11-11T21:17:19.624Z",
       "addressLocality": "Lausen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salaryMax": 78500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:17:12.427Z",
+      "validThrough": "2026-12-11T21:17:19.624Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -161,5 +161,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

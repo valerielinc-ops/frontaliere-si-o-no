@@ -15792,6 +15792,63 @@
       ]
     },
     {
+      "slug": "cliniche-argovia",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/cliniche-argovia/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/cliniche-argovia/"
+      },
+      "queries": [
+        {
+          "query": "clinica moncucco offerte lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "clinica moncucco offerte lavoro",
+      "title": "Cliniche argovia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cliniche-argovia",
+        "en": "cliniche-argovia",
+        "de": "cliniche-argovia",
+        "fr": "cliniche-argovia"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/cliniche-argovia",
+        "en": "/en/find-jobs-aargau/cliniche-argovia",
+        "de": "/de/jobs-im-aargau/cliniche-argovia",
+        "fr": "/fr/trouver-emploi-argovie/cliniche-argovia"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "clinics-schwyz-jobs",
       "locale": "it",
       "path": "/en/find-jobs-schwyz/clinics-schwyz-jobs",
@@ -26079,7 +26136,12 @@
         {
           "query": "corporate driver in switzerland",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 25
+        },
+        {
+          "query": "corporate driver in zurich",
+          "clicks": 0,
+          "impressions": 13
         },
         {
           "query": "corporate driver in zurich",
@@ -26092,11 +26154,6 @@
           "impressions": 12
         },
         {
-          "query": "corporate driver in zurich",
-          "clicks": 0,
-          "impressions": 11
-        },
-        {
           "query": "driver jobs zurich",
           "clicks": 0,
           "impressions": 10
@@ -26104,7 +26161,7 @@
         {
           "query": "security drivers switzerland",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 9
         },
         {
           "query": "lkw fahrer jobs lugano",
@@ -26117,6 +26174,16 @@
           "impressions": 6
         },
         {
+          "query": "are there truck driver jobs in eastern switzerland?",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "i am looking for forklift operator jobs in switzerland near logistics hubs with valid swiss permit or training offered and shift premiums and long term assignment.",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "i have an eu driving license and i am searching for truck driver jobs in switzerland with ce license and tachograph experience and routes that start from basel or zurich.",
           "clicks": 0,
           "impressions": 4
@@ -26127,12 +26194,7 @@
           "impressions": 4
         },
         {
-          "query": "are there truck driver jobs in eastern switzerland?",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "i am looking for forklift operator jobs in switzerland near logistics hubs with valid swiss permit or training offered and shift premiums and long term assignment.",
+          "query": "i have experience in courier work and i want dhl switzerland driver jobs around zurich with clear shift times and i also want to know if they hire without perfect german",
           "clicks": 0,
           "impressions": 3
         },
@@ -26162,17 +26224,12 @@
           "impressions": 2
         },
         {
-          "query": "i have experience in courier work and i want dhl switzerland driver jobs around zurich with clear shift times and i also want to know if they hire without perfect german",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
           "query": "работа в швейцария за шофьори",
           "clicks": 0,
           "impressions": 2
         }
       ],
-      "totalImpressions": 218,
+      "totalImpressions": 237,
       "totalClicks": 3,
       "topQuery": "where can i find jobs for a truck driver in the swiss german region",
       "title": "Drivers",
@@ -27612,6 +27669,57 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-argovie/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-argovie/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Elektrokonstrukteur industrie yellowshark ag gerlafingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "en": "elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "de": "elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "fr": "elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "en": "/en/find-jobs-aargau/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "de": "/de/jobs-im-aargau/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen",
+        "fr": "/fr/trouver-emploi-argovie/elektrokonstrukteur-industrie-m-w-yellowshark-ag-gerlafingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -33118,6 +33226,58 @@
         "en": "/en/find-jobs-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxpasl",
         "de": "/de/jobs-im-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxpasl",
         "fr": "/fr/trouver-emploi-berne/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxpasl"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Galenica apotheker apothekerin ny54xb",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Galenica AG",
+      "companyKey": "galenica-ag",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "en": "/en/find-jobs-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "de": "/de/jobs-im-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb",
+        "fr": "/fr/trouver-emploi-berne/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny54xb"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42022,6 +42182,58 @@
       ]
     },
     {
+      "slug": "laborant-m-w-d-qc-mammalian-lonza-visp",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/laborant-m-w-d-qc-mammalian-lonza-visp",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/laborant-m-w-d-qc-mammalian-lonza-visp"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Laborant qc mammalian lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "laborant-m-w-d-qc-mammalian-lonza-visp",
+        "en": "laborant-m-w-d-qc-mammalian-lonza-visp",
+        "de": "laborant-m-w-d-qc-mammalian-lonza-visp",
+        "fr": "laborant-m-w-d-qc-mammalian-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/laborant-m-w-d-qc-mammalian-lonza-visp",
+        "en": "/en/find-jobs-valais/laborant-m-w-d-qc-mammalian-lonza-visp",
+        "de": "/de/jobs-im-wallis/laborant-m-w-d-qc-mammalian-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/laborant-m-w-d-qc-mammalian-lonza-visp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "ladenleitung-w-m-d-volg-raron-dv0crx",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/ladenleitung-w-m-d-volg-raron-dv0crx",
@@ -44632,6 +44844,108 @@
         "en": "/en/find-jobs-ticino/localita-mexico-city",
         "de": "/de/jobs-im-tessin/localita-mexico-city",
         "fr": "/fr/trouver-emploi-tessin/localita-mexico-city"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "localita-molinazzo-di-monteggio",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/localita-molinazzo-di-monteggio",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/localita-molinazzo-di-monteggio"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Localita molinazzo di monteggio",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "localita-molinazzo-di-monteggio",
+        "en": "localita-molinazzo-di-monteggio",
+        "de": "localita-molinazzo-di-monteggio",
+        "fr": "localita-molinazzo-di-monteggio"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/localita-molinazzo-di-monteggio",
+        "en": "/en/find-jobs-ticino/localita-molinazzo-di-monteggio",
+        "de": "/de/jobs-im-tessin/localita-molinazzo-di-monteggio",
+        "fr": "/fr/trouver-emploi-tessin/localita-molinazzo-di-monteggio"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "localita-nearest-major-market-san-diego",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/localita-nearest-major-market-san-diego",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/localita-nearest-major-market-san-diego"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Localita nearest major market san diego",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "localita-nearest-major-market-san-diego",
+        "en": "localita-nearest-major-market-san-diego",
+        "de": "localita-nearest-major-market-san-diego",
+        "fr": "localita-nearest-major-market-san-diego"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/localita-nearest-major-market-san-diego",
+        "en": "/en/find-jobs-ticino/localita-nearest-major-market-san-diego",
+        "de": "/de/jobs-im-tessin/localita-nearest-major-market-san-diego",
+        "fr": "/fr/trouver-emploi-tessin/localita-nearest-major-market-san-diego"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59676,6 +59990,57 @@
       ]
     },
     {
+      "slug": "professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Professionista del falegname con montaggio della finestra veicolo di servizio stellenpartner ag einsiedeln",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "en": "professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "de": "professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "fr": "professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "en": "/en/find-jobs-ticino/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "de": "/de/jobs-im-tessin/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln",
+        "fr": "/fr/trouver-emploi-tessin/professionista-del-falegname-con-montaggio-della-finestra-e-veicolo-di-servizio-stellenpartner-ag-einsiedeln"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "professionnels-de-la-sante-efz-80-100-spitex-kempt-effretikon",
       "locale": "en",
       "path": "/en/find-jobs-ticino/professionnels-de-la-sante-efz-80-100-spitex-kempt-effretikon",
@@ -63109,6 +63474,58 @@
         "en": "/en/find-jobs-zurich/responsabile-del-rischio-di-terze-parti-vontobel-zurich",
         "de": "/de/jobs-im-zurich/responsabile-del-rischio-di-terze-parti-vontobel-zurich",
         "fr": "/fr/trouver-emploi-zurich/responsabile-del-rischio-di-terze-parti-vontobel-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+      "locale": "it",
+      "path": "/cerca-lavoro-soletta/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+      "observedPaths": {
+        "it": "/cerca-lavoro-soletta/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Responsabile del team acquisti per l edilizia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "location": "Olten",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "en": "responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "de": "responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "fr": "responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "en": "/en/find-jobs-solothurn/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "de": "/de/jobs-im-solothurn/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten",
+        "fr": "/fr/trouver-emploi-soleure/responsabile-del-team-acquisti-per-l-edilizia-ffs-officine-ferrovie-federali-olten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -86609,6 +87026,58 @@
         "en": "/en/find-jobs-ticino/venditrice-venditore-landi-m-w-d-landi-region-neuchatel-sa-la-chaux-de-fonds-q22m0h",
         "de": "/de/jobs-im-tessin/venditrice-venditore-landi-m-w-d-landi-region-neuchatel-sa-la-chaux-de-fonds-q22m0h",
         "fr": "/fr/trouver-emploi-tessin/venditrice-venditore-landi-m-w-d-landi-region-neuchatel-sa-la-chaux-de-fonds-q22m0h"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+      "locale": "en",
+      "path": "/en/find-jobs-st-gallen/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+      "observedPaths": {
+        "en": "/en/find-jobs-st-gallen/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Vendor contract manager teilzeit vollzeit helvetia versicherungen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "en": "vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "de": "vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "fr": "vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "en": "/en/find-jobs-st-gallen/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "de": "/de/jobs-im-st-gallen/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
+        "fr": "/fr/trouver-emploi-saint-gall/vendor-contract-manager-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

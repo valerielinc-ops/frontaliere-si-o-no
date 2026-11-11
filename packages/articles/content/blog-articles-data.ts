@@ -48198,6 +48198,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-rinnovo-illuminazione-varese',
+ category: 'novita',
+ date: '2026-11-11T21:48:02.723Z',
+ image: '/images/blog/article-como-rinnovo-illuminazione-varese.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
