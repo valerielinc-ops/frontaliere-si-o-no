@@ -13702,6 +13702,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-svizzera-calo-ticino.title': 'Cross-border workers: increase in Switzerland, annual decline in Ticino',
     'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'In the third quarter, the cross-border commuter statistics highlight a clear contrast between the federal situation and that of Canton Ticino.',
     'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-11-11.title': 'Cross-border workers: today\'s verified readings — November 11, 2026',
+    'blog.article.bollettino-frontaliere-2026-11-11.excerpt': 'Today\'s numbers, November 11, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate and active Swiss job listings on our job board. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Cross-border daily brief for workers, November 11, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Daily figures for cross-border commuters, November 11, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
 };
 
 export default blogMetaEn;

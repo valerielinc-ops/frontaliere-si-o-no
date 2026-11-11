@@ -8714,6 +8714,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA : Berta Serret lance le Smart Luxury avec diamants de synthèse et or recyclé',
     'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Le 11 novembre 2026, Berta Serret lance officiellement en ligne ETERIA JEWELLERY : haute joaillerie écoresponsable alliant or recyclé CoC, diamants de laboratoire IGI et traçabilité TRACEMARK.',
     'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Bague solitaire avec diamant de synthèse en or recyclé signée ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensions suisses : feu vert à l’imposition substitutive',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annonce le feu vert à l’imposition substitutive des pensions suisses.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

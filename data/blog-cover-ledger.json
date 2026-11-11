@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1141,
+      "5": 1143,
       "6": 5061
     },
-    "publishedCovers": 7883,
+    "publishedCovers": 7885,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217220,6 +217220,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-bollettino-frontaliere-2026-11-11": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-11.webp",
+      "hash": "05e6e4d3777602617854c72b5ceda1e496d73611bf6856c236dd3b22b3232e35",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-11",
+          "category": "novita",
+          "date": "2026-11-11T12:37:21.200Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-11.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-11",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-11.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-cambio-orari-bus-lucerna": {
       "cover": "/images/blog/article-cambio-orari-bus-lucerna.webp",
       "hash": "cbf80e2b933dba8a57268e6688bddb6a10568c4fad63e4fa18b60237bd6704a2",
@@ -217415,6 +217448,39 @@
         "provider": "openai-codex",
         "assetId": "article-referendum-costruzione-alloggi-hbm",
         "imageUrl": "/images/blog/article-referendum-costruzione-alloggi-hbm.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-regime-fiscale-rendite-elvetiche": {
+      "cover": "/images/blog/article-regime-fiscale-rendite-elvetiche.webp",
+      "hash": "3b1e7d8914480ae4a1316d8fb7eb2d6dfe5763803ebf0ac0811b895330bd5315",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "regime-fiscale-rendite-elvetiche",
+          "category": "fiscale",
+          "date": "2026-11-11T12:22:02.452Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-regime-fiscale-rendite-elvetiche.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-regime-fiscale-rendite-elvetiche",
+        "imageUrl": "/images/blog/article-regime-fiscale-rendite-elvetiche.webp",
         "evidence": "generated-engine-record"
       }
     }

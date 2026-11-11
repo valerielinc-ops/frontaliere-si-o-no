@@ -8714,6 +8714,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti da laboratorio e oro riciclato',
     'blog.article.eteria-gioielleria-berta-serret.excerpt': 'L’11 novembre 2026 Berta Serret lancia ufficialmente online ETERIA JEWELLERY: alta gioielleria sostenibile sotto il segno dello Smart Luxury, con oro riciclato CoC, diamanti lab-grown IGI e tracciabilità TRACEMARK.',
     'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Anello solitario con diamante brillante in oro riciclato firmato ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensioni svizzere: via libera all\'imposizione sostitutiva',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

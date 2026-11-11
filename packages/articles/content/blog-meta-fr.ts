@@ -13704,6 +13704,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-svizzera-calo-ticino.title': 'Frontaliers : hausse en Suisse, baisse annuelle au Tessin',
     'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'Au troisième trimestre, la statistique des travailleurs frontaliers met en évidence un contraste net entre la situation fédérale et celle du canton du Tessin.',
     'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-11.title': 'Frontaliers : les relevés disponibles aujourd’hui — 11 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-11.excerpt': 'Les chiffres du jour, 11 novembre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher, le taux franc-euro et les offres d\'emploi actives en Suisse sur notre job board. Relevés quotidiens de notre suivi.',
+    'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Bulletin frontalier 11 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Les chiffres du 11 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
 };
 
 export default blogMetaFr;

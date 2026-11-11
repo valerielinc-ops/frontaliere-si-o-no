@@ -110168,6 +110168,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regime-fiscale-rendite-elvetiche': {
+    title: 'Pensioni svizzere: via libera all\'imposizione sostitutiva',
+    description: 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere: il quadro fiscale e i limiti dei dati disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, svizzere, libera, imposizione',
+    ogTitle: 'Pensioni svizzere e imposizione sostitutiva',
+    ogDescription: 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere. Il titolo non precisa autorità, decorrenza o importi; il sistema fiscale svizzero distingue imposta federale diretta, Cantoni e comuni.',
+    canonicalPath: '/articoli-svizzera/regime-fiscale-rendite-elvetiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensioni svizzere: via libera all'imposizione sostitutiva",
+      "description": "QuotidianoPiù annuncia il via libera all'imposizione sostitutiva sulle pensioni svizzere: il quadro fiscale e i limiti dei dati disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-regime-fiscale-rendite-elvetiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T12:22:03+00:00",
+      "dateModified": "2026-11-11T12:22:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regime-fiscale-rendite-elvetiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -8714,6 +8714,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret launches Smart Luxury brand with lab-grown diamonds and recycled gold',
     'blog.article.eteria-gioielleria-berta-serret.excerpt': 'On November 11, 2026, Berta Serret officially launches ETERIA JEWELLERY online: sustainable fine jewelry blending IGI-certified lab-grown diamonds, CoC recycled gold, and TRACEMARK traceability.',
     'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Diamond solitaire ring in recycled gold by ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Swiss pensions: go-ahead for substitute taxation',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù announces the go-ahead for the substitute tax on Swiss pensions.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

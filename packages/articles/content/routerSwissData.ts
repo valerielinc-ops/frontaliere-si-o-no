@@ -2927,6 +2927,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pamini-contributi-salari-svizzera': { it: 'pamini-contributi-salari-svizzera', en: 'pamini-swiss-salaries-contributions', de: 'pamini-schweizer-loehne-beitraege', fr: 'pamini-salaires-suisses-cotisations' },
  'burocrazia-frena-investimenti-svizzera': { it: 'burocrazia-frena-investimenti-svizzera', en: 'bureaucracy-hinders-investments-switzerland', de: 'burokratie-bremst-investitionen-schweiz', fr: 'bureaucratie-freine-investissements-suisse' },
  'eteria-gioielleria-berta-serret': { it: 'eteria-gioielleria-berta-serret', en: 'eteria-jewellery-berta-serret', de: 'eteria-schmuck-berta-serret', fr: 'eteria-joaillerie-berta-serret' },
+ 'regime-fiscale-rendite-elvetiche': { it: 'regime-fiscale-rendite-elvetiche', en: 'swiss-pensions-substitute-taxation', de: 'schweizer-renten-ersatzbesteuerung', fr: 'pensions-suisses-imposition-substitutive' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
