@@ -8717,6 +8717,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensioni svizzere: via libera all\'imposizione sostitutiva',
     'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere.',
     'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.revisione-tardoc-2027.title': 'Il Consiglio federale approva la revisione del TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'L\'11 novembre 2026, nel radiogiornale delle 12.30, il servizio di Alessio Veronelli ha riferito della prima revisione del sistema tariffale ambulatoriale TARDOC.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

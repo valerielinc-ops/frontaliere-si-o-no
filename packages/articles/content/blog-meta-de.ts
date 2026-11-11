@@ -13706,6 +13706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Grenzgänger-Bulletin am 11. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Die Zahlen vom 11. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Gehälter von Grenzgängern 2027: Nominale Steigerung um 1 % laut UBS',
+    'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'Für 2027 wird erwartet, dass die Löhne der Grenzgänger in der Schweiz nominal um 1 % steigen werden.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

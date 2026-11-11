@@ -13709,6 +13709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Bulletin frontalier 11 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
     'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Les chiffres du 11 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Salaires des travailleurs frontaliers 2027 : hausse nominale de 1% selon UBS',
+    'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'En 2027, les rémunérations des travailleurs frontaliers en Suisse devraient augmenter de 1% en termes nominaux.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

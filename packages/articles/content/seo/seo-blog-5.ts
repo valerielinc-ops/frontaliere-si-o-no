@@ -114654,6 +114654,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumenti-stipendi-frontalieri-2027': {
+    title: 'Stipendi frontalieri 2027: aumento nominale 1% secondo UBS',
+    description: 'Stima UBS 2027: aumento nominale 1% e reale 0,2% per i frontalieri. Dettagli settoriali e date contratti stagionali.',
+    keywords: 'frontalieri, stipendi 2027, UBS, aumento salariale, inflazione, Ticino',
+    ogTitle: 'Stipendi frontalieri 2027: aumento nominale 1%',
+    ogDescription: 'L\'indagine UBS prevede un aumento nominale dell\'1% per i frontalieri nel 2027. La crescita reale è dello 0,2% a causa dell\'inflazione dello 0,8%.',
+    canonicalPath: '/articoli-frontaliere/aumenti-stipendi-frontalieri-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendi frontalieri 2027: aumento nominale 1% secondo UBS",
+      "description": "Stima UBS 2027: aumento nominale 1% e reale 0,2% per i frontalieri. Dettagli settoriali e date contratti stagionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aumenti-stipendi-frontalieri-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T16:44:43+00:00",
+      "dateModified": "2026-11-11T16:44:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-frontalieri-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

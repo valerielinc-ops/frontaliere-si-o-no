@@ -8717,6 +8717,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensions suisses : feu vert à l’imposition substitutive',
     'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annonce le feu vert à l’imposition substitutive des pensions suisses.',
     'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.revisione-tardoc-2027.title': 'Le Conseil fédéral approuve la révision du TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'Le 11 novembre 2026, dans le journal radiophonique de 12.30, le reportage d’Alessio Veronelli a rendu compte de la première révision du système tarifaire ambulatoire TARDOC.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

@@ -2928,6 +2928,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'burocrazia-frena-investimenti-svizzera': { it: 'burocrazia-frena-investimenti-svizzera', en: 'bureaucracy-hinders-investments-switzerland', de: 'burokratie-bremst-investitionen-schweiz', fr: 'bureaucratie-freine-investissements-suisse' },
  'eteria-gioielleria-berta-serret': { it: 'eteria-gioielleria-berta-serret', en: 'eteria-jewellery-berta-serret', de: 'eteria-schmuck-berta-serret', fr: 'eteria-joaillerie-berta-serret' },
  'regime-fiscale-rendite-elvetiche': { it: 'regime-fiscale-rendite-elvetiche', en: 'swiss-pensions-substitute-taxation', de: 'schweizer-renten-ersatzbesteuerung', fr: 'pensions-suisses-imposition-substitutive' },
+ 'revisione-tardoc-2027': { it: 'revisione-tardoc-2027', en: 'tardoc-revision-2027', de: 'tardoc-revision-2027', fr: 'revision-tardoc-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

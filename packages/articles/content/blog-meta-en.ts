@@ -13707,6 +13707,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Cross-border daily brief for workers, November 11, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Daily figures for cross-border commuters, November 11, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Cross-border workers’ salaries in 2027: 1% nominal increase according to UBS',
+    'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'In 2027, the wages of cross-border workers in Switzerland are expected to increase by 1% in nominal terms.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

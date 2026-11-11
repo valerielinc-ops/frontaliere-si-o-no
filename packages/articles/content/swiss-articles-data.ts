@@ -30315,6 +30315,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'revisione-tardoc-2027',
+    category: 'novita',
+    date: '2026-11-11T18:29:22.688Z',
+    image: '/images/blog/article-revisione-tardoc-2027.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

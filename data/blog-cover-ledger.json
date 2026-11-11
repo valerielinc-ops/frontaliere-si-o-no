@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1142,
+      "5": 1145,
       "6": 5062
     },
-    "publishedCovers": 7885,
+    "publishedCovers": 7888,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217220,6 +217220,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-aumenti-stipendi-frontalieri-2027": {
+      "cover": "/images/blog/article-aumenti-stipendi-frontalieri-2027.webp",
+      "hash": "5dc53b412011df6bc9bd311b0958b4d11c2e0efcace1923c7d7de651f7bf92cc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "aumenti-stipendi-frontalieri-2027",
+          "category": "novita",
+          "date": "2026-11-11T16:44:41.881Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumenti-stipendi-frontalieri-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-aumenti-stipendi-frontalieri-2027",
+        "imageUrl": "/images/blog/article-aumenti-stipendi-frontalieri-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-bollettino-frontaliere-2026-11-11": {
       "cover": "/images/blog/article-bollettino-frontaliere-2026-11-11.webp",
       "hash": "05e6e4d3777602617854c72b5ceda1e496d73611bf6856c236dd3b22b3232e35",
@@ -217475,6 +217508,72 @@
         "provider": "openai-codex",
         "assetId": "article-regime-fiscale-rendite-elvetiche",
         "imageUrl": "/images/blog/article-regime-fiscale-rendite-elvetiche.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-revisione-tardoc-2027": {
+      "cover": "/images/blog/article-revisione-tardoc-2027.webp",
+      "hash": "fa77287b914c0db74878509c355a71c8eb78b45b1972683b8d793a13e5d46ba1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "revisione-tardoc-2027",
+          "category": "novita",
+          "date": "2026-11-11T18:29:22.688Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-revisione-tardoc-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-revisione-tardoc-2027",
+        "imageUrl": "/images/blog/article-revisione-tardoc-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-svitto-seminario-wohnraum-rickenbach": {
+      "cover": "/images/blog/article-svitto-seminario-wohnraum-rickenbach.webp",
+      "hash": "1f017778e063d1fde5e666e5c8594f6862957a7d47c4edd476df18b6cfaa8cfe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "svitto-seminario-wohnraum-rickenbach",
+          "category": "pratico",
+          "date": "2026-11-11T16:54:58.624Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-svitto-seminario-wohnraum-rickenbach.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-svitto-seminario-wohnraum-rickenbach",
+        "imageUrl": "/images/blog/article-svitto-seminario-wohnraum-rickenbach.webp",
         "evidence": "generated-engine-record"
       }
     }

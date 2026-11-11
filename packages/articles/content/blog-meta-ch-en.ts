@@ -8717,6 +8717,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regime-fiscale-rendite-elvetiche.title': 'Swiss pensions: go-ahead for substitute taxation',
     'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù announces the go-ahead for the substitute tax on Swiss pensions.',
     'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.revisione-tardoc-2027.title': 'The Federal Council approves the revision of TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'On November 11, 2026, in the 12.30 news broadcast, Alessio Veronelli\'s report covered the first revision of the TARDOC outpatient tariff system.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

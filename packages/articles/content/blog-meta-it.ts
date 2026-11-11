@@ -13708,6 +13708,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Bollettino frontalieri 11 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'I numeri del 11 novembre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Stipendi frontalieri 2027: aumento nominale 1% secondo UBS',
+    'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'Nel 2027 le retribuzioni dei lavoratori frontalieri in Svizzera sono attese in crescita nominale dell\'1%.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
