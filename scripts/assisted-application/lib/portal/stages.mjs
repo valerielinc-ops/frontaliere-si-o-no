@@ -272,11 +272,11 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   if (CONFIRM_RE.test(text) && titleBound(text, job.title)) {
     return { kind: 'unknown_apply', prefinal: incompleteApplication(text) };
   }
-  const finalReview = Object.values(finalReviewStageChecks(snapshot, { url, applyUrl, sourceProtocol })).every(Boolean);
-  if (finalReview) return { kind: 'final_review' };
   const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
   if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
     && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
+  const finalReview = Object.values(finalReviewStageChecks(snapshot, { url, applyUrl, sourceProtocol })).every(Boolean);
+  if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href

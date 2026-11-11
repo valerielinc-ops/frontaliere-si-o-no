@@ -4,6 +4,7 @@ import { PORTAL_AUTO_RETRY_DELAYS_MS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VER
   portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 import { reconcileFinalReviewAmbiguous } from '../scripts/assisted-application/reconcile-final-review-ambiguous.mjs';
 import { decideFinalReviewAmbiguousReconciliation } from '../scripts/assisted-application/lib/final-review-ambiguous-reconciliation.mjs';
+import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { advancedToFinalReview } from '../scripts/assisted-application/lib/portal/final-review.mjs';
 import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -24,7 +25,7 @@ function eligibleInput(overrides = {}) {
     submission: { r1: { state: 'sending', channel: 'portal', clickedAt: 200 } },
     inbox: [],
     source: { applyUrl, event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: {
-      finalOutcomes: ['ambiguous'], finalUrl, submissionUrl,
+      finalOutcomes: ['ambiguous'], finalUrl, submissionUrl, afterSubmit: 'ZmljdGlvbmFsLXNjcmVlbnNob3Q=',
     } },
     sourcePathBound: true,
     postClickSnapshot: reviewSnapshot,
@@ -53,7 +54,7 @@ describe('shared final-review predicate', () => {
     expect(advancedToFinalReview(noControl, { url: finalUrl, submissionUrl, applyUrl })).toBe(false);
   });
 
-  it('recognizes a bound Avature final review when the saved page has no live portal metadata', () => {
+  it('recognizes a bound Avature final review when the saved page attests the same portal', () => {
     const sourceProtocol = {
       vendor: 'avature', portalId: '87', namespace: '/Careers', page: 'JobDetail',
       origin: 'https://careers.example', path: '/Careers/JobDetail/Example-Role/42',
@@ -63,9 +64,24 @@ describe('shared final-review predicate', () => {
     const avatureApplyUrl = 'https://careers.example/Careers/JobDetail/Example-Role/42';
     const avatureReviewUrl = 'https://careers.example/Careers/ApplicationReview?jobId=42';
     const avatureSubmissionUrl = 'https://careers.example/Careers/ApplicationConfirmation?jobId=42';
-    const savedSnapshot = { ...reviewSnapshot, url: avatureReviewUrl, protocol: null };
+    const reviewProtocol = { ...sourceProtocol, page: 'ApplicationReview', path: '/Careers/ApplicationReview',
+      quoted: { ...sourceProtocol.quoted, page: 'ApplicationReview' } };
+    const savedSnapshot = { ...reviewSnapshot, url: avatureReviewUrl, protocol: reviewProtocol };
     expect(advancedToFinalReview(savedSnapshot, { url: avatureReviewUrl, submissionUrl: avatureSubmissionUrl,
       applyUrl: avatureApplyUrl, sourceProtocol, job: { title: 'Example role' } })).toBe(true);
+  });
+
+  it('keeps an Avature Apply page unknown when the current page does not attest the source portal', () => {
+    const sourceProtocol = {
+      vendor: 'avature', portalId: '87', namespace: '/Careers', page: 'JobDetail',
+      origin: 'https://careers.example', path: '/Careers/JobDetail/Example-Role/42',
+      quoted: { portalId: '87', urlPath: 'Careers', page: 'JobDetail',
+        applicationName: 'customPortal', applicationCode: 'customPortal_87' },
+    };
+    const url = 'https://careers.example/Careers/ApplicationReview?jobId=42';
+    const snapshot = { ...reviewSnapshot, url, protocol: null, buttons: [{ text: 'Apply', chrome: false }] };
+    expect(applicationStage(snapshot, { url, applyUrl: 'https://careers.example/Careers/JobDetail/Example-Role/42',
+      sourceProtocol, job: { title: 'Example role' } }).kind).toBe('unknown_apply');
   });
 });
 
@@ -104,7 +120,18 @@ describe('final-review ambiguous reconciliation decision', () => {
   it('accepts only the exact evidence set shared with the runner predicate', () => {
     const result = decideFinalReviewAmbiguousReconciliation(eligibleInput());
     expect(result.decision).toBe('reconcile');
-    expect(Object.values(result.criteria).every(Boolean)).toBe(true);
+    expect(Object.entries(result.criteria)
+      .filter(([name]) => !['evidenceArtifacts', 'finalReviewChecks'].includes(name))
+      .every(([, value]) => value === true)).toBe(true);
+    expect(result.criteria.evidenceArtifacts.encryptedPostClickScreenshot).toBe(true);
+  });
+
+  it('keeps a case unknown when the encrypted post-click screenshot is missing', () => {
+    const input = eligibleInput();
+    delete input.source.evidence.afterSubmit;
+    const result = decideFinalReviewAmbiguousReconciliation(input);
+    expect(result.criteria.evidenceArtifacts.encryptedPostClickScreenshot).toBe(false);
+    expect(result.decision).toBe('unknown');
   });
 
   it('releases a proved no-send claim, queues one retry, and is idempotent', async () => {
@@ -122,7 +149,8 @@ describe('final-review ambiguous reconciliation decision', () => {
         channel: { applyUrl }, job: { title: 'Example role' } }],
     ]);
     const source = { applyUrl, event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: {
-      finalOutcomes: ['ambiguous'], finalUrl, steps: [{ url: submissionUrl }], afterSubmitSnapshot: reviewSnapshot,
+      finalOutcomes: ['ambiguous'], finalUrl, steps: [{ url: submissionUrl }], afterSubmit: 'ZmljdGlvbmFsLXNjcmVlbnNob3Q=',
+      afterSubmitSnapshot: reviewSnapshot,
     } };
     const envelope = Buffer.from(JSON.stringify(encryptJson(source, key)));
     const document = (path: string): any => ({

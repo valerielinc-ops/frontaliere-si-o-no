@@ -111,7 +111,11 @@ export function decideFinalReviewAmbiguousReconciliation({
   if (!criteria.noInboxConfirmation || !criteria.noConfirmedSend || !criteria.noLaterFoundVerification) {
     return { decision: 'confirmation_or_verification_present', criteria };
   }
-  if (!Object.values(criteria).every(Boolean)) return { decision: 'unknown', criteria };
+  const requiredCriteria = Object.entries(criteria)
+    .filter(([name]) => !['evidenceArtifacts', 'finalReviewChecks'].includes(name))
+    .map(([, value]) => value === true);
+  requiredCriteria.push(criteria.evidenceArtifacts.encryptedPostClickScreenshot === true);
+  if (!requiredCriteria.every(Boolean)) return { decision: 'unknown', criteria };
   return { decision: 'reconcile', criteria };
 }
 
