@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { applyAutomationEvent, runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
+// This suite exercises runner routing, not the separately tested PDF packet renderer.
+vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({ postalPacketReadiness: vi.fn(() => ({ ready: true })) }));
+import { applyAutomationEvent, handleRunnerEvent, runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
@@ -114,6 +116,58 @@ describe('dispatch of a marked order', () => {
     expect(store.read(queuePath)).toMatchObject({ status: 'pending', mode: 'submit' });
   });
 
+  it('routes the first Swiss retry locally when repeated verified network failures exhaust portal retries', async () => {
+    const host = 'forms.example.test';
+    const requestedAt = now - 1_000;
+    const priorAt = now - 10_000;
+    const flow = {
+      state: 'submitting', round: 1, heldBy: [], portalAutoRetryCount: 2,
+      transportAutoRetryCount: 0,
+      dispatch: { mode: 'submit', round: 1, attempts: 3, requestedAt },
+      swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'connection_failure', at: priorAt }],
+    };
+    const draftPath = `${orderPath}/ai_drafts/current`;
+    const store = storeWith(flow, {
+      [draftPath]: {
+        status: 'ready', round: 1,
+        portalContract: { postingMatch: 'match', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
+      },
+    });
+    const events = store.db.collection('assisted_applications').doc(orderId).collection('automation_events');
+    const eventRef = await events.add({
+      type: 'submit_handoff', round: 1, reason: 'posting_mismatch',
+      portalNetworkFailure: { host, kind: 'connection_failure' },
+    });
+    const github = vi.fn(async () => ({ ok: true }));
+
+    const failure = await handleRunnerEvent({
+      db: store.db, orderId, eventRef, data: store.read(eventRef.path),
+      runEffect: effectRunner(github), nowMs: now,
+    });
+    expect(failure).toMatchObject({ ok: true });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:posting_mismatch'],
+      egress: { required: 'ch', reason: 'repeated_network_failure', source: 'repeated_network_failure' },
+      portalAutoRetryCount: 2, portalAutoRetryAt: now,
+    });
+    expect(github).not.toHaveBeenCalled();
+
+    const retry: any = await applyAutomationEvent({
+      db: store.db, orderId, event: { type: 'portal_auto_retry' },
+      runEffect: effectRunner(github), nowMs: now,
+    });
+    expect(retry.effectResults).toEqual([expect.objectContaining({ channel: 'swiss_local', queued: true })]);
+    expect(github).not.toHaveBeenCalled();
+    expect(store.read(queuePath)).toMatchObject({
+      orderId, mode: 'submit', round: 1, requestedAt: now, status: 'pending', egress: 'ch',
+    });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'submitting', portalAutoRetryCount: 3,
+      portalExhaustedRecoveryVersion: expect.any(String),
+      egress: { required: 'ch', source: 'repeated_network_failure' },
+    });
+  });
+
   it('an unmarked order calls GitHub as before and queues nothing', async () => {
     const store = storeWith(heldForRetry(['portal:portal_needs_candidate'], null));
     const github = vi.fn(async () => ({ ok: true }));
@@ -207,6 +261,10 @@ describe('local dispatch lease', () => {
 describe('Swiss runner offline', () => {
   const requestedAt = now - SWISS_RUNNER_PICKUP_MS - 1000;
   const submitting = { state: 'submitting', round: 1, egress: mark, dispatch: { mode: 'submit', round: 1, attempts: 1, requestedAt } };
+  const repeatedNetworkMark = {
+    required: 'ch', reason: 'repeated_network_failure', round: 1,
+    at: now - 60_000, source: 'repeated_network_failure',
+  };
   const pending = {
     orderId, key: localDispatchKey({ mode: 'submit', round: 1, requestedAt }), mode: 'submit', round: 1,
     requestedAt, queuedAt: requestedAt, status: 'pending', egress: 'ch',
@@ -237,6 +295,25 @@ describe('Swiss runner offline', () => {
     const retry: any = await applyAutomationEvent({ db: store.db, orderId, event: { type: 'portal_auto_retry' }, runEffect: effectRunner(github), nowMs: now + TRANSPORT_AUTO_RETRY_DELAYS_MS[0] });
     expect(retry.effectResults).toEqual([expect.objectContaining({ channel: 'swiss_local', queued: true })]);
     expect(github).not.toHaveBeenCalled();
+  });
+
+  it('keeps a newly marked repeated-network order on the explicit offline hold', async () => {
+    const store = storeWith({ ...submitting, egress: repeatedNetworkMark }, {
+      [queuePath]: pending,
+      [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: {
+        runnerId: 'swiss-a', at: now - SWISS_RUNNER_HEARTBEAT_STALE_MS - 1,
+        eligible: true, egressCountry: 'CH',
+      },
+    });
+    const github = vi.fn(async () => ({ ok: true }));
+
+    await runAutomationSweep({ db: store.db, runEffect: effectRunner(github), nowMs: now } as any);
+
+    expect(github).not.toHaveBeenCalled();
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:swiss_runner_offline'],
+      egress: repeatedNetworkMark,
+    });
   });
 
   it('no heartbeat at all, or one from a non-Swiss exit, holds as well', async () => {

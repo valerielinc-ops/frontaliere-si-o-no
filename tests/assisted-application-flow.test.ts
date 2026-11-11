@@ -19,7 +19,7 @@ const {
   roundWasSent,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
-const { TRANSPORT_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
+const { TRANSPORT_AUTO_RETRY_DELAYS_MS, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { operationalDefaultAnswer } = await import('../functions/src/assistedApplicationOperationalAnswers.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -467,6 +467,97 @@ describe('approval flow', () => {
     const held = { ...step.flow, dispatch: { mode: 'submit', attempts: 1 } };
     expect(transition(held, { type: 'portal_auto_retry' }, { draft: { ...cleanDraft, round: 1 }, nowMs: T0 + TRANSPORT_AUTO_RETRY_DELAYS_MS[0] }).effects)
       .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
+  it('marks repeated verified network failures only when two distinct dispatches fail at the same form host', () => {
+    const hostA = 'forms.example.test';
+    const verifiedDraft = {
+      ...cleanDraft, status: 'ready', round: 1,
+      portalContract: {
+        postingMatch: 'match',
+        applyUrl: { origin: 'https://jobs.example.test', path: '/role/' },
+        currentUrl: { origin: `https://${hostA}`, path: '/apply/' },
+        form: { observed: true },
+      },
+    };
+    const networkFailure = (host: string) => ({ type: 'submit_handoff', reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } });
+    const firstDispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 1 };
+    const first = transition({ state: 'submitting', round: 1, dispatch: firstDispatch }, networkFailure(hostA), { draft: verifiedDraft, nowMs: T0 });
+    expect(first.flow.egress).toBeUndefined();
+    expect(first.flow.swissEgressNetworkFailures).toEqual([{ host: hostA, round: 1, requestedAt: T0, kind: 'navigation_unavailable', at: T0 }]);
+
+    const firstRetryAt = T0 + TRANSPORT_AUTO_RETRY_DELAYS_MS[0];
+    const retry = transition({ ...first.flow, dispatch: firstDispatch }, { type: 'portal_auto_retry' }, { draft: verifiedDraft, nowMs: firstRetryAt });
+    const secondDispatch = { mode: 'submit', round: 1, requestedAt: firstRetryAt, attempts: 2 };
+    const second = transition({ ...retry.flow, dispatch: secondDispatch }, networkFailure(hostA), { draft: verifiedDraft, nowMs: firstRetryAt });
+    expect(second.flow).toMatchObject({
+      state: 'owner_takeover',
+      egress: { required: 'ch', reason: 'repeated_network_failure', source: 'repeated_network_failure', round: 1, at: firstRetryAt },
+    });
+    expect(second.effects).not.toContainEqual(expect.objectContaining({ type: 'dispatch', mode: 'submit' }));
+    expect(second.flow.swissEgressNetworkFailures).toHaveLength(2);
+
+    const otherHostDraft = {
+      ...verifiedDraft,
+      portalContract: { postingMatch: 'match', currentUrl: { origin: 'https://forms.other.test', path: '/apply/' } },
+    };
+    const differentHostsFirst = transition({ state: 'submitting', round: 1, dispatch: firstDispatch }, networkFailure(hostA), { draft: verifiedDraft, nowMs: T0 });
+    const differentHostsRetry = transition({ ...differentHostsFirst.flow, dispatch: firstDispatch }, { type: 'portal_auto_retry' }, { draft: otherHostDraft, nowMs: firstRetryAt });
+    const differentHostsSecond = transition({ ...differentHostsRetry.flow, dispatch: secondDispatch }, networkFailure('forms.other.test'), { draft: otherHostDraft, nowMs: firstRetryAt });
+    expect(differentHostsSecond.flow.egress).toBeUndefined();
+    expect(differentHostsSecond.flow.swissEgressNetworkFailures?.map(record => record.host)).toEqual([hostA, 'forms.other.test']);
+  });
+
+  it('does not use an unverified posting or duplicate dispatch as Swiss network evidence', () => {
+    const host = 'forms.example.test';
+    const draft = {
+      ...cleanDraft, status: 'ready', round: 1,
+      portalContract: { postingMatch: 'unknown', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
+    };
+    const dispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 1 };
+    const event = { type: 'submit_handoff', reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } };
+    const unverified = transition({ state: 'submitting', round: 1, dispatch }, event, { draft, nowMs: T0 });
+    expect(unverified.flow.egress).toBeUndefined();
+    expect(unverified.flow.swissEgressNetworkFailures).toBeUndefined();
+
+    const verified = { ...draft, portalContract: { ...draft.portalContract, postingMatch: 'match' } };
+    const duplicate = transition({ state: 'submitting', round: 1, dispatch,
+      swissEgressNetworkFailures: [{ host, round: 1, requestedAt: T0, kind: 'navigation_unavailable', at: T0 }] },
+    event, { draft: verified, nowMs: T0 + 1 });
+    expect(duplicate.flow.egress).toBeUndefined();
+    expect(duplicate.flow.swissEgressNetworkFailures).toHaveLength(1);
+  });
+
+  it('uses one versioned Swiss retry when the ordinary portal retry budget is exhausted', () => {
+    const host = 'forms.example.test';
+    const draft = {
+      ...cleanDraft, status: 'ready', round: 1,
+      portalContract: { postingMatch: 'match', currentUrl: { origin: `https://${host}`, path: '/apply/' } },
+    };
+    const priorAt = T0 - 2_000;
+    const dispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 3 };
+    const held = transition({ state: 'submitting', round: 1, dispatch,
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length,
+      swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'connection_failure', at: priorAt }] },
+    { type: 'submit_handoff', reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
+    { draft, nowMs: T0 });
+
+    expect(held.flow).toMatchObject({
+      egress: { required: 'ch', source: 'repeated_network_failure' },
+      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length,
+      portalAutoRetryAt: T0,
+      portalRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,
+      portalExhaustedRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,
+    });
+    expect(portalRetryDueAt(held.flow)).toBe(T0);
+
+    const retry = transition({ ...held.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: T0 });
+    expect(retry.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1 });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+    const exhaustedAgain = transition({ ...retry.flow, dispatch },
+      { type: 'submit_handoff', reason: 'posting_mismatch', portalNetworkFailure: { host, kind: 'connection_failure' } },
+      { draft, nowMs: T0 + 1 });
+    expect(portalRetryDueAt(exhaustedAgain.flow)).toBeNull();
   });
 
   it('retries once without a candidate email when the portal repeats questions that already have answers', () => {

@@ -1,12 +1,18 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+// This suite exercises retry scheduling, not the separately tested PDF packet renderer.
+vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({ postalPacketReadiness: vi.fn(() => ({ ready: true })) }));
+// The event classifier under test does not create document packages.
+vi.mock('../scripts/assisted-application/lib/dossier.mjs', () => ({
+  adPackaging: vi.fn(), dossierMode: vi.fn(), draftCandidateType: vi.fn(), packageAttachments: vi.fn(),
+}));
 import { computeDueAt } from '../functions/src/assistedApplicationAutomation.js';
 import { TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 import { emailInfrastructureFailure, legacyTransportHoldReason, navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { reconcileTransportHolds } from '../scripts/reconcile-assisted-application-transport-holds.mjs';
 import { buildOwnerAutomationEmail } from '../functions/src/assistedApplicationAutomationEmails.js';
-import { navigationHandoffFor } from '../scripts/assisted-application/lib/submit.mjs';
+import { navigationHandoffFor, portalNetworkFailureMetadata } from '../scripts/assisted-application/lib/submit.mjs';
 
 const now = Date.now();
 const draft = { status: 'ready', round: 1, questions: [], job: { source: 'job_detail' }, channel: { type: 'email' } };
@@ -53,7 +59,10 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
     for (const error of [
       'page.goto: net::ERR_NAME_NOT_RESOLVED',
       'page.goto: net::ERR_ADDRESS_UNREACHABLE',
+      'page.goto: net::ERR_CONNECTION_TIMED_OUT',
+      'page.goto: net::ERR_CONNECTION_ABORTED',
       'page.goto: net::ERR_NETWORK_ACCESS_DENIED',
+      'chrome-error://chromewebdata/',
       'getaddrinfo EAI_AGAIN portal.example.test',
       'connect ENETUNREACH 203.0.113.10:443',
       'connect EHOSTUNREACH 203.0.113.10:443',
@@ -64,10 +73,64 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'))).toEqual({ type: 'submit_handoff', reason: 'navigation_unavailable' });
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { clicked: true })).toBeNull();
     expect(navigationHandoffFor(new Error('page.goto: net::ERR_ADDRESS_UNREACHABLE'), { succeeded: true })).toBeNull();
+    expect(navigationHandoffFor(new Error('chrome-error://chromewebdata/'))).toEqual({ type: 'submit_handoff', reason: 'navigation_unavailable' });
     for (const error of ['email_ambiguous', 'portal_ambiguous', 'portal_antibot_ambiguous', 'submission_receipt_invalid']) {
       const result = transition(approved, { type: 'submit_failed', error }, { draft, nowMs: now });
       expect(computeDueAt(result.flow)).toBeNull();
     }
+  });
+});
+
+describe('network evidence passed to the shared flow', () => {
+  const verifiedDraft = {
+    status: 'ready', round: 1,
+    portalContract: {
+      postingMatch: 'match',
+      applyUrl: { origin: 'https://jobs.example.test', path: '/role/' },
+      currentUrl: { origin: 'https://forms.example.test', path: '/application/' },
+      form: { observed: true },
+    },
+  };
+
+  it('emits only the verified form host and a closed failure kind', () => {
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'navigation_unavailable' }, draft: verifiedDraft,
+    })).toEqual({ host: 'forms.example.test', kind: 'navigation_unavailable' });
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'posting_mismatch' },
+      evidence: { stopReport: { errors: ['chrome-error://chromewebdata net::ERR_CONNECTION_REFUSED'] } },
+      draft: verifiedDraft,
+    })).toEqual({ host: 'forms.example.test', kind: 'chrome_error' });
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'portal_needs_candidate' },
+      liveness: { page: { code: 'access_blocked' } },
+      postingUrl: 'https://forms.example.test/job/', draft: verifiedDraft,
+    })).toEqual({ host: 'forms.example.test', kind: 'access_blocked' });
+
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'navigation_unavailable' },
+      draft: { ...verifiedDraft, portalContract: {
+        ...verifiedDraft.portalContract,
+        applyUrl: { origin: 'https://forms.example.test', path: '/apply/' },
+        currentUrl: { origin: 'https://jobs.example.test', path: '/role/' },
+        form: { observed: false },
+      } },
+    })).toEqual({ host: 'forms.example.test', kind: 'navigation_unavailable' });
+  });
+
+  it('keeps unknown postings and a blocked different host out of Swiss routing evidence', () => {
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'navigation_unavailable' },
+      draft: { ...verifiedDraft, portalContract: { ...verifiedDraft.portalContract, postingMatch: 'unknown' } },
+    })).toBeNull();
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff', reason: 'portal_needs_candidate' },
+      liveness: { page: { code: 'access_blocked' } },
+      postingUrl: 'https://postings.example.test/job/', draft: verifiedDraft,
+    })).toBeNull();
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_succeeded', reason: 'navigation_unavailable' }, draft: verifiedDraft,
+    })).toBeNull();
   });
 });
 

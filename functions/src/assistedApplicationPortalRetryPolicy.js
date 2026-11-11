@@ -2,6 +2,8 @@
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION = 'portal-final-review-ambiguous-v1';
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
+// SHA-256 of "assisted-application:swiss-egress-network-recovery:v1". Bump the suffix when this one-shot repair changes.
+export const SWISS_EGRESS_NETWORK_RECOVERY_VERSION = '0c6b24bcb58d7e92fed5d94f37f8f918449a57a1428ea10eb342bb0fca47cbf1';
 // Stops caused by where and how the runner connects, not by the portal form
 // or the candidate. `application_region_unsupported` belongs here: the
 // employer geolocates the visitor's IP, i.e. the GitHub runner's, not the
@@ -39,7 +41,10 @@ export function autoRetryDelaysForFlow(flow) {
 }
 
 export function isAutoRetryablePortalHold(flow) {
-  return (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason)
+  const swissNetworkHold = flow?.egress?.required === 'ch'
+    && flow.egress.source === 'repeated_network_failure'
+    && (flow?.heldBy || []).some(reason => reason === 'portal:posting_mismatch' || reason === 'portal:access_blocked');
+  return swissNetworkHold || (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason)
     || reason === 'portal:portal_needs_candidate') || portalFinalReviewAmbiguousRecoveryPending(flow);
 }
 
