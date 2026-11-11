@@ -8720,6 +8720,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revisione-tardoc-2027.title': 'Der Bundesrat genehmigt die Revision des TARDOC',
     'blog.article.revisione-tardoc-2027.excerpt': 'Am 11. November 2026 wurde in den Radionachrichten um 12.30 Uhr im Beitrag von Alessio Veronelli über die erste Revision des ambulanten Tarifsystems TARDOC berichtet.',
     'blog.article.revisione-tardoc-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.aumento-iva-finanzia-avs.title': 'Abstimmung 29. Nov: Mehrwertsteuererhöhung für 13. AHV-Rente',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'Am 29. November stimmen die Schweizer Stimmberechtigten über die Erhöhung der Mehrwertsteuer zur Finanzierung der 13. AHV-Rente ab.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

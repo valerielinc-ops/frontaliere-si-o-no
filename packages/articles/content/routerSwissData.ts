@@ -2929,6 +2929,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'eteria-gioielleria-berta-serret': { it: 'eteria-gioielleria-berta-serret', en: 'eteria-jewellery-berta-serret', de: 'eteria-schmuck-berta-serret', fr: 'eteria-joaillerie-berta-serret' },
  'regime-fiscale-rendite-elvetiche': { it: 'regime-fiscale-rendite-elvetiche', en: 'swiss-pensions-substitute-taxation', de: 'schweizer-renten-ersatzbesteuerung', fr: 'pensions-suisses-imposition-substitutive' },
  'revisione-tardoc-2027': { it: 'revisione-tardoc-2027', en: 'tardoc-revision-2027', de: 'tardoc-revision-2027', fr: 'revision-tardoc-2027' },
+ 'aumento-iva-finanzia-avs': { it: 'aumento-iva-finanzia-avs', en: 'vat-increase-funds-avs', de: 'iva-erhoehung-finanziert-avs', fr: 'augmentation-tva-finance-avs' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
