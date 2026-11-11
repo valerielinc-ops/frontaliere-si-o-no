@@ -21,36 +21,48 @@
     "slugByLocale": {
       "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
-      "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
+      "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-a757f793",
       "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T12:30:43.204Z",
     "previousSlugs": [
       "responsabile-di-reparto-a-kantonsspital-baselland-ksbl-liestal",
+      "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
+      "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
+      "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
       "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
       "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
-      "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
       "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-      "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-      "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+      "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal-c8155682",
+      "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-8bb153fa"
     ],
     "previousSlugsByLocale": {
       "it": [
         "responsabile-di-reparto-a-kantonsspital-baselland-ksbl-liestal",
+        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-a757f793",
+        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
+        "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal"
       ],
       "en": [
-        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
+        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal-c8155682",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
+        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal"
       ],
       "de": [
-        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
+        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
+        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-a757f793",
+        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
+        "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "fr": [
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal"
+        "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
+        "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
+        "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-8bb153fa"
       ]
     },
     "postalCode": "4410",
@@ -618,14 +630,18 @@
       "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-c71e9e02",
       "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-784f65f0",
       "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-b2f55f4e",
+      "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-1b5a568d",
+      "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-b3a0defa",
+      "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-6ec3b8ba",
+      "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-e73bf5aa",
       "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
       "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal",
       "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal",
       "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal",
-      "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-1b5a568d",
-      "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-b3a0defa",
-      "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-6ec3b8ba",
-      "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-e73bf5aa"
+      "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-0a9b4795",
+      "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-c44ad823",
+      "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-496ffb21",
+      "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-2bd2f5e6"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -750,6 +766,8 @@
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-c71e9e02",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-1b5a568d",
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-b3a0defa",
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-0a9b4795",
+        "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-c44ad823",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
       ],
@@ -895,6 +913,8 @@
         "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-784f65f0",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-0ec28526",
         "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-6ec3b8ba",
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-f868c1c8",
+        "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal-496ffb21",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "mpa-or-fage-at-the-emergency-port-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -1040,6 +1060,8 @@
         "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-b2f55f4e",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-0ec28526",
         "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-e73bf5aa",
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-f868c1c8",
+        "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal-2bd2f5e6",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "mpa-ou-fage-au-port-d-urgence-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -1086,6 +1108,8 @@
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-f3f41962",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-0ec28526",
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-baea9bba",
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal-f868c1c8",
+        "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal-dd00f24a",
         "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "mpa-oder-fage-an-der-notfallporte-a-ksbl-liestal"
       ]
@@ -1552,14 +1576,18 @@
       "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-dbd53eda",
       "female-clinic-a-kantonsspital-baselland-ksbl-liestal-9e2afde4",
       "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-8a868101",
+      "beleghebamme-frauenklinik-a-ksbl-liestal-bba32f13",
+      "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-dc048e37",
+      "female-clinic-a-kantonsspital-baselland-ksbl-liestal-e1ab0834",
+      "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-ced5619d",
       "beleghebamme-frauenklinik-a-ksbl-liestal",
       "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal",
       "female-clinic-a-kantonsspital-baselland-ksbl-liestal",
       "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal",
-      "beleghebamme-frauenklinik-a-ksbl-liestal-bba32f13",
-      "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-dc048e37",
-      "female-clinic-a-kantonsspital-baselland-ksbl-liestal-e1ab0834",
-      "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-ced5619d"
+      "beleghebamme-frauenklinik-a-ksbl-liestal-ff315e2d",
+      "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-83923832",
+      "female-clinic-a-kantonsspital-baselland-ksbl-liestal-15742103",
+      "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-1fa8394b"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1727,6 +1755,8 @@
         "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-dbd53eda",
         "beleghebamme-frauenklinik-a-ksbl-liestal-bba32f13",
         "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-dc048e37",
+        "beleghebamme-frauenklinik-a-ksbl-liestal-ff315e2d",
+        "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal-83923832",
         "beleghebamme-frauenklinik-a-ksbl-liestal",
         "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -1815,6 +1845,7 @@
         "female-clinic-a-kantonsspital-baselland-ksbl-liestal-dac9cc07",
         "female-clinic-a-kantonsspital-baselland-ksbl-liestal-9e2afde4",
         "female-clinic-a-kantonsspital-baselland-ksbl-liestal-e1ab0834",
+        "female-clinic-a-kantonsspital-baselland-ksbl-liestal-15742103",
         "female-clinic-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "fr": [
@@ -1902,6 +1933,7 @@
         "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-d4b32906",
         "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-8a868101",
         "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-ced5619d",
+        "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal-1fa8394b",
         "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "de": [
@@ -1928,6 +1960,7 @@
         "beleghebamme-frauenklinik-a-ksbl-liestal-4eb553fc",
         "beleghebamme-frauenklinik-a-ksbl-liestal-3a589194",
         "beleghebamme-frauenklinik-a-ksbl-liestal-dcd9f5da",
+        "beleghebamme-frauenklinik-a-ksbl-liestal-1b826640",
         "beleghebamme-frauenklinik-a-ksbl-liestal"
       ]
     },
@@ -3075,16 +3108,21 @@
       "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-bb9c70a8",
       "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-d6e737cc",
       "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-38073e9e",
+      "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal-e71a3eec",
+      "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-f647af8a",
+      "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-1e1e4fd5",
+      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-f37777e7",
+      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-b3212653",
       "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal",
       "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
       "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal",
       "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal",
       "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal",
-      "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal-e71a3eec",
-      "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-f647af8a",
-      "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-1e1e4fd5",
-      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-f37777e7",
-      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-b3212653"
+      "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal-18ee6b79",
+      "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-f7b2c601",
+      "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-c022228c",
+      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-45b9a65b",
+      "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-c939e7dc"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3717,6 +3755,11 @@
         "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-1e1e4fd5",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-f37777e7",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-b3212653",
+        "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal-18ee6b79",
+        "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-f7b2c601",
+        "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-c022228c",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-45b9a65b",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-kantonsspital-baselland-ksbl-liestal-c939e7dc",
         "dipl-fisioterapista-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
         "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal",
@@ -3788,6 +3831,8 @@
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-116f95e3",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-67350e58",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-48fa24dc",
+        "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-9e426935",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-781dc321",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal"
       ],
@@ -3975,6 +4020,8 @@
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-116f95e3",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-67350e58",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-48fa24dc",
+        "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-9e426935",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-781dc321",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal"
       ],
@@ -4165,6 +4212,8 @@
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-dd81251f",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-f37777e7",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-67350e58",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-45b9a65b",
+        "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal-9e426935",
         "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal",
         "dipl-physiotherapeutin-physiotherapeut-a-ksbl-liestal"
       ]
@@ -6007,16 +6056,21 @@
       "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-283ac32a",
       "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-ac782e14",
       "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-b79002e1",
+      "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2dabcc3d",
+      "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal-d1290524",
+      "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-d7c824e5",
+      "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-d6b90661",
+      "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-79dfa7c2",
       "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
       "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
       "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
       "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
-      "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2dabcc3d",
-      "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal-d1290524",
-      "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-d7c824e5",
-      "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-d6b90661",
-      "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-79dfa7c2"
+      "unterassistentin-unterassistent-medizin-a-ksbl-liestal-6db72502",
+      "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal-1bcdbbff",
+      "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-db7261b7",
+      "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-59c5e283",
+      "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-99f44650"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6419,6 +6473,11 @@
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2dabcc3d",
         "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal-d1290524",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-d7c824e5",
+        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-98689568",
+        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-01530410",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-6db72502",
+        "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal-1bcdbbff",
+        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-db7261b7",
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
         "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
@@ -6568,6 +6627,8 @@
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-ac782e14",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2cc69019",
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-d6b90661",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-0fc888cc",
+        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal-59c5e283",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -6714,6 +6775,8 @@
         "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-b79002e1",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2cc69019",
         "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-79dfa7c2",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-0fc888cc",
+        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal-99f44650",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -6742,6 +6805,7 @@
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-c555f9a4",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-2cc69019",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-0fc888cc",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal-196cf2da",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
       ]
     },
@@ -7469,16 +7533,21 @@
       "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-d8affca7",
       "praktikum-pflege-a-ksbl-liestal-83679360",
       "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-f27b9071",
+      "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal-823f356d",
+      "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-ecbc817c",
+      "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-9a7370f3",
+      "praktikum-pflege-a-ksbl-liestal-dba75d01",
+      "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-0179fe0f",
       "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal",
       "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal",
       "praktikum-pflege-a-ksbl-liestal",
       "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal",
       "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal",
-      "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal-823f356d",
-      "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-ecbc817c",
-      "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-9a7370f3",
-      "praktikum-pflege-a-ksbl-liestal-dba75d01",
-      "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-0179fe0f"
+      "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal-7c70bd6b",
+      "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-b58d8138",
+      "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-8df2aee1",
+      "praktikum-pflege-a-ksbl-liestal-70df94d5",
+      "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-213f9d6c"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8063,6 +8132,8 @@
         "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-f611c621",
         "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal-823f356d",
         "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-ecbc817c",
+        "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal-7c70bd6b",
+        "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal-b58d8138",
         "praktica-assistenza-a-kantonsspital-baselland-ksbl-liestal",
         "praktikum-assistenza-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -8199,6 +8270,7 @@
         "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-cbd13a10",
         "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-d8affca7",
         "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-9a7370f3",
+        "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal-8df2aee1",
         "healthcare-internship-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "de": [
@@ -8334,6 +8406,7 @@
         "praktikum-pflege-a-ksbl-liestal-f9428ea1",
         "praktikum-pflege-a-ksbl-liestal-83679360",
         "praktikum-pflege-a-ksbl-liestal-dba75d01",
+        "praktikum-pflege-a-ksbl-liestal-70df94d5",
         "praktikum-pflege-a-ksbl-liestal"
       ],
       "fr": [
@@ -8470,6 +8543,7 @@
         "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-e2d9b25d",
         "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-f27b9071",
         "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-0179fe0f",
+        "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal-213f9d6c",
         "stage-dans-les-soins-a-kantonsspital-baselland-ksbl-liestal"
       ]
     },
@@ -8742,8 +8816,9 @@
       "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-4c23c161",
       "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-ed9a6dec",
       "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-f791e221",
+      "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-d28dffb9",
       "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal",
-      "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-d28dffb9"
+      "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-00e2da2a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8874,6 +8949,7 @@
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-ed9a6dec",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-f791e221",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-d28dffb9",
+        "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-00e2da2a",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal"
       ],
       "fr": [
@@ -9010,6 +9086,7 @@
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-1d3bc8b4",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-c55aa181",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-98108f00",
+        "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal-3679c614",
         "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-ksbl-liestal"
       ]
     },
@@ -10185,12 +10262,15 @@
       "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-8394bcca",
       "station-manager-a-kantonsspital-baselland-ksbl-liestal-4fe29b56",
       "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-c5e49b4e",
+      "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-6bf6365b",
+      "station-manager-a-kantonsspital-baselland-ksbl-liestal-8dd3547a",
+      "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-0fef8c7f",
       "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal",
       "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal",
       "station-manager-a-kantonsspital-baselland-ksbl-liestal",
-      "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-6bf6365b",
-      "station-manager-a-kantonsspital-baselland-ksbl-liestal-8dd3547a",
-      "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-0fef8c7f"
+      "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-20409f1c",
+      "station-manager-a-kantonsspital-baselland-ksbl-liestal-2d8fc7be",
+      "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-8f10fef7"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -10557,6 +10637,7 @@
         "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-d88eb1c3",
         "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-8394bcca",
         "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-6bf6365b",
+        "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal-20409f1c",
         "direttore-della-stazione-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "en": [
@@ -10697,6 +10778,7 @@
         "station-manager-a-kantonsspital-baselland-ksbl-liestal-f9922418",
         "station-manager-a-kantonsspital-baselland-ksbl-liestal-4fe29b56",
         "station-manager-a-kantonsspital-baselland-ksbl-liestal-8dd3547a",
+        "station-manager-a-kantonsspital-baselland-ksbl-liestal-2d8fc7be",
         "station-manager-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "de": [
@@ -10841,6 +10923,7 @@
         "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-a307b84a",
         "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-c5e49b4e",
         "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-0fef8c7f",
+        "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal-8f10fef7",
         "gestionnaire-de-station-a-kantonsspital-baselland-ksbl-liestal"
       ]
     },
@@ -11741,11 +11824,13 @@
       "mpa-interdisziplinares-ambulatorium-a-befristet-kantonsspital-baselland-ksbl-liestal",
       "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-f6f06138",
       "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-50c21899",
-      "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal",
       "mpa-interdisciplinary-ambulatorium-a-kantonsspital-baselland-ksbl-liestal",
-      "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal",
       "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal-98cac4b7",
-      "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-34cbfc00"
+      "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-34cbfc00",
+      "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal",
+      "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal",
+      "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal-63f8d44d",
+      "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-8cdd2d26"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -11769,6 +11854,7 @@
         "mpa-interdisziplinares-ambulatorium-a-befristet-ksbl-liestal",
         "mpa-ambulatorium-interdisciplinaire-a-temporaire-kantonsspital-baselland-ksbl-liestal",
         "mpa-interdisziplinares-ambulatorium-a-befristet-kantonsspital-baselland-ksbl-liestal",
+        "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal-63f8d44d",
         "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "de": [
@@ -11792,6 +11878,7 @@
         "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-34cbfc00",
         "mpa-ambulatorium-interdisciplinare-a-kantonsspital-baselland-ksbl-liestal",
         "mpa-interdisciplinary-ambulatorium-a-kantonsspital-baselland-ksbl-liestal",
+        "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-8cdd2d26",
         "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "en": [
@@ -11975,8 +12062,9 @@
       "fage-a-ksbl-liestal-544c91ed",
       "fage-a-ksbl-liestal-8d645632",
       "fage-a-ksbl-liestal-2d42128e",
+      "fage-a-ksbl-liestal-0168f4c9",
       "fage-a-ksbl-liestal",
-      "fage-a-ksbl-liestal-0168f4c9"
+      "fage-a-ksbl-liestal-bace902a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -12114,6 +12202,7 @@
         "fage-a-ksbl-liestal-8d645632",
         "fage-a-ksbl-liestal-2d42128e",
         "fage-a-ksbl-liestal-0168f4c9",
+        "fage-a-ksbl-liestal-bace902a",
         "fage-a-ksbl-liestal"
       ],
       "en": [
@@ -12252,6 +12341,7 @@
         "fage-a-ksbl-liestal-09afd5ca",
         "fage-a-ksbl-liestal-61d68597",
         "fage-a-ksbl-liestal-5fb92578",
+        "fage-a-ksbl-liestal-20d4d246",
         "fage-a-ksbl-liestal"
       ],
       "fr": [

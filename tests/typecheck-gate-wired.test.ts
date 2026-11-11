@@ -9,12 +9,11 @@
  * cancellando lo script o il job (una regressione che, per costruzione, non
  * produrrebbe nessun altro segnale rosso).
  *
- * Guarda anche il rischio opposto: il job del typecheck deve restare SEPARATO
- * da quello di vitest, e il check `vitest (unit + integration)` deve continuare
- * a chiamarsi esattamente così — auto-merge-on-lgtm, auto-merge-eval gate 3,
- * pr-autorebase e stale-pr-rescuer ci fanno `select` sopra, quindi rinominarlo
- * (o assorbire il typecheck dentro di lui) romperebbe l'auto-merge senza che
- * nessun test dei tipi se ne accorga.
+ * Il typecheck resta nello stesso check-run di Vitest, che governa l'auto-merge,
+ * ma parte dopo la suite per non contendersi l'heap con worker Vitest numerosi.
+ * Il check `vitest (unit + integration)` deve continuare a chiamarsi così:
+ * auto-merge-on-lgtm, auto-merge-eval gate 3, pr-autorebase e stale-pr-rescuer
+ * lo selezionano per nome.
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
@@ -28,13 +27,8 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'typecheck-baseline.json');
 const VITEST_JOB_NAME = 'vitest (unit + integration)';
 const TYPECHECK_JOB_NAME = 'typecheck (tsc --noEmit)';
 
-// Il gate gira sotto il sampler di memoria (follow-up #6573,
-// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`). `tests.yml`
-// lo lancia oggi dentro il wrapper `start_gate tsc` per raccogliere in fondo
-// al job i cancelli indipendenti; conserva anche la forma diretta per non
-// rendere il contratto dipendente da una sola strategia di scheduling.
-const GATE_RUN_RE =
-  /(?:run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate|start_gate\s+tsc\s+['"][^\n'"]*\bnpm run typecheck:gate['"])/;
+// Il gate gira dopo Vitest, sotto il sampler di memoria (follow-up #6573).
+const GATE_RUN_RE = /run:\s+bash scripts\/ci\/sample-mem-during\.sh -- npm run typecheck:gate/;
 
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
   scripts: Record<string, string>;
@@ -103,6 +97,19 @@ describe('typecheck gate wiring (#5540)', () => {
       'il gate `npm run typecheck:gate` non è più dentro il job `vitest` → un ' +
         'errore di tipo non fa più rosso il check che governa l’auto-merge.',
     ).toBe(true);
+  });
+
+  it('il typecheck parte dopo Vitest, isolato con heap adatto al runner CI', () => {
+    const vitestBody = workflow.slice(workflow.indexOf('  vitest:'));
+    const vitestAt = vitestBody.indexOf('- name: vitest related (PR diff)');
+    const typecheckAt = vitestBody.indexOf('- name: Typecheck after related Vitest');
+    expect(vitestAt).toBeGreaterThan(-1);
+    expect(typecheckAt).toBeGreaterThan(vitestAt);
+    const nextStepAt = vitestBody.indexOf('\n      - name:', typecheckAt + 1);
+    const typecheckStep = vitestBody.slice(typecheckAt, nextStepAt);
+    expect(typecheckStep).toContain('NODE_OPTIONS: --max-old-space-size=12288');
+    expect(typecheckStep).toContain("always() && !cancelled()");
+    expect(workflow).not.toMatch(/start_gate\s+tsc\b/);
   });
 
   it('contract gira nel job gating; il detector non e\' piu\' qui', () => {

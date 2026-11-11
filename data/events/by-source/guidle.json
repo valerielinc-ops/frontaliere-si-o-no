@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-10T13:58:01.338Z",
+  "assembledAt": "2026-11-11T13:10:14.140Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -182282,6 +182282,1150 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "18acfe562ca7fc8a1519d05d7954911593b7071b3bc157d27607c6570d7036f1"
+    },
+    {
+      "id": "guidle:AvCq2gm",
+      "title": "Kreativbox",
+      "titleByLocale": {
+        "it": "Kreativbox",
+        "en": "Creativbox",
+        "de": "Kreativbo",
+        "fr": "Boîte créative"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2027-01-23",
+      "startTime": "13:00",
+      "category": "Altri eventi",
+      "venue": "Museum der Kulturen Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/kreativbox_AvCq2gm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Münsterplatz 20",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5571404,
+        "lng": 7.5908681
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Federn"
+        },
+        {
+          "name": "Perlen"
+        }
+      ],
+      "sourceDescriptionHash": "c0fde5078ad63010137515f90da064bce75f43c986b307811f605eb42e2a8a9e"
+    },
+    {
+      "id": "guidle:AaTNkf2",
+      "title": "Café Mundo",
+      "titleByLocale": {
+        "it": "Café Mundo",
+        "en": "Cafe Mundo",
+        "de": "Cafe Mundo",
+        "fr": "Café Mundo"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2027-06-23",
+      "startTime": "08:30",
+      "category": "Altri eventi",
+      "venue": "Médiathèque Valais - Martigny",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/martigny/cafe-mundo_AaTNkf2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Avenue de la Gare 15",
+        "postalCode": "1920"
+      },
+      "geo": {
+        "lat": 46.1031333,
+        "lng": 7.0750346
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "6b21a55975d27bc2d560981b35c699b69d7370e533f74e6e07d5fc2e690d7188"
+    },
+    {
+      "id": "guidle:AukNdbc",
+      "title": "Lernstube On Tour",
+      "titleByLocale": {
+        "it": "Lernstube On Tour",
+        "en": "Lernstube On Tour",
+        "de": "Lernstube auf Tour",
+        "fr": "Lernstube en tournée"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-12-18",
+      "startTime": "16:00",
+      "category": "Aiuto volontari",
+      "venue": "Interkulturelles Forum Pfäffikon",
+      "comune": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/pfaeffikon-zh/lernstube-on-tour_AukNdbc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Haus H7 Hochstrasse 7",
+        "postalCode": "8330"
+      },
+      "geo": {
+        "lat": 47.36697,
+        "lng": 8.783142
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "aeed9a52368be1b3e15d5fa6a8f9b813da570b5e8ada5669f27259e41b431c12"
+    },
+    {
+      "id": "guidle:AnB8BEB",
+      "title": "Mercredis géologiques",
+      "titleByLocale": {
+        "it": "Mercredis géologiques",
+        "en": "Mercredis geologiques",
+        "de": "Mercredis geologiques",
+        "fr": "Mercredis géologiques"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-16",
+      "startTime": "14:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Naturéum - Muséum cantonal des sciences naturelles",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/mercredis-geologiques_AnB8BEB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Place de la Riponne 6",
+        "postalCode": "1005"
+      },
+      "geo": {
+        "lat": 46.523603,
+        "lng": 6.6338378
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "a9e6e13c40d12d9659e062c1622991c4aa54b80b65d2d5f5e8ca6b7be45a967b"
+    },
+    {
+      "id": "guidle:AvSL9fM",
+      "title": "La Grande soirée du DOUBLAGE IMPROVISÉ",
+      "titleByLocale": {
+        "it": "La Grande soirée du DOUBLAGE IMPROVISÉ",
+        "en": "La Grande soiree du DOUBLAGE IMPROVISE",
+        "de": "Die große Soirée der DOUBLAGE IMPROVISÉ",
+        "fr": "La Grande soirée du DOUBLAGE imprévu"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2027-06-03",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Salle centrale de la Madeleine",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/la-grande-soiree-du-doublage-improvise_AvSL9fM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue de la Madeleine 10",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2022183,
+        "lng": 6.148667
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ebc147d55d6f011660163dae3c3bd42b7e54b52052094e5f71bab4f5a114369b"
+    },
+    {
+      "id": "guidle:AgQBDsK",
+      "title": "Alphalive Dietikon",
+      "titleByLocale": {
+        "it": "Alphalive Dietikon",
+        "en": "Alphalive Dietikon",
+        "de": "Alphalive Dietikon",
+        "fr": "Diétikon Alphalivé"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-10",
+      "startTime": "19:00",
+      "category": "Cristianesimo in generale",
+      "venue": "Röm.-kaht. Pfarreizentrum St. Agatha",
+      "comune": "Dietikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/dietikon/alphalive-dietikon_AgQBDsK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bahnhofplatz 3",
+        "postalCode": "8953"
+      },
+      "geo": {
+        "lat": 47.4052643,
+        "lng": 8.4044027
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "f14d118844c0caa88d79348fde4f232c22caf809d1f2e81f029c0d79a9e51165"
+    },
+    {
+      "id": "guidle:A3J3Pah",
+      "title": "Spielenachmittag 60+",
+      "titleByLocale": {
+        "it": "Spielenachmittag 60+",
+        "en": "Spielenachmittag 60",
+        "de": "Spielnachmittag 60",
+        "fr": "Jeu de table 60"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-03",
+      "startTime": "14:00",
+      "category": "Giochi da tavolo",
+      "venue": "Amthaus Rüti",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/rueti-zh/spielenachmittag-60_A3J3Pah",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Amthofstrasse 4",
+        "postalCode": "8630"
+      },
+      "geo": {
+        "lat": 47.259634,
+        "lng": 8.84857
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "76a1f8843d3cdcfa198d3482b054f59071c9811848ca1a47b9ab015967c314fc"
+    },
+    {
+      "id": "guidle:AbJj23j",
+      "title": "Stammtisch",
+      "titleByLocale": {
+        "it": "Stammtisch",
+        "en": "Stammtisch",
+        "de": "Stammtisch",
+        "fr": "Stammtisch"
+      },
+      "startDate": "2026-11-30",
+      "endDate": "2026-11-30",
+      "startTime": "09:00",
+      "category": "Comunione",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uitikon-waldegg/stammtisch_AbJj23j",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3696555,
+        "lng": 8.4552891
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "285ce983648c500d7fd2255883a8f6f0cedc6762fb567445708b5ca056919ec7"
+    },
+    {
+      "id": "guidle:A4yGwiA",
+      "title": "Jass- und Spielnachmittag",
+      "titleByLocale": {
+        "it": "Jass- und Spielnachmittag",
+        "en": "Jass- und Spielnachmittag",
+        "de": "Jass- und Spielnachmittag",
+        "fr": "Jass- und Spielnachmittag"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "startTime": "14:00",
+      "category": "Jass / Giochi di carte",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uitikon-waldegg/jass-und-spielnachmittag_A4yGwiA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3696555,
+        "lng": 8.4552891
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Kuchen"
+      },
+      "sourceDescriptionHash": "f83fe3aadad21189e083dd0c4ffcf2fc6a3c979c30951e95d6f5acf6b8378ed4"
+    },
+    {
+      "id": "guidle:AnvQeZ9",
+      "title": "Offene Werkstatt",
+      "titleByLocale": {
+        "it": "Offene Werkstatt",
+        "en": "Offene Werkstatt",
+        "de": "Offene Werkstatt",
+        "fr": "Offene Werkstatt"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-26",
+      "startTime": "18:00",
+      "category": "Artigianato",
+      "venue": "Figurentheater Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/winterthur/offene-werkstatt_AnvQeZ9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Marktgasse 25",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.499489,
+        "lng": 8.7290949
+      },
+      "recurring": true,
+      "performer": {
+        "name": "FIGURENTHEATER WINTERTHUR"
+      },
+      "sourceDescriptionHash": "4361ba7f1a5419ea45377e5646da4cfaf89783336fd1cc982e1858111450b027"
+    },
+    {
+      "id": "guidle:AjX8P7g",
+      "title": "Club de lecture de la Bibliothèque La Sallaz",
+      "titleByLocale": {
+        "it": "Club de lecture de la Bibliothèque La Sallaz",
+        "en": "Club de lecture de la Bibliothèque La Sallaz",
+        "de": "Club de lecture de la Bibliothèque La Sallaz",
+        "fr": "Club de lecture de la Bibliothèque La Sallaz"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2027-06-21",
+      "startTime": "18:30",
+      "category": "Lettura",
+      "venue": "Bibliothèques de la Ville de Lausanne – La Sallaz",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/club-de-lecture-de-la-bibliotheque-la-sallaz_AjX8P7g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Sallaz 4",
+        "postalCode": "1010"
+      },
+      "geo": {
+        "lat": 46.532578,
+        "lng": 6.6458206
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9"
+    },
+    {
+      "id": "guidle:AGmMqZW",
+      "title": "Culture sans filtre",
+      "titleByLocale": {
+        "it": "Culture sans filtre",
+        "en": "Culture sans filtre",
+        "de": "Culture sans filtre",
+        "fr": "Culture sans filtre"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-12-08",
+      "startTime": "09:30",
+      "category": "Altri eventi",
+      "venue": "Bibliothèque municipale - Entre-Bois",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/culture-sans-filtre_AGmMqZW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chemin d'Entre-Bois 10",
+        "postalCode": "1018"
+      },
+      "geo": {
+        "lat": 46.5373608,
+        "lng": 6.6326952
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "68897959b2b85ca4d623f7f6cbc8e8edae6a8ed1cf48d15b4c4eaeac5a9a77aa"
+    },
+    {
+      "id": "guidle:ApKsNBS",
+      "title": "Activité physique post-partum",
+      "titleByLocale": {
+        "it": "Activité physique post-partum",
+        "en": "Activité physique post-partum",
+        "de": "Activité physique post-partum",
+        "fr": "Activité physique post-partum"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-31",
+      "startTime": "14:00",
+      "category": "Altri eventi",
+      "venue": "Parc de Milan",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/activite-physique-post-partum_ApKsNBS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "1007"
+      },
+      "geo": {
+        "lat": 46.5149185,
+        "lng": 6.621742
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "596524086b7a754f197b7c19d4befcedb5bf0d8016f341d986a542b0a73f9da4"
+    },
+    {
+      "id": "guidle:AFFT2YW",
+      "title": "Café causette, conversation en français",
+      "titleByLocale": {
+        "it": "Café causette, conversation en français",
+        "en": "Café causette, conversation en français",
+        "de": "Café causette, conversation en français",
+        "fr": "Café causette, conversation en français"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-16",
+      "startTime": "10:30",
+      "category": "Comunione",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/cafe-causette-conversation-en-francais_AFFT2YW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 46.5232643,
+        "lng": 6.6251768
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:AcP6EEy",
+      "title": "Danse & Parkinson",
+      "titleByLocale": {
+        "it": "Danse & Parkinson",
+        "en": "Danse & Parkinson",
+        "de": "Danse & Parkinson",
+        "fr": "Danse & Parkinson"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-12-12",
+      "startTime": "10:00",
+      "category": "Altri eventi",
+      "venue": "Théâtre Sévelin 36",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/danse-und-parkinson_AcP6EEy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Avenue de Sévelin 36",
+        "postalCode": "1004"
+      },
+      "geo": {
+        "lat": 46.5223976,
+        "lng": 6.6197552
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "50dccea62822ec85628c3c654de4447b311c5c6cee904d1957c00532c879cc87"
+    },
+    {
+      "id": "guidle:AV1mAax",
+      "title": "Livres et dragons - Campagne de jeux de rôle",
+      "titleByLocale": {
+        "it": "Livres et dragons - Campagne de jeux de rôle",
+        "en": "Livres et dragons - Campagne de jeux de rôle",
+        "de": "Livres et dragons - Campagne de jeux de rôle",
+        "fr": "Livres et dragons - Campagne de jeux de rôle"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-09",
+      "startTime": "19:00",
+      "category": "Altri eventi",
+      "venue": "Bibliothèques de la Ville de Lausanne – La Sallaz",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/livres-et-dragons-campagne-de-jeux-de-role_AV1mAax",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Sallaz 4",
+        "postalCode": "1010"
+      },
+      "geo": {
+        "lat": 46.532578,
+        "lng": 6.6458206
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ed3d83c669026f3e16c7279f256039b503d5c7374cdc1b62411c216e3b0a1345"
+    },
+    {
+      "id": "guidle:ALckhVT",
+      "title": "Club jeux vidéo",
+      "titleByLocale": {
+        "it": "Club jeux vidéo",
+        "en": "Club jeux vidéo",
+        "de": "Club jeux vidéo",
+        "fr": "Club jeux vidéo"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-09",
+      "startTime": "15:00",
+      "category": "Altri eventi",
+      "venue": "Bibliothèques de la Ville de Lausanne – La Sallaz",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/club-jeux-video_ALckhVT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Sallaz 4",
+        "postalCode": "1010"
+      },
+      "geo": {
+        "lat": 46.532578,
+        "lng": 6.6458206
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "07d32eab375d517c88461db530d7a5c9e35d9232b1132d5a4028638e58660283"
+    },
+    {
+      "id": "guidle:AHZt83v",
+      "title": "Club de lecture ados",
+      "titleByLocale": {
+        "it": "Club de lecture ados",
+        "en": "Club de lecture ados",
+        "de": "Club de lecture ados",
+        "fr": "Club de lecture ados"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "17:00",
+      "category": "Comunione",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/club-de-lecture-ados_AHZt83v",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.5248686,
+        "lng": 6.6218422
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7d664ea2236ce09c08da2a6554756f6465368c3e4e57a9e57e4b319818721c8b"
+    },
+    {
+      "id": "guidle:AkYCdNr",
+      "title": "Club de lecture de la Bibliothèque Montriond",
+      "titleByLocale": {
+        "it": "Club de lecture de la Bibliothèque Montriond",
+        "en": "Club de lecture de la Bibliothèque Montriond",
+        "de": "Club de lecture de la Bibliothèque Montriond",
+        "fr": "Club de lecture de la Bibliothèque Montriond"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "18:30",
+      "category": "Comunione",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/club-de-lecture-de-la-bibliotheque-montriond_AkYCdNr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.5132529,
+        "lng": 6.6254114
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "74a08c4262f90253fd703bbf37fed5e5aa015a98325e9876082b03bfb6fa4541"
+    },
+    {
+      "id": "guidle:ADFbj9x",
+      "title": "Dessin à plusieurs mains",
+      "titleByLocale": {
+        "it": "Dessin à plusieurs mains",
+        "en": "Dessin à plusieurs mains",
+        "de": "Dessin à plusieurs mains",
+        "fr": "Dessin à plusieurs mains"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-30",
+      "startTime": "17:00",
+      "category": "Altri eventi",
+      "venue": "Bibliothèque municipale - Entre-Bois",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/dessin-a-plusieurs-mains_ADFbj9x",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chemin d'Entre-Bois 10",
+        "postalCode": "1018"
+      },
+      "geo": {
+        "lat": 46.5373608,
+        "lng": 6.6326952
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e8486009a7b59cff5be10abc12e0e9105bd314bc6485fa776e7297833512086d"
+    },
+    {
+      "id": "guidle:Ad7hbUw",
+      "title": "Club de lecture new romance",
+      "titleByLocale": {
+        "it": "Club de lecture new romance",
+        "en": "Club de lecture new romance",
+        "de": "Club de lecture new romance",
+        "fr": "Club de lecture new romance"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-16",
+      "startTime": "18:00",
+      "category": "Lettura",
+      "venue": "Bibliothèques de la Ville de Lausanne – La Sallaz",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/club-de-lecture-new-romance_Ad7hbUw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Sallaz 4",
+        "postalCode": "1010"
+      },
+      "geo": {
+        "lat": 46.532578,
+        "lng": 6.6458206
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "87a71fe6b393337d7fb5baa0485a905d76cc9e9abeb6c64cbaa5bfb69f5ba9b7"
+    },
+    {
+      "id": "guidle:AQxnMCg",
+      "title": "Livres et dragons - Jeux de rôle (dès 15 ans)",
+      "titleByLocale": {
+        "it": "Livres et dragons - Jeux de rôle (dès 15 ans)",
+        "en": "Livres et dragons - Jeux de rôle (dès 15 ans)",
+        "de": "Livres et dragons - Jeux de rôle (dès 15 ans)",
+        "fr": "Livres et dragons - Jeux de rôle (dès 15 ans)"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-12-07",
+      "startTime": "19:00",
+      "category": "Altri eventi",
+      "venue": "Bibliothèques de la Ville de Lausanne – La Sallaz",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/livres-et-dragons-jeux-de-role-des-15-ans_AQxnMCg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Place de la Sallaz 4",
+        "postalCode": "1010"
+      },
+      "geo": {
+        "lat": 46.532578,
+        "lng": 6.6458206
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c6ebd85b80460d21ea26f0088d61f0549c273188835349602cd3bfecb1a543e2"
+    },
+    {
+      "id": "guidle:ATAYDt9",
+      "title": "Tonerstag",
+      "titleByLocale": {
+        "it": "Tonerstag",
+        "en": "Tonerstag",
+        "de": "Tonerstag",
+        "fr": "Tonerstag"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2027-06-03",
+      "startTime": "17:30",
+      "category": "Altri eventi",
+      "venue": "Living Museum Lichtensteig",
+      "comune": "Lichtensteig",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/lichtensteig/tonerstag_ATAYDt9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Stadtbrücke 3",
+        "postalCode": "9620"
+      },
+      "geo": {
+        "lat": 47.3233708,
+        "lng": 9.0853539
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9fda21536df543c66d68f73a2d67bb7a9e18fcf13429b2b633639a618cc2d467"
+    },
+    {
+      "id": "guidle:AdYgjs4",
+      "title": "Kreativbox",
+      "titleByLocale": {
+        "it": "Kreativbox",
+        "en": "Kreativbox",
+        "de": "Kreativbox",
+        "fr": "Kreativbox"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2027-02-14",
+      "startTime": "10:00",
+      "category": "Altri eventi",
+      "venue": "Museum der Kulturen Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/kreativbox_AdYgjs4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Münsterplatz 20",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5571404,
+        "lng": 7.5908681
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ad967047b4ff77fc62a2f17b636edd6547229fdedc2b875d1d8d01bbeeb1a20b"
+    },
+    {
+      "id": "guidle:A4bgNcf",
+      "title": "L’autunno benefico dei cuochi della Gilda",
+      "titleByLocale": {
+        "it": "L’autunno benefico dei cuochi della Gilda",
+        "en": "Gilde Charity Herbst",
+        "de": "Gilde Charity Herbst",
+        "fr": "L’automne caritatif de la Guilde"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-12-04",
+      "startTime": "11:00",
+      "category": "Aiuto volontari",
+      "venue": "Gesamte Schweiz",
+      "comune": "Sachseln",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/suisse-sans-indication-de-lieu/lautomne-caritatif-de-la-guilde_A4bgNcf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 46.818188,
+        "lng": 8.227512
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ff92145cc42164f88a3df732a876e61406cbdcadf63fc739c94428caf1776cd5"
+    },
+    {
+      "id": "guidle:AeATSM9",
+      "title": "Corso di scacchi",
+      "titleByLocale": {
+        "it": "Corso di scacchi",
+        "en": "Chess Course",
+        "de": "Schachkurs",
+        "fr": "Cours d'échecs"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "startTime": "16:00",
+      "category": "Scacchi",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/this-that/kloten/chess-course_AeATSM9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.4520319,
+        "lng": 8.5895004
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c75501ae10834a6d80b98dc2137ac57380fe618a82b3def736a75df47a984180"
+    },
+    {
+      "id": "guidle:AyGCRBZ",
+      "title": "Mütter- und Väterberatung in Egg",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Egg",
+        "en": "Mütter- und Väterberatung in Egg",
+        "de": "Mütter- und Väterberatung in Egg",
+        "fr": "Mütter- und Väterberatung in Egg"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-12-14",
+      "startTime": "14:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Kinder- und Jugendbüro",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/egg-b-zuerich/muetter-und-vaeterberatung-in-egg_AyGCRBZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofweg 4",
+        "postalCode": "8132"
+      },
+      "geo": {
+        "lat": 47.30248,
+        "lng": 8.689998
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "f15148dc9c043c376d2e35e31809905f1b9a2be04e6fc30063d6136414102ed4"
+    },
+    {
+      "id": "guidle:A7MCrKM",
+      "title": "Mütter- und Väterberatung in Greifensee",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Greifensee",
+        "en": "Mütter- und Väterberatung in Greifensee",
+        "de": "Mütter- und Väterberatung in Greifensee",
+        "fr": "Mütter- und Väterberatung in Greifensee"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-12-21",
+      "startTime": "10:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Reformiertes Kirchgemeindehaus Greifensee",
+      "comune": "Greifensee",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/greifensee/muetter-und-vaeterberatung-in-greifensee_A7MCrKM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Im Städtli 2",
+        "postalCode": "8606"
+      },
+      "geo": {
+        "lat": 47.364612,
+        "lng": 8.676938
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "25d34009589f2a7a704aa27c4e55d1d7b900d04203ed37d5f9293409d7d55559"
+    },
+    {
+      "id": "guidle:A3AXhfD",
+      "title": "Mütter- und Väterberatung in Maur",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Maur",
+        "en": "Mütter- und Väterberatung in Maur",
+        "de": "Mütter- und Väterberatung in Maur",
+        "fr": "Mütter- und Väterberatung in Maur"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-12-16",
+      "startTime": "09:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Wettsteinhaus",
+      "comune": "Maur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/forch/muetter-und-vaeterberatung-in-maur_A3AXhfD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bundtstrasse 34a",
+        "postalCode": "8127"
+      },
+      "geo": {
+        "lat": 47.3300252,
+        "lng": 8.6543144
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "b543419462e0be1d8031c0f80438f67d0a85c6da73112e895ef34bacb8977eea"
+    },
+    {
+      "id": "guidle:ABLbQpS",
+      "title": "Mütter- und Väterberatung in Mönchaltorf",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Mönchaltorf",
+        "en": "Mütter- und Väterberatung in Mönchaltorf",
+        "de": "Mütter- und Väterberatung in Mönchaltorf",
+        "fr": "Mütter- und Väterberatung in Mönchaltorf"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-12-22",
+      "startTime": "14:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Mönchhof",
+      "comune": "Mönchaltorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/moenchaltorf/muetter-und-vaeterberatung-in-moenchaltorf_ABLbQpS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Mönchhof 1",
+        "postalCode": "8617"
+      },
+      "geo": {
+        "lat": 47.311433,
+        "lng": 8.721992
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ba691d19be16ac5b82f6e00fdc92971d804b1ad39364cd83e79a801d8c819f42"
+    },
+    {
+      "id": "guidle:ABndiTM",
+      "title": "Mütter- und Väterberatung in Nänikon",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Nänikon",
+        "en": "Mütter- und Väterberatung in Nänikon",
+        "de": "Mütter- und Väterberatung in Nänikon",
+        "fr": "Mütter- und Väterberatung in Nänikon"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-17",
+      "startTime": "15:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Klairs, Begegnung im Bühl",
+      "comune": "Bühl",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/naenikon/muetter-und-vaeterberatung-in-naenikon_ABndiTM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bühlstrasse 16",
+        "postalCode": "8606"
+      },
+      "geo": {
+        "lat": 47.368823,
+        "lng": 8.693156
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "cb46c620cbcb99b49a4c475617f50c43a8f69e5401b5eea9bed162b1c5544ed8"
+    },
+    {
+      "id": "guidle:Abxv3bp",
+      "title": "Mütter- und Väterberatung in Uster",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Uster",
+        "en": "Mütter- und Väterberatung in Uster",
+        "de": "Mütter- und Väterberatung in Uster",
+        "fr": "Mütter- und Väterberatung in Uster"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-22",
+      "startTime": "15:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Familienzentrum Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uster/muetter-und-vaeterberatung-in-uster_Abxv3bp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Zentralstrasse 32",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3469202,
+        "lng": 8.716565
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7c6c34d1803c37ce93f8ddc0b23c857f2f2e94b53c4dbb4858d81560df82b145"
+    },
+    {
+      "id": "guidle:A5t42Vs",
+      "title": "Mütter- und Väterberatung in Volketswil",
+      "titleByLocale": {
+        "it": "Mütter- und Väterberatung in Volketswil",
+        "en": "Mütter- und Väterberatung in Volketswil",
+        "de": "Mütter- und Väterberatung in Volketswil",
+        "fr": "Mütter- und Väterberatung in Volketswil"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-12-17",
+      "startTime": "09:45",
+      "category": "Sostegno per i genitori",
+      "venue": "Familienzentrum Gries",
+      "comune": "Volketswil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/volketswil/muetter-und-vaeterberatung-in-volketswil_A5t42Vs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Feldhofstrasse 35",
+        "postalCode": "8604"
+      },
+      "geo": {
+        "lat": 47.388278,
+        "lng": 8.6840761
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "6a5446ae8197b05cc1be286907e9207b216e717bb51ae8f754df2f8b22c4810d"
+    },
+    {
+      "id": "guidle:A3Z1RZc",
+      "title": "Führung in «Neubenennen»",
+      "titleByLocale": {
+        "it": "Führung in «Neubenennen»",
+        "en": "Führung in «Neubenennen»",
+        "de": "Führung in «Neubenennen»",
+        "fr": "Führung in «Neubenennen»"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "startTime": "13:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Völkerkundemuseum der Universität Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/fuehrung-in-neubenennen_A3Z1RZc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Pelikanstrasse 40",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3708205,
+        "lng": 8.5343037
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "04fb3662de00a3be38cf8f81d97f9021d33f97cfcc2022cbf5942c650475eed5"
     }
   ]
 }

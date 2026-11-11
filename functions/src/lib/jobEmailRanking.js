@@ -199,7 +199,8 @@ function relevanceFor(job) {
 }
 
 function companyDiversityKey(job) {
-  const company = String(job?.company || '').trim().toLowerCase();
+  const source = job?.job || job;
+  const company = String(source?.company || '').trim().toLowerCase();
   return company || '∅';
 }
 
@@ -335,7 +336,7 @@ function orderByNewnessWithinRelevanceBands(candidates, nowMs) {
       end++;
     }
     const band = relevanceOrdered.slice(start, end);
-    if (band.some((candidate) => jobNewnessScore(candidate, nowMs) > 0)) {
+    if (band.some((candidate) => candidate.ranking.newnessScore > 0)) {
       band.sort((a, b) => (
         (b.ranking.newnessScore - a.ranking.newnessScore)
         || (a.ranking.sourceIndex - b.ranking.sourceIndex)
@@ -371,6 +372,7 @@ export function rankEmailJobs(jobs, {
   limit = jobs?.length || 0,
   config = JOB_EMAIL_RANKING_DEFAULTS,
   now = Date.now(),
+  rankingMetadata = null,
 } = {}) {
   const source = Array.isArray(jobs) ? jobs : [];
   const safeLimit = Math.max(0, Math.trunc(limit));
@@ -386,15 +388,20 @@ export function rankEmailJobs(jobs, {
     : isNewness ? JOB_EMAIL_RANKING_VARIANTS.controlPlusNewness : JOB_EMAIL_RANKING_VARIANTS.control;
 
   const candidates = source.map((job, sourceIndex) => {
-    const relevanceScore = relevanceFor(job);
+    const metadata = typeof rankingMetadata?.get === 'function' ? rankingMetadata.get(job) : null;
+    const relevanceScore = Number.isFinite(metadata?.relevanceScore)
+      ? Math.max(0, Math.min(MAX_SAFE_SCORE, metadata.relevanceScore))
+      : relevanceFor(job);
     const affinityScore = affinityOrdering ? finiteAffinity(scorer(jobRankingAttributes(job))) : null;
-    const newnessScore = isNewness ? jobNewnessScore(job, nowMs) : null;
+    const newnessScore = isNewness
+      ? jobNewnessScore(metadata ? { newnessAt: metadata.newnessAt } : job, nowMs)
+      : null;
     const rankingScore = affinityOrdering
       ? relevanceScore * (1 - weight + weight * affinityScore)
       : relevanceScore;
     return {
-      ...job,
-      jobId: stableJobId(job),
+      job,
+      metadata,
       ranking: {
         variant: variantLabel,
         rankingScore: Number.isFinite(rankingScore) ? rankingScore : 0,
@@ -420,10 +427,29 @@ export function rankEmailJobs(jobs, {
     : diversifyEqualRankGroups(candidates, (candidate) => candidate.ranking.relevanceScore);
 
   return ordered.slice(0, safeLimit).map((candidate, index) => {
+    const job = candidate.job || candidate;
+    const metadata = candidate.metadata;
+    const materializedJob = metadata
+      ? {
+        ...job,
+        relevanceScore: metadata.relevanceScore,
+        ...(metadata.applicationIntentBoost !== undefined
+          ? { applicationIntentBoost: metadata.applicationIntentBoost }
+          : {}),
+        ...(metadata.relevanceSignals
+          ? { relevanceSignals: metadata.relevanceSignals }
+          : {}),
+        ...(metadata.newnessAt !== undefined ? { newnessAt: metadata.newnessAt } : {}),
+      }
+      : { ...job };
     const ranking = { ...candidate.ranking, position: index + 1 };
     // Only the returned jobs need a score when it does not drive the order.
-    if (!affinityOrdering && scorer) ranking.affinityScore = finiteAffinity(scorer(jobRankingAttributes(candidate)));
-    return { ...candidate, ranking };
+    if (!affinityOrdering && scorer) ranking.affinityScore = finiteAffinity(scorer(jobRankingAttributes(job)));
+    return {
+      ...materializedJob,
+      jobId: stableJobId(job),
+      ranking,
+    };
   });
 }
 

@@ -210,7 +210,21 @@ export type TiHubSlotOutcome = 'inserted' | 'cleared' | 'duplicate' | 'no-slot';
  * that already carries the marker is left untouched (idempotent re-runs).
  */
 export function applyTiHubLatestJobsSlot(html: string, block: string): { html: string; outcome: TiHubSlotOutcome } {
-  if (html.includes(`<section ${TI_HUB_LATEST_JOBS_MARKER}>`)) return { html, outcome: 'duplicate' };
+  const existingStart = `<section ${TI_HUB_LATEST_JOBS_MARKER}>`;
+  const existingAt = html.indexOf(existingStart);
+  if (existingAt >= 0) {
+    if (html.indexOf(existingStart, existingAt + existingStart.length) >= 0) {
+      throw new Error('[ti-hub-latest-jobs] page contains duplicate latest-jobs blocks');
+    }
+    const existingEnd = html.indexOf('</section>', existingAt + existingStart.length);
+    if (existingEnd < 0) throw new Error('[ti-hub-latest-jobs] latest-jobs block is not closed');
+    const afterExisting = existingEnd + '</section>'.length;
+    if (html.slice(existingAt, afterExisting) === block) return { html, outcome: 'duplicate' };
+    return {
+      html: `${html.slice(0, existingAt)}${block}${html.slice(afterExisting)}`,
+      outcome: block ? 'inserted' : 'cleared',
+    };
+  }
   const at = html.indexOf(TI_HUB_LATEST_JOBS_SLOT);
   if (at < 0) return { html, outcome: 'no-slot' };
   const next = html.slice(0, at) + block + html.slice(at + TI_HUB_LATEST_JOBS_SLOT.length);

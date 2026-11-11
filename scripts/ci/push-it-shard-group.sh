@@ -57,7 +57,10 @@ while IFS= read -r section; do
     continue
   fi
   echo "[section-push] event=start locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds group=$group_id"
-  if timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh "$section" it dist; then
+  if timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" \
+    node scripts/ci/with-shard-writer-lock.mjs \
+      --section "$section" --locale it --policy wait --timeout-ms "$((timeout_seconds * 1000))" -- \
+      bash scripts/lib/push-section-shard.sh "$section" it dist; then
     echo "[section-push] event=finish locale=it section=$section outcome=success"
   else
     rc=$?

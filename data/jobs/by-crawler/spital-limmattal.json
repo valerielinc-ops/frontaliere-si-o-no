@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "spital-limmattal-38e022481b9d",
-      "slug": "praktikant-in-pflegezentrum-spital-limmattal-ch",
+      "slug": "tirocinante-presso-il-centro-di-assistenza-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "praktikant-in-pflegezentrum-spital-limmattal-ch",
-        "it": "praktikant-in-pflegezentrum-spital-limmattal-ch",
+        "it": "tirocinante-presso-il-centro-di-assistenza-spital-limmattal-schlieren",
         "en": "nursingcentre-intern-spital-limmattal-schlieren",
         "fr": "stagiaire-en-centre-de-soins-spital-limmattal-schlieren"
       },
@@ -18,7 +18,7 @@
       "title": "Praktikant:in Pflegezentrum",
       "titleByLocale": {
         "de": "Praktikant:in Pflegezentrum",
-        "it": "Praktikant:in Pflegezentrum",
+        "it": "Tirocinante presso il centro di assistenza",
         "en": "NursingCentre Intern",
         "fr": "Stagiaire en centre de soins"
       },
@@ -73,7 +73,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T09:15:17.790Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-29T22:03:30.064Z"
+      "firstSeenAt": "2026-07-29T22:03:30.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflegezentrum-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflegezentrum-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-152c7d38cd9c",

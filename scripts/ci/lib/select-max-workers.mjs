@@ -23,6 +23,7 @@
  * prima del 2026-09-30 la variabile ereditata li annullava tutti a 1.
  */
 const LARGE_RELATED_TEST_COUNT = 100;
+const VERY_LARGE_RELATED_TEST_COUNT = 300;
 const LARGE_RELATED_WORKERS = '2';
 
 export function selectMaxWorkers({
@@ -32,6 +33,16 @@ export function selectMaxWorkers({
   relatedTestCount = 0,
 }) {
   if (usedFullFallback && maxWorkersFallback) return maxWorkersFallback;
+  // Run 43014097848 selected 359 related files: two Vitest workers beside the
+  // independent typecheck exhausted its 8 GB heap and left 1.3 GB available.
+  // Keep exceptionally large related graphs serial until that profile is
+  // measured with sufficient typecheck headroom.
+  if (!usedFullFallback
+    && maxWorkers === '1'
+    && Number.isInteger(relatedTestCount)
+    && relatedTestCount >= VERY_LARGE_RELATED_TEST_COUNT) {
+    return maxWorkers;
+  }
   if (!usedFullFallback
     && maxWorkers === '1'
     && Number.isInteger(relatedTestCount)
