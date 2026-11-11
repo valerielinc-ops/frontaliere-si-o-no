@@ -25,34 +25,42 @@ type WorkflowDocument = {
 };
 
 describe('Instagram Reel experiment workflow', () => {
-  it('reports missing publisher credentials and skips only the live publish step', () => {
+  it('uses the owner-approved web publisher and queues Reels without Graph credentials', () => {
     const workflow = YAML.parse(fs.readFileSync(
       path.join(ROOT, '.github', 'workflows', 'instagram-reel-experiment.yml'),
       'utf8',
     )) as WorkflowDocument;
     const steps = workflow.jobs.build.steps as WorkflowStep[];
-    const warn = steps.find((step) => /missing Instagram publisher credentials/.test(step.name ?? ''));
-    const recheck = steps.find((step) => /credential transaction is idle/.test(step.name ?? ''));
-    const publish = steps.find((step) => /Render and publish controlled Reel through Graph API/.test(step.name ?? ''));
+    const warn = steps.find((step) => /owner-approved browser publisher is disabled/.test(step.name ?? ''));
+    const publish = steps.find((step) => /Render and queue controlled Reel for Instagram web publisher/.test(step.name ?? ''));
+    const config = steps.find((step) => step.name === 'Load Remote Config');
+    const commit = steps.find((step) => /Commit Reel browser queue and ledger/.test(step.name ?? ''));
+    const source = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'instagram-reel-experiment.yml'), 'utf8');
 
-    expect(warn?.if).toBe("env.DRY_RUN != 'true' && env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true'");
-    expect(publish?.if).toBe("env.DRY_RUN == 'true' || env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true'");
-    expect(recheck?.if).toBe("env.DRY_RUN != 'true'");
-    expect(steps.indexOf(recheck!)).toBe(steps.indexOf(publish!) - 1);
+    expect(warn?.if).toContain("env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED != 'true'");
+    expect(publish?.if).toContain("env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED == 'true'");
+    expect(config?.run).toContain('SOCIAL_ROBOT_PUBLISHING_MODE');
+    expect(config?.run).toContain('SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED');
+    expect(config?.run).not.toContain('INSTAGRAM_ACCESS_TOKEN');
+    expect(publish?.run).toContain('scripts/post-to-instagram-reel.mjs');
+    expect(commit?.run).toContain('data/instagram-queue.json');
+    expect(source).not.toContain('INSTAGRAM_LOGIN_ACCESS_TOKEN');
+    expect(source).not.toContain('INSTAGRAM_ACCESS_TOKEN');
+  });
+
+  it('keeps carousel and Reel browser workflows independent from Instagram Login tokens', () => {
+    for (const relativePath of [
+      '.github/workflows/instagram-daily-broadcast.yml',
+      '.github/workflows/instagram-reel-experiment.yml',
+    ]) {
+      const source = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(source, relativePath).not.toContain('INSTAGRAM_LOGIN_ACCESS_TOKEN');
+      expect(source, relativePath).not.toContain('INSTAGRAM_ACCESS_TOKEN');
+    }
   });
 
   it('limits the direct-login access token to the loader, publisher, readiness probe, and refresh steps', () => {
     const expectedTokenSteps: Record<string, string[]> = {
-      '.github/workflows/instagram-daily-broadcast.yml': [
-        'Load Instagram Login publisher identity from server Remote Config',
-        'Confirm Instagram credential transaction is idle before delivery',
-        'Post to Instagram',
-      ],
-      '.github/workflows/instagram-reel-experiment.yml': [
-        'Load Instagram Login publisher identity from server Remote Config',
-        'Confirm Instagram credential transaction is idle before delivery',
-        'Render and publish controlled Reel through Graph API',
-      ],
       '.github/workflows/social-publish-readiness-watch.yml': [
         'Load Instagram Login publisher identity from server Remote Config',
         'Probe every channel',

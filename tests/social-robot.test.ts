@@ -158,6 +158,7 @@ function reelEntry(overrides: Record<string, unknown> = {}) {
     day: '2026-10-09',
     caption: 'reel 2026-10-09\n\n#frontalieri',
     imageUrls: [cdn('reel-2026-10-09-0.jpg')],
+    video: tiktokVideo('instagram-reel'),
     ledgerEntries: [{
       id: 'article:reel-source',
       kind: 'reel',
@@ -752,13 +753,16 @@ describe('cadence', () => {
     expect(h.calls.flow).toEqual([]);
   });
 
-  it('keeps legacy Reel entries out of browser publication after the Instagram cap', async () => {
+  it('publishes a verified Reel in the next window after the Instagram cap', async () => {
     const journal = emptyJournal();
     journal.attempts.push(
       { channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-03', confirmDispatched: true },
       { channel: 'instagram', outcome: 'published', at: new Date(NOW - 2 * HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: true },
     );
-    const reel = entry('reel', '2026-10-03', { now: NOW - 3 * HOUR });
+    const reel = {
+      ...entry('reel', '2026-10-03', { now: NOW - 3 * HOUR }),
+      video: tiktokVideo('cap-reel'),
+    };
     const queue = { pending: [reel] };
     const reader = {
       readQueue: () => queue,
@@ -775,10 +779,10 @@ describe('cadence', () => {
 
     h.advance(24 * HOUR);
     const nextDay = await runRobot(h.deps({ reader }));
-    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'policy-held', queueId: reel.id });
-    expect(h.calls.flow).toEqual([]);
+    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published', queueId: reel.id });
+    expect(h.calls.flow).toHaveLength(1);
     expect(pressedToday(h.journal(), 'instagram', NOW)).toBe(2);
-    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(0);
+    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(1);
   });
 });
 
@@ -979,15 +983,27 @@ describe('runRobot', () => {
     expect(output).toContain('commenti e DM consentiti vengono gestiti dal worker Chrome');
   });
 
-  it('holds legacy Instagram Reel queue entries out of browser publication', async () => {
+  it('publishes verified Instagram Reel queue entries through the browser flow', async () => {
     const reel = reelEntry({ video: tiktokVideo('legacy-instagram-reel') } as Record<string, unknown>);
     const h = harness({ queue: { pending: [reel] } });
     const out = await runRobot(h.deps());
     expect(out.results).toContainEqual(expect.objectContaining({
       channel: 'instagram',
-      outcome: 'policy-held',
-      reason: 'instagram-reels-require-graph-api',
+      outcome: 'published',
       queueId: reel.id,
+    }));
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('skips an Instagram Reel queue entry with no verified video', async () => {
+    const { video: _video, ...reelWithoutVideo } = reelEntry();
+    const h = harness({ queue: { pending: [reelWithoutVideo] } });
+    const out = await runRobot(h.deps());
+    expect(out.results).toContainEqual(expect.objectContaining({
+      channel: 'instagram',
+      outcome: 'skipped',
+      reason: 'reel-no-video',
+      queueId: reelWithoutVideo.id,
     }));
     expect(h.calls.flow).toEqual([]);
   });
@@ -1704,11 +1720,10 @@ describe('workflows', () => {
     expect(post?.if).toContain("env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'");
 
     const reelSteps = wf('instagram-reel-experiment.yml').jobs.build.steps as Array<{ name?: string; run?: string }>
-    const publish = reelSteps.find((step) => /Render and publish controlled Reel through Graph API/.test(step.name ?? ''));
-    const ledgerCommit = reelSteps.find((step) => /Commit published Reel ledger/.test(step.name ?? ''));
+    const publish = reelSteps.find((step) => /Render and queue controlled Reel for Instagram web publisher/.test(step.name ?? ''));
+    const ledgerCommit = reelSteps.find((step) => /Commit Reel browser queue and ledger/.test(step.name ?? ''));
     expect(publish?.run).toContain('scripts/post-to-instagram-reel.mjs');
-    // Keep the static workflow path assertion distinct from a live-ledger read.
-    expect(ledgerCommit?.run).toContain(['data', 'instagram-posted.json'].join('/'));
+    expect(ledgerCommit?.run).toContain(['data', 'instagram-queue.json'].join('/'));
   });
 
   it('commits the queue file in the same step that commits the ledger', () => {

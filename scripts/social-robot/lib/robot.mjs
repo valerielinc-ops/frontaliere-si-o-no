@@ -436,10 +436,10 @@ export async function runRobot(deps) {
         results.push({ channel, outcome: 'skipped', reason: 'no-video', queueId: entry.id });
         continue;
       }
-      if (channel === 'instagram' && entry.kind === 'reel') {
+      if (channel === 'instagram' && entry.kind === 'reel' && !entry.video) {
         skippedIds.add(entry.id);
-        log.log(`⏭️  instagram: ${entry.id} skipped (Reels require the official Graph API transport)`);
-        results.push({ channel, outcome: 'policy-held', reason: 'instagram-reels-require-graph-api', queueId: entry.id });
+        log.log(`⏭️  instagram: ${entry.id} skipped (Reel queue entry has no verified video)`);
+        results.push({ channel, outcome: 'skipped', reason: 'reel-no-video', queueId: entry.id });
         continue;
       }
       if (acted) await sleep(randomBetween(rng, BETWEEN_PLATFORMS_MS));

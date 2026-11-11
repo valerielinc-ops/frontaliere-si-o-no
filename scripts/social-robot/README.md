@@ -9,8 +9,8 @@ La decisione è salvata in `DECISIONS.md` e usa flag Remote Config separati:
 del proprietario per questi percorsi web e non dichiara l'approvazione dei
 rispettivi API di pubblicazione.
 
-Instagram Reels continuano a usare il workflow Graph API esistente; non passano
-dal robot. Insights e Community mantengono i propri flag Meta distinti. Per
+Instagram Reels usano il publisher web owner-approved e passano dal robot.
+Insights e Community mantengono i propri flag Meta distinti. Per
 TikTok, il workflow giornaliero/settimanale prepara video MP4 e accoda i post
 per l'uploader browser; non legge token e non invoca il Content Posting API.
 
@@ -24,14 +24,10 @@ per l'uploader browser; non legge token e non invoca il Content Posting API.
    `tiktok-daily-broadcast.yml` usa `post-to-tiktok.mjs` per preparare video MP4
    e metterli nella stessa coda TikTok. Il workflow schedulato
    `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
-   generare cover e MP4, pubblicarli con il container Graph API `REELS`, e
-   registrare l'esatto `mediaId` restituito da Meta. Il workflow rilegge le
-   vecchie voci Reel in coda e, se complete e ancora non pubblicate, le migra
-   alla Graph API.
+   generare cover e MP4 e mettere i Reel nella stessa coda del publisher web.
 2. Il robot (`run.mjs`) legge da `origin/main` le code di entrambi i canali e
-   pubblica i caroselli Instagram e i video TikTok dalla pagina web della
-   piattaforma. Eventuali voci Reel legacy
-   restano in hold nel robot e vengono pubblicate solo dal workflow Graph API.
+   pubblica i caroselli e i Reel Instagram, oltre ai video TikTok, dalla pagina
+   web della piattaforma.
 3. Solo dopo aver **visto la conferma** del carosello nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
    `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da
@@ -188,8 +184,8 @@ node scripts/post-to-tiktok.mjs --dry-run --only=article
 # Preview del prossimo Reel (non carica e non accoda nulla).
 npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article
 
-# La pubblicazione del Reel avviene dagli slot schedulati di
-# instagram-reel-experiment.yml via Graph API; non richiede il robot.
+# Il workflow instagram-reel-experiment.yml prepara i Reel e li accoda al
+# publisher web quando il flag owner Instagram è attivo.
 
 # Launch agent: due finestre al giorno (default 11:30 e 18:30 ora locale,
 # SR_WINDOWS="HH:MM HH:MM" per cambiarle), più fino a 20 minuti casuali.
@@ -208,7 +204,7 @@ sessione grafica aperta sul Mac: il browser non è headless.
 - al massimo 2 post al giorno per piattaforma, 1 per finestra;
 - il limite giornaliero somma i post confermati nel ledger remoto e i pressi locali
   non ancora presenti lì, raggruppando i caroselli per media ID;
-- gli slot Reel Graph API sono coordinati con il broadcast giornaliero, per
+- gli slot Reel sono coordinati con il broadcast giornaliero, per
   restare entro due pubblicazioni Instagram nei giorni schedulati;
 - 1,2-4,5 s fra un'azione e l'altra, digitazione carattere per carattere;
 - 1,5-6 minuti fra i contenuti Instagram nella stessa finestra;
