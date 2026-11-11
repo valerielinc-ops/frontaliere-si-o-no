@@ -81,4 +81,55 @@ describe('companyResearchService', () => {
     const res = await getCompanyResearch(fakeDb as any, 'Test Co', { nowMs: now });
     expect(res).toBeNull();
   });
+
+  it('retrieves profiles from curated company-profiles dataset (e.g. EOC, Coop, Lidl)', async () => {
+    const fakeDb = {
+      collection: () => ({
+        doc: () => ({
+          get: async () => ({ exists: false }),
+        }),
+      }),
+    };
+
+    const eoc = await getCompanyResearch(fakeDb as any, 'Ente Ospedaliero Cantonale');
+    expect(eoc).not.toBeNull();
+    expect(eoc?.companyKey).toBe('eoc');
+    expect(eoc?.headquarters).toBe('Bellinzona');
+    expect(eoc?.mission).toContain('ospedaliera');
+
+    const coop = await getCompanyResearch(fakeDb as any, 'Coop');
+    expect(coop).not.toBeNull();
+    expect(coop?.companyKey).toBe('coop');
+    expect(coop?.headquarters).toBe('Basel');
+  });
+
+  it('retrieves live data from employer_insights collection when doc is missing from intelligence cache', async () => {
+    const fakeDb = {
+      collection: (col: string) => ({
+        doc: (docId: string) => ({
+          get: async () => {
+            if (col === 'company_intelligence') return { exists: false };
+            if (col === 'employer_insights' && docId === 'swiss-logistics-partner') {
+              return {
+                exists: true,
+                data: () => ({
+                  name: 'Swiss Logistics Partner AG',
+                  sector: 'Logistica & Trasporti',
+                  cantons: ['TI', 'GR'],
+                  activeJobs: 14,
+                }),
+              };
+            }
+            return { exists: false };
+          },
+        }),
+      }),
+    };
+
+    const res = await getCompanyResearch(fakeDb as any, 'Swiss Logistics Partner AG');
+    expect(res).not.toBeNull();
+    expect(res?.source).toBe('employer_insights');
+    expect(res?.activeJobs).toBe(14);
+    expect(res?.industry).toContain('Logistica');
+  });
 });

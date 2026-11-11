@@ -1,91 +1,50 @@
 /**
- * Swiss Salary Benchmark Lookup & Negotiation Service,
- * inspired by ai-job-search salary_lookup.py and convert_salary_excel.py (MIT).
+ * Swiss Salary Benchmark Lookup & Negotiation Service.
+ *
+ * Powered by the native USTAT 2024 (Rilevazione svizzera della struttura dei salari)
+ * and official BFS Grossregion wage indexes across all 26 Swiss Cantons.
  *
  * Provides realistic Swiss salary benchmarks (in CHF gross/year and CHF/month on 13 months)
- * adjusted for Swiss Cantons (Ticino, Grigioni, Zurigo, Basilea, etc.) and seniority.
+ * adjusted for all Swiss Cantons, sectors, seniority tiers, and border frontalieri dynamics.
  * Generates tailor-made negotiation scripts and recruiter questions for cross-border candidates.
  */
 
-import SWISS_BENCHMARKS_DATA from '../data/salary-benchmarks/swiss-salary-benchmarks.json' with { type: 'json' };
+import {
+  estimateSwissSalary,
+  CANTON_NAMES,
+  normalizeSalaryCantonCode,
+  inferSeniorityTier,
+} from '../lib/salaryEstimation.js';
 
-export const CANTON_NAMES = Object.freeze({
-  TI: 'Canton Ticino',
-  GR: 'Canton Grigioni',
-  VS: 'Canton Vallese',
-  ZH: 'Canton Zurigo',
-  BS: 'Canton Basilea Città',
-  BE: 'Canton Berna',
-  GE: 'Canton Ginevra',
-});
+export { CANTON_NAMES, inferSeniorityTier };
 
 /**
- * Infer seniority tier from title or numerical years of experience.
- * @param {string} title
- * @param {number} [years=0]
- * @returns {'junior'|'mid'|'senior'|'lead'}
- */
-export function inferSeniorityTier(title, years = 0) {
-  const t = String(title || '').toLowerCase();
-  if (/\b(lead|principal|head|director|manager|responsabile)\b/.test(t) || years >= 10) {
-    return 'lead';
-  }
-  if (/\b(senior|sr\.?|esperto|guida)\b/.test(t) || years >= 5) {
-    return 'senior';
-  }
-  if (/\b(junior|jr\.?|trainee|apprendista|entry|stagista)\b/.test(t) || (years > 0 && years < 3)) {
-    return 'junior';
-  }
-  return 'mid';
-}
-
-/**
- * Normalizes text for keyword matching.
- * @param {string} text
- * @returns {string}
- */
-function normalizeText(text) {
-  return String(text || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .trim();
-}
-
-/**
- * Identifies the best role key from a job title.
+ * Maps common job titles to normalized role keys.
  * @param {string} roleTitle
  * @returns {string}
  */
 export function matchRoleKey(roleTitle) {
-  const normalized = normalizeText(roleTitle);
-  const roles = SWISS_BENCHMARKS_DATA?.roles || {};
+  const t = String(roleTitle || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
 
-  for (const [key, roleDef] of Object.entries(roles)) {
-    for (const titleCandidate of roleDef.titles || []) {
-      if (normalized.includes(normalizeText(titleCandidate))) {
-        return key;
-      }
-    }
-  }
-
-  // Broad keyword heuristics
-  if (/\b(software|sviluppatore|sviluppatrice|developer|dev|programmatore|programmatrice|frontend|backend|full[- ]?stack|react|node|web|engineer|ingegnere informatico)\b/.test(normalized)) {
-    return 'software_engineer';
-  }
-  if (/\b(cloud|devops|sre|sistemista|network|infrastruttura)\b/.test(normalized)) {
+  if (/\b(cloud|devops|sre|site reliability engineer|system engineer|sistemista|network|infrastruttura)\b/.test(t)) {
     return 'devops_cloud_engineer';
   }
-  if (/\b(finan|banc|account|contabil|controller|credit|analyst|risk)\b/.test(normalized)) {
+  if (/\b(software|sviluppatore|sviluppatrice|developer|dev|programmatore|programmatrice|frontend|backend|full[- ]?stack|react|node|web|informatica|it|data engineer)\b/.test(t)) {
+    return 'software_engineer';
+  }
+  if (/\b(finan\w*|banc\w*|account\w*|contabil\w*|controller|credit\w*|analyst|risk|audit|wealth|tax|compliance officer|compliance)\b/.test(t)) {
     return 'financial_analyst';
   }
-  if (/\b(pharma|farmac|chimic|lab|biotech|qa|qc)\b/.test(normalized)) {
+  if (/\b(pharma\w*|farmac\w*|chimic\w*|chemical engineer|lab\w*|biotech\w*|qa|qc|regulatory|scienz\w*|controllo qualita)\b/.test(t)) {
     return 'pharma_specialist';
   }
-  if (/\b(mecc|automaz|elettr|industr|produzione|progettista)\b/.test(normalized)) {
+  if (/\b(mecc\w*|mechanical engineer|automation engineer|automaz\w*|elettr\w*|industr\w*|produzion\w*|progettista|ingegner\w*|tecnic\w*|disegnatore)\b/.test(t)) {
     return 'mechanical_engineer';
   }
-  if (/\b(inferm|sanit|oss|medico|medica|cura|clinica|terap)\b/.test(normalized)) {
+  if (/\b(inferm\w*|sanit\w*|oss|medic\w*|cura|clinic\w*|terap\w*|fisioter\w*|nurse|healthcare)\b/.test(t)) {
     return 'nurse_healthcare';
   }
 
@@ -94,41 +53,54 @@ export function matchRoleKey(roleTitle) {
 
 /**
  * Looks up Swiss salary benchmark given role, canton, and seniority.
+ * Uses the official 2024 USTAT RSS + BFS Grossregion engine across all 26 Swiss cantons.
+ *
  * @param {object} params
  * @param {string} params.roleTitle
  * @param {string} [params.canton='TI']
+ * @param {string} [params.category]
  * @param {'junior'|'mid'|'senior'|'lead'} [params.seniority]
  * @param {number} [params.yearsExperience=0]
+ * @param {boolean} [params.applyFrontialieriDiscount=false]
  * @returns {object}
  */
 export function lookupSalaryBenchmark({
   roleTitle,
   canton = 'TI',
+  category,
   seniority,
   yearsExperience = 0,
+  applyFrontialieriDiscount = false,
 }) {
-  const chosenCanton = String(canton || 'TI').toUpperCase();
-  const cantonMult = SWISS_BENCHMARKS_DATA.cantonMultipliers?.[chosenCanton] ?? 1.0;
+  const normCanton = normalizeSalaryCantonCode(canton);
+  const roleKey = category || matchRoleKey(roleTitle);
   const resolvedSeniority = seniority || inferSeniorityTier(roleTitle, yearsExperience);
-  const roleKey = matchRoleKey(roleTitle);
-  const roleData = SWISS_BENCHMARKS_DATA.roles?.[roleKey] || SWISS_BENCHMARKS_DATA.roles.general_office;
 
-  const baseBenchmarks = roleData.benchmarks?.[resolvedSeniority] || roleData.benchmarks.mid;
+  const estimate = estimateSwissSalary(
+    {
+      title: roleTitle,
+      category: roleKey,
+      canton: normCanton,
+      seniority: resolvedSeniority,
+      yearsExperience,
+    },
+    { applyFrontialieriDiscount }
+  );
 
-  const roundTo100 = (num) => Math.round((num * cantonMult) / 100) * 100;
-
-  const p25Annual = roundTo100(baseBenchmarks.p25);
-  const medianAnnual = roundTo100(baseBenchmarks.p50);
-  const p75Annual = roundTo100(baseBenchmarks.p75);
+  const p25Annual = estimate.minValue;
+  const medianAnnual = estimate.median;
+  const p75Annual = estimate.maxValue;
 
   return {
     currency: 'CHF',
     roleKey,
-    industry: roleData.industry,
-    seniority: resolvedSeniority,
-    canton: chosenCanton,
-    cantonName: CANTON_NAMES[chosenCanton] || `Cantone ${chosenCanton}`,
-    cantonMultiplier: cantonMult,
+    sectorName: estimate.sectorName,
+    industry: estimate.sectorName,
+    seniority: estimate.level,
+    canton: normCanton,
+    cantonName: CANTON_NAMES[normCanton] || `Cantone ${normCanton}`,
+    cantonMultiplier: estimate.cantonFactor,
+    frontialieriAdjusted: estimate.frontialieriAdjusted,
     annual: {
       p25: p25Annual,
       median: medianAnnual,
@@ -145,7 +117,8 @@ export function lookupSalaryBenchmark({
 }
 
 /**
- * Generates actionable salary interview briefing and scripts for candidates.
+ * Generates actionable salary interview briefing and negotiation scripts for candidates.
+ *
  * @param {object} benchmark - output of lookupSalaryBenchmark
  * @param {string} [roleTitle='']
  * @returns {{ advice: string, deferralScript: string, recruiterQuestions: string[] }}
@@ -154,11 +127,17 @@ export function formatSalaryInterviewBriefing(benchmark, roleTitle = '') {
   const cantonStr = benchmark.cantonName;
   const rangeStr = benchmark.rangeFormatted;
   const medianStr = benchmark.medianFormatted;
-  const roleDisplay = roleTitle || benchmark.roleKey;
+  const roleDisplay = roleTitle || benchmark.sectorName || benchmark.roleKey;
 
-  const advice = `Per una posizione di ${roleDisplay} in ${cantonStr} (${benchmark.seniority}), il benchmark di mercato svizzero si colloca tra ${rangeStr} lordi/anno (mediana a ${medianStr}). Nei colloqui in Svizzera, per un lavoratore frontaliere è consigliabile ancorare le aspettative all'estremità medio-alta di questa fascia per evitare svalutazioni salariali ("dumping salariale"), tenendo conto che il contratto standard svizzero prevede solitamente la 13esima mensilità.`;
+  const cantonSpecifics = benchmark.canton === 'TI'
+    ? 'Nel Canton Ticino vigono il salario minimo cantonale e contratti collettivi CCL in diversi settori; è fondamentale ancorare le aspettative al benchmark di mercato per evitare penalizzazioni salariali.'
+    : benchmark.canton === 'ZH' || benchmark.canton === 'BS'
+    ? `Nel ${cantonStr} i livelli retributivi risentono del costo della vita più elevato e del fattore regionale BFS (>+25% rispetto al Ticino).`
+    : `In ${cantonStr} si applicano i parametri salariali della regione con contratti svizzeri standard generalmente basati su 13 mensilità.`;
 
-  const deferralScript = `In questa fase iniziale sono concentrato soprattutto sulla comprensione delle sfide tecniche e degli obiettivi del team. In base alle mie ricerche e al valore che posso portare al progetto, per un ruolo simile in ${cantonStr} considero congruo un range tra ${rangeStr} annui lordi, ma sono pronto a discutere una proposta complessiva che includa benefit e welfare aziendale.`;
+  const advice = `Per una posizione di ${roleDisplay} in ${cantonStr} (${benchmark.seniority}), il benchmark di mercato svizzero si colloca tra ${rangeStr} lordi/anno (mediana a ${medianStr}). ${cantonSpecifics} Nei colloqui in Svizzera, per un lavoratore frontaliere è consigliabile ancorare le aspettative all'estremità medio-alta di questa fascia per evitare svalutazioni salariali, considerando che il contratto standard svizzero prevede solitamente la 13esima mensilità.`;
+
+  const deferralScript = `In questa fase iniziale sono concentrato soprattutto sulla comprensione delle sfide tecniche e degli obiettivi del team. In base alle mie ricerche e al valore che posso portare al progetto, per un ruolo simile in ${cantonStr} considero congruo un range tra ${rangeStr} annui lordi, ma sono pronto a discutere una proposta complessiva che includa benefit, welfare aziendale e piano previdenziale LPP.`;
 
   const recruiterQuestions = [
     'Qual è il range retributivo previsto dall\'azienda per questa specifica posizione?',
