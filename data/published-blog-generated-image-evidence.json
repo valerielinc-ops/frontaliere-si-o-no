@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "ecea1bb310bf741db56ef4ba6589ddc077776b0f",
+  "commit": "eaafe1e36deffd398a6bc794ef35b256cbbb52d5",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -50418,44 +50418,17 @@
       "schema": 1,
       "assetId": "article-eteria-gioielleria-berta-serret",
       "kind": "generated",
-      "provider": "gemini",
-      "model": "imagen-3.0-generate-002",
-      "executorModel": "antigravity-flash",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "4490899f845d4710dbf03b2909403b22cfd821213fe1c107bf2c943fcfbbdcbc",
-      "license": "generated-provider",
-      "licenseUrl": "https://ai.google.dev/gemini-api/terms",
-      "credit": "frontaliereticino.ch",
-      "sha256": "cca46c83cc2a1ea8ef7c61e38479567efba0b0f71b4c246837a47e27118de74f",
-      "bytes": 48766,
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "Berta Serret / Instagram @bertaserret",
+      "note": "Foto editoriale del lancio del brand ETERIA da Instagram @bertaserret (post DfmPPdQjCQw).",
+      "sha256": "1a6b1aa91c159c2cc1484e70c30fbf8ec3a72f5f2e4ae6c2110517ca1c4d6acf",
+      "bytes": 31130,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-11-11T10:51:34.000Z",
-      "verifiedAt": "2026-11-11T10:52:00.000Z",
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
       "scope": "article-hero",
-      "imageUrl": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
-      "area": "Svizzera",
-      "season": "all seasons",
-      "variant": "article hero",
-      "vision": {
-        "ok": true,
-        "contains_text": false,
-        "contains_logo": false,
-        "contains_recognizable_face": false,
-        "contains_recognizable_foreground_person": false,
-        "looks_like_specific_real_event": false,
-        "is_photograph": true,
-        "is_topic_relevant": true,
-        "notes": "Fine jewelry macro photograph of a diamond solitaire ring in recycled gold resting on minimalist stone, illustrating contemporary luxury craftsmanship without text, logos, or persons."
-      }
+      "imageUrl": "/images/blog/article-eteria-gioielleria-berta-serret.webp"
     },
     "/images/blog/article-regime-fiscale-rendite-elvetiche.webp": {
       "schema": 1,

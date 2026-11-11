@@ -15,8 +15,8 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1143,
-      "6": 5061
+      "5": 1142,
+      "6": 5062
     },
     "publishedCovers": 7885,
     "publishedWithExistingOrInheritedRecord": 1769,
@@ -25,7 +25,7 @@
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 127,
     "fallbackRepointed": 0,
-    "inferredRecords": 4973
+    "inferredRecords": 4974
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -217288,7 +217288,7 @@
     },
     "article-eteria-gioielleria-berta-serret": {
       "cover": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
-      "hash": "cca46c83cc2a1ea8ef7c61e38479567efba0b0f71b4c246837a47e27118de74f",
+      "hash": "1a6b1aa91c159c2cc1484e70c30fbf8ec3a72f5f2e4ae6c2110517ca1c4d6acf",
       "published": true,
       "historicalPublished": true,
       "references": [
@@ -217301,23 +217301,17 @@
           "authorSlug": "laura-bianchi"
         }
       ],
-      "proofLevel": 5,
-      "evidence": "generated-engine-record",
-      "recordFile": "packages/articles/content/image-credits/blog/article-eteria-gioielleria-berta-serret.json",
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
       "inheritedFrom": null,
-      "action": "generated",
-      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1794,
       "verifiedAt": "2026-11-11",
-      "provider": "gemini",
+      "provider": null,
       "currentlyPublished": true,
-      "status": "generated",
-      "generated": {
-        "provider": "gemini",
-        "assetId": "article-eteria-gioielleria-berta-serret",
-        "imageUrl": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
-        "evidence": "generated-engine-record"
-      }
+      "status": "no-credit"
     },
     "article-fiscalita-coppie-sposate-voto": {
       "cover": "/images/blog/article-fiscalita-coppie-sposate-voto.webp",

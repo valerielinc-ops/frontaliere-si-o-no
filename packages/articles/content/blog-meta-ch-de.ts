@@ -8713,7 +8713,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lanciert Smart Luxury mit Labordiamanten und Recyclinggold',
     'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Am 11. November 2026 startet Berta Serret offiziell ETERIA JEWELLERY online: nachhaltiger Echtschmuck im Zeichen von Smart Luxury mit CoC-Recyclinggold, IGI-Labordiamanten und TRACEMARK-Herkunftspass.',
-    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Solitärring mit Brillant aus Recyclinggold von ETERIA',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Berta Serret, Gründerin der nachhaltigen Haute-Joaillerie-Marke ETERIA',
     'blog.article.regime-fiscale-rendite-elvetiche.title': 'Schweizer Renten: grünes Licht für Ersatzbesteuerung',
     'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'DailyMehr gibt grünes Licht für die Ersatzbesteuerung der schweizerischen Renten.',
     'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Illustratives Bild zum Thema des Artikels',
