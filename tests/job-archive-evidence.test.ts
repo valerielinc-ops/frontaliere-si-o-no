@@ -12,7 +12,7 @@ describe('recorded versus URL-inferred job identity', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const normal = source.slice(source.indexOf('const hasRealTitle = hasRecordedJobIdentity(ejData)'));
     const safetyStart = source.indexOf('const buildHistoricalArchiveHtml =');
-    const safety = source.slice(safetyStart, source.indexOf('for (const [slug, paths] of Object.entries(tracking)', safetyStart));
+    const safety = source.slice(safetyStart, source.indexOf('for (const slug in tracking)', safetyStart));
     const socialPreviewStart = source.indexOf('const UNVERIFIED_JOB_SOCIAL_PREVIEW:');
     const socialPreviewEnd = source.indexOf('};', socialPreviewStart) + '};'.length;
     expect(socialPreviewStart).toBeGreaterThan(-1);
@@ -120,7 +120,7 @@ describe('recorded versus URL-inferred job identity', () => {
   it('uses the generic unverified title in every safety-writer title output', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const start = source.indexOf('const buildHistoricalArchiveHtml =');
-    const end = source.indexOf('for (const [slug, paths] of Object.entries(tracking)', start);
+    const end = source.indexOf('for (const slug in tracking)', start);
     const safety = source.slice(start, end);
     const titleExpression = safety.match(/const titleRaw = ([^\n]+);/)?.[1];
     expect(titleExpression).toBeTruthy();

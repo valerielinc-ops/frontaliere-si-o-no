@@ -77,7 +77,7 @@ describe('self-heal tracking retention', () => {
   it('releases native route and tracking indexes after the final self-heal readers', () => {
     const lastNativeRouteReader = pluginSource.lastIndexOf('return nativeJobPathRecoveredByWorker(');
     const nativeRouteRelease = pluginSource.indexOf('nativeJobPrefixByLocaleAndSlug.clear();');
-    const lastTrackingReader = pluginSource.lastIndexOf('Object.entries(tracking)', nativeRouteRelease);
+    const lastTrackingReader = pluginSource.lastIndexOf('for (const slug in tracking)', nativeRouteRelease);
     const afterSelfHeal = pluginSource.indexOf("logBuildMem('jobsSeoPages: after-self-heal'");
     const trackingRelease = pluginSource.indexOf('tracking = Object.create(null)', afterSelfHeal);
     const trackingProbeRelease = pluginSource.indexOf('jobsSeoMemContext.tracking = undefined', trackingRelease);
