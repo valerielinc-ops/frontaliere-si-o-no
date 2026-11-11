@@ -31,7 +31,16 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, employerWithdrawalPending, needsFactRepair, transition } from './assistedApplicationFlow.js';
-import { closedByEmployerWithdrawal, employerWithdrawalOrderPatch, nativeClosureOf, sendMayHaveLeft } from './assistedApplicationEmployerWithdrawal.js';
+import {
+  EMPLOYER_WITHDRAWAL_REASON,
+  EMPLOYER_WITHDRAWAL_SLOT_RELEASE,
+  closedByEmployerWithdrawal,
+  employerWithdrawalOrderPatch,
+  employerWithdrawalSlotBlocker,
+  nativeClosureOf,
+  sendMayHaveLeft,
+} from './assistedApplicationEmployerWithdrawal.js';
+import { readConciergeSlot, releaseConciergeSlot } from './assistedApplicationWithdrawal.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
@@ -341,12 +350,14 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot, conciergeSlot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
       submissionRef ? transaction.get(submissionRef) : Promise.resolve(null),
+      // A concierge child the employer's withdrawal may close gives its position back in this same transaction.
+      closureEvent ? readConciergeSlot(transaction, db, orderSnapshot.data()) : Promise.resolve(null),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -456,11 +467,20 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // (a portal run still filling the form can no longer click, nor an e-mail leave).
     const employerWithdrawal = closedByEmployerWithdrawal(flow, persistedFlow);
     if (employerWithdrawal) transaction.set(submissionRefFor(db, orderId), { withdrawnAt: persistedFlow.withdrawnAt }, { merge: true });
+    // Owner decision 2026-11-11 («si per il concierge lo libera»): a concierge child the employer's withdrawal
+    // closed gives its position back to the service, once, never when the application may have left.
+    const slotBlocker = employerWithdrawal && conciergeSlot ? employerWithdrawalSlotBlocker({
+      orderId, order: { ...order, withdrawalReason: EMPLOYER_WITHDRAWAL_REASON }, flow: persistedFlow, draft,
+      submission: submissionSnapshot?.data() || {}, slot: conciergeSlot,
+    }) : null;
+    const conciergeSlotReleased = slotBlocker === '';
+    if (conciergeSlotReleased) releaseConciergeSlot(transaction, conciergeSlot, { orderId, nowMs, ...EMPLOYER_WITHDRAWAL_SLOT_RELEASE });
     transaction.set(flowRef, persistedFlow);
     transaction.set(orderRef, {
       ...mirrorFields(persistedFlow),
       ...(receiptResult?.orderPatch || {}),
       ...(employerWithdrawal ? employerWithdrawalOrderPatch(persistedFlow, nowMs) : {}),
+      ...(conciergeSlotReleased ? { conciergeSlotReleasedAt: nowMs } : {}),
     }, { merge: true });
     transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
@@ -469,11 +489,12 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       toState: persistedFlow.state,
       round: persistedFlow.round,
       ...(employerWithdrawal ? { withdrawalReason: persistedFlow.withdrawnReason, withdrawalEvidence: persistedFlow.withdrawalEvidence } : {}),
+      ...(slotBlocker !== null ? { conciergeSlotReleased, ...(slotBlocker ? { conciergeSlotKept: slotBlocker } : {}) } : {}),
       ...(accountFailure ? { accountFailure } : {}),
       ...(candidateRequestTelemetryOf(event.candidateRequestTelemetry)
         ? { candidateRequestTelemetry: candidateRequestTelemetryOf(event.candidateRequestTelemetry) } : {}),
     }));
-    outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects };
+    outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects, ...(conciergeSlotReleased ? { conciergeSlotReleased } : {}) };
   });
 
   if (outcome?.ok && runEffect) {

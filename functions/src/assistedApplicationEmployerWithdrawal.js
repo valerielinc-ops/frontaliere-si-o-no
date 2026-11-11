@@ -14,7 +14,8 @@
  * Our dataset no longer listing the job, a page that looks empty, a timeout, a network error, a missing
  * selector or an anti-bot page are never proof: those keep the retries they have today.
  *
- * Pure, no I/O: the flow, the sweep, the inbound mail and the reconcile script share it.
+ * Pure, no I/O: the flow, the sweep, the inbound mail and the reconcile script share it. A concierge child
+ * closed this way gives its position back to the service (employerWithdrawalSlotBlocker).
  */
 
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
@@ -93,3 +94,31 @@ export function employerWithdrawalOrderPatch(flow, nowMs) {
 export function closedByEmployerWithdrawal(before, after) {
   return before?.state !== 'withdrawn' && after?.state === 'withdrawn' && after?.withdrawnReason === EMPLOYER_WITHDRAWAL_REASON;
 }
+
+/**
+ * Owner decision 2026-11-11, «si per il concierge lo libera»: the position a concierge child held on its
+ * service is given back when the employer's withdrawal closed it, as a candidate's own withdrawal gives it back
+ * (assistedApplicationWithdrawal.js), so the matcher can propose another posting. Returns why it is not given
+ * back, or '' when it is. The caller reads every input in its own transaction:
+ *   - only a concierge child withdrawn for the employer's withdrawal, on its flow and on its order;
+ *   - once: `conciergeSlotReleasedAt` on the child, and its proposal still accepted for this very child;
+ *   - never when the application may have reached the employer (a send on record, an unproven final click).
+ * `slot`: assistedApplicationWithdrawal.js readConciergeSlot.
+ */
+export function employerWithdrawalSlotBlocker({ orderId, order = {}, flow = {}, draft = null, submission = {}, slot = null }) {
+  if (order?.billingMode !== 'application_concierge' || !order.parentServiceId || !order.parentProposalId) return 'not_concierge_child';
+  if (order.conciergeSlotReleasedAt) return 'already_released';
+  if (order.withdrawalReason !== EMPLOYER_WITHDRAWAL_REASON || flow?.state !== 'withdrawn'
+    || flow?.withdrawnReason !== EMPLOYER_WITHDRAWAL_REASON) return 'not_withdrawn_by_employer';
+  if (order.submissionStatus === 'submitted' || sendMayHaveLeft({ draft, submission })) return 'send_may_have_left';
+  if (!slot?.service || slot.service.userId !== order.userId) return 'service_not_owned';
+  if (slot.proposal?.status !== 'accepted' || slot.proposal.childApplicationId !== orderId || slot.proposal.withdrawnAt) {
+    return 'slot_not_held';
+  }
+  return '';
+}
+
+/** How releaseConciergeSlot (assistedApplicationWithdrawal.js) closes the proposal and queues the matcher. */
+export const EMPLOYER_WITHDRAWAL_SLOT_RELEASE = Object.freeze({
+  declineReason: EMPLOYER_WITHDRAWAL_REASON, requestedBy: 'employer_withdrawal', requestPrefix: 'employer-withdraw',
+});

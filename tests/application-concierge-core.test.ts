@@ -932,6 +932,37 @@ describe('application concierge candidate API', () => {
     });
     expect(second.status).toBe(200);
     expect(mocks.documents.get('application_concierge_services/service-1')!.consentedAt).toBe(firstConsent);
+    // A new consent records the current text (owner decision 2026-11-11: undecided proposals accepted after 12 hours).
+    expect(mocks.documents.get('application_concierge_services/service-1')!.consentVersion).toBe('application-concierge-v2');
+  });
+
+  it('honours a consent given under the previous text and never rewrites it', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    expect(service.consentVersion).toBe('application-concierge-v1');
+    const consentedAt = service.consentedAt;
+
+    const read = await handleApplicationConcierge({
+      method: 'GET',
+      query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token',
+    });
+    expect((read.body as any).service.hasConsent).toBe(true);
+
+    const recorded = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'recordConsent',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        consent: true,
+      },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(recorded.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toMatchObject({
+      consentVersion: 'application-concierge-v1', consentedAt,
+    });
   });
 
   it('lists the candidate-owned services when no service id is supplied', async () => {
