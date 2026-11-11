@@ -135,3 +135,36 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(screen.getByText('1/10')).toBeInTheDocument();
   });
 });
+
+describe('the platform decision after 12 hours (owner decision 2026-11-11)', () => {
+  const undecided: ApplicationConciergeProposal = { ...proposal, status: 'proposed', childApplicationId: null, eligibilityStatus: 'compatible' };
+  const cardFor = (snapshot: ApplicationConciergeService) => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+    render(<ApplicationConciergePortal serviceId={snapshot.serviceId} previewService={snapshot} locationSearch="" />);
+    return within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
+  };
+
+  it('tells the candidate when an undecided proposal will be accepted for them', () => {
+    const autoAcceptAt = new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString();
+    const card = cardFor({ ...service, proposals: [{ ...undecided, autoAcceptAt }] });
+    expect(card.getByText(translations['jobBoard.concierge.autoAcceptAt'])).toBeInTheDocument();
+    expect(card.getByRole('button', { name: translations['jobBoard.concierge.accept'] })).toBeInTheDocument();
+  });
+
+  it('says the platform is accepting once the time has passed, and who decided afterwards', () => {
+    const due = cardFor({ ...service, proposals: [{ ...undecided, autoAcceptAt: new Date(Date.now() - 60_000).toISOString() }] });
+    expect(due.getByText(translations['jobBoard.concierge.autoAcceptDue'])).toBeInTheDocument();
+    cleanup();
+    const accepted = cardFor({ ...service, proposals: [{ ...proposal, childApplicationState: 'accepted', decidedBy: 'platform_timeout' }] });
+    expect(accepted.getByText(translations['jobBoard.concierge.autoAccepted'])).toBeInTheDocument();
+  });
+
+  it('shows no deadline while the proposal waits on the platform or the candidate cannot accept yet', () => {
+    const autoAcceptAt = new Date(Date.now() + 60 * 60 * 1000).toISOString();
+    const verifying = cardFor({ ...service, proposals: [{ ...undecided, autoAcceptAt, eligibilityStatus: 'needs_verification' }] });
+    expect(verifying.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+    cleanup();
+    const noConsent = cardFor({ ...service, hasConsent: false, proposals: [{ ...undecided, autoAcceptAt }] });
+    expect(noConsent.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+  });
+});
