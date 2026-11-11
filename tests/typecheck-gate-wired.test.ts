@@ -9,12 +9,10 @@
  * cancellando lo script o il job (una regressione che, per costruzione, non
  * produrrebbe nessun altro segnale rosso).
  *
- * Guarda anche il rischio opposto: il job del typecheck deve restare SEPARATO
- * da quello di vitest, e il check `vitest (unit + integration)` deve continuare
- * a chiamarsi esattamente così — auto-merge-on-lgtm, auto-merge-eval gate 3,
- * pr-autorebase e stale-pr-rescuer ci fanno `select` sopra, quindi rinominarlo
- * (o assorbire il typecheck dentro di lui) romperebbe l'auto-merge senza che
- * nessun test dei tipi se ne accorga.
+ * Guarda anche il rischio opposto: il typecheck deve restare uno step distinto
+ * ed eseguirsi dopo Vitest, senza cambiare il check-run `vitest (unit +
+ * integration)` — auto-merge-on-lgtm, auto-merge-eval gate 3, pr-autorebase e
+ * stale-pr-rescuer fanno `select` sul suo nome.
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
@@ -28,13 +26,9 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'typecheck-baseline.json');
 const VITEST_JOB_NAME = 'vitest (unit + integration)';
 const TYPECHECK_JOB_NAME = 'typecheck (tsc --noEmit)';
 
-// Il gate gira sotto il sampler di memoria (follow-up #6573,
-// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`). `tests.yml`
-// lo lancia oggi dentro il wrapper `start_gate tsc` per raccogliere in fondo
-// al job i cancelli indipendenti; conserva anche la forma diretta per non
-// rendere il contratto dipendente da una sola strategia di scheduling.
-const GATE_RUN_RE =
-  /(?:run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate|start_gate\s+tsc\s+['"][^\n'"]*\bnpm run typecheck:gate['"])/;
+// Il gate gira sotto il sampler ed è serializzato dopo Vitest: con 8 GiB
+// arrivava al limite heap quando correva in parallelo con la suite.
+const GATE_RUN_RE = /bash scripts\/ci\/sample-mem-during\.sh -- npm run typecheck:gate/;
 
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
   scripts: Record<string, string>;
@@ -72,6 +66,20 @@ describe('typecheck gate wiring (#5540)', () => {
     // vecchio `toContain(name:)` provava davvero.
     expect(workflow).not.toContain(`name: ${TYPECHECK_JOB_NAME}`);
     expect(workflow).toMatch(GATE_RUN_RE);
+  });
+
+  it('serializza il typecheck dopo Vitest con heap dedicato e prima del salvataggio cache', () => {
+    const vitestAt = workflow.indexOf('- name: vitest related (PR diff)');
+    const collectAt = workflow.indexOf('- name: Collect independent source gates');
+    const gateAt = workflow.indexOf('bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate', collectAt);
+    const saveTscAt = workflow.indexOf('- name: Save TypeScript incremental state', collectAt);
+    const collector = workflow.slice(collectAt, saveTscAt);
+    expect(vitestAt).toBeGreaterThan(-1);
+    expect(collectAt).toBeGreaterThan(vitestAt);
+    expect(gateAt).toBeGreaterThan(collectAt);
+    expect(saveTscAt).toBeGreaterThan(gateAt);
+    expect(collector).toContain('NODE_OPTIONS: --max-old-space-size=10240');
+    expect(collector).toContain('always() && !cancelled()');
   });
 
   // Contratto ROVESCIATO con la fusione dei quattro job di tests.yml.

@@ -2004,48 +2004,18 @@ jobs:
       # ciò che rende il typecheck bloccante per la prima volta (issue #5552).
       # `tests/typecheck-gate-wired.test.ts` fissa il nuovo contratto.
       #
-      # NODE_OPTIONS è a livello STEP, non di job: `tsc` tiene l'intero program
-      # in memoria (4,4 GB di RSS misurati sull'albero completo) e su un job a sé
-      # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
-      # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
-      #
-      # Parte come processo staccato da questo step, il primo di un gruppo di
-      # cancelli deterministici che girano tutti insieme invece che in fila.
-      # Misura del 2026-09-30: ~140 s, sovrapposti all'assemble o all'inizio di
-      # vitest, quindi quasi mai sul percorso critico (l'attesa esposta nel
-      # «Collect» è 0 s di mediana, 63 s al p90). Niente lo trattiene in un
-      # ordine: legge solo i sorgenti, non scrive niente che un altro step
-      # consumi, e il suo unico effetto è far fallire il job.
-      #
-      # NON C'È UN JOIN INTERMEDIO A CHIUDERLO PRIMA DELLA SUITE, ed è una
-      # scelta di principio: un join esprime una DIPENDENZA fra task, non una
-      # precauzione. Fra questi cancelli e l'assemble non c'è nessuna
-      # dipendenza — l'assemble non legge niente che loro producano — quindi un
-      # join lì in mezzo direbbe il falso sul grafo e ritarderebbe la suite per
-      # una ragione che non è sua. Vengono raccolti in fondo, dopo vitest, da
-      # «Collect independent source gates».
-      #
-      # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
-      # di RSS, il runner ne ha 16, e quei 4,4 GB stanno accanto ai fork di
-      # vitest (2 da 100 file in su). Nel banco della PR #10503 la MemAvailable
-      # minima con `tsc` e 2-4 worker insieme è stata 5,7-7,4 GB, senza
-      # rossi. Un campionatore di `MemAvailable`
-      # era stato aggiunto per rendere quel margine un numero, ed era stato
-      # tolto (follow-up #6573): era uno step in background con un timer
-      # proprio (350 `sleep 5`, ~29 min), quindi a suite rossa teneva il job
-      # appeso al join per la durata del suo `sleep` invece di morire subito
-      # col resto. Il rifacimento (`scripts/ci/sample-mem-during.sh`) avvolge
-      # il comando osservato invece di girargli accanto: il sampler è un
-      # processo separato che muore nell'istante in cui `wait` sul PID di
-      # `tsc` sblocca — successo o fallimento — non dopo un conteggio fisso di
-      # iterazioni. Il numero finisce nel log come `[mem-sample] MemAvailable
-      # min=…MB max=…MB`.
+      # Il typecheck resta nello stesso check-run required, ma viene eseguito
+      # in coda al collector, dopo Vitest e i gate leggeri. Il run 43063905354
+      # ha misurato `tsc` al limite heap di 8 GiB, RSS 8,5 GiB e solo 1,2 GiB
+      # disponibili mentre Vitest girava in parallelo. Serializzarlo evita la
+      # contesa; 10 GiB di heap nel solo step typecheck danno margine senza
+      # cambiare `NODE_OPTIONS` di Vitest. Il sampler resta accanto al comando e
+      # termina con lui, sia in successo sia in errore.
       # ══════════════════════════════════════════════════════════════════════
       - name: Start independent source gates
         id: independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() && steps.body_contract.outcome != 'failure' }}
         env:
-          RUN_TSC: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_AUDIT_MARKERS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_ACTION_RUNTIMES: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
@@ -2066,9 +2036,6 @@ jobs:
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           mkdir -p "$state_dir"
           expected_labels=()
-          if [ "$RUN_TSC" = "true" ]; then
-            expected_labels+=(tsc)
-          fi
           if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
             expected_labels+=(audit-markers)
           fi
@@ -2124,9 +2091,6 @@ jobs:
             fi
             printf '%s\n' "$!" > "$state_dir/$label.pid"
           }
-          if [ "$RUN_TSC" = "true" ]; then
-            start_gate tsc 'env NODE_OPTIONS=--max-old-space-size=8192 bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate'
-          fi
           if [ "$RUN_AUDIT_MARKERS" = "true" ]; then
             start_gate audit-markers 'npm run audit:no-merge-markers'
           fi
@@ -2783,10 +2747,12 @@ jobs:
       # a failure, and a non-zero status remains blocking.
       - name: Collect independent source gates
         id: collect-independent-gates
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() }}
         env:
           SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
           INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
+          BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
+          NODE_OPTIONS: --max-old-space-size=10240
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -2864,6 +2830,16 @@ jobs:
             fi
           else
             echo "independent gate step skipped; no detached gates were expected"
+          fi
+          # Run the memory-heavy typecheck after Vitest and the detached source
+          # gates have finished, keeping it in this required check-run so its
+          # failure still blocks auto-merge. If the independent-gates step was
+          # skipped, preserve its original condition and do not start tsc.
+          if [ "$INDEPENDENT_GATES_OUTCOME" != "skipped" ] && [ "$BODY_CONTRACT_OUTCOME" != "failure" ]; then
+            bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+            tsc_status=$?
+            echo "[tsc] exit=$tsc_status"
+            if [ "$tsc_status" -ne 0 ]; then failures=1; fi
           fi
           exit "$failures"
 
