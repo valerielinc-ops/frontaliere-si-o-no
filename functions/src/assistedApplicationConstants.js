@@ -61,6 +61,9 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   'cv_uploaded_by_owner',
   // Facts the candidate stated in their reply to valerie@, applied to the order (assistedApplicationCandidateReply.js).
   'candidate_reply_applied',
+  // A portal's reminder of an application started there and not sent (assistedApplicationInbound.js): kept
+  // from the candidate, recorded with its time and the portal host only.
+  'portal_application_reminder',
 ]);
 
 // The mandate texts candidates agreed to, oldest first; the last is the one

@@ -18,8 +18,10 @@
  *      10 MB, our one-line summary on top, Reply-To set to the authenticated
  *      source Reply-To (or the source From) so the candidate answers them directly.
  *      Never forwarded: a portal's verification or account mail the runner
- *      holds, and the employer's automatic receipt of the application, which
- *      asks for nothing (automaticApplicationReceipt; the concierge shows it);
+ *      holds, the employer's automatic receipt of the application, which
+ *      asks for nothing (automaticApplicationReceipt; the concierge shows it),
+ *      and a portal's reminder of an application the robot started there and
+ *      did not send (portalApplicationReminder; an event of the order);
  *   6. an acknowledgement or a reply of the employer settles a submission of
  *      unknown outcome (career-ops: "sent" on the success page OR the
  *      confirmation e-mail): see confirmSubmissionByEmployer.
@@ -33,10 +35,11 @@ import {
 } from './assistedApplicationEmployerResponse.js';
 import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
-import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
+import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
-import { applyAutomationEvent, confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
+import { applyAutomationEvent, AUTOMATION_SUBCOLLECTION, confirmSubmissionByEmployer, FLOW_DOC_ID } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandButton, brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { buildOrderPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
@@ -632,6 +635,79 @@ export function automaticApplicationReceipt(message, classification = {}) {
   return automatedMessage(message);
 }
 
+// A portal's reminder that an application was started there and never sent (SBB on SuccessFactors,
+// 2026-11-10: «Folgende Bewerbungen wurden begonnen … Es würde uns freuen, wenn du deine Bewerbung
+// abschliesst»). The application itself is the subject: started, unfinished, not (yet) completed or sent,
+// or to be completed / finished; never «submit your application» alone, which is how an employer
+// redirects an e-mailed application to its portal.
+const REMINDED_APPLICATION = String.raw`(?:applications?|candidacy|bewerbung(?:en)?|kandidatur(?:en)?|candidatur[ae]|candidature)`;
+const PORTAL_APPLICATION_REMINDER_RE = phrases([
+  // English
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:is|are|was|were|remains?|has not been|have not been|has(?:n['’]t| not) yet been|hasn['’]t been|haven['’]t been)\s+(?:still\s+|not\s+yet\s+|currently\s+)?(?:incomplete|unfinished|unsubmitted|in progress|not (?:yet )?(?:complete|completed|finished|submitted))`,
+  String.raw`(?:incomplete|unfinished|unsubmitted|started|saved)\s+${REMINDED_APPLICATION}`,
+  String.raw`(?:not|n['’]t)\s+(?:yet\s+)?(?:completed?|finished)\s+(?:your|the|this)\s+(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
+  String.raw`(?:complete|finish|finali[sz]e)\s+(?:your|the|this)\s+(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:you|that you)\s+(?:have\s+)?(?:started|began|begun)`,
+  // German
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:wurden?|ist|sind|haben)\s+(?:\S+\s+){0,2}?(?:begonnen|angefangen|gestartet)`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:noch\s+)?nicht\s+(?:\S+\s+){0,2}?(?:abgeschlossen|abgeschickt|abgesendet|eingereicht|übermittelt|fertiggestellt|vollständig)`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:ist|sind|bleibt)\s+(?:noch\s+)?unvollständig`,
+  String.raw`(?:begonnene|angefangene|unvollständige|nicht abgeschlossene|gespeicherte)[nrs]?\s+${REMINDED_APPLICATION}`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:abschliess|abschließ|abzuschliess|abzuschließ|fertigstell|fertigzustell|vervollständig|zu vervollständig)\p{L}*`,
+  String.raw`(?:schliess|schließ)\p{L}*\s+(?:\S+\s+){0,3}?${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?ab(?![\p{L}\p{N}])`,
+  // Italian
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?non\s+(?:(?:è|e)\s+stata\s+|risulta\s+)?(?:ancora\s+)?(?:completata|conclusa|inviata|terminata|finalizzata|ultimata)`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:(?:è|e|risulta)\s+(?:ancora\s+)?)?(?:incompleta|in sospeso|in bozza|iniziata|avviata|cominciata)`,
+  String.raw`(?:completare|completa|completi|concludere|concludi|concluda|finalizzare|finalizza|finalizzi|ultimare)\s+(?:la\s+(?:tua\s+|sua\s+)?|questa\s+)${REMINDED_APPLICATION}`,
+  String.raw`non\s+(?:hai|ha)\s+(?:ancora\s+)?(?:completato|concluso|inviato|terminato|finalizzato|ultimato)\s+(?:la\s+(?:tua\s+|sua\s+)?)${REMINDED_APPLICATION}`,
+  // French
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:non\s+(?:finalisée|terminée|complétée|soumise|envoyée)|(?:est|reste)\s+(?:toujours\s+|encore\s+)?(?:incomplète|inachevée|en cours)|n['’](?:a|est)\s+pas\s+(?:encore\s+)?(?:été\s+)?(?:finalisée|terminée|complétée|soumise|envoyée))`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,2}?(?:commencée|incomplète|inachevée)`,
+  String.raw`(?:finaliser|compléter|terminer|finalisez|complétez|terminez)\s+(?:votre|la|cette)\s+${REMINDED_APPLICATION}`,
+  String.raw`(?:pas|jamais)\s+(?:encore\s+)?(?:finalisé|terminé|complété)\s+(?:votre|la)\s+${REMINDED_APPLICATION}`,
+].join('|'));
+// Going back to the portal is no further request: «please log in and complete your application».
+const PORTAL_NAVIGATION_RE = /(?<![\p{L}\p{N}])(?:log ?in|sign(?: in)?|click|anmeld\p{L}*|einlogg\p{L}*|klick\p{L}*|acced\p{L}*|clicc\p{L}*|connect\p{L}*|cliqu\p{L}*)(?![\p{L}\p{N}])/giu;
+// A question that asks the reader something: availability, an action, a document. «Hast du Fragen?» or a
+// rhetorical line about the employer's benefits asks for nothing.
+const asksAQuestion = (sentence) => /\?\s*$/.test(sentence) && !QUESTIONS_OFFER_RE.test(sentence)
+  && (ACTION_VERB_RE.test(sentence.replace(PORTAL_NAVIGATION_RE, ' ')) || INVITATION_RE.test(sentence) || DOCUMENT_NOUN_RE.test(sentence));
+const PORTAL_APPLICATION_REMINDER_ALL_RE = new RegExp(PORTAL_APPLICATION_REMINDER_RE.source, 'giu');
+const asksMoreThanThePortal = (sentence) => asksForAction(sentence.replace(PORTAL_APPLICATION_REMINDER_ALL_RE, ' ').replace(PORTAL_NAVIGATION_RE, ' '));
+// A rule about everyone's applications, or a condition, reminds nobody: «incomplete applications will not be
+// considered», «falls Sie Ihre Bewerbung nicht abschliessen …».
+const GENERAL_RULE_RE = phrases(String.raw`(?:will not|won['’]t|cannot|can['’]t|may not) be|werden nicht|können nicht|ne (?:seront|peuvent) pas|non (?:saranno|verranno|possono)`);
+const remindsOfApplication = (sentence) => PORTAL_APPLICATION_REMINDER_RE.test(sentence)
+  && !HYPOTHETICAL_RE.test(sentence) && !GENERAL_RULE_RE.test(sentence) && !/\?\s*$/.test(sentence);
+const SENDS_EMPLOYER_PURPOSE = new Set(['interview_invite', 'rejection', 'offer', 'assessment', 'verification']);
+
+/**
+ * A portal's automatic reminder of an application started there and not sent (SBB on SuccessFactors,
+ * 2026-11-10): the robot's own unfinished run, never news for the candidate (owner directive: a portal's
+ * codes, confirmations, receipts and reminders are never forwarded). It proves nothing was received: it
+ * never settles a submission, and it is no employer reply.
+ *
+ * Everything must agree, else the message goes to the candidate as before: a sentence says the
+ * application was started and not completed (or asks to complete it), no sentence carries an employer's own
+ * purpose (an interview, a refusal, an offer, a test, a document request, a verification, a receipt, a
+ * withdrawn posting), no other sentence asks for anything beyond going back to the portal, the model reads
+ * no interview, document or code, and no file but images is attached. The sender is bound to the order's
+ * portal account by the caller (accountNoticeHost).
+ */
+export function portalApplicationReminder(message, classification = {}) {
+  if (SENDS_EMPLOYER_PURPOSE.has(classification.category) || classification.interviewWhen
+    || classification.verificationCode || classification.verificationUrl
+    || (classification.requestedDocuments || []).length) return false;
+  if ((message.attachments || []).some((item) => !/^image\//i.test(String(item?.contentType || '')))) return false;
+  const rules = readByRules(message);
+  if (rules.verificationAsked || rules.postingWithdrawn) return false;
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  if (!sentences.some(remindsOfApplication)) return false;
+  return !sentences.some((sentence) => namesInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+    || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || asksAccountVerification(sentence)
+    || acknowledgesApplication(sentence) || asksAQuestion(sentence) || asksMoreThanThePortal(sentence));
+}
+
 /**
  * Deterministic fallback when Codex is unavailable: the purpose of the sender's
  * own sentences. An Auto-Submitted header says who wrote the message, not what
@@ -1087,7 +1163,8 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const order = orderSnapshot.data() || {};
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
-    const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt);
+    const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt
+      || inbox.portalApplicationReminder);
     if (!to || keptFromCandidate) {
       const status = keptFromCandidate ? 'skipped' : 'failed';
       await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
@@ -1294,7 +1371,21 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // recorded below as its acknowledgement (and proof of a submission of unknown
     // outcome), shown on the Application Concierge page, never forwarded.
     const applicationReceipt = !consumedByRunner && !portalAccountNoticeHost && automaticApplicationReceipt(message, classification);
-    const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt;
+    // A portal's reminder of an application started there and not sent (portalApplicationReminder), from an
+    // authenticated sender bound to the order's portal account: the robot's own unfinished run. Recorded as
+    // an event of the order, never forwarded, never an employer reply, never a proof of submission. It
+    // changes nothing in the flow: a retry keeps its own backoff and limits, and a wait for the candidate
+    // stays a wait.
+    const reminderHost = !consumedByRunner && !portalAccountNoticeHost && !applicationReceipt
+      && portalApplicationReminder(message, classification)
+      ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
+      : '';
+    const applicationReminder = Boolean(reminderHost);
+    const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder;
+    // What the order records: a reminder is no answer of the employer, whatever the model read.
+    const recorded = applicationReminder
+      ? { ...classification, category: 'other', summaryCandidate: '', needsReply: false }
+      : classification;
     const to = customerEmailFor(order);
     const initialDelivery = consumedByRunner
       ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
@@ -1302,18 +1393,24 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
         : applicationReceipt
         ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : applicationReminder
+        ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
         : to
         ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
         : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
 
-    let recorded = false;
+    let written = false;
     await db.runTransaction(async transaction => {
-      const [currentMessage, currentOrder] = await Promise.all([transaction.get(ref), transaction.get(orderRef)]);
+      const [currentMessage, currentOrder, currentFlow] = await Promise.all([
+        transaction.get(ref), transaction.get(orderRef),
+        applicationReminder ? transaction.get(orderRef.collection(AUTOMATION_SUBCOLLECTION).doc(FLOW_DOC_ID)) : null,
+      ]);
       if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
+      const liveFlowState = String(currentFlow?.data?.()?.state || '') || null;
       const liveOrder = currentOrder.data() || {};
       if (liveOrder.retentionPurgedAt) { transaction.delete(ref); return; }
       const employerResponseEvent = {
-        ...classification, receivedAt: claimed.receivedAt, messageId,
+        ...recorded, receivedAt: claimed.receivedAt, messageId,
       };
       const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), employerResponseEvent);
       const employerResponseTimeline = mergeEmployerResponseTimeline(
@@ -1327,32 +1424,45 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         subject: String(message.subject || '').slice(0, 300),
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
-        ...classification,
-        correlationStatus: RECEIPT_CATEGORIES.has(classification.category) ? 'verified' : 'unknown',
+        ...recorded,
+        correlationStatus: RECEIPT_CATEGORIES.has(recorded.category) ? 'verified' : 'unknown',
         portalVerificationHost,
         ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
         ...(applicationReceipt ? { automaticApplicationReceipt: true } : {}),
+        ...(applicationReminder ? { portalApplicationReminder: true, portalApplicationReminderHost: reminderHost, modelCategory: classification.category } : {}),
         forwardDelivery: initialDelivery,
         forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
+      if (applicationReminder) {
+        // The order's event, with its kind and time and nothing personal: no sender, subject or text.
+        transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(`portal-reminder-${messageId}`), buildAssistedApplicationEvent('portal_application_reminder', {
+          actor: 'inbound-mail',
+          messageId,
+          receivedAt: claimed.receivedAt,
+          portalHost: reminderHost,
+          flowState: liveFlowState,
+        }));
+        written = true;
+        return;
+      }
       transaction.set(orderRef, {
         employerReplies: Number(liveOrder.employerReplies || 0) + 1,
         ...(Number(claimed.receivedAt) >= Number(liveOrder.lastEmployerReplyAt || 0) ? {
           lastEmployerReplyAt: claimed.receivedAt,
-          lastEmployerReplyCategory: classification.category,
+          lastEmployerReplyCategory: recorded.category,
         } : {}),
         ...(employerResponse ? { employerResponse } : {}),
         ...(employerResponseTimeline.length ? { employerResponseTimeline } : {}),
       }, { merge: true });
-      recorded = true;
+      written = true;
     });
-    if (!recorded) return { ok: true, skipped: true };
+    if (!written) return { ok: true, skipped: true };
     let forwarded = (await ref.get()).data()?.forwarded?.status || null;
     if (to && !keptFromCandidate) {
       const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
       forwarded = delivery.forwarded || forwarded;
     }
-    const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
+    const settled = runEffect && !applicationReminder && RECEIPT_CATEGORIES.has(recorded.category)
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
     // The employer's authenticated e-mail says the posting was withdrawn (owner decision 2026-11-11): the flow
@@ -1363,8 +1473,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       : null;
     return {
       ok: true,
-      category: classification.category,
+      category: recorded.category,
       forwarded,
+      ...(applicationReminder ? { portalApplicationReminder: true } : {}),
       ...(settled?.ok ? { submissionConfirmed: true } : {}),
       ...(employerWithdrawal?.ok ? { postingWithdrawn: true } : {}),
     };
