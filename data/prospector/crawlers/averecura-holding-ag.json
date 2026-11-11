@@ -1,0 +1,23 @@
+{
+  "companyKey": "averecura-holding-ag",
+  "companyName": "averecura holding ag",
+  "companyHost": "app.reflinejobs.io",
+  "verifiedEmployerDomain": "averecura.ch",
+  "platform": "reflinejobs.io",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.reflinejobs.io/3034/0108/index.html"
+  ],
+  "detailTemplate": "/3034/0108/index.html",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Dipl. Pflegefachperson HF/FH mit Berufsbildungsfunktion 80–100%"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:28:15.866Z",
+  "candidateKey": "averecura@uetikon-am-see"
+}
