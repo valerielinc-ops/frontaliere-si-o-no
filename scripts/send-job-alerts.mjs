@@ -2662,6 +2662,7 @@ function planAlertMatch(alert, {
   discoveryGeographies = new Map(),
   allowDiscovery = true,
   applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
+  compactMatches = false,
 }) {
   // Enrich the alert with the subscriber's newsletter profile, browsing
   // personalization (filter usage + viewed-job geography) and the geography of
@@ -2741,6 +2742,7 @@ function planAlertMatch(alert, {
     ? profile.applicationIntentJobKeys || new Set()
     : new Set();
   const scored = [];
+  const compactMetadataByJob = compactMatches ? new Map() : null;
   let candidateCount = 0;
   for (const job of recentJobs) {
     if (!ownerAlert && isCanaryJob(job)) continue;
@@ -2757,23 +2759,41 @@ function planAlertMatch(alert, {
         .filter((signal) => typeof signal === 'string' && signal.length <= 64)
         .slice(0, 15)
       : [];
-    scored.push({
-      job: {
-        ...job,
-        relevanceScore: relevance,
-        ...(applicationIntentRanked ? {
-          applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
-          relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
-        } : {}),
-        // Carry the parsed immutable discovery date to the final ranking
-        // layer; crawledAt is intentionally not a freshness clock.
-        newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
-      },
-      score: relevance + freshnessBoost(job, now),
-      // Keep the explicit source shape used by the sorting regression guard:
-      // the value is still parsed once above and the comparator consumes it.
-      firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
-    });
+    const metadata = {
+      relevanceScore: relevance,
+      ...(applicationIntentRanked ? {
+        applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
+        relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
+      } : {}),
+      // Carry the parsed immutable discovery date to the final ranking
+      // layer; crawledAt is intentionally not a freshness clock.
+      newnessAt: Number.isFinite(firstSeenMs) && firstSeenMs > 0 ? firstSeenMs : null,
+    };
+    if (compactMatches) {
+      // The daily sender keeps full match pools across a bounded alert batch.
+      // Keep only source references and the per-alert values needed by the
+      // later shortlist ranking; materialize the full job only for the cards
+      // that will actually be rendered.
+      compactMetadataByJob.set(job, metadata);
+      scored.push({
+        job,
+        score: relevance + freshnessBoost(job, now),
+        // Keep the explicit source shape used by the sorting regression guard:
+        // the value is still parsed once above and the comparator consumes it.
+        firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
+      });
+    } else {
+      scored.push({
+        job: {
+          ...job,
+          ...metadata,
+        },
+        score: relevance + freshnessBoost(job, now),
+        // Keep the explicit source shape used by the sorting regression guard:
+        // the value is still parsed once above and the comparator consumes it.
+        firstSeenMs: job.firstSeenAt ? firstSeenMs : 0,
+      });
+    }
   }
   const sorted = scored
     .sort((a, b) => {
@@ -2837,8 +2857,17 @@ function planAlertMatch(alert, {
     DEDUP_WINDOW_MS,
     normalizeDeliveryLedger(alert.deliveryLedger),
   );
-  return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
+  const result = { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
     ...(discoveryMode ? { discoveryMode: true } : {}) };
+  if (compactMatches) {
+    const rankingMetadata = new WeakMap();
+    for (const job of matched) {
+      const metadata = compactMetadataByJob?.get(job);
+      if (metadata) rankingMetadata.set(job, metadata);
+    }
+    result.rankingMetadata = rankingMetadata;
+  }
+  return result;
 }
 
 /**
@@ -3710,6 +3739,7 @@ async function main() {
         discoveryGeographies,
         allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
           && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
+        compactMatches: true,
       });
       if (plan.discoveryMode && plan.matched.length > 0) discoveryRecipientsPlanned.add(alert.email.toLowerCase());
       const rankingVariant = plan.discoveryMode ? 'control' : assignJobRankingVariant({
@@ -3727,6 +3757,7 @@ async function main() {
         variant: rankingVariant,
         affinityScorer,
         config: JOB_EMAIL_RANKING_CONFIG,
+        rankingMetadata: plan.rankingMetadata,
       };
       // Prefetch only the current ranking shortlist. If a page is dead,
       // rankLiveJobsForEmail expands it one replacement at a time after the
