@@ -106,6 +106,14 @@ jobs:
           AGENT_BOOT_ERROR_FILE: ${{ runner.temp }}/agent-boot-error.txt
         run: node --input-type=module -e "await import('./scripts/assisted-application/agent.mjs')" 2> "$AGENT_BOOT_ERROR_FILE"
 
+      # Tune apt on Azure Ubuntu runners to force IPv4 and fast retry before Codex sandbox setup.
+      - name: Configure runner apt network tuning
+        run: |
+          if command -v sudo >/dev/null 2>&1; then
+            sudo mkdir -p /etc/apt/apt.conf.d
+            printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99runner-network-tuning >/dev/null
+          fi
+
       # Codex Luna Max at effort max: the same bounded broker as the article
       # lanes. The draft writes with it; the submit plans each portal page.
       - id: codex
@@ -127,7 +135,7 @@ jobs:
             sudo mkdir -p /etc/apt/apt.conf.d
             printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99network-tuning >/dev/null
           fi
-          npx playwright install --with-deps chromium || npx playwright install chromium
+          npx playwright install chromium || npx playwright install --with-deps chromium
         timeout-minutes: 15
 
       # The application uses stock Chromium. It never impersonates a user's
