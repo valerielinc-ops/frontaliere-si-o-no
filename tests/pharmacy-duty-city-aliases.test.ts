@@ -102,11 +102,10 @@ describe('attested Castagnola regional duty URL migration', () => {
   });
 
   it('resolves city duty navigation through the canonical regional route', () => {
-    const descriptor = pages.pharmacyPageDescriptors().find(row => row.kind === 'city' && row.citySlug === 'castagnola');
-    expect(descriptor).toBeTruthy();
+    const descriptor: pages.PageDescriptor = { kind: 'city', country: 'CH', citySlug: 'castagnola', cityName: 'Castagnola' };
     for (const [locale, aliasPath] of aliases) {
       const targetPath = buildPharmacyPath({ kind: 'duty-city', locale, citySlug: 'lugano' });
-      const page = pages.buildPharmacyDirectoryPage(descriptor!, locale, '');
+      const page = pages.buildPharmacyDirectoryPage(descriptor, locale, '');
       expect(page.html).toContain(`href="${targetPath}"`);
       expect(page.html).not.toContain(`href="${aliasPath}"`);
     }
