@@ -232,7 +232,40 @@ function answerOf(response) {
   return response.status === 404 || response.status === 410 ? 'absent' : 'unknown';
 }
 
-const normalizedCacheControl = (value) => String(value ?? '').toLowerCase().replace(/\s+/g, '');
+function cacheControlDirectives(value) {
+  const source = String(value ?? '');
+  const directives = [];
+  let quoted = false;
+  let escaped = false;
+  let start = 0;
+
+  for (let index = 0; index < source.length; index += 1) {
+    const character = source[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quoted && character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character === '"') {
+      quoted = !quoted;
+      continue;
+    }
+    if (character === ',' && !quoted) {
+      directives.push(source.slice(start, index));
+      start = index + 1;
+    }
+  }
+
+  if (quoted || escaped) return [];
+  directives.push(source.slice(start));
+  const normalized = directives.map((directive) => directive.toLowerCase().replace(/\s+/g, ''));
+  return normalized.some((directive) => !directive) ? [] : normalized.sort();
+}
+
+const normalizedCacheControl = (value) => cacheControlDirectives(value).join(',');
 
 async function answerWithExpectedCacheControl(response, expectedCacheControl, expectedContentMd5) {
   const answer = answerOf(response);
@@ -241,10 +274,17 @@ async function answerWithExpectedCacheControl(response, expectedCacheControl, ex
     return answer;
   }
   if (expectedCacheControl !== undefined) {
-    const actual = normalizedCacheControl(response.headers?.get?.('cache-control'));
+    const actualDirectives = cacheControlDirectives(response.headers?.get?.('cache-control'));
+    const actual = actualDirectives.join(',');
+    const maxAgeDirectives = actualDirectives
+      .map((directive) => /^max-age=(\d+)$/.exec(directive)?.[1])
+      .filter((maxAge) => maxAge !== undefined);
     const matchesImmutablePolicy = expectedCacheControl === SHELL_ASSET_IMMUTABLE_CACHE_CONTROL
-      && actual.includes('immutable')
-      && Number(actual.match(/(?:^|,)max-age=(\d+)(?:,|$)/)?.[1] ?? 0) >= 31536000;
+      && actualDirectives.length === 3
+      && actualDirectives.includes('public')
+      && actualDirectives.includes('immutable')
+      && maxAgeDirectives.length === 1
+      && Number(maxAgeDirectives[0]) >= 31536000;
     if (!(matchesImmutablePolicy || actual === normalizedCacheControl(expectedCacheControl))) {
       discardResponseBody(response);
       return 'stale';
@@ -361,7 +401,7 @@ export function checkStoredAsset(key, options) {
 /**
  * Additive single-key PUT. A stable alias can request the helper's atomic
  * create-only mode; upload-cdn-file.sh exits 0 on every runtime failure by
- * design, so its "✅ uploaded" line is the signal.
+ * design, so its "✅ uploaded" or exact-byte reconciliation line is the signal.
  */
 export function uploadShellAsset(key, content, { createOnly = false, ...helperOptions } = {}) {
   const dir = mkdtempSync(path.join(tmpdir(), 'cdn-shell-asset-'));
@@ -373,7 +413,7 @@ export function uploadShellAsset(key, content, { createOnly = false, ...helperOp
       : [file, key, shellAssetCacheControl(key)];
     const output = runUploadHelper(args, helperOptions);
     process.stdout.write(output);
-    return output.includes('✅ uploaded');
+    return output.includes('✅ uploaded') || output.includes('✅ already present with matching bytes');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -40,11 +40,11 @@ export function buildWikidataCompanySparql(companyName, lang = 'it') {
   return `
 SELECT ?company ?companyLabel ?ceoLabel ?employees ?website ?linkedin ?description WHERE {
   ?company rdfs:label "${safeName}"@${lang}.
-  
+
   # ANCHOR POSITIVO: Deve discendere dalla classe azienda/organizzazione
   ?company wdt:P31/wdt:P279* ?orgType.
   VALUES ?orgType { ${posTypes} }
-  
+
   # ANCHOR NEGATIVO: NON deve essere un'entità geografica o amministrativa
   FILTER NOT EXISTS {
     ?company wdt:P31/wdt:P279* ?excludedType.
@@ -56,7 +56,7 @@ SELECT ?company ?companyLabel ?ceoLabel ?employees ?website ?linkedin ?descripti
   OPTIONAL { ?company wdt:P856 ?website. }
   OPTIONAL { ?company wdt:P2013 ?linkedin. }
   OPTIONAL { ?company schema:description ?description. FILTER(LANG(?description) = "${lang}") }
-  
+
   SERVICE wikibase:label { bd:serviceParam wikibase:language "${lang},en". }
 }
 LIMIT 1`.trim();

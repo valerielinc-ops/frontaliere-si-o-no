@@ -105,7 +105,35 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     const sectionHelper = readFileSync(resolve('scripts/lib/push-section-shard.sh'), 'utf8');
     expect(groupHelper).toContain('bash scripts/lib/push-section-shard.sh');
     expect(sectionHelper).toContain('section_shard_publish_resumable');
-    expect(groupHelper).toContain('timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh');
+    const timeoutAt = groupHelper.indexOf('timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s"');
+    const lockAt = groupHelper.indexOf('node scripts/ci/with-shard-writer-lock.mjs', timeoutAt);
+    const pushAt = groupHelper.indexOf('bash scripts/lib/push-section-shard.sh "$section" it dist', lockAt);
+    expect(timeoutAt).toBeGreaterThan(-1);
+    expect(lockAt).toBeGreaterThan(timeoutAt);
+    expect(groupHelper.slice(lockAt, pushAt)).toContain('--section "$section" --locale it --policy wait');
+    expect(pushAt).toBeGreaterThan(lockAt);
+  });
+
+  it('serializza la pubblicazione full delle sitemap R2 e usa il dist assemblato', () => {
+    const lockAt = DEPLOY_PUBLISH_YML.indexOf(
+      '--section __sitemaps__ --locale it --policy wait --timeout-ms 3600000 --',
+    );
+    const helperAt = DEPLOY_PUBLISH_YML.lastIndexOf(
+      'node scripts/ci/with-shard-writer-lock.mjs',
+      lockAt,
+    );
+    const fullPublishAt = DEPLOY_PUBLISH_YML.indexOf(
+      'node scripts/publish-edge-files.mjs --producer=build',
+      lockAt,
+    );
+    const jobsPublishAt = DEPLOY_PUBLISH_YML.indexOf(
+      'node scripts/publish-edge-files.mjs --producer=jobs-fast --from-dir="$GITHUB_WORKSPACE/dist"',
+      fullPublishAt,
+    );
+    expect(helperAt).toBeGreaterThan(-1);
+    expect(lockAt).toBeGreaterThan(helperAt);
+    expect(fullPublishAt).toBeGreaterThan(lockAt);
+    expect(jobsPublishAt).toBeGreaterThan(fullPublishAt);
   });
 
   it('checkpointa la cache R2 del job CDN senza togliere i controlli di alias di Deploy prep', () => {

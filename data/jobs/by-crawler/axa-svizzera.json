@@ -252,7 +252,8 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-06-10T22:13:21.437Z",
       "crawledAt": "2026-11-11T09:42:27.776Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "needsRetranslation": true
     },
     {
       "title": "Versicherungsberater:in für die Hauptagentur Wettingen",
@@ -8005,7 +8006,7 @@
     },
     {
       "title": "Kundenbetreuer:in medizinische Leistungsprüfung BVG und Stellvertretung der Teamleitung",
-      "slug": "kundenbetreuer-in-medizinische-leistungsprufung-bvg-e-stellvertretung-der-teamleitung-axa-svizzera-winterthur",
+      "slug": "consulente-clienti-verifica-delle-prestazioni-mediche-lpp-e-sostituzione-del-capo-team-axa-svizzera-winterthur",
       "url": "https://careers.axa.com/careers-home/jobs/30310?lang=de-de",
       "applyUrl": "https://careers-de-axa.icims.com/jobs/30310/login",
       "company": "AXA Svizzera",
@@ -8045,7 +8046,7 @@
       },
       "slugByLocale": {
         "de": "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-teamleitung-axa-svizzera-winterthur",
-        "it": "kundenbetreuer-in-medizinische-leistungsprufung-bvg-e-stellvertretung-der-teamleitung-axa-svizzera-winterthur",
+        "it": "consulente-clienti-verifica-delle-prestazioni-mediche-lpp-e-sostituzione-del-capo-team-axa-svizzera-winterthur",
         "en": "customer-advisor-for-the-bvg-medical-performance-examination-and-deputy-team-leader-axa-svizzera-winterthur",
         "fr": "conseiller-a-la-clientele-dans-l-examen-des-performances-medicales-lpp-et-le-remplacement-de-la-direction-de-l-equipe"
       },
@@ -8053,7 +8054,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-3ze5zp"
+          "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-3ze5zp",
+          "kundenbetreuer-in-medizinische-leistungsprufung-bvg-e-stellvertretung-der-teamleitung-axa-svizzera-winterthur"
         ],
         "de": [
           "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-3ze5zp"
@@ -8067,7 +8069,8 @@
       },
       "previousSlugs": [
         "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-3ze5zp",
-        "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-teamleitung-axa-svizzera-winterthur"
+        "kundenbetreuer-in-medizinische-leistungsprufung-bvg-und-stellvertretung-der-teamleitung-axa-svizzera-winterthur",
+        "kundenbetreuer-in-medizinische-leistungsprufung-bvg-e-stellvertretung-der-teamleitung-axa-svizzera-winterthur"
       ],
       "salaryMin": 77000,
       "salaryMax": 136000,

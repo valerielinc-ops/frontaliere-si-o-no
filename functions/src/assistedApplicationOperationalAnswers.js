@@ -421,4 +421,3 @@ export function resolveFrontaliereSmartDefaults(field, candidateProfile = null, 
   const value = explicitProfileValue(candidateProfile, keys);
   return value === null ? null : explicitAnswerForField(field, value);
 }
-
