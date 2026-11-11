@@ -2144,7 +2144,8 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value, source: known.source, evidence: '' };
+      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
+        source: known.source === 'policy_default' && ownConsent(field) ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
