@@ -10,7 +10,16 @@ root_dir="$out/root"
 groups_dir="$out/groups"
 mkdir -p "$plan_dir" "$root_dir" "$groups_dir"
 
-sections_json="$(node scripts/ci/list-live-shard-sections.mjs --exclude-build-skipped | jq -Rsc 'split(",") | map(select(length > 0))')"
+source "$repo_root/scripts/lib/bounded-parallel.sh"
+section_order="$(bp_section_order "$repo_root/dist" it "$repo_root")" || {
+  echo "::error::cannot compute the IT section set from the full deploy contract" >&2
+  exit 1
+}
+if [ -z "$section_order" ]; then
+  echo "::error::the full deploy contract produced an empty IT section set" >&2
+  exit 1
+fi
+sections_json="$(printf '%s\n' "$section_order" | jq -Rsc 'split("\n") | map(select(length > 0))')"
 plan_file="$plan_dir/it-shard-group-plan.json"
 node scripts/ci/it-shard-group-plan.mjs \
   --repo-root "$repo_root" \
