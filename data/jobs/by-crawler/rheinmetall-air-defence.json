@@ -2887,12 +2887,12 @@
     },
     {
       "id": "rheinmetall-air-defence-e2e44e8f03c5",
-      "slug": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "sviluppatore-software-incorporato-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "sviluppatore-software-incorporato-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "developpeur-logiciel-integre-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -2954,7 +2954,18 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:35:03.250Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "embedded-software-entwickler-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-0a9494100a9d",

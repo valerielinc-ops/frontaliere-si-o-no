@@ -3896,12 +3896,12 @@
     },
     {
       "id": "concara-28a0ab165200",
-      "slug": "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-100-concara-domicil-spitex-bern",
+      "slug": "infermiere-o-operatore-sanitario-diplomato-come-guardiano-notturno-40-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern",
-        "it": "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-100-concara-domicil-spitex-bern",
-        "en": "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern",
-        "fr": "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern"
+        "it": "infermiere-o-operatore-sanitario-diplomato-come-guardiano-notturno-40-100-concara-domicil-spitex-bern-bern",
+        "en": "dipl-nurse-or-health-professional-as-a-night-watch-40-100-concara-domicil-spitex-bern-bern",
+        "fr": "dipl-infirmiere-ou-professionnel-de-la-sante-en-veille-de-nuit-40-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3950,11 +3950,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-100-concara-domicil-spitex-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-100-concara-bern",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-100-concara-domicil-spitex-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

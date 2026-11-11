@@ -4097,12 +4097,12 @@
     },
     {
       "id": "etat-de-vaud-6155",
-      "slug": "psychologue-en-milieu-scolaire-etat-de-vaud-lucens",
+      "slug": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-lucens",
       "slugByLocale": {
         "fr": "psychologue-en-milieu-scolaire-etat-de-vaud-lucens",
-        "it": "psychologue-en-milieu-scolaire-etat-de-vaud-lucens",
-        "en": "psychologue-en-milieu-scolaire-etat-de-vaud-lucens",
-        "de": "psychologue-en-milieu-scolaire-etat-de-vaud-lucens"
+        "it": "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-lucens",
+        "en": "school-psychologist-etat-de-vaud-administration-cantonale-vaudoise-lucens",
+        "de": "schulpsychologin-etat-de-vaud-administration-cantonale-vaudoise-lucens"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4164,16 +4164,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:35:02.858Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:35:02.858Z"
+      "firstSeenAt": "2026-11-11T09:35:02.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-lucens"
+        ],
+        "en": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-lucens"
+        ],
+        "de": [
+          "psychologue-en-milieu-scolaire-etat-de-vaud-lucens"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-en-milieu-scolaire-etat-de-vaud-lucens"
+      ]
     },
     {
       "id": "etat-de-vaud-6146",
-      "slug": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
+      "slug": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
       "slugByLocale": {
         "fr": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
-        "it": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
-        "en": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains",
-        "de": "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains"
+        "it": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "en": "office-of-bankruptcy-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "buro-des-konkurses-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4235,16 +4249,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:35:02.339Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:35:02.339Z"
+      "firstSeenAt": "2026-11-11T09:35:02.339Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains"
+        ],
+        "en": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains"
+        ],
+        "de": [
+          "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-d-un-office-de-faillites-etat-de-vaud-yverdon-les-bains"
+      ]
     },
     {
       "id": "etat-de-vaud-6126",
-      "slug": "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne",
+      "slug": "responsabile-per-la-sicurezza-del-sistema-informativo-didattico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne",
-        "it": "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne",
-        "en": "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne",
-        "de": "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne"
+        "it": "responsabile-per-la-sicurezza-del-sistema-informativo-didattico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "responsible-for-the-safety-of-the-educational-information-system-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verantwortlich-fur-die-sicherheit-des-bildungsinformationssystems-etat-de-vaud-administration-cantonale-vaudoise"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4306,7 +4334,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:35:01.935Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:35:01.935Z"
+      "firstSeenAt": "2026-11-11T09:35:01.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-securite-du-systeme-d-information-pedagogique-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6092",

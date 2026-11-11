@@ -3173,12 +3173,12 @@
     },
     {
       "id": "klinik-barmelweid-b9fa83a3b581",
-      "slug": "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid",
+      "slug": "capo-aggiunto-del-deposito-letto-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid",
-        "it": "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid",
-        "en": "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid",
-        "fr": "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid"
+        "it": "capo-aggiunto-del-deposito-letto-a-klinik-barmelweid-barmelweid",
+        "en": "deputy-head-of-bed-disposition-a-klinik-barmelweid-barmelweid",
+        "fr": "chef-adjoint-de-la-disposition-des-lits-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -3240,7 +3240,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:19:41.273Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:19:41.273Z"
+      "firstSeenAt": "2026-11-11T09:19:41.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
+          "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertreter-stellvertreterin-leitung-bettendisposition-a-klinik-barmelweid-barmelweid"
+      ]
     }
   ]
 }
