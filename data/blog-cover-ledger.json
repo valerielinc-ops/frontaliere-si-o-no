@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1133,
+      "5": 1134,
       "6": 5061
     },
-    "publishedCovers": 7875,
+    "publishedCovers": 7876,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217151,6 +217151,39 @@
         "provider": "openai-codex",
         "assetId": "article-governo-appenzello-candidati",
         "imageUrl": "/images/blog/article-governo-appenzello-candidati.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sanitari-italiani-fuga-svizzera": {
+      "cover": "/images/blog/article-sanitari-italiani-fuga-svizzera.webp",
+      "hash": "02fff865e09c5ce300a6de8ba7a274988bbc440239e8b6bb6992b5e8dd21b4ea",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sanitari-italiani-fuga-svizzera",
+          "category": "novita",
+          "date": "2026-10-23T15:23:51.432Z",
+          "updatedAt": "2026-10-31",
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sanitari-italiani-fuga-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sanitari-italiani-fuga-svizzera",
+        "imageUrl": "/images/blog/article-sanitari-italiani-fuga-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     }
