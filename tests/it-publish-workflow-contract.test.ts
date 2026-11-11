@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, relative, resolve } from 'node:path';
 import ts from 'typescript';
 import YAML from 'yaml';
@@ -14,6 +16,7 @@ const cdnSteps = publish.jobs['publish-it-cdn'].steps as Array<Record<string, an
 const groupSteps = publish.jobs['push-it-shard-groups'].steps as Array<Record<string, any>>;
 const finalizeSteps = publish.jobs['finalize-it-publish'].steps as Array<Record<string, any>>;
 const namedStep = (steps: Array<Record<string, any>>, name: string) => steps.find((step) => step.name === name);
+const bashSupportsMapfile = spawnSync('bash', ['-c', 'type mapfile'], { encoding: 'utf8' }).status === 0;
 
 const publisherEntrypoints = [
   'scripts/ci/list-live-shard-sections.mjs',
@@ -117,6 +120,51 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(assembler).toContain('--validate-plan "$plan_dir/it-shard-group-plan.json"');
     expect(assembler).toContain('missing the required ok-marker for $section');
     expect(assembler).toContain('missing the required section manifest for $section');
+  });
+
+  it.skipIf(!bashSupportsMapfile)('fails before the success marker when jq cannot read required sections', () => {
+    const tempRoot = mkdtempSync(resolve(tmpdir(), 'it-publish-jq-failure-'));
+    const repo = resolve(tempRoot, 'repo');
+    const runnerTemp = resolve(tempRoot, 'runner-temp');
+    const fakeBin = resolve(tempRoot, 'bin');
+    const script = resolve(repo, 'scripts/ci/assemble-it-publish-root.sh');
+
+    try {
+      mkdirSync(resolve(repo, 'scripts/ci'), { recursive: true });
+      mkdirSync(resolve(repo, 'scripts/lib'), { recursive: true });
+      mkdirSync(resolve(runnerTemp, 'it-publish-plan'), { recursive: true });
+      mkdirSync(resolve(runnerTemp, 'it-publish-root'), { recursive: true });
+      mkdirSync(resolve(runnerTemp, 'it-shard-results'), { recursive: true });
+      mkdirSync(fakeBin, { recursive: true });
+      writeFileSync(script, readFileSync(resolve(root, 'scripts/ci/assemble-it-publish-root.sh'), 'utf8'));
+      writeFileSync(resolve(repo, 'scripts/lib/parallel-tar.sh'), 'ptar_extract() { return 0; }\n');
+      writeFileSync(resolve(runnerTemp, 'it-publish-plan/it-shard-group-plan.json'), '{}');
+      writeFileSync(resolve(runnerTemp, 'it-publish-plan/locale-sitemap-manifest-it.json'), '{}');
+      writeFileSync(resolve(runnerTemp, 'it-publish-root/it-publish-root.tar.zst'), 'fixture');
+
+      const fakeNode = resolve(fakeBin, 'node');
+      const fakeJq = resolve(fakeBin, 'jq');
+      writeFileSync(fakeNode, '#!/bin/sh\nexit 0\n');
+      writeFileSync(fakeJq, '#!/bin/sh\nexit 1\n');
+      chmodSync(fakeNode, 0o755);
+      chmodSync(fakeJq, 0o755);
+
+      const result = spawnSync('bash', [script], {
+        cwd: repo,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          RUNNER_TEMP: runnerTemp,
+          PATH: `${fakeBin}:${process.env.PATH ?? ''}`,
+        },
+      });
+
+      expect(result.error).toBeUndefined();
+      expect(result.status).not.toBe(0);
+      expect(`${result.stdout}${result.stderr}`).not.toContain('[it-publish] root extracted');
+    } finally {
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
   });
 
   it('keeps build and rearm lanes non-cancelling while moving only the publish tail', () => {

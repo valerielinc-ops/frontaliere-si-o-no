@@ -23,7 +23,11 @@ cp "$plan_dir/locale-sitemap-manifest-it.json" "$RUNNER_TEMP/locale-sitemap-mani
 find "$results_dir" -type f -path '*/shard-content-manifests/it/*.json' -exec cp {} "$RUNNER_TEMP/shard-content-manifests/it/" \; 2>/dev/null || true
 find "$results_dir" -type f -path '*/it-shard-results/*.tar' -exec cp {} "$RUNNER_TEMP/" \; 2>/dev/null || true
 find "$results_dir" -type f -name 'shard-ok-*-it' -exec cp {} "$RUNNER_TEMP/" \; 2>/dev/null || true
-mapfile -t required_sections < <(jq -er '.requiredSections[]' "$plan_dir/it-shard-group-plan.json")
+required_sections_output="$(jq -er '.requiredSections[]' "$plan_dir/it-shard-group-plan.json")" || {
+  echo '::error::cannot read required IT sections from the publish plan' >&2
+  exit 1
+}
+mapfile -t required_sections <<<"$required_sections_output"
 for section in "${required_sections[@]}"; do
   marker="$RUNNER_TEMP/shard-ok-$section-it"
   manifest="$RUNNER_TEMP/shard-content-manifests/it/$section.json"
