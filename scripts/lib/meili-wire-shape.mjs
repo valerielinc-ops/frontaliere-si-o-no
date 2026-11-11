@@ -15,8 +15,14 @@ export function buildMeiliJobWireDocument(job) {
     .trim()
     .slice(0, 1000);
 
-  const rawCompany = job.company || job.hiringOrganization || 'Azienda Svizzera';
-  const companySlug = job.companySlug || rawCompany.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const companyName = (value) => typeof value === 'string' ? value.trim() : '';
+  const rawCompany = companyName(job.company)
+    || companyName(job.company?.name)
+    || companyName(job.hiringOrganization)
+    || companyName(job.hiringOrganization?.name)
+    || 'Azienda Svizzera';
+  const companySlug = (typeof job.companySlug === 'string' && job.companySlug.trim())
+    || rawCompany.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   const id = String(job.id || job._id || job.slug || '');
   if (!id) return null;

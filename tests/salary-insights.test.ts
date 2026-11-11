@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
   calculatePercentile,
-  estimateMonthlyNetFrontaliereChf,
   aggregateRoleInsights,
   generateInsightsStructuredData
 } from '../scripts/lib/salary-insights.mjs';
@@ -15,31 +14,37 @@ describe('calculatePercentile', () => {
   });
 });
 
-describe('estimateMonthlyNetFrontaliereChf', () => {
-  it('calcola il netto mensile stimato dedotti contributi e imposta alla fonte', () => {
-    // 100'000 CHF lordi annui in Ticino
-    // Contributi sociali (15%) = 15'000 -> 85'000
-    // Imposta fonte TI (8%) = 8'000
-    // Netto = 77'000 / 12 = ~6417 CHF/mese
-    const net = estimateMonthlyNetFrontaliereChf(100000, 'TI');
-    expect(net).toBeGreaterThan(6000);
-    expect(net).toBeLessThan(7000);
-  });
-});
-
 describe('aggregateRoleInsights', () => {
   it('calcola distribuzione e percentili per ruolo e cantone', () => {
     const jobs = [
-      { salaryMin: 80000, salaryMax: 90000 }, // mid 85000
-      { salaryMin: 90000, salaryMax: 110000 }, // mid 100000
-      { salaryMin: 110000, salaryMax: 130000 }, // mid 120000
+      { salaryMin: 85000, salaryMax: 85000, currency: 'CHF', salarySource: 'reported' },
+      { salaryMin: 100000, salaryMax: 100000, currency: 'CHF', salarySource: 'reported' },
+      { salaryMin: 120000, salaryMax: 120000, currency: 'CHF', salarySource: 'reported' },
     ];
 
     const insight = aggregateRoleInsights(jobs, { role: 'Software Engineer', canton: 'TI' });
     expect(insight.sampleSize).toBe(3);
     expect(insight.median).toBe(100000);
     expect(insight.min).toBe(85000);
-    expect(insight.monthlyNetChf).toBeGreaterThan(6000);
+    expect(insight.p10).toBe(88000);
+    expect(insight.p25).toBe(92500);
+    expect(insight.p75).toBe(110000);
+    expect(insight.p90).toBe(116000);
+  });
+
+  it('calcola P10 interpolato sui valori normalizzati', () => {
+    expect(calculatePercentile([100, 200, 300, 400, 500], 10)).toBe(140);
+  });
+
+  it('non inventa percentili dai range né da fonti non dichiarate', () => {
+    const insight = aggregateRoleInsights([
+      { salaryMin: 80000, salaryMax: 100000, currency: 'CHF', salarySource: 'reported' },
+      { salaryMin: 120000, salaryMax: 120000, currency: 'CHF', salarySource: 'estimated' },
+    ], { role: 'Analista', canton: 'TI' });
+
+    expect(insight.sampleSize).toBe(0);
+    expect(insight.p10).toBeNull();
+    expect(insight.p25).toBeNull();
   });
 });
 
@@ -50,11 +55,11 @@ describe('generateInsightsStructuredData', () => {
       canton: 'TI',
       sampleSize: 15,
       min: 80000,
+      p10: 82000,
       p25: 88000,
       median: 98000,
       p75: 115000,
       p90: 130000,
-      monthlyNetChf: 6300,
       calculatedAt: '2026-11-01T00:00:00Z'
     };
 
@@ -71,5 +76,28 @@ describe('generateInsightsStructuredData', () => {
     expect(occupation).toBeDefined();
     expect(occupation.estimatedSalary[0].currency).toBe('CHF');
     expect(occupation.estimatedSalary[0].median).toBe(98000);
+    expect(occupation.estimatedSalary[0].percentile10).toBe(82000);
+    expect(occupation.estimatedSalary[0].percentile10).not.toBe(insight.min);
+  });
+
+  it('localizza description, ruolo e unità dello Schema.org per EN', () => {
+    const schema = generateInsightsStructuredData({
+      role: 'Worker in Ticino',
+      canton: 'TI',
+      sampleSize: 5,
+      p10: 140,
+      p25: 200,
+      median: 300,
+      p75: 400,
+      p90: 500,
+    }, 'en');
+    const dataset = schema['@graph'].find((item: any) => item['@type'] === 'Dataset');
+    const occupation = schema['@graph'].find((item: any) => item['@type'] === 'Occupation');
+
+    expect(dataset.name).toContain('Observed salary distribution');
+    expect(dataset.description).toContain('listings with reported salary ranges');
+    expect(dataset.description).not.toContain('offerte');
+    expect(occupation.name).toBe('Worker in Ticino');
+    expect(occupation.estimatedSalary[0].name).toBe('Observed annual gross salary in CHF');
   });
 });

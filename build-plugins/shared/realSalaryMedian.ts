@@ -14,6 +14,8 @@
  * (AGENTS.md rule: duplicated construct → one module).
  */
 
+import { isReportedAnnualChfSalary as isReportedAnnualChfSalaryValue } from '../../scripts/lib/reported-salary.mjs';
+
 export interface SalaryCarrier {
   salaryMin?: number | null;
   salaryMax?: number | null;
@@ -75,11 +77,7 @@ export const MIN_REPORTED_SALARY_SAMPLES = 5;
 export function isReportedAnnualChfSalary(
   job: SalaryCarrier & { currency?: string },
 ): job is SalaryCarrier & { salaryMin: number; salaryMax: number; currency: string; salarySource: 'reported' } {
-  return job.salarySource === 'reported'
-    && String(job.currency || '').toUpperCase() === 'CHF'
-    && typeof job.salaryMin === 'number' && Number.isFinite(job.salaryMin)
-    && typeof job.salaryMax === 'number' && Number.isFinite(job.salaryMax)
-    && job.salaryMin >= 20000 && job.salaryMax >= job.salaryMin && job.salaryMax <= 300000;
+  return isReportedAnnualChfSalaryValue(job);
 }
 
 export function reportedSalarySummary(

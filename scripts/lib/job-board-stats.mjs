@@ -11,6 +11,8 @@ import {
   jobStatsHistoryCompactionCutoffDate,
 } from './job-stats-history-store.mjs';
 import { AGGREGATE_KEY, createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
+import { calculatePercentile } from './salary-insights.mjs';
+import { reportedAnnualChfSalaryRange } from './reported-salary.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -513,6 +515,31 @@ function summarizeSalaryCoverage(currentJobs = []) {
   };
 }
 
+function summarizeReportedSalaryCoverage(currentJobs = []) {
+  const salaryRows = safeArray(currentJobs)
+    .filter((job) => String(job?.canton || '').toUpperCase() === 'TI')
+    .map((job) => reportedAnnualChfSalaryRange(job))
+    .filter(Boolean);
+  const exactSalaries = salaryRows
+    .filter((row) => row.min === row.max)
+    .map((row) => row.min)
+    .sort((a, b) => a - b);
+  const salaryRangeMins = salaryRows.map((row) => row.min).sort((a, b) => a - b);
+  const salaryRangeMaxes = salaryRows.map((row) => row.max).sort((a, b) => a - b);
+
+  return {
+    salaryRangeCount: salaryRows.length,
+    exactSalaryCount: exactSalaries.length,
+    medianRangeMin: salaryRangeMins.length ? calculatePercentile(salaryRangeMins, 50) : null,
+    medianRangeMax: salaryRangeMaxes.length ? calculatePercentile(salaryRangeMaxes, 50) : null,
+    p10: exactSalaries.length ? calculatePercentile(exactSalaries, 10) : null,
+    p25: exactSalaries.length ? calculatePercentile(exactSalaries, 25) : null,
+    median: exactSalaries.length ? calculatePercentile(exactSalaries, 50) : null,
+    p75: exactSalaries.length ? calculatePercentile(exactSalaries, 75) : null,
+    p90: exactSalaries.length ? calculatePercentile(exactSalaries, 90) : null,
+  };
+}
+
 function buildSalaryLeaders(currentJobs = [], projector) {
   const map = new Map();
   for (const job of safeArray(currentJobs)) {
@@ -613,6 +640,7 @@ export function buildJobsStatsSummary(currentJobs = [], history = {}, options = 
     },
     salary: {
       coverage: salaryCoverage,
+      reportedSalaryData: summarizeReportedSalaryCoverage(currentJobs),
       leaders: {
         topSalaryCompanies: buildSalaryLeaders(currentJobs, getCompanySummary).slice(0, 8),
         topSalaryLocations: buildSalaryLeaders(currentJobs, getLocationSummary).slice(0, 8),

@@ -23,30 +23,56 @@ export function calculatePercentile(sortedValues, p) {
   return Math.round(sortedValues[lower] * (1 - weight) + sortedValues[upper] * weight);
 }
 
-/**
- * Calcola la stima del netto mensile per frontaliere svizzero (12 mensilità)
- * tenendo conto dell'imposta alla fonte cantonale e dell'accordo fiscale frontalieri 2026.
- * @param {number} grossAnnualChf Salario lordo annuo in CHF
- * @param {string} canton Sigla cantone (TI, GR, ZH, etc.)
- * @returns {number} Netto mensile stimato in CHF
- */
-export function estimateMonthlyNetFrontaliereChf(grossAnnualChf, canton = 'TI') {
-  if (!grossAnnualChf || grossAnnualChf <= 0) return 0;
+const INSIGHT_COPY = {
+  it: {
+    datasetName: 'Distribuzione salariale osservata',
+    description: (role, canton, count) => `Distribuzione dei range annuali lordi in CHF dichiarati negli annunci disponibili per ${role} in ${canton}. Campione: ${count} annunci con salario dichiarato.`,
+    median: 'Salario lordo annuo mediano dichiarato',
+    salaryDistribution: 'Stipendio annuo lordo osservato in CHF',
+    role: 'Lavoratore in Ticino',
+    switzerland: 'Svizzera',
+  },
+  en: {
+    datasetName: 'Observed salary distribution',
+    description: (role, canton, count) => `Distribution of annual gross salary ranges in CHF reported in available listings for ${role} in ${canton}. Sample: ${count} listings with reported salary ranges.`,
+    median: 'Reported median annual gross salary',
+    salaryDistribution: 'Observed annual gross salary in CHF',
+    role: 'Worker in Ticino',
+    switzerland: 'Switzerland',
+  },
+  de: {
+    datasetName: 'Beobachtete Gehaltsverteilung',
+    description: (role, canton, count) => `Verteilung der in verfügbaren Stellenanzeigen für ${role} in ${canton} gemeldeten jährlichen Bruttolohnspannen in CHF. Stichprobe: ${count} Anzeigen mit gemeldeter Lohnspanne.`,
+    median: 'Gemeldeter jährlicher Bruttomedianlohn',
+    salaryDistribution: 'Beobachtetes jährliches Bruttogehalt in CHF',
+    role: 'Beschäftigte im Tessin',
+    switzerland: 'Schweiz',
+  },
+  fr: {
+    datasetName: 'Distribution salariale observée',
+    description: (role, canton, count) => `Distribution des fourchettes annuelles brutes en CHF déclarées dans les annonces disponibles pour ${role} au ${canton}. Échantillon : ${count} annonces avec fourchette déclarée.`,
+    median: 'Salaire brut annuel médian déclaré',
+    salaryDistribution: 'Salaire brut annuel observé en CHF',
+    role: 'Travailleur au Tessin',
+    switzerland: 'Suisse',
+  },
+};
 
-  // Aliquota media contributi sociali svizzeri (AVS/AI/IPG 5.3%, AD 1.1%, LPP ~7-9%) ~15%
-  const socialContributionsRate = 0.15;
-  const afterSocial = grossAnnualChf * (1 - socialContributionsRate);
+const CANTON_NAMES = {
+  TI: { it: 'Canton Ticino, Svizzera', en: 'Canton Ticino, Switzerland', de: 'Kanton Tessin, Schweiz', fr: 'Canton du Tessin, Suisse' },
+  GR: { it: 'Canton Grigioni, Svizzera', en: 'Canton of Graubünden, Switzerland', de: 'Kanton Graubünden, Schweiz', fr: 'Canton des Grisons, Suisse' },
+  ZH: { it: 'Canton Zurigo, Svizzera', en: 'Canton Zurich, Switzerland', de: 'Kanton Zürich, Schweiz', fr: 'Canton de Zurich, Suisse' },
+};
 
-  // Imposta alla fonte svizzera indicativa per cantone
-  const withholdingRate = canton === 'TI' ? 0.08 : canton === 'ZH' ? 0.11 : 0.09;
-  const swissWithholdingTax = grossAnnualChf * withholdingRate;
-
-  const netAnnualChf = afterSocial - swissWithholdingTax;
-  return Math.round(netAnnualChf / 12);
+export function getSalaryInsightsCopy(locale = 'it') {
+  return INSIGHT_COPY[locale] || INSIGHT_COPY.it;
 }
 
+import { reportedAnnualChfSalaryRange } from './reported-salary.mjs';
+
 /**
- * Raggruppa e calcola i percentili salariali da un insieme di offerte di lavoro.
+ * Calcola i percentili dai soli importi annuali CHF puntuali e dichiarati.
+ * Gli annunci con intervalli non vengono convertiti in midpoint sintetici.
  * @param {Array<object>} jobs Elenco offerte
  * @param {{ role: string, canton: string }} options
  * @returns {object}
@@ -54,14 +80,9 @@ export function estimateMonthlyNetFrontaliereChf(grossAnnualChf, canton = 'TI') 
 export function aggregateRoleInsights(jobs, { role, canton = 'TI' } = {}) {
   const salaries = [];
 
-  for (const j of jobs || []) {
-    if (typeof j.salaryMin === 'number' && typeof j.salaryMax === 'number') {
-      salaries.push(Math.round((j.salaryMin + j.salaryMax) / 2));
-    } else if (typeof j.salaryMin === 'number') {
-      salaries.push(j.salaryMin);
-    } else if (typeof j.salaryMax === 'number') {
-      salaries.push(j.salaryMax);
-    }
+  for (const job of jobs || []) {
+    const salary = reportedAnnualChfSalaryRange(job);
+    if (salary && salary.min === salary.max) salaries.push(salary.min);
   }
 
   salaries.sort((a, b) => a - b);
@@ -73,32 +94,32 @@ export function aggregateRoleInsights(jobs, { role, canton = 'TI' } = {}) {
       canton,
       sampleSize: 0,
       min: 0,
-      p25: 0,
-      median: 0,
-      p75: 0,
-      p90: 0,
-      monthlyNetChf: 0,
+      p10: null,
+      p25: null,
+      median: null,
+      p75: null,
+      p90: null,
       calculatedAt: new Date().toISOString()
     };
   }
 
   const min = salaries[0];
+  const p10 = calculatePercentile(salaries, 10);
   const p25 = calculatePercentile(salaries, 25);
   const median = calculatePercentile(salaries, 50);
   const p75 = calculatePercentile(salaries, 75);
   const p90 = calculatePercentile(salaries, 90);
-  const monthlyNetChf = estimateMonthlyNetFrontaliereChf(median, canton);
 
   return {
     role: role || 'Professionista',
     canton,
     sampleSize,
     min,
+    p10,
     p25,
     median,
     p75,
     p90,
-    monthlyNetChf,
     calculatedAt: new Date().toISOString()
   };
 }
@@ -108,22 +129,17 @@ export function aggregateRoleInsights(jobs, { role, canton = 'TI' } = {}) {
  * @param {object} insight Dati aggregati da aggregateRoleInsights
  * @returns {object}
  */
-export function generateInsightsStructuredData(insight) {
-  const cantonName = insight.canton === 'TI'
-    ? 'Canton Ticino, Svizzera'
-    : insight.canton === 'GR'
-      ? 'Canton Grigioni, Svizzera'
-      : insight.canton === 'ZH'
-        ? 'Canton Zurigo, Svizzera'
-        : 'Svizzera';
+export function generateInsightsStructuredData(insight, locale = 'it') {
+  const copy = getSalaryInsightsCopy(locale);
+  const cantonName = CANTON_NAMES[insight.canton]?.[locale] || copy.switzerland;
 
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Dataset',
-        name: `Statistiche Salariali Frontalieri: ${insight.role} (${insight.canton})`,
-        description: `Distribuzione retributiva mediana e percentili per ${insight.role} in ${cantonName} aggiornati a Novembre 2026. Campione: ${insight.sampleSize} offerte di lavoro verificate.`,
+        name: `${copy.datasetName}: ${insight.role} (${insight.canton})`,
+        description: copy.description(insight.role, cantonName, insight.sampleSize),
         spatialCoverage: {
           '@type': 'Place',
           name: cantonName
@@ -131,14 +147,8 @@ export function generateInsightsStructuredData(insight) {
         variableMeasured: [
           {
             '@type': 'PropertyValue',
-            name: 'Salario Mediano Annuo Lordo',
+            name: copy.median,
             value: String(insight.median),
-            unitText: 'CHF'
-          },
-          {
-            '@type': 'PropertyValue',
-            name: 'Stima Netto Mensile Frontaliere',
-            value: String(insight.monthlyNetChf),
             unitText: 'CHF'
           }
         ]
@@ -149,10 +159,10 @@ export function generateInsightsStructuredData(insight) {
         estimatedSalary: [
           {
             '@type': 'MonetaryAmountDistribution',
-            name: 'Stipendio Annuo Base Lordo in CHF',
+            name: copy.salaryDistribution,
             currency: 'CHF',
             median: insight.median,
-            percentile10: insight.min,
+            percentile10: insight.p10,
             percentile25: insight.p25,
             percentile75: insight.p75,
             percentile90: insight.p90

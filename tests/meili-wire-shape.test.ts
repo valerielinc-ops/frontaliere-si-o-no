@@ -48,4 +48,14 @@ describe('buildMeiliJobWireDocument', () => {
     expect(buildMeiliJobWireDocument(null)).toBeNull();
     expect(buildMeiliJobWireDocument({})).toBeNull();
   });
+
+  it('normalizza hiringOrganization quando Meilisearch riceve la forma oggetto JSON-LD', () => {
+    const doc = buildMeiliJobWireDocument({
+      id: 'j1',
+      hiringOrganization: { name: 'Acme SA' },
+    });
+
+    expect(doc?.company).toBe('Acme SA');
+    expect(doc?.company_slug).toBe('acme-sa');
+  });
 });
