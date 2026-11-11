@@ -321,7 +321,7 @@ export async function confirmCdnAsset(key, {
       signal: AbortSignal.timeout(timeoutMs),
     });
     const answer = await answerWithExpectedCacheControl(response, expectedCacheControl, expectedContentMd5);
-    if (expectedContentMd5 === undefined) {
+    if (expectedContentMd5 === undefined && answer === 'present') {
       discardResponseBody(response);
     }
     return answer === 'stale' ? 'unknown' : answer;

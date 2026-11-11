@@ -530,7 +530,8 @@ describe('ensureCdnShellAssets', () => {
     expect(uploadCalls.filter(({ key }) => key === stable)).toHaveLength(2);
     expect(uploadCalls.filter(({ key }) => key === stable).every(({ createOnly }) => createOnly)).toBe(true);
     expect(['first()', 'second()']).toContain(stored.get(stable));
-    expect(String(outcomes.find((outcome) => outcome.status === 'rejected')?.reason)).toContain('conditional create failed');
+    const rejected = outcomes.find((outcome): outcome is PromiseRejectedResult => outcome.status === 'rejected');
+    expect(String(rejected?.reason)).toContain('conditional create failed');
   });
 
   it('does not overwrite a stable global alias already stored in R2 when its edge response is absent', async () => {
