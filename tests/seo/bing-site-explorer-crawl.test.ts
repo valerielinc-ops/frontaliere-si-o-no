@@ -1576,7 +1576,11 @@ describe('Bing-compatible full-tree crawler', () => {
     );
     expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
     expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
-    expect(jobsSeoSource).toContain('activeCanonicalJobHref(relatedJob, locale) !== null');
+    expect(jobsSeoSource).toContain('const related = perJob_related.flatMap');
+    expect(jobsSeoSource).toContain('const href = activeCanonicalJobHref(relatedJob, locale);');
+    expect(jobsSeoSource).toContain('return href ? [{ job: relatedJob, href }] : [];');
+    expect(jobsSeoSource).toContain('.map(({ job: r, href }, i: number) => {');
+    expect(jobsSeoSource).not.toContain('const href = rPaths[locale];');
     const registryPrepassStart = jobsSeoSource.indexOf('const activeJobSitemapLocs = new Set<string>();');
     const registryPrepassEnd = jobsSeoSource.indexOf('setActiveJobSitemapLocs(activeJobSitemapLocs);', registryPrepassStart);
     expect(registryPrepassStart).toBeGreaterThanOrEqual(0);
@@ -1590,6 +1594,14 @@ describe('Bing-compatible full-tree crawler', () => {
 
     const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
     const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-zurigo/`;
+    const absentTarget = `${BASE}/cerca-lavoro-zurigo/offerta-assente/`;
+    const activeJobRegistry = new Set([canonicalJob]);
+    const relatedTargets = [canonicalJob, noindexAlias, absentTarget];
+    const linkableRelatedTargets = relatedTargets.filter((href) => activeJobRegistry.has(href));
+    const relatedHtml = linkableRelatedTargets.map((href) => `<a href="${href}">Offerta</a>`).join('');
+    expect(extractInternalLinks(relatedHtml, `${BASE}/cerca-lavoro-ticino/cluster/`, BASE)).toEqual([canonicalJob]);
+    expect(relatedHtml).not.toContain(noindexAlias);
+    expect(relatedHtml).not.toContain(absentTarget);
     const links = extractInternalLinks(
       `<a href="${canonicalJob}">Offerta canonica</a>`,
       `${BASE}/cerca-lavoro-ticino/cluster/`,
