@@ -755,7 +755,7 @@ export function determineCachePolicy(request, url) {
   }
 
   // 2. Dettaglio annuncio di lavoro
-  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/[^/]+$/i.test(url.pathname)) {
+  if (/^\/(?:[a-z]{2}\/)?(?:offerte-lavoro-svizzera|lavoro)\/[^/]+\/?$/i.test(url.pathname)) {
     return {
       cacheControl: JOB_DETAIL_CACHE_CONTROL,
       bypassEdgeCache: false,
