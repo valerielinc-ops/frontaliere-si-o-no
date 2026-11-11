@@ -45,8 +45,8 @@ const nationalityQuestion = (options: string[] = [], question = 'Nationalität')
 
 describe('versions', () => {
   it('lets the recovery by version read the held questions again', () => {
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v11');
-    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v10');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v12');
+    expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v11');
   });
 });
 
@@ -142,7 +142,7 @@ describe('the nationality deduced from the CV (owner decision 2026-11-11)', () =
     const known = facts({ education: [liceo], location: 'Como' });
     // The Yellowshark list of country names in German, its prompt first.
     expect(platformDefaultAnswer(nationalityQuestion(['Nationalität', 'Albanien', 'Italien', 'Schweiz']), known))
-      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: 'platform-defaults-v11' });
+      .toMatchObject({ value: 'Italien', topic: 'platform:nationality', source: 'policy_default', basis: 'deduced', version: PLATFORM_DEFAULTS_VERSION });
     expect(platformDefaultAnswer(nationalityQuestion(['Aucune sélection', 'Allemand', 'Italien', 'Suisse'], 'Qual è la tua nazionalità?'), known)?.value).toBe('Italien');
     expect(platformDefaultAnswer(nationalityQuestion(['Selezionare', 'Svizzera', 'Tedesca', 'Italiana'], 'Nazionalità'), known)?.value).toBe('Italiana');
     expect(platformDefaultAnswer(nationalityQuestion(['Germany', 'Italy', 'Switzerland'], 'Citizenship'), known)?.value).toBe('Italy');
@@ -314,7 +314,7 @@ describe('more offline signals for the nationality (owner decision 2026-11-11, s
 
   it('answers the form from the declaration, and the phone reaches the deduction through the facts', () => {
     const declared = facts({}, { cvText: 'Nationality: Italian' });
-    expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), declared)).toMatchObject({ value: 'Italien', basis: 'cv', version: 'platform-defaults-v11' });
+    expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), declared)).toMatchObject({ value: 'Italien', basis: 'cv', version: PLATFORM_DEFAULTS_VERSION });
     const dual = facts({}, { cvText: 'Cittadinanza: italiana e svizzera' });
     expect(platformDefaultAnswer(nationalityQuestion(['Albanien', 'Italien', 'Schweiz']), dual)?.value).toBe('Schweiz');
     // The candidate's own dual nationality: Swiss first on a list, their own words in a free field.

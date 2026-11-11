@@ -54,6 +54,7 @@ import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
+import { holdUnservedLocalDispatches } from './assistedApplicationSwissRunner.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -68,6 +69,8 @@ export const AI_DRAFT_DOC_ID = 'current';
  * A dispatched run that reported nothing for this long is presumed lost.
  * Longer than the agent job's timeout-minutes (120, three 30-minute Codex
  * calls in a row): a slow run that is still alive is never dispatched twice.
+ * The Swiss runner kills its run at the same 120 minutes and its lease ends at
+ * 140 (assistedApplicationSwissRunner.js LOCAL_DISPATCH_LEASE_MS).
  */
 export const RUN_WATCHDOG_MS = 150 * 60 * 1000;
 /** Draft runs at Codex effort max take ~10–15 min; submissions can take longer. */
@@ -793,6 +796,17 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
     }
   }
   const summary = { ticks: 0, redispatched: 0, portalRetries: 0, factRepairs: 0, timedOut: 0, ignored: 0, failed: 0, refunds: 0, receiptsReconciled: 0 };
+  // Runs queued for the Swiss runner that no live runner took: held for the owner, with the reason
+  // (assistedApplicationSwissRunner.js). A failure here never stops the rest of the sweep.
+  try {
+    const swiss = await holdUnservedLocalDispatches({ db, nowMs, runEffect, applyEvent: args => applyAutomationEvent(args) });
+    if (swiss.held) summary.swissRunnerHolds = swiss.held;
+    if (swiss.requeued) summary.swissLeasesRequeued = swiss.requeued;
+    if (swiss.failed) summary.failed += swiss.failed;
+  } catch (error) {
+    summary.failed += 1;
+    console.error('[assistedApplicationAutomation] Swiss runner queue check failed', error instanceof Error ? error.message : String(error));
+  }
   // Automatic refunds that failed (closed ad): retried until they go through
   // or the effect gives up and alerts the owner.
   const refunds = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)

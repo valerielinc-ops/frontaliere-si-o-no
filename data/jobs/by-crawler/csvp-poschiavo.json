@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-11-10T21:42:40.776Z",
-  "runId": "42903067232",
+  "assembledAt": "2026-11-11T09:27:59.514Z",
+  "runId": "42993516774",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T21:42:32.724Z",
+      "crawledAt": "2026-11-11T09:27:48.767Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:42:32.724Z",
+      "validThrough": "2027-01-06T09:27:48.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -104,7 +104,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T21:42:32.428Z",
+      "crawledAt": "2026-11-11T09:27:48.568Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -139,7 +139,78 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:42:32.428Z",
+      "validThrough": "2027-01-27T09:27:48.568Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "csvp-poschiavo-0843f26cd0d8",
+      "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+      "slugByLocale": {
+        "it": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+        "en": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+        "de": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+        "fr": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo"
+      },
+      "company": "Centro Sanitario Valposchiavo (CSVP)",
+      "companyKey": "csvp-poschiavo",
+      "companyDomain": "csvp.ch",
+      "title": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
+      "titleByLocale": {
+        "it": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "en": "Associate alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "de": "Mitarbeiter alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "fr": "Préposé alle cure sociosanitarie o Collaboratore sanitario CRS"
+      },
+      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+      "descriptionByLocale": {
+        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+        "en": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+        "de": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+        "fr": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05"
+      },
+      "needsRetranslation": true,
+      "location": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
+      "source": "CSVP Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-11T09:27:48.297Z",
+      "addressLocality": "Poschiavo",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7742",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Poschiavo",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T09:27:48.297Z",
       "validThroughSource": "last-observed-window"
     }
   ]

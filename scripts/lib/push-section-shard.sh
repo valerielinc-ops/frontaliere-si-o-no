@@ -364,15 +364,28 @@ push_section_shard() {
     if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       current_manifest="$manifest_dir/$loc.jsonl"
-      if shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
+      if shard_delta_clone_and_prepare \
+          "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
+          "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
+          "$SHARD_HISTORY_CAP" "$section-$loc shard" "${SHARD_DELTA_FULL_REWRITE_THRESHOLD:-0.9}"; then
         delta_snapshot="$delta_output/snapshot.jsonl"
-        if shard_delta_clone_and_prepare \
-            "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
-            "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
-            "$SHARD_HISTORY_CAP" "$section-$loc shard"; then
-          delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
-          delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
-          delta_apply_ok=1
+        delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
+        delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
+        delta_apply_ok=1
+        if [ "$SHARD_DELTA_FULL_REWRITE" = 1 ]; then
+          echo "$section-$loc shard: manifest delta selected full-rewrite fast path"
+          if [ "$cdn_rewrite_deferred" = 1 ]; then
+            offload_full_stage
+            cdn_rewrite_deferred=0
+            cdn_rewrite_partial=0
+          fi
+          if ! shard_delta_remove_stale_payload_paths \
+              "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt" 1 \
+              "$delta_output/manifest-covered-files.txt"; then
+            delta_apply_ok=0
+            delta_fallback_reason="${SHARD_DELTA_REASON:-full rewrite tombstone check failed}"
+          fi
+        else
           if [ "$cdn_rewrite_deferred" = 1 ]; then
             if offload_delta_stage "$delta_output"; then
               cdn_rewrite_partial=1
@@ -387,75 +400,75 @@ push_section_shard() {
             delta_apply_ok=0
             delta_fallback_reason="${SHARD_DELTA_REASON:-delta unchanged payload check failed}"
           fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            if ! shard_delta_remove_stale_payload_paths \
-                "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt" 1 \
-                "$delta_output/manifest-covered-files.txt"; then
-              delta_apply_ok=0
-              delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
-            fi
-          fi
-          if [ "$delta_apply_ok" = 1 ] && ! shard_delta_apply_source_tree \
-              "$stage" "$stage_src/dist/$sub" "$sub" \
-              "$delta_output/changed-files.txt" \
-              "$delta_output/unmanifested-files.txt" \
-              "$delta_output/payload-files.txt"; then
+          if [ "$delta_apply_ok" = 1 ] && ! shard_delta_remove_stale_payload_paths \
+              "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt" 1 \
+              "$delta_output/manifest-covered-files.txt"; then
             delta_apply_ok=0
-            delta_fallback_reason='delta source application failed'
+            delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
           fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            if ! shard_delta_add_text "$stage" .nojekyll '' ; then delta_apply_ok=0; fi
-            if ! shard_delta_add_text "$stage" CNAME "$ORIGIN_HOST"; then delta_apply_ok=0; fi
-            if [ -f "$stage_src/dist/404.html" ]; then
-              if ! shard_delta_add_file "$stage" "$stage_src/dist/404.html" 404.html; then delta_apply_ok=0; fi
-            elif ! shard_delta_remove_file "$stage" 404.html; then
-              delta_apply_ok=0
-            fi
-            if ! shard_delta_add_text "$stage" index.html "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $section-$loc shard</title>"; then delta_apply_ok=0; fi
-            if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
+        fi
+        if [ "$delta_apply_ok" = 1 ] && ! shard_delta_apply_source_tree \
+            "$stage" "$stage_src/dist/$sub" "$sub" \
+            "$delta_output/changed-files.txt" \
+            "$delta_output/unmanifested-files.txt" \
+            "$delta_output/payload-files.txt" "$SHARD_DELTA_FULL_REWRITE"; then
+          delta_apply_ok=0
+          delta_fallback_reason='delta source application failed'
+        fi
+        if [ "$delta_apply_ok" = 1 ]; then
+          if ! shard_delta_add_text "$stage" .nojekyll ''; then delta_apply_ok=0; fi
+          if ! shard_delta_add_text "$stage" CNAME "$ORIGIN_HOST"; then delta_apply_ok=0; fi
+          if [ -f "$stage_src/dist/404.html" ]; then
+            if ! shard_delta_add_file "$stage" "$stage_src/dist/404.html" 404.html; then delta_apply_ok=0; fi
+          elif ! shard_delta_remove_file "$stage" 404.html; then
+            delta_apply_ok=0
           fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            if ! shard_assert_source_paths_indexed \
-                "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
-              delta_apply_ok=0
-              delta_fallback_reason="${SHARD_DELTA_REASON:-delta source path integrity check failed}"
-            fi
+          if ! shard_delta_add_text "$stage" index.html "<!doctype html><meta charset=utf-8><title>frontaliereticino.ch $section-$loc shard</title>"; then delta_apply_ok=0; fi
+          if ! shard_delta_add_file "$stage" "$delta_snapshot" "$delta_sidecar"; then delta_apply_ok=0; fi
+        fi
+        if [ "$delta_apply_ok" = 1 ]; then
+          if ! shard_assert_source_paths_indexed \
+              "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
+            delta_apply_ok=0
+            delta_fallback_reason="${SHARD_DELTA_REASON:-delta source path integrity check failed}"
           fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            n="$(shard_delta_count_files "$stage" "$sub")"
-            if [ ! -s "$stage_src/dist/$sub/index.html" ]; then
-              delta_apply_ok=0
-              delta_fallback_reason='delta source index is empty'
-            elif [ "$n" -lt "$src_n" ]; then
-              delta_apply_ok=0
-              delta_fallback_reason="delta integrity check failed (indexed $n, source $src_n)"
-            elif shard_delta_shrink_exceeded "$SHARD_DELTA_PREV_N" "$n" "${SHARD_SHRINK_GUARD_PCT:-50}"; then
-              delta_apply_ok=0
-              delta_fallback_reason="shrink guard would reject $SHARD_DELTA_PREV_N -> $n files (>${SHARD_SHRINK_GUARD_PCT:-50}%)"
-            fi
+        fi
+        if [ "$delta_apply_ok" = 1 ]; then
+          n="$(shard_delta_count_files "$stage" "$sub")"
+          if [ ! -s "$stage_src/dist/$sub/index.html" ]; then
+            delta_apply_ok=0
+            delta_fallback_reason='delta source index is empty'
+          elif [ "$n" -lt "$src_n" ]; then
+            delta_apply_ok=0
+            delta_fallback_reason="delta integrity check failed (indexed $n, source $src_n)"
+          elif shard_delta_shrink_exceeded "$SHARD_DELTA_PREV_N" "$n" "${SHARD_SHRINK_GUARD_PCT:-50}"; then
+            delta_apply_ok=0
+            delta_fallback_reason="shrink guard would reject $SHARD_DELTA_PREV_N -> $n files (>${SHARD_SHRINK_GUARD_PCT:-50}%)"
           fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            dcount="$SHARD_DELTA_DCOUNT"
-            prev_n="$SHARD_DELTA_PREV_N"
-            incremental=1
-            if ! shard_delta_add_text "$stage" .shard-filecount "$n" 0; then delta_apply_ok=0; fi
-            if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
-            if ! shard_delta_add_text "$stage" .shard-source "$(shard_source_stamp)" 1; then delta_apply_ok=0; fi
-          fi
-          if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
-            delta_fallback_reason='delta index update failed'
-          fi
-          if [ "$delta_apply_ok" = 1 ]; then
-            delta_applied=1
-            echo "$section-$loc shard: delta indexed tree, $n files (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, unmanifested-overlay=$SHARD_DELTA_UNMANIFESTED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, deploys-since-flatten=$((dcount + 1)))"
-          fi
-        else
-          delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
+        fi
+        if [ "$delta_apply_ok" = 1 ]; then
+          dcount="$SHARD_DELTA_DCOUNT"
+          prev_n="$SHARD_DELTA_PREV_N"
+          incremental=1
+          if ! shard_delta_add_text "$stage" .shard-filecount "$n" 0; then delta_apply_ok=0; fi
+          if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+          if ! shard_delta_add_text "$stage" .shard-source "$(shard_source_stamp)" 1; then delta_apply_ok=0; fi
+        fi
+        if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
+          delta_fallback_reason='delta index update failed'
+        fi
+        if [ "$delta_apply_ok" = 1 ]; then
+          delta_applied=1
+          echo "$section-$loc shard: delta indexed tree, $n files (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, unmanifested-overlay=$SHARD_DELTA_UNMANIFESTED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, full-rewrite=$SHARD_DELTA_FULL_REWRITE, deploys-since-flatten=$((dcount + 1)))"
         fi
       else
-        delta_fallback_reason="${SHARD_DELTA_REASON:-current manifest missing or invalid}"
+        delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
       fi
       if [ "$delta_applied" != 1 ]; then
+        if [ -z "$delta_snapshot" ] && [ -s "$current_manifest" ] \
+            && shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
+          delta_snapshot="$delta_output/snapshot.jsonl"
+        fi
         echo "::warning::$section-$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
       shard_phase delta-plan

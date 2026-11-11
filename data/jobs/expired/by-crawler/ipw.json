@@ -553,16 +553,23 @@
     "slugByLocale": {
       "it": "specialista-in-economia-domestica-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "en": "specialist-in-housekeeping-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "de": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+      "de": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b9bb591a",
       "fr": "specialiste-en-economie-domestique-integrierte-psychiatrie-winterthur-ipw-winterthur"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-03T09:21:26.584Z",
-    "previousSlugs": [
-      "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b9bb591a",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+      ],
+      "en": [
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+      ],
+      "de": [
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-b9bb591a"
+      ],
+      "fr": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
       ]
     },
@@ -573,7 +580,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/fachfrau---fachmann-hauswirtschaft--4077416",
-    "firstSeenAt": "2026-09-03T13:34:51.775Z"
+    "firstSeenAt": "2026-09-03T13:34:51.775Z",
+    "previousSlugs": [
+      "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+    ]
   },
   {
     "slug": "apprendista-specialista-settore-alberghiero-economia-domestica-apprendista-specialista-settore-alberghiero-economia-domestica-f2d6fb1cf7",
@@ -1767,8 +1777,9 @@
       "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-7c0199de",
       "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-88fc3cda",
       "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-ab1dd478",
+      "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-ba9addc4",
       "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
-      "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-ba9addc4"
+      "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-b750e913"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1912,6 +1923,7 @@
         "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-88fc3cda",
         "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-ab1dd478",
         "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-ba9addc4",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg-b750e913",
         "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
       ],
       "en": [
@@ -2757,8 +2769,7 @@
       "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
       "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
       "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
-      "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873",
-      "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+      "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2852,7 +2863,8 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-7866edca"
       ],
       "en": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a020c84c",
@@ -2944,7 +2956,8 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-215b1acd",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
       ],
       "fr": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a020c84c",
@@ -3036,7 +3049,8 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-215b1acd",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
       ],
       "de": [
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-a020c84c",
@@ -3129,7 +3143,8 @@
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d7c66004",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-ea1d300d",
         "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
-        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873"
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873",
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
       ]
     },
     "postalCode": "8408",
@@ -3160,16 +3175,14 @@
       "fr": "Für die Sozialberatung auf der Depressions- und Angststation sowie der Psychotherapiestation für ältere Menschen am Standort Klinik Schlosstal suchen wir dich Praktikantin / Praktikant Sozialarbeit 80% Winterthur Jetzt bewerben Aufgaben\n• Soziale Beratung und Begleitung von Erwachsenen im Erwerbs- und Pensionsalter sowie deren sozialem Umfeld\n• Dokumentation von Beratungsprozessen sowie Übernahme administrativer Aufgaben\n• Interinstitutionelle Netzwerkarbeit (z.B. mit Behörden, Ämtern, Wohneinrichtungen und Beistän­den)\n• Koordination von Unterstützungsangeboten, Triage sowie Beratung und Begleitung von Angehöri­gen\n• Interprofessionelle Zusammenarbeit im Behandlungsteams\n• Teilnahme an Teamsitzungen, interdisziplinären Rapporten sowie an Supervisionen und Intervisio­nen Profil\n• Studium an einer Fachhochschule für Soziale Arbeit\n• Erstpraktikum abgeschlossen\n• Interesse an der Arbeit mit Erwachsenen in schwierigen Lebenssituationen im psychiatrischen Kontext\n• Eine verantwortungsbewusste sowie selbstständige Arbeitsweise\n• Kompetenz in interprofessioneller Zusammenarbeit\n• Gute kommunikative und soziale Fähigkeiten\n• Hohe Eigenverantwortung und Fähigkeit, sich schnell in ein Arbeitsgebiet einzuarbeiten sowie eine selbständige Arbeitsweise Angebot\n• Einblicke in die klinische Sozialarbeit im psychiatrischen Kontext\n• Ein spannendes, vielfältiges und lehrreiches Praktikum auf zwei Stationen (Depressions- und Angststation und Psychotherapiestation für ältere Menschen)\n• Eine sorgfältige Einarbeitung und Begleitung\n• Ein erfahrenes und motiviertes interprofessionelles Team\n• Raum für Eigeninitiative und persönliche Entwicklung\n• Attraktiver Arbeitsplatz mit guten Verbindungen an den öffentlichen Verkehr Eintritt Per Januar oder Februar 2027, befristet 6 Monate Ihr Kontakt Frau Anja Nüesch, Sozialberatung, T 052 264 34 66 Bewerbung Bitte beachten Sie, dass nur vollständige Bewerbungsunterlagen berücksichtigt werden können. Massgebend sind dabei die unter den Themenschwerpunkten \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben für Ihre Bewerbung. Dossiers von Personalvermittlern werden nicht berücksichtigt. Die ipw behandelt Jugendliche, Erwachsene und ältere Menschen mit unterschiedlichen psychischen Krankheitsbildern. Rund 1000 Mitarbeiterinnen und Mitarbeiter sind in den ambulanten, tagesklinischen und stationären Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Wirken Sie mit und bewirken Sie viel.\n\nPensum: 80%"
     },
     "slugByLocale": {
-      "de": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
+      "de": "praktikantin-praktikant-sozialarbeit-ipw-winterthur-a2a28a2b",
       "fr": "travail-social-interne-interne-integrierte-psychiatrie-winterthur-ipw-winterthur"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-27T14:58:53.748Z",
-    "previousSlugs": [
-      "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "praktikantin-praktikant-sozialarbeit-ipw-winterthur-a2a28a2b",
         "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
       ],
       "en": [
@@ -3177,6 +3190,9 @@
       ],
       "fr": [
         "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+      ],
+      "de": [
+        "praktikantin-praktikant-sozialarbeit-ipw-winterthur-a2a28a2b"
       ]
     },
     "postalCode": "8408",
@@ -3185,7 +3201,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/praktikantin---praktikant-sozialarbeit--4060425",
-    "firstSeenAt": "2026-08-27T00:55:48.399Z"
+    "firstSeenAt": "2026-08-27T00:55:48.399Z",
+    "previousSlugs": [
+      "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+    ]
   },
   {
     "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9",

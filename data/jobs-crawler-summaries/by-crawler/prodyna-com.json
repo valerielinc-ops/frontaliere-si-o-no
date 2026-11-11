@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-10T22:04:01.100Z",
+  "generatedAt": "2026-11-11T09:53:13.199Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12691,
-  "avgDurationMs": 12691,
+  "durationMs": 15072,
+  "avgDurationMs": 15072,
   "durationHistory": [
-    12691
+    15072
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prodyna-com-227cd4ac5dec",
-      "slug": "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch",
+      "slug": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
       "company": "PRODYNA (Schweiz) AG",
       "companyKey": "prodyna-com",
       "companyDomain": "prodyna.com",
@@ -37,7 +38,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:03:29.808Z",
+      "crawledAt": "2026-11-11T09:52:49.084Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -55,25 +56,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-10T22:03:29.808Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:03:29.808Z",
+      "validThrough": "2027-02-09T09:52:49.084Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:03:29.808Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     },
     {
       "id": "prodyna-com-ea85f758c491",
-      "slug": "senior-java-developer-all-genders-4052-basel-prodyna-com-ch",
+      "slug": "senior-java-sviluppatore-all-genders-prodyna-schweiz-ag-basel",
       "company": "PRODYNA (Schweiz) AG",
       "companyKey": "prodyna-com",
       "companyDomain": "prodyna.com",
@@ -83,7 +83,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:03:29.802Z",
+      "crawledAt": "2026-11-11T09:52:49.082Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -101,25 +101,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.prodyna.com/jobs/senior-java-developer-athens",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-10T22:03:29.802Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:03:29.802Z",
+      "validThrough": "2027-02-09T09:52:49.082Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T22:03:29.802Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

@@ -198,7 +198,7 @@ describe('automation e-mails', () => {
     const regionRestricted = describeTakeover({ reason: 'portal:application_region_unsupported', stage: 'submit' });
     expect(regionRestricted.reason).toContain('indirizzo IP del runner, non il candidato');
     expect(regionRestricted.reason).not.toContain('regione del candidato');
-    expect(regionRestricted.hint).toContain('riproviamo automaticamente da un altro runner');
+    expect(regionRestricted.hint).toContain('da ora l’ordine parte solo dal runner svizzero e riproviamo automaticamente da lì');
     expect(regionRestricted.hint).toContain('«Compila con l’estensione» da una connessione svizzera');
     const regionRetry = describeTakeover({ reason: 'portal:application_region_unsupported', stage: 'submit', portalAutoRetryAt: DEADLINE });
     expect(regionRetry.reason).toContain('indirizzo IP del runner');

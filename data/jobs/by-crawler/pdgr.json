@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-11-10T21:43:12.594Z",
-  "runId": "42903770667",
+  "assembledAt": "2026-11-11T09:29:39.230Z",
+  "runId": "42994125464",
   "jobs": [
     {
       "id": "pdgr-389768d42bee",
@@ -34,7 +34,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:02.038Z",
+      "crawledAt": "2026-11-11T09:29:33.219Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:43:02.038Z",
+      "validThrough": "2026-12-11T09:29:33.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:00.811Z",
+      "crawledAt": "2026-11-11T09:29:32.107Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:43:00.811Z",
+      "validThrough": "2026-12-11T09:29:32.107Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:59.645Z",
+      "crawledAt": "2026-11-11T09:29:30.958Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:59.645Z",
+      "validThrough": "2026-12-11T09:29:30.958Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -305,7 +305,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:58.475Z",
+      "crawledAt": "2026-11-11T09:29:29.859Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -397,7 +397,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:58.475Z",
+      "validThrough": "2026-12-11T09:29:29.859Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -406,8 +406,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -431,7 +431,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:57.296Z",
+      "crawledAt": "2026-11-11T09:29:28.738Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -463,17 +463,16 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -492,7 +491,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:57.296Z",
+      "validThrough": "2026-12-11T09:29:28.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -526,7 +525,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:56.070Z",
+      "crawledAt": "2026-11-11T09:29:27.579Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -577,7 +576,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:56.070Z",
+      "validThrough": "2026-12-11T09:29:27.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -611,7 +610,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:54.886Z",
+      "crawledAt": "2026-11-11T09:29:26.468Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -669,7 +668,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:54.886Z",
+      "validThrough": "2026-12-11T09:29:26.468Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +702,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:53.706Z",
+      "crawledAt": "2026-11-11T09:29:25.352Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -773,7 +772,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:53.706Z",
+      "validThrough": "2026-12-11T09:29:25.352Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -807,7 +806,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:51.353Z",
+      "crawledAt": "2026-11-11T09:29:23.026Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -933,7 +932,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:51.353Z",
+      "validThrough": "2026-12-11T09:29:23.026Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -967,7 +966,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:50.164Z",
+      "crawledAt": "2026-11-11T09:29:21.841Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1021,7 +1020,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:50.164Z",
+      "validThrough": "2026-12-11T09:29:21.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1055,7 +1054,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:48.930Z",
+      "crawledAt": "2026-11-11T09:29:20.574Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1114,7 +1113,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:48.930Z",
+      "validThrough": "2026-12-11T09:29:20.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1122,9 +1121,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1148,7 +1147,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:46.553Z",
+      "crawledAt": "2026-11-11T09:29:18.129Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1180,18 +1179,18 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-          "senior-physician-psychiatrische-dienste-graubunden-chur"
+          "psychiatrist-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+          "psychiatre-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "senior-physician-psychiatrische-dienste-graubunden-chur",
-        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1221,14 +1220,14 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:46.553Z",
+      "validThrough": "2026-12-11T09:29:18.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1255,7 +1254,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:45.365Z",
+      "crawledAt": "2026-11-11T09:29:16.929Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1282,7 +1281,8 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "primario-psychiatrische-dienste-graubunden-ilanz"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1291,7 +1291,8 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1310,14 +1311,14 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:45.365Z",
+      "validThrough": "2026-12-11T09:29:16.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-7d82aa45ee20",
       "slug": "ergoterapista-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "ergoterapista-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1344,7 +1345,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:43.064Z",
+      "crawledAt": "2026-11-11T09:29:14.567Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1373,7 +1374,8 @@
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-pdgr-ch",
-        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
+        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1382,7 +1384,8 @@
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch",
-          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
+          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1419,7 +1422,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:43.064Z",
+      "validThrough": "2026-12-11T09:29:14.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1453,7 +1456,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-9-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:41.805Z",
+      "crawledAt": "2026-11-11T09:29:13.421Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1511,7 +1514,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan / Scuol",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:41.805Z",
+      "validThrough": "2026-12-11T09:29:13.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1521,7 +1524,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1545,7 +1548,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:40.642Z",
+      "crawledAt": "2026-11-11T09:29:12.232Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1571,7 +1574,7 @@
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
         "psychologiepraktikant-in-pdgr-ch",
-        "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1583,7 +1586,7 @@
         ],
         "fr": [
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-          "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1606,7 +1609,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:40.642Z",
+      "validThrough": "2026-12-11T09:29:12.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1640,7 +1643,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:39.462Z",
+      "crawledAt": "2026-11-11T09:29:11.041Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1699,7 +1702,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T21:42:39.462Z",
+      "validThrough": "2026-12-11T09:29:11.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1733,7 +1736,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:38.306Z",
+      "crawledAt": "2026-11-11T09:29:09.938Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1785,7 +1788,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:38.306Z",
+      "validThrough": "2026-12-11T09:29:09.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1819,7 +1822,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:35.925Z",
+      "crawledAt": "2026-11-11T09:29:07.748Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1911,7 +1914,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:35.925Z",
+      "validThrough": "2026-12-11T09:29:07.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1945,7 +1948,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:34.705Z",
+      "crawledAt": "2026-11-11T09:29:06.600Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1993,7 +1996,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:42:34.705Z",
+      "validThrough": "2026-12-15T09:29:06.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2027,7 +2030,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:33.451Z",
+      "crawledAt": "2026-11-11T09:29:05.506Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2081,7 +2084,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:42:33.451Z",
+      "validThrough": "2026-12-17T09:29:05.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2115,7 +2118,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:32.262Z",
+      "crawledAt": "2026-11-11T09:29:04.337Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2165,7 +2168,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:32.262Z",
+      "validThrough": "2026-12-21T09:29:04.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2199,7 +2202,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:31.128Z",
+      "crawledAt": "2026-11-11T09:29:03.156Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2258,7 +2261,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T21:42:31.128Z",
+      "validThrough": "2026-12-23T09:29:03.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2292,7 +2295,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:29.975Z",
+      "crawledAt": "2026-11-11T09:29:01.930Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2350,7 +2353,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:42:29.975Z",
+      "validThrough": "2026-12-27T09:29:01.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2384,7 +2387,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:28.824Z",
+      "crawledAt": "2026-11-11T09:29:00.803Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2431,7 +2434,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:42:28.824Z",
+      "validThrough": "2026-12-30T09:29:00.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2465,7 +2468,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:27.649Z",
+      "crawledAt": "2026-11-11T09:28:59.714Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2513,7 +2516,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:42:27.649Z",
+      "validThrough": "2026-12-30T09:28:59.714Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2547,7 +2550,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:26.470Z",
+      "crawledAt": "2026-11-11T09:28:58.604Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2605,7 +2608,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-01T21:42:26.470Z",
+      "validThrough": "2027-01-01T09:28:58.604Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2639,7 +2642,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:25.315Z",
+      "crawledAt": "2026-11-11T09:28:57.376Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2695,7 +2698,7 @@
       "addressRegion": "GR",
       "streetAddress": "Samedan / Scuol",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:42:25.315Z",
+      "validThrough": "2027-01-03T09:28:57.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2729,7 +2732,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:24.113Z",
+      "crawledAt": "2026-11-11T09:28:56.248Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2787,7 +2790,7 @@
       "addressRegion": "GR",
       "streetAddress": "Ilanz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:42:24.113Z",
+      "validThrough": "2027-01-05T09:28:56.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2821,7 +2824,7 @@
       "url": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:22.938Z",
+      "crawledAt": "2026-11-11T09:28:55.129Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2871,7 +2874,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:42:22.938Z",
+      "validThrough": "2027-01-07T09:28:55.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2905,7 +2908,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-2-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:21.762Z",
+      "crawledAt": "2026-11-11T09:28:53.980Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2972,7 +2975,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:42:21.762Z",
+      "validThrough": "2027-01-13T09:28:53.980Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3006,7 +3009,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:20.575Z",
+      "crawledAt": "2026-11-11T09:28:52.815Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3074,7 +3077,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-14T21:42:20.575Z",
+      "validThrough": "2027-01-14T09:28:52.815Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3108,7 +3111,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:19.325Z",
+      "crawledAt": "2026-11-11T09:28:51.642Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -3164,7 +3167,7 @@
       "addressRegion": "GR",
       "streetAddress": "Rothenbrunnen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:42:19.325Z",
+      "validThrough": "2027-01-17T09:28:51.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3198,7 +3201,7 @@
       "url": "https://www.pdgr.ch/jobs/chefaerztin-chefarzt-privatklinik-mentalva/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:18.094Z",
+      "crawledAt": "2026-11-11T09:28:50.484Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3252,7 +3255,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:42:18.094Z",
+      "validThrough": "2027-01-24T09:28:50.484Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3286,7 +3289,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:16.881Z",
+      "crawledAt": "2026-11-11T09:28:49.288Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -3342,7 +3345,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:42:16.881Z",
+      "validThrough": "2027-01-25T09:28:49.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3376,7 +3379,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fh-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:15.705Z",
+      "crawledAt": "2026-11-11T09:28:48.183Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3432,7 +3435,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:42:15.705Z",
+      "validThrough": "2027-01-26T09:28:48.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3466,7 +3469,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-oberstufe-schulische-heilpaedagogik-shp/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:14.536Z",
+      "crawledAt": "2026-11-11T09:28:47.082Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3531,7 +3534,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:42:14.536Z",
+      "validThrough": "2027-01-28T09:28:47.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3565,7 +3568,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-13/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:13.371Z",
+      "crawledAt": "2026-11-11T09:28:45.926Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3633,7 +3636,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:42:13.371Z",
+      "validThrough": "2027-01-28T09:28:45.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3667,7 +3670,7 @@
       "url": "https://www.pdgr.ch/jobs/controller/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:12.132Z",
+      "crawledAt": "2026-11-11T09:28:44.780Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3731,7 +3734,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:42:12.132Z",
+      "validThrough": "2027-02-01T09:28:44.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3765,7 +3768,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:10.940Z",
+      "crawledAt": "2026-11-11T09:28:43.664Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3832,7 +3835,7 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:42:10.940Z",
+      "validThrough": "2027-02-02T09:28:43.664Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3866,7 +3869,7 @@
       "url": "https://www.pdgr.ch/jobs/sporttherapeut-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:08.370Z",
+      "crawledAt": "2026-11-11T09:28:41.270Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3919,7 +3922,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis / Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:42:08.370Z",
+      "validThrough": "2027-02-03T09:28:41.270Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3953,7 +3956,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:06.988Z",
+      "crawledAt": "2026-11-11T09:28:40.092Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -4005,7 +4008,7 @@
       "addressRegion": "GR",
       "streetAddress": "Cazis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:42:06.988Z",
+      "validThrough": "2027-02-03T09:28:40.092Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4039,7 +4042,7 @@
       "url": "https://www.pdgr.ch/jobs/pflege-standortleitung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:05.767Z",
+      "crawledAt": "2026-11-11T09:28:38.830Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -4095,16 +4098,16 @@
       "addressRegion": "GR",
       "streetAddress": "Thusis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:42:05.767Z",
+      "validThrough": "2027-02-03T09:28:38.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-0015ab14863e",
       "slug": "tariffe-specialistiche-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "de": "fachspezialist-in-tarife-pdgr-ch",
         "it": "tariffe-specialistiche-psychiatrische-dienste-graubunden-chur",
         "en": "specialist-in-tariffs-psychiatrische-dienste-graubunden-chur",
+        "de": "fachspezialist-in-tarife-pdgr-ch",
         "fr": "tarifs-du-des-specialiste-s-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -4112,16 +4115,16 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachspezialist/-in Tarife",
       "titleByLocale": {
-        "de": "Fachspezialist/-in Tarife",
         "it": "Tariffe specialistiche",
         "en": "Specialist in tariffs",
+        "de": "Fachspezialist/-in Tarife",
         "fr": "Tarifs du/des spécialiste (s)"
       },
       "description": "Ihre Umgebung:\nDie Kundenadministration ist das interne Kompetenzzentrum für verschiedene administrative Tätigkeiten entlang des Patientenpfads. Dazu zählen Patientenaufnahme, Ertragssicherung, Leistungserfassung, Fakturierung, Tarifierung und Inkasso. Sie arbeiten in einem kundenorientierten Team welches verlässliche qualitativ hochwertige Dienstleistungen anbietet.\n\nIhre Aufgaben:\n- Sie sorgen für reibungslose Abläufe in der Kundenadministration – vom Aufnahmeprozess über die Ertragssicherung und Leistungsabrechnung bis hin zum Inkasso\n\n- Sie pflegen eine enge Zusammenarbeit mit den medizinischen, pflegerischen und betriebswirtschaftlichen Fachbereichen\n\n- Sie kommunizieren mit externen Ansprechpartnern wie Patienten, Krankenkassen und Behörden\n\n- Sie analysieren Rechnungsrückweisungen, gehen den Ursachen auf den Grund und setzen pragmatische Lösungen durch\n\n- Sie hinterfragen bestehende Abläufe, bringen eigene Ideen ein und gestalten die Weiterentwicklung unserer Prozesse aktiv mit\n\n- Sie übernehmen Verantwortung und helfen mit, die Prozesse unserer Kundenadministration auf die zukünftigen Anforderungen auszurichten\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine kaufmännische Grundausbildung, optimalerweise vertieft durch eine Berufsmaturität oder eine vergleichbare Weiterbildung\n\n- Sie haben idealerweise bereits Erfahrung im Gesundheitswesen oder/und mit SAP IS-H gesammelt\n\n- Sie denken analytisch, erkennen Zusammenhänge und finden sich schnell in neue Systeme und komplexe Sachverhalte ein\n\n- Sie verfügen über eine technische Affinität und die Zusammenarbeit mit IT-Supportbereichen fällt Ihnen einfach\n\n- Sie gehen Herausforderungen offen und lösungsorientiert an, hinterfragen Bestehendes und entwickeln gerne innovative Lösungen\n\n- Sie sind neugierig, lerninteressiert und gestalten Veränderungsprozesse mit hohem Engagement mit\n\nWir bieten Ihnen:\n- Unterstützende und wertschätzende Teamkultur\n\n- Eine sinnstiftende Arbeit, denn die von Ihnen begleiteten Angebote leisten einen wichtigen Beitrag für die psychische Gesundheit der Bündner Bevölkerung\n\n- Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Flexible Arbeitszeiten mit Home-Office Möglichkeit, überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen und Möglichkeit zu unbezahltem Urlaub\n\n- Unterstützung in Ihrer beruflichen Entwicklung durch Fort- und Weiterbildungen",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nDie Kundenadministration ist das interne Kompetenzzentrum für verschiedene administrative Tätigkeiten entlang des Patientenpfads. Dazu zählen Patientenaufnahme, Ertragssicherung, Leistungserfassung, Fakturierung, Tarifierung und Inkasso. Sie arbeiten in einem kundenorientierten Team welches verlässliche qualitativ hochwertige Dienstleistungen anbietet.\n\nIhre Aufgaben:\n- Sie sorgen für reibungslose Abläufe in der Kundenadministration – vom Aufnahmeprozess über die Ertragssicherung und Leistungsabrechnung bis hin zum Inkasso\n\n- Sie pflegen eine enge Zusammenarbeit mit den medizinischen, pflegerischen und betriebswirtschaftlichen Fachbereichen\n\n- Sie kommunizieren mit externen Ansprechpartnern wie Patienten, Krankenkassen und Behörden\n\n- Sie analysieren Rechnungsrückweisungen, gehen den Ursachen auf den Grund und setzen pragmatische Lösungen durch\n\n- Sie hinterfragen bestehende Abläufe, bringen eigene Ideen ein und gestalten die Weiterentwicklung unserer Prozesse aktiv mit\n\n- Sie übernehmen Verantwortung und helfen mit, die Prozesse unserer Kundenadministration auf die zukünftigen Anforderungen auszurichten\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine kaufmännische Grundausbildung, optimalerweise vertieft durch eine Berufsmaturität oder eine vergleichbare Weiterbildung\n\n- Sie haben idealerweise bereits Erfahrung im Gesundheitswesen oder/und mit SAP IS-H gesammelt\n\n- Sie denken analytisch, erkennen Zusammenhänge und finden sich schnell in neue Systeme und komplexe Sachverhalte ein\n\n- Sie verfügen über eine technische Affinität und die Zusammenarbeit mit IT-Supportbereichen fällt Ihnen einfach\n\n- Sie gehen Herausforderungen offen und lösungsorientiert an, hinterfragen Bestehendes und entwickeln gerne innovative Lösungen\n\n- Sie sind neugierig, lerninteressiert und gestalten Veränderungsprozesse mit hohem Engagement mit\n\nWir bieten Ihnen:\n- Unterstützende und wertschätzende Teamkultur\n\n- Eine sinnstiftende Arbeit, denn die von Ihnen begleiteten Angebote leisten einen wichtigen Beitrag für die psychische Gesundheit der Bündner Bevölkerung\n\n- Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Flexible Arbeitszeiten mit Home-Office Möglichkeit, überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen und Möglichkeit zu unbezahltem Urlaub\n\n- Unterstützung in Ihrer beruflichen Entwicklung durch Fort- und Weiterbildungen",
         "it": "I dintorni:\nL'amministrazione del cliente è il centro di competenza interno per varie attività amministrative lungo il percorso del paziente. Questi includono l'ammissione del paziente, l'assicurazione del reddito, la registrazione delle prestazioni, la fatturazione, la tariffazione e la raccolta del debito. Lavori in un team orientato al cliente che offre servizi di alta qualità affidabili.\n\nI loro compiti:\n- Garantiscono processi lisci nella gestione del cliente – dal processo di ammissione all'assicurazione del reddito e alla fatturazione del servizio alla raccolta del debito\n\n- Mantengono una stretta collaborazione con i settori medico, infermieristico e commerciale\n\n- Si comunica con contatti esterni come pazienti, compagnie di assicurazione sanitaria e autorità\n\n- Essi analizzano i rifiuti di legge, arrivare al fondo delle cause e implementare soluzioni pragmatiche\n\n- Essi mettono in discussione i processi esistenti, contribuiscono le proprie idee e modellano attivamente l'ulteriore sviluppo dei nostri processi\n\n- Si assume la responsabilità e aiuta ad allineare i processi della nostra amministrazione clienti con i requisiti futuri\n\nIl nostro profilo di requisito:\n- Hai una formazione commerciale di base, idealmente approfondito da una maturità professionale o un'ulteriore formazione comparabile\n\n- Idealmente, hai già esperienza nel settore sanitario e/o con SAP IS- H\n\n- Pensano analiticamente, riconoscono connessioni e trovano rapidamente la loro strada in nuovi sistemi e problemi complessi.\n\n- Hai un'affinità tecnica e lavorare con aree di supporto IT è facile per te\n\n- Rivolgersi a sfide aperte e orientate alla soluzione, mettere in discussione quelle esistenti e come sviluppare soluzioni innovative\n\n- Sono curiosi, interessati all'apprendimento e ai processi di cambiamento di forma con alto impegno\n\nVi offriamo:\n- Cultura del team di supporto e apprezzata\n\n- Un lavoro significativo, perché le offerte che accompagnate danno un contributo importante alla salute mentale della popolazione tedesca\n\n- Un'attività varia e responsabile\n\n- Una cooperazione diversificata e cooperativa con tutti i gruppi professionali a tutti i livelli\n\n- Orario di lavoro flessibile con opzione ufficio domestico, benefici sociali sopra la media, crediti di vacanza di almeno 30 giorni e possibilità di congedo non pagato\n\n- Sostegno allo sviluppo professionale attraverso l'ulteriore istruzione e formazione",
         "en": "Your surroundings:\nCustomer administration is the internal competence center for various administrative activities along the patient path. These include patient admission, income assurance, performance recording, billing, tariffing and debt collection. You work in a customer-oriented team that offers reliable high-quality services.\n\nTheir tasks:\n- They ensure smooth processes in customer administration – from the admission process to income assurance and service billing to debt collection\n\n- They maintain a close cooperation with the medical, nursing and business sectors\n\n- You communicate with external contacts such as patients, health insurance companies and authorities\n\n- They analyze bill rejections, get to the bottom of the causes and implement pragmatic solutions\n\n- They question existing processes, contribute their own ideas and actively shape the further development of our processes\n\n- You take responsibility and help align the processes of our customer administration with future requirements\n\nOur requirement profile:\n- You have a basic commercial education, ideally deepened by a professional maturity or a comparable further education\n\n- Ideally, you already have experience in healthcare and/or with SAP IS-H\n\n- They think analytically, recognize connections and quickly find their way into new systems and complex issues.\n\n- You have a technical affinity and working with IT support areas is easy for you\n\n- You address challenges openly and solution-oriented, question existing ones and like to develop innovative solutions\n\n- They are curious, interested in learning and shape change processes with high commitment\n\nWe offer you:\n- Supportive and appreciative team culture\n\n- A meaningful work, because the offers you accompany make an important contribution to the mental health of the German population\n\n- A varied and responsible activity\n\n- A diverse and cooperative cooperation with all professional groups at all levels\n\n- Flexible working hours with home office option, above-average social benefits, holiday credits of at least 30 days and possibility for unpaid leave\n\n- Support in your professional development through further education and training",
+        "de": "Ihre Umgebung:\nDie Kundenadministration ist das interne Kompetenzzentrum für verschiedene administrative Tätigkeiten entlang des Patientenpfads. Dazu zählen Patientenaufnahme, Ertragssicherung, Leistungserfassung, Fakturierung, Tarifierung und Inkasso. Sie arbeiten in einem kundenorientierten Team welches verlässliche qualitativ hochwertige Dienstleistungen anbietet.\n\nIhre Aufgaben:\n- Sie sorgen für reibungslose Abläufe in der Kundenadministration – vom Aufnahmeprozess über die Ertragssicherung und Leistungsabrechnung bis hin zum Inkasso\n\n- Sie pflegen eine enge Zusammenarbeit mit den medizinischen, pflegerischen und betriebswirtschaftlichen Fachbereichen\n\n- Sie kommunizieren mit externen Ansprechpartnern wie Patienten, Krankenkassen und Behörden\n\n- Sie analysieren Rechnungsrückweisungen, gehen den Ursachen auf den Grund und setzen pragmatische Lösungen durch\n\n- Sie hinterfragen bestehende Abläufe, bringen eigene Ideen ein und gestalten die Weiterentwicklung unserer Prozesse aktiv mit\n\n- Sie übernehmen Verantwortung und helfen mit, die Prozesse unserer Kundenadministration auf die zukünftigen Anforderungen auszurichten\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine kaufmännische Grundausbildung, optimalerweise vertieft durch eine Berufsmaturität oder eine vergleichbare Weiterbildung\n\n- Sie haben idealerweise bereits Erfahrung im Gesundheitswesen oder/und mit SAP IS-H gesammelt\n\n- Sie denken analytisch, erkennen Zusammenhänge und finden sich schnell in neue Systeme und komplexe Sachverhalte ein\n\n- Sie verfügen über eine technische Affinität und die Zusammenarbeit mit IT-Supportbereichen fällt Ihnen einfach\n\n- Sie gehen Herausforderungen offen und lösungsorientiert an, hinterfragen Bestehendes und entwickeln gerne innovative Lösungen\n\n- Sie sind neugierig, lerninteressiert und gestalten Veränderungsprozesse mit hohem Engagement mit\n\nWir bieten Ihnen:\n- Unterstützende und wertschätzende Teamkultur\n\n- Eine sinnstiftende Arbeit, denn die von Ihnen begleiteten Angebote leisten einen wichtigen Beitrag für die psychische Gesundheit der Bündner Bevölkerung\n\n- Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Flexible Arbeitszeiten mit Home-Office Möglichkeit, überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen und Möglichkeit zu unbezahltem Urlaub\n\n- Unterstützung in Ihrer beruflichen Entwicklung durch Fort- und Weiterbildungen",
         "fr": "Votre environnement:\nL'administration client est le centre de compétence interne pour diverses activités administratives le long du parcours du patient. Il s'agit notamment de l'admission des patients, de l'assurance du revenu, de l'enregistrement du rendement, de la facturation, du tarifage et du recouvrement des dettes. Vous travaillez dans une équipe orientée client qui offre des services fiables de haute qualité.\n\nLeurs tâches:\n- Ils assurent la fluidité des processus d'administration de la clientèle – du processus d'admission à l'assurance du revenu et à la facturation des services jusqu'au recouvrement de la dette\n\n- Ils entretiennent une coopération étroite avec les secteurs médical, infirmier et commercial.\n\n- Vous communiquez avec des contacts externes tels que des patients, des compagnies d'assurance maladie et des autorités\n\n- Ils analysent les rejets de projets de loi, arrivent au bas des causes et mettent en œuvre des solutions pragmatiques\n\n- Ils remettent en question les processus existants, apportent leurs propres idées et façonnent activement le développement de nos processus\n\n- Vous assumez la responsabilité et aidez à aligner les processus de notre administration client sur les exigences futures\n\nNotre profil d'exigence:\n- Vous avez une éducation commerciale de base, idéalement approfondie par une maturité professionnelle ou une formation complémentaire comparable\n\n- Idéalement, vous avez déjà une expérience en soins de santé et/ou avec SAP IS- H\n\n- Ils pensent analytiquement, reconnaissent les connexions et trouvent rapidement leur chemin dans de nouveaux systèmes et des questions complexes.\n\n- Vous avez une affinité technique et travailler avec les domaines d'appui IT est facile pour vous\n\n- Vous abordez les défis ouvertement et orientés vers la solution, questionnez ceux existants et aimez développer des solutions innovantes\n\n- Ils sont curieux, intéressés à apprendre et façonner les processus de changement avec un engagement élevé\n\nNous vous offrons:\n- Culture d'équipe favorable et appréciée\n\n- Un travail significatif, car les offres que vous accompagnez apportent une contribution importante à la santé mentale de la population allemande\n\n- Une activité variée et responsable\n\n- Une coopération diversifiée et coopérative avec tous les groupes professionnels à tous les niveaux\n\n- Horaires de travail flexibles avec possibilité de bureau à domicile, prestations sociales supérieures à la moyenne, crédits de vacances d'au moins 30 jours et possibilité de congé non rémunéré\n\n- Soutenir votre perfectionnement professionnel par la formation continue"
       },
       "location": "Chur",
@@ -4129,7 +4132,7 @@
       "url": "https://www.pdgr.ch/jobs/fachspezialist-in-tarife-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:42:04.596Z",
+      "crawledAt": "2026-11-11T09:28:37.591Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4146,14 +4149,27 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.pdgr.ch/jobs/fachspezialist-in-tarife-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "facility": "Kundenadministration",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "fachspezialist-in-tarife-pdgr-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-tarife-pdgr-ch"
+        ],
+        "en": [
+          "fachspezialist-in-tarife-pdgr-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-tarife-pdgr-ch"
+        ]
+      },
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-10T21:42:04.596Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4181,23 +4197,8 @@
       },
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T21:42:04.596Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:42:04.596Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-tarife-pdgr-ch"
-        ],
-        "en": [
-          "fachspezialist-in-tarife-pdgr-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-tarife-pdgr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachspezialist-in-tarife-pdgr-ch"
-      ]
+      "validThrough": "2027-02-08T09:28:37.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pdgr-6c4e56b4412e",
@@ -4325,7 +4326,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-10T09:32:51.362Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "pdgr-ebf5331de854",
@@ -4407,7 +4408,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:32:29.245Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
