@@ -10,6 +10,11 @@ import {
   TI_HUB_LATEST_JOBS_MARKER,
   TI_HUB_LATEST_JOBS_SLOT,
 } from '../build-plugins/shared/tiHubLatestJobs';
+import {
+  CANTON_LISTING_GRID_END,
+  CANTON_LISTING_GRID_START,
+  replaceCantonJobListingGrid,
+} from '../build-plugins/shared/cantonJobListingGrid';
 import { patchTiHubFile, tiHubIndexPath, tiHubLatestJobsPlugin } from '../build-plugins/tiHubLatestJobsPlugin';
 import { resolveStaticPagesFlushed } from '../build-plugins/shared/buildSignals';
 import { SECTION_LEGACY_TI_ROOT } from '../build-plugins/shared/cantonSection';
@@ -116,6 +121,24 @@ describe('applyTiHubLatestJobsSlot / patchTiHubFile', () => {
     expect(cleared.outcome).toBe('cleared');
     expect(cleared.html).toBe('<h1>x</h1><div><h2>rest</h2></div>');
     expect(applyTiHubLatestJobsSlot('<h1>x</h1>', block).outcome).toBe('no-slot');
+  });
+
+  it('replaces an existing Ticino block with current content on a later fast publish', () => {
+    const previous = `<section ${TI_HUB_LATEST_JOBS_MARKER}>old cards</section>`;
+    const pageWithPrevious = `<h1>x</h1>${previous}<footer>kept</footer>`;
+    const current = `<section ${TI_HUB_LATEST_JOBS_MARKER}>new cards</section>`;
+    const result = applyTiHubLatestJobsSlot(pageWithPrevious, current);
+    expect(result.outcome).toBe('inserted');
+    expect(result.html).toContain('new cards');
+    expect(result.html).not.toContain('old cards');
+    expect(result.html).toContain('<footer>kept</footer>');
+  });
+
+  it('replaces only the marked canton listing grid and fails closed without unique markers', () => {
+    const page = `<main>${CANTON_LISTING_GRID_START}<old-grid>${CANTON_LISTING_GRID_END}</main>`;
+    const result = replaceCantonJobListingGrid(page, '<new-grid>');
+    expect(result).toBe('<main><new-grid></main>');
+    expect(() => replaceCantonJobListingGrid('<main>unmarked</main>', '<new-grid>')).toThrow(/listing grid/u);
   });
 
   it('writes the patched hub file and reports a missing one', () => {

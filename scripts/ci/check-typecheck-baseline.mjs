@@ -161,7 +161,7 @@ function runTsc() {
     console.error(`✗ typescript non installato (${path.relative(ROOT, TSC_BIN)} assente). Esegui \`npm ci\`.`);
     process.exit(2);
   }
-  const res = spawnSync(process.execPath, [TSC_BIN, '--noEmit', '--pretty', 'false', '--listFiles', '--project', TSC_PROJECT], {
+  const res = spawnSync(process.execPath, ['--max-old-space-size=12288', TSC_BIN, '--noEmit', '--pretty', 'false', '--listFiles', '--project', TSC_PROJECT], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,

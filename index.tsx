@@ -2,9 +2,10 @@ import './index.css';
 import './services/consentDecisionMark';
 import { startScrollRegionObserver } from './services/scrollRegions';
 import {
- shouldWaitForJobBoardLcp,
- shouldWaitForStaticArticleLcp,
- waitForInitialPaintOpportunity,
+  shouldWaitForJobBoardLcp,
+  shouldWaitForStaticArticleLcp,
+  waitForHomepageContentHandoff,
+  waitForInitialPaintOpportunity,
 } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
@@ -378,6 +379,15 @@ const bootstrapApp = async () => {
  }
 
  await waitForFirstPaint();
+
+ // The fixed homepage shell is the stable first-paint surface. Keep it in
+ // front until the real calculator heading has committed, because the App
+ // boundary can paint its fallback for a frame even after the leaf preload.
+ // The wait is bounded so a failed chunk still reaches normal recovery and the
+ // shell is never a permanent overlay.
+ if (homeCritical && !staticPage) {
+   await waitForHomepageContentHandoff(rootElement);
+ }
 
  if (staticPage) {
  if (!keepStaticRootVisible) {
