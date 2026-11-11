@@ -109,6 +109,7 @@ import {
  resetIncrementalManifestInputCache,
 } from './shared/incrementalManifest.mjs';
 import { stableJobId } from './shared/stableJobId.mjs';
+import { filterFastLaneHubInventory } from './shared/fastLaneHubInventory';
 import {
   computeJobsSeoEmitterFingerprints,
   createJobsSeoHtmlReuse,
@@ -337,6 +338,7 @@ import {
   ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
   COMPANY_ROUTE_PREFIX,
   isCompanyHubNamespaceSlug,
+  type CantonLocale,
 } from './shared/cantonSection';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
@@ -1701,6 +1703,8 @@ const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '
 export interface JobsSeoPagesPluginOptions {
  /** Render only these stable job IDs while keeping the complete corpus as context. */
  activeJobIds?: readonly string[];
+ /** Per-locale active details already live or emitted in this fast-lane batch. */
+ fastLaneVisibleJobIdsByLocale?: Readonly<Record<CantonLocale, readonly string[]>>;
  /** Write a machine-readable receipt for targeted active-page renders. */
  fastLaneResultFile?: string;
  /** Stop after active job pages have been rendered and flushed. */
@@ -1713,8 +1717,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
- if (options.fastLane && (options.activeJobIds === undefined || !options.fastLaneResultFile)) {
-  throw new Error('[jobs-seo-pages] fastLane requires activeJobIds and fastLaneResultFile');
+ if (options.fastLane && (
+  options.activeJobIds === undefined
+  || !options.fastLaneVisibleJobIdsByLocale
+  || !options.fastLaneResultFile
+ )) {
+  throw new Error('[jobs-seo-pages] fastLane requires activeJobIds, fastLaneVisibleJobIdsByLocale and fastLaneResultFile');
  }
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
  try {
@@ -2874,6 +2882,27 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  const activeJobIds = options.activeJobIds === undefined
   ? null
   : new Set(options.activeJobIds.map((id) => String(id).trim()).filter(Boolean));
+ const fastLaneVisibleIdsByLocale = options.fastLaneVisibleJobIdsByLocale
+  ? new Map<CantonLocale, Set<string>>()
+  : null;
+ if (fastLaneVisibleIdsByLocale) {
+  for (const locale of localeList) {
+   const listedIds = options.fastLaneVisibleJobIdsByLocale?.[locale];
+   if (!Array.isArray(listedIds)) {
+    throw new Error(`[jobs-seo-pages] fastLaneVisibleJobIdsByLocale is missing ${locale}`);
+   }
+   const visibleIds = new Set(listedIds.map((id) => String(id).trim()).filter(Boolean));
+   if (visibleIds.size !== listedIds.length) {
+    throw new Error(`[jobs-seo-pages] fastLaneVisibleJobIdsByLocale.${locale} must contain unique, non-empty stable IDs`);
+   }
+   for (const id of activeJobIds ?? []) {
+    if (!visibleIds.has(id)) {
+     throw new Error(`[jobs-seo-pages] fast-lane batch ID ${id} is not visible in ${locale}`);
+    }
+   }
+   fastLaneVisibleIdsByLocale.set(locale, visibleIds);
+  }
+ }
  if (activeJobIds && activeJobIds.size !== options.activeJobIds?.length) {
   throw new Error('[jobs-seo-pages] activeJobIds must contain unique, non-empty stable IDs');
  }
@@ -3864,8 +3893,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   const tiRecent = [...tiPool].sort((a, b) => _jobRecency(b) - _jobRecency(a));
   const tiBlocks: Record<string, string> = {};
   for (const locale of localeList) {
+   const visibleIds = fastLaneVisibleIdsByLocale?.get(locale);
+   const localeRecent = visibleIds
+    ? filterFastLaneHubInventory(tiRecent, visibleIds)
+    : tiRecent;
    const linkable: Array<{ job: any; href: string }> = [];
-   for (const job of tiRecent) {
+   for (const job of localeRecent) {
     if (linkable.length >= TI_HUB_LATEST_JOBS_LIMIT) break;
     const href = activeCanonicalJobHref(job, locale);
     if (href) linkable.push({ job, href });
@@ -5573,7 +5606,11 @@ ${staticAnalyticsHtml}
      continue;
     }
     const display = getCantonDisplayLabel(canton, locale);
-    const latest = selectJobBoardInventory(validJobs, canton)
+    const cantonInventory = selectJobBoardInventory(validJobs, canton);
+    const visibleIds = fastLaneVisibleIdsByLocale?.get(locale);
+    const latest = (visibleIds
+     ? filterFastLaneHubInventory(cantonInventory, visibleIds)
+     : cantonInventory)
      .sort((a, b) => _jobRecency(b) - _jobRecency(a))
      .slice(0, 12);
     const linkable = latest

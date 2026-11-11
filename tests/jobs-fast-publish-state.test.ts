@@ -77,11 +77,18 @@ describe("jobs-fast durable state", () => {
     const db = new FakeFirestore();
     const crawledAt = "2026-11-11T11:30:00.000Z";
     const offers = [job("recent", 1, { crawledAt }), job("old-backlog", 10)];
+    const pathsForJob = (offer) => [
+      `/cerca-lavoro-ticino/${offer.slug}/`,
+      `/en/find-jobs-ticino/${offer.slug}/`,
+      `/de/jobs-im-tessin/${offer.slug}/`,
+      `/fr/trouver-emploi-tessin/${offer.slug}/`,
+    ];
 
     const preview = await discoverFastPublishJobs(offers, {
       db,
       now,
       write: false,
+      pathsForJob,
     });
     expect(preview.map((row) => row.id)).toEqual(["recent"]);
     expect(db.documents.size).toBe(0);
@@ -90,11 +97,57 @@ describe("jobs-fast durable state", () => {
       db,
       now,
       write: true,
+      pathsForJob,
     });
     expect(queued.map((row) => row.id)).toEqual(["recent"]);
     expect(queued[0].previousPaths).toEqual([]);
     expect(queued[0].crawlAtMs).toBe(Date.parse(crawledAt));
     expect(db.documents.size).toBeGreaterThan(0);
+  });
+
+  it("stores pre-cutoff canonical paths so a later slug change can remove the old sitemap URLs", async () => {
+    const db = new FakeFirestore();
+    const original = job("offer-old", 10, { slug: "old-route" });
+    const oldPaths = [
+      "/cerca-lavoro-ticino/old-route/",
+      "/en/find-jobs-ticino/old-route/",
+      "/de/jobs-im-tessin/old-route/",
+      "/fr/trouver-emploi-tessin/old-route/",
+    ];
+
+    const bootstrapped = await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => oldPaths,
+    });
+    expect(bootstrapped).toEqual([]);
+
+    const changed = { ...original, slug: "new-route" };
+    const pending = await discoverFastPublishJobs([changed], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => [
+        "/cerca-lavoro-ticino/new-route/",
+        "/en/find-jobs-ticino/new-route/",
+        "/de/jobs-im-tessin/new-route/",
+        "/fr/trouver-emploi-tessin/new-route/",
+      ],
+    });
+
+    expect(pending).toHaveLength(1);
+    expect(pending[0].previousPaths).toEqual([...oldPaths].sort());
+  });
+
+  it("fails closed when a live bootstrap cannot record canonical paths", async () => {
+    await expect(
+      discoverFastPublishJobs([job("old-backlog", 10)], {
+        db: new FakeFirestore(),
+        now,
+        write: true,
+      }),
+    ).rejects.toThrow("pathsForJob is required");
   });
 
   it("deduplicates published fingerprints and carries prior canonical paths for changed offers", async () => {

@@ -132,6 +132,7 @@ export async function discoverFastPublishJobs(
     bootstrapDays = DEFAULT_BOOTSTRAP_DAYS,
     now = Date.now(),
     db,
+    pathsForJob,
   } = {},
 ) {
   if (!Array.isArray(jobs))
@@ -149,6 +150,7 @@ export async function discoverFastPublishJobs(
   const cutoff = await bootstrapCutoff(firestore, now, bootstrapDays, write);
   const activeByBucket = Array.from({ length: BUCKET_COUNT }, () => new Map());
   const currentById = new Map();
+  const canonicalPathsById = new Map();
   for (const job of jobs) {
     const id = String(job?.stableId || job?.id || job?.slug || "").trim();
     if (!id) continue;
@@ -164,6 +166,24 @@ export async function discoverFastPublishJobs(
       crawlAtMs: crawlTimestampMs(job),
     };
     currentById.set(id, { job, ...row });
+    if (typeof pathsForJob === "function") {
+      const paths = pathsForJob(job);
+      if (
+        !Array.isArray(paths) ||
+        paths.length === 0 ||
+        paths.some(
+          (path) =>
+            typeof path !== "string" ||
+            !path.startsWith("/") ||
+            !path.endsWith("/"),
+        )
+      ) {
+        throw new Error(
+          `[jobs-fast-state] canonical paths are invalid for ${id}`,
+        );
+      }
+      canonicalPathsById.set(id, [...new Set(paths)].sort());
+    }
     activeByBucket[bucketIndex(id)].set(stateKey(id), row);
   }
 
@@ -198,12 +218,18 @@ export async function discoverFastPublishJobs(
         const isNew = previousHash === "";
         if (isNew && record.observedAtMs < cutoff) {
           const hadQueued = Boolean(queued[key]);
-          if (write)
+          if (write) {
+            const paths = canonicalPathsById.get(record.id);
+            if (!paths)
+              throw new Error(
+                `[jobs-fast-state] pathsForJob is required to bootstrap pre-cutoff job ${record.id}`,
+              );
             published[key] = {
               hash: record.hash,
-              paths: [],
+              paths,
               publishedAtMs: now,
             };
+          }
           if (hadQueued) delete queued[key];
           changed ||= write || hadQueued;
           continue;

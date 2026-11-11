@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import fs, { realpathSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -53,6 +53,25 @@ function parseArgs(argv) {
 
 function rootFromEnv() {
   return path.resolve(process.env.GITHUB_WORKSPACE || process.cwd());
+}
+
+function fastLaneLocalizedSlug(job, locale) {
+  return String(job?.slugByLocale?.[locale] || job?.slug || "").trim();
+}
+
+function canonicalPathsForFastLaneJob(
+  job,
+  { buildCanonicalJobDetailPath, resolveJobCanton },
+) {
+  const canton = resolveJobCanton(job);
+  return LOCALES.map((locale) =>
+    buildCanonicalJobDetailPath(
+      locale,
+      job,
+      fastLaneLocalizedSlug(job, locale),
+      canton,
+    ),
+  );
 }
 
 async function getLiveBuildId() {
@@ -573,6 +592,7 @@ async function prepareSitemapUpdates(
   previousPaths,
   slugToSection,
   sectionSlugs,
+  liveJobsSitemapXml,
 ) {
   const sitemapDir = path.join(tempDir, "sitemap-payload");
   fs.mkdirSync(sitemapDir, { recursive: true });
@@ -606,7 +626,9 @@ async function prepareSitemapUpdates(
     .filter((item) => item.locale === "it")
     .map((item) => item.loc);
   if (entries.length > 0 || itRemovals.length > 0) {
-    const jobsXml = await fetchLiveText(`${BASE_URL}/sitemap-jobs.xml`);
+    const jobsXml =
+      liveJobsSitemapXml ??
+      (await fetchLiveText(`${BASE_URL}/sitemap-jobs.xml`));
     updates.set(
       "/sitemap-jobs.xml",
       mergeFastJobsSitemap(jobsXml, entries, { removeLocs: itRemovals }),
@@ -800,6 +822,46 @@ function extractXmlLocs(xml) {
       match[1].trim(),
     ),
   );
+}
+
+function extractSitemapUrls(xml) {
+  const urls = extractXmlLocs(xml);
+  for (const match of String(xml).matchAll(/\bhref\s*=\s*["']([^"']+)['"]/gu))
+    urls.add(match[1].trim());
+  return urls;
+}
+
+export function buildFastLaneHubVisibleJobIdsByLocale(
+  jobs,
+  selectedIds,
+  liveJobsSitemapXml,
+  { buildCanonicalJobDetailPath, resolveJobCanton },
+) {
+  if (!Array.isArray(jobs) || !Array.isArray(selectedIds))
+    throw new Error("[jobs-fast] hub visibility inputs must be arrays");
+  const liveUrls = extractSitemapUrls(liveJobsSitemapXml);
+  const selected = new Set(
+    selectedIds.map((id) => String(id).trim()).filter(Boolean),
+  );
+  const visibleByLocale = {};
+  for (const locale of LOCALES) {
+    const visible = new Set(selected);
+    for (const job of jobs) {
+      const id = stableJobId(job);
+      if (!id || visible.has(id)) continue;
+      const slug = fastLaneLocalizedSlug(job, locale);
+      if (!slug) continue;
+      const path = buildCanonicalJobDetailPath(
+        locale,
+        job,
+        slug,
+        resolveJobCanton(job),
+      );
+      if (liveUrls.has(`${BASE_URL}${path}`)) visible.add(id);
+    }
+    visibleByLocale[locale] = [...visible].sort();
+  }
+  return visibleByLocale;
 }
 
 async function verifyPublishedPagesAndSitemaps(
@@ -1158,8 +1220,14 @@ export async function runJobsFastPublish({
     .sort(compareActiveJobsByStableOrder);
   rawJobs.length = 0;
 
+  const pathsForJob = (job) =>
+    canonicalPathsForFastLaneJob(job, {
+      buildCanonicalJobDetailPath: jobDetailPath.buildCanonicalJobDetailPath,
+      resolveJobCanton: canton.resolveJobCanton,
+    });
   const discovered = await discoverFastPublishJobs(validJobs, {
     write: !dryRun,
+    pathsForJob,
   });
   const discoveredCount = discovered.length;
   const discoveredIds = new Set(discovered.map((record) => record.id));
@@ -1212,6 +1280,20 @@ export async function runJobsFastPublish({
   }
 
   const batchIds = candidates.map((candidate) => candidate.id);
+  const liveJobsSitemapBeforeRender = await fetchLiveText(
+    `${BASE_URL}/sitemap-jobs.xml`,
+  );
+  const fastLaneVisibleJobIdsByLocale =
+    buildFastLaneHubVisibleJobIdsByLocale(
+      validJobs,
+      batchIds,
+      liveJobsSitemapBeforeRender,
+      {
+        buildCanonicalJobDetailPath:
+          jobDetailPath.buildCanonicalJobDetailPath,
+        resolveJobCanton: canton.resolveJobCanton,
+      },
+    );
   const employerSlugs = [
     ...new Set(
       candidates
@@ -1246,6 +1328,7 @@ export async function runJobsFastPublish({
     }).closeBundle();
     await jobsSeoPagesPlugin(rootDir, {
       activeJobIds: batchIds,
+      fastLaneVisibleJobIdsByLocale,
       fastLane: true,
       fastLaneResultFile: receiptFile,
     }).closeBundle();
@@ -1384,6 +1467,15 @@ export async function runJobsFastPublish({
     if (!leaseSet) return { outcome: "writer-busy", offers: 0, pages: 0 };
     const heartbeat = startLeaseHeartbeat(leaseSet);
     try {
+      const liveJobsSitemap = await fetchLiveText(
+        `${BASE_URL}/sitemap-jobs.xml`,
+      );
+      if (liveJobsSitemap !== liveJobsSitemapBeforeRender) {
+        console.log(
+          "[jobs-fast] live job sitemap changed during render; deferring the batch before publish",
+        );
+        return { outcome: "stale-sitemap-snapshot", offers: 0, pages: 0 };
+      }
       await prepareHubUpdates(heartbeat);
       heartbeat.assertHealthy();
       const sitemapPayload = await prepareSitemapUpdates(
@@ -1392,6 +1484,7 @@ export async function runJobsFastPublish({
         candidates.flatMap((candidate) => candidate.previousPaths || []),
         slugToSection,
         sectionSlugs,
+        liveJobsSitemap,
       );
       heartbeat.assertHealthy();
       const runnerTemp = path.join(tempDir, "runner-temp");
