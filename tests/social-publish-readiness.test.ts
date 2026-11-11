@@ -186,8 +186,8 @@ describe('Instagram — Page link, publisher identity, and Meta publishing grant
   });
 });
 
-describe('TikTok — internal publishing policy hold', () => {
-  it('stays blocked regardless of user tokens, refresh credentials, or API audit status', () => {
+describe('TikTok — browser publishing owner decision', () => {
+  it('keeps API credentials from clearing the external policy hold', () => {
     for (const env of [
       {},
       { TIKTOK_ACCESS_TOKEN: 'act...' },
@@ -196,9 +196,15 @@ describe('TikTok — internal publishing policy hold', () => {
     ]) {
       const v = classifyTikTok({ env, probe: { appLive: true } });
       expect(v.state).toBe(AWAITING_EXTERNAL_APPROVAL);
-      expect(v.reason).toMatch(/internal utilities/);
+      expect(v.reason).toMatch(/Content Posting API/);
       expect(isActionable(v.state)).toBe(false);
     }
+  });
+
+  it('reports the owner-approved browser uploader as ready without claiming API approval', () => {
+    const v = classifyTikTok({ env: { SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true' } });
+    expect(v.state).toBe(READY);
+    expect(v.reason).toContain('does not claim Content Posting API approval');
   });
 });
 
@@ -254,6 +260,18 @@ describe('classifyAll / actionableChannels', () => {
     });
     expect(actionableChannels(all).map((v) => v.channel).sort()).toEqual(['instagram', 'reddit']);
     expect(instagramSetupActionChannels(all).map((v) => v.channel)).toEqual(['instagram']);
+  });
+
+  it('recognizes the owner-approved browser publishing routes as ready', () => {
+    const all = classifyAll({
+      env: {
+        SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+        SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+      },
+      probes: {},
+    });
+    expect(all.find((v) => v.channel === 'instagram')?.state).toBe(READY);
+    expect(all.find((v) => v.channel === 'tiktok')?.state).toBe(READY);
   });
 
   it('keeps the Instagram setup issue open for both incomplete linkage and missing credentials', () => {

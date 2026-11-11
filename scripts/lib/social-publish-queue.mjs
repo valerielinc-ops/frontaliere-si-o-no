@@ -17,15 +17,17 @@
  * snapshot of scripts/ on the Mac host, without build-plugins/ or data/.
  *
  * The switch between the API pipeline and the robot is the Remote Config
- * parameter SOCIAL_ROBOT_MODE (mapped in scripts/load-rc-env.mjs):
+ * parameter SOCIAL_ROBOT_PUBLISHING_MODE (mapped in scripts/load-rc-env.mjs).
+ * It defaults to dry independently of SOCIAL_ROBOT_MODE:
  *   off   the API pipeline only, as before the robot existed
  *   dry   default (absent, empty or unknown value): the posters still use the
  *         API when it has credentials, and otherwise queue only when that
  *         channel's browser route is approved; the robot never presses it
  *   live  the posters normally queue for the robot; a channel can instead
  *         fail closed to its official API when browser delivery is not approved
- * The Instagram poster requires META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED=true
- * before queueing. Other channel policy is applied by the delivery policy.
+ * Each poster requires its explicit owner browser-publishing flag before
+ * queueing (Instagram also retains the legacy Meta route-approval flag).
+ * Other channel policy is applied by the delivery policy.
  * Every value is shorter than six characters on purpose: the loader masks any
  * longer RC value in CI logs (isTrivialSecret), and a masked "publish" would
  * turn every log line containing that word into `***`.
@@ -40,6 +42,7 @@ export const SOCIAL_CHANNELS = Object.freeze(['instagram', 'tiktok']);
 export const SOCIAL_ROBOT_MODES = Object.freeze(['off', 'dry', 'live']);
 export const DEFAULT_SOCIAL_ROBOT_MODE = 'dry';
 export const SOCIAL_ROBOT_MODE_ENV = 'SOCIAL_ROBOT_MODE';
+export const SOCIAL_ROBOT_PUBLISHING_MODE_ENV = 'SOCIAL_ROBOT_PUBLISHING_MODE';
 export const QUEUE_SCHEMA_VERSION = 1;
 
 /** Social assets the robot downloads come only from the site's own CDN. */
@@ -86,6 +89,18 @@ function enrichLegacyReelLedgerEntry(entry) {
  */
 export function resolveSocialRobotMode(env = process.env) {
   const raw = String(env?.[SOCIAL_ROBOT_MODE_ENV] ?? '').trim().toLowerCase();
+  return SOCIAL_ROBOT_MODES.includes(raw) ? /** @type {any} */ (raw) : DEFAULT_SOCIAL_ROBOT_MODE;
+}
+
+/**
+ * Publishing has its own switch so scheduled posts cannot enable Instagram
+ * Community actions tied to SOCIAL_ROBOT_MODE. Missing or invalid scoped
+ * settings fail closed to dry.
+ * @param {Record<string, string|undefined>} [env]
+ * @returns {'off'|'dry'|'live'}
+ */
+export function resolveSocialPublishingMode(env = process.env) {
+  const raw = String(env?.[SOCIAL_ROBOT_PUBLISHING_MODE_ENV] ?? '').trim().toLowerCase();
   return SOCIAL_ROBOT_MODES.includes(raw) ? /** @type {any} */ (raw) : DEFAULT_SOCIAL_ROBOT_MODE;
 }
 

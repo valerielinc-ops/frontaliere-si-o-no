@@ -15,8 +15,8 @@
  *              A missing Page field remains ambiguous: it can mean the Page is
  *              unlinked or the app lacks the scope.
  *
- *   TikTok     no publish-readiness probe — current guidelines hold the
- *              internal team uploader even when tokens or an API audit exist.
+ *   TikTok     no publish-readiness probe — the owner-approved browser route
+ *              does not use Content Posting API credentials.
  *
  *   Reddit     no probe — the Data Access Request was denied outright. The
  *              classic publisher stays closed without explicit approval.
@@ -68,7 +68,10 @@ async function main() {
   const env = process.env;
 
   let instagram;
-  if (String(env.INSTAGRAM_PUBLISHING_AUTH_MODE || '').trim() === 'instagram_login') {
+  if (env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED === 'true'
+    || env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED === 'true') {
+    instagram = { note: 'Meta API probe skipped; the owner-approved browser publisher is selected.' };
+  } else if (String(env.INSTAGRAM_PUBLISHING_AUTH_MODE || '').trim() === 'instagram_login') {
     const loginPublisher = await probeInstagramLoginPublisher({
       instagramUserId: env.INSTAGRAM_LOGIN_USER_ID,
       expectedUsername: env.INSTAGRAM_LOGIN_USERNAME || env.INSTAGRAM_USERNAME,

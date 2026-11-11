@@ -25,6 +25,7 @@ import {
   ledgerPathFor,
   loadQueue,
   queuePathFor,
+  resolveSocialPublishingMode,
   resolveSocialRobotMode,
   selectNextPending,
   socialPublishRoute,
@@ -73,19 +74,20 @@ describe('Instagram image upload accept guard', () => {
 });
 
 describe('social delivery policy', () => {
-  it('holds Instagram browser delivery until approved and always holds TikTok', () => {
+  it('holds browser delivery until owner flags are enabled for each channel', () => {
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'])).toEqual({
       allowed: [],
       held: [
-        { channel: 'instagram', reason: expect.stringContaining('Meta express permission') },
-        { channel: 'tiktok', reason: expect.stringContaining('eligible') },
+        { channel: 'instagram', reason: expect.stringContaining('owner-approved') },
+        { channel: 'tiktok', reason: expect.stringContaining('owner-approved') },
       ],
     });
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'], {
-      META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED: 'true',
+      SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+      SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
     })).toEqual({
-      allowed: ['instagram'],
-      held: [{ channel: 'tiktok', reason: expect.stringContaining('eligible') }],
+      allowed: ['instagram', 'tiktok'],
+      held: [],
     });
   });
 });
@@ -258,6 +260,13 @@ describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
   it('is exported by the loader and never masked in CI logs', () => {
     expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_MODE).toEqual(['SOCIAL_ROBOT_MODE']);
     for (const value of SOCIAL_ROBOT_MODES) expect(isTrivialSecret(value), value).toBe(true);
+  });
+
+  it('keeps content publishing mode separate from Community/Insights mode', () => {
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'dry', SOCIAL_ROBOT_PUBLISHING_MODE: 'live' })).toBe('live');
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'live', SOCIAL_ROBOT_PUBLISHING_MODE: 'invalid' })).toBe('dry');
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'live' })).toBe('dry');
+    expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_PUBLISHING_MODE).toEqual(['SOCIAL_ROBOT_PUBLISHING_MODE']);
   });
 
   it('routes only through an explicit API or approved browser path', () => {
@@ -1664,10 +1673,21 @@ describe('workflows', () => {
     }
   });
 
-  it('warns on a token-less Instagram run while browser delivery is held', () => {
+  it('warns when Instagram owner-approved browser delivery is disabled', () => {
     const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
-    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
-    expect(warn?.if).toBe("env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'");
+    const warn = steps.find((s) => /owner-approved browser route is disabled/.test(s.name ?? ''));
+    expect(warn?.if).toContain("env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED != 'true'");
+  });
+
+  it('keeps the default TikTok manual dispatch as a dry-run content preview', () => {
+    const workflow = wf('tiktok-daily-broadcast.yml');
+    const inputs = workflow.on.workflow_dispatch.inputs;
+    const steps = workflow.jobs.post.steps as Array<{ name?: string; if?: string; run?: string }>;
+    const preview = steps.find((s) => s.name === 'Generate TikTok content preview');
+    expect(inputs.dry_run.default).toBe('true');
+    expect(preview?.if).toContain("inputs.dry_run == 'true'");
+    expect(preview?.run).toContain('scripts/post-to-tiktok.mjs');
+    expect(preview?.run).toContain('ARGS=(--dry-run)');
   });
 
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {
@@ -1756,6 +1776,7 @@ describe('workflows', () => {
   it('does not hide a failed social ledger push', () => {
     for (const workflow of [
       'instagram-daily-broadcast.yml',
+      'tiktok-daily-broadcast.yml',
       'linkedin-member-daily.yml',
     ]) {
       const steps = wf(workflow).jobs.post.steps as Array<{ name?: string; run?: string }>;

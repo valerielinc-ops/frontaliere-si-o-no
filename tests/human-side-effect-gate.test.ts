@@ -145,6 +145,7 @@ const TRUSTED_SCHEDULE_SIDE_EFFECTS = [
   ['notify-journalist-article-live.yml', 'Verify + notify live journalist articles', null, false],
   // Same unguarded scheduled-side-effect class found by the sibling scan.
   ['instagram-daily-broadcast.yml', 'Post to Instagram', 'Commit posted ledger', true],
+  ['tiktok-daily-broadcast.yml', 'Post to TikTok browser queue', 'Commit TikTok browser queue', true],
   ['reddit-jobs-daily-schedule.yml', 'Schedule Reddit jobs', 'Commit posted-jobs tracking', true],
   ['telegram-channel-broadcast.yml', 'Resolve real-send flag', 'Commit posted ledgers', false],
 ] as const;

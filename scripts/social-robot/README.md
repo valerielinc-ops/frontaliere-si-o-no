@@ -1,18 +1,18 @@
-# Robot social (Instagram; TikTok in sola lettura)
+# Robot social (Instagram e TikTok)
 
-Il robot può pubblicare i caroselli giornalieri su Instagram dal browser del
-Mac agenti solo dopo la verifica dell'autorizzazione Meta per quel percorso. In
-assenza del flag dedicato, la coda browser resta bloccata e il poster prova
-solo la Graph API ufficiale. I Reel sperimentali usano già quella API e non
-passano dal browser. TikTok è escluso dalla pubblicazione automatica:
-il workflow `tiktok-daily-broadcast.yml` è ora solo un'anteprima manuale,
-`post-to-tiktok.mjs` blocca ogni invio reale e il robot filtra TikTok anche
-quando viene richiesto esplicitamente. La raccolta TikTok usa un workflow
-separato e di sola lettura per gli Insights autorizzati.
+Il proprietario ha scelto il publisher web già autenticato per Instagram e
+l'uploader browser già adottato per TikTok. I poster giornalieri generano le
+code; il robot del Mac agenti le pubblica dal profilo persistente del browser.
+La decisione è salvata in `DECISIONS.md` e usa flag Remote Config separati:
+`SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED` e
+`SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED`. È un'autorizzazione
+del proprietario per questi percorsi web e non dichiara l'approvazione dei
+rispettivi API di pubblicazione.
 
-La precedente decisione del 2026-10-04 su cadenza e rischio dell'automazione
-descrive il comportamento storico. Non autorizza più l'invio automatico su
-TikTok alla luce delle linee guida correnti per i client di pubblicazione.
+Instagram Reels continuano a usare il workflow Graph API esistente; non passano
+dal robot. Insights e Community mantengono i propri flag Meta distinti. Per
+TikTok, il workflow giornaliero/settimanale prepara video MP4 e accoda i post
+per l'uploader browser; non legge token e non invoca il Content Posting API.
 
 ## Come funziona
 
@@ -20,15 +20,17 @@ TikTok alla luce delle linee guida correnti per i client di pubblicazione.
    `instagram-daily-broadcast.yml`) sceglie il carosello, genera le slide,
    le carica sulla CDN e, solo se la pubblicazione browser è autorizzata,
    mette il post pronto in `data/<canale>-queue.json` su `main`
-   (`scripts/lib/social-publish-queue.mjs`). Il workflow schedulato
+   (`scripts/lib/social-publish-queue.mjs`). Il workflow TikTok
+   `tiktok-daily-broadcast.yml` usa `post-to-tiktok.mjs` per preparare video MP4
+   e metterli nella stessa coda TikTok. Il workflow schedulato
    `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
    generare cover e MP4, pubblicarli con il container Graph API `REELS`, e
    registrare l'esatto `mediaId` restituito da Meta. Il workflow rilegge le
    vecchie voci Reel in coda e, se complete e ancora non pubblicate, le migra
-   alla Graph API. Il workflow TikTok omonimo è solo un'anteprima manuale e
-   non crea code.
-2. Il robot (`run.mjs`) legge la coda Instagram da `origin/main` e pubblica i
-   caroselli dalla pagina web della piattaforma. Eventuali voci Reel legacy
+   alla Graph API.
+2. Il robot (`run.mjs`) legge da `origin/main` le code di entrambi i canali e
+   pubblica i caroselli Instagram e i video TikTok dalla pagina web della
+   piattaforma. Eventuali voci Reel legacy
    restano in hold nel robot e vengono pubblicate solo dal workflow Graph API.
 3. Solo dopo aver **visto la conferma** del carosello nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
@@ -42,15 +44,11 @@ TikTok alla luce delle linee guida correnti per i client di pubblicazione.
    alternativa il community worker usa soltanto il Graph API esplicitamente
    selezionato.
 
-Non c'è approvazione preventiva per i post ordinari. Un esito browser ambiguo è
-un'eccezione di recupero: mette in pausa Instagram e richiede una verifica
-operativa. Questo percorso non è ancora completamente autonomo. Un run verde
-di `instagram-daily-broadcast.yml` può indicare che il carosello è stato messo
-in coda; la pubblicazione viene registrata soltanto dopo la conferma del robot.
-
-Le funzioni storiche di riconciliazione TikTok restano nel codice per leggere
-eventuali record preesistenti, ma il robot non avvia più il browser TikTok e
-non cerca né pubblica nuovi contenuti su quel canale.
+Un esito browser ambiguo resta `unconfirmed`: il robot non ripete l'invio,
+controlla prima la pagina dei post e registra nel ledger soltanto una conferma
+visibile. La cadenza e i cap giornalieri esistenti continuano a valere per
+entrambi i canali; un run del poster può indicare che un post è stato messo in
+coda, non che la piattaforma l'abbia pubblicato.
 
 Risolvere a mano un `unconfirmed` (nel journal
 `~/Library/Application Support/frontaliere/social-robot/journal.json`):
@@ -62,22 +60,22 @@ gestione ordinaria dei contenuti.
 
 ## Interruttore (Firebase Remote Config)
 
-Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
+`SOCIAL_ROBOT_PUBLISHING_MODE` controlla i poster e i click di pubblicazione:
 
-| Valore | Caroselli | Reel | Robot |
-|---|---|---|---|
-| `off` | solo API | Graph API se le credenziali sono configurate | non pubblica dal browser |
-| `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali; altrimenti coda solo con approvazione browser | Graph API se le credenziali sono configurate | preview browser solo con approvazione browser |
-| `live` | robot se approvato; altrimenti Graph API only | Graph API se le credenziali sono configurate | pubblica caroselli in coda solo con approvazione browser; TikTok è filtrato |
+| Valore | Poster Instagram/TikTok | Robot browser |
+|---|---|---|
+| `off` | non crea code web | non pubblica |
+| `dry` (default: assente, vuoto o sconosciuto) | può preparare le code con il flag owner | preview, nessun click di pubblicazione |
+| `live` | accoda i post usando i flag owner | pubblica le code solo per i canali autorizzati |
 
-Tre flag Remote Config, tutti assenti/disabilitati di default, controllano
-separatamente `META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED`,
+`SOCIAL_ROBOT_MODE` resta separato e controlla le altre attività del robot,
+come Community e Insights. Attivare la pubblicazione non cambia quel valore.
+
+I due flag owner autorizzano il publisher web per i canali scelti. I flag
 `META_INSTAGRAM_BROWSER_INSIGHTS_APPROVED` e
-`META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED`. Impostarne uno a `true` soltanto
-dopo aver verificato che il permesso Meta copra quello specifico uso. La
-sessione Chrome non costituisce un'autorizzazione. `SOCIAL_ROBOT_INSIGHTS_SOURCE`
-seleziona ancora `browser`, `graph` oppure `off`, ma `browser` resta bloccato
-senza il relativo flag.
+`META_INSTAGRAM_BROWSER_COMMUNITY_APPROVED` sono separati e controllano solo
+quelle funzionalità. `SOCIAL_ROBOT_INSIGHTS_SOURCE` seleziona ancora `browser`,
+`graph` oppure `off`; Insights browser resta bloccato senza il relativo flag.
 
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
@@ -113,8 +111,8 @@ vincitore.
 
 ### Esperimento audio TikTok (archiviato)
 
-La descrizione seguente è storica e non è operativa. Nessun job o modalità del
-robot lo applica a TikTok mentre la pubblicazione automatica è sospesa.
+La descrizione seguente è storica e non è operativa; l'esperimento audio è
+archiviato e non rientra nella cadenza di pubblicazione attuale.
 
 Storicamente il robot apriva l’editor nativo `Suoni` di TikTok Studio e
 selezionava audio dalla scheda `Per te`.

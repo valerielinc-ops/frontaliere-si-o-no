@@ -233,7 +233,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
 /**
  * @param {object} deps
  * @param {'dry-run'|'publish'} deps.cliMode   what the command line asked
- * @param {'off'|'dry'|'live'} deps.rcMode     SOCIAL_ROBOT_MODE from Remote Config
+ * @param {'off'|'dry'|'live'} deps.rcMode     SOCIAL_ROBOT_PUBLISHING_MODE from Remote Config
  * @param {string[]} [deps.platforms]
  * @param {() => number} [deps.now]
  * @param {() => number} [deps.rng]
@@ -290,12 +290,12 @@ export async function runRobot(deps) {
   const results = [];
   const confirmationRetries = [];
   if (rcMode === 'off') {
-    log.log('ℹ️  SOCIAL_ROBOT_MODE=off: the API pipeline publishes, the robot does nothing');
+    log.log('ℹ️  SOCIAL_ROBOT_PUBLISHING_MODE=off: browser publishing is disabled');
     return { dryRun: true, results, confirmationRetries };
   }
   const dryRun = !(cliMode === 'publish' && rcMode === 'live');
   if (cliMode === 'publish' && dryRun) {
-    log.log(`ℹ️  --publish asked, but SOCIAL_ROBOT_MODE=${rcMode}: dry run (Remote Config must say "live")`);
+    log.log(`ℹ️  --publish asked, but SOCIAL_ROBOT_PUBLISHING_MODE=${rcMode}: dry run (Remote Config must say "live")`);
   }
   const human = {
     pause: () => sleep(randomBetween(rng, HUMAN_DELAY_MS)),
