@@ -848,6 +848,50 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/4', '/Application/Login/4') }, 'umantis')).toBe(false);
   });
 
+  it('recognizes a Umantis Application/New account step from an employer-site channel with certificates', () => {
+    const text = (id: string, label: string, required = false) => ({ id, kind: 'text', inputType: 'text', label, required });
+    const file = (id: string, label: string, required = false) => ({ id, kind: 'file', inputType: 'file', label, required });
+    const snapshot = {
+      url: 'https://recruitingapp-2839.umantis.com/Vacancies/2839/Application/New/1',
+      text: '',
+      passwordVisible: true,
+      fields: [
+        file('photo', 'Foto'),
+        text('first-name', 'Vorname', true),
+        text('last-name', 'Nachname', true),
+        text('birth-date', 'Geburtsdatum'),
+        text('email-login', 'E-Mail-Adresse/Login', true),
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Passwort', required: true },
+        text('street', 'Strasse', true),
+        text('house-number', 'Hausnummer', true),
+        text('postal-code', 'PLZ', true),
+        text('city', 'Ort', true),
+        { id: 'country', kind: 'select', inputType: 'select', label: 'Land', required: true },
+        text('mobile', 'Mobiltelefon', true),
+        file('cv', 'Lebenslauf', true),
+        file('certificates', 'Zeugnisse/Diplome', true),
+        file('other-documents', 'Weitere Unterlagen'),
+        file('form-data-31', 'form_data31'),
+        file('form-data-32', 'form_data32'),
+        text('notes', 'Anmerkungen zur Bewerbung'),
+        text('current-employer-other', 'Aktueller Arbeitgeber (andere)'),
+        { id: 'referral', kind: 'select', inputType: 'select', label: 'Wie bist du auf uns aufmerksam geworden?', required: true },
+        { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: 'Ich habe die Datenschutzerklärung zur Kenntnis genommen.', required: true },
+        { id: 'salutation', kind: 'radio', inputType: 'radio', label: 'Frau' },
+        { id: 'language', kind: 'radio', inputType: 'radio', label: 'Deutsch' },
+        { id: 'retention', kind: 'radio', inputType: 'radio', label: 'Ich bin damit einverstanden, dass meine Daten über diese Bewerbung hinaus gespeichert werden' },
+      ],
+      buttons: [{ id: 'next', text: 'Weiter', disabled: false }],
+    };
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(ownAccountForm(snapshot, 'employer_site')).toBe(true);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(field => !['certificates', 'other-documents'].includes(field.id)),
+    }, 'employer_site')).toBe(false);
+  });
+
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
     const successFactors = {
       url: 'https://career5.successfactors.eu/careers',

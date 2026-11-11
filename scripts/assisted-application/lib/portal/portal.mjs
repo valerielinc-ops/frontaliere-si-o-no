@@ -4022,6 +4022,7 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+const UMANTIS_NON_SUPPORTING_UPLOAD_RE = /\b(?:photo|foto|passport|passaport|passeport|ausweis|licen[cs]\w*|patent\w*|permit|permess\w*|permis|bewilligung\w*)\b/iu;
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
 const portalUploadFieldIdentity = (field) => [
   field?.domId && `dom:${field.domId}`,
@@ -4089,8 +4090,8 @@ function isUmantisApplicationRoute(url) {
   }
 }
 
-function isObservedUmantisApplicationStep(snapshot, channelType) {
-  if (channelType !== 'umantis' || !isUmantisApplicationRoute(snapshot.url)) return false;
+function isObservedUmantisApplicationStep(snapshot) {
+  if (!isUmantisApplicationRoute(snapshot.url)) return false;
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const { email, password } = loginFields(snapshot);
   if (!email || !password || asksExistingPassword(password)) return false;
@@ -4114,13 +4115,24 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const hasApplicantDetails = profileDetails.size >= 2;
   const hasCoverLetter = fields.some(field => isFileField(field)
     && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
+  // Umantis tenants do not share one application dossier: some ask for a
+  // cover letter, others for certificates/diplomas or additional documents.
+  // A portrait or identity document alone is not enough to distinguish the
+  // application step from a profile/account surface.
+  const hasSupportingDocument = fields.some(field => {
+    if (!isFileField(field) || isCvFileField(field)) return false;
+    const text = `${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`;
+    return isNonCvDocumentLabel(text) && !UMANTIS_NON_SUPPORTING_UPLOAD_RE.test(text);
+  });
   const hasCv = fields.some(isCvFileField);
 
-  // #17174: Umantis Application/New can expose the account password beside
-  // identity, a partial address/profile, required CV + cover letter, and only
-  // «Avanti». This observed application surface is not a sign-in page.
+  // #17174/#18106: Umantis Application/New can expose the account password
+  // beside identity, a partial address/profile, CV plus the tenant's
+  // supporting dossier fields, and only «Avanti»/«Weiter». This observed
+  // application surface is not a sign-in page. The route is authoritative
+  // even when the source draft still calls the channel employer_site.
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
-    && hasIdentity && hasApplicantDetails && hasCv && hasCoverLetter);
+    && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasSupportingDocument));
 }
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
@@ -4154,11 +4166,10 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  const umantisProfileCreatedOnSubmit = channelType === 'umantis'
-    && isUmantisApplicationRoute(snapshot.url)
+  const umantisProfileCreatedOnSubmit = isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
     && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
-  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot, channelType);
+  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot);
   return Boolean(snapshot.passwordVisible) && (
     (sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit))
     || umantisApplicationStep
