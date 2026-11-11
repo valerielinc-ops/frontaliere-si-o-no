@@ -41,7 +41,7 @@ const page = {
 };
 
 let originStatus = 404;
-let datasetMode: 'hit' | 'missing' | 'unavailable' | 'disabled' = 'hit';
+let datasetMode: 'hit' | 'missing' | 'unavailable' | 'disabled' | 'inactive' = 'hit';
 let fetchedPaths: string[];
 
 beforeEach(() => {
@@ -78,7 +78,7 @@ beforeEach(() => {
           generation: 'test-build-1',
           shardId,
           coverage: { complete: true },
-          pages: datasetMode === 'hit' ? { [PAGE_PATH]: page } : {},
+          pages: datasetMode === 'hit' || datasetMode === 'inactive' ? { [PAGE_PATH]: page } : {},
         }), { status: 200, headers: { 'Content-Type': 'application/json' } });
       }
       return new Response('not found', { status: 404 });
@@ -116,6 +116,26 @@ describe('locale-router expired job R2 soft landings', () => {
     expect(response.status).toBe(200);
     expect(await response.text()).toContain('static shard page');
     expect(fetchedPaths.some((path) => path.includes('/edge/expired-jobs/'))).toBe(false);
+  });
+
+  it('renders the published edge record through the verification header while static output remains', async () => {
+    originStatus = 200;
+    datasetMode = 'inactive';
+    const response = await worker.fetch(new Request(`${APEX}${PAGE_PATH}`, {
+      headers: { 'x-frontaliere-expired-job-edge-verify': '1' },
+    }), {}, ctx);
+    const html = await response.text();
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('X-Frontaliere-Edge-Verification')).toBe('expired-job-dataset');
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.headers.get('X-Robots-Tag')).toMatch(/noindex,\s*follow/i);
+    expect(html).toContain('href="https://frontaliereticino.ch/en/find-jobs-zurich/active-engineer/"');
+    expect(html).toContain('adsbygoogle.js');
+    expect(html).toContain('googletagmanager.com/gtag/js');
+    expect(html).not.toContain('JobPosting');
+    expect(fetchedPaths.some((path) => path.startsWith('cdn.frontaliereticino.ch/edge/expired-jobs/v1/en/'))).toBe(true);
+    expect(fetchedPaths.some((path) => path.startsWith('origin-zurigo-en.'))).toBe(false);
   });
 
   it('keeps a transient R2 failure out of the section-root redirect recovery', async () => {

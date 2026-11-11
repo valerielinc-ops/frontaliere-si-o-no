@@ -3291,14 +3291,16 @@ export function renderNotFoundPage(pathname, locale, sectionRoute = null) {
 const EXPIRED_JOB_EDGE_FETCH_TIMEOUT_MS = 2000;
 const EXPIRED_JOB_EDGE_MANIFEST_CACHE_TTL = 60;
 const EXPIRED_JOB_EDGE_SHARD_CACHE_TTL = 3600;
+const EXPIRED_JOB_EDGE_VERIFY_HEADER = 'x-frontaliere-expired-job-edge-verify';
 
 /**
  * Load one small R2 shard and render an edge soft landing only when the
- * build-published manifest activates this section. A missing manifest means
- * the feature is still off; a transient R2 failure is carried to the 404
- * chain so a deleted selected URL cannot become a section-root redirect.
+ * build-published manifest activates this section, except for explicit
+ * no-store verification-header requests. A missing manifest means the
+ * feature is still off; a transient R2 failure is carried to the 404 chain so
+ * a deleted selected URL cannot become a section-root redirect.
  */
-async function lookupExpiredJobEdgePage(request, url, sectionRoute) {
+async function lookupExpiredJobEdgePage(request, url, sectionRoute, { allowInactiveForVerification = false } = {}) {
   if ((request.method !== 'GET' && request.method !== 'HEAD') || !sectionRoute
     || !JOB_DETAIL_RE.test(url.pathname)) return { kind: 'disabled' };
 
@@ -3329,7 +3331,9 @@ async function lookupExpiredJobEdgePage(request, url, sectionRoute) {
     if (!manifest || manifest.locale !== locale || !Array.isArray(manifest.activeSections)) {
       return { kind: 'unavailable' };
     }
-    if (!manifest.activeSections.includes(sectionRoute.section)) return { kind: 'disabled' };
+    if (!allowInactiveForVerification && !manifest.activeSections.includes(sectionRoute.section)) {
+      return { kind: 'disabled' };
+    }
     if (!isExpiredJobEdgeManifestUsable(manifest, locale)) return { kind: 'unavailable' };
 
     const shardId = expiredJobEdgeShardId(canonicalPath);
@@ -3379,7 +3383,10 @@ async function lookupExpiredJobEdgePage(request, url, sectionRoute) {
           'Content-Type': 'text/html; charset=utf-8',
           'Content-Language': locale,
           'X-Robots-Tag': 'noindex, follow',
-          'Cache-Control': 'public, max-age=0, s-maxage=60',
+          'Cache-Control': allowInactiveForVerification ? 'no-store' : 'public, max-age=0, s-maxage=60',
+          ...(allowInactiveForVerification
+            ? { 'X-Frontaliere-Edge-Verification': 'expired-job-dataset' }
+            : {}),
         },
       }),
     };
@@ -3396,6 +3403,27 @@ async function lookupExpiredJobEdgePage(request, url, sectionRoute) {
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
 async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null) {
+  // Verification requests deliberately render the published edge record even
+  // while the section is inactive and its static file still exists. This lets
+  // rollout checks validate the exact Worker HTML before static suppression.
+  // The bypass still requires a complete manifest, a valid shard and a page
+  // record; responses are no-store and never change the normal request path.
+  if (request.headers.get(EXPIRED_JOB_EDGE_VERIFY_HEADER) === '1') {
+    const verified = await lookupExpiredJobEdgePage(request, url, sectionRoute, {
+      allowInactiveForVerification: true,
+    });
+    if (verified.kind === 'hit') return verified.response;
+    const status = verified.kind === 'unavailable' ? 503 : 404;
+    return new Response('Expired-job edge verification failed', {
+      status,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store',
+        ...(status === 503 ? { 'Retry-After': '30' } : {}),
+      },
+    });
+  }
+
   const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
