@@ -69,6 +69,14 @@ import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import {
+  EXPIRED_JOB_EDGE_DATASET_PREFIX,
+  expiredJobEdgeShardId,
+  isExpiredJobEdgeManifestUsable,
+  isExpiredJobEdgeShardUsable,
+  normalizeExpiredJobEdgePath,
+  renderExpiredJobEdgeHtml,
+} from '../../scripts/lib/expired-job-edge-dataset.mjs';
+import {
   PUBLIC_CONFIG_FUNCTION_ENDPOINT,
   PUBLIC_CONFIG_PATH,
 } from '../../services/publicConfigConstants.mjs';
@@ -3280,6 +3288,108 @@ export function renderNotFoundPage(pathname, locale, sectionRoute = null) {
     + '</main></body></html>';
 }
 
+const EXPIRED_JOB_EDGE_FETCH_TIMEOUT_MS = 2000;
+const EXPIRED_JOB_EDGE_MANIFEST_CACHE_TTL = 60;
+const EXPIRED_JOB_EDGE_SHARD_CACHE_TTL = 3600;
+
+/**
+ * Load one small R2 shard and render an edge soft landing only when the
+ * build-published manifest activates this section. A missing manifest means
+ * the feature is still off; a transient R2 failure is carried to the 404
+ * chain so a deleted selected URL cannot become a section-root redirect.
+ */
+async function lookupExpiredJobEdgePage(request, url, sectionRoute) {
+  if ((request.method !== 'GET' && request.method !== 'HEAD') || !sectionRoute
+    || !JOB_DETAIL_RE.test(url.pathname)) return { kind: 'disabled' };
+
+  const locale = String(sectionRoute.locale ?? '');
+  const canonicalPath = normalizeExpiredJobEdgePath(url.pathname);
+  if (!canonicalPath || canonicalPath === '/') return { kind: 'disabled' };
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), EXPIRED_JOB_EDGE_FETCH_TIMEOUT_MS);
+  try {
+    const manifestUrl = new URL(`${EXPIRED_JOB_EDGE_DATASET_PREFIX}/${locale}/manifest.json`, CDN_BASE);
+    const manifestResponse = await fetch(manifestUrl.toString(), {
+      signal: controller.signal,
+      cf: publicOriginCacheOptions(EXPIRED_JOB_EDGE_MANIFEST_CACHE_TTL, 15),
+    });
+    if (manifestResponse.status === 404) return { kind: 'disabled' };
+    if (!manifestResponse.ok) return { kind: 'unavailable' };
+
+    let manifest;
+    try {
+      manifest = await manifestResponse.json();
+    } catch {
+      return { kind: 'unavailable' };
+    }
+    // An empty active list is the safe off state even when its evidence is
+    // incomplete. Validate the full coverage contract only for a section the
+    // manifest is asking the Worker to serve.
+    if (!manifest || manifest.locale !== locale || !Array.isArray(manifest.activeSections)) {
+      return { kind: 'unavailable' };
+    }
+    if (!manifest.activeSections.includes(sectionRoute.section)) return { kind: 'disabled' };
+    if (!isExpiredJobEdgeManifestUsable(manifest, locale)) return { kind: 'unavailable' };
+
+    const shardId = expiredJobEdgeShardId(canonicalPath);
+    if (!shardId) return { kind: 'unavailable' };
+    if (!manifest.shardIds.includes(shardId)) return { kind: 'miss' };
+    const shardUrl = new URL(
+      `${EXPIRED_JOB_EDGE_DATASET_PREFIX}/${locale}/${manifest.generation}/${shardId}.json`,
+      CDN_BASE,
+    );
+    const shardResponse = await fetch(shardUrl.toString(), {
+      signal: controller.signal,
+      cf: publicOriginCacheOptions(EXPIRED_JOB_EDGE_SHARD_CACHE_TTL),
+    });
+    if (!shardResponse.ok) return { kind: 'unavailable' };
+
+    let shard;
+    try {
+      shard = await shardResponse.json();
+    } catch {
+      return { kind: 'unavailable' };
+    }
+    if (!isExpiredJobEdgeShardUsable(shard, { locale, generation: manifest.generation, shardId })) {
+      return { kind: 'unavailable' };
+    }
+
+    const page = shard.pages[canonicalPath];
+    if (!page) return { kind: 'miss' };
+    const html = renderExpiredJobEdgeHtml(manifest.template, page, locale, manifest.adSnippetHtml);
+    if (!html) return { kind: 'unavailable' };
+
+    if (url.pathname !== canonicalPath) {
+      const location = new URL(`${canonicalPath}${url.search}`, url.origin).toString();
+      return {
+        kind: 'hit',
+        response: new Response(null, {
+          status: 301,
+          headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+        }),
+      };
+    }
+
+    return {
+      kind: 'hit',
+      response: new Response(request.method === 'HEAD' ? null : html, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Content-Language': locale,
+          'X-Robots-Tag': 'noindex, follow',
+          'Cache-Control': 'public, max-age=0, s-maxage=60',
+        },
+      }),
+    };
+  } catch {
+    return { kind: 'unavailable' };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 // Cache-Control stamping, apex-keyed fail-open warmup on 200s, and the job-orphan
 // 301 recoveries on 404s. `recoveryLocale` (it|en|de|fr) selects which
 // within-locale recovery map/board to use — for an IT section subtree it is
@@ -3320,6 +3430,32 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   } else if (resp.status >= 500) {
     logUpstreamFailure(`origin-${resp.status}`, url, resp);
+  }
+
+  // Only consult the compact edge archive after the shard confirms the page is
+  // absent, and before any 404 recovery can redirect a known job to a section
+  // root. Static pages therefore retain their exact origin response and never
+  // pay an archive lookup while the rollout is off.
+  let expiredJobEdge = { kind: 'disabled' };
+  if ((request.method === 'GET' || request.method === 'HEAD')
+    && (resp.status === 404 || resp.status === 410)) {
+    expiredJobEdge = await lookupExpiredJobEdgePage(request, url, sectionRoute);
+    if (expiredJobEdge.kind === 'hit') return expiredJobEdge.response;
+    // Once an active section has removed a page, a transient R2 failure must
+    // not let the old 301-to-section-root recovery turn that URL into a
+    // soft-404. Retry after recovery; the static shard will still answer if
+    // the removal has not landed yet.
+    if (expiredJobEdge.kind === 'unavailable') {
+      return new Response('Expired job archive temporarily unavailable', {
+        status: 503,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Content-Language': recoveryLocale,
+          'Retry-After': '60',
+          'Cache-Control': 'no-store',
+        },
+      });
+    }
   }
 
   // Healthy HEAD aliases must resolve before returning the origin response.

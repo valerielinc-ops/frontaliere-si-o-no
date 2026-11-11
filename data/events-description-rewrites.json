@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-10T21:51:59.837Z",
+  "generatedAt": "2026-11-11T00:28:31.683Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -2917,6 +2917,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T21:34:31.928Z"
+    },
+    "ge-agenda:atelier-creez-calendrier-avent-chocolat::58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb": {
+      "id": "ge-agenda:atelier-creez-calendrier-avent-chocolat",
+      "sourceDescriptionHash": "58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb",
+      "description": "L’appuntamento è un laboratorio dedicato alla realizzazione di un calendario dell’Avvento di cioccolato. Si svolge a Ginevra, nel Canton Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un laboratorio dedicato alla realizzazione di un calendario dell’Avvento di cioccolato. Si svolge a Ginevra, nel Canton Ginevra.",
+        "en": "This workshop focuses on making a chocolate Advent calendar. It takes place in Geneva, in the canton of Geneva.",
+        "de": "Die Veranstaltung ist ein Workshop zur Herstellung eines Schokoladen-Adventskalenders. Sie findet in Genf im Kanton Genf statt.",
+        "fr": "Cet atelier est consacré à la création d’un calendrier de l’Avent en chocolat. Il a lieu à Genève, dans le canton de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-10T23:14:18.431Z"
     },
     "ge-agenda:atelier-creez-chocolat-halloween-0::58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb": {
       "id": "ge-agenda:atelier-creez-chocolat-halloween-0",
@@ -15350,6 +15364,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T18:15:26.516Z"
     },
+    "ge-agenda:peur-puissance-agir::408f0dcab40b9b436e425362d1fb4040c0831435ed9fc0ccd8827e24dc675a65": {
+      "id": "ge-agenda:peur-puissance-agir",
+      "sourceDescriptionHash": "408f0dcab40b9b436e425362d1fb4040c0831435ed9fc0ccd8827e24dc675a65",
+      "description": "Si tratta di un atelier dedicato alla riflessione condivisa. L’evento si svolge a Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un atelier dedicato alla riflessione condivisa. L’evento si svolge a Ginevra, nel cantone di Ginevra.",
+        "en": "This workshop focuses on shared reflection. The event takes place in Geneva, in the canton of Geneva.",
+        "de": "Der Workshop ist auf gemeinsames Nachdenken ausgerichtet. Die Veranstaltung findet in Genf im Kanton Genf statt.",
+        "fr": "Cet atelier est consacré à une réflexion collective. L’événement se déroule à Genève, dans le canton de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-10T23:26:52.520Z"
+    },
     "ge-agenda:photos-souvenirs-smartphones::43955d01ec7640adcb69785a5e5e1a5e39a6e3aafff6288ab4c8a9e9e0580506": {
       "id": "ge-agenda:photos-souvenirs-smartphones",
       "sourceDescriptionHash": "43955d01ec7640adcb69785a5e5e1a5e39a6e3aafff6288ab4c8a9e9e0580506",
@@ -26074,6 +26102,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T23:24:08.538Z"
     },
+    "guidle:A8SXykv::baebaae3941eec2de648a63f549645ba763ed2c54d3de085e580fbe79e44a3ec": {
+      "id": "guidle:A8SXykv",
+      "sourceDescriptionHash": "baebaae3941eec2de648a63f549645ba763ed2c54d3de085e580fbe79e44a3ec",
+      "description": "La Biblioteca centrale di Zurigo ospita una serie ricorrente di sessioni dal vivo dedicate a D&D. Nel corso degli incontri, i partecipanti esplorano ambientazioni immaginarie, affrontano enigmi e vivono avventure.",
+      "descriptionByLocale": {
+        "it": "La Biblioteca centrale di Zurigo ospita una serie ricorrente di sessioni dal vivo dedicate a D&D. Nel corso degli incontri, i partecipanti esplorano ambientazioni immaginarie, affrontano enigmi e vivono avventure.",
+        "en": "The Zentralbibliothek Zürich hosts a recurring live-play series based on D&D. During the sessions, participants explore imaginary settings, solve puzzles and take part in adventures.",
+        "de": "In der Zentralbibliothek Zürich gibt es eine regelmässige Live-Spielrunde rund um D&D. Die Teilnehmenden erkunden fantastische Schauplätze, lösen Rätsel und erleben gemeinsame Abenteuer.",
+        "fr": "La Zentralbibliothek Zürich accueille une série récurrente de parties de D&D jouées en direct. Les séances comprennent l’exploration d’univers imaginaires, la résolution d’énigmes et des aventures partagées."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-10T23:25:37.713Z"
+    },
     "guidle:A8t7CJc::f1c12b6b8df9117f2d62ab94d52dfe8b8ca2846a88e299f94cdd7a7550cd6190": {
       "id": "guidle:A8t7CJc",
       "sourceDescriptionHash": "f1c12b6b8df9117f2d62ab94d52dfe8b8ca2846a88e299f94cdd7a7550cd6190",
@@ -34544,6 +34586,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:32:27.514Z"
     },
+    "guidle:AF9fHWX::0659e8ff8df8524d6d0f4667351987c3355fd25d47ff2867ce8723f3291d7076": {
+      "id": "guidle:AF9fHWX",
+      "sourceDescriptionHash": "0659e8ff8df8524d6d0f4667351987c3355fd25d47ff2867ce8723f3291d7076",
+      "description": "Il Pub Quiz è un appuntamento ricorrente dedicato ai giochi a quiz al Gallus Pub. Oltre al quiz, il pubblico sceglie anche i propri «vincitori del cuore».",
+      "descriptionByLocale": {
+        "it": "Il Pub Quiz è un appuntamento ricorrente dedicato ai giochi a quiz al Gallus Pub. Oltre al quiz, il pubblico sceglie anche i propri «vincitori del cuore».",
+        "en": "Pub Quiz is a recurring quiz event held at Gallus Pub. In addition to the quiz, the audience also selects its own “winners of hearts”.",
+        "de": "Das Pub Quiz ist eine wiederkehrende Quizveranstaltung im Gallus Pub. Zusätzlich bestimmt das Publikum seine eigenen «Sieger:innen der Herzen».",
+        "fr": "Le Pub Quiz est une activité de quiz récurrente au Gallus Pub. En plus du quiz, le public choisit également ses propres « gagnants du cœur »."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-10T23:17:56.531Z"
+    },
     "guidle:AF9kJ4d::b5fe5da11b7edb949840a562e693dbd8530ba2bba7bc3152a7f597acc05050a7": {
       "id": "guidle:AF9kJ4d",
       "sourceDescriptionHash": "b5fe5da11b7edb949840a562e693dbd8530ba2bba7bc3152a7f597acc05050a7",
@@ -34977,6 +35033,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T20:21:28.948Z"
+    },
+    "guidle:AfG33R1::356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e": {
+      "id": "guidle:AfG33R1",
+      "sourceDescriptionHash": "356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e",
+      "description": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+      "descriptionByLocale": {
+        "it": "L’evento commemora i 750 anni della Collégiale di Neuchâtel. Affronta temi storici, culturali e spirituali.",
+        "en": "The event commemorates the 750th anniversary of La Collégiale de Neuchâtel. It addresses historical, cultural and spiritual themes.",
+        "de": "Die Veranstaltung würdigt das 750-jährige Bestehen der Collégiale de Neuchâtel. Inhaltlich verbindet sie Geschichte, Kultur und Spiritualität.",
+        "fr": "Le rendez-vous commémore les 750 ans de la Collégiale de Neuchâtel. Il aborde des thèmes historiques, culturels et spirituels."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T00:18:40.331Z"
     },
     "guidle:AfGBbU1::701946f489c69d8865fc4d1eb708ebea45cedb701bff4b276d4d4548bd9719e2": {
       "id": "guidle:AfGBbU1",
@@ -99727,6 +99797,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T22:23:02.757Z"
+    },
+    "myswitzerland:58249eed89eb4fe5ae04b4646b4a7d5b::1bb7477d1d54ff2cf75afbdb535ed8675d974d8d399bc5e5024f3d2e95834a9d": {
+      "id": "myswitzerland:58249eed89eb4fe5ae04b4646b4a7d5b",
+      "sourceDescriptionHash": "1bb7477d1d54ff2cf75afbdb535ed8675d974d8d399bc5e5024f3d2e95834a9d",
+      "description": "Questa mostra fotografica ricorrente presenta immagini realizzate durante prove con artisti e attori. Si svolge a Mauren FL.",
+      "descriptionByLocale": {
+        "it": "Questa mostra fotografica ricorrente presenta immagini realizzate durante prove con artisti e attori. Si svolge a Mauren FL.",
+        "en": "This recurring photography exhibition presents images made during rehearsals with artists and actors. It takes place in Mauren FL.",
+        "de": "Die wiederkehrende Fotoausstellung zeigt Aufnahmen aus Proben mit Künstlern und Schauspielern. Sie findet in Mauren FL statt.",
+        "fr": "Cette exposition photographique récurrente présente des images prises pendant des répétitions avec des artistes et des acteurs. Elle se tient à Mauren FL."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-10T23:16:17.546Z"
     },
     "myswitzerland:583254430b3f4378ae2e05252dbc552c::81083179ae179ac93d6c2ddaa2ec308b6d1df48e64afe11602dc2fcd7cf8d84d": {
       "id": "myswitzerland:583254430b3f4378ae2e05252dbc552c",
@@ -185862,15 +185946,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:atelier-creez-calendrier-avent-chocolat::58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb": {
-      "id": "ge-agenda:atelier-creez-calendrier-avent-chocolat",
-      "sourceDescriptionHash": "58f53def719c012c5fd7d9ec326660a0457f13bf54a8ebd21c90de82774701fb",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:26:08.867Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:barbara-forever::8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840": {
       "id": "ge-agenda:barbara-forever",
       "sourceDescriptionHash": "8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840",
@@ -185893,8 +185968,8 @@
       "id": "ge-agenda:blue-blue-indie-rock-vostok-session",
       "sourceDescriptionHash": "04713fed634b349faa103609993d9cb6f1e149f27224977560bbc32e7bc2e73b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:26:32.970Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:12:37.031Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -185965,8 +186040,8 @@
       "id": "ge-agenda:candlelight-concert",
       "sourceDescriptionHash": "aea0854996efb87576f44b556bb99f60c5f9e6de1ed3c05b6eef5b7109f47bfd",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:25:13.784Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:14:05.380Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186307,8 +186382,8 @@
       "id": "ge-agenda:opinions-propagent",
       "sourceDescriptionHash": "140dbd82e01733bca5d060f2bbb9f693c2fdfefc60c8190ac2c9bf8360ae383a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:29:24.464Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:18:44.821Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186327,15 +186402,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:34:03.318Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:peur-puissance-agir::408f0dcab40b9b436e425362d1fb4040c0831435ed9fc0ccd8827e24dc675a65": {
-      "id": "ge-agenda:peur-puissance-agir",
-      "sourceDescriptionHash": "408f0dcab40b9b436e425362d1fb4040c0831435ed9fc0ccd8827e24dc675a65",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:38:59.340Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186469,8 +186535,8 @@
       "id": "ge-agenda:swiss-statement-18-quavons-cette-revolution-lutte-contre",
       "sourceDescriptionHash": "9b76284022fdf076a6f96c1ab424603c421e30ade3898a07f2c60edf286b91ae",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:36:05.799Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:21:38.507Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186753,6 +186819,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:A6kYMXh::48f7f7853bc5b1a5889eb88a9b30e99850fba7d2d907083eedfdf30e0a917579": {
+      "id": "guidle:A6kYMXh",
+      "sourceDescriptionHash": "48f7f7853bc5b1a5889eb88a9b30e99850fba7d2d907083eedfdf30e0a917579",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-10T23:15:18.673Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:A6tCcAN::1d862497d6d0883f25552902dc5ebd0d3656485c2f7a9947f612cac5d00460a4": {
       "id": "guidle:A6tCcAN",
       "sourceDescriptionHash": "1d862497d6d0883f25552902dc5ebd0d3656485c2f7a9947f612cac5d00460a4",
@@ -186849,15 +186924,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-28T18:21:06.641Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A8SXykv::baebaae3941eec2de648a63f549645ba763ed2c54d3de085e580fbe79e44a3ec": {
-      "id": "guidle:A8SXykv",
-      "sourceDescriptionHash": "baebaae3941eec2de648a63f549645ba763ed2c54d3de085e580fbe79e44a3ec",
-      "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:25:55.415Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186999,9 +187065,9 @@
     "guidle:Ac9q5aW::285e3b5c04954923a517952dc31d5950d438dff95d4a50efb17e7893eea6d7ec": {
       "id": "guidle:Ac9q5aW",
       "sourceDescriptionHash": "285e3b5c04954923a517952dc31d5950d438dff95d4a50efb17e7893eea6d7ec",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:20:45.222Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:14:13.557Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187144,8 +187210,8 @@
       "id": "guidle:ADu8Hmq",
       "sourceDescriptionHash": "d9457b62cbffa6785eec40e4bd48c5e0df46011cef015d78a709c2eb6a76472d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:27:18.268Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:27:46.945Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187245,15 +187311,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:27:02.882Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AfG33R1::356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e": {
-      "id": "guidle:AfG33R1",
-      "sourceDescriptionHash": "356edb62cae23a63c53f727ebc0e0f6329fc8f1c1399f4975820e608fb2dcc6e",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:22:55.972Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187549,8 +187606,8 @@
       "id": "guidle:AjsxJm7",
       "sourceDescriptionHash": "94a22dbb3cee9f31847f307a0129af9c258ef51dc57b93148d7b1ff22ac1757b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:29:31.881Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:12:15.345Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188121,6 +188178,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:Ar4UyBq::abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690": {
+      "id": "guidle:Ar4UyBq",
+      "sourceDescriptionHash": "abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-11T00:17:21.489Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ArbnuWC::e70c497a6a1d1e0c5ea9ceeaded6c83afcc0cc46cb90cc2ea9954557afecbc5b": {
       "id": "guidle:ArbnuWC",
       "sourceDescriptionHash": "e70c497a6a1d1e0c5ea9ceeaded6c83afcc0cc46cb90cc2ea9954557afecbc5b",
@@ -188169,9 +188235,9 @@
     "guidle:ArsWa4y::6a99d4d12f6d632967bfb289080710c279a5aca1178c60ae3d29ed5380c6688b": {
       "id": "guidle:ArsWa4y",
       "sourceDescriptionHash": "6a99d4d12f6d632967bfb289080710c279a5aca1178c60ae3d29ed5380c6688b",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:28:27.033Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:21:10.114Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188341,8 +188407,8 @@
       "id": "guidle:ATfka81",
       "sourceDescriptionHash": "07745f2c51f97b8609872b60865b75bbc32a0abf7e3f80ac61a992fb5baef011",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:37:35.262Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:26:35.009Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188505,6 +188571,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:26:01.239Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AVc3cxi::253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96": {
+      "id": "guidle:AVc3cxi",
+      "sourceDescriptionHash": "253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-10T23:14:05.475Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188854,8 +188929,8 @@
       "id": "guidle:AYJ4xQA",
       "sourceDescriptionHash": "0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:20:57.133Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-11T00:24:23.460Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188962,17 +189037,17 @@
       "id": "lu-stadt-agenda:7463719",
       "sourceDescriptionHash": "6b6a8aff68b85987b4f95a89f9ad5526329f2827c6ad43307073a5d6374a8ad9",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:24:25.929Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:13:13.563Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "lu-stadt-agenda:7660906::b0ad465e9f487d81b9b72dbecb88d69281a6c7f7dfa0bbc5b9c05b1725de2366": {
       "id": "lu-stadt-agenda:7660906",
       "sourceDescriptionHash": "b0ad465e9f487d81b9b72dbecb88d69281a6c7f7dfa0bbc5b9c05b1725de2366",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:25:40.343Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:11:55.728Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190618,8 +190693,8 @@
       "id": "myswitzerland:57e9b9779b974d688f8165a136b25f81",
       "sourceDescriptionHash": "36da0e969681eb15c51910a0c2c78bec6e6b6be29eacf89dc6fe608073c8f16d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:45:02.657Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:24:48.169Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190627,8 +190702,8 @@
       "id": "myswitzerland:58198efcb06c4320b26ae8d03466966d",
       "sourceDescriptionHash": "227c82604e844ab02190da965f4cb4e21a483f9d7fbc130e6c203314f66550e3",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:36:57.436Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:17:46.900Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190645,8 +190720,8 @@
       "id": "myswitzerland:585540af902240f5bb7a930ddb217234",
       "sourceDescriptionHash": "7b99146470bd8101786ec085c95b17b03249b8d33ba400760362eb55f4f94538",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:45:48.800Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:17:07.179Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190654,8 +190729,8 @@
       "id": "myswitzerland:592a8f510e3f4e1d9743d3d5bff1341d",
       "sourceDescriptionHash": "15d276e60a58a586c3c7addfb6cd8f2b639f9b04a39be20731d2aaee86992f4b",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:42:45.067Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:29:09.355Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190690,8 +190765,8 @@
       "id": "myswitzerland:5cc72690dd5b459db2fb6064ba1071b7",
       "sourceDescriptionHash": "e65cce9fb12a65d4df90abf3de2dc681d7f3e4a714fc9d8ca6091aba0ce2a77a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:48:07.475Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:23:40.868Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -194074,8 +194149,8 @@
       "id": "tio-agenda:63933",
       "sourceDescriptionHash": "5627751f057f9afe255ed50131636531eec6a4d6e84c3b3aa2ae8c2daac0cb5b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:34:01.117Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:20:00.569Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -194604,18 +194679,18 @@
     "tio-agenda:64670::32f1c1f80e3bd2a6dae9fce8ec1fda5cd294c060c470538dfb9733b12d92782d": {
       "id": "tio-agenda:64670",
       "sourceDescriptionHash": "32f1c1f80e3bd2a6dae9fce8ec1fda5cd294c060c470538dfb9733b12d92782d",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:30:40.228Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:20:03.512Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64749::baaa40b72bce7653e08f54eaeb6b2328706572dd7f6746483bf83b3d9c081815": {
       "id": "tio-agenda:64749",
       "sourceDescriptionHash": "baaa40b72bce7653e08f54eaeb6b2328706572dd7f6746483bf83b3d9c081815",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-10T21:41:50.299Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-10T23:18:57.397Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

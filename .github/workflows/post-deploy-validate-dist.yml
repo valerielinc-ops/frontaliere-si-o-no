@@ -57,6 +57,7 @@ jobs:
             scripts/lib/auditReport.mjs
             scripts/lib/externally-served-paths.mjs
             scripts/lib/expired-archive-html-invariant.mjs
+            scripts/lib/expired-job-edge-dataset.mjs
             scripts/lib/flat-string.mjs
             scripts/lib/is-invoked-directly.mjs
             scripts/lib/sitemap-family-coverage.mjs
