@@ -649,8 +649,9 @@ function main() {
   }
 
   // 3. vitest check-run == success (NON solo != failure). Seleziona la
-  // generazione più recente verificabile (`created_at`, `run_attempt`,
-  // workflow-run ID, check ID), non il runner che ha finito per ultimo. Un
+  // generazione più recente verificabile (`created_at`, workflow-run ID,
+  // `run_attempt` dentro la stessa workflow run, check ID), non il runner che ha
+  // finito per ultimo. Un
   // risultato pending/ambiguous o privo di SHA verificabile resta fail-closed.
   let conclusion = '';
   let allCheckRuns = null;

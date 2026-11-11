@@ -41,6 +41,11 @@ on:
         required: false
         type: string
         default: ''
+      publisher_artifact_run_id:
+        description: 'Run ID containing the finalized sitemap bundle.'
+        required: false
+        type: string
+        default: ''
       source_branch:
         description: 'Branch of the canonical source build.'
         required: true
@@ -338,7 +343,7 @@ jobs:
         with:
           name: pre-deploy-snapshot-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/pre-deploy-snapshot
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          run-id: ${{ inputs.publisher_artifact_run_id || env.EFFECTIVE_DEPLOY_RUN_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download previous-slug winners (optional)
@@ -354,9 +359,9 @@ jobs:
         uses: actions/download-artifact@v8
         continue-on-error: true
         with:
-          name: sitemaps-${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          name: sitemaps-${{ inputs.publisher_artifact_run_id || env.EFFECTIVE_DEPLOY_RUN_ID }}
           path: /tmp/sitemaps-bundle
-          run-id: ${{ env.EFFECTIVE_DEPLOY_RUN_ID }}
+          run-id: ${{ inputs.publisher_artifact_run_id || env.EFFECTIVE_DEPLOY_RUN_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and

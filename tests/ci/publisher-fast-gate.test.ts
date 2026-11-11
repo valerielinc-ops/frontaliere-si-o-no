@@ -46,11 +46,13 @@ function fixture() {
 
   for (const [locale, route] of routes) {
     const baseArtifact = locale === 'it' ? 'github-pages' : `locale-shard-source-${locale}-${SOURCE_RUN_ID}`;
-    const baseDigest = `${locale.charCodeAt(0).toString(16).padStart(2, '0')}`.repeat(32);
+    const baseDigest = locale === 'it'
+      ? '0'.repeat(64)
+      : `${locale.charCodeAt(0).toString(16).padStart(2, '0')}`.repeat(32);
     const section = locale === 'it' ? 'ticino' : null;
     const batchName = `shard-batch-5-dist-it-${SOURCE_RUN_ID}`;
     const batchDigest = 'b'.repeat(64);
-    const pageArtifactName = section ? batchName : baseArtifact;
+    const pageArtifactName = section ? batchName.replace(SOURCE_RUN_ID, PUBLISHER_RUN_ID) : baseArtifact;
     const pageArtifactDigest = section ? batchDigest : baseDigest;
     const url = `https://frontaliereticino.ch/${route}`;
     const pagePath = `${route.replace(/\/$/u, '')}/index.html`;
@@ -62,24 +64,34 @@ function fixture() {
       validatorVersion: 'publisher-page-index-v2',
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
-      artifactRunId: SOURCE_RUN_ID,
+      artifactRunId: locale === 'it' ? PUBLISHER_RUN_ID : SOURCE_RUN_ID,
       artifactName: baseArtifact,
       artifactDigest: baseDigest,
-      manifestArtifactName: `sitemap-page-manifest-${locale}-${SOURCE_RUN_ID}`,
+      manifestArtifactName: `sitemap-page-manifest-${locale}-${locale === 'it' ? PUBLISHER_RUN_ID : SOURCE_RUN_ID}`,
       locale,
       requiredSections: section ? ['ticino'] : [],
       artifactRefs: [
-        { runId: SOURCE_RUN_ID, name: baseArtifact, digest: baseDigest, purpose: 'locale-base' },
-        ...(locale === 'it' ? [{ runId: SOURCE_RUN_ID, name: `sitemaps-${SOURCE_RUN_ID}`, digest: '9'.repeat(64), purpose: 'sitemaps' }] : []),
-        ...(section ? [{ runId: SOURCE_RUN_ID, name: batchName, digest: batchDigest, purpose: 'section-shard-tar-batch' }] : []),
+        { runId: locale === 'it' ? PUBLISHER_RUN_ID : SOURCE_RUN_ID, name: baseArtifact, digest: baseDigest, purpose: 'locale-base' },
+        ...(locale === 'it' ? [{ runId: PUBLISHER_RUN_ID, name: `sitemaps-${PUBLISHER_RUN_ID}`, digest: '9'.repeat(64), purpose: 'sitemaps' }] : []),
+        ...(section ? [{ runId: PUBLISHER_RUN_ID, name: batchName.replace(SOURCE_RUN_ID, PUBLISHER_RUN_ID), digest: batchDigest, purpose: 'section-shard-tar-batch' }] : []),
       ],
       entries: [{ url, path: pagePath, sha256: pageDigest, locale, section, artifactName: pageArtifactName, artifactDigest: pageArtifactDigest }],
     });
-    sourceArtifacts.push(artifact(baseArtifact, baseDigest));
-    if (locale === 'it') sourceArtifacts.push(artifact(`sitemaps-${SOURCE_RUN_ID}`, '9'.repeat(64)));
-    sourceArtifacts.push(artifact(`sitemap-page-manifest-${locale}-${SOURCE_RUN_ID}`, 'd'.repeat(64)));
-    if (section) sourceArtifacts.push(artifact(batchName, batchDigest));
+    if (locale !== 'it') {
+      sourceArtifacts.push(artifact(baseArtifact, baseDigest));
+      sourceArtifacts.push(artifact(`sitemap-page-manifest-${locale}-${SOURCE_RUN_ID}`, 'd'.repeat(64)));
+    } else {
+      publisherArtifacts.push(artifact(baseArtifact, baseDigest));
+      publisherArtifacts.push(artifact(`sitemaps-${PUBLISHER_RUN_ID}`, '9'.repeat(64)));
+      publisherArtifacts.push(artifact(`sitemap-page-manifest-it-${PUBLISHER_RUN_ID}`, 'd'.repeat(64)));
+      publisherArtifacts.push(artifact(`shard-batch-5-dist-it-${PUBLISHER_RUN_ID}`, batchDigest));
+    }
   }
+  sourceArtifacts.push(artifact(`it-publish-root-${SOURCE_RUN_ID}`, 'a'.repeat(64)));
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    sourceArtifacts.push(artifact(`expired-archive-evidence-${locale}-${SOURCE_RUN_ID}`, '5'.repeat(64)));
+  }
+  sourceArtifacts.push(artifact(`jobs-master-${SOURCE_RUN_ID}`, '6'.repeat(64)));
 
   const ticinoPage = pageManifests[0].entries[0];
   const sectionPage = {
@@ -88,19 +100,19 @@ function fixture() {
     validatorVersion: 'publisher-shard-content-v2',
     sourceRunId: SOURCE_RUN_ID,
     sourceSha: SOURCE_SHA,
-    artifactRunId: SOURCE_RUN_ID,
-    manifestArtifactName: `section-page-manifest-it-${SOURCE_RUN_ID}`,
+    artifactRunId: PUBLISHER_RUN_ID,
+    manifestArtifactName: `section-page-manifest-it-${PUBLISHER_RUN_ID}`,
     locale: 'it',
     requiredSections: ['ticino'],
-    artifactRefs: [{ runId: SOURCE_RUN_ID, name: `shard-batch-5-dist-it-${SOURCE_RUN_ID}`, digest: 'b'.repeat(64), purpose: 'section-shard-tar-batch' }],
+    artifactRefs: [{ runId: PUBLISHER_RUN_ID, name: `shard-batch-5-dist-it-${PUBLISHER_RUN_ID}`, digest: 'b'.repeat(64), purpose: 'section-shard-tar-batch' }],
     shards: [{
       schemaVersion: 2,
       kind: 'publisher-shard-content',
       validatorVersion: 'publisher-shard-content-v2',
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
-      artifactRunId: SOURCE_RUN_ID,
-      artifactName: `shard-batch-5-dist-it-${SOURCE_RUN_ID}`,
+      artifactRunId: PUBLISHER_RUN_ID,
+      artifactName: `shard-batch-5-dist-it-${PUBLISHER_RUN_ID}`,
       artifactDigest: 'b'.repeat(64),
       locale: 'it',
       section: 'ticino',
@@ -112,7 +124,8 @@ function fixture() {
     }],
     population: 1,
   };
-  sourceArtifacts.push(artifact(`section-page-manifest-it-${SOURCE_RUN_ID}`, 'f'.repeat(64)));
+  publisherArtifacts.push(artifact(`section-page-manifest-it-${PUBLISHER_RUN_ID}`, 'f'.repeat(64)));
+  publisherArtifacts.push(artifact('github-pages', '0'.repeat(64)));
   const sectionManifests = [sectionPage];
   for (const locale of ['en', 'de', 'fr']) {
     const name = `section-page-manifest-${locale}-${PUBLISHER_RUN_ID}`;

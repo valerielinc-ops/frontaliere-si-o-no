@@ -192,7 +192,7 @@ jobs:
         working-directory: tooling
         env:
           GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ github.event.inputs.deploy_run_id }}
+          DEPLOY_RUN_ID: ${{ steps.pages.outputs.run-id }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
           SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
           ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}

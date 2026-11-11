@@ -121,7 +121,8 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain('const translatedVerdict = titleLooksUntranslated({');
     expect(titleFixScript).toContain('if (translatedVerdict.untranslated)');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
-    expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
+    expect(descriptionFixScript).toContain('writeJson(state.slicePath, state.sliceData)');
+    expect(descriptionFixScript).toContain('orderDescriptionFixTasksAcrossSlices');
     expect(descriptionFixScript).toContain('isDescriptionSourceCopy,');
     expect(descriptionFixScript).toContain('sourceLocaleTextCandidates(job, \'description\')');
     expect(descriptionFixScript).toContain('sourceLocaleTextForTranslation(job, \'description\', 120)');
@@ -211,6 +212,11 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain("import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';");
     expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
+    const titlePopulation = titleFixScript.slice(
+      titleFixScript.indexOf('// Discover the whole queue before calling the cascade.'),
+      titleFixScript.indexOf('candidates.sort('),
+    );
+    expect(titlePopulation).toMatch(/for \(const file of files\) \{[\s\S]*?if \(!budgetOk\(\)\) \{\s+collectionDeadlineReached = true;\s+break;\s+\}\s+const slicePath/);
 
     const pool = titleFixScript.slice(titleFixScript.indexOf('export function runTitleFixCandidatePool'));
     expect(pool.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
@@ -224,21 +230,28 @@ describe('translation observability workflow', () => {
     expect(descriptionFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
     expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(descriptionFixScript).toContain('Number(process.env.UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS)');
-    const descriptionLoop = descriptionFixScript.slice(descriptionFixScript.indexOf('for (const file of files)'));
-    // The deadline is checked before every slice, and before every slot by the
-    // pool that translates them (runDescriptionFixPool), which reports it back.
+    const descriptionPopulation = descriptionFixScript.slice(
+      descriptionFixScript.indexOf('// Read the whole candidate population before applying MAX.'),
+      descriptionFixScript.indexOf('// Only run the batch when invoked directly'),
+    );
+    const descriptionLoop = descriptionFixScript;
+    // The finite cap is applied only after every slice has contributed to one
+    // globally ordered candidate queue; the pool still checks the shared
+    // deadline before starting each task.
+    expect(descriptionPopulation).toContain('const sliceTaskGroups = []');
+    expect(descriptionPopulation).toContain('tasks: collectDescriptionFixTasks(jobs, { popularity })');
+    expect(descriptionPopulation).toContain('orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity)');
+    expect(descriptionPopulation).toMatch(/for \(const file of files\) \{[\s\S]*?if \(!budgetOk\(\)\) \{\s+deadlineReached = true;\s+break;\s+\}\s+const slicePath/);
     expect(descriptionLoop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     const descriptionPool = descriptionFixScript.slice(
       descriptionFixScript.indexOf('export async function runDescriptionFixPool('),
       descriptionFixScript.indexOf('async function main('),
     );
     expect(descriptionPool).toMatch(/while \(next < tasks\.length\) \{\s+if \(!budgetOk\(\)\) \{ outcome = 'deadline'; break; \}/);
-    expect(descriptionLoop).toContain("if (outcome === 'deadline') deadlineReached = true;");
+    expect(descriptionFixScript).toContain("if (outcome === 'deadline') deadlineReached = true;");
     expect(descriptionFixScript).toContain('let deadlineReached = false;');
-    const descriptionPersisted = descriptionLoop.indexOf('writeJson(slicePath, sliceData)');
-    const descriptionStopAfterPersist = descriptionLoop.indexOf('if (deadlineReached) break;', descriptionPersisted);
-    expect(descriptionPersisted).toBeGreaterThanOrEqual(0);
-    expect(descriptionStopAfterPersist).toBeGreaterThan(descriptionPersisted);
+    expect(descriptionFixScript).toContain('if (sliceState.inFlight === 0) persistSlice(sliceState);');
+    expect(descriptionFixScript).toContain('for (const state of sliceStates) persistSlice(state);');
 
     for (const [label, script] of [['cascade', cascadeScript], ['local-MT mop-up', mopupScript]]) {
       expect(script, `${label}: shared run-clock resolver missing`).toContain('resolveRunStartMs');

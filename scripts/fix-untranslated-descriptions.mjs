@@ -125,6 +125,27 @@ export function orderDescriptionFixTasks(tasks, popularity = {}, { now = Date.no
   return ordered;
 }
 
+/**
+ * Merge per-slice candidate lists before applying the queue order. The lane
+ * may still read and persist each slice independently, but its finite budget
+ * must be chosen from the whole corpus rather than from whichever slice sorts
+ * first on disk.
+ */
+export function orderDescriptionFixTasksAcrossSlices(
+  sliceTaskGroups,
+  popularity = {},
+  { now = Date.now() } = {},
+) {
+  const tasks = [];
+  for (const group of Array.isArray(sliceTaskGroups) ? sliceTaskGroups : []) {
+    const sliceState = group?.sliceState;
+    for (const task of Array.isArray(group?.tasks) ? group.tasks : []) {
+      tasks.push({ ...task, sliceState });
+    }
+  }
+  return orderDescriptionFixTasks(tasks, popularity, { now });
+}
+
 export function collectDescriptionFixTasks(jobs, { popularity = {}, now = Date.now() } = {}) {
   const tasks = [];
   for (const job of Array.isArray(jobs) ? jobs : []) {
@@ -248,22 +269,63 @@ async function main() {
   if (MAX < Infinity) console.log(`   (MAX: ${MAX} descriptions)`);
   console.log('');
 
-  for (const file of files) {
-    if (!budgetOk()) {
-      deadlineReached = true;
-      break;
+  // Read the whole candidate population before applying MAX. Ordering one
+  // slice at a time makes the finite run budget alphabetical-by-file again:
+  // `orderDescriptionFixTasks()` can only prioritize candidates it receives,
+  // so an old job in a later slice never competes with an earlier slice's
+  // traffic-heavy head. Keep the loaded slice state beside each job so the
+  // globally ordered pool can still persist completed work incrementally.
+  const sliceStates = [];
+  const sliceTaskGroups = [];
+  if (!budgetOk()) {
+    deadlineReached = true;
+  } else {
+    for (const file of files) {
+      // Collection itself consumes the shared run budget: do not retain later
+      // slices after a slow read/scan has crossed the deadline.
+      if (!budgetOk()) {
+        deadlineReached = true;
+        break;
+      }
+      const slicePath = path.join(BY_CRAWLER_DIR, file);
+      const sliceData = readJson(slicePath);
+      const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
+      if (jobs.length === 0) continue;
+
+      const state = {
+        file,
+        slicePath,
+        sliceData,
+        inFlight: 0,
+        sliceChanged: false,
+        persisted: false,
+      };
+      sliceStates.push(state);
+      sliceTaskGroups.push({
+        sliceState: state,
+        tasks: collectDescriptionFixTasks(jobs, { popularity }),
+      });
     }
-    if (totalFixed + totalFailed >= MAX) break;
+  }
 
-    const slicePath = path.join(BY_CRAWLER_DIR, file);
-    const sliceData = readJson(slicePath);
-    const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
-    if (jobs.length === 0) continue;
+  const orderedTasks = deadlineReached
+    ? []
+    : orderDescriptionFixTasksAcrossSlices(sliceTaskGroups, popularity);
 
-    let sliceChanged = false;
-    const tasks = collectDescriptionFixTasks(jobs, { popularity });
+  const persistSlice = (state) => {
+    if (!state?.sliceChanged || DRY_RUN) return;
+    writeJson(state.slicePath, state.sliceData);
+    state.sliceChanged = false;
+    if (!state.persisted) {
+      state.persisted = true;
+      slicesChanged++;
+    }
+    console.log(`  ✅ ${state.file.replace('.json', '')}`);
+  };
 
-    const translateTask = async ({ job, locale, sl, sourceDesc }) => {
+  const translateTask = async ({ job, locale, sl, sourceDesc, sliceState }) => {
+    sliceState.inFlight++;
+    try {
       // Translate using free cascade
       const translated = await freeTranslateWithRetry({
         text: sourceDesc,
@@ -283,7 +345,7 @@ async function main() {
           const dbl = job.descriptionByLocale || {};
           dbl[locale] = translated;
           job.descriptionByLocale = dbl;
-          sliceChanged = true;
+          sliceState.sliceChanged = true;
         }
         totalFixed++;
         charsTranslated += sourceDesc.length;
@@ -302,13 +364,21 @@ async function main() {
         if (refused) {
           const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
           refusals[rejection] = (refusals[rejection] || 0) + 1;
-          console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: translation refused (${rejection}; ${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
+          console.log(`  ⚠️  ${sliceState.file.replace('.json', '')} [${locale}]: translation refused (${rejection}; ${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
         }
         totalFailed++;
       }
-    };
+    } finally {
+      sliceState.inFlight--;
+      // A slice can have tasks at several positions in the global queue. Flush
+      // whenever its currently running tasks are done, then flush once more
+      // below for a slice whose last task was never started before MAX/deadline.
+      if (sliceState.inFlight === 0) persistSlice(sliceState);
+    }
+  };
 
-    const outcome = await runDescriptionFixPool(tasks, translateTask, {
+  if (!deadlineReached) {
+    const outcome = await runDescriptionFixPool(orderedTasks, translateTask, {
       budgetOk,
       // Never start more slots than --max still allows, counting those in flight.
       roomFor: (inFlight) => totalFixed + totalFailed + inFlight < MAX,
@@ -324,15 +394,12 @@ async function main() {
       },
     });
     if (outcome === 'deadline') deadlineReached = true;
-
-    if (sliceChanged && !DRY_RUN) {
-      writeJson(slicePath, sliceData);
-      slicesChanged++;
-      console.log(`  ✅ ${file.replace('.json', '')}`);
-    }
-
-    if (deadlineReached) break;
   }
+
+  // Flush any dirty slice left after the pool stopped before starting another
+  // task from that slice, and keep the persistence barrier explicit for the
+  // no-task/early-deadline paths.
+  for (const state of sliceStates) persistSlice(state);
   if (deadlineReached) {
     const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
     console.log(`\n⏰ Description-fix deadline reached after ~${elapsedMin}min — completed work was persisted; remaining slices stay queued for the next run.`);

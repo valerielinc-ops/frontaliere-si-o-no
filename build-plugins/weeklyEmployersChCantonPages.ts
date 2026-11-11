@@ -51,12 +51,12 @@ import {
 } from './weeklyEmployersData';
 import { PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
+import { buildCanonicalJobBoardHref } from './shared/cantonJobBoardPrefix';
 
 import {
   type ChCantonEmployersLocale as Locale,
   CH_CANTON_EMPLOYERS_LOCALES as LOCALES,
   CH_CANTON_EMPLOYERS_LOCALE_PREFIX as LOCALE_PREFIX,
-  CH_CANTON_EMPLOYERS_JOB_BOARD_PREFIX as JOB_BOARD_PREFIX,
   buildCantonEmployersPath,
 } from './weeklyEmployersChCantonPathsData';
 // Re-exported for existing consumers (tests) that import path builders from
@@ -589,7 +589,9 @@ export async function emitChCantonEmployersPages(
       if (!cantonSlug || !hreflangPaths) continue;
       const cantonName = getCantonDisplayName(cantonCode, locale);
       const canonicalPath = buildCantonEmployersPath(locale, cantonSlug);
-      const searchHref = `${LOCALE_PREFIX[locale]}/${JOB_BOARD_PREFIX[locale]}-${cantonSlug}/`.replace(/\/{2,}/g, '/');
+      // This page family also keeps its historical static root, while its
+      // outbound job-board CTA must resolve the canonical T5 route.
+      const searchHref = buildCanonicalJobBoardHref(locale, cantonCode);
 
       const html = renderEmployersPage({
         locale,

@@ -471,18 +471,139 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.purge.flat()).not.toContain(stable);
   });
 
-  it('fails closed when a stable global alias is missing instead of publishing it from a fast emitter', async () => {
+  it('bootstraps a stable global alias missing from both the CDN and R2', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const stableContent = assets.find((asset) => asset.key === stable)!.content;
+    const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
+      probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
+    });
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets, ...cdn });
+
+    expect(results).toContainEqual({ key: stable, outcome: 'uploaded' });
+    expect(cdn.calls.upload).toContainEqual([stable, stableContent]);
+    expect(cdn.calls.purge).toEqual([[stable]]);
+    expect(cdn.bucket.has(stable)).toBe(true);
+  });
+
+  it('uses an atomic create-only upload when two bootstraps race for one stable alias', async () => {
+    const stable = 'assets/adsense-loader.js';
+    const versioned = 'assets/adsense-loader-012345abcdef.js';
+    const assetsFor = (content: string) => [
+      { key: stable, content },
+      { key: versioned, content },
+    ];
+    const stored = new Map<string, string>();
+    const uploadCalls: Array<{ key: string; content: string; createOnly?: boolean }> = [];
+    let lookupCount = 0;
+    let releaseLookups = () => {};
+    const lookupsReady = new Promise<void>((resolve) => { releaseLookups = resolve; });
+
+    const upload = async (key: string, content: string, options?: { createOnly?: boolean }) => {
+      uploadCalls.push({ key, content, createOnly: options?.createOnly });
+      if (options?.createOnly && stored.has(key)) return false;
+      stored.set(key, content);
+      return true;
+    };
+    const run = (assets: Array<{ key: string; content: string }>) => ensureCdnShellAssets({
+      assets,
+      probe: async (key) => key === stable ? 'absent' : 'present',
+      checkStored: async (key) => {
+        expect(key).toBe(stable);
+        lookupCount += 1;
+        if (lookupCount === 2) releaseLookups();
+        await lookupsReady;
+        return 'missing';
+      },
+      upload,
+      purge: async () => true,
+      confirm: async () => 'present',
+      wait: async () => {},
+      log: () => {},
+    });
+
+    const outcomes = await Promise.allSettled([run(assetsFor('first()')), run(assetsFor('second()'))]);
+
+    expect(outcomes.filter((outcome) => outcome.status === 'fulfilled')).toHaveLength(1);
+    expect(outcomes.filter((outcome) => outcome.status === 'rejected')).toHaveLength(1);
+    expect(uploadCalls.filter(({ key }) => key === stable)).toHaveLength(2);
+    expect(uploadCalls.filter(({ key }) => key === stable).every(({ createOnly }) => createOnly)).toBe(true);
+    expect(['first()', 'second()']).toContain(stored.get(stable));
+    const rejected = outcomes.find((outcome): outcome is PromiseRejectedResult => outcome.status === 'rejected');
+    expect(String(rejected?.reason)).toContain('conditional create failed');
+  });
+
+  it('does not overwrite a stable global alias already stored in R2 when its edge response is absent', async () => {
+    const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
+    const stable = 'assets/adsense-loader.js';
+    const cdn = fakeCdn(assets.map((asset) => asset.key), {
+      probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
+    });
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets, ...cdn });
+
+    expect(results).toContainEqual({ key: stable, outcome: 'stored' });
+    expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
+    expect(cdn.calls.purge).toEqual([[stable]]);
+  });
+
+  it('keeps an indeterminate stable alias fail-closed', async () => {
     const assets = shellAssetsFromStaticScripts(listStaticScriptFiles());
     const stable = 'assets/adsense-loader.js';
     const cdn = fakeCdn(assets.map((asset) => asset.key).filter((key) => key !== stable), {
-      probeAnswer: (key, has) => key === stable ? 'absent' : has ? 'present' : 'absent',
+      probeAnswer: (key, has) => key === stable ? 'unknown' : has ? 'present' : 'absent',
     });
 
     const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
 
     expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(cdn.calls.checkStored).not.toContain(stable);
     expect(cdn.calls.upload.some(([key]) => key === stable)).toBe(false);
-    expect(cdn.calls.purge.flat()).not.toContain(stable);
+  });
+
+  it('fails closed when an absent stable alias is stored with the wrong cache policy', async () => {
+    const stable = 'assets/adsense-loader.js';
+    const versioned = 'assets/adsense-loader-012345abcdef.js';
+    const content = 'loader()';
+    const assets = [
+      { key: stable, content },
+      { key: versioned, content },
+    ];
+    const contentByKey = new Map(assets.map((asset) => [asset.key, asset.content]));
+    const confirmCalls: Array<{ key: string; expectedCacheControl?: string }> = [];
+    const fetchImpl = async (url: string | URL) => {
+      const key = new URL(String(url)).pathname.slice(1);
+      return new Response(contentByKey.get(key), {
+        status: 200,
+        headers: {
+          'content-type': 'application/javascript',
+          'cache-control': key === stable ? 'public,max-age=60' : SHELL_ASSET_IMMUTABLE_CACHE_CONTROL,
+        },
+      });
+    };
+    const message = await failureOf(() => ensureCdnShellAssets({
+      assets,
+      probe: async (key) => key === stable ? 'absent' : 'present',
+      checkStored: async (key) => {
+        expect(key).toBe(stable);
+        return 'exists';
+      },
+      purge: async (keys) => {
+        expect(keys).toEqual([stable]);
+        return true;
+      },
+      confirm: async (key, options) => {
+        confirmCalls.push({ key, expectedCacheControl: options.expectedCacheControl });
+        return confirmCdnAsset(key, { ...options, fetchImpl });
+      },
+      wait: async () => {},
+      log: () => {},
+    }));
+
+    expect(message).toContain(`${stable}: on R2 and purged`);
+    expect(message).toContain('must not be published');
+    expect(confirmCalls.find(({ key }) => key === stable)?.expectedCacheControl).toBe(SHELL_ASSET_CACHE_CONTROL);
   });
 
   it('refuses a global stable alias whose local bytes differ from its current hashed target', async () => {
@@ -856,6 +977,25 @@ describe('upload-cdn-file.sh adapters', () => {
     expect(uploadShellAsset('assets/a.js', 'content()', { spawn: helper.spawn, env: {} })).toBe(false);
   });
 
+  it('uploadShellAsset requests an atomic create-only PUT when asked', () => {
+    const calls: string[][] = [];
+    let uploadedContent = '';
+    const spawn = (_command: string, args: string[]) => {
+      calls.push(args);
+      uploadedContent = readFileSync(args[2], 'utf8');
+      return { stdout: '✅ uploaded x -> y\n', stderr: '' };
+    };
+
+    expect(uploadShellAsset('assets/adsense-loader.js', 'content()', {
+      createOnly: true,
+      spawn,
+      env: {},
+    })).toBe(true);
+    expect(uploadedContent).toBe('content()');
+    expect(calls[0][1]).toBe('--create-if-absent');
+    expect(calls[0].slice(3)).toEqual(['assets/adsense-loader.js', SHELL_ASSET_CACHE_CONTROL]);
+  });
+
   it('refreshShellAssetCacheControl re-puts only content-addressed assets with immutable metadata', () => {
     const calls: string[][] = [];
     const spawn = (_command: string, args: string[]) => {
@@ -879,6 +1019,12 @@ describe('lockstep with the full deploy', () => {
   it('probes the origin the runtime watchdog walks', () => {
     const walked = /export const CDN_ASSETS_BASE = '([^']+)'/.exec(read('scripts/ci/cdn-chunk-graph.mjs'))?.[1];
     expect(walked).toBe(`${SHELL_ASSET_CDN_ORIGIN}/assets/`);
+  });
+
+  it('offers an R2-atomic create-only mode for stable alias bootstraps', () => {
+    const uploader = read('scripts/lib/upload-cdn-file.sh');
+    expect(uploader).toContain('--create-if-absent');
+    expect(uploader).toContain("upload_flags+=(--header-upload 'If-None-Match: *')");
   });
 });
 

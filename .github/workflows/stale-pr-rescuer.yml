@@ -333,8 +333,8 @@ jobs:
               echo "::warning::Check-run della PR #$N non verificabile — nessun rescue o mutation."
               continue
             fi
-            # Selezione generation-aware: created_at, poi run_attempt, poi
-            # workflow-run ID e infine check ID. `completed_at` non è un tie-break
+            # Selezione generation-aware: created_at, poi workflow-run ID, poi
+            # run_attempt dentro la stessa workflow run e infine check ID. `completed_at` non è un tie-break
             # di generazione. SHA misto, metadati incomparabili e duplicati sono
             # tutti pending/ambiguous e restano fail-closed.
             TESTS_STATE=$(printf '%s\n' "$checks" | jq -rs --arg n "$CI_CHECK_NAME" --arg legacy "$LEGACY_CI_CHECK_NAME" --arg head "$HEAD" '
@@ -348,9 +348,9 @@ jobs:
                 (.created_at | parse_time) as $created
                 | (if (.run_attempt | safe_id) then .run_attempt else 0 end) as $attempt
                 | (workflow_id // "0") as $workflow
-                | if $created != null then {source:"timestamp", created:$created, attempt:$attempt, workflow:($workflow | tonumber), id:.id}
-                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, attempt:.run_attempt, workflow:($workflow | tonumber), id:.id}
-                  elif $workflow != "0" then {source:"workflow", created:0, attempt:0, workflow:($workflow | tonumber), id:.id}
+                | if $created != null then {source:"timestamp", created:$created, workflow:($workflow | tonumber), attempt:$attempt, id:.id}
+                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, workflow:($workflow | tonumber), attempt:.run_attempt, id:.id}
+                  elif $workflow != "0" then {source:"workflow", created:0, workflow:($workflow | tonumber), attempt:0, id:.id}
                   else null end;
               def candidates:
                 [.[].check_runs[] | select(.name == $n or .name == $legacy)] as $matches
@@ -366,7 +366,7 @@ jobs:
                 elif ([ $all[] | .id ] | unique | length) != ($all | length) then {conclusion:"none", pending:1}
                 else ($all | map(. + {generation:generation}) | map(select(.status != "completed" or .conclusion != "skipped"))) as $verdicts
                   | if ($verdicts | length) == 0 then {conclusion:"none", pending:0}
-                    else ($verdicts | sort_by([.generation.created, .generation.attempt, .generation.workflow, .generation.id]) | last) as $latest
+                    else ($verdicts | sort_by([.generation.created, .generation.workflow, .generation.attempt, .generation.id]) | last) as $latest
                       | if $latest.status == "completed" then {conclusion:$latest.conclusion, pending:0} else {conclusion:"none", pending:1} end
                     end
                 end')
@@ -534,16 +534,16 @@ jobs:
                 (.created_at | parse_time) as $created
                 | (if (.run_attempt | safe_id) then .run_attempt else 0 end) as $attempt
                 | (workflow_id // "0") as $workflow
-                | if $created != null then {source:"timestamp", created:$created, attempt:$attempt, workflow:($workflow | tonumber), id:.id}
-                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, attempt:.run_attempt, workflow:($workflow | tonumber), id:.id}
-                  elif $workflow != "0" then {source:"workflow", created:0, attempt:0, workflow:($workflow | tonumber), id:.id}
+                | if $created != null then {source:"timestamp", created:$created, workflow:($workflow | tonumber), attempt:$attempt, id:.id}
+                  elif (.run_attempt | safe_id) then {source:"attempt", created:0, workflow:($workflow | tonumber), attempt:.run_attempt, id:.id}
+                  elif $workflow != "0" then {source:"workflow", created:0, workflow:($workflow | tonumber), attempt:0, id:.id}
                   else null end;
               [.[].check_runs[] | select((.name == $n or .name == $legacy) and .status == "completed" and .conclusion != "skipped")] as $matches
               | if any($matches[]; .name == $n) then $matches | map(select(.name == $n)) else $matches | map(select(.name == $legacy)) end
               | map(. + {generation:generation})
               | if length == 0 or any(.[]; .generation == null) then ""
                 elif ([.[] | .generation.source] | unique | length) != 1 then ""
-                else sort_by([.generation.created, .generation.attempt, .generation.workflow, .generation.id]) | last
+                else sort_by([.generation.created, .generation.workflow, .generation.attempt, .generation.id]) | last
                   | (.details_url // "")
                   | (try (capture("/actions/runs/(?<id>[1-9][0-9]*)").id) catch "")
                 end')

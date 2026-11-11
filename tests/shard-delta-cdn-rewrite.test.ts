@@ -283,16 +283,14 @@ describe('push-section-shard con SHARD_DELTA_CDN_REWRITE', () => {
   });
 });
 
-describe('deploy.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
-  it('passa la variabile ai due step di push sezione e mette la barriera nei due pack', () => {
-    const yml = `${readFileSync(join(ROOT, '.github/workflows/deploy.yml'), 'utf8')}\n${readFileSync(
-      join(ROOT, '.github/workflows/deploy-publish.yml'),
-      'utf8',
-    )}`;
+describe('deploy-publish.yml cabla SHARD_DELTA_CDN_REWRITE', () => {
+  it('passa la variabile ai due step di push sezione e mantiene le barriere in entrambe le lane', () => {
+    const yml = readFileSync(join(ROOT, '.github/workflows/deploy-publish.yml'), 'utf8');
+    const itHelper = readFileSync(join(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
     const wire = "SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == '' && 'changed' || vars.SHARD_DELTA_CDN_REWRITE }}";
     expect(yml.split(wire).length - 1).toBe(2);
-    expect(yml.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);
-    expect(yml.split('shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section"').length - 1).toBe(2);
+    expect(`${itHelper}\n${yml}`.split('shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true').length - 1).toBe(2);
+    expect(`${itHelper}\n${yml}`.split('shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section"').length - 1).toBe(2);
   });
 });
 

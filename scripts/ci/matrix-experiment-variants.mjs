@@ -25,6 +25,7 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // whose parser rejects these candidates; a variant is the only channel.
   // Empty/absent keeps the default release plan (see jobsSeoRetentionProbe.ts).
   'JOBS_SEO_GCFREED_PROBE',
+  'JOBS_SEO_HTML_GC_INTERVAL_MB',
   'JOBS_SEO_SAMPLE',
   'BUILD_PROFILE',
   'BUILD_BENCH',
@@ -59,6 +60,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // precompiled orphan-slug parsing.
   'JOBS_SEO_SECTOR_MEMO',
   'JOBS_SEO_SLUG_INFO_FAST',
+  // One-run memory canary compares the former Map with the compact native
+  // route index on the same assembled snapshot. Production defaults compact.
+  'JOBS_SEO_NATIVE_ROUTE_INDEX',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);
@@ -95,6 +99,12 @@ function parseVariantLine(line, lineNumber) {
       fail(
         `variant ${JSON.stringify(name)} uses disallowed env key ${JSON.stringify(key)}; `
           + `allowed keys: ${ALLOWED_ENV_KEYS.join(', ')}`,
+      );
+    }
+    if (key === 'JOBS_SEO_HTML_GC_INTERVAL_MB' && !['512', '1024'].includes(value)) {
+      fail(
+        `variant ${JSON.stringify(name)} uses invalid JOBS_SEO_HTML_GC_INTERVAL_MB ${JSON.stringify(value)}; `
+          + 'expected 512 or 1024',
       );
     }
     if (Object.hasOwn(env, key)) {

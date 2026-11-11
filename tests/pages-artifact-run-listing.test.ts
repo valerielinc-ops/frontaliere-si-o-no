@@ -24,6 +24,7 @@ import yaml from 'js-yaml';
 const ROOT = path.resolve(__dirname, '..');
 const ACTION_PATH = '.github/actions/fetch-pages-artifact/action.yml';
 const DEPLOY_PATH = '.github/workflows/deploy.yml';
+const PUBLISH_PATH = '.github/workflows/deploy-publish.yml';
 const MEASURE_PATH = '.github/workflows/measure-deploy-delta.yml';
 const DAY_MS = 86_400_000;
 
@@ -39,10 +40,26 @@ const run = (id: number, daysAgo: number) => ({ id, created_at: isoDaysAgo(daysA
 const FRESH_RUNS = [run(3003, 3), run(3001, 0.2), run(3002, 1)];
 // Elenco «fermo»: il piu' recente ha mesi, come nella run 37036020157.
 const STALE_RUNS = [run(1001, 48), run(1002, 60), run(1003, 200)];
+const canonicalSourceRun = (id: number) => ({
+  id,
+  name: 'Deploy to GitHub Pages',
+  path: '.github/workflows/deploy.yml',
+  workflow_id: 233284293,
+  event: 'push',
+  status: 'completed',
+  conclusion: 'success',
+  head_branch: 'main',
+  created_at: isoDaysAgo(1),
+  head_sha: String(id).padEnd(40, 'a'),
+});
 
 const GH_STUB = `#!/usr/bin/env bash
 # gh finto: risponde solo a \`gh api\`, dai file di $GH_STUB_DIR.
 set -euo pipefail
+if [ "\${1:-}" = run ]; then
+  cat "$GH_STUB_DIR/publisher-runs.json"
+  exit 0
+fi
 url=""; jqf=""
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -79,11 +96,19 @@ function resolve({
   withoutCreated,
   runId = '',
   pinnedRun,
+  sourceRun,
+  publisherRuns = [],
+  publisherArtifacts = {},
+  sourceArtifactExpired = false,
 }: {
   withCreated: unknown[];
   withoutCreated: unknown[];
   runId?: string;
   pinnedRun?: Record<string, unknown>;
+  sourceRun?: Record<string, unknown>;
+  publisherRuns?: unknown[];
+  publisherArtifacts?: Record<string, boolean>;
+  sourceArtifactExpired?: boolean;
 }) {
   const dir = mkdtempSync(path.join(sandbox, 'case-'));
   const bin = path.join(dir, 'bin');
@@ -92,6 +117,7 @@ function resolve({
   chmodSync(path.join(bin, 'gh'), 0o755);
   writeFileSync(path.join(dir, 'runs-with-created.json'), JSON.stringify({ workflow_runs: withCreated }));
   writeFileSync(path.join(dir, 'runs-without-created.json'), JSON.stringify({ workflow_runs: withoutCreated }));
+  writeFileSync(path.join(dir, 'publisher-runs.json'), JSON.stringify(publisherRuns));
   // 3001 (la piu' recente) ha l'artifact scaduto; 3002 lo ha vivo; 3003 anche.
   const artifact = (id: number, expired: boolean) => ({
     artifacts: [{ id: id * 10, name: 'github-pages', expired, created_at: isoDaysAgo(1) }],
@@ -102,9 +128,23 @@ function resolve({
   for (const stale of STALE_RUNS) {
     writeFileSync(path.join(dir, `artifacts-${stale.id}.json`), JSON.stringify(artifact(stale.id, true)));
   }
+  for (const candidate of [...withCreated, ...withoutCreated] as Array<{ id: number }>) {
+    const candidatePath = path.join(dir, `artifacts-${candidate.id}.json`);
+    if (!existsSync(candidatePath)) {
+      writeFileSync(candidatePath, JSON.stringify(artifact(candidate.id, sourceArtifactExpired ?? false)));
+    }
+  }
+  for (const [id, expired] of Object.entries(publisherArtifacts)) {
+    writeFileSync(path.join(dir, `artifacts-${id}.json`), JSON.stringify(artifact(Number(id), expired)));
+  }
   if (runId) {
     writeFileSync(path.join(dir, `run-${runId}.json`), JSON.stringify(pinnedRun));
-    writeFileSync(path.join(dir, `artifacts-${runId}.json`), JSON.stringify(artifact(4001, false)));
+    const runArtifact = sourceArtifactExpired ? { artifacts: [] } : artifact(Number(runId), false);
+    writeFileSync(path.join(dir, `artifacts-${runId}.json`), JSON.stringify(runArtifact));
+  }
+  if (sourceRun) {
+    const sourceId = String(sourceRun.id);
+    writeFileSync(path.join(dir, `run-${sourceId}.json`), JSON.stringify(sourceRun));
   }
   execFileSync('cp', [path.join(sandbox, 'pages.zip'), path.join(dir, 'pages.zip')]);
   const output = path.join(dir, 'github-output');
@@ -163,6 +203,121 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
     expect(result.log.indexOf('  3002\t')).toBeLessThan(result.log.indexOf('  3003\t'));
   });
 
+  it('risolve l\'artifact del publisher associato a una build senza Pages artifact', () => {
+    const source = {
+      ...canonicalSourceRun(4001),
+    };
+    const sourceSha = String(source.head_sha);
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '4001',
+      pinnedRun: source,
+      sourceArtifactExpired: true,
+      publisherRuns: [
+        {
+          databaseId: 5001,
+          displayTitle: `Publish Pages build 4001 @ ${sourceSha}`,
+          createdAt: isoDaysAgo(0.1),
+          headBranch: 'main',
+          status: 'completed',
+          conclusion: 'failure',
+        },
+        {
+          databaseId: 5002,
+          displayTitle: `Publish Pages build 4001 @ ${sourceSha}`,
+          createdAt: isoDaysAgo(0.2),
+          headBranch: 'main',
+          status: 'completed',
+          conclusion: 'success',
+        },
+      ],
+      publisherArtifacts: { 5001: false, 5002: false },
+    });
+    expect(result.status, result.log).toBe(0);
+    expect(result.outputs).toContain('run-id=5002');
+    expect(result.outputs).toContain(`head-sha=${sourceSha}`);
+    expect(result.log).toContain('Operator-pinned source deploy run');
+    expect(result.calls.some((call) => call.includes('/actions/runs/5001/artifacts'))).toBe(false);
+    expect(result.calls.some((call) => call.includes('/actions/runs/5002/artifacts'))).toBe(true);
+  });
+
+  it('fallisce il walk-back automatico se l\'unico publisher con github-pages e\' fallito', () => {
+    const result = resolve({
+      withCreated: [run(4001, 0.1)],
+      withoutCreated: [],
+      runId: '',
+      sourceArtifactExpired: true,
+      publisherRuns: [{
+        databaseId: 5001,
+        displayTitle: `Publish Pages build 4001 @ ${String(run(4001, 0.1).head_sha)}`,
+        createdAt: isoDaysAgo(0.1),
+        headBranch: 'main',
+        status: 'completed',
+        conclusion: 'failure',
+      }],
+      publisherArtifacts: { 5001: false },
+    });
+    expect(result.status).toBe(1);
+    expect(result.log).toContain('No successful deploy.yml run');
+    expect(result.calls.some((call) => call.includes('/actions/runs/5001/artifacts'))).toBe(false);
+    expect(result.outputs).toBe('');
+  });
+
+  it('accetta il run publisher esplicito solo se il titolo prova la build sorgente canonica', () => {
+    const source = canonicalSourceRun(4001);
+    const sourceSha = String(source.head_sha);
+    const publisher = {
+      id: 5001,
+      name: 'Publish to GitHub Pages (deploy + validate)',
+      path: '.github/workflows/deploy-publish.yml',
+      event: 'workflow_dispatch',
+      status: 'completed',
+      conclusion: 'success',
+      head_branch: 'main',
+      created_at: isoDaysAgo(0.1),
+      display_title: `Publish Pages build 4001 @ ${sourceSha}`,
+    };
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '5001',
+      pinnedRun: publisher,
+      sourceRun: source,
+      publisherArtifacts: { 5001: false },
+    });
+    expect(result.status, result.log).toBe(0);
+    expect(result.outputs).toContain('run-id=5001');
+    expect(result.outputs).toContain(`head-sha=${sourceSha}`);
+  });
+
+  it('rifiuta il publisher esplicito fallito anche se il run ha un github-pages artifact', () => {
+    const source = canonicalSourceRun(4001);
+    const sourceSha = String(source.head_sha);
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '5001',
+      pinnedRun: {
+        id: 5001,
+        name: 'Publish to GitHub Pages (deploy + validate)',
+        path: '.github/workflows/deploy-publish.yml',
+        event: 'workflow_dispatch',
+        status: 'completed',
+        conclusion: 'failure',
+        head_branch: 'main',
+        created_at: isoDaysAgo(0.1),
+        display_title: `Publish Pages build 4001 @ ${sourceSha}`,
+      },
+      sourceRun: source,
+      publisherArtifacts: { 5001: false },
+    });
+    expect(result.status).toBe(1);
+    expect(result.log).toContain('is not a successful deploy.yml source or deploy-publish.yml run on main');
+    expect(result.calls.some((call) => call.includes('/artifacts?'))).toBe(false);
+    expect(result.outputs).toBe('');
+  });
+
   it('la query porta la finestra created = retention + 1 giorno', () => {
     const result = resolve({ withCreated: FRESH_RUNS, withoutCreated: STALE_RUNS });
     const listing = result.calls.filter((call) => call.includes('/actions/workflows/deploy.yml/runs?'));
@@ -203,19 +358,6 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
 });
 
 describe('fetch-pages-artifact: identita\u0300 della run pinnata', () => {
-  const canonicalPinnedRun = {
-    id: 4001,
-    name: 'Deploy to GitHub Pages',
-    path: '.github/workflows/deploy.yml',
-    workflow_id: 233284293,
-    event: 'push',
-    status: 'completed',
-    conclusion: 'success',
-    head_branch: 'main',
-    created_at: isoDaysAgo(1),
-    head_sha: '4001'.padEnd(40, 'a'),
-  };
-
   it('rifiuta un run leggibile ma non appartenente al deploy canonico', () => {
     const result = resolve({
       withCreated: [],
@@ -235,7 +377,7 @@ describe('fetch-pages-artifact: identita\u0300 della run pinnata', () => {
       },
     });
     expect(result.status).toBe(1);
-    expect(result.log).toContain('is not a successful deploy.yml run on main');
+    expect(result.log).toContain('is not a successful deploy.yml source or deploy-publish.yml run on main');
     expect(result.log).toContain('path=.github/workflows/tests.yml');
     expect(result.calls.some((call) => call.includes('/artifacts?'))).toBe(false);
     expect(result.outputs).toBe('');
@@ -246,7 +388,7 @@ describe('fetch-pages-artifact: identita\u0300 della run pinnata', () => {
       withCreated: [],
       withoutCreated: [],
       runId: '4001',
-      pinnedRun: canonicalPinnedRun,
+      pinnedRun: canonicalSourceRun(4001),
     });
     expect(result.status).toBe(0);
     expect(result.log).not.toContain('::error');
@@ -254,21 +396,21 @@ describe('fetch-pages-artifact: identita\u0300 della run pinnata', () => {
   });
 });
 
-describe('la finestra created segue la retention dichiarata in deploy.yml', () => {
+describe('la finestra created segue la retention dichiarata in deploy-publish.yml', () => {
   // La retention dell'artifact `github-pages` si legge dal workflow che lo
   // carica: se cambia li', resolver e workflow di misura devono seguirla.
   // Si legge lo step vero (`with.name: github-pages`), non il primo
   // `retention-days` che segue nel testo: se l'upload perdesse il suo, una
   // regex pescherebbe quello dello step dopo.
-  const deploy = yaml.load(readFileSync(path.join(ROOT, DEPLOY_PATH), 'utf8')) as {
+  const publisher = yaml.load(readFileSync(path.join(ROOT, PUBLISH_PATH), 'utf8')) as {
     jobs: Record<string, { steps?: Array<{ with?: Record<string, unknown> }> }>;
   };
-  const uploads = Object.values(deploy.jobs)
+  const uploads = Object.values(publisher.jobs)
     .flatMap((job) => job.steps ?? [])
     .filter((step) => step.with?.name === 'github-pages' && 'retention-days' in (step.with ?? {}));
   const retention = uploads.length === 1 ? String(uploads[0].with?.['retention-days']) : null;
 
-  it('deploy.yml dichiara la retention di github-pages', () => {
+  it('deploy-publish.yml dichiara la retention di github-pages', () => {
     expect(uploads).toHaveLength(1);
     expect(retention).toMatch(/^\d+$/);
   });

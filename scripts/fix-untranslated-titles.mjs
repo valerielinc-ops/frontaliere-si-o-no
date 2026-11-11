@@ -434,12 +434,20 @@ async function main() {
   let semanticTitleFixes = 0;
   let backedOff = 0;
   const sliceCache = new Map();
+  const budgetOk = () => (Date.now() - RUN_START_MS) < TITLE_FIX_DEADLINE_MS;
+  let collectionDeadlineReached = false;
 
   // Discover the whole queue before calling the cascade. Alphabetical slice
   // order used to spend the daily cap on the same early companies forever.
   // A small persisted attempt ledger makes never-tried locale slots win first;
   // firstSeenAt then gives older backlog priority within the same class.
   for (const file of files) {
+    // Collection itself consumes the shared run budget: do not retain later
+    // slices after a slow read/scan has crossed the deadline.
+    if (!budgetOk()) {
+      collectionDeadlineReached = true;
+      break;
+    }
     const slicePath = path.join(BY_CRAWLER_DIR, file);
     const sliceData = readJson(slicePath);
     sliceCache.set(file, sliceData);
@@ -487,8 +495,6 @@ async function main() {
     || a.jobIdx - b.jobIdx
     || a.locale.localeCompare(b.locale));
 
-  const budgetOk = () => (Date.now() - RUN_START_MS) < TITLE_FIX_DEADLINE_MS;
-
   console.log(`🔧 Fixing title repair candidates across ${files.length} slices (${candidates.length} slots)...`);
   if (backedOff > 0) console.log(`   ⏸️  ${backedOff} slot(s) waiting for their retry backoff (already tried 2+ times on the same source title).`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)\n');
@@ -500,6 +506,7 @@ async function main() {
     dryRun: DRY_RUN,
     budgetOk,
   });
+  if (collectionDeadlineReached) result.deadlineReached = true;
   if (fallbackFilled > 0) {
     console.log(`   🧩 ${fallbackFilled} unsupported-source title slot(s) repaired from reviewed mappings`);
   }

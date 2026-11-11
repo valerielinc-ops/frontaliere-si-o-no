@@ -242,8 +242,8 @@
       "slug": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "agente-operativo-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -290,18 +290,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne",
-        "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-agent-e-d-exploitation-tl-lausanne-lausanne"
         ],
         "en": [
-          "apprentice-operating-agent-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "apprentices-holding-agents-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "auszubildender-betreiber-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlings-betriebskrafte-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:32.114Z",
@@ -328,7 +328,7 @@
       "slugByLocale": {
         "it": "apprendistato-logisticista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "logistician-apprenticeship-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -377,14 +377,14 @@
       "previousSlugs": [
         "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "fr": [
           "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -414,7 +414,7 @@
       "slugByLocale": {
         "it": "vernice-industriale-apprendista-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentice-industrial-varnisher-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -462,14 +462,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
-        "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.901Z",
@@ -495,8 +495,8 @@
       "slug": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "it": "apprendimento-automatico-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "en": "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -544,18 +544,18 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
-        "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-automaticien-nes-tl-lausanne-lausanne"
         ],
         "en": [
-          "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:29.324Z",
@@ -660,7 +660,7 @@
       "slugByLocale": {
         "it": "apprendisti-nei-trasporti-pubblici-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "apprentices-in-public-transport-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "de": "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -708,14 +708,14 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
-        "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne"
         ],
         "de": [
-          "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T22:21:28.174Z",
@@ -1364,12 +1364,11 @@
       },
       "description": "Le LEB relie Lausanne au Gros-de-Vaud et accompagne le développement d’une région en pleine croissance. D’ici 2035, il prévoit d’introduire une cadence de 10 minutes entre Lausanne et Echallens afin d’offrir une mobilité toujours plus attractive et durable.\n\nCette évolution s’accompagne de nombreux projets d’infrastructure et nécessite un entretien rigoureux des voies ferrées et des ouvrages de génie civil. Afin de garantir la sécurité, la fiabilité et la pérennité de notre réseau, nous recherchons une personne motivée à mettre ses compétences techniques et son savoir-faire au service de notre infrastructure ferroviaire.\n\nTechnicien maintenance voie / GC LEB\n Votre mission\n\nDans le cadre de la mission de service de transport public du LEB :\n\n•\n Réaliser les opérations de maintenance préventive et corrective des voies, ainsi que de leurs infrastructures, dans le respect des coûts, des délais et de la qualité attendue\n\n•\n Garantir les conditions de sécurité d’exploitation\n\nVos activités\n\nMaintenance de la voie\n\nExécute les opérations de maintenance de la voie :\n\n• En assurant la maintenance préventive\n\n• En réalisant les opérations de maintenance corrective\n\n• En conduisant les trains de travaux spécifiques\n\nMaintenance des infrastructures\n\nParticipe aux opérations de maintenance sur les infrastructures :\n\n• En réalisant les opérations de maintenance préventive et corrective sur les infrastructures\n\n• En réalisant les opérations de curage et de lavage des infrastructures\n\n• En réalisant des petits travaux de génie civil et d’entretien des espaces verts\n\nRespect des normes de sécurité et de qualité\n\nRespecte et applique les normes sécuritaires requises au sein de l’atelier :\n\n• En appliquant les procédures sécuritaires, de gestion du travail et les mises à jour\n\n• En assurant la traçabilité des interventions effectuées\n\n• En contrôlant le fonctionnement suite aux interventions\n\n• En garantissant la qualité et les coûts définis\n\nVotre profil\n\nFormation\n\n•\n Formation professionnelle élémentaire avec attestation; idéalement CFC en tant que constructeur·trice de voie ferrée ou CFC de maçon\n\n•\n Formations continues (interne et externe) dans le cadre des habilitations ferroviaires\n\nExpérience professionnelle\n\n• Le métier requiert entre 1 et 3ans d’expérience professionnelle, idéalement dans le domaine ferroviaire\n\nHabilitations, exigences légales et sécurité\n\n•\n Respect des règles informatiques de l’entreprise et dela confidentialité des données\n\n•\n Aptitude au travail de nuit\n\n• Permis B100 ou aptitude à suivre la formation\n\n•\n Permis de conduire catégorie B (véhicules légers)\n\nInformations pratiques\n\n• Des conditions de travail et des prestations sociales de qualité\n\n• Lieu de travail : Echallens\n\n• Contrat  : durée indéterminée à 100%\n\n• Processus de sélection:\n\n• Test d’aptitude et visite médicale\n\n• 1er entretien avec manager et un spécialiste recrutement pour faire connaissance\n\nAu LEB, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines.",
       "descriptionByLocale": {
-        "it": "Il LEB collega Losanna a Gros-de-Vaud e sostiene lo sviluppo di una regione in crescita. Nel 2035 prevede di introdurre un ritmo di 10 minuti tra Losanna e Echallens per offrire una mobilità sempre più attraente e sostenibile.\n\nQuesto sviluppo è accompagnato da numerosi progetti infrastrutturali e richiede un rigoroso mantenimento delle linee ferroviarie e delle opere di ingegneria civile. Al fine di garantire la sicurezza, l'affidabilità e la sostenibilità della nostra rete, stiamo cercando una persona motivata a mettere le sue competenze tecniche e know-how al servizio della nostra infrastruttura ferroviaria.\n\nTecnico di manutenzione pista / GC LEB\nLa tua missione\n\nNell'ambito della missione di trasporto pubblico della LEB:\n\n•\nCondurre la manutenzione preventiva e correttiva di corsie, così come la loro infrastruttura, in conformità con il costo previsto, il tempo e la qualità\n\n•\nGarantire condizioni operative sicure\n\nLe tue attività\n\nManutenzione pista\n\nEsegue le operazioni di manutenzione della pista:\n\n• Fornire manutenzione preventiva\n\n• Eseguire operazioni di manutenzione correttiva\n\n• Condurre treni di lavoro specifici\n\nManutenzione delle infrastrutture\n\nPartecipa alle operazioni di manutenzione delle infrastrutture:\n\n• Effettuando una manutenzione preventiva e correttiva sulle infrastrutture\n\n• Effettuando le operazioni di cura e lavaggio delle infrastrutture\n\n• Effettuando piccola ingegneria civile e manutenzione dello spazio verde\n\nRispetto degli standard di sicurezza e qualità\n\nSoddisfa e applica gli standard di sicurezza richiesti nel workshop:\n\n• Applicazione sicura, gestione del lavoro e aggiornamenti\n\n• Garantire la tracciabilità degli interventi effettuati\n\n• Controllo dell'operazione dopo interventi\n\n• Garantire qualità e costi definiti\n\nIl tuo profilo\n\nFormazione\n\n•\nFormazione professionale di base con certificazione; idealmente CFC come produttore ferroviario o massone CFC\n\n•\nFormazione continua (interna ed esterna) in sdoganamento ferroviario\n\nEsperienza professionale\n\n• Il commercio richiede tra 1 e 3 anni di esperienza professionale, idealmente nel settore ferroviario\n\nAutorizzazione, requisiti legali e sicurezza\n\n•\nRispetto delle regole IT aziendali e della riservatezza dei dati\n\n•\nCapacità di lavorare di notte\n\n•\nResponsabile Sicurezza e Protezione secondo TEN 20100 e OASSF\n\n•\nPatente di guida categoria B (veicoli leggeri)\n\nInformazioni pratiche\n\n• Condizioni di lavoro di qualità e vantaggi sociali\n\n• Luogo di lavoro : Echallens\n\n• Contratto: 100% indefinito\n\n• Processo di selezione: prima intervista con manager e specialista di reclutamento per conoscersi a vicenda\n\nA LEB, il talento non ha un genere: accettiamo candidati femminili e maschi con lo stesso interesse.",
-        "en": "The LEB links Lausanne to Gros-de-Vaud and supports the development of a growing region. By 2035, he plans to introduce a 10-minute pace between Lausanne and Echallens in order to offer ever more attractive and sustainable mobility.\n\nThis development is accompanied by many infrastructure projects and requires rigorous maintenance of railway lines and civil engineering works. In order to ensure the safety, reliability and sustainability of our network, we are looking for a motivated person to put his technical skills and know-how at the service of our railway infrastructure.\n\nTrack Maintenance Technician / GC LEB\nYour Mission\n\nAs part of the LEB's public transport service mission:\n\n•\nConduct preventive and corrective maintenance of lanes, as well as their infrastructure, in accordance with the expected cost, time and quality\n\n•\nEnsuring safe operating conditions\n\nYour activities\n\nTrack maintenance\n\nRuns track maintenance operations:\n\n• By providing preventive maintenance\n\n• By performing corrective maintenance operations\n\n• By conducting specific work trains\n\nInfrastructure maintenance\n\nParticipates in infrastructure maintenance operations:\n\n• By carrying out preventive and corrective maintenance on infrastructure\n\n• By carrying out the operations of curing and washing infrastructure\n\n• By carrying out small civil engineering and green space maintenance\n\nCompliance with safety and quality standards\n\nMeets and applies the safety standards required in the workshop:\n\n• Applying Safe, Work Management and Updates\n\n• Ensuring traceability of interventions carried out\n\n• Controlling the operation following interventions\n\n• Ensuring quality and defined costs\n\nYour profile\n\nTraining\n\n•\nBasic vocational training with certification; ideally CFC as a railway manufacturer or mason CFC\n\n•\nContinuous training (internal and external) in railway clearances\n\nProfessional experience\n\n• The trade requires between 1 and 3 years of professional experience, ideally in the railway field\n\nAuthorizations, legal requirements and security\n\n•\nCompliance with company IT rules and data confidentiality\n\n•\nAbility to work at night\n\n•\nHead of Safety and Protector according to TEN 20100 and OASSF\n\n•\nDriver's licence category B (light vehicles)\n\nPractical information\n\n• Quality working conditions and social benefits\n\n• Place of work : Echallens\n\n• Contract: 100% indefinite\n\n• Selection process: 1st interview with manager and recruitment specialist to get to know each other\n\nAt LEB, talent does not have a gender: we accept female and male candidates with the same interest.",
-        "de": "Der LEB verbindet Lausanne mit Gros-de-Vaud und unterstützt die Entwicklung einer wachsenden Region. Bis 2035 plant er, zwischen Lausanne und Echallens ein 10-minütiges Tempo einzuführen, um eine immer attraktivere und nachhaltigere Mobilität zu bieten.\n\nDiese Entwicklung wird von vielen Infrastrukturprojekten begleitet und erfordert eine strenge Wartung von Eisenbahnstrecken und Tiefbauarbeiten. Um die Sicherheit, Zuverlässigkeit und Nachhaltigkeit unseres Netzes zu gewährleisten, suchen wir eine motivierte Person, die ihre technischen Fähigkeiten und ihr Know-how in den Dienst unserer Eisenbahninfrastruktur stellt.\n\nTrack Maintenance Techniker / GC LEB\nDeine Mission\n\nIm Rahmen des öffentlichen Verkehrsdienstes des LEB:\n\n•\nDurchführung einer präventiven und korrektiven Wartung der Fahrspuren sowie ihrer Infrastruktur gemäß den erwarteten Kosten, Zeit und Qualität\n\n•\nGewährleistung sicherer Betriebsbedingungen\n\nIhre Aktivitäten\n\nGleisführung\n\nInstandhaltung von Strecken:\n\n• Vorbeugende Wartung\n\n• Durchführung von Reparaturarbeiten\n\n• Durchführen bestimmter Arbeitszüge\n\nInstandhaltung der Infrastruktur\n\nBeteiligt sich an der Instandhaltung der Infrastruktur:\n\n• Durch präventive und korrektive Instandhaltung der Infrastruktur\n\n• Durch die Durchführung von Operationen der Härtung und Waschinfrastruktur\n\n• Durch die Durchführung von Kleinbau- und Grünflächenpflege\n\nEinhaltung von Sicherheits- und Qualitätsstandards\n\nErfüllt und wendet die im Workshop geforderten Sicherheitsstandards an:\n\n• Anwendung von Safe, Work Management und Updates\n\n• Gewährleistung der Rückverfolgbarkeit der durchgeführten Maßnahmen\n\n• Kontrolle der Operation nach Eingriffen\n\n• Sicherstellen von Qualität und definierten Kosten\n\nDein Profil\n\nAusbildung\n\n•\nGrundausbildung mit Zertifizierung; idealerweise CFC als Bahnhersteller oder Maurer CFC\n\n•\nKontinuierliche Schulung (intern und extern) in Bahnabfertigungen\n\nBerufserfahrung\n\n• Der Handel erfordert zwischen 1 und 3 Jahren Berufserfahrung, idealerweise im Eisenbahnbereich\n\nGenehmigungen, gesetzliche Anforderungen und Sicherheit\n\n•\nEinhaltung der IT-Regeln des Unternehmens und Vertraulichkeit der Daten\n\n•\nFähigkeit, nachts zu arbeiten\n\n•\nLeiter Sicherheit und Schutz gemäß TEN 20100 und OASSF\n\n•\nFührerscheinklasse B (leichte Fahrzeuge)\n\nPraktische Informationen\n\n• Qualität der Arbeitsbedingungen und Sozialleistungen\n\n• Arbeitsort: Echallens\n\n• Vertrag: 100% unbefristet\n\n• Auswahlprozess: 1. Interview mit Manager und Rekrutierungsspezialist, um sich kennenzulernen\n\nBei LEB hat Talent kein Geschlecht: Wir akzeptieren weibliche und männliche Kandidaten mit dem gleichen Interesse.",
+        "it": "Il LEB collega Losanna a Gros-de-Vaud e sostiene lo sviluppo di una regione in crescita. Entro il 2035, intende introdurre un ritmo di 10 minuti tra Losanna e Echhallens per offrire una mobilità sempre più attraente e sostenibile.\n\nQuesto sviluppo è accompagnato da numerosi progetti infrastrutturali e richiede un rigoroso mantenimento delle linee ferroviarie e delle opere di ingegneria civile. Al fine di garantire la sicurezza, l'affidabilità e la sostenibilità della nostra rete, stiamo cercando una persona motivata a mettere le sue competenze tecniche e know-how al servizio della nostra infrastruttura ferroviaria.\n\nTecnico di manutenzione pista / GC LEB\n La tua missione\n\nNell'ambito della missione di trasporto pubblico della LEB:\n\n•\n Eseguire la manutenzione preventiva e correttiva delle tracce, così come la loro infrastruttura, in conformità ai costi, scadenze e qualità attesi\n\n•\n Garantire condizioni operative sicure\n\nLe tue attività\n\nManutenzione pista\n\nEsegue operazioni di manutenzione delle tracce:\n\n• Garantire la manutenzione preventiva\n\n• Eseguire operazioni di manutenzione correttiva\n\n• Condurre treni di lavoro specifici\n\nManutenzione delle infrastrutture\n\nPartecipa alle operazioni di manutenzione delle infrastrutture:\n\n• Effettuando una manutenzione preventiva e correttiva sulle infrastrutture\n\n• Effettuando le operazioni di cura e lavaggio delle infrastrutture\n\n• Effettuando piccola ingegneria civile e manutenzione dello spazio verde\n\nRispetto degli standard di sicurezza e qualità\n\nSoddisfa e rispetta gli standard di sicurezza richiesti nel workshop:\n\n• Applicando procedure e aggiornamenti di gestione del lavoro sicure\n\n• Garantire la tracciabilità degli interventi effettuati\n\n• Controllo dell'operazione dopo interventi\n\n• Garantire qualità e costi definiti\n\nIl tuo profilo\n\nFormazione\n\n•\n Formazione professionale di base con certificazione; idealmente CFC come produttore ferroviario o massone CFC\n\n•\n Formazione continua (interna ed esterna) in sdoganamento ferroviario\n\nEsperienza professionale\n\n• Il commercio richiede tra 1 e 3 anni di esperienza professionale, idealmente nel settore ferroviario\n\nAutorizzazione, requisiti legali e sicurezza\n\n•\n Rispetto delle regole IT aziendali e della riservatezza dei dati\n\n•\n Capacità di lavorare di notte\n\n• Licence B100 o la capacità di partecipare alla formazione\n\n•\n Patente di guida categoria B (veicoli leggeri)\n\nInformazioni pratiche\n\n• Condizioni di lavoro di qualità e vantaggi sociali\n\n• Luogo di lavoro: Echhallens\n\n• Contratto: 100% indefinito\n\n• Processo di selezione:\n\n• Prova di fitness e esame medico\n\n• 1a intervista con manager e specialista di reclutamento per incontrare\n\nA LEB, il talento non ha un genere: accettiamo con lo stesso interesse i candidati femminili e maschi.",
+        "en": "The LEB links Lausanne to Gros-de-Vaud and supports the development of a growing region. By 2035, he plans to introduce a 10-minute pace between Lausanne and Echhallens in order to offer ever more attractive and sustainable mobility.\n\nThis development is accompanied by many infrastructure projects and requires rigorous maintenance of railway lines and civil engineering works. In order to ensure the safety, reliability and sustainability of our network, we are looking for a motivated person to put his technical skills and know-how at the service of our railway infrastructure.\n\nTrack Maintenance Technician / GC LEB\n Your Mission\n\nAs part of the LEB's public transport service mission:\n\n•\n Carry out preventive and corrective maintenance of the tracks, as well as their infrastructure, in accordance with the costs, deadlines and quality expected\n\n•\n Ensuring safe operating conditions\n\nYour activities\n\nTrack maintenance\n\nRuns track maintenance operations:\n\n• By ensuring preventive maintenance\n\n• By performing corrective maintenance operations\n\n• By conducting specific work trains\n\nInfrastructure maintenance\n\nParticipates in infrastructure maintenance operations:\n\n• By carrying out preventive and corrective maintenance on infrastructure\n\n• By carrying out the operations of curing and washing infrastructure\n\n• By carrying out small civil engineering and green space maintenance\n\nCompliance with safety and quality standards\n\nMeets and enforces the safety standards required in the workshop:\n\n• By applying safe, work management procedures and updates\n\n• By ensuring traceability of interventions carried out\n\n• Controlling the operation following interventions\n\n• Ensuring quality and defined costs\n\nYour profile\n\nTraining\n\n•\n Basic vocational training with certification; ideally CFC as a railway manufacturer or mason CFC\n\n•\n Continuous training (internal and external) in railway clearances\n\nProfessional experience\n\n• The trade requires between 1 and 3 years of professional experience, ideally in the railway field\n\nAuthorizations, legal requirements and security\n\n•\n Compliance with company IT rules and data confidentiality\n\n•\n Ability to work at night\n\n• Licence B100 or ability to attend training\n\n•\n Driver's licence category B (light vehicles)\n\nPractical information\n\n• Quality working conditions and social benefits\n\n• Workplace : Echhallens\n\n• Contract: 100% indefinite\n\n• Selection process:\n\n• Fitness test and medical examination\n\n• 1st interview with manager and recruitment specialist to meet\n\nAt LEB, talent does not have a gender: we accept with the same interest female and male candidates.",
+        "de": "Der LEB verbindet Lausanne mit Gros-de-Vaud und unterstützt die Entwicklung einer wachsenden Region. Bis 2035 plant er, zwischen Lausanne und Echhallens ein 10-minütiges Tempo einzuführen, um eine immer attraktivere und nachhaltigere Mobilität zu bieten.\n\nDiese Entwicklung wird von vielen Infrastrukturprojekten begleitet und erfordert eine strenge Wartung von Eisenbahnstrecken und Bauarbeiten. Um die Sicherheit, Zuverlässigkeit und Nachhaltigkeit unseres Netzes zu gewährleisten, suchen wir eine motivierte Person, die ihre technischen Fähigkeiten und ihr Know-how in den Dienst unserer Eisenbahninfrastruktur stellt.\n\nGleisinstandhaltungstechniker / GC LEB\n Deine Mission\n\nIm Rahmen des öffentlichen Verkehrsdienstes des LEB:\n\n•\n Durchführung der vorbeugenden und korrektiven Instandhaltung der Gleise sowie ihrer Infrastruktur gemäß den erwarteten Kosten, Fristen und Qualitäten\n\n•\n Gewährleistung sicherer Betriebsbedingungen\n\nIhre Aktivitäten\n\nGleisführung\n\nInstandhaltung von Strecken:\n\n• durch vorbeugende Instandhaltung\n\n• Durchführung von Reparaturarbeiten\n\n• Durchführen bestimmter Arbeitszüge\n\nInstandhaltung der Infrastruktur\n\nBeteiligt sich an der Instandhaltung der Infrastruktur:\n\n• Durch präventive und korrektive Instandhaltung der Infrastruktur\n\n• Durch die Durchführung von Operationen der Härtung und Waschinfrastruktur\n\n• Durch die Durchführung von Kleinbau- und Grünflächenpflege\n\nEinhaltung von Sicherheits- und Qualitätsstandards\n\nErfüllt und erzwingt die im Workshop geforderten Sicherheitsstandards:\n\n• Durch die Anwendung von sicheren, Arbeitsverwaltungsverfahren und Updates\n\n• Durch Gewährleistung der Rückverfolgbarkeit der durchgeführten Maßnahmen\n\n• Kontrolle der Operation nach Eingriffen\n\n• Sicherstellen von Qualität und definierten Kosten\n\nDein Profil\n\nAusbildung\n\n•\n Grundausbildung mit Zertifizierung; idealerweise CFC als Bahnhersteller oder Maurer CFC\n\n•\n Weiterbildung (intern und extern) in Bahnabfertigungen\n\nBerufserfahrung\n\n• Der Handel erfordert zwischen 1 und 3 Jahren Berufserfahrung, idealerweise im Eisenbahnbereich\n\nGenehmigungen, gesetzliche Anforderungen und Sicherheit\n\n•\n Einhaltung der IT-Regeln des Unternehmens und Vertraulichkeit der Daten\n\n•\n Fähigkeit, nachts zu arbeiten\n\n• Lizenz B100 oder Möglichkeit zur Teilnahme an Schulungen\n\n•\n Führerscheinklasse B (leichte Fahrzeuge)\n\nPraktische Informationen\n\n• Qualität der Arbeitsbedingungen und Sozialleistungen\n\n• Arbeitsplatz: Echhallens\n\n• Vertrag: 100% unbefristet\n\n• Auswahlverfahren:\n\n• Fitnesstest und ärztliche Untersuchung\n\n• 1. Interview mit Manager und Rekrutierungsspezialist zu treffen\n\nBei LEB hat Talent kein Geschlecht: Wir akzeptieren mit dem gleichen Interesse weibliche und männliche Kandidaten.",
         "fr": "Le LEB relie Lausanne au Gros-de-Vaud et accompagne le développement d’une région en pleine croissance. D’ici 2035, il prévoit d’introduire une cadence de 10 minutes entre Lausanne et Echallens afin d’offrir une mobilité toujours plus attractive et durable.\n\nCette évolution s’accompagne de nombreux projets d’infrastructure et nécessite un entretien rigoureux des voies ferrées et des ouvrages de génie civil. Afin de garantir la sécurité, la fiabilité et la pérennité de notre réseau, nous recherchons une personne motivée à mettre ses compétences techniques et son savoir-faire au service de notre infrastructure ferroviaire.\n\nTechnicien maintenance voie / GC LEB\n Votre mission\n\nDans le cadre de la mission de service de transport public du LEB :\n\n•\n Réaliser les opérations de maintenance préventive et corrective des voies, ainsi que de leurs infrastructures, dans le respect des coûts, des délais et de la qualité attendue\n\n•\n Garantir les conditions de sécurité d’exploitation\n\nVos activités\n\nMaintenance de la voie\n\nExécute les opérations de maintenance de la voie :\n\n• En assurant la maintenance préventive\n\n• En réalisant les opérations de maintenance corrective\n\n• En conduisant les trains de travaux spécifiques\n\nMaintenance des infrastructures\n\nParticipe aux opérations de maintenance sur les infrastructures :\n\n• En réalisant les opérations de maintenance préventive et corrective sur les infrastructures\n\n• En réalisant les opérations de curage et de lavage des infrastructures\n\n• En réalisant des petits travaux de génie civil et d’entretien des espaces verts\n\nRespect des normes de sécurité et de qualité\n\nRespecte et applique les normes sécuritaires requises au sein de l’atelier :\n\n• En appliquant les procédures sécuritaires, de gestion du travail et les mises à jour\n\n• En assurant la traçabilité des interventions effectuées\n\n• En contrôlant le fonctionnement suite aux interventions\n\n• En garantissant la qualité et les coûts définis\n\nVotre profil\n\nFormation\n\n•\n Formation professionnelle élémentaire avec attestation; idéalement CFC en tant que constructeur·trice de voie ferrée ou CFC de maçon\n\n•\n Formations continues (interne et externe) dans le cadre des habilitations ferroviaires\n\nExpérience professionnelle\n\n• Le métier requiert entre 1 et 3ans d’expérience professionnelle, idéalement dans le domaine ferroviaire\n\nHabilitations, exigences légales et sécurité\n\n•\n Respect des règles informatiques de l’entreprise et dela confidentialité des données\n\n•\n Aptitude au travail de nuit\n\n• Permis B100 ou aptitude à suivre la formation\n\n•\n Permis de conduire catégorie B (véhicules légers)\n\nInformations pratiques\n\n• Des conditions de travail et des prestations sociales de qualité\n\n• Lieu de travail : Echallens\n\n• Contrat  : durée indéterminée à 100%\n\n• Processus de sélection:\n\n• Test d’aptitude et visite médicale\n\n• 1er entretien avec manager et un spécialiste recrutement pour faire connaissance\n\nAu LEB, le talent n’a pas de genre : nous acceptons avec le même intérêt les candidatures féminines et masculines."
       },
-      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://carrieres.t-l.ch/job/Lausanne-Technicien-maintenance-voie-GC-LEB/1454588833/",

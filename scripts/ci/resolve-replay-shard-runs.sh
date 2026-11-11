@@ -2,13 +2,11 @@
 # Resolve WHERE a replay of build run $DEPLOY_RUN_ID finds its shard bytes,
 # before audit-dist-from-run.yml spends an hour rehydrating.
 #
-# The build run (deploy.yml) uploads `github-pages` (trunk), `jobs-master-<id>`
-# and the IT section tars `shard-batch-<n>-dist-it-<id>`. The en/de/fr locale
-# tars `locale-dist-<loc>-<rid>` and their section tars
-# `shard-batch-<n>-dist-<loc>-<rid>` are uploaded by the deploy-publish.yml run
-# that published the build — under ITS run id <rid>. Replays 39927368320 and
-# 39952023039 passed the build id as SHARD_ARTIFACT_RUN_ID, found nothing, and
-# rehydrated every en/de/fr subtree from a clone of today's shard repos.
+# The build run (deploy.yml) uploads `jobs-master-<id>` and source bundles. The
+# publisher run uploads `github-pages`, `sitemaps`, IT section tars, and the IT
+# page/section manifests. The en/de/fr locale tars `locale-dist-<loc>-<rid>` and
+# section tars `shard-batch-<n>-dist-<loc>-<rid>` are also uploaded by the
+# deploy-publish.yml run that published each locale.
 #
 # Several deploy-publish runs carry the same title ("Publish Pages build <id> @
 # <sha>"): the one that really published is frequently `cancelled` (its report
@@ -35,13 +33,35 @@ live_artifacts() { # <run-id> <exact name or jq regex> -> count of non-expired m
 
 [ "$(live_artifacts "$DEPLOY_RUN_ID" "^jobs-master-$DEPLOY_RUN_ID\$")" -gt 0 ] \
   || problems+=("jobs-master-$DEPLOY_RUN_ID scaduto o assente sul build")
-[ "$(live_artifacts "$DEPLOY_RUN_ID" "^shard-batch-[0-9]+-dist-it-$DEPLOY_RUN_ID\$")" -gt 0 ] \
-  || problems+=("shard-batch-*-dist-it-$DEPLOY_RUN_ID scaduti o assenti sul build (sezioni IT)")
 
 prefix="Publish Pages build $DEPLOY_RUN_ID @"
 publish_runs="$(gh run list -R "$GH_REPO" --workflow deploy-publish.yml --limit 200 \
                   --json databaseId,displayTitle 2>/dev/null \
                 | jq -r --arg p "$prefix" '.[] | select(.displayTitle | startswith($p)) | .databaseId')"
+
+it_found=""
+for rid in $publish_runs; do
+  complete=true
+  for name in "github-pages" "sitemaps-$rid" "sitemap-page-manifest-it-$rid" "section-page-manifest-it-$rid"; do
+    pattern="^${name}\$"
+    [ "$(live_artifacts "$rid" "$pattern")" -gt 0 ] || complete=false
+  done
+  for batch in 1 2 3 4 5 6; do
+    if [ "$(live_artifacts "$rid" "^shard-batch-$batch-dist-it-$rid\$")" -eq 0 ]; then
+      complete=false
+    fi
+  done
+  if [ "$complete" = true ]; then
+    it_found="$rid"
+    break
+  fi
+done
+if [ -n "$it_found" ]; then
+  echo "SHARD_ARTIFACT_RUN_ID_IT=$it_found" >> "$out"
+  echo "[resolve] IT Pages/section artifacts: deploy-publish run $it_found"
+else
+  problems+=("IT github-pages/sitemaps/page-manifest/section-batch artifacts assenti o scaduti su ogni deploy-publish «$prefix …» (${publish_runs//$'\n'/ })")
+fi
 
 for loc in en de fr; do
   found=""

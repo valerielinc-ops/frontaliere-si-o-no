@@ -307,6 +307,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     sections: Record<string, number>,
     skipIt: string[] = [],
     corrupt: string[] = [],
+    artifactRunId = '42',
   ): Fixture {
     const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
     const lib = join(root, 'scripts', 'lib');
@@ -358,7 +359,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
         buf[at] ^= 0x20;
         writeFileSync(zip, buf);
       }
-      ids[`shard-batch-${batch}-dist-it-42`] = id;
+      ids[`shard-batch-${batch}-dist-it-${artifactRunId}`] = id;
     }
 
     const bin = join(root, 'bin');
@@ -383,6 +384,9 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       'exit 1',
       '',
     ].join('\n'), { mode: 0o755 });
+    // macOS host has no GNU `timeout`; this test shim keeps the production
+    // command shape while running the fake gh/git operations immediately.
+    writeFileSync(join(bin, 'timeout'), '#!/usr/bin/env bash\nshift\nexec "$@"\n', { mode: 0o755 });
     writeFileSync(join(bin, 'git'), '#!/bin/sh\nexit 1\n', { mode: 0o755 });
 
     const runnerTemp = join(root, 'runner-temp');
@@ -390,7 +394,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     return { root, runnerTemp, ghLog };
   }
 
-  function run(fx: Fixture, live: string[]): { status: number; output: string } {
+  function run(fx: Fixture, live: string[], artifactRunId = '42'): { status: number; output: string } {
     const env: Record<string, string> = {
       ...process.env as Record<string, string>,
       PATH: `${join(fx.root, 'bin')}:${process.env.PATH}`,
@@ -399,6 +403,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       GH_LOG: fx.ghLog,
       GH_TOKEN: 'unused',
       DEPLOY_RUN_ID: '42',
+      SHARD_ARTIFACT_RUN_ID_IT: artifactRunId,
       // Sequential, so "a reader that has not started yet" is deterministic.
       REHYDRATE_MAX_PARALLEL: '1',
     };
@@ -441,6 +446,18 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     }
   });
 
+  it('uses the selected publisher run for IT section batches instead of the source build run', () => {
+    const fx = buildFixture({ s1: 1 }, [], [], '84');
+    try {
+      const { status, output } = run(fx, ['s1'], '84');
+      expect(status, output).toBe(0);
+      expect(readFileSync(fx.ghLog, 'utf8')).toContain('artifacts?name=shard-batch-1-dist-it-84');
+      expect(readFileSync(fx.ghLog, 'utf8')).not.toContain('artifacts?name=shard-batch-1-dist-it-42');
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  });
+
   it('streams every section out of one zip per batch and releases each zip after its last reader', () => {
     // s1+s2 read batch 1; s3 reads batch 2 and s4 — its last reader — only
     // skips; s5 reads batch 3. Run in that order, one at a time.
@@ -449,7 +466,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       const { status, output } = run(fx, ['s1', 's2', 's3', 's4', 's5']);
       expect(status, output).toBe(0);
       for (const name of ['s1', 's2', 's3', 's5']) {
-        expect(output).toContain(`rehydrated ${name} it from tar artifact: 2 files (tar listed 2)`);
+        expect(output).toMatch(new RegExp(`rehydrated ${name} it from tar artifact:\\s+2 files \\(tar listed 2\\)`));
         expect(existsSync(join(fx.root, 'dist', `sez-${name}`, 'un-lavoro', 'index.html'))).toBe(true);
       }
       expect(output).toContain('s4 it (sez-s4) present in artifact — skip rehydrate');
@@ -484,8 +501,8 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       const { status, output } = run(fx, ['s1', 's2', 's3']);
       expect(status, output).toBe(0);
       expect(output).toContain('s1 it (sez-s1) present in artifact — skip rehydrate');
-      expect(output).toContain('rehydrated s2 it from tar artifact: 2 files (tar listed 2)');
-      expect(output).toContain('rehydrated s3 it from tar artifact: 2 files (tar listed 2)');
+      expect(output).toMatch(/rehydrated s2 it from tar artifact:\s+2 files \(tar listed 2\)/);
+      expect(output).toMatch(/rehydrated s3 it from tar artifact:\s+2 files \(tar listed 2\)/);
 
       const calls = readFileSync(fx.ghLog, 'utf8').trim().split('\n');
       const batch2Resolve = calls.find((c) => c.includes('artifacts?name=shard-batch-2-dist-it-42'));
@@ -504,7 +521,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       // Fail-soft as before: the clone (refused here) degrades with a warning.
       expect(status, output).toBe(0);
       expect(output).not.toContain('rehydrated s1 it from tar artifact');
-      expect(output).toMatch(/\[rehydrate\] s1-it tar extraction incomplete \(expected 2 files, got 2, unzip rc=[2-9]\)/);
+      expect(output).toMatch(/\[rehydrate\] s1-it tar extraction incomplete \(expected 2 files, got\s+2, unzip rc=[2-9]\)/);
       expect(output).toContain('::warning::s1-it shard clone failed after retry');
       expect(existsSync(join(fx.root, 'dist', 'sez-s1'))).toBe(false);
     } finally {
