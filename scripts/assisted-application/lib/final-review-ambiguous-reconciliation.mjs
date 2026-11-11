@@ -3,6 +3,7 @@ import { hasAssistedApplicationConsent } from '../../../functions/src/assistedAp
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../../functions/src/assistedApplicationRetention.js';
 import { PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } from '../../../functions/src/assistedApplicationPortalRetryPolicy.js';
 import { advancedToFinalReview, advancedToFinalReviewChecks } from './portal/final-review.mjs';
+import { portalJobKey } from './portal/stages.mjs';
 
 const CONFIRMATION_CATEGORIES = new Set([
   'auto_acknowledgement', 'interview_invite', 'rejection', 'documents_request', 'question', 'assessment', 'offer',
@@ -68,6 +69,14 @@ export function decideFinalReviewAmbiguousReconciliation({
     && order?.submissionStatus !== 'submitted'
     && flow?.state !== 'submitted'
     && !draft?.sent;
+  const evidenceArtifacts = {
+    structuredPostClickSnapshot: Boolean(source?.evidence?.afterSubmitSnapshot),
+    structuredSnapshotMatchesFinalUrl: Boolean(source?.evidence?.afterSubmitSnapshot?.url
+      && source.evidence.afterSubmitSnapshot.url === finalUrl),
+    sourcePortalProtocolStored: Boolean(source?.evidence?.sourceProtocol),
+    encryptedPostClickScreenshot: typeof source?.evidence?.afterSubmit === 'string'
+      && source.evidence.afterSubmit.length > 0,
+  };
   const criteria = {
     activePaidOrder: order?.paymentStatus === 'paid'
       && hasAssistedApplicationConsent(order)
@@ -91,32 +100,24 @@ export function decideFinalReviewAmbiguousReconciliation({
     postClickSnapshotAvailable,
     postClickUrlMatchesEvidence,
     postClickPageAvailable,
-    evidenceArtifacts: {
-      structuredPostClickSnapshot: Boolean(source?.evidence?.afterSubmitSnapshot),
-      structuredSnapshotMatchesFinalUrl: Boolean(source?.evidence?.afterSubmitSnapshot?.url
-        && source.evidence.afterSubmitSnapshot.url === finalUrl),
-      sourcePortalProtocolStored: Boolean(source?.evidence?.sourceProtocol),
-      encryptedPostClickScreenshot: typeof source?.evidence?.afterSubmit === 'string'
-        && source.evidence.afterSubmit.length > 0,
-    },
+    encryptedPostClickScreenshot: evidenceArtifacts.encryptedPostClickScreenshot === true,
+    structuredSnapshotBound: !evidenceArtifacts.structuredPostClickSnapshot
+      || evidenceArtifacts.structuredSnapshotMatchesFinalUrl || postClickPageAvailable,
+    sourcePortalProtocolBound: evidenceArtifacts.sourcePortalProtocolStored || Boolean(portalJobKey(applyUrl)),
     finalReview,
-    finalReviewChecks,
     noInboxConfirmation: !inboxHasConfirmationOrPendingMessage(inbox),
     noConfirmedSend,
     noLaterFoundVerification: laterVerificationFound !== true,
     laterVerificationResolved: laterVerificationClear === true,
   };
+  const result = decision => ({ decision, criteria, evidenceArtifacts, finalReviewChecks });
 
-  if (!heldForAmbiguousPortal) return { decision: 'ineligible', criteria };
+  if (!heldForAmbiguousPortal) return result('ineligible');
   if (!criteria.noInboxConfirmation || !criteria.noConfirmedSend || !criteria.noLaterFoundVerification) {
-    return { decision: 'confirmation_or_verification_present', criteria };
+    return result('confirmation_or_verification_present');
   }
-  const requiredCriteria = Object.entries(criteria)
-    .filter(([name]) => !['evidenceArtifacts', 'finalReviewChecks'].includes(name))
-    .map(([, value]) => value === true);
-  requiredCriteria.push(criteria.evidenceArtifacts.encryptedPostClickScreenshot === true);
-  if (!requiredCriteria.every(Boolean)) return { decision: 'unknown', criteria };
-  return { decision: 'reconcile', criteria };
+  if (!Object.values(criteria).every(value => value === true)) return result('unknown');
+  return result('reconcile');
 }
 
 export { PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION };

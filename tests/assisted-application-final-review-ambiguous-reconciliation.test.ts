@@ -120,17 +120,17 @@ describe('final-review ambiguous reconciliation decision', () => {
   it('accepts only the exact evidence set shared with the runner predicate', () => {
     const result = decideFinalReviewAmbiguousReconciliation(eligibleInput());
     expect(result.decision).toBe('reconcile');
-    expect(Object.entries(result.criteria)
-      .filter(([name]) => !['evidenceArtifacts', 'finalReviewChecks'].includes(name))
-      .every(([, value]) => value === true)).toBe(true);
-    expect(result.criteria.evidenceArtifacts.encryptedPostClickScreenshot).toBe(true);
+    expect(Object.values(result.criteria).every(value => value === true)).toBe(true);
+    expect(result.criteria.encryptedPostClickScreenshot).toBe(true);
+    expect(result.criteria.structuredSnapshotBound).toBe(true);
+    expect(result.criteria.sourcePortalProtocolBound).toBe(true);
   });
 
   it('keeps a case unknown when the encrypted post-click screenshot is missing', () => {
     const input = eligibleInput();
     delete input.source.evidence.afterSubmit;
     const result = decideFinalReviewAmbiguousReconciliation(input);
-    expect(result.criteria.evidenceArtifacts.encryptedPostClickScreenshot).toBe(false);
+    expect(result.criteria.encryptedPostClickScreenshot).toBe(false);
     expect(result.decision).toBe('unknown');
   });
 
