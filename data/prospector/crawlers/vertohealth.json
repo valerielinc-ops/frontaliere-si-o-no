@@ -1,0 +1,21 @@
+{
+  "companyKey": "vertohealth",
+  "companyName": "Verto Health",
+  "companyHost": "vertohealth.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://vertohealth.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Principal Software Engineer, Health Data & Interoperability (Remote)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:12:58.548Z",
+  "candidateKey": "vertohealth@applytojob.com"
+}

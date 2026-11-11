@@ -1,0 +1,23 @@
+{
+  "companyKey": "unknown-2",
+  "companyName": "36Pix",
+  "companyHost": "36pix.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://36pix.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Candidature générale (Candidature spontanée)",
+    "Commis à l'impression - soir ou jour (contrat de courte durée)",
+    "General Application (Spontaneous Application)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:13.459Z",
+  "candidateKey": "36pix@applytojob.com"
+}
