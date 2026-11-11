@@ -21,16 +21,14 @@
     "slugByLocale": {
       "it": "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern",
       "en": "system-gastronomy-specialist-efz-apprenticeship-2027-zfv-unternehmungen-bern",
-      "de": "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern",
+      "de": "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern-c8d5e905",
       "fr": "specialiste-de-la-gastronomie-du-systeme-efz-apprentissage-2027-zfv-unternehmungen-bern"
     },
     "sector": "Ospitalità / Ristorazione",
     "expiredAt": "2026-11-11T12:33:49.574Z",
-    "previousSlugs": [
-      "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern-c8d5e905",
         "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "en": [
@@ -38,6 +36,9 @@
       ],
       "fr": [
         "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
+      ],
+      "de": [
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern-c8d5e905"
       ]
     },
     "postalCode": "3004",
@@ -47,7 +48,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.zfv.ch/systemgastronomiefachfraumann-efz-lehrstelle-2027-de-j4574.html",
-    "firstSeenAt": "2026-07-31T22:12:23.386Z"
+    "firstSeenAt": "2026-07-31T22:12:23.386Z",
+    "previousSlugs": [
+      "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
+    ]
   },
   {
     "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
