@@ -1,0 +1,25 @@
+{
+  "companyKey": "valuetainment",
+  "companyName": "Valuetainment",
+  "companyHost": "valuetainment.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://valuetainment.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "Business Development Representative, Bet-David Consulting",
+    "Digital Marketing Associate, Lion Holdings",
+    "Director of Ecommerce, FLB",
+    "Executive Producer/Showrunner, Valuetainment",
+    "Head of Paid Media, Lion Holdings"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:12:57.091Z",
+  "candidateKey": "valuetainment@applytojob.com"
+}
