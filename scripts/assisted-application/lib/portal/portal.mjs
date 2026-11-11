@@ -1788,11 +1788,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const current = comparablePortalRoute(snapshot.url);
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
-    && startsApplication(control?.text || control?.label)
+    && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
     && controlPostingIdentity(control) === ''
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
-    && startsApplication(control?.text || control?.label));
+    && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
   // The official Stadt Zürich detail page is selected by its unique role link
   // before this loop reaches it. On that exact, fieldless detail route a sole
   // explicit Apply control is the only remaining handoff proof; a duplicate

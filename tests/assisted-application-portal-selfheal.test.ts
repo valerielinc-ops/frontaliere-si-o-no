@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, applicationEntryControls, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
@@ -460,6 +460,22 @@ describe('portal runner self-correction', () => {
     };
 
     expect(stadtZurichPublicPostingTarget(snapshot, 'Application Manager')).toBe('');
+  });
+
+  it('resolves a Stadt Zürich detail Apply control exposed only through aria-label', () => {
+    const control = { text: '', label: '', ariaLabel: 'Bewerben' };
+    const snapshot = {
+      url: 'https://stadt-zuerich.ch/jobs/de/role-123.html',
+      fields: [],
+      buttons: [control],
+    };
+    const context = {
+      postingUrl: 'https://stadt-zuerich.ch/jobs/de/role-123.html',
+      allowSingleExternalApplicationEntry: true,
+      publicPostingTarget: true,
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([control]);
   });
 
   it('keeps a Stadt Zürich listing unresolved when two role links match', () => {
