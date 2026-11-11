@@ -843,24 +843,46 @@ export function resetPublicPlateAuctionSnapshotCache() {
   pendingSourceBodies.clear();
 }
 
-export function getCachedPublicPlateAuctionSourceBody({ sourceKey, db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+export function getCachedPublicPlateAuctionSourceBody({
+  sourceKey,
+  db,
+  now = Date.now,
+  ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS,
+  bypassCache = false,
+} = {}) {
   const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey, new Date(now()));
   if (!normalizedSourceKey) return Promise.reject(new Error(`Unknown active plate-auction source: ${String(sourceKey || '')}`));
   const cached = cachedSourceBodies.get(normalizedSourceKey);
-  if (cached && cached.expiresAt > now()) return Promise.resolve(cached.bodies);
-  if (!pendingSourceBodies.has(normalizedSourceKey)) {
-    const pending = (async () => {
+  if (!bypassCache && cached && cached.expiresAt > now()) return Promise.resolve(cached.bodies);
+  const pendingEntry = pendingSourceBodies.get(normalizedSourceKey);
+  // A normal request may share a forced refresh already in flight. A forced
+  // request must not share an older normal build: that build may have started
+  // before the collector's source refresh completed.
+  if (pendingEntry && (!bypassCache || pendingEntry.bypassCache)) return pendingEntry.promise;
+
+  const entry = { bypassCache, promise: null };
+  const pending = (async () => {
       const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey, now: new Date(now()) });
       const body = Buffer.from(JSON.stringify(snapshot));
       const bodies = { body, gzip: await gzipAsync(body) };
-      cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
+      // An older normal build can finish after a forced refresh has started;
+      // only the current entry may repopulate the cache with its result.
+      if (pendingSourceBodies.get(normalizedSourceKey) === entry) {
+        cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
+      }
       return bodies;
-    })().finally(() => {
-      pendingSourceBodies.delete(normalizedSourceKey);
-    });
-    pendingSourceBodies.set(normalizedSourceKey, pending);
-  }
-  return pendingSourceBodies.get(normalizedSourceKey);
+  })();
+  entry.promise = pending;
+  pendingSourceBodies.set(normalizedSourceKey, entry);
+  pending.then(
+    () => {
+      if (pendingSourceBodies.get(normalizedSourceKey) === entry) pendingSourceBodies.delete(normalizedSourceKey);
+    },
+    () => {
+      if (pendingSourceBodies.get(normalizedSourceKey) === entry) pendingSourceBodies.delete(normalizedSourceKey);
+    },
+  );
+  return pending;
 }
 
 function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
