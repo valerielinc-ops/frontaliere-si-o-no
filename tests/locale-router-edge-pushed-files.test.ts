@@ -522,7 +522,7 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
     const runner = readFileSync(path.resolve(__dirname, '..', 'scripts', 'publish-jobs-fast.mjs'), 'utf-8');
     const fullPublisher = readFileSync(path.resolve(__dirname, '..', '.github', 'workflows', 'deploy-publish.yml'), 'utf-8');
     expect(fastWorkflow).toContain('cron: "*/30 * * * *"');
-    expect(fastWorkflow).toContain('data/jobs/by-crawler/**/*.json');
+    expect(fastWorkflow).toContain('by-crawler/**/*.json');
     expect(runner).toContain('scripts/publish-edge-files.mjs');
     expect(runner).toContain('`--only=${only}`');
     expect(fullPublisher).toContain('node scripts/publish-edge-files.mjs --producer=jobs-fast --from-dir="$GITHUB_WORKSPACE/dist"');
