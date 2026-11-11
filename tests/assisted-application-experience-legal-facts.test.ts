@@ -23,7 +23,6 @@ import {
   verifiedDecisionAnswers,
   verifyDecision,
 } from '../functions/src/assistedApplicationDecisionAnswers.js';
-import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { decideLiveQuestions, decisionAnswerable } from '../scripts/assisted-application/lib/decision-answers.mjs';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -147,7 +146,7 @@ describe('the run of SBB ifB89NW2, before asking the candidate', () => {
     ] };
   };
 
-  it('an order uploaded before the legal facts: the two experience questions are decided, only the register stays', async () => {
+  it('an order uploaded before the legal facts: the two experience questions are decided, the register is «no»', async () => {
     const platformFacts = factsOf(UPLOAD);
     expect(platformFacts).toMatchObject({ criminalRecord: '', debtRecord: '' });
     const prompts: string[] = [];
@@ -163,9 +162,8 @@ describe('the run of SBB ifB89NW2, before asking the candidate', () => {
     const candidate = candidateWith(facts);
     expect(candidateAnswerForField(candidate, field(PLATFORMS))).toMatchObject({ value: 'Ja', source: 'policy_default' });
     expect(candidateAnswerForField(candidate, field(SAFE))).toMatchObject({ value: 'Ja', source: 'policy_default' });
-    // The legal fact is unknown: nobody answers it.
-    expect(operationalDefaultAnswer(field(RECORD), { facts })).toBeNull();
-    expect(candidateAnswerForField(candidate, field(RECORD))).toBeNull();
+    // No upload answer: no entry in either register (owner decision 2026-11-11), never asked to the model.
+    expect(candidateAnswerForField(candidate, field(RECORD))).toMatchObject({ value: 'Nein', source: 'policy_default' });
   });
 
   it('a new order: the register question is answered from the upload answers, never decided by the model', async () => {
@@ -205,25 +203,37 @@ describe('the criminal record and the debt-enforcement register (owner decision 
     expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Do you have a criminal record?' }, none, { locale: 'en' })?.value).toBe('No');
   });
 
-  it('leaves the question when the fact is unknown, half known, or not the register entry', () => {
+  it('answers «no» when the fact is unknown or half known, and leaves what is not the register entry', () => {
+    // Owner decision 2026-11-11 («Sempre «no» se manca»): no upload answer, no entry in either register.
     const legacy = factsOf(UPLOAD);
-    expect(platformDefaultAnswer(choice(RECORD), legacy)).toBeNull();
-    expect(platformDefaultAnswer(choice(RECORD), factsOf({ ...UPLOAD, criminalRecord: 'no' }))).toBeNull();
+    expect(platformDefaultAnswer(choice(RECORD), legacy)?.value).toBe('Nein');
+    expect(platformDefaultAnswer(choice(RECORD), factsOf({ ...UPLOAD, criminalRecord: 'no' }))?.value).toBe('Nein');
     const none = factsOf({ ...UPLOAD, criminalRecord: 'no', debtRecord: 'no' });
     for (const question of [
       'Können Sie einen aktuellen Strafregisterauszug vorlegen?',
       'Läuft gegen Sie ein Strafverfahren oder ein Betreibungsverfahren?',
-      'Have you ever been convicted of a criminal offence?',
-      'Ich bestätige, dass ich keinen Eintrag im Strafregister habe',
     ]) expect(platformDefaultAnswer(choice(question), none)).toBeNull();
-    // Not a yes/no: a free text field stays with the candidate.
+    // A bare caption in a free text field may be the slot of the extract: it stays with the candidate.
     expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'text', question: 'Strafregister' }, none)).toBeNull();
-    // A request for proof, or a question asked in the negative, is never answered from the upload facts
-    // (review of #17997): a yes there would invert the candidate's declaration.
+    // A request for proof is a document, never answered (review of #17997).
     const record = factsOf({ ...UPLOAD, criminalRecord: 'yes', debtRecord: 'no' });
     expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Do you have proof of a criminal record?' }, record, { locale: 'en' })).toBeNull();
-    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Sind Sie ohne Einträge im Strafregister?' }, none)).toBeNull();
     expect(platformDefaultAnswer(choice('Können Sie einen Nachweis über Ihren Strafregistereintrag erbringen?'), none)).toBeNull();
+  });
+
+  // Owner decision 2026-11-11: the criminal record alone is always «no conviction»; a question that names the
+  // debt-enforcement register takes the upload answers, «no» when there are none.
+  it('answers the criminal record alone by the platform rule, with its polarity, also on a legacy order', () => {
+    const legacy = factsOf(UPLOAD);
+    expect(platformDefaultAnswer(choice('Have you ever been convicted of a criminal offence?'), legacy)?.value).toBe('Nein');
+    expect(platformDefaultAnswer(choice('Ich bestätige, dass ich keinen Eintrag im Strafregister habe'), legacy)?.value).toBe('Ja');
+    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Sind Sie ohne Einträge im Strafregister?' }, legacy, { locale: 'de' })?.value).toBe('Ja');
+    // The candidate's own «yes» at upload wins: a register question is yes, and no statement of none is made for them.
+    const record = factsOf({ ...UPLOAD, criminalRecord: 'yes', debtRecord: 'no' });
+    expect(platformDefaultAnswer({ id: 'q', source: 'portal', type: 'yes_no', question: 'Do you have a criminal record?' }, record, { locale: 'en' })?.value).toBe('Yes');
+    expect(platformDefaultAnswer(choice('Ich bestätige, dass ich keinen Eintrag im Strafregister habe'), record)).toBeNull();
+    // An entry in the register is a conviction: the upload «yes» answers the conviction question too (review of #18085).
+    expect(platformDefaultAnswer(choice('Have you ever been convicted of a criminal offence?'), record)?.value).toBe('Ja');
   });
 
   it('stores the two answers validated, and keeps the orders that predate them valid', () => {
