@@ -20,6 +20,7 @@ import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
 import {
   classifyApplicationChannel,
+  embeddedAtsApplyUrlFromPosting,
   fetchJobPosting,
   fetchWorkdayPosting,
   htmlToText,
@@ -552,6 +553,53 @@ describe('Jobs2Web application route (ORIOR: employer page → SAP SuccessFactor
     });
     await expect(resolveApplyUrl(cityPosting, { fetchImpl: fetchImpl as any, resolve: publicHost }))
       .resolves.toEqual({ applyUrl: cityApply, via: 'successfactors' });
+  });
+
+  it('resolves an embedded Lever ATS apply URL from __NEXT_DATA__ when matching the posting UUID', async () => {
+    const postingUrl = 'https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/a6b47bf4-6819-48a4-bdab-f6160bd496ec';
+    const leverApply = 'https://jobs.eu.lever.co/engelvoelkers/a6b47bf4-6819-48a4-bdab-f6160bd496ec/apply';
+    const nextHtml = `<script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+      props: {
+        pageProps: {
+          data: {
+            details: {
+              posting: {
+                id: 'a6b47bf4-6819-48a4-bdab-f6160bd496ec',
+                urls: {
+                  list: 'https://jobs.eu.lever.co/engelvoelkers',
+                  apply: leverApply,
+                },
+              },
+            },
+          },
+        },
+      },
+    })}</script>`;
+
+    expect(embeddedAtsApplyUrlFromPosting(nextHtml, postingUrl)).toEqual({
+      applyUrl: leverApply,
+      via: 'lever',
+    });
+
+    // Mismatched UUID is ignored
+    expect(embeddedAtsApplyUrlFromPosting(nextHtml, postingUrl.replace('a6b47bf4', '00000000'))).toBeNull();
+
+    const fetchImpl = async (url: string) => new Response(nextHtml, {
+      status: 200, headers: { 'content-type': 'text/html' },
+    });
+    await expect(resolveApplyUrl(postingUrl, { fetchImpl: fetchImpl as any, resolve: publicHost }))
+      .resolves.toEqual({ applyUrl: leverApply, via: 'lever' });
+  });
+
+  it('resolves direct ATS link from HTML when matching posting UUID', () => {
+    const postingUrl = 'https://careers.example.com/jobs/11111111-2222-3333-4444-555555555555';
+    const ghApply = 'https://boards.greenhouse.io/example/jobs/11111111-2222-3333-4444-555555555555';
+    const linkHtml = `<main><a href="${ghApply}">Apply for this role</a></main>`;
+
+    expect(embeddedAtsApplyUrlFromPosting(linkHtml, postingUrl)).toEqual({
+      applyUrl: ghApply,
+      via: 'greenhouse',
+    });
   });
 });
 
