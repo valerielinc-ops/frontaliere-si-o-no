@@ -85,7 +85,16 @@ describe('LinkedIn member publish response identity', () => {
 
   it('keeps transport-like statuses ambiguous and explicit 4xx responses releasable', () => {
     expect(classifyLinkedInMemberPostResponse({ status: 503, body: 'temporary' }).deliveryUncertain).toBe(true);
-    expect(classifyLinkedInMemberPostResponse({ status: 403, body: 'forbidden' }).deliveryUncertain).toBe(false);
+    expect(classifyLinkedInMemberPostResponse({ status: 401, body: 'unauthorized' })).toMatchObject({
+      ok: false,
+      authRejected: true,
+      deliveryUncertain: false,
+    });
+    expect(classifyLinkedInMemberPostResponse({ status: 403, body: 'forbidden' })).toMatchObject({
+      ok: false,
+      authRejected: true,
+      deliveryUncertain: false,
+    });
   });
 });
 
