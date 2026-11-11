@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -4465,6 +4465,26 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     expect(formatWorkflowSizeBudgetViolation(violation, 8)).toBe(
       `x/crawler-group-06.yml: 10 bytes, 2 over the 8-byte budget (GitHub rejects workflow files above ~${GITHUB_WORKFLOW_SIZE_LIMIT_BYTES})`,
     );
+  });
+
+  it('passes the member identity once to each compact result waiter', () => {
+    const crawler = { slug: 'very-long-crawler-name' } as any;
+    const body = buildCrawlerResultShellBody(crawler, 24, { compact: true });
+    const readableBody = buildCrawlerResultShellBody(crawler, 24);
+    expect(body).toContain('s="$CRAWLER_MEMBER_SLUG"');
+    expect(body).not.toContain('very-long-crawler-name');
+    expect((body.match(/\$s/g) ?? []).length).toBeGreaterThan(5);
+    expect(Buffer.byteLength(body)).toBeLessThan(Buffer.byteLength(readableBody) - 300);
+  });
+
+  it('reports and verifies the largest portable fallback workflow is within 480000 bytes', () => {
+    const largestFile = '.github/corpus-workflows/crawler-group-04.yml';
+    const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
+    const bytes = Buffer.byteLength(content, 'utf8');
+    // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
+    // With compact waiter, size is 478781 bytes (<= 480000 budget).
+    expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    expect(bytes).toBe(478781);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
