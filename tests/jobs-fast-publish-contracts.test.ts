@@ -4,6 +4,7 @@ import {
   buildFastLaneRequestHeaders,
   buildFastLaneHubVisibleJobIdsByLocale,
   extractFirstPartyAssetUrls,
+  hasGoogleAnalyticsRuntime,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
@@ -42,6 +43,32 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(assets).not.toContain(
       "https://frontaliereticino.ch/en/jobs-in-tessin/new-offer/",
     );
+  });
+
+  it("recognizes analytics from either the static gtag loader or the SPA entry", () => {
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script>',
+      ),
+    ).toBe(true);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script type="module" src="/assets/index-entry.js"></script>',
+      ),
+    ).toBe(true);
+    expect(
+      hasGoogleAnalyticsRuntime('<script src="/assets/unrelated.js"></script>'),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script src="https://cdn.example.test/assets/index-entry.js"></script>',
+      ),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script src="https://analytics.example.test/?next=googletagmanager.com/gtag/js"></script>',
+      ),
+    ).toBe(false);
   });
 
   it("keeps fast-lane hub cards to selected jobs and locale URLs in the live sitemap", () => {
