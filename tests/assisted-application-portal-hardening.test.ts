@@ -813,7 +813,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }, 'umantis')).toBe(false);
     expect(ownAccountForm({
       ...snapshot,
-      fields: snapshot.fields.filter(field => field.id !== 'cover-letter'),
+      fields: snapshot.fields.filter(field => !['cover-letter', 'other-documents'].includes(field.id)),
     }, 'umantis')).toBe(false);
   });
 

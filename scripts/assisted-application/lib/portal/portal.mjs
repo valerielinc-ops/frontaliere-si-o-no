@@ -4090,8 +4090,8 @@ function isUmantisApplicationRoute(url) {
   }
 }
 
-function isObservedUmantisApplicationStep(snapshot) {
-  if (!isUmantisApplicationRoute(snapshot.url)) return false;
+function isObservedUmantisApplicationStep(snapshot, channelType) {
+  if (!['umantis', 'employer_site'].includes(channelType) || !isUmantisApplicationRoute(snapshot.url)) return false;
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const { email, password } = loginFields(snapshot);
   if (!email || !password || asksExistingPassword(password)) return false;
@@ -4166,10 +4166,11 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  const umantisProfileCreatedOnSubmit = isUmantisApplicationRoute(snapshot.url)
+  const umantisProfileCreatedOnSubmit = ['umantis', 'employer_site'].includes(channelType)
+    && isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
     && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
-  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot);
+  const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot, channelType);
   return Boolean(snapshot.passwordVisible) && (
     (sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication || umantisProfileCreatedOnSubmit))
     || umantisApplicationStep
