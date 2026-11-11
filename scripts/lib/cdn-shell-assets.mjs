@@ -146,6 +146,12 @@ export function shellAssetCacheControl(key) {
   return isContentAddressedShellAsset(key) ? SHELL_ASSET_IMMUTABLE_CACHE_CONTROL : SHELL_ASSET_CACHE_CONTROL;
 }
 
+const expectedShellAssetCacheControl = (key) => {
+  if (isContentAddressedShellAsset(key)) return SHELL_ASSET_IMMUTABLE_CACHE_CONTROL;
+  if (stableGlobalShellStem(key)) return SHELL_ASSET_CACHE_CONTROL;
+  return undefined;
+};
+
 // fetch() sends no User-Agent of its own, and the zone challenges a request
 // without one: the probe would read every file as not served.
 const PROBE_USER_AGENT = 'FrontaliereTicino-ShellAssets/1.0 (+https://frontaliereticino.ch)';
@@ -297,7 +303,7 @@ export async function probeCdnAsset(key, {
  * what makes the edge keep the 404.
  *
  * @param {string} key
- * @param {{ pageOrigin?: string, cdnOrigin?: string, fetchImpl?: typeof fetch, timeoutMs?: number, expectedContentMd5?: string }} [options]
+ * @param {{ pageOrigin?: string, cdnOrigin?: string, fetchImpl?: typeof fetch, timeoutMs?: number, expectedCacheControl?: string, expectedContentMd5?: string }} [options]
  * @returns {Promise<'present' | 'absent' | 'unknown'>}
  */
 export async function confirmCdnAsset(key, {
@@ -305,6 +311,7 @@ export async function confirmCdnAsset(key, {
   cdnOrigin = SHELL_ASSET_CDN_ORIGIN,
   fetchImpl = fetch,
   timeoutMs = PROBE_TIMEOUT_MS,
+  expectedCacheControl,
   expectedContentMd5,
 } = {}) {
   try {
@@ -313,13 +320,11 @@ export async function confirmCdnAsset(key, {
       headers: { 'User-Agent': PROBE_USER_AGENT, ...(pageOrigin ? { Origin: pageOrigin } : {}) },
       signal: AbortSignal.timeout(timeoutMs),
     });
-    const answer = answerOf(response);
-    if (answer !== 'present' || expectedContentMd5 === undefined) {
+    const answer = await answerWithExpectedCacheControl(response, expectedCacheControl, expectedContentMd5);
+    if (expectedContentMd5 === undefined) {
       discardResponseBody(response);
-      return answer;
     }
-    const actualContentMd5 = createHash('md5').update(Buffer.from(await response.arrayBuffer())).digest('hex');
-    return actualContentMd5 === expectedContentMd5.toLowerCase() ? 'present' : 'unknown';
+    return answer === 'stale' ? 'unknown' : answer;
   } catch {
     return 'unknown';
   }
@@ -355,15 +360,19 @@ export function checkStoredAsset(key, options) {
 }
 
 /**
- * Additive single-key PUT. upload-cdn-file.sh exits 0 on every runtime failure
- * by design; its "✅ uploaded" line is the signal.
+ * Additive single-key PUT. A stable alias can request the helper's atomic
+ * create-only mode; upload-cdn-file.sh exits 0 on every runtime failure by
+ * design, so its "✅ uploaded" line is the signal.
  */
-export function uploadShellAsset(key, content, options) {
+export function uploadShellAsset(key, content, { createOnly = false, ...helperOptions } = {}) {
   const dir = mkdtempSync(path.join(tmpdir(), 'cdn-shell-asset-'));
   try {
     const file = path.join(dir, path.basename(key));
     writeFileSync(file, content, 'utf-8');
-    const output = runUploadHelper([file, key, shellAssetCacheControl(key)], options);
+    const args = createOnly
+      ? ['--create-if-absent', file, key, shellAssetCacheControl(key)]
+      : [file, key, shellAssetCacheControl(key)];
+    const output = runUploadHelper(args, helperOptions);
     process.stdout.write(output);
     return output.includes('✅ uploaded');
   } finally {
@@ -437,10 +446,10 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *   assets: Array<{ key: string, content: string }>,
  *   probe?: (key: string, options?: { expectedCacheControl?: string, expectedContentMd5?: string }) => Promise<'present' | 'stale' | 'absent' | 'unknown'>,
  *   checkStored?: (key: string) => 'exists' | 'missing' | 'indeterminate' | Promise<'exists' | 'missing' | 'indeterminate'>,
- *   upload?: (key: string, content: string) => boolean | Promise<boolean>,
+ *   upload?: (key: string, content: string, options?: { createOnly?: boolean, deadlineAt?: number, now?: () => number }) => boolean | Promise<boolean>,
  *   refreshCacheControl?: (key: string, content: string, options: { deadlineAt: number, now: () => number }) => boolean | Promise<boolean>,
  *   purge?: (keys: string[]) => boolean | Promise<boolean>,
- *   confirm?: (key: string, options: { pageOrigin?: string, timeoutMs?: number, expectedContentMd5?: string }) => Promise<'present' | 'absent' | 'unknown'>,
+ *   confirm?: (key: string, options: { pageOrigin?: string, timeoutMs?: number, expectedCacheControl?: string, expectedContentMd5?: string }) => Promise<'present' | 'absent' | 'unknown'>,
  *   wait?: (ms: number) => Promise<void>,
  *   now?: () => number,
  *   log?: (line: string) => void,
@@ -481,11 +490,7 @@ export async function ensureCdnShellAssets({
   };
 
   const probed = await Promise.all(assets.map(({ key, content }) => probe(key, {
-    expectedCacheControl: isContentAddressedShellAsset(key)
-      ? SHELL_ASSET_IMMUTABLE_CACHE_CONTROL
-      : stableGlobalShellStem(key)
-        ? SHELL_ASSET_CACHE_CONTROL
-        : undefined,
+    expectedCacheControl: expectedShellAssetCacheControl(key),
     expectedContentMd5: expectedStableShellMd5(key, content),
   })));
   const probedByKey = new Map(assets.map(({ key }, index) => [key, probed[index]]));
@@ -520,9 +525,14 @@ export async function ensureCdnShellAssets({
     if (stored !== 'missing') {
       throw new Error(`${key}: the CDN did not serve it (probe: ${probeAnswer}) and R2 could not be read — HTML that references it must not be published`);
     }
-    log(`${key}: not on the CDN — uploading it`);
-    if (!(await withR2Deadline(key, 'upload', (options) => upload(key, content, options)))) {
-      throw new Error(`${key}: not on the CDN and the upload failed — HTML that references it must not be published`);
+    const isStableAlias = stablePairByKey.has(key);
+    log(`${key}: not on the CDN — ${isStableAlias ? 'conditionally creating' : 'uploading'} it`);
+    if (!(await withR2Deadline(key, isStableAlias ? 'conditional create' : 'upload', (options) => upload(
+      key,
+      content,
+      isStableAlias ? { ...options, createOnly: true } : options,
+    )))) {
+      throw new Error(`${key}: not on the CDN and the ${isStableAlias ? 'conditional create' : 'upload'} failed — HTML that references it must not be published`);
     }
     results.push({ key, outcome: 'uploaded' });
   }
@@ -535,6 +545,7 @@ export async function ensureCdnShellAssets({
   const shownAnswers = await Promise.all(shown.map((key) => (
     Promise.all(CACHE_VARIANTS.map((pageOrigin) => confirm(key, {
       pageOrigin,
+      expectedCacheControl: expectedShellAssetCacheControl(key),
       expectedContentMd5: expectedStableShellMd5(key, contentByKey.get(key)),
     })))
   )));
@@ -566,6 +577,7 @@ export async function ensureCdnShellAssets({
           answer = await confirm(key, {
             pageOrigin,
             timeoutMs: Math.min(PROBE_TIMEOUT_MS, remainingForRequest),
+            expectedCacheControl: expectedShellAssetCacheControl(key),
             expectedContentMd5: expectedStableShellMd5(key, contentByKey.get(key)),
           });
           if (answer === 'present' && now() <= deadlineAt) {
