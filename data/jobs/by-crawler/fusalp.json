@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-11-10T21:28:01.306Z",
-  "runId": "42902356222",
+  "assembledAt": "2026-11-11T09:17:35.638Z",
+  "runId": "42992907697",
   "jobs": [
     {
       "id": "fusalp-126b866dec50",
@@ -34,7 +34,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:44.930Z",
+      "crawledAt": "2026-11-11T09:17:17.763Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,7 +81,7 @@
       "addressRegion": "VS",
       "streetAddress": "Val De Bagnes",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:27:44.930Z",
+      "validThrough": "2026-12-23T09:17:17.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:43.953Z",
+      "crawledAt": "2026-11-11T09:17:16.301Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -158,7 +158,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:27:43.953Z",
+      "validThrough": "2026-12-30T09:17:16.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:42.874Z",
+      "crawledAt": "2026-11-11T09:17:15.295Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +235,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:27:42.874Z",
+      "validThrough": "2026-12-11T09:17:15.295Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -269,7 +269,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:34.910Z",
+      "crawledAt": "2026-11-11T09:17:07.262Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +312,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:27:34.910Z",
+      "validThrough": "2026-12-11T09:17:07.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -346,7 +346,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-permanent-80-m-w_zurich",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:24.250Z",
+      "crawledAt": "2026-11-11T09:16:56.173Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,7 +395,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:24.250Z",
+      "validThrough": "2027-02-09T09:16:56.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80-m-w_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:23.237Z",
+      "crawledAt": "2026-11-11T09:16:55.130Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -478,15 +478,15 @@
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:23.237Z",
+      "validThrough": "2027-02-09T09:16:55.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "fusalp-0028e73f413e",
       "slug": "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-80-fusalp-aubonne",
       "slugByLocale": {
-        "en": "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne",
         "it": "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-80-fusalp-aubonne",
+        "en": "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne",
         "de": "verkaufsverbindung-m-w-englisch-franzosisch-befristeter-vertrag-80-fusalp-aubonne",
         "fr": "soldes-associees-h-f-anglais-francais-contrat-a-duree-determinee-80-fusalp-aubonne"
       },
@@ -495,15 +495,15 @@
       "companyDomain": "fusalp.com",
       "title": "SALES ASSOCIATE (M/W) – English & French - Fixed-term contract 80%",
       "titleByLocale": {
-        "en": "SALES ASSOCIATE (M/W) – English & French - Fixed-term contract 80%",
         "it": "SALES ASSOCIATE (M/F) – Inglese e Francese - Contratto a termine fisso 80%",
+        "en": "SALES ASSOCIATE (M/W) – English & French - Fixed-term contract 80%",
         "de": "VERKAUFSVERBINDUNG (M/W) - Englisch & Französisch - Befristeter Vertrag 80%",
         "fr": "SOLDES ASSOCIÉES (H/F) – Anglais & Français - Contrat à durée déterminée 80%"
       },
       "description": "About\nJoin Fusalp, own your journey\n\nBorn in the French Alps in 1952, Fusalp has built its identity on a distinctive vision: bringing together the precision of French tailoring, technical innovation and the freedom of movement. From its origins in skiwear to its international development, the brand continues to evolve while remaining true to the expertise and pionerring spirit that shaped its beginnings.\n\nAt the heart of Fusalp are the people who bring the brand to life every day. We believe that excellence is achieved through teamwork, mutual trust and a shared ambition to succeed. Every team member plays an essential role in representing Fusalp, building meaningful client relationships and contributing to its continued success.\n\nOur culture encourages initiative, accountability and continuous learning. Working alongside experienced retail professionals, you will be supported in developing your expertise, encouraged to ask questions, take initiative and understand the business, while being entrusted with responsibilities that reflect your role, experience and development.\n\nAs Fusalp continues to grow, we believe in growing our people alongside the House. We value commitment, recognize individual and collective achievements, and encourage those who demonstrate ambition and ability to take on greater responsibilities.\n\nWe will challenge you. We will support you. We will give you room to prove yourself.\n\nBring your energy. Built your expertise. Own your journey.\n\nJob Description\nYour next move could start here\n\nFor our Aubonne Outlet, we are looking for someone who genuinely enjoys selling, brings positive energy to the boutique and understands that a successful day is always a team effort.\n\nLife in an outlet moves quickly. Some clients know exactly what they are looking for; others are discovering Fusalp for the first time. Deliveries arrive, priorities change and every sale matters. We need someone who enjoys this variety, knows when to take initiative and takes pride in keeping things running smoothly.\n\nA client needs advice? You take the time to understand what they are looking for.\n\nA delivery arrives during a busy afternoon? You work with the team to manage priorities.\n\nYou see an opportunity to make a sale or improve the way things work? You act, communicate and contribute.\n\nWe are looking for someone with a genuine commercial mindset, a strong sense of responsibility and the willingness to learn from others.\n\nAt Aubonne, we want someone we can rely on and who knows they can rely on the team in return.\n\nYour role as sales associate\n• Make every client count. Listen, connect, advise and turn great conversations into sales and lasting relationships.\n• Know what you sell. Develop your Fusalp product expertise and bring our collections to life through genuine, confident advice.\n• Be part of the team. Contribute to sales objectives, boutique operations and the little things that make a big difference every day.\n\nAt Fusalp, everyone contributes to the success of the boutique, whatever the task.\n\nPreferred Experience\nWhat will help you succeed\n\nDo you genuinely enjoy selling and turning client conversations into results? Can you adapt to a busy retail environment, recognise priorities and work effectively with those around you?\n\nMust-Have\n• Previous retail or customer-facing sales experience.\n• A genuine commercial mindset and strong team spirit.\n• French and English.\n\nNice-to-Have\n• Experience in premium retail, luxury or outlet environments.\n• Knowledge of clienteling, CRM or retail KPIs.\n• An interest in fashion, technical apparel or the mountain lifestyle.\n\nWhy you'll love working here\n• A fixed-term contract at 80% (33.6 hours/week), until 31 March 2027.\n• CHF 3,400 gross per month, plus a performance-based bonus to reward your contribution to the boutique's success.\n• Exclusive staff discounts on Fusalp collections, so you can experience, wear and share the products you represent.\n• Learn from people who know their craft. Benefit from product training, practical sales experience and the support of retail professionals who will help you develop your skills.\n• A role where your contribution really counts. Strengthen your commercial expertise, take initiative and play an active part in the daily success of our Aubonne Outlet.\n\nPlease note: Employee accommodation is not provided for this position.\n\nAdditional Information\n• Contract Type: Temporary (Between 4 and 4 months)\n• Start Date: 01 December 2026\n• Location: Aubonne",
       "descriptionByLocale": {
-        "en": "About\nJoin Fusalp, own your journey\n\nBorn in the French Alps in 1952, Fusalp has built its identity on a distinctive vision: bringing together the precision of French tailoring, technical innovation and the freedom of movement. From its origins in skiwear to its international development, the brand continues to evolve while remaining true to the expertise and pionerring spirit that shaped its beginnings.\n\nAt the heart of Fusalp are the people who bring the brand to life every day. We believe that excellence is achieved through teamwork, mutual trust and a shared ambition to succeed. Every team member plays an essential role in representing Fusalp, building meaningful client relationships and contributing to its continued success.\n\nOur culture encourages initiative, accountability and continuous learning. Working alongside experienced retail professionals, you will be supported in developing your expertise, encouraged to ask questions, take initiative and understand the business, while being entrusted with responsibilities that reflect your role, experience and development.\n\nAs Fusalp continues to grow, we believe in growing our people alongside the House. We value commitment, recognize individual and collective achievements, and encourage those who demonstrate ambition and ability to take on greater responsibilities.\n\nWe will challenge you. We will support you. We will give you room to prove yourself.\n\nBring your energy. Built your expertise. Own your journey.\n\nJob Description\nYour next move could start here\n\nFor our Aubonne Outlet, we are looking for someone who genuinely enjoys selling, brings positive energy to the boutique and understands that a successful day is always a team effort.\n\nLife in an outlet moves quickly. Some clients know exactly what they are looking for; others are discovering Fusalp for the first time. Deliveries arrive, priorities change and every sale matters. We need someone who enjoys this variety, knows when to take initiative and takes pride in keeping things running smoothly.\n\nA client needs advice? You take the time to understand what they are looking for.\n\nA delivery arrives during a busy afternoon? You work with the team to manage priorities.\n\nYou see an opportunity to make a sale or improve the way things work? You act, communicate and contribute.\n\nWe are looking for someone with a genuine commercial mindset, a strong sense of responsibility and the willingness to learn from others.\n\nAt Aubonne, we want someone we can rely on and who knows they can rely on the team in return.\n\nYour role as sales associate\n• Make every client count. Listen, connect, advise and turn great conversations into sales and lasting relationships.\n• Know what you sell. Develop your Fusalp product expertise and bring our collections to life through genuine, confident advice.\n• Be part of the team. Contribute to sales objectives, boutique operations and the little things that make a big difference every day.\n\nAt Fusalp, everyone contributes to the success of the boutique, whatever the task.\n\nPreferred Experience\nWhat will help you succeed\n\nDo you genuinely enjoy selling and turning client conversations into results? Can you adapt to a busy retail environment, recognise priorities and work effectively with those around you?\n\nMust-Have\n• Previous retail or customer-facing sales experience.\n• A genuine commercial mindset and strong team spirit.\n• French and English.\n\nNice-to-Have\n• Experience in premium retail, luxury or outlet environments.\n• Knowledge of clienteling, CRM or retail KPIs.\n• An interest in fashion, technical apparel or the mountain lifestyle.\n\nWhy you'll love working here\n• A fixed-term contract at 80% (33.6 hours/week), until 31 March 2027.\n• CHF 3,400 gross per month, plus a performance-based bonus to reward your contribution to the boutique's success.\n• Exclusive staff discounts on Fusalp collections, so you can experience, wear and share the products you represent.\n• Learn from people who know their craft. Benefit from product training, practical sales experience and the support of retail professionals who will help you develop your skills.\n• A role where your contribution really counts. Strengthen your commercial expertise, take initiative and play an active part in the daily success of our Aubonne Outlet.\n\nPlease note: Employee accommodation is not provided for this position.\n\nAdditional Information\n• Contract Type: Temporary (Between 4 and 4 months)\n• Start Date: 01 December 2026\n• Location: Aubonne",
         "it": "Informazioni\nUnisciti a Fusalp, il tuo viaggio\n\nNato nelle Alpi francesi nel 1952, Fusalp ha costruito la sua identità su una visione distintiva: riunire la precisione della sartoria francese, dell'innovazione tecnica e della libertà di movimento. Dalle sue origini nello skiwear al suo sviluppo internazionale, il marchio continua a evolversi pur rimanendo fedele alla competenza e allo spirito pionerring che ha plasmato i suoi inizi.\n\nNel cuore di Fusalp sono le persone che portano il marchio in vita ogni giorno. Crediamo che l'eccellenza sia raggiunta attraverso il lavoro di squadra, la fiducia reciproca e l'ambizione condivisa di riuscire. Ogni membro del team gioca un ruolo essenziale nella rappresentazione di Fusalp, nella costruzione di relazioni significative con i clienti e nel contribuire al suo continuo successo.\n\nLa nostra cultura incoraggia l'iniziativa, la responsabilità e l'apprendimento continuo. Lavorando a fianco di esperti professionisti del retail, sarete sostenuti nello sviluppo della vostra competenza, incoraggiati a porre domande, prendere iniziative e comprendere il business, pur essendo stati affidati a responsabilità che riflettono il vostro ruolo, esperienza e sviluppo.\n\nMentre Fusalp continua a crescere, crediamo nella crescita della nostra gente accanto alla Casa. Apprezziamo l'impegno, riconosciamo i risultati individuali e collettivi, e incoraggiamo coloro che dimostrano l'ambizione e la capacità di assumere maggiori responsabilità.\n\nTi sfideremo. Ti supporteremo. Ti daremo spazio per dimostrarti.\n\nPorta la tua energia. Crea la tua esperienza. Fai il tuo viaggio.\n\nDescrizione del lavoro\nLa prossima mossa potrebbe cominciare da qui.\n\nPer il nostro Aubonne Outlet, stiamo cercando qualcuno che si diverte a vendere, porta energia positiva alla boutique e capisce che una giornata di successo è sempre uno sforzo di squadra.\n\nLa vita in uno sbocco si muove rapidamente. Alcuni clienti sanno esattamente cosa stanno cercando; altri stanno scoprendo Fusalp per la prima volta. Le consegne arrivano, le priorità cambiano e ogni questione di vendita. Abbiamo bisogno di qualcuno che gode di questa varietà, sa quando prendere l'iniziativa e si orgogliosa di mantenere le cose senza intoppi.\n\nUn cliente ha bisogno di consigli? Si prende il tempo per capire che cosa stanno cercando.\n\nUna consegna arriva durante un pomeriggio occupato? Lavori con il team per gestire le priorità.\n\nVedete l'opportunità di fare una vendita o migliorare il modo in cui le cose funzionano? Agite, comunicate e contribuite.\n\nStiamo cercando qualcuno con una genuina mentalità commerciale, un forte senso di responsabilità e la volontà di imparare dagli altri.\n\nAd Aubonne, vogliamo qualcuno su cui possiamo contare e chissà che possono contare sulla squadra in cambio.\n\nIl tuo ruolo di partner commerciale\n• Fai contare ogni cliente. Ascoltare, collegare, consigliare e trasformare grandi conversazioni in vendite e relazioni durature.\n• Sai cosa vendi. Sviluppa la tua esperienza di prodotto Fusalp e porta alla vita le nostre collezioni attraverso consigli autentici e sicuri.\n• Fai parte della squadra. Contribuire a obiettivi di vendita, operazioni di boutique e le piccole cose che fanno una grande differenza ogni giorno.\n\nA Fusalp, tutti contribuiscono al successo della boutique, qualunque sia il compito.\n\nEsperienza preferenziale\nCosa ti aiuterà a riuscire\n\nTi piace davvero vendere e trasformare le conversazioni dei clienti in risultati? Può adattarsi a un ambiente di vendita al dettaglio occupato, riconoscere le priorità e lavorare efficacemente con quelli intorno a voi?\n\nDevo...\n• Precedente vendita al dettaglio o customer-facing esperienza di vendita.\n• Una genuina mentalità commerciale e forte spirito di squadra.\n• Francese e inglese.\n\nBello a-Have\n• Esperienza in ambienti premium di vendita al dettaglio, lusso o outlet.\n• Conoscenza della clientela, CRM o KPI al dettaglio.\n• Un interesse per la moda, l'abbigliamento tecnico o lo stile di vita di montagna.\n\nPerché ti piace lavorare qui\n• Un contratto a tempo determinato all'80% (33,6 ore/settimana), fino al 31 marzo 2027.\n• CHF 3.400 al mese, più un bonus basato sulle prestazioni per premiare il vostro contributo al successo della boutique.\n• Esclusivi sconti del personale sulle collezioni Fusalp, in modo da poter sperimentare, indossare e condividere i prodotti che rappresenti.\n• Impara da persone che conoscono il loro mestiere. Approfittate della formazione del prodotto, dell'esperienza di vendita pratica e del supporto dei professionisti del retail che vi aiuteranno a sviluppare le vostre competenze.\n• Un ruolo in cui il tuo contributo conta davvero. Rafforzare la vostra esperienza commerciale, prendere iniziativa e partecipare attivamente al successo quotidiano del nostro Aubonne Outlet.\n\nSiete pregati di notare che l'alloggio dei dipendenti non è previsto per questa posizione.\n\nInformazioni aggiuntive\n• Tipo di contratto: Temporaneo (da 4 a 4 mesi)\n• Data di inizio: 01 dicembre 2026\n• Posizione: Aubonne",
+        "en": "About\nJoin Fusalp, own your journey\n\nBorn in the French Alps in 1952, Fusalp has built its identity on a distinctive vision: bringing together the precision of French tailoring, technical innovation and the freedom of movement. From its origins in skiwear to its international development, the brand continues to evolve while remaining true to the expertise and pionerring spirit that shaped its beginnings.\n\nAt the heart of Fusalp are the people who bring the brand to life every day. We believe that excellence is achieved through teamwork, mutual trust and a shared ambition to succeed. Every team member plays an essential role in representing Fusalp, building meaningful client relationships and contributing to its continued success.\n\nOur culture encourages initiative, accountability and continuous learning. Working alongside experienced retail professionals, you will be supported in developing your expertise, encouraged to ask questions, take initiative and understand the business, while being entrusted with responsibilities that reflect your role, experience and development.\n\nAs Fusalp continues to grow, we believe in growing our people alongside the House. We value commitment, recognize individual and collective achievements, and encourage those who demonstrate ambition and ability to take on greater responsibilities.\n\nWe will challenge you. We will support you. We will give you room to prove yourself.\n\nBring your energy. Built your expertise. Own your journey.\n\nJob Description\nYour next move could start here\n\nFor our Aubonne Outlet, we are looking for someone who genuinely enjoys selling, brings positive energy to the boutique and understands that a successful day is always a team effort.\n\nLife in an outlet moves quickly. Some clients know exactly what they are looking for; others are discovering Fusalp for the first time. Deliveries arrive, priorities change and every sale matters. We need someone who enjoys this variety, knows when to take initiative and takes pride in keeping things running smoothly.\n\nA client needs advice? You take the time to understand what they are looking for.\n\nA delivery arrives during a busy afternoon? You work with the team to manage priorities.\n\nYou see an opportunity to make a sale or improve the way things work? You act, communicate and contribute.\n\nWe are looking for someone with a genuine commercial mindset, a strong sense of responsibility and the willingness to learn from others.\n\nAt Aubonne, we want someone we can rely on and who knows they can rely on the team in return.\n\nYour role as sales associate\n• Make every client count. Listen, connect, advise and turn great conversations into sales and lasting relationships.\n• Know what you sell. Develop your Fusalp product expertise and bring our collections to life through genuine, confident advice.\n• Be part of the team. Contribute to sales objectives, boutique operations and the little things that make a big difference every day.\n\nAt Fusalp, everyone contributes to the success of the boutique, whatever the task.\n\nPreferred Experience\nWhat will help you succeed\n\nDo you genuinely enjoy selling and turning client conversations into results? Can you adapt to a busy retail environment, recognise priorities and work effectively with those around you?\n\nMust-Have\n• Previous retail or customer-facing sales experience.\n• A genuine commercial mindset and strong team spirit.\n• French and English.\n\nNice-to-Have\n• Experience in premium retail, luxury or outlet environments.\n• Knowledge of clienteling, CRM or retail KPIs.\n• An interest in fashion, technical apparel or the mountain lifestyle.\n\nWhy you'll love working here\n• A fixed-term contract at 80% (33.6 hours/week), until 31 March 2027.\n• CHF 3,400 gross per month, plus a performance-based bonus to reward your contribution to the boutique's success.\n• Exclusive staff discounts on Fusalp collections, so you can experience, wear and share the products you represent.\n• Learn from people who know their craft. Benefit from product training, practical sales experience and the support of retail professionals who will help you develop your skills.\n• A role where your contribution really counts. Strengthen your commercial expertise, take initiative and play an active part in the daily success of our Aubonne Outlet.\n\nPlease note: Employee accommodation is not provided for this position.\n\nAdditional Information\n• Contract Type: Temporary (Between 4 and 4 months)\n• Start Date: 01 December 2026\n• Location: Aubonne",
         "de": "Über\nTreten Sie Fusalp bei, besitzen Sie Ihre Reise\n\nFusalp wurde 1952 in den französischen Alpen geboren und hat seine Identität auf einer unverwechselbaren Vision aufgebaut: die Präzision der französischen Schneiderei, technische Innovation und Bewegungsfreiheit zusammenzubringen. Von ihren Ursprüngen in der Skibekleidung bis zu ihrer internationalen Entwicklung entwickelt sich die Marke weiter und bleibt dem Know-how und dem Geist des Pioniers treu, der ihre Anfänge geprägt hat.\n\nIm Herzen von Fusalp stehen die Menschen, die die Marke jeden Tag zum Leben erwecken. Wir glauben, dass Exzellenz durch Teamwork, gegenseitiges Vertrauen und den gemeinsamen Ehrgeiz zum Erfolg erreicht wird. Jedes Teammitglied spielt eine wesentliche Rolle bei der Vertretung von Fusalp, dem Aufbau sinnvoller Kundenbeziehungen und dem Beitrag zu seinem anhaltenden Erfolg.\n\nUnsere Kultur fördert Initiative, Rechenschaftspflicht und kontinuierliches Lernen. In Zusammenarbeit mit erfahrenen Einzelhändlern werden Sie bei der Entwicklung Ihres Fachwissens unterstützt, ermutigt, Fragen zu stellen, Initiative zu ergreifen und das Geschäft zu verstehen, während Sie mit Verantwortlichkeiten betraut werden, die Ihre Rolle, Erfahrung und Entwicklung widerspiegeln.\n\nDa Fusalp weiter wächst, glauben wir daran, dass unsere Leute neben dem Haus wachsen. Wir schätzen Engagement, erkennen individuelle und kollektive Leistungen an und ermutigen diejenigen, die Ehrgeiz und Fähigkeit zeigen, größere Verantwortung zu übernehmen.\n\nWir werden Sie herausfordern. Wir werden Sie unterstützen. Wir geben Ihnen Raum, sich zu beweisen.\n\nBring deine Energie mit. Bauen Sie Ihre Expertise auf. Besitze deine Reise.\n\nStellenbeschreibung\nDein nächster Schritt könnte hier beginnen\n\nFür unser Aubonne Outlet suchen wir jemanden, der wirklich gerne verkauft, positive Energie in die Boutique bringt und versteht, dass ein erfolgreicher Tag immer eine Teamleistung ist.\n\nDas Leben in einem Outlet bewegt sich schnell. Einige Kunden wissen genau, wonach sie suchen; andere entdecken Fusalp zum ersten Mal. Lieferungen kommen, Prioritäten ändern sich und jeder Verkauf zählt. Wir brauchen jemanden, der diese Vielfalt genießt, weiß, wann er Initiative ergreifen muss und stolz darauf ist, dass die Dinge reibungslos laufen.\n\nEin Kunde braucht Beratung? Sie nehmen sich die Zeit zu verstehen, wonach sie suchen.\n\nEine Lieferung kommt an einem geschäftigen Nachmittag? Sie arbeiten mit dem Team zusammen, um Prioritäten zu verwalten.\n\nSie sehen eine Gelegenheit, einen Verkauf zu tätigen oder die Funktionsweise der Dinge zu verbessern? Sie handeln, kommunizieren und tragen dazu bei.\n\nWir suchen jemanden mit einer echten kommerziellen Denkweise, einem starken Verantwortungsbewusstsein und der Bereitschaft, von anderen zu lernen.\n\nBei Aubonne wollen wir jemanden, auf den wir uns verlassen können und der weiß, dass er sich im Gegenzug auf das Team verlassen kann.\n\nIhre Rolle als Sales Associate\n• Lassen Sie jeden Kunden zählen. Hören, verbinden, beraten und verwandeln Sie großartige Gespräche in Verkäufe und dauerhafte Beziehungen.\n• Wissen Sie, was Sie verkaufen. Entwickeln Sie Ihre Fusalp Produktkompetenz und bringen Sie unsere Kollektionen durch echte, selbstbewusste Beratung zum Leben.\n• Sei Teil des Teams. Tragen Sie zu Verkaufszielen, Boutique-Betrieben und den kleinen Dingen bei, die jeden Tag einen großen Unterschied machen.\n\nBei Fusalp trägt jeder zum Erfolg der Boutique bei, unabhängig von der Aufgabe.\n\nBevorzugte Erfahrung\nWas Ihnen zum Erfolg verhilft\n\nGenießen Sie es wirklich, Kundengespräche zu verkaufen und in Ergebnisse zu verwandeln? Können Sie sich an ein geschäftiges Einzelhandelsumfeld anpassen, Prioritäten erkennen und effektiv mit Ihren Mitmenschen zusammenarbeiten?\n\nMust-Have\n• Frühere Verkaufserfahrung im Einzelhandel oder beim Kunden.\n• Eine echte kommerzielle Denkweise und starker Teamgeist.\n• Französisch und Englisch.\n\nNice-to-Have\n• Erfahrung im Premium-Einzelhandel, Luxus oder Outlet-Umgebungen.\n• Kenntnisse in KPIs für Kunden, CRM oder Retail.\n• Interesse an Mode, technischer Bekleidung oder dem Mountain Lifestyle.\n\nWarum Sie es lieben werden, hier zu arbeiten\n• Ein befristeter Vertrag mit 80% (33,6 Stunden/Woche), bis zum 31. März 2027.\n• CHF 3.400 brutto pro Monat plus einen leistungsbasierten Bonus, um Ihren Beitrag zum Erfolg der Boutique zu belohnen.\n• Exklusive Personalrabatte auf Fusalp-Kollektionen, damit Sie die Produkte, die Sie repräsentieren, erleben, tragen und teilen können.\n• Lernen Sie von Menschen, die ihr Handwerk kennen. Profitieren Sie von Produktschulungen, praktischer Verkaufserfahrung und der Unterstützung von Einzelhändlern, die Ihnen helfen, Ihre Fähigkeiten zu entwickeln.\n• Eine Rolle, bei der Ihr Beitrag wirklich zählt. Stärken Sie Ihre kaufmännische Expertise, ergreifen Sie Initiative und nehmen Sie aktiv am täglichen Erfolg unseres Aubonne Outlet teil.\n\nBitte beachten Sie: Für diese Position ist keine Mitarbeiterunterkunft vorgesehen.\n\nZusätzliche Informationen\n• Vertragsart: Vorübergehend (zwischen 4 und 4 Monaten)\n• Startdatum: 1. Dezember 2026\n• Standort: Aubonne",
         "fr": "À propos\nRejoignez Fusalp, votre voyage\n\nNé dans les Alpes françaises en 1952, Fusalp a bâti son identité sur une vision distinctive : la précision de la couture française, l'innovation technique et la liberté de mouvement. De ses origines en skiwear à son développement international, la marque continue d'évoluer tout en restant fidèle à l'expertise et à l'esprit de pionerring qui ont façonné ses débuts.\n\nAu cœur de Fusalp sont les gens qui mettent la marque à la vie chaque jour. Nous croyons que l'excellence est réalisée par le travail d'équipe, la confiance mutuelle et une ambition commune de réussir. Chaque membre de l'équipe joue un rôle essentiel dans la représentation de Fusalp, l'établissement de relations significatives avec les clients et la contribution à son succès continu.\n\nNotre culture encourage l'initiative, la responsabilisation et l'apprentissage continu. En collaboration avec des professionnels expérimentés du commerce de détail, vous serez aidé à développer votre expertise, encouragé à poser des questions, à prendre des initiatives et à comprendre l'entreprise, tout en étant chargé de responsabilités qui reflètent votre rôle, votre expérience et votre développement.\n\nAlors que Fusalp continue de croître, nous croyons en la croissance de notre peuple aux côtés de la Chambre. Nous apprécions l'engagement, reconnaissons les réalisations individuelles et collectives et encourageons ceux qui font preuve d'ambition et de capacité à assumer des responsabilités plus importantes.\n\nNous allons vous défier. Nous vous soutiendrons. Nous allons vous donner de la place pour vous prouver.\n\nApporte ton énergie. J'ai construit votre expertise. Possédez votre voyage.\n\nDescription de l'emploi\nVotre prochain mouvement pourrait commencer ici.\n\nPour notre Aubonne Outlet, nous recherchons quelqu'un qui aime vraiment vendre, apporte de l'énergie positive à la boutique et comprend qu'une journée réussie est toujours un effort d'équipe.\n\nLa vie dans une sortie se déplace rapidement. Certains clients savent exactement ce qu'ils recherchent, d'autres découvrent Fusalp pour la première fois. Les livraisons arrivent, les priorités changent et chaque vente compte. Nous avons besoin de quelqu'un qui aime cette variété, qui sait quand prendre des initiatives et qui est fier de garder les choses en bon état.\n\nUn client a besoin de conseils ? Prenez le temps de comprendre ce qu'ils recherchent.\n\nUne livraison arrive pendant un après-midi chargé ? Vous travaillez avec l'équipe pour gérer les priorités.\n\nVous voyez une occasion de faire une vente ou d'améliorer la façon dont les choses fonctionnent? Vous agissez, communiquez et contribuez.\n\nNous recherchons quelqu'un avec une véritable mentalité commerciale, un fort sens des responsabilités et la volonté d'apprendre des autres.\n\nChez Aubonne, nous voulons quelqu'un sur qui nous pouvons compter et qui sait qu'il peut compter sur l'équipe en retour.\n\nVotre rôle d'associé commercial\n• Faites compter chaque client. Écouter, connecter, conseiller et transformer de grandes conversations en ventes et des relations durables.\n• Tu sais ce que tu vends. Développez votre expertise de produit Fusalp et vivez nos collections grâce à des conseils authentiques et confiants.\n• Faites partie de l'équipe. Contribuer aux objectifs de vente, aux activités de boutique et aux petites choses qui font une grande différence chaque jour.\n\nÀ Fusalp, tout le monde contribue au succès de la boutique, quelle que soit la tâche.\n\nExpérience préférée\nCe qui vous aidera à réussir\n\nVous aimez vraiment vendre et transformer les conversations client en résultats? Pouvez-vous vous adapter à un environnement de détail chargé, reconnaître les priorités et travailler efficacement avec ceux qui vous entourent?\n\nDoit-avoir\n• Expérience antérieure de vente au détail ou orientée vers le client.\n• Un véritable esprit d'équipe commercial.\n• Français et anglais.\n\nJoli à avoir\n• Expérience dans des environnements haut de gamme, de luxe ou de vente.\n• Connaissance de la clientèle, du CRM ou des KPI de détail.\n• Un intérêt pour la mode, les vêtements techniques ou le style de vie en montagne.\n\nPourquoi tu vas adorer travailler ici ?\n• Contrat à durée déterminée à 80 % (33,6 heures/semaine), jusqu'au 31 mars 2027.\n• CHF 3400 brut par mois, plus un bonus basé sur la performance pour récompenser votre contribution au succès de la boutique.\n• Réductions de personnel exclusives sur les collections Fusalp, afin que vous puissiez découvrir, porter et partager les produits que vous représentez.\n• Apprenez des gens qui connaissent leur métier. Profitez de la formation des produits, de l'expérience pratique de vente et du soutien des professionnels du commerce de détail qui vous aideront à développer vos compétences.\n• Un rôle où votre contribution compte vraiment. Renforcer votre expertise commerciale, prendre des initiatives et jouer un rôle actif dans le succès quotidien de notre Aubonne Outlet.\n\nVeuillez noter que le logement des employés n'est pas fourni pour ce poste.\n\nInformations complémentaires\n• Type de contrat: temporaire (entre 4 et 4 mois)\n• Date de début: 01 décembre 2026\n• Lieu: Aubonne"
       },
@@ -512,7 +512,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:27:21.289Z",
+      "crawledAt": "2026-11-11T09:16:53.086Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -529,9 +529,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
+        ],
+        "de": [
+          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
+        ],
+        "fr": [
+          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
+        ]
       },
+      "firstSeenAt": "2026-11-10T21:27:21.289Z",
       "salaryMin": 57600,
       "salaryMax": 88800,
       "salarySource": "estimated",
@@ -548,23 +561,8 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:21.289Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:27:21.289Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
-        ],
-        "de": [
-          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
-        ],
-        "fr": [
-          "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
-        ]
-      },
-      "previousSlugs": [
-        "sales-associate-m-w-english-french-fixed-term-contract-80-fusalp-aubonne"
-      ]
+      "validThrough": "2027-02-09T09:16:53.086Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
