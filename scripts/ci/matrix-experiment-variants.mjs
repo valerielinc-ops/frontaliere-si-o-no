@@ -59,6 +59,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // precompiled orphan-slug parsing.
   'JOBS_SEO_SECTOR_MEMO',
   'JOBS_SEO_SLUG_INFO_FAST',
+  // One-run memory canary compares the former Map with the compact native
+  // route index on the same assembled snapshot. Production defaults compact.
+  'JOBS_SEO_NATIVE_ROUTE_INDEX',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);
