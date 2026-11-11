@@ -71,7 +71,9 @@ export function automationEmailKey(effect, flow) {
   if (effect.kind === 'owner_candidate_silent') return `auto_owner_candidate_silent_${effect.since}`;
   // One per flow: the ad closed while the candidate was awaited.
   if (effect.kind === 'owner_posting_expired') return `auto_owner_posting_expired_${effect.since}`;
-  if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed') {
+  // One per order: the ad closed and was refunded, or the employer withdrew it (assistedApplicationEmployerWithdrawal.js).
+  if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed'
+    || effect.kind === 'candidate_posting_withdrawn') {
     return `auto_${effect.kind}`;
   }
   return `auto_${effect.kind}_r${round}${effect.held ? '_held' : ''}`;
@@ -112,7 +114,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   }
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
   let reviewUrl = '';
-  if (!isOwner && effect.kind !== 'candidate_posting_closed') {
+  if (!isOwner && effect.kind !== 'candidate_posting_closed' && effect.kind !== 'candidate_posting_withdrawn') {
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
   // The profile is not a full match: said in the review e-mail too, worded as the page words it

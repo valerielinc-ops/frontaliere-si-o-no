@@ -30,7 +30,8 @@ import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECT
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
-import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, needsFactRepair, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, employerWithdrawalPending, needsFactRepair, transition } from './assistedApplicationFlow.js';
+import { closedByEmployerWithdrawal, employerWithdrawalOrderPatch, nativeClosureOf, sendMayHaveLeft } from './assistedApplicationEmployerWithdrawal.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
@@ -331,15 +332,21 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  // An event that may close the application for the employer's withdrawal reads the send record in the same
+  // transaction: an application that may have reached the employer is never withdrawn.
+  const closureEvent = event.type === 'posting_closed' || event.type === 'posting_closure_recorded'
+    || (event.type === 'tick' && Boolean(event.postingClosure));
+  const submissionRef = closureEvent ? submissionRefFor(db, orderId) : null;
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      submissionRef ? transaction.get(submissionRef) : Promise.resolve(null),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -396,6 +403,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const result = transition(flowForTransition, event, {
       order, draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
+      sendMayHaveLeft: closureEvent ? sendMayHaveLeft({ draft, submission: submissionSnapshot?.data() || {} }) : false,
     });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
@@ -443,14 +451,24 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const receiptResult = writeSubmissionReceipt ? await writeSubmissionReceipt({ transaction, flow, order, draft, event, nextFlow: persistedFlow }) : null;
     const accountFailure = getAccountFailure(event);
     claim('applied');
+    // The employer withdrew the posting (assistedApplicationEmployerWithdrawal.js): the order is withdrawn with
+    // its proof, and the submission fence closes in the same write, as a candidate's own withdrawal closes it
+    // (a portal run still filling the form can no longer click, nor an e-mail leave).
+    const employerWithdrawal = closedByEmployerWithdrawal(flow, persistedFlow);
+    if (employerWithdrawal) transaction.set(submissionRefFor(db, orderId), { withdrawnAt: persistedFlow.withdrawnAt }, { merge: true });
     transaction.set(flowRef, persistedFlow);
-    transaction.set(orderRef, { ...mirrorFields(persistedFlow), ...(receiptResult?.orderPatch || {}) }, { merge: true });
+    transaction.set(orderRef, {
+      ...mirrorFields(persistedFlow),
+      ...(receiptResult?.orderPatch || {}),
+      ...(employerWithdrawal ? employerWithdrawalOrderPatch(persistedFlow, nowMs) : {}),
+    }, { merge: true });
     transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
       fromState: flow.state || null,
       toState: persistedFlow.state,
       round: persistedFlow.round,
+      ...(employerWithdrawal ? { withdrawalReason: persistedFlow.withdrawnReason, withdrawalEvidence: persistedFlow.withdrawalEvidence } : {}),
       ...(accountFailure ? { accountFailure } : {}),
       ...(candidateRequestTelemetryOf(event.candidateRequestTelemetry)
         ? { candidateRequestTelemetry: candidateRequestTelemetryOf(event.candidateRequestTelemetry) } : {}),
@@ -666,12 +684,12 @@ export const POSTING_LOOK_MS = 15_000;
 // the ticks; one at a time it would take 750 s (review of #12366).
 export const POSTING_LOOKS_AT_ONCE = 10;
 
-/** The look's answer, or false when it fails or outlasts `ms`. */
+/** The look's answer (true, or postingClosureForOrder's closure), or false when it fails or outlasts `ms`. */
 function lookWithin(look, ms) {
   return new Promise((resolve) => {
     const timer = setTimeout(() => resolve(false), ms);
     timer.unref?.();
-    Promise.resolve().then(look).then((closed) => resolve(Boolean(closed)), () => resolve(false)).finally(() => clearTimeout(timer));
+    Promise.resolve().then(look).then((closed) => resolve(closed || false), () => resolve(false)).finally(() => clearTimeout(timer));
   });
 }
 
@@ -692,16 +710,19 @@ async function pooled(items, size, work) {
  * The due orders whose ad says it is closed, looked at before the ticks and several at once. Only an order
  * with a reminder to its candidate due is looked at (CANDIDATE_REMINDER_STATES, by the state the order
  * mirrors, then by its flow's own reminder).
- * @returns {Promise<Set<string>>} their ids
+ * @returns {Promise<Map<string, true|{closed:true, closure:object|null}>>} their ids, with what the look read
  */
 async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLookMs }) {
-  const closed = new Set();
+  // id -> the look's answer: `true`, or the closure postingClosureForOrder read (its native proof, if any).
+  const closed = new Map();
   // An order that mirrors no state yet is read too: its flow says.
   const candidates = docs.filter((doc) => !doc.data()?.automationState || CANDIDATE_REMINDER_STATES.has(doc.data().automationState));
   await pooled(candidates, POSTING_LOOKS_AT_ONCE, async (doc) => {
     const flow = (await flowRefFor(db, doc.id).get().catch(() => null))?.data() || {};
     const reminderDue = CANDIDATE_REMINDER_STATES.has(flow.state) && Number(flow.reminderAt) > 0 && Number(flow.reminderAt) <= nowMs;
-    if (reminderDue && await lookWithin(() => postingClosed({ db, orderId: doc.id, order: doc.data() || {} }), postingLookMs)) closed.add(doc.id);
+    if (!reminderDue) return;
+    const answer = await lookWithin(() => postingClosed({ db, orderId: doc.id, order: doc.data() || {} }), postingLookMs);
+    if (answer) closed.set(doc.id, answer);
   });
   return closed;
 }
@@ -711,10 +732,22 @@ async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLook
  * the runner reads before it submits. Any failure reads as «not known closed»: the reminder then goes out.
  */
 export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
+  return Boolean(await postingClosureForOrder({ db, orderId, order, fetchImpl, resolve }));
+}
+
+/**
+ * The same look, with what it read: `{ closed: true, closure }` when the ad says it is closed (closure: the
+ * posting's own word, assistedApplicationEmployerWithdrawal.js nativeClosureOf, or null for a reading that
+ * also needed our dataset), else false. The sweep's tick closes a waiting application only on a closure.
+ */
+export async function postingClosureForOrder({ db, orderId, order, fetchImpl = fetch, resolve, nowMs = Date.now() }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
   const postingUrl = await resolvePostingAddressOf(draft, order, { fetchImpl, resolve });
-  return postingSaysClosed(await checkPostingLiveness({ order, posting: { postingUrl }, fetchImpl, resolve }));
+  const liveness = await checkPostingLiveness({ order, posting: { postingUrl }, fetchImpl, resolve });
+  if (!postingSaysClosed(liveness)) return false;
+  const closure = liveness.page?.result === 'expired' ? nativeClosureOf({ reason: liveness.page.code }, nowMs) : null;
+  return { closed: true, closure };
 }
 
 /**
@@ -759,7 +792,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
   // The ads of the orders about to be reminded, looked at together before any tick (closedPostingsAmong).
   const closedPostings = postingClosed
     ? await closedPostingsAmong({ db, docs: automationSnapshot.docs || [], nowMs, postingClosed, postingLookMs })
-    : new Set();
+    : new Map();
   for (const doc of docs) {
     try {
       const flowSnapshot = await flowRefFor(db, doc.id).get();
@@ -806,6 +839,19 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
         continue;
       }
       if (receiptResult?.receiptVerified) continue;
+      // A closed ad whose native proof is on record, on an order stopped for it in a round that waited for the
+      // candidate: withdrawn by the employer (owner decision 2026-11-11), never retried nor reminded.
+      if (!needsFactRepair(flow) && employerWithdrawalPending(flow)) {
+        const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'posting_closure_recorded' }, actor: 'employer-withdrawal', runEffect, nowMs });
+        if (result.ok) summary.employerWithdrawals = (summary.employerWithdrawals || 0) + 1;
+        else {
+          summary.ignored += 1;
+          const latest = await flowRefFor(db, doc.id).get();
+          const dueAt = computeDueAt(latest.data() || null);
+          await orderRefFor(db, doc.id).set({ automationDueAt: dueAt && dueAt > nowMs ? dueAt : null }, { merge: true });
+        }
+        continue;
+      }
       if (flow.state === 'owner_takeover') {
         const draftRetry = draftRetryDueAt(flow);
         const event = needsFactRepair(flow)
@@ -865,7 +911,8 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       // The flow decides whether a reminder to the candidate is still due (the tick): it may have moved since the look.
       const postingExpired = closedPostings.has(doc.id);
-      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
+      const postingClosure = closedPostings.get(doc.id)?.closure || null;
+      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}), ...(postingClosure ? { postingClosure } : {}) }, actor: 'clock', runEffect, nowMs });
       if (result.ok) summary.ticks += 1;
       else {
         summary.ignored += 1;

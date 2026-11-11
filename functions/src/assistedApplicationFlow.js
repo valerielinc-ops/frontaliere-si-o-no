@@ -37,6 +37,7 @@ import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicati
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
+import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -117,7 +118,8 @@ export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed',
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry', 'draft_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
-const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
+// The recorded closure of an order held for a closed ad (posting_closure_recorded) settles it too.
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts', 'posting_closure_recorded']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous', 'submission_receipt_invalid']);
@@ -304,6 +306,8 @@ function base(flow) {
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
+    // The posting's own word that it closed (assistedApplicationEmployerWithdrawal.js), when one was read.
+    postingClosure: recordedNativeClosure(flow),
     portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
     // An explicitly malformed persisted count must not be normalized to zero:
     // that would silently mint a fresh automatic retry budget.
@@ -338,6 +342,42 @@ function waitsForCandidate(flow) {
 /** This round waited, or waits, for what only the candidate can give. */
 function waitedForCandidate(flow) {
   return waitsForCandidate(flow) || Number(flow.lastWait?.round) === Number(flow.round);
+}
+
+/**
+ * Owner decision 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
+ * while this round waited for the candidate (Terms 6.5, not refunded). The application is withdrawn and
+ * archived, every clock and retry stops, and the candidate is told once why. Nothing is refunded.
+ * `closure`: the native proof ({ code, source, at }); never a reading of ours.
+ */
+function withdrawForEmployer(next, closure, nowMs) {
+  next.state = 'withdrawn';
+  next.withdrawnAt = nowMs;
+  next.withdrawnReason = EMPLOYER_WITHDRAWAL_REASON;
+  next.withdrawalEvidence = { kind: closure.code, source: closure.source, at: closure.at };
+  next.postingClosure = closure;
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [];
+  next.portalAutoRetryAt = null;
+  next.draftAutoRetryAt = null;
+  next.dispatchRecoveryAt = null;
+  return [{ type: 'email', kind: EMPLOYER_WITHDRAWAL_EMAIL_KIND }];
+}
+
+/**
+ * The posting's native proof of closure is on record and this round waited for the candidate, on an order
+ * stopped for that closure: held for Valerie (owner_takeover, posting_closed), or waiting in silence for the
+ * candidate since the sweep found the ad closed (postingExpiredAt). The employer's withdrawal closes it: the
+ * sweep applies `posting_closure_recorded`; scripts/assisted-application/reconcile-posting-withdrawals.mjs
+ * records the proof of the orders stopped before this rule. A send that may have left is checked by the
+ * caller (sendMayHaveLeft), in the same transaction.
+ */
+export function employerWithdrawalPending(flow) {
+  const current = base(flow);
+  if (!current.postingClosure || !waitedForCandidate(current)) return false;
+  if (current.state === 'owner_takeover') return current.heldBy.length === 1 && current.heldBy[0] === 'posting_closed';
+  return ['candidate_review', 'needs_candidate_action'].includes(current.state) && Boolean(current.postingExpiredAt);
 }
 
 // Where a reminder that is due is one to the candidate: their review, a portal waiting for them, a portal step
@@ -622,10 +662,12 @@ export function canOwnerHandoffToCandidate(flow, reason = '') {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, nowMs?:number}} context
+ * @param {{order?:object, draft?:object, answers?:object, documents?:object, postalPacketReady?:boolean, sendMayHaveLeft?:boolean, nowMs?:number}} context
+ *   `sendMayHaveLeft`: the caller read a send on record, or a final click nothing proved failed
+ *   (assistedApplicationEmployerWithdrawal.js sendMayHaveLeft): the employer's withdrawal then closes nothing.
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { order = {}, draft = null, answers = {}, documents = {}, postalPacketReady = true, sendMayHaveLeft = false, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
@@ -740,6 +782,15 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // it finds the ad closed (posting_closed). The 12 hours stop with the reminders: an application is not
       // sent by itself to an ad known closed, behind the notice that says the order waits (review of #12366).
       // The candidate's own approval still sends it, and the runner then looks at the ad itself.
+      // Owner decision 2026-11-11: when the look read the posting's own word (a native closure) and the round
+      // waits for the candidate's documents or answers, the employer withdrew it (Terms 6.5): the application
+      // is withdrawn, the candidate told, nothing refunded. Any other look keeps the silent wait below.
+      const tickClosure = event.postingExpired ? nativeClosureOf(event.postingClosure, nowMs) : null;
+      if (tickClosure && tickClosure.source !== 'employer_mail' && remindsCandidate(current, nowMs)
+        && current.state !== 'candidate_handoff' && waitedForCandidate(current) && !sendMayHaveLeft) {
+        effects = withdrawForEmployer(next, tickClosure, nowMs);
+        break;
+      }
       if (event.postingExpired && remindsCandidate(current, nowMs)) {
         next.reminderAt = null;
         next.deadlineAt = null;
@@ -931,10 +982,21 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.heldBy = [];
       effects = [{ type: 'mark_submitted', by: 'candidate' }];
       break;
-    case 'posting_closed':
+    case 'posting_closed': {
       if (!['drafting', 'regenerating', 'owner_review', 'candidate_review', 'submitting'].includes(state)) {
         return ignore('not_open');
       }
+      // The posting's own word (its page, its ATS, the employer's e-mail), or null for a reading of ours.
+      const closure = nativeClosureOf(event, nowMs);
+      // Owner decision 2026-11-11 (Terms 6.5): withdrawn by the employer while this round waited for the
+      // candidate's documents or answers. Withdrawn and archived, the candidate told, nothing refunded.
+      if (closure && waitedForCandidate(current) && !sendMayHaveLeft) {
+        effects = withdrawForEmployer(next, closure, nowMs);
+        break;
+      }
+      // The employer's e-mail alone settles nothing else: the runner reads the posting itself before a send.
+      if (closure?.source === 'employer_mail') return ignore('mail_closure_not_waited');
+      if (closure) next.postingClosure = closure;
       next.state = 'owner_takeover';
       next.deadlineAt = null;
       next.reminderAt = null;
@@ -956,6 +1018,14 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         { type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' },
         { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' },
       ];
+      break;
+    }
+    case 'posting_closure_recorded':
+      // An order stopped for a closed ad before the owner decision of 2026-11-11, with the posting's proof
+      // recorded since (employerWithdrawalPending): closed now as posting_closed would close it today.
+      if (!employerWithdrawalPending(current)) return ignore('no_recorded_withdrawal');
+      if (sendMayHaveLeft) return ignore('send_may_have_left');
+      effects = withdrawForEmployer(next, current.postingClosure, nowMs);
       break;
     case 'candidate_approve':
       if (state !== 'candidate_review') return ignore('not_candidate_review');

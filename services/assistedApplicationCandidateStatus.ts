@@ -20,6 +20,8 @@ export interface CandidateAssistedApplication {
   applicationUrl?: string | null;
   source: 'single' | 'concierge';
   status: AssistedApplicationCandidateStatus;
+  /** Set when the employer withdrew the posting and the application was therefore withdrawn. */
+  withdrawnBy?: 'employer';
   updatedAt: string | null;
   requiresCvUpload: boolean;
   employerResponse?: EmployerResponse | null;
@@ -97,6 +99,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     ...(Object.prototype.hasOwnProperty.call(value, 'applicationUrl') ? { applicationUrl: safeHttpsUrl(value.applicationUrl) } : {}),
     source,
     status: value.status as AssistedApplicationCandidateStatus,
+    ...(value.status === 'withdrawn' && value.withdrawnBy === 'employer' ? { withdrawnBy: 'employer' as const } : {}),
     updatedAt,
     requiresCvUpload: value.requiresCvUpload,
     ...(Object.prototype.hasOwnProperty.call(value, 'employerResponse') ? { employerResponse: parseEmployerResponse(value.employerResponse) } : {}),

@@ -119,7 +119,10 @@ function ApplicationDossier({
   const companyName = application.companyName || t('profile.paidApplications.companyUnavailable');
   const jobTitle = application.jobTitle || t('profile.paidApplications.untitled');
   const updatedDate = formatDate(application.updatedAt, locale);
-  const helpKey = STATUS_HELP_KEYS[application.status];
+  // The employer withdrew the posting (owner decision 2026-11-11): say why the application is archived.
+  const helpKey = application.status === 'withdrawn' && application.withdrawnBy === 'employer'
+    ? 'profile.paidApplications.help.withdrawnByEmployer'
+    : STATUS_HELP_KEYS[application.status];
   const uploadPath = `${jobBoardPath}?assisted_application_order_id=${encodeURIComponent(application.orderId)}`;
   const applicationPath = application.requiresCvUpload || application.status === 'awaiting_materials'
     ? uploadPath

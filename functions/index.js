@@ -139,7 +139,7 @@ import {
   isAutomationEnabledFor,
   maybeStartAutomation,
   runAutomationSweep,
-  postingClosedForOrder,
+  postingClosureForOrder,
   startAutomation,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
@@ -3429,8 +3429,8 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB', timeoutSeconds: 120 },
   async () => {
     try {
-      const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosedForOrder });
-      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled) {
+      const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosureForOrder });
+      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled || summary.employerWithdrawals) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }
     } catch (error) {
