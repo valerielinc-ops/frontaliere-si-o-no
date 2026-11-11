@@ -1833,6 +1833,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     const toggleLabels = new Set(toggles.map((control) => applicationEntryLabel(control)));
     if (!allEntries.some((control) => control.menuItem === true) && toggles.length >= 1 && toggleLabels.size === 1) return toggles.slice(0, 1);
   }
+  // The page that hosts a posting document (postingDocumentHostBound, with the document read and found to be
+  // the order's): its one application control, whatever host it opens, is the posting's. Several application
+  // controls, or a social one, stay unresolved.
+  const documentHost = context.postingDocumentHost === true
+    ? comparablePortalRoute(context.postingDocumentHostUrl) : null;
+  if (documentHost && current && current.origin === documentHost.origin
+    && current.pathname === documentHost.pathname && current.search === documentHost.search
+    && allEntries.length === 1 && !socialApplicationEntry(allEntries[0])) return allEntries;
   const unbound = controls.filter((control) => {
     if (control?.disabled || control?.chrome || !startsApplication(control?.text || control?.label)) return false;
     const target = comparablePortalRoute(control?.href);
@@ -1850,7 +1858,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
       postingRouteProof: context.postingRouteProof,
     }))
     : unbound.filter((control) => applicationEntryContextMatchesPosting(control, context));
-  return proofBound.length === 1 ? proofBound : [];
+  if (proofBound.length === 1) return proofBound;
+  // On the posting page itself, Apply links that all open one route carrying the posting's own id
+  // (applicationEntryCarriesPostingId) are that posting's entry, repeated above and below the text. A link
+  // without the id, or to another route, among them keeps the page unresolved.
+  if (!context.postingRouteProof && !proofBound.length && unbound.length > 0 && current && posting
+    && current.origin === posting.origin && current.pathname === posting.pathname && current.search === posting.search
+    && unbound.every((control) => applicationEntryCarriesPostingId(control?.href, context.postingUrl))
+    && new Set(unbound.map((control) => {
+      const target = comparablePortalRoute(control.href);
+      return `${target.origin}${target.pathname}${target.search}`;
+    })).size === 1) return unbound.slice(0, 1);
+  return [];
 }
 
 // A posting may show an informational region notice and still expose its own
@@ -3305,6 +3324,21 @@ const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'l
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
+/** The company's name words without a bracketed short form, when it has one and a distinctive name remains. */
+function companyLongFormWords(company) {
+  const raw = String(company || '');
+  if (!/\([^)]*\)/.test(raw)) return [];
+  const words = nameWords(raw.replace(/\([^)]*\)/g, ' '));
+  return words.length >= 2 && hasDistinctiveCompanyIdentity(raw.replace(/\([^)]*\)/g, ' ')) ? words : [];
+}
+
+/** The company's short forms in brackets («(ECAM)», «(RhB)»), each as its name words. */
+function companyShortForms(company) {
+  return [...String(company || '').matchAll(/\(([^)]+)\)/g)]
+    .map(([, alias]) => nameWords(alias))
+    .filter((words) => words.length > 0);
+}
+
 function titleMatches(pageText, title) {
   const words = normalizeWords(pageText).split(' ').filter(Boolean);
   const titleWords = nameWords(title).filter((word) => word.length >= 4);
@@ -3357,7 +3391,13 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
     const named = ` ${nameWords(pageText).join(' ')} `;
-    return named.includes(` ${company.join(' ')} `) || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
+    // The whole name without the short form the order adds in brackets is the same employer, written out:
+    // «Ente Case Anziani Mendrisiotto (ECAM)» signs its notice «Ente Case Anziani Mendrisiotto» (CVRDEqJ3,
+    // 2026-11-11). The short form alone stays no match (an «ECAM» or an «EOC» on a page is initials).
+    const longForm = companyLongFormWords(job.company);
+    return named.includes(` ${company.join(' ')} `)
+      || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
+      || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatches(pageText, job.title) ? 'match' : 'mismatch';
 }
@@ -3435,6 +3475,21 @@ const EMPLOYER_KIND_WORDS = new Set([
   'hotel', 'hotels', 'hotellerie', 'resort', 'restaurant', 'ristorante', 'gastronomie', 'spital', 'hospital', 'ospedale', 'hopital',
   'klinik', 'clinica', 'clinique', 'bank', 'banca', 'banque', 'group', 'gruppe', 'gruppo', 'groupe',
 ]);
+// One kind of employer in the languages of a Swiss page. Next to a word of the order's company, the kind
+// its own name carries, in another language, is still its name: «Bank Cler» writes «la Banca Cler» on its
+// Italian postings (8BhQom09, 2026-11-11). Another kind stays another name: «Esempio Resort» is not
+// «Grand Hotel Esempio».
+const EMPLOYER_KIND_CLASS = new Map([
+  ...['hotel', 'hotels', 'hotellerie'].map((word) => [word, 'hotel']),
+  ...['restaurant', 'ristorante'].map((word) => [word, 'restaurant']),
+  ...['spital', 'hospital', 'ospedale', 'hopital'].map((word) => [word, 'hospital']),
+  ...['klinik', 'clinica', 'clinique'].map((word) => [word, 'clinic']),
+  ...['bank', 'banca', 'banque'].map((word) => [word, 'bank']),
+  ...['group', 'gruppe', 'gruppo', 'groupe'].map((word) => [word, 'group']),
+]);
+const employerKindsOf = (words) => new Set(words.map((word) => EMPLOYER_KIND_CLASS.get(word)).filter(Boolean));
+// Filler that only joins two names («Muster und Hotel …»): skipping it can still reach a word of a name.
+const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder', 'ou', 'sowie']);
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
   'the', 'and', 'for', 'our', 'your', 'with', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
@@ -3522,8 +3577,36 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
   if (title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
+  const ourKinds = employerKindsOf([...ours]);
+  // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
+  const identities = [nameWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+    .filter((words) => words.length > 0);
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
+    // The same words with their case, when they line up one to one: a phrase in normal case (upper and lower
+    // letters, no web address) writes a name with a capital and the sentence around it in lower case.
+    const raw = String(phrase).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^A-Za-z0-9]+/g, ' ').trim().split(' ').filter(Boolean);
+    const cased = raw.length === words.length && /[a-z]/.test(phrase) && /[A-Z]/.test(phrase)
+      && !/[a-z0-9-]+\.[a-z]{2,}/i.test(phrase);
+    const proseWord = (at) => cased && /^[a-z]+$/.test(raw[at] || '');
+    // Where the employer stands named whole (legal forms and filler between its words allowed).
+    const wholeStarts = new Set();
+    const wholeEnds = new Set();
+    for (let index = 0; index < words.length; index += 1) {
+      for (const identity of identities) {
+        let at = index;
+        let matched = 0;
+        while (at < words.length && matched < identity.length) {
+          if (words[at] === identity[matched]) matched += 1;
+          else if (!(matched > 0 && (filler(words[at]) || NOT_A_NAME.has(words[at])))) break;
+          at += 1;
+        }
+        if (matched === identity.length) {
+          wholeStarts.add(index);
+          wholeEnds.add(at - 1);
+        }
+      }
+    }
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;
       // The country of the order's company is on any form as a country too: next to it, the word that labels
@@ -3531,9 +3614,23 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
       const labels = BRANCH_WORDS.has(word) ? FIELD_LABEL_WORDS : null;
       for (const step of [-1, 1]) {
         let at = index + step;
+        let separated = false;
         // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
-        while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])
+        while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) {
+          if (filler(words[at]) && !/^\d+$/.test(words[at]) && !JOINING_WORDS.has(words[at])) separated = true;
+          at += step;
+        }
+        if (words[at] === undefined) continue;
+        // Around the employer named whole, a sentence is not another name: an article or a preposition before
+        // it («Rapporto di lavoro con l'ECAM», «oder die Bank Cler AG»: ECAM's form, CVRDEqJ3, 2026-11-11),
+        // or a word in lower case next to it in a phrase in normal case («Die Bank Cler ist eine
+        // Tochtergesellschaft …», Bank Cler's posting, 8BhQom09). A capitalised word there («Acme GmbH
+        // Partners», «Coop One»), and any word next to a part of the name («Other Hotel», «other hotel»),
+        // still declare someone else.
+        const whole = step === -1 ? wholeStarts.has(index) : wholeEnds.has(index);
+        if (whole && ((step === -1 && separated) || proseWord(at))) continue;
+        if (!neutral.has(words[at]) && !labels?.has(words[at])
+          && !(EMPLOYER_KIND_CLASS.has(words[at]) && ourKinds.has(EMPLOYER_KIND_CLASS.get(words[at])))
           && !isSelectOneLabelToken(words, at)) return true;
       }
     }
@@ -3622,6 +3719,146 @@ export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' 
 }
 
 /**
+ * A posting published as a document, not as a page: an official PDF notice
+ * (ECAM's «Concorso generale permanente», CVRDEqJ3, 2026-11-11). A browser
+ * shows it in its PDF viewer, with no text the runner can read and no Apply
+ * control: the notice itself says to apply «tramite l'apposito modulo online»
+ * on the employer's site.
+ */
+export function isPostingDocumentUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && !url.username && !url.password && /\.pdf$/i.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function sameDocumentAddress(first, second) {
+  try {
+    const one = new URL(String(first || ''));
+    const other = new URL(String(second || ''));
+    return one.origin === other.origin && one.pathname === other.pathname && one.search === other.search;
+  } catch {
+    return false;
+  }
+}
+
+// What a document's own address or link text says when it is a vacancy notice, not a privacy note or a form.
+const POSTING_DOCUMENT_HINT_RE = /concors|bando|annunc|offert|posizion|assunzion|stelle|ausschreibung|inserat|vacan|\bjobs?\b|emploi|poste|offre|recrut|recruit/i;
+
+/**
+ * The posting document is the order's: one of its first lines (where a notice
+ * puts its heading, after the letterhead) holds every word of the role and
+ * every number of it but the workload («2026» in «Concorso generale
+ * permanente 2026» is not last year's notice), and the document names the
+ * employer whole (postingMatch, its bracketed short form left out).
+ */
+export function postingDocumentIdentity(documentText, job = {}) {
+  const text = String(documentText || '');
+  const title = String(job?.title || '');
+  if (!title.trim() || !text.trim()) return false;
+  const company = String(job?.company || '').trim();
+  if (company && (!hasDistinctiveCompanyIdentity(company) || postingMatch(text, job) !== 'match')) return false;
+  const numbers = (value) => (String(value || '').replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ').match(/\d+/g) || []);
+  const wanted = numbers(title);
+  return text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).slice(0, 15)
+    .some((line) => line.length <= 200 && titleMatches(line, title) && wanted.every((number) => numbers(line).includes(number)));
+}
+
+/**
+ * The page that hosts the posting document: the employer's own page the
+ * order's data names for applications (the runner opened it and stayed on it),
+ * on the document's site, linking that exact document, and linking no other
+ * vacancy notice. A page that lists several notices is a list of postings: its
+ * application control could be anyone's.
+ */
+export function postingDocumentHostBound(snapshot = {}, { pageUrl = '', postingUrl = '', applyUrl = '' } = {}) {
+  if (!isPostingDocumentUrl(postingUrl) || !samePostingAddress(pageUrl, applyUrl)) return false;
+  let documentHost = '';
+  try {
+    documentHost = new URL(postingUrl).hostname;
+  } catch {
+    return false;
+  }
+  if (!sameSite(pageUrl, documentHost)) return false;
+  const documents = (Array.isArray(snapshot?.links) ? snapshot.links : [])
+    .filter((link) => isPostingDocumentUrl(link?.href));
+  if (!documents.some((link) => sameDocumentAddress(link.href, postingUrl))) return false;
+  return !documents.some((link) => {
+    if (sameDocumentAddress(link.href, postingUrl)) return false;
+    let file = '';
+    try {
+      file = decodeURIComponent(new URL(link.href).pathname.split('/').pop() || '');
+    } catch {
+      file = String(link.href || '');
+    }
+    return POSTING_DOCUMENT_HINT_RE.test(`${link.text || ''} ${link.label || ''} ${file}`);
+  });
+}
+
+/** The posting document's text, read as the crawler reads it (pdf-job-content.mjs); null when it has none. */
+export async function readPostingDocument(url, { fetchImpl = fetch } = {}) {
+  if (!isPostingDocumentUrl(url)) return null;
+  const { extractPdfJobContentFromUrl } = await import('../../../lib/pdf-job-content.mjs');
+  const result = await extractPdfJobContentFromUrl(url, { fetchImpl, proxyRescue: false, timeoutMs: 30_000 });
+  const text = String(result?.rawText || result?.text || '');
+  return text.trim() ? { text } : null;
+}
+
+/**
+ * The page the runner opened is the posting document's host, and the
+ * document read now is the order's posting: the page stands for the posting
+ * (its single application control is the posting's, applicationEntryControls).
+ * Recorded in the evidence without the document's text.
+ */
+async function postingDocumentHostMatch(snapshot, ctx = {}, pageUrl = '') {
+  if (!isPostingDocumentUrl(ctx.postingUrl) || samePostingAddress(pageUrl, ctx.postingUrl)
+    || !postingDocumentHostBound(snapshot, { pageUrl, postingUrl: ctx.postingUrl, applyUrl: ctx.applyUrl })) return null;
+  const document = await (ctx.readPostingDocument || readPostingDocument)(ctx.postingUrl).catch(() => null);
+  return { read: Boolean(document?.text), identity: postingDocumentIdentity(document?.text, ctx.job) };
+}
+
+/**
+ * The posting's own id in its address: the number its last path segment ends
+ * with («…-lugano-f-m-2779», «/stellen/2779») or its posting-id parameter.
+ */
+function postingAddressIds(postingUrl) {
+  const ids = new Set();
+  try {
+    const url = new URL(String(postingUrl || ''));
+    const last = decodeURIComponent(url.pathname.replace(/\/+$/, '').split('/').pop() || '');
+    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
+    if (tail) ids.add(tail);
+    const key = portalJobKey(url.href);
+    if (key) ids.add(key);
+  } catch {
+    // No address, no id.
+  }
+  return ids;
+}
+
+/**
+ * An Apply link on the posting page that carries the posting's own id as a
+ * whole segment of its route or a whole parameter value: Bank Cler's
+ * «…/offene-stellen/consulente-…-2779» opens «recruitingapp-2839.umantis.com/
+ * Vacancies/2779/Application/CheckLogin/1» (8BhQom09, 2026-11-11). The id is
+ * the requisition both addresses name; the ATS host alone is not.
+ */
+export function applicationEntryCarriesPostingId(href, postingUrl) {
+  const ids = postingAddressIds(postingUrl);
+  if (!ids.size) return false;
+  try {
+    const url = new URL(String(href || ''));
+    if (url.protocol !== 'https:' || url.username || url.password) return false;
+    const segments = url.pathname.split('/').filter(Boolean).map((segment) => decodeURIComponent(segment));
+    return [...segments, ...url.searchParams.values()].some((value) => ids.has(value));
+  } catch {
+    return false;
+  }
+}
+
+/**
  * The form the posting's own apply button opened. An ATS on another host
  * often names the role and never the company (umantis for Grand Hotel
  * Kronenhof, 2026-10-03: «Concierge - Application», nothing of the employer):
@@ -3673,9 +3910,12 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
 export function isRoleHeading(heading, title) {
   const text = String(heading || '').trim();
   if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
-  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
-  // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the words.
-  const seen = normalizeWords(text.replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')).split(' ').filter(Boolean);
+  // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the
+  // words, of the heading and of the order's title alike: a title that carries its own workload («Consulente …
+  // Lugano (f/m) 50%», Bank Cler 8BhQom09, 2026-11-11) otherwise wants a «50» no heading can show any more.
+  const withoutWorkload = (value) => String(value || '').replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ');
+  const wanted = new Set(normalizeWords(withoutWorkload(title)).split(' ').filter(Boolean));
+  const seen = normalizeWords(withoutWorkload(text)).split(' ').filter(Boolean);
   const shown = new Set(seen);
   // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
   // the title aside, and nothing but those markers or a workload around it.
@@ -7943,14 +8183,18 @@ export async function readPortalRequirements(ctx) {
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     const sourceTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const sourcePostingText = `${sourceTitle}\n${snapshot.text || ''}\n${page.url()}`;
-    let sourcePostingMatched = hasJobContract && hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
+    // A posting published as a document: its host page stands for it once the document is the order's.
+    const sourceDocument = hasJobContract ? await postingDocumentHostMatch(snapshot, ctx, page.url()) : null;
+    const sourceDocumentHost = sourceDocument?.identity === true;
+    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
       pageHeading: await postingMainHeading(page),
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
-    });
+    }));
+    const sourcePageUrl = page.url();
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
       postingUrl: ctx.postingUrl || page.url(),
@@ -7960,6 +8204,7 @@ export async function readPortalRequirements(ctx) {
       postingEntry: verifiedPostingEntry,
       postingRouteProof: ctx.postingRouteProof,
       allowSingleExternalApplicationEntry: sourcePostingMatched,
+      ...(sourceDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: sourcePageUrl } : {}),
     });
     ({ page, snapshot } = opened);
     if (opened.resolvedPostingUrl) {
@@ -8357,9 +8602,16 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
       && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+    // A posting published as a document is read as a document; the employer's
+    // page that hosts it, the order's apply page, then stands for the posting.
+    const postingDocument = enteredFromMatchingPosting ? null : await postingDocumentHostMatch(snapshot, ctx, postingUrl);
+    if (postingDocument) evidence.postingDocument = postingDocument;
+    const postingDocumentHost = postingDocument?.identity === true;
+    // Every later reopening of the form (after a sign-in, a reload) enters again from the same host page.
+    const documentHostContext = postingDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: postingUrl } : {};
     // A verified apply/posting URL pair is stronger than the title of a thin
     // shell, which may still show a stale or generic role while it mounts.
-    let postingVacancyMatched = enteredFromMatchingPosting
+    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
@@ -8389,6 +8641,7 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
+      ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
     });
@@ -8785,6 +9038,7 @@ export async function submitViaPortal(ctx) {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
+            ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
           });
@@ -8923,6 +9177,7 @@ export async function submitViaPortal(ctx) {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
+            ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
           });
