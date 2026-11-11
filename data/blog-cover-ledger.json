@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1134,
+      "5": 1135,
       "6": 5061
     },
-    "publishedCovers": 7876,
+    "publishedCovers": 7877,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217184,6 +217184,39 @@
         "provider": "openai-codex",
         "assetId": "article-sanitari-italiani-fuga-svizzera",
         "imageUrl": "/images/blog/article-sanitari-italiani-fuga-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fuoriuscita-acido-liestal": {
+      "cover": "/images/blog/article-fuoriuscita-acido-liestal.webp",
+      "hash": "3911897f46cf3e71cc2b0207e42ad0f7f06b5ccf58e08f532431e40320bd29e5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "fuoriuscita-acido-liestal",
+          "category": "pratico",
+          "date": "2026-11-11T06:50:50.396Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fuoriuscita-acido-liestal.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fuoriuscita-acido-liestal",
+        "imageUrl": "/images/blog/article-fuoriuscita-acido-liestal.webp",
         "evidence": "generated-engine-record"
       }
     }
