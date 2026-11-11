@@ -8690,12 +8690,12 @@
     },
     {
       "id": "swiss-life-c3f1ba0765a3",
-      "slug": "teamleiter-vendita-m-w-d-agenzia-generale-st-gallen-appenzellerland-herisau-appenzell-st-gallen-swiss-life-st-gallen",
+      "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-di-san-gallo-appenzellerland-herisau-appenzello-san-gallo-swiss",
       "slugByLocale": {
         "en": "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st",
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-st-gallen-appenzellerland-herisau-appenzell-st-gallen-swiss-life-st-gallen",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-di-san-gallo-appenzellerland-herisau-appenzello-san-gallo-swiss",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st"
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-de-saint-gall-appenzellerland-herisau-appenzell-saint-gall-swiss-life-st"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8746,11 +8746,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st",
+          "teamleiter-vendita-m-w-d-agenzia-generale-st-gallen-appenzellerland-herisau-appenzell-st-gallen-swiss-life-st-gallen"
+        ],
+        "fr": [
           "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st"
         ]
       },
       "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st"
+        "teamleiter-verkauf-w-m-d-generalagentur-st-gallen-appenzellerland-herisau-appenzell-st",
+        "teamleiter-vendita-m-w-d-agenzia-generale-st-gallen-appenzellerland-herisau-appenzell-st-gallen-swiss-life-st-gallen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,

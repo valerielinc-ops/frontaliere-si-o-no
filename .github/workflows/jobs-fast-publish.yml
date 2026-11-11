@@ -1,0 +1,298 @@
+name: Fast Publish Active Jobs
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - "data/jobs/by-crawler/**/*.json"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Render, validate and compare a live sample without publishing."
+        required: false
+        default: true
+        type: boolean
+
+# The durable Firestore delta makes replacing an older pending run safe: the
+# next run sees all active changes since the last verified publish.
+concurrency:
+  group: jobs-fast-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    environment: shard-secrets-overflow
+    outputs:
+      outcome: ${{ steps.fast-publish.outputs.outcome }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the durable jobs-fast and shard-writer state.'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load credentials and Remote Config flags
+        run: node scripts/load-rc-env.mjs
+
+      - name: Decide whether to run
+        id: gate
+        env:
+          MANUAL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true }}
+        run: |
+          set -euo pipefail
+          flag="$(printf '%s' "${JOBS_FAST_PUBLISH_ENABLED:-false}" | tr '[:upper:]' '[:lower:]')"
+          if [ "$MANUAL_DRY_RUN" = true ] || [ "$flag" = true ]; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo '[jobs-fast] Remote Config flag is OFF; scheduled/push invocation is a no-op.'
+          fi
+
+      - name: Install site dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: npm ci
+
+      - name: Assemble current active jobs
+        if: steps.gate.outputs.run == 'true'
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Render and publish active-job delta
+        id: fast-publish
+        if: steps.gate.outputs.run == 'true'
+        env:
+          SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
+          SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
+          SHARD_APPENZELLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_DE_DEPLOY_KEY }}
+          SHARD_APPENZELLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_FR_DEPLOY_KEY }}
+          SHARD_ARGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_IT_DEPLOY_KEY }}
+          SHARD_ARGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_EN_DEPLOY_KEY }}
+          SHARD_ARGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_DE_DEPLOY_KEY }}
+          SHARD_ARGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARGOVIA_FR_DEPLOY_KEY }}
+          SHARD_BASILEA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_IT_DEPLOY_KEY }}
+          SHARD_BASILEA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_EN_DEPLOY_KEY }}
+          SHARD_BASILEA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_DE_DEPLOY_KEY }}
+          SHARD_BASILEA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BASILEA_FR_DEPLOY_KEY }}
+          SHARD_BERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_IT_DEPLOY_KEY }}
+          SHARD_BERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_EN_DEPLOY_KEY }}
+          SHARD_BERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_DE_DEPLOY_KEY }}
+          SHARD_BERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_BERNA_FR_DEPLOY_KEY }}
+          SHARD_FRIBURGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_IT_DEPLOY_KEY }}
+          SHARD_FRIBURGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_EN_DEPLOY_KEY }}
+          SHARD_FRIBURGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_DE_DEPLOY_KEY }}
+          SHARD_FRIBURGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_FRIBURGO_FR_DEPLOY_KEY }}
+          SHARD_GINEVRA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_IT_DEPLOY_KEY }}
+          SHARD_GINEVRA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_EN_DEPLOY_KEY }}
+          SHARD_GINEVRA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_DE_DEPLOY_KEY }}
+          SHARD_GINEVRA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GINEVRA_FR_DEPLOY_KEY }}
+          SHARD_GIURA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_IT_DEPLOY_KEY }}
+          SHARD_GIURA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_EN_DEPLOY_KEY }}
+          SHARD_GIURA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_DE_DEPLOY_KEY }}
+          SHARD_GIURA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GIURA_FR_DEPLOY_KEY }}
+          SHARD_GLARONA_IT_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_IT_DEPLOY_KEY }}
+          SHARD_GLARONA_EN_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_EN_DEPLOY_KEY }}
+          SHARD_GLARONA_DE_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_DE_DEPLOY_KEY }}
+          SHARD_GLARONA_FR_DEPLOY_KEY: ${{ secrets.SHARD_GLARONA_FR_DEPLOY_KEY }}
+          SHARD_GRIGIONI_IT_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_IT_DEPLOY_KEY }}
+          SHARD_GRIGIONI_EN_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_EN_DEPLOY_KEY }}
+          SHARD_GRIGIONI_DE_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_DE_DEPLOY_KEY }}
+          SHARD_GRIGIONI_FR_DEPLOY_KEY: ${{ secrets.SHARD_GRIGIONI_FR_DEPLOY_KEY }}
+          SHARD_LUCERNA_IT_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_IT_DEPLOY_KEY }}
+          SHARD_LUCERNA_EN_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_EN_DEPLOY_KEY }}
+          SHARD_LUCERNA_DE_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_DE_DEPLOY_KEY }}
+          SHARD_LUCERNA_FR_DEPLOY_KEY: ${{ secrets.SHARD_LUCERNA_FR_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_IT_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_IT_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_EN_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_EN_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_DE_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_DE_DEPLOY_KEY }}
+          SHARD_NEUCHATEL_FR_DEPLOY_KEY: ${{ secrets.SHARD_NEUCHATEL_FR_DEPLOY_KEY }}
+          SHARD_NIDVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_IT_DEPLOY_KEY }}
+          SHARD_NIDVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_EN_DEPLOY_KEY }}
+          SHARD_NIDVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_DE_DEPLOY_KEY }}
+          SHARD_NIDVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_NIDVALDO_FR_DEPLOY_KEY }}
+          SHARD_OBVALDO_IT_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_IT_DEPLOY_KEY }}
+          SHARD_OBVALDO_EN_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_EN_DEPLOY_KEY }}
+          SHARD_OBVALDO_DE_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_DE_DEPLOY_KEY }}
+          SHARD_OBVALDO_FR_DEPLOY_KEY: ${{ secrets.SHARD_OBVALDO_FR_DEPLOY_KEY }}
+          SHARD_SANGALLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_IT_DEPLOY_KEY }}
+          SHARD_SANGALLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_EN_DEPLOY_KEY }}
+          SHARD_SANGALLO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_DE_DEPLOY_KEY }}
+          SHARD_SANGALLO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SANGALLO_FR_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_IT_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_EN_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_DE_DEPLOY_KEY }}
+          SHARD_SCIAFFUSA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SCIAFFUSA_FR_DEPLOY_KEY }}
+          SHARD_SOLETTA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_IT_DEPLOY_KEY }}
+          SHARD_SOLETTA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_EN_DEPLOY_KEY }}
+          SHARD_SOLETTA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_DE_DEPLOY_KEY }}
+          SHARD_SOLETTA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SOLETTA_FR_DEPLOY_KEY }}
+          SHARD_SVITTO_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_IT_DEPLOY_KEY }}
+          SHARD_SVITTO_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_EN_DEPLOY_KEY }}
+          SHARD_SVITTO_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_DE_DEPLOY_KEY }}
+          SHARD_SVITTO_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVITTO_FR_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
+          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
+          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
+          SHARD_TURGOVIA_IT_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_IT_DEPLOY_KEY }}
+          SHARD_TURGOVIA_EN_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_EN_DEPLOY_KEY }}
+          SHARD_TURGOVIA_DE_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_DE_DEPLOY_KEY }}
+          SHARD_TURGOVIA_FR_DEPLOY_KEY: ${{ secrets.SHARD_TURGOVIA_FR_DEPLOY_KEY }}
+          SHARD_URI_IT_DEPLOY_KEY: ${{ secrets.SHARD_URI_IT_DEPLOY_KEY }}
+          SHARD_URI_EN_DEPLOY_KEY: ${{ secrets.SHARD_URI_EN_DEPLOY_KEY }}
+          SHARD_URI_DE_DEPLOY_KEY: ${{ secrets.SHARD_URI_DE_DEPLOY_KEY }}
+          SHARD_URI_FR_DEPLOY_KEY: ${{ secrets.SHARD_URI_FR_DEPLOY_KEY }}
+          SHARD_VALLESE_IT_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_IT_DEPLOY_KEY }}
+          SHARD_VALLESE_EN_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_EN_DEPLOY_KEY }}
+          SHARD_VALLESE_DE_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_DE_DEPLOY_KEY }}
+          SHARD_VALLESE_FR_DEPLOY_KEY: ${{ secrets.SHARD_VALLESE_FR_DEPLOY_KEY }}
+          SHARD_VAUD_IT_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_IT_DEPLOY_KEY }}
+          SHARD_VAUD_EN_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_EN_DEPLOY_KEY }}
+          SHARD_VAUD_DE_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_DE_DEPLOY_KEY }}
+          SHARD_VAUD_FR_DEPLOY_KEY: ${{ secrets.SHARD_VAUD_FR_DEPLOY_KEY }}
+          SHARD_ZUGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_IT_DEPLOY_KEY }}
+          SHARD_ZUGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_EN_DEPLOY_KEY }}
+          SHARD_ZUGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_DE_DEPLOY_KEY }}
+          SHARD_ZUGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZUGO_FR_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
+          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
+          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
+          MANUAL_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true }}
+          JOBS_FAST_DIST_DIR: ${{ runner.temp }}/jobs-fast-dist
+          JOBS_FAST_PRIORITY_FILE: ${{ runner.temp }}/jobs-fast-priority.json
+          STATIC_BUILD_ID_META: ${{ vars.STATIC_BUILD_ID_META }}
+        run: |
+          set -euo pipefail
+          if [ "$MANUAL_DRY_RUN" = true ]; then
+            npx --no-install tsx scripts/publish-jobs-fast.mjs --dry-run
+          else
+            npx --no-install tsx scripts/publish-jobs-fast.mjs --publish
+          fi
+
+      - name: Upload Indexing API priority URLs
+        if: steps.fast-publish.outputs.outcome == 'published'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-fast-indexing-priority-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-fast-priority.json
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Remove Firebase credentials
+        if: always()
+        run: rm -f "$RUNNER_TEMP/firebase-sa.json"
+
+  indexing-top-up:
+    needs: publish
+    if: needs.publish.outputs.outcome == 'published'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: shard-secrets-overflow
+    concurrency:
+      group: indexing-api-jobs-ledger
+      cancel-in-progress: false
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout indexing client
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to read and write the shared Indexing API ledger.'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Indexing API owner credentials
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download fast-publish priority URLs
+        uses: actions/download-artifact@v8
+        with:
+          name: jobs-fast-indexing-priority-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-fast-priority
+
+      - name: Pull shared Indexing API ledger
+        id: ledger-pull
+        run: node scripts/lib/indexing-ledger-store.mjs pull --ledger "$RUNNER_TEMP/indexing-api-jobs-ledger.json"
+
+      - name: Notify published jobs through Google Indexing API
+        run: |
+          node scripts/submit-google-indexing-jobs.js \
+            --max 15 \
+            --priority-file "$RUNNER_TEMP/jobs-fast-priority/jobs-fast-priority.json" \
+            --ledger "$RUNNER_TEMP/indexing-api-jobs-ledger.json"
+
+      - name: Push shared Indexing API ledger
+        if: always() && steps.ledger-pull.outcome == 'success'
+        run: node scripts/lib/indexing-ledger-store.mjs push --ledger "$RUNNER_TEMP/indexing-api-jobs-ledger.json"
+
+      - name: Remove Firebase credentials
+        if: always()
+        run: rm -f "$RUNNER_TEMP/firebase-sa.json"

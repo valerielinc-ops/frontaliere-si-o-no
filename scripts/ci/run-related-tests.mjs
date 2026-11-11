@@ -323,6 +323,16 @@ const sourceTreeLintTests = new Map([
   // importare; il test costa meno di un secondo.
   ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
   ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  // Deploy runs the SEO source suite once per build, but the PR related graph
+  // cannot see these readFileSync edges. Keep the source readers that inspect
+  // jobsSeoPagesPlugin in the PR selection whenever any build plugin changes;
+  // PR #18099 changed this file and its source-only guards were skipped.
+  ['tests/seo/cathedral-expired-tracking-canton.test.ts', /^build-plugins\//],
+  ['tests/seo/historical-archive-heading.test.ts', /^build-plugins\//],
+  ['tests/seo/historical-pages-full-content-policy.test.ts', /^build-plugins\//],
+  ['tests/seo/jobs-seo-self-heal-tracking-retention.test.ts', /^build-plugins\//],
+  ['tests/seo/one-static-main-landmark.test.ts', /^build-plugins\//],
+  ['tests/seo/static-job-page-spa-alignment.test.ts', /^build-plugins\//],
   // Metadati degli autori da un'unica fonte: il test confronta le pagine autore
   // di seo-pages.ts, il roster statico di /chi-siamo/ e llms.txt col registro.
   // `data/authors.ts` e `data/authorLocales.ts` sono fuori dal grafo e i due

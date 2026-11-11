@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -7,6 +8,7 @@ import {
   IT_SHARD_GROUP_IDS,
   validateItShardGroupPlan,
 } from '../scripts/ci/it-shard-group-plan.mjs';
+import { packageItShardValidationBatches } from '../scripts/ci/package-it-shard-validation-batches.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SLUGS = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf8'));
@@ -76,5 +78,168 @@ describe('IT section shard group plan', () => {
     expect(validateItShardGroupPlan(plan, { sourceRunId: '12345', sourceSha: 'b'.repeat(40) }).valid).toBe(false);
     plan.groups.find((group) => group.id === 'small-1')!.sections.push('zurigo');
     expect(validateItShardGroupPlan(plan).errors).toContain('group sections do not partition requiredSections');
+  });
+
+  it('fails closed when the required section set is empty', () => {
+    expect(() => createItShardGroupPlan({
+      repoRoot: ROOT,
+      sections: [],
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+    })).toThrow('non-empty required section set');
+
+    const emptyPlan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: [],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({ id, sections: [], files: 0 })),
+    };
+    expect(validateItShardGroupPlan(emptyPlan).errors).toContain('requiredSections is empty or missing');
+
+    const malformedPlan = {
+      ...emptyPlan,
+      requiredSections: [false],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? [false] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    expect(validateItShardGroupPlan(malformedPlan).errors).toContain('requiredSections contains an invalid section key');
+  });
+
+  it('fails a publisher group with an empty assignment before attempting a shard push', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-empty-group-'));
+    const planFile = path.join(temp, 'plan.json');
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: ['ticino'],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? ['ticino'] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(planFile, JSON.stringify(plan));
+    try {
+      let failure: any;
+      try {
+        execFileSync('bash', ['scripts/ci/push-it-shard-group.sh', 'zurigo'], {
+          cwd: ROOT,
+          env: {
+            ...process.env,
+            IT_SHARD_PLAN_FILE: planFile,
+            SOURCE_RUN_ID: '12345',
+            SOURCE_SHA: 'a'.repeat(40),
+            DEPLOY_BUILD_ID: '98765',
+            CDN_JOB_START_EPOCH: String(Math.floor(Date.now() / 1000)),
+            RUNNER_TEMP: temp,
+          },
+          stdio: 'pipe',
+        });
+      } catch (error) {
+        failure = error;
+      }
+      expect(failure).toBeDefined();
+      expect(failure.status).toBe(2);
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('has an empty assigned section set');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects malformed required sections before rewriting validation batches', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-validation-batches-invalid-plan-'));
+    const planFile = path.join(temp, 'plan.json');
+    const outDir = path.join(temp, 'out');
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'keep.txt'), 'keep');
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: [false],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? [false] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(planFile, JSON.stringify(plan));
+
+    try {
+      expect(() => packageItShardValidationBatches({
+        planFile,
+        tarDir: path.join(temp, 'tars'),
+        outDir,
+      })).toThrow('requiredSections contains an invalid section key');
+      expect(fs.readFileSync(path.join(outDir, 'keep.txt'), 'utf8')).toBe('keep');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('fails final assembly when jq cannot read the required section set', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-assembly-jq-failure-'));
+    const runnerTemp = path.join(temp, 'runner');
+    const planDir = path.join(runnerTemp, 'it-publish-plan');
+    const rootParts = path.join(runnerTemp, 'it-publish-root');
+    const fakeBin = path.join(temp, 'bin');
+    fs.mkdirSync(planDir, { recursive: true });
+    fs.mkdirSync(rootParts, { recursive: true });
+    fs.mkdirSync(fakeBin, { recursive: true });
+
+    const plan = {
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: ['ticino'],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? ['ticino'] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    fs.writeFileSync(path.join(planDir, 'it-shard-group-plan.json'), JSON.stringify(plan));
+    fs.writeFileSync(path.join(planDir, 'locale-sitemap-manifest-it.json'), '{}\n');
+    fs.writeFileSync(path.join(rootParts, 'it-publish-root.tar.zst'), 'fixture');
+    fs.writeFileSync(path.join(fakeBin, 'jq'), '#!/bin/sh\nexit 1\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(fakeBin, 'zstd'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(fakeBin, 'tar'), '#!/bin/sh\nexit 0\n', { mode: 0o755 });
+
+    try {
+      let failure: any;
+      try {
+        execFileSync('bash', ['scripts/ci/assemble-it-publish-root.sh'], {
+          cwd: ROOT,
+          env: {
+            ...process.env,
+            PATH: `${fakeBin}:${process.env.PATH}`,
+            RUNNER_TEMP: runnerTemp,
+          },
+          stdio: 'pipe',
+        });
+      } catch (error) {
+        failure = error;
+      }
+      expect(failure).toBeDefined();
+      expect(failure.status, String(failure.stderr)).toBe(1);
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('cannot read required IT sections from the publish plan');
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).not.toContain('[it-publish] root extracted');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 });

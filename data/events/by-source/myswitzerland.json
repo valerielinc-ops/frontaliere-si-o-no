@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-10T14:10:53.767Z",
+  "assembledAt": "2026-11-11T13:22:46.788Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -40611,38 +40611,33 @@
         "de": "Mal-Atelier",
         "fr": "Atelier de peinture"
       },
-      "startDate": "2026-10-10",
+      "startDate": "2026-11-14",
       "endDate": "2026-11-14",
-      "startTime": "10:00",
       "category": "Event",
-      "venue": "KULTURLABOR.sh",
+      "venue": "Schaffhausen",
       "comune": "Schaffhausen",
       "canton": "SH",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/painting-studio/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/painting-studio/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
         "lat": 47.696683,
         "lng": 8.637606
       },
-      "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "KULTURLABOR.sh wir@kulturlabor.sh",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/painting-studio/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "KULTURLABOR.sh"
-      },
+      "recurring": false,
+      "sourceDescriptionHash": "e8610841a4f1aa8d7c6b119c0d4bbc4702901f693bf4e47abb9b3cb6aa219dfb",
       "previousRoutes": [
+        {
+          "canton": "SH",
+          "comune": "Schaffhausen",
+          "slug": "painting-studio-2026-10-10"
+        },
         {
           "canton": "SH",
           "comune": "Schaffhausen",
           "slug": "painting-studio-2026-09-05"
         }
-      ],
-      "sourceDescriptionHash": "e8610841a4f1aa8d7c6b119c0d4bbc4702901f693bf4e47abb9b3cb6aa219dfb"
+      ]
     },
     {
       "id": "myswitzerland:354e9008f81a4ce78a75105c13408285",
@@ -125109,22 +125104,28 @@
         "de": "Tokyo-Ga",
         "fr": "Tokyo-Ga"
       },
-      "startDate": "2026-10-16",
-      "endDate": "2026-10-30",
-      "startTime": "15:00",
-      "category": "Theater",
-      "venue": "Cinémathèque suisse",
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "category": "Event",
+      "venue": "Lausanne",
       "comune": "Lausanne",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/tokyo-ga/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tokyo-ga/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
         "lat": 46.5184353,
         "lng": 6.6356516
       },
-      "recurring": true,
-      "sourceDescriptionHash": "168b50e44636894c7f973bfe56d9f0716118d8d13c6b2ef8ef3a8dd5c423a75a"
+      "recurring": false,
+      "sourceDescriptionHash": "168b50e44636894c7f973bfe56d9f0716118d8d13c6b2ef8ef3a8dd5c423a75a",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Lausanne",
+          "slug": "tokyo-ga-2026-10-16"
+        }
+      ]
     },
     {
       "id": "myswitzerland:34f2bd207a0b48019f0f086fffdfdd5d",
@@ -138594,14 +138595,13 @@
         "de": "Neuenburger Markt",
         "fr": "Marché de Neuchâtel"
       },
-      "startDate": "2026-09-26",
-      "endDate": "2027-03-30",
-      "startTime": "02:00",
+      "startDate": "2026-11-01",
+      "endDate": "2027-10-31",
       "category": "Event",
-      "venue": "Place des Halles",
+      "venue": "Neuchâtel",
       "comune": "Neuchâtel",
       "canton": "NE",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/neuchatel-market/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/neuchatel-market/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -138609,11 +138609,14 @@
         "lng": 6.9283076
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Marché de Neuchâ"
-      },
-      "sourceDescriptionHash": "c8062266841a7a0acd347bc972e4a5fdcac018935e45491273771bc27af9997d"
+      "sourceDescriptionHash": "c8062266841a7a0acd347bc972e4a5fdcac018935e45491273771bc27af9997d",
+      "previousRoutes": [
+        {
+          "canton": "NE",
+          "comune": "Neuchâtel",
+          "slug": "neuchatel-market-2026-09-26"
+        }
+      ]
     },
     {
       "id": "myswitzerland:3747cfcfab9d41aea72a1af521b15a84",
@@ -262619,9 +262622,8 @@
         "de": "Soirée Super",
         "fr": "Soirée Super"
       },
-      "startDate": "2026-10-09",
+      "startDate": "2026-09-10",
       "endDate": "2027-09-02",
-      "startTime": "02:00",
       "category": "Event",
       "venue": "Losanna",
       "comune": "Lausanne",
@@ -262634,16 +262636,14 @@
         "lng": 6.6370125
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Losanna"
-      },
-      "sourceDescriptionHash": "6911078f9ce2841157a73da2e6297ee4d6e64c75cc614fc3476513453e4a5ccd"
+      "sourceDescriptionHash": "6911078f9ce2841157a73da2e6297ee4d6e64c75cc614fc3476513453e4a5ccd",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Lausanne",
+          "slug": "soiree-super-2026-10-09"
+        }
+      ]
     },
     {
       "id": "myswitzerland:33c6ce9ad393476e902926406018c8f9",
@@ -262753,13 +262753,12 @@
       "title": "KALIKA (FR) + SUPPORT",
       "titleByLocale": {
         "it": "KALIKA (FR) + SUPPORT",
-        "en": "KALIKA (FR) + SUPPORT",
-        "de": "KALIKA (FR) + SUPPORT",
-        "fr": "KALIKA (FR) + SUPPORT"
+        "en": "KALIKA (FR) + FANCY DOLCY (FR)",
+        "de": "KALIKA (FR) + FANCY DOLCY (FR)",
+        "fr": "KALIKA (FR) + FANCY DOLCY (FR)"
       },
       "startDate": "2026-11-14",
       "endDate": "2026-11-14",
-      "startTime": "00:00",
       "category": "Event",
       "venue": "Losanna",
       "comune": "Lausanne",
@@ -262768,20 +262767,11 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
-        "lat": 46.5200725,
-        "lng": 6.6315445
+        "lat": 46.5201041,
+        "lng": 6.6313666
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Losanna"
-      },
-      "sourceDescriptionHash": "1b219675b47e59ef1097da00739f35e3b9ebbc6bec7a653ef5f5c92001db69b7"
+      "sourceDescriptionHash": "796db43577daaf8c637406633449df0268a8536fb0c91453a86db05ac6cf557e"
     },
     {
       "id": "myswitzerland:31a2323601704e3798b4e7ccc55b7cda",
@@ -275187,6 +275177,384 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "b4df5fb5a31df5f70e916ddfa680c1070faa1e9a5a00dba6bfe1d0b33c554966"
+    },
+    {
+      "id": "myswitzerland:37405cfd19cb4922a822d6b54ce59b4f",
+      "title": "Schaustelle im Dynamo Zürich",
+      "titleByLocale": {
+        "it": "Schaustelle im Dynamo Zürich",
+        "en": "Schaustelle im Dynamo Zürich",
+        "de": "Schaustelle im Dynamo Zürich",
+        "fr": "Schaustelle im Dynamo Zürich"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Zurigo",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/schaustelle-im-dynamo-zuerich-5-6-dezember-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3830642,
+        "lng": 8.539633
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Produkte"
+        },
+        {
+          "name": "Walk-in-Workshops"
+        },
+        {
+          "name": "Kerzenziehen"
+        },
+        {
+          "name": "Glühwein"
+        }
+      ],
+      "sourceDescriptionHash": "5670ecd5d8256f44e8bf0ec08731d5fa51c386784902f31ba8485ac7a9a0be88"
+    },
+    {
+      "id": "myswitzerland:3719bf071bab4f0187303002d96d2226",
+      "title": "Weihnachtsmarkt & Lichterfest",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt & Lichterfest",
+        "en": "Weihnachtsmarkt & Lichterfest",
+        "de": "Weihnachtsmarkt & Lichterfest",
+        "fr": "Weihnachtsmarkt & Lichterfest"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-lichterfest/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.569124,
+        "lng": 7.634022
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d8fd9a975f589c904da5a412132894410364d9d1f63f0ef5d967acf8a51cebb3"
+    },
+    {
+      "id": "myswitzerland:369722f5f462466d84600ad0cc6c1c36",
+      "title": "Öffentliche Führung \"Bahnstadt\"",
+      "titleByLocale": {
+        "it": "Öffentliche Führung \"Bahnstadt\"",
+        "en": "Öffentliche Führung \"Bahnstadt\"",
+        "de": "Öffentliche Führung \"Bahnstadt\"",
+        "fr": "Öffentliche Führung \"Bahnstadt\""
+      },
+      "startDate": "2027-02-21",
+      "endDate": "2027-02-21",
+      "category": "Event",
+      "venue": "Olten",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/oeffentliche-fuehrung-bahnstadt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.351598,
+        "lng": 7.9075764
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5c00eff8c35a5633f2b15073d59dc963958504604677e3843d49e30c46d6c39e"
+    },
+    {
+      "id": "myswitzerland:35da4df5d5674dd48eb5897f7d9554cb",
+      "title": "Chevrina serrata BBQ",
+      "titleByLocale": {
+        "it": "Chevrina serrata BBQ",
+        "en": "Chevrina BBQ-evening",
+        "de": "Chevrina BBQ-Abend",
+        "fr": "Chevrina BBQ-Abend"
+      },
+      "startDate": "2027-02-03",
+      "endDate": "2027-02-17",
+      "category": "Event",
+      "venue": "Disentis",
+      "comune": "Disentis/Mustér",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/chevrina-serrata-bbq/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7004019,
+        "lng": 8.8416
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ea211706906cf1e8cf4dc71612d7960c321e00ce9e6ac50dba82d6812ab0f408"
+    },
+    {
+      "id": "myswitzerland:3578dee90b40423685822b94dab57144",
+      "title": "Theater «Der Killer und die Nervensäge»",
+      "titleByLocale": {
+        "it": "Theater «Der Killer und die Nervensäge»",
+        "en": "Theater «Der Killer und die Nervensäge»",
+        "de": "Theater «Der Killer und die Nervensäge»",
+        "fr": "Theater «Der Killer und die Nervensäge»"
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-20",
+      "category": "Event",
+      "venue": "Urdorf",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theater-der-killer-und-die-nervensaege/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.387017,
+        "lng": 8.4256455
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "15d276e60a58a586c3c7addfb6cd8f2b639f9b04a39be20731d2aaee86992f4b"
+    },
+    {
+      "id": "myswitzerland:34b6413321ca4af2af3f3f466b45d7e7",
+      "title": "Malworkshop - Acht Farbwelten – ein Workshop - 28. Mai 2027",
+      "titleByLocale": {
+        "it": "Malworkshop - Acht Farbwelten – ein Workshop - 28. Mai 2027",
+        "en": "Malworkshop - Acht Farbwelten – ein Workshop - 28. Mai 2027",
+        "de": "Malworkshop - Acht Farbwelten – ein Workshop - 28. Mai 2027",
+        "fr": "Malworkshop - Acht Farbwelten – ein Workshop - 28. Mai 2027"
+      },
+      "startDate": "2027-05-28",
+      "endDate": "2027-05-28",
+      "category": "Event",
+      "venue": "Wangen-Brüttisellen",
+      "comune": "Wangen-Brüttisellen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/malworkshop-acht-farbwelten-ein-workshop-28-mai-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.421991,
+        "lng": 8.627665
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7b307b8a60b71420e8d26cb500c38567d90e2c66d44ba99c3372d8ce5abeeb92"
+    },
+    {
+      "id": "myswitzerland:3497abe80b1747f7808ffc8aa4ed12f0",
+      "title": "Klosters Christmas Market",
+      "titleByLocale": {
+        "it": "Klosters Christmas Market",
+        "en": "Klosters Christmas Market",
+        "de": "Weihnachtsmarkt Klosters 2026",
+        "fr": "Klosters Christmas Market"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Klosters",
+      "comune": "Klosters",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/klosters-christmas-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8694215,
+        "lng": 9.8809299
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Gerstensuppe"
+        },
+        {
+          "name": "Kuchen"
+        },
+        {
+          "name": "Samichlaus"
+        }
+      ],
+      "sourceDescriptionHash": "463b4eba1ac433a5cb04a78fb920fc1999554af7393519f3c0ee3163746d2081"
+    },
+    {
+      "id": "myswitzerland:348c5cd59444499fa39e0c8ee8c43ec4",
+      "title": "In dein Herz",
+      "titleByLocale": {
+        "it": "In dein Herz",
+        "en": "In dein Herz",
+        "de": "In dein Herz",
+        "fr": "In dein Herz"
+      },
+      "startDate": "2027-06-12",
+      "endDate": "2027-06-12",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/in-dein-herz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Cora Antara"
+      },
+      "sourceDescriptionHash": "08d27a94c1a3b631bd66d79597a4fc6ebf62117c3ab302e73b3e029914eb46e4"
+    },
+    {
+      "id": "myswitzerland:3426330a1ee8467ab32e03a76417036d",
+      "title": "Abusitz",
+      "titleByLocale": {
+        "it": "Abusitz",
+        "en": "Abusitz",
+        "de": "Abusitz",
+        "fr": "Abusitz"
+      },
+      "startDate": "2027-02-11",
+      "endDate": "2027-02-11",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/abusitz-17/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3131262,
+        "lng": 7.9831088
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f01fd3a03092ac8a625aaaa3daea13085f5485ac3b7e968cbb10577ec9e87979"
+    },
+    {
+      "id": "myswitzerland:33b32a300ffa4c359ae459d710fdce44",
+      "title": "MEMORY",
+      "titleByLocale": {
+        "it": "MEMORY",
+        "en": "MEMORY",
+        "de": "MEMORIE",
+        "fr": "MEMORY"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Küblis",
+      "comune": "Küblis",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/memory/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.913415,
+        "lng": 9.77595
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Edition Prättigau"
+        },
+        {
+          "name": "Tanja Gujan"
+        },
+        {
+          "name": "Künstler"
+        },
+        {
+          "name": "Arbeit"
+        }
+      ],
+      "sourceDescriptionHash": "263e7123cb9b2782e8dbd0e9be21db8d00faf4af5b6dbe99ded5357f945354a2"
+    },
+    {
+      "id": "myswitzerland:337d9a97864549c4a58205851c8fbbb9",
+      "title": "2-Tagesritt ins Val Sinestra und zum Hof Zuort",
+      "titleByLocale": {
+        "it": "2-Tagesritt ins Val Sinestra und zum Hof Zuort",
+        "en": "2-day horse riding to Val Sinestra and the Zuort farm",
+        "de": "2-Tagesritt ins Val Sinestra und zum Hof Zuort",
+        "fr": "2-Tagesritt ins Val Sinestra und zum Hof Zuort"
+      },
+      "startDate": "2027-05-07",
+      "endDate": "2027-10-16",
+      "category": "Event",
+      "venue": "Scuol",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/2-tagesritt-ins-val-sinestra-und-zum-hof-zuort/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7966882,
+        "lng": 10.3020679
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "fd0e0f0f96ec0a27b78be8711e35c4ad227a1e2d0af79ac8f4dfb1d5f8f029f4"
+    },
+    {
+      "id": "myswitzerland:330c1d3b4e0a4ecbbccb85c6b2509568",
+      "title": "Season opening at the Gryon Ice Rink",
+      "titleByLocale": {
+        "it": "Season opening at the Gryon Ice Rink",
+        "en": "Season opening at the Gryon Ice Rink",
+        "de": "Saisoneröffnung in der Eishalle von Gryon",
+        "fr": "Ouverture de saison à la Patinoire de Gryon"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Gryon",
+      "comune": "Gryon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/season-opening-at-the-gryon-ice-rink/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2832314,
+        "lng": 7.0715596
+      },
+      "recurring": false,
+      "performer": {
+        "name": "BLUES SPIRIT"
+      },
+      "sourceDescriptionHash": "0eb47ef3a0ce0375650b1ccc787916856ff988d2458615080985cb15c1ef94e0"
+    },
+    {
+      "id": "myswitzerland:32bc4ff5222e4bdf8188ae75e3b3c424",
+      "title": "The funfair",
+      "titleByLocale": {
+        "it": "The funfair",
+        "en": "The funfair",
+        "de": "Die Karussells",
+        "fr": "Les carrousels"
+      },
+      "startDate": "2027-09-24",
+      "endDate": "2027-10-03",
+      "category": "Event",
+      "venue": "Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/the-funfair/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9918393,
+        "lng": 6.9342812
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Familie"
+        },
+        {
+          "name": "Freunden"
+        }
+      ],
+      "sourceDescriptionHash": "67efa3c038754e0a67ce2104927358eb3c459f057efd70f6d987253b793373c5"
     }
   ]
 }

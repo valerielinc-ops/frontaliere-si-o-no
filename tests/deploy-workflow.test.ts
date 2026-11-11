@@ -979,7 +979,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
         expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds');
       } else {
         const timeoutMatch = run.match(
-          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
+          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s/,
         );
         expect(timeoutMatch, `${name}: keep its separate bounded worker`).not.toBeNull();
         expect(Number(timeoutMatch![1]), `${name}: preserve signal-cleanup grace`).toBe(600);
@@ -987,6 +987,16 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
         // that leg retains its independent 60-minute cap.
         expect(Number(timeoutMatch![2]), `${name}: preserve its reviewed 60 min cap`).toBe(3600);
         expect(run).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+        expect(run, `${name}: serialize each section shard through the shared lease`).toContain(
+          'node scripts/ci/with-shard-writer-lock.mjs',
+        );
+        expect(run, `${name}: wait for an active full-deploy writer`).toContain('--policy wait');
+        expect(run, `${name}: keep the lock wait bounded to the worker deadline`).toContain(
+          '--timeout-ms 3600000',
+        );
+        expect(run, `${name}: wrap the existing checkpointed section push`).toContain(
+          'bash scripts/lib/push-section-shard.sh',
+        );
       }
       if (name.startsWith('Push and package IT')) {
         const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');

@@ -617,7 +617,7 @@ describe('locale publish workflow wiring', () => {
       .find((step) => step.name === 'Recheck durable locale receipt before shard side effects')?.run)
       .toContain('publish-receipts.mjs');
     expect(String(tailJob.strategy.matrix.locale)).toContain(
-      'fromJSON(needs.resolve-publish-receipts.outputs.pending_locales)',
+      'fromJSON(needs.resolve-publish-receipts.outputs.pending_nonit_locales)',
     );
     expect(String(tailJob.if)).not.toContain('matrix.locale');
     expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);
