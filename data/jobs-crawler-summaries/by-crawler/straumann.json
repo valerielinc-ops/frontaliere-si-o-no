@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-11-10T22:00:28.219Z",
+  "generatedAt": "2026-11-11T09:17:45.782Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7896,
-  "avgDurationMs": 7896,
+  "durationMs": 7728,
+  "avgDurationMs": 7728,
   "durationHistory": [
-    7896
+    7728
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-bdac7013a227",
-      "slug": "zahntechniker-design-digital-cad-w-m-d-straumann-ch",
+      "slug": "tecnico-dentale-design-digital-cad-m-f-d-straumann-rheinfelden",
       "company": "Straumann",
       "companyKey": "straumann",
       "companyDomain": "straumann.com",
@@ -34,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22479/zahntechniker-design-digital-cad-w-m-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:00:06.717Z",
+      "crawledAt": "2026-11-11T09:17:23.833Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -50,25 +51,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22479/zahntechniker-design-digital-cad-w-m-d",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4310",
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T22:00:06.717Z",
+      "validThrough": "2027-02-09T09:17:23.833Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -83,7 +82,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:00:06.367Z",
+      "crawledAt": "2026-11-11T09:17:23.558Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -106,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T22:00:06.367Z",
+      "validThrough": "2027-01-19T09:17:23.558Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -128,7 +127,7 @@
       "url": "https://careers.straumann.com/global/en/job/22395/quality-engineer-m-f-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:00:06.041Z",
+      "crawledAt": "2026-11-11T09:17:22.765Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -151,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T22:00:06.041Z",
+      "validThrough": "2027-02-02T09:17:22.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -173,7 +172,7 @@
       "url": "https://careers.straumann.com/global/en/job/22497/cdc-operations-manager-m-f-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:00:05.443Z",
+      "crawledAt": "2026-11-11T09:17:22.450Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -196,7 +195,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T22:00:05.443Z",
+      "validThrough": "2027-02-04T09:17:22.450Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -218,7 +217,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:00:05.097Z",
+      "crawledAt": "2026-11-11T09:17:22.072Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -241,7 +240,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T22:00:05.097Z",
+      "validThrough": "2027-01-11T09:17:22.072Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -263,7 +262,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:00:04.620Z",
+      "crawledAt": "2026-11-11T09:17:21.694Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -286,7 +285,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T22:00:04.620Z",
+      "validThrough": "2027-01-08T09:17:21.694Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -308,7 +307,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T22:00:04.326Z",
+      "crawledAt": "2026-11-11T09:17:21.055Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -331,7 +330,7 @@
       "postalCode": "2613",
       "streetAddress": "Villeret",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:00:04.326Z",
+      "validThrough": "2026-12-11T09:17:21.055Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -353,7 +352,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:00:03.881Z",
+      "crawledAt": "2026-11-11T09:17:20.332Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -376,7 +375,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:00:03.881Z",
+      "validThrough": "2026-12-11T09:17:20.332Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -387,5 +386,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

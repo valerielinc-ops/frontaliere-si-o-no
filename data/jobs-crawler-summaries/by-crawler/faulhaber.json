@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-11-10T22:01:48.589Z",
+  "generatedAt": "2026-11-11T09:19:47.397Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 58202,
-  "avgDurationMs": 58202,
+  "durationMs": 48720,
+  "avgDurationMs": 48720,
   "durationHistory": [
-    58202
+    48720
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T22:01:34.251Z",
+      "crawledAt": "2026-11-11T09:19:29.096Z",
       "firstSeenAt": "2026-10-16T21:17:07.275Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:01:34.251Z",
+      "validThrough": "2026-12-11T09:19:29.096Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/58894/Mitarbeiter-in-Spedition-Lager-100",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:01:12.455Z",
+      "crawledAt": "2026-11-11T09:19:08.473Z",
       "firstSeenAt": "2026-11-09T21:19:50.263Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T22:01:12.455Z",
+      "validThrough": "2027-02-07T09:19:08.473Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -116,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }
