@@ -862,15 +862,15 @@ export function getCachedPublicPlateAuctionSourceBody({
 
   const entry = { bypassCache, promise: null };
   const pending = (async () => {
-      const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey, now: new Date(now()) });
-      const body = Buffer.from(JSON.stringify(snapshot));
-      const bodies = { body, gzip: await gzipAsync(body) };
-      // An older normal build can finish after a forced refresh has started;
-      // only the current entry may repopulate the cache with its result.
-      if (pendingSourceBodies.get(normalizedSourceKey) === entry) {
-        cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
-      }
-      return bodies;
+    const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey, now: new Date(now()) });
+    const body = Buffer.from(JSON.stringify(snapshot));
+    const bodies = { body, gzip: await gzipAsync(body) };
+    // An older normal build can finish after a forced refresh has started;
+    // only the current entry may repopulate the cache with its result.
+    if (pendingSourceBodies.get(normalizedSourceKey) === entry) {
+      cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
+    }
+    return bodies;
   })();
   entry.promise = pending;
   pendingSourceBodies.set(normalizedSourceKey, entry);
