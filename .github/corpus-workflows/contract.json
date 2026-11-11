@@ -4,27 +4,27 @@
   "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "84a16585d104832c4cc7ed439564374f840113b6",
-  "sourceCommitVerified": true,
+  "sourceCommit": "e495c0e6ba2b2a37c48c8f6d673d1f7cb687ff50",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
     "sourceRef": "main",
-    "sourceCommit": "84a16585d104832c4cc7ed439564374f840113b6"
+    "sourceCommit": "e495c0e6ba2b2a37c48c8f6d673d1f7cb687ff50"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 698,
+  "crawlerCount": 701,
   "crawlerRosterCardinality": {
-    "sourceCommit": "84a16585d104832c4cc7ed439564374f840113b6",
+    "sourceCommit": "e495c0e6ba2b2a37c48c8f6d673d1f7cb687ff50",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 698
+    "crawlerCount": 701
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:9ca283146fff46139b46d15a64a4c208b43860630e207065a2cdb7c328cc060b",
+    "rosterDigest": "sha256:bfb203f2c71dc7a4261694ee687feae88f8470b691a3bbe1fdd20af406c672b1",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -135,6 +135,7 @@
     "scripts/update-bcvs-jobs.mjs",
     "scripts/update-beekeeper-jobs.mjs",
     "scripts/update-belimo-jobs.mjs",
+    "scripts/update-benisasa-ch-jobs.mjs",
     "scripts/update-benteler-jobs.mjs",
     "scripts/update-benu-jobs.mjs",
     "scripts/update-berit-klinik-jobs.mjs",
@@ -390,6 +391,7 @@
     "scripts/update-lindenhofgruppe-jobs.mjs",
     "scripts/update-lindt-spruengli-jobs.mjs",
     "scripts/update-lipsuisse-ch-jobs.mjs",
+    "scripts/update-lipsuisse-ch-lipsuisse-ch-jobs.mjs",
     "scripts/update-livit-jobs.mjs",
     "scripts/update-localsearch-jobs.mjs",
     "scripts/update-locarno-film-festival-jobs.mjs",
@@ -478,6 +480,7 @@
     "scripts/update-prodyna-com-jobs.mjs",
     "scripts/update-project-interim-jobs.mjs",
     "scripts/update-proman-fleurier-jobs.mjs",
+    "scripts/update-proplaning-ag-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
     "scripts/update-protectas-jobs.mjs",
     "scripts/update-proton-jobs.mjs",
@@ -1405,8 +1408,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "2613b23c9b52f99d402e89057b290c0c8a3406bd22632d6113c771078aba8571",
-      "artifactSha256": "a26139ff39fee0625e5aaa722a495b1e0d565a474d85460896ad1e2a7eac7712",
+      "sourceSha256": "1d478cc349bd05a4056414fff09f9fba7a8dd63273e8ae85cfcadcdd15e7451b",
+      "artifactSha256": "e99696ece6aa64173f91196671f5fb5aa75b261231f3043ee9d53c3174e39807",
       "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
       "members": [
         "migros",
@@ -1438,14 +1441,15 @@
         "unibe",
         "convit",
         "agat",
-        "hanseisenring"
+        "hanseisenring",
+        "proplaning-ag"
       ]
     },
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "679bd3a85eac9cf9e4003a572607aa76a403ffe637ea053a31e5ae32b70e36aa",
-      "artifactSha256": "7d0ae87ce7d002bdd280fb05235a3a83aab4acc35e6761bb39de0dbe1552b186",
+      "sourceSha256": "b5425ca86343f92c38829280d745af8d3dcf367405ad6277254351e51a9e2240",
+      "artifactSha256": "cac10252da8584ec99ba19ca386bf84ae7913c5ecb71ef88e96c2aef415b2633",
       "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
       "members": [
         "ottos",
@@ -1477,7 +1481,8 @@
         "adus-klinik",
         "ist",
         "proman-fleurier",
-        "csem"
+        "csem",
+        "lipsuisse-ch-lipsuisse-ch"
       ]
     },
     {
@@ -1602,8 +1607,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "45e3dcf5d799a2aac42bddf1e5dbdec58ed63f6182e068619d3849e51ff84415",
-      "artifactSha256": "b21f6b92990b4310f5c11259a4b612233cab0c6b9a70141dba4900e28790cfe9",
+      "sourceSha256": "6819529f1ffd73d30b1a5dabd41350b8fd667918e5c7b1c389005cba3f0d9340",
+      "artifactSha256": "55eda484f5dea4ca68932daffa2bfe74c81be2c8ec5ee4adb431e9c46b49ce1b",
       "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
       "members": [
         "seco-jobroom",
@@ -1635,7 +1640,8 @@
         "freestarinformatik",
         "richnerstutz-ch",
         "data-unit-ag",
-        "prodyna-com"
+        "prodyna-com",
+        "benisasa-ch"
       ]
     },
     {
