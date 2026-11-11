@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-11T00:28:31.683Z",
+  "generatedAt": "2026-11-11T01:27:30.658Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -4233,6 +4233,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T13:17:43.671Z"
+    },
+    "ge-agenda:blue-blue-indie-rock-vostok-session::04713fed634b349faa103609993d9cb6f1e149f27224977560bbc32e7bc2e73b": {
+      "id": "ge-agenda:blue-blue-indie-rock-vostok-session",
+      "sourceDescriptionHash": "04713fed634b349faa103609993d9cb6f1e149f27224977560bbc32e7bc2e73b",
+      "description": "L’appuntamento è un concerto di indie rock e pop annunciato a Ginevra, nel cantone di Ginevra. È inserito nella Vostok Session.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è un concerto di indie rock e pop annunciato a Ginevra, nel cantone di Ginevra. È inserito nella Vostok Session.",
+        "en": "This event is an indie rock and pop concert announced in Geneva, in the canton of Geneva. It is part of the Vostok Session.",
+        "de": "Die Veranstaltung ist ein Indie-Rock- und Popkonzert in Genf, im Kanton Genf. Sie ist Teil der Vostok Session.",
+        "fr": "Ce rendez-vous est un concert d’indie rock et de pop annoncé à Genève, dans le canton de Genève. Il est associé à la Vostok Session."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T01:22:56.638Z"
     },
     "ge-agenda:blue-zone-quoi-vieillesse-0::d6f3afd0b4779baa59ece6d6a7ca7c8f7e67ff6bd00d99f88a852457ada46027": {
       "id": "ge-agenda:blue-zone-quoi-vieillesse-0",
@@ -185964,15 +185978,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:blue-blue-indie-rock-vostok-session::04713fed634b349faa103609993d9cb6f1e149f27224977560bbc32e7bc2e73b": {
-      "id": "ge-agenda:blue-blue-indie-rock-vostok-session",
-      "sourceDescriptionHash": "04713fed634b349faa103609993d9cb6f1e149f27224977560bbc32e7bc2e73b",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:12:37.031Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:blue-trial::aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3": {
       "id": "ge-agenda:blue-trial",
       "sourceDescriptionHash": "aa6be4b09aef76ab806c7f6c703c10ad13820a7c25abe29b015ba3c4a2d649b3",
@@ -186040,8 +186045,8 @@
       "id": "ge-agenda:candlelight-concert",
       "sourceDescriptionHash": "aea0854996efb87576f44b556bb99f60c5f9e6de1ed3c05b6eef5b7109f47bfd",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:14:05.380Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T01:21:43.935Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187066,8 +187071,8 @@
       "id": "guidle:Ac9q5aW",
       "sourceDescriptionHash": "285e3b5c04954923a517952dc31d5950d438dff95d4a50efb17e7893eea6d7ec",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:14:13.557Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T01:21:28.025Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187606,8 +187611,8 @@
       "id": "guidle:AjsxJm7",
       "sourceDescriptionHash": "94a22dbb3cee9f31847f307a0129af9c258ef51dc57b93148d7b1ff22ac1757b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:12:15.345Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T01:19:46.111Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189037,8 +189042,8 @@
       "id": "lu-stadt-agenda:7463719",
       "sourceDescriptionHash": "6b6a8aff68b85987b4f95a89f9ad5526329f2827c6ad43307073a5d6374a8ad9",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:13:13.563Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T01:20:55.788Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189046,8 +189051,8 @@
       "id": "lu-stadt-agenda:7660906",
       "sourceDescriptionHash": "b0ad465e9f487d81b9b72dbecb88d69281a6c7f7dfa0bbc5b9c05b1725de2366",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-10T23:11:55.728Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T01:22:42.209Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
