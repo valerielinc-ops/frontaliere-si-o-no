@@ -39,5 +39,8 @@ export const ASSISTED_APPLICATION_REVIEW_URL = `${FUNCTIONS_BASE}/assistedApplic
 /** Owner-authenticated endpoint for a temporary CV preview link. */
 export const GET_ASSISTED_APPLICATION_CV_URL = `${FUNCTIONS_BASE}/getAssistedApplicationCvUrl`;
 
+/** Authenticated download of the owner's own CV in the Swiss bilingual template. */
+export const DOWNLOAD_BILINGUAL_CV_URL = `${FUNCTIONS_BASE}/downloadBilingualCv`;
+
 /** Server-side, idempotent record of the explicit job-application intent click. */
 export const RECORD_APPLICATION_INTENT_URL = `${FUNCTIONS_BASE}/recordApplicationIntent`;

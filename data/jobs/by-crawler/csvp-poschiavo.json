@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-11-11T09:27:59.514Z",
-  "runId": "42993516774",
+  "assembledAt": "2026-11-11T21:29:33.821Z",
+  "runId": "43101653155",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.767Z",
+      "crawledAt": "2026-11-11T21:29:27.357Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:48.767Z",
+      "validThrough": "2027-01-05T21:29:27.357Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -104,7 +104,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.568Z",
+      "crawledAt": "2026-11-11T21:29:27.147Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:27:48.568Z",
+      "validThrough": "2027-01-26T21:29:27.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -147,9 +147,9 @@
       "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
       "slugByLocale": {
         "it": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
-        "en": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
-        "de": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
-        "fr": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo"
+        "en": "associate-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "mitarbeiter-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "prepose-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
       },
       "company": "Centro Sanitario Valposchiavo (CSVP)",
       "companyKey": "csvp-poschiavo",
@@ -173,7 +173,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.297Z",
+      "crawledAt": "2026-11-11T21:29:26.855Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -191,9 +191,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -209,7 +207,7 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:27:48.297Z",
+      "validThrough": "2027-02-09T21:29:26.855Z",
       "validThroughSource": "last-observed-window"
     }
   ]

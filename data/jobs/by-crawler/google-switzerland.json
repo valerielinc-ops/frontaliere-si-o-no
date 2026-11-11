@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-11-11T09:21:11.020Z",
-  "runId": "42992157212",
+  "assembledAt": "2026-11-11T21:21:42.642Z",
+  "runId": "43100279700",
   "jobs": [
     {
       "id": "google-switzerland-93a8572772f9",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/128594980477248198-security-sales-specialist-google-cloud-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:21:01.464Z",
+      "crawledAt": "2026-11-11T21:21:36.231Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -82,8 +82,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:21:01.464Z",
+      "validThrough": "2027-01-25T21:21:36.231Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-b2742d614df0",
+      "slug": "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland",
+      "slugByLocale": {
+        "en": "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland",
+        "it": "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland",
+        "de": "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland",
+        "fr": "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Senior Software Engineer, Google Cloud Generative AI Blackbelt Team",
+      "titleByLocale": {
+        "en": "Senior Software Engineer, Google Cloud Generative AI Blackbelt Team",
+        "it": "Senior Software Ingegnere, Google Cloud Generative AI Blackbelt Team",
+        "de": "Senior Software Ingenieur, Google Cloud Generative AI Blackbelt Team",
+        "fr": "Senior Software Ingénieur, Google Cloud Generative AI Blackbelt Team"
+      },
+      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in software development.\n\n• 5 years of experience in a people management role within software engineering.\n\nPreferred qualifications:\n\n• Master's degree in Engineering, Computer Science, or a related technical field.\n\n• Experience architecting and developing software or infrastructure for scalable, distributed systems and with machine learning technologies.\n\n• Experience building scalable end to end software architectures that use Agentic or GenAI driven capabilities.\n\n• Understanding of responsible AI practices.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.The Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n Responsibilities\n\n• Work with the team to identify and qualify business opportunities, understand key customer technical objections, and develop the strategy to resolve technical blockers.\n\n• Provide AI expertise to support the technical relationship with Google’s customers, manage product and solution briefings, create demos, proof-of-concept work, and partner directly with product management to prioritize solutions impacting customer adoption to Google Cloud.\n\n• Recommend integration strategies, enterprise architectures, platforms, and application infrastructure required to implement a complete solution Google Cloud.\n\n• Support developers, creators, and enterprises to leverage Google’s Generative Language APIs so they can build their own AI products in the future.\n\n• Travel to customer sites, conferences, and other related events as needed.",
+      "descriptionByLocale": {
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in software development.\n\n• 5 years of experience in a people management role within software engineering.\n\nPreferred qualifications:\n\n• Master's degree in Engineering, Computer Science, or a related technical field.\n\n• Experience architecting and developing software or infrastructure for scalable, distributed systems and with machine learning technologies.\n\n• Experience building scalable end to end software architectures that use Agentic or GenAI driven capabilities.\n\n• Understanding of responsible AI practices.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.The Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n Responsibilities\n\n• Work with the team to identify and qualify business opportunities, understand key customer technical objections, and develop the strategy to resolve technical blockers.\n\n• Provide AI expertise to support the technical relationship with Google’s customers, manage product and solution briefings, create demos, proof-of-concept work, and partner directly with product management to prioritize solutions impacting customer adoption to Google Cloud.\n\n• Recommend integration strategies, enterprise architectures, platforms, and application infrastructure required to implement a complete solution Google Cloud.\n\n• Support developers, creators, and enterprises to leverage Google’s Generative Language APIs so they can build their own AI products in the future.\n\n• Travel to customer sites, conferences, and other related events as needed.",
+        "it": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in software development.\n\n• 5 years of experience in a people management role within software engineering.\n\nPreferred qualifications:\n\n• Master's degree in Engineering, Computer Science, or a related technical field.\n\n• Experience architecting and developing software or infrastructure for scalable, distributed systems and with machine learning technologies.\n\n• Experience building scalable end to end software architectures that use Agentic or GenAI driven capabilities.\n\n• Understanding of responsible AI practices.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.The Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n Responsibilities\n\n• Work with the team to identify and qualify business opportunities, understand key customer technical objections, and develop the strategy to resolve technical blockers.\n\n• Provide AI expertise to support the technical relationship with Google’s customers, manage product and solution briefings, create demos, proof-of-concept work, and partner directly with product management to prioritize solutions impacting customer adoption to Google Cloud.\n\n• Recommend integration strategies, enterprise architectures, platforms, and application infrastructure required to implement a complete solution Google Cloud.\n\n• Support developers, creators, and enterprises to leverage Google’s Generative Language APIs so they can build their own AI products in the future.\n\n• Travel to customer sites, conferences, and other related events as needed.",
+        "de": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in software development.\n\n• 5 years of experience in a people management role within software engineering.\n\nPreferred qualifications:\n\n• Master's degree in Engineering, Computer Science, or a related technical field.\n\n• Experience architecting and developing software or infrastructure for scalable, distributed systems and with machine learning technologies.\n\n• Experience building scalable end to end software architectures that use Agentic or GenAI driven capabilities.\n\n• Understanding of responsible AI practices.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.The Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n Responsibilities\n\n• Work with the team to identify and qualify business opportunities, understand key customer technical objections, and develop the strategy to resolve technical blockers.\n\n• Provide AI expertise to support the technical relationship with Google’s customers, manage product and solution briefings, create demos, proof-of-concept work, and partner directly with product management to prioritize solutions impacting customer adoption to Google Cloud.\n\n• Recommend integration strategies, enterprise architectures, platforms, and application infrastructure required to implement a complete solution Google Cloud.\n\n• Support developers, creators, and enterprises to leverage Google’s Generative Language APIs so they can build their own AI products in the future.\n\n• Travel to customer sites, conferences, and other related events as needed.",
+        "fr": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in software development.\n\n• 5 years of experience in a people management role within software engineering.\n\nPreferred qualifications:\n\n• Master's degree in Engineering, Computer Science, or a related technical field.\n\n• Experience architecting and developing software or infrastructure for scalable, distributed systems and with machine learning technologies.\n\n• Experience building scalable end to end software architectures that use Agentic or GenAI driven capabilities.\n\n• Understanding of responsible AI practices.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.The Google Cloud AI Research team addresses AI challenges motivated by Google Cloud’s mission of bringing AI to tech, healthcare, finance, retail and many other industries. We work on a range of unique problems focused on research topics that maximize scientific and real-world impact, aiming to push the state-of-the-art in AI and share findings with the broader research community. We also collaborate with product teams to bring innovations to real-world impact that benefits our customers.\n Responsibilities\n\n• Work with the team to identify and qualify business opportunities, understand key customer technical objections, and develop the strategy to resolve technical blockers.\n\n• Provide AI expertise to support the technical relationship with Google’s customers, manage product and solution briefings, create demos, proof-of-concept work, and partner directly with product management to prioritize solutions impacting customer adoption to Google Cloud.\n\n• Recommend integration strategies, enterprise architectures, platforms, and application infrastructure required to implement a complete solution Google Cloud.\n\n• Support developers, creators, and enterprises to leverage Google’s Generative Language APIs so they can build their own AI products in the future.\n\n• Travel to customer sites, conferences, and other related events as needed."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-11T21:21:35.671Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team",
+      "jobReqId": "107667015740596934",
+      "requirements": [
+        "Bachelor's degree or equivalent practical experience.",
+        "8 years of experience in software development.",
+        "5 years of experience in a people management role within software engineering."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree or equivalent practical experience.",
+          "8 years of experience in software development.",
+          "5 years of experience in a people management role within software engineering."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:21:35.671Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-11T21:21:35.671Z"
     },
     {
       "id": "google-switzerland-30025ee810c0",
@@ -116,7 +197,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:21:00.919Z",
+      "crawledAt": "2026-11-11T21:21:35.109Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -161,7 +242,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:21:00.919Z",
+      "validThrough": "2026-12-11T21:21:35.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +276,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:59.669Z",
+      "crawledAt": "2026-11-11T21:21:34.517Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -239,7 +320,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:59.669Z",
+      "validThrough": "2026-12-11T21:21:34.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -273,7 +354,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:59.145Z",
+      "crawledAt": "2026-11-11T21:21:33.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -331,7 +412,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:59.145Z",
+      "validThrough": "2027-02-02T21:21:33.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +446,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:58.582Z",
+      "crawledAt": "2026-11-11T21:21:33.321Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -412,7 +493,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:20:58.582Z",
+      "validThrough": "2027-01-27T21:21:33.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -446,7 +527,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:57.995Z",
+      "crawledAt": "2026-11-11T21:21:32.738Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -496,7 +577,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:20:57.995Z",
+      "validThrough": "2026-12-29T21:21:32.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -530,7 +611,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118953332948509382-senior-security-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:57.425Z",
+      "crawledAt": "2026-11-11T21:21:32.151Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -578,7 +659,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:20:57.425Z",
+      "validThrough": "2027-02-03T21:21:32.151Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -612,7 +693,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:56.868Z",
+      "crawledAt": "2026-11-11T21:21:31.622Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -658,7 +739,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:20:56.868Z",
+      "validThrough": "2027-01-11T21:21:31.622Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -692,7 +773,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/129187054603903686-senior-product-manager-ai-ecosystems-frontier-ai-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:56.208Z",
+      "crawledAt": "2026-11-11T21:21:30.911Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -749,7 +830,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:20:56.208Z",
+      "validThrough": "2027-02-02T21:21:30.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -783,7 +864,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72112067431015110-director-martech-and-applied-ai-youtube-marketing",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:55.611Z",
+      "crawledAt": "2026-11-11T21:21:30.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -830,7 +911,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:20:55.611Z",
+      "validThrough": "2027-02-05T21:21:30.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -864,7 +945,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81313308207915718-group-product-manager-search-content-platform",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:55.053Z",
+      "crawledAt": "2026-11-11T21:21:29.773Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -921,7 +1002,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:20:55.053Z",
+      "validThrough": "2026-12-19T21:21:29.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -955,7 +1036,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102134702726357702-information-security-engineer-hardware-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:54.539Z",
+      "crawledAt": "2026-11-11T21:21:29.209Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -999,7 +1080,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:54.539Z",
+      "validThrough": "2027-02-09T21:21:29.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1033,7 +1114,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131677068336210630-senior-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:53.962Z",
+      "crawledAt": "2026-11-11T21:21:28.659Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1082,7 +1163,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:53.962Z",
+      "validThrough": "2027-02-08T21:21:28.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1116,7 +1197,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/101053210633872070-senior-software-engineer-search-quality",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:53.418Z",
+      "crawledAt": "2026-11-11T21:21:28.095Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1163,7 +1244,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:20:53.418Z",
+      "validThrough": "2027-01-26T21:21:28.095Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1197,7 +1278,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:52.814Z",
+      "crawledAt": "2026-11-11T21:21:27.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1241,7 +1322,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:52.814Z",
+      "validThrough": "2027-02-01T21:21:27.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1275,7 +1356,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:52.280Z",
+      "crawledAt": "2026-11-11T21:21:26.957Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1320,7 +1401,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:52.280Z",
+      "validThrough": "2026-12-11T21:21:26.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1354,7 +1435,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:51.729Z",
+      "crawledAt": "2026-11-11T21:21:26.336Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1397,7 +1478,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:51.729Z",
+      "validThrough": "2026-12-11T21:21:26.336Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1431,7 +1512,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/80851750352757446-ai-sales-specialist-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:51.182Z",
+      "crawledAt": "2026-11-11T21:21:25.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1478,7 +1559,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:20:51.182Z",
+      "validThrough": "2027-02-04T21:21:25.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1512,7 +1593,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110546686085866182-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:50.623Z",
+      "crawledAt": "2026-11-11T21:21:25.194Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1572,7 +1653,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:20:50.623Z",
+      "validThrough": "2027-01-06T21:21:25.194Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1606,7 +1687,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108511099220828870-staff-security-engineer-dynamic-reasoning-and-nextgen-detection-and-response",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:50.054Z",
+      "crawledAt": "2026-11-11T21:21:24.640Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1668,7 +1749,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:20:50.054Z",
+      "validThrough": "2027-02-03T21:21:24.640Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1783,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/125554354085077702-software-engineer-iii-youtube-shopping-search-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:49.510Z",
+      "crawledAt": "2026-11-11T21:21:24.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1746,7 +1827,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:20:49.510Z",
+      "validThrough": "2027-02-03T21:21:24.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1780,7 +1861,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92934080961618630-security-engineer-operational-technology-google-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:48.985Z",
+      "crawledAt": "2026-11-11T21:21:23.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1829,7 +1910,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T09:20:48.985Z",
+      "validThrough": "2027-01-14T21:21:23.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1863,7 +1944,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:48.431Z",
+      "crawledAt": "2026-11-11T21:21:22.891Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1918,7 +1999,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:20:48.431Z",
+      "validThrough": "2027-01-17T21:21:22.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1952,7 +2033,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100862281352389318-senior-product-manager-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:47.853Z",
+      "crawledAt": "2026-11-11T21:21:22.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2011,7 +2092,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:20:47.853Z",
+      "validThrough": "2027-01-14T21:21:22.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2045,7 +2126,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:47.274Z",
+      "crawledAt": "2026-11-11T21:21:21.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2115,7 +2196,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:47.274Z",
+      "validThrough": "2026-12-11T21:21:21.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2149,7 +2230,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73200092168757958-senior-software-engineer-site-reliability-engineering-youtube-ml",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:46.688Z",
+      "crawledAt": "2026-11-11T21:21:21.193Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2209,7 +2290,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:20:46.688Z",
+      "validThrough": "2027-01-18T21:21:21.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2243,7 +2324,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/124012647656891078-technical-program-manager-google-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:46.158Z",
+      "crawledAt": "2026-11-11T21:21:20.603Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2303,7 +2384,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:46.158Z",
+      "validThrough": "2027-02-08T21:21:20.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2337,7 +2418,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105218557964362438-staff-security-engineer-security-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:45.604Z",
+      "crawledAt": "2026-11-11T21:21:19.988Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2402,7 +2483,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:45.604Z",
+      "validThrough": "2027-02-09T21:21:19.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2436,7 +2517,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103614681884566214-senior-engineering-traffic-analyst-search-antiscraper",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:45.028Z",
+      "crawledAt": "2026-11-11T21:21:19.416Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2494,7 +2575,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:45.028Z",
+      "validThrough": "2027-01-31T21:21:19.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2528,7 +2609,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:44.483Z",
+      "crawledAt": "2026-11-11T21:21:18.845Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2573,8 +2654,172 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:20:44.483Z",
+      "validThrough": "2027-01-26T21:21:18.845Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-bce07c51fb3e",
+      "slug": "senior-quantitative-ux-researcher-merchant-shopping-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "senior-quantitative-ux-researcher-merchant-shopping-google-switzerland-zurich",
+        "it": "senior-quantitative-ux-researcher-merchant-shopping-google-switzerland-zurich",
+        "de": "senior-quantitative-ux-researcher-merchant-shopping-google-switzerland-zurich",
+        "fr": "senior-quantitative-ux-researcher-merchant-shopping-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Senior Quantitative UX Researcher, Merchant Shopping",
+      "titleByLocale": {
+        "en": "Senior Quantitative UX Researcher, Merchant Shopping",
+        "it": "Senior Quantitative UX Researcher, Merchant Shopping",
+        "de": "Senior Quantitative UX Researcher, Merchant Shopping",
+        "fr": "Senior Quantitative UX Researcher, Merchant Shopping"
+      },
+      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.\n\n• 6 years of experience in an applied research setting, or similar.\n\n• Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.\n\n• Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).\n\n• Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, or related fields.\n\n• 1 year of experience using AI technology in data analysis (e.g., synthetic data injection, golden set development, prompt engineering, or LLM foundations/harnesses).\n\n• Experience leveraging a range of qualitative and quantitative research methods and analysis techniques in various disciplinary environments.\n\n• Ability to participate in technical discussions.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a User Experience Researcher (UXR), you make this possible. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, to gather insights and create industry-leading products.\n\nYou’ll play a critical role in helping your team understand user needs and will drive impact at all stages of product development, ensuring products are useful, usable, and helpful. You will explore user behaviors and motivations by conducting primary research, including: field studies, interviews, diary studies, ethnography, surveys, usability testing, and logs analysis. You will also grow within a supportive UXR community offering mentorship, regular meetups, and exclusive internal tools.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Contribute significantly to our quantitative User Experience Researcher (UXR) program in alignment with business priorities with a focus on developing AI-integrated workflows for UXers, substantively understanding user behaviors across a large spectrum of merchants from SMBs to large retailers across a wide variety of surfaces.\n\n• Influence product strategy and user experience through sound data-driven recommendations within compelling data visualizations and narratives that can travel widely across the organization.\n\n• Drive understanding of merchant users and their needs at scale by leveraging existing work from the UXR team and through new initiatives and program ownership.\n\n• Develop metrics and lead the measurement of the user experience in our products in collaboration with data science.\n\n• Contribute to our Quantitative UXR team learning and helping elevate the quantitative research craft across the broader team of UXRs.",
+      "descriptionByLocale": {
+        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.\n\n• 6 years of experience in an applied research setting, or similar.\n\n• Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.\n\n• Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).\n\n• Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, or related fields.\n\n• 1 year of experience using AI technology in data analysis (e.g., synthetic data injection, golden set development, prompt engineering, or LLM foundations/harnesses).\n\n• Experience leveraging a range of qualitative and quantitative research methods and analysis techniques in various disciplinary environments.\n\n• Ability to participate in technical discussions.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a User Experience Researcher (UXR), you make this possible. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, to gather insights and create industry-leading products.\n\nYou’ll play a critical role in helping your team understand user needs and will drive impact at all stages of product development, ensuring products are useful, usable, and helpful. You will explore user behaviors and motivations by conducting primary research, including: field studies, interviews, diary studies, ethnography, surveys, usability testing, and logs analysis. You will also grow within a supportive UXR community offering mentorship, regular meetups, and exclusive internal tools.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Contribute significantly to our quantitative User Experience Researcher (UXR) program in alignment with business priorities with a focus on developing AI-integrated workflows for UXers, substantively understanding user behaviors across a large spectrum of merchants from SMBs to large retailers across a wide variety of surfaces.\n\n• Influence product strategy and user experience through sound data-driven recommendations within compelling data visualizations and narratives that can travel widely across the organization.\n\n• Drive understanding of merchant users and their needs at scale by leveraging existing work from the UXR team and through new initiatives and program ownership.\n\n• Develop metrics and lead the measurement of the user experience in our products in collaboration with data science.\n\n• Contribute to our Quantitative UXR team learning and helping elevate the quantitative research craft across the broader team of UXRs.",
+        "it": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.\n\n• 6 years of experience in an applied research setting, or similar.\n\n• Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.\n\n• Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).\n\n• Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, or related fields.\n\n• 1 year of experience using AI technology in data analysis (e.g., synthetic data injection, golden set development, prompt engineering, or LLM foundations/harnesses).\n\n• Experience leveraging a range of qualitative and quantitative research methods and analysis techniques in various disciplinary environments.\n\n• Ability to participate in technical discussions.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a User Experience Researcher (UXR), you make this possible. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, to gather insights and create industry-leading products.\n\nYou’ll play a critical role in helping your team understand user needs and will drive impact at all stages of product development, ensuring products are useful, usable, and helpful. You will explore user behaviors and motivations by conducting primary research, including: field studies, interviews, diary studies, ethnography, surveys, usability testing, and logs analysis. You will also grow within a supportive UXR community offering mentorship, regular meetups, and exclusive internal tools.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Contribute significantly to our quantitative User Experience Researcher (UXR) program in alignment with business priorities with a focus on developing AI-integrated workflows for UXers, substantively understanding user behaviors across a large spectrum of merchants from SMBs to large retailers across a wide variety of surfaces.\n\n• Influence product strategy and user experience through sound data-driven recommendations within compelling data visualizations and narratives that can travel widely across the organization.\n\n• Drive understanding of merchant users and their needs at scale by leveraging existing work from the UXR team and through new initiatives and program ownership.\n\n• Develop metrics and lead the measurement of the user experience in our products in collaboration with data science.\n\n• Contribute to our Quantitative UXR team learning and helping elevate the quantitative research craft across the broader team of UXRs.",
+        "de": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.\n\n• 6 years of experience in an applied research setting, or similar.\n\n• Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.\n\n• Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).\n\n• Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, or related fields.\n\n• 1 year of experience using AI technology in data analysis (e.g., synthetic data injection, golden set development, prompt engineering, or LLM foundations/harnesses).\n\n• Experience leveraging a range of qualitative and quantitative research methods and analysis techniques in various disciplinary environments.\n\n• Ability to participate in technical discussions.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a User Experience Researcher (UXR), you make this possible. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, to gather insights and create industry-leading products.\n\nYou’ll play a critical role in helping your team understand user needs and will drive impact at all stages of product development, ensuring products are useful, usable, and helpful. You will explore user behaviors and motivations by conducting primary research, including: field studies, interviews, diary studies, ethnography, surveys, usability testing, and logs analysis. You will also grow within a supportive UXR community offering mentorship, regular meetups, and exclusive internal tools.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Contribute significantly to our quantitative User Experience Researcher (UXR) program in alignment with business priorities with a focus on developing AI-integrated workflows for UXers, substantively understanding user behaviors across a large spectrum of merchants from SMBs to large retailers across a wide variety of surfaces.\n\n• Influence product strategy and user experience through sound data-driven recommendations within compelling data visualizations and narratives that can travel widely across the organization.\n\n• Drive understanding of merchant users and their needs at scale by leveraging existing work from the UXR team and through new initiatives and program ownership.\n\n• Develop metrics and lead the measurement of the user experience in our products in collaboration with data science.\n\n• Contribute to our Quantitative UXR team learning and helping elevate the quantitative research craft across the broader team of UXRs.",
+        "fr": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.\n\n• 6 years of experience in an applied research setting, or similar.\n\n• Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.\n\n• Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).\n\n• Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, or related fields.\n\n• 1 year of experience using AI technology in data analysis (e.g., synthetic data injection, golden set development, prompt engineering, or LLM foundations/harnesses).\n\n• Experience leveraging a range of qualitative and quantitative research methods and analysis techniques in various disciplinary environments.\n\n• Ability to participate in technical discussions.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" As a User Experience Researcher (UXR), you make this possible. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, to gather insights and create industry-leading products.\n\nYou’ll play a critical role in helping your team understand user needs and will drive impact at all stages of product development, ensuring products are useful, usable, and helpful. You will explore user behaviors and motivations by conducting primary research, including: field studies, interviews, diary studies, ethnography, surveys, usability testing, and logs analysis. You will also grow within a supportive UXR community offering mentorship, regular meetups, and exclusive internal tools.\n\nUser experience is at the forefront of how we create intuitive, innovative, and beautiful products that people love. We strive to learn and understand our users’ needs, behaviors, and emotions to gather insights that inform product strategy and design. Our UX teams include designers, researchers, content strategists, and engineers who are passionate about quality, usability, and simplicity. We work on collaborative teams to solve complex challenges and craft experiences that highlight our products’ unique capabilities and personalities. Our work touches billions while exemplifying a key principle that is core to Google’s philosophy: “Focus on the user and all else will follow.”\n\nResponsibilities\n\n• Contribute significantly to our quantitative User Experience Researcher (UXR) program in alignment with business priorities with a focus on developing AI-integrated workflows for UXers, substantively understanding user behaviors across a large spectrum of merchants from SMBs to large retailers across a wide variety of surfaces.\n\n• Influence product strategy and user experience through sound data-driven recommendations within compelling data visualizations and narratives that can travel widely across the organization.\n\n• Drive understanding of merchant users and their needs at scale by leveraging existing work from the UXR team and through new initiatives and program ownership.\n\n• Develop metrics and lead the measurement of the user experience in our products in collaboration with data science.\n\n• Contribute to our Quantitative UXR team learning and helping elevate the quantitative research craft across the broader team of UXRs."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-11T21:21:18.246Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping",
+      "jobReqId": "78601150982431430",
+      "requirements": [
+        "Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.",
+        "6 years of experience in an applied research setting, or similar.",
+        "Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.",
+        "Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).",
+        "Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree in Human-Computer Interaction, Cognitive Science, Statistics, Psychology, Anthropology, a related field, or equivalent practical experience.",
+          "6 years of experience in an applied research setting, or similar.",
+          "Experience cleaning, joining, and analyzing datasets with various types of data, logs, and surveys.",
+          "Experience in programming languages used for data manipulation and computational statistics (e.g., Python, R, MATLAB etc.).",
+          "Experience in artificial intelligence, Machine Learning (ML) models, ML infrastructure, natural language processing or deep learning."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:21:18.246Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-11T21:21:18.246Z"
+    },
+    {
+      "id": "google-switzerland-f91a594852d7",
+      "slug": "technical-program-manager-gemma-deepmind-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "technical-program-manager-gemma-deepmind-google-switzerland-zurich",
+        "it": "technical-program-manager-gemma-deepmind-google-switzerland-zurich",
+        "de": "technical-program-manager-gemma-deepmind-google-switzerland-zurich",
+        "fr": "technical-program-manager-gemma-deepmind-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Technical Program Manager, Gemma, DeepMind",
+      "titleByLocale": {
+        "en": "Technical Program Manager, Gemma, DeepMind",
+        "it": "Technical Program Manager, Gemma, DeepMind",
+        "de": "Technical Program Manager, Gemma, DeepMind",
+        "fr": "Technical Program Manager, Gemma, DeepMind"
+      },
+      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: London, UK; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery.\n\nPreferred qualifications:\n\n• Experience with managing large-scale compute resources.\n\n• Strong technical background, with foundational AI knowledge and direct experience in model development.\n\n• Strong ability to take ownership and operate proactively in fast-paced, ambiguous environments, keeping teams focused and organized amidst evolving priorities.\n\n• Passionate about AGI, the open weight model community, and deeply curious about emerging technologies. Actively explore and utilize the latest AI tools, agents, and assistants to optimize your daily workflows and enhance productivity.\n\nAbout the job\n Artificial intelligence will be one of humanity’s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nResponsibilities\n\n• Anticipate potential risks that could impact project timelines or success. Move quickly to unblock research and engineering teams to maintain velocity.\n\n• Drive organizational efficiency by improving processes, streamlining execution, and implementing automated tooling where applicable. Actively manage compute resources including forecasting, timely reallocations, and making prioritization recommendations to Gemma leads.\n\n• Work closely with research scientists, engineers, product managers, and infrastructure teams to ensure alignment on priorities and dependencies. Facilitate clear communication across these teams.\n\n• Provide regular updates to stakeholders on progress, highlighting key milestones and risks. Maintain comprehensive documentation for processes, plans, and project status.\n\n• Contribute to the successful execution of Gemma pre-training and post-training runs. This includes developing detailed project plans and technical roadmaps.",
+      "descriptionByLocale": {
+        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: London, UK; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery.\n\nPreferred qualifications:\n\n• Experience with managing large-scale compute resources.\n\n• Strong technical background, with foundational AI knowledge and direct experience in model development.\n\n• Strong ability to take ownership and operate proactively in fast-paced, ambiguous environments, keeping teams focused and organized amidst evolving priorities.\n\n• Passionate about AGI, the open weight model community, and deeply curious about emerging technologies. Actively explore and utilize the latest AI tools, agents, and assistants to optimize your daily workflows and enhance productivity.\n\nAbout the job\n Artificial intelligence will be one of humanity’s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nResponsibilities\n\n• Anticipate potential risks that could impact project timelines or success. Move quickly to unblock research and engineering teams to maintain velocity.\n\n• Drive organizational efficiency by improving processes, streamlining execution, and implementing automated tooling where applicable. Actively manage compute resources including forecasting, timely reallocations, and making prioritization recommendations to Gemma leads.\n\n• Work closely with research scientists, engineers, product managers, and infrastructure teams to ensure alignment on priorities and dependencies. Facilitate clear communication across these teams.\n\n• Provide regular updates to stakeholders on progress, highlighting key milestones and risks. Maintain comprehensive documentation for processes, plans, and project status.\n\n• Contribute to the successful execution of Gemma pre-training and post-training runs. This includes developing detailed project plans and technical roadmaps.",
+        "it": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: London, UK; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery.\n\nPreferred qualifications:\n\n• Experience with managing large-scale compute resources.\n\n• Strong technical background, with foundational AI knowledge and direct experience in model development.\n\n• Strong ability to take ownership and operate proactively in fast-paced, ambiguous environments, keeping teams focused and organized amidst evolving priorities.\n\n• Passionate about AGI, the open weight model community, and deeply curious about emerging technologies. Actively explore and utilize the latest AI tools, agents, and assistants to optimize your daily workflows and enhance productivity.\n\nAbout the job\n Artificial intelligence will be one of humanity’s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nResponsibilities\n\n• Anticipate potential risks that could impact project timelines or success. Move quickly to unblock research and engineering teams to maintain velocity.\n\n• Drive organizational efficiency by improving processes, streamlining execution, and implementing automated tooling where applicable. Actively manage compute resources including forecasting, timely reallocations, and making prioritization recommendations to Gemma leads.\n\n• Work closely with research scientists, engineers, product managers, and infrastructure teams to ensure alignment on priorities and dependencies. Facilitate clear communication across these teams.\n\n• Provide regular updates to stakeholders on progress, highlighting key milestones and risks. Maintain comprehensive documentation for processes, plans, and project status.\n\n• Contribute to the successful execution of Gemma pre-training and post-training runs. This includes developing detailed project plans and technical roadmaps.",
+        "de": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: London, UK; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery.\n\nPreferred qualifications:\n\n• Experience with managing large-scale compute resources.\n\n• Strong technical background, with foundational AI knowledge and direct experience in model development.\n\n• Strong ability to take ownership and operate proactively in fast-paced, ambiguous environments, keeping teams focused and organized amidst evolving priorities.\n\n• Passionate about AGI, the open weight model community, and deeply curious about emerging technologies. Actively explore and utilize the latest AI tools, agents, and assistants to optimize your daily workflows and enhance productivity.\n\nAbout the job\n Artificial intelligence will be one of humanity’s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nResponsibilities\n\n• Anticipate potential risks that could impact project timelines or success. Move quickly to unblock research and engineering teams to maintain velocity.\n\n• Drive organizational efficiency by improving processes, streamlining execution, and implementing automated tooling where applicable. Actively manage compute resources including forecasting, timely reallocations, and making prioritization recommendations to Gemma leads.\n\n• Work closely with research scientists, engineers, product managers, and infrastructure teams to ensure alignment on priorities and dependencies. Facilitate clear communication across these teams.\n\n• Provide regular updates to stakeholders on progress, highlighting key milestones and risks. Maintain comprehensive documentation for processes, plans, and project status.\n\n• Contribute to the successful execution of Gemma pre-training and post-training runs. This includes developing detailed project plans and technical roadmaps.",
+        "fr": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: London, UK; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery.\n\nPreferred qualifications:\n\n• Experience with managing large-scale compute resources.\n\n• Strong technical background, with foundational AI knowledge and direct experience in model development.\n\n• Strong ability to take ownership and operate proactively in fast-paced, ambiguous environments, keeping teams focused and organized amidst evolving priorities.\n\n• Passionate about AGI, the open weight model community, and deeply curious about emerging technologies. Actively explore and utilize the latest AI tools, agents, and assistants to optimize your daily workflows and enhance productivity.\n\nAbout the job\n Artificial intelligence will be one of humanity’s most transformative inventions. At DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n We are pushing the boundaries across multiple domains. Our global teams offer diverse learning opportunities and varied career pathways for those driven to achieve exceptional results through collective effort.\n\nResponsibilities\n\n• Anticipate potential risks that could impact project timelines or success. Move quickly to unblock research and engineering teams to maintain velocity.\n\n• Drive organizational efficiency by improving processes, streamlining execution, and implementing automated tooling where applicable. Actively manage compute resources including forecasting, timely reallocations, and making prioritization recommendations to Gemma leads.\n\n• Work closely with research scientists, engineers, product managers, and infrastructure teams to ensure alignment on priorities and dependencies. Facilitate clear communication across these teams.\n\n• Provide regular updates to stakeholders on progress, highlighting key milestones and risks. Maintain comprehensive documentation for processes, plans, and project status.\n\n• Contribute to the successful execution of Gemma pre-training and post-training runs. This includes developing detailed project plans and technical roadmaps."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-11T21:21:17.663Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind",
+      "jobReqId": "79361738150945478",
+      "requirements": [
+        "Bachelor's degree or equivalent practical experience.",
+        "8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree or equivalent practical experience.",
+          "8 years of experience in technical program or project management in a software or AI environment, including experience with program delivery."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:21:17.663Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-11T21:21:17.663Z"
     },
     {
       "id": "google-switzerland-c115be9b2e5a",
@@ -2607,7 +2852,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/116974862706057926-software-engineer-proof-and-verification-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:43.927Z",
+      "crawledAt": "2026-11-11T21:21:17.049Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2657,7 +2902,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:43.927Z",
+      "validThrough": "2027-02-09T21:21:17.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2691,7 +2936,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86512016885195462-security-engineer-red-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:43.345Z",
+      "crawledAt": "2026-11-11T21:21:16.461Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2740,7 +2985,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:43.345Z",
+      "validThrough": "2027-02-09T21:21:16.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2774,7 +3019,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:42.786Z",
+      "crawledAt": "2026-11-11T21:21:15.831Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2827,7 +3072,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:20:42.786Z",
+      "validThrough": "2026-12-23T21:21:15.831Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2861,7 +3106,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/84561862556820166-data-scientist-product-ms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:42.199Z",
+      "crawledAt": "2026-11-11T21:21:15.186Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2905,7 +3150,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:20:42.199Z",
+      "validThrough": "2027-01-01T21:21:15.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2939,7 +3184,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:41.676Z",
+      "crawledAt": "2026-11-11T21:21:14.634Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2983,7 +3228,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:41.676Z",
+      "validThrough": "2026-12-11T21:21:14.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3017,7 +3262,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112295976873403078-software-engineer-iii-youtube-content-id-claiming",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:41.085Z",
+      "crawledAt": "2026-11-11T21:21:14.066Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3062,7 +3307,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:41.085Z",
+      "validThrough": "2027-02-08T21:21:14.066Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3096,7 +3341,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:40.543Z",
+      "crawledAt": "2026-11-11T21:21:13.502Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3143,7 +3388,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:20:40.543Z",
+      "validThrough": "2027-01-04T21:21:13.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3177,7 +3422,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:39.987Z",
+      "crawledAt": "2026-11-11T21:21:12.879Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3222,7 +3467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:20:39.987Z",
+      "validThrough": "2027-01-26T21:21:12.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3256,7 +3501,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:39.429Z",
+      "crawledAt": "2026-11-11T21:21:12.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3324,7 +3569,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:39.429Z",
+      "validThrough": "2026-12-11T21:21:12.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3358,7 +3603,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:38.697Z",
+      "crawledAt": "2026-11-11T21:21:11.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3419,7 +3664,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:20:38.697Z",
+      "validThrough": "2027-01-18T21:21:11.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3453,7 +3698,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:38.140Z",
+      "crawledAt": "2026-11-11T21:21:10.934Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3498,7 +3743,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:20:38.140Z",
+      "validThrough": "2027-01-21T21:21:10.934Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3532,7 +3777,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:20:37.586Z",
+      "crawledAt": "2026-11-11T21:21:10.342Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3577,274 +3822,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:20:37.586Z",
+      "validThrough": "2027-01-22T21:21:10.342Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "google-switzerland-b16be32bec0d",
-      "slug": "software-engineering-manager-security-privacy-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "software-engineering-manager-security-privacy-google-switzerland-zurich",
-        "en": "software-engineering-manager-security-privacy-google-switzerland-zurich",
-        "de": "software-engineering-manager-security-privacy-google-switzerland-zurich",
-        "fr": "gestionnaire-d-ingenierie-logicielle-securite-vie-privee-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Software Engineering Manager, Security/Privacy",
-      "titleByLocale": {
-        "it": "Software Engineering Manager, Sicurezza/Privacy",
-        "en": "Software Engineering Manager, Security/Privacy",
-        "de": "Software Engineering Manager, Sicherheit/Privacy",
-        "fr": "Gestionnaire d'ingénierie logicielle, Sécurité/Vie privée"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree, or equivalent practical experience.\n\n• 8 years of experience programming in C++, Java or Go.\n\n• 3 years of experience building software for data privacy or security (e.g., identity and access management).\n\n• 3 years of experience in a technical leadership role.\n\n• 2 years of experience in a people management or team leadership role.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical field.\n\n• 3 years of experience working in a complex, matrixed organization.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €156000 - €159000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Set and communicate team priorities that support the broader organization's goals. Align strategy, processes, and decision-making across teams.\n\n• Set clear expectations with individuals based on their level and role and aligned to the broader organization's goals. Meet regularly with individuals to discuss performance and development and provide feedback and coaching.\n\n• Develop the mid-term technical goals and roadmap within the scope of your (often multiple) team(s). Evolve the roadmap to meet anticipated future requirements and infrastructure needs.\n\n• Design, guide and vet systems designs within the scope of the broader area, and write product or system development code to solve ambiguous problems.\n\n• Review code developed by other engineers and provide feedback to ensure best practices (e.g., style guidelines, checking code in, accuracy, testability, and efficiency).",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione. Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Monaco, Germania; Zurigo, Svizzera.\n\nTitolo minimo:\n\n• Corso di laurea, o equivalente esperienza pratica.\n\n• 8 anni di esperienza di programmazione in C++, Java o Go.\n\n• 3 anni di software per la costruzione di esperienze per la privacy o la sicurezza dei dati (ad esempio, l'identità e la gestione degli accessi).\n\n• 3 anni di esperienza in un ruolo di leadership tecnica.\n\n• 2 anni di esperienza in un ruolo di gestione delle persone o leadership di squadra.\n\nQualifiche preferenziali:\n\n• Laurea magistrale o dottorato in Informatica o campo tecnico correlato.\n\n• 3 anni di esperienza che lavorano in un'organizzazione complessa e matrice.\n\nRiguardo al lavoro\nCome le proprie ambizioni di Google, il lavoro di un Software Engineer va oltre la Ricerca. Software Engineering Managers hanno non solo le competenze tecniche per assumere e fornire leadership tecnica ai grandi progetti, ma anche gestire un team di ingegneri. Non solo ottimizzare il proprio codice, ma assicurarsi che gli ingegneri siano in grado di ottimizzare il loro. Come Software Engineering Manager gestisci i tuoi obiettivi di progetto, contribuisci alla strategia del prodotto e aiuti a sviluppare il tuo team. I team lavorano in tutta l'azienda, in settori come il recupero delle informazioni, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete, la sicurezza, la compressione dei dati, la progettazione dell'interfaccia utente; l'elenco continua e cresce ogni giorno. Funzionando con scala e velocità, i nostri ingegneri software eccezionali stanno appena iniziando -- e come manager, guida la strada.\n\nCon competenze tecniche e di leadership, gestisci ingegneri in più team e sedi, un grande budget di prodotto e supervisioni la distribuzione di progetti su larga scala in più siti a livello internazionale.\nIl team Core costruisce il fondamento tecnico dietro i prodotti di punta di Google. Siamo proprietari e sostenitori per gli elementi di design sottostanti, piattaforme di sviluppatori, componenti di prodotto e infrastrutture a Google. Questi sono i mattoni essenziali per esperienze eccellenti, sicure e coerenti per i nostri utenti e guidare il ritmo di innovazione per ogni sviluppatore. Guardiamo attraverso i prodotti di Google per costruire soluzioni centrali, abbattere le barriere tecniche e rafforzare i sistemi esistenti. Come team Core, abbiamo un mandato e un'opportunità unica per influenzare importanti decisioni tecniche in tutta l'azienda. La retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nGermania: €156000 - €159000 (EUR) + 20% target bonus + equità + prestazioni\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Impostare e comunicare le priorità del team che supportano gli obiettivi dell'organizzazione più ampia. Allineare la strategia, i processi e il processo decisionale tra le squadre.\n\n• Impostare chiare aspettative con gli individui in base al loro livello e ruolo e allineati agli obiettivi dell'organizzazione più ampia. Incontra regolarmente con gli individui per discutere le prestazioni e lo sviluppo e fornire feedback e coaching.\n\n• Sviluppa gli obiettivi tecnici a medio termine e la roadmap nell'ambito del tuo team (spesso più) (spesso più). Coinvolgere la roadmap per soddisfare i requisiti futuri previsti e le esigenze delle infrastrutture.\n\n• Progetti di sistemi di progettazione, guida e veterinario nell'ambito dell'area più ampia, e scrivere il codice di sviluppo del prodotto o del sistema per risolvere problemi ambigui.\n\n• Codice di revisione sviluppato da altri ingegneri e fornire feedback per garantire le migliori pratiche (ad esempio, linee guida di stile, controllo del codice, accuratezza, testabilità ed efficienza).",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Munich, Germany; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor’s degree, or equivalent practical experience.\n\n• 8 years of experience programming in C++, Java or Go.\n\n• 3 years of experience building software for data privacy or security (e.g., identity and access management).\n\n• 3 years of experience in a technical leadership role.\n\n• 2 years of experience in a people management or team leadership role.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical field.\n\n• 3 years of experience working in a complex, matrixed organization.\n\nAbout the job\nLike Google's own ambitions, the work of a Software Engineer goes beyond just Search. Software Engineering Managers have not only the technical expertise to take on and provide technical leadership to major projects, but also manage a team of Engineers. You not only optimize your own code but make sure Engineers are able to optimize theirs. As a Software Engineering Manager you manage your project goals, contribute to product strategy and help develop your team. Teams work all across the company, in areas such as information retrieval, artificial intelligence, natural language processing, distributed computing, large-scale system design, networking, security, data compression, user interface design; the list goes on and is growing every day. Operating with scale and speed, our exceptional software engineers are just getting started -- and as a manager, you guide the way.\n\nWith technical and leadership expertise, you manage engineers across multiple teams and locations, a large product budget and oversee the deployment of large-scale projects across multiple sites internationally.\nThe Core team builds the technical foundation behind Google’s flagship products. We are owners and advocates for the underlying design elements, developer platforms, product components, and infrastructure at Google. These are the essential building blocks for excellent, safe, and coherent experiences for our users and drive the pace of innovation for every developer. We look across Google’s products to build central solutions, break down technical barriers and strengthen existing systems. As the Core team, we have a mandate and a unique opportunity to impact important technical decisions across the company.Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nGermany: €156000 - €159000 (EUR) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Set and communicate team priorities that support the broader organization's goals. Align strategy, processes, and decision-making across teams.\n\n• Set clear expectations with individuals based on their level and role and aligned to the broader organization's goals. Meet regularly with individuals to discuss performance and development and provide feedback and coaching.\n\n• Develop the mid-term technical goals and roadmap within the scope of your (often multiple) team(s). Evolve the roadmap to meet anticipated future requirements and infrastructure needs.\n\n• Design, guide and vet systems designs within the scope of the broader area, and write product or system development code to solve ambiguous problems.\n\n• Review code developed by other engineers and provide feedback to ensure best practices (e.g., style guidelines, checking code in, accuracy, testability, and efficiency).",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses. Hinweis: Wenn Sie sich für diese Stelle bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter folgenden Adressen zu teilen: München, Deutschland; Zürich, Schweiz.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Programmiererfahrung in C++, Java oder Go.\n\n• 3 Jahre Erfahrung beim Erstellen von Software für Datenschutz oder Sicherheit (z. B. Identitäts- und Zugriffsmanagement).\n\n• 3 Jahre Erfahrung in einer technischen Führungsrolle.\n\n• 2 Jahre Erfahrung in einer People Management oder Team Leadership Rolle.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereich.\n\n• 3 Jahre Erfahrung in einer komplexen, matrixförmigen Organisation.\n\nÜber den Job\nWie Googles eigene Ambitionen geht die Arbeit eines Software Engineers über die Suche hinaus. Software Engineering Manager haben nicht nur das technische Know-how, um die technische Führung für Großprojekte zu übernehmen, sondern auch ein Team von Ingenieuren zu leiten. Sie optimieren nicht nur Ihren eigenen Code, sondern stellen sicher, dass Ingenieure in der Lage sind, ihren zu optimieren. Als Software Engineering Manager verwalten Sie Ihre Projektziele, tragen zur Produktstrategie bei und tragen zur Entwicklung Ihres Teams bei. Teams arbeiten im gesamten Unternehmen in Bereichen wie Informationsabruf, künstliche Intelligenz, Verarbeitung natürlicher Sprache, verteiltes Computing, groß angelegtes Systemdesign, Vernetzung, Sicherheit, Datenkomprimierung, Benutzeroberflächendesign; Die Liste geht weiter und wächst jeden Tag. Mit Skalierbarkeit und Geschwindigkeit haben unsere außergewöhnlichen Software-Ingenieure gerade erst begonnen - und als Manager weisen Sie den Weg.\n\nMit technischer und Führungskompetenz verwalten Sie Ingenieure über mehrere Teams und Standorte hinweg, ein großes Produktbudget und beaufsichtigen den Einsatz von Großprojekten an mehreren Standorten weltweit.\nDas Core-Team bildet die technische Grundlage für die Flaggschiffprodukte von Google. Wir sind Eigentümer und Befürworter der zugrunde liegenden Designelemente, Entwicklerplattformen, Produktkomponenten und Infrastruktur bei Google. Dies sind die wesentlichen Bausteine für hervorragende, sichere und kohärente Erlebnisse für unsere Benutzer und treiben das Innovationstempo für jeden Entwickler voran. Wir schauen uns die Produkte von Google an, um zentrale Lösungen zu entwickeln, technische Barrieren abzubauen und bestehende Systeme zu stärken. Als Kernteam haben wir ein Mandat und eine einzigartige Gelegenheit, wichtige technische Entscheidungen im gesamten Unternehmen zu beeinflussen. Die individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Bildung oder Ausbildung bestimmt.\n\nDeutschland: €156000 - €159000 (EUR) + 20% Bonusziel + Eigenkapital + Leistungen\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Setzen und kommunizieren Sie Teamprioritäten, die die Ziele der breiteren Organisation unterstützen. Ausrichtung von Strategie, Prozessen und Entscheidungsfindung über Teams hinweg.\n\n• Setzen Sie klare Erwartungen an Einzelpersonen, basierend auf ihrer Ebene und Rolle und ausgerichtet auf die Ziele der breiteren Organisation. Treffen Sie sich regelmäßig mit Einzelpersonen, um Leistung und Entwicklung zu besprechen und Feedback und Coaching zu geben.\n\n• Entwickeln Sie die mittelfristigen technischen Ziele und die Roadmap im Rahmen Ihres (oft mehreren) Teams. Entwicklung der Roadmap, um die erwarteten zukünftigen Anforderungen und Infrastrukturanforderungen zu erfüllen.\n\n• Design, Führung und Tierarzt Systeme Designs im Rahmen des breiteren Bereichs und schreiben Produkt- oder Systementwicklungscode, um mehrdeutige Probleme zu lösen.\n\n• Überprüfen Sie den von anderen Ingenieuren entwickelten Code und geben Sie Feedback, um Best Practices sicherzustellen (z. B. Stilrichtlinien, Überprüfung des Codes, Genauigkeit, Testbarkeit und Effizienz).",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche. Remarque: En postulant à ce poste, vous aurez la possibilité de partager votre lieu de travail préféré parmi les suivants: Munich, Allemagne; Zurich, Suisse.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 8 ans d'expérience en programmation en C++, Java ou Go.\n\n• 3 années d'expérience dans la création de logiciels pour la protection des données ou la sécurité (p. ex., gestion de l'identité et de l'accès).\n\n• 3 ans d'expérience dans un rôle de leadership technique.\n\n• 2 ans d'expérience en gestion des personnes ou en leadership d'équipe.\n\nQualifications privilégiées:\n\n• Maîtrise ou doctorat en informatique ou domaine technique connexe.\n\n• 3 ans d'expérience dans une organisation complexe et matricielle.\n\nSur le travail\nComme les ambitions de Google, le travail d'un ingénieur logiciel va au-delà de la simple recherche. Les responsables de l'ingénierie logicielle ont non seulement l'expertise technique nécessaire pour prendre en charge les grands projets et en assurer la direction technique, mais ils gèrent également une équipe d'ingénieurs. Non seulement vous optimisez votre propre code, mais vous assurez que les ingénieurs sont en mesure d'optimiser le leur. En tant que gestionnaire d'ingénierie logicielle, vous gérez les objectifs de votre projet, contribuez à la stratégie des produits et aidez à développer votre équipe. Les équipes travaillent dans l'ensemble de l'entreprise, dans des domaines tels que la recherche d'information, l'intelligence artificielle, le traitement du langage naturel, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau, la sécurité, la compression des données, la conception de l'interface utilisateur. Fonctionnant avec échelle et vitesse, nos ingénieurs logiciels exceptionnels ne font que commencer -- et en tant que manager, vous guidez le chemin.\n\nAvec une expertise technique et de leadership, vous gérez des ingénieurs dans plusieurs équipes et lieux, un budget de produits important et supervisez le déploiement de projets à grande échelle sur plusieurs sites à l'échelle internationale.\nL'équipe de base construit la base technique derrière Google produits phares. Nous sommes propriétaires et défenseurs des éléments de conception sous-jacents, des plateformes de développement, des composants de produits et de l'infrastructure chez Google. Ce sont les éléments essentiels pour des expériences excellentes, sûres et cohérentes pour nos utilisateurs et stimuler le rythme de l'innovation pour chaque développeur. Nous regardons les produits de Google pour construire des solutions centrales, briser les barrières techniques et renforcer les systèmes existants. En tant qu'équipe principale, nous avons un mandat et une occasion unique d'influer sur les décisions techniques importantes de l'entreprise. La rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nAllemagne : 156000 € - 159000 € (EUR) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Établir et communiquer les priorités de l'équipe qui appuient les objectifs de l'organisation en général. Aligner la stratégie, les processus et la prise de décisions entre les équipes.\n\n• Établir des attentes claires avec les personnes en fonction de leur niveau et de leur rôle et en fonction des objectifs de l'organisation. Rencontrez régulièrement des personnes pour discuter du rendement et du perfectionnement et fournir de la rétroaction et du coaching.\n\n• Élaborer les objectifs techniques à moyen terme et la feuille de route dans le cadre de vos équipes (souvent multiples). Evoluer la feuille de route pour répondre aux besoins futurs et aux besoins en infrastructure.\n\n• Conception, guidage et conception de systèmes vétérinaires dans le domaine plus large, et rédaction de code de développement de produit ou de système pour résoudre des problèmes ambigus.\n\n• Examiner le code élaboré par d'autres ingénieurs et fournir des commentaires pour s'assurer des pratiques exemplaires (p. ex. lignes directrices sur le style, code de vérification, précision, testabilité et efficacité)."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/86601143093732038-software-engineering-manager-securityprivacy",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:24:16.705Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/86601143093732038-software-engineering-manager-securityprivacy",
-      "jobReqId": "86601143093732038",
-      "requirements": [
-        "Bachelor’s degree, or equivalent practical experience.",
-        "8 years of experience programming in C++, Java or Go.",
-        "3 years of experience building software for data privacy or security (e.g., identity and access management).",
-        "3 years of experience in a technical leadership role.",
-        "2 years of experience in a people management or team leadership role."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree, or equivalent practical experience.",
-          "8 years of experience programming in C++, Java or Go.",
-          "3 years of experience building software for data privacy or security (e.g., identity and access management).",
-          "3 years of experience in a technical leadership role.",
-          "2 years of experience in a people management or team leadership role."
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:13:10.071Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:24:16.705Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "google-switzerland-982bef0d825b",
-      "slug": "software-ingegnere-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich-5eea814ee5",
-      "slugByLocale": {
-        "it": "software-ingegnere-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich-5eea814ee5",
-        "en": "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich",
-        "de": "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich",
-        "fr": "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Software Engineer III, YouTube Viewcount and Aggregations",
-      "titleByLocale": {
-        "it": "Software Ingegnere III, YouTube Viewcount and Aggregations",
-        "en": "Software Engineer III, YouTube Viewcount and Aggregations",
-        "de": "Software Ingenieur III, YouTube Viewcount and Aggregations",
-        "fr": "Software Ingénieur III, YouTube Viewcount and Aggregations"
-      },
-      "description": "n most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience developing accessible technologies.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this role, with your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n Responsibilities\n\n• Write product or system development code.\n\n• Participate in, or lead design reviews with peers and stakeholders to decide amongst available technologies.\n\n• Review code developed by other developers and provide feedback to ensure best practices (e.g., style guidelines, checking code in, accuracy, testability, and efficiency).\n\n• Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback.\n\n• Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality.",
-      "descriptionByLocale": {
-        "it": "n la maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\nQualifiche preferenziali:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza nello sviluppo di tecnologie accessibili.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e l'archiviazione di dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. Come ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con le opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nIn questo ruolo, con le tue competenze tecniche gestirai priorità di progetto, scadenze e consegnabili. Potrai progettare, sviluppare, testare, distribuire, mantenere e migliorare le soluzioni software. Su YouTube, crediamo che tutti meritino di avere una voce, e che il mondo è un posto migliore quando ascoltiamo, condividiamo e costruiamo la comunità attraverso le nostre storie. Lavoriamo insieme per dare a tutti il potere di condividere la loro storia, esplorare ciò che amano, e connettersi tra loro nel processo. Lavorando all'incrocio tra tecnologia all'avanguardia e creatività senza limiti, ci muoviamo alla velocità della cultura con un obiettivo comune per mostrare alle persone il mondo. Esploriamo nuove idee, risolviamo problemi reali, e divertiamo — e lo facciamo tutti insieme.\nresponsabilità\n\n• Scrivere il codice di sviluppo del prodotto o del sistema.\n\n• Partecipa a, o guida recensioni di design con colleghi e stakeholder per decidere tra le tecnologie disponibili.\n\n• Codice di revisione sviluppato da altri sviluppatori e fornire feedback per garantire le migliori pratiche (ad esempio, linee guida di stile, controllo del codice, accuratezza, testabilità e efficienza).\n\n• Contribuisci alla documentazione esistente o ai contenuti educativi e adatta i contenuti in base agli aggiornamenti del prodotto/programma e al feedback degli utenti.\n\n• Triage prodotto o problemi di sistema e debug/track/resolve analizzando le fonti di problemi e l'impatto su hardware, rete, o operazioni di servizio e qualità.",
-        "en": "n most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience developing accessible technologies.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this role, with your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\nResponsibilities\n\n• Write product or system development code.\n\n• Participate in, or lead design reviews with peers and stakeholders to decide amongst available technologies.\n\n• Review code developed by other developers and provide feedback to ensure best practices (e.g., style guidelines, checking code in, accuracy, testability, and efficiency).\n\n• Contribute to existing documentation or educational content and adapt content based on product/program updates and user feedback.\n\n• Triage product or system issues and debug/track/resolve by analyzing the sources of issues and the impact on hardware, network, or service operations and quality.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung in der Entwicklung zugänglicher Technologien.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Computing, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und begeistert zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nIn dieser Rolle verwalten Sie mit Ihrem technischen Fachwissen Projektprioritäten, Termine und Ergebnisse. Sie entwerfen, entwickeln, testen, implementieren, warten und verbessern Softwarelösungen. Bei YouTube glauben wir, dass jeder eine Stimme verdient und dass die Welt ein besserer Ort ist, wenn wir durch unsere Geschichten zuhören, teilen und eine Gemeinschaft aufbauen. Wir arbeiten zusammen, um jedem die Kraft zu geben, seine Geschichte zu teilen, zu erforschen, was er liebt, und sich dabei miteinander zu verbinden. An der Schnittstelle von Spitzentechnologie und grenzenloser Kreativität bewegen wir uns mit der Geschwindigkeit der Kultur mit dem gemeinsamen Ziel, den Menschen die Welt zu zeigen. Wir erforschen neue Ideen, lösen echte Probleme und haben Spaß - und das alles zusammen.\nZuständigkeiten\n\n• Schreiben Sie Produkt- oder Systementwicklungscode.\n\n• Beteiligen Sie sich an oder leiten Sie Design-Reviews mit Peers und Stakeholdern, um zwischen den verfügbaren Technologien zu entscheiden.\n\n• Überprüfen Sie den von anderen Entwicklern entwickelten Code und geben Sie Feedback, um Best Practices sicherzustellen (z. B. Stilrichtlinien, Überprüfung des Codes, Genauigkeit, Testbarkeit und Effizienz).\n\n• Tragen Sie zu vorhandenen Dokumentationen oder Bildungsinhalten bei und passen Sie Inhalte basierend auf Produkt- / Programmaktualisierungen und Benutzerfeedback an.\n\n• Triage Produkt- oder Systemprobleme und Debug/Track/Resolve durch Analyse der Ursachen von Problemen und der Auswirkungen auf Hardware, Netzwerk- oder Servicebetrieb und Qualität.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\nQualifications privilégiées:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience du développement de technologies accessibles.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et les autres. Nos produits doivent traiter l'information à grande échelle, et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la recherche d'information, l'informatique distribuée, la conception de systèmes à grande échelle, le réseautage et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google avec des occasions de changer d'équipes et de projets que vous et notre entreprise à rythme rapide croître et évoluer. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes à travers la pile pleine alors que nous continuons à faire avancer la technologie.\n\nDans ce rôle, grâce à votre expertise technique, vous gérerez les priorités du projet, les échéances et les produits livrables. Vous allez concevoir, développer, tester, déployer, maintenir et améliorer des solutions logicielles. Sur YouTube, nous croyons que tout le monde mérite d'avoir une voix, et que le monde est un meilleur endroit quand nous écoutons, partageons et construisons la communauté à travers nos histoires. Nous travaillons ensemble pour donner à chacun le pouvoir de partager son histoire, d'explorer ce qu'il aime et de se connecter dans le processus. Travaillant à l'intersection d'une technologie de pointe et d'une créativité illimitée, nous agissons à la vitesse de la culture avec un objectif commun de montrer aux gens le monde. Nous explorons de nouvelles idées, résolvons de vrais problèmes et nous nous amusons — et nous le faisons tous ensemble.\nResponsabilités\n\n• Écrivez le code de développement du produit ou du système.\n\n• Participer ou diriger des examens de conception avec des pairs et des intervenants pour décider entre les technologies disponibles.\n\n• Examiner le code élaboré par d'autres développeurs et fournir des commentaires pour s'assurer des pratiques exemplaires (p. ex., lignes directrices sur le style, code de vérification, exactitude, testabilité et efficacité).\n\n• Contribuer à la documentation ou au contenu éducatif existants et adapter le contenu en fonction des mises à jour des produits/programmes et de la rétroaction des utilisateurs.\n\n• Trier les problèmes de produit ou de système et déboguer, suivre et résoudre en analysant les sources de problèmes et l'impact sur le matériel, le réseau ou les opérations de service et la qualité."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/122439536427836102-software-engineer-iii-youtube-viewcount-and-aggregations",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:24:16.149Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/122439536427836102-software-engineer-iii-youtube-viewcount-and-aggregations",
-      "jobReqId": "122439536427836102",
-      "requirements": [
-        "Bachelor’s degree or equivalent practical experience.",
-        "2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree or equivalent practical experience."
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:40:23.662Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:24:16.149Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich-2",
-          "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich-2",
-        "software-engineer-iii-youtube-viewcount-and-aggregations-google-switzerland-zurich"
-      ]
-    },
-    {
-      "id": "google-switzerland-5f70ae5840e0",
-      "slug": "applied-ml-graph-neural-network-ricerca-software-ingegnere-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "applied-ml-graph-neural-network-ricerca-software-ingegnere-google-switzerland-zurich",
-        "en": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
-        "de": "applied-ml-graph-neural-network-forschung-software-ingenieur-google-switzerland-zurich",
-        "fr": "applied-ml-graph-neural-network-recherche-software-ingenieur-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Applied ML Graph Neural Network Research Software Engineer",
-      "titleByLocale": {
-        "it": "Applied ML Graph Neural Network Ricerca Software Ingegnere",
-        "en": "Applied ML Graph Neural Network Research Software Engineer",
-        "de": "Applied ML Graph Neural Network Forschung Software Ingenieur",
-        "fr": "Applied ML Graph Neural Network Recherche Software Ingénieur"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\n In this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 5 anni di esperienza con l'infrastruttura ML (ad esempio, distribuzione del modello, valutazione del modello, ottimizzazione, elaborazione dei dati, debugging).\n\n• La progettazione, la formazione e la distribuzione di Graph Neural Networks (GNNs) o di modelli di embedding grafico utilizzando framework come PyTorch Geometric (PyG), JAX/Jraph, o TF-GNN.\n\nQualifiche preferenziali:\n\n• Capacità di guidare la Ricerca e Sviluppo (R&D) e la produzione di complessi algoritmi ML/Infra.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e l'archiviazione di dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. Come ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con le opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nLa nostra missione è quella di ricercare e sviluppare strumenti ML di produzione, self-service, e di supportare i team di prodotti di Google nella distribuzione di soluzioni ML.\nIn questo ruolo, si unirà a un veloce movimento gruppo ML applicato dedicato a portare algoritmi ML grafico per risolvere problemi di dati temporali e relazionali industriali in Google. Potrai guidare il ciclo di vita end-to-end di nuove funzionalità (brainstorming, revisione della letteratura, sviluppo, produzione) e aiutare le squadre di prodotto (interne ed esterne) implementare modelli.\n\nSarete anche un contributore chiave nell'iniziativa GraphML per Google Systems cross-Product Area, aiutando a costruire una piattaforma unificata basata su agenti GNN e AI per monitorare, ottimizzare e supportare l'infrastruttura core attraverso lo storage, la rete e la computazione.\n\nresponsabilità\n\n• Identificare, sviluppare e produrre i metodi GNN/ML guidati da feedback dei clienti, brainstorming del team, revisione della letteratura e ricerca originale applicata nella libreria GraphFlow GNN.\n\n• Sviluppare e produrre modelli e infrastrutture GNN/ML industriali per l'iniziativa GraphML per Google Systems cross-Product Area per costruire un sistema di agenti GNN e AI unificato per supportare i sistemi di Google.\n\n• Collabora con team di prodotti e gruppi di ricerca per tradurre i requisiti aziendali nelle soluzioni ML.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).\n\n• Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN.\n\nPreferred qualifications:\n\n• Ability to lead the Research and Development (R&D) and production of complex ML/Infra algorithms.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nOur mission is to research and develop production-ready, self-service ML tools, and to support Google product teams on deploying ML solutions.\nIn this role, you will join a fast moving Applied ML group dedicated to bringing graph ML algorithms to solve industrial temporal and relational data problems in Google. You will drive end-to-end life cycle of new features (brainstorming, literature review, development, productionization) and helping product teams (internal and external) deploy models.\n\nYou will also be a key contributor in the GraphML for Google Systems cross-Product Area initiative, helping build a unified platform based on GNN and AI agents to monitor, optimize, and support core infrastructure across storage, networking, and compute.\n\nResponsibilities\n\n• Identify, develop and productionize GNN/ML methods driven by client feedback, team brainstorming, literature review and original research applied into the GraphFlow GNN library.\n\n• Develop and productionize industrial GNN/ML models and infrastructure for the GraphML for Google Systems cross-Product Area initiative to build a unified GNN and AI agent system to support Google's Systems.\n\n• Partner closely with product teams and research groups to translate business requirements into ML solutions.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Erfahrung mit ML-Infrastruktur (z.B. Modellbereitstellung, Modellauswertung, Optimierung, Datenverarbeitung, Debugging).\n\n• Erleben Sie das Entwerfen, Trainieren und Bereitstellen von Graph Neural Networks (GNNs) oder Grapheneinbettungsmodellen unter Verwendung von Frameworks wie PyTorch Geometric (PyG), JAX/Jraph oder TF-GNN.\n\nBevorzugte Qualifikationen:\n\n• Fähigkeit, die Forschung und Entwicklung (F&E) und die Produktion komplexer ML/Infra-Algorithmen zu leiten.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Computing, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und begeistert zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nUnsere Mission ist es, produktionsfertige Self-Service-ML-Tools zu erforschen und zu entwickeln und Google-Produktteams bei der Bereitstellung von ML-Lösungen zu unterstützen.\nIn dieser Rolle treten Sie einer schnelllebigen Applied ML-Gruppe bei, die sich der Bereitstellung von Graph-ML-Algorithmen zur Lösung von industriellen zeitlichen und relationalen Datenproblemen in Google widmet. Sie werden den End-to-End-Lebenszyklus neuer Funktionen (Brainstorming, Literaturrecherche, Entwicklung, Produktionsisierung) steuern und Produktteams (intern und extern) bei der Bereitstellung von Modellen unterstützen.\n\nSie werden auch ein wichtiger Mitwirkender in der GraphML for Google Systems Cross-Product Area-Initiative sein und dabei helfen, eine einheitliche Plattform auf Basis von GNN- und KI-Agenten aufzubauen, um die Kerninfrastruktur über Speicher, Netzwerke und Berechnungen hinweg zu überwachen, zu optimieren und zu unterstützen.\n\nZuständigkeiten\n\n• Identifizieren, entwickeln und produzieren Sie GNN / ML-Methoden, die auf Kundenfeedback, Team-Brainstorming, Literaturrecherche und Originalforschung in der GraphFlow GNN-Bibliothek basieren.\n\n• Entwickeln und produzieren Sie industrielle GNN/ML-Modelle und Infrastruktur für die GraphML for Google Systems Cross-Product Area-Initiative, um ein einheitliches GNN- und KI-Agentensystem zur Unterstützung von Googles Systemen aufzubauen.\n\n• Enge Zusammenarbeit mit Produktteams und Forschungsgruppen, um Geschäftsanforderungen in ML-Lösungen umzusetzen.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 5 ans d'expérience avec l'infrastructure ML (p. ex. déploiement de modèles, évaluation de modèles, optimisation, traitement des données, débogage).\n\n• Expérience de la conception, de la formation et du déploiement de réseaux graph neuraux (GNN) ou de modèles d'intégration de graphiques utilisant des cadres tels que PyTorch Geometric (PyG), JAX/Jraph ou TF-GNN.\n\nQualifications privilégiées:\n\n• Capacité de diriger la recherche et le développement (R-D) et la production d'algorithmes complexes ML/Infra.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et les autres. Nos produits doivent traiter l'information à grande échelle, et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la recherche d'information, l'informatique distribuée, la conception de systèmes à grande échelle, le réseautage et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google avec des occasions de changer d'équipes et de projets que vous et notre entreprise à rythme rapide croître et évoluer. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes à travers la pile pleine alors que nous continuons à faire avancer la technologie.\n\nNotre mission est de rechercher et de développer des outils ML prêts à la production et en libre-service, et de soutenir les équipes de produits Google sur le déploiement des solutions ML.\nDans ce rôle, vous rejoindrez un groupe ML appliqué en mouvement rapide dédié à apporter des algorithmes ML graphique pour résoudre les problèmes de données temporelles et relationnelles industrielles dans Google. Vous conduirez le cycle de vie de bout en bout de nouvelles fonctionnalités (brainstorming, revue de littérature, développement, production) et aider les équipes de produits (internes et externes) à déployer des modèles.\n\nVous serez également un contributeur clé dans l'initiative cross-Product Area de GraphML for Google Systems, aidant à construire une plateforme unifiée basée sur les agents GNN et AI pour surveiller, optimiser et soutenir l'infrastructure de base à travers le stockage, le réseautage et le calcul.\n\nResponsabilités\n\n• Identifier, élaborer et produire des méthodes GNN/ML fondées sur la rétroaction des clients, le brainstorming d'équipe, l'examen de la documentation et la recherche originale appliquée à la bibliothèque GNN de GraphFlow.\n\n• Élaborer et produire des modèles industriels GNN/ML et une infrastructure pour l'initiative cross-Product Area de GraphML pour Google Systems afin de construire un système d'agents GNN et AI unifié pour soutenir les systèmes de Google.\n\n• S'associer étroitement avec les équipes de produits et les groupes de recherche pour traduire les exigences opérationnelles en solutions ML."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:24:15.604Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer",
-      "jobReqId": "115399839411249862",
-      "requirements": [
-        "Bachelor’s degree or equivalent practical experience.",
-        "5 years of experience with ML infrastructure (e.g., model deployment, model evaluation, optimization, data processing, debugging).",
-        "Experience designing, training, and deploying Graph Neural Networks (GNNs) or graph embedding models using frameworks such as PyTorch Geometric (PyG), JAX/Jraph, or TF-GNN."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree or equivalent practical experience."
-        ]
-      },
-      "previousSlugs": [
-        "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
-        ],
-        "de": [
-          "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
-        ],
-        "fr": [
-          "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-09T21:16:12.684Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:24:15.604Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

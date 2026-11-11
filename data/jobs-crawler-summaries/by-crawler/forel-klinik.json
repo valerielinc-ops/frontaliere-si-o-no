@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-11-11T09:56:03.412Z",
+  "generatedAt": "2026-11-11T21:39:51.875Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6003,
-  "avgDurationMs": 6003,
+  "durationMs": 5770,
+  "avgDurationMs": 5770,
   "durationHistory": [
-    6003
+    5770
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/0c4764ff-4c69-417c-a4d4-717850ef1f97/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:46.174Z",
+      "crawledAt": "2026-11-11T21:39:31.961Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:55:46.174Z",
+      "validThrough": "2027-01-28T21:39:31.961Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:45.680Z",
+      "crawledAt": "2026-11-11T21:39:31.478Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:55:45.680Z",
+      "validThrough": "2026-12-29T21:39:31.478Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:45.189Z",
+      "crawledAt": "2026-11-11T21:39:30.983Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:55:45.189Z",
+      "validThrough": "2027-01-12T21:39:30.983Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -197,7 +197,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:44.700Z",
+      "crawledAt": "2026-11-11T21:39:30.500Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -231,7 +231,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:55:44.700Z",
+      "validThrough": "2027-01-21T21:39:30.500Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -254,7 +254,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/968bd4db-45d0-439a-8b95-6d029fda4e6d/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:55:44.192Z",
+      "crawledAt": "2026-11-11T21:39:30.017Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:55:44.192Z",
+      "validThrough": "2027-01-28T21:39:30.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -299,5 +299,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

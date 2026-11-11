@@ -190,6 +190,38 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
+  it('counts source rows separately from small page-boundary identity overlaps', async () => {
+    const firstPage = Array.from({ length: 500 }, (_, index) => makeCoopApiJob(index));
+    const secondPage = [
+      ...firstPage.slice(0, 4),
+      ...Array.from({ length: 496 }, (_, index) => makeCoopApiJob(500 + index)),
+    ];
+    const shortFinalPage = Array.from({ length: 7 }, (_, index) => makeCoopApiJob(996 + index));
+    const pages = new Map([
+      ['0', firstPage],
+      ['500', secondPage],
+      ['1000', shortFinalPage],
+    ]);
+    const fetchImpl = vi.fn(async (url) => {
+      const offset = new URL(url).searchParams.get('offset');
+      return new Response(JSON.stringify({ total: 1007, jobs: pages.get(offset) || [] }), { status: 200 });
+    });
+
+    const discovery = await fetchCoopJobDetailUrls({ fetchImpl });
+
+    expect(discovery).toMatchObject({
+      apiTotal: 1007,
+      fetched: 1003,
+      scannedRows: 1007,
+      urls: expect.arrayContaining([]),
+      droppedDuplicateUrl: 4,
+      droppedDuplicateIdentity: 0,
+    });
+    expect(discovery.urls).toHaveLength(1003);
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
+  });
+
   it('recovers from a stale division filter without admitting Coop subsidiaries', async () => {
     const coopUrl = 'https://jobs.coopjobs.ch/offene-stellen/coop/11111111-1111-4111-8111-111111111111';
     const jumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo/22222222-2222-4222-8222-222222222222';

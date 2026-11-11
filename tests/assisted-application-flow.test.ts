@@ -11,6 +11,7 @@ const {
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   PORTAL_AUTO_RETRY_DELAYS_MS,
+  URGENT_FIELD_DISPATCH_TIMEOUT_MS,
   canOwnerHandoffToCandidate,
   evaluateRedFlags,
   isTransientRunError,
@@ -396,18 +397,35 @@ describe('approval flow', () => {
     }]);
   });
 
-  it('hands a portal question missing from the current draft to owner takeover', () => {
+  it('holds an unpredicted ATS question for four hours, then escalates without submitting', () => {
     const step = transition(
-      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
-      { type: 'submit_needs_candidate', questions: [{ id: 'stale_portal_question' }], documents: [] },
+      { state: 'submitting', round: 1, heldBy: [], portalAutoRetryAt: T0 + 60_000, dispatch: { mode: 'submit', attempts: 1 } },
+      {
+        type: 'submit_needs_candidate',
+        questions: [{ id: 'stale_portal_question' }],
+        questionDetails: [{ id: 'stale_portal_question', question: 'What is your tax identifier?', type: 'text' }],
+        documents: [],
+      },
       { draft: cleanDraft, nowMs: T0 },
     );
     expect(step.flow).toMatchObject({
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
-      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+      state: 'operator_expedited_review',
+      heldBy: ['unpredicted_ats_field'],
+      heldReason: 'unpredicted_ats_field',
+      pendingFields: [{ id: 'stale_portal_question', question: 'What is your tax identifier?', type: 'text' }],
+      portalAutoRetryAt: null,
+      deadlineAt: T0 + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
     });
-    expect(step.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
+    expect(step.effects).toEqual([]);
+
+    const escalated = transition(step.flow, { type: 'tick' }, {
+      draft: cleanDraft,
+      nowMs: T0 + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+    });
+    expect(escalated.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['unpredicted_ats_field'] });
+    expect(escalated.effects).toEqual([{
+      type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit',
+    }]);
   });
 
   it('retries a regional notice from the Swiss runner, because the portal geolocates the runner and not the candidate', () => {
@@ -689,9 +707,12 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(submitted.effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
   });
 
-  it('refunds automatically when the ad closed before sending', () => {
+  // Owner decision 2026-11-11 («il rimborso non è mai consentito una volta che il processo è stato avviato»): this
+  // automatic refund is left only to an order under the older Terms (a mandate v1/v2, or none). The new Terms
+  // are in assisted-application-no-refund-after-start.test.ts.
+  it('refunds automatically, under the older Terms, when the ad closed before sending', () => {
     for (const state of ['drafting', 'owner_review', 'candidate_review', 'submitting']) {
-      const step = transition({ state, round: 1 }, { type: 'posting_closed' }, { draft: cleanDraft, nowMs: T0 });
+      const step = transition({ state, round: 1 }, { type: 'posting_closed' }, { order: { consentVersion: 'assisted-application-v2', consentedAt: T0 }, draft: cleanDraft, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
       // The candidate's refund e-mail is sent by the refund effect, only after the refund went through.
       expect(step.effects.map((effect: any) => (effect.type === 'email' ? effect.kind : effect.type)))

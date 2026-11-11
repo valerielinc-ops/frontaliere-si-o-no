@@ -1,8 +1,68 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-11-11T09:20:43.857Z",
-  "runId": "42992014345",
+  "assembledAt": "2026-11-11T21:15:13.611Z",
+  "runId": "43100133549",
   "jobs": [
+    {
+      "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
+      "applyUrl": "https://recruit.casale.ch/o/process-engineer-recently-graduated/c/new",
+      "title": "Process Engineer (recently graduated)",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "description": "Casale SA is a leading engineering and technology company specializing in the design and implementation of innovative plants for the production of green ammonia, ammonia, nitrates, phosphates, urea, methanol, melamine, and syngas.\n\nWith a strong commitment to sustainability and cutting-edge technology, we strive to deliver high-quality solutions to our clients worldwide. In this context, we are currently looking for a motivated and enthusiastic **Junior Process Engineer** to join our Process Division.\n\nThe successful candidate will have the opportunity to develop technical expertise in process engineering, contributing to the design and optimization of industrial plants and supporting the development of innovative technological solutions.\n\nWorking closely with Senior Process Engineers, Technology Leaders and Process Managers, the Junior Process Engineer will progressively gain experience in process design, project execution and technical support activities, while contributing to engineering excellence and continuous improvement.\n\n**Main Tasks and Responsibilities:**\n\n- Support the preparation of process engineering documentation, including Heat & Material Balances, Process Flow Diagrams (PFDs) and technical data sheets.\n- Assist in process design activities, calculations and the development of technical solutions for projects and proposals.\n- Contribute to the evaluation of technical requirements, process performance, potential risks and improvement opportunities.\n- Support the preparation of technical documentation and proposals, working closely with the Process and Business Development teams.\n- Participate in technical discussions with clients, suppliers and other internal departments, gaining exposure to customer requirements and project needs.\n- Contribute to the development and evaluation of innovative technical and technological solutions.\n- Support plant pre-commissioning, commissioning, start-up and test-run activities, including on-site activities when required.\n- Follow company quality procedures, engineering standards and contribute to continuous improvement initiatives.\n\n**Education:**\n\nMaster’s degree or PhD in Chemical Engineering\n\n**Languages**\n\n- Fluent written and spoken English.\n- Knowledge of additional languages will be considered an asset.\n**Technical and Soft Skills:**\n\n- Basic knowledge of process engineering principles, chemical plant design and relevant industry standards.\n- Familiarity with process simulation and calculation software (e.g. UniSim, Aspen Plus, HYSYS, HTRI, Flarenet or similar).\n- Knowledge of process documentation and engineering tools will be considered an advantage.\n- Interest in chemical and petrochemical processes and industrial technologies.\n**Soft Skills**\n\n- Strong analytical and problem-solving skills.\n- Good communication and interpersonal skills, with an interest in interacting with colleagues, customers and suppliers.\n- Proactive attitude, curiosity and willingness to learn.\n- Ability to work collaboratively in an international and multicultural environment.\n- Flexibility and adaptability to different project requirements and challenges.\n- Willingness to travel internationally and spend time on-site when required.\n- Motivation to continuously develop technical knowledge and stay updated on technological advancements and industry best practices.",
+      "descriptionByLocale": {
+        "en": "Casale SA is a leading engineering and technology company specializing in the design and implementation of innovative plants for the production of green ammonia, ammonia, nitrates, phosphates, urea, methanol, melamine, and syngas.\n\nWith a strong commitment to sustainability and cutting-edge technology, we strive to deliver high-quality solutions to our clients worldwide. In this context, we are currently looking for a motivated and enthusiastic **Junior Process Engineer** to join our Process Division.\n\nThe successful candidate will have the opportunity to develop technical expertise in process engineering, contributing to the design and optimization of industrial plants and supporting the development of innovative technological solutions.\n\nWorking closely with Senior Process Engineers, Technology Leaders and Process Managers, the Junior Process Engineer will progressively gain experience in process design, project execution and technical support activities, while contributing to engineering excellence and continuous improvement.\n\n**Main Tasks and Responsibilities:**\n\n- Support the preparation of process engineering documentation, including Heat & Material Balances, Process Flow Diagrams (PFDs) and technical data sheets.\n- Assist in process design activities, calculations and the development of technical solutions for projects and proposals.\n- Contribute to the evaluation of technical requirements, process performance, potential risks and improvement opportunities.\n- Support the preparation of technical documentation and proposals, working closely with the Process and Business Development teams.\n- Participate in technical discussions with clients, suppliers and other internal departments, gaining exposure to customer requirements and project needs.\n- Contribute to the development and evaluation of innovative technical and technological solutions.\n- Support plant pre-commissioning, commissioning, start-up and test-run activities, including on-site activities when required.\n- Follow company quality procedures, engineering standards and contribute to continuous improvement initiatives.\n\n**Education:**\n\nMaster’s degree or PhD in Chemical Engineering\n\n**Languages**\n\n- Fluent written and spoken English.\n- Knowledge of additional languages will be considered an asset.\n**Technical and Soft Skills:**\n\n- Basic knowledge of process engineering principles, chemical plant design and relevant industry standards.\n- Familiarity with process simulation and calculation software (e.g. UniSim, Aspen Plus, HYSYS, HTRI, Flarenet or similar).\n- Knowledge of process documentation and engineering tools will be considered an advantage.\n- Interest in chemical and petrochemical processes and industrial technologies.\n**Soft Skills**\n\n- Strong analytical and problem-solving skills.\n- Good communication and interpersonal skills, with an interest in interacting with colleagues, customers and suppliers.\n- Proactive attitude, curiosity and willingness to learn.\n- Ability to work collaboratively in an international and multicultural environment.\n- Flexibility and adaptability to different project requirements and challenges.\n- Willingness to travel internationally and spend time on-site when required.\n- Motivation to continuously develop technical knowledge and stay updated on technological advancements and industry best practices."
+      },
+      "titleByLocale": {
+        "en": "Process Engineer (recently graduated)"
+      },
+      "slugByLocale": {
+        "en": "process-engineer-recently-graduated-casale-lugano"
+      },
+      "slug": "process-engineer-recently-graduated-casale-lugano",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-11T21:15:11.220Z",
+      "crawledAtSource": "slice-writer",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:15:11.220Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-11T21:15:11.220Z"
+    },
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
       "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
@@ -51,10 +111,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-11T09:20:40.206Z",
+      "crawledAt": "2026-11-11T21:15:11.220Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:20:40.206Z",
+      "validThrough": "2027-01-07T21:15:11.220Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -172,7 +232,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

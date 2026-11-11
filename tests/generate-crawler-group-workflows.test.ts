@@ -4416,9 +4416,24 @@ esac
         expect(result.env?.CRAWLER_LAUNCH_OUTCOME).toBe(
           `\${{ steps['crawler-launch-${member}'].outcome }}`,
         );
-        expect(result.run).toContain('if [ "$launch_outcome" != "success" ]; then');
-        expect(result.run).toContain('if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then');
-        expect(result.run).toContain('if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then');
+        // Portable artifacts use the compact shell only when the checkout
+        // wrapper would otherwise exceed the workflow size budget. Both
+        // renderings must keep the same fail-closed launch/status/PID guards.
+        const compact = result.run.includes('s="$CRAWLER_MEMBER_SLUG"');
+        const waiterMarkers = compact
+          ? [
+              'o="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',
+              'if [ "$o" != "success" ]; then',
+              'if [ ! -s "$f" ] && [ ! -s "$p" ]; then',
+              'if ! [[ "$i" =~ ^[1-9][0-9]*$ ]]; then',
+            ]
+          : [
+              'launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"',
+              'if [ "$launch_outcome" != "success" ]; then',
+              'if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then',
+              'if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then',
+            ];
+        for (const marker of waiterMarkers) expect(result.run).toContain(marker);
         expect(result.run).toContain('invalid detached crawler PID');
         expect(result.run).not.toContain("steps['crawler-launch-vf'].outcome");
         expect(result.run).not.toContain("steps['crawler-launch-guess'].outcome");
