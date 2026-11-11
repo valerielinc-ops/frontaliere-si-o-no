@@ -1,7 +1,7 @@
 {
   "crawlerKey": "board-international",
-  "assembledAt": "2026-11-10T21:44:14.098Z",
-  "runId": "42903770667",
+  "assembledAt": "2026-11-11T09:27:22.950Z",
+  "runId": "42994125464",
   "jobs": [
     {
       "title": "Senior GenAI Engineer",
@@ -66,7 +66,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -132,7 +132,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -216,7 +216,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -282,6 +282,8 @@
       "streetAddress": "Chiasso, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
+      "crawledAtSource": "slice-writer",
       "previousSlugsByLocale": {
         "it": [
           "solution-developer-board-international-chiasso-switzerland"
@@ -295,9 +297,7 @@
       },
       "previousSlugs": [
         "solution-developer-board-international-chiasso-switzerland"
-      ],
-      "crawledAt": "2026-11-10T21:44:10.273Z",
-      "crawledAtSource": "slice-writer"
+      ]
     }
   ]
 }

@@ -73,10 +73,29 @@ export function answerQuestionSnapshotQuestion({ question, draft = {} } = {}) {
   return { ...q, question: displayQuestion(q) || '', required: questionIsRequired(q, draft) };
 }
 
+const ORDER_LOCAL_ANSWER_KEY_PREFIX = 'order_local_';
+/**
+ * The identity of a question's answer inside its own order. A question with a
+ * candidate-wide key keeps that key. One without it (a native control whose
+ * owner the portal does not prove, ifB89NW2's SBB questions) must never be
+ * reused on another id, order or candidate profile, but the candidate still
+ * has to be able to answer it on this order's page: its identity is bound to
+ * its exact id. The candidate-wide ledger keeps reading candidateQuestionAnswerKey,
+ * so an order-local identity never leaves the order.
+ */
+export function orderQuestionAnswerIdentity(question) {
+  const key = candidateQuestionAnswerKey(question);
+  if (key) return key;
+  const id = String(question?.id ?? '').trim();
+  if (!id || !String(question?.question ?? '').trim()) return '';
+  return `${ORDER_LOCAL_ANSWER_KEY_PREFIX}${createHash('sha256').update(id).digest('hex').slice(0, 32)}`;
+}
+const isOrderLocalAnswerKey = key => String(key || '').startsWith(ORDER_LOCAL_ANSWER_KEY_PREFIX);
+
 /** Constraints and origin must remain compatible before a canonical new id can inherit a local answer. */
 export function answerQuestionCompatibilityHash({ orderId, question, draft = {}, nowMs = Date.now() } = {}) {
   const q = answerQuestionSnapshotQuestion({ question, draft });
-  const key = candidateQuestionAnswerKey(q);
+  const key = orderQuestionAnswerIdentity(q);
   if (!String(orderId || '').trim() || !key || !String(q.question || '').trim()) return null;
   const fields = ['why', 'applicationQuestion', 'context', 'section', 'type', 'options', 'required', 'validation', 'source',
     'autocomplete', 'addressContext'];
@@ -122,7 +141,7 @@ export function answerOriginsForQuestions({ questions = [], answers = {}, answer
     const record = byKey.get(key);
     const answer = answers?.[question?.id];
     if (!hasAnswer(answer)) return [];
-    const localSource = object(flow.questionAnswerSources)[key] || {};
+    const localSource = object(flow.questionAnswerSources)[orderQuestionAnswerIdentity(question)] || {};
     const localAnswer = object(flow.answers)[question.id];
     const recordOrigin = record && record.originSource !== 'unknown' && sameAnswerForOrigin(answer, record.answer, question, record.question)
       ? { originSource: record.originSource, originCvFingerprint: record.originCvFingerprint } : null;
@@ -175,7 +194,7 @@ export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, fl
     const id = String(question?.id || '').trim();
     if (!id || counts.get(id) !== 1) return [];
     const questionContractHash = answerQuestionCompatibilityHash({ orderId, question, draft, nowMs });
-    const source = object(flow.questionAnswerSources)[candidateQuestionAnswerKey(question)] || {};
+    const source = object(flow.questionAnswerSources)[orderQuestionAnswerIdentity(question)] || {};
     const flowOrigin = object(flow.answerOrigins)[id] || {};
     const origin = source.originSource
       ? { originSource: source.originSource, originCvFingerprint: source.originCvFingerprint }
@@ -220,7 +239,7 @@ export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, dra
   const groups = new Map();
   const snapshotQuestions = questions.map(question => answerQuestionSnapshotQuestion({ question, draft }));
   for (const question of snapshotQuestions) {
-    const key = candidateQuestionAnswerKey(question);
+    const key = orderQuestionAnswerIdentity(question);
     if (key) groups.set(key, [...(groups.get(key) || []), question]);
   }
   // This recovery proof is independent of candidate-wide evidence snapshots:
@@ -275,11 +294,11 @@ export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, dra
     questionAnswerCompatibility: compatibility, questionAnswerConfirmationHashes: confirmations, questionAnswerSources: sources };
 }
 
-export function rememberOrderQuestionAnswerSnapshots({ orderId, order = {}, flow = {}, questions = [], draft = {}, answers = {}, changed = {}, questionAnswers = {}, previous = {}, previousAnswers = {}, previousQuestionIds = {}, previousCompatibility = {}, previousConfirmations = {}, previousSources = {}, confirmed = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
+export function rememberOrderQuestionAnswerSnapshots({ orderId, order = {}, flow = {}, questions = [], draft = {}, answers = {}, changed = {}, questionAnswers = {}, previous = {}, previousAnswers = {}, previousQuestionIds = {}, previousCompatibility = {}, previousConfirmations = {}, previousSources = {}, previousAnswerValues = {}, confirmed = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
   const groups = new Map();
   const snapshotQuestions = (Array.isArray(questions) ? questions : []).map(question => answerQuestionSnapshotQuestion({ question, draft }));
   for (const question of snapshotQuestions) {
-    const key = candidateQuestionAnswerKey(question);
+    const key = orderQuestionAnswerIdentity(question);
     if (key) groups.set(key, [...(groups.get(key) || []), question]);
   }
   const snapshots = {};
@@ -292,17 +311,21 @@ export function rememberOrderQuestionAnswerSnapshots({ orderId, order = {}, flow
     const hashes = [...new Set(questionHashes.filter(Boolean))];
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
     const compatible = [...new Set(compatibilityHashes.filter(Boolean))];
+    // An order-local identity has no semantic map entry: its value is the answer of its one id.
+    const local = isOrderLocalAnswerKey(key);
+    const value = local ? answers[group[0].id] : questionAnswers[key];
+    const previousValue = local ? previousAnswerValues[group[0].id] : previousAnswers[key];
     const previousSource = object(previousSources[key]);
     const previousOrigin = previousSource.originSource
       ? { originSource: previousSource.originSource, originCvFingerprint: previousSource.originCvFingerprint }
-      : answerOriginMetadata({ question: group[0], flow, answer: questionAnswers[key] });
+      : answerOriginMetadata({ question: group[0], flow, answer: value });
     const priorConfirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({ userId: order.userId,
       orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind: previousSource.kind, ...previousOrigin }));
     const priorConfirmationContracts = [...new Set(priorConfirmationHashes.filter(Boolean))];
-    const previousAnswerUnchanged = Boolean(previousSource.kind && hasAnswer(previousAnswers[key])
-      && hasAnswer(questionAnswers[key]) && same(questionAnswers[key], previousAnswers[key]));
+    const previousAnswerUnchanged = Boolean(previousSource.kind && hasAnswer(previousValue)
+      && hasAnswer(value) && same(value, previousValue));
     const currentOrigin = previousAnswerUnchanged && previousSource.originSource
-      ? previousOrigin : answerOriginMetadata({ question: group[0], flow, answer: questionAnswers[key] });
+      ? previousOrigin : answerOriginMetadata({ question: group[0], flow, answer: value });
     const currentSource = { kind: sourceKind, ...currentOrigin };
     const confirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({ userId: order.userId,
       orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...currentOrigin }));
@@ -312,14 +335,14 @@ export function rememberOrderQuestionAnswerSnapshots({ orderId, order = {}, flow
     const hash = hashes[0];
     const changedGroup = group.filter(question => Object.hasOwn(changed, question.id));
     if (changedGroup.length) {
-      if (changedGroup.every(question => confirmed[question.id] === hash) && hasAnswer(questionAnswers[key])) {
+      if (changedGroup.every(question => confirmed[question.id] === hash) && hasAnswer(value)) {
         snapshots[key] = hash;
         snapshotIds[key] = changedGroup.map(question => question.id);
         compatibility[key] = compatible[0];
         confirmations[key] = confirmationContracts[0];
         sources[key] = currentSource;
       }
-    } else if (previous[key] && hasAnswer(questionAnswers[key]) && previousSource.kind
+    } else if (previous[key] && hasAnswer(value) && previousSource.kind
       && previousConfirmations[key] === priorConfirmationContracts[0]) {
       snapshots[key] = previous[key];
       snapshotIds[key] = Array.isArray(previousQuestionIds[key]) ? previousQuestionIds[key] : [];

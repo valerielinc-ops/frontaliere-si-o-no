@@ -123,16 +123,18 @@ shard_manifest_snapshot() {
 
 # shard_delta_clone_and_prepare <stage> <repo> <current_manifest>
 #   <sidecar_path> <scope> <source_root> <tool> <out_dir> <history_cap> <label>
+#   [full_rewrite_threshold]
 # Clone the remote without checking out blobs, validate both manifest sides,
 # and seed the index from HEAD. Return 0 only when the caller may apply a delta.
 # Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON.
 shard_delta_clone_and_prepare() {
   local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
   local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
-  local clone_err previous_manifest
+  local full_rewrite_threshold="${11:-}" clone_err previous_manifest
   SHARD_DELTA_REASON=''
   SHARD_DELTA_DCOUNT=0
   SHARD_DELTA_PREV_N=0
+  SHARD_DELTA_FULL_REWRITE=0
 
   rm -rf "$stage"
   mkdir -p "$stage" "$out_dir"
@@ -174,14 +176,36 @@ shard_delta_clone_and_prepare() {
     return 1
   fi
 
-  if ! node "$tool" \
-      --current="$current" \
-      --previous="$previous_manifest" \
-      --scope="$scope" \
-      --source-root="$source_root" \
-      --out="$out_dir"; then
-    SHARD_DELTA_REASON='current or previous manifest invalid'
-    return 1
+  if [ -n "$full_rewrite_threshold" ] && [ "$full_rewrite_threshold" != 0 ]; then
+    if ! node "$tool" \
+        --current="$current" \
+        --previous="$previous_manifest" \
+        --scope="$scope" \
+        --source-root="$source_root" \
+        --out="$out_dir" \
+        --full-rewrite-threshold="$full_rewrite_threshold"; then
+      SHARD_DELTA_REASON='current or previous manifest invalid'
+      return 1
+    fi
+    if [ ! -s "$out_dir/full-rewrite.txt" ]; then
+      SHARD_DELTA_REASON='full rewrite plan marker missing'
+      return 1
+    fi
+    IFS= read -r SHARD_DELTA_FULL_REWRITE < "$out_dir/full-rewrite.txt" || return 1
+    case "$SHARD_DELTA_FULL_REWRITE" in
+      0|1) ;;
+      *) SHARD_DELTA_REASON='full rewrite plan marker invalid'; return 1 ;;
+    esac
+  else
+    if ! node "$tool" \
+        --current="$current" \
+        --previous="$previous_manifest" \
+        --scope="$scope" \
+        --source-root="$source_root" \
+        --out="$out_dir"; then
+      SHARD_DELTA_REASON='current or previous manifest invalid'
+      return 1
+    fi
   fi
 
   if ! git -C "$stage" read-tree HEAD; then
@@ -773,6 +797,7 @@ shard_delta_remove_file() {
 
 # shard_delta_apply_source_tree <stage> <source_root> <target_prefix>
 #   <changed_file_list> <unmanifested_file_list> <payload_file_list>
+#   [write_all_hashed_objects]
 # Manifest-covered paths arrive from shard-manifest-delta.mjs as a changed
 # file list; all other payload paths arrive as a second list. Unchanged live
 # paths stay as index entries pointing at the remote blobs and are never
@@ -782,6 +807,7 @@ shard_delta_remove_file() {
 shard_delta_apply_source_tree() {
   local stage="$1" source_root="$2" target_prefix="$3"
   local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
+  local write_all_hashed_objects="${7:-0}"
   local work candidate_list metadata source_paths index_dump hashes
   local changed_sources index_info count_file source_count unmanifested_count changed_count
   [ -d "$source_root" ] || return 1
@@ -854,7 +880,14 @@ shard_delta_apply_source_tree() {
       rm -rf "$work"
       return 1
     fi
-    if ! git -C "$stage" hash-object --stdin-paths < "$source_paths" > "$hashes"; then
+    # A near-total rewrite needs most candidate blobs anyway. Writing them in
+    # this first batch avoids reopening every changed source in a second pass.
+    if [ "$write_all_hashed_objects" = 1 ]; then
+      if ! git -C "$stage" hash-object -w --stdin-paths < "$source_paths" > "$hashes"; then
+        rm -rf "$work"
+        return 1
+      fi
+    elif ! git -C "$stage" hash-object --stdin-paths < "$source_paths" > "$hashes"; then
       rm -rf "$work"
       return 1
     fi
@@ -931,7 +964,8 @@ shard_delta_apply_source_tree() {
     fi
     read -r changed_count source_count < "$count_file"
     if [ "$changed_count" -gt 0 ]; then
-      if ! git -C "$stage" hash-object -w --stdin-paths < "$changed_sources" >/dev/null; then
+      if [ "$write_all_hashed_objects" != 1 ] \
+          && ! git -C "$stage" hash-object -w --stdin-paths < "$changed_sources" >/dev/null; then
         rm -rf "$work"
         return 1
       fi

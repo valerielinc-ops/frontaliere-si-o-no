@@ -1,7 +1,7 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-11-10T21:42:23.922Z",
+  "generatedAt": "2026-11-11T09:40:48.790Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7491,
-  "avgDurationMs": 7491,
+  "durationMs": 7274,
+  "avgDurationMs": 7274,
   "durationHistory": [
-    7491
+    7274
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -51,7 +51,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:42:02.400Z",
+      "crawledAt": "2026-11-11T09:40:32.230Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 72500,
@@ -61,7 +61,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:02.400Z",
+      "validThrough": "2026-12-11T09:40:32.230Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:42:01.671Z",
+      "crawledAt": "2026-11-11T09:40:31.641Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
@@ -107,7 +107,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:42:01.671Z",
+      "validThrough": "2026-12-11T09:40:31.641Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -143,7 +143,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:41:59.912Z",
+      "crawledAt": "2026-11-11T09:40:30.245Z",
       "jobReqId": "J-020004",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -152,7 +152,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:41:59.912Z",
+      "validThrough": "2027-01-06T09:40:30.245Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:41:59.337Z",
+      "crawledAt": "2026-11-11T09:40:29.553Z",
       "jobReqId": "J-019940",
       "firstSeenAt": "2026-11-09T09:49:08.674Z",
       "salaryMin": 60500,
@@ -198,7 +198,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:41:59.337Z",
+      "validThrough": "2027-02-04T09:40:29.553Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -209,5 +209,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

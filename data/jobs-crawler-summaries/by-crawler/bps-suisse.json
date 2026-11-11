@@ -1,21 +1,69 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-11-10T21:40:01.905Z",
-  "total": 4,
-  "discovered": 4,
-  "parsed": 4,
+  "generatedAt": "2026-11-11T09:39:27.268Z",
+  "total": 5,
+  "discovered": 5,
+  "parsed": 5,
   "lastFetchOutcome": "ok",
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4661,
-  "avgDurationMs": 4661,
+  "durationMs": 5616,
+  "avgDurationMs": 5616,
   "durationHistory": [
-    4661
+    5616
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "bps-suisse-351f3c628347",
+      "title": "Collaboratore Trice Crediti Costruzione",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_crediti_costruzione__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_crediti_costruzione__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "collaboratore-trice-crediti-costruzione-bps-suisse-lugano",
+      "sourceLang": "it",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-11-11T09:39:08.697Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T09:39:08.697Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-11T09:39:08.697Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -42,7 +90,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-11-10T21:39:48.212Z",
+      "crawledAt": "2026-11-11T09:39:10.091Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -56,7 +104,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:39:48.212Z",
+      "validThrough": "2026-12-11T09:39:10.091Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -89,7 +137,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-11-10T21:39:47.809Z",
+      "crawledAt": "2026-11-11T09:39:09.797Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -103,7 +151,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:39:47.809Z",
+      "validThrough": "2026-12-11T09:39:09.797Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -136,7 +184,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-11-10T21:39:47.478Z",
+      "crawledAt": "2026-11-11T09:39:09.501Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -150,7 +198,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:39:47.478Z",
+      "validThrough": "2026-12-11T09:39:09.501Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -183,7 +231,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-11-10T21:39:47.047Z",
+      "crawledAt": "2026-11-11T09:39:09.123Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -197,7 +245,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:39:47.047Z",
+      "validThrough": "2026-12-11T09:39:09.123Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -208,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

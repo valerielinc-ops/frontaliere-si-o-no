@@ -1,7 +1,7 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-11-10T22:21:40.642Z",
+  "generatedAt": "2026-11-11T09:14:50.627Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7155,
-  "avgDurationMs": 7155,
+  "durationMs": 7567,
+  "avgDurationMs": 7567,
   "durationHistory": [
-    7155
+    7567
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://app.reflinejobs.io/3316/0051/pub/36/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:21:30.457Z",
+      "crawledAt": "2026-11-11T09:14:31.735Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T22:21:30.457Z",
+      "validThrough": "2027-02-04T09:14:31.735Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://app.reflinejobs.io/3316/0048/pub/33/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:21:29.305Z",
+      "crawledAt": "2026-11-11T09:14:30.867Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T22:21:29.305Z",
+      "validThrough": "2027-02-03T09:14:30.867Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -120,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

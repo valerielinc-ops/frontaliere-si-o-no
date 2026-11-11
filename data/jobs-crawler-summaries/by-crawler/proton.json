@@ -1,7 +1,7 @@
 {
   "key": "proton",
   "label": "Proton",
-  "generatedAt": "2026-11-10T21:40:44.703Z",
+  "generatedAt": "2026-11-11T09:25:52.654Z",
   "total": 7,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 5208,
-  "avgDurationMs": 5208,
+  "durationMs": 5563,
+  "avgDurationMs": 5563,
   "durationHistory": [
-    5208
+    5563
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:40:13.095Z",
+      "crawledAt": "2026-11-11T09:25:29.543Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +61,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:40:13.095Z",
+      "validThrough": "2026-12-11T09:25:29.543Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:40:12.791Z",
+      "crawledAt": "2026-11-11T09:25:29.241Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +106,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:40:12.791Z",
+      "validThrough": "2026-12-11T09:25:29.241Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:40:12.440Z",
+      "crawledAt": "2026-11-11T09:25:28.918Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +151,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:40:12.440Z",
+      "validThrough": "2026-12-11T09:25:28.918Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -173,7 +173,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:40:12.135Z",
+      "crawledAt": "2026-11-11T09:25:28.614Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -196,7 +196,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:40:12.135Z",
+      "validThrough": "2027-01-05T09:25:28.614Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -218,7 +218,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:40:11.784Z",
+      "crawledAt": "2026-11-11T09:25:28.275Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,7 +244,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T21:40:11.784Z",
+      "validThrough": "2026-12-11T09:25:28.275Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -292,7 +292,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T09:29:46.609Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -338,7 +338,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:29:45.373Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -348,5 +348,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

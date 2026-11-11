@@ -39,6 +39,14 @@ import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueA
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
+import {
+  REGION_UNSUPPORTED_HOLD,
+  REGION_UNSUPPORTED_REASON,
+  SWISS_RUNNER_OFFLINE_REASON,
+  SWISS_RUNNER_OFFLINE_REASONS,
+  requiresSwissEgress,
+  swissEgressMark,
+} from './assistedApplicationSwissRunner.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -260,6 +268,9 @@ function base(flow) {
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
+    // The Swiss-egress mark is permanent (assistedApplicationSwissRunner.js): every later run of the order
+    // leaves from the Swiss runner.
+    ...(requiresSwissEgress(flow) ? { egress: { ...flow.egress } } : {}),
     ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
       ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
       : {}),
@@ -924,7 +935,40 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // retry CAPTCHA challenges.
       if (state !== 'submitting') return ignore('not_submitting');
       effects = [portalTakeover(next, current, event, nowMs)].filter(Boolean);
+      // The portal geolocates the runner's IP: from now on this order leaves from the Swiss runner
+      // (owner decision 2026-11-11), and its retries never go back to GitHub's network.
+      if (event.reason === REGION_UNSUPPORTED_REASON && !requiresSwissEgress(current)) {
+        next.egress = swissEgressMark({ round: current.round, nowMs, source: 'portal_handoff' });
+      }
       break;
+    case SWISS_RUNNER_OFFLINE_REASON: {
+      // A run queued for the Swiss runner that no live runner with a Swiss exit took
+      // (assistedApplicationSwissRunner.js holdUnservedLocalDispatches). The order stays held, with the
+      // reason, for the owner: no fallback to GitHub, whose network the portal refuses.
+      if (!['drafting', 'regenerating', 'submitting'].includes(state)) return ignore('not_running');
+      if (!requiresSwissEgress(current)) return ignore('egress_not_required');
+      if (Number(event.requestedAt) && Number(event.requestedAt) !== Number(flow?.dispatch?.requestedAt || 0)) return ignore('superseded');
+      const mode = flow?.dispatch?.mode || (state === 'submitting' ? 'submit' : 'draft');
+      const offlineReason = SWISS_RUNNER_OFFLINE_REASONS.includes(event.reason) ? event.reason : 'heartbeat_missing';
+      if (mode === 'submit') {
+        // Same retry ladder as the other connection stops: each retry queues the run for the Swiss
+        // runner again, so the order resumes by itself once the runner is back.
+        portalTakeover(next, current, { reason: SWISS_RUNNER_OFFLINE_REASON }, nowMs);
+      } else {
+        next.state = 'owner_takeover';
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        next.heldBy = [`portal:${SWISS_RUNNER_OFFLINE_REASON}`];
+        next.portalAutoRetryAt = null;
+      }
+      next.swissRunnerOffline = { at: nowMs, reason: offlineReason, mode, round: current.round };
+      // The owner hears it at once (one message per round): only they can bring the runner back.
+      effects = [{
+        type: 'email', kind: 'owner_takeover', reason: SWISS_RUNNER_OFFLINE_REASON, stage: mode,
+        attempts: Number(flow?.dispatch?.attempts) || 1,
+      }];
+      break;
+    }
     case 'owner_retry_submit':
       // The approved application is sent again by the robot (after a runner
       // fix, or a portal that was briefly unavailable): only for the round's
@@ -1231,6 +1275,11 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     }
     default:
       return ignore('unknown_event');
+  }
+  // A flow held on the regional notice before the mark existed learns it as it moves on: its next run
+  // (an automatic or owner retry) already leaves from the Swiss runner.
+  if (!requiresSwissEgress(current) && !next.egress && current.heldBy.includes(REGION_UNSUPPORTED_HOLD)) {
+    next.egress = swissEgressMark({ round: current.round, nowMs, source: 'region_hold' });
   }
   // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders, and
   // leaves its mark: an ad found closed later in the round is judged knowing the candidate was awaited.

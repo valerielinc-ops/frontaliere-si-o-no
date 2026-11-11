@@ -591,6 +591,7 @@ const PORTAL_STOPS = {
   account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
   rejected: 'il portale ha rifiutato l’invio automatico',
   application_region_unsupported: 'il portale ha bloccato le candidature dalla regione della connessione del runner (geolocalizza l’indirizzo IP del runner, non il candidato)',
+  swiss_runner_offline: 'il portale accetta solo connessioni svizzere e nessun runner svizzero attivo ha preso la run',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
   posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
   whatsapp: 'il datore accetta candidature solo via WhatsApp (PastaHR, gli apprendistati Coop): la chat parte dal telefono del candidato e nessun robot può inviarla',
@@ -599,7 +600,7 @@ const PORTAL_STOPS = {
 // whatsapp (#11161): a retry completes the order when the channel has a PastaHR https link (the
 // candidate gets it by e-mail, with the steps); any other WhatsApp channel stops here again.
 const PORTAL_STOP_HINTS = {
-  application_region_unsupported: 'Il candidato non deve fare nulla e non è partito nulla: la run si è fermata sulla pagina dell’annuncio, prima del modulo. Il blocco dipende dall’indirizzo IP del runner, quindi riproviamo automaticamente da un altro runner. Per chiudere subito, dalla coda premi «Compila con l’estensione» da una connessione svizzera.',
+  application_region_unsupported: 'Il candidato non deve fare nulla e non è partito nulla: la run si è fermata sulla pagina dell’annuncio, prima del modulo. Il blocco dipende dall’indirizzo IP del runner, quindi da ora l’ordine parte solo dal runner svizzero e riproviamo automaticamente da lì. Per chiudere subito, dalla coda premi «Compila con l’estensione» da una connessione svizzera.',
   captcha: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
   captcha_provider_unavailable: 'Il candidato non deve fare nulla. Dalla coda premi «Compila con l’estensione»: si apre il portale con link, risposte e documenti già pronti. Se compare il CAPTCHA, risolvilo tu nella scheda e premi tu il pulsante d’invio; l’estensione non risolve i CAPTCHA e non invia da sola.',
   whatsapp: 'Non c’è un modulo da compilare: il candidato deve completare la candidatura nella chat WhatsApp del datore, dal suo telefono. Se il canale ha un link PastaHR (https), dalla coda «Riprova l’invio automatico» chiude l’ordine: il candidato riceve per email il link e i passaggi. Altrimenti premi «Affida al candidato»: riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
@@ -633,6 +634,17 @@ const RUNNER_HINTS = {
  */
 export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt }) {
   const raw = String(reason || '').trim();
+  // The order leaves only from the Swiss runner (assistedApplicationSwissRunner.js), and none took the run.
+  if (raw === 'swiss_runner_offline' || raw === 'portal:swiss_runner_offline') {
+    const retry = Number(portalAutoRetryAt) > 0
+      ? ` La rimettiamo in coda per il runner svizzero ${formatDeadline(portalAutoRetryAt, 'it')}, senza passare da GitHub.`
+      : ' Riaccodala dalla coda («Riprova l’invio automatico», o «Riprendi automazione» per una bozza) quando il runner è di nuovo attivo.';
+    return {
+      reason: `${STAGE_LABELS[stage] || 'il flusso automatico si è fermato'}: ${PORTAL_STOPS.swiss_runner_offline}`,
+      hint: `Il candidato non deve fare nulla e non è partito nulla. Accendi il Mac con il runner svizzero (launch agent ch.frontaliere.swiss-runner, log in ~/Library/Logs/frontaliere/swiss-runner.log) e verifica che la sua uscita di rete sia svizzera.${retry}`,
+      detail: '',
+    };
+  }
   if (isInfrastructureRetryHold({ heldBy: [raw] }) && Number(portalAutoRetryAt) > 0) {
     return {
       reason: raw.startsWith('transport:') ? 'i provider email non hanno accettato l’invio'

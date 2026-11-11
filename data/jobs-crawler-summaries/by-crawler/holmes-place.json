@@ -1,7 +1,7 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-11-10T21:44:21.463Z",
+  "generatedAt": "2026-11-11T09:26:35.720Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 16577,
-  "avgDurationMs": 16577,
+  "durationMs": 17858,
+  "avgDurationMs": 17858,
   "durationHistory": [
-    16577
+    17858
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.367Z",
+      "crawledAt": "2026-11-11T09:26:09.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -60,7 +60,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.367Z",
+      "validThrough": "2027-01-02T09:26:09.487Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.365Z",
+      "crawledAt": "2026-11-11T09:26:09.484Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -104,7 +104,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.365Z",
+      "validThrough": "2027-01-02T09:26:09.484Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -126,7 +126,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.360Z",
+      "crawledAt": "2026-11-11T09:26:09.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -148,7 +148,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.360Z",
+      "validThrough": "2027-01-02T09:26:09.480Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -170,7 +170,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.351Z",
+      "crawledAt": "2026-11-11T09:26:09.471Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -193,7 +193,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:43:55.351Z",
+      "validThrough": "2027-01-02T09:26:09.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -215,7 +215,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.347Z",
+      "crawledAt": "2026-11-11T09:26:09.469Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -237,7 +237,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:43:55.347Z",
+      "validThrough": "2027-01-02T09:26:09.469Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -248,5 +248,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

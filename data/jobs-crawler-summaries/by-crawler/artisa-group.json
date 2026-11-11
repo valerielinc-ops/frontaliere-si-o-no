@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-11-10T21:30:52.193Z",
+  "generatedAt": "2026-11-11T09:45:35.491Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3071,
-  "avgDurationMs": 3071,
+  "durationMs": 2875,
+  "avgDurationMs": 2875,
   "durationHistory": [
-    3071
+    2875
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-27T21:30:31.887Z",
+      "validThrough": "2026-12-28T09:45:14.762Z",
       "id": "artisa-group-602dc2ab62a9",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,7 +53,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-10T21:30:31.887Z",
+      "crawledAt": "2026-11-11T09:45:14.762Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-06T21:30:31.887Z",
+      "validThrough": "2027-01-06T09:45:14.762Z",
       "id": "artisa-group-ce53cb93ea60",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "firstSeenAt": "2026-10-07T21:40:39.703Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-10T21:30:31.887Z",
+      "crawledAt": "2026-11-11T09:45:14.762Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

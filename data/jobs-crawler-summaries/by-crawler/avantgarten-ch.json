@@ -1,7 +1,7 @@
 {
   "key": "avantgarten-ch",
   "label": "AvantGarten",
-  "generatedAt": "2026-11-10T22:02:41.841Z",
+  "generatedAt": "2026-11-11T09:51:09.142Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6137,
-  "avgDurationMs": 6137,
+  "durationMs": 4714,
+  "avgDurationMs": 4714,
   "durationHistory": [
-    6137
+    4714
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12402210-gaertner-in-efz-garten-und-landschaftsbau-riehen-bs-avantgarten-ag",
       "source": "AvantGarten Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T22:02:03.351Z",
+      "crawledAt": "2026-11-11T09:50:37.329Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salaryMax": 78500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T22:02:03.351Z",
+      "validThrough": "2026-12-11T09:50:37.329Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -74,5 +74,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

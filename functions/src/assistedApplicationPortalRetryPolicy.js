@@ -12,6 +12,9 @@ const TRANSPORT_HOLDS = new Set([
   'transport:email_provider_unavailable',
   'portal:question_localization_unavailable',
   'portal:application_region_unsupported',
+  // The order needs the Swiss runner and none was alive to take the run
+  // (assistedApplicationSwissRunner.js): each retry queues it there again.
+  'portal:swiss_runner_offline',
 ]);
 
 /** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */

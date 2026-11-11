@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-11-10T22:10:36.693Z",
+  "generatedAt": "2026-11-11T09:25:50.709Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8609,
-  "avgDurationMs": 8609,
+  "durationMs": 9499,
+  "avgDurationMs": 9499,
   "durationHistory": [
-    8609
+    9499
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T22:10:25.024Z",
+      "crawledAt": "2026-11-11T09:25:36.017Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -61,7 +61,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T22:10:25.024Z",
+      "validThrough": "2026-12-11T09:25:36.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

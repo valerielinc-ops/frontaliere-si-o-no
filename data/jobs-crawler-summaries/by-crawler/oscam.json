@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-11-10T21:29:57.529Z",
+  "generatedAt": "2026-11-11T09:20:44.891Z",
   "total": 2,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9130,
-  "avgDurationMs": 9130,
+  "durationMs": 10387,
+  "avgDurationMs": 10387,
   "durationHistory": [
-    9130
+    10387
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-10T21:29:43.241Z",
+      "crawledAt": "2026-11-11T09:20:28.407Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -49,7 +49,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:29:43.241Z",
+      "validThrough": "2026-12-30T09:20:28.407Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-30T21:14:17.301Z",
       "_qualityScore": 85,
@@ -87,7 +87,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-10T21:29:37.546Z",
+      "crawledAt": "2026-11-11T09:20:21.995Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -100,7 +100,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:29:37.546Z",
+      "validThrough": "2026-12-11T09:20:21.995Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

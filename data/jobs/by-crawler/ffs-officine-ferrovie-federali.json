@@ -2751,7 +2751,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:28:39.191Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -7222,7 +7223,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:48.226Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -7323,7 +7325,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:48.710Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",
@@ -8538,7 +8541,8 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:29:09.291Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3b00c4c42be3",
@@ -10764,7 +10768,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:22:55.058Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ebd10104b050",
@@ -11573,7 +11578,8 @@
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T21:29:05.711Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9689d0bd71a9",
@@ -11671,7 +11677,8 @@
       "streetAddress": "Birsfelden Hafen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T21:29:05.218Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-54e7920af49c",
@@ -12229,7 +12236,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:29:06.209Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ef34876a529a",
@@ -12741,7 +12749,8 @@
       "streetAddress": "Niederglatt",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T21:29:04.719Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6a4e70dc6ace",
@@ -13570,7 +13579,8 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:03.718Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -13994,7 +14004,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:03.213Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-387d1f94c918",
@@ -15729,7 +15740,8 @@
       "streetAddress": "Zürich Flughafen oder Rangierbahnhof Limmattal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:09.706Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -15832,7 +15844,8 @@
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:02.718Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ab9281add8ea",
@@ -16250,7 +16263,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:12.706Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-4a6dd0fbc095",
@@ -17031,7 +17045,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:08.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-95604d8eb223",
@@ -17417,7 +17432,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:06.683Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2f1e4873e1d3",

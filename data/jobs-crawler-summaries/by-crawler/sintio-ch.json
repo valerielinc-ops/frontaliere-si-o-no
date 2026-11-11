@@ -1,14 +1,17 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "sintio-ch",
   "label": "Sintio",
-  "generatedAt": "2026-11-10T22:02:02.643Z",
+  "generatedAt": "2026-11-11T09:50:37.868Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
-  "lastFetchOutcome": "selector_miss",
+  "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "source-extraction-failed",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +23,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }

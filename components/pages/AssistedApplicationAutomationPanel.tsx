@@ -137,6 +137,8 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   captcha_provider_unavailable: 'CAPTCHA sul portale: risolvilo tu nella scheda',
   account: 'account sul portale da creare o verificare',
   rejected: 'il portale ha rifiutato l’invio automatico',
+  application_region_unsupported: 'il portale rifiuta la rete del runner: l’ordine ora parte dal runner svizzero',
+  swiss_runner_offline: 'runner svizzero non attivo: accendi il Mac del runner, poi «Riprova l’invio automatico»',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
   posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
   // #11161: a retry completes it when the channel has a PastaHR https link (the candidate gets it by e-mail).

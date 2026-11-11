@@ -567,6 +567,17 @@ describe('buildQuarantineReviewPrBody', () => {
     const validation = validatePrBody(body, { diffPaths: ['.github/workflows/crawler-group-24.yml'] });
     expect(validation.violations ?? []).toEqual([]);
   });
+
+  it('declares the empty residual section with a literal state', () => {
+    const evidence = { latest: 'success', streak: 4, streakStart: '2026-09-28T00:00:00Z', runs: [1, 2], observed: 6 };
+    const body = buildQuarantineReviewPrBody({
+      registry: registryOf({ x: entry() }),
+      decisions: [{ slug: 'x', action: 'rejoin', homeGroup: 13, evidence }],
+    });
+
+    expect(body).toContain('- Nessuno — in questa PR.');
+    expect(validatePrBody(body).violations ?? []).toEqual([]);
+  });
 });
 
 describe('crawler quarantine GitHub mutation retry', () => {

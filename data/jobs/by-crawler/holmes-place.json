@@ -1,7 +1,7 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-11-10T21:44:04.792Z",
-  "runId": "42903770667",
+  "assembledAt": "2026-11-11T09:26:18.455Z",
+  "runId": "42994125464",
   "jobs": [
     {
       "id": "holmes-place-2936eefd975e",
@@ -34,7 +34,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.367Z",
+      "crawledAt": "2026-11-11T09:26:09.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -77,7 +77,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.367Z",
+      "validThrough": "2027-01-02T09:26:09.487Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.365Z",
+      "crawledAt": "2026-11-11T09:26:09.484Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -153,7 +153,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.365Z",
+      "validThrough": "2027-01-02T09:26:09.484Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -187,7 +187,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.360Z",
+      "crawledAt": "2026-11-11T09:26:09.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
@@ -233,7 +233,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:43:55.360Z",
+      "validThrough": "2027-01-02T09:26:09.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -267,7 +267,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.351Z",
+      "crawledAt": "2026-11-11T09:26:09.471Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -310,7 +310,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:43:55.351Z",
+      "validThrough": "2027-01-02T09:26:09.471Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -344,7 +344,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:43:55.347Z",
+      "crawledAt": "2026-11-11T09:26:09.469Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -386,7 +386,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:43:55.347Z",
+      "validThrough": "2027-01-02T09:26:09.469Z",
       "validThroughSource": "last-observed-window"
     }
   ]
