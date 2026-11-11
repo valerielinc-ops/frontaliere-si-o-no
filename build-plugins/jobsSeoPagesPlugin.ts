@@ -154,17 +154,16 @@ import {
  renderJobCardHtml,
  renderJobCardListHtml,
  jobSaveLinkAttrs,
- JOB_CARD_ICON_SYMBOLS,
  type JobCardJob,
  type JobCardLocale,
 } from './shared/jobCardHtml';
-import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
+import { infeedAdListItemHtml } from './lib/adSlotHtml';
 import {
  JOBLIST_AD_EVERY_N,
  JOBLIST_AD_MAX_PER_LIST,
  shouldPlaceInfeedAd,
 } from '../services/adsenseSlots';
-import { isInfeedAdExperimentActiveFromEnv, isInfeedAdExperimentSurface, resolveInfeedAdVariant } from '../services/adExperiment';
+import { isInfeedAdExperimentActiveFromEnv } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { LOGO_IMG_ONERROR, resolveJobLogoSrc } from './shared/companyLogoResolver';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
@@ -271,6 +270,7 @@ import {
 } from './jobSectorLanding';
 import { HUB_SLUG_BY_LOCALE, SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
 import { buildCantonHubArchiveNavigation, buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
+import { renderCantonJobListingGrid } from './shared/cantonJobListingGrid';
 import { isRegionalJobGuidanceTarget, renderRegionalJobGuidance, type RegionalGuidanceCanton } from './shared/regionalJobGuidance';
 // Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
 // real-data block (wage-level factor + LAMal premium vs Ticino; no
@@ -324,7 +324,7 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
-import { setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
+import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
@@ -1698,12 +1698,24 @@ const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !==
 const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '0';
 // EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
 
-export function jobsSeoPagesPlugin(rootDir: string): Plugin {
+export interface JobsSeoPagesPluginOptions {
+ /** Render only these stable job IDs while keeping the complete corpus as context. */
+ activeJobIds?: readonly string[];
+ /** Write a machine-readable receipt for targeted active-page renders. */
+ fastLaneResultFile?: string;
+ /** Stop after active job pages have been rendered and flushed. */
+ fastLane?: boolean;
+}
+
+export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ if (options.fastLane && (options.activeJobIds === undefined || !options.fastLaneResultFile)) {
+  throw new Error('[jobs-seo-pages] fastLane requires activeJobIds and fastLaneResultFile');
+ }
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
  try {
  // JOBS_SEO_SECTOR_MEMO=1: one memo per closeBundle over the immutable job
@@ -2859,6 +2871,25 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    `[jobs-seo-sample] fraction=${jobsSeoSample} selected=${validJobs.length} of ${totalValidJobs}`,
   );
  }
+ const activeJobIds = options.activeJobIds === undefined
+  ? null
+  : new Set(options.activeJobIds.map((id) => String(id).trim()).filter(Boolean));
+ if (activeJobIds && activeJobIds.size !== options.activeJobIds?.length) {
+  throw new Error('[jobs-seo-pages] activeJobIds must contain unique, non-empty stable IDs');
+ }
+ if (activeJobIds && jobsSeoSample !== null) {
+  throw new Error('[jobs-seo-pages] activeJobIds cannot be combined with JOBS_SEO_SAMPLE');
+ }
+ const activeJobsToRender = activeJobIds === null
+  ? validJobs
+  : validJobs.filter((job) => activeJobIds.has(stableJobId(job)));
+ if (activeJobIds) {
+  const validIds = new Set(validJobs.map((job) => stableJobId(job)));
+  const missingIds = [...activeJobIds].filter((id) => !validIds.has(id));
+  if (missingIds.length > 0) {
+   throw new Error(`[jobs-seo-pages] targeted active job IDs are not renderable: ${missingIds.slice(0, 20).join(', ')}`);
+  }
+ }
  // The same validated pool drives cards, totals and detail emission. A missing
  // description must not hide a usable listing or leave its card pointing at a
  // missing page: the detail renderer provides a noindex page and safe defaults.
@@ -3743,6 +3774,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ const renderedActiveJobPaths = new Set<string>();
+ const activeJobPathOwners = new Map<string, unknown>();
  // Keep an independent population count for the coverage sidecar. It mirrors
  // only the active emitter's ownership rule (first `(canton, locale, slug)`
  // wins), before any HTML is written, so a skipped active loop cannot make an
@@ -3751,8 +3784,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   for (const locale of localeList) {
-   if (!shouldEmitLocale(locale)) continue;
-   expectedActiveJobPaths.add(`${jobCanton}:${locale}:${localizedSlug(job, locale)}`);
+   const key = `${jobCanton}:${locale}:${localizedSlug(job, locale)}`;
+   if (!activeJobPathOwners.has(key)) {
+    activeJobPathOwners.set(key, job);
+   }
+   if (shouldEmitLocale(locale)
+       && (activeJobIds === null || activeJobIds.has(stableJobId(job)))
+       && activeJobPathOwners.get(key) === job) {
+    expectedActiveJobPaths.add(key);
+   }
   }
  }
  activeJobPostingCoverage.setExpectedTotal(expectedActiveJobPaths.size);
@@ -4121,14 +4161,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   maybeForceJobsSeoHtmlGc();
  };
 
- for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++) {
+ const fastLaneRenderedPages: Array<{ id: string; locale: string; path: string }> = [];
+ for (let activeJobIndex = 0; activeJobIndex < activeJobsToRender.length; activeJobIndex++) {
   if (activeJobIndex % CANONICAL_FALLBACK_JOB_BATCH_SIZE === 0) {
    await precomputeCanonicalFallbackWorkerBatch(
-    validJobs.slice(activeJobIndex, activeJobIndex + CANONICAL_FALLBACK_JOB_BATCH_SIZE),
+    activeJobsToRender.slice(activeJobIndex, activeJobIndex + CANONICAL_FALLBACK_JOB_BATCH_SIZE),
     Math.floor(activeJobIndex / CANONICAL_FALLBACK_JOB_BATCH_SIZE),
    );
   }
-  const job = validJobs[activeJobIndex];
+  const job = activeJobsToRender[activeJobIndex];
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
   if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();
  const perLocaleSlug = {
@@ -4242,7 +4283,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // surviving pages advertise the skipped variant as a 404 target.
  const activeJobEligibleLocales = new Set(
  localeList.filter((candidateLocale) =>
- !emittedActiveJobPaths.has(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`),
+ activeJobPathOwners.get(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`) === job,
  ),
  );
  const hreflangHtml = buildLocaleAlternateBlock({
@@ -4259,11 +4300,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collision in dist/.write-collisions.json without changing the
  // bytes on disk (Map last-add-wins inside the WriteCollector).
  const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
- if (emittedActiveJobPaths.has(__activeJobKey)) {
+ if (activeJobPathOwners.get(__activeJobKey) !== job || renderedActiveJobPaths.has(__activeJobKey)) {
  consumeCanonicalFallbackUse(job, locale);
  recordEmit('active-job', __tActiveJob);
  continue;
  }
+ renderedActiveJobPaths.add(__activeJobKey);
  emittedActiveJobPaths.add(__activeJobKey);
  claimedJobPaths.add(localePathClaimKey(relPath));
  // Per-locale shard build (BUILD_LOCALE): the dedup Set above is fully
@@ -5287,6 +5329,9 @@ ${staticAnalyticsHtml}
  html = markJobBoardNoindexTargetHtml(html);
  jobsSeoReuse?.finish(activeReuse, html);
  activeJobPostingCoverage.record(locale, canonicalPath, html);
+ if (options.fastLaneResultFile) {
+  fastLaneRenderedPages.push({ id: stableJobId(job), locale, path: canonicalPath });
+ }
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
  const __tPh_write = phaseTimer();
@@ -5476,6 +5521,82 @@ ${staticAnalyticsHtml}
   fs.writeFileSync(process.env.JOBPOSTING_COVERAGE_OUT, JSON.stringify(activeJobPostingCoverage.sidecar()));
  }
  activeJobPostingCoverage.assertComplete('jobposting-coverage');
+ if (options.fastLaneResultFile) {
+  fs.mkdirSync(np.dirname(options.fastLaneResultFile), { recursive: true });
+  const fastLaneSitemapEntries = activeJobsToRender.flatMap((job) => {
+   if (!isSitemapEligibleJob(job)) return [];
+   const canton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+   const paths = new Map<typeof localeList[number], string>();
+   const urls = new Map<typeof localeList[number], string>();
+   for (const locale of localeList) {
+    const slug = localizedSlug(job, locale);
+    const path = buildCanonicalJobDetailPath(locale, job, slug, canton);
+    const url = `${BASE_URL}${path}`;
+    if (resolveCanonicalUrl(slug, url) !== url || jobSitemapLocOwner.get(url) !== job) continue;
+    paths.set(locale, path);
+    urls.set(locale, url);
+   }
+   const itUrl = urls.get('it');
+   if (!itUrl) return [];
+   const alternates = [...urls.entries()].map(([locale, href]) => ({ hreflang: locale, href }));
+   const itPath = paths.get('it')!;
+   const xDefault = { hreflang: 'x-default', href: itUrl };
+   const lastmod = jobSitemapLastmodDay(job);
+   const emittedLastmod = renderJobSitemapLastmod(job);
+   const urlEntry = ` <url>\n <loc>${itUrl}</loc>\n${alternates.map(({ hreflang, href }) => ` <xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}" />`).join('\n')}\n <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n${emittedLastmod ? ` ${emittedLastmod}\n` : ''} <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
+   const cantonSlug = getCantonUrlSlugLocal(canton, 'it');
+   const variants = [...urls.entries()].filter(([locale]) => locale !== 'it').map(([locale, loc]) => ({
+    locale,
+    loc,
+    cantonSlug,
+    lastmod,
+    alternates: [...alternates, xDefault],
+    changefreq: 'weekly',
+    priority: 0.6,
+   }));
+   return [{ id: stableJobId(job), loc: itUrl, urlEntry, cantonSlug, variants }];
+  });
+  const affectedCantons = new Set<string>([
+   ...activeJobsToRender.map((job) => sharedResolveJobCanton(job as { canton?: string; location?: string })),
+   AGGREGATE_KEY,
+  ]);
+  const tiHubBlocks = getTiHubLatestJobsBlocks();
+  const fastLaneHubUpdates: Array<Record<string, unknown>> = [];
+  for (const canton of affectedCantons) {
+   for (const locale of localeList) {
+    const section = buildCantonAwareSection(locale, canton);
+    const path = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
+    if (canton === 'TI') {
+     const block = tiHubBlocks?.[locale];
+     if (typeof block !== 'string') throw new Error(`[jobs-seo-pages] missing Ticino hub block for ${locale}`);
+     fastLaneHubUpdates.push({ kind: 'ticino', canton, locale, path, block });
+     continue;
+    }
+    const display = getCantonDisplayLabel(canton, locale);
+    const latest = selectJobBoardInventory(validJobs, canton)
+     .sort((a, b) => _jobRecency(b) - _jobRecency(a))
+     .slice(0, 12);
+    const linkable = latest
+     .map((job) => ({ job, href: activeCanonicalJobHref(job, locale) }))
+     .filter((item): item is { job: any; href: string } => item.href !== null);
+    const grid = renderCantonJobListingGrid({
+     locale,
+     canton,
+     display,
+     jobs: linkable as Array<{ job: JobCardJob; href: string }>,
+     adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
+    });
+    fastLaneHubUpdates.push({ kind: 'canton-list', canton, locale, path, grid });
+   }
+  }
+  fs.writeFileSync(options.fastLaneResultFile, JSON.stringify({
+   schema: 'jobs-fast-render/v1',
+   requestedIds: [...(activeJobIds ?? [])].sort(),
+   pages: fastLaneRenderedPages,
+   sitemapEntries: fastLaneSitemapEntries,
+   hubUpdates: fastLaneHubUpdates,
+  }), 'utf8');
+ }
  // These indexes are only read by the active-detail related-links renderer.
  // Keeping their per-job arrays alive through company/editorial emission
  // retains another copy of the corpus graph after the active pages are done.
@@ -5486,6 +5607,12 @@ ${staticAnalyticsHtml}
  relatedJobSelector.clear();
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
+
+ if (options.fastLane) {
+  jobsSeoReuse?.release();
+  resolveJobsSeoPagesFlushed();
+  return;
+ }
 
  // `memoCanonicalCleaned` is called only by the active-job renderer. Every
  // tracked key has already been removed at its last reader; clear any
@@ -12427,58 +12554,13 @@ ${staticAnalyticsHtml}
      // only) which looked visually out-of-band vs the rest of the site
      // (sector pages, employer hubs, search results all use the shared
      // renderer). data-listing-grid is preserved for tests / selectors.
-     const listingHeading = entry.locale === 'it' ? `Ultime offerte di lavoro in ${display}`
-       : entry.locale === 'en' ? `Latest job openings in ${display}`
-       : entry.locale === 'de' ? `Aktuelle Stellenangebote in ${display}`
-       : `Dernières offres d'emploi à ${display}`;
-     const listingGrid = linkableCantonJobs.length > 0
-       ? `<h2 class="s-iEVPhz">${esc(listingHeading)}</h2>` +
-         `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
-         JOB_CARD_ICON_SYMBOLS +
-         linkableCantonJobs.map(({ job, href: jHref }, jIdx) => {
-           const jt = job as {
-             slugByLocale?: Record<string, string>;
-             slug?: string;
-             titleByLocale?: Record<string, string>;
-             title?: string;
-             company?: string;
-             companyKey?: string;
-             companyDomain?: string;
-             location?: string;
-             canton?: string;
-             contract?: string;
-             datePosted?: string;
-             postedDate?: string;
-             salaryMin?: number | string | null;
-             salaryMax?: number | string | null;
-             featured?: boolean;
-             logo?: string | null;
-             url?: string;
-           };
-           const card = renderJobCardHtml(jt, {
-             href: jHref,
-             locale: entry.locale as JobCardLocale,
-           });
-           // In-feed ad after every Nth card (never after the last one).
-           // `entry.key` is this page's canton; it is passed through so the
-           // active Ticino treatment (services/adsenseSlots.ts
-           // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
-           // slot on that specific static index page without touching any
-           // other canton or any other listing surface.
-             const adExperimentVariant = isInfeedAdExperimentSurface(entry.key)
-               ? resolveInfeedAdVariant(entry.key, { active: STATIC_INFEED_AD_EXPERIMENT_ACTIVE })
-               : undefined;
-             const ad =
-             jIdx + 1 < linkableCantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, {
-               canton: entry.key,
-               adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
-             })
-               ? infeedAdGridBlockHtml({ experimentVariant: adExperimentVariant })
-               : '';
-           return card + ad;
-         }).join('') +
-         `</section>`
-       : '';
+     const listingGrid = renderCantonJobListingGrid({
+       locale: entry.locale,
+       canton: entry.key,
+       display,
+       jobs: linkableCantonJobs as Array<{ job: JobCardJob; href: string }>,
+       adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
+     });
 
      // buildSeoPageHtml already emits the crawler-facing outer
      // `<main class="seo-static-content">` sibling of `<div id="root">`.

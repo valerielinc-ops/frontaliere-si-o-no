@@ -935,7 +935,13 @@ jobs:
           key: r2-og-published-${{ github.run_id }}-final-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
       - name: Publish edge files (refresh the R2 copies the Worker prefers)
         continue-on-error: true
-        run: node scripts/publish-edge-files.mjs --producer=build
+        run: |
+          node scripts/ci/with-shard-writer-lock.mjs \
+            --section __sitemaps__ --locale it --policy wait --timeout-ms 3600000 -- \
+            bash -euo pipefail -c '
+              node scripts/publish-edge-files.mjs --producer=build
+              node scripts/publish-edge-files.mjs --producer=jobs-fast --from-dir="$GITHUB_WORKSPACE/dist"
+            '
       - name: Upload Pages artifact (compression-level 9)
         id: upload-pages-artifact
         uses: actions/upload-artifact@v7
@@ -1618,7 +1624,10 @@ jobs:
             # Timeout leaves the existing live/ok-marker fallback unchanged and
             # does not change page output or indexing directives.
             echo "[section-push] event=start locale=$loc section=$section timeout_seconds=3600 cleanup_grace_seconds=600"
-            if timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
+            if timeout --verbose --signal=TERM --kill-after=600s 3600s \
+              node scripts/ci/with-shard-writer-lock.mjs \
+                --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
+                bash scripts/lib/push-section-shard.sh "$section" "$loc" "$PUBLISHER_DIST"; then
               echo "[section-push] event=finish locale=$loc section=$section outcome=success"
               return 0
             else

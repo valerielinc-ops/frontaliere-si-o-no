@@ -18,11 +18,13 @@ import worker, {
   EDGE_PUSHED_FILES,
   NEWS_SITEMAP_WINDOW_HOURS,
   pruneNewsSitemapToWindow,
+  resolveEdgePushedFileEntry,
 } from '../infra/cloudflare-worker/locale-router.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS script module, no type declarations.
 import { selectedEntries } from '../scripts/publish-edge-files.mjs';
-import { readdirSync, readFileSync } from 'node:fs';
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 const APEX = 'https://frontaliereticino.ch';
@@ -62,6 +64,18 @@ function mockFetch(opts: {
 }
 
 describe('locale-router pushable-origin edge files (#4881)', () => {
+  it('serves an allowlisted numbered jobs sitemap part from R2', async () => {
+    mockFetch({ edgeStatus: 200, edgeBody: '<xml>part</xml>', originStatus: 200, originBody: 'stale-origin' });
+
+    const res = await worker.fetch(new Request(`${APEX}/sitemap-jobs-ticino-en-001.xml`), {}, ctx);
+
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('<xml>part</xml>');
+    expect(resolveEdgePushedFileEntry('/sitemap-jobs-ticino-en-001.xml')?.cdnKey).toBe('/edge/sitemap-jobs-ticino-en-001.xml');
+    expect(resolveEdgePushedFileEntry('/sitemap-jobs-not-a-canton-en-001.xml')).toBeNull();
+    expect(resolveEdgePushedFileEntry('/sitemap-jobs-ticino-it-001.xml')).toBeNull();
+  });
+
   it('serves the R2 copy for a registered path when the R2 fetch is a 200', async () => {
     mockFetch({ edgeStatus: 200, edgeBody: '<xml>fresh</xml>', originStatus: 200, originBody: 'stale-origin' });
 
@@ -223,11 +237,13 @@ describe('locale-router serves the frontaliere article sitemap from the edge ori
         path.resolve(__dirname, '..', 'infra', 'cloudflare-worker', 'wrangler.toml'),
         'utf-8',
       );
+      const genericJobsSitemapRoute = pathname.startsWith('/sitemap-jobs-')
+        && toml.includes('{ pattern = "frontaliereticino.ch/sitemap-jobs-*", zone_name');
       expect(
-        toml,
+        toml.includes(`frontaliereticino.ch${pathname}`) || genericJobsSitemapRoute,
         `${pathname} is registered in EDGE_PUSHED_FILES but has no wrangler route — ` +
           `the Worker would never see the request`,
-      ).toContain(`frontaliereticino.ch${pathname}`);
+      ).toBe(true);
     }
   });
 });
@@ -263,12 +279,14 @@ describe('every EDGE_PUSHED_FILES route is query-string-proof', () => {
   );
 
   it.each(Object.keys(EDGE_PUSHED_FILES))('%s has a wildcarded wrangler route', (pathname) => {
+    const genericJobsSitemapRoute = pathname.startsWith('/sitemap-jobs-')
+      && toml.includes('{ pattern = "frontaliereticino.ch/sitemap-jobs-*", zone_name');
     expect(
-      toml,
+      toml.includes(`{ pattern = "frontaliereticino.ch${pathname}*", zone_name`) || genericJobsSitemapRoute,
       `the route for ${pathname} has no trailing "*", so "${pathname}?x=1" bypasses the ` +
         `Worker and is served by GitHub Pages instead of the R2 copy — a different origin ` +
         `with the same status code, which makes every cache-busted probe of this path lie.`,
-    ).toContain(`{ pattern = "frontaliereticino.ch${pathname}*", zone_name`);
+    ).toBe(true);
   });
 
   it('does NOT wildcard the three locale .html routes', () => {
@@ -486,14 +504,29 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
     .filter(([, entry]) => entry.producer === 'build' || entry.producer === 'sync')
     .map(([pathname]) => pathname);
 
-  it('accounts for every registered path across the four known producer classes', () => {
+  it('accounts for every registered path across the five known producer classes', () => {
     // A future entry with a typo'd or unhandled `producer` value would
     // otherwise silently fall out of ALL the coverage assertions below
     // (in-repo, corpus, and hub-render) rather than failing loudly.
-    const known = new Set(['build', 'sync', 'corpus', 'hub-render']);
+    const known = new Set(['build', 'sync', 'corpus', 'hub-render', 'jobs-fast']);
     for (const [pathname, entry] of Object.entries(EDGE_PUSHED_FILES)) {
       expect(known.has(entry.producer), `${pathname} has an unrecognized producer: '${entry.producer}'`).toBe(true);
     }
+  });
+
+  it('publishes jobs-fast entries from its automatic workflow and the full build artifact', () => {
+    const fastWorkflow = readFileSync(
+      path.resolve(__dirname, '..', '.github', 'workflows', 'jobs-fast-publish.yml'),
+      'utf-8',
+    );
+    const runner = readFileSync(path.resolve(__dirname, '..', 'scripts', 'publish-jobs-fast.mjs'), 'utf-8');
+    const fullPublisher = readFileSync(path.resolve(__dirname, '..', '.github', 'workflows', 'deploy-publish.yml'), 'utf-8');
+    expect(fastWorkflow).toContain('cron: "*/30 * * * *"');
+    expect(fastWorkflow).toContain('data/jobs/by-crawler/**/*.json');
+    expect(runner).toContain('scripts/publish-edge-files.mjs');
+    expect(runner).toContain('`--only=${only}`');
+    expect(fullPublisher).toContain('node scripts/publish-edge-files.mjs --producer=jobs-fast --from-dir="$GITHUB_WORKSPACE/dist"');
+    expect(Object.values(EDGE_PUSHED_FILES).filter((entry) => entry.producer === 'jobs-fast').length).toBeGreaterThan(1);
   });
 
   it.each(inRepoCheckablePaths)(
@@ -614,10 +647,13 @@ describe('deploy.yml only publishes the EDGE_PUSHED_FILES entries it actually pr
     }
   });
 
-  it('resolves to a set that is entirely producer: "build" — nothing owned by another workflow', () => {
+  it('publishes only build output or jobs-fast entries read from the full build artifact', () => {
     for (const line of deployEdgePublishInvocations()) {
       const producerMatch = line.match(/--producer=(\S+)/);
       const onlyMatch = line.match(/--only=(\S+)/);
+      if (producerMatch?.[1] === 'jobs-fast') {
+        expect(line).toContain('--from-dir="$GITHUB_WORKSPACE/dist"');
+      }
       const coveredPathnames = producerMatch
         ? Object.entries(EDGE_PUSHED_FILES)
             .filter(([, entry]) => entry.producer === producerMatch[1])
@@ -628,11 +664,11 @@ describe('deploy.yml only publishes the EDGE_PUSHED_FILES entries it actually pr
 
       for (const pathname of coveredPathnames) {
         expect(
-          EDGE_PUSHED_FILES[pathname]?.producer,
-          `deploy.yml's invocation covers ${pathname}, whose producer is ` +
-            `'${EDGE_PUSHED_FILES[pathname]?.producer}' — deploy.yml only owns producer: 'build' ` +
-            `entries (see the producer table in infra/cloudflare-worker/locale-router.js).`,
-        ).toBe('build');
+          ['build', 'jobs-fast'],
+          `deploy publisher invocation covers ${pathname}, whose producer is ` +
+            `'${EDGE_PUSHED_FILES[pathname]?.producer}' — only build output and the jobs-fast ` +
+            `publisher's validated full build artifact may be published here.`,
+        ).toContain(EDGE_PUSHED_FILES[pathname]?.producer);
       }
     }
   });
@@ -671,6 +707,23 @@ describe('publish-edge-files --only selection', () => {
  * or reclassified.
  */
 describe('publish-edge-files --producer selection', () => {
+  it('adds only allowlisted numbered parts found in the rendered payload directory', () => {
+    const directory = mkdtempSync(path.join(os.tmpdir(), 'jobs-fast-edge-sitemaps-'));
+    try {
+      writeFileSync(path.join(directory, 'sitemap-jobs-ticino-en-003.xml'), '<xml/>');
+      writeFileSync(path.join(directory, 'sitemap-jobs-unknown-en-001.xml'), '<xml/>');
+      writeFileSync(path.join(directory, 'sitemap-jobs-ticino-it-001.xml'), '<xml/>');
+      const picked = selectedEntries([
+        'node', 'publish-edge-files.mjs', '--producer=jobs-fast', `--from-dir=${directory}`,
+      ]).map(([pathname]) => pathname);
+      expect(picked).toContain('/sitemap-jobs-ticino-en-003.xml');
+      expect(picked).not.toContain('/sitemap-jobs-unknown-en-001.xml');
+      expect(picked).not.toContain('/sitemap-jobs-ticino-it-001.xml');
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
   it('narrows to every entry whose producer field matches', () => {
     const picked = selectedEntries(['node', 'publish-edge-files.mjs', '--producer=build']);
     const buildOwned = Object.entries(EDGE_PUSHED_FILES).filter(([, entry]) => entry.producer === 'build');
