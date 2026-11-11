@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-11T14:22:48.144Z",
+  "updatedAt": "2026-11-11T14:24:14.565Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -375046,12 +375046,12 @@
     },
     "data-unit": {
       "key": "data-unit",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-11T10:11:08.206Z",
-      "updatedAt": "2026-11-10T11:23:40.330Z",
+      "updatedAt": "2026-11-11T14:24:14.468Z",
       "name": "DATA UNIT AG",
       "city": "",
       "zip": "",
@@ -375327,7 +375327,13 @@
         }
       ],
       "promotionPr": "17802",
-      "promotionBranch": "prospector/promote-2026-11-09"
+      "promotionBranch": "prospector/promote-2026-11-09",
+      "promotedAt": "2026-11-10T14:43:47Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-11T09:52:44.213Z",
+      "firstCrawlerJobCount": 3
     },
     "data-unit@sursee": {
       "key": "data-unit@sursee",
@@ -1136949,12 +1136955,12 @@
     },
     "prodyna@basel": {
       "key": "prodyna@basel",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-18T08:23:23.704Z",
-      "updatedAt": "2026-11-10T11:23:09.107Z",
+      "updatedAt": "2026-11-11T14:24:14.468Z",
       "name": "PRODYNA (Schweiz) AG",
       "city": "Basel",
       "zip": "4052",
@@ -1137216,7 +1137222,13 @@
         }
       ],
       "promotionPr": "17802",
-      "promotionBranch": "prospector/promote-2026-11-09"
+      "promotionBranch": "prospector/promote-2026-11-09",
+      "promotedAt": "2026-11-10T14:43:47Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-11T09:53:01.650Z",
+      "firstCrawlerJobCount": 2
     },
     "proemploi.ch": {
       "key": "proemploi.ch",
@@ -1331749,7 +1331761,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-10T14:38:07.437Z",
+      "updatedAt": "2026-11-11T14:24:14.468Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1332349,7 +1332361,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-10T09:37:41.180Z",
+      "firstCrawlerOutputAt": "2026-11-11T09:51:26.023Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
@@ -1965459,7 +1965471,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-10T14:38:07.437Z",
+      "updatedAt": "2026-11-11T14:24:14.468Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -1965726,7 +1965738,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-10T13:18:32.726Z",
+      "firstCrawlerOutputAt": "2026-11-11T12:28:38.008Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-07T13:26:25.335Z"
     },
