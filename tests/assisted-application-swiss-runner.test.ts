@@ -14,6 +14,7 @@ import {
   SWISS_RUNNER_PICKUP_MS,
   completeLocalDispatch,
   enqueueLocalDispatch,
+  holdUnservedLocalDispatches,
   leaseLocalDispatch,
   localDispatchKey,
   swissRunnerAvailability,
@@ -335,5 +336,113 @@ describe('local runner', () => {
 
   it('reads the Remote Config loader output without a shell', () => {
     expect(parseExportLines("export A='one'\nexport B='it'\\''s\nmulti'\nnoise\n")).toEqual({ A: 'one', B: "it's\nmulti" });
+  });
+});
+
+// Review PRR_kwDORN5k2M8AAAABXRWXRQ (PR #18109): the three acceptance cases.
+describe('review: crashed leases, a failing offline transition, an exit lost mid-run', () => {
+  const requestedAt = now - 150 * 60 * 1000 + 5 * 60 * 1000;
+  const submitting = { state: 'submitting', round: 1, egress: mark, dispatch: { mode: 'submit', round: 1, attempts: 1, requestedAt } };
+  const key = localDispatchKey({ mode: 'submit', round: 1, requestedAt });
+  const crashed = {
+    orderId, key, mode: 'submit', round: 1, requestedAt, queuedAt: requestedAt, status: 'leased', egress: 'ch',
+    lease: { runnerId: 'swiss-crashed', key, at: requestedAt, until: now - 1 },
+  };
+
+  it('a lease that ended unreleased is taken again by the next lease', async () => {
+    const store = storeWith(submitting, { [queuePath]: crashed });
+    const { leased } = await leaseLocalDispatch({ db: store.db, runnerId: 'swiss-b', nowMs: now });
+    expect(leased).toMatchObject({ orderId, key, lease: { runnerId: 'swiss-b' } });
+    expect(store.read(queuePath)).toMatchObject({
+      status: 'leased', leaseExpiries: 1, lastRun: { runnerId: 'swiss-crashed', status: 'lease_expired' },
+    });
+  });
+
+  it('with no runner, the next sweep holds the order of a lease that ended unreleased', async () => {
+    const store = storeWith(submitting, { [queuePath]: crashed });
+    const summary = await runAutomationSweep({ db: store.db, runEffect: effectRunner(vi.fn()), nowMs: now } as any);
+    expect(summary).toMatchObject({ swissLeasesRequeued: 1, swissRunnerHolds: 1 });
+    expect(store.read(queuePath)).toMatchObject({ status: 'expired', lease: null, result: { reason: 'heartbeat_missing' } });
+    expect(store.read(flowPath)).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:swiss_runner_offline'] });
+  });
+
+  it('an offline transition that fails once is applied by the next sweep', async () => {
+    const store = storeWith(submitting, {
+      [queuePath]: { ...crashed, status: 'pending', lease: null, queuedAt: now - SWISS_RUNNER_PICKUP_MS - 1 },
+    });
+    const runEffect = effectRunner(vi.fn());
+    let calls = 0;
+    const flaky = async (args: any) => {
+      calls += 1;
+      if (calls === 1) throw new Error('DEADLINE_EXCEEDED');
+      return applyAutomationEvent(args);
+    };
+    const first = await holdUnservedLocalDispatches({ db: store.db, nowMs: now, runEffect, applyEvent: flaky });
+    expect(first).toMatchObject({ failed: 1, held: 0 });
+    expect(store.read(queuePath)?.status).toBe('expiring');
+    expect(store.read(flowPath)?.state).toBe('submitting');
+    // A runner never leases a request being expired.
+    expect((await leaseLocalDispatch({ db: store.db, runnerId: 'swiss-b', nowMs: now + 1 })).leased).toBeNull();
+
+    const second = await holdUnservedLocalDispatches({ db: store.db, nowMs: now + 60_000, runEffect, applyEvent: flaky });
+    expect(second).toMatchObject({ failed: 0, held: 1 });
+    expect(store.read(queuePath)).toMatchObject({ status: 'expired', result: { code: 'swiss_runner_offline' } });
+    expect(store.read(flowPath)).toMatchObject({
+      state: 'owner_takeover', heldBy: ['portal:swiss_runner_offline'], swissRunnerOffline: { reason: 'heartbeat_missing' },
+    });
+  });
+
+  it('a request still expiring goes back to the runner when it is online again', async () => {
+    const store = storeWith(submitting, {
+      [queuePath]: { ...crashed, status: 'expiring', lease: null },
+      [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: { at: now - 1000, eligible: true, egressCountry: 'CH' },
+    });
+    await holdUnservedLocalDispatches({ db: store.db, nowMs: now, runEffect: effectRunner(vi.fn()), applyEvent: applyAutomationEvent as any });
+    expect(store.read(queuePath)?.status).toBe('pending');
+    expect(store.read(flowPath)?.state).toBe('submitting');
+  });
+
+  function countries(...answers: Array<string | null>) {
+    let index = 0;
+    return (async () => {
+      const answer = answers[Math.min(index, answers.length - 1)];
+      index += 1;
+      if (answer === null) throw new Error('offline');
+      return { ok: true, text: async () => answer };
+    }) as any;
+  }
+
+  function agentUntilStopped(fallbackMs: number) {
+    return vi.fn(({ signal }: any) => new Promise((resolve) => {
+      const timer = setTimeout(() => resolve({ status: 'done', exitCode: 0, code: null }), fallbackMs);
+      signal.addEventListener('abort', () => { clearTimeout(timer); resolve({ status: 'failed', exitCode: null, code: String(signal.reason) }); });
+    }));
+  }
+
+  it('an exit that turns non-Swiss during the run stops the agent, marks the heartbeat and releases the lease', async () => {
+    const fresh = { ...submitting, dispatch: { ...submitting.dispatch, requestedAt: now } };
+    const store = storeWith(fresh);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: fresh, mode: 'submit', nowMs: now });
+    const runAgent = agentUntilStopped(5000);
+    const started = Date.now();
+    const result = await runCycle({
+      db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', 'US'), runAgent, log: () => {}, checkEveryMs: 20,
+    });
+
+    expect(Date.now() - started).toBeLessThan(4000);
+    expect(result).toMatchObject({ eligible: false, reason: 'egress_not_swiss', outcome: { status: 'failed', code: 'egress_lost' }, release: { released: true, status: 'failed' } });
+    expect(store.read(queuePath)).toMatchObject({ status: 'failed', lease: null, lastRun: { code: 'egress_lost' } });
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: false, egressCountry: 'US', reason: 'egress_not_swiss', busy: null });
+  });
+
+  it('an exit probe that merely fails does not stop the run', async () => {
+    const fresh = { ...submitting, dispatch: { ...submitting.dispatch, requestedAt: now } };
+    const store = storeWith(fresh);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: fresh, mode: 'submit', nowMs: now });
+    const result = await runCycle({
+      db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', null), runAgent: agentUntilStopped(150), log: () => {}, checkEveryMs: 20,
+    });
+    expect(result).toMatchObject({ eligible: true, outcome: { status: 'done' }, release: { status: 'done' } });
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: true, egressCountry: 'CH' });
   });
 });

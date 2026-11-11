@@ -801,6 +801,8 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
   try {
     const swiss = await holdUnservedLocalDispatches({ db, nowMs, runEffect, applyEvent: args => applyAutomationEvent(args) });
     if (swiss.held) summary.swissRunnerHolds = swiss.held;
+    if (swiss.requeued) summary.swissLeasesRequeued = swiss.requeued;
+    if (swiss.failed) summary.failed += swiss.failed;
   } catch (error) {
     summary.failed += 1;
     console.error('[assistedApplicationAutomation] Swiss runner queue check failed', error instanceof Error ? error.message : String(error));

@@ -320,9 +320,11 @@ function killGroup(child, signal) {
 
 /**
  * Run the agent for one leased request, as the workflow's «Run agent» step does.
+ * `signal`: aborted by runCycle when the network exit stops being Swiss; the agent is then stopped and its
+ * run reported as failed (before it starts, the request just goes back to the queue).
  * @returns {Promise<{status:'done'|'failed'|'retry', exitCode:number|null, code:string|null}>}
  */
-export async function runAgentLocally({ db, leased, startedAt, env = process.env, repoRoot = REPO_ROOT, write = (text) => process.stdout.write(text), reportFailure = null }) {
+export async function runAgentLocally({ db, leased, startedAt, signal = null, env = process.env, repoRoot = REPO_ROOT, write = (text) => process.stdout.write(text), reportFailure = null }) {
   const masker = createLogMasker(write);
   const runDir = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-run.'));
   let broker = null;
@@ -335,6 +337,7 @@ export async function runAgentLocally({ db, leased, startedAt, env = process.env
     } catch (error) {
       return { status: 'retry', exitCode: null, code: String(error?.code || 'prepare_failed').slice(0, 60) };
     }
+    if (signal?.aborted) return { status: 'retry', exitCode: null, code: String(signal.reason || 'aborted').slice(0, 60) };
     const chromePath = systemChromeFor({ playwrightExecutable: await playwrightExecutablePath(repoRoot), systemChrome: env.SWISS_RUNNER_CHROME || SYSTEM_CHROME });
     const agentEnv = agentEnvironment({
       baseEnv: env, rcEnv, leased, brokerSocket: broker.socket, runDir, chromePath, headed: env.SWISS_RUNNER_HEADED === '1',
@@ -347,17 +350,25 @@ export async function runAgentLocally({ db, leased, startedAt, env = process.env
       child.stdout.on('data', (chunk) => masker.push(chunk));
       child.stderr.on('data', (chunk) => masker.push(chunk));
       let timedOut = false;
-      const timer = setTimeout(() => {
-        timedOut = true;
+      let aborted = null;
+      const stop = () => {
         killGroup(child, 'SIGTERM');
         setTimeout(() => killGroup(child, 'SIGKILL'), 30_000).unref();
-      }, AGENT_TIMEOUT_MS);
-      child.once('error', () => { clearTimeout(timer); resolve({ code: null, timedOut }); });
-      child.once('close', (code) => { clearTimeout(timer); resolve({ code, timedOut }); });
+      };
+      const timer = setTimeout(() => { timedOut = true; stop(); }, AGENT_TIMEOUT_MS);
+      const onAbort = () => { aborted = String(signal.reason || 'aborted'); stop(); };
+      signal?.addEventListener('abort', onAbort, { once: true });
+      const settle = (code) => {
+        clearTimeout(timer);
+        signal?.removeEventListener('abort', onAbort);
+        resolve({ code, timedOut, aborted });
+      };
+      child.once('error', () => settle(null));
+      child.once('close', (code) => settle(code));
     });
     masker.flush();
-    write(`swiss-runner agent exit order=${leased.orderId} code=${exit.code ?? 'none'}${exit.timedOut ? ' timeout' : ''}\n`);
-    if (exit.code === 0 && !exit.timedOut) return { status: 'done', exitCode: 0, code: null };
+    write(`swiss-runner agent exit order=${leased.orderId} code=${exit.code ?? 'none'}${exit.timedOut ? ' timeout' : ''}${exit.aborted ? ` stopped:${exit.aborted}` : ''}\n`);
+    if (exit.code === 0 && !exit.timedOut && !exit.aborted) return { status: 'done', exitCode: 0, code: null };
     // The workflow's «Reconcile failed executor with the application queue» step.
     try {
       const report = reportFailure || (await import('./report-runner-failure.mjs')).reportRunnerFailure;
@@ -366,7 +377,7 @@ export async function runAgentLocally({ db, leased, startedAt, env = process.env
     } catch (error) {
       write(`swiss-runner failure report failed order=${leased.orderId} ${String(error?.code || 'error').slice(0, 60)}\n`);
     }
-    return { status: 'failed', exitCode: Number.isInteger(exit.code) ? exit.code : null, code: exit.timedOut ? 'agent_timeout' : 'agent_failed' };
+    return { status: 'failed', exitCode: Number.isInteger(exit.code) ? exit.code : null, code: exit.aborted || (exit.timedOut ? 'agent_timeout' : 'agent_failed') };
   } finally {
     masker.flush();
     if (broker) await broker.stop().catch(() => {});
@@ -378,11 +389,12 @@ export async function runAgentLocally({ db, leased, startedAt, env = process.env
 
 /**
  * Check the exit, beat, lease at most one request, run it, release it.
- * @param {{db, runnerId:string, now?:()=>number, fetchImpl?:Function, runAgent:Function, log?:(line:string)=>void, version?:string|null}} args
+ * @param {{db, runnerId:string, now?:()=>number, fetchImpl?:Function, runAgent:Function, log?:(line:string)=>void, version?:string|null, checkEveryMs?:number}} args
+ *   `checkEveryMs`: how often, during a run, the heartbeat is written and the exit read again.
  */
-export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent, log = (line) => process.stdout.write(`${line}\n`), version = null }) {
-  const egress = await readEgressCountry({ fetchImpl });
-  const verdict = egressVerdict(egress);
+export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent, log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS }) {
+  let egress = await readEgressCountry({ fetchImpl });
+  let verdict = egressVerdict(egress);
   const beat = (busy = null) => writeRunnerHeartbeat({
     db, runnerId, nowMs: now(), egressCountry: egress.country, eligible: verdict.eligible, reason: verdict.reason, busy, version,
   });
@@ -397,20 +409,42 @@ export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch
   const startedAt = now();
   const busy = { orderId: leased.orderId, key: leased.key, since: startedAt };
   await beat(busy);
-  const timer = setInterval(() => { beat(busy).catch(() => {}); }, HEARTBEAT_EVERY_MS);
+  // While the run holds its lease, the exit is read again with every heartbeat (review
+  // PRR_kwDORN5k2M8AAAABXRWXRQ): an exit that is no longer Swiss stops the agent, the heartbeat says so, and
+  // the lease is released. An unreadable exit (a probe that fails) is no proof of another country: the run goes on.
+  const controller = new AbortController();
+  let inflight = null;
+  const timer = setInterval(() => {
+    if (inflight) return;
+    inflight = (async () => {
+      const current = await readEgressCountry({ fetchImpl });
+      if (current.country && current.country !== egress.country) {
+        egress = current;
+        verdict = egressVerdict(current);
+        if (!verdict.eligible && !controller.signal.aborted) {
+          log(`swiss-runner exit changed to ${current.country}: stopping order=${leased.orderId}`);
+          controller.abort('egress_lost');
+        }
+      }
+      await beat(busy);
+    })().catch(() => {}).finally(() => { inflight = null; });
+  }, checkEveryMs);
   timer.unref?.();
   let outcome;
   try {
-    outcome = await runAgent({ db, leased, startedAt });
+    outcome = await runAgent({ db, leased, startedAt, signal: controller.signal });
+    if (controller.signal.aborted && outcome?.status === 'retry') outcome = { ...outcome, code: 'egress_lost' };
   } catch (error) {
     outcome = { status: 'failed', exitCode: null, code: String(error?.code || 'runner_error').slice(0, 60) };
   } finally {
     clearInterval(timer);
+    // A heartbeat still being written must not land after the release's.
+    await inflight;
   }
   const release = await completeLocalDispatch({ db, orderId: leased.orderId, key: leased.key, runnerId, outcome, nowMs: now() });
   await beat();
   log(`swiss-runner released order=${leased.orderId} ${release.status || release.reason}`);
-  return { eligible: true, reason: null, leased, outcome, release };
+  return { eligible: verdict.eligible, reason: verdict.reason, leased, outcome, release };
 }
 
 // ── Process ─────────────────────────────────────────────────────────────────

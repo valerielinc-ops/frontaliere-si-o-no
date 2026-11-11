@@ -155,15 +155,50 @@ export async function enqueueLocalDispatch({ db, orderId, flow, mode, reason = n
 }
 
 /**
+ * Put back in the queue, in a transaction each, the requests whose lease ended
+ * without a release: the runner holding them crashed, slept or lost its exit
+ * (review PRR_kwDORN5k2M8AAAABXRWXRQ). The request keeps its `queuedAt`, so a
+ * request nobody can take any more is held by the sweep at once; a live runner
+ * leases it again, after the flow check (a superseded request closes as stale).
+ * @returns {Promise<number>} how many requests went back to the queue
+ */
+export async function requeueExpiredLeases({ db, nowMs = Date.now() }) {
+  const snapshot = await db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'leased').limit(PENDING_SCAN_LIMIT).get();
+  let requeued = 0;
+  for (const doc of snapshot.docs || []) {
+    if (!(Number(doc.data()?.lease?.until) <= nowMs)) continue;
+    const done = await db.runTransaction(async (transaction) => {
+      const item = (await transaction.get(doc.ref)).data() || null;
+      if (!item || item.status !== 'leased' || !(Number(item.lease?.until) <= nowMs)) return false;
+      transaction.set(doc.ref, {
+        status: 'pending',
+        lease: null,
+        requeuedAt: nowMs,
+        leaseExpiries: (Number(item.leaseExpiries) || 0) + 1,
+        lastRun: {
+          key: item.lease.key || item.key, runnerId: item.lease.runnerId || null, startedAt: Number(item.lease.at) || null,
+          finishedAt: nowMs, status: 'lease_expired', exitCode: null, code: 'lease_expired',
+        },
+      }, { merge: true });
+      return true;
+    });
+    if (done) requeued += 1;
+  }
+  return requeued;
+}
+
+/**
  * Lease the oldest runnable request, at most one, in a transaction: a request
  * already leased (by this or another runner, on the same order) is never
- * leased again before its lease ends. A request whose flow moved on is
- * closed as `stale` and never runs.
+ * leased again before its lease ends; one whose lease ended unreleased goes
+ * back to the queue first (requeueExpiredLeases). A request whose flow moved
+ * on is closed as `stale` and never runs.
  * @returns {Promise<{leased:object|null, stale:Array<{orderId:string, code:string}>}>}
  */
 export async function leaseLocalDispatch({ db, runnerId, nowMs = Date.now(), leaseMs = LOCAL_DISPATCH_LEASE_MS }) {
   const id = String(runnerId || '').trim();
   if (!id) throw new Error('runner_id_missing');
+  await requeueExpiredLeases({ db, nowMs });
   const snapshot = await db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'pending').limit(PENDING_SCAN_LIMIT).get();
   const candidates = (snapshot.docs || [])
     .map(doc => ({ ref: doc.ref, data: doc.data() || {} }))
@@ -249,47 +284,93 @@ export async function writeRunnerHeartbeat({ db, runnerId, nowMs = Date.now(), e
 
 /**
  * Sweep step: a request still pending past SWISS_RUNNER_PICKUP_MS while no
- * Swiss runner is alive is closed as `expired` (atomically, only if nobody
- * leased it meanwhile), and its order is held for the owner with the reason.
- * A runner that is alive but busy is waited for: the watchdog decides.
+ * Swiss runner is alive holds its order for the owner with the reason. A
+ * runner that is alive but busy is waited for: the watchdog decides.
+ *
+ * Durable in two steps (review PRR_kwDORN5k2M8AAAABXRWXRQ): the request first
+ * becomes `expiring` (atomically, only if nobody leased it meanwhile: a runner
+ * leases only `pending`), then the flow's `swiss_runner_offline` transition is
+ * applied, and only then is the request `expired`. When that transition
+ * throws, the request stays `expiring` and every later sweep applies it again;
+ * a runner back online by then gets it back as `pending` instead. A lease that
+ * ended unreleased goes back to the queue first (requeueExpiredLeases).
  * @param {{db, nowMs?:number, applyEvent:(args:object)=>Promise<object>, runEffect:Function}} args
  */
 export async function holdUnservedLocalDispatches({ db, nowMs = Date.now(), applyEvent, runEffect }) {
-  const summary = { due: 0, held: 0, waiting: 0 };
-  const pending = await db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'pending').limit(PENDING_SCAN_LIMIT).get();
+  const summary = { due: 0, held: 0, waiting: 0, requeued: 0, failed: 0 };
+  summary.requeued = await requeueExpiredLeases({ db, nowMs });
+  const [pending, expiring] = await Promise.all([
+    db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'pending').limit(PENDING_SCAN_LIMIT).get(),
+    db.collection(LOCAL_DISPATCH_COLLECTION).where('status', '==', 'expiring').limit(PENDING_SCAN_LIMIT).get(),
+  ]);
   const due = (pending.docs || []).filter((doc) => {
     const item = doc.data() || {};
     return Number(item.queuedAt || item.requestedAt) + SWISS_RUNNER_PICKUP_MS <= nowMs;
   });
-  summary.due = due.length;
-  if (!due.length) return summary;
+  const unfinished = expiring.docs || [];
+  summary.due = due.length + unfinished.length;
+  if (!summary.due) return summary;
   const runners = await db.collection(LOCAL_RUNNERS_COLLECTION).limit(RUNNER_SCAN_LIMIT).get();
   const availability = swissRunnerAvailability((runners.docs || []).map(doc => doc.data()), nowMs);
   if (availability.online) {
-    summary.waiting = due.length;
+    // The runner came back before the flow was held: the request is its work again.
+    for (const doc of unfinished) {
+      const key = doc.data()?.key;
+      await db.runTransaction(async (transaction) => {
+        const item = (await transaction.get(doc.ref)).data() || null;
+        if (item?.status === 'expiring' && item.key === key) transaction.set(doc.ref, { status: 'pending', result: null }, { merge: true });
+      });
+    }
+    summary.waiting = summary.due;
     return summary;
   }
+  const toApply = [];
   for (const doc of due) {
     const seen = doc.data() || {};
-    const expired = await db.runTransaction(async (transaction) => {
+    const claimed = await db.runTransaction(async (transaction) => {
       const item = (await transaction.get(doc.ref)).data() || null;
       if (!item || item.status !== 'pending' || item.key !== seen.key) return null;
       if (item.lease && Number(item.lease.until) > nowMs) return null;
       transaction.set(doc.ref, {
-        status: 'expired', finishedAt: nowMs,
+        status: 'expiring',
         result: { code: SWISS_RUNNER_OFFLINE_REASON, reason: availability.reason, at: nowMs },
       }, { merge: true });
       return item;
     });
-    if (!expired) continue;
-    const result = await applyEvent({
-      db,
-      orderId: String(expired.orderId || doc.ref.id),
-      event: { type: SWISS_RUNNER_OFFLINE_REASON, reason: availability.reason, round: Number(expired.round) || 1, requestedAt: Number(expired.requestedAt) || 0 },
-      actor: 'swiss-runner-watch',
-      runEffect,
-      nowMs,
-      expectedRound: Number(expired.round) || 1,
+    if (claimed) toApply.push({ ref: doc.ref, item: claimed });
+  }
+  for (const doc of unfinished) toApply.push({ ref: doc.ref, item: doc.data() || {} });
+  for (const { ref, item } of toApply) {
+    let result;
+    try {
+      result = await applyEvent({
+        db,
+        orderId: String(item.orderId || ref.id),
+        event: { type: SWISS_RUNNER_OFFLINE_REASON, reason: availability.reason, round: Number(item.round) || 1, requestedAt: Number(item.requestedAt) || 0 },
+        actor: 'swiss-runner-watch',
+        runEffect,
+        nowMs,
+        expectedRound: Number(item.round) || 1,
+      });
+    } catch (error) {
+      // Left `expiring`: the next sweep applies the transition again.
+      summary.failed += 1;
+      console.error('[assistedApplicationSwissRunner] offline hold not applied', String(item.orderId || ref.id),
+        error instanceof Error ? error.message : String(error));
+      continue;
+    }
+    // Applied, or refused for good (the flow moved on): the request is closed.
+    await db.runTransaction(async (transaction) => {
+      const current = (await transaction.get(ref)).data() || null;
+      if (current?.status !== 'expiring' || current.key !== item.key) return;
+      transaction.set(ref, {
+        status: 'expired',
+        finishedAt: nowMs,
+        result: {
+          code: SWISS_RUNNER_OFFLINE_REASON, reason: availability.reason, at: nowMs,
+          ...(result?.ok ? {} : { ignored: String(result?.ignored || 'unknown').slice(0, 60) }),
+        },
+      }, { merge: true });
     });
     if (result?.ok) summary.held += 1;
   }

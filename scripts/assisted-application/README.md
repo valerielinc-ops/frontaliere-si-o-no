@@ -29,13 +29,21 @@ How the order gets there:
    runs at once. It closes as `stale` a request whose flow has moved on. Then it starts the workflow's Codex
    broker with this Mac's Codex login and runs `agent.mjs` with the workflow's variables. It uses the system
    Chrome when Playwright has no Chromium for the OS (macOS 13 with Playwright 1.63), and runs headless
-   unless installed with `--headed`. It kills the run after 120 minutes and reports a failed run to the flow,
-   as the workflow does. Finally it releases the lease with the outcome.
-4. **Runner offline.** When a request is still pending after 20 minutes and no runner has a fresh heartbeat
+   unless installed with `--headed`. While the run holds its lease, the runner reads the exit again with
+   every heartbeat (each minute). If the exit turns non-Swiss, it stops the agent, reports the failed run and
+   releases the lease, and the heartbeat says `eligible: false`. A probe that merely fails does not stop the
+   run. It also kills the run after 120 minutes and reports a failed run to the flow, as the workflow does.
+   Finally it releases the lease with the outcome.
+4. **Crashed runner.** If a lease ends (140 minutes) without being released, it goes back to the queue. The
+   next lease or the next sweep does this, keeping the request's original queue time.
+5. **Runner offline.** When a request is still pending after 20 minutes and no runner has a fresh heartbeat
    (10 minutes) from a Swiss exit, the sweep holds the order in `owner_takeover` with
    `portal:swiss_runner_offline` and e-mails the owner (once per round). There is no fallback to GitHub. A
    held submission retries through the queue on the connection-stop ladder (5 min, 30 min, then every
    2 h), so it resumes by itself once the runner is back. A held draft waits for «Riprendi automazione».
+   The hold takes two steps. The request becomes `expiring`, which no runner leases. Then the flow
+   transition runs, and only after it does the request become `expired`. If the transition fails, the next
+   sweep applies it again. If a runner is back online by then, the request returns to `pending`.
 
 Nothing personal or secret is logged. The agent's `::add-mask::` lines are consumed by the runner, and every
 value they name is struck out of the log, together with every Remote Config value.
