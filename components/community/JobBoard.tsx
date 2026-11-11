@@ -6053,13 +6053,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) || returnVisitResultsPending;
  const initialContentReadyRef = useRef(false);
  useLayoutEffect(() => {
-  // The slim first page is enough to paint the SPA, but not enough to release
-  // the external snapshot: the authoritative catalog can still replace the
-  // result set and card/ad geometry after the deferred interaction load.
-  if (initialContentReadyRef.current || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving) return;
-  initialContentReadyRef.current = true;
-  onInitialContentReady?.();
- }, [fullLoadPending, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
+ // The slim first page is enough to paint the SPA, but not enough to release
+ // the external snapshot: the authoritative catalog can still replace the
+ // result set and card/ad geometry after the deferred interaction load.
+ // If the first-page asset is unavailable, the full catalog can settle without
+ // reader intent (for example while a CDN/deploy handoff is in progress). Keep
+ // the static snapshot as the visible owner in that case; releasing it would
+ // replace the already-painted LCP surface with the hidden SPA shell.
+ if (initialContentReadyRef.current || !jobBoardInteractionObserved || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving) return;
+ initialContentReadyRef.current = true;
+ onInitialContentReady?.();
+ }, [fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
