@@ -3744,8 +3744,14 @@ function sameDocumentAddress(first, second) {
   }
 }
 
-// What a document's own address or link text says when it is a vacancy notice, not a privacy note or a form.
-const POSTING_DOCUMENT_HINT_RE = /concors|bando|annunc|offert|posizion|assunzion|stelle|ausschreibung|inserat|vacan|\bjobs?\b|emploi|poste|offre|recrut|recruit/i;
+// Any link to a PDF, over any scheme: a second document on the host page may be another notice.
+function linksPdfDocument(href) {
+  try {
+    return /\.pdf$/i.test(new URL(String(href || '')).pathname);
+  } catch {
+    return false;
+  }
+}
 
 /**
  * The posting document is the order's: one of its first lines (where a notice
@@ -3770,8 +3776,10 @@ export function postingDocumentIdentity(documentText, job = {}) {
  * The page that hosts the posting document: the employer's own page the
  * order's data names for applications (the runner opened it and stayed on it),
  * on the document's site, linking that exact document, and linking no other
- * vacancy notice. A page that lists several notices is a list of postings: its
- * application control could be anyone's.
+ * PDF at all. A page that lists several notices is a list of postings: its
+ * application control could be anyone's. A second PDF is never told apart by
+ * its name or its link text: an opaque «Apri» or «other.pdf» can be another
+ * notice (review of #18092), so any other PDF leaves the page unbound.
  */
 export function postingDocumentHostBound(snapshot = {}, { pageUrl = '', postingUrl = '', applyUrl = '' } = {}) {
   if (!isPostingDocumentUrl(postingUrl) || !samePostingAddress(pageUrl, applyUrl)) return false;
@@ -3783,18 +3791,8 @@ export function postingDocumentHostBound(snapshot = {}, { pageUrl = '', postingU
   }
   if (!sameSite(pageUrl, documentHost)) return false;
   const documents = (Array.isArray(snapshot?.links) ? snapshot.links : [])
-    .filter((link) => isPostingDocumentUrl(link?.href));
-  if (!documents.some((link) => sameDocumentAddress(link.href, postingUrl))) return false;
-  return !documents.some((link) => {
-    if (sameDocumentAddress(link.href, postingUrl)) return false;
-    let file = '';
-    try {
-      file = decodeURIComponent(new URL(link.href).pathname.split('/').pop() || '');
-    } catch {
-      file = String(link.href || '');
-    }
-    return POSTING_DOCUMENT_HINT_RE.test(`${link.text || ''} ${link.label || ''} ${file}`);
-  });
+    .filter((link) => linksPdfDocument(link?.href));
+  return documents.length > 0 && documents.every((link) => sameDocumentAddress(link.href, postingUrl));
 }
 
 /** The posting document's text, read as the crawler reads it (pdf-job-content.mjs); null when it has none. */

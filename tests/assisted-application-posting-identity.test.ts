@@ -194,9 +194,25 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
   it('stops on a page that lists several notices, or that does not link this one', () => {
     const list = [...hostLinks, { text: 'Concorso infermiere capo reparto', href: 'https://www.ecam.swiss/wp-content/uploads/2026/03/Concorso-infermiere-2026.pdf' }];
     expect(postingDocumentHostBound(host(list), { pageUrl: career, postingUrl, applyUrl: career })).toBe(false);
-    // A privacy note in PDF is no other posting.
+    // Review of #18092: a second PDF is never told apart by its name or link text. An opaque «Apri» on
+    // other.pdf can be another notice, and so can a PDF labelled as a privacy note.
+    const target = 'https://www.ecam.swiss/wp-content/uploads/2026/01/target.pdf';
+    const opaque = host([
+      { text: 'Inviate la vostra candidatura', href: formHref },
+      { text: 'Bando', href: target },
+      { text: 'Apri', href: 'https://www.ecam.swiss/wp-content/uploads/2026/01/other.pdf' },
+    ]);
+    expect(postingDocumentHostBound(opaque, { pageUrl: career, postingUrl: target, applyUrl: career })).toBe(false);
     const privacy = [...hostLinks, { text: 'Informativa privacy', href: 'https://www.ecam.swiss/wp-content/uploads/2026/01/Informativa-privacy.pdf' }];
-    expect(postingDocumentHostBound(host(privacy), { pageUrl: career, postingUrl, applyUrl: career })).toBe(true);
+    expect(postingDocumentHostBound(host(privacy), { pageUrl: career, postingUrl, applyUrl: career })).toBe(false);
+    // A PDF over plain http, or on another site, is a second document too.
+    expect(postingDocumentHostBound(host([...hostLinks, { text: 'Apri', href: 'http://www.ecam.swiss/doc/altro.pdf' }]), {
+      pageUrl: career, postingUrl, applyUrl: career,
+    })).toBe(false);
+    // The same notice linked twice is still one document.
+    expect(postingDocumentHostBound(host([...hostLinks, { text: 'Bando (PDF)', href: `${postingUrl}#page=2` }]), {
+      pageUrl: career, postingUrl, applyUrl: career,
+    })).toBe(true);
     const notLinked = hostLinks.filter((link) => link.href !== postingUrl);
     expect(postingDocumentHostBound(host(notLinked), { pageUrl: career, postingUrl, applyUrl: career })).toBe(false);
     // Not the page the order names for applications, or another site.
