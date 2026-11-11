@@ -11,6 +11,8 @@ import { join, resolve } from 'node:path';
 
 const SCRIPT = resolve('scripts/ci/resolve-replay-shard-runs.sh');
 const LOCAL_REVALIDATE = readFileSync(resolve('scripts/ci/revalidate-dist-locally.sh'), 'utf8');
+const SECTION_REHYDRATE = readFileSync(resolve('scripts/lib/rehydrate-section-shards.sh'), 'utf8');
+const REHYDRATE_PROVENANCE = readFileSync(resolve('scripts/lib/rehydrate-provenance.sh'), 'utf8');
 const roots: string[] = [];
 afterEach(() => { while (roots.length) rmSync(roots.pop()!, { recursive: true, force: true }); });
 
@@ -109,5 +111,11 @@ describe('local dist revalidation artifact handoff', () => {
     expect(LOCAL_REVALIDATE).toContain('gh run download "$IT_ARTIFACT_RUN_ID"');
     expect(LOCAL_REVALIDATE).toContain('export SHARD_ARTIFACT_RUN_ID_IT SHARD_ARTIFACT_RUN_ID_EN SHARD_ARTIFACT_RUN_ID_DE SHARD_ARTIFACT_RUN_ID_FR');
     expect(LOCAL_REVALIDATE).not.toMatch(/gh run download "\$RUN_ID"[^\n]*--name github-pages/);
+  });
+
+  it('uses the selected publisher run for IT section batches while retaining source-run fallback', () => {
+    expect(SECTION_REHYDRATE).toContain('artifact_run_id="$(rehydrate_artifact_run_id "$loc")"');
+    expect(SECTION_REHYDRATE).toContain('shard-batch-$batch-dist-$loc-$artifact_run_id');
+    expect(REHYDRATE_PROVENANCE).toContain('"${!var:-${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}}"');
   });
 });
