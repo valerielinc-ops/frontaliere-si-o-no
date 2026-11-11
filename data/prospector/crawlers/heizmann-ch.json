@@ -1,0 +1,26 @@
+{
+  "companyKey": "heizmann-ch",
+  "companyName": "Heizmann AG",
+  "companyHost": "yousty.ch",
+  "verifiedEmployerDomain": "heizmann.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2344337-heizmann-ag"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Logistiker/in EFZ, Aarau",
+    "Fachmann/-frau Kundendialog EFZ, Aarau",
+    "Fachmann/-frau Betriebsunterhalt EFZ Hausdienst, Aarau",
+    "Kaufmann/-frau (KV) EFZ, Aarau"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:28:21.628Z",
+  "candidateKey": "heizmann@aarau"
+}

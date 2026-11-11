@@ -1,0 +1,27 @@
+{
+  "companyKey": "mija-gmbh-voi-migros-partner",
+  "companyName": "MIJA GmbH VOI MIGROS PARTNER",
+  "companyHost": "jobs.migros.ch",
+  "verifiedEmployerDomain": "voi-migrospartner.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/migros-gruppe/offene-stellen?BRAND=9748"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/voi/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "VOI, Genossenschaft Migros Aare Stellvertreter*​in Geschäftsleitung ‧ 60 – 100% 2555 Brügg Nebenerwerb / Auf Stundenbasis",
+    "VOI, Genossenschaft Migros Aare Detailhandels&shy;fachfrau*​mann ‧ 80 – 100% 3011 Bern Nebenerwerb / Auf Stundenbasis",
+    "VOI, Genossenschaft Migros Aare Praktikant*​in Detailhandel ‧ 50 – 70% 4704 Niederbipp Praktikum",
+    "VOI, Genossenschaft Migros Aare Detailhandelsangestellte*​r ‧ 50% 3084 Wabern Nebenerwerb / Auf Stundenbasis",
+    "VOI, Genossenschaft Migros Aare Praktikant*​in Detailhandel ‧ 60 – 100% 3006 Bern Praktikum"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-11T13:28:20.052Z",
+  "candidateKey": "mija-voi-migros-partner@bern"
+}
