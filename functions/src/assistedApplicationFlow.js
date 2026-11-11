@@ -34,7 +34,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
@@ -360,6 +360,8 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(flow?.portalFinalReviewAmbiguousRecoveryVersion === PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION
+      ? { portalFinalReviewAmbiguousRecoveryVersion: PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } : {}),
     ...(portalRecoveryMatchAnswerIds(flow).length && Number.isSafeInteger(Number(flow?.portalRecoveryMatchAnswerRound))
       && Number(flow.portalRecoveryMatchAnswerRound) > 0
       ? { portalRecoveryMatchAnswerIds: portalRecoveryMatchAnswerIds(flow),
@@ -1031,7 +1033,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
-        && !portalExhaustedRecoveryPending(current)) return ignore('portal_retry_limit');
+        && !portalExhaustedRecoveryPending(current) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
       next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;

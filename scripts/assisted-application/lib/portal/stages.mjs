@@ -39,6 +39,14 @@ const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|sen
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 
+/** The same posting-bound final-review test is shared by the runner and encrypted-evidence repair. */
+export function finalReviewStageChecks(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null } = {}) {
+  return {
+    routeBound: Boolean(boundRoute(url, applyUrl, sourceProtocol)),
+    reviewInstructions: REVIEW_INSTRUCTIONS_RE.test(String(snapshot?.text || '')),
+  };
+}
+
 /**
  * SuccessFactors prefixes required labels with a visual marker (for example
  * "* E-Mail") while keeping the control itself as a plain text input. Strip
@@ -267,8 +275,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
   if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
     && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
-  const bound = boundRoute(url, applyUrl, sourceProtocol);
-  const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
+  const finalReview = Object.values(finalReviewStageChecks(snapshot, { url, applyUrl, sourceProtocol })).every(Boolean);
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);

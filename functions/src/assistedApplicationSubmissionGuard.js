@@ -77,6 +77,17 @@ export function submissionLeftAt(record) {
   return Number(record?.clickedAt || record?.startedAt) || 0;
 }
 
+/** The durable no-send release used by the runner and evidence reconciliation. */
+export function confirmedNotSentRecord(current, reason, nowMs = Date.now()) {
+  return {
+    ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}),
+    state: 'failed',
+    reason: String(reason || '').slice(0, 120),
+    releasedAt: nowMs,
+    confirmedNotSent: true,
+  };
+}
+
 export function submissionGuard(db, orderId, round, { answerSourceGuard = null } = {}) {
   const ref = submissionRefFor(db, orderId);
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
@@ -315,14 +326,12 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
       const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')
         ? serializeAccountFailure(metadata.accountFailure)
         : undefined;
-      const record = {
-        state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs,
-        confirmedNotSent: true,
-      };
-      if (failure) record.accountFailure = failure;
       await db.runTransaction(async transaction => {
         const snapshot = await transaction.get(ref);
-        if (snapshot.data()?.[key]?.state === 'sent') return;
+        const current = snapshot.data()?.[key] || null;
+        if (current?.state === 'sent') return;
+        const record = confirmedNotSentRecord(current, reason, nowMs);
+        if (failure) record.accountFailure = failure;
         transaction.set(ref, { [key]: record }, { merge: true });
       });
     },
