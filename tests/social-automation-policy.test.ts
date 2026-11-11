@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -7,6 +10,8 @@ import {
   shouldHoldAutomatedSocialDelivery,
   socialAutomatedDeliveryPolicy,
 } from '../scripts/lib/social-automation-policy.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 describe('social automated delivery policy', () => {
   it('holds both browser routes until their explicit approval flags are enabled', () => {
@@ -41,5 +46,13 @@ describe('social automated delivery policy', () => {
     });
     expect(isInstagramBrowserPublishingApproved({ SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true' })).toBe(true);
     expect(isTikTokBrowserPublishingApproved({ SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true' })).toBe(true);
+  });
+
+  it('persists both owner decisions in the Firebase Remote Config setup', () => {
+    const source = readFileSync(path.join(ROOT, 'scripts/set-instagram-tiktok-rc.mjs'), 'utf8');
+    expect(source).toContain("SOCIAL_ROBOT_PUBLISHING_MODE: 'live'");
+    expect(source).toContain("SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true'");
+    expect(source).toContain("SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true'");
+    expect(source).not.toContain("SOCIAL_ROBOT_MODE: 'live'");
   });
 });
