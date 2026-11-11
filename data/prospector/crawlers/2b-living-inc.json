@@ -1,0 +1,25 @@
+{
+  "companyKey": "2b-living-inc",
+  "companyName": "2B Living, Inc.",
+  "companyHost": "2blivinginc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://2blivinginc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Growth Associate",
+    "Leasing Manager (East Bay)",
+    "Leasing Manager (San Leandro)",
+    "Maintenance Technician (Peninsula/East & South Bay)",
+    "Maintenance Technician (San Francisco)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:13:07.079Z",
+  "candidateKey": "2blivinginc@applytojob.com"
+}

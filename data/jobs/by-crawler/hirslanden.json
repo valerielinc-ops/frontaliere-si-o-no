@@ -27535,12 +27535,12 @@
     {
       "id": "hirslanden-a15c6d07fb49",
       "externalId": "1456301133",
-      "slug": "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital",
+      "slug": "ostetrica-dipl-con-responsabilita-specialistica-a-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital",
-        "it": "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital",
-        "en": "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital",
-        "fr": "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital"
+        "it": "ostetrica-dipl-con-responsabilita-specialistica-a-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "dipl-midwife-with-professional-responsibility-a-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "dipl-sage-femme-a-responsabilite-professionnelle-a-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27603,7 +27603,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:20:54.811Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:20:54.811Z"
+      "firstSeenAt": "2026-11-11T09:20:54.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-mit-fachverantwortung-a-100-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-1e976c1e05d5",

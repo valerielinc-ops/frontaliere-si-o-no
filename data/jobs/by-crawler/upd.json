@@ -8370,12 +8370,12 @@
     },
     {
       "id": "upd-7d474638136a",
-      "slug": "leitung-pflege-tagesstationares-e-aufsuchendes-angebot-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "direzione-infermieristica-offerta-diurna-e-di-visita-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern",
-        "it": "leitung-pflege-tagesstationares-e-aufsuchendes-angebot-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern",
-        "fr": "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern"
+        "it": "direzione-infermieristica-offerta-diurna-e-di-visita-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "management-care-of-day-stationary-and-outreach-services-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "gestion-soins-des-services-de-jour-et-de-proximite-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8424,11 +8424,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern",
+          "leitung-pflege-tagesstationares-e-aufsuchendes-angebot-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern"
+        ],
+        "fr": [
           "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern"
         ]
       },
       "previousSlugs": [
-        "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern"
+        "leitung-pflege-tagesstationares-und-aufsuchendes-angebot-upd-bern",
+        "leitung-pflege-tagesstationares-e-aufsuchendes-angebot-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8872,8 +8880,8 @@
       "slugByLocale": {
         "de": "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern",
         "it": "prozess-e-transformationsmanagerin-transformationsmanager-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern",
-        "fr": "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern"
+        "en": "process-and-transformation-manager-transformation-manager-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "gestionnaire-de-processus-et-de-transformation-gestionnaire-de-transformation-universitare-psychiatrische-dienste-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8922,6 +8930,12 @@
       "previousSlugsByLocale": {
         "it": [
           "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern"
+        ],
+        "en": [
+          "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern"
+        ],
+        "fr": [
+          "prozess-und-transformationsmanagerin-transformationsmanager-upd-bern"
         ]
       },
       "previousSlugs": [
@@ -8947,12 +8961,12 @@
     },
     {
       "id": "upd-d8cad91157d9",
-      "slug": "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern",
+      "slug": "staff-con-responsabilita-di-processo-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern",
-        "it": "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern",
-        "en": "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern",
-        "fr": "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern"
+        "it": "staff-con-responsabilita-di-processo-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "staff-member-staff-member-with-legal-responsibility-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "fonctionnaires-ayant-une-responsabilite-juridique-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9015,16 +9029,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:30:38.215Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:30:38.215Z"
+      "firstSeenAt": "2026-11-11T09:30:38.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern"
+        ],
+        "en": [
+          "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern"
+        ],
+        "fr": [
+          "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "stabsmitarbeiterin-stabsmitarbeiter-mit-prozessverantwortung-upd-bern"
+      ]
     },
     {
       "id": "upd-58858011ba86",
-      "slug": "assistenzpsychologin-ii-assistenzpsychologe-ii-o-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologa-ii-assistente-psicologo-ii-o-specialista-psicologo-specialista-psicologo-universitare",
       "slugByLocale": {
         "de": "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-upd",
-        "it": "assistenzpsychologin-ii-assistenzpsychologe-ii-o-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste",
-        "fr": "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste"
+        "it": "assistente-psicologa-ii-assistente-psicologo-ii-o-specialista-psicologo-specialista-psicologo-universitare",
+        "en": "assistant-psychologist-ii-assistant-psychologist-ii-or-specialist-psychologist-specialist-psychologist-universitare",
+        "fr": "psychologue-adjoint-ii-psychologue-adjoint-ii-ou-psychologue-specialise-psychologue-specialise-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9073,11 +9101,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-upd"
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-upd",
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-o-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste"
+        ],
+        "fr": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-upd"
+        "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-upd",
+        "assistenzpsychologin-ii-assistenzpsychologe-ii-o-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste-bern-upd-bern",
+        "assistenzpsychologin-ii-assistenzpsychologe-ii-oder-fachpsychologin-fachpsychologe-universitare-psychiatrische-dienste"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

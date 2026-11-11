@@ -34,6 +34,7 @@ import {
   IMPRESSION_COMMIT_CONCURRENCY,
   recordJobEmailImpressions,
 } from '../functions/src/lib/jobEmailRankingStore.js';
+import { rankEmailJobs } from '../functions/src/lib/jobEmailRanking.js';
 
 const TITLES = [
   'Infermiere diplomato 80-100%',
@@ -175,6 +176,30 @@ describe('planAlertMatch', () => {
     // The dedup guard still drops the already-sent job.
     const dedup = planAlertMatch(fixtureAlerts().find((a) => a.id === 'dedup'), cached);
     expect(dedup.matched.map((j: any) => j.id)).not.toContain('job-0');
+  });
+
+  it('can retain large match pools as source references and restore ranking metadata for the shortlist', () => {
+    const jobs = fixtureJobs();
+    const full = planAlertMatch(fixtureAlerts()[0], planContext(null));
+    const compact = planAlertMatch(fixtureAlerts()[0], {
+      ...planContext(null),
+      recentJobs: jobs,
+      compactMatches: true,
+    });
+
+    expect(compact.matched.map((job: any) => job.id)).toEqual(full.matched.map((job: any) => job.id));
+    expect(compact.matched.every((job: any) => jobs.includes(job))).toBe(true);
+    expect(compact.rankingMetadata).toBeInstanceOf(WeakMap);
+
+    const fullShortlist = rankEmailJobs(full.matched, { limit: 10 });
+    const compactShortlist = rankEmailJobs(compact.matched, {
+      limit: 10,
+      rankingMetadata: compact.rankingMetadata,
+    });
+    expect(compactShortlist.map((job: any) => job.id)).toEqual(fullShortlist.map((job: any) => job.id));
+    expect(compactShortlist.map((job: any) => job.relevanceScore)).toEqual(
+      fullShortlist.map((job: any) => job.relevanceScore),
+    );
   });
 });
 

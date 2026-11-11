@@ -4166,7 +4166,7 @@
       "title": "Praktikant:in SRF Bounce",
       "titleByLocale": {
         "de": "Praktikant:in SRF Bounce",
-        "it": "Praktikant:in SRF Bounce",
+        "it": "Tirocinante SRF Bounce",
         "en": "Intern SRF Bounce",
         "fr": "Stagiaire :en SRF Bounce"
       },
@@ -4242,12 +4242,12 @@
     },
     {
       "id": "srg-ssr-b889a33ea44b",
-      "slug": "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern",
+      "slug": "tecnici-audiovisivi-o-audiovisivi-notizie-srg-ssr-bern",
       "slugByLocale": {
         "fr": "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern",
-        "it": "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern",
-        "en": "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern",
-        "de": "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern"
+        "it": "tecnici-audiovisivi-o-audiovisivi-notizie-srg-ssr-bern",
+        "en": "audio-visual-or-audiovisual-technicians-news-srg-ssr-bern",
+        "de": "audiovisuelle-oder-audiovisuelle-techniker-nachrichten-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4336,16 +4336,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:23:56.584Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:23:56.584Z"
+      "firstSeenAt": "2026-11-11T09:23:56.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern"
+        ],
+        "en": [
+          "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern"
+        ],
+        "de": [
+          "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "techniciennes-audiovisuelles-ou-techniciens-audiovisuels-actualite-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-0d1ec724e7cf",
-      "slug": "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne",
+      "slug": "professiontional-health-and-safety-specialist-stps-msst-srg-ssr-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne",
-        "it": "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne",
-        "en": "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne",
-        "de": "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne"
+        "it": "professiontional-health-and-safety-specialist-stps-msst-srg-ssr-lausanne",
+        "en": "occupational-health-and-safety-specialist-stps-msst-srg-ssr-lausanne",
+        "de": "spezialist-fur-gesundheit-und-sicherheit-am-arbeitsplatz-stps-msst-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4428,7 +4442,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:23:55.966Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:23:55.966Z"
+      "firstSeenAt": "2026-11-11T09:23:55.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne"
+        ],
+        "en": [
+          "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne"
+        ],
+        "de": [
+          "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-sante-et-securite-au-travail-stps-msst-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-df779c0891a7",

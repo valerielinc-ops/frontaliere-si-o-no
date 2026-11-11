@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "tschuggen-8ed219ca4686",
-      "slug": "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "concierge-con-cambio-portiere-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "en": "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "it": "concierge-con-cambio-portiere-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+        "en": "concierge-with-replacement-night-porter-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
+        "fr": "concierge-avec-porte-nuit-de-remplacement-h-f-d-saison-d-hiver-2026-2027-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -89,7 +89,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T09:41:27.675Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:41:27.675Z"
+      "firstSeenAt": "2026-11-11T09:41:27.675Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "en": [
+          "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "concierge-mit-ablose-nachtportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-a863307370a6",
