@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "4bbc13015472c72d71374a8492ea5579cc7b9317",
+  "commit": "bac15cd23813d88d7fd37996ad6363e9bfbc1dcc",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -50686,6 +50686,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of an illuminated urban street; no text, logos, people, or specific-event cues."
+      }
+    },
+    "/images/blog/article-bad-egelsee-supplemento-sauna.webp": {
+      "schema": 1,
+      "assetId": "article-bad-egelsee-supplemento-sauna",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "2cbef44440e86e9c3db3dede81e05416507102d0f0715ae13d75ec4d03a8ae36",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "ee8049c9c30bba98725dd69fe4454f686d11f6078d7a91d6bcb7f80e2c150ac2",
+      "bytes": 86996,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-11T22:20:54.656Z",
+      "verifiedAt": "2026-11-11T22:21:06.198Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-bad-egelsee-supplemento-sauna.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic sauna and relaxation scene; no readable text, logos, identifiable faces, or foreground people."
       }
     },
     "/images/places/lugano-view.webp": {

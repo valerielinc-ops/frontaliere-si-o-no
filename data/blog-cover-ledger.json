@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1146,
+      "5": 1147,
       "6": 5062
     },
-    "publishedCovers": 7889,
+    "publishedCovers": 7890,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217607,6 +217607,39 @@
         "provider": "openai-codex",
         "assetId": "article-como-rinnovo-illuminazione-varese",
         "imageUrl": "/images/blog/article-como-rinnovo-illuminazione-varese.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bad-egelsee-supplemento-sauna": {
+      "cover": "/images/blog/article-bad-egelsee-supplemento-sauna.webp",
+      "hash": "ee8049c9c30bba98725dd69fe4454f686d11f6078d7a91d6bcb7f80e2c150ac2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "bad-egelsee-supplemento-sauna",
+          "category": "pratico",
+          "date": "2026-11-11T22:21:06.280Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bad-egelsee-supplemento-sauna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bad-egelsee-supplemento-sauna",
+        "imageUrl": "/images/blog/article-bad-egelsee-supplemento-sauna.webp",
         "evidence": "generated-engine-record"
       }
     }
