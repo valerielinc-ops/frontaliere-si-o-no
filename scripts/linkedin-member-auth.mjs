@@ -24,20 +24,13 @@
  *   LINKEDIN_MEMBER_REFRESH_TOKEN   ~1 year, only if the app has refresh enabled
  *   LINKEDIN_MEMBER_URN             urn:li:person:<sub>, see the note below
  *
- * ── The person URN problem, read before running ──────────────────────────
- * Posting as a member requires the author URN `urn:li:person:<id>`. The only
- * API that returns it is /v2/userinfo (OIDC) or the legacy /v2/me, and BOTH
- * need a scope this app does not have: the app has ONLY w_member_social
- * ("Sign In with LinkedIn using OpenID Connect" is not an added product —
- * verified on the app's Products page 2026-08-24).
- *
- * So this helper tries /v2/userinfo opportunistically and, when it 403s as
- * expected, tells the owner to supply LINKEDIN_MEMBER_URN by hand. Two ways
- * to get it without adding a product:
- *   - open your own LinkedIn profile, View source, search "urn:li:fsd_profile:"
- *   - or add the "Sign In with LinkedIn using OpenID Connect" product (self
- *     serve, instant) and re-run this helper with SCOPE including `openid`.
- * The posting script treats a missing URN as a soft skip, never a crash.
+ * ── Member identity and least scope ─────────────────────────────────────
+ * This publishing flow requests only `w_member_social`. The profile/post
+ * analytics permissions are separate and are not available to this app; adding
+ * them to the default request makes LinkedIn reject OAuth before consent.
+ * The publisher uses the configured LINKEDIN_MEMBER_URN. `/v2/userinfo` is
+ * attempted opportunistically, but without an OIDC scope the configured URN
+ * remains authoritative. If it is missing, the posting script soft-skips.
  *
  * Exit code is 0 on the happy path and 1 only on an explicit auth failure —
  * this is an interactive one-shot tool, not a CI step.
@@ -51,7 +44,7 @@ const CLIENT_ID = process.env.LINKEDIN_MEMBER_CLIENT_ID || '78ikswckn74d2t';
 const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
 const REDIRECT_URI =
   process.env.LINKEDIN_MEMBER_REDIRECT_URI || 'http://localhost:8080/callback';
-const SCOPE = process.env.LINKEDIN_MEMBER_SCOPE || 'w_member_social r_member_postAnalytics r_member_profileAnalytics';
+const SCOPE = process.env.LINKEDIN_MEMBER_SCOPE || 'w_member_social';
 const PORT = Number(new URL(REDIRECT_URI).port || 8080);
 
 const urlOnly = process.argv.includes('--url-only');
