@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  buildFastLaneRequestHeaders,
   buildFastLaneHubVisibleJobIdsByLocale,
   extractFirstPartyAssetUrls,
 } from "../scripts/publish-jobs-fast.mjs";
@@ -8,6 +9,14 @@ import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubI
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
 
 describe("jobs fast-publish HTML asset contract", () => {
+  it("identifies public requests so Cloudflare accepts the Node publisher", () => {
+    expect(buildFastLaneRequestHeaders("text/plain")).toEqual({
+      accept: "text/plain",
+      "user-agent":
+        "FrontaliereJobsFastPublisher/1.0 (+https://frontaliereticino.ch)",
+    });
+  });
+
   it("checks fetchable first-party resources without probing canonical or hreflang page URLs", () => {
     const html = `
       <meta property="og:image" content="https://cdn.frontaliereticino.ch/jobs/offer.jpg">

@@ -8711,6 +8711,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': 'Tre imprese su dieci rinviano o riducono investimenti per vincoli amministrativi',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Secondo il servizio RG 12.30 del 9 novembre 2026, per tre aziende svizzere su dieci i vincoli amministrativi comportano il rinvio, la riduzione o la cancellazione di investimenti.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti di laboratorio e oro riciclato',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'L’11 novembre 2026 Berta Serret lancia ufficialmente online ETERIA JEWELLERY: alta gioielleria e lusso etico sotto il segno dello Smart Luxury, con oro riciclato CoC, diamanti di laboratorio IGI e tracciabilità TRACEMARK.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Berta Serret, fondatrice del brand di alta gioielleria sostenibile ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensioni svizzere: via libera all\'imposizione sostitutiva',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.revisione-tardoc-2027.title': 'Il Consiglio federale approva la revisione del TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'L\'11 novembre 2026, nel radiogiornale delle 12.30, il servizio di Alessio Veronelli ha riferito della prima revisione del sistema tariffale ambulatoriale TARDOC.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -78,10 +78,12 @@ export function resolvePublishReceipts({ statuses = [], sourceRunId, locales = L
     localeReceiptContext(sourceRunId, locale),
   )));
   const pendingLocales = requestedLocales.filter((locale) => !publishedLocales.includes(locale));
+  const pendingNonItLocales = pendingLocales.filter((locale) => locale !== 'it');
   return {
     pagesDeployed: Boolean(pagesContext && entries.some((status) => statusSucceeded(status, pagesContext))),
     publishedLocales,
     pendingLocales,
+    pendingNonItLocales,
     pagesContext,
     localeContexts: Object.fromEntries(requestedLocales.map((locale) => [
       locale,
@@ -183,6 +185,8 @@ function writeGithubOutputs(file, state) {
     `published_locales_csv=${state.publishedLocales.join(',')}`,
     `pending_locales=${JSON.stringify(state.pendingLocales)}`,
     `pending_locales_csv=${state.pendingLocales.join(',')}`,
+    `pending_nonit_locales=${JSON.stringify(state.pendingNonItLocales)}`,
+    `pending_nonit_locales_csv=${state.pendingNonItLocales.join(',')}`,
     `pages_context=${state.pagesContext}`,
   ];
   fs.appendFileSync(file, `${lines.join('\n')}\n`);

@@ -15,17 +15,17 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1135,
-      "6": 5061
+      "5": 1145,
+      "6": 5062
     },
-    "publishedCovers": 7877,
+    "publishedCovers": 7888,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 127,
     "fallbackRepointed": 0,
-    "inferredRecords": 4973
+    "inferredRecords": 4974
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -217217,6 +217217,363 @@
         "provider": "openai-codex",
         "assetId": "article-fuoriuscita-acido-liestal",
         "imageUrl": "/images/blog/article-fuoriuscita-acido-liestal.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-aumenti-stipendi-frontalieri-2027": {
+      "cover": "/images/blog/article-aumenti-stipendi-frontalieri-2027.webp",
+      "hash": "5dc53b412011df6bc9bd311b0958b4d11c2e0efcace1923c7d7de651f7bf92cc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "aumenti-stipendi-frontalieri-2027",
+          "category": "novita",
+          "date": "2026-11-11T16:44:41.881Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-aumenti-stipendi-frontalieri-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-aumenti-stipendi-frontalieri-2027",
+        "imageUrl": "/images/blog/article-aumenti-stipendi-frontalieri-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-11-11": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-11.webp",
+      "hash": "05e6e4d3777602617854c72b5ceda1e496d73611bf6856c236dd3b22b3232e35",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-11",
+          "category": "novita",
+          "date": "2026-11-11T12:37:21.200Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-11.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-11",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-11.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cambio-orari-bus-lucerna": {
+      "cover": "/images/blog/article-cambio-orari-bus-lucerna.webp",
+      "hash": "cbf80e2b933dba8a57268e6688bddb6a10568c4fad63e4fa18b60237bd6704a2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "cambio-orari-bus-lucerna",
+          "category": "pratico",
+          "date": "2026-11-11T07:24:28.627Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cambio-orari-bus-lucerna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cambio-orari-bus-lucerna",
+        "imageUrl": "/images/blog/article-cambio-orari-bus-lucerna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-eteria-gioielleria-berta-serret": {
+      "cover": "/images/blog/article-eteria-gioielleria-berta-serret.webp",
+      "hash": "1a6b1aa91c159c2cc1484e70c30fbf8ec3a72f5f2e4ae6c2110517ca1c4d6acf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "eteria-gioielleria-berta-serret",
+          "category": "novita",
+          "date": "2026-11-11T10:30:00.000Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fiscalita-coppie-sposate-voto": {
+      "cover": "/images/blog/article-fiscalita-coppie-sposate-voto.webp",
+      "hash": "463c3456d353b9b5218bc4b94c16688611e659cee1f5f41205e4bd32d390d7f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "fiscalita-coppie-sposate-voto",
+          "category": "fiscale",
+          "date": "2026-11-11T07:48:47.468Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fiscalita-coppie-sposate-voto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fiscalita-coppie-sposate-voto",
+        "imageUrl": "/images/blog/article-fiscalita-coppie-sposate-voto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-gdk-premi-piu-bassi": {
+      "cover": "/images/blog/article-gdk-premi-piu-bassi.webp",
+      "hash": "ab46ed4290011c98e971ba977b0e43ef8078318c9b6240ae62a590c0e5f0099c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "gdk-premi-piu-bassi",
+          "category": "novita",
+          "date": "2026-11-11T08:13:12.113Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gdk-premi-piu-bassi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-gdk-premi-piu-bassi",
+        "imageUrl": "/images/blog/article-gdk-premi-piu-bassi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-oit-protesta-tagli-ginevra": {
+      "cover": "/images/blog/article-oit-protesta-tagli-ginevra.webp",
+      "hash": "588c5434fc7bbd53b686a908491b12580579d247723e0dc2a3bc51386ba96c4a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "oit-protesta-tagli-ginevra",
+          "category": "novita",
+          "date": "2026-11-11T08:27:02.804Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-oit-protesta-tagli-ginevra.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-oit-protesta-tagli-ginevra",
+        "imageUrl": "/images/blog/article-oit-protesta-tagli-ginevra.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-referendum-costruzione-alloggi-hbm": {
+      "cover": "/images/blog/article-referendum-costruzione-alloggi-hbm.webp",
+      "hash": "da7c6ca2b339aecb2a1446eadabf2b6ab2053cc3466574ed60a46699084a9ba8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "referendum-costruzione-alloggi-hbm",
+          "category": "novita",
+          "date": "2026-11-11T07:28:07.329Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-costruzione-alloggi-hbm.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-referendum-costruzione-alloggi-hbm",
+        "imageUrl": "/images/blog/article-referendum-costruzione-alloggi-hbm.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-regime-fiscale-rendite-elvetiche": {
+      "cover": "/images/blog/article-regime-fiscale-rendite-elvetiche.webp",
+      "hash": "3b1e7d8914480ae4a1316d8fb7eb2d6dfe5763803ebf0ac0811b895330bd5315",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "regime-fiscale-rendite-elvetiche",
+          "category": "fiscale",
+          "date": "2026-11-11T12:22:02.452Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-regime-fiscale-rendite-elvetiche.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-regime-fiscale-rendite-elvetiche",
+        "imageUrl": "/images/blog/article-regime-fiscale-rendite-elvetiche.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-revisione-tardoc-2027": {
+      "cover": "/images/blog/article-revisione-tardoc-2027.webp",
+      "hash": "fa77287b914c0db74878509c355a71c8eb78b45b1972683b8d793a13e5d46ba1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "revisione-tardoc-2027",
+          "category": "novita",
+          "date": "2026-11-11T18:29:22.688Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-revisione-tardoc-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-revisione-tardoc-2027",
+        "imageUrl": "/images/blog/article-revisione-tardoc-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-svitto-seminario-wohnraum-rickenbach": {
+      "cover": "/images/blog/article-svitto-seminario-wohnraum-rickenbach.webp",
+      "hash": "1f017778e063d1fde5e666e5c8594f6862957a7d47c4edd476df18b6cfaa8cfe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "svitto-seminario-wohnraum-rickenbach",
+          "category": "pratico",
+          "date": "2026-11-11T16:54:58.624Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-svitto-seminario-wohnraum-rickenbach.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-svitto-seminario-wohnraum-rickenbach",
+        "imageUrl": "/images/blog/article-svitto-seminario-wohnraum-rickenbach.webp",
         "evidence": "generated-engine-record"
       }
     }

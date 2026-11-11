@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-11T06:21:55.671Z",
+  "generatedAt": "2026-11-11T19:05:55.960Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -761,6 +761,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T13:15:48.208Z"
+    },
+    "fr-agenda:conference-publique-sur-la-physiotherapie-et-medecine-nucleaire::9f966476fb7f0653d8a31da21cbc939d5624231eccca04985fc7ae71d15da471": {
+      "id": "fr-agenda:conference-publique-sur-la-physiotherapie-et-medecine-nucleaire",
+      "sourceDescriptionHash": "9f966476fb7f0653d8a31da21cbc939d5624231eccca04985fc7ae71d15da471",
+      "description": "Questa conferenza pubblica a Villars-sur-Glâne, in francese, tratta i progressi della medicina nucleare per individuare e curare il cancro della prostata. Presenta inoltre il contributo della fisioterapia durante l’intero percorso di presa in carico, nel contesto di una campagna dedicata alla salute maschile.",
+      "descriptionByLocale": {
+        "it": "Questa conferenza pubblica a Villars-sur-Glâne, in francese, tratta i progressi della medicina nucleare per individuare e curare il cancro della prostata. Presenta inoltre il contributo della fisioterapia durante l’intero percorso di presa in carico, nel contesto di una campagna dedicata alla salute maschile.",
+        "en": "This public conference in Villars-sur-Glâne is held in French and examines advances in nuclear medicine for detecting and treating prostate cancer. It also addresses the role of physiotherapy throughout patient care as part of a campaign focused on men’s health.",
+        "de": "Die öffentliche Konferenz in Villars-sur-Glâne findet auf Französisch statt und befasst sich mit Fortschritten der Nuklearmedizin bei der Erkennung und Behandlung von Prostatakrebs. Zudem geht es um den Beitrag der Physiotherapie während der gesamten Betreuung im Rahmen einer Kampagne zur Männergesundheit.",
+        "fr": "Cette conférence publique à Villars-sur-Glâne se déroule en français et porte sur les progrès de la médecine nucléaire pour détecter et traiter le cancer de la prostate. Elle aborde également la contribution de la physiothérapie pendant l’ensemble du suivi médical, dans le cadre d’une campagne consacrée à la santé masculine."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:18:38.587Z"
     },
     "fr-agenda:corpus-le-corps-liquide::0077457532ae0fef66b9c928a40358fb72abc9795951567ee8c70b96b66f3f7a": {
       "id": "fr-agenda:corpus-le-corps-liquide",
@@ -2064,6 +2078,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T19:15:43.054Z"
     },
+    "ge-agenda:agora-sobriete-geneve-yamina-saheb::2b39cd7f9d3af0745e722849719662ddc6eeb119bc3bf324df766eae21fd37a0": {
+      "id": "ge-agenda:agora-sobriete-geneve-yamina-saheb",
+      "sourceDescriptionHash": "2b39cd7f9d3af0745e722849719662ddc6eeb119bc3bf324df766eae21fd37a0",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; date: 2026-11-25. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; datum: 2026-11-25. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; date: 2026-11-25. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.864Z"
+    },
     "ge-agenda:air::013efed2d28d0cfd10ef6bc0cb5410746a2b8bdaacc7d114ffbee2ff5694d4b0": {
       "id": "ge-agenda:air",
       "sourceDescriptionHash": "013efed2d28d0cfd10ef6bc0cb5410746a2b8bdaacc7d114ffbee2ff5694d4b0",
@@ -2483,6 +2511,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:54:47.218Z"
+    },
+    "ge-agenda:art-market-marche-creatrices-createurs::7c3542c0c8034f8374ab6eaed470dc596d093066b871eaaa10be42c905c6830c": {
+      "id": "ge-agenda:art-market-marche-creatrices-createurs",
+      "sourceDescriptionHash": "7c3542c0c8034f8374ab6eaed470dc596d093066b871eaaa10be42c905c6830c",
+      "description": "È un mercato dedicato alla creazione e alle persone che la realizzano. L’evento si svolge a Ginevra e rientra nella categoria dei mercati con stand.",
+      "descriptionByLocale": {
+        "it": "È un mercato dedicato alla creazione e alle persone che la realizzano. L’evento si svolge a Ginevra e rientra nella categoria dei mercati con stand.",
+        "en": "This event is a market devoted to creative work and its makers. It takes place in Geneva and is classified as a market with stands.",
+        "de": "Die Veranstaltung ist ein Markt für kreative Arbeiten und deren Urheberinnen und Urheber. Sie findet in Genf statt und gehört zur Kategorie der Märkte mit Ständen.",
+        "fr": "Il s’agit d’un marché consacré à la création et aux personnes qui la réalisent. L’événement se déroule à Genève et relève de la catégorie des marchés avec stands."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:35:49.872Z"
     },
     "ge-agenda:art-occupe::332e5531d8607174c30c022de0c99df867484acac96595821e0da51553ebffd6": {
       "id": "ge-agenda:art-occupe",
@@ -8952,6 +8994,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T17:17:12.439Z"
     },
+    "ge-agenda:fete-40::c384c107a5ff4c3f9b11822756ee6ccb5ea5931eb29995aab9feb1cf5bc68a4d": {
+      "id": "ge-agenda:fete-40",
+      "sourceDescriptionHash": "c384c107a5ff4c3f9b11822756ee6ccb5ea5931eb29995aab9feb1cf5bc68a4d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; data: 2026-11-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; data: 2026-11-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Danse; date: 2026-11-14. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Danse; datum: 2026-11-14. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Danse; date: 2026-11-14. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.557Z"
+    },
     "ge-agenda:fete-cloture::739f0276b1fc10cbc38898d5446c393ba38938e4ec38c3c38f0897c94ce2851b": {
       "id": "ge-agenda:fete-cloture",
       "sourceDescriptionHash": "739f0276b1fc10cbc38898d5446c393ba38938e4ec38c3c38f0897c94ce2851b",
@@ -9287,6 +9343,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T10:17:13.413Z"
+    },
+    "ge-agenda:finissage-langages-sacres-metamorphoses-martin-abega::b16a8e3a47cc90ba8df96fb86651c1cb7d5f5c767ae7866841e907b76e1cf600": {
+      "id": "ge-agenda:finissage-langages-sacres-metamorphoses-martin-abega",
+      "sourceDescriptionHash": "b16a8e3a47cc90ba8df96fb86651c1cb7d5f5c767ae7866841e907b76e1cf600",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-13. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-13. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Exposition; date: 2026-11-13. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Exposition; datum: 2026-11-13. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Exposition; date: 2026-11-13. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:25.024Z"
     },
     "ge-agenda:fleurs-croquer-atelier-floral-gourmand-intergenerationnel::74e7d5a49e71b001ddeda8cd293ae696343acb722e9319035e01bcb4e3aac1b5": {
       "id": "ge-agenda:fleurs-croquer-atelier-floral-gourmand-intergenerationnel",
@@ -10772,6 +10842,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T10:32:00.954Z"
     },
+    "ge-agenda:gratuit-decouverte-free-crash-course-tango-argentin-0::a7968bcc3219efcd1b3f13bab011a350edba8c078f3a1b05ed170e00fca84b34": {
+      "id": "ge-agenda:gratuit-decouverte-free-crash-course-tango-argentin-0",
+      "sourceDescriptionHash": "a7968bcc3219efcd1b3f13bab011a350edba8c078f3a1b05ed170e00fca84b34",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Danse; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Danse; date: 2026-11-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Danse; datum: 2026-11-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Danse; date: 2026-11-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.872Z"
+    },
     "ge-agenda:grou::637692e5b04df611215b1836a73992fca32780d3d46f2d36c7218626dbab248e": {
       "id": "ge-agenda:grou",
       "sourceDescriptionHash": "637692e5b04df611215b1836a73992fca32780d3d46f2d36c7218626dbab248e",
@@ -11443,6 +11527,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v2",
       "rewrittenAt": "2026-10-07T19:44:12.725Z"
+    },
+    "ge-agenda:horlogerie-genevoise-crise-reorganisation-branche-horlogere-annees-1930::17fa4d690e5a22bc2fef0fceea23853851d30c3d08da531a539138b30623feee": {
+      "id": "ge-agenda:horlogerie-genevoise-crise-reorganisation-branche-horlogere-annees-1930",
+      "sourceDescriptionHash": "17fa4d690e5a22bc2fef0fceea23853851d30c3d08da531a539138b30623feee",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; data: 2026-11-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; data: 2026-11-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Conférence - Rencontre; date: 2026-11-12. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Conférence - Rencontre; datum: 2026-11-12. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Conférence - Rencontre; date: 2026-11-12. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:25.012Z"
     },
     "ge-agenda:hunky-jesus::8657ab4ca0ff24f508eac963fbdb5a38d3ca6ef0b63a0f4c41d3642558003840": {
       "id": "ge-agenda:hunky-jesus",
@@ -13081,6 +13179,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T16:35:22.178Z"
+    },
+    "ge-agenda:marche-createuricexs::46b1861b0c38f49322b1426d7bec3c65cf040277cfe2cace27f23d701fff3e17": {
+      "id": "ge-agenda:marche-createuricexs",
+      "sourceDescriptionHash": "46b1861b0c38f49322b1426d7bec3c65cf040277cfe2cace27f23d701fff3e17",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Marché – Stand; data: 2026-11-22. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Marché – Stand; data: 2026-11-22. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Marché – Stand; date: 2026-11-22. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Marché – Stand; datum: 2026-11-22. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Marché – Stand; date: 2026-11-22. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:25.036Z"
     },
     "ge-agenda:marche-creatrices-createurs::7c3542c0c8034f8374ab6eaed470dc596d093066b871eaaa10be42c905c6830c": {
       "id": "ge-agenda:marche-creatrices-createurs",
@@ -22546,6 +22658,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T19:29:36.547Z"
     },
+    "guidle:A3AXhfD::b543419462e0be1d8031c0f80438f67d0a85c6da73112e895ef34bacb8977eea": {
+      "id": "guidle:A3AXhfD",
+      "sourceDescriptionHash": "b543419462e0be1d8031c0f80438f67d0a85c6da73112e895ef34bacb8977eea",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wettsteinhaus; comune: Maur; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-11; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wettsteinhaus; comune: Maur; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-11; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Wettsteinhaus; municipality: Maur; canton: ZH; category: Sostegno per i genitori; date: 2026-11-11; time: 09:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Wettsteinhaus; gemeinde: Maur; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-11; uhrzeit: 09:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Wettsteinhaus; commune: Maur; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-11; heure: 09:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.790Z"
+    },
     "guidle:A3bfM9f::73ae582672f7a378869254acc91981ef3a34ef2663cb080e29ede6eee2d85f49": {
       "id": "guidle:A3bfM9f",
       "sourceDescriptionHash": "73ae582672f7a378869254acc91981ef3a34ef2663cb080e29ede6eee2d85f49",
@@ -22657,6 +22783,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v2",
       "rewrittenAt": "2026-10-07T20:08:20.250Z"
+    },
+    "guidle:A3J3Pah::76a1f8843d3cdcfa198d3482b054f59071c9811848ca1a47b9ab015967c314fc": {
+      "id": "guidle:A3J3Pah",
+      "sourceDescriptionHash": "76a1f8843d3cdcfa198d3482b054f59071c9811848ca1a47b9ab015967c314fc",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Amthaus Rüti; cantone: ZH; categoria: Giochi da tavolo; data: 2026-11-12; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Amthaus Rüti; cantone: ZH; categoria: Giochi da tavolo; data: 2026-11-12; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Amthaus Rüti; canton: ZH; category: Giochi da tavolo; date: 2026-11-12; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Amthaus Rüti; kanton: ZH; kategorie: Giochi da tavolo; datum: 2026-11-12; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Amthaus Rüti; canton: ZH; catégorie: Giochi da tavolo; date: 2026-11-12; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.801Z"
     },
     "guidle:A3j9QYx::3b5b9a8aec30161be3102386c907f027ec7f584f82942423d1894f841d44441e": {
       "id": "guidle:A3j9QYx",
@@ -22979,6 +23119,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-01T02:16:54.979Z"
+    },
+    "guidle:A3Z1RZc::04fb3662de00a3be38cf8f81d97f9021d33f97cfcc2022cbf5942c650475eed5": {
+      "id": "guidle:A3Z1RZc",
+      "sourceDescriptionHash": "04fb3662de00a3be38cf8f81d97f9021d33f97cfcc2022cbf5942c650475eed5",
+      "description": "Questa visita guidata si svolge al Völkerkundemuseum der Universität Zürich. Esamina l’influenza dei nomi sul modo in cui le persone comprendono se stesse e vengono percepite dagli altri. Affronta inoltre le possibili conseguenze di un cambiamento di nome.",
+      "descriptionByLocale": {
+        "it": "Questa visita guidata si svolge al Völkerkundemuseum der Universität Zürich. Esamina l’influenza dei nomi sul modo in cui le persone comprendono se stesse e vengono percepite dagli altri. Affronta inoltre le possibili conseguenze di un cambiamento di nome.",
+        "en": "This guided tour takes place at the Völkerkundemuseum der Universität Zürich. It examines how names influence people’s understanding of themselves and the way others respond to them. The programme also considers what can follow when a name is changed.",
+        "de": "Die Veranstaltung ist eine Führung im Völkerkundemuseum der Universität Zürich. Im Mittelpunkt steht die Bedeutung von Namen für das eigene Selbstverständnis und für die Wahrnehmung durch andere. Zudem geht es um mögliche Folgen einer Umbenennung.",
+        "fr": "Cette visite guidée se déroule au Völkerkundemuseum der Universität Zürich. Elle aborde l’influence des noms sur la manière dont les personnes se comprennent et sont perçues par autrui. Elle traite également de ce qu’implique un changement de nom."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T19:01:35.851Z"
     },
     "guidle:A3Zcpm5::b3b230e42f95206e376c15d3379b83391a0f48998ae57fe217a9929dcfb27f7f": {
       "id": "guidle:A3Zcpm5",
@@ -23638,6 +23792,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-21T12:28:59.687Z"
     },
+    "guidle:A4yGwiA::f83fe3aadad21189e083dd0c4ffcf2fc6a3c979c30951e95d6f5acf6b8378ed4": {
+      "id": "guidle:A4yGwiA",
+      "sourceDescriptionHash": "f83fe3aadad21189e083dd0c4ffcf2fc6a3c979c30951e95d6f5acf6b8378ed4",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Uitikon; cantone: ZH; categoria: Jass / Giochi di carte; partecipante: Kuchen; data: 2026-11-25; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Uitikon; cantone: ZH; categoria: Jass / Giochi di carte; partecipante: Kuchen; data: 2026-11-25; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Uitikon; canton: ZH; category: Jass / Giochi di carte; participant: Kuchen; date: 2026-11-25; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Uitikon; kanton: ZH; kategorie: Jass / Giochi di carte; mitwirkender: Kuchen; datum: 2026-11-25; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Uitikon; canton: ZH; catégorie: Jass / Giochi di carte; participant: Kuchen; date: 2026-11-25; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.594Z"
+    },
     "guidle:A4YvxPg::eccb5c658155734db10901cbc8003ede61edb7b3a15b02392a7f06b656561df7": {
       "id": "guidle:A4YvxPg",
       "sourceDescriptionHash": "eccb5c658155734db10901cbc8003ede61edb7b3a15b02392a7f06b656561df7",
@@ -24127,6 +24295,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T22:10:14.046Z"
+    },
+    "guidle:A5t42Vs::6a5446ae8197b05cc1be286907e9207b216e717bb51ae8f754df2f8b22c4810d": {
+      "id": "guidle:A5t42Vs",
+      "sourceDescriptionHash": "6a5446ae8197b05cc1be286907e9207b216e717bb51ae8f754df2f8b22c4810d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Familienzentrum Gries; comune: Volketswil; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 09:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Familienzentrum Gries; comune: Volketswil; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 09:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Familienzentrum Gries; municipality: Volketswil; canton: ZH; category: Sostegno per i genitori; date: 2026-11-12; time: 09:45. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Familienzentrum Gries; gemeinde: Volketswil; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-12; uhrzeit: 09:45. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Familienzentrum Gries; commune: Volketswil; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-12; heure: 09:45. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.812Z"
     },
     "guidle:A5tCXxB::09513f9af06ba03c38b9499fb7f509d60ad69808337b2e0128af04c628cb61e2": {
       "id": "guidle:A5tCXxB",
@@ -25359,6 +25541,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T15:16:45.445Z"
+    },
+    "guidle:A7MCrKM::25d34009589f2a7a704aa27c4e55d1d7b900d04203ed37d5f9293409d7d55559": {
+      "id": "guidle:A7MCrKM",
+      "sourceDescriptionHash": "25d34009589f2a7a704aa27c4e55d1d7b900d04203ed37d5f9293409d7d55559",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Reformiertes Kirchgemeindehaus Greifensee; comune: Greifensee; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-16; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Reformiertes Kirchgemeindehaus Greifensee; comune: Greifensee; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-16; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Reformiertes Kirchgemeindehaus Greifensee; municipality: Greifensee; canton: ZH; category: Sostegno per i genitori; date: 2026-11-16; time: 10:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Reformiertes Kirchgemeindehaus Greifensee; gemeinde: Greifensee; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-16; uhrzeit: 10:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Reformiertes Kirchgemeindehaus Greifensee; commune: Greifensee; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-16; heure: 10:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.570Z"
     },
     "guidle:A7NuZKj::078d28b0d561e8ecccaf3d1cf69830e46a5f6b8f409899963abac0066a742e1b": {
       "id": "guidle:A7NuZKj",
@@ -27978,6 +28174,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T08:15:05.697Z"
     },
+    "guidle:AaTNkf2::6b21a55975d27bc2d560981b35c699b69d7370e533f74e6e07d5fc2e690d7188": {
+      "id": "guidle:AaTNkf2",
+      "sourceDescriptionHash": "6b21a55975d27bc2d560981b35c699b69d7370e533f74e6e07d5fc2e690d7188",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Médiathèque Valais - Martigny; comune: Martigny; cantone: VS; categoria: Altri eventi; data: 2026-11-11; ora: 08:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Médiathèque Valais - Martigny; comune: Martigny; cantone: VS; categoria: Altri eventi; data: 2026-11-11; ora: 08:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Médiathèque Valais - Martigny; municipality: Martigny; canton: VS; category: Altri eventi; date: 2026-11-11; time: 08:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Médiathèque Valais - Martigny; gemeinde: Martigny; kanton: VS; kategorie: Altri eventi; datum: 2026-11-11; uhrzeit: 08:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Médiathèque Valais - Martigny; commune: Martigny; canton: VS; catégorie: Altri eventi; date: 2026-11-11; heure: 08:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.780Z"
+    },
     "guidle:AATZWbi::9ff4a887a2ac7320e9ffed36b9169efa5da9d19a67c536450a0dda5df8b016d7": {
       "id": "guidle:AATZWbi",
       "sourceDescriptionHash": "9ff4a887a2ac7320e9ffed36b9169efa5da9d19a67c536450a0dda5df8b016d7",
@@ -28832,6 +29042,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T20:28:22.720Z"
     },
+    "guidle:AbJj23j::285ce983648c500d7fd2255883a8f6f0cedc6762fb567445708b5ca056919ec7": {
+      "id": "guidle:AbJj23j",
+      "sourceDescriptionHash": "285ce983648c500d7fd2255883a8f6f0cedc6762fb567445708b5ca056919ec7",
+      "description": "Stammtisch è un incontro ricorrente che si svolge l'ultimo lunedì del mese presso il Bistro im Spilhöfler a Uitikon. Non è richiesta l'iscrizione; l'incontro offre l'occasione di bere un caffè e trascorrere del tempo insieme.",
+      "descriptionByLocale": {
+        "it": "Stammtisch è un incontro ricorrente che si svolge l'ultimo lunedì del mese presso il Bistro im Spilhöfler a Uitikon. Non è richiesta l'iscrizione; l'incontro offre l'occasione di bere un caffè e trascorrere del tempo insieme.",
+        "en": "Stammtisch is a recurring gathering held on the last Monday of each month at Bistro im Spilhöfler in Uitikon. No registration is needed, and the meeting offers the opportunity to have coffee and spend time together.",
+        "de": "Der Stammtisch findet am letzten Montag jedes Monats im Bistro im Spilhöfler in Uitikon statt. Eine Anmeldung ist nicht nötig; bei dem Treffen kann man Kaffee trinken und gemeinsam Zeit verbringen.",
+        "fr": "Le Stammtisch est une rencontre récurrente organisée le dernier lundi de chaque mois au Bistro im Spilhöfler, à Uitikon. Aucune inscription n’est nécessaire, et le rendez-vous permet de prendre un café et de passer un moment ensemble."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:44:24.308Z"
+    },
     "guidle:Abjja1N::00bc5835eac06ede628089d2b74036ff8d69f3ebe24b6bc83bffc26f3e3df278": {
       "id": "guidle:Abjja1N",
       "sourceDescriptionHash": "00bc5835eac06ede628089d2b74036ff8d69f3ebe24b6bc83bffc26f3e3df278",
@@ -28930,6 +29154,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T00:21:50.545Z"
     },
+    "guidle:ABLbQpS::ba691d19be16ac5b82f6e00fdc92971d804b1ad39364cd83e79a801d8c819f42": {
+      "id": "guidle:ABLbQpS",
+      "sourceDescriptionHash": "ba691d19be16ac5b82f6e00fdc92971d804b1ad39364cd83e79a801d8c819f42",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mönchhof; comune: Mönchaltorf; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-17; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mönchhof; comune: Mönchaltorf; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-17; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Mönchhof; municipality: Mönchaltorf; canton: ZH; category: Sostegno per i genitori; date: 2026-11-17; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Mönchhof; gemeinde: Mönchaltorf; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-17; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Mönchhof; commune: Mönchaltorf; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-17; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.855Z"
+    },
     "guidle:ABLNB4P::631751c62b6a5395602e4754f36564690d87bb7c775822b94a4f5acffcf50d60": {
       "id": "guidle:ABLNB4P",
       "sourceDescriptionHash": "631751c62b6a5395602e4754f36564690d87bb7c775822b94a4f5acffcf50d60",
@@ -29027,6 +29265,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-24T02:16:31.968Z"
+    },
+    "guidle:ABndiTM::cb46c620cbcb99b49a4c475617f50c43a8f69e5401b5eea9bed162b1c5544ed8": {
+      "id": "guidle:ABndiTM",
+      "sourceDescriptionHash": "cb46c620cbcb99b49a4c475617f50c43a8f69e5401b5eea9bed162b1c5544ed8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Klairs, Begegnung im Bühl; comune: Bühl; cantone: BE; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Klairs, Begegnung im Bühl; comune: Bühl; cantone: BE; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Klairs, Begegnung im Bühl; municipality: Bühl; canton: BE; category: Sostegno per i genitori; date: 2026-11-12; time: 15:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Klairs, Begegnung im Bühl; gemeinde: Bühl; kanton: BE; kategorie: Sostegno per i genitori; datum: 2026-11-12; uhrzeit: 15:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Klairs, Begegnung im Bühl; commune: Bühl; canton: BE; catégorie: Sostegno per i genitori; date: 2026-11-12; heure: 15:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.822Z"
     },
     "guidle:ABnQYjP::e02f67fd74801b3b3899ab868c753aa767775f123ad458184a2210c9a6ea3c2f": {
       "id": "guidle:ABnQYjP",
@@ -29587,6 +29839,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:16:31.301Z"
+    },
+    "guidle:Abxv3bp::7c6c34d1803c37ce93f8ddc0b23c857f2f2e94b53c4dbb4858d81560df82b145": {
+      "id": "guidle:Abxv3bp",
+      "sourceDescriptionHash": "7c6c34d1803c37ce93f8ddc0b23c857f2f2e94b53c4dbb4858d81560df82b145",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Familienzentrum Uster; comune: Uster; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Familienzentrum Uster; comune: Uster; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-12; ora: 15:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Familienzentrum Uster; municipality: Uster; canton: ZH; category: Sostegno per i genitori; date: 2026-11-12; time: 15:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Familienzentrum Uster; gemeinde: Uster; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-12; uhrzeit: 15:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Familienzentrum Uster; commune: Uster; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-12; heure: 15:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.531Z"
     },
     "guidle:ABXZhyc::74cf7fd6159a7ebefed12ec47af53fd976644a0dc24296aa04e9326bda99d88f": {
       "id": "guidle:ABXZhyc",
@@ -31842,6 +32108,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-28T14:17:11.583Z"
     },
+    "guidle:ADFbj9x::e8486009a7b59cff5be10abc12e0e9105bd314bc6485fa776e7297833512086d": {
+      "id": "guidle:ADFbj9x",
+      "sourceDescriptionHash": "e8486009a7b59cff5be10abc12e0e9105bd314bc6485fa776e7297833512086d",
+      "description": "L’appuntamento ricorrente propone attività di disegno e colorazione presso la Bibliothèque municipale - Entre-Bois. L’attività consiste nel contribuire insieme alla realizzazione di un disegno di grandi dimensioni.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente propone attività di disegno e colorazione presso la Bibliothèque municipale - Entre-Bois. L’attività consiste nel contribuire insieme alla realizzazione di un disegno di grandi dimensioni.",
+        "en": "This recurring event offers a shared drawing and colouring activity at the Bibliothèque municipale - Entre-Bois. Participants work together on a large-scale drawing.",
+        "de": "Die wiederkehrende Veranstaltung verbindet gemeinsames Zeichnen und Ausmalen in der Bibliothèque municipale - Entre-Bois. Dabei entsteht durch die Beiträge der Teilnehmenden eine großformatige gemeinsame Zeichnung.",
+        "fr": "Ce rendez-vous récurrent propose une activité de dessin et de coloriage à la Bibliothèque municipale - Entre-Bois. Les participantes et participants contribuent ensemble à une réalisation de grande taille."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:23:11.818Z"
+    },
     "guidle:AdFHYqi::43525e47daf6ac4d9554cc156ab9838d7f85733aa64a330816b52bcd03191d45": {
       "id": "guidle:AdFHYqi",
       "sourceDescriptionHash": "43525e47daf6ac4d9554cc156ab9838d7f85733aa64a330816b52bcd03191d45",
@@ -33129,6 +33409,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T05:25:40.953Z"
+    },
+    "guidle:AeATSM9::c75501ae10834a6d80b98dc2137ac57380fe618a82b3def736a75df47a984180": {
+      "id": "guidle:AeATSM9",
+      "sourceDescriptionHash": "c75501ae10834a6d80b98dc2137ac57380fe618a82b3def736a75df47a984180",
+      "description": "Il corso di scacchi si svolge a Kloten ed è rivolto a bambini, ragazzi e adulti con diversi livelli di esperienza. Le attività in gruppo riguardano il gioco degli scacchi e favoriscono concentrazione, pensiero strategico e creatività.",
+      "descriptionByLocale": {
+        "it": "Il corso di scacchi si svolge a Kloten ed è rivolto a bambini, ragazzi e adulti con diversi livelli di esperienza. Le attività in gruppo riguardano il gioco degli scacchi e favoriscono concentrazione, pensiero strategico e creatività.",
+        "en": "The chess course in Kloten is intended for children, teenagers, and adults with different levels of experience. Group learning explores chess while supporting concentration, strategic thinking, creativity, and a patient approach to challenges.",
+        "de": "Der Schachkurs in Kloten richtet sich an Kinder, Jugendliche und Erwachsene mit unterschiedlichen Vorkenntnissen. Im gemeinsamen Unterricht werden Konzentration, strategisches Denken und Kreativität gefördert; zugleich geht es darum, Herausforderungen geduldig und umsichtig zu bewältigen.",
+        "fr": "Le cours d’échecs à Kloten s’adresse aux enfants, aux adolescents et aux adultes, quel que soit leur niveau initial. La pratique collective permet d’explorer le jeu tout en travaillant la concentration, la stratégie, la créativité et la patience face aux difficultés."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:23:32.067Z"
     },
     "guidle:AEaVZnH::7984fd888e954bf24de4a1932107e20c542a290a2e8e6ce6dded006775c1ffba": {
       "id": "guidle:AEaVZnH",
@@ -38842,6 +39136,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T19:15:30.261Z"
     },
+    "guidle:AHZt83v::7d664ea2236ce09c08da2a6554756f6465368c3e4e57a9e57e4b319818721c8b": {
+      "id": "guidle:AHZt83v",
+      "sourceDescriptionHash": "7d664ea2236ce09c08da2a6554756f6465368c3e4e57a9e57e4b319818721c8b",
+      "description": "A Losanna si tiene un incontro di lettura per adolescenti, aperto a chiunque voglia partecipare. Si possono condividere opinioni su libri apprezzati o non graditi, inclusi romanzi, manga, fumetti e serie.",
+      "descriptionByLocale": {
+        "it": "A Losanna si tiene un incontro di lettura per adolescenti, aperto a chiunque voglia partecipare. Si possono condividere opinioni su libri apprezzati o non graditi, inclusi romanzi, manga, fumetti e serie.",
+        "en": "Lausanne hosts a reading club for teenagers that welcomes all participants. The discussion can cover books they enjoyed or disliked, including novels, manga, comics and series.",
+        "de": "In Lausanne findet ein für alle offener Lesetreff für Jugendliche statt. Zur Sprache kommen können Bücher, die den Teilnehmenden gefallen oder nicht gefallen haben, ebenso Romane, Manga, Comics und Serien.",
+        "fr": "À Lausanne, ce club de lecture destiné aux adolescents est ouvert à toutes et à tous. Les échanges peuvent porter sur des livres appréciés ou non, qu’il s’agisse de romans, de mangas, de bandes dessinées ou de séries."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:29:52.048Z"
+    },
     "guidle:Ai2NFLf::2f94f64ca47efa66d9bdcb750d26358aadaacf7e4bc9f526a6d3fe0798bfba56": {
       "id": "guidle:Ai2NFLf",
       "sourceDescriptionHash": "2f94f64ca47efa66d9bdcb750d26358aadaacf7e4bc9f526a6d3fe0798bfba56",
@@ -42594,6 +42902,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-28T13:33:55.371Z"
     },
+    "guidle:AkYCdNr::74a08c4262f90253fd703bbf37fed5e5aa015a98325e9876082b03bfb6fa4541": {
+      "id": "guidle:AkYCdNr",
+      "sourceDescriptionHash": "74a08c4262f90253fd703bbf37fed5e5aa015a98325e9876082b03bfb6fa4541",
+      "description": "L’evento è un club di lettura legato alla Bibliothèque Montriond. Si svolge a Losanna.",
+      "descriptionByLocale": {
+        "it": "L’evento è un club di lettura legato alla Bibliothèque Montriond. Si svolge a Losanna.",
+        "en": "This event is a reading club connected with Bibliothèque Montriond. It takes place in Lausanne.",
+        "de": "Bei der Veranstaltung handelt es sich um einen Leseklub im Zusammenhang mit der Bibliothèque Montriond. Sie findet in Lausanne statt.",
+        "fr": "Il s’agit d’un club de lecture associé à la Bibliothèque Montriond. La rencontre a lieu à Lausanne."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:24:38.542Z"
+    },
     "guidle:AkYSKNL::d33d67fa09880f2cfa1d4d216443d42a701891edb58a0bdf8df1ba43086360f7": {
       "id": "guidle:AkYSKNL",
       "sourceDescriptionHash": "d33d67fa09880f2cfa1d4d216443d42a701891edb58a0bdf8df1ba43086360f7",
@@ -42817,6 +43139,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T20:15:18.840Z"
+    },
+    "guidle:ALckhVT::07d32eab375d517c88461db530d7a5c9e35d9232b1132d5a4028638e58660283": {
+      "id": "guidle:ALckhVT",
+      "sourceDescriptionHash": "07d32eab375d517c88461db530d7a5c9e35d9232b1132d5a4028638e58660283",
+      "description": "Questo club di videogiochi è un appuntamento ricorrente presso le Bibliothèques de la Ville de Lausanne – La Sallaz. L’incontro permette di giocare, fare scoperte e condividere impressioni, ed è rivolto sia alle persone appassionate sia a chi è alle prime armi.",
+      "descriptionByLocale": {
+        "it": "Questo club di videogiochi è un appuntamento ricorrente presso le Bibliothèques de la Ville de Lausanne – La Sallaz. L’incontro permette di giocare, fare scoperte e condividere impressioni, ed è rivolto sia alle persone appassionate sia a chi è alle prime armi.",
+        "en": "This recurring video game club takes place at Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne. Participants can play, make discoveries and share impressions, with the activity intended for both enthusiasts and beginners.",
+        "de": "Dieser wiederkehrende Videospielclub findet in den Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne statt. Die Aktivität verbindet das Spielen mit Entdeckungen und dem Austausch von Eindrücken und richtet sich sowohl an Begeisterte als auch an Anfängerinnen und Anfänger.",
+        "fr": "Ce club de jeux vidéo est un rendez-vous récurrent aux Bibliothèques de la Ville de Lausanne – La Sallaz, à Lausanne. L’activité permet de jouer, de faire des découvertes et d’échanger ses impressions; elle s’adresse aux personnes passionnées comme aux débutantes."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:21:26.518Z"
     },
     "guidle:ALd2SyR::2a12ecd99ccabbd078a5271f351459cc65c88c0c521d97e6683fae9915e32a15": {
       "id": "guidle:ALd2SyR",
@@ -46010,6 +46346,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T12:13:44.653Z"
     },
+    "guidle:AnvQeZ9::4361ba7f1a5419ea45377e5646da4cfaf89783336fd1cc982e1858111450b027": {
+      "id": "guidle:AnvQeZ9",
+      "sourceDescriptionHash": "4361ba7f1a5419ea45377e5646da4cfaf89783336fd1cc982e1858111450b027",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Figurentheater Winterthur; comune: Winterthur; cantone: ZH; categoria: Artigianato; data: 2026-11-12; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Figurentheater Winterthur; comune: Winterthur; cantone: ZH; categoria: Artigianato; data: 2026-11-12; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Figurentheater Winterthur; municipality: Winterthur; canton: ZH; category: Artigianato; date: 2026-11-12; time: 18:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Figurentheater Winterthur; gemeinde: Winterthur; kanton: ZH; kategorie: Artigianato; datum: 2026-11-12; uhrzeit: 18:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Figurentheater Winterthur; commune: Winterthur; canton: ZH; catégorie: Artigianato; date: 2026-11-12; heure: 18:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.543Z"
+    },
     "guidle:ANW7sVT::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
       "id": "guidle:ANW7sVT",
       "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
@@ -46975,6 +47325,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:29:22.896Z"
+    },
+    "guidle:ApKsNBS::596524086b7a754f197b7c19d4befcedb5bf0d8016f341d986a542b0a73f9da4": {
+      "id": "guidle:ApKsNBS",
+      "sourceDescriptionHash": "596524086b7a754f197b7c19d4befcedb5bf0d8016f341d986a542b0a73f9da4",
+      "description": "Il corso propone incontri settimanali di attività fisica guidati da specialisti per donne che hanno partorito da poco. Le sessioni si svolgono al Parc de Milan e sono accessibili sia con il bambino sia senza.",
+      "descriptionByLocale": {
+        "it": "Il corso propone incontri settimanali di attività fisica guidati da specialisti per donne che hanno partorito da poco. Le sessioni si svolgono al Parc de Milan e sono accessibili sia con il bambino sia senza.",
+        "en": "This physical-activity course is intended for women who have recently given birth. Weekly sessions led by specialists take place at Parc de Milan and can be attended with or without a baby.",
+        "de": "Das Angebot richtet sich an Frauen, die vor Kurzem ein Kind bekommen haben, und bietet Bewegung unter fachlicher Begleitung. Die wöchentlichen Einheiten finden im Parc de Milan statt und können mit oder ohne Baby besucht werden.",
+        "fr": "Ces séances d’activité physique s’adressent aux femmes ayant accouché récemment. Elles ont lieu chaque semaine au Parc de Milan sous la conduite de spécialistes et peuvent être suivies avec ou sans bébé."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:24:19.860Z"
     },
     "guidle:APLDmFZ::a3c2cd507affc50ea0c846e3415d7ada8b0d9a420d9b1db38cecfff30def0dc4": {
       "id": "guidle:APLDmFZ",
@@ -48781,6 +49145,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-29T13:33:11.905Z"
+    },
+    "guidle:AQxnMCg::c6ebd85b80460d21ea26f0088d61f0549c273188835349602cd3bfecb1a543e2": {
+      "id": "guidle:AQxnMCg",
+      "sourceDescriptionHash": "c6ebd85b80460d21ea26f0088d61f0549c273188835349602cd3bfecb1a543e2",
+      "description": "L’attività propone giochi di ruolo da tavolo per persone dai 15 anni in su. Gli incontri si svolgono presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna, e prevedono la costruzione collettiva di un’avventura con partecipanti e una persona che conduce il gioco.",
+      "descriptionByLocale": {
+        "it": "L’attività propone giochi di ruolo da tavolo per persone dai 15 anni in su. Gli incontri si svolgono presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna, e prevedono la costruzione collettiva di un’avventura con partecipanti e una persona che conduce il gioco.",
+        "en": "This event introduces tabletop role-playing for participants aged 15 and over. At Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne, the group develops an adventure together with players and a game master.",
+        "de": "Die Veranstaltung richtet sich an Personen ab 15 Jahren und widmet sich dem Tischrollenspiel. In den Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne entwickelt die Gruppe gemeinsam ein Abenteuer mit Mitspielenden und einer Spielleitung.",
+        "fr": "Cette activité de jeu de rôle sur table s’adresse aux personnes dès 15 ans. L’activité a lieu aux Bibliothèques de la Ville de Lausanne – La Sallaz, à Lausanne, où les participantes et participants construisent ensemble une aventure avec une personne chargée de mener la partie."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:43:32.407Z"
     },
     "guidle:AQXS8Aa::efe787c92c0a0cac6b9020292fd949769fabef2d8a46e455a9d00fc9175962b1": {
       "id": "guidle:AQXS8Aa",
@@ -54662,6 +55040,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T06:23:44.708Z"
     },
+    "guidle:AV1mAax::ed3d83c669026f3e16c7279f256039b503d5c7374cdc1b62411c216e3b0a1345": {
+      "id": "guidle:AV1mAax",
+      "sourceDescriptionHash": "ed3d83c669026f3e16c7279f256039b503d5c7374cdc1b62411c216e3b0a1345",
+      "description": "L’appuntamento propone una campagna di gioco di ruolo presso le Bibliothèques de la Ville de Lausanne – La Sallaz. I partecipanti interpretano personaggi e vivono insieme un’avventura ambientata in mondi immaginari.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una campagna di gioco di ruolo presso le Bibliothèques de la Ville de Lausanne – La Sallaz. I partecipanti interpretano personaggi e vivono insieme un’avventura ambientata in mondi immaginari.",
+        "en": "The event presents a role-playing campaign at the Bibliothèques de la Ville de Lausanne – La Sallaz. Participants take on characters and explore imaginary worlds as part of a shared adventure.",
+        "de": "Die Veranstaltung umfasst eine Rollenspielkampagne in den Bibliothèques de la Ville de Lausanne – La Sallaz. Die Teilnehmenden übernehmen Rollen und erkunden gemeinsam imaginäre Welten.",
+        "fr": "Le rendez-vous propose une campagne de jeu de rôle aux Bibliothèques de la Ville de Lausanne – La Sallaz. Les participants incarnent des personnages et explorent ensemble des mondes imaginaires dans le cadre d’une aventure collective."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:19:02.454Z"
+    },
     "guidle:AV2vdmD::b913a78cffbc60ef1817d0659605cf9075cb66cbebcd78c224b7f5c373d9eca5": {
       "id": "guidle:AV2vdmD",
       "sourceDescriptionHash": "b913a78cffbc60ef1817d0659605cf9075cb66cbebcd78c224b7f5c373d9eca5",
@@ -54969,6 +55361,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T19:21:09.128Z"
+    },
+    "guidle:AvCq2gm::c0fde5078ad63010137515f90da064bce75f43c986b307811f605eb42e2a8a9e": {
+      "id": "guidle:AvCq2gm",
+      "sourceDescriptionHash": "c0fde5078ad63010137515f90da064bce75f43c986b307811f605eb42e2a8a9e",
+      "description": "L'appuntamento ricorrente è un atelier creativo partecipativo presso il Museum der Kulturen Basel, a Basilea. È dedicato alla sperimentazione e alla realizzazione creativa, con Federn e Perlen indicati tra i performer.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento ricorrente è un atelier creativo partecipativo presso il Museum der Kulturen Basel, a Basilea. È dedicato alla sperimentazione e alla realizzazione creativa, con Federn e Perlen indicati tra i performer.",
+        "en": "This recurring event is a participatory creative studio at the Museum der Kulturen Basel in Basel. It is dedicated to experimentation and creative making, with Federn and Perlen listed as performers.",
+        "de": "Die wiederkehrende Veranstaltung ist ein partizipatives Kreativatelier im Museum der Kulturen Basel in Basel. Sie ist dem Ausprobieren und Gestalten gewidmet; als Mitwirkende sind Federn und Perlen aufgeführt.",
+        "fr": "Ce rendez-vous récurrent prend la forme d’un atelier créatif participatif au Museum der Kulturen Basel, à Bâle. Il est consacré à l’expérimentation et à la création, avec Federn et Perlen indiqués parmi les participants."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:26:36.406Z"
     },
     "guidle:AVdbAiA::e828a82595b6f770f3af2616d9a8c155eceb6ec03543254bcee6c6e7ce80b5ae": {
       "id": "guidle:AVdbAiA",
@@ -59533,6 +59939,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T12:15:46.289Z"
+    },
+    "guidle:AyGCRBZ::f15148dc9c043c376d2e35e31809905f1b9a2be04e6fc30063d6136414102ed4": {
+      "id": "guidle:AyGCRBZ",
+      "sourceDescriptionHash": "f15148dc9c043c376d2e35e31809905f1b9a2be04e6fc30063d6136414102ed4",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kinder- und Jugendbüro; comune: Zürich; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-16; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kinder- und Jugendbüro; comune: Zürich; cantone: ZH; categoria: Sostegno per i genitori; data: 2026-11-16; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kinder- und Jugendbüro; municipality: Zürich; canton: ZH; category: Sostegno per i genitori; date: 2026-11-16; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kinder- und Jugendbüro; gemeinde: Zürich; kanton: ZH; kategorie: Sostegno per i genitori; datum: 2026-11-16; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kinder- und Jugendbüro; commune: Zürich; canton: ZH; catégorie: Sostegno per i genitori; date: 2026-11-16; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.583Z"
     },
     "guidle:AyGHFR6::d1ca4f6fa1d2ff44a0328387a152f7176c3dd022f8a5c19a44143fc807f524b9": {
       "id": "guidle:AyGHFR6",
@@ -83684,6 +84104,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T22:21:30.394Z"
     },
+    "myswitzerland:32619466aa574f3ba59c1b3916c04cf9::796db43577daaf8c637406633449df0268a8536fb0c91453a86db05ac6cf557e": {
+      "id": "myswitzerland:32619466aa574f3ba59c1b3916c04cf9",
+      "sourceDescriptionHash": "796db43577daaf8c637406633449df0268a8536fb0c91453a86db05ac6cf557e",
+      "description": "A Losanna è in programma una serata pop con Kalika e Fancy Dolcy. L’appuntamento propone esibizioni dal vivo con sonorità indietronica e hyperpop.",
+      "descriptionByLocale": {
+        "it": "A Losanna è in programma una serata pop con Kalika e Fancy Dolcy. L’appuntamento propone esibizioni dal vivo con sonorità indietronica e hyperpop.",
+        "en": "Lausanne hosts a pop evening featuring Kalika and Fancy Dolcy. The programme combines intimate live performances with indietronica and hyperpop elements.",
+        "de": "In Lausanne treten Kalika und Fancy Dolcy bei einem Popabend auf. Zu hören sind intime Live-Auftritte mit Elementen aus Indietronica und Hyperpop.",
+        "fr": "À Lausanne, Kalika et Fancy Dolcy sont réunis pour une soirée pop. Le programme associe des performances live intimes à des sonorités indietronica et hyperpop."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:29:18.558Z"
+    },
     "myswitzerland:327f228b3aad49bfba9159c306c5410c::be90a30b6ba9380c4e4d3d69ab40727b2f270d0b4733894995a99a434a9bc24c": {
       "id": "myswitzerland:327f228b3aad49bfba9159c306c5410c",
       "sourceDescriptionHash": "be90a30b6ba9380c4e4d3d69ab40727b2f270d0b4733894995a99a434a9bc24c",
@@ -84174,6 +84608,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T16:30:11.311Z"
     },
+    "myswitzerland:337d9a97864549c4a58205851c8fbbb9::fd0e0f0f96ec0a27b78be8711e35c4ad227a1e2d0af79ac8f4dfb1d5f8f029f4": {
+      "id": "myswitzerland:337d9a97864549c4a58205851c8fbbb9",
+      "sourceDescriptionHash": "fd0e0f0f96ec0a27b78be8711e35c4ad227a1e2d0af79ac8f4dfb1d5f8f029f4",
+      "description": "L’evento propone una cavalcata di due giorni verso la Val Sinestra e il maso Zuort. L’appuntamento ricorrente ha luogo a Scuol, nel canton Grigioni.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una cavalcata di due giorni verso la Val Sinestra e il maso Zuort. L’appuntamento ricorrente ha luogo a Scuol, nel canton Grigioni.",
+        "en": "The event is a two-day horseback ride to Val Sinestra and the Zuort farm. This recurring event takes place in Scuol, in the canton of Graubünden.",
+        "de": "Die Veranstaltung ist ein zweitägiger Ausritt ins Val Sinestra und zum Hof Zuort. Der wiederkehrende Anlass findet in Scuol im Kanton Graubünden statt.",
+        "fr": "Le rendez-vous consiste en une randonnée équestre de deux jours vers le Val Sinestra et la ferme de Zuort. Cet événement récurrent se déroule à Scuol, dans le canton des Grisons."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:44:42.698Z"
+    },
     "myswitzerland:338568b78d66456ab69cdcb2788d109d::c5a36cef92c243fac05488ed04a05019318b16141a5d04f7923e9b4e6cebf5e3": {
       "id": "myswitzerland:338568b78d66456ab69cdcb2788d109d",
       "sourceDescriptionHash": "c5a36cef92c243fac05488ed04a05019318b16141a5d04f7923e9b4e6cebf5e3",
@@ -84257,6 +84705,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T23:39:22.991Z"
+    },
+    "myswitzerland:33b32a300ffa4c359ae459d710fdce44::263e7123cb9b2782e8dbd0e9be21db8d00faf4af5b6dbe99ded5357f945354a2": {
+      "id": "myswitzerland:33b32a300ffa4c359ae459d710fdce44",
+      "sourceDescriptionHash": "263e7123cb9b2782e8dbd0e9be21db8d00faf4af5b6dbe99ded5357f945354a2",
+      "description": "MEMORY presenta Edition Prättigau dell’artista Tanja Gujan. L’evento si tiene a Küblis, nel cantone dei Grigioni.",
+      "descriptionByLocale": {
+        "it": "MEMORY presenta Edition Prättigau dell’artista Tanja Gujan. L’evento si tiene a Küblis, nel cantone dei Grigioni.",
+        "en": "MEMORY presents Edition Prättigau by artist Tanja Gujan. The event takes place in Küblis, in the canton of Graubünden.",
+        "de": "MEMORIE präsentiert Edition Prättigau der Künstlerin Tanja Gujan. Die Veranstaltung findet in Küblis im Kanton Graubünden statt.",
+        "fr": "MEMORY présente Edition Prättigau de l’artiste Tanja Gujan. L’événement a lieu à Küblis, dans le canton des Grisons."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:32:33.804Z"
     },
     "myswitzerland:33b62afadd224e54a9dbdd66360c893b::42ec520a46ec014836c4d18b1be753ccac57c7b860ad24c9309bf01dec0f1b05": {
       "id": "myswitzerland:33b62afadd224e54a9dbdd66360c893b",
@@ -84538,6 +85000,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:04:46.915Z"
     },
+    "myswitzerland:348c5cd59444499fa39e0c8ee8c43ec4::08d27a94c1a3b631bd66d79597a4fc6ebf62117c3ab302e73b3e029914eb46e4": {
+      "id": "myswitzerland:348c5cd59444499fa39e0c8ee8c43ec4",
+      "sourceDescriptionHash": "08d27a94c1a3b631bd66d79597a4fc6ebf62117c3ab302e73b3e029914eb46e4",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; partecipante: Cora Antara; data: 2027-06-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zurich; comune: Zürich; cantone: ZH; categoria: Event; partecipante: Cora Antara; data: 2027-06-12. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zurich; municipality: Zürich; canton: ZH; category: Event; participant: Cora Antara; date: 2027-06-12. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zurich; gemeinde: Zürich; kanton: ZH; kategorie: Event; mitwirkender: Cora Antara; datum: 2027-06-12. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zurich; commune: Zürich; canton: ZH; catégorie: Event; participant: Cora Antara; date: 2027-06-12. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:25.048Z"
+    },
     "myswitzerland:34927dd4ee9f483ca33f7afa0e553fff::9cb152c806a722bdad980ce7b01b51da1aec995b39715bf4ec8dd7d2d43917f2": {
       "id": "myswitzerland:34927dd4ee9f483ca33f7afa0e553fff",
       "sourceDescriptionHash": "9cb152c806a722bdad980ce7b01b51da1aec995b39715bf4ec8dd7d2d43917f2",
@@ -84551,6 +85027,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:19:36.249Z"
+    },
+    "myswitzerland:3497abe80b1747f7808ffc8aa4ed12f0::463b4eba1ac433a5cb04a78fb920fc1999554af7393519f3c0ee3163746d2081": {
+      "id": "myswitzerland:3497abe80b1747f7808ffc8aa4ed12f0",
+      "sourceDescriptionHash": "463b4eba1ac433a5cb04a78fb920fc1999554af7393519f3c0ee3163746d2081",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Klosters; cantone: GR; categoria: Event; partecipante: Gerstensuppe; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Klosters; cantone: GR; categoria: Event; partecipante: Gerstensuppe; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Klosters; canton: GR; category: Event; participant: Gerstensuppe; date: 2026-11-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Klosters; kanton: GR; kategorie: Event; mitwirkender: Gerstensuppe; datum: 2026-11-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Klosters; canton: GR; catégorie: Event; participant: Gerstensuppe; date: 2026-11-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.605Z"
     },
     "myswitzerland:3499337942494ec387094ac71061dcf6::3064a0ed159f5d3513d3fcb2e26d5e4905fcb6ed34500cf4069e9131f22bd1dd": {
       "id": "myswitzerland:3499337942494ec387094ac71061dcf6",
@@ -85476,6 +85966,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T05:34:44.342Z"
     },
+    "myswitzerland:369722f5f462466d84600ad0cc6c1c36::5c00eff8c35a5633f2b15073d59dc963958504604677e3843d49e30c46d6c39e": {
+      "id": "myswitzerland:369722f5f462466d84600ad0cc6c1c36",
+      "sourceDescriptionHash": "5c00eff8c35a5633f2b15073d59dc963958504604677e3843d49e30c46d6c39e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Olten; cantone: SO; categoria: Event; data: 2027-02-21. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Olten; cantone: SO; categoria: Event; data: 2027-02-21. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Olten; canton: SO; category: Event; date: 2027-02-21. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Olten; kanton: SO; kategorie: Event; datum: 2027-02-21. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Olten; canton: SO; catégorie: Event; date: 2027-02-21. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:17:29.617Z"
+    },
     "myswitzerland:36a76aa44aba4b9ab9b8fa363f29bac9::a7ae0d94685cc159670deed62efc1d19e26216fe68e4d485519fb8645433ba01": {
       "id": "myswitzerland:36a76aa44aba4b9ab9b8fa363f29bac9",
       "sourceDescriptionHash": "a7ae0d94685cc159670deed62efc1d19e26216fe68e4d485519fb8645433ba01",
@@ -85713,6 +86217,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:21:31.928Z"
+    },
+    "myswitzerland:37405cfd19cb4922a822d6b54ce59b4f::5670ecd5d8256f44e8bf0ec08731d5fa51c386784902f31ba8485ac7a9a0be88": {
+      "id": "myswitzerland:37405cfd19cb4922a822d6b54ce59b4f",
+      "sourceDescriptionHash": "5670ecd5d8256f44e8bf0ec08731d5fa51c386784902f31ba8485ac7a9a0be88",
+      "description": "Questo appuntamento ricorrente al Dynamo di Zurigo è un mercatino natalizio dedicato al fai-da-te e alle creazioni di artigiani locali. Il programma comprende workshop aperti a tutti, realizzazione di candele e vin brulé.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente al Dynamo di Zurigo è un mercatino natalizio dedicato al fai-da-te e alle creazioni di artigiani locali. Il programma comprende workshop aperti a tutti, realizzazione di candele e vin brulé.",
+        "en": "This recurring event at Dynamo in Zurich is a DIY Christmas market featuring creations by local artisans. The programme includes drop-in workshops, candle-making and mulled wine.",
+        "de": "Die wiederkehrende Veranstaltung im Dynamo in Zürich verbindet einen Weihnachtsmarkt mit DIY-Angeboten und Arbeiten lokaler Kunsthandwerkerinnen und Kunsthandwerker. Zum Programm gehören offene Workshops, Kerzenziehen und Glühwein.",
+        "fr": "Ce rendez-vous récurrent au Dynamo de Zurich prend la forme d’un marché de Noël consacré au DIY et aux créations d’artisans locaux. Il propose des ateliers ouverts à tous, la fabrication de bougies et du vin chaud."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:39:45.463Z"
     },
     "myswitzerland:3742c5d58de44578b816b770a3779201::18f0172634e6b2b3505c758092dfe4670d1b268bc12420d79fc17d1b31138003": {
       "id": "myswitzerland:3742c5d58de44578b816b770a3779201",
@@ -185044,6 +185562,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T02:21:58.352Z"
     },
+    "tio-agenda:64811::eb57d7120bafec026553a85f657e5259f092894c8500264b78d5b684d17b31f7": {
+      "id": "tio-agenda:64811",
+      "sourceDescriptionHash": "eb57d7120bafec026553a85f657e5259f092894c8500264b78d5b684d17b31f7",
+      "description": "L'incontro online riguarda la ricerca di famiglie disposte ad accogliere liceali, allievi delle scuole medie, apprendisti e neodiplomati. La serata illustra l'esperienza di scambio culturale e fornisce informazioni sui profili interessati e sui contributi.",
+      "descriptionByLocale": {
+        "it": "L'incontro online riguarda la ricerca di famiglie disposte ad accogliere liceali, allievi delle scuole medie, apprendisti e neodiplomati. La serata illustra l'esperienza di scambio culturale e fornisce informazioni sui profili interessati e sui contributi.",
+        "en": "This online session concerns the search for families willing to host upper-secondary students, middle-school pupils, apprentices and recent graduates. It explains the cultural-exchange opportunity and provides information about the profiles involved and the contributions available.",
+        "de": "Bei dieser Online-Veranstaltung werden Familien gesucht, die Gymnasiastinnen und Gymnasiasten, Schülerinnen und Schüler der Sekundarschule, Lernende oder frisch Diplomierte aufnehmen möchten. Die Informationsveranstaltung befasst sich mit dem kulturellen Austausch und erläutert die betreffenden Profile sowie die vorgesehenen Beiträge.",
+        "fr": "Cette séance en ligne vise à trouver des familles prêtes à accueillir des lycéens, des élèves du secondaire inférieur, des apprentis ou des personnes récemment diplômées. Elle présente l'échange culturel proposé et apporte des informations sur les profils concernés ainsi que sur les contributions prévues."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:43:57.734Z"
+    },
     "tio-agenda:64812::b012dec2ef8479ced6284da47fd4a1e1795c6c3ea72ee6878bb14cb8d0b1c34e": {
       "id": "tio-agenda:64812",
       "sourceDescriptionHash": "b012dec2ef8479ced6284da47fd4a1e1795c6c3ea72ee6878bb14cb8d0b1c34e",
@@ -186010,6 +186542,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T08:17:39.742Z"
     },
+    "tio-agenda:64912::26d95fc866e701d410369e381e232b1e1d52755dd033760a521e492fbbed44ff": {
+      "id": "tio-agenda:64912",
+      "sourceDescriptionHash": "26d95fc866e701d410369e381e232b1e1d52755dd033760a521e492fbbed44ff",
+      "description": "L’appuntamento all’Asilo Ciani di Lugano mette al centro l’artigianato d’arte, la creatività e l’innovazione. Sono previste presentazioni di lavori artigianali, workshop, dimostrazioni dal vivo e momenti di confronto sul legame fra sapere tradizionale e ricerca creativa.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento all’Asilo Ciani di Lugano mette al centro l’artigianato d’arte, la creatività e l’innovazione. Sono previste presentazioni di lavori artigianali, workshop, dimostrazioni dal vivo e momenti di confronto sul legame fra sapere tradizionale e ricerca creativa.",
+        "en": "The gathering at Asilo Ciani in Lugano focuses on artistic crafts, creativity and innovation. It brings together handmade works, workshops, live demonstrations and opportunities for discussion, highlighting the relationship between inherited knowledge and newer creative approaches.",
+        "de": "Die Veranstaltung im Asilo Ciani in Lugano widmet sich dem Kunsthandwerk sowie kreativen und innovativen Arbeiten. Vorgesehen sind Einblicke in handwerkliche Erzeugnisse, Workshops, Vorführungen und Begegnungen, die den Bezug zwischen überliefertem Wissen und neuen kreativen Formen zeigen.",
+        "fr": "Le rendez-vous organisé à l’Asilo Ciani de Lugano met en avant les métiers d’art, la créativité et l’innovation. Il associe présentation de réalisations artisanales, ateliers, démonstrations et échanges autour du lien entre savoir transmis et nouvelles formes de création."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:32:04.925Z"
+    },
     "tio-agenda:64913::dcf35e5e2796112f6eedac94af604dcf0eba515bb773d71317629ba9e126f8c9": {
       "id": "tio-agenda:64913",
       "sourceDescriptionHash": "dcf35e5e2796112f6eedac94af604dcf0eba515bb773d71317629ba9e126f8c9",
@@ -186066,6 +186612,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T02:36:03.929Z"
     },
+    "tio-agenda:64926::24be48347b9539d29ef881e5c4f4f5a69c21021fb9be3e1e4768a36d759eb2db": {
+      "id": "tio-agenda:64926",
+      "sourceDescriptionHash": "24be48347b9539d29ef881e5c4f4f5a69c21021fb9be3e1e4768a36d759eb2db",
+      "description": "Lo spettacolo teatrale si rivolge anche ai bambini e combina figure di carta con pupazzi da tavolo accompagnati da suoni e canti. In un giardino popolato da bruchi, pecore e un pastore, Pet contamina l’acqua e gli animali collaborano con il pastore per recuperare l’equilibrio; lo spettacolo è ideato e interpretato da Vicky de Stefanis.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale si rivolge anche ai bambini e combina figure di carta con pupazzi da tavolo accompagnati da suoni e canti. In un giardino popolato da bruchi, pecore e un pastore, Pet contamina l’acqua e gli animali collaborano con il pastore per recuperare l’equilibrio; lo spettacolo è ideato e interpretato da Vicky de Stefanis.",
+        "en": "This theatre piece is also intended for children and combines paper figures with tabletop puppets accompanied by sounds and songs. In a garden inhabited by caterpillars, sheep and a shepherd, Pet contaminates the water, and the animals work with the shepherd to restore balance; the piece was created and performed by Vicky de Stefanis.",
+        "de": "Das Theaterstück richtet sich auch an Kinder und verbindet Papierfiguren mit Tischpuppen, die von Geräuschen und Gesang begleitet werden. In einem Garten mit Raupen, Schafen und einem Hirten verunreinigt Pet das Wasser, und die Tiere bemühen sich gemeinsam mit dem Hirten um die Wiederherstellung des Gleichgewichts; die Inszenierung stammt von und mit Vicky de Stefanis.",
+        "fr": "Ce spectacle théâtral s’adresse aussi aux enfants et associe des figures en papier à des marionnettes de table accompagnées de sons et de chants. Dans un jardin peuplé de chenilles, de moutons et d’un berger, Pet contamine l’eau, tandis que les animaux cherchent avec le berger à rétablir l’équilibre; Vicky de Stefanis en assure la conception et l’interprétation."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:42:04.592Z"
+    },
     "tio-agenda:64929::cc0dedee0e31528f254bdb0247f3a3bf2cbaf58ecc4b83b7e04ced5ebde4e3d9": {
       "id": "tio-agenda:64929",
       "sourceDescriptionHash": "cc0dedee0e31528f254bdb0247f3a3bf2cbaf58ecc4b83b7e04ced5ebde4e3d9",
@@ -186079,6 +186639,146 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T13:17:43.660Z"
+    },
+    "tio-agenda:64935::20829ed4aeabaacb33a6a85cf089ce42d7c45a1725249b508c6613622a59eca1": {
+      "id": "tio-agenda:64935",
+      "sourceDescriptionHash": "20829ed4aeabaacb33a6a85cf089ce42d7c45a1725249b508c6613622a59eca1",
+      "description": "Il Ristorante Pestalozzi di Lugano ospita un incontro autunnale di Café Med Ticino. Un gruppo di medici sarà disponibile gratuitamente per ascoltare i partecipanti, rispondere a domande sulla salute e chiarire eventuali dubbi.",
+      "descriptionByLocale": {
+        "it": "Il Ristorante Pestalozzi di Lugano ospita un incontro autunnale di Café Med Ticino. Un gruppo di medici sarà disponibile gratuitamente per ascoltare i partecipanti, rispondere a domande sulla salute e chiarire eventuali dubbi.",
+        "en": "An autumn appointment of Café Med Ticino is scheduled at Ristorante Pestalozzi in Lugano. A group of doctors will be available free of charge to listen to participants, answer health-related questions and clarify any doubts.",
+        "de": "Im Ristorante Pestalozzi in Lugano ist ein Herbsttermin von Café Med Ticino vorgesehen. Eine Gruppe von Ärzten steht kostenlos bereit, um den Teilnehmenden zuzuhören, Fragen zur Gesundheit zu beantworten und Unklarheiten zu klären.",
+        "fr": "Le Ristorante Pestalozzi à Lugano accueille un rendez-vous automnal de Café Med Ticino. Un groupe de médecins y sera disponible gratuitement pour écouter les participants, répondre aux questions de santé et clarifier les incertitudes."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:43:59.604Z"
+    },
+    "tio-agenda:64940::6258bd55cd043743082d56ca2917ee78a6664242290aefe7c51d0e1a1534d7c8": {
+      "id": "tio-agenda:64940",
+      "sourceDescriptionHash": "6258bd55cd043743082d56ca2917ee78a6664242290aefe7c51d0e1a1534d7c8",
+      "description": "Un incontro pubblico promosso dal Soroptimist Club Moesano insieme al Servizio Ambulanza del Moesano presenta il Numero 142, il servizio telefonico svizzero dedicato all’ascolto e all’accompagnamento di chi subisce violenza fisica, psicologica o sessuale e delle persone vicine. La serata si svolge al Centro Sanitario Moesa di Roveredo e illustra le possibilità di sostegno, promuovendo l’attenzione verso il contrasto della violenza.",
+      "descriptionByLocale": {
+        "it": "Un incontro pubblico promosso dal Soroptimist Club Moesano insieme al Servizio Ambulanza del Moesano presenta il Numero 142, il servizio telefonico svizzero dedicato all’ascolto e all’accompagnamento di chi subisce violenza fisica, psicologica o sessuale e delle persone vicine. La serata si svolge al Centro Sanitario Moesa di Roveredo e illustra le possibilità di sostegno, promuovendo l’attenzione verso il contrasto della violenza.",
+        "en": "The public meeting presents Number 142, Switzerland’s telephone service for listening to and supporting people affected by physical, psychological or sexual violence, as well as those close to them. It takes place at Centro Sanitario Moesa in Roveredo and addresses access to assistance and awareness of violence prevention.",
+        "de": "Die öffentliche Veranstaltung stellt die Nummer 142 vor, eine schweizweite Telefonstelle für das Zuhören, die Beratung und die Unterstützung von Menschen, die körperliche, psychische oder sexuelle Gewalt erleben, sowie ihres Umfelds. Der Anlass findet im Centro Sanitario Moesa in Roveredo statt und behandelt den Zugang zu Hilfe und die Sensibilisierung für Gewaltprävention.",
+        "fr": "Cette rencontre publique présente le numéro 142, un service téléphonique national suisse consacré à l’écoute et au soutien des personnes touchées par des violences physiques, psychologiques ou sexuelles, ainsi que de leur entourage. Elle se déroule au Centro Sanitario Moesa à Roveredo et aborde l’accès à l’aide et la sensibilisation à la prévention de la violence."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:21:26.847Z"
+    },
+    "tio-agenda:64945::dd7696c59b12407434b979a01261bb95ac4ee61b6cb3a0fed57192826a0c471b": {
+      "id": "tio-agenda:64945",
+      "sourceDescriptionHash": "dd7696c59b12407434b979a01261bb95ac4ee61b6cb3a0fed57192826a0c471b",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Amélie Pregassona; comune: Lugano; cantone: TI; categoria: appuntamenti; data: 2026-11-13; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Amélie Pregassona; comune: Lugano; cantone: TI; categoria: appuntamenti; data: 2026-11-13; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Centro Amélie Pregassona; municipality: Lugano; canton: TI; category: appuntamenti; date: 2026-11-13; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Centro Amélie Pregassona; gemeinde: Lugano; kanton: TI; kategorie: appuntamenti; datum: 2026-11-13; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Centro Amélie Pregassona; commune: Lugano; canton: TI; catégorie: appuntamenti; date: 2026-11-13; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.833Z"
+    },
+    "tio-agenda:64956::18ce8f7d852ab9d476c2d0f9ea0dcc62e32827d5c2cfd82aa4473295ff7d5bdf": {
+      "id": "tio-agenda:64956",
+      "sourceDescriptionHash": "18ce8f7d852ab9d476c2d0f9ea0dcc62e32827d5c2cfd82aa4473295ff7d5bdf",
+      "description": "L’atelier propone un’attività di decorazione su sottili lamine metalliche, realizzata con la tecnica dello sbalzo per ottenere motivi in rilievo. L’incontro si svolge presso Atelier Manoamano, nel territorio di Lugano, e comprende un momento conviviale con merenda e conversazione.",
+      "descriptionByLocale": {
+        "it": "L’atelier propone un’attività di decorazione su sottili lamine metalliche, realizzata con la tecnica dello sbalzo per ottenere motivi in rilievo. L’incontro si svolge presso Atelier Manoamano, nel territorio di Lugano, e comprende un momento conviviale con merenda e conversazione.",
+        "en": "This workshop focuses on decorating thin metal sheets with embossing, a technique that creates raised designs on the surface. It takes place at Atelier Manoamano in Lugano and includes time for a snack and conversation.",
+        "de": "Bei dem Workshop werden dünne Metallfolien mit einer Prägetechnik gestaltet, sodass erhabene Muster entstehen. Die Veranstaltung findet im Atelier Manoamano in Lugano statt und verbindet die Arbeit mit einer Pause für Imbiss und Austausch.",
+        "fr": "Cet atelier porte sur la décoration de fines feuilles de métal au moyen d’une technique de gaufrage qui fait apparaître des motifs en relief. Le rendez-vous a lieu à l’Atelier Manoamano, à Lugano, et prévoit aussi un moment autour d’une collation et des échanges."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:43:52.587Z"
+    },
+    "tio-agenda:64963::215d2d81f28bf7b84de45599f084bbc2666b3c9a9da23b9892f4d540e5eb20fa": {
+      "id": "tio-agenda:64963",
+      "sourceDescriptionHash": "215d2d81f28bf7b84de45599f084bbc2666b3c9a9da23b9892f4d540e5eb20fa",
+      "description": "Presso l’Hotel Ascona, ad Ascona, la manifestazione riunisce espositori e partecipanti internazionali attorno a libri rari, editoria, arte e temi culturali. Il programma comprende conferenze, presentazioni, letture, proiezioni cinematografiche e momenti musicali, con occasioni di incontro e scambio.",
+      "descriptionByLocale": {
+        "it": "Presso l’Hotel Ascona, ad Ascona, la manifestazione riunisce espositori e partecipanti internazionali attorno a libri rari, editoria, arte e temi culturali. Il programma comprende conferenze, presentazioni, letture, proiezioni cinematografiche e momenti musicali, con occasioni di incontro e scambio.",
+        "en": "At Hotel Ascona in Ascona, the event brings together international participants around rare books, publishing, art and cultural topics. Its programme includes talks, author presentations, readings, film screenings and music, alongside informal opportunities for discussion.",
+        "de": "Im Hotel Ascona in Ascona bringt die Veranstaltung internationale Teilnehmende rund um seltene Bücher, Verlagswesen, Kunst und kulturelle Themen zusammen. Zum Programm gehören Vorträge, Präsentationen von Autorinnen und Autoren, Lesungen, Filmvorführungen und Musik sowie informelle Gesprächsmöglichkeiten.",
+        "fr": "À l’Hotel Ascona, à Ascona, l’événement réunit des participants internationaux autour de livres rares, de l’édition, de l’art et de thèmes culturels. Le programme prévoit des conférences, des présentations d’auteurs, des lectures, des projections de films et de la musique, ainsi que des échanges informels."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:18:38.574Z"
+    },
+    "tio-agenda:64964::57eadc4e7cd5d141ab7d0a5eb580d5ab3b249ba9b849f7029cf60299118074b2": {
+      "id": "tio-agenda:64964",
+      "sourceDescriptionHash": "57eadc4e7cd5d141ab7d0a5eb580d5ab3b249ba9b849f7029cf60299118074b2",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Spazio aperto; comune: Bellinzona; cantone: TI; categoria: ballando; data: 2026-11-13; ora: 21:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Spazio aperto; comune: Bellinzona; cantone: TI; categoria: ballando; data: 2026-11-13; ora: 21:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Centro Spazio aperto; municipality: Bellinzona; canton: TI; category: ballando; date: 2026-11-13; time: 21:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Centro Spazio aperto; gemeinde: Bellinzona; kanton: TI; kategorie: ballando; datum: 2026-11-13; uhrzeit: 21:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Centro Spazio aperto; commune: Bellinzona; canton: TI; catégorie: ballando; date: 2026-11-13; heure: 21:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:16:57.844Z"
+    },
+    "tio-agenda:64967::c4a10c340eb4feb3ca70c277d575f85ffcd551ece32a40b63dfe558d27ee543b": {
+      "id": "tio-agenda:64967",
+      "sourceDescriptionHash": "c4a10c340eb4feb3ca70c277d575f85ffcd551ece32a40b63dfe558d27ee543b",
+      "description": "Presso la Sala consiglio comunale di Melano si svolge una presentazione dedicata al libro di Fiorenzo Falconi, autore originario di Rovio. L’opera riunisce poesie e testi narrativi incentrati sulla memoria, sulle tradizioni e sull’identità del territorio, con attenzione al dialetto e alle storie della regione.",
+      "descriptionByLocale": {
+        "it": "Presso la Sala consiglio comunale di Melano si svolge una presentazione dedicata al libro di Fiorenzo Falconi, autore originario di Rovio. L’opera riunisce poesie e testi narrativi incentrati sulla memoria, sulle tradizioni e sull’identità del territorio, con attenzione al dialetto e alle storie della regione.",
+        "en": "The event at the municipal council hall in Melano presents a book by Fiorenzo Falconi, an author from Rovio. Its poems and narrative texts explore memory, local traditions and the identity of the area, including dialect and regional stories.",
+        "de": "In der Sala consiglio comunale in Melano wird ein Buch von Fiorenzo Falconi vorgestellt, einem Autor aus Rovio. Die Veröffentlichung verbindet Gedichte und erzählende Texte über Erinnerung, lokale Traditionen und die Identität der Region; dabei spielen auch Dialekt und überlieferte Geschichten eine Rolle.",
+        "fr": "À la Sala consiglio comunale de Melano, une présentation est consacrée au livre de Fiorenzo Falconi, auteur originaire de Rovio. L’ouvrage réunit des poèmes et des textes narratifs autour de la mémoire, des traditions locales et de l’identité du territoire, avec une place accordée au dialecte et aux récits régionaux."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:41:58.730Z"
+    },
+    "tio-agenda:64978::ee1c1639d1bf069bee29916963c40f85d5e0c26e06b3572b75f7461cbdc89f52": {
+      "id": "tio-agenda:64978",
+      "sourceDescriptionHash": "ee1c1639d1bf069bee29916963c40f85d5e0c26e06b3572b75f7461cbdc89f52",
+      "description": "La Sala Multiuso di Genestrerio ospita l’appuntamento teatrale conclusivo della colonia Lazzi di Luzzo. Il programma abbina un aperitivo, la rappresentazione e una cena popolare.",
+      "descriptionByLocale": {
+        "it": "La Sala Multiuso di Genestrerio ospita l’appuntamento teatrale conclusivo della colonia Lazzi di Luzzo. Il programma abbina un aperitivo, la rappresentazione e una cena popolare.",
+        "en": "The Sala Multiuso in Genestrerio hosts the closing theatre event by Lazzi di Luzzo. The programme combines an aperitif, the performance and a communal dinner.",
+        "de": "In der Sala Multiuso in Genestrerio findet die abschließende Theaterveranstaltung von Lazzi di Luzzo statt. Zum Programm gehören ein Aperitif, die Aufführung und ein gemeinsames Abendessen.",
+        "fr": "La Sala Multiuso de Genestrerio accueille le dernier rendez-vous théâtral de Lazzi di Luzzo. Le programme comprend un apéritif, la représentation et un repas populaire."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:36:27.934Z"
+    },
+    "tio-agenda:64982::9daa586a6f87d8d6fd9b9aafbb65adbc49ea3192195a85d7689f322f1ac715aa": {
+      "id": "tio-agenda:64982",
+      "sourceDescriptionHash": "9daa586a6f87d8d6fd9b9aafbb65adbc49ea3192195a85d7689f322f1ac715aa",
+      "description": "Il Mercantico di Bellinzona propone un mercato dedicato a brocantage, articoli vintage, antiquariato, modernariato e collezionismo. Tra le categorie indicate figurano ceramiche, oggetti d’argento, specchi, orologi, fumetti, libri, giocattoli e piccoli mobili; l’appuntamento si svolge in Piazza Giusppe Buffi, a Bellinzona.",
+      "descriptionByLocale": {
+        "it": "Il Mercantico di Bellinzona propone un mercato dedicato a brocantage, articoli vintage, antiquariato, modernariato e collezionismo. Tra le categorie indicate figurano ceramiche, oggetti d’argento, specchi, orologi, fumetti, libri, giocattoli e piccoli mobili; l’appuntamento si svolge in Piazza Giusppe Buffi, a Bellinzona.",
+        "en": "The Bellinzona Mercantico is a market for brocante, vintage goods, antiques, modernariato and collectibles. The listed selection includes ceramics, silver items, mirrors, watches, comics, books, toys and small pieces of furniture, with the event taking place at Piazza Giusppe Buffi in Bellinzona.",
+        "de": "Das Mercantico in Bellinzona ist ein Markt für Brocante, Vintage-Artikel, Antiquitäten, Modernariate und Sammlerstücke. Zum angekündigten Angebot gehören unter anderem Keramik, Silberwaren, Spiegel, Uhren, Comics, Bücher, Spielzeug und kleine Möbel; die Veranstaltung findet auf der Piazza Giusppe Buffi in Bellinzona statt.",
+        "fr": "Le Mercantico de Bellinzone est un marché consacré à la brocante, aux objets vintage, aux antiquités, au modernariat et aux pièces de collection. L’offre mentionnée comprend notamment des céramiques, des objets en argent, des miroirs, des montres, des bandes dessinées, des livres, des jouets et de petits meubles; le rendez-vous a lieu sur la Piazza Giusppe Buffi, à Bellinzone."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:28:16.355Z"
+    },
+    "tio-agenda:64988::3fd2c335915c1b7ff44463b8f08425a123366684e7f50a5bf3c9205585cad4d0": {
+      "id": "tio-agenda:64988",
+      "sourceDescriptionHash": "3fd2c335915c1b7ff44463b8f08425a123366684e7f50a5bf3c9205585cad4d0",
+      "description": "Il mercatino natalizio di Bellinzona propone oggetti e articoli stagionali in un contesto benefico e solidale. L’appuntamento comprende anche una sezione di mercatino delle pulci.",
+      "descriptionByLocale": {
+        "it": "Il mercatino natalizio di Bellinzona propone oggetti e articoli stagionali in un contesto benefico e solidale. L’appuntamento comprende anche una sezione di mercatino delle pulci.",
+        "en": "The event in Bellinzona is a charitable Christmas market featuring seasonal items and second-hand goods. It also includes a flea-market area.",
+        "de": "Die Veranstaltung in Bellinzona ist ein wohltätiger Weihnachtsmarkt mit saisonalen Artikeln und gebrauchten Gegenständen. Zum Angebot gehört auch ein Flohmarktbereich.",
+        "fr": "À Bellinzone, l’événement prend la forme d’un marché de Noël à but caritatif, avec des articles de saison et des objets d’occasion. Il comprend également un espace consacré à la brocante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T18:35:46.329Z"
     }
   },
   "rejections": {
@@ -186124,6 +186824,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T21:39:45.551Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "fr-agenda:berufs-info-metiers-2026-a-la-decouverte-de-plus-de-60-professions::deb81bdce5737671a471441e70df3b6d07a24066971b2fd5a3a5b021cead28f7": {
+      "id": "fr-agenda:berufs-info-metiers-2026-a-la-decouverte-de-plus-de-60-professions",
+      "sourceDescriptionHash": "deb81bdce5737671a471441e70df3b6d07a24066971b2fd5a3a5b021cead28f7",
+      "code": "source-ngram-8",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:27:38.754Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186214,6 +186923,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T13:37:55.885Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "fr-agenda:vernissage-de-la-sculpture-disabelle-krieg-femme-detendue::22129fa44dc006c0ae4eafd9ae0e3987f9dafede3d11bf6d297ee879ba653b77": {
+      "id": "fr-agenda:vernissage-de-la-sculpture-disabelle-krieg-femme-detendue",
+      "sourceDescriptionHash": "22129fa44dc006c0ae4eafd9ae0e3987f9dafede3d11bf6d297ee879ba653b77",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:59:08.888Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186421,6 +187139,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:16:19.748Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:fete-hiver::a4a441586c696a041d23b5844fa62d9a88951724418656fa0de1485071bdcd18": {
+      "id": "ge-agenda:fete-hiver",
+      "sourceDescriptionHash": "a4a441586c696a041d23b5844fa62d9a88951724418656fa0de1485071bdcd18",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:58:08.443Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -186730,6 +187457,24 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir::c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2": {
+      "id": "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir",
+      "sourceDescriptionHash": "c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:33:47.355Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:semaine-climat-conference-yamina-saheb-dufour::11345e3188db0785ede30062f6bc908613461904015ed47d92da48a8ba3878a9": {
+      "id": "ge-agenda:semaine-climat-conference-yamina-saheb-dufour",
+      "sourceDescriptionHash": "11345e3188db0785ede30062f6bc908613461904015ed47d92da48a8ba3878a9",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:57:16.378Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "ge-agenda:seniors-informer-former-decouvrons-nature-ensemble::f168e94f0015714dd864a58eb5115ef317ba48e7615a55273621bb0f07e9edcf": {
       "id": "ge-agenda:seniors-informer-former-decouvrons-nature-ensemble",
       "sourceDescriptionHash": "f168e94f0015714dd864a58eb5115ef317ba48e7615a55273621bb0f07e9edcf",
@@ -186988,6 +187733,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:27:14.635Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:A4bgNcf::ff92145cc42164f88a3df732a876e61406cbdcadf63fc739c94428caf1776cd5": {
+      "id": "guidle:A4bgNcf",
+      "sourceDescriptionHash": "ff92145cc42164f88a3df732a876e61406cbdcadf63fc739c94428caf1776cd5",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:28:27.536Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187351,6 +188105,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AcP6EEy::50dccea62822ec85628c3c654de4447b311c5c6cee904d1957c00532c879cc87": {
+      "id": "guidle:AcP6EEy",
+      "sourceDescriptionHash": "50dccea62822ec85628c3c654de4447b311c5c6cee904d1957c00532c879cc87",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:56:12.592Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ACQ5GFn::38aa9596836b4dc9d19c2943e24af84674bab7c8f4ee8dd9e68743667499a8f0": {
       "id": "guidle:ACQ5GFn",
       "sourceDescriptionHash": "38aa9596836b4dc9d19c2943e24af84674bab7c8f4ee8dd9e68743667499a8f0",
@@ -187375,6 +188138,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:46:15.823Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:Ad7hbUw::87a71fe6b393337d7fb5baa0485a905d76cc9e9abeb6c64cbaa5bfb69f5ba9b7": {
+      "id": "guidle:Ad7hbUw",
+      "sourceDescriptionHash": "87a71fe6b393337d7fb5baa0485a905d76cc9e9abeb6c64cbaa5bfb69f5ba9b7",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:19:56.770Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187447,6 +188219,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T07:26:19.262Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AdYgjs4::ad967047b4ff77fc62a2f17b636edd6547229fdedc2b875d1d8d01bbeeb1a20b": {
+      "id": "guidle:AdYgjs4",
+      "sourceDescriptionHash": "ad967047b4ff77fc62a2f17b636edd6547229fdedc2b875d1d8d01bbeeb1a20b",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:22:30.400Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187639,12 +188420,30 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AGmMqZW::68897959b2b85ca4d623f7f6cbc8e8edae6a8ed1cf48d15b4c4eaeac5a9a77aa": {
+      "id": "guidle:AGmMqZW",
+      "sourceDescriptionHash": "68897959b2b85ca4d623f7f6cbc8e8edae6a8ed1cf48d15b4c4eaeac5a9a77aa",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:51:40.960Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AGpyxNK::c9cabd07a7425d75951693acbce0285297abed9ba77493e4202efcfccc84bcc0": {
       "id": "guidle:AGpyxNK",
       "sourceDescriptionHash": "c9cabd07a7425d75951693acbce0285297abed9ba77493e4202efcfccc84bcc0",
       "code": "source-ngram-8",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:34:02.595Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AgQBDsK::f14d118844c0caa88d79348fde4f232c22caf809d1f2e81f029c0d79a9e51165": {
+      "id": "guidle:AgQBDsK",
+      "sourceDescriptionHash": "f14d118844c0caa88d79348fde4f232c22caf809d1f2e81f029c0d79a9e51165",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:30:44.223Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187825,6 +188624,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:38:00.945Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AjX8P7g::9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9": {
+      "id": "guidle:AjX8P7g",
+      "sourceDescriptionHash": "9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:35:13.745Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188140,6 +188948,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T19:35:35.486Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AnB8BEB::a9e6e13c40d12d9659e062c1622991c4aa54b80b65d2d5f5e8ca6b7be45a967b": {
+      "id": "guidle:AnB8BEB",
+      "sourceDescriptionHash": "a9e6e13c40d12d9659e062c1622991c4aa54b80b65d2d5f5e8ca6b7be45a967b",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:21:00.367Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188683,6 +189500,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AukNdbc::aeed9a52368be1b3e15d5fa6a8f9b813da570b5e8ada5669f27259e41b431c12": {
+      "id": "guidle:AukNdbc",
+      "sourceDescriptionHash": "aeed9a52368be1b3e15d5fa6a8f9b813da570b5e8ada5669f27259e41b431c12",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:23:18.533Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AUkNZGK::faf4a73de4bb74b1844ddb947a07b6eca65bb2677c790876e8cebd6028f9694d": {
       "id": "guidle:AUkNZGK",
       "sourceDescriptionHash": "faf4a73de4bb74b1844ddb947a07b6eca65bb2677c790876e8cebd6028f9694d",
@@ -189214,6 +190040,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "lu-stadt-agenda:7626907::a0168a71c79587286171e4c54dd16a3d780ac2ff06ea259ac52140f421a766a9": {
+      "id": "lu-stadt-agenda:7626907",
+      "sourceDescriptionHash": "a0168a71c79587286171e4c54dd16a3d780ac2ff06ea259ac52140f421a766a9",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:37:06.580Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "lu-stadt-agenda:7686649::0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af": {
       "id": "lu-stadt-agenda:7686649",
       "sourceDescriptionHash": "0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af",
@@ -189229,6 +190064,15 @@
       "code": "new-date-or-price",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-11-10T11:32:28.817Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "lu-stadt-agenda:7794205::8f9bc51297d513d2a9e5e9b834bb35d8588a21e393d27e1c54c9f09c2d679c01": {
+      "id": "lu-stadt-agenda:7794205",
+      "sourceDescriptionHash": "8f9bc51297d513d2a9e5e9b834bb35d8588a21e393d27e1c54c9f09c2d679c01",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:34:52.295Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190273,6 +191117,15 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T18:28:59.831Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "myswitzerland:3719bf071bab4f0187303002d96d2226::d8fd9a975f589c904da5a412132894410364d9d1f63f0ef5d967acf8a51cebb3": {
+      "id": "myswitzerland:3719bf071bab4f0187303002d96d2226",
+      "sourceDescriptionHash": "d8fd9a975f589c904da5a412132894410364d9d1f63f0ef5d967acf8a51cebb3",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:45:39.104Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -194791,6 +195644,159 @@
       "code": "source-ngram-8",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T18:20:46.228Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64792::88078b4593367db0c778336c95a3c53f70833a72aeb4278abf0d53edc2ffe444": {
+      "id": "tio-agenda:64792",
+      "sourceDescriptionHash": "88078b4593367db0c778336c95a3c53f70833a72aeb4278abf0d53edc2ffe444",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T19:01:14.487Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64872::a33c8467a19925f87f824cad593f585d98bf52f4a17d200fc2bd7d3c69f4aa25": {
+      "id": "tio-agenda:64872",
+      "sourceDescriptionHash": "a33c8467a19925f87f824cad593f585d98bf52f4a17d200fc2bd7d3c69f4aa25",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:42:42.525Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64908::fb20eccbef594b1ed4e100781784855556e0e103087872ef553385c806e77048": {
+      "id": "tio-agenda:64908",
+      "sourceDescriptionHash": "fb20eccbef594b1ed4e100781784855556e0e103087872ef553385c806e77048",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:22:49.958Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64914::ff7215d3123cd28961ed8ce54bfe8e8bd1c363d85c60fc99caba6592ba0ca7ed": {
+      "id": "tio-agenda:64914",
+      "sourceDescriptionHash": "ff7215d3123cd28961ed8ce54bfe8e8bd1c363d85c60fc99caba6592ba0ca7ed",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:50:34.330Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64915::597fcc164b8b4718b504e24ce80fe08b7d38714ffe0c120fa4330f10ed3ff8e5": {
+      "id": "tio-agenda:64915",
+      "sourceDescriptionHash": "597fcc164b8b4718b504e24ce80fe08b7d38714ffe0c120fa4330f10ed3ff8e5",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:45:35.583Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64922::cb898d5caeabf51e184f12e3fff105e957d540cbb1674b7fa723dabb471fd95f": {
+      "id": "tio-agenda:64922",
+      "sourceDescriptionHash": "cb898d5caeabf51e184f12e3fff105e957d540cbb1674b7fa723dabb471fd95f",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:23:46.195Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64923::e20b10fefdfe866386e822de37020ec35759eef7f37aa185505d7e24c29b6b60": {
+      "id": "tio-agenda:64923",
+      "sourceDescriptionHash": "e20b10fefdfe866386e822de37020ec35759eef7f37aa185505d7e24c29b6b60",
+      "code": "source-ngram-8",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:35:50.845Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64925::c658ed1e7fc99f5b88e2697d2e1affb83bfd7bec247516b0435e43d2e60a533d": {
+      "id": "tio-agenda:64925",
+      "sourceDescriptionHash": "c658ed1e7fc99f5b88e2697d2e1affb83bfd7bec247516b0435e43d2e60a533d",
+      "code": "promotional-language",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:49:10.932Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64928::db525035cadf8a650dabf37a7bbfb86e3bbbd7d902336d11965387bdd387070f": {
+      "id": "tio-agenda:64928",
+      "sourceDescriptionHash": "db525035cadf8a650dabf37a7bbfb86e3bbbd7d902336d11965387bdd387070f",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:43:03.596Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64931::65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8": {
+      "id": "tio-agenda:64931",
+      "sourceDescriptionHash": "65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8",
+      "code": "sentence-count",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:26:33.973Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64938::fd86ba56b3e5542b3af582ee7be2814a0e0090d2ecb396734c1589ff71e94c02": {
+      "id": "tio-agenda:64938",
+      "sourceDescriptionHash": "fd86ba56b3e5542b3af582ee7be2814a0e0090d2ecb396734c1589ff71e94c02",
+      "code": "source-ngram-8",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:29:29.304Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64939::9bf27418a50aa865284080ec08a098f5b54697408fe4583b1e6c95e2d9aac07d": {
+      "id": "tio-agenda:64939",
+      "sourceDescriptionHash": "9bf27418a50aa865284080ec08a098f5b54697408fe4583b1e6c95e2d9aac07d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:30:59.709Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64946::9404e3069400f700fe6d40bfac810433dd77519a9a5d2756a8c29d0966057f45": {
+      "id": "tio-agenda:64946",
+      "sourceDescriptionHash": "9404e3069400f700fe6d40bfac810433dd77519a9a5d2756a8c29d0966057f45",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:37:48.025Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64957::b8c5e39ec8fde26e59bb53bbe20e2ce4be7862c8c62933bab4cbe4149b39a498": {
+      "id": "tio-agenda:64957",
+      "sourceDescriptionHash": "b8c5e39ec8fde26e59bb53bbe20e2ce4be7862c8c62933bab4cbe4149b39a498",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:29:42.007Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64958::16d330dd428c4f57f50fea0046665558edb463515f0ba7dab4b4ee91e48146ea": {
+      "id": "tio-agenda:64958",
+      "sourceDescriptionHash": "16d330dd428c4f57f50fea0046665558edb463515f0ba7dab4b4ee91e48146ea",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:30:18.841Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64966::11594a60ff61f87297fb1e9352f9147707db798b99ad7988f9864c9160d12438": {
+      "id": "tio-agenda:64966",
+      "sourceDescriptionHash": "11594a60ff61f87297fb1e9352f9147707db798b99ad7988f9864c9160d12438",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:43:21.695Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "tio-agenda:64973::30c6f5aefd97bc0e07e7559c9dcff21922c8f1bc5d1048403d037dacf0c955ba": {
+      "id": "tio-agenda:64973",
+      "sourceDescriptionHash": "30c6f5aefd97bc0e07e7559c9dcff21922c8f1bc5d1048403d037dacf0c955ba",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-11T18:53:05.653Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

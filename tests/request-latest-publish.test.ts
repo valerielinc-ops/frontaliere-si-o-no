@@ -408,6 +408,7 @@ describe('Pages publish queue wiring', () => {
       '/scripts/offload-generated-images-cdn.mjs',
       '/build-plugins/shared/',
       '/infra/cloudflare-worker/',
+      '/services/publicConfigConstants.mjs',
     ]);
     expect(String(job?.env?.PUBLISHER_ROOT)).toBe('${{ github.workspace }}/publisher-resolver');
     expect(String(job?.env?.PUBLISHER_DIST)).toBe('${{ github.workspace }}/dist');
