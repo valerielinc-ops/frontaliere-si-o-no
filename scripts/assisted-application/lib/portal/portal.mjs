@@ -4052,7 +4052,6 @@ const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:l
 // a bare account registration.
 const QUALIFICATION_DOCUMENT_TERMS = '(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
   + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze';
-const QUALIFICATION_DOCUMENT_PART_RE = new RegExp(`^(?:${QUALIFICATION_DOCUMENT_TERMS})$`, 'iu');
 const documentContextRe = (terms) => new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
@@ -4060,6 +4059,21 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+const UMANTIS_NON_SUPPORTING_UPLOAD_RE = documentContextRe(
+  '(?:[\\p{L}\\p{N}\\p{M}]*(?:photo|foto|passport|passaport|passeport|ausweis|licen[cs]|patent|permit|permess|permis|bewilligung)[\\p{L}\\p{N}\\p{M}]*)',
+);
+const normalizeUmantisUploadRole = value => String(value || '')
+  .normalize('NFKC')
+  .replace(/\p{Cf}/gu, '')
+  .normalize('NFD')
+  .replace(/\p{M}/gu, '')
+  .replace(/[_:.-]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+// A section/context describes nearby questions, not the document represented
+// by this file control. Use the control's own caption or semantic identity for
+// the non-supporting veto so a «work permit» section cannot reject a diploma.
+const umantisUploadRole = field => normalizeUmantisUploadRole(field?.label || field?.name || field?.id);
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
 const portalUploadFieldIdentity = (field) => [
   field?.domId && `dom:${field.domId}`,
@@ -4127,24 +4141,8 @@ function isUmantisApplicationRoute(url) {
   }
 }
 
-// The Umantis application route on an Umantis channel, or reached from the employer's own career site: its Apply
-// hands over to the employer's Umantis tenant (Bank Cler, 8BhQom09 2026-11-11: cler.ch ->
-// recruitingapp-2839.umantis.com/Vacancies/2779/Application/New/1), whose form is the same Umantis application.
-function umantisApplicationChannel(channelType, url) {
-  return ['umantis', 'employer_site'].includes(channelType) && isUmantisApplicationRoute(url);
-}
-
-/** A file field whose caption names only qualification documents («Zeugnisse/Diplome», «Certificati»). */
-function isQualificationDocumentField(field) {
-  if (!isFileField(field)) return false;
-  const caption = String(field.label || '').replace(/\s+/g, ' ').replace(/[＊*]/g, '').replace(/^[\s:]+|[\s:]+$/g, '').trim();
-  if (!caption || caption.length > 120) return false;
-  const parts = caption.split(SLOT_CAPTION_SEPARATOR_RE).map(part => part.trim());
-  return parts.length <= 6 && parts.every(part => QUALIFICATION_DOCUMENT_PART_RE.test(part));
-}
-
 function isObservedUmantisApplicationStep(snapshot, channelType) {
-  if (!umantisApplicationChannel(channelType, snapshot.url)) return false;
+  if (!['umantis', 'employer_site'].includes(channelType) || !isUmantisApplicationRoute(snapshot.url)) return false;
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const { email, password } = loginFields(snapshot);
   if (!email || !password || asksExistingPassword(password)) return false;
@@ -4170,17 +4168,24 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const hasApplicantDetails = profileDetails.size >= 2;
   const hasCoverLetter = fields.some(field => isFileField(field)
     && COVER_LETTER_DOCUMENT_CONTEXT_RE.test(`${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`));
+  // Umantis tenants do not share one application dossier: some ask for a
+  // cover letter, others for certificates/diplomas or additional documents.
+  // A portrait or identity document alone is not enough to distinguish the
+  // application step from a profile/account surface.
+  const hasSupportingDocument = fields.some(field => {
+    if (!isFileField(field) || isCvFileField(field)) return false;
+    const text = `${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`;
+    return isNonCvDocumentLabel(text) && !UMANTIS_NON_SUPPORTING_UPLOAD_RE.test(umantisUploadRole(field));
+  });
   const hasCv = fields.some(isCvFileField);
-  // Bank Cler's tenant asks for the CV and «Zeugnisse/Diplome», with no cover letter slot: certificates are an
-  // application's documents as much as a letter, and no bare account registration asks for them.
-  const hasQualificationDocuments = fields.some(isQualificationDocumentField);
 
-  // #17174: Umantis Application/New can expose the account password beside
-  // identity, a partial address/profile, required CV + cover letter (or
-  // certificates), and only «Avanti»/«Weiter». This observed application
-  // surface is not a sign-in page.
+  // #17174/#18106: Umantis Application/New can expose the account password
+  // beside identity, a partial address/profile, CV plus the tenant's
+  // supporting dossier fields, and only «Avanti»/«Weiter». This observed
+  // application surface is not a sign-in page. The route is authoritative
+  // even when the source draft still calls the channel employer_site.
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
-    && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasQualificationDocuments));
+    && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasSupportingDocument));
 }
 const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
@@ -4214,7 +4219,8 @@ export function ownAccountForm(snapshot, channelType = '') {
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
-  const umantisProfileCreatedOnSubmit = umantisApplicationChannel(channelType, snapshot.url)
+  const umantisProfileCreatedOnSubmit = ['umantis', 'employer_site'].includes(channelType)
+    && isUmantisApplicationRoute(snapshot.url)
     && hasCvFileField
     && UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE.test(String(snapshot.text || '').replace(/\s+/g, ' '));
   const umantisApplicationStep = isObservedUmantisApplicationStep(snapshot, channelType);

@@ -410,7 +410,7 @@ describe('approval flow', () => {
     expect(step.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
   });
 
-  it('retries a regional notice from another runner, because the portal geolocates the runner and not the candidate', () => {
+  it('retries a regional notice from the Swiss runner, because the portal geolocates the runner and not the candidate', () => {
     const step = transition(
       { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
       { type: 'submit_handoff', reason: 'application_region_unsupported' },
@@ -420,6 +420,8 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({
       state: 'owner_takeover', heldBy: ['portal:application_region_unsupported'],
       portalAutoRetryAt: T0 + TRANSPORT_AUTO_RETRY_DELAYS_MS[0],
+      // Every later run of this order leaves from the Swiss runner (owner decision 2026-11-11).
+      egress: { required: 'ch', reason: 'application_region_unsupported', round: 1, at: T0, source: 'portal_handoff' },
     });
     // The infrastructure ladder notifies operations once, after its last short step.
     expect(step.effects).toEqual([]);
