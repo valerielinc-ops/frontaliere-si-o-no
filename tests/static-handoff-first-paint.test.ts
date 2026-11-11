@@ -22,6 +22,10 @@ import {
   hideRootForCrossfade,
   waitForStaticFirstPaint,
 } from '@/services/staticFallbackHandoff';
+import {
+  HOMEPAGE_CONTENT_HANDOFF_TIMEOUT_MS,
+  waitForHomepageContentHandoff,
+} from '@/services/initialPaintBootstrap';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -117,6 +121,61 @@ describe('hideRootForCrossfade', () => {
   });
 });
 
+describe('homepage shell handoff', () => {
+  it('keeps the fixed shell until the hydrated calculator heading exists', async () => {
+    document.body.innerHTML = `
+      <div id="root"><main id="main-content"><h1 id="homepage-static-h1">static</h1></main></div>`;
+    const root = document.getElementById('root')!;
+    let notifyMutation: (() => void) | undefined;
+    let stopObserving = false;
+    let timerCallback: (() => void) | undefined;
+    let clearedTimer = false;
+
+    const ready = waitForHomepageContentHandoff(root, {
+      observeMutations: (_target, callback) => {
+        notifyMutation = callback;
+        return () => { stopObserving = true; };
+      },
+      setTimer: (callback, ms) => {
+        expect(ms).toBe(HOMEPAGE_CONTENT_HANDOFF_TIMEOUT_MS);
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => { clearedTimer = true; },
+    });
+
+    let settled = false;
+    void ready.then(() => { settled = true; });
+    await Promise.resolve();
+    expect(settled).toBe(false);
+
+    root.innerHTML = '<main id="main-content"><h1>Calcolatore pronto</h1></main>';
+    notifyMutation?.();
+    await ready;
+
+    expect(settled).toBe(true);
+    expect(clearedTimer).toBe(true);
+    expect(stopObserving).toBe(true);
+    expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('releases the shell on the bounded timeout when the heading never commits', async () => {
+    const root = document.createElement('div');
+    let timerCallback: (() => void) | undefined;
+    const ready = waitForHomepageContentHandoff(root, {
+      observeMutations: () => () => {},
+      setTimer: (callback) => {
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => {},
+    });
+
+    timerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+  });
+});
+
 describe('index.tsx mount order', () => {
   const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
   const mountApp = entry.slice(entry.indexOf('const mountApp = async'));
@@ -143,5 +202,18 @@ describe('index.tsx mount order', () => {
 
   it('hides #root only through hideRootForCrossfade (no direct opacity 0 that skips the mark)', () => {
     expect(entry).not.toMatch(/rootElement\.style\.opacity\s*=\s*['"]0['"]/);
+  });
+
+  it('keeps the homepage loading shell until the hydrated heading is ready', () => {
+    const paintAt = mountApp.lastIndexOf('await waitForFirstPaint();');
+    const handoffAt = mountApp.indexOf('await waitForHomepageContentHandoff(rootElement);');
+    const removeShellAt = mountApp.indexOf("document.getElementById('loading-shell')?.remove()");
+
+    expect(paintAt).toBeGreaterThan(-1);
+    expect(handoffAt).toBeGreaterThan(paintAt);
+    expect(removeShellAt).toBeGreaterThan(handoffAt);
+    const guardAt = mountApp.lastIndexOf('if (homeCritical && !staticPage)', handoffAt);
+    expect(guardAt).toBeGreaterThan(paintAt);
+    expect(guardAt).toBeLessThan(handoffAt);
   });
 });

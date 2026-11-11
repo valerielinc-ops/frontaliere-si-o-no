@@ -31,6 +31,7 @@ describe('durable build -> publish receipts', () => {
     expect(state.pagesDeployed).toBe(true);
     expect(state.publishedLocales).toEqual(['en']);
     expect(state.pendingLocales).toEqual(['it', 'de', 'fr']);
+    expect(state.pendingNonItLocales).toEqual(['de', 'fr']);
   });
 
   it('fails closed on malformed source identity', () => {
@@ -40,6 +41,7 @@ describe('durable build -> publish receipts', () => {
       pagesDeployed: false,
       publishedLocales: [],
       pendingLocales: ['it', 'en', 'de', 'fr'],
+      pendingNonItLocales: ['en', 'de', 'fr'],
     });
   });
 
@@ -52,6 +54,7 @@ describe('durable build -> publish receipts', () => {
       ],
     });
     expect(state.pendingLocales).toEqual(['de', 'fr']);
+    expect(state.pendingNonItLocales).toEqual(['de', 'fr']);
   });
 
   it('deduplicates the requested matrix and ignores unsupported locale contexts', () => {
@@ -65,6 +68,7 @@ describe('durable build -> publish receipts', () => {
     });
     expect(state.publishedLocales).toEqual(['en']);
     expect(state.pendingLocales).toEqual(['fr']);
+    expect(state.pendingNonItLocales).toEqual(['fr']);
     expect(Object.keys(state.localeContexts)).toEqual(['fr', 'en']);
   });
 

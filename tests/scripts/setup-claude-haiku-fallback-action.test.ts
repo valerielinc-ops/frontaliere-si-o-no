@@ -154,9 +154,10 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(sandboxRun).toContain('--signal=TERM');
     expect(sandboxRun).toContain('--kill-after=3s');
     expect(sandboxRun).toContain('::error::${label} timed out after ${seconds} seconds');
+    expect(sandboxRun).toContain('Acquire::ForceIPv4=true');
     expect(sandboxRun).toContain('Acquire::http::Timeout=15');
     expect(sandboxRun).toContain('Acquire::https::Timeout=15');
-    expect(sandboxRun).toContain('Acquire::Retries=2');
+    expect(sandboxRun).toContain('Acquire::Retries=3');
     expect(sandboxRun).toContain('DPkg::Lock::Timeout=10');
     expect(sandboxRun).toContain('417s (6m57s), below ten minutes');
     expect(sandboxRun).toContain('Never disable AppArmor globally or retry the agent without a sandbox.');

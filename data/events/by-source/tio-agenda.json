@@ -3,7 +3,7 @@
   "sourceKey": "tio-agenda",
   "sourceName": "Tio.ch Agenda",
   "canton": "TI",
-  "assembledAt": "2026-11-10T13:48:37.034Z",
+  "assembledAt": "2026-11-11T12:58:14.199Z",
   "events": [
     {
       "id": "tio-agenda:63135",
@@ -149,7 +149,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64065",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Piazza Grande 6",
@@ -289,7 +289,7 @@
     {
       "id": "tio-agenda:63581",
       "title": "Kaari Upson. Dollhouse – Una retrospettiva",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "10:00",
       "category": "arte",
       "region": "Luganese",
@@ -297,11 +297,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/63581",
+      "url": "https://www.tio.ch/agenda/day/20261111/63581",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -324,6 +324,11 @@
       },
       "sourceDescriptionHash": "24433ba4832bfce9ada08241f837654ec4ec70aea730d2a90828c93e2a81d6a5",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "kaari-upson-dollhouse-una-retrospettiva-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -496,7 +501,7 @@
     {
       "id": "tio-agenda:62429",
       "title": "Bertille Bak. Voci dalla terra",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "10:00",
       "category": "musei",
       "region": "Mendrisiotto",
@@ -504,11 +509,11 @@
       "comune": "Mendrisio",
       "comuneMatch": "region",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/62429",
+      "url": "https://www.tio.ch/agenda/day/20261111/62429",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Via Lorenzo Vela 6",
         "postalCode": "6853",
@@ -526,6 +531,11 @@
       },
       "sourceDescriptionHash": "4bbff48e084356e87255093740045f66a541515b31bbe376acec6a112697d994",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Mendrisio",
@@ -1000,7 +1010,7 @@
     {
       "id": "tio-agenda:62804",
       "title": "Umberto Boccioni",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "11:00",
       "category": "musei",
       "region": "Luganese",
@@ -1008,11 +1018,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/62804",
+      "url": "https://www.tio.ch/agenda/day/20261111/62804",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Piazza Bernardino Luini 6,",
         "postalCode": "6900",
@@ -1033,6 +1043,11 @@
       },
       "sourceDescriptionHash": "ddf16283c335d1c55e5527df93733ff7dea5dd6d1cce99a248ed42223eb1f581",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -1184,7 +1199,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/63970",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-21",
       "address": {
         "street": "Centro Elisarion",
@@ -1273,7 +1288,7 @@
     {
       "id": "tio-agenda:53980",
       "title": "Sentimento e osservazione",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "11:00",
       "category": "arte",
       "region": "Luganese",
@@ -1281,11 +1296,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/53980",
+      "url": "https://www.tio.ch/agenda/day/20261111/53980",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "MASI, sede Lac",
         "postalCode": "6900",
@@ -1304,6 +1319,11 @@
       },
       "sourceDescriptionHash": "8dcaa90bc10d77f69a297d0cb6c66e9de53242bd906fef889bbce698a42b39ec",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -1504,7 +1524,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63445",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Piazza del Municipio 2",
@@ -1753,7 +1773,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63442",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Piazza del Municipio 2",
@@ -2418,7 +2438,7 @@
     {
       "id": "tio-agenda:62775",
       "title": "Uomo e ambiente - Il distruttore",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "20:00",
       "category": "arte",
       "region": "Bellinzonese",
@@ -2426,11 +2446,11 @@
       "comune": "Bellinzona",
       "comuneMatch": "region",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/62775",
+      "url": "https://www.tio.ch/agenda/day/20261111/62775",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Monumento San Giovanni Battista",
         "postalCode": "6525",
@@ -2444,6 +2464,11 @@
       },
       "sourceDescriptionHash": "275942392c121df953c0378c198a01535fce507d8951f8d8eb64859fc3e43898",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Bellinzona",
@@ -3399,18 +3424,18 @@
     {
       "id": "tio-agenda:63776",
       "title": "Was America",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Mendrisiotto",
       "venue": "Fondazione Rolla | Kindergarten",
       "comune": "Mendrisio",
       "comuneMatch": "region",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/63776",
+      "url": "https://www.tio.ch/agenda/day/20261111/63776",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Fondazione Rolla | Kindergarten",
         "postalCode": "6837",
@@ -3424,6 +3449,11 @@
       },
       "sourceDescriptionHash": "7c09b9e40d1840911e2dc4eb1c35527833e396da84e989413effc01f2f2f53ea",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "was-america-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Mendrisio",
@@ -3589,18 +3619,17 @@
     {
       "id": "tio-agenda:62822",
       "title": "Ivo Soldini - Progetto Castel Grande",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Bellinzonese",
       "venue": "Castel Grande",
       "comune": "Bellinzona",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/62822",
+      "url": "https://www.tio.ch/agenda/day/20261111/62822",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-11",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Salita Castelgrande 18",
         "postalCode": "6500",
@@ -3623,6 +3652,11 @@
       },
       "sourceDescriptionHash": "5ba30acfdcaaaacfe54a7a87b7229728636f99d33494d00d4f4ead37fb76e6a3",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ivo-soldini-progetto-castel-grande-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Bellinzona",
@@ -3788,18 +3822,18 @@
     {
       "id": "tio-agenda:63037",
       "title": "Jannis Kounellis: Io sono un pittore",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Luganese",
       "venue": "Collezione Giancarlo e Danna Olgiati",
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/63037",
+      "url": "https://www.tio.ch/agenda/day/20261111/63037",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Riva Antonio Caccia 1",
         "postalCode": "6900",
@@ -3813,6 +3847,11 @@
       },
       "sourceDescriptionHash": "840888dfef95fec4dd84fa7ecb856162e85adb23b7d7a6a4cab9427faa3c5c00",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -4410,7 +4449,7 @@
     {
       "id": "tio-agenda:63802",
       "title": "Giovanni Anselmo",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "09:00",
       "category": "arte",
       "region": "Luganese",
@@ -4418,11 +4457,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/63802",
+      "url": "https://www.tio.ch/agenda/day/20261111/63802",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Via Clemente Maraini 24",
         "postalCode": "6900",
@@ -4436,6 +4475,11 @@
       },
       "sourceDescriptionHash": "78b7ee8777b16cdb0252e5b38e5888165413089f8e75f52870e610383664be9a",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "giovanni-anselmo-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -4784,7 +4828,7 @@
     {
       "id": "tio-agenda:63724",
       "title": "Ugo Mulas, Pietro Consagra, Arnaldo Pomodoro",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "18:00",
       "category": "arte",
       "region": "Luganese",
@@ -4792,11 +4836,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/63724",
+      "url": "https://www.tio.ch/agenda/day/20261111/63724",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Via Nassa 62",
         "postalCode": "6900",
@@ -4808,6 +4852,11 @@
       },
       "sourceDescriptionHash": "e78c836c6aaf29d70e77862a887c6e339eb57016cb5f2388628831998faf16b6",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -5260,18 +5309,18 @@
     {
       "id": "tio-agenda:58243",
       "title": "Corpi in prestito",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Luganese",
       "venue": "Associazione per l’assistenza e la cura a domicilio Maggio",
       "comune": "Lugano",
       "comuneMatch": "region",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/58243",
+      "url": "https://www.tio.ch/agenda/day/20261111/58243",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Associazione per l’assistenza e la cura a domicilio Maggio",
         "postalCode": "6982",
@@ -5285,6 +5334,11 @@
       },
       "sourceDescriptionHash": "8c79cf3f45cd01e1e0275f270107ba63f59308d57fa408fa8fc6cdb2b528458e",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -6466,7 +6520,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/63350",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-28",
       "address": {
         "street": "Riva Antonio Caccia 6a",
@@ -8939,7 +8993,7 @@
     {
       "id": "tio-agenda:64073",
       "title": "Silver on glass",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "7:30",
       "category": "arte",
       "region": "Luganese",
@@ -8947,11 +9001,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64073",
+      "url": "https://www.tio.ch/agenda/day/20261111/64073",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-28",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Via R. Simen 14 b, Molino Nuovo",
         "postalCode": "6900",
@@ -8964,6 +9018,11 @@
       },
       "sourceDescriptionHash": "92ebf15434321c478edaf8470a9aedd009b21294c35edd8252a1df0ee6c3a99d",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "silver-on-glass-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -10598,7 +10657,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/63945",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-28",
       "address": {
         "street": "Via Santa Lucia 22",
@@ -16993,7 +17052,7 @@
     {
       "id": "tio-agenda:64356",
       "title": "Dove la luce si posa di Elisabeth Hübscher",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "10:00",
       "category": "arte",
       "region": "Luganese",
@@ -17001,11 +17060,11 @@
       "comune": "Caslano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64356",
+      "url": "https://www.tio.ch/agenda/day/20261111/64356",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Via Mera, 9",
         "postalCode": "6987",
@@ -17028,6 +17087,11 @@
       },
       "sourceDescriptionHash": "ac32dfcb8615f6547cd5a04a6bf7e6838c28a9171cd7fc3889221b237d1e4c78",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Caslano",
+          "slug": "dove-la-luce-si-posa-di-elisabeth-hubscher-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Caslano",
@@ -17220,7 +17284,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64342",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Museo Villa dei Cedri",
@@ -20060,18 +20124,18 @@
     {
       "id": "tio-agenda:64414",
       "title": "Impressioni - Mostra di pittura di Sisko Naerhi",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Luganese",
       "venue": "Residenza Rivabella",
       "comune": "Magliaso",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64414",
+      "url": "https://www.tio.ch/agenda/day/20261111/64414",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Residenza Rivabella",
         "postalCode": "6983",
@@ -20085,6 +20149,11 @@
       },
       "sourceDescriptionHash": "fd00ced5d1af71a50d06b4b756c0e6b3c1282c5accb6de3ca65c5c49a697bf4a",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Magliaso",
+          "slug": "impressioni-mostra-di-pittura-di-sisko-naerhi-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Magliaso",
@@ -21797,7 +21866,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64495",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Via Antonio Ciseri 3",
@@ -25776,7 +25845,7 @@
     {
       "id": "tio-agenda:64595",
       "title": "Schermo aperto. Opere video dalla collezione",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "10:00",
       "category": "musei",
       "region": "Luganese",
@@ -25784,11 +25853,11 @@
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64595",
+      "url": "https://www.tio.ch/agenda/day/20261111/64595",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Masi, sede Palazzo Reali",
         "postalCode": "6900",
@@ -25807,6 +25876,11 @@
       },
       "sourceDescriptionHash": "68cdb28db345c874e989eaf28c6351a2c67a604746edd7645836a6abb7f17b1f",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "schermo-aperto-opere-video-dalla-collezione-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -27243,7 +27317,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64617",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Casa Rotonda",
@@ -27395,7 +27469,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64646",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-26",
       "address": {
         "street": "via Campagna 30",
@@ -27446,7 +27520,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64633",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-15",
       "address": {
         "street": "El Cunvént 4",
@@ -27532,17 +27606,17 @@
     {
       "id": "tio-agenda:64618",
       "title": "Fede e guerra - Mostra fotografica",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Luganese",
       "venue": "Centro pastorale S. Giuseppe",
       "comune": "Lugano",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64618",
+      "url": "https://www.tio.ch/agenda/day/20261111/64618",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-15",
       "address": {
         "street": "Via Cantonale 2A",
@@ -27557,6 +27631,11 @@
       },
       "sourceDescriptionHash": "3b71a282d932d2431107c4111edf10f2a81a29fc9ab8f9a704e885d393d0b2a9",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "fede-e-guerra-mostra-fotografica-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Lugano",
@@ -27866,7 +27945,7 @@
     {
       "id": "tio-agenda:64658",
       "title": "Radici - Mostra di Annarita Conti",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "9:00",
       "category": "arte",
       "region": "Luganese",
@@ -27874,10 +27953,10 @@
       "comune": "Massagno",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64658",
+      "url": "https://www.tio.ch/agenda/day/20261111/64658",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-24",
       "address": {
         "street": "Il Rifugio Letterario",
@@ -27896,6 +27975,11 @@
       },
       "sourceDescriptionHash": "393998da114d2a56d09ede2cac8e52a36d3669175e0db0d91fca3523a5baf37a",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Massagno",
+          "slug": "radici-mostra-di-annarita-conti-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Massagno",
@@ -28823,7 +28907,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64547",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via G. Motta 67",
         "postalCode": "6900",
@@ -28859,7 +28943,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64352",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Sala multiuso",
         "postalCode": "6517",
@@ -28895,7 +28979,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64480",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Cinema Iride",
         "postalCode": "6900",
@@ -28927,7 +29011,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64616",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -28959,7 +29043,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/63606",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -28996,7 +29080,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64387",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Pedrazzini",
         "postalCode": "6600",
@@ -29041,7 +29125,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64637",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -29069,7 +29153,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64027",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce 1",
         "postalCode": "6900",
@@ -29101,7 +29185,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/63888",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Dell Indipendenza 4",
         "postalCode": "6900",
@@ -29133,7 +29217,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64575",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -29307,7 +29391,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64423",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Vallone 27",
         "postalCode": "6500",
@@ -29379,7 +29463,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/63903",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza del Municipio 2",
         "postalCode": "6965",
@@ -29406,7 +29490,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64675",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Industria 5",
         "postalCode": "6850",
@@ -29439,7 +29523,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64532",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Sala consiglio comunale",
         "postalCode": "6924",
@@ -29467,7 +29551,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64638",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -29495,7 +29579,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64587",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -29747,7 +29831,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64696",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -29779,7 +29863,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64725",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -29807,7 +29891,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64464",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -29839,7 +29923,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64697",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -29871,7 +29955,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64588",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -29899,7 +29983,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/63977",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza buffi",
         "postalCode": "6500",
@@ -29930,7 +30014,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64505",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Giuseppe Buffi,4",
         "postalCode": "6500",
@@ -29967,7 +30051,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64590",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -29995,7 +30079,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64589",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -30023,7 +30107,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64671",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -30064,7 +30148,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64599",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1",
         "postalCode": "6900",
@@ -30097,7 +30181,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64278",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-15",
       "address": {
         "street": "Via Ceresio 25",
@@ -30131,7 +30215,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63959",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Campo Marzio",
         "postalCode": "6900",
@@ -30158,7 +30242,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64591",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -30186,7 +30270,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64592",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -30214,7 +30298,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64593",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Peschiera 9",
         "postalCode": "6600",
@@ -30242,7 +30326,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/62537",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30275,7 +30359,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63607",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -30312,7 +30396,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64639",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30340,7 +30424,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63798",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Sechign 16",
         "postalCode": "6710",
@@ -30377,7 +30461,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/63592",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Hotel De la Paix",
         "postalCode": "6900",
@@ -30409,7 +30493,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64722",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -30437,7 +30521,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64693",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30474,8 +30558,8 @@
       "url": "https://www.tio.ch/agenda/day/20261115/63575",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30508,7 +30592,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/63937",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-16",
       "address": {
         "street": "Viale Castagnola 31, 6900 Lugano",
@@ -30536,7 +30620,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64641",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30564,7 +30648,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64427",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via A. Gallino",
         "postalCode": "6500",
@@ -30592,7 +30676,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64667",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza del Municipio 2",
         "postalCode": "6900",
@@ -30625,7 +30709,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64344",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Chiesa parrocchiale",
         "postalCode": "6924",
@@ -30657,7 +30741,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64650",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -30689,7 +30773,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/60555",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Palazzo dei Congressi",
         "postalCode": "6900",
@@ -30923,7 +31007,7 @@
       "url": "https://www.tio.ch/agenda/day/20261116/64648",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -30951,7 +31035,7 @@
       "url": "https://www.tio.ch/agenda/day/20261116/64033",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce, 1",
         "postalCode": "6900",
@@ -31183,7 +31267,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64750",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-28",
       "address": {
         "street": "via Sant'Antonio 11",
@@ -31474,7 +31558,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64741",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bartolomeo Papio 2",
         "postalCode": "6612",
@@ -31511,7 +31595,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64744",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bossi 2",
         "postalCode": "6600",
@@ -31548,7 +31632,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64739",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bossi 2",
         "postalCode": "6600",
@@ -31585,7 +31669,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64762",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Cantonale",
         "postalCode": "6928",
@@ -31613,7 +31697,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64758",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Centro d'incontro Al Posticino",
         "postalCode": "6930",
@@ -31646,7 +31730,7 @@
       "url": "https://www.tio.ch/agenda/day/20261116/64747",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Motta 67",
         "postalCode": "6900",
@@ -31683,7 +31767,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/64131",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via G. Canevascini 4",
         "postalCode": "6900",
@@ -31711,7 +31795,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/63269",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Indipendenza 9",
         "postalCode": "6900",
@@ -31748,7 +31832,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/63407",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Usi",
         "postalCode": "6900",
@@ -31780,7 +31864,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/64366",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Carlo Salvioni 2a",
         "postalCode": "6500",
@@ -31813,7 +31897,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/63892",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via G. Canevascini 4",
         "postalCode": "6900",
@@ -31841,7 +31925,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/64769",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Indipendenza 9",
         "postalCode": "6900",
@@ -31873,7 +31957,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/63511",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Teatro Kursaal",
         "postalCode": "6600",
@@ -31905,7 +31989,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64757",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Lorenzo Vela 6",
         "postalCode": "6853",
@@ -31941,7 +32025,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64353",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Oratorio",
         "postalCode": "6828",
@@ -31978,7 +32062,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64034",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce, 1",
         "postalCode": "6900",
@@ -32015,7 +32099,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64649",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -32043,7 +32127,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64676",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Dante Alighieri 3",
         "postalCode": "6830",
@@ -32075,7 +32159,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64795",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-27",
       "address": {
         "street": "via Cantonale, 18",
@@ -32266,7 +32350,7 @@
     {
       "id": "tio-agenda:64782",
       "title": "Nuova videofinestra al PalaCinema con Nils Braun",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "startTime": "09:00",
       "category": "arte",
       "region": "Locarnese",
@@ -32274,11 +32358,11 @@
       "comune": "Locarno",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64782",
+      "url": "https://www.tio.ch/agenda/day/20261111/64782",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Piazza Remo Rossi 1",
         "postalCode": "6600",
@@ -32304,6 +32388,11 @@
       },
       "sourceDescriptionHash": "ec2c7058da78a07e957708a1b21d5d4789a13f5c2fed4e99094e7e7b8ad7448d",
       "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "nuova-videofinestra-al-palacinema-con-nils-braun-2026-11-10"
+        },
         {
           "canton": "TI",
           "comune": "Locarno",
@@ -32398,18 +32487,18 @@
     {
       "id": "tio-agenda:64776",
       "title": "Soglie",
-      "startDate": "2026-11-10",
+      "startDate": "2026-11-11",
       "category": "arte",
       "region": "Luganese",
       "venue": "B&B Fine Art",
       "comune": "Paradiso",
       "comuneMatch": "exact",
       "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20261110/64776",
+      "url": "https://www.tio.ch/agenda/day/20261111/64776",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-27",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "B&B Fine Art",
         "postalCode": "6900",
@@ -32421,7 +32510,14 @@
         "de": "Schwellenwerte",
         "fr": "Seuils"
       },
-      "sourceDescriptionHash": "43130d7d31d05cf4a1f426e8b63aadd93e4ab0edf3a81d540ffd1099cf11a4a8"
+      "sourceDescriptionHash": "43130d7d31d05cf4a1f426e8b63aadd93e4ab0edf3a81d540ffd1099cf11a4a8",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Paradiso",
+          "slug": "soglie-2026-11-10"
+        }
+      ]
     },
     {
       "id": "tio-agenda:64770",
@@ -32437,7 +32533,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64770",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via San Gottardo 27",
         "postalCode": "6593",
@@ -32469,8 +32565,8 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64787",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-30",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "address": {
         "street": "Palazzo Franscini",
         "postalCode": "6500",
@@ -32502,7 +32598,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64771",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via alle scuole 8",
         "postalCode": "6595",
@@ -32535,7 +32631,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64791",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Antonio Caccia 6A",
         "postalCode": "6900",
@@ -32563,7 +32659,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64785",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "LaFilanda",
         "postalCode": "6850",
@@ -32632,7 +32728,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64775",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Buffi 13",
         "postalCode": "6900",
@@ -32660,7 +32756,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64606",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "geo": {
         "lat": 46.0038007,
         "lng": 8.9512275
@@ -32686,7 +32782,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64685",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Sant'Antonio 13",
         "postalCode": "6600",
@@ -32746,7 +32842,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64788",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via S.Salvatore 3",
         "postalCode": "6900",
@@ -32779,7 +32875,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64728",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -32811,7 +32907,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64688",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Palazzo dei Congressi",
         "postalCode": "6600",
@@ -32843,7 +32939,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64001",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce, 1",
         "postalCode": "6900",
@@ -32880,7 +32976,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64702",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Pian Scairolo 28",
         "postalCode": "6915",
@@ -32912,7 +33008,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64745",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Bossi 2",
         "postalCode": "6600",
@@ -32947,7 +33043,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64786",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Lucomagno 100",
         "postalCode": "6722",
@@ -32984,7 +33080,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64726",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -33170,7 +33266,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64830",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Via Lavizzari 10",
@@ -33886,7 +33982,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64854",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -33919,7 +34015,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64873",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Buffi 13",
         "postalCode": "6900",
@@ -33947,7 +34043,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64875",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Buffi 13",
         "postalCode": "6900",
@@ -33975,7 +34071,7 @@
       "url": "https://www.tio.ch/agenda/day/20261111/64849",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Battista Foletti n. 7",
         "postalCode": "6900",
@@ -34010,7 +34106,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64898",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Teatro del Gatto",
         "postalCode": "6612",
@@ -34040,7 +34136,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64842",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "zona Lavorceno 46",
         "postalCode": "6718",
@@ -34072,7 +34168,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64880",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via F. Pelli 16 Lugano",
         "postalCode": "6900",
@@ -34100,7 +34196,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64885",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Ceresio 49a",
         "postalCode": "6963",
@@ -34133,7 +34229,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64900",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via al Piano 2",
         "postalCode": "6514",
@@ -34166,7 +34262,7 @@
       "url": "https://www.tio.ch/agenda/day/20261112/64839",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Vincenzo Vela",
         "postalCode": "6826",
@@ -34198,7 +34294,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64888",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Santa Maria 66",
         "postalCode": "6596",
@@ -34226,7 +34322,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64832",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Rialto il Cinema",
         "postalCode": "6600",
@@ -34262,7 +34358,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64860",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Magoria 10",
         "postalCode": "6500",
@@ -34290,7 +34386,7 @@
       "url": "https://www.tio.ch/agenda/day/20261113/64881",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Crazy Horse",
         "postalCode": "6814",
@@ -34318,7 +34414,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64889",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Giovanni Maraini 20",
         "postalCode": "6963",
@@ -34346,7 +34442,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64855",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -34379,7 +34475,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64870",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Battista Foletti n. 7",
         "postalCode": "6900",
@@ -34410,7 +34506,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64892",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Caraa du Teatro Dimitri 10",
         "postalCode": "6653",
@@ -34447,7 +34543,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64808",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Chiesa parrocchiale",
         "postalCode": "6968",
@@ -34478,7 +34574,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64838",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-21",
       "address": {
         "street": "Viale 1814 3",
@@ -34511,7 +34607,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64893",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Caraa du Teatro Dimitri 10",
         "postalCode": "6653",
@@ -34548,7 +34644,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64828",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Comacini 8",
         "postalCode": "6834",
@@ -34581,7 +34677,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64894",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Caraa du Teatro Dimitri 10",
         "postalCode": "6653",
@@ -34618,7 +34714,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64858",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Corso Elvezia 35",
         "postalCode": "6900",
@@ -34646,7 +34742,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64856",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -34679,7 +34775,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64810",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Besso 23A, Lugano",
         "postalCode": "6900",
@@ -34707,7 +34803,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64812",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza San Biagio",
         "postalCode": "6500",
@@ -34739,7 +34835,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64874",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Geretta 9a 6500 Bellizona",
         "postalCode": "6500",
@@ -34771,7 +34867,7 @@
       "url": "https://www.tio.ch/agenda/day/20261116/64882",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Stefano Franscini 30a",
         "postalCode": "6500",
@@ -34803,7 +34899,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/64804",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -34835,7 +34931,7 @@
       "url": "https://www.tio.ch/agenda/day/20261117/64890",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Orico 2",
         "postalCode": "6500",
@@ -34871,7 +34967,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64836",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via L. Vela 6",
         "postalCode": "6853",
@@ -34901,7 +34997,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64825",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza remo Rossi 1",
         "postalCode": "6600",
@@ -34938,7 +35034,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64871",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Battista Foletti n. 7",
         "postalCode": "6900",
@@ -34978,7 +35074,7 @@
       "url": "https://www.tio.ch/agenda/day/20261119/64862",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Lugano 11",
         "postalCode": "6500",
@@ -35015,7 +35111,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/63731",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Canova",
         "postalCode": "6900",
@@ -35047,7 +35143,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64335",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Buffi 13",
         "postalCode": "6900",
@@ -35075,7 +35171,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64896",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via San Salvatore 2",
         "postalCode": "6900",
@@ -35103,7 +35199,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64897",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via San Salvatore 2",
         "postalCode": "6900",
@@ -35131,7 +35227,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64891",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via San Salvatore 2",
         "postalCode": "6900",
@@ -35159,7 +35255,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64895",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via San Salvatore 2",
         "postalCode": "6900",
@@ -35187,7 +35283,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64684",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Sant'Antonio 13",
         "postalCode": "6600",
@@ -35215,7 +35311,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64773",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via san Gottardo 9",
         "postalCode": "6600",
@@ -35248,7 +35344,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64813",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Olimpia 44",
         "postalCode": "6780",
@@ -35280,7 +35376,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/63978",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "BAR CERVO, Piazza buffi",
         "postalCode": "6500",
@@ -35321,7 +35417,7 @@
       "url": "https://www.tio.ch/agenda/day/20261120/64723",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -35349,7 +35445,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64831",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Zona Resega",
         "postalCode": "6948",
@@ -35377,7 +35473,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64698",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -35409,7 +35505,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64790",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Liceo Lugano 1",
         "postalCode": "6900",
@@ -35446,7 +35542,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64857",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -35479,7 +35575,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64848",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-22",
       "address": {
         "street": "Via Motta 2",
@@ -35512,7 +35608,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64807",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-22",
       "address": {
         "street": "Piazza Municipio 1",
@@ -35541,7 +35637,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64537",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Pestalozzi conosciuta come strada dei Polacchi",
         "postalCode": "6618",
@@ -35574,7 +35670,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64859",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -35607,7 +35703,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64869",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "GreenRoom",
         "postalCode": "6900",
@@ -35635,7 +35731,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64686",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Palazzo Reali, Piazza del Municipio 2",
         "postalCode": "6965",
@@ -35660,7 +35756,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64778",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Stradón 50",
         "postalCode": "6562",
@@ -35692,7 +35788,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64651",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Settàla 2",
         "postalCode": "6826",
@@ -35720,7 +35816,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64746",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Canvera 3",
         "postalCode": "6592",
@@ -35748,7 +35844,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/63613",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -35783,7 +35879,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64028",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce 1",
         "postalCode": "6900",
@@ -35815,7 +35911,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64883",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 2",
         "postalCode": "6900",
@@ -35843,7 +35939,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64903",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -35875,7 +35971,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64670",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Ristorante Hollywood Live Music",
         "postalCode": "6900",
@@ -35907,7 +36003,7 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64765",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 13",
         "postalCode": "6900",
@@ -35943,7 +36039,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64861",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -35976,7 +36072,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64863",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Riva Caccia 1 (1° piano - Central Park)",
         "postalCode": "6900",
@@ -36016,7 +36112,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64489",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Centovalli",
         "postalCode": "6600",
@@ -36048,7 +36144,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64019",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce, 1",
         "postalCode": "6900",
@@ -36085,7 +36181,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/63745",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Motta 10",
         "postalCode": "6648",
@@ -36113,7 +36209,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64437",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Luini 6",
         "postalCode": "6900",
@@ -36150,7 +36246,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/63614",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -36187,7 +36283,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/63777",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Losone 3",
         "postalCode": "6612",
@@ -36219,7 +36315,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64368",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "geo": {
         "lat": 45.988448,
         "lng": 8.9279409
@@ -36246,7 +36342,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64360",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Centro socio culturale e ricreativo",
         "postalCode": "6950",
@@ -36274,7 +36370,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64029",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce 1",
         "postalCode": "6900",
@@ -36306,7 +36402,7 @@
       "url": "https://www.tio.ch/agenda/day/20261122/64736",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via ai Mulini 47",
         "postalCode": "6616",
@@ -36339,7 +36435,7 @@
       "url": "https://www.tio.ch/agenda/day/20261123/64691",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Buffi 13",
         "postalCode": "6900",
@@ -36367,7 +36463,7 @@
       "url": "https://www.tio.ch/agenda/day/20261123/64865",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bossi 2",
         "postalCode": "6600",
@@ -36404,7 +36500,7 @@
       "url": "https://www.tio.ch/agenda/day/20261123/64748",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Motta 67",
         "postalCode": "6900",
@@ -36441,7 +36537,7 @@
       "url": "https://www.tio.ch/agenda/day/20261123/64030",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce 1",
         "postalCode": "6900",
@@ -36473,7 +36569,7 @@
       "url": "https://www.tio.ch/agenda/day/20261123/64904",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -36505,7 +36601,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/63273",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Stazione 31",
         "postalCode": "6500",
@@ -36542,7 +36638,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/64116",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via della Stazione 46",
         "postalCode": "6780",
@@ -36575,7 +36671,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/64844",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via cantonale,18",
         "postalCode": "6928",
@@ -36603,7 +36699,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/64867",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Girella 16",
         "postalCode": "6814",
@@ -36636,7 +36732,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/64742",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bartolomeo Papio 2",
         "postalCode": "6612",
@@ -36673,7 +36769,7 @@
       "url": "https://www.tio.ch/agenda/day/20261124/64905",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -36704,7 +36800,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/64354",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Sala Aragonite",
         "postalCode": "6928",
@@ -36737,7 +36833,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/64826",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Remo Rossi 1",
         "postalCode": "6600",
@@ -36774,7 +36870,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/64743",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bartolomeo Papio 2",
         "postalCode": "6612",
@@ -36811,7 +36907,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/63615",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -36848,7 +36944,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/64906",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -36880,7 +36976,7 @@
       "url": "https://www.tio.ch/agenda/day/20261125/64101",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "titleByLocale": {
         "it": "Festival chitarre dal mondo",
@@ -36904,7 +37000,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64703",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -36936,7 +37032,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64682",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 12",
         "postalCode": "6600",
@@ -36968,7 +37064,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64605",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Viale Carlo Cattaneo 6",
         "postalCode": "6900",
@@ -37000,7 +37096,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64864",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Vecchio Nucleo 21",
         "postalCode": "6599",
@@ -37028,7 +37124,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64704",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -37060,7 +37156,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64727",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -37145,7 +37241,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64911",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Vicolo Torre (vicino a via Codeborgo)",
         "postalCode": "6500",
@@ -37182,7 +37278,7 @@
       "url": "https://www.tio.ch/agenda/day/20261114/64916",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Collegiata S. Vittore",
         "postalCode": "6600",
@@ -37214,7 +37310,7 @@
       "url": "https://www.tio.ch/agenda/day/20261115/64913",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Pedevilla 12",
         "postalCode": "6512",
@@ -37242,7 +37338,7 @@
       "url": "https://www.tio.ch/agenda/day/20261118/64920",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via all'Ospedale 1",
         "postalCode": "6600",
@@ -37274,7 +37370,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/64466",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Biblioteca cantonale",
         "postalCode": "6900",
@@ -37305,7 +37401,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/64665",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Osteria La Palma",
         "postalCode": "6817",
@@ -37337,7 +37433,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/64834",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Muralto",
         "postalCode": "6600",
@@ -37374,7 +37470,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/63689",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -37411,7 +37507,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/63979",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza buffi",
         "postalCode": "6500",
@@ -37443,7 +37539,7 @@
       "url": "https://www.tio.ch/agenda/day/20261127/64668",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -37472,8 +37568,8 @@
       "url": "https://www.tio.ch/agenda/day/20261121/64917",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
-      "endDate": "2026-11-29",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
       "titleByLocale": {
         "it": "TIM ROLLINS and K.O.S. - ADOLFO WILDT",
         "en": "TIM ROLLINS and K. O. S.-ADOLFO W",
@@ -37496,7 +37592,7 @@
       "url": "https://www.tio.ch/agenda/day/20261126/64929",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Carlo Maderno 24",
         "postalCode": "6900",
@@ -37531,7 +37627,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64340",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Nocca 4",
         "postalCode": "6500",
@@ -37559,7 +37655,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64806",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Ferrovia Vigezzina-Centovalli",
         "postalCode": "6600",
@@ -37587,7 +37683,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64113",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza del Municipio 2",
         "postalCode": "6965",
@@ -37620,7 +37716,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64819",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "endDate": "2026-11-29",
       "address": {
         "street": "Muzzano Paese",
@@ -37653,7 +37749,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64910",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via alla Chiesa",
         "postalCode": "6944",
@@ -37690,7 +37786,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/63743",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Cappuccini 8",
         "postalCode": "6600",
@@ -37726,7 +37822,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64031",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Foce 1",
         "postalCode": "6900",
@@ -37758,7 +37854,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/61159",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Bernardino Luini 6",
         "postalCode": "6900",
@@ -37784,7 +37880,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64907",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Piazza Governo 11",
         "postalCode": "6500",
@@ -37816,7 +37912,7 @@
       "url": "https://www.tio.ch/agenda/day/20261128/64669",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Bagutti 14",
         "postalCode": "6900",
@@ -37844,7 +37940,7 @@
       "url": "https://www.tio.ch/agenda/day/20261129/64694",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via dei paoli 36",
         "postalCode": "6648",
@@ -37876,7 +37972,7 @@
       "url": "https://www.tio.ch/agenda/day/20261129/64643",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via dei Somazzi 4",
         "postalCode": "6926",
@@ -37908,7 +38004,7 @@
       "url": "https://www.tio.ch/agenda/day/20261129/64803",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Chiesa San Lorenzo",
         "postalCode": "6515",
@@ -37940,7 +38036,7 @@
       "url": "https://www.tio.ch/agenda/day/20261129/63816",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -37977,7 +38073,7 @@
       "url": "https://www.tio.ch/agenda/day/20261129/64815",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Chiesa San Giorgio",
         "postalCode": "6976",
@@ -38014,7 +38110,7 @@
       "url": "https://www.tio.ch/agenda/day/20261130/64749",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "Via Giuseppe Motta 67",
         "postalCode": "6900",
@@ -38051,7 +38147,7 @@
       "url": "https://www.tio.ch/agenda/day/20261130/63933",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-11-10T13:48:37.034Z",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
       "address": {
         "street": "via Cappuccini 8",
         "postalCode": "6600",
@@ -38073,6 +38169,1028 @@
         "fr": "Mirages"
       },
       "sourceDescriptionHash": "5627751f057f9afe255ed50131636531eec6a4d6e84c3b3aa2ae8c2daac0cb5b"
+    },
+    {
+      "id": "tio-agenda:64963",
+      "title": "AsconArt 2026",
+      "startDate": "2026-11-11",
+      "startTime": "10:00",
+      "category": "appuntamenti",
+      "region": "Locarnese",
+      "venue": "Hotel Ascona",
+      "comune": "Ascona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261111/64963",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-11-26",
+      "address": {
+        "street": "Via S. in Croce, 1",
+        "postalCode": "6612",
+        "locality": "Ascona"
+      },
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 46.1591356,
+        "lng": 8.7693006
+      },
+      "titleByLocale": {
+        "it": "AsconArt 2026",
+        "fr": "Asconarticle 2026"
+      },
+      "sourceDescriptionHash": "215d2d81f28bf7b84de45599f084bbc2666b3c9a9da23b9892f4d540e5eb20fa"
+    },
+    {
+      "id": "tio-agenda:64922",
+      "title": "Roberto Pianca Quartet feat. Johnathan Blake",
+      "startDate": "2026-11-11",
+      "startTime": "21:00",
+      "category": "musica",
+      "region": "Luganese",
+      "venue": "Jazz in Bess",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261111/64922",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "via Besso 42A",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "performer": [
+        {
+          "name": "Roberto Pianca"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Roberto Pianca Quartet"
+        }
+      ],
+      "geo": {
+        "lat": 46.0075326,
+        "lng": 8.9422285
+      },
+      "titleByLocale": {
+        "it": "Roberto Pianca Quartet feat. Johnathan Blake",
+        "en": "Jessica Jessica Quartet feat. Ohnathan Blake",
+        "de": "Roberto Pianca Quartett feat. Johnathan Blake",
+        "fr": "Roberto Pianca Quartet avec Johnathan Blake"
+      },
+      "sourceDescriptionHash": "cb898d5caeabf51e184f12e3fff105e957d540cbb1674b7fa723dabb471fd95f"
+    },
+    {
+      "id": "tio-agenda:64931",
+      "title": "L'alloggio come progetto da costruire assieme",
+      "startDate": "2026-11-12",
+      "startTime": "20:00",
+      "category": "conferenze",
+      "region": "Locarnese",
+      "venue": "Villa S. Quirico",
+      "comune": "Minusio",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261112/64931",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via San Quirico 16",
+        "postalCode": "6648",
+        "locality": "Minusio"
+      },
+      "geo": {
+        "lat": 46.1729603,
+        "lng": 8.8157309
+      },
+      "titleByLocale": {
+        "it": "L'alloggio come progetto da costruire assieme",
+        "en": "Accommodation as a project to be built together",
+        "de": "Wohnen als gemeinsames Bauprojekt",
+        "fr": "Le logement comme projet à construire ensemble"
+      },
+      "sourceDescriptionHash": "65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8"
+    },
+    {
+      "id": "tio-agenda:64940",
+      "title": "Presentazione del numero 142",
+      "startDate": "2026-11-12",
+      "startTime": "20:00",
+      "category": "conferenze",
+      "region": "Grigioni",
+      "venue": "Centro Sanitario Moesa",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261112/64940",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piaza 35",
+        "postalCode": "6535",
+        "locality": "Roveredo"
+      },
+      "titleByLocale": {
+        "it": "Presentazione del numero 142",
+        "en": "Presentation of number 142",
+        "de": "Vorstellung der Nummer 142",
+        "fr": "Présentation du numéro 142"
+      },
+      "sourceDescriptionHash": "6258bd55cd043743082d56ca2917ee78a6664242290aefe7c51d0e1a1534d7c8"
+    },
+    {
+      "id": "tio-agenda:64908",
+      "title": "La semina della speranza - Demetra e Persefone",
+      "startDate": "2026-11-12",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Kosmos",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261112/64908",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
+      "address": {
+        "street": "via Monte Boglia 5",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "titleByLocale": {
+        "it": "La semina della speranza - Demetra e Persefone",
+        "en": "The sowing of hope - Demeter and Persephone",
+        "de": "Die Saat der Hoffnung - Demeter und Persephone",
+        "fr": "La semence de l'espoir - Déméter et Perséphone"
+      },
+      "sourceDescriptionHash": "fb20eccbef594b1ed4e100781784855556e0e103087872ef553385c806e77048"
+    },
+    {
+      "id": "tio-agenda:64938",
+      "title": "Pieces of Mind - Mostra Martina Varini",
+      "startDate": "2026-11-13",
+      "startTime": "18:30",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Casa comunale",
+      "comune": "Bioggio",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261113/64938",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "via Cademario",
+        "postalCode": "6934",
+        "locality": "Bioggio"
+      },
+      "titleByLocale": {
+        "it": "Pieces of Mind - Mostra Martina Varini",
+        "en": "Pieces of Mind - Martina Varini Exhibition",
+        "de": "Pieces of Mind - Ausstellung Martina Varini",
+        "fr": "Pieces of Mind - Afficher Martina Varini"
+      },
+      "sourceDescriptionHash": "fd86ba56b3e5542b3af582ee7be2814a0e0090d2ecb396734c1589ff71e94c02"
+    },
+    {
+      "id": "tio-agenda:64945",
+      "title": "Tombolata al Salotto di Amélie",
+      "startDate": "2026-11-13",
+      "startTime": "20:00",
+      "category": "appuntamenti",
+      "region": "Luganese",
+      "venue": "Centro Amélie Pregassona",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261113/64945",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Ceresio 43",
+        "postalCode": "6963",
+        "locality": "Pregassona"
+      },
+      "titleByLocale": {
+        "it": "Tombolata al Salotto di Amélie",
+        "en": "Tombolata at Amélie's Living Room",
+        "de": "Tombolata im Salon von Amélie",
+        "fr": "Tombolata au Salon d'Amélie"
+      },
+      "sourceDescriptionHash": "dd7696c59b12407434b979a01261bb95ac4ee61b6cb3a0fed57192826a0c471b"
+    },
+    {
+      "id": "tio-agenda:64964",
+      "title": "Serata Danzante",
+      "startDate": "2026-11-13",
+      "startTime": "21:00",
+      "category": "ballando",
+      "region": "Bellinzonese",
+      "venue": "Centro Spazio aperto",
+      "comune": "Bellinzona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261113/64964",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Centro Spazio aperto",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
+      "price": {
+        "amount": 17,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "titleByLocale": {
+        "it": "Serata Danzante",
+        "en": "Dancing Evening",
+        "de": "Tanzabend",
+        "fr": "Soirée dansante"
+      },
+      "sourceDescriptionHash": "57eadc4e7cd5d141ab7d0a5eb580d5ab3b249ba9b849f7029cf60299118074b2"
+    },
+    {
+      "id": "tio-agenda:64957",
+      "title": "SALIENT. - Spiral Opening Party",
+      "startDate": "2026-11-13",
+      "startTime": "22:00",
+      "category": "musica",
+      "region": "Luganese",
+      "venue": "Temus club",
+      "comune": "Agno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261113/64957",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "via Campagna 30",
+        "postalCode": "6982",
+        "locality": "Agno"
+      },
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "titleByLocale": {
+        "it": "SALIENT. - Spiral Opening Party",
+        "de": "SALIENT. - Spiral-Eröffnungsparty",
+        "fr": "SORTIE. - Spiral Opening Party"
+      },
+      "sourceDescriptionHash": "b8c5e39ec8fde26e59bb53bbe20e2ce4be7862c8c62933bab4cbe4149b39a498"
+    },
+    {
+      "id": "tio-agenda:64982",
+      "title": "RITORNA IL MERCANTICO A BELLINZONA",
+      "startDate": "2026-11-14",
+      "startTime": "08:00",
+      "category": "mercatini",
+      "region": "Bellinzonese",
+      "venue": "Piazza Giusppe Buffi",
+      "comune": "Bellinzona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64982",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Magoria",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
+      "titleByLocale": {
+        "it": "RITORNA IL MERCANTICO A BELLINZONA",
+        "en": "MERCHANDISE RETURNS TO BELLINZONA",
+        "de": "DER MERCANTICO KEHRT NACH BELLINZONA ZURÜCK",
+        "fr": "LE MERCANTIQUE REVIENT À BELLINZONE"
+      },
+      "sourceDescriptionHash": "9daa586a6f87d8d6fd9b9aafbb65adbc49ea3192195a85d7689f322f1ac715aa"
+    },
+    {
+      "id": "tio-agenda:64912",
+      "title": "Evento Artigiano 2026",
+      "startDate": "2026-11-14",
+      "startTime": "10:00",
+      "category": "appuntamenti",
+      "region": "Luganese",
+      "venue": "Asilo Ciani",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64912",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-11-15",
+      "address": {
+        "street": "Viale Carlo Cattaneo 5",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "titleByLocale": {
+        "it": "Evento Artigiano 2026",
+        "en": "Artisan Event 2026",
+        "de": "Event Handwerker 2026",
+        "fr": "Événement Artisan 2026"
+      },
+      "sourceDescriptionHash": "26d95fc866e701d410369e381e232b1e1d52755dd033760a521e492fbbed44ff"
+    },
+    {
+      "id": "tio-agenda:64988",
+      "title": "Il mercatino solidale benefico di Natale",
+      "startDate": "2026-11-14",
+      "startTime": "10:00",
+      "category": "mercatini",
+      "region": "Bellinzonese",
+      "venue": "Via Lavizzari 10",
+      "comune": "Bellinzona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64988",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-11-15",
+      "address": {
+        "street": "Via Lavizzari 10",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
+      "geo": {
+        "lat": 46.1962078,
+        "lng": 9.0222811
+      },
+      "titleByLocale": {
+        "it": "Il mercatino solidale benefico di Natale",
+        "en": "The charity Christmas market",
+        "de": "Der wohltätige Solidaritätsmarkt zu Weihnachten",
+        "fr": "Le marché solidaire bénéfique de Noël"
+      },
+      "sourceDescriptionHash": "3fd2c335915c1b7ff44463b8f08425a123366684e7f50a5bf3c9205585cad4d0"
+    },
+    {
+      "id": "tio-agenda:64939",
+      "title": "Mercatino Lusso e Vintage",
+      "startDate": "2026-11-14",
+      "startTime": "10:00",
+      "category": "mercatini",
+      "region": "Luganese",
+      "venue": "Hotel Pestalozzi",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64939",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-11-15",
+      "address": {
+        "street": "Piazza Indipendenza 9",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "geo": {
+        "lat": 46.0057527,
+        "lng": 8.9550285
+      },
+      "titleByLocale": {
+        "it": "Mercatino Lusso e Vintage",
+        "en": "Luxury and vintage market",
+        "de": "Luxus- und Vintage-Markt",
+        "fr": "Marché luxe et vintage"
+      },
+      "sourceDescriptionHash": "9bf27418a50aa865284080ec08a098f5b54697408fe4583b1e6c95e2d9aac07d"
+    },
+    {
+      "id": "tio-agenda:64946",
+      "title": "finissage mostra fotografie",
+      "startDate": "2026-11-14",
+      "startTime": "14:00",
+      "category": "appuntamenti",
+      "region": "Bellinzonese",
+      "venue": "Domus Poetica",
+      "comune": "Bellinzona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64946",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via A di Sacco 4",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
+      "titleByLocale": {
+        "it": "finissage mostra fotografie",
+        "en": "finissage show photographs",
+        "de": "finissage zeigt Fotos",
+        "fr": "finissage montrer photos"
+      },
+      "sourceDescriptionHash": "9404e3069400f700fe6d40bfac810433dd77519a9a5d2756a8c29d0966057f45"
+    },
+    {
+      "id": "tio-agenda:64978",
+      "title": "ERA UNA NOTTE BUIA E TEMPESTOSA",
+      "startDate": "2026-11-14",
+      "startTime": "17:00",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Sala Multiuso",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64978",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Sala Multiuso",
+        "postalCode": "6852",
+        "locality": "Genestrerio"
+      },
+      "geo": {
+        "lat": 45.8531729,
+        "lng": 8.9590756
+      },
+      "titleByLocale": {
+        "it": "ERA UNA NOTTE BUIA E TEMPESTOSA",
+        "en": "It was a dark and stormy night.",
+        "de": "ES WAR EINE DUNKLE UND STÜRMISCHE NACHT",
+        "fr": "C'était une sombre nuit de tempête..."
+      },
+      "sourceDescriptionHash": "ee1c1639d1bf069bee29916963c40f85d5e0c26e06b3572b75f7461cbdc89f52"
+    },
+    {
+      "id": "tio-agenda:64958",
+      "title": "La storia della dance anni '90",
+      "startDate": "2026-11-14",
+      "startTime": "22:00",
+      "category": "musica",
+      "region": "Luganese",
+      "venue": "Temus club",
+      "comune": "Agno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261114/64958",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "via Campagna 30",
+        "postalCode": "6982",
+        "locality": "Agno"
+      },
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "titleByLocale": {
+        "it": "La storia della dance anni '90",
+        "en": "The history of dance in the 90s",
+        "de": "Die Geschichte des Tanzes der 90er Jahre",
+        "fr": "L'histoire de la danse des années 90"
+      },
+      "sourceDescriptionHash": "16d330dd428c4f57f50fea0046665558edb463515f0ba7dab4b4ee91e48146ea"
+    },
+    {
+      "id": "tio-agenda:64956",
+      "title": "Atelier di Decorazioni in metallo sbalzato",
+      "startDate": "2026-11-15",
+      "startTime": "15:00",
+      "category": "altro",
+      "region": "Luganese",
+      "venue": "Atelier Manoamano",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261115/64956",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Ceresio 49a",
+        "postalCode": "6963",
+        "locality": "Pregassona"
+      },
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "titleByLocale": {
+        "it": "Atelier di Decorazioni in metallo sbalzato",
+        "en": "Embossed Metal Decoration Workshop",
+        "de": "Atelier für überhängende Metalldekorationen",
+        "fr": "Atelier de Décorations en métal surélevé"
+      },
+      "sourceDescriptionHash": "18ce8f7d852ab9d476c2d0f9ea0dcc62e32827d5c2cfd82aa4473295ff7d5bdf"
+    },
+    {
+      "id": "tio-agenda:64932",
+      "title": "IntantoCanto e danzo",
+      "startDate": "2026-11-15",
+      "startTime": "16:00",
+      "category": "musica",
+      "region": "Luganese",
+      "venue": "Cinema Lux Arthouse",
+      "comune": "Massagno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261115/64932",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Giuseppe Motta 67",
+        "postalCode": "6900",
+        "locality": "Massagno"
+      },
+      "titleByLocale": {
+        "it": "IntantoCanto e danzo",
+        "en": "MeanwhileSinging and dancing",
+        "de": "Inzwischen Gesang und Tanz",
+        "fr": "Pendant ce temps, je chante et je danse"
+      },
+      "sourceDescriptionHash": "950bd84b6b6881facf55ed7f1304985b85c8f5bf3ef18231fcb2ca4978f70c57"
+    },
+    {
+      "id": "tio-agenda:64987",
+      "title": "1° Torneo di freccette steel a Lugano",
+      "startDate": "2026-11-15",
+      "startTime": "16:00",
+      "category": "sport",
+      "region": "Luganese",
+      "venue": "Trinity Irish Pub",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261115/64987",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via L.Canonica 19, 6900 Lugano",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 46.0068784,
+        "lng": 8.9602931
+      },
+      "titleByLocale": {
+        "it": "1° Torneo di freccette steel a Lugano",
+        "en": "1st Steel Dart Tournament in Lugano",
+        "de": "1. Stahl-Dart-Turnier in Lugano",
+        "fr": "1er Tournoi de fléchettes steel à Lugano"
+      },
+      "sourceDescriptionHash": "c198c9a1f7fe799bce998977a48a8683c2f9bb2a4d148deadda3940b5affd35e"
+    },
+    {
+      "id": "tio-agenda:64973",
+      "title": "Dentro la musica",
+      "startDate": "2026-11-17",
+      "startTime": "14:00",
+      "category": "musica",
+      "region": "Mendrisiotto",
+      "venue": "sala Musica nel Mendrisiotto",
+      "comune": "Mendrisio",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261117/64973",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Vecchio Ginnasio 24",
+        "postalCode": "6850",
+        "locality": "Mendrisio"
+      },
+      "performer": [
+        {
+          "name": "Federico Caneva"
+        },
+        {
+          "name": "Franz Schubert"
+        }
+      ],
+      "titleByLocale": {
+        "it": "Dentro la musica",
+        "en": "Your Music Learn",
+        "de": "Innerhalb der Musik",
+        "fr": "À l'intérieur de la musique"
+      },
+      "sourceDescriptionHash": "30c6f5aefd97bc0e07e7559c9dcff21922c8f1bc5d1048403d037dacf0c955ba"
+    },
+    {
+      "id": "tio-agenda:64935",
+      "title": "appuntamento Café Med a Lugano",
+      "startDate": "2026-11-17",
+      "startTime": "14:30",
+      "category": "appuntamenti",
+      "region": "Luganese",
+      "venue": "Ristorante Pestalozzi",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261117/64935",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza Dell Indipendenza 9",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "titleByLocale": {
+        "it": "appuntamento Café Med a Lugano",
+        "en": "café Med appointment in Lugano",
+        "de": "termin Café Med in Lugano",
+        "fr": "rendez-vous Café Med à Lugano"
+      },
+      "sourceDescriptionHash": "20829ed4aeabaacb33a6a85cf089ce42d7c45a1725249b508c6613622a59eca1"
+    },
+    {
+      "id": "tio-agenda:64966",
+      "title": "Donazione di sangue",
+      "startDate": "2026-11-17",
+      "startTime": "15:00",
+      "category": "altro",
+      "region": "Mendrisiotto",
+      "venue": "Centro sociale",
+      "comune": "Vacallo",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261117/64966",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza Municipio",
+        "postalCode": "6833",
+        "locality": "Vacallo"
+      },
+      "titleByLocale": {
+        "it": "Donazione di sangue",
+        "en": "Blood donation",
+        "de": "Blutspende",
+        "fr": "Don de sang"
+      },
+      "sourceDescriptionHash": "11594a60ff61f87297fb1e9352f9147707db798b99ad7988f9864c9160d12438"
+    },
+    {
+      "id": "tio-agenda:64915",
+      "title": "Mostra fotografica Sergio Luban - Vernissage",
+      "startDate": "2026-11-17",
+      "startTime": "18:00",
+      "category": "appuntamenti",
+      "region": "Locarnese",
+      "venue": "Sala conferenze palazzo SES",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261117/64915",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza Grande",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "titleByLocale": {
+        "it": "Mostra fotografica Sergio Luban - Vernissage",
+        "en": "Sergio Luban Photographic Exhibition - Vernissage",
+        "de": "Fotoausstellung Sergio Luban - Vernissage",
+        "fr": "Exposition photographique Sergio Luban - Vernissage"
+      },
+      "sourceDescriptionHash": "597fcc164b8b4718b504e24ce80fe08b7d38714ffe0c120fa4330f10ed3ff8e5"
+    },
+    {
+      "id": "tio-agenda:64967",
+      "title": "La cà dala mata marchesa - Presentazione libro",
+      "startDate": "2026-11-17",
+      "startTime": "20:00",
+      "category": "conferenze",
+      "region": "Luganese",
+      "venue": "Sala consiglio comunale",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261117/64967",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Cantonale 89",
+        "postalCode": "6818",
+        "locality": "Melano"
+      },
+      "titleByLocale": {
+        "it": "La cà dala mata marchesa - Presentazione libro",
+        "en": "La cà dala mata marchesa - Book presentation",
+        "de": "La cà dala mata marchesa - Buchpräsentation",
+        "fr": "La cà dala mata marchesa - Présentation du livre"
+      },
+      "sourceDescriptionHash": "c4a10c340eb4feb3ca70c277d575f85ffcd551ece32a40b63dfe558d27ee543b"
+    },
+    {
+      "id": "tio-agenda:64914",
+      "title": "Mostra fotografica",
+      "startDate": "2026-11-18",
+      "startTime": "18:00",
+      "category": "arte",
+      "region": "Locarnese",
+      "venue": "Centro Triangolo",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261118/64914",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-12-01",
+      "address": {
+        "street": "Via Ciseri 19",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "titleByLocale": {
+        "it": "Mostra fotografica",
+        "en": "Photographic exhibition.",
+        "de": "Fotoausstellung",
+        "fr": "Afficher la photo"
+      },
+      "sourceDescriptionHash": "ff7215d3123cd28961ed8ce54bfe8e8bd1c363d85c60fc99caba6592ba0ca7ed"
+    },
+    {
+      "id": "tio-agenda:64924",
+      "title": "Raccontare il mondo ai bambini di oggi",
+      "startDate": "2026-11-19",
+      "startTime": "18:00",
+      "category": "conferenze",
+      "region": "Locarnese",
+      "venue": "Biblioteca cantonale",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261119/64924",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Cappuccini 12",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "geo": {
+        "lat": 46.1707504,
+        "lng": 8.7949446
+      },
+      "titleByLocale": {
+        "it": "Raccontare il mondo ai bambini di oggi",
+        "en": "Telling Today's Children About the World",
+        "de": "Den Kindern von heute die Welt näherbringen",
+        "fr": "Faire découvrir le monde aux enfants d'aujourd'hui"
+      },
+      "sourceDescriptionHash": "ee2d8f1ca7fc268265c27aafdb4d9c85878bc101eac60b570299caa5390e608c"
+    },
+    {
+      "id": "tio-agenda:64928",
+      "title": "Nem al Variété 2026",
+      "startDate": "2026-11-19",
+      "startTime": "19:00",
+      "category": "teatro",
+      "region": "Bellinzonese",
+      "venue": "Cinema Teatro",
+      "comune": "Bellinzona",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261119/64928",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza Governo 11",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
+      "titleByLocale": {
+        "it": "Nem al Variété 2026",
+        "en": "Nem at the Variété 2026",
+        "de": "Nem in der Variété 2026",
+        "fr": "NEM à la Variété 2026"
+      },
+      "sourceDescriptionHash": "db525035cadf8a650dabf37a7bbfb86e3bbbd7d902336d11965387bdd387070f"
+    },
+    {
+      "id": "tio-agenda:64925",
+      "title": "Laboratori giocosi - Teatro dei fauni",
+      "startDate": "2026-11-21",
+      "startTime": "14:30",
+      "category": "altro",
+      "region": "Locarnese",
+      "venue": "Spazio ELLE",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261121/64925",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "endDate": "2026-11-22",
+      "address": {
+        "street": "Piazza G. Pedrazzini 12",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "geo": {
+        "lat": 46.1669023,
+        "lng": 8.7983624
+      },
+      "titleByLocale": {
+        "it": "Laboratori giocosi - Teatro dei fauni",
+        "en": "Playful workshops - Theatre of fauns",
+        "de": "Verspielte Workshops - Faunentheater",
+        "fr": "Ateliers ludiques - Théâtre des Faunes"
+      },
+      "sourceDescriptionHash": "c658ed1e7fc99f5b88e2697d2e1affb83bfd7bec247516b0435e43d2e60a533d"
+    },
+    {
+      "id": "tio-agenda:64926",
+      "title": "Giardino di carta",
+      "startDate": "2026-11-22",
+      "startTime": "10:30",
+      "category": "teatro",
+      "region": "Locarnese",
+      "venue": "Spazio ELLE",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261122/64926",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza G. Pedrazzini 12",
+        "postalCode": "6600",
+        "locality": "Locarno"
+      },
+      "geo": {
+        "lat": 46.1669023,
+        "lng": 8.7983624
+      },
+      "sourceDescriptionHash": "24be48347b9539d29ef881e5c4f4f5a69c21021fb9be3e1e4768a36d759eb2db"
+    },
+    {
+      "id": "tio-agenda:64923",
+      "title": "Fuori anestesia - Anteprima",
+      "startDate": "2026-11-26",
+      "startTime": "20:30",
+      "category": "cinema",
+      "region": "Luganese",
+      "venue": "LUX art house",
+      "comune": "Massagno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261126/64923",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "via G. Motta 67",
+        "postalCode": "6900",
+        "locality": "Massagno"
+      },
+      "geo": {
+        "lat": 46.0124649,
+        "lng": 8.9437782
+      },
+      "sourceDescriptionHash": "e20b10fefdfe866386e822de37020ec35759eef7f37aa185505d7e24c29b6b60"
+    },
+    {
+      "id": "tio-agenda:64792",
+      "title": "Ivie e le sue bambine",
+      "startDate": "2026-12-01",
+      "startTime": "18:00",
+      "category": "conferenze",
+      "region": "Luganese",
+      "venue": "Biblioteca cantonale",
+      "comune": "Lugano",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261201/64792",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Viale Carlo Cattaneo 6",
+        "postalCode": "6900",
+        "locality": "Lugano"
+      },
+      "geo": {
+        "lat": 46.0042071,
+        "lng": 8.9595845
+      },
+      "sourceDescriptionHash": "88078b4593367db0c778336c95a3c53f70833a72aeb4278abf0d53edc2ffe444"
+    },
+    {
+      "id": "tio-agenda:64872",
+      "title": "Incontro con Marcel Huwyler",
+      "startDate": "2026-12-01",
+      "startTime": "18:30",
+      "category": "appuntamenti",
+      "region": "Luganese",
+      "venue": "Il Rifugio Letterario",
+      "comune": "Massagno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261201/64872",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Via Battista Foletti n. 7",
+        "postalCode": "6900",
+        "locality": "Massagno"
+      },
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "performer": {
+        "name": "Marcel Huwyler"
+      },
+      "geo": {
+        "lat": 46.0101138,
+        "lng": 8.940117
+      },
+      "sourceDescriptionHash": "a33c8467a19925f87f824cad593f585d98bf52f4a17d200fc2bd7d3c69f4aa25"
+    },
+    {
+      "id": "tio-agenda:64811",
+      "title": "Cercasi famiglie ospitanti in Ticino e Svizzera!",
+      "startDate": "2026-12-01",
+      "startTime": "19:30",
+      "category": "conferenze",
+      "region": "Luganese",
+      "venue": "Online",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20261201/64811",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-11-11T12:58:14.199Z",
+      "sourceDescriptionHash": "eb57d7120bafec026553a85f657e5259f092894c8500264b78d5b684d17b31f7"
     }
   ]
 }

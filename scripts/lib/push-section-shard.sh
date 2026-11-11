@@ -57,6 +57,9 @@
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
 #   SHARD_PUSH_MODE — `full` (default, current byte-identical path) or `delta`.
+#   SHARD_FAST_OVERLAY_ONLY=1 — fast publisher safety: require a readable
+#                  existing remote baseline and refuse orphan/flatten fallback
+#                  because the source can be a targeted subset of the shard.
 #   SHARD_PUSH_VERIFY — `1` enables an advisory full-vs-delta tree comparison.
 #   SHARD_INCREMENTAL_MANIFEST_DIR — current build manifest directory; defaults
 #                                   to .cache/incremental-manifest.
@@ -103,8 +106,8 @@ repo_root="$(cd -- "$script_dir/../.." && pwd)"
 slugs_json="$repo_root/scripts/lib/section-shard-slugs.json"
 SHARD_PUSH_MODE="${SHARD_PUSH_MODE:-full}"
 case "$SHARD_PUSH_MODE" in
-  full|delta) ;;
-  *) echo "::error::unsupported SHARD_PUSH_MODE '$SHARD_PUSH_MODE' (expected full|delta)" >&2; exit 1 ;;
+  full|delta|fast-overlay) ;;
+  *) echo "::error::unsupported SHARD_PUSH_MODE '$SHARD_PUSH_MODE' (expected full|delta|fast-overlay)" >&2; exit 1 ;;
 esac
 manifest_dir="${SHARD_INCREMENTAL_MANIFEST_DIR:-$repo_root/.cache/incremental-manifest}"
 manifest_tool="$repo_root/scripts/ci/shard-manifest-delta.mjs"
@@ -140,7 +143,7 @@ esac
 # exceed GitHub's hard 50 MiB limit. Delta mode cannot describe the physical
 # _tree fan-out, so always use the full overlay for this section. The source
 # build and all integrity/shrink guards remain unchanged.
-if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" != full ]; then
+if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" = delta ]; then
   echo "::notice::ticino-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
   SHARD_PUSH_MODE=full
 fi
@@ -328,6 +331,7 @@ push_section_shard() {
     cdn_rewrite_partial=0
     delta_base_sha=''
     delta_checkpoint_ref=''
+    fast_overlay=0
 
     # Full mode keeps the historical push as the source of truth. When the
     # canary is enabled, build the delta index beside it without pushing; the
@@ -516,23 +520,39 @@ push_section_shard() {
             echo "::error::$section-$loc shard: remote HEAD has an unreadable bookkeeping marker — refusing PAT fallback without the remote shrink baseline" >&2
             exit 1
           fi
+          if [ "${SHARD_FAST_OVERLAY_ONLY:-}" = 1 ]; then
+            echo "::error::$section-$loc shard: fast overlay requires readable remote bookkeeping; refusing orphan fallback" >&2
+            exit 1
+          fi
           echo "::warning::$section-$loc shard: marker lazy-fetch failed — flattening before full overlay"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"
           dcount=0
           prev_n=0
         elif [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
+          if [ "${SHARD_FAST_OVERLAY_ONLY:-}" = 1 ]; then
+            echo "::error::$section-$loc shard: fast overlay reached history cap; refusing orphan flatten" >&2
+            exit 1
+          fi
           echo "$section-$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"
           dcount=0
         else
-          find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
           incremental=1
+          if [ "${SHARD_FAST_OVERLAY_ONLY:-}" = 1 ] && [ "$SHARD_PUSH_MODE" = fast-overlay ]; then
+            fast_overlay=1
+          else
+            find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
+          fi
         fi
       else
         if [ "$missing_deploy_key" = 1 ]; then
           echo "::error::$section-$loc shard: HTTPS read failed while the deploy key is missing — refusing to publish without the remote shrink baseline" >&2
+          exit 1
+        fi
+        if [ "${SHARD_FAST_OVERLAY_ONLY:-}" = 1 ]; then
+          echo "::error::$section-$loc shard: fast overlay could not read the existing remote; refusing first-push/orphan fallback" >&2
           exit 1
         fi
         echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
@@ -540,6 +560,44 @@ push_section_shard() {
       fi
       shard_phase clone-previous
 
+      if [ "$fast_overlay" = 1 ]; then
+        fast_overlay_receipt="$RUNNER_TEMP/fast-overlay-$section-$loc.json"
+        rm -f "$fast_overlay_receipt"
+        if ! node "$repo_root/scripts/ci/shard-fast-overlay.mjs" \
+          --stage "$stage" \
+          --source "$stage_src/dist/$sub" \
+          --section "$section" \
+          --sub "$sub" \
+          --previous-count "$prev_n" \
+          --source-count "$src_n" \
+          --next-deploy-count "$((dcount + 1))" \
+          --source-sha "$(shard_source_stamp)" \
+          --out "$fast_overlay_receipt"; then
+          echo "::error::$section-$loc shard: append-only overlay failed" >&2
+          exit 1
+        fi
+        n="$(jq -er '.fileCount | numbers' "$fast_overlay_receipt")"
+        fast_changed="$(jq -er '.contentChanges | numbers' "$fast_overlay_receipt")"
+        fast_tree="$(jq -er '.tree | strings' "$fast_overlay_receipt")"
+        [ "$n" -ge "$prev_n" ] || {
+          echo "::error::$section-$loc shard: append-only overlay unexpectedly shrank $prev_n -> $n files" >&2
+          exit 1
+        }
+        if ! shard_assert_source_paths_indexed \
+          "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard" "$source_path_layout"; then
+          exit 1
+        fi
+        delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
+        delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
+        SHARD_DELTA_CONTENT_CHANGES="$fast_changed"
+        SHARD_DELTA_CHANGED_FILES="$fast_changed"
+        SHARD_DELTA_REMOVED_FILES=0
+        SHARD_DELTA_DCOUNT="$dcount"
+        SHARD_DELTA_PREV_N="$prev_n"
+        delta_applied=1
+        echo "$section-$loc shard: append-only fast overlay, source=$src_n changed=$fast_changed files=$n tree=$fast_tree"
+        shard_phase fast-overlay
+      else
       : > "$stage/.nojekyll"
       printf '%s' "$ORIGIN_HOST" > "$stage/CNAME"
       if [ -f "$stage_src/dist/404.html" ]; then cp "$stage_src/dist/404.html" "$stage/404.html"; fi
@@ -609,6 +667,7 @@ push_section_shard() {
     shard_phase count-and-guards
     echo "$section-$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
     shard_phase disk-usage
+      fi
     fi
 
     if [ "$delta_applied" = 1 ] && [ "$cdn_rewrite_partial" = 1 ]; then
@@ -753,7 +812,8 @@ push_section_shard() {
       # base (incremental=1, not already a fresh orphan), drop the corrupted
       # local history and retry as a brand-new orphan commit — a full pack that
       # doesn't negotiate against the broken remote graph — before giving up.
-      if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
+      if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ] \
+        && [ "${SHARD_FAST_OVERLAY_ONLY:-}" != 1 ]; then
         echo "::warning::$section-$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
         if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$section-$loc shard flatten"; then
           _push_ok=1

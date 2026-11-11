@@ -2388,10 +2388,10 @@
     },
     {
       "id": "gkb-86822a994e99",
-      "slug": "berater-in-privatkunden-pontresina-60-80-gkb-ch",
+      "slug": "consulente-clientela-privata-pontresina-60-80-graubundner-kantonalbank-st-moritz",
       "slugByLocale": {
         "de": "berater-in-privatkunden-pontresina-60-80-gkb-ch",
-        "it": "berater-in-privatkunden-pontresina-60-80-gkb-ch",
+        "it": "consulente-clientela-privata-pontresina-60-80-graubundner-kantonalbank-st-moritz",
         "en": "private-client-consultant-pontresina-60-80-graubundner-kantonalbank-st-moritz",
         "fr": "conseiller-dans-les-clients-prives-pontresina-60-80-graubundner-kantonalbank-st-moritz"
       },
@@ -2401,7 +2401,7 @@
       "title": "Berater:in Privatkunden Pontresina (60-80%)",
       "titleByLocale": {
         "de": "Berater:in Privatkunden Pontresina (60-80%)",
-        "it": "Berater:in Privatkunden Pontresina (60-80%)",
+        "it": "Consulente Clientela privata Pontresina (60-80%)",
         "en": "Private Client Consultant Pontresina (60-80%)",
         "fr": "Conseiller :dans les clients privés Pontresina (60-80%)"
       },
@@ -2470,7 +2470,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T09:21:13.118Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:21:13.118Z"
+      "firstSeenAt": "2026-11-11T09:21:13.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-privatkunden-pontresina-60-80-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-privatkunden-pontresina-60-80-gkb-ch"
+      ]
     },
     {
       "id": "gkb-f712e7fcb987",
