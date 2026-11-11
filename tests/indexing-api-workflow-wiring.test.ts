@@ -22,6 +22,7 @@ const monitor = parse(monitorWf);
 const postDeployWf = read('.github/workflows/post-deploy-publish.yml');
 const postDeploy = parse(postDeployWf);
 const fastPublish = parse(read('.github/workflows/fast-publish-article.yml'));
+const publisher = parse(read('.github/workflows/deploy-publish.yml'));
 
 type Step = { name?: string; if?: string; run?: string; uses?: string; env?: Record<string, string>; id?: string };
 const stepNamed = (steps: Step[], re: RegExp) => steps.find((s) => re.test(s.name || ''));
@@ -77,6 +78,32 @@ describe('post-publish Indexing API top-up', () => {
     expect(monitor.on.workflow_dispatch.inputs.mode.options).toContain('post-publish');
     expect(monitor.jobs.monitor.if).toContain("inputs.mode != 'post-publish'");
     expect(monitor.jobs.indexing.if).toContain('always()');
+  });
+});
+
+describe('exact post-publish Cathedral SEO audit', () => {
+  const watchdog = publisher.jobs['runtime-watchdog'];
+  const steps: Step[] = watchdog.steps;
+  const dispatch = stepNamed(steps, /Dispatch exact published dist to Cathedral SEO gates/);
+
+  it('dispatches the validated publisher run and source SHA explicitly', () => {
+    const command = dispatch?.run?.replace(/\\\n\s*/g, '');
+    expect(command).toContain('gh workflow run cathedral-seo-gates-check.yml --repo "$GITHUB_REPOSITORY" --ref main');
+    expect(command).toContain('-f deploy_run_id="$PUBLISHER_RUN_ID"');
+    expect(command).toContain('-f source_sha="$PUBLISHER_SOURCE_SHA"');
+    expect(dispatch?.env?.PUBLISHER_RUN_ID).toBe('${{ github.run_id }}');
+    expect(dispatch?.env?.PUBLISHER_SOURCE_SHA).toBe('${{ inputs.source_sha }}');
+    expect(dispatch?.if).toContain("needs.publish.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-dist.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-live.result == 'success'");
+    expect(watchdog.permissions.actions).toBe('write');
+  });
+
+  it('accepts the pinned inputs and does not rely on a suppressed workflow_run event', () => {
+    const cathedral = parse(read('.github/workflows/cathedral-seo-gates-check.yml'));
+    expect(cathedral.on.workflow_run).toBeUndefined();
+    expect(cathedral.on.workflow_dispatch.inputs.deploy_run_id).toBeDefined();
+    expect(cathedral.on.workflow_dispatch.inputs.source_sha).toBeDefined();
   });
 });
 

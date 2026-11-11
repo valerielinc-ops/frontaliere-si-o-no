@@ -5,8 +5,13 @@ plan_file="${IT_SHARD_PLAN_FILE:-}"
 source_run_id="${SOURCE_RUN_ID:-}"
 source_sha="${SOURCE_SHA:-}"
 expected_build_id="${DEPLOY_BUILD_ID:-}"
+job_start="${CDN_JOB_START_EPOCH:-}"
 if [[ -z "$group_id" || -z "$plan_file" || -z "$source_run_id" || -z "$source_sha" || -z "$expected_build_id" ]]; then
   echo "::error::push-it-shard-group requires group id, source identity, build id, and plan file"
+  exit 2
+fi
+if [[ ! "$job_start" =~ ^[0-9]+$ ]]; then
+  echo "::error::push-it-shard-group requires the publisher job start epoch"
   exit 2
 fi
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -14,26 +19,50 @@ cd "$repo_root"
 node scripts/ci/it-shard-group-plan.mjs --validate-plan "$plan_file" --source-run-id "$source_run_id" --source-sha "$source_sha" --build-id "$expected_build_id"
 export GITHUB_SHA="$source_sha"
 group_sections="$(jq -r --arg group "$group_id" '.groups[] | select(.id == $group) | .sections[]' "$plan_file")"
-[[ "$(jq -r --arg group "$group_id" '[.groups[] | select(.id == $group)] | length' "$plan_file")" == 1 ]] || { echo "::error::unknown IT shard group $group_id"; exit 2; }
+group_count="$(jq -r --arg group "$group_id" '[.groups[] | select(.id == $group)] | length' "$plan_file")"
+[[ "$group_count" == 1 ]] || { echo "::error::unknown IT shard group $group_id"; exit 2; }
+sections_remaining="$(jq -r --arg group "$group_id" '.groups[] | select(.id == $group) | .sections | length' "$plan_file")"
 mkdir -p "$RUNNER_TEMP/shard-content-manifests/it" "$RUNNER_TEMP/it-shard-results"
 source scripts/lib/shard-cdn-rewrite.sh
+cleanup_grace_seconds=600
+post_push_reserve_seconds=1200
+section_timeout_cap_seconds=3600
 fail=0
 failed_sections=()
 while IFS= read -r section; do
   [[ -n "$section" ]] || continue
+  sections_remaining=$((sections_remaining - 1))
   skip_var="$(printf '%s' "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
   if [[ "${!skip_var:-false}" == true ]]; then
     echo "::error::source plan unexpectedly contains BUILD_EMIT_SKIP section $section"
     fail=1
     continue
   fi
-  echo "[section-push] event=start locale=it section=$section timeout_seconds=3600 cleanup_grace_seconds=600 group=$group_id"
-  if timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh "$section" it dist; then
+  now_epoch="$(date +%s)"
+  available_seconds=$((job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds))
+  if (( available_seconds <= 0 )); then
+    echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=0 cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds group=$group_id"
+    fail=1
+    failed_sections+=("$section")
+    continue
+  fi
+  timeout_seconds=$((available_seconds / (sections_remaining + 1)))
+  if (( timeout_seconds > section_timeout_cap_seconds )); then
+    timeout_seconds=$section_timeout_cap_seconds
+  fi
+  if (( timeout_seconds <= 0 )); then
+    echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds group=$group_id"
+    fail=1
+    failed_sections+=("$section")
+    continue
+  fi
+  echo "[section-push] event=start locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds group=$group_id"
+  if timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh "$section" it dist; then
     echo "[section-push] event=finish locale=it section=$section outcome=success"
   else
     rc=$?
     if [[ "$rc" == 124 ]]; then
-      echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=3600 cleanup_grace_seconds=600 exit_code=$rc"
+      echo "::error::[section-push] event=timeout locale=it section=$section timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds post_push_reserve_seconds=$post_push_reserve_seconds exit_code=$rc"
     elif [[ "$rc" == 137 ]]; then
       echo "::error::[section-push] event=forced-termination locale=it section=$section exit_code=$rc"
     else

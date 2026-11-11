@@ -1,7 +1,7 @@
 name: cathedral-seo-gates-check
 
-# Weekly read-only sweep of the 6 SEO content gates, plus an exact post-build
-# replay when Deploy to GitHub Pages completes successfully. Detects:
+# Weekly read-only sweep of the 6 SEO content gates, plus an exact post-publish
+# replay explicitly dispatched by the publisher after validation succeeds. Detects:
 #   - REGRESSIONS  → fail workflow + open issue (current > baseline)
 #   - IMPROVEMENTS → job summary; issue ONLY for gates D9 does not cover
 #   - PASSES       → single-line job summary, no action
@@ -63,10 +63,10 @@ name: cathedral-seo-gates-check
 #
 # Schedule: Mon 04:47 UTC — runs BEFORE cathedral-noindex-flip (05:13 UTC)
 # so any regression caught here gates the flip workflow on the same Monday
-# pipeline. The workflow_run path is the post-deploy verification path: it pins
-# the exact publisher artifact and its source SHA, instead of silently replaying
-# an older successful publish when the latest producer fix has not deployed yet.
-# Workflow_dispatch remains supported for ad-hoc operator runs.
+# pipeline. The publisher explicitly dispatches this workflow with its exact
+# run ID and source SHA; workflow_run is not reliable for token-dispatched
+# publishers and would silently omit the post-deploy audit.
+# Workflow_dispatch also remains supported for ad-hoc operator runs.
 
 on:
   schedule:
@@ -80,14 +80,14 @@ on:
           artifact (it expires after 8 days).
         required: false
         type: string
-  workflow_run:
-    workflows: ["Publish to GitHub Pages (deploy + validate)"]
-    types: [completed]
-    branches: [main]
+      source_sha:
+        description: Source commit used by the pinned publisher artifact.
+        required: false
+        type: string
   push:
     # Re-run when the gates checker itself changes — does NOT run on data /
-    # plugin / dist edits (the publisher workflow_run below validates those
-    # against the exact artifact after deploy-publish.yml completes).
+    # plugin / dist edits (deploy-publish.yml explicitly dispatches the exact
+    # artifact after its post-deploy validations succeed).
     branches: [main]
     paths:
       - '.github/workflows/cathedral-seo-gates-check.yml'
@@ -151,11 +151,8 @@ jobs:
     # Deploy to GitHub Pages run is only the queue reconciler: it has no Pages
     # artifact for this gate to audit, so it must not trigger a replay either.
     if: >-
-      (github.event_name != 'pull_request' ||
-      (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)) &&
-      (github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event != 'schedule'))
+      github.event_name != 'pull_request' ||
+      (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)
     # Issue #5553: `regressed=0, errors=2` — `orphan-sitemap-pages` and
     # `max-bfs-depth` both died with a V8 heap OOM (`node::OOMErrorHandler` /
     # `Heap::CollectGarbage` in the child's stderr), NOT with a crash before
@@ -230,23 +227,23 @@ jobs:
     steps:
       - name: Resolve publisher source SHA
         id: publisher-source-sha
-        if: github.event_name == 'workflow_run'
+        if: github.event_name == 'workflow_dispatch' && inputs.source_sha != ''
         env:
-          PUBLISHER_DISPLAY_TITLE: ${{ github.event.workflow_run.display_title }}
+          PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
-          if [[ "$PUBLISHER_DISPLAY_TITLE" =~ ^Publish\ Pages\ build\ [0-9]+\ @\ ([0-9a-f]{40})$ ]]; then
-            echo "sha=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+          if [[ "$PUBLISHER_SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "sha=$PUBLISHER_SOURCE_SHA" >> "$GITHUB_OUTPUT"
           else
-            echo "::error::publisher workflow run title does not contain a source SHA"
+            echo "::error::publisher source_sha must be a full 40-character commit SHA"
             exit 1
           fi
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # workflow_run checks the source SHA embedded in the publisher title;
-          # schedule/push/dispatch keep the existing main checkout behavior.
-          ref: ${{ github.event_name == 'workflow_run' && steps.publisher-source-sha.outputs.sha || github.ref_name }}
+          # Explicit publisher dispatches pin the checkout to the exact build
+          # source; schedule/push/manual runs without a SHA use their ref.
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_sha != '' && steps.publisher-source-sha.outputs.sha || github.ref_name }}
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -340,7 +337,7 @@ jobs:
         id: pages
         uses: ./.github/actions/fetch-pages-artifact
         with:
-          # Empty on the schedule, set only when an operator pins a run. The
+          # Empty on the schedule, set by the publisher or operator when pinned. The
           # walk-back this gate used to carry inline — client-side created_at
           # ordering, the `.expired==false` filter, capped pagination, the
           # 410-between-resolve-and-download retry and the raw candidate log —
@@ -349,8 +346,8 @@ jobs:
           # and measure-deploy-delta.yml call. The inline copy is what drifted
           # (#7392, #7393, #7394, #7395, #7396, #7397): six defects that only
           # ever existed because the same fifty lines lived in eight places.
-          run-id: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.deploy_run_id }}
-          expected-sha: ''
+          run-id: ${{ inputs.deploy_run_id }}
+          expected-sha: ${{ inputs.source_sha }}
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
 

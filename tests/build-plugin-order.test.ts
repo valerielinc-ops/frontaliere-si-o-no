@@ -244,12 +244,17 @@ describe('build plugin ordering', () => {
 
   it('keeps deploy output guards before artifact upload', () => {
     const workflow = fs.readFileSync(path.resolve(__dirname, '../.github/workflows/deploy.yml'), 'utf-8');
+    const publisher = fs.readFileSync(path.resolve(__dirname, '../.github/workflows/deploy-publish.yml'), 'utf-8');
     const criticalGuardIdx = workflow.indexOf('node scripts/validate-critical-dist-pages.mjs');
     const profileGuardIdx = workflow.indexOf('node scripts/validate-build-profile-markers.mjs /tmp/build.log');
-    const uploadIdx = workflow.indexOf('Upload Pages artifact');
+    const sourceUploadIdx = workflow.indexOf('Upload IT root publication source');
+    const publisherPrepIdx = publisher.indexOf('Deploy prep (IT → Pages + CDN)');
+    const pagesUploadIdx = publisher.indexOf('Upload Pages artifact (compression-level 9)');
 
     expect(criticalGuardIdx).toBeGreaterThanOrEqual(0);
     expect(profileGuardIdx).toBeGreaterThan(criticalGuardIdx);
-    expect(uploadIdx).toBeGreaterThan(profileGuardIdx);
+    expect(sourceUploadIdx).toBeGreaterThan(profileGuardIdx);
+    expect(publisherPrepIdx).toBeGreaterThanOrEqual(0);
+    expect(pagesUploadIdx).toBeGreaterThan(publisherPrepIdx);
   });
 });

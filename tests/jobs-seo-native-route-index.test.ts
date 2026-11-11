@@ -552,10 +552,10 @@ describe('native job route ownership with interned prefixes', () => {
         // Each non-TI route contributes three locales; `i % 5 === 0` models
         // localized aliases, while the remaining 80% can be read directly
         // from tracking by the compact historical lookup.
-        const isLegacyRouteIndex = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX === 'legacy';
+        const nativeRouteMode = process.env.JOBS_SEO_NATIVE_ROUTE_INDEX;
         const expectedKeys = mode === 'active'
           ? 6774
-          : mode === 'in-place-append' && !isLegacyRouteIndex
+          : mode === 'in-place-append' && nativeRouteMode !== 'legacy'
             ? 18972
             : 67764;
         expect(sample.keys).toBe(expectedKeys);

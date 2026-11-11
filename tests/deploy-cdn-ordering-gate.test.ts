@@ -105,7 +105,7 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     const sectionHelper = readFileSync(resolve('scripts/lib/push-section-shard.sh'), 'utf8');
     expect(groupHelper).toContain('bash scripts/lib/push-section-shard.sh');
     expect(sectionHelper).toContain('section_shard_publish_resumable');
-    expect(groupHelper).toContain('timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh');
+    expect(groupHelper).toContain('timeout --verbose --signal=TERM --kill-after="${cleanup_grace_seconds}s" "${timeout_seconds}s" bash scripts/lib/push-section-shard.sh');
   });
 
   it('checkpointa la cache R2 del job CDN senza togliere i controlli di alias di Deploy prep', () => {

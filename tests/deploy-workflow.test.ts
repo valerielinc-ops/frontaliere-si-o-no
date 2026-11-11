@@ -950,10 +950,12 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
         const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
         expect(run, `${name}: must call the IT group helper`).toContain('scripts/ci/push-it-shard-group.sh');
         expect(helper, `${name}: preserve cleanup grace`).toContain('cleanup_grace_seconds=600');
-        expect(helper, `${name}: preserve the one-hour section cap`).toContain(
-          'timeout --verbose --signal=TERM --kill-after=600s 3600s bash scripts/lib/push-section-shard.sh',
+        expect(helper, `${name}: derive timeout from the group's six-hour deadline`).toContain(
+          'job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds',
         );
-        expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+        expect(helper, `${name}: preserve the one-hour section cap`).toContain('section_timeout_cap_seconds=3600');
+        expect(helper, `${name}: keep cleanup and post-push reserves`).toContain('post_push_reserve_seconds=1200');
+        expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds');
       } else {
         const timeoutMatch = run.match(
           /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
