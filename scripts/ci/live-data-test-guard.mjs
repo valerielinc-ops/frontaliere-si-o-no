@@ -713,6 +713,12 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'the sparse-checkout contract passes these paths as synthetic inputs to pathsOutsideSparseRules(), which invokes git sparse-checkout check-rules and never opens them; the test reads only workflow YAML and source text',
   },
   {
+    file: 'tests/instagram-reel-workflow.test.ts',
+    roots: ['data/instagram-queue.json'],
+    evidence: 'review',
+    reason: 'the queue path is asserted as text in the workflow YAML; this test reads only workflow/source text and never opens the live Instagram queue',
+  },
+  {
     file: 'tests/crawler-generation-barrier-workflows.test.ts',
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'job slice paths are synthetic receipt payload fields; filesystem reads target workflow SSOT files',

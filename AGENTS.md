@@ -18,6 +18,12 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 9. **Esperimenti: solo Firebase.** A/B test, flag e varianti via Remote Config + Analytics; niente nuovi flag/SDK/eventi PostHog (l'esistente è storico, non si estende senza decisione del proprietario).
 10. **Decisioni del proprietario append-only.** Mai modificare/cancellare righe di `DECISIONS.md` né rovesciarne codice o test senza nuova istruzione del proprietario (riga datata); se rischiosa, segnalala. Tripwire `tests/owner-decisions-protected.test.ts`.
 
+## Social publishing (decisione owner 2026-11-11)
+
+- Instagram, inclusi i Reel, usa il publisher browser esistente; TikTok usa l'uploader browser esistente; LinkedIn usa il publisher member sul profilo personale Valerie Linc, non il percorso Company Page.
+- Instagram e TikTok richiedono ciascuno il proprio flag owner e `SOCIAL_ROBOT_PUBLISHING_MODE=live`. Questi flag autorizzano solo il publisher browser e restano separati da `SOCIAL_ROBOT_MODE`, Community, Insights e approvazioni delle API Meta/TikTok.
+- Prima dell'invio il robot verifica che il profilo autenticato corrisponda all'account configurato, rispetta ledger e cap giornaliero; un click senza conferma resta in hold fino alla riconciliazione, senza retry automatico. Per i dettagli operativi vedi `docs/social-publishing-policy.md`.
+
 ## Privacy
 
 - Pre-commit PII scan against the untracked, per-clone blocklist. Resolve its

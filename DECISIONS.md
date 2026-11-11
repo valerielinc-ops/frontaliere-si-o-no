@@ -2,8 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-11-11 | Social publishing: per Instagram usare il publisher web/browser già autenticato; per TikTok usare l'uploader browser già adottato; per LinkedIn pubblicare come membro sul profilo Valerie Linc. Flag owner separati per Instagram e TikTok e modalità `SOCIAL_ROBOT_PUBLISHING_MODE=live`; tenerla separata da Community/Insights. L'autorizzazione owner non dichiara approvazione Meta/TikTok API. Conservare verifica account, ledger anti-duplicati, cap e hold sugli esiti incerti | istruzione diretta, 11-11 |
-| 2026-11-11 | La decisione Instagram del 11-11 include anche i Reel: generare cover e MP4 e accodarli al publisher web; il robot usa il flusso video web e registra il ledger solo dopo conferma visibile | chiarimento implementativo della decisione owner, 11-11 |
+| 2026-11-11 | Social: Instagram/Reels browser, TikTok uploader, LinkedIn member su Valerie Linc; flag owner separati. Policy: [social-publishing-policy](docs/social-publishing-policy.md) | istruzione diretta, 11-11 |
 | 2026-11-11 | Candidature assistite (supera #18080): nazionalità mancante dal CV (paese del liceo, più segnali); casellario ed esecuzioni senza risposta all'upload: «no»; concierge accettato dopo 12 h; annuncio ritirato dal datore → ritirata, archiviata, senza rimborso | istruzione diretta, 11-11 |
 | 2026-11-10 | Candidature assistite, permesso e idoneità: nessun permesso dichiarato, città del CV in IT o paese confinante e impiego svizzero attuale o finito da ≤12 mesi → permesso G dedotto; il dichiarato vince. Idoneità/interesse per la funzione: sempre sì (mai sanitaria o legale) | istruzione diretta, 10-11 (LIS) |
 | 2026-11-10 | Candidature assistite, pagina di revisione: ogni risposta della piattaforma (regola, CV, motore di decisione) è mostrata al candidato già compilata e modificabile, con l'origine, anche quando nessuna domanda resta aperta; non conta come da rispondere. Supporto ad altre sedi o succursali, flessibilità di sede, piquet e servizio di guardia: sempre sì, come trasferimento, ibrido e picchetto | istruzione diretta, 10-11 |
@@ -38,11 +37,9 @@
 | 2026-09-23 → raffinata 2026-09-24 | `tsmg`: record con paese non-CH scartati, il crawler continua; paese assente o località CH non risolvibile: quarantena loggata solo se non può essere target né è già pubblicato, altrimenti failure; valori paese sconosciuti e snapshot degradati restano failure | istruzione diretta, sessioni 23-09 e 24-09 |
 | 2026-09-23 | Issue e fix in repository diversi: si crea o migra l'issue nel repository corretto, si collegano le schede e si chiude l'errata solo con evidenza. I workflow aprono le issue nel repository proprietario del problema | istruzione diretta, sessione 23-09 |
 | 2026-09-23 | Tracker permanenti non si chiudono artificialmente per un obiettivo numerico; lo stato operativo va nel ledger `.agents/issue-orchestration-ledger-YYYYMMDD.md` | istruzione diretta, sessione 23-09 |
-| 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |
 | 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
-| 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
 | 2026-08-24 | **Uso dei secret dal ciclo autonomo: AUTORIZZATO in modo permanente.** Non va più chiesto caso per caso. `blocked-secrets` non è un limite di capacità: è un verdetto da usare solo quando la variabile è davvero vuota, e allora è un difetto della mappa `RC_TO_ENV` | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | **«Sempre umano» RIMOSSA in blocco**: LPD, denaro, invii massivi, ritiro editoriale, espansione di scope, infrastruttura irreversibile non richiedono più un'approvazione prima di procedere. Resta il gate `## LGTM` del reviewer su ogni PR | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
