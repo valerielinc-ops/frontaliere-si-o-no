@@ -4,6 +4,73 @@ import { decode } from 'html-entities';
 const HTML_TAG_REGEX = /<[^>]*>/g;
 const TRAILING_CLAUSE_REGEX = /(\s*,\s*|\s+[|@]\s*|\s+[-–—]\s*)[^,|@\-–—]*$/;
 const RECORD_SEPARATOR = '\x1e';
+const EMPLOYER_PLACEHOLDERS = new Set([
+  'anonymous',
+  'anonymous employer',
+  'azienda',
+  'azienda svizzera',
+  'company',
+  'confidential',
+  'confidential company',
+  'confidential employer',
+  'confidential client',
+  'company confidential',
+  'company not specified',
+  'datore di lavoro',
+  'datore di lavoro svizzero',
+  'employer',
+  'employer not disclosed',
+  'employer not specified',
+  'n a',
+  'no name',
+  'no company',
+  'no employer',
+  'not available',
+  'not disclosed',
+  'not provided',
+  'not specified',
+  'not stated',
+  'non disponibile',
+  'non indicato',
+  'non specificato',
+  'nicht angegeben',
+  'keine angabe',
+  'unbekannt',
+  'inconnu',
+  'sconosciuto',
+  'organization not specified',
+  'private employer',
+  'private company',
+  'swiss employer',
+  'tech company svizzera',
+  'undisclosed',
+  'undisclosed client',
+  'undisclosed company',
+  'undisclosed employer',
+  'unknown',
+  'unknown company',
+  'unknown employer',
+]);
+const GENERIC_EMPLOYER_PLACEHOLDER_RE = /^(?:(?:anonymous|confidential|private|undisclosed|unknown|none|n a|no name|no (?:company|employer|client)(?: name)?|not (?:available|disclosed|known|provided|specified|stated))(?: (?:company|employer|client|organization|organisation|name))?|(?:company|employer|client|organization|organisation|name) (?:anonymous|confidential|private|undisclosed|unknown|not (?:available|disclosed|known|provided|specified|stated)))$/;
+
+function normalizedEmployerText(value) {
+  return normalizeRoleText(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function employerIdentity(job, index) {
+  for (const value of [job.companySlug, job.company]) {
+    if (typeof value !== 'string') continue;
+    const candidate = normalizedEmployerText(value);
+    if (candidate && !EMPLOYER_PLACEHOLDERS.has(candidate) && !GENERIC_EMPLOYER_PLACEHOLDER_RE.test(candidate)) return candidate;
+  }
+
+  // With no real employer source there is no safe basis for cross-posting
+  // collapse. A per-record key keeps unrelated employers separate.
+  const recordKey = [job.id, job.applicationUrl || job.url, job.slug, index]
+    .map(value => String(value ?? '').trim()).join(RECORD_SEPARATOR);
+  return `unidentified-employer${RECORD_SEPARATOR}${recordKey}`;
+}
 
 /**
  * Normalizza il testo rimuovendo HTML, entità, maiuscole e spazi superflui.
@@ -62,9 +129,9 @@ export function collapseMultiCityRoles(jobs) {
   if (!Array.isArray(jobs)) return [];
   const clusters = new Map();
 
-  for (const job of jobs) {
+  for (const [index, job] of jobs.entries()) {
     if (!job) continue;
-    const fingerprint = computeRoleFingerprint(job.companySlug, job.title, job.description || job.descriptionHtml);
+    const fingerprint = computeRoleFingerprint(employerIdentity(job, index), job.title, job.description || job.descriptionHtml);
     const jobWithFingerprint = { ...job, roleFingerprint: fingerprint };
 
     if (!clusters.has(fingerprint)) {

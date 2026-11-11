@@ -73,7 +73,7 @@ export class ReflineAdapter {
       canton,
       descriptionHtml: jsonLd.description || '',
       applicationUrl: urlStr,
-      publishedAt: jsonLd.datePosted || new Date().toISOString()
+      publishedAt: jsonLd.datePosted || null
     };
   }
 }

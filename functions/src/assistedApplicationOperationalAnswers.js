@@ -367,58 +367,58 @@ export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {
   return lines.length ? `${body}\n\n${lines.join('\n')}` : body;
 }
 
+function explicitProfileValue(profile, keys) {
+  if (!profile || typeof profile !== 'object' || Array.isArray(profile)) return null;
+  for (const key of keys) {
+    const value = profile[key];
+    if (typeof value !== 'string' && !(typeof value === 'number' && Number.isFinite(value))) continue;
+    const text = String(value).trim();
+    if (!text || /^(?:unknown|not known|not provided|n\/?a|none|null|sconosciuto|non indicato|keine angabe|inconnu)$/i.test(text)) continue;
+    return text;
+  }
+  return null;
+}
+
+function explicitAnswerForField(field, value) {
+  const options = optionsOf(field);
+  if (options.length) {
+    const matches = options.filter(option => norm(option.label) === norm(value) || norm(option.value) === norm(value));
+    return matches.length === 1 ? matches[0].value : null;
+  }
+  if (field.type === 'number' || field.inputType === 'number') {
+    const number = Number(value);
+    return Number.isFinite(number) && String(value).trim() !== '' ? String(number) : null;
+  }
+  return value;
+}
+
 /**
- * Risolve i default operativi specifici per il mercato svizzero e frontaliere.
- * Supporta permesso di lavoro (Permesso G / UE/AELS), preavviso (3 mesi),
- * aspettativa salariale CHF e grado di occupazione (pensum 100%).
- * 
- * @param {object} field Campo form ATS { label, name, type, options }
- * @param {object} [candidateProfile] Profilo candidato opzionale
- * @param {object} [jobData] Dati annuncio opzionali (es. { estimatedSalaryChf })
+ * Returns only an explicit value already present in the candidate profile.
+ * Employer benchmarks, nationality, option wording and Swiss-market conventions
+ * are not evidence of the candidate's own permit, notice, salary or workload.
+ *
+ * @param {object} field ATS field { label, name, type, options }
+ * @param {object} [candidateProfile] Candidate-provided profile facts
+ * @param {object} [jobData] Legacy input ignored; an employer benchmark is not a candidate salary expectation
  * @returns {string|null}
  */
 export function resolveFrontaliereSmartDefaults(field, candidateProfile = null, jobData = null) {
+  void jobData;
   if (!field) return null;
   const text = (field.label || field.name || '').toLowerCase();
 
-  // 1. Permesso di lavoro Svizzero (Work Permit / Arbeitsbewilligung)
+  let keys = null;
   if (/(?:permit|bewillig|permesso|permis|autorizzaz|authoriz)/i.test(text)) {
-    if (Array.isArray(field.options) && field.options.length > 0) {
-      const optionG = field.options.find(opt => {
-        const lbl = (typeof opt === 'string' ? opt : opt.label || opt.value || '').toLowerCase();
-        return /(?:\bg\b|frontali|grenzg[aä]ng|eu[/-]efta|ue[/-]aels)/i.test(lbl);
-      });
-      if (optionG) return typeof optionG === 'string' ? optionG : (optionG.value ?? optionG.label);
-    }
-    return "Cittadino UE/AELS - Idoneo a rilascio immediato Permesso G Frontaliere";
+    keys = ['workPermit'];
+  } else if (/(?:notice|preavvis|k[uü]ndigung|preavis)/i.test(text)) {
+    keys = ['noticePeriod'];
+  } else if (/(?:salary|gehalt|lohn|salari|remuneraz|stipend|pretention)/i.test(text)) {
+    keys = ['salaryExpectationChf', 'salaryExpectation'];
+  } else if (/(?:workload|pensum|occupaz|grado|taux)/i.test(text)) {
+    keys = ['preferredWorkload', 'workloadPercent', 'workload', 'pensum'];
   }
-
-  // 2. Preavviso (Notice Period / Kündigungsfrist)
-  if (/(?:notice|preavvis|k[uü]ndigung|preavis)/i.test(text)) {
-    if (Array.isArray(field.options) && field.options.length > 0) {
-      const opt3m = field.options.find(opt => {
-        const lbl = (typeof opt === 'string' ? opt : opt.label || opt.value || '').toLowerCase();
-        return /(?:3\s*m|3\s*mesi|3\s*monat|3\s*mois)/i.test(lbl);
-      });
-      if (opt3m) return typeof opt3m === 'string' ? opt3m : (opt3m.value ?? opt3m.label);
-    }
-    return "3 mesi";
-  }
-
-  // 3. Aspettativa Salariale (Salary Expectation in CHF)
-  if (/(?:salary|gehalt|lohn|salari|remuneraz|stipend|pretention)/i.test(text)) {
-    const benchmarkChf = jobData?.estimatedSalaryChf || 110000;
-    if (field.type === 'number') {
-      return String(benchmarkChf);
-    }
-    return `${benchmarkChf.toLocaleString('it-CH')} CHF lordi annui`;
-  }
-
-  // 4. Grado di Occupazione (Workload / Pensum)
-  if (/(?:workload|pensum|occupaz|grado|taux)/i.test(text)) {
-    return field.type === 'number' ? '100' : '100%';
-  }
-
-  return null;
+  if (!keys) return null;
+  const value = explicitProfileValue(candidateProfile, keys);
+  return value === null ? null : explicitAnswerForField(field, value);
 }
 

@@ -27,7 +27,7 @@ export class SwissDevJobsAdapter {
       salaryCurrency: 'CHF',
       skills: Array.isArray(item.technologies) ? item.technologies : [],
       applicationUrl: `${this.baseUrl}/jobs/${item.slug || key}`,
-      publishedAt: item.activeFrom || new Date().toISOString()
+      publishedAt: item.activeFrom || null
     };
   }
 

@@ -71,19 +71,22 @@ export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
 
 /**
- * Gestisce l'escalation immediata per campi ATS non previsti a runtime.
- * Imposta lo stato a operator_expedited_review con scadenza a 4 ore.
+ * Holds unexpected ATS fields for bounded operator review before owner escalation.
+ * The four-hour deadline uses epoch milliseconds so the normal automation sweep can deliver it.
  * @param {object} flow
  * @param {object} event
+ * @param {number} [nowMs]
  * @returns {object}
  */
-export function handleUnresolvedAtsQuestions(flow, event) {
+export function handleUnresolvedAtsQuestions(flow, event, nowMs = Date.now()) {
   return {
     ...flow,
     state: 'operator_expedited_review',
     heldReason: 'unpredicted_ats_field',
-    pendingFields: event?.missingFields || [],
-    deadlineAt: new Date(Date.now() + URGENT_FIELD_DISPATCH_TIMEOUT_MS).toISOString()
+    heldBy: ['unpredicted_ats_field'],
+    pendingFields: Array.isArray(event?.missingFields) ? event.missingFields.slice(0, 20) : [],
+    portalAutoRetryAt: null,
+    deadlineAt: nowMs + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
   };
 }
 // Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
@@ -134,6 +137,7 @@ export const FLOW_STATES = Object.freeze([
   'candidate_review',
   'regenerating',
   'submitting',
+  'operator_expedited_review',
   'needs_candidate_action',
   'candidate_handoff',
   'submitted',
@@ -284,6 +288,8 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
+    ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
@@ -806,6 +812,15 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      if (state === 'operator_expedited_review' && deadline && nowMs >= deadline) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['unpredicted_ats_field'];
+        next.heldSince = current.heldSince || nowMs;
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit' }];
+        break;
+      }
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
       // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
       // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
@@ -1204,9 +1219,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The review page is generated from the draft, not from the runner
       // event. If a live requirement was not persisted into that draft, a
       // candidate-action e-mail would open a page with nothing to answer.
-      // Fail closed into the bounded owner recovery path instead.
+      // Unpredicted fields wait for bounded operator escalation; a candidate
+      // is never asked to approve a field the review page cannot show.
       if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
-        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        const visibleQuestions = new Set((flags.candidate || []).map(String));
+        const unpredictedFields = unresolvedQuestions
+          .filter((id) => !visibleQuestions.has(id))
+          .map((id) => detailsById.get(id) || { id });
+        if (unpredictedFields.length) {
+          Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
+        } else {
+          effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        }
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;

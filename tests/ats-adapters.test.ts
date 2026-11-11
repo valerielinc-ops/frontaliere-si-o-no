@@ -29,6 +29,7 @@ describe('ProspectiveAdapter', () => {
     expect(mapped.location).toBe('Bussnang');
     expect(mapped.canton).toBe('TG');
     expect(mapped.applicationUrl).toBe('https://jobs.stadlerrail.com/apply/12345');
+    expect(mapped.publishedAt).toBeNull();
   });
 
   it('effettua fetch e paginazione con mock fetchFn', async () => {
@@ -95,6 +96,12 @@ describe('ReflineAdapter', () => {
     expect(mapped?.title).toBe('Dipl. Pflegefachperson HF');
     expect(mapped?.company).toBe('Inselspital Bern');
     expect(mapped?.canton).toBe('BE');
+    expect(mapped?.publishedAt).toBe('2026-11-01T08:00:00Z');
+  });
+
+  it('keeps an absent schema.org publication date unknown', () => {
+    const mapped = adapter.mapJobPosting({ '@type': 'JobPosting', title: 'Engineer' }, 'https://apply.refline.ch/insel/43/pub/de/index.html');
+    expect(mapped?.publishedAt).toBeNull();
   });
 });
 
@@ -114,6 +121,11 @@ describe('UmantisAdapter', () => {
     expect(jobs[0].id).toBe('umantis_101');
     expect(jobs[0].title).toBe('Software Architect');
     expect(nextHref).toBe('https://jobs.bobst.com/Jobs/All?tc1=p2&_token=xyz');
+  });
+
+  it('does not assign a crawl date to an Umantis job with no publication date', () => {
+    expect(adapter.mapJob('101', 'Software Architect', 'Bobst', 'Mex', '<p>Role</p>', 'https://jobs.bobst.com/Vacancies/101/Description/en').publishedAt)
+      .toBeNull();
   });
 });
 
@@ -137,6 +149,12 @@ describe('JobsChAdapter', () => {
     expect(job?.title).toBe('Sviluppatore React Native');
     expect(job?.company).toBe('Banca del Sempione');
     expect(job?.canton).toBe('TI');
+    expect(job?.publishedAt).toBeNull();
+  });
+
+  it('keeps an absent initial-state publication date unknown', () => {
+    const html = '<script>window.__INITIAL_STATE__ = {"job":{"id":"111","title":"Engineer"}};</script>';
+    expect(adapter.extractJobDataFromHtml(html, 'https://www.jobs.ch/en/jobs/detail/111/')?.publishedAt).toBeNull();
   });
 });
 
@@ -161,6 +179,7 @@ describe('SwissDevJobsAdapter', () => {
     expect(mapped?.salaryMax).toBe(140000);
     expect(mapped?.salaryCurrency).toBe('CHF');
     expect(mapped?.skills).toContain('Go');
+    expect(mapped?.publishedAt).toBeNull();
   });
 
   it('estrae il detailedJob dal blocco script della pagina', () => {

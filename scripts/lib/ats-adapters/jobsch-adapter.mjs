@@ -38,7 +38,7 @@ export class JobsChAdapter {
             canton,
             descriptionHtml: parsed.description || '',
             applicationUrl: fallbackUrl,
-            publishedAt: parsed.datePosted || new Date().toISOString()
+            publishedAt: parsed.datePosted || null
           };
         }
       } catch {
@@ -62,7 +62,7 @@ export class JobsChAdapter {
             canton: job.canton || null,
             descriptionHtml: job.description || '',
             applicationUrl: fallbackUrl,
-            publishedAt: job.publicationDate || new Date().toISOString()
+            publishedAt: job.publicationDate || null
           };
         }
       } catch {

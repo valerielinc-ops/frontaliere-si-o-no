@@ -22,7 +22,7 @@ export class ProspectiveAdapter {
       canton: item.canton || item.attributes?.canton || null,
       descriptionHtml: item.description || item.body || '',
       applicationUrl: item.directlink || `${this.apiBase}/jobs/${viewKey}`,
-      publishedAt: item.publish_date || item.publishedAt || new Date().toISOString()
+      publishedAt: item.publish_date || item.publishedAt || null
     };
   }
 

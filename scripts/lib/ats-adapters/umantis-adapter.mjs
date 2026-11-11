@@ -55,7 +55,7 @@ export class UmantisAdapter {
       canton: null,
       descriptionHtml: htmlBody || '',
       applicationUrl: applicationUrl || '',
-      publishedAt: new Date().toISOString()
+      publishedAt: null
     };
   }
 }

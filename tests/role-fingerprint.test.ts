@@ -101,4 +101,38 @@ describe('collapseMultiCityRoles', () => {
     const ubsJob = collapsed.find(j => j.companySlug === 'ubs');
     expect(ubsJob?.copies).toHaveLength(0);
   });
+
+  it('uses a real company name when an adapter has no companySlug', () => {
+    const collapsed = collapseMultiCityRoles([
+      { id: 'a-lugano', company: 'Employer A', companySlug: '', title: 'Senior Engineer', description: 'Same role', location: 'Lugano' },
+      { id: 'a-zurich', company: 'Employer A', companySlug: '', title: 'Senior Engineer', description: 'Same role', location: 'Zürich' },
+      { id: 'b-basel', company: 'Employer B', companySlug: '', title: 'Senior Engineer', description: 'Same role', location: 'Basel' },
+    ]);
+
+    expect(collapsed).toHaveLength(2);
+    expect(collapsed.find(job => job.company === 'Employer A')?.copies).toHaveLength(1);
+    expect(collapsed.find(job => job.company === 'Employer B')?.copies).toHaveLength(0);
+  });
+
+  it('keeps missing or placeholder employer names out of cross-employer collapse', () => {
+    const collapsed = collapseMultiCityRoles([
+      { id: 'unknown-a', company: 'Datore di Lavoro Svizzero', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-b', company: 'Azienda Svizzera', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-c', company: '', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-d', company: 'Confidential', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-e', company: 'N/A', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-f', company: 'Private Company', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-g', company: 'Not specified', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-h', company: 'Not available', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-i', company: 'Not provided', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-j', company: 'Not stated', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-k', company: 'Anonymous', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-l', company: 'Company not disclosed', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-m', company: 'No employer name', title: 'Senior Engineer', description: 'Same role' },
+      { id: 'unknown-n', company: 'No name', title: 'Senior Engineer', description: 'Same role' },
+    ]);
+
+    expect(collapsed).toHaveLength(14);
+    expect(collapsed.every(job => job.copies.length === 0)).toBe(true);
+  });
 });
