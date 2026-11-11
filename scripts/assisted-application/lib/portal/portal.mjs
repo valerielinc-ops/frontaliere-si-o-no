@@ -6673,16 +6673,27 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       } catch {
         plan = null;
       }
-      if (plan?.missingRequired.length) {
-        const unresolved = [];
-        const recoveredActions = [...plan.actions];
-        for (const missing of plan.missingRequired) {
-          const field = rowFields.find((item) => item.id === missing.fieldId);
+      if (plan) {
+        const actions = Array.isArray(plan.actions) ? plan.actions : [];
+        const missingRequired = Array.isArray(plan.missingRequired) ? plan.missingRequired : [];
+        const profileActions = new Map();
+        for (const field of rowFields) {
           const answer = profileEntryAnswer(entry, kind, field);
-          if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
-          else unresolved.push(missing);
+          if (!answer) continue;
+          profileActions.set(field.id, {
+            ...actions.find((action) => action.fieldId === field.id),
+            fieldId: field.id,
+            action: field.options?.length ? 'select' : 'fill',
+            ...answer,
+            document: 'none',
+            evidence: '',
+          });
         }
-        plan = { ...plan, actions: recoveredActions, missingRequired: unresolved };
+        plan = {
+          ...plan,
+          actions: [...actions.filter((action) => !profileActions.has(action.fieldId)), ...profileActions.values()],
+          missingRequired: missingRequired.filter((missing) => !profileActions.has(missing.fieldId)),
+        };
       }
       const cancel = async () => {
         current = await extractFields(page);
