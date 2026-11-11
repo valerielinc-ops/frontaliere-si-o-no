@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-11-10T21:44:27.634Z",
+  "generatedAt": "2026-11-11T09:27:32.573Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2558,
-  "avgDurationMs": 2558,
+  "durationMs": 2770,
+  "avgDurationMs": 2770,
   "durationHistory": [
-    2558
+    2770
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -96,7 +96,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -141,7 +141,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -185,7 +185,7 @@
       "streetAddress": "Chiasso, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAt": "2026-11-11T09:27:19.677Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
 }
