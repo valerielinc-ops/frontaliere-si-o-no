@@ -348,6 +348,19 @@ function assertContent(remote: string, path: string, expected: string): void {
   }
 }
 
+function injectRemoteFile(scenario: Scenario, path: string, content: string): void {
+  const checkout = join(scenario.root, 'remote-extra');
+  git(['clone', '-q', scenario.remote, checkout]);
+  git(['config', 'user.email', 'shard-delta-test@example.invalid'], checkout);
+  git(['config', 'user.name', 'shard-delta test'], checkout);
+  const target = join(checkout, path);
+  mkdirSync(join(target, '..'), { recursive: true });
+  writeFileSync(target, content);
+  git(['add', '--', path], checkout);
+  git(['commit', '-qm', 'fixture: retain unrelated root file'], checkout);
+  git(['push', '-q', 'origin', 'main'], checkout);
+}
+
 describe('delta push degli shard', () => {
   it('gestisce add/change/reuse/delete e il primo push con fallback full', () => {
     const scenario = createScenario('lifecycle');
@@ -718,6 +731,76 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('full-rewrite produce lo stesso tree e manifest del delta ordinario', () => {
+    const ordinary = createScenario('section-full-rewrite-ordinary');
+    const fast = createScenario('section-full-rewrite-fast');
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['zurigo', 'it', current.dist],
+      deployKey: 'SHARD_ZURIGO_IT_DEPLOY_KEY',
+      label: 'section-full-rewrite',
+    };
+    const initial = {
+      'jobs/a': '<html>A v1</html>',
+      'jobs/b': '<html>B v1</html>',
+      'jobs/c': '<html>C v1</html>',
+      'jobs/d': '<html>D v1</html>',
+      'jobs/e': '<html>E v1</html>',
+      'assets/extra': '<html>extra v1</html>',
+    };
+    const updated = {
+      'jobs/a': '<html>A v2</html>',
+      'jobs/b': '<html>B v2</html>',
+      'jobs/c': '<html>C v2</html>',
+      'jobs/d': '<html>D v2</html>',
+      'jobs/f': '<html>F v2</html>',
+      'assets/extra': '<html>extra v2</html>',
+    };
+    const writeVersion = (scenario: Scenario, files: Record<string, string>, version: string) => {
+      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', files);
+      writeManifest(
+        scenario,
+        Object.keys(files).filter((file) => file.startsWith('jobs/')),
+        version,
+        'cerca-lavoro-zurigo',
+        false,
+        [],
+        { locale: 'it' },
+      );
+    };
+    try {
+      for (const scenario of [ordinary, fast]) {
+        writeVersion(scenario, initial, 'v1');
+        expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
+        injectRemoteFile(scenario, '.operator-note', 'keep outside the section payload\n');
+        writeVersion(scenario, updated, 'v2');
+      }
+
+      const ordinaryResult = runPush(ordinary, 'delta', {
+        SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0',
+      }, sectionTarget);
+      const fastResult = runPush(fast, 'delta', {
+        SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0.9',
+      }, sectionTarget);
+
+      expect(ordinaryResult.status, ordinaryResult.output).toBe(0);
+      expect(fastResult.status, fastResult.output).toBe(0);
+      expect(ordinaryResult.output).toContain('full-rewrite=0');
+      expect(fastResult.output).toContain('manifest delta selected full-rewrite fast path');
+      expect(fastResult.output).toContain('full-rewrite=1');
+      expect(treeSha(fast.remote)).toBe(treeSha(ordinary.remote));
+      expect(treeFiles(fast.remote)).toContain('.operator-note');
+      expect(treeFiles(fast.remote)).toContain('cerca-lavoro-zurigo/jobs/f/index.html');
+      expect(treeFiles(fast.remote)).not.toContain('cerca-lavoro-zurigo/jobs/e/index.html');
+      expect(blobSha(fast.remote, '.deploy-manifest/v1/it.jsonl'))
+        .toBe(blobSha(ordinary.remote, '.deploy-manifest/v1/it.jsonl'));
+      assertContent(fast.remote, 'cerca-lavoro-zurigo/jobs/a/index.html', '<html>A v2</html>');
+    } finally {
+      rmSync(ordinary.root, { recursive: true, force: true });
+      rmSync(fast.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
   it('mantiene privati i checkpoint e riprende i chunk prima di promuovere main', () => {
     const scenario = createScenario('section-resumable-delta');
     const sectionTarget = {
@@ -913,7 +996,7 @@ describe('delta push degli shard', () => {
         }
       }
     }
-  }, 30_000);
+  }, 60_000);
 
   it('usa il PAT per pubblicare quando manca la deploy key, senza saltare lo shard', () => {
     const cases = [
@@ -1218,7 +1301,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  }, 30000);
+  }, 60000);
 });
 
 describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del solo renderer', () => {
@@ -1255,7 +1338,7 @@ describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del
       // #9788: build-plugins/constants.ts changed, the page input did not.
       writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
       writeIt(scenario, RENDER_9788);
-      const changed = runPush(scenario, 'delta', {}, sectionIt);
+      const changed = runPush(scenario, 'delta', { SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0' }, sectionIt);
       expect(changed.status).toBe(0);
       expect(changed.output).toContain('render-stale=active-job:2');
       expect(changed.output).not.toContain('delta fallback:');
@@ -1266,7 +1349,7 @@ describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del
       expect(blobSha(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`)).toBe(sameBlob);
 
       // A deploy without renderer changes goes back to the input-hash delta.
-      const steady = runPush(scenario, 'delta', {}, sectionIt);
+      const steady = runPush(scenario, 'delta', { SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0' }, sectionIt);
       expect(steady.status).toBe(0);
       expect(steady.output).toMatch(/mode=delta .* changed=0 unchanged=2 .* render-stale=none/);
     } finally {

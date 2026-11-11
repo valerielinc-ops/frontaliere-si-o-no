@@ -614,6 +614,9 @@ async function offloadAll(
   { chunk = false, deferredJobOgFallbackSlugs = [] } = {},
 ) {
   const partial = Array.isArray(onlyFiles);
+  // A worker chunk belongs to a full pass even though it receives a file list;
+  // a user-requested --files-from pass never writes the full-pass guards/deletes.
+  const collectFullPassState = !partial || chunk;
   const fallbackSlugs = deferredJobOgFallbackSlugs instanceof Set
     ? deferredJobOgFallbackSlugs
     : new Set(deferredJobOgFallbackSlugs);
@@ -631,17 +634,26 @@ async function offloadAll(
   // apply. Dir presence only matters for the guarded DELETE below (can't
   // delete what isn't there) — that's what ogTargets gates.
   const ogTargets = CDN_OFFLOADED_IMAGE_TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
-  const ogCompiled = CDN_OFFLOADED_IMAGE_TARGETS.map((t) => {
-    const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return {
-      t,
-      reAbs: new RegExp(escOrigin + escUrl + OG_FILE, 'g'),
-      reRel: new RegExp('(?<![\\w.@])' + escUrl + OG_FILE, 'g'),
-      reLeak: new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + OG_FILE),
-      repl: (_m, file) => deferredJobOgImageFallbackUrl(file, cdnBase, fallbackSlugs)
-        || `${cdnBase}${t.url}${file}`,
-    };
-  });
+  const ogTargetByUrl = new Map(CDN_OFFLOADED_IMAGE_TARGETS.map((t) => [t.url, t]));
+  const ogTargetAlternation = CDN_OFFLOADED_IMAGE_TARGETS
+    .map((t) => t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .sort((a, b) => b.length - a.length)
+    .join('|');
+  // Every target used to scan every page independently (up to 20 rewrite
+  // regex passes plus 10 leak checks). The route alternatives are disjoint, so
+  // two rewrite scans and one leak scan produce the same target-specific bytes
+  // and guards while avoiding repeated whole-document scans on large shards.
+  const ogReAbs = new RegExp(`${escOrigin}(${ogTargetAlternation})${OG_FILE}`, 'g');
+  const ogReRel = new RegExp(`(?<![\\w.@])(${ogTargetAlternation})${OG_FILE}`, 'g');
+  const ogReLeak = new RegExp(
+    `(?:${escOrigin}(${ogTargetAlternation})|(?<![\\w.@])(${ogTargetAlternation}))${OG_FILE}`,
+    'g',
+  );
+  const ogRepl = (_match, targetUrl, file) => {
+    const target = ogTargetByUrl.get(targetUrl);
+    return deferredJobOgImageFallbackUrl(file, cdnBase, fallbackSlugs)
+      || `${cdnBase}${target.url}${file}`;
+  };
 
   // assets rewrite regexes.
   const assetReAbs = new RegExp(escOrigin + '/assets/' + ASSET_FILE, 'g');
@@ -766,13 +778,9 @@ async function offloadAll(
     const isHtml = path.extname(fp) === '.html';
 
     // (1) og rewrites
-    let ogChanged = false;
-    for (const c of ogCompiled) {
-      const before = out;
-      out = out.replace(c.reAbs, c.repl).replace(c.reRel, c.repl);
-      if (out !== before) ogChanged = true;
-    }
-    if (ogChanged) ogRewritten++;
+    const beforeOg = out;
+    out = out.replace(ogReAbs, ogRepl).replace(ogReRel, ogRepl);
+    if (out !== beforeOg) ogRewritten++;
 
     // (2) assets rewrites
     const beforeAssets = out;
@@ -889,8 +897,19 @@ async function offloadAll(
     if (out !== orig) fs.writeFileSync(fp, out);
 
     // og leak guard (no surviving same-origin og ref may remain post-rewrite)
-    for (const c of ogCompiled) {
-      if (c.reLeak.test(out)) ogLeaks.push(`${c.t.url} in ${path.relative(distDir, fp)}`);
+    if (collectFullPassState) {
+      const leakedTargets = new Set();
+      ogReLeak.lastIndex = 0;
+      let leakMatch;
+      while ((leakMatch = ogReLeak.exec(out))) {
+        leakedTargets.add(leakMatch[1] || leakMatch[2]);
+      }
+      if (leakedTargets.size > 0) {
+        const relativePath = path.relative(distDir, fp);
+        for (const target of CDN_OFFLOADED_IMAGE_TARGETS) {
+          if (leakedTargets.has(target.url)) ogLeaks.push(`${target.url} in ${relativePath}`);
+        }
+      }
     }
 
     // (4) collect surviving same-origin /data/ refs from HTML/XML — NOT robots
@@ -898,7 +917,7 @@ async function offloadAll(
     //     now-CDN-served path is inert). A ref surviving here (HTML refs to dist/data
     //     files were rewritten to CDN above; XML refs are never rewritten) points at
     //     a file NOT in dist/data → keep it same-origin to avoid a 404.
-    if (hasData && !isTxt) {
+    if (collectFullPassState && hasData && !isTxt) {
       reDataKeep.lastIndex = 0;
       let m;
       while ((m = reDataKeep.exec(out))) dataReferenced.add(decodeURIComponent('/data/' + m[1].split('?')[0]));
@@ -919,14 +938,7 @@ async function offloadAll(
   }
 
   const workers = offloadWorkerCount();
-  if (!partial && workers > 1) {
-    // Same file set, same per-file transform, same walk order: only WHO does
-    // the per-file work changes. Results are merged in slice order, so every
-    // aggregate below (counters, leak lists, the /assets/ verdict, the CDN URL
-    // set's insertion order, the /data/ keep-set) equals the sequential pass's.
-    const files = [];
-    walk(distDir, (fp) => { files.push(fp); });
-    const results = await runOffloadPool(files, distDir, cdnBase, workers, [...fallbackSlugs]);
+  const mergeWorkerResults = (results) => {
     for (const r of results) {
       scanned += r.scanned;
       ogRewritten += r.ogRewritten;
@@ -940,6 +952,16 @@ async function offloadAll(
       for (const v of r.cdnAssetUrls) cdnAssetUrls.add(v);
       for (const v of r.dataReferenced) dataReferenced.add(v);
     }
+  };
+  if (!partial && workers > 1) {
+    // Same file set, same per-file transform, same walk order: only WHO does
+    // the per-file work changes. Results are merged in slice order, so every
+    // aggregate below (counters, leak lists, the /assets/ verdict, the CDN URL
+    // set's insertion order, the /data/ keep-set) equals the sequential pass's.
+    const files = [];
+    walk(distDir, (fp) => { files.push(fp); });
+    const results = await runOffloadPool(files, distDir, cdnBase, workers, [...fallbackSlugs]);
+    mergeWorkerResults(results);
     log(`parallel rewrite: ${files.length} file(s) across ${workers} worker thread(s)`);
   } else if (!partial) {
     walk(distDir, visit);
@@ -948,11 +970,17 @@ async function offloadAll(
     // rewrite, applied only to the listed files. Same filters as walk(): the
     // SCAN_EXT set and the top-level dist/{assets,data,images} exclusion, so a
     // listed file gets exactly the bytes a full walk would have produced.
-    for (const fp of onlyFiles) {
+    const files = onlyFiles.filter((fp) => {
       const top = path.relative(distDir, fp).split(path.sep)[0];
-      if (top === 'assets' || top === 'data' || top === 'images') continue;
-      if (!SCAN_EXT.has(path.extname(fp))) continue;
-      visit(fp);
+      return top !== 'assets' && top !== 'data' && top !== 'images'
+        && SCAN_EXT.has(path.extname(fp));
+    });
+    if (workers > 1) {
+      const results = await runOffloadPool(files, distDir, cdnBase, workers, [...fallbackSlugs]);
+      mergeWorkerResults(results);
+      log(`parallel partial rewrite: ${files.length} file(s) across ${workers} worker thread(s)`);
+    } else {
+      for (const fp of files) visit(fp);
     }
     // A partial scan proves nothing about the rest of the tree: no /assets/
     // verdict marker (the Drop step would read a subset as a verdict) and no
