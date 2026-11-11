@@ -30325,6 +30325,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aumento-iva-finanzia-avs',
+    category: 'pensione',
+    date: '2026-11-11T22:42:42.125Z',
+    image: '/images/blog/article-aumento-iva-finanzia-avs.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

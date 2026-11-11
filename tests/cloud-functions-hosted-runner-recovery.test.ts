@@ -5,6 +5,7 @@ import { parse } from 'yaml';
 import {
   HOSTED_RUNNER_ALLOCATION_MESSAGE,
   isHostedRunnerAllocationFailure,
+  isUnstartedCloudFunctionsRun,
   isCloudFunctionsRunCandidate,
   listRecentCloudFunctionsRuns,
   shouldRetryCloudFunctionsRun,
@@ -56,6 +57,20 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     })).toBe(true);
   });
 
+  it('recognizes a workflow that failed before Actions created its deploy job', () => {
+    expect(isCloudFunctionsRunCandidate({ ...sourceRun, conclusion: 'startup_failure' })).toBe(true);
+    expect(isUnstartedCloudFunctionsRun([])).toBe(true);
+    expect(isUnstartedCloudFunctionsRun([
+      { name: 'report', conclusion: 'skipped', steps: [] },
+    ])).toBe(true);
+    expect(shouldRetryCloudFunctionsRun({
+      run: { ...sourceRun, conclusion: 'startup_failure' },
+      jobs: [],
+      annotationsByJob: {},
+      workflowRuns: [],
+    })).toBe(true);
+  });
+
   it('does not replay a normal deploy failure or a concurrency cancellation', () => {
     const deployedFailure = {
       ...unassignedJob,
@@ -65,12 +80,26 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       steps: [{ name: 'Deploy Cloud Functions', conclusion: 'failure' }],
     };
     expect(isHostedRunnerAllocationFailure(deployedFailure, runnerAnnotation)).toBe(false);
+    expect(isUnstartedCloudFunctionsRun([deployedFailure])).toBe(false);
     expect(isHostedRunnerAllocationFailure(unassignedJob, [])).toBe(false);
     expect(isCloudFunctionsRunCandidate({ ...sourceRun, run_attempt: 2 })).toBe(false);
     expect(shouldRetryCloudFunctionsRun({
       run: sourceRun,
       jobs: [{ ...unassignedJob, conclusion: 'cancelled' }],
       annotationsByJob: { [String(unassignedJob.id)]: [] },
+      workflowRuns: [],
+    })).toBe(false);
+  });
+
+  it('does not treat a present deploy job as an unstarted run', () => {
+    expect(isUnstartedCloudFunctionsRun([
+      { name: 'deploy-functions', conclusion: 'skipped', steps: [] },
+      { name: 'report', conclusion: 'skipped', steps: [] },
+    ])).toBe(false);
+    expect(shouldRetryCloudFunctionsRun({
+      run: sourceRun,
+      jobs: [{ name: 'deploy-functions', conclusion: 'failure', steps: [] }],
+      annotationsByJob: {},
       workflowRuns: [],
     })).toBe(false);
   });
@@ -157,9 +186,11 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     });
     expect(recovery.permissions).toMatchObject({ actions: 'write', checks: 'read' });
     expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
+    expect(recovery.jobs.retry.if).toContain("startup_failure");
     expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
+    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('startup/runner recovery signature');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('listRecentCloudFunctionsRuns');
     expect(recovery.jobs.retry.steps.at(-1).with.script).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);

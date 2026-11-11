@@ -2,16 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "myswitzerland:e636bc4cb5bf4656b67d198f167a4a14",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
-      "id": "myswitzerland:fc17f08ed53041c99ee1aa280eb9485e",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
       "id": "myswitzerland:a19a0fef211140bcb4d675cf19161640",
       "viaDigest": "weekend-digest-ZH-2026-11-07",
       "postedAt": "2026-11-06T16:23:20.337Z"
@@ -5336,6 +5326,40 @@
       "copyAngleIntent": "both",
       "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
       "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:a0ab6ecbf97a4ab180986727a67d93d1",
+      "url": "https://frontaliereticino.ch/eventi/nidvaldo/stans/",
+      "postId": "951226518080080_122131153773272498",
+      "postedAt": "2026-11-11T23:08:33.100Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
+    },
+    {
+      "id": "myswitzerland:9e28745c09f54d5db0fea0ae25195cb6",
+      "url": "https://frontaliereticino.ch/eventi/turgovia/arbon/",
+      "postId": "951226518080080_122131153803272498",
+      "postedAt": "2026-11-11T23:08:39.009Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-music",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
+      "copyCta": "Consulta il programma."
     }
   ]
 }

@@ -63,6 +63,7 @@
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { addressContextContract } from './lib/addressContextContract.js';
+import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { isOngoingPeriod, isoDateOf, parseEndpoint } from './lib/cvPeriod.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { civilStatusCode, civilStatusOption, civilStatusOptions, isCivilStatusField, salutationFor, salutationGenderFromName } from './lib/personalFacts.js';
@@ -1039,6 +1040,9 @@ const TOPIC_FAMILY = {
   salary_expectation: 'salary', start_date: 'start', marketing_opt_in: 'marketing', recording_consent: 'privacy',
   profile_visibility: 'privacy',
 };
+const HISTORY_AVAILABILITY_TOPICS = new Set([
+  'start_date', 'notice_period', 'preferred_workload', 'relocation', 'hybrid', 'on_call', 'other_sites', 'business_travel',
+]);
 
 /**
  * Native identifiers (a control's id or semantic name) that name a fact: the
@@ -1061,6 +1065,7 @@ function nativeIdentifiers(question) {
 export function platformQuestionTopic(question, { ownedAddressFields = null } = {}) {
   const topic = classifyPlatformTopic(question, ownedAddressFields);
   if (!topic) return null;
+  if (HISTORY_AVAILABILITY_TOPICS.has(topic) && isWorkHistoryContext(question)) return null;
   const text = label(question);
   const family = TOPIC_FAMILY[topic] || null;
   const subjects = Object.entries(SUBJECT_FAMILIES).filter(([name, re]) => name !== family && re.test(text)).map(([name]) => name);

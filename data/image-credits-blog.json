@@ -95100,6 +95100,228 @@
           "notes": "Generic synthetic editorial illustration of an illuminated urban street; no text, logos, people, or specific-event cues."
         }
       }
+    },
+    "generated:article-bad-egelsee-supplemento-sauna": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-11T22:20:54.656Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-11",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-bad-egelsee-supplemento-sauna",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "2cbef44440e86e9c3db3dede81e05416507102d0f0715ae13d75ec4d03a8ae36",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ee8049c9c30bba98725dd69fe4454f686d11f6078d7a91d6bcb7f80e2c150ac2",
+        "bytes": 86996,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-11T22:20:54.656Z",
+        "verifiedAt": "2026-11-11T22:21:06.198Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-bad-egelsee-supplemento-sauna.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic sauna and relaxation scene; no readable text, logos, identifiable faces, or foreground people."
+        }
+      }
+    },
+    "generated:article-aumento-iva-finanzia-avs": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-11T22:42:26.509Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-11",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-aumento-iva-finanzia-avs",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "0a9e8528b30011247d546b24dde335b9c9504ae1113f4b2d06e46dd759c0d481",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "175944aeaa287da2f04617245882e2d8585e15514429dea3d71c206944efff6c",
+        "bytes": 93044,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-11T22:42:26.509Z",
+        "verifiedAt": "2026-11-11T22:42:41.190Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-aumento-iva-finanzia-avs.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of voting, finances, and a Swiss lakeside setting; no people, text, logos, or event-specific documentation."
+        }
+      }
+    },
+    "generated:article-basilea-mozioni-climatizzazione": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-11T22:52:36.453Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-11",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-basilea-mozioni-climatizzazione",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f641eb89b097fee651bb276289cb739e4120b05b2229150dde9f97f584b73570",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "61c03f1a8a5517fc600d045ee4c47554f4f71d1ed457dec08ad47d9e290b22db",
+        "bytes": 172120,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-11T22:52:36.453Z",
+        "verifiedAt": "2026-11-11T22:52:50.282Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-basilea-mozioni-climatizzazione.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic modern building facade with visible air-conditioning units; no people, text, logos, or specific event."
+        }
+      }
     }
   },
   "covers": {
@@ -104380,397 +104602,397 @@
     "bollettino-frontaliere-2026-08-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-09": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-31": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-07": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-04": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-11",
+      "verifiedAt": "2026-11-12",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -136583,6 +136805,18 @@
     },
     "article-como-rinnovo-illuminazione-varese": {
       "file": "generated:article-como-rinnovo-illuminazione-varese",
+      "modified": "resized"
+    },
+    "article-bad-egelsee-supplemento-sauna": {
+      "file": "generated:article-bad-egelsee-supplemento-sauna",
+      "modified": "resized"
+    },
+    "article-aumento-iva-finanzia-avs": {
+      "file": "generated:article-aumento-iva-finanzia-avs",
+      "modified": "resized"
+    },
+    "article-basilea-mozioni-climatizzazione": {
+      "file": "generated:article-basilea-mozioni-climatizzazione",
       "modified": "resized"
     }
   }
