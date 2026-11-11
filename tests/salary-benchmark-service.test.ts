@@ -17,9 +17,15 @@ describe('salaryBenchmarkService', () => {
   it('matches role key correctly across Italian and English titles', () => {
     expect(matchRoleKey('Sviluppatore React Full-Stack')).toBe('software_engineer');
     expect(matchRoleKey('Senior Cloud & DevOps Specialist')).toBe('devops_cloud_engineer');
+    expect(matchRoleKey('System Engineer')).toBe('devops_cloud_engineer');
+    expect(matchRoleKey('Site Reliability Engineer')).toBe('devops_cloud_engineer');
     expect(matchRoleKey('Analista Finanziario & Controller')).toBe('financial_analyst');
+    expect(matchRoleKey('Compliance Officer')).toBe('financial_analyst');
     expect(matchRoleKey('Tecnico di Laboratorio Controllo Qualità')).toBe('pharma_specialist');
+    expect(matchRoleKey('Chemical Engineer')).toBe('pharma_specialist');
     expect(matchRoleKey('Ingegnere Meccanico Progettista')).toBe('mechanical_engineer');
+    expect(matchRoleKey('Mechanical Engineer')).toBe('mechanical_engineer');
+    expect(matchRoleKey('Automation Engineer')).toBe('mechanical_engineer');
     expect(matchRoleKey('Infermiera di Reparto')).toBe('nurse_healthcare');
   });
 

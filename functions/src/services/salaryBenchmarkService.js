@@ -29,19 +29,19 @@ export function matchRoleKey(roleTitle) {
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
 
-  if (/\b(cloud|devops|sre|sistemista|network|infrastruttura)\b/.test(t)) {
+  if (/\b(cloud|devops|sre|site reliability engineer|system engineer|sistemista|network|infrastruttura)\b/.test(t)) {
     return 'devops_cloud_engineer';
   }
   if (/\b(software|sviluppatore|sviluppatrice|developer|dev|programmatore|programmatrice|frontend|backend|full[- ]?stack|react|node|web|informatica|it|data engineer)\b/.test(t)) {
     return 'software_engineer';
   }
-  if (/\b(finan\w*|banc\w*|account\w*|contabil\w*|controller|credit\w*|analyst|risk|audit|wealth|tax)\b/.test(t)) {
+  if (/\b(finan\w*|banc\w*|account\w*|contabil\w*|controller|credit\w*|analyst|risk|audit|wealth|tax|compliance officer|compliance)\b/.test(t)) {
     return 'financial_analyst';
   }
-  if (/\b(pharma\w*|farmac\w*|chimic\w*|lab\w*|biotech\w*|qa|qc|regulatory|scienz\w*|controllo qualita)\b/.test(t)) {
+  if (/\b(pharma\w*|farmac\w*|chimic\w*|chemical engineer|lab\w*|biotech\w*|qa|qc|regulatory|scienz\w*|controllo qualita)\b/.test(t)) {
     return 'pharma_specialist';
   }
-  if (/\b(mecc\w*|automaz\w*|elettr\w*|industr\w*|produzion\w*|progettista|ingegner\w*|tecnic\w*|disegnatore)\b/.test(t)) {
+  if (/\b(mecc\w*|mechanical engineer|automation engineer|automaz\w*|elettr\w*|industr\w*|produzion\w*|progettista|ingegner\w*|tecnic\w*|disegnatore)\b/.test(t)) {
     return 'mechanical_engineer';
   }
   if (/\b(inferm\w*|sanit\w*|oss|medic\w*|cura|clinic\w*|terap\w*|fisioter\w*|nurse|healthcare)\b/.test(t)) {
