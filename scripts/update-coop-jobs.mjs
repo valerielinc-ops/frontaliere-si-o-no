@@ -77,6 +77,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { preferLocationEncodedCanton } from './lib/job-location-display.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -151,6 +152,11 @@ const COOP_DIVISION_FILTER_IDS = [
 
 const API_LIMIT = 500; // max jobs per request
 const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
+// Prospective's declared total counts source rows, while the same requisition
+// can overlap two pages during a mutable feed refresh. Keep the floor high
+// enough to reject a truncated/repeated feed while allowing the small overlaps
+// that the source itself emitted in the authoritative run (#18189).
+const MIN_COOP_UNIQUE_COVERAGE = 0.99;
 const DISCOVERED_COOP_HOSTS = new Set();
 
 // ──────────────────────────────────────────────────────────────
@@ -177,6 +183,11 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function coopApiSourceIdentity(job) {
+  const directLink = String(job?.links?.directlink || '').trim();
+  return directLink ? fingerprintJob({ url: directLink }) : '';
 }
 
 function detectLang(text = '') {
@@ -414,6 +425,11 @@ export async function fetchCoopJobDetailUrls(options = {}) {
   let droppedDuplicateUrl = 0;
   let droppedDuplicateIdentity = 0;
   const sourceIdentities = new Set();
+  const createProgressTracker = () => createMutableFeedPaginationTracker({
+    getIdentity: coopApiSourceIdentity,
+    source: 'Coop API',
+  });
+  let progress = createProgressTracker();
   let useCompanyFilter = true;
   let usedUnfilteredFallback = false;
 
@@ -506,11 +522,15 @@ export async function fetchCoopJobDetailUrls(options = {}) {
         droppedDuplicateUrl = 0;
         droppedDuplicateIdentity = 0;
         sourceIdentities.clear();
+        progress = createProgressTracker();
         page = -1;
         continue;
       }
-      if (apiTotal !== null && fetched < apiTotal) {
-        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before an empty page.`);
+      if (apiTotal !== null && progress.scannedRows < apiTotal) {
+        throw new Error(
+          `Coop discovery incomplete: received ${progress.scannedRows}/${apiTotal} source rows `
+          + `(${fetched} unique) before an empty page.`,
+        );
       }
       break;
     }
@@ -521,7 +541,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       if (!directLink) {
         throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
       }
-      const fingerprint = fingerprintJob({ url: directLink });
+      const fingerprint = coopApiSourceIdentity(job);
       if (!fingerprint) {
         throw new Error(`Coop discovery incomplete: page ${page + 1} contains a source row without a stable identity.`);
       }
@@ -580,30 +600,64 @@ export async function fetchCoopJobDetailUrls(options = {}) {
         + 'refusing to infer completeness from a repeated page.',
       );
     }
-    if (apiTotal !== null && fetched > apiTotal) {
-      throw new Error(`Coop discovery invariant failed: unique source records ${fetched} exceed API total ${apiTotal}.`);
+    progress.record(jobs, page + 1);
+    if (progress.uniqueCount !== fetched) {
+      throw new Error(
+        `Coop discovery invariant failed: pagination tracker counted ${progress.uniqueCount} `
+        + `unique records, crawler counted ${fetched}.`,
+      );
+    }
+    if (apiTotal !== null && progress.scannedRows > apiTotal) {
+      throw new Error(
+        `Coop discovery invariant failed: scanned source rows ${progress.scannedRows} `
+        + `exceed API total ${apiTotal}.`,
+      );
     }
 
-    console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
+    console.log(
+      `  📦 page ${page + 1}: ${jobs.length} rows `
+      + `(cumulative ${progress.scannedRows}${apiTotal !== null ? `/${apiTotal}` : ''}; `
+      + `${fetched} unique)`,
+    );
 
     // Drained the full result set.
-    if (apiTotal !== null && fetched === apiTotal) break;
+    const reachedDeclaredTotal = progress.hasReached(apiTotal);
+    const uniqueCoverageComplete = progress.hasMinimumUniqueCoverage(apiTotal, MIN_COOP_UNIQUE_COVERAGE);
+    if (reachedDeclaredTotal && uniqueCoverageComplete) break;
     if (jobs.length < API_LIMIT) {
-      if (apiTotal !== null && fetched < apiTotal) {
-        throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before a short page.`);
+      if (apiTotal !== null && progress.scannedRows < apiTotal) {
+        throw new Error(
+          `Coop discovery incomplete: received ${progress.scannedRows}/${apiTotal} source rows `
+          + `(${fetched} unique) before a short page.`,
+        );
+      }
+      if (apiTotal !== null && !uniqueCoverageComplete) {
+        throw new Error(
+          `Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records `
+          + `(${progress.scannedRows} rows; minimum unique coverage ${MIN_COOP_UNIQUE_COVERAGE}).`,
+        );
       }
       break;
     }
   }
 
   // Surface the safety-ceiling so a silent stop ≠ a fully drained feed.
-  if (apiTotal !== null && fetched < apiTotal) {
-    throw new Error(`Coop discovery incomplete: pagination stopped at ${fetched}/${apiTotal} unique source records (API_MAX_PAGES=${API_MAX_PAGES} ceiling).`);
+  if (apiTotal !== null && progress.scannedRows < apiTotal) {
+    throw new Error(
+      `Coop discovery incomplete: pagination stopped at ${progress.scannedRows}/${apiTotal} source rows `
+      + `(${fetched} unique; API_MAX_PAGES=${API_MAX_PAGES} ceiling).`,
+    );
+  }
+  if (apiTotal !== null && !progress.hasMinimumUniqueCoverage(apiTotal, MIN_COOP_UNIQUE_COVERAGE)) {
+    throw new Error(
+      `Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records `
+      + `(${progress.scannedRows} rows; minimum unique coverage ${MIN_COOP_UNIQUE_COVERAGE}).`,
+    );
   }
 
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-Coop: ${droppedNonCoop} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · scanned rows: ${progress.scannedRows} · unique source records: ${fetched} · dropped non-Coop: ${droppedNonCoop} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
@@ -615,6 +669,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     seedMetaByUrl,
     apiTotal,
     fetched,
+    scannedRows: progress.scannedRows,
     droppedNonCoop,
     droppedNonCh,
     droppedMalformedUrl,
@@ -672,6 +727,7 @@ export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl =
 export function assertCompleteCoopDiscovery(discovery) {
   const apiTotal = Number(discovery?.apiTotal);
   const fetched = Number(discovery?.fetched);
+  const scannedRows = Number(discovery?.scannedRows ?? fetched);
   const droppedNonCoop = Number(discovery?.droppedNonCoop || 0);
   const droppedNonCh = Number(discovery?.droppedNonCh);
   const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
@@ -685,8 +741,14 @@ export function assertCompleteCoopDiscovery(discovery) {
   if (typeof discovery?.apiTotal !== 'number' || !Number.isInteger(apiTotal) || apiTotal < 0) {
     throw new Error('Coop discovery invariant failed: API response did not expose a non-negative integer total.');
   }
-  if (!Number.isInteger(fetched) || fetched < 0 || fetched !== apiTotal) {
-    throw new Error(`Coop discovery incomplete: fetched ${fetched}/${apiTotal} API jobs.`);
+  if (!Number.isInteger(fetched) || fetched < 0 || !Number.isInteger(scannedRows) || scannedRows < fetched || scannedRows !== apiTotal) {
+    throw new Error(`Coop discovery incomplete: fetched ${fetched}/${apiTotal} unique records (${scannedRows}/${apiTotal} source rows).`);
+  }
+  if (apiTotal > 0 && fetched < Math.ceil(apiTotal * MIN_COOP_UNIQUE_COVERAGE)) {
+    throw new Error(
+      `Coop discovery incomplete: unique coverage ${fetched}/${apiTotal} is below `
+      + `${MIN_COOP_UNIQUE_COVERAGE}.`,
+    );
   }
   const feedFingerprints = new Set(urls.map((url) => fingerprintJob({ url })).filter(Boolean));
   const trustedHostsOnly = urls.every((url) => {
@@ -697,9 +759,10 @@ export function assertCompleteCoopDiscovery(discovery) {
     }
   });
   const droppedCounts = [droppedNonCoop, droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
-  const accountedUnique = urls.length + droppedNonCoop + droppedNonCh + droppedMalformedUrl;
+  const accountedRows = urls.length + droppedNonCoop + droppedNonCh + droppedMalformedUrl
+    + droppedDuplicateUrl + droppedDuplicateIdentity;
   if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
-      || accountedUnique !== fetched
+      || accountedRows !== scannedRows
       || apiTotals.length !== 1
       || apiTotals[0] !== apiTotal
       || (apiTotal > 0 && urls.length === 0)
@@ -707,7 +770,7 @@ export function assertCompleteCoopDiscovery(discovery) {
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-Coop=${droppedNonCoop}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, scannedRows=${scannedRows}, accountedRows=${accountedRows}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-Coop=${droppedNonCoop}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;
