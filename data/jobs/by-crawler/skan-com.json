@@ -1,7 +1,7 @@
 {
   "crawlerKey": "skan-com",
-  "assembledAt": "2026-11-11T09:51:37.353Z",
-  "runId": "42995191167",
+  "assembledAt": "2026-11-11T21:44:23.485Z",
+  "runId": "43103359344",
   "jobs": [
     {
       "id": "skan-com-4cef516fb7dd",
@@ -34,7 +34,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:51:27.647Z",
+      "crawledAt": "2026-11-11T21:44:05.406Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -54,7 +54,9 @@
       "applyUrl": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-09T09:45:12.543Z",
+      "previousSlugs": [
+        "team-lead-ict-engineering-operations-allschwil-skan-com-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "team-lead-ict-engineering-operations-allschwil-skan-com-ch"
@@ -63,9 +65,7 @@
           "team-lead-ict-engineering-operations-allschwil-skan-com-ch"
         ]
       },
-      "previousSlugs": [
-        "team-lead-ict-engineering-operations-allschwil-skan-com-ch"
-      ],
+      "firstSeenAt": "2026-11-09T09:45:12.543Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -94,7 +94,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:51:27.647Z",
+      "validThrough": "2027-02-07T21:44:05.406Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +128,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:51:27.644Z",
+      "crawledAt": "2026-11-11T21:44:05.405Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -148,7 +148,9 @@
       "applyUrl": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-09T09:45:12.539Z",
+      "previousSlugs": [
+        "senior-ict-system-engineer-technical-project-lead-m-w-d-allschwil-skan-com-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-ict-system-engineer-technical-project-lead-m-w-d-allschwil-skan-com-ch"
@@ -163,9 +165,7 @@
           "senior-ict-system-engineer-technical-project-lead-m-w-d-allschwil-skan-com-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-ict-system-engineer-technical-project-lead-m-w-d-allschwil-skan-com-ch"
-      ],
+      "firstSeenAt": "2026-11-09T09:45:12.539Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -194,107 +194,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:51:27.644Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "skan-com-cd96af5b2edd",
-      "slug": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
-      "slugByLocale": {
-        "it": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
-        "en": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-ch",
-        "de": "erfahrener-ingenieur-fur-inbetriebnahme-und-qualifizierung-inhouse-onsite-skan-ag-allschwil",
-        "fr": "ingenieur-experimente-pour-la-mise-en-service-et-la-qualification-en-interne-et-sur-site-skan-ag-allschwil"
-      },
-      "company": "SKAN AG",
-      "companyKey": "skan-com",
-      "companyDomain": "jobs.skan.com",
-      "title": "Experienced Engineer for Commissioning and Qualification (inhouse & onsite)",
-      "titleByLocale": {
-        "it": "Ingegnere esperto per la messa in servizio e la qualificazione (interno e in loco)",
-        "en": "Experienced Engineer for Commissioning and Qualification (inhouse & onsite)",
-        "de": "Erfahrener Ingenieur für Inbetriebnahme und Qualifizierung (Inhouse & Onsite)",
-        "fr": "Ingénieur expérimenté pour la mise en service et la qualification (en interne et sur site)"
-      },
-      "description": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nThe position as a Engineer for Commissioning and Qualification of our state-of-the-art machines in an international pharmaceutical environment offers you the opportunity to use your technical knowledge while continuously learning in a dynamic work setting.\nOur fantastic team as well as the SKAN Academy training program will support you in your new role. Ideally, you have a strong team spirit and also several years of experience in a technical field with international travel activities.\nAt SKAN, you will spend around 50% of your time on-site at our customer site (pharma), commissioning and qualifying our isolators. This gives you the chance to experience new cultures and actively use your language skills while working on exciting projects worldwide.\nResponsibilities\n- Commissioning of (Isolator-) systems as well as peripherals and working with common PLCs\n- Input/Output Tests (I/O-Tests) and line-Tests\n- Documentation according to cGMP\n- Installation and Operational Qualification (IQ/OQ) of (Isolator-) systems:\n- Design document checks against plant (PID-Diagram, Electrical & Pneumatic Diagram or Label lists)\n- Sensor / Instrument calibration and adjustment\n- Qualification of ventilation system (Filter test, air velocity mapping and cleanliness class)\n- Alarm testing & Functional tests\n- Documentation according to cGMP\n- Troubleshooting, Analysis and elimination of mechanical, electrical or software deviations\nHardskills\n- Engineer in the field of Mechatronics, electrical engineering, automation, systems engineering or similar\n- Basic knowledge in handling of common PLCs (mostly Siemens and Rockwell Allen-Bradley)\n- Professional experience in the field of commissioning is an advantage\n- Working in GMP environment is ideal\n- Car Driving license is a must\n- Very good English language skills are essential, knowledge of German is desirable.\nSoftskills\n- Responsible and precise way of working\n- Enjoy working in a team\n- Solution oriented and reliable\n- Strong customer and service orientation\n- strong communication skills\n- flexible and eager to learn\nWe offer you\n- An open and collaborative corporate culture\n- Freedom to contribute and develop ideas\n- Opportunities to participate in sports and social activities\n- Professional development and continuous learning opportunities, especially at our SKAN Academy\n- Comprehensive and career-focused onboarding\n- Quick decision-making paths and flat hierarchies\n- Transparent and open communication\n- 5 weeks of vacation, with the option to take additional leave\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1968, SKAN è un pioniere nell'attrezzatura da cleanroom e nello sviluppo di isolatori per l'industria farmaceutica. I prodotti innovativi, soluzioni su misura e un'efficace organizzazione di servizi hanno reso SKAN un leader di mercato e un partner chiave per i laboratori di industria e ricerca.\nPanoramica\nLa posizione di Ingegnere per la Commissione e la Qualificazione delle nostre macchine all'avanguardia in un ambiente farmaceutico internazionale ti offre l'opportunità di utilizzare le tue conoscenze tecniche mentre impari continuamente in un ambiente di lavoro dinamico.\nIl nostro team fantastico così come il programma di formazione SKAN Academy vi supporterà nel vostro nuovo ruolo. Idealmente, avete uno spirito di squadra forte e anche diversi anni di esperienza in un campo tecnico con attività di viaggio internazionali.\nA SKAN, trascorrerai circa il 50% del tuo tempo in loco presso il nostro sito clienti (Farmaco), commissionando e qualificando i nostri isolatori. Questo ti dà la possibilità di sperimentare nuove culture e utilizzare attivamente le tue competenze linguistiche mentre lavori su progetti entusiasmanti in tutto il mondo.\nresponsabilità\n- La Commissione dei sistemi (Isolator-) nonché delle periferiche e il lavoro con i PLC comuni\n- Test di input/output (I/O-Test) e line-Tests\n- Documentazione secondo cGMP\n- Installazione e qualificazione operativa (IQ/OQ) di sistemi (Isolator-):\n- Controllo del documento di progettazione contro l'impianto (PID-Diagram, elenchi di diagrammi elettrici e pneumatici)\n- Sensore / taratura e regolazione degli strumenti\n- Qualificazione del sistema di ventilazione (Filter test, mappatura della velocità dell'aria e classe di pulizia)\n- Test di allarme e test funzionali\n- Documentazione secondo cGMP\n- Risoluzione dei problemi, analisi ed eliminazione delle deviazioni meccaniche, elettriche o software\nHardskills\n- Ingegnere nel campo della Meccatronica, ingegneria elettrica, automazione, ingegneria dei sistemi o simili\n- Conoscenza di base nella gestione di PLC comuni (soprattutto Siemens e Rockwell Allen-Bradley)\n- Esperienza professionale nel campo della messa in servizio è un vantaggio\n- Lavorare in ambiente GMP è ideale\n- Auto patente di guida è un must\n- Molto buone abilità di lingua inglese e tedesca sono essenziali. Il requisito minimo per il tedesco è un livello B1.2 completato o B2 (preferito)\nSoftskills\n- Modo di lavoro responsabile e preciso\n- Godetevi il lavoro in una squadra\n- Soluzione orientata e affidabile\n- Forte orientamento al cliente e al servizio\n- competenze di comunicazione forti\n- flessibile e desideroso di imparare\nVi offriamo\n- Una cultura aziendale aperta e collaborativa\n- Libertà di contribuire e sviluppare idee\n- Opportunità di partecipare alle attività sportive e sociali\n- Sviluppo professionale e opportunità di apprendimento continuo, soprattutto presso la nostra SKAN Academy\n- Integrato e orientato alla carriera a bordo\n- Rapidi percorsi decisionali e gerarchie piatte\n- Comunicazione trasparente e aperta\n- 5 settimane di vacanza, con la possibilità di prendere congedo supplementare\nUlteriori informazioni\nNon vediamo l'ora di ricevere i vostri documenti applicativi completi (CV, diplomi e riferimenti di lavoro) attraverso la nostra pagina di carriera.\nPer questa posizione, ci concentriamo sulle applicazioni dirette e non stiamo lavorando con le agenzie esterne. Eventuali dossier presentati dalle agenzie non saranno trattati.\nPer domande si prega di contattare Viviane Braxton.",
-        "en": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nThe position as a Engineer for Commissioning and Qualification of our state-of-the-art machines in an international pharmaceutical environment offers you the opportunity to use your technical knowledge while continuously learning in a dynamic work setting.\nOur fantastic team as well as the SKAN Academy training program will support you in your new role. Ideally, you have a strong team spirit and also several years of experience in a technical field with international travel activities.\nAt SKAN, you will spend around 50% of your time on-site at our customer site (pharma), commissioning and qualifying our isolators. This gives you the chance to experience new cultures and actively use your language skills while working on exciting projects worldwide.\nResponsibilities\n- Commissioning of (Isolator-) systems as well as peripherals and working with common PLCs\n- Input/Output Tests (I/O-Tests) and line-Tests\n- Documentation according to cGMP\n- Installation and Operational Qualification (IQ/OQ) of (Isolator-) systems:\n- Design document checks against plant (PID-Diagram, Electrical & Pneumatic Diagram or Label lists)\n- Sensor / Instrument calibration and adjustment\n- Qualification of ventilation system (Filter test, air velocity mapping and cleanliness class)\n- Alarm testing & Functional tests\n- Documentation according to cGMP\n- Troubleshooting, Analysis and elimination of mechanical, electrical or software deviations\nHardskills\n- Engineer in the field of Mechatronics, electrical engineering, automation, systems engineering or similar\n- Basic knowledge in handling of common PLCs (mostly Siemens and Rockwell Allen-Bradley)\n- Professional experience in the field of commissioning is an advantage\n- Working in GMP environment is ideal\n- Car Driving license is a must\n- Very good English language skills are essential, knowledge of German is desirable.\nSoftskills\n- Responsible and precise way of working\n- Enjoy working in a team\n- Solution oriented and reliable\n- Strong customer and service orientation\n- strong communication skills\n- flexible and eager to learn\nWe offer you\n- An open and collaborative corporate culture\n- Freedom to contribute and develop ideas\n- Opportunities to participate in sports and social activities\n- Professional development and continuous learning opportunities, especially at our SKAN Academy\n- Comprehensive and career-focused onboarding\n- Quick decision-making paths and flat hierarchies\n- Transparent and open communication\n- 5 weeks of vacation, with the option to take additional leave\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
-        "de": "SKAN wurde 1968 gegründet und ist ein Pionier in der Reinraumausstattung und der Entwicklung von Isolatoren für die Pharmaindustrie. Innovative Produkte, maßgeschneiderte Lösungen und eine effektive Serviceorganisation haben SKAN zum Marktführer und wichtigen Partner für Industrie und Forschungslabore gemacht.\nÜbersicht\nDie Position als Ingenieur für Inbetriebnahme und Qualifizierung unserer hochmodernen Maschinen in einem internationalen pharmazeutischen Umfeld bietet Ihnen die Möglichkeit, Ihr technisches Wissen zu nutzen und in einem dynamischen Arbeitsumfeld kontinuierlich zu lernen.\nUnser fantastisches Team sowie das Schulungsprogramm der SKAN Academy unterstützen Sie in Ihrer neuen Rolle. Idealerweise haben Sie einen starken Teamgeist und auch mehrere Jahre Erfahrung in einem technischen Bereich mit internationalen Reiseaktivitäten.\nBei SKAN verbringen Sie rund 50% Ihrer Zeit vor Ort bei unserem Kunden (Pharma), beauftragen und qualifizieren unsere Isolatoren. Dies gibt Ihnen die Möglichkeit, neue Kulturen zu erleben und Ihre Sprachkenntnisse aktiv einzusetzen, während Sie an spannenden Projekten weltweit arbeiten.\nZuständigkeiten\n- Inbetriebnahme von (Isolator-)Systemen sowie Peripheriegeräten und Arbeiten mit gängigen SPS\n- Input/Output Tests (I/O-Tests) und Line-Tests\n- Dokumentation nach cGMP\n- Einbau- und Betriebsqualifikation (IQ/OQ) von (Isolator-)Systemen:\n- Prüfung des Entwurfsdokuments mit der Anlage (PID-Diagramm, elektrisches & pneumatisches Diagramm oder Etikettenlisten)\n- Sensor / Instrumentenkalibrierung und -anpassung\n- Qualifikation des Lüftungssystems (Filterprüfung, Luftgeschwindigkeitsmessung und Reinheitsklasse)\n- Alarmprüfung & Funktionstests\n- Dokumentation nach cGMP\n- Fehlersuche, Analyse und Beseitigung mechanischer, elektrischer oder Softwareabweichungen\nHardskills\n- Ingenieur im Bereich Mechatronik, Elektrotechnik, Automatisierung, Systemtechnik oder ähnliches\n- Grundkenntnisse im Umgang mit gängigen SPSs (meist Siemens und Rockwell Allen-Bradley)\n- Berufserfahrung im Bereich der Inbetriebnahme ist von Vorteil\n- Arbeiten im GMP-Umfeld ist ideal\n- Autoführerschein ist ein Muss\n- Sehr gute Englisch- und Deutschkenntnisse sind unerlässlich. Die Mindestanforderung für Deutsch ist ein abgeschlossenes Level B1.2 oder B2 (bevorzugt)\nSoftskills\n- Verantwortungsvolle und präzise Arbeitsweise\n- Genießen Sie die Arbeit in einem Team\n- Lösungsorientiert und zuverlässig\n- Starke Kunden- und Serviceorientierung\n- starke Kommunikationsfähigkeit\n- flexibel und lernbegierig\nWir bieten Ihnen\n- Eine offene und kollaborative Unternehmenskultur\n- Freiheit, Ideen einzubringen und zu entwickeln\n- Möglichkeiten zur Teilnahme an sportlichen und sozialen Aktivitäten\n- Berufliche Weiterentwicklung und kontinuierliche Lernmöglichkeiten, insbesondere an unserer SKAN Academy\n- Umfassendes und karriereorientiertes Onboarding\n- Schnelle Entscheidungswege und flache Hierarchien\n- Transparente und offene Kommunikation\n- 5 Wochen Urlaub, mit der Option, zusätzlichen Urlaub zu nehmen\nZusätzliche Angaben\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen (Lebenslauf, Diplome und Arbeitsbezüge) über unsere Karriereseite.\nFür diese Position konzentrieren wir uns auf direkte Anwendungen und arbeiten nicht mit externen Agenturen zusammen. Von Agenturen eingereichte Dossiers werden nicht bearbeitet.\nBei Fragen wenden Sie sich bitte an Viviane Braxton.",
-        "fr": "Fondé en 1968, SKAN est un pionnier dans les équipements propres et le développement d'isoleurs pour l'industrie pharmaceutique. Des produits innovants, des solutions sur mesure et une organisation de services efficace ont fait de SKAN un leader du marché et un partenaire clé de l'industrie et des laboratoires de recherche.\nAperçu général\nLe poste d'ingénieur pour la mise en service et la qualification de nos machines de pointe dans un environnement pharmaceutique international vous offre la possibilité d'utiliser vos connaissances techniques tout en apprenant continuellement dans un cadre de travail dynamique.\nNotre équipe fantastique ainsi que le programme de formation SKAN Academy vous accompagneront dans votre nouveau rôle. Idéalement, vous avez un esprit d'équipe fort et aussi plusieurs années d'expérience dans un domaine technique avec des activités de voyage international.\nChez SKAN, vous passerez environ 50 % de votre temps sur place sur notre site client (pharma), en mise en service et en qualification de nos isolants. Cela vous donne la chance de découvrir de nouvelles cultures et d'utiliser activement vos compétences linguistiques tout en travaillant sur des projets passionnants dans le monde entier.\nResponsabilités\n- Mise en service de systèmes (isolants) ainsi que de périphériques et collaboration avec des CPL communs\n- Essais d'entrée/sortie (essais d'entrée/sortie) et essais en ligne\n- Documentation selon cGMP\n- Installation et qualification opérationnelle (IQ/OQ) de systèmes (Isolator-) :\n- Contrôle des documents de conception par rapport à l'usine (Diagramme PID, diagramme électrique et pneumatique ou listes d'étiquettes)\n- Étalonnage et réglage du capteur/instrument\n- Qualification du système de ventilation (essai de filtres, cartographie de la vitesse de l'air et classe de propreté)\n- Essais d'alarme et essais fonctionnels\n- Documentation selon cGMP\n- Dépannage, analyse et élimination des écarts mécaniques, électriques ou logiciels\nCrèches\n- Ingénieur dans le domaine de la mécatronique, du génie électrique, de l'automatisation, de l'ingénierie de systèmes ou assimilé\n- Connaissances de base dans le traitement des PLC communs (principalement Siemens et Rockwell Allen-Bradley)\n- L'expérience professionnelle dans le domaine de la mise en service est un avantage\n- Travailler dans l'environnement des BPF est idéal\n- Voiture Le permis de conduire est un must\n- De très bonnes compétences en anglais et en allemand sont essentielles. L'exigence minimale pour l'allemand est un niveau B1.2 ou B2 rempli (préféré)\nCompétences diverses\n- Mode de travail responsable et précis\n- Profitez de travailler en équipe\n- Solution orientée et fiable\n- Une forte orientation client et service\n- de bonnes compétences en communication\n- flexible et impatient d'apprendre\nNous vous offrons\n- Une culture d'entreprise ouverte et collaborative\n- Liberté de contribuer et de développer des idées\n- Possibilités de participer aux activités sportives et sociales\n- Développement professionnel et possibilités d'apprentissage continu, en particulier à notre Académie SKAN\n- Compréhension et orientation professionnelle\n- Voies de décision rapides et hiérarchies plates\n- Communication transparente et ouverte\n- 5 semaines de vacances, avec possibilité de prendre des congés supplémentaires\nInformations complémentaires\nNous sommes impatients de recevoir vos documents de candidature complets (CV, diplômes et références professionnelles) via notre page carrière.\nPour cette position, nous nous concentrons sur les applications directes et ne travaillons pas avec des organismes externes. Les dossiers soumis par les agences ne seront pas traités.\nPour toute question, veuillez contacter Viviane Braxton."
-      },
-      "location": "Allschwil",
-      "canton": "BL",
-      "url": "https://jobs.skan.com/job/allschwil-experienced-engineer-for-commissioning-and-qualification-%28inhouse-&-onsite%29/1369905757",
-      "source": "SKAN AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:51:27.642Z",
-      "addressLocality": "Allschwil",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4123",
-      "streetAddress": "Kreuzstrasse 5",
-      "category": "Ingegneria",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.skan.com/job/allschwil-experienced-engineer-for-commissioning-and-qualification-%28inhouse-&-onsite%29/1369905757",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-09T09:45:12.534Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
-        ],
-        "en": [
-          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
-        ],
-        "de": [
-          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
-        ],
-        "fr": [
-          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
-        ]
-      },
-      "previousSlugs": [
-        "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "SKAN AG",
-        "streetAddress": "Kreuzstrasse 5",
-        "postalCode": "4123",
-        "registeredName": "Skan AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "4123",
-        "addressLocality": "Allschwil",
-        "addressRegion": "BL",
-        "checkedAt": "2026-11-09T15:43:20.118Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:51:27.642Z",
+      "validThrough": "2027-02-07T21:44:05.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -328,7 +228,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:51:27.642Z",
+      "crawledAt": "2026-11-11T21:44:05.395Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -348,7 +248,9 @@
       "applyUrl": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-09T09:45:12.537Z",
+      "previousSlugs": [
+        "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
@@ -363,9 +265,7 @@
           "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenticeship-in-2027-automation-engineer-efz-allschwil-skan-com-ch"
-      ],
+      "firstSeenAt": "2026-11-09T09:45:12.537Z",
       "salaryMin": 50000,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -394,7 +294,107 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:51:27.642Z",
+      "validThrough": "2027-02-07T21:44:05.395Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "skan-com-cd96af5b2edd",
+      "slug": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
+      "slugByLocale": {
+        "it": "ingegnere-esperto-per-la-messa-in-servizio-e-la-qualificazione-interno-e-in-loco-skan-ag-allschwil",
+        "en": "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-ch",
+        "de": "erfahrener-ingenieur-fur-inbetriebnahme-und-qualifizierung-inhouse-onsite-skan-ag-allschwil",
+        "fr": "ingenieur-experimente-pour-la-mise-en-service-et-la-qualification-en-interne-et-sur-site-skan-ag-allschwil"
+      },
+      "company": "SKAN AG",
+      "companyKey": "skan-com",
+      "companyDomain": "jobs.skan.com",
+      "title": "Experienced Engineer for Commissioning and Qualification (inhouse & onsite)",
+      "titleByLocale": {
+        "it": "Ingegnere esperto per la messa in servizio e la qualificazione (interno e in loco)",
+        "en": "Experienced Engineer for Commissioning and Qualification (inhouse & onsite)",
+        "de": "Erfahrener Ingenieur für Inbetriebnahme und Qualifizierung (Inhouse & Onsite)",
+        "fr": "Ingénieur expérimenté pour la mise en service et la qualification (en interne et sur site)"
+      },
+      "description": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nThe position as a Engineer for Commissioning and Qualification of our state-of-the-art machines in an international pharmaceutical environment offers you the opportunity to use your technical knowledge while continuously learning in a dynamic work setting.\nOur fantastic team as well as the SKAN Academy training program will support you in your new role. Ideally, you have a strong team spirit and also several years of experience in a technical field with international travel activities.\nAt SKAN, you will spend around 50% of your time on-site at our customer site (pharma), commissioning and qualifying our isolators. This gives you the chance to experience new cultures and actively use your language skills while working on exciting projects worldwide.\nResponsibilities\n- Commissioning of (Isolator-) systems as well as peripherals and working with common PLCs\n- Input/Output Tests (I/O-Tests) and line-Tests\n- Documentation according to cGMP\n- Installation and Operational Qualification (IQ/OQ) of (Isolator-) systems:\n- Design document checks against plant (PID-Diagram, Electrical & Pneumatic Diagram or Label lists)\n- Sensor / Instrument calibration and adjustment\n- Qualification of ventilation system (Filter test, air velocity mapping and cleanliness class)\n- Alarm testing & Functional tests\n- Documentation according to cGMP\n- Troubleshooting, Analysis and elimination of mechanical, electrical or software deviations\nHardskills\n- Engineer in the field of Mechatronics, electrical engineering, automation, systems engineering or similar\n- Basic knowledge in handling of common PLCs (mostly Siemens and Rockwell Allen-Bradley)\n- Professional experience in the field of commissioning is an advantage\n- Working in GMP environment is ideal\n- Car Driving license is a must\n- Very good English language skills are essential, knowledge of German is desirable.\nSoftskills\n- Responsible and precise way of working\n- Enjoy working in a team\n- Solution oriented and reliable\n- Strong customer and service orientation\n- strong communication skills\n- flexible and eager to learn\nWe offer you\n- An open and collaborative corporate culture\n- Freedom to contribute and develop ideas\n- Opportunities to participate in sports and social activities\n- Professional development and continuous learning opportunities, especially at our SKAN Academy\n- Comprehensive and career-focused onboarding\n- Quick decision-making paths and flat hierarchies\n- Transparent and open communication\n- 5 weeks of vacation, with the option to take additional leave\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1968, SKAN è un pioniere nell'attrezzatura da cleanroom e nello sviluppo di isolatori per l'industria farmaceutica. I prodotti innovativi, soluzioni su misura e un'efficace organizzazione di servizi hanno reso SKAN un leader di mercato e un partner chiave per i laboratori di industria e ricerca.\nPanoramica\nLa posizione di Ingegnere per la Commissione e la Qualificazione delle nostre macchine all'avanguardia in un ambiente farmaceutico internazionale ti offre l'opportunità di utilizzare le tue conoscenze tecniche mentre impari continuamente in un ambiente di lavoro dinamico.\nIl nostro team fantastico così come il programma di formazione SKAN Academy vi supporterà nel vostro nuovo ruolo. Idealmente, avete uno spirito di squadra forte e anche diversi anni di esperienza in un campo tecnico con attività di viaggio internazionali.\nA SKAN, trascorrerai circa il 50% del tuo tempo in loco presso il nostro sito clienti (Farmaco), commissionando e qualificando i nostri isolatori. Questo ti dà la possibilità di sperimentare nuove culture e utilizzare attivamente le tue competenze linguistiche mentre lavori su progetti entusiasmanti in tutto il mondo.\nresponsabilità\n- La Commissione dei sistemi (Isolator-) nonché delle periferiche e il lavoro con i PLC comuni\n- Test di input/output (I/O-Test) e line-Tests\n- Documentazione secondo cGMP\n- Installazione e qualificazione operativa (IQ/OQ) di sistemi (Isolator-):\n- Controllo del documento di progettazione contro l'impianto (PID-Diagram, elenchi di diagrammi elettrici e pneumatici)\n- Sensore / taratura e regolazione degli strumenti\n- Qualificazione del sistema di ventilazione (Filter test, mappatura della velocità dell'aria e classe di pulizia)\n- Test di allarme e test funzionali\n- Documentazione secondo cGMP\n- Risoluzione dei problemi, analisi ed eliminazione delle deviazioni meccaniche, elettriche o software\nHardskills\n- Ingegnere nel campo della Meccatronica, ingegneria elettrica, automazione, ingegneria dei sistemi o simili\n- Conoscenza di base nella gestione di PLC comuni (soprattutto Siemens e Rockwell Allen-Bradley)\n- Esperienza professionale nel campo della messa in servizio è un vantaggio\n- Lavorare in ambiente GMP è ideale\n- Auto patente di guida è un must\n- Molto buone abilità di lingua inglese e tedesca sono essenziali. Il requisito minimo per il tedesco è un livello B1.2 completato o B2 (preferito)\nSoftskills\n- Modo di lavoro responsabile e preciso\n- Godetevi il lavoro in una squadra\n- Soluzione orientata e affidabile\n- Forte orientamento al cliente e al servizio\n- competenze di comunicazione forti\n- flessibile e desideroso di imparare\nVi offriamo\n- Una cultura aziendale aperta e collaborativa\n- Libertà di contribuire e sviluppare idee\n- Opportunità di partecipare alle attività sportive e sociali\n- Sviluppo professionale e opportunità di apprendimento continuo, soprattutto presso la nostra SKAN Academy\n- Integrato e orientato alla carriera a bordo\n- Rapidi percorsi decisionali e gerarchie piatte\n- Comunicazione trasparente e aperta\n- 5 settimane di vacanza, con la possibilità di prendere congedo supplementare\nUlteriori informazioni\nNon vediamo l'ora di ricevere i vostri documenti applicativi completi (CV, diplomi e riferimenti di lavoro) attraverso la nostra pagina di carriera.\nPer questa posizione, ci concentriamo sulle applicazioni dirette e non stiamo lavorando con le agenzie esterne. Eventuali dossier presentati dalle agenzie non saranno trattati.\nPer domande si prega di contattare Viviane Braxton.",
+        "en": "Founded in 1968, SKAN is a pioneer in cleanroom equipment and the development of isolators for the pharmaceutical industry. Innovative products, tailor-made solutions and an effective service organization have made SKAN a market leader and a key partner to industry and research laboratories.\nOverview\nThe position as a Engineer for Commissioning and Qualification of our state-of-the-art machines in an international pharmaceutical environment offers you the opportunity to use your technical knowledge while continuously learning in a dynamic work setting.\nOur fantastic team as well as the SKAN Academy training program will support you in your new role. Ideally, you have a strong team spirit and also several years of experience in a technical field with international travel activities.\nAt SKAN, you will spend around 50% of your time on-site at our customer site (pharma), commissioning and qualifying our isolators. This gives you the chance to experience new cultures and actively use your language skills while working on exciting projects worldwide.\nResponsibilities\n- Commissioning of (Isolator-) systems as well as peripherals and working with common PLCs\n- Input/Output Tests (I/O-Tests) and line-Tests\n- Documentation according to cGMP\n- Installation and Operational Qualification (IQ/OQ) of (Isolator-) systems:\n- Design document checks against plant (PID-Diagram, Electrical & Pneumatic Diagram or Label lists)\n- Sensor / Instrument calibration and adjustment\n- Qualification of ventilation system (Filter test, air velocity mapping and cleanliness class)\n- Alarm testing & Functional tests\n- Documentation according to cGMP\n- Troubleshooting, Analysis and elimination of mechanical, electrical or software deviations\nHardskills\n- Engineer in the field of Mechatronics, electrical engineering, automation, systems engineering or similar\n- Basic knowledge in handling of common PLCs (mostly Siemens and Rockwell Allen-Bradley)\n- Professional experience in the field of commissioning is an advantage\n- Working in GMP environment is ideal\n- Car Driving license is a must\n- Very good English language skills are essential, knowledge of German is desirable.\nSoftskills\n- Responsible and precise way of working\n- Enjoy working in a team\n- Solution oriented and reliable\n- Strong customer and service orientation\n- strong communication skills\n- flexible and eager to learn\nWe offer you\n- An open and collaborative corporate culture\n- Freedom to contribute and develop ideas\n- Opportunities to participate in sports and social activities\n- Professional development and continuous learning opportunities, especially at our SKAN Academy\n- Comprehensive and career-focused onboarding\n- Quick decision-making paths and flat hierarchies\n- Transparent and open communication\n- 5 weeks of vacation, with the option to take additional leave\nAdditional information\nWe look forward to receiving your complete application documents (CV, diplomas and employment references) via our career page.\nFor this position, we are focusing on direct applications and are not working with external agencies. Any dossiers submitted by agencies will not be processed.\nFor questions please contact Viviane Braxton.",
+        "de": "SKAN wurde 1968 gegründet und ist ein Pionier in der Reinraumausstattung und der Entwicklung von Isolatoren für die Pharmaindustrie. Innovative Produkte, maßgeschneiderte Lösungen und eine effektive Serviceorganisation haben SKAN zum Marktführer und wichtigen Partner für Industrie und Forschungslabore gemacht.\nÜbersicht\nDie Position als Ingenieur für Inbetriebnahme und Qualifizierung unserer hochmodernen Maschinen in einem internationalen pharmazeutischen Umfeld bietet Ihnen die Möglichkeit, Ihr technisches Wissen zu nutzen und in einem dynamischen Arbeitsumfeld kontinuierlich zu lernen.\nUnser fantastisches Team sowie das Schulungsprogramm der SKAN Academy unterstützen Sie in Ihrer neuen Rolle. Idealerweise haben Sie einen starken Teamgeist und auch mehrere Jahre Erfahrung in einem technischen Bereich mit internationalen Reiseaktivitäten.\nBei SKAN verbringen Sie rund 50% Ihrer Zeit vor Ort bei unserem Kunden (Pharma), beauftragen und qualifizieren unsere Isolatoren. Dies gibt Ihnen die Möglichkeit, neue Kulturen zu erleben und Ihre Sprachkenntnisse aktiv einzusetzen, während Sie an spannenden Projekten weltweit arbeiten.\nZuständigkeiten\n- Inbetriebnahme von (Isolator-)Systemen sowie Peripheriegeräten und Arbeiten mit gängigen SPS\n- Input/Output Tests (I/O-Tests) und Line-Tests\n- Dokumentation nach cGMP\n- Einbau- und Betriebsqualifikation (IQ/OQ) von (Isolator-)Systemen:\n- Prüfung des Entwurfsdokuments mit der Anlage (PID-Diagramm, elektrisches & pneumatisches Diagramm oder Etikettenlisten)\n- Sensor / Instrumentenkalibrierung und -anpassung\n- Qualifikation des Lüftungssystems (Filterprüfung, Luftgeschwindigkeitsmessung und Reinheitsklasse)\n- Alarmprüfung & Funktionstests\n- Dokumentation nach cGMP\n- Fehlersuche, Analyse und Beseitigung mechanischer, elektrischer oder Softwareabweichungen\nHardskills\n- Ingenieur im Bereich Mechatronik, Elektrotechnik, Automatisierung, Systemtechnik oder ähnliches\n- Grundkenntnisse im Umgang mit gängigen SPSs (meist Siemens und Rockwell Allen-Bradley)\n- Berufserfahrung im Bereich der Inbetriebnahme ist von Vorteil\n- Arbeiten im GMP-Umfeld ist ideal\n- Autoführerschein ist ein Muss\n- Sehr gute Englisch- und Deutschkenntnisse sind unerlässlich. Die Mindestanforderung für Deutsch ist ein abgeschlossenes Level B1.2 oder B2 (bevorzugt)\nSoftskills\n- Verantwortungsvolle und präzise Arbeitsweise\n- Genießen Sie die Arbeit in einem Team\n- Lösungsorientiert und zuverlässig\n- Starke Kunden- und Serviceorientierung\n- starke Kommunikationsfähigkeit\n- flexibel und lernbegierig\nWir bieten Ihnen\n- Eine offene und kollaborative Unternehmenskultur\n- Freiheit, Ideen einzubringen und zu entwickeln\n- Möglichkeiten zur Teilnahme an sportlichen und sozialen Aktivitäten\n- Berufliche Weiterentwicklung und kontinuierliche Lernmöglichkeiten, insbesondere an unserer SKAN Academy\n- Umfassendes und karriereorientiertes Onboarding\n- Schnelle Entscheidungswege und flache Hierarchien\n- Transparente und offene Kommunikation\n- 5 Wochen Urlaub, mit der Option, zusätzlichen Urlaub zu nehmen\nZusätzliche Angaben\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen (Lebenslauf, Diplome und Arbeitsbezüge) über unsere Karriereseite.\nFür diese Position konzentrieren wir uns auf direkte Anwendungen und arbeiten nicht mit externen Agenturen zusammen. Von Agenturen eingereichte Dossiers werden nicht bearbeitet.\nBei Fragen wenden Sie sich bitte an Viviane Braxton.",
+        "fr": "Fondé en 1968, SKAN est un pionnier dans les équipements propres et le développement d'isoleurs pour l'industrie pharmaceutique. Des produits innovants, des solutions sur mesure et une organisation de services efficace ont fait de SKAN un leader du marché et un partenaire clé de l'industrie et des laboratoires de recherche.\nAperçu général\nLe poste d'ingénieur pour la mise en service et la qualification de nos machines de pointe dans un environnement pharmaceutique international vous offre la possibilité d'utiliser vos connaissances techniques tout en apprenant continuellement dans un cadre de travail dynamique.\nNotre équipe fantastique ainsi que le programme de formation SKAN Academy vous accompagneront dans votre nouveau rôle. Idéalement, vous avez un esprit d'équipe fort et aussi plusieurs années d'expérience dans un domaine technique avec des activités de voyage international.\nChez SKAN, vous passerez environ 50 % de votre temps sur place sur notre site client (pharma), en mise en service et en qualification de nos isolants. Cela vous donne la chance de découvrir de nouvelles cultures et d'utiliser activement vos compétences linguistiques tout en travaillant sur des projets passionnants dans le monde entier.\nResponsabilités\n- Mise en service de systèmes (isolants) ainsi que de périphériques et collaboration avec des CPL communs\n- Essais d'entrée/sortie (essais d'entrée/sortie) et essais en ligne\n- Documentation selon cGMP\n- Installation et qualification opérationnelle (IQ/OQ) de systèmes (Isolator-) :\n- Contrôle des documents de conception par rapport à l'usine (Diagramme PID, diagramme électrique et pneumatique ou listes d'étiquettes)\n- Étalonnage et réglage du capteur/instrument\n- Qualification du système de ventilation (essai de filtres, cartographie de la vitesse de l'air et classe de propreté)\n- Essais d'alarme et essais fonctionnels\n- Documentation selon cGMP\n- Dépannage, analyse et élimination des écarts mécaniques, électriques ou logiciels\nCrèches\n- Ingénieur dans le domaine de la mécatronique, du génie électrique, de l'automatisation, de l'ingénierie de systèmes ou assimilé\n- Connaissances de base dans le traitement des PLC communs (principalement Siemens et Rockwell Allen-Bradley)\n- L'expérience professionnelle dans le domaine de la mise en service est un avantage\n- Travailler dans l'environnement des BPF est idéal\n- Voiture Le permis de conduire est un must\n- De très bonnes compétences en anglais et en allemand sont essentielles. L'exigence minimale pour l'allemand est un niveau B1.2 ou B2 rempli (préféré)\nCompétences diverses\n- Mode de travail responsable et précis\n- Profitez de travailler en équipe\n- Solution orientée et fiable\n- Une forte orientation client et service\n- de bonnes compétences en communication\n- flexible et impatient d'apprendre\nNous vous offrons\n- Une culture d'entreprise ouverte et collaborative\n- Liberté de contribuer et de développer des idées\n- Possibilités de participer aux activités sportives et sociales\n- Développement professionnel et possibilités d'apprentissage continu, en particulier à notre Académie SKAN\n- Compréhension et orientation professionnelle\n- Voies de décision rapides et hiérarchies plates\n- Communication transparente et ouverte\n- 5 semaines de vacances, avec possibilité de prendre des congés supplémentaires\nInformations complémentaires\nNous sommes impatients de recevoir vos documents de candidature complets (CV, diplômes et références professionnelles) via notre page carrière.\nPour cette position, nous nous concentrons sur les applications directes et ne travaillons pas avec des organismes externes. Les dossiers soumis par les agences ne seront pas traités.\nPour toute question, veuillez contacter Viviane Braxton."
+      },
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/allschwil-experienced-engineer-for-commissioning-and-qualification-%28inhouse-&-onsite%29/1369905757",
+      "source": "SKAN AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-11T21:44:05.390Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4123",
+      "streetAddress": "Kreuzstrasse 5",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/allschwil-experienced-engineer-for-commissioning-and-qualification-%28inhouse-&-onsite%29/1369905757",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ],
+        "en": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ],
+        "de": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ],
+        "fr": [
+          "experienced-engineer-for-commissioning-and-qualification-inhouse-onsite-allschwil-skan-com"
+        ]
+      },
+      "firstSeenAt": "2026-11-09T09:45:12.534Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-07T21:44:05.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -428,7 +428,7 @@
       "url": "https://jobs.skan.com/job/allschwil-commissioning-&-qualification-engineer-%28inhouse-&-onsite%29/1369906157",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:51:27.640Z",
+      "crawledAt": "2026-11-11T21:44:05.384Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -448,8 +448,9 @@
       "applyUrl": "https://jobs.skan.com/job/allschwil-commissioning-&-qualification-engineer-%28inhouse-&-onsite%29/1369906157",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-09T09:45:12.536Z",
+      "previousSlugs": [
+        "commissioning-qualification-engineer-inhouse-onsite-allschwil-skan-com-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "commissioning-qualification-engineer-inhouse-onsite-allschwil-skan-com-ch"
@@ -464,9 +465,8 @@
           "commissioning-qualification-engineer-inhouse-onsite-allschwil-skan-com-ch"
         ]
       },
-      "previousSlugs": [
-        "commissioning-qualification-engineer-inhouse-onsite-allschwil-skan-com-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-09T09:45:12.536Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -495,7 +495,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T09:51:27.640Z",
+      "validThrough": "2027-02-07T21:44:05.384Z",
       "validThroughSource": "last-observed-window"
     }
   ]
