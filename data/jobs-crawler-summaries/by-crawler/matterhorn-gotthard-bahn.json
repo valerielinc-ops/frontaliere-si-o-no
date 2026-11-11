@@ -1,7 +1,7 @@
 {
   "key": "matterhorn-gotthard-bahn",
   "label": "Matterhorn Gotthard Bahn",
-  "generatedAt": "2026-11-10T09:40:49.977Z",
+  "generatedAt": "2026-11-10T21:53:04.103Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 9490,
-  "avgDurationMs": 9490,
+  "durationMs": 9739,
+  "avgDurationMs": 9739,
   "durationHistory": [
-    9490
+    9739
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j732.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:37.361Z",
+      "crawledAt": "2026-11-10T21:52:52.620Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,7 +53,7 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-30T00:00:00.000Z",
+      "validThrough": "2026-11-30T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-f732.html",
       "_mgbMeta": {
         "rexxId": "732",
@@ -86,7 +86,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-mwd-de-j728.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:36.331Z",
+      "crawledAt": "2026-11-10T21:52:51.601Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -102,7 +102,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-30T00:00:00.000Z",
+      "validThrough": "2026-11-30T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-mwd-de-f728.html",
       "_mgbMeta": {
         "rexxId": "728",
@@ -136,7 +136,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-j706.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:35.435Z",
+      "crawledAt": "2026-11-10T21:52:50.717Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,7 +152,7 @@
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
-      "validThrough": "2027-02-02T09:40:35.435Z",
+      "validThrough": "2026-11-10T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-f706.html",
       "_mgbMeta": {
         "rexxId": "706",
@@ -165,7 +165,7 @@
       "salarySource": "estimated",
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window",
+      "validThroughSource": "source",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,7 +186,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Kundenservice-Autoverlad-50-100-mwd-de-j736.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:34.376Z",
+      "crawledAt": "2026-11-10T21:52:49.700Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,7 +202,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24T00:00:00.000Z",
+      "validThrough": "2026-11-24T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Mitarbeiter-Kundenservice-Autoverlad-50-100-mwd-de-f736.html",
       "_mgbMeta": {
         "rexxId": "736",
@@ -236,7 +236,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Intervention-Autoverlad-50-100-mwd-de-j735.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:33.466Z",
+      "crawledAt": "2026-11-10T21:52:48.779Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -252,7 +252,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24T00:00:00.000Z",
+      "validThrough": "2026-11-24T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Mitarbeiter-Intervention-Autoverlad-50-100-mwd-de-f735.html",
       "_mgbMeta": {
         "rexxId": "735",
@@ -286,7 +286,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:40:32.547Z",
+      "crawledAt": "2026-11-10T21:52:47.868Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,7 +302,7 @@
       "datePosted": "2026-11-02",
       "postedDate": "2026-11-02",
       "postingDateSource": "reported",
-      "validThrough": "2026-12-02T00:00:00.000Z",
+      "validThrough": "2026-12-02T23:59:59.999Z",
       "applyUrl": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-f624.html",
       "_mgbMeta": {
         "rexxId": "624",
@@ -325,5 +325,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }

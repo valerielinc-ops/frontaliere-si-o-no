@@ -13698,6 +13698,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tredicesima-avs-pensionati-italia.title': '13. AVS für italienische Rentner ab Dezember 2026',
     'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'Ein Rentner, der Grenzgänger war, im schweizerischen Vorsorgesystem eingeschrieben ist und eine volle AHV-Rente von 2’520 Franken pro Monat bezieht, erhält den gleichen Betrag als 13. Monatslohn.',
     'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.frontalieri-svizzera-calo-ticino.title': 'Grenzgänger: Zunahme in der Schweiz, jährlicher Rückgang im Tessin',
+    'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'Im dritten Quartal weist die Statistik zu den Grenzgängern einen deutlichen Gegensatz zwischen der Situation auf Bundesebene und jener im Kanton Tessin aus.',
+    'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

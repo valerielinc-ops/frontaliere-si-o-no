@@ -26,7 +26,9 @@ export const PHASE_TIMING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const JOB_OG_IMAGES_PHASE = 'job-og-images:closeBundle';
 
 const PHASE_RE = /^\[phase-timing\]\s+(\S+)\s+(\d+(?:\.\d+)?)ms\s+calls=\d+\s*$/u;
-const JOB_OG_STATS_RE = /^\[job-og-images\]\s+rendered=(\d+)\s+cached=(\d+)\s+skipped=(\d+)\s+errors=(\d+)\s+pruned-stale=(\d+)\s+\(~\d+MB\)\s+in\s+\d+(?:\.\d+)?s$/u;
+// The renderer's current accounting line has no duration suffix; keep the
+// legacy suffix optional so old logs remain parseable during replay.
+const JOB_OG_STATS_RE = /^\[job-og-images\]\s+rendered=(\d+)\s+cached=(\d+)\s+skipped=(\d+)\s+errors=(\d+)\s+pruned-stale=(\d+)\s+\(~\d+MB\)(?:\s+in\s+\d+(?:\.\d+)?s)?$/u;
 
 export function parsePhaseMarkers(log) {
   const phases = [];

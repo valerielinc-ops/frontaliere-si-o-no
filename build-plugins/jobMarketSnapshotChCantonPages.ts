@@ -53,6 +53,7 @@ import { buildSnapshotProseBlock } from './shared/cantonSnapshotProse';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
+import { buildCanonicalJobBoardHref } from './shared/cantonJobBoardPrefix';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -70,7 +71,6 @@ import {
   type ChCantonSnapshotLocale as Locale,
   CH_CANTON_SNAPSHOT_LOCALES as LOCALES,
   CH_CANTON_SNAPSHOT_LOCALE_PREFIX as LOCALE_PREFIX,
-  CH_CANTON_SNAPSHOT_JOB_BOARD_PREFIX as JOB_BOARD_PREFIX,
   CH_CANTON_SNAPSHOT_SEGMENT as SNAPSHOT_SEGMENT,
   buildCantonSnapshotPath,
 } from './jobMarketSnapshotChCantonPathsData';
@@ -727,8 +727,10 @@ export async function emitChCantonSnapshotPages(
         locale,
       );
 
-      const hiringHubHref =
-        `${LOCALE_PREFIX[locale]}/${JOB_BOARD_PREFIX[locale]}-${cantonSlug}/`.replace(/\/{2,}/g, '/');
+      // The static snapshot root intentionally keeps its published prefix
+      // (DE `jobs-im-*`), but this outbound T5 CTA must use the canonical
+      // route builder (`jobs-in-*`, per-canton `dePrefix`, and group mapping).
+      const hiringHubHref = buildCanonicalJobBoardHref(locale, cantonCode);
 
       const html = renderSnapshotPage({
         locale,

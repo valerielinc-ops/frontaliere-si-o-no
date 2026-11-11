@@ -110090,6 +110090,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-burocrazia-frena-investimenti-svizzera': {
+    title: 'Tre imprese su dieci rinviano o riducono investimenti per vincoli amministrativi',
+    description: 'Ricerca gfs.bern/economiesuisse (9 nov 2026): il 67% giudica elevato l\'onere amministrativo e il 64% segnala più burocrazia negli ultimi cinque anni.',
+    keywords: 'burocrazia svizzera, investimenti imprese, onere amministrativo, economiesuisse, gfs.bern, vincoli amministrativi',
+    ogTitle: 'Burocrazia frena investimenti imprese svizzere',
+    ogDescription: 'Il 67% delle 1\'527 aziende intervistate giudica elevato l\'onere amministrativo. Il 64% segnala più burocrazia negli ultimi cinque anni, secondo ricerca gfs.bern/economiesuisse del 9 novembre 2026.',
+    canonicalPath: '/articoli-svizzera/burocrazia-frena-investimenti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre imprese su dieci rinviano o riducono investimenti per vincoli amministrativi",
+      "description": "Ricerca gfs.bern/economiesuisse (9 nov 2026): il 67% giudica elevato l'onere amministrativo e il 64% segnala più burocrazia negli ultimi cinque anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-burocrazia-frena-investimenti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-10T14:41:08+00:00",
+      "dateModified": "2026-11-10T14:41:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/burocrazia-frena-investimenti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

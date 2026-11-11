@@ -47761,7 +47761,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  category: 'novita',
  date: '2026-10-23T15:23:51.432Z',
  updatedAt: '2026-10-31',
- image: '/images/blog/article-confusione-tassa-salute-frontalieri.webp',
+ image: '/images/blog/article-sanitari-italiani-fuga-svizzera.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
@@ -48166,6 +48166,17 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  articleType: 'news',
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'frontalieri-svizzera-calo-ticino',
+ category: 'novita',
+ date: '2026-11-10T13:55:04.383Z',
+ image: '/images/blog/article-frontalieri-svizzera-calo-ticino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
 ];
 

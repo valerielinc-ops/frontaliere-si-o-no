@@ -87,6 +87,71 @@ describe('Cloudflare analytics fetch injection', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('caps the row limit and the single-query lookback at Cloudflare limits', async () => {
+    const fetchImpl = vi.fn(async () => response(graphqlBody([])));
+
+    await fetchErrorPaths('token', 'zone-1', {
+      hours: 48,
+      limit: 50_000,
+      until: '2026-09-14T12:00:00.000Z',
+      fetchImpl: asFetch(fetchImpl),
+    });
+
+    const request = JSON.parse(fetchImpl.mock.calls[0][1]?.body as string);
+    expect(request.variables.limit).toBe(10_000);
+    expect(request.variables.filter.datetime_geq).toBe('2026-09-13T12:06:00.000Z');
+    expect(request.variables.filter.datetime_leq).toBe('2026-09-14T12:00:00.000Z');
+  });
+
+  it('keeps 404 sweep rows distinct from 5xx and ignores unknown rows', async () => {
+    const fetchImpl = vi.fn(async () => response(graphqlBody([
+      { count: 2, dimensions: { edgeResponseStatus: 404, clientRequestHTTPHost: 'example.test', clientRequestPath: '/a/' } },
+      { count: 7, dimensions: { edgeResponseStatus: 503, clientRequestHTTPHost: 'example.test', clientRequestPath: '/a' } },
+      { count: 3, dimensions: { edgeResponseStatus: 404, clientRequestHTTPHost: 'example.test', clientRequestPath: null } },
+      { count: 'unknown', dimensions: { edgeResponseStatus: 404, clientRequestHTTPHost: 'example.test', clientRequestPath: '/b' } },
+    ])));
+
+    await expect(sweepErrorPathsWindowed('token', 'zone-1', {
+      windowCount: 1,
+      minStatus: 404,
+      maxStatus: 404,
+      fetchImpl: asFetch(fetchImpl),
+    })).resolves.toMatchObject({
+      rows: [{ path: '/a', count: 2 }],
+      windowsOk: 1,
+    });
+  });
+
+  it('propagates the first error when every bounded window fails', async () => {
+    const timeout = Object.assign(new Error('deadline'), {
+      name: 'TimeoutError',
+      code: 'CF_ANALYTICS_TIMEOUT',
+    });
+    const fetchImpl = vi.fn(async () => { throw timeout; });
+
+    await expect(sweepErrorPathsWindowed('token', 'zone-1', {
+      windowCount: 2,
+      fetchImpl: asFetch(fetchImpl),
+    })).rejects.toMatchObject({
+      name: 'TimeoutError',
+      code: 'CF_ANALYTICS_TIMEOUT',
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('caps a requested sweep to the useful retention horizon', async () => {
+    const fetchImpl = vi.fn(async () => response(graphqlBody([
+      { count: 1, dimensions: { edgeResponseStatus: 404, clientRequestHTTPHost: 'example.test', clientRequestPath: '/a' } },
+    ])));
+
+    await expect(sweepErrorPathsWindowed('token', 'zone-1', {
+      windowHours: 24,
+      windowCount: 999,
+      fetchImpl: asFetch(fetchImpl),
+    })).resolves.toMatchObject({ windowsOk: 3, windowCount: 3 });
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
   it('forwards the injected fetch through a windowed sweep', async () => {
     const fetchImpl = vi.fn(async () => response(graphqlBody([
       { count: 1, dimensions: { edgeResponseStatus: 404, clientRequestHTTPHost: 'example.test', clientRequestPath: '/a/' } },

@@ -66,6 +66,25 @@ afterEach(() => {
 });
 
 describe('TrafficEvidenceFilter — trailing-slash reconciliation', () => {
+  it('keeps dedicated expired-job GA4 evidence separate from the broad traffic set', () => {
+    const now = new Date();
+    const evidence = {
+      generatedAt: now.toISOString(),
+      dateRange: {
+        startDate: new Date(now.getTime() - 90 * 86_400_000).toISOString().slice(0, 10),
+        endDate: now.toISOString().slice(0, 10),
+      },
+      pages: { '/cerca-lavoro-ticino/archivista/': 1 },
+      coverage: { complete: true, returnedRows: 1, reportedRows: 1 },
+    };
+    writeData({ 'evidence-index.json': { expiredJobGa4Traffic: evidence } });
+
+    const filter = new TrafficEvidenceFilter(tmpRoot);
+    expect(filter.getExpiredJobGa4TrafficEvidence()).toEqual(evidence);
+    expect(filter.decideMulti(['/cerca-lavoro-ticino/archivista/'], SOFT_LANDING).reason)
+      .not.toBe('has-traffic');
+  });
+
   it('matches a no-slash candidate against a GSC source stored WITH a trailing slash', () => {
     // GSC page-level impression set stores `/path/`; builder emits `/path`.
     writeData({

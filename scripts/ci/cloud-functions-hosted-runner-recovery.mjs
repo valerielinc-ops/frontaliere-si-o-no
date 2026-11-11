@@ -1,7 +1,19 @@
+import { listRecentWorkflowRunsWithRetry } from './lib/workflow-run-list-recovery.mjs';
+
 export const DEPLOY_WORKFLOW_PATH = '.github/workflows/deploy-cloud-functions.yml';
+export const DEPLOY_WORKFLOW_ID = 'deploy-cloud-functions.yml';
 export const DEPLOY_JOB_NAME = 'deploy-functions';
 export const HOSTED_RUNNER_ALLOCATION_MESSAGE =
   'The job was not acquired by Runner of type hosted even after multiple attempts';
+
+export async function listRecentCloudFunctionsRuns({
+  ...options
+} = {}) {
+  return listRecentWorkflowRunsWithRetry({
+    ...options,
+    workflowId: DEPLOY_WORKFLOW_ID,
+  });
+}
 
 /**
  * Only production deploys from main are safe to replay automatically. A

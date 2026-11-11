@@ -64,9 +64,10 @@ describe('publisher page-manifest end-to-end union (#9246)', () => {
       expect(collected.missing, locale).toEqual([]);
       expect(collected.entries, locale).toHaveLength(sitemapUrls.length / LOCALES.length);
 
-      const baseArtifact = `locale-source-${locale}-${SOURCE_RUN_ID}`;
+      const baseArtifact = locale === 'it' ? 'github-pages' : `locale-source-${locale}-${SOURCE_RUN_ID}`;
       const baseDigest = crypto.createHash('sha256').update(locale).digest('hex');
-      const manifestArtifactName = `sitemap-page-manifest-${locale}-${SOURCE_RUN_ID}`;
+      const artifactRunId = locale === 'it' ? PUBLISHER_RUN_ID : SOURCE_RUN_ID;
+      const manifestArtifactName = `sitemap-page-manifest-${locale}-${artifactRunId}`;
       const entries = collected.entries.map((entry) => {
         union.add(entry.url);
         return {
@@ -81,35 +82,37 @@ describe('publisher page-manifest end-to-end union (#9246)', () => {
         validatorVersion: 'publisher-page-index-v2',
         sourceRunId: SOURCE_RUN_ID,
         sourceSha: SOURCE_SHA,
-        artifactRunId: SOURCE_RUN_ID,
+        artifactRunId,
         artifactName: baseArtifact,
         artifactDigest: baseDigest,
         manifestArtifactName,
         locale,
         requiredSections: [],
         artifactRefs: [
-          { runId: SOURCE_RUN_ID, name: baseArtifact, digest: baseDigest, purpose: 'locale-base' },
+          { runId: artifactRunId, name: baseArtifact, digest: baseDigest, purpose: 'locale-base' },
           ...(locale === 'it' ? [{
-            runId: SOURCE_RUN_ID,
-            name: `sitemaps-${SOURCE_RUN_ID}`,
+            runId: PUBLISHER_RUN_ID,
+            name: `sitemaps-${PUBLISHER_RUN_ID}`,
             digest: '8'.repeat(64),
             purpose: 'sitemaps',
           }] : []),
         ],
         entries,
       });
-      sourceArtifacts.push(artifact(baseArtifact, baseDigest));
-      sourceArtifacts.push(artifact(manifestArtifactName, '7'.repeat(64)));
+      if (locale === 'it') {
+        publisherArtifacts.push(artifact(baseArtifact, baseDigest));
+        publisherArtifacts.push(artifact(manifestArtifactName, '7'.repeat(64)));
+        publisherArtifacts.push(artifact(`sitemaps-${PUBLISHER_RUN_ID}`, '8'.repeat(64)));
+      } else {
+        sourceArtifacts.push(artifact(baseArtifact, baseDigest));
+        sourceArtifacts.push(artifact(manifestArtifactName, '7'.repeat(64)));
+      }
     }
-    sourceArtifacts.push(artifact(`sitemaps-${SOURCE_RUN_ID}`, '8'.repeat(64)));
 
     const sectionManifests = LOCALES.map((locale) => {
-      const isItalian = locale === 'it';
-      const artifactRunId = isItalian ? SOURCE_RUN_ID : PUBLISHER_RUN_ID;
-      const manifestArtifactName = isItalian
-        ? `section-page-manifest-it-${SOURCE_RUN_ID}`
-        : `section-page-manifest-${locale}-${PUBLISHER_RUN_ID}`;
-      (isItalian ? sourceArtifacts : publisherArtifacts).push(
+      const artifactRunId = PUBLISHER_RUN_ID;
+      const manifestArtifactName = `section-page-manifest-${locale}-${PUBLISHER_RUN_ID}`;
+      publisherArtifacts.push(
         artifact(manifestArtifactName, '6'.repeat(64)),
       );
       return {

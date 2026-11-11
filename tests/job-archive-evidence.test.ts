@@ -12,7 +12,7 @@ describe('recorded versus URL-inferred job identity', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const normal = source.slice(source.indexOf('const hasRealTitle = hasRecordedJobIdentity(ejData)'));
     const safetyStart = source.indexOf('const buildHistoricalArchiveHtml =');
-    const safety = source.slice(safetyStart, source.indexOf('for (const [slug, paths] of Object.entries(tracking)', safetyStart));
+    const safety = source.slice(safetyStart, source.indexOf('for (const slug in tracking)', safetyStart));
     const socialPreviewStart = source.indexOf('const UNVERIFIED_JOB_SOCIAL_PREVIEW:');
     const socialPreviewEnd = source.indexOf('};', socialPreviewStart) + '};'.length;
     expect(socialPreviewStart).toBeGreaterThan(-1);
@@ -120,7 +120,7 @@ describe('recorded versus URL-inferred job identity', () => {
   it('uses the generic unverified title in every safety-writer title output', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const start = source.indexOf('const buildHistoricalArchiveHtml =');
-    const end = source.indexOf('for (const [slug, paths] of Object.entries(tracking)', start);
+    const end = source.indexOf('for (const slug in tracking)', start);
     const safety = source.slice(start, end);
     const titleExpression = safety.match(/const titleRaw = ([^\n]+);/)?.[1];
     expect(titleExpression).toBeTruthy();
@@ -200,6 +200,8 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(schemaBlock).toContain("postingDateSource: hasRealTitle ? ejData?.postingDateSource : 'unknown'");
     expect(schemaBlock).toContain('companyKey: hasRealTitle ?');
     expect(schemaBlock).toContain('buildArchivedJobPosting(expiredInput');
+    // P1 noindex soft landings carry no JobPosting (expiredJobIndexPolicy.ts).
+    expect(schemaBlock).toMatch(/if \(!expiredDemandIndexable\) \{\s+currentJobPostingLd = '';/);
     const search = source.slice(source.indexOf('// --- Search suggestions ---'), source.indexOf('// --- Frontalier info section:'));
     expect(search.match(/hasRealTitle && jobLocation/g)).toHaveLength(4);
     expect(source).toContain("${recordedIdentity ? `${copy.nextBody} ` : ''}");

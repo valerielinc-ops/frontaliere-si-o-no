@@ -82,6 +82,15 @@ export function shouldEmitPharmacyDutyCityPage(
   return !aliasPaths.has(buildPharmacyPath({ kind: 'duty-city', locale, citySlug }, locale));
 }
 
+function pharmacyDutyCityPath(locale: Locale, citySlug: string | undefined): PharmacyPath {
+  const requestedPath = buildPharmacyPath({ kind: 'duty-city', locale, citySlug }, locale);
+  const resolvedPath = parsePharmacyRoute(requestedPath);
+  if (!resolvedPath || resolvedPath.kind !== 'duty-city' || resolvedPath.locale !== locale) {
+    throw new Error(`Invalid pharmacy duty city navigation path: ${requestedPath}`);
+  }
+  return resolvedPath;
+}
+
 // Duty rendering and pharmacy detail rendering must share the same enriched
 // catalogue. The raw JSON is still the release container, but its pharmacy
 // rows are replaced with BORDER_PHARMACIES/TICINO_PHARMACIES from
@@ -1062,7 +1071,7 @@ function renderBody(
     const dutyLink = descriptor.country === 'IT'
       ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p>`
       : descriptor.kind === 'city' && descriptor.country === 'CH'
-        ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>`
+        ? `<p style="${BODY_STYLE}">${href(pharmacyDutyCityPath(locale, descriptor.citySlug), copy.viewDuties)}</p>`
         : '';
     const singleCityEnrichment = renderSinglePharmacyCityEnrichment(descriptor, locale, dataset, now);
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${singleCityEnrichment}${dutyLink}</section>`;

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-11-10T09:39:10.704Z",
-  "runId": "42789192376",
+  "assembledAt": "2026-11-10T21:30:50.000Z",
+  "runId": "42903245552",
   "jobs": [
     {
       "id": "wuerth-international-bdc84a71a252",
@@ -50,7 +50,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:39:04.358Z",
+      "crawledAt": "2026-11-10T21:30:41.218Z",
       "previousSlugs": [
         "praktikum-im-bereich-corporate-houskeeping-40-wuerth-international-chur"
       ],
@@ -89,7 +89,7 @@
         "checkedAt": "2026-11-09T15:43:05.500Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-10T09:39:04.358Z",
+      "validThrough": "2026-12-10T21:30:41.218Z",
       "validThroughSource": "last-observed-window"
     }
   ]

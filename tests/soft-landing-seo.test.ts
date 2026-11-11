@@ -66,7 +66,7 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     // slugs while preserving the #2600 override for ACTIVE slugs (whose native
     // canton is already served by the live job page).
     const driftStart = pluginSource.indexOf('Canton-drift recovery');
-    const guardIdx = pluginSource.indexOf('if (known && !currentSlugs.has(slug)) break;');
+    const guardIdx = pluginSource.indexOf('if (known && !isCurrentSlug(slug)) break;');
     expect(driftStart).toBeGreaterThan(-1);
     expect(guardIdx).toBeGreaterThan(driftStart);
   });
@@ -137,15 +137,16 @@ describe('SPA does not override static HTML metadata for expired job pages', () 
 });
 
 // Regression guard for PR #2397 🔴: the prose / Auto-Ads gate (__slKeepProse) and the
-// thin-shell gate (__slDecision) probe DELIBERATELY DIFFERENT path-sets. The dedup PR
+// candidate-path diagnostics retain DELIBERATELY DIFFERENT path-sets. The dedup PR
 // #2397 originally collapsed them into one set, which dropped the legacy IT mirror
 // `/cerca-lavoro-ticino/${slug}` from the IT-locale prose gate for canton-aware jobs,
 // silently stripping prose + Auto Ads from genuinely-trafficked expired pages.
 describe('soft-landing prose gate path-set (PR #2397 set-equality)', () => {
-  it('prose gate uses its own __slProsePaths set distinct from the thin __slCandidatePaths', () => {
+  it('prose gate uses its own __slProsePaths set distinct from __slCandidatePaths', () => {
     expect(pluginSource).toContain('const __slKeepProse = trafficFilter.decideMulti(__slProsePaths');
-    // The thin-shell gate keeps probing __slCandidatePaths (unchanged scope).
-    expect(pluginSource).toContain('const __slDecision = trafficFilter.decideMulti(__slCandidatePaths');
+    // Keep the candidate paths available separately for diagnostics.
+    expect(pluginSource).toContain('candidatePaths: __slCandidatePaths,');
+    expect(pluginSource).toContain('prosePaths: __slProsePaths,');
   });
 
   it('prose set unconditionally probes the IT legacy mirror (incl. for it-locale canton-aware jobs)', () => {
@@ -155,7 +156,7 @@ describe('soft-landing prose gate path-set (PR #2397 set-equality)', () => {
 
   // Algebraic proof that the live builders reproduce the ORIGINAL __slProsePaths
   // semantics (relPath ∪ {legacy section path for EVERY locale}) while keeping the
-  // thin __slCandidatePaths scope intact. We replicate the exact builder algebra and
+  // __slCandidatePaths scope intact. We replicate the exact builder algebra and
   // assert the invariant for an IT-locale NON-TI (canton-aware) job — the bug class.
   const localeList = ['it', 'en', 'de', 'fr'] as const;
   const localePrefix: Record<(typeof localeList)[number], string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
@@ -197,7 +198,7 @@ describe('soft-landing prose gate path-set (PR #2397 set-equality)', () => {
   it('IT-locale canton-aware page: prose set is set-equal to the original and contains the TI mirror', () => {
     const relPath = `/cerca-lavoro-argovia/${slug}`; // non-TI IT canton-aware page
     const { candidate, prose } = currentSets('it', relPath);
-    // Bug repro: thin-gate (candidate) MUST NOT contain the IT TI mirror...
+    // Bug repro: candidate MUST NOT contain the IT TI mirror...
     expect(candidate).not.toContain(`/cerca-lavoro-ticino/${slug}`);
     // ...but the prose gate MUST (this is the dropped historical signal).
     expect(prose).toContain(`/cerca-lavoro-ticino/${slug}`);

@@ -2,17 +2,31 @@ import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.m
 import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type BuildJobPostingOptions, type JobInput } from './jobPostingSchema';
 import { jobDescriptionPlainText } from '../../services/jobs/descriptionPreview';
 
-const ARCHIVE_FALLBACK_DAYS = 1;
-
-/** Historical metadata must never turn a closed vacancy into a live offer. */
+/**
+ * Historical metadata must never turn a closed vacancy into a live offer.
+ *
+ * `validThrough` is a fact of the archived RECORD, never of the build: the
+ * persisted `expiredAt`, else the last crawler observation (`crawledAt`, when
+ * the vacancy was last seen open), else its publication date. A record with
+ * none of them gets NO JobPosting. It used to get "build clock − 1 day": a
+ * deadline that was invented, and that moved at every build, so every such
+ * soft landing changed bytes at every deploy (the dominant churn of the
+ * berna/zurigo section shards, `reason=inline-content-changed` on
+ * `"validThrough"`). Google's guidance for an expired posting is a past
+ * `validThrough` or no markup; with no evidence of when it closed, no markup.
+ *
+ * The clock is used only to REJECT evidence dated in the future (a record
+ * whose expiry has not happened yet is not an archive): that verdict changes
+ * once, when the date passes, not at every build.
+ */
 export function buildArchivedJobPosting(job: JobInput, notice: string, options: BuildJobPostingOptions) {
   const clock = options.now || new Date();
   const now = clock.getTime();
   const archiveDates = [job.expiredAt, job.crawledAt, job.datePosted, job.postedDate]
     .map((value) => value ? Date.parse(value) : NaN);
   if (archiveDates.some((date) => Number.isFinite(date) && date >= now)) return null;
-  const validThrough = archiveDates.find((date) => Number.isFinite(date) && date < now);
-  const archiveValidThrough = validThrough ?? now - ARCHIVE_FALLBACK_DAYS * 24 * 60 * 60 * 1000;
+  const archiveValidThrough = archiveDates.find((date) => Number.isFinite(date));
+  if (archiveValidThrough === undefined) return null;
   const datePosted = resolveReportedPostingDate(job, clock);
   if (datePosted && Date.parse(datePosted) >= archiveValidThrough) return null;
 
@@ -32,10 +46,11 @@ export function buildArchivedJobPosting(job: JobInput, notice: string, options: 
       .trim();
 
   // With no reported date, keep the schema fallback before the archive cutoff.
-  // This is an archive boundary, not a fabricated posting date or expiry claim.
+  // This is an archive boundary, not a fabricated posting date or expiry claim,
+  // and it is read from the record: every archive date is already in the past.
   const schemaNow = datePosted
     ? clock
-    : new Date(Math.min(now - 1, archiveValidThrough - 1));
+    : new Date(archiveValidThrough - 1);
 
   return buildJobPostingSchema({
     ...job,

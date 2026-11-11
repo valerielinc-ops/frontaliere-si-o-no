@@ -217,6 +217,23 @@ own build; it does not reread the current translation marker while the run is
 finishing, because build-history/data commits can advance `main` in that exact
 window and must not suppress the successor dispatch.
 
+**Build / publisher boundary.** `deploy.yml` owns build-time validation and
+publishes a source-ready handoff. For IT that handoff contains the root payload,
+the validated section-group plan, and source archives for the groups; it does
+not push shards or prepare the Pages artifact. `deploy-publish.yml` consumes
+those artifacts and owns the IT publishing tail. Its early CDN job must succeed
+before either IT or non-IT HTML shard pushes. Six IT matrix jobs then push
+balanced groups in parallel; `zurigo` and `svizzera` keep dedicated runners,
+and four groups balance the remaining sections by file count. Each job has its
+own six-hour limit and calls the checkpointed section-push helper. Successful
+section markers and manifests are uploaded per group. The finalizer collects
+them with the existing fail-closed `finalize-sections` contract, then strips
+section trees, runs Deploy prep (including the GA4/AdSense alias checks),
+uploads the Pages artifact, and writes metadata. It creates the six shard
+validation batches only after successful pushes, from the post-push staged
+trees. The source build, publisher, rearm, and schedule lanes retain
+`cancel-in-progress: false`; a newer build does not supersede an active build.
+
 **Validation gates (all blocking — exit code 1 = deploy aborted)**:
 
 | Gate | Script | What it checks |
@@ -236,9 +253,9 @@ window and must not suppress the successor dispatch.
 1. Assemble jobs dataset (final merge)
 2. Global housekeeping (cross-crawler dedup + locale hardening)
 3. All validation gates above
-4. `npm run build:prod` → Vite + all build plugins → ~16,000 static HTML files
-5. Validate generated pages (JobPosting JSON-LD, sitemaps, canonicals, content)
-6. Deploy to GitHub Pages (`https://frontaliereticino.ch`)
+4. `build-locale` runs Vite and build plugins, then validates generated pages
+5. `deploy.yml` uploads source-ready artifacts; `deploy-publish.yml` publishes CDN assets, section shards, Pages, and metadata
+6. Validate the published dist and live site (JobPosting JSON-LD, sitemaps, canonicals, content)
 7. Post-deploy: Google Indexing API, IndexNow (Bing/Yandex), Google Search Console (all continue-on-error)
 8. If article deploy: post to Facebook + LinkedIn
 

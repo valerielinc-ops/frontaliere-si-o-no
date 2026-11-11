@@ -2,14 +2,14 @@
 set -uo pipefail
 
 # revalidate-dist-locally.sh — run ONLY scripts/ci/assert-dist-complete.mjs
-# against the artifacts of a past deploy run, on your own machine.
+# against the artifacts of a past build/publisher pair, on your own machine.
 #
-# The local twin of .github/workflows/revalidate-dist-from-run.yml. Same input
-# (a deploy run id), same rehydrate sequence, same single gate, no audits. Use
-# it when you want the verdict without spending a runner, or when you want to
-# poke at the rehydrated dist/ afterwards.
+# The local twin of .github/workflows/revalidate-dist-from-run.yml. Input is
+# the source deploy.yml run id; publisher artifacts are resolved per locale.
+# Same rehydrate sequence, same single gate, no audits. Use it when you want the
+# verdict without spending a runner, or when you want to inspect rehydrated dist/.
 #
-#   bash scripts/ci/revalidate-dist-locally.sh <deploy_run_id> [--full|--sample=N]
+#   bash scripts/ci/revalidate-dist-locally.sh <source_deploy_run_id> [--full|--sample=N]
 #
 # Output: a report directory holding the gate's JSON, its console diagnostic,
 # the rehydrate logs, and `missing-urls.json` — EVERY URL with no page file
@@ -27,8 +27,9 @@ set -uo pipefail
 # tree that makes the gate report absent subtrees as a defect of the SITE —
 # the exact wrong-root-cause the gate exists to prevent (issue #4857).
 #
-# On a machine that cannot spare 40 GB, use the workflow instead:
-#   gh workflow run revalidate-dist-from-run.yml -f deploy_run_id=<id>
+# On a machine that cannot spare 40 GB, use the workflow instead. The input is
+# the source deploy.yml run id; it resolves publisher artifacts itself:
+#   gh workflow run revalidate-dist-from-run.yml -f deploy_run_id=<source-run-id>
 #
 # ── Environment ──────────────────────────────────────────────────────────────
 #   REVALIDATE_MIN_FREE_GB      GiB that must be free to proceed. Default 40.
@@ -39,12 +40,13 @@ set -uo pipefail
 #   REVALIDATE_REPO             owner/repo holding the run.
 #                               Default: valerielinc-ops/frontaliere-si-o-no.
 #   REVALIDATE_ALLOW_SHARD_CLONE
-#                               1 = allow the rehydrate scripts to fall back to
-#                               `git clone` of a shard repo when that run's
-#                               shard artifacts have expired. Default 0, which
-#                               makes this script refuse up front instead:
-#                               those repos are 20-26 GB each and CLAUDE.md
-#                               forbids cloning them on this machine.
+#                               1 = allow fallback cloning if a matched
+#                               en/de/fr publisher is missing a section batch.
+#                               Default 0 refuses in that case. Required IT
+#                               publish artifacts and non-IT locale tars still
+#                               must resolve from publisher runs. A shard clone
+#                               is 20-26 GB; use this only on a host where it is
+#                               explicitly permitted and disk is available.
 #   REVALIDATE_KEEP             1 = keep the working dir on exit (default 0,
 #                               it is deleted so 30 GB does not linger).
 #
@@ -70,7 +72,7 @@ for arg in "$@"; do
       RUN_ID="$arg" ;;
   esac
 done
-[ -n "$RUN_ID" ] || die "usage: bash scripts/ci/revalidate-dist-locally.sh <deploy_run_id> [--full|--sample=N]"
+[ -n "$RUN_ID" ] || die "usage: bash scripts/ci/revalidate-dist-locally.sh <source_deploy_run_id> [--full|--sample=N]"
 case "$RUN_ID" in
   ''|*[!0-9]*) die "deploy_run_id must be numeric, got: $RUN_ID" ;;
 esac
@@ -167,55 +169,6 @@ EOF
   exit 1
 fi
 
-# ── Preflight: are the artifacts still there? ────────────────────────────────
-echo
-echo "Checking artifacts on run $RUN_ID of $REPO"
-ARTIFACTS="$(gh api "repos/$REPO/actions/runs/$RUN_ID/artifacts" --paginate --jq '.artifacts[] | select(.expired | not) | .name' 2>/dev/null)" \
-  || die "cannot read artifacts for run $RUN_ID (wrong id, wrong repo, or no access)"
-[ -n "$ARTIFACTS" ] || die "run $RUN_ID has no unexpired artifacts left — nothing to replay"
-
-grep -qx 'github-pages' <<<"$ARTIFACTS" \
-  || die "run $RUN_ID has no unexpired 'github-pages' artifact — it is not a deploy/build run, or its artifacts have expired"
-
-# The rehydrate scripts silently fall back to `git clone` of the shard repo
-# when a shard artifact is missing. On a runner that is merely slow; here it is
-# a 20-26 GB clone that CLAUDE.md forbids. Detect it up front.
-MISSING_SHARD_ARTIFACTS=""
-for loc in en de fr; do
-  grep -qx "locale-dist-$loc-$RUN_ID" <<<"$ARTIFACTS" \
-    || MISSING_SHARD_ARTIFACTS="$MISSING_SHARD_ARTIFACTS locale-dist-$loc"
-done
-for batch in $(jq -r '[to_entries[] | select(.key | startswith("_") | not) | .value] | unique[]' \
-                 "$REPO_ROOT/scripts/lib/section-shard-batches.json"); do
-  for loc in it en de fr; do
-    grep -qx "shard-batch-$batch-dist-$loc-$RUN_ID" <<<"$ARTIFACTS" \
-      || MISSING_SHARD_ARTIFACTS="$MISSING_SHARD_ARTIFACTS shard-batch-$batch-dist-$loc"
-  done
-done
-
-if [ -n "$MISSING_SHARD_ARTIFACTS" ]; then
-  echo "  missing/expired shard artifacts:$MISSING_SHARD_ARTIFACTS" >&2
-  if [ "$ALLOW_CLONE" != "1" ]; then
-    cat >&2 <<EOF
-
-REFUSING TO RUN — some shard artifacts of run $RUN_ID are gone.
-
-Without them the rehydrate scripts fall back to \`git clone\` of the
-frontaliere-<section>-<locale> shard repos. Those are 20-26 GB each and
-CLAUDE.md forbids cloning them on this machine.
-
-  • Replay a MORE RECENT deploy run whose artifacts have not expired, or
-  • run it on a runner:
-      gh workflow run revalidate-dist-from-run.yml -R $REPO -f deploy_run_id=$RUN_ID
-  • or, if you really mean to clone (and have the disk):
-      REVALIDATE_ALLOW_SHARD_CLONE=1 bash $0 $RUN_ID
-EOF
-    exit 1
-  fi
-  echo "  REVALIDATE_ALLOW_SHARD_CLONE=1 — proceeding, shard repos WILL be cloned" >&2
-fi
-note "artifacts present"
-
 # ── Staging layout ───────────────────────────────────────────────────────────
 # The rehydrate scripts address `dist/` and `scripts/lib/*.json` RELATIVE to
 # cwd. Rather than write a 27 GB dist/ into the working copy, stage a directory
@@ -238,10 +191,84 @@ mkdir -p "$STAGE" "$WORKDIR/runner-temp" "$WORKDIR/report" "$WORKDIR/download"
 touch "$WORKDIR/.revalidate-dist-workdir"
 ln -s "$REPO_ROOT/scripts" "$STAGE/scripts"
 
+# ── Resolve source and publisher artifacts ───────────────────────────────────
+# The source run owns build provenance; Pages and shard bytes belong to
+# deploy-publish runs. Reuse the fail-closed resolver used by CI validators,
+# which can select a different publisher run for each locale.
+echo
+echo "Resolving publisher artifacts for source build $RUN_ID of $REPO"
+ARTIFACT_RUNS_ENV="$WORKDIR/replay-artifact-runs.env"
+DEPLOY_RUN_ID="$RUN_ID" GH_REPO="$REPO" ALLOW_MIXED=false GITHUB_ENV="$ARTIFACT_RUNS_ENV" bash "$REPO_ROOT/scripts/ci/resolve-replay-shard-runs.sh" || die "publisher artifacts for source run $RUN_ID are incomplete or expired"
+
+while IFS='=' read -r key value; do
+  case "$key" in
+    SHARD_ARTIFACT_RUN_ID_IT|SHARD_ARTIFACT_RUN_ID_EN|SHARD_ARTIFACT_RUN_ID_DE|SHARD_ARTIFACT_RUN_ID_FR)
+      case "$value" in ''|*[!0-9]*) die "resolver returned malformed $key=$value" ;; esac
+      printf -v "$key" '%s' "$value"
+      export "$key"
+      ;;
+    '') ;;
+    *) die "resolver returned unexpected artifact run key: $key" ;;
+  esac
+done < "$ARTIFACT_RUNS_ENV"
+
+for loc in IT EN DE FR; do
+  key="SHARD_ARTIFACT_RUN_ID_$loc"
+  [ -n "${!key:-}" ] || die "resolver did not select a publisher run for $loc"
+done
+IT_ARTIFACT_RUN_ID="$SHARD_ARTIFACT_RUN_ID_IT"
+
+# Rehydration can fall back to `git clone` when section artifacts are missing.
+# Detect all locale/batch gaps before downloading: shard repositories are
+# 20–26 GB and cloning them is forbidden on this machine.
+MISSING_SHARD_ARTIFACTS=""
+ARTIFACT_RUN_IDS=""
+for loc in it en de fr; do
+  up="$(printf '%s' "$loc" | tr '[:lower:]' '[:upper:]')"
+  key="SHARD_ARTIFACT_RUN_ID_$up"
+  rid="${!key}"
+  case " $ARTIFACT_RUN_IDS " in *" $rid "*) ;; *)
+    gh api "repos/$REPO/actions/runs/$rid/artifacts" --paginate --jq '.artifacts[] | select(.expired | not) | .name' > "$WORKDIR/artifacts-$rid.txt" 2>/dev/null || die "cannot read artifacts for publisher run $rid (wrong id, wrong repo, or no access)"
+    ARTIFACT_RUN_IDS="$ARTIFACT_RUN_IDS $rid"
+    ;;
+  esac
+  if [ "$loc" != "it" ]; then
+    grep -qx "locale-dist-$loc-$rid" "$WORKDIR/artifacts-$rid.txt" || MISSING_SHARD_ARTIFACTS="$MISSING_SHARD_ARTIFACTS locale-dist-$loc"
+  fi
+  for batch in $(jq -r '[to_entries[] | select(.key | startswith("_") | not) | .value] | unique[]' "$REPO_ROOT/scripts/lib/section-shard-batches.json"); do
+    grep -qx "shard-batch-$batch-dist-$loc-$rid" "$WORKDIR/artifacts-$rid.txt" || MISSING_SHARD_ARTIFACTS="$MISSING_SHARD_ARTIFACTS shard-batch-$batch-dist-$loc"
+  done
+done
+
+grep -qx 'github-pages' "$WORKDIR/artifacts-$IT_ARTIFACT_RUN_ID.txt" || die "publisher run $IT_ARTIFACT_RUN_ID has no unexpired 'github-pages' artifact"
+
+if [ -n "$MISSING_SHARD_ARTIFACTS" ]; then
+  echo "  missing/expired publisher shard artifacts:$MISSING_SHARD_ARTIFACTS" >&2
+  if [ "$ALLOW_CLONE" != "1" ]; then
+    cat >&2 <<EOF
+
+REFUSING TO RUN — some publisher shard artifacts for source build $RUN_ID are gone.
+
+Without them the rehydrate scripts fall back to `git clone` of the
+frontaliere-<section>-<locale> shard repos. Those are 20-26 GB each and
+CLAUDE.md forbids cloning them on this machine.
+
+  • Replay a MORE RECENT source deploy run whose publisher artifacts have not expired, or
+  • run it on a runner:
+      gh workflow run revalidate-dist-from-run.yml -R $REPO -f deploy_run_id=$RUN_ID
+  • or, if you really mean to clone (and have the disk):
+      REVALIDATE_ALLOW_SHARD_CLONE=1 bash $0 $RUN_ID
+EOF
+    exit 1
+  fi
+  echo "  REVALIDATE_ALLOW_SHARD_CLONE=1 — proceeding, shard repos WILL be cloned" >&2
+fi
+note "publisher artifacts present (IT run $IT_ARTIFACT_RUN_ID)"
+
 # ── Trunk artifact ───────────────────────────────────────────────────────────
 echo
-echo "Downloading github-pages artifact (the trunk dist tarball)"
-gh run download "$RUN_ID" -R "$REPO" --name github-pages --dir "$WORKDIR/download/pages" \
+echo "Downloading github-pages from publisher run $IT_ARTIFACT_RUN_ID (source build $RUN_ID)"
+gh run download "$IT_ARTIFACT_RUN_ID" -R "$REPO" --name github-pages --dir "$WORKDIR/download/pages" \
   || die "download of the github-pages artifact failed"
 [ -f "$WORKDIR/download/pages/artifact.tar" ] \
   || die "expected $WORKDIR/download/pages/artifact.tar — saw: $(ls "$WORKDIR/download/pages")"
@@ -292,6 +319,7 @@ echo
 echo "Rehydrating locale then section shards into dist/"
 export GH_TOKEN="${GH_TOKEN:-$(gh auth token 2>/dev/null || true)}"
 export DEPLOY_RUN_ID="$RUN_ID"
+export SHARD_ARTIFACT_RUN_ID_IT SHARD_ARTIFACT_RUN_ID_EN SHARD_ARTIFACT_RUN_ID_DE SHARD_ARTIFACT_RUN_ID_FR
 export RUNNER_TEMP="$WORKDIR/runner-temp"
 export SHARD_CLONE_CACHE_DIR="$WORKDIR/shard-clone-cache"
 export GH_REPO="$REPO"   # so the scripts' bare `gh run download` targets this repo

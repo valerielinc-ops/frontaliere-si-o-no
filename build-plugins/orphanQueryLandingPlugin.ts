@@ -80,7 +80,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { CALC_HREF } from './shared/calcHref';
-import { formatPageGenerationDate } from './shared/pageGenerationDate';
+import { renderLatestPostingKicker } from './shared/latestPostingDate';
 import { hasSalaryIntent } from '../services/jobSearchIntent';
 import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnswer';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -592,12 +592,11 @@ function renderPage(opts: {
   regionRelevant?: boolean;
   regionCoverage?: OrphanLandingRegionCoverage;
   strings: Record<string, string>;
-  dateStamp: string;
   knownSlugsByLocale: Map<OrphanLandingLocale, Set<string>>;
   /** dist directory for entry-asset resolution. Omit in tests. */
   distDir?: string;
 }): RenderedPageResult {
-  const { cluster, matchingJobs, regionRelevant = true, regionCoverage, strings, dateStamp, knownSlugsByLocale, distDir } = opts;
+  const { cluster, matchingJobs, regionRelevant = true, regionCoverage, strings, knownSlugsByLocale, distDir } = opts;
   const locale = cluster.locale;
   const urlPath = buildOrphanLandingPath(locale, cluster.canonicalSlug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -733,7 +732,7 @@ function renderPage(opts: {
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
     <header class="s-YcUNX5">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
+      ${renderLatestPostingKicker(matchingJobs, locale, `style="${HERO_EYEBROW_STYLE}"`)}
       <h1 style="${H1_STYLE}">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="${LEDE_STYLE}">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
@@ -988,7 +987,6 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           regionRelevant: selected.regionRelevant,
           regionCoverage: selected.regionCoverage,
           strings: localeStrings[cluster.locale] || {},
-          dateStamp,
           knownSlugsByLocale,
           distDir,
         });

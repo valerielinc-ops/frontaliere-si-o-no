@@ -818,6 +818,36 @@ describe('incremental manifest input contract', () => {
     }
   });
 
+  it('merges sorted manifest runs byte-for-byte without retaining a full sorted entry list', () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'incremental-manifest-runs-'));
+    const secondRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'incremental-manifest-runs-'));
+    try {
+      const manifest = new IncrementalManifest('de');
+      const reverseManifest = new IncrementalManifest('de');
+      const entryCount = 16_385;
+      for (let index = 0; index < entryCount; index += 1) {
+        const slug = String(index).padStart(5, '0');
+        manifest.register(`/jobs/${slug}/`, 'active-job', { slug });
+      }
+      for (let index = entryCount - 1; index >= 0; index -= 1) {
+        const slug = String(index).padStart(5, '0');
+        reverseManifest.register(`/jobs/${slug}/`, 'active-job', { slug });
+      }
+
+      const firstPath = manifest.write(tempRoot);
+      const secondPath = reverseManifest.write(secondRoot);
+      const firstBytes = fs.readFileSync(firstPath);
+      const secondBytes = fs.readFileSync(secondPath);
+      expect(firstBytes.equals(secondBytes)).toBe(true);
+      const lines = firstBytes.toString('utf8').trimEnd().split('\n');
+      expect(lines.filter((line) => JSON.parse(line).path).length).toBe(entryCount);
+      expect(fs.readdirSync(path.dirname(firstPath)).some((name) => name.includes('.paths-'))).toBe(false);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+      fs.rmSync(secondRoot, { recursive: true, force: true });
+    }
+  });
+
   it('writes jobs, related pages, and related sitemap shards into one locale file', () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'incremental-manifest-kinds-'));
     try {

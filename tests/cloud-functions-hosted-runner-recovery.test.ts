@@ -6,6 +6,7 @@ import {
   HOSTED_RUNNER_ALLOCATION_MESSAGE,
   isHostedRunnerAllocationFailure,
   isCloudFunctionsRunCandidate,
+  listRecentCloudFunctionsRuns,
   shouldRetryCloudFunctionsRun,
 } from '../scripts/ci/cloud-functions-hosted-runner-recovery.mjs';
 
@@ -28,6 +29,7 @@ const sourceRun = {
   event: 'push',
   head_branch: 'main',
   path: '.github/workflows/deploy-cloud-functions.yml',
+  created_at: '2026-11-10T14:53:19Z',
   run_attempt: 1,
 };
 
@@ -84,6 +86,68 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     })).toBe(false);
   });
 
+  it('bounds the run listing and retries only transient GitHub server errors', async () => {
+    const requests: Array<Record<string, unknown>> = [];
+    const waits: number[] = [];
+    let attempts = 0;
+    const github = {
+      rest: {
+        actions: {
+          listWorkflowRuns: async (request: Record<string, unknown>) => {
+            requests.push(request);
+            attempts += 1;
+            if (attempts === 1) {
+              const error = new Error('Bad Gateway') as Error & { status?: number };
+              error.status = 502;
+              throw error;
+            }
+            return { data: { workflow_runs: [] } };
+          },
+        },
+      },
+    };
+
+    await expect(listRecentCloudFunctionsRuns({
+      github,
+      repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' },
+      run: sourceRun,
+      core: { warning: () => {} },
+      sleep: async (milliseconds: number) => waits.push(milliseconds),
+    })).resolves.toEqual([]);
+
+    expect(attempts).toBe(2);
+    expect(waits).toEqual([500]);
+    expect(requests[0]).toMatchObject({
+      workflow_id: 'deploy-cloud-functions.yml',
+      branch: 'main',
+      created: '>=2026-11-10',
+      per_page: 100,
+    });
+  });
+
+  it('does not retry non-transient or exhausted run-list errors', async () => {
+    let attempts = 0;
+    const github = {
+      rest: {
+        actions: {
+          listWorkflowRuns: async () => {
+            attempts += 1;
+            const error = new Error('Forbidden') as Error & { status?: number };
+            error.status = 403;
+            throw error;
+          },
+        },
+      },
+    };
+    await expect(listRecentCloudFunctionsRuns({
+      github,
+      repo: { owner: 'valerielinc-ops', repo: 'frontaliere-si-o-no' },
+      run: sourceRun,
+      sleep: async () => {},
+    })).rejects.toMatchObject({ status: 403 });
+    expect(attempts).toBe(1);
+  });
+
   it('pins the recovery workflow to the source workflow and keeps deploys newest-safe', () => {
     const recovery = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as any;
     const deploy = parse(fs.readFileSync(DEPLOY_WORKFLOW_PATH, 'utf8')) as any;
@@ -93,8 +157,11 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     });
     expect(recovery.permissions).toMatchObject({ actions: 'write', checks: 'read' });
     expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
+    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('listRecentCloudFunctionsRuns');
+    expect(recovery.jobs.retry.steps.at(-1).with.script).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);
   });
 

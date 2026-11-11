@@ -26,7 +26,14 @@ export const CH_CANTON_SNAPSHOT_LOCALE_PREFIX: Record<ChCantonSnapshotLocale, st
   fr: '/fr',
 };
 
-/** Locale-aware "find-jobs-{canton}" URL segment prefix. */
+/**
+ * Published static-page prefix, not the canonical outbound T5 prefix.
+ *
+ * The snapshot/employers families intentionally retain their historical DE
+ * `jobs-im-*` roots. Links leaving those pages use
+ * `buildCanonicalJobBoardHref`, which resolves the router's per-canton
+ * prefix/dePrefix mapping instead of composing this table with a slug.
+ */
 export const CH_CANTON_SNAPSHOT_JOB_BOARD_PREFIX: Record<ChCantonSnapshotLocale, string> = CANTON_JOB_BOARD_PREFIX;
 
 /** "snapshot" segment — same word in all 4 locales for predictable URL shape. */

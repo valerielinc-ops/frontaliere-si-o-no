@@ -13699,6 +13699,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tredicesima-avs-pensionati-italia.title': '13th AVS payment for Italian pensioners starting in December 2026',
     'blog.article.tredicesima-avs-pensionati-italia.excerpt': 'A retiree who was a cross-border worker, is enrolled in the Swiss social security system and receives a full AVS pension of 2’520 francs per month will receive an identical amount as a thirteenth monthly payment.',
     'blog.article.tredicesima-avs-pensionati-italia.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontalieri-svizzera-calo-ticino.title': 'Cross-border workers: increase in Switzerland, annual decline in Ticino',
+    'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'In the third quarter, the cross-border commuter statistics highlight a clear contrast between the federal situation and that of Canton Ticino.',
+    'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

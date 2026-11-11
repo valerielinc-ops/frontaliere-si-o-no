@@ -44,6 +44,26 @@ describe('complete archived SEO without an active offer', () => {
       { ...options, now },
     )).toBeNull();
   });
+  it('takes validThrough from the archived record, byte-stable across build clocks', () => {
+    const clock = new Date();
+    const at = (offsetDays: number) => buildArchivedJobPosting(record, 'Archived', { ...options, now: new Date(clock.getTime() + offsetDays * 86400000) });
+    expect(at(0)?.validThrough).toBe(new Date(record.expiredAt).toISOString());
+    expect(JSON.stringify(at(3))).toBe(JSON.stringify(at(0)));
+  });
+  it('never dates validThrough after the recorded expiry', () => {
+    const schema = buildArchivedJobPosting({ ...record, crawledAt: ago(2) }, 'Archived', options);
+    expect(schema?.validThrough).toBe(new Date(record.expiredAt).toISOString());
+  });
+  it('bounds validThrough by the last observation when no expiry was recorded', () => {
+    const crawledAt = ago(6);
+    const schema = buildArchivedJobPosting({ ...record, postingDateSource: 'unknown', datePosted: undefined, expiredAt: undefined, crawledAt }, 'Archived', options);
+    expect(schema?.validThrough).toBe(new Date(crawledAt).toISOString());
+    const later = buildArchivedJobPosting({ ...record, postingDateSource: 'unknown', datePosted: undefined, expiredAt: undefined, crawledAt }, 'Archived', { ...options, now: new Date(Date.now() + 3 * 86400000) });
+    expect(JSON.stringify(later)).toBe(JSON.stringify(schema));
+  });
+  it('emits no JobPosting, rather than a build-clock deadline, without any archive date', () => {
+    expect(buildArchivedJobPosting({ ...record, datePosted: undefined, expiredAt: undefined }, 'Archived', options)).toBeNull();
+  });
   it('uses archive facts rather than an invitation to apply when the original text is short', () => {
     const schema = buildArchivedJobPosting({ ...record, description: 'Reparto dati.' }, 'Offerta archiviata e non più disponibile.', options)!;
     expect(schema.description).toContain('Offerta archiviata');

@@ -27,7 +27,13 @@ import {
 import { proposalDocumentId, rankingFeaturesForJob } from './applicationConciergeMatching.js';
 import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
-import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
+import {
+  CONCIERGE_DECIDED_BY_CANDIDATE,
+  CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT,
+  conciergeAutoAcceptAt,
+  conciergeAutoAcceptDue,
+  conciergeRenewalOffer,
+} from './applicationConciergeLifecyclePolicy.js';
 import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
@@ -192,6 +198,9 @@ function serializeProposal(doc, service = null) {
     proposedAt: timestampToIso(data.proposedAt || data.createdAt),
     acceptedAt: timestampToIso(data.acceptedAt),
     declinedAt: timestampToIso(data.declinedAt),
+    // The platform accepts at this time a proposal the candidate has not decided (owner decision 2026-11-11).
+    autoAcceptAt: timestampToIso(conciergeAutoAcceptAt(data)),
+    decidedBy: [CONCIERGE_DECIDED_BY_CANDIDATE, CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT].includes(data.decidedBy) ? data.decidedBy : null,
     childApplicationId: optionalString(data.childApplicationId, 200),
     childApplicationState: optionalString(data.childApplicationState, 60),
     childSubmissionStatus: optionalString(data.childSubmissionStatus, 60),
@@ -707,8 +716,16 @@ async function throwPositionLimitReachedIfCurrent(serviceRef) {
   }
 }
 
-async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt = Date.now()) {
+/**
+ * One acceptance path for the candidate and for the platform's 12-hour timeout (owner decision 2026-11-11):
+ * the same ownership, service, quota and eligibility checks, the same CV copy and the same transaction. The
+ * platform's acceptance is valid only while the proposal is still undecided and its window has elapsed, both
+ * read again inside the publishing transaction, so a candidate's decision committed first always wins.
+ */
+async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt = Date.now(),
+  { decidedBy = CONCIERGE_DECIDED_BY_CANDIDATE, decisionNowMs = operationStartedAt } = {}) {
   if (!validId(proposalId)) throw new ApplicationConciergeError('invalid_proposal_id', 400);
+  const platformTimeout = decidedBy === CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT;
   const loadedService = await loadService(db, serviceId);
   const { ref: serviceRef, snapshot: serviceSnapshot } = loadedService;
   const fallbackOpenCount = loadedService.proposals.filter(proposal => (proposal.data() || {}).status === 'proposed').length;
@@ -718,8 +735,9 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   const proposalSnapshot = await proposalRef.get();
   if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
   const proposal = proposalSnapshot.data() || {};
-  // A response may be lost after publication; return its same child on retry.
-  if (proposal.status === 'accepted' && validId(proposal.childApplicationId)) {
+  // A response may be lost after publication; return its same child on retry. The platform never takes
+  // another acceptance for its own: an accepted proposal is already decided for it.
+  if (!platformTimeout && proposal.status === 'accepted' && validId(proposal.childApplicationId)) {
     const child = (await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(proposal.childApplicationId).get()).data();
     if (child?.userId === uid && child.parentServiceId === serviceId && child.parentProposalId === proposalId) {
       const fresh = await loadService(db, serviceId);
@@ -728,6 +746,9 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
     }
   }
   if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
+  if (platformTimeout && !conciergeAutoAcceptDue(proposal, decisionNowMs)) {
+    throw new ApplicationConciergeError('auto_accept_not_due', 409);
+  }
   assertActive(service);
   if (acceptedPositionsCount(service) >= servicePositionLimit(service)) {
     throw new ApplicationConciergeError('position_limit_reached', 409);
@@ -778,6 +799,10 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
       if (!currentProposal || currentProposal.status !== 'proposed') {
         throw new ApplicationConciergeError('proposal_already_decided', 409);
       }
+      // Offered again (reactivatedAt) while the CV was being copied: the candidate gets a fresh window.
+      if (platformTimeout && !conciergeAutoAcceptDue(currentProposal, Math.max(nowMs, decisionNowMs))) {
+        throw new ApplicationConciergeError('auto_accept_not_due', 409);
+      }
       if (!proposalUsesCurrentEligibilityFacts(currentProposal, currentService)) {
         throw new ApplicationConciergeError('proposal_requires_verification', 409);
       }
@@ -801,6 +826,8 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
       transaction.set(proposalRef, {
         status: 'accepted',
         acceptedAt: now,
+        decidedBy,
+        decidedAt: now,
         childApplicationId,
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
@@ -898,9 +925,12 @@ async function declineProposal(db, serviceId, proposalId, uid, rawReason = '') {
     if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
     const openCount = openProposalsCount(service, fallbackOpenCount);
     const nextOpenCount = Math.max(0, openCount - 1);
+    const declinedAt = Timestamp.now();
     transaction.set(proposalRef, {
       status: 'declined',
-      declinedAt: Timestamp.now(),
+      declinedAt,
+      decidedBy: CONCIERGE_DECIDED_BY_CANDIDATE,
+      decidedAt: declinedAt,
       ...(declineReason ? { declineReason } : {}),
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
@@ -1126,6 +1156,28 @@ export async function handleManageApplicationConcierge(req) {
     return { status: 200, body: { ok: true, services } };
   } catch (error) {
     if (error instanceof ApplicationConciergeError) return { status: error.status, body: { ok: false, error: error.code } };
+    throw error;
+  }
+}
+
+/**
+ * The platform's acceptance of a proposal left undecided for CONCIERGE_AUTO_ACCEPT_MS (owner decision
+ * 2026-11-11), through the candidate's own acceptance path and in the candidate's name: the child application
+ * is the one the candidate's click would have created. Returns the refusal code instead of throwing it, so a
+ * sweep counts why a proposal stayed with the candidate.
+ */
+export async function autoAcceptApplicationConciergeProposal({ db = getAdminDb(), serviceId, proposalId, nowMs = Date.now() }) {
+  if (!validId(serviceId)) return { accepted: false, reason: 'invalid_service_id' };
+  const snapshot = await serviceRefFor(db, serviceId).get();
+  const uid = snapshot.exists ? snapshot.data()?.userId : null;
+  if (!validId(uid)) return { accepted: false, reason: 'service_not_found' };
+  try {
+    const result = await acceptProposal(db, serviceId, proposalId, uid, Date.now(), {
+      decidedBy: CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT, decisionNowMs: nowMs,
+    });
+    return { accepted: true, childApplicationId: result.childApplicationId };
+  } catch (error) {
+    if (error instanceof ApplicationConciergeError) return { accepted: false, reason: error.code };
     throw error;
   }
 }

@@ -90,6 +90,17 @@ describe('build-evidence-index.mjs fatality policy', () => {
     expect(results.every((result) => !hasObservedEvidence(result))).toBe(true);
     expect(isFullDataOutage(results)).toBe(true);
   });
+
+  it('treats a complete empty GA4 sweep as observed zero-row evidence', () => {
+    const results = [
+      { queries: {}, pages: {}, error: 'gsc unavailable' },
+      { pages: {}, error: 'ga4 unavailable' },
+      { pages: {}, coverage: { complete: true, returnedRows: 0, reportedRows: 0 } },
+    ];
+
+    expect(hasObservedEvidence(results[2])).toBe(true);
+    expect(isFullDataOutage(results)).toBe(false);
+  });
 });
 
 describe('build-evidence-index.mjs file shape (integration smoke)', () => {
@@ -104,6 +115,8 @@ describe('build-evidence-index.mjs file shape (integration smoke)', () => {
     const source = readFileSync(SCRIPT_PATH, 'utf8');
     expect(source).not.toMatch(/posthog-client\.mjs|evidence\/posthogFetcher\.mjs|checkPostHogLiveness|HogQLQuery/);
     expect(source).toMatch(/fetchGa4Pages\(/);
+    expect(source).toMatch(/fetchExpiredJobGa4Traffic\(/);
     expect(source).toMatch(/fetchGscQueries\(/);
+    expect(source).toMatch(/expiredJobGa4Traffic,/);
   });
 });

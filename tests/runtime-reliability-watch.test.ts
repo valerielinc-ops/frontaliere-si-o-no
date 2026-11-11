@@ -643,14 +643,23 @@ describe('runtime reliability watchdog', () => {
       publishWorkflow.indexOf('  runtime-watchdog:'),
       publishWorkflow.indexOf('  report-failure:'),
     );
+    const watchdogStart = job.indexOf('- name: Dispatch runtime reliability watchdog');
+    const cathedralStart = job.indexOf('- name: Dispatch exact published dist to Cathedral SEO gates');
+    const watchdogStep = job.slice(watchdogStart, job.indexOf('\n      - name:', watchdogStart + 1));
+    const cathedralStep = job.slice(cathedralStart);
     expect(job).toContain('needs: [deploy, resolve-nonit-publish, validate-dist, validate-live, publish]');
     expect(job).toMatch(/if:\s*>-\s*\n\s*\$\{\{ always\(\)/);
     expect(job).toContain("needs.deploy.result == 'success'");
     // The old gate skipped the watchdog exactly when the live site was broken.
-    expect(job).not.toMatch(/needs\.validate-live\.result\s*==/);
+    expect(watchdogStart).toBeGreaterThanOrEqual(0);
+    expect(watchdogStep).not.toMatch(/needs\.validate-live\.result\s*==/);
     expect(job).toContain('actions: write  # workflow_dispatch is the explicit chained trigger');
-    expect(job).toContain('gh workflow run runtime-reliability-watch.yml');
-    expect(job).toContain('--ref main');
+    expect(watchdogStep).toContain('gh workflow run runtime-reliability-watch.yml');
+    expect(watchdogStep).toContain('--ref main');
+    expect(cathedralStart).toBeGreaterThan(watchdogStart);
+    expect(cathedralStep).toContain("needs.validate-live.result == 'success'");
+    expect(cathedralStep).toContain('PUBLISHER_RUN_ID: ${{ github.run_id }}');
+    expect(cathedralStep).toContain('PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}');
   });
 
   it('replaces the removed zone-wide deploy purge with the exact Pages home key', () => {

@@ -826,6 +826,80 @@ function samePostingAddress(firstUrl, secondUrl) {
   }
 }
 
+const STADT_ZUERICH_PUBLIC_HOSTS = new Set(['stadt-zuerich.ch', 'www.stadt-zuerich.ch']);
+const STADT_ZUERICH_PUBLIC_JOB_SEARCH_PATH = '/de/politik-und-verwaltung/arbeiten-bei-der-stadt/jobs.html';
+const STADT_ZUERICH_PUBLIC_JOB_DETAIL_RE = [
+  /^\/(?:content\/web\/)?(?:de|en|fr|it)\/politik-und-verwaltung\/arbeiten-bei-der-stadt\/jobs\/job-detailseite\.\d+\.html$/iu,
+  /^\/jobs\/(?:de|en|fr|it)\/[^/]+-\d+\.html$/iu,
+];
+const STADT_ZUERICH_ATS_JOB_DETAIL_RE = /^\/job\/[^/]+\/\d+\/?$/iu;
+
+function parsedSafeStadtZurichUrl(value, base = '') {
+  try {
+    const url = new URL(String(value || ''), base || undefined);
+    if (url.protocol !== 'https:' || url.username || url.password || url.hash) return null;
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+export function isStadtZurichPublicJobSearchRoute(value) {
+  const url = parsedSafeStadtZurichUrl(value);
+  return Boolean(url && STADT_ZUERICH_PUBLIC_HOSTS.has(url.hostname.toLowerCase())
+    && url.pathname.replace(/\/+$/, '') === STADT_ZUERICH_PUBLIC_JOB_SEARCH_PATH.replace(/\/+$/, ''));
+}
+
+function isStadtZurichPublicJobDetailRoute(value) {
+  const url = parsedSafeStadtZurichUrl(value);
+  if (!url) return false;
+  const host = url.hostname.toLowerCase();
+  if (host === 'jobs.stadt-zuerich.ch') return STADT_ZUERICH_ATS_JOB_DETAIL_RE.test(url.pathname);
+  return STADT_ZUERICH_PUBLIC_HOSTS.has(host)
+    && STADT_ZUERICH_PUBLIC_JOB_DETAIL_RE.some((pattern) => pattern.test(url.pathname));
+}
+
+function stadtZurichAccessibleControlName(control) {
+  return [control?.labelledBy, control?.label, control?.ariaLabel, control?.text, control?.title]
+    .map((value) => String(value || '').replace(/\s+/g, ' ').trim())
+    .find(Boolean) || '';
+}
+
+function stadtZurichPostingCandidateText(candidate) {
+  const name = stadtZurichAccessibleControlName(candidate);
+  return name ? [name] : [];
+}
+
+/**
+ * Select a Stadt Zürich detail link only when the listing exposes exactly one
+ * URL whose own accessible name is the selected role. A listing can contain
+ * several «Bewerben»/role links, so neither DOM order nor a slug alone is
+ * enough to bind the application to the order.
+ */
+export function stadtZurichPublicPostingTarget(snapshot = {}, title = '', currentUrl = snapshot?.url || '') {
+  const roleTitle = String(title || '').replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!isStadtZurichPublicJobSearchRoute(currentUrl) || !roleTitle) return '';
+  const controls = [
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+  ];
+  const candidates = new Map();
+  for (const control of controls) {
+    const href = String(control?.href || '').trim();
+    const url = parsedSafeStadtZurichUrl(href, currentUrl);
+    if (!url || !isStadtZurichPublicJobDetailRoute(url.href)) continue;
+    if (!stadtZurichPostingCandidateText(control).some((text) => isRoleHeading(text, roleTitle))) continue;
+    const key = `${url.origin}${url.pathname.replace(/\/+$/, '')}${url.search}`;
+    if (!candidates.has(key)) candidates.set(key, url.href);
+  }
+  return candidates.size === 1 ? [...candidates.values()][0] : '';
+}
+
+export function isStadtZurichPublicSearchButton(button = {}) {
+  return !button?.chrome && !button?.disabled
+    && /^(?:search|suche)\b/iu.test(stadtZurichAccessibleControlName(button));
+}
+
 /**
  * Stadt Zürich's Jobs2Web detail shell can stay on the selected posting while
  * its application widget is mounting. Other hosts need an actual form surface
@@ -1042,7 +1116,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
-  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit);
+  // The status the candidate chose, else the cross-border permit the platform deduced from the CV (owner decision
+  // 2026-11-10, platformCandidateFacts `permitStatusSource: 'deduced'`): never over an answer of theirs.
+  const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit)
+    || (platformFacts?.permitStatusSource === 'deduced' && !String(answers.work_permit ?? '').trim() ? permitStatusOf(platformFacts.permitStatus) : '');
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
@@ -1419,7 +1496,7 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
   }
   const publicActions = buttons
     .filter(button => !button?.chrome && !button?.disabled)
-    .map(button => String(button.text || '').replace(/\s+/g, ' ').trim())
+    .map(stadtZurichAccessibleControlName)
     .filter(text => PUBLIC_JOB_ACTION_RE.test(text));
   const hasSearchControls = publicActions.some(text => /^(?:search|suche|reset|zurücksetzen)\b/iu.test(text));
   const hasResultsControls = publicActions.some(text => /^(?:mehr\s+anzeigen|show\s+more|load\s+more|seite\s+drucken|print\s+page)\b/iu.test(text));
@@ -1427,7 +1504,7 @@ function isNonApplicationJobSearchSurface(snapshot = {}, { applicationEvidence =
     || ['email', 'password'].includes(String(field.inputType || '').toLowerCase())
     || APPLICATION_IDENTITY_FIELD_RE.test(fieldText(field)));
   const hasApplicationButton = buttons.some(button => !button?.chrome && !button?.disabled
-    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || ''))));
+    && (NEXT_RE.test(stadtZurichAccessibleControlName(button)) || SUBMIT_RE.test(stadtZurichAccessibleControlName(button))));
   return keywordField && filterKinds.size >= 2 && hasSearchControls && hasResultsControls
     && !hasCandidateField && !hasApplicationButton && !applicationEvidence;
 }
@@ -1711,11 +1788,23 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const current = comparablePortalRoute(snapshot.url);
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
-    && startsApplication(control?.text || control?.label)
+    && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
     && controlPostingIdentity(control) === ''
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
-    && startsApplication(control?.text || control?.label));
+    && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
+  // The official Stadt Zürich detail page is selected by its unique role link
+  // before this loop reaches it. On that exact, fieldless detail route a sole
+  // explicit Apply control is the only remaining handoff proof; a duplicate
+  // or social choice stays unresolved instead of being chosen by position.
+  const publicDetailEntries = allEntries.filter((control) => !socialApplicationEntry(control));
+  if (context.publicPostingTarget === true
+    && posting && current
+    && isStadtZurichPublicJobDetailRoute(snapshot.url)
+    && current.origin === posting.origin
+    && current.pathname === posting.pathname
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && allEntries.length === 1 && publicDetailEntries.length === 1) return publicDetailEntries;
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
@@ -2918,6 +3007,78 @@ export async function resolveCookieConsent(page, snapshot, { agent = null } = {}
   return { ...verified, attempts, agent: agentStatus };
 }
 
+async function visibleStadtZurichPostingLinks(page) {
+  const frames = typeof page?.frames === 'function' ? page.frames() : [];
+  const links = [];
+  for (const frame of frames.slice(0, 5)) {
+    const found = await frame.evaluate(() => [...document.querySelectorAll('a[href]')]
+      .filter((element) => {
+        const rect = element.getBoundingClientRect();
+        const style = window.getComputedStyle(element);
+        return rect.width > 0 && rect.height > 0
+          && style.display !== 'none' && style.visibility !== 'hidden'
+          && element.getAttribute('aria-hidden') !== 'true';
+      })
+      .slice(0, 200)
+      .map((element) => ({
+        labelledBy: (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map((id) => document.getElementById(id)?.innerText || document.getElementById(id)?.textContent || '')
+          .join(' ').replace(/\s+/g, ' ').trim(),
+        text: String(element.innerText || element.textContent || '').replace(/\s+/g, ' ').trim(),
+        label: String(element.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim(),
+        title: String(element.getAttribute('title') || '').replace(/\s+/g, ' ').trim(),
+        ariaLabel: String(element.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim(),
+        href: element.href || '',
+      }))).catch(() => []);
+    links.push(...(Array.isArray(found) ? found : []));
+  }
+  return links;
+}
+
+async function recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, { searched = false } = {}) {
+  const title = String(stageContext?.job?.title || '').trim();
+  if (!title || !isStadtZurichPublicJobSearchRoute(page.url())
+    || !isNonApplicationJobSearchSurface(snapshot)) return { snapshot, searched, target: '' };
+
+  const liveLinks = await visibleStadtZurichPostingLinks(page);
+  const target = stadtZurichPublicPostingTarget({
+    ...snapshot,
+    url: page.url(),
+    links: [...(Array.isArray(snapshot.links) ? snapshot.links : []), ...liveLinks],
+  }, title, page.url());
+  if (target) {
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await settle(page);
+    await page.waitForTimeout(1200);
+    return { snapshot: await extractFields(page, NAVIGATION), searched, target };
+  }
+  if (searched) return { snapshot, searched, target: '' };
+
+  const keywordFields = (Array.isArray(snapshot.fields) ? snapshot.fields : []).filter((field) => {
+    const text = [field?.label, field?.name, field?.id, field?.context, field?.section].filter(Boolean).join(' ');
+    return field?.kind === 'text' && !field?.disabled && !field?.readOnly && PUBLIC_JOB_KEYWORD_RE.test(text);
+  });
+  const searchButtons = (Array.isArray(snapshot.buttons) ? snapshot.buttons : []).filter(isStadtZurichPublicSearchButton);
+  if (keywordFields.length !== 1 || searchButtons.length !== 1) return { snapshot, searched, target: '' };
+  const keywordField = keywordFields[0];
+  const searchButton = searchButtons[0];
+  const sameFrame = (Number(keywordField.frame) || 0) === (Number(searchButton.frame) || 0);
+  const sameForm = keywordField.formId && searchButton.formId && keywordField.formId === searchButton.formId;
+  if (!sameFrame || (keywordField.formId && searchButton.formId && !sameForm)) return { snapshot, searched, target: '' };
+
+  try {
+    const input = locatorFor(page, keywordField);
+    await input.fill(title, { timeout: 6_000 });
+    if (await input.inputValue().catch(() => '') !== title) return { snapshot, searched: true, target: '' };
+    await clickButton(page, searchButton);
+    await settle(page);
+    await page.waitForTimeout(1200);
+    return { snapshot: await extractFields(page, NAVIGATION), searched: true, target: '' };
+  } catch {
+    return { snapshot, searched: true, target: '' };
+  }
+}
+
 /**
  * From the posting to the form, up to three hops (Workday: "Bewerben", then
  * "Manuell bewerben"; a cookie banner can come back on each page). A new tab
@@ -2930,7 +3091,17 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // The caller still needs a matching posting before this flag can authorize
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
-  const result = (extra = {}) => ({ page, snapshot, enteredThroughApplicationEntry, ...extra });
+  let resolvedPostingUrl = '';
+  let publicSearchTarget = false;
+  let publicSearchSearched = false;
+  const result = (extra = {}) => ({
+    page,
+    snapshot,
+    enteredThroughApplicationEntry,
+    ...(resolvedPostingUrl ? { resolvedPostingUrl } : {}),
+    ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
+    ...extra,
+  });
   const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
     if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
     let location = null;
@@ -2960,6 +3131,24 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   for (let hop = 0; hop < 3; hop += 1) {
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
+    const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
+      searched: publicSearchSearched,
+    });
+    if (publicRecovery.target) {
+      resolvedPostingUrl = publicRecovery.target;
+      publicSearchTarget = true;
+      publicSearchSearched = publicRecovery.searched;
+      stageContext = {
+        ...(stageContext || {}),
+        postingUrl: publicRecovery.target,
+        allowSingleExternalApplicationEntry: true,
+        publicPostingTarget: true,
+      };
+      snapshot = publicRecovery.snapshot || snapshot;
+      continue;
+    }
+    if (publicRecovery.searched && !publicSearchSearched) publicSearchSearched = true;
+    snapshot = publicRecovery.snapshot || snapshot;
     const allControls = [
       ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
       ...(Array.isArray(snapshot.links) ? snapshot.links : []),
@@ -3375,6 +3564,7 @@ function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = ''
 export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   pageUrl = '',
   pageTitle = '',
+  pageHeading = '',
   postingUrl = '',
   postingRouteProof = null,
   vacancyIdentityContexts = [],
@@ -3394,7 +3584,17 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   // rendered page text: a generic document title must not hide an unrelated
   // role in the selected route, while a proven employer/location suffix in
   // the posting body may be ignored.
-  if (!organizationCompatible || namesAnotherEmployer(routeBound ? pageText : sourceText, job, { allowPostingLocation: routeBound })) return false;
+  // namesAnotherEmployer reads the first line of its text as the page's title.
+  // The rendered text of a selected route starts with whatever the site puts
+  // first, often a skip link («Zum Inhalt springen», «Skip to content»; order
+  // 1EpmkrDu, jobs.yellowshark.com, 2026-11-10: posting_mismatch before its
+  // Apply). When the page's own main heading is exactly the role, that heading
+  // is the title line; the employer-conflict rule still reads the whole page.
+  // A heading naming another role, a second employer or nothing keeps the
+  // rendered first line, as before.
+  const routeHeading = routeBound && isRoleHeading(pageHeading, job?.title) ? String(pageHeading).trim() : '';
+  const conflictText = routeBound ? (routeHeading ? `${routeHeading}\n${pageText}` : pageText) : sourceText;
+  if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
   // The source page must identify the role in its title. Its employer may be
@@ -3463,6 +3663,44 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
     && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
     && titleMatches(line.replace(otherRequisition, ' '), job.title)
     && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+}
+
+/**
+ * The page's main heading is the order's role and nothing else: every word of
+ * the role, and around it only gender markers or a workload («(m/w/d)»,
+ * «80-100%»). Another role, an employer or a slogan in it is not this role.
+ */
+export function isRoleHeading(heading, title) {
+  const text = String(heading || '').trim();
+  if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
+  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
+  // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the words.
+  const seen = normalizeWords(text.replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')).split(' ').filter(Boolean);
+  const shown = new Set(seen);
+  // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
+  // the title aside, and nothing but those markers or a workload around it.
+  return seen.length > 0 && [...wanted].every((word) => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
+    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+}
+
+/** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
+export async function postingMainHeading(page) {
+  if (typeof page?.evaluate !== 'function') return '';
+  const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
+    .filter((node) => {
+      const rect = node.getBoundingClientRect();
+      const style = window.getComputedStyle(node);
+      return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+    })
+    .map((node) => String(node.innerText || node.textContent || '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, 201)).catch(() => null);
+  // Distinct across every visible main heading: a different one after ten copies of the role still counts. A page
+  // with more main headings than that is no single-heading posting.
+  if (!Array.isArray(headings) || headings.length > 200) return '';
+  const distinct = [...new Set(headings)];
+  // The whole heading: isRoleHeading refuses one longer than a title, never a cut that hides «… at Other Employer».
+  return distinct.length === 1 ? distinct[0] : '';
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */
@@ -7585,7 +7823,7 @@ export async function readPortalRequirements(ctx) {
   const inferredUmantisPostingUrl = verifiedPostingEntry && !String(ctx.postingUrl || '').trim()
     ? umantisPostingAddressFromApplication(stageApplyUrl)
     : '';
-  const formPostingUrl = String(ctx.postingUrl || '').trim() || inferredUmantisPostingUrl;
+  let formPostingUrl = String(ctx.postingUrl || '').trim() || inferredUmantisPostingUrl;
   const readAhead = portalReadAheadCapability({
     channelType,
     entryUrl,
@@ -7705,9 +7943,10 @@ export async function readPortalRequirements(ctx) {
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     const sourceTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const sourcePostingText = `${sourceTitle}\n${snapshot.text || ''}\n${page.url()}`;
-    const sourcePostingMatched = hasJobContract && hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
+    let sourcePostingMatched = hasJobContract && hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
+      pageHeading: await postingMainHeading(page),
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
@@ -7723,6 +7962,10 @@ export async function readPortalRequirements(ctx) {
       allowSingleExternalApplicationEntry: sourcePostingMatched,
     });
     ({ page, snapshot } = opened);
+    if (opened.resolvedPostingUrl) {
+      formPostingUrl = opened.resolvedPostingUrl;
+      sourcePostingMatched = true;
+    }
     contractSnapshot = snapshot;
     if (opened.handoff) return await finish({ questions: [], documents: [], handoff: opened.handoff });
     // An allowlisted ATS may keep later, unconditional steps mounted with
@@ -8095,7 +8338,9 @@ export async function submitViaPortal(ctx) {
     if (initialHandoff) return await handoff(initialHandoff);
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
-    const postingUrl = page.url();
+    let postingUrl = page.url();
+    const initialPublicJobSearch = isStadtZurichPublicJobSearchRoute(postingUrl)
+      && isNonApplicationJobSearchSurface(snapshot);
     const postingTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const postingSeen = `${postingTitle} ${initialPageText} ${postingUrl}`;
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
@@ -8114,10 +8359,11 @@ export async function submitViaPortal(ctx) {
       && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     // A verified apply/posting URL pair is stronger than the title of a thin
     // shell, which may still show a stale or generic role while it mounts.
-    const postingVacancyMatched = enteredFromMatchingPosting
+    let postingVacancyMatched = enteredFromMatchingPosting
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
+        pageHeading: await postingMainHeading(page),
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
@@ -8125,7 +8371,8 @@ export async function submitViaPortal(ctx) {
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
-    if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl) && !postingVacancyMatched) {
+    if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl)
+      && !postingVacancyMatched && !initialPublicJobSearch) {
       return await handoff('posting_mismatch');
     }
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
@@ -8146,6 +8393,10 @@ export async function submitViaPortal(ctx) {
       cookieAgent,
     });
     ({ page, snapshot } = opened);
+    if (opened.resolvedPostingUrl) {
+      postingUrl = opened.resolvedPostingUrl;
+      postingVacancyMatched = true;
+    }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -8538,6 +8789,10 @@ export async function submitViaPortal(ctx) {
             cookieAgent,
           });
           ({ page, snapshot } = reopened);
+          if (reopened.resolvedPostingUrl) {
+            postingUrl = reopened.resolvedPostingUrl;
+            postingVacancyMatched = true;
+          }
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -8672,6 +8927,10 @@ export async function submitViaPortal(ctx) {
             cookieAgent,
           });
           ({ page, snapshot } = reopened);
+          if (reopened.resolvedPostingUrl) {
+            postingUrl = reopened.resolvedPostingUrl;
+            postingVacancyMatched = true;
+          }
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);

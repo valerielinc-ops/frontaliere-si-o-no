@@ -27,7 +27,7 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
     // `break` earlier and must NOT be relocated (their native page is gone).
     expect(jobsSeoSrc).toContain('const activeDriftRealPathByCompat = new Map<string, string>();');
     expect(jobsSeoSrc).toMatch(
-      /if \(known && currentSlugs\.has\(slug\)\) activeDriftRealPathByCompat\.set\(compatPath, known\);/,
+      /if \(known && isCurrentSlug\(slug\)\) activeDriftRealPathByCompat\.set\(compatPath, known\);/,
     );
     // Capture must happen BEFORE the tracking value is overwritten with the drift path,
     // so `known` still holds the live canonical path.
@@ -70,7 +70,7 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
 describe('Historical tracking fallback preserves archived content', () => {
   it('renders a self-canonical indexable archive page when the active bridge has no HTML', () => {
     const rendererStart = jobsSeoSrc.indexOf('const buildHistoricalArchiveHtml = (');
-    const rendererEnd = jobsSeoSrc.indexOf('for (const [slug, paths] of Object.entries(tracking)', rendererStart);
+    const rendererEnd = jobsSeoSrc.indexOf('for (const slug in tracking)', rendererStart);
     expect(rendererStart).toBeGreaterThan(-1);
     expect(rendererEnd).toBeGreaterThan(rendererStart);
     const renderer = jobsSeoSrc.slice(rendererStart, rendererEnd);

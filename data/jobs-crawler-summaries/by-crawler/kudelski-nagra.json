@@ -1,7 +1,7 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-11-10T09:46:24.954Z",
+  "generatedAt": "2026-11-10T21:41:26.502Z",
   "total": 5,
   "discovered": 16,
   "parsed": 5,
@@ -14,63 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9840,
-  "avgDurationMs": 9840,
+  "durationMs": 9233,
+  "avgDurationMs": 9233,
   "durationHistory": [
-    9840
+    9233
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "kudelski-nagra-362f31b80bbf",
-      "slug": "security-operations-ingegnere-kudelski-nagra-adliswil",
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Security Operations Engineer",
-      "location": "Adliswil",
-      "canton": "ZH",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T21:57:07.176Z",
-      "addressLocality": "Adliswil",
-      "addressRegion": "ZH",
-      "streetAddress": "Bahnhofstrasse 1",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8134",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
-      "firstSeenAt": "2026-09-19T23:09:21.794Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:57:07.176Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "kudelski-nagra-cc96c232e205",
@@ -84,7 +37,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15856",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:05.301Z",
+      "crawledAt": "2026-11-10T21:41:02.466Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -107,7 +60,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:05.301Z",
+      "validThrough": "2027-02-07T21:41:02.466Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +82,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15882",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:46:04.464Z",
+      "crawledAt": "2026-11-10T21:41:01.724Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -152,7 +105,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:04.464Z",
+      "validThrough": "2027-02-07T21:41:01.724Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -174,7 +127,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15881",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:46:03.669Z",
+      "crawledAt": "2026-11-10T21:41:00.988Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -197,7 +150,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:03.669Z",
+      "validThrough": "2027-02-07T21:41:00.988Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -219,7 +172,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15884",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:46:02.880Z",
+      "crawledAt": "2026-11-10T21:41:00.301Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -242,7 +195,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:02.880Z",
+      "validThrough": "2027-02-07T21:41:00.301Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -264,7 +217,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15883",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T09:46:02.125Z",
+      "crawledAt": "2026-11-10T21:40:59.554Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -287,7 +240,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:02.125Z",
+      "validThrough": "2027-02-07T21:40:59.554Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -298,5 +251,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }

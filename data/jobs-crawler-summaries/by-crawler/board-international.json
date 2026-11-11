@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-11-10T09:31:21.179Z",
+  "generatedAt": "2026-11-10T21:44:27.634Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 1999,
-  "avgDurationMs": 1999,
+  "durationMs": 2558,
+  "avgDurationMs": 2558,
   "durationHistory": [
-    1999
+    2558
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +41,7 @@
       "postingDateSource": "reported",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2027-01-07T00:00:00.000Z",
+      "validThrough": "2027-01-07T23:59:59.999Z",
       "id": "board-international-6f45ce6a23fd",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -52,6 +52,8 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,7 +85,7 @@
       "postingDateSource": "reported",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2027-01-31T00:00:00.000Z",
+      "validThrough": "2027-01-31T23:59:59.999Z",
       "id": "board-international-51bab133e4d6",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -94,6 +96,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
+      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +127,7 @@
       "postedDate": "2026-09-07",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-12-06T00:00:00.000Z",
+      "validThrough": "2026-12-06T23:59:59.999Z",
       "id": "board-international-ce9d0f1014a8",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -137,6 +141,8 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,7 +172,7 @@
       "postedDate": "2026-08-14",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-11-12T00:00:00.000Z",
+      "validThrough": "2026-11-12T23:59:59.999Z",
       "id": "board-international-2a78e3e57c3b",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -179,6 +185,8 @@
       "streetAddress": "Chiasso, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:44:10.273Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -188,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }

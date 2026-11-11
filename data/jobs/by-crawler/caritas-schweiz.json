@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-10T09:22:39.331Z",
-  "runId": "42788273559",
+  "assembledAt": "2026-11-10T21:33:44.334Z",
+  "runId": "42902178425",
   "jobs": [
     {
       "id": "caritas-schweiz-e24ca4232fc9",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:34.054Z",
+      "crawledAt": "2026-11-10T21:33:36.318Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:34.054Z",
+      "validThrough": "2027-02-02T21:33:36.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:33.609Z",
+      "crawledAt": "2026-11-10T21:33:35.872Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:22:33.609Z",
+      "validThrough": "2027-01-12T21:33:35.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:33.167Z",
+      "crawledAt": "2026-11-10T21:33:35.425Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:22:33.167Z",
+      "validThrough": "2026-12-10T21:33:35.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:32.722Z",
+      "crawledAt": "2026-11-10T21:33:34.976Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:22:32.722Z",
+      "validThrough": "2026-12-10T21:33:34.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -382,7 +382,7 @@
       "url": "https://apply.refline.ch/126757/2390/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:32.279Z",
+      "crawledAt": "2026-11-10T21:33:33.889Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:32.279Z",
+      "validThrough": "2027-02-02T21:33:33.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -465,7 +465,7 @@
       "url": "https://apply.refline.ch/126757/2391/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:31.834Z",
+      "crawledAt": "2026-11-10T21:33:33.438Z",
       "addressLocality": "Waldibrücke, Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -503,7 +503,7 @@
       },
       "streetAddress": "Waldibrücke, Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:22:31.834Z",
+      "validThrough": "2027-02-02T21:33:33.438Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -538,7 +538,7 @@
       "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:31.390Z",
+      "crawledAt": "2026-11-10T21:33:32.981Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -590,7 +590,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:31.390Z",
+      "validThrough": "2027-01-31T21:33:32.981Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -625,7 +625,7 @@
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:30.948Z",
+      "crawledAt": "2026-11-10T21:33:32.536Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -679,7 +679,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:30.948Z",
+      "validThrough": "2027-01-31T21:33:32.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -714,7 +714,7 @@
       "url": "https://apply.refline.ch/126757/2386/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:30.501Z",
+      "crawledAt": "2026-11-10T21:33:32.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:22:30.501Z",
+      "validThrough": "2027-01-28T21:33:32.092Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -801,7 +801,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:30.057Z",
+      "crawledAt": "2026-11-10T21:33:31.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -855,7 +855,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:22:30.057Z",
+      "validThrough": "2026-12-20T21:33:31.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +890,7 @@
       "url": "https://apply.refline.ch/126757/2384/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:29.614Z",
+      "crawledAt": "2026-11-10T21:33:31.197Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -944,7 +944,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:22:29.614Z",
+      "validThrough": "2027-01-26T21:33:31.197Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -979,7 +979,7 @@
       "url": "https://apply.refline.ch/126757/2341/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:29.170Z",
+      "crawledAt": "2026-11-10T21:33:30.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1033,7 +1033,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:22:29.170Z",
+      "validThrough": "2026-12-10T21:33:30.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1068,7 +1068,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:28.725Z",
+      "crawledAt": "2026-11-10T21:33:30.299Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1114,7 +1114,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:22:28.725Z",
+      "validThrough": "2026-12-24T21:33:30.299Z",
       "validThroughSource": "last-observed-window"
     }
   ]

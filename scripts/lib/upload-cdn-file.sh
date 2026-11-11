@@ -19,10 +19,13 @@
 # comment above _publish_cdn_r2.
 #
 # `copyto` (never `sync`) = additive, single-key PUT — cannot delete anything
-# else in the bucket. Always PUTs unconditionally (`--ignore-times`, see the
-# rclone invocation below) rather than trying to skip unchanged re-runs: see
-# that comment for why a content-hash skip is unsafe for the files this
-# script actually carries (issue #5497).
+# else in the bucket. Ordinary uploads always PUT unconditionally
+# (`--ignore-times`, see the rclone invocation below) rather than trying to skip
+# unchanged re-runs: see that comment for why a content-hash skip is unsafe for
+# the files this script actually carries (issue #5497). The explicit
+# `--create-if-absent` mode adds the R2-atomic `If-None-Match: *` condition for
+# stable shell aliases, so a concurrent bootstrap can fail without overwriting
+# the winner.
 #
 # Content-Type: rclone/Go's mime-type auto-detection is NOT reliable for
 # `.webp` on GitHub-hosted runners (depends on the runner's /etc/mime.types
@@ -46,6 +49,7 @@
 #
 # Usage:
 #   upload-cdn-file.sh <local_file> <cdn_key> [cache_control]
+#   upload-cdn-file.sh --create-if-absent <local_file> <cdn_key> [cache_control]
 #     <local_file>     path to the file to upload
 #     <cdn_key>        destination key inside R2_BUCKET, e.g.
 #                      images/articoli/some-slug/hero.webp (leading "/" is
@@ -83,15 +87,22 @@ if [ "$#" -eq 1 ] && [ "$1" = "--image-lease-protocol-version" ]; then
 fi
 
 check_mode=0
+create_only=0
 if [ "$#" -eq 2 ] && [ "$1" = "--check" ]; then
   check_mode=1
   cdn_key="${2#/}"
+elif [ "$#" -ge 3 ] && [ "$#" -le 4 ] && [ "$1" = "--create-if-absent" ]; then
+  create_only=1
+  local_file="$2"
+  cdn_key="${3#/}"
+  cache_control="${4:-public, max-age=86400}"
 elif [ "$#" -ge 2 ] && [ "$#" -le 3 ]; then
   local_file="$1"
   cdn_key="${2#/}"
   cache_control="${3:-public, max-age=86400}"
 else
   echo "Usage: upload-cdn-file.sh <local_file> <cdn_key> [cache_control]" >&2
+  echo "       upload-cdn-file.sh --create-if-absent <local_file> <cdn_key> [cache_control]" >&2
   echo "       upload-cdn-file.sh --check <cdn_key>" >&2
   exit 1
 fi
@@ -423,10 +434,17 @@ fi
 # the whole deploy prep step on a bare connection reset even though nothing
 # else was wrong. Still never fatal — see header "Failure posture".
 attempt_ok=0
+upload_flags=()
+if [ "$create_only" -eq 1 ]; then
+  # R2 evaluates this condition atomically at PutObject commit time. A lookup
+  # before this call is only a diagnostic; it is not the race protection.
+  upload_flags+=(--header-upload 'If-None-Match: *')
+fi
 for try in 1 2; do
   _r2_image_lease_wait_timeout timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
     --header-upload "Content-Type: $content_type" \
     --header-upload "Cache-Control: $cache_control" \
+    "${upload_flags[@]+"${upload_flags[@]}"}" \
     --stats=0
   if [ "$?" -eq 0 ]; then
     attempt_ok=1

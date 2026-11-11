@@ -107,7 +107,7 @@ function sourceStatus(source, result) {
     lastCheckedAt: result.fetchedAt,
   };
   if (result.error) return { ...base, status: 'degraded', rowCount: result.previousRows.length, errorCode: 'fetch_failed', lastSuccessAt: result.previousSuccessAt };
-  // Recognised fixed-price sales and calibrated timed-card turnover are healthy
+  // Recognised fixed-price sales and calibrated timed-catalogue turnover are healthy
   // catalogue changes; only an unrecognised loss is evidence of a broken or
   // truncated upstream.
   if (result.sourceDisappeared && !result.healthyDespiteDisappearance) return {
@@ -297,8 +297,8 @@ export async function collectPlateAuctions({
         fetchedCount: rows.length,
         vanishedCount: newlyMissing.length,
       });
-      // Fixed-price sources use saleDecision; card platforms need the same
-      // shape check over ALL missing timed cards before their loss is treated
+      // Fixed-price sources use saleDecision; timed catalogues need the same
+      // shape check over ALL missing rows before their loss is treated
       // as an expected board refresh.
       const healthyFetchDecision = timedTurnoverDecision || saleDecision;
       // A known-missing row is resolved only by a fetch that is itself healthy

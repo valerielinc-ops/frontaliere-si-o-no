@@ -8708,6 +8708,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pamini-contributi-salari-svizzera.title': 'Pamini (Udc): Löhne und Grenzgänger, bei den Beiträgen handeln',
     'blog.article.pamini-contributi-salari-svizzera.excerpt': 'Der redaktionelle Titel präsentiert Pamini (Udc) mit einem präzisen Hinweis: das Thema der Löhne und Grenzgänger mit dem Kapitel der Beiträge zu verbinden.',
     'blog.article.pamini-contributi-salari-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 von 10 Unternehmen: Auflagen bremsen Investitionen',
+    'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Laut dem Beitrag RG 12.30 vom 9. November 2026 führen administrative Auflagen bei drei von zehn Schweizer Unternehmen dazu, dass Investitionen verschoben, reduziert oder gestrichen werden.',
+    'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

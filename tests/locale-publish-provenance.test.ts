@@ -48,7 +48,16 @@ function jobs(overrides: Record<string, string> = {}) {
 
 function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
   const outcomes = locale === 'it'
-    ? { build: 'success', validate: 'success', itPrep: 'success', pagesArtifact: 'success' }
+    ? {
+      build: 'success',
+      validate: 'success',
+      sourceArtifact: 'success',
+      itPrep: 'success',
+      pagesArtifact: 'success',
+      offload: 'success',
+      sectionPush: 'success',
+      cdnGate: 'success',
+    }
     : {
       build: 'success',
       validate: 'success',
@@ -149,9 +158,9 @@ describe('locale publish provenance', () => {
     expect(manifest.reasons).toContain('build outcome is "failure"');
   });
 
-  it('marks a validated non-IT source artifact ready for the deferred tail', () => {
+  it('marks a validated IT source artifact ready for the deferred tail', () => {
     const manifest = createLocalePublishProvenance({
-      locale: 'en',
+      locale: 'it',
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
@@ -161,9 +170,9 @@ describe('locale publish provenance', () => {
     });
     expect(manifest.payloadStatus).toBe('source-ready');
     expect(manifest.publishStatus).toBe('ready-for-tail');
-    expect(manifest.artifactName).toBe(`locale-shard-source-en-${SOURCE_RUN_ID}`);
+    expect(manifest.artifactName).toBe(`it-publish-root-${SOURCE_RUN_ID}`);
     expect(validateLocaleSourceProvenance(manifest, {
-      locale: 'en',
+      locale: 'it',
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       expectedBuildId: BUILD_ID,
@@ -287,9 +296,9 @@ describe('locale publish admission plan', () => {
     expect(plan.reason).toContain('source locale handoff is incomplete for en');
   });
 
-  it('hands source-ready non-IT locales to the post-build tail', () => {
-    const source = createLocalePublishProvenance({
-      locale: 'en',
+  it('hands every source-ready locale, including IT, to the post-build tail', () => {
+    const source = (locale: 'it' | 'en' | 'de' | 'fr') => createLocalePublishProvenance({
+      locale,
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
@@ -303,16 +312,13 @@ describe('locale publish admission plan', () => {
       sourceSha: SOURCE_SHA,
       jobs: jobs(),
       provenance: [
-        { file: 'it.json', manifest: receipt('it') },
-        { file: 'en.json', manifest: source },
-        { file: 'de.json', manifest: receipt('de') },
-        { file: 'fr.json', manifest: receipt('fr') },
+        ...(['it', 'en', 'de', 'fr'] as const).map((locale) => ({ file: `${locale}.json`, manifest: source(locale) })),
       ],
     });
     expect(plan.allowed).toBe(true);
-    expect(plan.healthyLocales).toEqual(['it', 'de', 'fr']);
-    expect(plan.tailLocales).toEqual(['en']);
-    expect(plan.staleLocales).toEqual(['en']);
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.tailLocales).toEqual(['it', 'en', 'de', 'fr']);
+    expect(plan.staleLocales).toEqual(['it', 'en', 'de', 'fr']);
   });
 
   it('does not publish around a failed IT leg even when other locales are proven', () => {
@@ -360,14 +366,21 @@ describe('locale publish admission plan', () => {
 
   it('promotes only a complete post-build receipt into the healthy set', () => {
     const plan = resolveNonItPublishPlan({
-      sourceHealthyLocales: ['it'],
-      sourceStaleLocales: ['en', 'de', 'fr'],
-      tailLocales: ['en'],
+      sourceHealthyLocales: [],
+      sourceStaleLocales: ['it', 'en', 'de', 'fr'],
+      tailLocales: ['it', 'en'],
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       expectedBuildId: BUILD_ID,
       artifactRunId: '36850086639',
       provenance: [{
+        file: 'it.json',
+        manifest: {
+          ...receipt('it'),
+          artifactRunId: '36850086639',
+          artifactName: 'github-pages',
+        },
+      }, {
         file: 'en.json',
         manifest: {
           ...receipt('en'),
@@ -384,8 +397,8 @@ describe('locale publish admission plan', () => {
     expect(plan.healthyLocales).toEqual(['it', 'en']);
     expect(plan.staleLocales).toEqual(['de', 'fr']);
     expect(plan.staleReasons.de).toBeTruthy();
-    expect(plan.reason).toBe('admitted post-build tail for en; stale fallback for de, fr');
-    expect(plan.readyLocales).toEqual(['en']);
+    expect(plan.reason).toBe('admitted post-build tail for it, en; stale fallback for de, fr');
+    expect(plan.readyLocales).toEqual(['it', 'en']);
   });
 
   it('publishes IT with a stale locale whose post-build receipt was rejected (the ticino-de shape)', () => {
@@ -399,14 +412,22 @@ describe('locale publish admission plan', () => {
       },
     });
     const plan = resolveNonItPublishPlan({
-      sourceHealthyLocales: ['it'],
+      sourceHealthyLocales: [],
       sourceStaleLocales: ['en', 'de', 'fr'],
-      tailLocales: ['en', 'de', 'fr'],
+      tailLocales: ['it', 'en', 'de', 'fr'],
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       expectedBuildId: BUILD_ID,
       artifactRunId: '36850086639',
       provenance: [
+        {
+          file: 'it.json',
+          manifest: {
+            ...receipt('it'),
+            artifactRunId: '36850086639',
+            artifactName: 'github-pages',
+          },
+        },
         published('en'),
         published('fr'),
         {
@@ -430,7 +451,7 @@ describe('locale publish admission plan', () => {
     expect(plan.healthyLocales).toEqual(['it', 'en', 'fr']);
     expect(plan.staleLocales).toEqual(['de']);
     expect(plan.staleReasons.de).toContain('post-build provenance rejected');
-    expect(plan.reason).toBe('admitted post-build tail for en, fr; stale fallback for de');
+    expect(plan.reason).toBe('admitted post-build tail for it, en, fr; stale fallback for de');
   });
 
   it('NEGATIVE CASE — still blocks when the IT snapshot itself was not admitted', () => {
@@ -483,7 +504,7 @@ describe('locale publish workflow wiring', () => {
     expect(localeSteps.indexOf(write!)).toBeLessThan(localeSteps.indexOf(cache!));
   });
 
-  it.each(['success', 'failure', 'skipped', 'cancelled'])('admits source artifacts only after a successful pack and upload (pack=%s)', (packOutcome) => {
+  it.each(['success', 'failure', 'skipped', 'cancelled'])('admits source artifacts only after the required pack and uploads succeed (pack=%s)', (packOutcome) => {
     const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
     // Evaluate the actual workflow expression: && / || / == and these
     // nonempty outcome strings have the same semantics in Actions and JS.
@@ -500,7 +521,19 @@ describe('locale publish workflow wiring', () => {
         const admitted = packOutcome === 'success' && uploadOutcome === 'success';
         const sourceArtifact = evaluate({ locale }, steps);
         expect(sourceArtifact).toBe(admitted ? 'success' : 'failure');
-        expect(evaluate({ locale: 'it' }, steps)).toBe('deferred');
+        const itSourceOutcome = evaluate({ locale: 'it' }, {
+          ...steps,
+          'package-it-publish-source': { outcome: packOutcome },
+          'upload-it-publish-root': { outcome: packOutcome },
+          'upload-it-shard-source-plan': { outcome: uploadOutcome },
+          'upload-it-shard-source-zurigo': { outcome: uploadOutcome },
+          'upload-it-shard-source-svizzera': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-1': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-2': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-3': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-4': { outcome: uploadOutcome },
+        });
+        expect(itSourceOutcome).toBe(packOutcome === 'success' && uploadOutcome === 'success' ? 'success' : 'failure');
         const source = createLocalePublishProvenance({
           locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
           deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
@@ -513,7 +546,11 @@ describe('locale publish workflow wiring', () => {
         const plan = resolveLocalePublishPlan({
           runConclusion: 'success', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
           jobs: jobs(), provenance: [
-            { file: 'it.json', manifest: receipt('it') },
+          { file: 'it.json', manifest: createLocalePublishProvenance({
+            locale: 'it', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
+            deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+            outcomes: { build: 'success', validate: 'success', sourceArtifact: itSourceOutcome },
+          }) },
             { file: `${locale}.json`, manifest: source },
             ...(['en', 'de', 'fr'] as const)
               .filter((supportingLocale) => supportingLocale !== locale)
@@ -524,6 +561,7 @@ describe('locale publish workflow wiring', () => {
           ],
         });
         expect(plan.tailLocales.includes(locale)).toBe(admitted);
+        expect(plan.tailLocales.includes('it')).toBe(packOutcome === 'success' && uploadOutcome === 'success');
       }
     }
   });
@@ -552,7 +590,9 @@ describe('locale publish workflow wiring', () => {
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'publish-nonit-shards']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
     expect(publish.jobs['resolve-nonit-publish'].needs)
-      .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards']);
+      .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards', 'finalize-it-publish']);
+    expect(publish.jobs['push-it-shard-groups'].needs).toContain('publish-it-cdn');
+    expect(publish.jobs['finalize-it-publish'].needs).toContain('push-it-shard-groups');
     expect(publish.jobs['resolve-publish-receipts']).toBeDefined();
     expect(publish.jobs['resolve-publish-receipts'].outputs.pages_deployed)
       .toContain('steps.receipts.outputs.pages_deployed');
@@ -587,12 +627,13 @@ describe('locale publish workflow wiring', () => {
     expect(String(recheck?.run)).toContain('--validate-dir');
   });
 
-  it('rehydrates the Pages artifact even when the Pages side effect is already receipted', () => {
+  it('uploads the IT Pages artifact before deployment, even when the Pages side effect is already receipted', () => {
     const deploySteps = publish.jobs.deploy.steps as Array<Record<string, any>>;
-    const download = deploySteps.find((step) => step.name === 'Download github-pages artifact from the build run');
-    const upload = deploySteps.find((step) => step.name === 'Re-upload github-pages artifact into this run');
+    const finalizerSteps = publish.jobs['finalize-it-publish'].steps as Array<Record<string, any>>;
+    const upload = finalizerSteps.find((step) => step.name === 'Upload Pages artifact (compression-level 9)');
     const pagesSideEffect = deploySteps.find((step) => step.name === 'Deploy to GitHub Pages');
-    expect(String(download?.if || '')).not.toContain('pages_deployed');
+    expect(upload?.uses).toBe('actions/upload-artifact@v7');
+    expect(upload?.with?.name).toBe('github-pages');
     expect(String(upload?.if || '')).not.toContain('pages_deployed');
     expect(String(pagesSideEffect?.if || '')).toContain("steps.pages-receipt.outputs.pages_deployed != 'true'");
   });

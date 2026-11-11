@@ -139,7 +139,6 @@ describe('orphanQueryData — path helpers', () => {
       cluster,
       matchingJobs: [],
       strings: {},
-      dateStamp: '2026-10-13',
       knownSlugsByLocale,
     });
 
@@ -184,7 +183,6 @@ describe('orphanQueryData — path helpers', () => {
         cluster: makeCluster(locale, 'canonical-job-links', 20, ['job'], []),
         matchingJobs: jobs,
         strings: {},
-        dateStamp: '2026-10-13',
         knownSlugsByLocale: new Map(
           ORPHAN_LANDING_LOCALES.map((candidate) => [candidate, new Set<string>()]),
         ),
@@ -301,7 +299,6 @@ describe('orphan landing canonical job links', () => {
         cluster: makeCluster(locale, 'nurse-jobs-switzerland', 30, ['nurs'], ['switzerland']),
         matchingJobs,
         strings: {},
-        dateStamp: '2026-10-13',
         knownSlugsByLocale: new Map(
           ORPHAN_LANDING_LOCALES.map((itemLocale) => [itemLocale, new Set<string>()]),
         ),
@@ -481,7 +478,6 @@ describe('selectOrphanLandingJobs — explicit Ticino coverage (GEO audit 2026-1
       regionRelevant: selected.regionRelevant,
       regionCoverage: selected.regionCoverage,
       strings: {},
-      dateStamp: '2026-10-13',
       knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()])),
     });
     expect(rendered.indexable).toBe(true);
@@ -501,7 +497,6 @@ describe('selectOrphanLandingJobs — explicit Ticino coverage (GEO audit 2026-1
         regionRelevant: selectedForLocale.regionRelevant,
         regionCoverage: selectedForLocale.regionCoverage,
         strings: {},
-        dateStamp: '2026-10-13',
         knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((candidate) => [candidate, new Set<string>()])),
       });
       expect(page.indexable, locale).toBe(true);
@@ -563,7 +558,6 @@ describe('selectOrphanLandingJobs — explicit Ticino coverage (GEO audit 2026-1
       regionRelevant: selected.regionRelevant,
       regionCoverage: selected.regionCoverage,
       strings: {},
-      dateStamp: '2026-10-13',
       knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()])),
     });
     expect(rendered.indexable).toBe(true);

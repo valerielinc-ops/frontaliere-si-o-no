@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  isSourcePassthrough,
   joinTranslatedChunks,
   maskNavLinks,
   translateFieldFreeMt,
@@ -33,6 +34,15 @@ describe('maskNavLinks', () => {
     // Simulate MT stripping the sentinel
     const mangled = masked.replace('0NAV00', '');
     expect(restore(mangled).ok).toBe(false);
+  });
+
+  it('reports ok:false when MT duplicates one sentinel and loses another', () => {
+    const src = 'Apri il [calcolatore](nav:calculator) e le [scadenze](nav:calendar).';
+    const { masked, restore } = maskNavLinks(src);
+    const duplicated = masked.replace('0NAV10', '0NAV00');
+    const result = restore(duplicated);
+    expect(result.ok).toBe(false);
+    expect(result.text).not.toContain('(nav:calendar)');
   });
 
   it('is a no-op (expected 0) when there are no nav-links', () => {
@@ -114,6 +124,25 @@ describe('translateFieldFreeMt', () => {
     });
     expect(out).toBe('');
   });
+
+  it('keeps source-equivalent text when source and target locales are the same', async () => {
+    const out = await translateFieldFreeMt({
+      text: 'Titolo invariato',
+      sourceLang: 'it',
+      targetLang: 'it',
+      fieldType: 'title',
+      translate: async () => '  TITOLO   INVARIATO  ',
+    });
+    expect(out).toBe('  TITOLO   INVARIATO  ');
+  });
+});
+
+describe('isSourcePassthrough', () => {
+  it('normalizes case and whitespace without stringifying non-string values', () => {
+    expect(isSourcePassthrough('  TESTO\n  ITALIANO  ', 'Testo Italiano')).toBe(true);
+    expect(isSourcePassthrough('Translated text', 'Testo Italiano')).toBe(false);
+    expect(isSourcePassthrough({ text: 'Testo Italiano' } as never, 'Testo Italiano')).toBe(false);
+  });
 });
 
 // Regression: 206 en/de/fr body files shipped a literal "[object Object]"
@@ -175,6 +204,19 @@ describe('joinTranslatedChunks', () => {
 
   it('refuses the whole field when every chunk is an object', () => {
     expect(joinTranslatedChunks([{ body2: {} }, { body2: {} }], 'body2')).toBeNull();
+  });
+
+  it('refuses a chunk that is the normalized Italian source', () => {
+    const chunks = [
+      { body1: 'Translated opening paragraph.' },
+      { body1: '  Secondo   paragrafo italiano.  ' },
+    ];
+    expect(joinTranslatedChunks(
+      chunks,
+      'body1',
+      'en',
+      ['Primo paragrafo italiano.', 'Secondo paragrafo italiano.'],
+    )).toBeNull();
   });
 
   it('refuses when a chunk is missing, empty or the call returned nothing', () => {

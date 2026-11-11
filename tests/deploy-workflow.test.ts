@@ -143,9 +143,9 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(gateStep.run).toContain('publisherFastGateBudgetMs: 300000');
     expect(gateStep.run).toContain('duration_ms=$gate_ms');
     expect(gateStep.run).toContain('build_skew_guard_run node scripts/ci/publisher-fast-gate.mjs');
-    expect(VALIDATION_YML).toContain('Download source sitemap bundle');
+    expect(VALIDATION_YML).toContain('Download publisher sitemap bundle');
     expect(VALIDATION_YML).toContain('Download source page manifests');
-    expect(VALIDATION_YML).toContain('Download publisher non-IT section manifests');
+    expect(VALIDATION_YML).toContain('Download publisher section manifests');
     expect(VALIDATION_YML).not.toContain('rehydrate-locale-shards.sh');
     expect(VALIDATION_YML).not.toContain('npm run audit:all');
     expect(VALIDATION_YML).not.toContain('npm run validate:page-seo');
@@ -174,7 +174,21 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
     expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
-    expect(steps.some((step: any) => step.name === 'Download publisher non-IT section manifests')).toBe(true);
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const upperLocale = locale.toUpperCase();
+      const step = steps.find((candidate: any) => candidate.name === `Download publisher ${upperLocale} section manifests`);
+      expect(step, `missing ${locale} publisher section manifest download`).toMatchObject({
+        'continue-on-error': true,
+        uses: 'actions/download-artifact@v8',
+        with: {
+          pattern: `section-page-manifest-${locale}-*`,
+          path: '${{ runner.temp }}/publisher-audit-manifests/sections',
+          'run-id': '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
+          'merge-multiple': true,
+        },
+      });
+      expect(step.if).toContain(`env.SHARD_ARTIFACT_RUN_ID_${upperLocale}`);
+    }
     const indexDetector = steps.find((step: any) => step.id === 'publisher-index');
     expect(indexDetector.name).toContain('complete');
     expect(indexDetector.run).toContain('current-index-validator/scripts/ci/page-audit-index.mjs');
@@ -188,13 +202,21 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
   });
 
-  it('serializes full-audit shard rehydration to stay within runner disk', () => {
+  it('uses bounded parallelism only after source-only images are pruned', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const rehydrateStep = workflow.jobs.audit.steps.find((step: any) => (
       step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
     ));
 
-    expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL).toBe('1');
+    expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL)
+      .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
+  });
+
+  it('fetches Pages from the source run by default so only successful publishers resolve', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const fetchPages = workflow.jobs.audit.steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
+    expect(fetchPages.with['run-id']).toBe('${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}');
+    expect(fetchPages.with['run-id']).not.toContain('SHARD_ARTIFACT_RUN_ID_IT');
   });
 
   it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
@@ -226,6 +248,8 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(pruneIndex).toBeLessThan(freeIndex);
     expect(pruneIndex).toBeLessThan(rehydrateIndex);
     expect(full.jobs['full-audit'].with.prune_source_images).toBe(true);
+    expect(steps[rehydrateIndex]?.env?.REHYDRATE_MAX_PARALLEL)
+      .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
     expect(published.jobs.report.with.prune_source_images).not.toBe(true);
   });
 
@@ -260,6 +284,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const runId = '${{ github.run_id }}';
     const matrixLocale = '${{ matrix.locale }}';
     const sourceSteps = (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps;
+    const itPublisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['finalize-it-publish'].steps;
     const publisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
     const upload = (steps: any[], name: string) => {
       const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7' && step?.with?.name === name);
@@ -274,10 +299,13 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     };
 
     assertRetention(sourceSteps, [
-      'github-pages',
-      `sitemaps-${runId}`,
       `jobs-master-${runId}`,
       `sitemap-page-manifest-${matrixLocale}-${runId}`,
+    ]);
+    assertRetention(itPublisherSteps, [
+      'github-pages',
+      `sitemaps-${runId}`,
+      `sitemap-page-manifest-it-${runId}`,
       `section-page-manifest-it-${runId}`,
       ...Array.from({ length: 6 }, (_, index) => `shard-batch-${index + 1}-dist-it-${runId}`),
     ]);
@@ -353,17 +381,19 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const dotfileGate = steps.find((step: any) => step.name === 'Reject generated HTML under dotfile paths');
     const dotfileIndex = steps.findIndex((step: any) => step.name === 'Reject generated HTML under dotfile paths');
     const localeArtifactIndex = steps.findIndex((step: any) => step.name === 'Upload non-IT locale shard source artifact');
-    const pagesArtifactIndex = steps.findIndex((step: any) => step.name === 'Upload Pages artifact (compression-level 9)');
+    const itSourceIndex = steps.findIndex((step: any) => step.name === 'Package IT publication source artifacts');
     expect(dotfileGate).toBeDefined();
     expect(dotfileGate.if).toBeUndefined();
     expect(dotfileIndex).toBeLessThan(localeArtifactIndex);
-    expect(dotfileIndex).toBeLessThan(pagesArtifactIndex);
+    expect(dotfileIndex).toBeLessThan(itSourceIndex);
 
     const itSchemaGate = steps.find((step: any) => step.name === 'Validate IT JobPosting schema before artifact upload');
     const itSchemaIndex = steps.findIndex((step: any) => step.name === 'Validate IT JobPosting schema before artifact upload');
     expect(itSchemaGate?.if).toContain("matrix.locale == 'it'");
     expect(itSchemaGate?.run).toContain('npm run validate:jobposting-schema');
-    expect(itSchemaIndex).toBeLessThan(pagesArtifactIndex);
+    expect(itSchemaIndex).toBeLessThan(itSourceIndex);
+    const publisherSteps = DEPLOY_PUBLISH_WORKFLOW.jobs['finalize-it-publish'].steps;
+    expect(publisherSteps.some((step: any) => step.name === 'Upload Pages artifact (compression-level 9)')).toBe(true);
   });
 
   it('blocks non-IT shard publication on the complete locale JobPosting schema', () => {
@@ -542,7 +572,7 @@ describe('build-plugins/batchWrite.ts — flush concurrency', () => {
 describe('deploy.yml + audit-dist-from-run.yml — tar-pack rehydrate fast path (#2761)', () => {
   it('every "Pack ... shard dist (tar)" step in deploy.yml self-verifies packed vs source file count', () => {
     const packSteps = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
-    expect(packSteps.length, 'expected the IT build pack and deferred non-IT tail pack steps').toBeGreaterThanOrEqual(3);
+    expect(packSteps.length, 'expected the two deferred non-IT tail pack steps; IT validation tars are produced after successful IT pushes').toBeGreaterThanOrEqual(2);
     for (const step of packSteps) {
       expect(step, `pack step missing tar -cvf output count:\n${step}`).toMatch(/if ! packed_n=\$\(tar -C [^\n]* -cvf [^\n]*\| awk '!\/\\\/\$\/ \{ n\+\+ \} END \{ print n \+ 0 \}'\); then[\s\S]*rm -f "\$RUNNER_TEMP\/[^\"]+\.tar"[\s\S]*(?:return|exit) 0/);
       expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$(?:live_src_n|src_n)" \]/);
@@ -626,7 +656,9 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     (YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps;
   const NONIT_TAIL_STEPS: Array<Record<string, any>> =
     (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
-  const ALL_PHASE_STEPS = [...BUILD_LOCALE_STEPS, ...NONIT_TAIL_STEPS];
+  const IT_TAIL_STEPS: Array<Record<string, any>> =
+    (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['push-it-shard-groups'].steps;
+  const ALL_PHASE_STEPS = [...BUILD_LOCALE_STEPS, ...IT_TAIL_STEPS, ...NONIT_TAIL_STEPS];
   const stepById = (id: string) => {
     const step = ALL_PHASE_STEPS.find((s) => s.id === id);
     expect(step, `nessuno step con id "${id}" nei workflow build/deferred-tail`).toBeDefined();
@@ -636,9 +668,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   // e' la stessa classe di buco (fase lunga, nessun wall-time committato) e
   // lasciarne meta' strumentata la riapre al primo che tocca lo step gemello.
   const PHASE_STEP_IDS = [
-    'push-section-shards-it',
     'push-section-shards-nonit',
-    'pack-section-shards-it',
     'pack-section-shards-nonit',
     'push-shard',
     'pack-locale-shard',
@@ -660,7 +690,7 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     const env: Record<string, string> = step!.env ?? {};
     // Ogni step di fase dev'essere cablato: senza, la sua colonna resta a null
     // per sempre e il buco e' invisibile (lo step ha continue-on-error).
-    for (const id of ['push-section-shards-it', 'pack-section-shards-it', 'pack-locale-source']) {
+    for (const id of ['pack-locale-source']) {
       expect(
         Object.values(env),
         `"Append post-build phase timings row": nessuna env legge steps.${id}.outputs.wall_seconds`,
@@ -682,6 +712,8 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     expect(tailTiming?.run).toContain('section push');
     expect(tailTiming?.run).toContain('section pack');
     expect(tailTiming?.run).toContain('locale push');
+    const itPush = IT_TAIL_STEPS.find((s) => s.id === 'push-section-group');
+    expect(itPush?.run).toContain('wall_seconds=$SECONDS');
   });
 
   it('tutti i produttori di righe passano dallo stesso script di staging', () => {
@@ -907,6 +939,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   const publishWorkflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
   const steps: Array<Record<string, any>> = [
     ...workflow.jobs['build-locale'].steps,
+    ...publishWorkflow.jobs['push-it-shard-groups'].steps,
     ...publishWorkflow.jobs['publish-nonit-shards'].steps,
   ];
   const pushStep = (name: string) => {
@@ -915,7 +948,7 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     return step!;
   };
   const sectionSteps = [
-    'Push section shards (IT → frontaliere-<section>-it)',
+    'Push and package IT section group',
     'Push section shards (non-IT → frontaliere-<section>-<loc>)',
   ];
 
@@ -931,27 +964,43 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
     }
   });
 
-  it('bounds each section-shard push above its historical successful high-water and logs it', () => {
+  it('derives the IT section timeout from its job deadline and preserves the non-IT cap', () => {
     for (const name of sectionSteps) {
       const run = String(pushStep(name).run ?? '');
-      const timeoutMatch = run.match(
-        /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
-      );
-      expect(timeoutMatch, `${name}: missing the bounded section worker`).not.toBeNull();
-      const cleanupGraceSeconds = Number(timeoutMatch![1]);
-      const timeoutSeconds = Number(timeoutMatch![2]);
-      // Run 37728960699 completed a full-overlay ticino-fr push (9.9 GB,
-      // 558,573 files) in 2,524s. Leave 18 min for corpus growth.
-      expect(timeoutSeconds, `${name}: deadline must exceed the 2,524s historical success`).toBeGreaterThan(2524);
-      expect(timeoutSeconds, `${name}: keep the reviewed 60 min cap`).toBe(3600);
-      expect(cleanupGraceSeconds, `${name}: preserve signal-cleanup grace`).toBe(600);
-      expect(run).toContain(`timeout_seconds=${timeoutSeconds} cleanup_grace_seconds=${cleanupGraceSeconds}`);
-      expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
-      expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
-      expect(run, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
-      expect(run, `${name}: timeout must leave the existing publish fallback unchanged`).toMatch(
-        /existing (?:apex and strip-marker|live\/ok-marker) fallback remains in effect/,
-      );
+      if (name.startsWith('Push and package IT')) {
+        const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
+        expect(run, `${name}: must call the IT group helper`).toContain('scripts/ci/push-it-shard-group.sh');
+        expect(helper, `${name}: preserve cleanup grace`).toContain('cleanup_grace_seconds=600');
+        expect(helper, `${name}: derive timeout from the group's six-hour deadline`).toContain(
+          'job_start + 360 * 60 - now_epoch - cleanup_grace_seconds - post_push_reserve_seconds',
+        );
+        expect(helper, `${name}: preserve the one-hour section cap`).toContain('section_timeout_cap_seconds=3600');
+        expect(helper, `${name}: keep cleanup and post-push reserves`).toContain('post_push_reserve_seconds=1200');
+        expect(helper, `${name}: keep per-section timeout telemetry`).toContain('timeout_seconds=$timeout_seconds cleanup_grace_seconds=$cleanup_grace_seconds');
+      } else {
+        const timeoutMatch = run.match(
+          /timeout --verbose --signal=TERM --kill-after=(\d+)s (\d+)s bash scripts\/lib\/push-section-shard\.sh/,
+        );
+        expect(timeoutMatch, `${name}: keep its separate bounded worker`).not.toBeNull();
+        expect(Number(timeoutMatch![1]), `${name}: preserve signal-cleanup grace`).toBe(600);
+        // Run 37728960699 completed a non-IT full-overlay push in 2,524s;
+        // that leg retains its independent 60-minute cap.
+        expect(Number(timeoutMatch![2]), `${name}: preserve its reviewed 60 min cap`).toBe(3600);
+        expect(run).toContain('timeout_seconds=3600 cleanup_grace_seconds=600');
+      }
+      if (name.startsWith('Push and package IT')) {
+        const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf8');
+        expect(helper, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
+        expect(helper, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
+        expect(helper, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
+      } else {
+        expect(run, `${name}: missing per-section start telemetry`).toContain('[section-push] event=start');
+        expect(run, `${name}: missing explicit timeout telemetry`).toContain('event=timeout');
+        expect(run, `${name}: forced termination must be distinguishable from a timeout`).toContain('event=forced-termination');
+        expect(run, `${name}: timeout must leave the existing publish fallback unchanged`).toMatch(
+          /existing (?:apex and strip-marker|live\/ok-marker) fallback remains in effect/,
+        );
+      }
     }
   });
 

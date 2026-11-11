@@ -160,6 +160,17 @@ interface EvidenceIndex {
   posthog?: {
     pages?: Record<string, { pageviews?: number }>;
   };
+  /** Dedicated, unfiltered 90-day GA4 session evidence for expired job paths. */
+  expiredJobGa4Traffic?: {
+    generatedAt?: string;
+    dateRange?: { startDate?: string; endDate?: string };
+    pages?: Record<string, number>;
+    coverage?: {
+      complete?: boolean;
+      returnedRows?: number;
+      reportedRows?: number;
+    };
+  };
 }
 
 export interface DecideOptions {
@@ -271,6 +282,7 @@ export class TrafficEvidenceFilter {
 
   private readonly firstSeen: Map<string, number>;
   private readonly gscDemandEvidence: GscDemandEvidence;
+  private readonly expiredJobGa4TrafficEvidence: EvidenceIndex['expiredJobGa4Traffic'] | null;
 
   constructor(rootDir: string) {
     const evidencePath = path.join(rootDir, 'data', 'evidence-index.json');
@@ -293,6 +305,7 @@ export class TrafficEvidenceFilter {
       trafficSet.add(norm);
     };
     const ev = tryRead<EvidenceIndex>(evidencePath);
+    this.expiredJobGa4TrafficEvidence = ev?.expiredJobGa4Traffic ?? null;
     if (ev) {
       for (const p of Object.keys(ev.ga4?.pages ?? {})) addToSet(p, () => evGa4++);
       for (const p of Object.keys(ev.posthog?.pages ?? {})) addToSet(p, () => evPosthog++);
@@ -425,6 +438,11 @@ export class TrafficEvidenceFilter {
 
   decide(urlPath: string, urlClass: UrlClass): FilterDecision {
     return this.decideMulti([urlPath], urlClass);
+  }
+
+  /** Dedicated evidence remains separate from the broad traffic set above. */
+  getExpiredJobGa4TrafficEvidence(): EvidenceIndex['expiredJobGa4Traffic'] | null {
+    return this.expiredJobGa4TrafficEvidence;
   }
 
   /**

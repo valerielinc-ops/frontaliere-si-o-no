@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "6fea24c3b5aaf044a1a88f8ab594391af530f752",
+  "commit": "38cc381d2d0ddaaf0a9f99b54aa353ef3af45fe6",
   "files": {
     "data/discovery-articles.json": 2815
   },
@@ -11,6 +11,13 @@
     "schema": 1,
     "algorithm": "sha256-discovery-article-v2",
     "entries": {
+      "pamini-contributi-salari-svizzera": {
+        "signature": "5c40d0c1a89e4bed3e17bfcc9ea0ad34cb8badb4924ab47969089f8ac2df7e91",
+        "verifiedAt": "2026-11-10T13:41:10.670Z",
+        "locales": [
+          "fr"
+        ]
+      },
       "telelavoro-frontaliere-quadro-svizzero": {
         "signature": "7157045b25b9b1b165ba723def85e51f972bdef0e3c02f4d74c698d8177d4ed1",
         "verifiedAt": "2026-11-07T18:38:12.122Z",
@@ -19,13 +26,6 @@
           "en",
           "fr",
           "it"
-        ]
-      },
-      "pamini-contributi-salari-svizzera": {
-        "signature": "5c40d0c1a89e4bed3e17bfcc9ea0ad34cb8badb4924ab47969089f8ac2df7e91",
-        "verifiedAt": "2026-11-10T13:41:10.670Z",
-        "locales": [
-          "fr"
         ]
       }
     }

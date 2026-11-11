@@ -58,11 +58,22 @@ import {
   resolveArticleRouteHref,
 } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
+import { buildCanonicalJobBoardHref, CANTON_JOB_BOARD_PREFIX } from '../../build-plugins/shared/cantonJobBoardPrefix';
+import { buildCantonSnapshotPath } from '../../build-plugins/jobMarketSnapshotChCantonPathsData';
+import { buildProfessionCantonPath } from '../../build-plugins/professionCantonData';
+import { buildProfessionLandingPath } from '../../build-plugins/professionLandingsData';
+import { renderSalaryProfessionCantonPage } from '../../build-plugins/salaryProfessionCantonPages';
 import { filterEmployerProfileJobLinks } from '../../build-plugins/shared/employerProfileJobLinks';
 import { renderArticleInlineMarkup } from '../../build-plugins/articleSeoFallback';
 import { buildBorderWaitTodayPath } from '../../scripts/lib/borderWaitSections.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
+const BING_JOB_MARKET_CANTON_CASES = [
+  { locale: 'it', canton: 'ZH', slug: 'zurigo', expected: '/cerca-lavoro-zurigo/' },
+  { locale: 'en', canton: 'ZH', slug: 'zurich', expected: '/en/find-jobs-zurich/' },
+  { locale: 'de', canton: 'ZH', slug: 'zurich', expected: '/de/jobs-in-zurich/' },
+  { locale: 'fr', canton: 'ZH', slug: 'zurich', expected: '/fr/trouver-emploi-zurich/' },
+] as const;
 const BORDER_WAIT_ARTICLES = [
   {
     locale: 'it',
@@ -114,6 +125,57 @@ function validHtml(url, extra = '') {
 }
 
 describe('Bing-compatible full-tree crawler', () => {
+  it('keeps canton snapshot T11 CTAs on canonical T5 routes in all locales', () => {
+    const snapshotSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobMarketSnapshotChCantonPages.ts'),
+      'utf8',
+    );
+    const employersSource = readFileSync(
+      join(process.cwd(), 'build-plugins/weeklyEmployersChCantonPages.ts'),
+      'utf8',
+    );
+    expect(snapshotSource).toContain('buildCanonicalJobBoardHref(locale, cantonCode)');
+    expect(employersSource).toContain('buildCanonicalJobBoardHref(locale, cantonCode)');
+
+    const localePrefix = { it: '', en: '/en', de: '/de', fr: '/fr' } as const;
+    for (const { locale, canton, slug, expected } of BING_JOB_MARKET_CANTON_CASES) {
+      const snapshotPath = buildCantonSnapshotPath(locale, slug);
+      const canonicalHref = buildCanonicalJobBoardHref(locale, canton);
+      const publishedRoot = `${localePrefix[locale]}/${CANTON_JOB_BOARD_PREFIX[locale]}-${slug}/`
+        .replace(/\/{2,}/g, '/');
+
+      expect(canonicalHref, `${locale}/${canton}`).toBe(expected);
+      expect(snapshotPath, `${locale}/${canton} snapshot`).toBe(`${publishedRoot}snapshot/`);
+      expect(BING_TEMPLATE_TABLE[templateIndexFor(`${BASE}${snapshotPath}`)].id)
+        .toBe('job-market-snapshot-pages');
+      expect(BING_TEMPLATE_TABLE[templateIndexFor(`${BASE}${canonicalHref}`)].id)
+        .toBe('job-board-pages');
+      expect(extractInternalLinks(
+        `<a href="${BASE}${canonicalHref}">Job board</a>`,
+        `${BASE}${snapshotPath}`,
+        BASE,
+      )).toEqual([`${BASE}${canonicalHref}`]);
+
+      // The crawler must continue to expose a real redirect if a legacy link
+      // is ever emitted; this regression test must not hide the symptom.
+      if (publishedRoot !== canonicalHref) {
+        const legacy = classifyDocument({
+          url: `${BASE}${publishedRoot}`,
+          status: 301,
+          finalUrl: `${BASE}${canonicalHref}`,
+          scope: 'discovered-frontier',
+        });
+        expect(legacy.findings.map((item) => item.code)).toContain(BING_FRONTIER_REDIRECT);
+      }
+    }
+
+    // Keep the route-builder's canton-specific German overrides covered too:
+    // the static family still uses the shared legacy `jobs-im` root, but T5
+    // must preserve `dePrefix` instead of guessing from that static prefix.
+    expect(buildCanonicalJobBoardHref('de', 'AG')).toBe('/de/jobs-im-aargau/');
+    expect(buildCanonicalJobBoardHref('de', 'VD')).toBe('/de/jobs-in-der-waadt/');
+  });
+
   it('publishes the versioned template table used by frontier referrer indexes', () => {
     const frontier = collectDiscoveredInventory({
       manifest: { baseUrl: BASE, urls: [`${BASE}/eventi/`] },
@@ -212,6 +274,13 @@ describe('Bing-compatible full-tree crawler', () => {
       html: `<title>${newsHeadline}</title><link rel="canonical" href="${BASE}/articoli-frontaliere/storico/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina storica nel controllo SEO completo e mantenere il contratto di crawling."><script type="application/ld+json">${JSON.stringify({ '@type': 'NewsArticle', headline: newsHeadline })}</script>`,
     });
     expect(newsInvariant.findings.map((item) => item.code)).not.toContain('title-too-long');
+
+    const evergreenArticle = classifyDocument({
+      url: `${BASE}/articoli-frontaliere/guida-evergreen/`,
+      status: 200,
+      html: `<title>${newsHeadline}</title><link rel="canonical" href="${BASE}/articoli-frontaliere/guida-evergreen/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare una guida evergreen nel controllo SEO completo e mantenere il contratto di crawling."><script type="application/ld+json">${JSON.stringify({ '@type': 'Article', headline: newsHeadline })}</script>`,
+    });
+    expect(evergreenArticle.findings.map((item) => item.code)).toContain('title-too-long');
 
     const pdf = classifyDocument({
       url: `${BASE}/guide.pdf`,
@@ -1389,6 +1458,75 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
   });
 
+  it('keeps salary-profession links on final detail, intent and profession routes in every locale', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOString();
+    const job = {
+      id: 'salary-profession-frontier-job',
+      title: 'Infermiere/a diplomato/a',
+      titleByLocale: {
+        it: 'Infermiere/a diplomato/a',
+        en: 'Registered Nurse',
+        de: 'Diplomierte Pflegefachperson',
+        fr: 'Infirmier·ère diplômé·e',
+      },
+      company: 'Klinik Hirslanden',
+      companyKey: 'hirslanden',
+      companyDomain: 'hirslanden.ch',
+      city: 'Zürich',
+      addressLocality: 'Zürich',
+      canton: 'ZH',
+      contract: 'permanent',
+      salaryMin: 82000,
+      salaryMax: 98000,
+      postedDate: daysAgo(3),
+      daysAgo: 3,
+      slug: 'infermiere-zurigo',
+      // Whitespace around a source slug must be normalized at the route boundary.
+      slugByLocale: {
+        it: ' infermiere-zurigo ',
+        en: ' nurse-zurich ',
+        de: ' pflegefachperson-zuerich ',
+        fr: ' infirmier-zurich ',
+      },
+      employmentType: 'FULL_TIME',
+      url: 'https://hirslanden.ch/apply/1',
+    };
+    const preset = {
+      id: 'infermiere',
+      label: { it: 'Infermiere', en: 'Nurse', de: 'Pflegefachperson', fr: 'Infirmier·ère' },
+      medianSalaryChf: 75250,
+    };
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = renderSalaryProfessionCantonPage({
+        locale,
+        cantonKey: 'ZH',
+        id: 'infermiere',
+        preset,
+        snapshot: {
+          liveCount: 14,
+          fresh30Count: 6,
+          medianSalaryChf: 90000,
+          featured: [job],
+          topEmployers: [{ name: 'Klinik Hirslanden', count: 5 }],
+        },
+        distDir: '',
+      });
+      const links = extractInternalLinks(html, `${BASE}/stipendio-infermiere-zurigo/`, BASE);
+      const slug = job.slugByLocale[locale] ?? job.slug;
+      const expected = [
+        `${BASE}${buildCanonicalJobDetailPath(locale, job, slug, job.canton)}`,
+        `${BASE}${buildProfessionCantonPath(locale, 'ZH', 'infermiere')}`,
+        `${BASE}${buildProfessionLandingPath(locale, 'infermiere')}`,
+      ];
+
+      for (const href of expected) {
+        expect(links).toContain(href);
+        expect(new URL(href).pathname).toMatch(/\/$/);
+      }
+    }
+  });
+
   it('keeps cathedral legacy job redirects on shared canonical detail paths for every locale', () => {
     const legacyPluginSource = readFileSync(
       join(process.cwd(), 'build-plugins/legacyRedirectsPlugin.ts'),
@@ -1438,7 +1576,11 @@ describe('Bing-compatible full-tree crawler', () => {
     );
     expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
     expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
-    expect(jobsSeoSource).toContain('activeCanonicalJobHref(relatedJob, locale) !== null');
+    expect(jobsSeoSource).toContain('const related = perJob_related.flatMap');
+    expect(jobsSeoSource).toContain('const href = activeCanonicalJobHref(relatedJob, locale);');
+    expect(jobsSeoSource).toContain('return href ? [{ job: relatedJob, href }] : [];');
+    expect(jobsSeoSource).toContain('.map(({ job: r, href }, i: number) => {');
+    expect(jobsSeoSource).not.toContain('const href = rPaths[locale];');
     const registryPrepassStart = jobsSeoSource.indexOf('const activeJobSitemapLocs = new Set<string>();');
     const registryPrepassEnd = jobsSeoSource.indexOf('setActiveJobSitemapLocs(activeJobSitemapLocs);', registryPrepassStart);
     expect(registryPrepassStart).toBeGreaterThanOrEqual(0);
@@ -1452,6 +1594,14 @@ describe('Bing-compatible full-tree crawler', () => {
 
     const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
     const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-zurigo/`;
+    const absentTarget = `${BASE}/cerca-lavoro-zurigo/offerta-assente/`;
+    const activeJobRegistry = new Set([canonicalJob]);
+    const relatedTargets = [canonicalJob, noindexAlias, absentTarget];
+    const linkableRelatedTargets = relatedTargets.filter((href) => activeJobRegistry.has(href));
+    const relatedHtml = linkableRelatedTargets.map((href) => `<a href="${href}">Offerta</a>`).join('');
+    expect(extractInternalLinks(relatedHtml, `${BASE}/cerca-lavoro-ticino/cluster/`, BASE)).toEqual([canonicalJob]);
+    expect(relatedHtml).not.toContain(noindexAlias);
+    expect(relatedHtml).not.toContain(absentTarget);
     const links = extractInternalLinks(
       `<a href="${canonicalJob}">Offerta canonica</a>`,
       `${BASE}/cerca-lavoro-ticino/cluster/`,

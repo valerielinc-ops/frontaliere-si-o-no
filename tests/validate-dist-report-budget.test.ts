@@ -37,7 +37,7 @@ describe('validate-dist: quality reports stay outside the blocking gate', () => 
     expect(distText).toContain('publisher-fast-gate.mjs');
     expect(distText).toContain("echo 'integrity_ok=false' >> \"$GITHUB_OUTPUT\"");
     expect(distText).toContain('exit "$result"');
-    expect(distText).toContain('name: sitemaps-${{ inputs.deploy_run_id }}');
+    expect(distText).toContain('name: sitemaps-${{ inputs.shard_artifact_run_id || github.run_id }}');
     expect(distText).not.toContain('npm run validate:page-seo');
   });
 

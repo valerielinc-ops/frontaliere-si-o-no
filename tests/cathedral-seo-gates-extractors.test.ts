@@ -267,18 +267,17 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
     expect(active).toMatch(/rehydrate-section-shards\.sh/);
   });
 
-  it('post-build runs pin both the artifact run and its build SHA', () => {
-    expect(active).toMatch(
-      /workflow_run:\s*\n\s*workflows:\s*\["Deploy to GitHub Pages"\]\s*\n\s*types:\s*\[completed\]\s*\n\s*branches:\s*\[main\]/,
-    );
-    expect(active).toContain("github.event.workflow_run.conclusion == 'success'");
-    expect(active).toContain('ref: ${{ github.event_name == \'workflow_run\' && github.event.workflow_run.head_sha || github.ref_name }}');
-    expect(active).toContain(
-      'run-id: ${{ github.event_name == \'workflow_run\' && github.event.workflow_run.id || inputs.deploy_run_id }}',
-    );
-    expect(active).toContain(
-      "expected-sha: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}",
-    );
+  it('publisher replay pins the publisher artifact run and the original build SHA', () => {
+    expect(active).toContain('workflow_dispatch:');
+    expect(active).toContain('source_sha:');
+    expect(active).toContain('deploy_run_id:');
+    expect(active).not.toContain('workflow_run:');
+    expect(active).toContain("if: github.event_name == 'workflow_dispatch' && inputs.source_sha != ''");
+    expect(active).toContain('PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}');
+    expect(active).toContain('echo "sha=$PUBLISHER_SOURCE_SHA" >> "$GITHUB_OUTPUT"');
+    expect(active).toContain('ref: ${{ github.event_name == \'workflow_dispatch\' && inputs.source_sha != \'\' && steps.publisher-source-sha.outputs.sha || github.ref_name }}');
+    expect(active).toContain('run-id: ${{ inputs.deploy_run_id }}');
+    expect(active).toContain('expected-sha: ${{ inputs.source_sha }}');
   });
 
   it('asserts dist/ is complete BEFORE the gates run, so a degraded rehydrate cannot file a bogus regression', () => {

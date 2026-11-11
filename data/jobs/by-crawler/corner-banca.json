@@ -1,7 +1,7 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-11-10T09:47:02.537Z",
-  "runId": "42790405573",
+  "assembledAt": "2026-11-10T21:41:09.317Z",
+  "runId": "42904651226",
   "jobs": [
     {
       "id": "corner-banca-a80c5e7e66b5",
@@ -58,7 +58,7 @@
       "url": "https://jobs.corner.ch/o/commercial-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T09:46:53.045Z",
+      "crawledAt": "2026-11-10T21:40:59.197Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "commercial-apprenticeship-corner-banca-switzerland",
@@ -100,7 +100,7 @@
       "applyUrl": "https://jobs.corner.ch/o/commercial-apprenticeship",
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:46:53.045Z",
+      "validThrough": "2026-12-10T21:40:59.197Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -158,7 +158,7 @@
       "url": "https://jobs.corner.ch/o/it-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T09:46:53.044Z",
+      "crawledAt": "2026-11-10T21:40:59.196Z",
       "firstSeenAt": "2026-10-30T21:57:21.399Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -179,7 +179,7 @@
       "applyUrl": "https://jobs.corner.ch/o/it-apprenticeship",
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:46:53.044Z",
+      "validThrough": "2026-12-15T21:40:59.196Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -256,7 +256,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.043Z",
+      "crawledAt": "2026-11-10T21:40:59.195Z",
       "previousSlugsByLocale": {
         "it": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
@@ -295,7 +295,7 @@
       "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:46:53.043Z",
+      "validThrough": "2026-12-10T21:40:59.195Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -366,7 +366,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.039Z",
+      "crawledAt": "2026-11-10T21:40:59.193Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -416,7 +416,7 @@
       "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:46:53.039Z",
+      "validThrough": "2026-12-10T21:40:59.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -488,7 +488,7 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.037Z",
+      "crawledAt": "2026-11-10T21:40:59.191Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
         "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
@@ -519,7 +519,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:46:53.037Z",
+      "validThrough": "2026-12-10T21:40:59.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -592,7 +592,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.036Z",
+      "crawledAt": "2026-11-10T21:40:59.190Z",
       "previousSlugs": [
         "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano",
         "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
@@ -641,7 +641,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T09:46:53.036Z",
+      "validThrough": "2027-01-15T21:40:59.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -724,7 +724,7 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.032Z",
+      "crawledAt": "2026-11-10T21:40:59.189Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -745,7 +745,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:46:53.032Z",
+      "validThrough": "2026-12-10T21:40:59.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -817,7 +817,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.028Z",
+      "crawledAt": "2026-11-10T21:40:59.188Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -846,7 +846,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:46:53.028Z",
+      "validThrough": "2026-12-10T21:40:59.188Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -917,7 +917,7 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.026Z",
+      "crawledAt": "2026-11-10T21:40:59.186Z",
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -938,7 +938,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T09:46:53.026Z",
+      "validThrough": "2026-12-10T21:40:59.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1005,7 +1005,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.021Z",
+      "crawledAt": "2026-11-10T21:40:59.185Z",
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -1026,7 +1026,7 @@
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:46:53.021Z",
+      "validThrough": "2026-12-19T21:40:59.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1084,7 +1084,7 @@
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.013Z",
+      "crawledAt": "2026-11-10T21:40:59.183Z",
       "previousSlugs": [
         "litigation-department-officer-ref-1131-corner-banca-lugano"
       ],
@@ -1116,7 +1116,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:46:53.013Z",
+      "validThrough": "2027-01-01T21:40:59.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1140,7 +1140,7 @@
       },
       "description": "To strengthen our team in Ticino, we are looking for a Corporate Actions Specialist with at least 5 years of experience in a similar position.\nThe successful candidate will independently manage the lifecycle of mandatory and voluntary corporate events on equities, bonds and structured products.\n\nYour role\n\nManagement of all main corporate events, in particular:\n\n• coupons and dividends\n\n• capital increases\n\n• mergers\n\n• splits and reverse splits\n\n• free and paid distributions\n\n• securities exchanges\n\n• stock dividends\n\n• reinvestments\n\n• takeover bids (tender offers)\n\n• general meetings\n\n• liquidations\n\n• redemptions\n\n• At least 5 years of experience in a similar position\n\n• Solid expertise in Corporate Actions events, both mandatory and voluntary\n\n• Knowledge of the features and lifecycle of equity and fixed-income instruments and structured products\n\n• Excellent analytical and problem-solving skills\n\n• Strong focus on deadlines, compliance with procedures and risk mitigation, while pursuing operational efficiency\n\n• Ability to work under pressure and within initiatives and projects involving the department\n\n• Ability to interact independently with counterparties, custodians, institutional clients, Front Office Markets and Private Banking, in English (spoken and written) as well as Italian (native)\n\n• Resident in Ticino or willing to relocate",
       "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team in Ticino, stiamo cercando un Corporate Actions Specialist con almeno 5 anni di esperienza in una posizione simile.\nIl candidato di successo gestirà in modo indipendente il ciclo di vita di eventi aziendali obbligatori e volontari su azioni, obbligazioni e prodotti strutturati.\n\nIl tuo ruolo\n\nGestione di tutti i principali eventi aziendali, in particolare:\n\n• cedole e dividendi\n\n• aumenti di capitale\n\n• concentrazioni\n\n• spaccature e spaccature inversa\n\n• distribuzioni gratuite e a pagamento\n\n• Scambi di titoli\n\n• dividendi di stock\n\n• reinvestimenti\n\n• offerte di acquisto (offerta di soggiorno)\n\n• Incontri generali\n\n• liquidazioni\n\n• redenzioni\n\n• Almeno 5 anni di esperienza in una posizione simile\n\n• Competenze solide negli eventi Corporate Actions, sia obbligatori che volontari\n\n• Conoscenza delle caratteristiche e del ciclo di vita degli strumenti di equità e di reddito fisso e dei prodotti strutturati\n\n• Eccellente analitica e problem solving competenze\n\n• Forte attenzione alle scadenze, al rispetto delle procedure e alla mitigazione dei rischi, nel perseguire l'efficienza operativa\n\n• Capacità di lavorare sotto pressione e all'interno di iniziative e progetti che coinvolgono il dipartimento\n\n• Capacità di interagire in modo indipendente con le controparti, i custodi, i clienti istituzionali, i Mercati di Front Office e Private Banking, in inglese (spoken e scritto) e in italiano (nativo)\n\n• Residente in Ticino o disposto a trasferirsi",
+        "it": "Per rafforzare il nostro team in Ticino, stiamo cercando un Corporate Actions Specialist con almeno 5 anni di esperienza in una posizione simile.\nIl candidato di successo gestirà in modo indipendente il ciclo di vita di eventi aziendali obbligatori e volontari su azioni, obbligazioni e prodotti strutturati.\n\nIl tuo ruolo\n\nGestione di tutti i principali eventi aziendali, in particolare:\n\n• buoni e dividendi\n\n• aumenti di capitale\n\n• fusioni\n\n• spaccature e spaccature inversa\n\n• distribuzioni gratuite e a pagamento\n\n• Scambi di titoli\n\n• dividendi di stock\n\n• reinvestimenti\n\n• offerte di acquisto (offerta di soggiorno)\n\n• Incontri generali\n\n• liquidazioni\n\n• redenzioni\n\n• Almeno 5 anni di esperienza in una posizione simile\n\n• Competenze solide negli eventi Corporate Actions, sia obbligatori che volontari\n\n• Conoscenza delle caratteristiche e del ciclo di vita degli strumenti di equità e di reddito fisso e dei prodotti strutturati\n\n• Eccellente analitica e problem solving competenze\n\n• Forte attenzione alle scadenze, al rispetto delle procedure e alla mitigazione del rischio, nel perseguire l'efficienza operativa\n\n• Capacità di lavorare sotto pressione e all'interno di iniziative e progetti che coinvolgono il dipartimento\n\n• Capacità di interagire in modo indipendente con le controparti, i custodi, i clienti istituzionali, i Mercati di Front Office e Private Banking, in inglese (spoken e scritto) e in italiano (nativo)\n\n• Residente in Ticino o disposto a trasferirsi",
         "en": "To strengthen our team in Ticino, we are looking for a Corporate Actions Specialist with at least 5 years of experience in a similar position.\nThe successful candidate will independently manage the lifecycle of mandatory and voluntary corporate events on equities, bonds and structured products.\n\nYour role\n\nManagement of all main corporate events, in particular:\n\n• coupons and dividends\n\n• capital increases\n\n• mergers\n\n• splits and reverse splits\n\n• free and paid distributions\n\n• securities exchanges\n\n• stock dividends\n\n• reinvestments\n\n• takeover bids (tender offers)\n\n• general meetings\n\n• liquidations\n\n• redemptions\n\n• At least 5 years of experience in a similar position\n\n• Solid expertise in Corporate Actions events, both mandatory and voluntary\n\n• Knowledge of the features and lifecycle of equity and fixed-income instruments and structured products\n\n• Excellent analytical and problem-solving skills\n\n• Strong focus on deadlines, compliance with procedures and risk mitigation, while pursuing operational efficiency\n\n• Ability to work under pressure and within initiatives and projects involving the department\n\n• Ability to interact independently with counterparties, custodians, institutional clients, Front Office Markets and Private Banking, in English (spoken and written) as well as Italian (native)\n\n• Resident in Ticino or willing to relocate",
         "de": "Um unser Team in Tessin zu stärken, suchen wir einen Corporate Actions Specialist mit mindestens 5 Jahren Erfahrung in einer ähnlichen Position.\nDer erfolgreiche Kandidat wird den Lebenszyklus von obligatorischen und freiwilligen Unternehmensveranstaltungen für Aktien, Anleihen und strukturierte Produkte unabhängig verwalten.\n\nDeine Rolle\n\nManagement aller wichtigen Unternehmensveranstaltungen, insbesondere:\n\n• Kupons und Dividenden\n\n• Kapitalerhöhungen\n\n• Zusammenschlüsse\n\n• Splits und Reverse Splits\n\n• Kostenlose und kostenpflichtige Verteilung\n\n• Wertpapierbörsen\n\n• Aktiendividenden\n\n• Reinvestitionen\n\n• Übernahmeangebote (Ausschreibungsangebote)\n\n• Generalversammlungen\n\n• Liquidation\n\n• Rücknahmen\n\n• Mindestens 5 Jahre Erfahrung in einer ähnlichen Position\n\n• Solide Expertise in Corporate Actions Veranstaltungen, sowohl obligatorisch als auch freiwillig\n\n• Kenntnis der Merkmale und des Lebenszyklus von Beteiligungskapital und festverzinslichen Instrumenten und strukturierten Produkten\n\n• Ausgezeichnete analytische und Problemlösungsfähigkeiten\n\n• Starke Konzentration auf Fristen, Einhaltung von Verfahren und Risikominderung bei gleichzeitiger Verfolgung der betrieblichen Effizienz\n\n• Fähigkeit, unter Druck und in Initiativen und Projekten mit Beteiligung der Abteilung zu arbeiten\n\n• Fähigkeit zur unabhängigen Interaktion mit Gegenparteien, Depotbanken, institutionellen Kunden, Front Office Markets und Private Banking, in Englisch (gesprochen und geschrieben) sowie Italienisch (native)\n\n• Wohnen im Tessin oder bereit zu verlagern",
         "fr": "Pour renforcer notre équipe au Tessin, nous recherchons un spécialiste en actions d'entreprise avec au moins 5 ans d'expérience dans un poste similaire.\nLe candidat retenu gérera de manière indépendante le cycle de vie des événements d'entreprise obligatoires et volontaires sur les actions, les obligations et les produits structurés.\n\nVotre rôle\n\nGestion de tous les principaux événements corporatifs, en particulier:\n\n• coupons et dividendes\n\n• hausses de capital\n\n• fusions\n\n• fractions et fractions inversées\n\n• distributions gratuites et payées\n\n• Bourses de valeurs\n\n• dividendes en actions\n\n• Réinvestissement\n\n• offres de rachat (offres de soumission)\n\n• Réunions générales\n\n• liquidations\n\n• remboursements\n\n• Au moins 5 ans d'expérience dans un poste similaire\n\n• Une expertise solide dans les actions d'entreprise, à la fois obligatoire et volontaire\n\n• Connaissance des caractéristiques et du cycle de vie des instruments de capitaux propres et à revenu fixe et des produits structurés\n\n• Excellentes compétences en analyse et résolution de problèmes\n\n• Mettre l'accent sur les délais, le respect des procédures et l'atténuation des risques, tout en poursuivant l'efficacité opérationnelle\n\n• Capacité de travailler sous pression et dans le cadre d'initiatives et de projets impliquant le Ministère\n\n• Capacité d'interagir de manière indépendante avec les contreparties, les dépositaires, les clients institutionnels, les marchés des services publics et les banques privées, en anglais (parlé et écrit) ainsi qu'en italien (natif)\n\n• Résident au Tessin ou prêt à déménager"
@@ -1187,7 +1187,7 @@
       "url": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.012Z",
+      "crawledAt": "2026-11-10T21:40:59.182Z",
       "previousSlugs": [
         "corporate-actions-specialist-ref-1132-corner-banca-lugano"
       ],
@@ -1216,7 +1216,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:46:53.012Z",
+      "validThrough": "2027-01-07T21:40:59.182Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1283,7 +1283,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.006Z",
+      "crawledAt": "2026-11-10T21:40:59.179Z",
       "previousSlugs": [
         "customer-consulente-100-team-zurich-corner-banca-wallisellen-fafdbb3854"
       ],
@@ -1312,7 +1312,7 @@
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:46:53.006Z",
+      "validThrough": "2027-01-20T21:40:59.179Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1379,7 +1379,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano-ref-1142",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-10T09:46:53.004Z",
+      "crawledAt": "2026-11-10T21:40:59.177Z",
       "firstSeenAt": "2026-11-09T09:49:59.991Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1400,7 +1400,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano-ref-1142",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:46:53.004Z",
+      "validThrough": "2027-02-07T21:40:59.177Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -587,10 +587,10 @@ describe('every EDGE_PUSHED_FILES path has an automatically-triggered publisher'
  * literal `run:` line in deploy.yml, not on EDGE_PUSHED_FILES, closes that.
  */
 describe('deploy.yml only publishes the EDGE_PUSHED_FILES entries it actually produces (#5458)', () => {
-  const DEPLOY_YML_SOURCE = readFileSync(
+  const DEPLOY_YML_SOURCE = [
     path.resolve(__dirname, '..', '.github', 'workflows', 'deploy.yml'),
-    'utf-8',
-  );
+    path.resolve(__dirname, '..', '.github', 'workflows', 'deploy-publish.yml'),
+  ].map((workflow) => readFileSync(workflow, 'utf-8')).join('\n');
 
   function deployEdgePublishInvocations(): string[] {
     return DEPLOY_YML_SOURCE.split('\n').filter(
@@ -606,7 +606,7 @@ describe('deploy.yml only publishes the EDGE_PUSHED_FILES entries it actually pr
     for (const line of deployEdgePublishInvocations()) {
       expect(
         line,
-        `deploy.yml runs "${line.trim()}" with neither --only= nor --producer= — this re-publishes ` +
+      `the deploy publisher runs "${line.trim()}" with neither --only= nor --producer= — this re-publishes ` +
           `the WHOLE EDGE_PUSHED_FILES table from deploy.yml's own checkout, which can be 2h30m+ ` +
           `stale by the time this step runs, clobbering fresher R2 copies written by the corpus ` +
           `repo's publish-api.yml, sync-articles-sitemaps.yml and rerender-article-hubs.yml (#5458).`,

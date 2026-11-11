@@ -338,3 +338,48 @@ describe('residence region (State / Kanton / Provincia), deduced from the CV tow
     expect(platformDefaultAnswer(portal('* State', { type: 'choice', options: ['Bern', 'Zürich'] }), lugano, { locale: 'en' })).toBeNull();
   });
 });
+
+describe('address fields in the candidate own form whose labels name a company (Yellowshark 2026-11-10)', () => {
+  const context = 'Anrede · Company · Frau · Herr · Vorname · Nachname · E-Mail · Email workflow step · Strasse · Hausnummer · PLZ · Ort · Land · Nationalität · Mobile · Telefon (optional) · Geburtstag · Monat · Jahr · Ich akzeptiere die Datenschutzerklärung';
+  const field = (applicationQuestion: string, extra = {}) => ({ id: 'q', source: 'portal', type: 'text', required: true,
+    applicationQuestion, question: applicationQuestion, context, section: 'Hier sind Sie richtig', ...extra });
+  const como = platformCandidateFacts({ profile: { location: 'Como (CO)' }, nowMs: NOW, locale: 'de' });
+
+  it('answers street, house number and postal code from the platform address', () => {
+    expect(platformQuestionTopic(field('Strasse'))).toBe('address_street_name');
+    expect(platformDefaultAnswer(field('Strasse'), como, { locale: 'de' })?.value).toBe(como.address.streetName);
+    expect(platformDefaultAnswer(field('Hausnummer'), como, { locale: 'de' })?.value).toBe(como.address.houseNumber);
+    expect(platformDefaultAnswer(field('PLZ'), como, { locale: 'de' })?.value).toBe(como.address.postalCode);
+  });
+
+  it('still leaves an address whose own section or label names another party', () => {
+    expect(platformQuestionTopic(field('Strasse', { section: 'Arbeitgeber' }))).toBeNull();
+    expect(platformQuestionTopic(field('Strasse', { context: 'Firma · Ansprechpartner · Strasse · PLZ · Ort' }))).toBeNull();
+    // A French form names the surname «Nom» (review of #18036).
+    expect(platformQuestionTopic(field('Rue', { context: 'Nom · Prénom · Entreprise · Rue', section: '' }))).toBe('address_street');
+    // A phone number beside the street is no house-number field: the street keeps its number.
+    expect(platformQuestionTopic(field('Indirizzo', { context: 'Nome · Cognome · E-mail · Indirizzo · Numero di telefono' }))).toBe('address_street');
+  });
+});
+
+describe('CV locations as real CVs write them (census 2026-11-10: 38 of 44 towns resolved)', () => {
+  const at = (location: string) => platformCandidateFacts({ profile: { location }, nowMs: NOW, locale: 'it' }).address;
+
+  it('reads a town followed by its province written out, or by a note in brackets', () => {
+    expect(at('Cantù, Como')).toMatchObject({ city: 'Cantù', country: 'IT', postalCode: expect.stringMatching(/^\d{5}$/) });
+    expect(at('Lugano (Abitazione)')).toMatchObject({ city: 'Lugano', country: 'CH', postalCode: '6900' });
+    // The province code in brackets is still a region, not a note.
+    expect(at('Como (CO)')).toMatchObject({ city: 'Como', country: 'IT' });
+  });
+
+  it('deduces the country of a town abroad even without a public postal list for it', () => {
+    expect(at('Valencia, Spain')).toMatchObject({ country: 'ES', countryName: 'Spagna', postalCode: '' });
+    expect(at('Bucarest, Romania')).toMatchObject({ country: 'RO', countryName: 'Romania' });
+    // A hyphenated country name (review of #18036).
+    expect(at('London, Royaume-Uni')).toMatchObject({ city: 'London', country: 'GB' });
+  });
+
+  it('never takes another word of the text for a town', () => {
+    expect(at('Zona industriale, Nessunluogo').postalCode).toBe('');
+  });
+});

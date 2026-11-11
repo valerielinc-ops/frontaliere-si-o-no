@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-11-10T09:18:28.319Z",
+  "generatedAt": "2026-11-10T21:29:57.810Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 142714,
-  "avgDurationMs": 142714,
+  "durationMs": 138364,
+  "avgDurationMs": 138364,
   "durationHistory": [
-    142714
+    138364
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-31T00:00:00.000Z",
+      "validThrough": "2027-01-31T23:59:59.999Z",
       "id": "amag-group-6f815049d13c",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -50,6 +50,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +83,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01T00:00:00.000Z",
+      "validThrough": "2027-05-01T23:59:59.999Z",
       "id": "amag-group-45c44c92a0e0",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -92,6 +94,8 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +127,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01T00:00:00.000Z",
+      "validThrough": "2027-05-01T23:59:59.999Z",
       "id": "amag-group-6157920fea33",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -134,6 +138,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -163,7 +169,7 @@
       "postedDate": "2026-09-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01T00:00:00.000Z",
+      "validThrough": "2026-12-01T23:59:59.999Z",
       "id": "amag-group-639847205108",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -177,6 +183,8 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,7 +214,7 @@
       "postedDate": "2026-09-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01T00:00:00.000Z",
+      "validThrough": "2027-05-01T23:59:59.999Z",
       "id": "amag-group-078b29e50992",
       "salaryMin": 50500,
       "salaryMax": 77000,
@@ -219,6 +227,8 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -248,7 +258,7 @@
       "postedDate": "2026-09-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01T00:00:00.000Z",
+      "validThrough": "2027-05-01T23:59:59.999Z",
       "id": "amag-group-635c94e01215",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -262,6 +272,8 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
+      "crawledAt": "2026-11-10T21:29:42.463Z",
+      "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -271,5 +283,5 @@
       }
     }
   ],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }

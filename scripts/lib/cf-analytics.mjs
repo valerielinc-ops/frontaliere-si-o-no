@@ -29,6 +29,13 @@ export const DEFAULT_ZONE_NAME = 'frontaliereticino.ch';
 
 const DEFAULT_CF_ANALYTICS_TIMEOUT_MS = 30_000;
 const MAX_CF_ANALYTICS_TIMEOUT_MS = 120_000;
+const DEFAULT_SWEEP_WINDOW_HOURS = 1;
+const DEFAULT_SWEEP_WINDOW_COUNT = 48;
+// The free plan retains only a short rolling window. Keep the sweep bounded
+// even when a workflow override is accidentally much larger than the useful
+// retention horizon.
+const MAX_SWEEP_LOOKBACK_HOURS = 72;
+const MAX_SWEEP_WINDOWS = 72;
 
 function boundedTimeoutMs(value) {
   const numeric = Number(value);
@@ -45,6 +52,42 @@ export const CF_ANALYTICS_TIMEOUT_MS = boundedTimeoutMs(
 export const MAX_HOURS = 23.9;
 /** Cloudflare's maximum result rows for one httpRequestsAdaptiveGroups query. */
 export const CF_ANALYTICS_MAX_ROWS = 10_000;
+
+function boundedPositiveNumber(value, fallback, max) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) return fallback;
+  return Math.min(numeric, max);
+}
+
+function boundedPositiveInteger(value, fallback, max) {
+  const numeric = Number(value);
+  if (!Number.isInteger(numeric) || numeric <= 0) return fallback;
+  return Math.min(numeric, max);
+}
+
+function boundedHours(value, fallback = MAX_HOURS) {
+  return boundedPositiveNumber(value, fallback, MAX_HOURS);
+}
+
+function boundedRows(value) {
+  return boundedPositiveInteger(value, CF_ANALYTICS_MAX_ROWS, CF_ANALYTICS_MAX_ROWS);
+}
+
+function normalizeSweepOptions(opts) {
+  const windowHours = boundedHours(opts.windowHours, DEFAULT_SWEEP_WINDOW_HOURS);
+  const maxWindowsForRetention = Math.max(1, Math.floor(MAX_SWEEP_LOOKBACK_HOURS / windowHours));
+  const windowCount = Math.min(
+    boundedPositiveInteger(opts.windowCount, DEFAULT_SWEEP_WINDOW_COUNT, MAX_SWEEP_WINDOWS),
+    maxWindowsForRetention,
+  );
+  return { windowHours, windowCount };
+}
+
+function normalizePath(pathValue) {
+  if (typeof pathValue !== 'string') return null;
+  const normalized = pathValue.trim().replace(/\/+$/, '');
+  return normalized || '/';
+}
 
 /**
  * POST a GraphQL query; return `data` or throw with the CF error message.
@@ -206,10 +249,11 @@ query($zone:String!,$limit:Int!,$filter:ZoneHttpRequestsAdaptiveGroupsFilter_Inp
  */
 export async function fetchErrorPaths(token, zoneId, opts = {}) {
   const fetchImpl = opts.fetchImpl ?? fetch;
-  const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
+  const hours = boundedHours(opts.hours ?? MAX_HOURS);
   const minStatus = opts.minStatus ?? 404;
-  const limit = opts.limit ?? CF_ANALYTICS_MAX_ROWS;
+  const limit = boundedRows(opts.limit ?? CF_ANALYTICS_MAX_ROWS);
   const until = opts.until ? new Date(opts.until) : new Date();
+  if (!Number.isFinite(until.getTime())) throw new Error('Invalid Cloudflare analytics window end.');
   const sinceISO = new Date(until.getTime() - hours * 3600 * 1000).toISOString();
   const requestSource = opts.requestSource === undefined ? 'eyeball' : opts.requestSource;
   const filter = {
@@ -222,7 +266,12 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
   if (opts.host) filter.clientRequestHTTPHost = opts.host;
 
   const data = await cfGraphQL(token, ERROR_PATHS_QUERY, { zone: zoneId, limit, filter }, fetchImpl);
-  const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
+  const zones = data?.viewer?.zones;
+  if (!Array.isArray(zones) || zones.length === 0) {
+    throw new Error('Cloudflare analytics returned no matching zone.');
+  }
+  const rows = zones[0]?.httpRequestsAdaptiveGroups;
+  if (!Array.isArray(rows)) throw new Error('Cloudflare analytics returned an unknown path result.');
   return rows.map((r) => ({
     status: r.dimensions.edgeResponseStatus,
     host: r.dimensions.clientRequestHTTPHost,
@@ -263,9 +312,10 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
  */
 export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
   const fetchImpl = opts.fetchImpl ?? fetch;
-  const hours = Math.min(opts.hours ?? MAX_HOURS, MAX_HOURS);
+  const hours = boundedHours(opts.hours ?? MAX_HOURS);
   const minStatus = opts.minStatus ?? 500;
   const until = opts.until ? new Date(opts.until) : new Date();
+  if (!Number.isFinite(until.getTime())) throw new Error('Invalid Cloudflare analytics window end.');
   const sinceISO = new Date(until.getTime() - hours * 3600 * 1000).toISOString();
   const requestSource = opts.requestSource === undefined ? 'eyeball' : opts.requestSource;
   const filter = {
@@ -280,7 +330,12 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
     limit: CF_ANALYTICS_MAX_ROWS,
     filter,
   }, fetchImpl);
-  const rows = data.viewer.zones[0]?.httpRequestsAdaptiveGroups || [];
+  const zones = data?.viewer?.zones;
+  if (!Array.isArray(zones) || zones.length === 0) {
+    throw new Error('Cloudflare analytics returned no matching zone.');
+  }
+  const rows = zones[0]?.httpRequestsAdaptiveGroups;
+  if (!Array.isArray(rows)) throw new Error('Cloudflare analytics returned an unknown diagnostics result.');
   return rows.map((r) => ({
     hour: r.dimensions.datetimeHour,
     edgeStatus: r.dimensions.edgeResponseStatus,
@@ -318,8 +373,8 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
  * @param {string} token   CF API token (Analytics:Read)
  * @param {string} zoneId  resolved zone tag
  * @param {object} [opts]
- * @param {number} [opts.windowHours=1]   size of each window, in hours
- * @param {number} [opts.windowCount=48]  number of contiguous windows to sweep
+ * @param {number} [opts.windowHours=1]   size of each window, in hours (bounded below one day)
+ * @param {number} [opts.windowCount=48]  number of contiguous windows to sweep (bounded to the retention horizon)
  * @param {number} [opts.minStatus=404]   floor on edgeResponseStatus (>=)
  * @param {number} [opts.maxStatus]       ceiling on edgeResponseStatus (<=)
  * @param {string} [opts.host]            filter to one clientRequestHTTPHost
@@ -327,17 +382,20 @@ export async function fetchErrorDiagnostics(token, zoneId, opts = {}) {
  * @param {typeof fetch} [opts.fetchImpl=fetch] network implementation
  * @returns {Promise<{rows:Array<{path:string,count:number}>, windowsOk:number, windowCount:number}>}
  *   `rows` — normalized (trailing-slash-stripped) path + summed count across
- *   all windows. `windowsOk` — windows that returned successfully (a single
- *   failed window is skipped, not fatal, to tolerate transient CF 5xx).
+ *   all successful windows. `windowsOk` — windows that returned successfully (a
+ *   single failed window is skipped, not fatal, to tolerate transient CF 5xx;
+ *   if every window fails, the first error is propagated rather than returning
+ *   an empty dataset that could be mistaken for no 404s).
  */
 export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
   const fetchImpl = opts.fetchImpl ?? fetch;
-  const windowHours = opts.windowHours ?? 1;
-  const windowCount = opts.windowCount ?? 48;
+  const { windowHours, windowCount } = normalizeSweepOptions(opts);
   const until = opts.until ? new Date(opts.until) : new Date();
+  if (!Number.isFinite(until.getTime())) throw new Error('Invalid Cloudflare analytics sweep end.');
   const nowMs = until.getTime();
   const swept = new Map(); // normalized path -> summed count across windows
   let windowsOk = 0;
+  let firstError = null;
   for (let i = 0; i < windowCount; i++) {
     const windowUntil = new Date(nowMs - i * windowHours * 3600 * 1000);
     let windowRows;
@@ -351,9 +409,10 @@ export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
         until: windowUntil,
         fetchImpl,
       });
-    } catch {
+    } catch (error) {
       // A single failed window (transient CF 5xx / retention edge) must not
       // abort the sweep — skip it, keep everything gathered so far.
+      firstError ||= error;
       continue;
     }
     windowsOk++;
@@ -364,9 +423,21 @@ export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
       );
     }
     for (const r of windowRows) {
-      const norm = r.path.replace(/\/+$/, '');
-      swept.set(norm, (swept.get(norm) || 0) + r.count);
+      const status = Number(r?.status);
+      const minStatus = Number(opts.minStatus ?? 404);
+      const maxStatus = opts.maxStatus == null ? null : Number(opts.maxStatus);
+      const count = Number(r?.count);
+      if (!Number.isFinite(status) || status < minStatus) continue;
+      if (maxStatus !== null && (!Number.isFinite(maxStatus) || status > maxStatus)) continue;
+      if (!Number.isFinite(count) || count <= 0) continue;
+      const norm = normalizePath(r?.path);
+      if (norm === null) continue;
+      swept.set(norm, (swept.get(norm) || 0) + count);
     }
+  }
+  if (windowsOk === 0) {
+    if (firstError) throw firstError;
+    throw new Error('Cloudflare analytics sweep returned no successful windows.');
   }
   const rows = [...swept.entries()].map(([path, count]) => ({ path, count }));
   return { rows, windowsOk, windowCount };

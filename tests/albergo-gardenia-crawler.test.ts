@@ -288,6 +288,50 @@ describe('Albergo Gardenia authoritative crawler', () => {
     expect(browserFetchPage).not.toHaveBeenCalled();
   });
 
+  it('routes transient server responses through the canonical alias and then bounded Chromium', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/index.php?mid=10&pid=1';
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 503,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: gardeniaPage(),
+      host: new URL(url).hostname,
+    }));
+    const transportState: { preferred?: 'browser'; preferredHost?: string } = {};
+
+    const response = await fetchAlbergoGardeniaSourcePage(sourceUrl, {
+      fetchPage,
+      browserFetchPage,
+      transportState,
+    });
+
+    expect(response).toMatchObject({ ok: true, status: 200, url: sourceUrl });
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(fetchPage).toHaveBeenNthCalledWith(
+      1,
+      sourceUrl,
+      expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
+    );
+    expect(fetchPage).toHaveBeenNthCalledWith(
+      2,
+      'https://albergo-gardenia.ch/index.php?mid=10&pid=1',
+      expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
+    );
+    expect(browserFetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).toHaveBeenCalledWith(
+      sourceUrl,
+      expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
+    );
+    expect(transportState.preferred).toBe('browser');
+  });
+
   it('warns when the sticky transport budget margin thins as content pages accumulate', async () => {
     const sitemap = representativeSitemap();
     let now = 0;
@@ -1056,7 +1100,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
   it.each([
     ['robots denial', { ok: false, status: 0, blockedByRobots: true }],
     ['URL-policy denial', { ok: false, status: 0, policyBlocked: true }],
-    ['HTTP response', { ok: false, status: 503 }],
+    ['permanent HTTP response', { ok: false, status: 404 }],
   ])('does not cross the host alias for %s', async (_label, result) => {
     const fetchPage = vi.fn(async (url: string) => ({ ...result, url, body: '', host: new URL(url).hostname }));
     const browserFetchPage = vi.fn();
@@ -1073,7 +1117,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
   it.each([
     ['robots denial', { ok: false, status: 0, blockedByRobots: true }],
     ['URL-policy denial', { ok: false, status: 0, policyBlocked: true }],
-    ['HTTP response', { ok: false, status: 503 }],
+    ['permanent HTTP response', { ok: false, status: 404 }],
   ])('does not classify deterministic %s as a connection-level soft exit', async (_label, result) => {
     const fetchPage = vi.fn(async (url: string) => ({ ...result, url, body: '', host: new URL(url).hostname }));
     let failure: unknown;

@@ -234,7 +234,7 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
 });
 
 /**
- * Card platforms publish rolling timed-auction boards. A card can disappear
+ * Timed catalogues publish rolling auction boards. A row can disappear
  * during a board refresh even while the next board is complete; the shared
  * deadline is not enough to call that a truncated fetch. The 2026-10-07 TG
  * run measured 9 missing cards out of 44 while the fetch returned 50. Later
@@ -243,19 +243,23 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
  * at that catalogue size and reported a healthy board as degraded. The
  * 2026-10-22 run then measured 23 missing cards out of 44 while still
  * returning 50 cards; the 30% TG cap admitted only 14 and repeated the same
- * false degradation. Keep a 25% / 75% band for the other card sources, and
- * calibrate TG to 55% / 75% for this measured board replacement; the 75%
+ * false degradation. Keep a 25% / 75% band for the other rolling card sources,
+ * and calibrate TG to 55% / 75% for this measured board replacement; the 75%
  * floor still rejects a feed that comes back materially short.
  * The 2026-10-26 VD run (#40270409967) returned 38 cards after all 31 cards
  * from the previous live board rolled out. This is a complete board turnover,
- * not a partial response: allow up to 100% vanished rows for VD while the
- * same 75% floor still rejects a truncated fetch.
+ * not a partial response: allow up to 100% vanished rows for VD. GE has the
+ * same complete-turnover shape when its official OCV session list changes:
+ * run 42887727341 fetched 23 rows after 23 prior session rows disappeared.
+ * Allow up to 100% vanished rows for GE too, while the same 75% floor still
+ * rejects a truncated fetch.
  *
- * This is deliberately separate from sale recognition. A timed card has no
+ * This is deliberately separate from sale recognition. A timed listing has no
  * evidence of a sale, so the collectors preserve it with `missingSince` rather
  * than closing it or assigning a final price.
  */
 export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
+  ge: Object.freeze({ maxVanishedRatio: 1, minFetchedRatio: 0.75 }),
   ag: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
@@ -270,7 +274,7 @@ export function saleRecognitionPolicy(sourceKey) {
   return { ...PLATE_AUCTION_SALE_RECOGNITION, ...(PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE[key] || {}) };
 }
 
-/** The timed-card turnover calibration, or null for non-card sources. */
+/** The timed-catalogue turnover calibration, or null for other sources. */
 export function timedCataloguePolicy(sourceKey) {
   const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
   const override = PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE[key];
@@ -319,8 +323,8 @@ export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount
 }
 
 /**
- * Decide whether a timed card catalogue has the shape of a healthy board
- * refresh. The returned decision is null for sources without this contract.
+ * Decide whether a timed catalogue has the shape of a healthy board refresh.
+ * The returned decision is null for sources without this contract.
  */
 export function recognizeTimedCatalogueTurnover({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
   const policy = timedCataloguePolicy(sourceKey);

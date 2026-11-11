@@ -39,6 +39,20 @@ export function candidateConfirmedEvidenceSources({ languageFacts = null, answer
   return sources;
 }
 
+/**
+ * The answers the platform gave on the candidate's behalf (applicationConciergePlatformAnswers.js): its own
+ * source, never the candidate's confirmation, so a citation always shows where a fact came from.
+ */
+export function platformAnswerEvidenceSources(record = null) {
+  if (record?.provenance !== 'platform' || !Array.isArray(record.answers)) return {};
+  const text = record.answers
+    .map(item => [String(item?.question || '').trim(), String(item?.answer || '').trim()])
+    .filter(([question, answer]) => question && answer)
+    .map(([question, answer]) => `Question: ${question} Platform answer on the candidate's behalf (owner rule: it counts as the candidate's answer; the candidate can change it): ${answer}`)
+    .join('\n');
+  return text ? { platform_answers: text } : {};
+}
+
 export function sourceCitations(sources) {
   const excerpts = [];
   for (const [source, value] of Object.entries(sources)) {

@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-11-10T09:37:47.369Z",
+  "generatedAt": "2026-11-10T21:41:47.049Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1917,
-  "avgDurationMs": 1917,
+  "durationMs": 1427,
+  "avgDurationMs": 1427,
   "durationHistory": [
-    1917
+    1427
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-07-12T21:46:49.616Z",
+      "validThrough": "2026-12-10T21:41:39.279Z",
       "id": "goline-d98f0d9c911f",
       "firstSeenAt": "2026-04-13T21:46:49.616Z",
       "needsRetranslation": true,
@@ -46,6 +46,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6855",
+      "crawledAt": "2026-11-10T21:41:39.279Z",
+      "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
         "source": "zefix-lindas",
@@ -71,5 +73,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "854e7bdddbff5b4e0e90fb9b90efe81503dfc091"
+  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
 }

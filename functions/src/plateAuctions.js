@@ -1070,7 +1070,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         fetchedCount: rows.length,
         vanishedCount: newlyMissing.length,
       });
-      // The card-platform contract measures the whole timed-card turnover;
+      // The timed-catalogue contract measures the whole turnover;
       // fixed-price sources continue to use saleDecision only.
       const healthyFetchDecision = timedTurnoverDecision || saleDecision;
       // A stamped row still absent after the grace window is recorded, but
@@ -1133,7 +1133,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         await batch.commit();
       }
       // Same rule as ingest's sourceStatus(): recognized fixed-price sales and
-      // measured timed-card turnover leave `sourceDisappeared` true, so
+      // measured timed-catalogue turnover leave `sourceDisappeared` true, so
       // deriving the patch from that raw flag would keep a healthy source
       // `degraded`. Card rows are still preserved with `missingSince`; the
       // turnover decision only says that the replacement-shaped fetch is

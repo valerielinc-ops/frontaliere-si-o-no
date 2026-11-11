@@ -240,11 +240,19 @@ function runSiblingGate(effectiveBodyFile) {
   const command = [
     'gh',
     ...gateArgs,
+    // Keep the synthetic flag unquoted: `extractPrBody` accepts shell-quoted
+    // values, but the option itself must remain visible to its body-source
+    // diagnostic. This is still a shell-safe command because every value is
+    // quoted below.
     '--body-file',
     shellQuote(effectiveBodyFile),
     '--head',
     'HEAD',
-  ].map((value) => (value.startsWith("'") ? value : shellQuote(value))).join(' ');
+  ].map((value) => (
+    value === '--body-file' || value === '--head'
+      ? value
+      : (value.startsWith("'") ? value : shellQuote(value))
+  )).join(' ');
   const payload = JSON.stringify({
     tool_name: 'Bash',
     tool_input: { command, cwd: process.cwd() },
