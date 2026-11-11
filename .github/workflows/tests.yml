@@ -2739,13 +2739,18 @@ jobs:
       # attende. Se non può dimostrare la fine dei processi, il job resta rosso e
       # non avvia TSC in concorrenza. `sample-mem-during.sh` misura RSS e
       # MemAvailable durante il comando; i test fissano ordine e baseline.
+      - name: Mark TypeScript gate eligibility
+        id: typecheck-eligibility
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
+        run: echo "run=true" >> "$GITHUB_OUTPUT"
+
       - name: Collect independent source gates
         id: collect-independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
         env:
           SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
           INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
-          RUN_TSC: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}
+          RUN_TSC: ${{ steps.typecheck-eligibility.outputs.run == 'true' }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"

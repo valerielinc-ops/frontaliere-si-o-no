@@ -111,14 +111,18 @@ describe('typecheck gate wiring (#5540)', () => {
   it('esegue TSC dopo tutti i gate detached, con heap dedicato da 10 GB', () => {
     const startGates = namedStepBlock(workflow, 'Start independent source gates');
     const collectGates = namedStepBlock(workflow, 'Collect independent source gates');
+    const eligibility = namedStepBlock(workflow, 'Mark TypeScript gate eligibility');
     expect(startGates, 'manca il lancio dei gate indipendenti').not.toBe('');
     expect(collectGates, 'manca la raccolta dei gate indipendenti').not.toBe('');
+    expect(eligibility, 'manca la valutazione dell annullamento prima del collector').not.toBe('');
+    expect(eligibility).toContain("if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' }}");
+    expect(eligibility).toContain('id: typecheck-eligibility');
     expect(startGates).not.toMatch(/RUN_TSC|start_gate\s+tsc/);
     const waitForAll = collectGates.indexOf('done < "$expected_file"');
     const runTsc = collectGates.indexOf('sample-mem-during.sh -- npm run typecheck:gate');
     expect(waitForAll, 'TSC deve attendere tutti i gate detached').toBeGreaterThan(-1);
     expect(runTsc, 'TSC deve essere lanciato dopo la raccolta').toBeGreaterThan(waitForAll);
-    expect(collectGates).toContain('RUN_TSC: ${{ !cancelled() && steps.body_contract.outcome != \'failure\' }}');
+    expect(collectGates).toContain("RUN_TSC: ${{ steps.typecheck-eligibility.outputs.run == 'true' }}");
     expect(collectGates).toContain('NODE_OPTIONS=--max-old-space-size=10240');
     expect(workflow).not.toContain('Typecheck after related Vitest');
   });
