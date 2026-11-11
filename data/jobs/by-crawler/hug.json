@@ -3591,12 +3591,12 @@
     },
     {
       "id": "hug-eff829fd7505",
-      "slug": "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve",
+      "slug": "riferimento-o-manutenzione-biomedica-100-hug-geneve",
       "slugByLocale": {
         "fr": "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve",
-        "it": "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve",
-        "en": "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve",
-        "de": "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve"
+        "it": "riferimento-o-manutenzione-biomedica-100-hug-geneve",
+        "en": "biomedical-reference-or-maintenance-100-hug-geneve",
+        "de": "biomedizinische-referenz-oder-wartung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3660,16 +3660,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.468Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:09.468Z"
+      "firstSeenAt": "2026-11-11T09:29:09.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve"
+        ],
+        "en": [
+          "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve"
+        ],
+        "de": [
+          "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "referents-ou-referentes-biomedicale-maintenance-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-13da59136bb0",
-      "slug": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
+      "slug": "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "it": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "en": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "de": "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        "it": "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
+        "en": "internal-physician-at-the-hematology-department-100-hug-geneve",
+        "de": "innerer-arzt-in-der-abteilung-hamatologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3732,16 +3746,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.466Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:02:35.380Z"
+      "firstSeenAt": "2026-09-21T16:02:35.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-c863f4fb0614",
-      "slug": "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve",
+      "slug": "segreteria-medica-o-medica-nel-reparto-medico-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve"
+        "it": "segreteria-medica-o-medica-nel-reparto-medico-100-hug-geneve",
+        "en": "medical-or-medical-secretary-in-the-medical-department-100-hug-geneve",
+        "de": "medizinische-oder-medizinische-sekretarin-in-der-medizinischen-abteilung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3804,16 +3832,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.462Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:09.462Z"
+      "firstSeenAt": "2026-11-11T09:29:09.462Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-au-service-d-ophtalmologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-11ed760abcdf",
-      "slug": "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug",
+      "slug": "manutenzione-trattori-tecnici-e-attrezzature-per-la-movimentazione-100-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug",
-        "it": "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug",
-        "en": "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug",
-        "de": "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug"
+        "it": "manutenzione-trattori-tecnici-e-attrezzature-per-la-movimentazione-100-hug-geneve",
+        "en": "maintenance-technician-tractors-and-handling-equipment-100-hug-geneve",
+        "de": "wartungstechniker-traktoren-und-handhabungsgerate-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3876,16 +3918,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.459Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:09.459Z"
+      "firstSeenAt": "2026-11-11T09:29:09.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug"
+        ],
+        "en": [
+          "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug"
+        ],
+        "de": [
+          "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-de-maintenance-tracteurs-et-engins-de-manutention-100-hug"
+      ]
     },
     {
       "id": "hug-e15126654615",
-      "slug": "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve",
+      "slug": "huissier-o-host-huissier-weekendist-25-hug-geneve",
       "slugByLocale": {
         "fr": "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve",
-        "it": "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve",
-        "en": "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve",
-        "de": "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve"
+        "it": "huissier-o-host-huissier-weekendist-25-hug-geneve",
+        "en": "huissier-or-host-huissier-weekendist-25-hug-geneve",
+        "de": "huissier-oder-gastgeber-huissier-weekendist-25-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3948,16 +4004,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.456Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:09.456Z"
+      "firstSeenAt": "2026-11-11T09:29:09.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve"
+        ],
+        "en": [
+          "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve"
+        ],
+        "de": [
+          "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ou-huissiere-d-accueil-weekendiste-25-hug-geneve"
+      ]
     },
     {
       "id": "hug-87abc00c7b40",
-      "slug": "dieteticien-ou-dieteticienne-80-hug-bernex",
+      "slug": "dietitian-o-dietitian-80-hug-bernex",
       "slugByLocale": {
         "fr": "dieteticien-ou-dieteticienne-80-hug-bernex",
-        "it": "dieteticien-ou-dieteticienne-80-hug-bernex",
-        "en": "dieteticien-ou-dieteticienne-80-hug-bernex",
-        "de": "dieteticien-ou-dieteticienne-80-hug-bernex"
+        "it": "dietitian-o-dietitian-80-hug-bernex",
+        "en": "dietitian-or-dietitian-80-hug-bernex",
+        "de": "diatetiker-oder-diatetiker-80-hug-bernex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4020,7 +4090,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:29:09.450Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:29:09.450Z"
+      "firstSeenAt": "2026-11-11T09:29:09.450Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ou-dieteticienne-80-hug-bernex"
+        ],
+        "en": [
+          "dieteticien-ou-dieteticienne-80-hug-bernex"
+        ],
+        "de": [
+          "dieteticien-ou-dieteticienne-80-hug-bernex"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ou-dieteticienne-80-hug-bernex"
+      ]
     }
   ]
 }

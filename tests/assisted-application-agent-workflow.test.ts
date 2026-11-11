@@ -54,6 +54,10 @@ describe('assisted application agent workflow dependencies', () => {
     expect(steps[chromiumInstall]?.['timeout-minutes']).toBeLessThan(agentJob?.['timeout-minutes'] ?? 0);
     expect(reconcileFailure).toBeGreaterThan(chromiumInstall);
     expect(steps[reconcileFailure]?.if).toMatch(/failure\(\)/u);
+
+    const installRun = steps[chromiumInstall]?.run || '';
+    expect(installRun).toContain('Acquire::ForceIPv4 "true"');
+    expect(installRun).toContain('npx playwright install chromium || npx playwright install --with-deps chromium');
   });
 
   it('hands every CAPTCHA to Valerie without stealth or challenge automation', () => {

@@ -5730,7 +5730,7 @@
         "en": "postdoctoral-position-in-international-macroeconomics-and-finance-epfl-lausanne",
         "it": "postdoctoral-position-in-international-macroeconomics-and-finance-epfl-lausanne",
         "de": "postdoctoral-position-in-international-macroeconomics-and-finance-epfl-lausanne",
-        "fr": "postdoctoral-position-in-international-macroeconomics-and-finance-epfl-lausanne"
+        "fr": "position-postdoctorale-en-macroeconomie-et-finances-internationales-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5799,12 +5799,12 @@
     },
     {
       "id": "epfl-f3b1d7568f37",
-      "slug": "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg",
+      "slug": "project-manager-gestione-dei-dati-bim-e-gemello-digitale-epfl-fribourg",
       "slugByLocale": {
         "fr": "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg",
-        "it": "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg",
-        "en": "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg",
-        "de": "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg"
+        "it": "project-manager-gestione-dei-dati-bim-e-gemello-digitale-epfl-fribourg",
+        "en": "project-manager-data-management-bim-and-digital-twin-epfl-fribourg",
+        "de": "projektmanager-datenmanagement-bim-und-digital-twin-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5869,7 +5869,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:31:29.531Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:31:29.531Z"
+      "firstSeenAt": "2026-11-11T09:31:29.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg"
+        ],
+        "en": [
+          "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg"
+        ],
+        "de": [
+          "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-projet-gestion-des-donnees-bim-et-jumeau-numerique-epfl-fribourg"
+      ]
     },
     {
       "id": "epfl-6b8c81571aa5",
@@ -5878,7 +5892,7 @@
         "en": "postdoctoral-position-international-macroeconomics-and-finance-at-epfl-epfl-lausanne",
         "it": "postdoctoral-position-international-macroeconomics-and-finance-at-epfl-epfl-lausanne",
         "de": "postdoctoral-position-international-macroeconomics-and-finance-at-epfl-epfl-lausanne",
-        "fr": "postdoctoral-position-international-macroeconomics-and-finance-at-epfl-epfl-lausanne"
+        "fr": "position-postdoctorale-economie-et-finances-internationales-a-l-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6033,12 +6047,12 @@
     },
     {
       "id": "epfl-551ffd53e0cf",
-      "slug": "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve",
+      "slug": "tecnico-comportamento-animale-epfl-geneve",
       "slugByLocale": {
         "fr": "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve",
-        "it": "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve",
-        "en": "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve",
-        "de": "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve"
+        "it": "tecnico-comportamento-animale-epfl-geneve",
+        "en": "animal-behaviour-technician-epfl-geneve",
+        "de": "techniker-fur-das-verhalten-von-tieren-epfl-geneve"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6103,16 +6117,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:31:27.706Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:31:27.706Z"
+      "firstSeenAt": "2026-11-11T09:31:27.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve"
+        ],
+        "en": [
+          "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve"
+        ],
+        "de": [
+          "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-specialise-e-en-comportement-animal-epfl-geneve"
+      ]
     },
     {
       "id": "epfl-8af8c8340950",
-      "slug": "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent",
+      "slug": "tecnico-es-ingegnere-hes-in-elettrotecnica-elettronica-automazione-o-equivalente-epfl-neuchatel",
       "slugByLocale": {
         "fr": "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent",
-        "it": "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent",
-        "en": "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent",
-        "de": "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent"
+        "it": "tecnico-es-ingegnere-hes-in-elettrotecnica-elettronica-automazione-o-equivalente-epfl-neuchatel",
+        "en": "es-technician-hes-engineer-in-electrotechnical-electronic-automation-or-equivalent-epfl-neuchatel",
+        "de": "es-techniker-hes-ingenieur-in-elektrotechnik-elektronik-automatisierung-oder-gleichwertig-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6177,16 +6205,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:31:27.098Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:31:27.098Z"
+      "firstSeenAt": "2026-11-11T09:31:27.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent"
+        ],
+        "en": [
+          "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent"
+        ],
+        "de": [
+          "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-es-ingenieur-e-hes-en-electrotechnique-electronique-automation-ou-equivalent"
+      ]
     },
     {
       "id": "epfl-f5b8322fb663",
-      "slug": "postdoctoral-position-in-stochastic-analysis-epfl-lausanne",
+      "slug": "posizione-post-dottorale-in-analisi-stocastica-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoctoral-position-in-stochastic-analysis-epfl-lausanne",
-        "it": "postdoctoral-position-in-stochastic-analysis-epfl-lausanne",
-        "de": "postdoctoral-position-in-stochastic-analysis-epfl-lausanne",
-        "fr": "postdoctoral-position-in-stochastic-analysis-epfl-lausanne"
+        "it": "posizione-post-dottorale-in-analisi-stocastica-epfl-lausanne",
+        "de": "postdoc-position-in-der-stochastischen-analyse-epfl-lausanne",
+        "fr": "position-postdoctorale-en-analyse-stochastique-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6251,7 +6293,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:31:26.481Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:31:26.481Z"
+      "firstSeenAt": "2026-11-11T09:31:26.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-stochastic-analysis-epfl-lausanne"
+        ],
+        "de": [
+          "postdoctoral-position-in-stochastic-analysis-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoctoral-position-in-stochastic-analysis-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-stochastic-analysis-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-c164bfadf4eb",

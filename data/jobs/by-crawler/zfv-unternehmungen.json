@@ -2258,12 +2258,12 @@
     },
     {
       "id": "zfv-unternehmungen-d4326fbe3afc",
-      "slug": "kochin-koch-zfv-unternehmungen-zurich",
+      "slug": "cucinare-cucinare-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "kochin-koch-zfv-unternehmungen-zurich",
-        "it": "kochin-koch-zfv-unternehmungen-zurich",
-        "en": "kochin-koch-zfv-unternehmungen-zurich",
-        "fr": "kochin-koch-zfv-unternehmungen-zurich"
+        "it": "cucinare-cucinare-zfv-unternehmungen-zurich",
+        "en": "cook-cook-zfv-unternehmungen-zurich",
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2325,7 +2325,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:26:13.789Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-30T22:12:46.008Z"
+      "firstSeenAt": "2026-07-30T22:12:46.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "kochin-koch-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "kochin-koch-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-6ceb4ff6f5a1",
@@ -2496,10 +2510,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
         "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2545,20 +2559,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cucinare-cucinare-zfv-unternehmungen-baden",
-        "cuire-cuire-zfv-unternehmungen-baden"
+        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden",
-          "cucinare-cucinare-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuire-cuire-zfv-unternehmungen-baden"
+          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -2581,12 +2593,12 @@
     },
     {
       "id": "zfv-unternehmungen-8fb7f2a60e62",
-      "slug": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur",
+      "slug": "cuoco-cuoca-con-funzione-di-sostituto-zfv-unternehmungen-winterthur",
       "slugByLocale": {
         "de": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur",
-        "it": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur",
-        "en": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur",
-        "fr": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur"
+        "it": "cuoco-cuoca-con-funzione-di-sostituto-zfv-unternehmungen-winterthur",
+        "en": "cook-with-deputy-function-zfv-unternehmungen-winterthur",
+        "fr": "cuisiniere-cuisinier-avec-fonction-suppleante-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2648,7 +2660,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:26:11.871Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:26:11.871Z"
+      "firstSeenAt": "2026-11-11T09:26:11.871Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur"
+        ],
+        "en": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-mit-stv-funktion-zfv-unternehmungen-winterthur"
+      ]
     },
     {
       "id": "zfv-unternehmungen-06c568d738c3",
@@ -4083,12 +4109,12 @@
     },
     {
       "id": "zfv-unternehmungen-af13735e2d4f",
-      "slug": "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen",
+      "slug": "cuoco-cuoca-con-vice-funzione-80-zfv-unternehmungen-schaffhausen",
       "slugByLocale": {
         "de": "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen",
-        "it": "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen",
-        "en": "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen",
-        "fr": "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen"
+        "it": "cuoco-cuoca-con-vice-funzione-80-zfv-unternehmungen-schaffhausen",
+        "en": "cook-with-deputy-function-80-zfv-unternehmungen-schaffhausen",
+        "fr": "cuisiniere-cuisinier-avec-suppleant-fonction-80-zfv-unternehmungen-schaffhausen"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4150,7 +4176,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:25:58.729Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:25:58.729Z"
+      "firstSeenAt": "2026-11-11T09:25:58.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen"
+        ],
+        "en": [
+          "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen"
+        ],
+        "fr": [
+          "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-mit-stv-funktion-80-zfv-unternehmungen-schaffhausen"
+      ]
     },
     {
       "id": "zfv-unternehmungen-a5e9e7bd0876",
@@ -5739,7 +5779,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5791,14 +5831,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",

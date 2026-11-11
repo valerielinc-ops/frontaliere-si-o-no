@@ -947,12 +947,12 @@
     },
     {
       "id": "ipw-7bc5041e6dad",
-      "slug": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
+      "slug": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
-        "it": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
+        "it": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
-        "fr": "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        "fr": "stage-stage-travail-social-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1018,7 +1018,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T09:28:29.373Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-27T00:55:48.399Z"
+      "firstSeenAt": "2026-08-27T00:55:48.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        ],
+        "fr": [
+          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-f845d5ea268c",
@@ -1106,12 +1117,12 @@
     },
     {
       "id": "ipw-54a917ade277",
-      "slug": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+      "slug": "professionale-specialista-casalinga-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-        "it": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-        "en": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-        "fr": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        "it": "professionale-specialista-casalinga-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "professional-specialist-housekeeping-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "professionnel-specialiste-menage-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1177,7 +1188,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T09:28:27.699Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-03T13:34:51.775Z"
+      "firstSeenAt": "2026-09-03T13:34:51.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ],
+        "en": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ],
+        "fr": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-f7f2b1c0a5fe",

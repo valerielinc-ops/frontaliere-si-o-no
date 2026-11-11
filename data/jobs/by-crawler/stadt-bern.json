@@ -2593,12 +2593,12 @@
     },
     {
       "id": "stadt-bern-e50ce35782bd",
-      "slug": "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern",
+      "slug": "addetto-a-alla-gestione-dei-rifiuti-con-l-uso-di-macchinari-stadt-bern-bern",
       "slugByLocale": {
         "de": "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern",
-        "it": "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern",
-        "en": "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern",
-        "fr": "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern"
+        "it": "addetto-a-alla-gestione-dei-rifiuti-con-l-uso-di-macchinari-stadt-bern-bern",
+        "en": "disposal-yard-attendant-with-machines-stadt-bern-bern",
+        "fr": "agent-d-elimination-avec-machines-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2661,16 +2661,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:18:01.974Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:18:01.974Z"
+      "firstSeenAt": "2026-11-11T09:18:01.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern"
+        ],
+        "en": [
+          "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern"
+        ],
+        "fr": [
+          "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "entsorgungshofwart-in-mit-bedienung-von-maschinen-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-7cf3e3e2dc5a",
-      "slug": "projektleiter-in-migration-e-rassismus-stadt-bern",
+      "slug": "responsabiledi-progetto-in-migrazione-e-razzismo-stadt-bern-bern",
       "slugByLocale": {
         "de": "projektleiter-in-migration-und-rassismus-stadt-bern-bern",
-        "it": "projektleiter-in-migration-e-rassismus-stadt-bern",
-        "en": "projektleiter-in-migration-und-rassismus-stadt-bern-bern",
-        "fr": "projektleiter-in-migration-und-rassismus-stadt-bern-bern"
+        "it": "responsabiledi-progetto-in-migrazione-e-razzismo-stadt-bern-bern",
+        "en": "projectmanager-migration-and-racism-stadt-bern-bern",
+        "fr": "chef-fe-de-projet-migration-et-racisme-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2719,11 +2733,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-migration-und-rassismus-stadt-bern-bern",
+          "projektleiter-in-migration-e-rassismus-stadt-bern"
+        ],
+        "en": [
+          "projektleiter-in-migration-und-rassismus-stadt-bern-bern"
+        ],
+        "fr": [
           "projektleiter-in-migration-und-rassismus-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-migration-und-rassismus-stadt-bern-bern"
+        "projektleiter-in-migration-und-rassismus-stadt-bern-bern",
+        "projektleiter-in-migration-e-rassismus-stadt-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

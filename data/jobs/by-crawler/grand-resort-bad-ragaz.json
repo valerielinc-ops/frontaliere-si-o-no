@@ -1855,12 +1855,12 @@
     },
     {
       "id": "grand-resort-bad-ragaz-4cfac6f1b8dc",
-      "slug": "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "industria-alberghiera-del-reclutatore-esperto-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "it": "industria-alberghiera-del-reclutatore-esperto-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "experienced-recruiter-hotel-industry-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "fr": "industrie-hoteliere-des-recruteurs-experimentes-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -1922,7 +1922,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:31:21.166Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:31:21.166Z"
+      "firstSeenAt": "2026-11-11T09:31:21.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "en": [
+          "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "fr": [
+          "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "erfahrener-recruiter-hotellerie-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     }
   ]
 }

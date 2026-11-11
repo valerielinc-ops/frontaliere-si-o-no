@@ -3509,12 +3509,12 @@
     },
     {
       "id": "vontobel-8a25d9cbcb40",
-      "slug": "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch",
+      "slug": "pianificazione-della-ricchezza-temporanea-10-mesi-100-vontobel-zurich-genferstrasse-27",
       "slugByLocale": {
         "en": "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch",
-        "it": "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch",
+        "it": "pianificazione-della-ricchezza-temporanea-10-mesi-100-vontobel-zurich-genferstrasse-27",
         "de": "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch",
-        "fr": "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch"
+        "fr": "sales-business-manager-planification-de-patrimoine-temporaire-10-mois-100-vontobel-zurich-genferstrasse-27"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -3577,7 +3577,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:46:54.011Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:46:54.011Z"
+      "firstSeenAt": "2026-11-11T09:46:54.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch"
+        ],
+        "fr": [
+          "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-business-manager-wealth-planning-temporary-10-months-100-vontobel-ch"
+      ]
     }
   ]
 }

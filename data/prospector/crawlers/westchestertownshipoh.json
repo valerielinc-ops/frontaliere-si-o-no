@@ -1,0 +1,22 @@
+{
+  "companyKey": "westchestertownshipoh",
+  "companyName": "West Chester Township OH",
+  "companyHost": "westchestertownshipoh.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://westchestertownshipoh.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Emergency Communications Officer (911 Dispatcher)",
+    "Police Officer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-11T13:12:59.938Z",
+  "candidateKey": "westchestertownshipoh@applytojob.com"
+}

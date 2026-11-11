@@ -1633,8 +1633,8 @@
       "slug": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-ch-wetzikon-zh",
-        "en": "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-bachtel-ag-wetzikon-zh",
-        "fr": "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-bachtel-ag-wetzikon-zh",
+        "en": "nursing-professional-hf-on-night-duty-22-00-to-7-00-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "soins-infirmiers-professionnels-en-service-de-nuit-22-00-a-7-00-spitex-bachtel-ag-wetzikon-zh",
         "it": "pflegefachfrau-mann-hf-im-nachtdienst-22-00-uhr-bis-7-00-uhr-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
@@ -1690,16 +1690,15 @@
           "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-ch-wetzikon-zh"
         ],
         "en": [
-          "nursing-professional-hf-on-night-duty-22-00-to-7-00-spitex-bachtel-ag-wetzikon-zh"
+          "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-bachtel-ag-wetzikon-zh"
         ],
         "fr": [
-          "soins-infirmiers-professionnels-en-service-de-nuit-22-00-a-7-00-spitex-bachtel-ag-wetzikon-zh"
+          "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-bachtel-ag-wetzikon-zh"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-ch-wetzikon-zh",
-        "nursing-professional-hf-on-night-duty-22-00-to-7-00-spitex-bachtel-ag-wetzikon-zh",
-        "soins-infirmiers-professionnels-en-service-de-nuit-22-00-a-7-00-spitex-bachtel-ag-wetzikon-zh"
+        "pflegefachfrau-mann-hf-fh-im-nachtdienst-spitex-bachtel-ag-wetzikon-zh"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1878,12 +1877,12 @@
     },
     {
       "id": "spitex-ch-c029a8bcb206",
-      "slug": "teamleitung-60-spitex-ch-tobel",
+      "slug": "gestione-del-team-60-spitex-lauchetal-tobel",
       "slugByLocale": {
         "de": "teamleitung-60-spitex-ch-tobel",
-        "it": "teamleitung-60-spitex-ch-tobel",
-        "en": "teamleitung-60-spitex-ch-tobel",
-        "fr": "teamleitung-60-spitex-ch-tobel"
+        "it": "gestione-del-team-60-spitex-lauchetal-tobel",
+        "en": "team-management-60-spitex-lauchetal-tobel",
+        "fr": "gestion-d-equipe-60-spitex-lauchetal-tobel"
       },
       "company": "Spitex Lauchetal",
       "companyKey": "spitex-ch",
@@ -1945,7 +1944,21 @@
       "streetAddress": "Tobel",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-11T09:24:56.107Z"
+      "firstSeenAt": "2026-11-11T09:24:56.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-60-spitex-ch-tobel"
+        ],
+        "en": [
+          "teamleitung-60-spitex-ch-tobel"
+        ],
+        "fr": [
+          "teamleitung-60-spitex-ch-tobel"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-60-spitex-ch-tobel"
+      ]
     },
     {
       "id": "spitex-ch-1f108cf0dfa5",
@@ -2029,12 +2042,12 @@
     },
     {
       "id": "spitex-ch-6b5d20e9e043",
-      "slug": "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten",
+      "slug": "dipl-professionista-hf-spitexverein-oberes-homburgertal-buckten",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-spitex-ch-buckten",
-        "it": "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten",
-        "en": "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten",
-        "fr": "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten"
+        "it": "dipl-professionista-hf-spitexverein-oberes-homburgertal-buckten",
+        "en": "dipl-care-professional-hf-spitexverein-oberes-homburgertal-buckten",
+        "fr": "dipl-soins-professionnels-hf-spitexverein-oberes-homburgertal-buckten"
       },
       "company": "Spitexverein Oberes Homburgertal",
       "companyKey": "spitex-ch",
@@ -2082,11 +2095,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-spitex-ch-buckten"
+          "dipl-pflegefachperson-hf-spitex-ch-buckten",
+          "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-spitex-ch-buckten"
+        "dipl-pflegefachperson-hf-spitex-ch-buckten",
+        "dipl-pflegefachperson-hf-spitexverein-oberes-homburgertal-buckten"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2108,12 +2129,12 @@
     },
     {
       "id": "spitex-ch-70572dde7e2f",
-      "slug": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
+      "slug": "adoro-il-mio-lavoro-fallleading-dipl-infermiera-hf-fh-spitex-vicino-winterthur-80-100-nessun-servizio-notturno-spitex",
       "slugByLocale": {
         "de": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "it": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "en": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "fr": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        "it": "adoro-il-mio-lavoro-fallleading-dipl-infermiera-hf-fh-spitex-vicino-winterthur-80-100-nessun-servizio-notturno-spitex",
+        "en": "i-love-my-job-fallleading-dipl-nurse-hf-fh-spitex-near-winterthur-80-100-no-night-service-spitex-regioseuzach-seuzach",
+        "fr": "j-adore-mon-travail-fallleleadering-dipl-infirmiere-hf-fh-spitex-pres-de-winterthur-80-100-pas-de-service-de-nuit-spitex"
       },
       "company": "Spitex RegioSeuzach",
       "companyKey": "spitex-ch",
@@ -2175,16 +2196,30 @@
       "streetAddress": "Seuzach",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-16T21:16:18.499Z"
+      "firstSeenAt": "2026-10-16T21:16:18.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ],
+        "en": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ],
+        "fr": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ]
+      },
+      "previousSlugs": [
+        "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+      ]
     },
     {
       "id": "spitex-ch-12be6681485b",
-      "slug": "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden",
+      "slug": "comitato-esecutivo-dell-associazione-spitex-thurgau-spitex-verband-thurgau-weinfelden",
       "slugByLocale": {
         "de": "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden",
-        "it": "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden",
-        "en": "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden",
-        "fr": "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden"
+        "it": "comitato-esecutivo-dell-associazione-spitex-thurgau-spitex-verband-thurgau-weinfelden",
+        "en": "executive-committee-of-the-spitex-association-thurgau-spitex-verband-thurgau-weinfelden",
+        "fr": "comite-executif-de-l-association-spitex-thurgau-spitex-verband-thurgau-weinfelden"
       },
       "company": "Spitex Verband Thurgau",
       "companyKey": "spitex-ch",
@@ -2246,7 +2281,21 @@
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-11T09:24:53.783Z"
+      "firstSeenAt": "2026-11-11T09:24:53.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden"
+        ],
+        "en": [
+          "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden"
+        ],
+        "fr": [
+          "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "prasidium-des-spitex-verbandes-thurgau-spitex-ch-weinfelden"
+      ]
     },
     {
       "id": "spitex-ch-de7a5757deb4",
