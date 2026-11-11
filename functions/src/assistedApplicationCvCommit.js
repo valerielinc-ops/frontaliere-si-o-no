@@ -12,7 +12,7 @@ import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
-import { candidateEditSnapshot, candidateReviewFlow, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
+import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, candidateVisibleAnswers, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
@@ -125,6 +125,22 @@ async function writeCandidateAnswerLedger(transaction, db, profileRef, profileSn
 async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flow, draft, profileRecord, guard }) {
   if (!guard) return true;
   if (Number(guard.draftRound) > 0 && Number(draft?.round) !== Number(guard.draftRound)) return false;
+  // An answer another save changed since this request read it is never overwritten: the stored value
+  // must still be the one read, or already the one this request writes (the same save retried).
+  const storedAnswers = guard.storedAnswers && typeof guard.storedAnswers === 'object' && !Array.isArray(guard.storedAnswers)
+    ? guard.storedAnswers : {};
+  // The candidate's runner context, read inside this transaction: the projection the page and the
+  // save compared (candidateVisibleAnswers) is rebuilt from it, and so is the candidate's contract below.
+  const runner = guard.actor === 'candidate' || Object.keys(storedAnswers).length
+    ? await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
+      getDocument: ref => transaction.get(ref) })
+    : null;
+  const storedNow = Object.keys(storedAnswers).length
+    ? candidateVisibleAnswers({ orderId, order, flow, draft, runnerContext: runner, nowMs: guard.nowMs }) : {};
+  for (const [id, expected] of Object.entries(storedAnswers)) {
+    const now = answerRevisionText(storedNow[id]);
+    if (now !== expected?.before && now !== expected?.after) return false;
+  }
   const answerIds = Array.isArray(guard.answerIds) ? guard.answerIds : [];
   const guardOrigins = guard.answerOrigins && typeof guard.answerOrigins === 'object' && !Array.isArray(guard.answerOrigins)
     ? guard.answerOrigins : {};
@@ -134,8 +150,6 @@ async function answerSnapshotGuardMatches({ db, transaction, orderId, order, flo
   if (guardedLocale && communicationLocale !== guardedLocale) return false;
   let currentFlow;
   if (guard.actor === 'candidate') {
-    const runner = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs: guard.nowMs, profileRecord,
-      getDocument: ref => transaction.get(ref) });
     const displayLegacyAnswers = runner.retained
       && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
     currentFlow = runner.retained ? { ...runner.flow,
@@ -249,7 +263,8 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null,
-  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null, communicationLocale: requestedCommunicationLocale = null, requireAnswerContracts = false }) {
+  answerSuggestionDismissals = null, confirmedAnswerOrigins = {}, nowMs, answerActor = null, communicationLocale: requestedCommunicationLocale = null, requireAnswerContracts = false,
+  readAnswers = null }) {
   const communicationLocale = normalizeAnswerCommunicationLocale(requestedCommunicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale)
     || await resolveAnswerCommunicationLocale({ db, order }) || 'it';
@@ -269,6 +284,10 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     answerQuestionSnapshots[id] && answerQuestionSnapshots[id] === currentConfirmationSnapshots[id] && currentQuestionSnapshots[id]
       ? [[id, currentQuestionSnapshots[id]]] : []));
   const evidenceQuestionSnapshots = currentConfirmationSnapshots;
+  // The stored values this request read (the review page's), rechecked inside the commit transaction.
+  const storedAnswerGuard = readAnswers && typeof readAnswers === 'object' && !Array.isArray(readAnswers)
+    ? Object.fromEntries(Object.keys(answers || {}).map(id => [id, { before: answerRevisionText(readAnswers[id]), after: answerRevisionText(answers[id]) }]))
+    : null;
   const sourceQuestionSnapshotGuard = evidenceQuestionSnapshots;
   const previousOrderAnswers = orderContext.orderAnswers;
   const orderAnswerValues = { ...orderContext.answers, ...answers };
@@ -281,7 +300,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const answerProvenanceFlow = { ...flow, answerOrigins: confirmedAnswerOrigins };
   const questionAnswerSnapshots = rememberOrderQuestionAnswerSnapshots({ orderId, order, flow: answerProvenanceFlow, questions: localQuestionDescriptors, draft,
     answers: orderAnswerValues, changed: answers, questionAnswers, previous: orderContext.questionAnswerSnapshots,
-    previousAnswers: orderContext.orderAnswers,
+    previousAnswers: orderContext.orderAnswers, previousAnswerValues: orderContext.answers,
     previousQuestionIds: orderContext.questionAnswerSnapshotIds, previousCompatibility: orderContext.questionAnswerCompatibility,
     previousConfirmations: orderContext.questionAnswerConfirmationHashes, previousSources: orderContext.questionAnswerSources,
     confirmed: confirmedQuestionSnapshots, sourceKind: answerSourceKind, nowMs });
@@ -323,7 +342,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         || Number(currentFlow.data()?.round || 1) !== Number(flow.round || 1)
         || !await answerSnapshotGuardMatches({ db, transaction, orderId, order: currentOrder.data() || {}, flow: currentFlow.data() || {}, draft: currentDraft.data() || {},
           profileRecord: profileSnapshot?.data() || {},
-          guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
+          guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard, storedAnswers: storedAnswerGuard,
             answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale } })) return false;
       await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
       transaction.set(flowRef, {
@@ -353,7 +372,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       orderQuestionAnswersEvidenceVersion,
       ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}) },
     replaceAnswerMaps: true,
-    answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
+    answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard, storedAnswers: storedAnswerGuard,
       answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale },
     candidateAnswerLedger,
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo, size: rebuilt.size } },

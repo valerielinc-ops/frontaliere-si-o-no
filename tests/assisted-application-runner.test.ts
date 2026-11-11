@@ -1067,6 +1067,35 @@ describe('submit mode', () => {
     expect(calls.some((call) => call.includes('successfactors'))).toBe(false);
   });
 
+  // ECAM, CVRDEqJ3 2026-11-11: the posting is a PDF notice, its data names the career page for applications.
+  it('keeps the apply page of a posting published as a document instead of opening the document', async () => {
+    const jobId = 'ecam-0123456789ab';
+    const pdf = 'https://www.example-ente.ch/wp-content/uploads/2026/01/Concorso-generale-2026.pdf';
+    const career = 'https://www.example-ente.ch/lavora-con-noi/opportunita/';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      if (url === detailUrl) return new Response(JSON.stringify({ description: POSTING, url: pdf, applyUrl: career }), { status: 200 });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      if (init.method === 'HEAD') return new Response(null, { status: 200 });
+      if (url === pdf) return new Response(`<p>${'Concorso generale permanente 2026. '.repeat(20)}</p>`, { status: 200, headers: { 'content-type': 'text/html' } });
+      return new Response(`<main><p>${'Lavora con noi. '.repeat(30)}</p><a href="${pdf}">bando</a><a href="https://forms.example-ente.ch/apply">Inviate la vostra candidatura</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order: { ...order, jobId, jobUrl: pdf, jobTitle: 'Concorso generale permanente 2026', companyName: 'Ente Esempio (EE)' },
+      orderId: ORDER_ID,
+      draft: { ...baseDraft, channel: { type: 'employer_site', applyUrl: career, host: 'www.example-ente.ch', requiresAccount: false }, job: { postingUrl: pdf, applyUrl: career } },
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      cvBuffer: cvPdf(), cvType: 'pdf', bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns,
+      fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(runner).toHaveBeenCalledTimes(1);
+    // The career page is where the application starts; the document stays the posting the runner reads.
+    expect((runner.mock.calls as any)[0][0]).toMatchObject({ applyUrl: career, postingUrl: pdf, channelType: 'employer_site' });
+  });
+
   it('re-resolves a synthesized SuccessFactors URL from the current published posting', async () => {
     const jobId = 'stadt-zuerich-bd8c02aa73de';
     const postingUrl = 'https://jobs.stadt-zuerich.ch/job/Application-Manager/1373719857/';

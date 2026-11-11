@@ -421,7 +421,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       setTouched(Object.fromEntries(Object.keys(clientErrors).map((id) => [id, true])));
       return;
     }
-    void run('answers', { answers, answerQuestionSnapshots: data?.answerQuestionSnapshots || {} });
+    // The stored answers this page loaded: an answer saved meanwhile from another tab that this page
+    // did not touch stays as it is, one both changed is the conflict the page reloads for.
+    void run('answers', { answers, answerQuestionSnapshots: data?.answerQuestionSnapshots || {},
+      answerRevisions: data?.answerRevisions || {} });
   };
 
   // The documents the posting requires besides the CV and the letter: the file

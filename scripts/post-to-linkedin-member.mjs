@@ -33,9 +33,10 @@
  *   GA4_PROPERTY_ID                defaults to properties/524485296
  *   GOOGLE_APPLICATION_CREDENTIALS service account for the GA4 read
  *
- * FAIL-SOFT: exit code is ALWAYS 0. A missing token, a missing URN, an empty
- * GA4 day or a LinkedIn 4xx all log a reason and return — this runs on a cron
- * and must never turn the repo red for a credential the owner has not set yet.
+ * FAIL-SOFT: missing configuration and an empty GA4 day log a reason and
+ * return. An explicit LinkedIn 401/403 fails the run so rejected credentials
+ * cannot look healthy in Actions. Other transient and ambiguous delivery
+ * outcomes keep their existing handling.
  * The only thing that changes state is a successful post, and the ledger is
  * appended immediately after each one (never batched at the end), so a failure
  * on the second slot can never cause the first to be reposted tomorrow.
@@ -158,7 +159,7 @@ async function publish({ accessToken, payload }) {
   const successfulHttpResponse = res.status >= 200 && res.status < 300;
   const text = successfulHttpResponse ? '' : await res.text().catch(() => '');
   if (res.status === 401) {
-    console.error('💡 401 — the member token expired; re-run scripts/linkedin-member-auth.mjs');
+    console.error('💡 401 — LinkedIn rejected the member access token; it may be expired, revoked, or invalid. Reauthorize with scripts/linkedin-member-auth.mjs');
   }
   if (res.status === 403) {
     console.error('💡 403 — the token is missing w_member_social, or the URN is not its owner');
@@ -427,6 +428,11 @@ async function main() {
           reason: 'LinkedIn explicitly rejected the member post',
           onFailure: (err) => console.error(`⚠️  Could not release LinkedIn ${slot.kind} copy reservation for ${pick.slug}: ${err.message}`),
         });
+      }
+      if (res.authRejected) {
+        process.exitCode = 1;
+        console.error('❌ LinkedIn member authorization failed; stopping the remaining slots.');
+        break;
       }
     }
     } catch (err) {

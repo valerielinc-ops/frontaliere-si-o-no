@@ -18,6 +18,7 @@ export function classifyLinkedInMemberPostResponse({ status, postId, body = '' }
     ok: false,
     status: Number.isInteger(statusCode) ? statusCode : null,
     body: String(body || '').slice(0, 300),
+    authRejected: statusCode === 401 || statusCode === 403,
     deliveryUncertain: isAmbiguousSocialPublishResponse({ status }),
   };
 }

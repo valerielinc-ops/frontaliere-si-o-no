@@ -5,7 +5,9 @@
 // Match complete human-readable action tokens, with optional decorative
 // punctuation. URL/query/email fragments are never standalone action words.
 // This same expression is also used by the accessible-link fallback.
-const APPLY_RE = /(?:^|\s)[([{«»“”‘’"'›•*-]*(apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (la (?:tua|sua) )?candidatura|invii la sua candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i;
+// «Inviate la vostra candidatura» (ECAM's career page, CVRDEqJ3 2026-11-11) is the plural/formal
+// imperative of «invia la tua candidatura»: the same entry, addressed to more than one reader.
+const APPLY_RE = /(?:^|\s)[([{«»“”‘’"'›•*-]*(apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i;
 // «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
 // the posting for later by e-mail: never the way into the form.
 const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
