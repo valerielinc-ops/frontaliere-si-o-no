@@ -29,6 +29,9 @@ export class JobsChAdapter {
           const idMatch = /\/(\d+)(?:\/|\?|$)/.exec(fallbackUrl);
           const jobId = idMatch ? idMatch[1] : String(Date.now());
 
+          const publishedAt = parsed.datePosted || null;
+          if (!publishedAt) continue;
+
           return {
             id: `jobsch_${jobId}`,
             provider: 'jobsch',
@@ -38,7 +41,7 @@ export class JobsChAdapter {
             canton,
             descriptionHtml: parsed.description || '',
             applicationUrl: fallbackUrl,
-            publishedAt: parsed.datePosted || null
+            publishedAt
           };
         }
       } catch {
@@ -53,6 +56,9 @@ export class JobsChAdapter {
         const state = JSON.parse(stateMatch[1]);
         const job = state.jobDetail?.job || state.job;
         if (job) {
+          const publishedAt = job.publicationDate || job.datePosted || null;
+          if (!publishedAt) return null;
+
           return {
             id: `jobsch_${job.jobId || job.id}`,
             provider: 'jobsch',
@@ -62,7 +68,7 @@ export class JobsChAdapter {
             canton: job.canton || null,
             descriptionHtml: job.description || '',
             applicationUrl: fallbackUrl,
-            publishedAt: job.publicationDate || null
+            publishedAt
           };
         }
       } catch {

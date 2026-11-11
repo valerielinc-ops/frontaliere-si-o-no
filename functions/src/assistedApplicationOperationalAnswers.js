@@ -413,7 +413,11 @@ export function resolveFrontaliereSmartDefaults(field, candidateProfile = null, 
   } else if (/(?:notice|preavvis|k[uü]ndigung|preavis)/i.test(text)) {
     keys = ['noticePeriod'];
   } else if (/(?:salary|gehalt|lohn|salari|remuneraz|stipend|pretention)/i.test(text)) {
-    keys = ['salaryExpectationChf', 'salaryExpectation'];
+    if (/(?:current|attual|derzeit|actuel|pr[eé]sent|bisher|jetzig)/i.test(text)) {
+      keys = ['currentSalaryChf', 'currentSalary'];
+    } else {
+      keys = ['salaryExpectationChf', 'salaryExpectation'];
+    }
   } else if (/(?:workload|pensum|occupaz|grado|taux)/i.test(text)) {
     keys = ['preferredWorkload', 'workloadPercent', 'workload', 'pensum'];
   }

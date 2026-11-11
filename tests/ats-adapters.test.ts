@@ -18,18 +18,30 @@ describe('ProspectiveAdapter', () => {
       location: 'Bussnang',
       attributes: { canton: 'TG' },
       description: '<p>Lavora con noi</p>',
-      directlink: 'https://jobs.stadlerrail.com/apply/12345'
+      directlink: 'https://jobs.stadlerrail.com/apply/12345',
+      publish_date: '2026-11-01T10:00:00Z'
     };
 
     const mapped = adapter.mapJob(raw);
-    expect(mapped.id).toBe('prospective_vk_12345');
-    expect(mapped.provider).toBe('prospective');
-    expect(mapped.title).toBe('Polymechaniker EFZ');
-    expect(mapped.company).toBe('Stadler Rail AG');
-    expect(mapped.location).toBe('Bussnang');
-    expect(mapped.canton).toBe('TG');
-    expect(mapped.applicationUrl).toBe('https://jobs.stadlerrail.com/apply/12345');
-    expect(mapped.publishedAt).toBeNull();
+    expect(mapped).not.toBeNull();
+    expect(mapped?.id).toBe('prospective_vk_12345');
+    expect(mapped?.provider).toBe('prospective');
+    expect(mapped?.title).toBe('Polymechaniker EFZ');
+    expect(mapped?.company).toBe('Stadler Rail AG');
+    expect(mapped?.location).toBe('Bussnang');
+    expect(mapped?.canton).toBe('TG');
+    expect(mapped?.applicationUrl).toBe('https://jobs.stadlerrail.com/apply/12345');
+    expect(mapped?.publishedAt).toBe('2026-11-01T10:00:00Z');
+  });
+
+  it('rejects a date-less Prospective record before emission', () => {
+    const raw = {
+      viewkey: 'vk_999',
+      title: 'No date role',
+      company: 'Datore',
+      location: 'Zurigo'
+    };
+    expect(adapter.mapJob(raw)).toBeNull();
   });
 
   it('effettua fetch e paginazione con mock fetchFn', async () => {
@@ -39,7 +51,7 @@ describe('ProspectiveAdapter', () => {
           ok: true,
           json: async () => ({
             total: 2,
-            jobs: [{ viewkey: 'j1', title: 'Job 1' }]
+            jobs: [{ viewkey: 'j1', title: 'Job 1', publish_date: '2026-11-01' }]
           })
         };
       }
@@ -47,7 +59,7 @@ describe('ProspectiveAdapter', () => {
         ok: true,
         json: async () => ({
           total: 2,
-          jobs: [{ viewkey: 'j2', title: 'Job 2' }]
+          jobs: [{ viewkey: 'j2', title: 'Job 2', publish_date: '2026-11-02' }]
         })
       };
     };
@@ -101,7 +113,7 @@ describe('ReflineAdapter', () => {
 
   it('keeps an absent schema.org publication date unknown', () => {
     const mapped = adapter.mapJobPosting({ '@type': 'JobPosting', title: 'Engineer' }, 'https://apply.refline.ch/insel/43/pub/de/index.html');
-    expect(mapped?.publishedAt).toBeNull();
+    expect(mapped).toBeNull();
   });
 });
 
@@ -124,7 +136,7 @@ describe('UmantisAdapter', () => {
   });
 
   it('does not assign a crawl date to an Umantis job with no publication date', () => {
-    expect(adapter.mapJob('101', 'Software Architect', 'Bobst', 'Mex', '<p>Role</p>', 'https://jobs.bobst.com/Vacancies/101/Description/en').publishedAt)
+    expect(adapter.mapJob('101', 'Software Architect', 'Bobst', 'Mex', '<p>Role</p>', 'https://jobs.bobst.com/Vacancies/101/Description/en'))
       .toBeNull();
   });
 });
@@ -139,7 +151,8 @@ describe('JobsChAdapter', () => {
           "@type": "JobPosting",
           "title": "Sviluppatore React Native",
           "hiringOrganization": "Banca del Sempione",
-          "jobLocation": { "address": { "addressLocality": "Lugano", "addressRegion": "TI" } }
+          "jobLocation": { "address": { "addressLocality": "Lugano", "addressRegion": "TI" } },
+          "datePosted": "2026-11-01T12:00:00Z"
         }
       </script>
     `;
@@ -149,12 +162,12 @@ describe('JobsChAdapter', () => {
     expect(job?.title).toBe('Sviluppatore React Native');
     expect(job?.company).toBe('Banca del Sempione');
     expect(job?.canton).toBe('TI');
-    expect(job?.publishedAt).toBeNull();
+    expect(job?.publishedAt).toBe('2026-11-01T12:00:00Z');
   });
 
   it('keeps an absent initial-state publication date unknown', () => {
     const html = '<script>window.__INITIAL_STATE__ = {"job":{"id":"111","title":"Engineer"}};</script>';
-    expect(adapter.extractJobDataFromHtml(html, 'https://www.jobs.ch/en/jobs/detail/111/')?.publishedAt).toBeNull();
+    expect(adapter.extractJobDataFromHtml(html, 'https://www.jobs.ch/en/jobs/detail/111/')).toBeNull();
   });
 });
 
@@ -170,7 +183,8 @@ describe('SwissDevJobsAdapter', () => {
       annualSalaryFrom: 115000,
       annualSalaryTo: 140000,
       technologies: ['TypeScript', 'Go', 'Docker'],
-      slug: 'senior-fullstack-engineer-fintech-lugano'
+      slug: 'senior-fullstack-engineer-fintech-lugano',
+      activeFrom: '2026-11-01T09:00:00Z'
     };
 
     const mapped = adapter.mapLightJob(raw);
@@ -179,7 +193,16 @@ describe('SwissDevJobsAdapter', () => {
     expect(mapped?.salaryMax).toBe(140000);
     expect(mapped?.salaryCurrency).toBe('CHF');
     expect(mapped?.skills).toContain('Go');
-    expect(mapped?.publishedAt).toBeNull();
+    expect(mapped?.publishedAt).toBe('2026-11-01T09:00:00Z');
+  });
+
+  it('rejects a date-less SwissDevJobs record before emission', () => {
+    const raw = {
+      _id: 'sdj_999',
+      name: 'Undated Dev',
+      company: 'Dev SA'
+    };
+    expect(adapter.mapLightJob(raw)).toBeNull();
   });
 
   it('estrae il detailedJob dal blocco script della pagina', () => {

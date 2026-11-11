@@ -11389,24 +11389,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className={JOB_DETAIL_HEADER_SUBTITLE_CLASS}>
- {/* Pre-Apply ATS Checklist & Smart Defaults (FreeHire-inspired) */}
- <JobPreApplyChecklist
- companyName={selectedJob.company}
- canton={selectedJob.canton}
- salaryBenchmarkChf={salary || null}
- />
-
- <CompanyDossierCard
- data={{
- companyName: selectedJob.company,
- ceo: (selectedJob as any).companyCeo || (selectedJob as any).ceo || null,
- employees: (selectedJob as any).companyEmployees || (selectedJob as any).employees || null,
- website: (selectedJob as any).companyWebsite || (selectedJob as any).website || null,
- linkedinUrl: (selectedJob as any).companyLinkedin || null,
- wikipediaSummary: (selectedJob as any).companySummary || (selectedJob as any).wikipediaSummary || null,
- }}
- />
-
  <a
  href={companySearchHref}
  onClickCapture={openCompanyFilter}

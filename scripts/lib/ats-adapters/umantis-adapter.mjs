@@ -45,7 +45,8 @@ export class UmantisAdapter {
     return { jobs, nextHref };
   }
 
-  mapJob(vacancyId, title, company, location, htmlBody, applicationUrl) {
+  mapJob(vacancyId, title, company, location, htmlBody, applicationUrl, publishedAt = null) {
+    if (!publishedAt) return null;
     return {
       id: `umantis_${vacancyId}`,
       provider: 'umantis',
@@ -55,7 +56,7 @@ export class UmantisAdapter {
       canton: null,
       descriptionHtml: htmlBody || '',
       applicationUrl: applicationUrl || '',
-      publishedAt: null
+      publishedAt
     };
   }
 }

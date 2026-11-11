@@ -12,6 +12,8 @@ export class ProspectiveAdapter {
 
   mapJob(item) {
     if (!item) return null;
+    const publishedAt = item.publish_date || item.publishedAt || null;
+    if (!publishedAt) return null;
     const viewKey = item.viewkey || item.id;
     return {
       id: `prospective_${viewKey}`,
@@ -22,7 +24,7 @@ export class ProspectiveAdapter {
       canton: item.canton || item.attributes?.canton || null,
       descriptionHtml: item.description || item.body || '',
       applicationUrl: item.directlink || `${this.apiBase}/jobs/${viewKey}`,
-      publishedAt: item.publish_date || item.publishedAt || null
+      publishedAt
     };
   }
 

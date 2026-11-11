@@ -64,6 +64,9 @@ export class ReflineAdapter {
     const location = (typeof address === 'string' ? address : address?.addressLocality) || 'Svizzera';
     const canton = address?.addressRegion || null;
 
+    const publishedAt = jsonLd.datePosted || null;
+    if (!publishedAt) return null;
+
     return {
       id,
       provider: 'refline',
@@ -73,7 +76,7 @@ export class ReflineAdapter {
       canton,
       descriptionHtml: jsonLd.description || '',
       applicationUrl: urlStr,
-      publishedAt: jsonLd.datePosted || null
+      publishedAt
     };
   }
 }

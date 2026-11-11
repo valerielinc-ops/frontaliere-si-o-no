@@ -11,6 +11,9 @@ export class SwissDevJobsAdapter {
 
   mapLightJob(item) {
     if (!item) return null;
+    const publishedAt = item.activeFrom || item.datePosted || null;
+    if (!publishedAt) return null;
+
     const key = item.jobId || item._id || item.slug;
     const minSalary = typeof item.annualSalaryFrom === 'number' ? item.annualSalaryFrom : null;
     const maxSalary = typeof item.annualSalaryTo === 'number' ? item.annualSalaryTo : null;
@@ -27,7 +30,7 @@ export class SwissDevJobsAdapter {
       salaryCurrency: 'CHF',
       skills: Array.isArray(item.technologies) ? item.technologies : [],
       applicationUrl: `${this.baseUrl}/jobs/${item.slug || key}`,
-      publishedAt: item.activeFrom || null
+      publishedAt
     };
   }
 
