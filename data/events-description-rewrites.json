@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-11T03:23:12.821Z",
+  "generatedAt": "2026-11-11T05:27:59.925Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -48950,6 +48950,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T18:28:43.008Z"
     },
+    "guidle:Ar4UyBq::abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690": {
+      "id": "guidle:Ar4UyBq",
+      "sourceDescriptionHash": "abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel Schweizerhof; cantone: GR; categoria: Altri eventi; partecipante: Partner; data: 2026-12-18; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel Schweizerhof; cantone: GR; categoria: Altri eventi; partecipante: Partner; data: 2026-12-18; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Hotel Schweizerhof; canton: GR; category: Altri eventi; participant: Partner; date: 2026-12-18; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Hotel Schweizerhof; kanton: GR; kategorie: Altri eventi; mitwirkender: Partner; datum: 2026-12-18; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Hotel Schweizerhof; canton: GR; catégorie: Altri eventi; participant: Partner; date: 2026-12-18; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T04:16:44.502Z"
+    },
     "guidle:AR5DYmj::bd722ba98ebcc9cdcaf598b52cd533e9118c0e4a24c059de56cf5241810cb74c": {
       "id": "guidle:AR5DYmj",
       "sourceDescriptionHash": "bd722ba98ebcc9cdcaf598b52cd533e9118c0e4a24c059de56cf5241810cb74c",
@@ -59645,6 +59659,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T11:15:20.890Z"
+    },
+    "guidle:AYJ4xQA::0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7": {
+      "id": "guidle:AYJ4xQA",
+      "sourceDescriptionHash": "0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kraftwerke Oberhasli AG; comune: Innertkirchen; cantone: BE; categoria: Architettura / Design; data: 2026-11-10; ora: 10:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kraftwerke Oberhasli AG; comune: Innertkirchen; cantone: BE; categoria: Architettura / Design; data: 2026-11-10; ora: 10:15. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kraftwerke Oberhasli AG; municipality: Innertkirchen; canton: BE; category: Architettura / Design; date: 2026-11-10; time: 10:15. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kraftwerke Oberhasli AG; gemeinde: Innertkirchen; kanton: BE; kategorie: Architettura / Design; datum: 2026-11-10; uhrzeit: 10:15. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kraftwerke Oberhasli AG; commune: Innertkirchen; canton: BE; catégorie: Architettura / Design; date: 2026-11-10; heure: 10:15. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-11T04:17:13.059Z"
     },
     "guidle:AyjHJhL::faa9d9364e4f1f96cda842ab177d4f945eb3e3efef0d6c57e117eacb8536820a": {
       "id": "guidle:AyjHJhL",
@@ -188353,15 +188381,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:Ar4UyBq::abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690": {
-      "id": "guidle:Ar4UyBq",
-      "sourceDescriptionHash": "abc1963850deb2cdded100a625e7ed50a4764f918f96f657cbaf3d4dfc2a3690",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-11T03:18:45.388Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ArbnuWC::e70c497a6a1d1e0c5ea9ceeaded6c83afcc0cc46cb90cc2ea9954557afecbc5b": {
       "id": "guidle:ArbnuWC",
       "sourceDescriptionHash": "e70c497a6a1d1e0c5ea9ceeaded6c83afcc0cc46cb90cc2ea9954557afecbc5b",
@@ -188581,9 +188600,9 @@
     "guidle:AtHsMuh::471b6f33d592184cdb9b54bb59ae92508b606a562f2f7d0c75c6aaca46b6791f": {
       "id": "guidle:AtHsMuh",
       "sourceDescriptionHash": "471b6f33d592184cdb9b54bb59ae92508b606a562f2f7d0c75c6aaca46b6791f",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-11T02:23:17.413Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T05:24:01.547Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188743,9 +188762,9 @@
     "guidle:AVc3cxi::253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96": {
       "id": "guidle:AVc3cxi",
       "sourceDescriptionHash": "253728377f12c34209b75e5b19026c3ae3aefaa30085e104f7f161ca9e1e8f96",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-11T02:29:39.047Z",
+      "code": "sentence-count",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-11T05:22:59.232Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189088,15 +189107,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:32:14.693Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AYJ4xQA::0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7": {
-      "id": "guidle:AYJ4xQA",
-      "sourceDescriptionHash": "0c7c4d1f3f60cb96386242f97cd1a8ee68fe7e900d326a362cb9f6a4ccda77c7",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-11T03:18:09.562Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
