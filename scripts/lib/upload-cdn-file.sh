@@ -444,7 +444,7 @@ for try in 1 2; do
   _r2_image_lease_wait_timeout timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \
     --header-upload "Content-Type: $content_type" \
     --header-upload "Cache-Control: $cache_control" \
-    "${upload_flags[@]}" \
+    "${upload_flags[@]+"${upload_flags[@]}"}" \
     --stats=0
   if [ "$?" -eq 0 ]; then
     attempt_ok=1
