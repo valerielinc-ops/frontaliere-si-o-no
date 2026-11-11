@@ -212,6 +212,8 @@ describe('index.tsx mount order', () => {
     expect(paintAt).toBeGreaterThan(-1);
     expect(handoffAt).toBeGreaterThan(paintAt);
     expect(removeShellAt).toBeGreaterThan(handoffAt);
-    expect(mountApp.slice(handoffAt, removeShellAt)).toContain('homeCritical && !staticPage');
+    const guardAt = mountApp.lastIndexOf('if (homeCritical && !staticPage)', handoffAt);
+    expect(guardAt).toBeGreaterThan(paintAt);
+    expect(guardAt).toBeLessThan(handoffAt);
   });
 });
