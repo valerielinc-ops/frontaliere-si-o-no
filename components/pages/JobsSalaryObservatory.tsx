@@ -10,6 +10,7 @@ import {
  type JobBoardStatsData,
 } from '@/services/jobBoardStatsService';
 import { buildPath, ensureJobSlugMapLoaded, pushRoute } from '@/services/router';
+import { SalaryPercentileCard } from '@/components/community/SalaryPercentileCard';
 
 const COPY: Record<Locale, {
  title: string;
@@ -246,6 +247,12 @@ function LeaderBlock(props: {
  <Kpi label={copy.kpiMedianMid} value={formatCurrency(salary?.medianMid || 0, locale)} accent="border-warning-border bg-warning-subtle" />
  <Kpi label={copy.kpiTrackedLocations} value={String(data.totals.activeLocations || 0)} accent="border-accent-border bg-accent-subtle" />
  </div>
+
+ <SalaryPercentileCard
+  medianSalary={Number(salary?.medianMid || salary?.avgMid || 85000)}
+  sampleSize={salary?.jobsWithSalary || 100}
+  locale={locale}
+ />
 
  <div className="rounded-3xl border border-edge bg-surface p-5 shadow-sm border-edge">
  <h3 className="mb-3 text-sm font-bold text-body">{copy.noteTitle}</h3>
