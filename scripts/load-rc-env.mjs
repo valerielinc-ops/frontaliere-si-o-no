@@ -39,6 +39,9 @@ import { remoteConfigTemplateUrl } from './lib/remote-config-template-url.mjs';
 // Keep these in the site loader when an adapted twin is reconciled: the corpus
 // must not receive newsletter credentials or Eventfrog data/configuration.
 export const SITE_ONLY_RC_KEYS = new Set([
+  // Non-secret write-path switch; a missing parameter is treated as OFF by
+  // the jobs fast-publish runner until the owner enables the lane.
+  'JOBS_FAST_PUBLISH_ENABLED',
   'NEWSLETTER_SECRET',
   'NEWSLETTER_FROM',
   'NEWSLETTER_AC_SCHEME',
@@ -78,6 +81,7 @@ export const RC_TO_ENV = {
   // direct-employer SEO fail-closed; the owner can enable the next build by
   // setting the same Firebase Remote Config parameter to "true".
   DIRECT_EMPLOYER_CHANNEL_ENABLED: ['DIRECT_EMPLOYER_CHANNEL_ENABLED'],
+  JOBS_FAST_PUBLISH_ENABLED:       ['JOBS_FAST_PUBLISH_ENABLED'],
   // Build-time, comma-separated section allowlist for expired-job edge
   // soft-landings. Missing/invalid input means off and keeps pages static.
   EXPIRED_JOB_EDGE_SECTIONS: ['EXPIRED_JOB_EDGE_SECTIONS'],

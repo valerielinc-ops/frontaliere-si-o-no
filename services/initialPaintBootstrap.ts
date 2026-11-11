@@ -8,6 +8,8 @@ export const INITIAL_PAINT_FRAME_TIMEOUT_MS = 250;
 export const INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS = 2500;
 export const INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS = 5000;
 export const LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS = 250;
+/** Never leave the homepage shell in front of a failed or stale app forever. */
+export const HOMEPAGE_CONTENT_HANDOFF_TIMEOUT_MS = 2500;
 /** The static job-board LCP gate is needed below the desktop layout breakpoint. */
 export const JOB_BOARD_LCP_WAIT_MAX_WIDTH = 1024;
 
@@ -160,3 +162,61 @@ const largestContentfulPaintElement = (entry: PerformanceEntry): Element | null 
   const element = (entry as PerformanceEntry & { element?: Element | null }).element;
   return element && typeof element.closest === 'function' ? element : null;
 };
+
+export interface HomepageContentHandoffEnv {
+  observeMutations: (target: ParentNode, callback: () => void) => (() => void) | null;
+  setTimer: (callback: () => void, ms: number) => number;
+  clearTimer: (timer: number) => void;
+}
+
+/**
+ * Keep the fixed homepage shell in front of the document until the real
+ * calculator heading has committed. `createRoot().render()` may commit the
+ * App-level Suspense fallback first even though the calculator chunk was
+ * preloaded; removing the shell at that point leaves Lighthouse with a late
+ * SPA candidate. The bounded fallback preserves boot recovery when a chunk or
+ * DOM observer is unavailable.
+ */
+export function waitForHomepageContentHandoff(
+  root: ParentNode,
+  env: HomepageContentHandoffEnv = {
+    observeMutations: (target, callback) => {
+      if (typeof MutationObserver === 'undefined') return null;
+      const observer = new MutationObserver(callback);
+      try {
+        observer.observe(target, { childList: true, subtree: true });
+      } catch {
+        observer.disconnect();
+        return null;
+      }
+      return () => observer.disconnect();
+    },
+    setTimer: (callback, ms) => window.setTimeout(callback, ms),
+    clearTimer: (timer) => window.clearTimeout(timer),
+  },
+): Promise<void> {
+  const hasHydratedHeading = () => Boolean(
+    root.querySelector('main#main-content h1:not(#homepage-static-h1)'),
+  );
+  if (hasHydratedHeading()) return Promise.resolve();
+
+  return new Promise((resolve) => {
+    let settled = false;
+    let stopObserving = () => {};
+    let timer = 0;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      env.clearTimer(timer);
+      stopObserving();
+      resolve();
+    };
+    timer = env.setTimer(finish, HOMEPAGE_CONTENT_HANDOFF_TIMEOUT_MS);
+    stopObserving = env.observeMutations(root, () => {
+      if (hasHydratedHeading()) finish();
+    }) ?? (() => {});
+    // The root may have committed between the initial check and observer
+    // registration (notably with a cached dynamic import).
+    if (hasHydratedHeading()) finish();
+  });
+}

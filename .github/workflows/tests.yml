@@ -1990,28 +1990,6 @@ jobs:
       # su un file che GitHub rifiuterà, e il rifiuto non arriva come errore di
       # sintassi ma come una run `failure` con ZERO job — cioè, su questo file,
       # il gate di merge che semplicemente non esiste per quel commit.
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 2/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
-      # Vite compila con esbuild, che le annotazioni di tipo le RIMUOVE senza
-      # verificarle: senza questo gate un errore di tipo attraversa build, deploy
-      # e produzione senza un solo segnale. Il gate NON è a zero — confronta con
-      # `data/typecheck-baseline.json` e fallisce solo su un errore NUOVO fuori
-      # da `tests/` (razionale completo nella testata dello script).
-      #
-      # Era un job a sé «perché infilarlo dentro vitest farebbe dipendere l'unico
-      # segnale che governa l'auto-merge da un secondo attrezzo» (#5540). Quella
-      # dipendenza ora è VOLUTA e su decisione del proprietario: è precisamente
-      # ciò che rende il typecheck bloccante per la prima volta (issue #5552).
-      # `tests/typecheck-gate-wired.test.ts` fissa il nuovo contratto.
-      #
-      # Il typecheck resta nello stesso check-run required, ma viene eseguito
-      # in coda al collector, dopo Vitest e i gate leggeri. Il run 43063905354
-      # ha misurato `tsc` al limite heap di 8 GiB, RSS 8,5 GiB e solo 1,2 GiB
-      # disponibili mentre Vitest girava in parallelo. Serializzarlo evita la
-      # contesa; 10 GiB di heap nel solo step typecheck danno margine senza
-      # cambiare `NODE_OPTIONS` di Vitest. Il sampler resta accanto al comando e
-      # termina con lui, sia in successo sia in errore.
-      # ══════════════════════════════════════════════════════════════════════
       - name: Start independent source gates
         id: independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() && steps.body_contract.outcome != 'failure' }}
@@ -2128,20 +2106,17 @@ jobs:
       # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
       # sta sulla testata della famiglia 4/4.
       #
-      # I CINQUE LINT QUI SOTTO SONO IN `background:`, insieme al `tsc` della
-      # famiglia 2/4: sei cancelli deterministici che girano tutti in parallelo
-      # invece che in fila. Nessuno dei sei consuma l'output di un altro — sono
-      # script node che leggono il working tree e il cui unico effetto è far
-      # fallire il job — quindi l'ordine fra loro non porta informazione.
+      # I cinque lint qui sotto sono in `background:`, insieme agli altri gate
+      # deterministici leggeri. Non includono `tsc`: dopo il rosso OOM osservato
+      # nella run 43020643535, il typecheck parte dopo Vitest per avere un heap
+      # isolato. I gate in background leggono il working tree e non consumano
+      # l'output degli altri, quindi non serve un join prima della suite.
       #
-      # In fila costavano 78s (67 di `tsc` + 8+0+1+0+1 di lint, run
-      # 32939112340). Ora non costano NIENTE di wall proprio: non c'è un join
-      # che li chiuda prima della suite, quindi si sovrappongono all'assemble e
-      # a entrambi i gruppi vitest, e vengono rijoinati in fondo al job
-      # insieme agli altri background. La regola applicata qui, e che vale per
-      # ogni `wait-all` di questo file: si aspetta un task solo quando se ne
-      # consuma il RISULTATO. Fra questi sei e la suite non c'è consumo, solo
-      # coesistenza.
+      # La misura storica della run 32939112340 era 78s in fila per `tsc` e i
+      # cinque lint. I lint si sovrappongono all'assemble e a entrambi i gruppi
+      # Vitest e vengono rijoinati in fondo al job; il typecheck ora ha un
+      # passaggio esplicito dopo Vitest. La regola resta: si aspetta un task
+      # prima solo quando se ne consuma il RISULTATO.
       #
       # Il costo accettato è diagnostico, non di correttezza: un lint rosso non
       # ferma più il job sulla riga che lo ha causato, emerge al join finale.
@@ -2742,17 +2717,36 @@ jobs:
               ;;
           esac
 
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 2/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
+      # Vite compila con esbuild, che le annotazioni di tipo le rimuove senza
+      # verificarle; questo gate confronta con `data/typecheck-baseline.json`
+      # e fallisce su errori nuovi fuori da `tests/`.
+      #
+      # Resta nello stesso check richiesto dall'auto-merge, ma dal 2026-11-11
+      # parte dopo Vitest. La run 43020643535 ha selezionato 369 file e `tsc`
+      # ha esaurito l'heap di 8 GiB mentre Vitest era attivo (`MemAvailable`
+      # minima 1.719 MB). Sul runner da 16 GiB, serializzare i due processi e
+      # alzare l'heap massimo a 12 GiB lascia margine al typecheck.
+      # `sample-mem-during.sh` registra MemAvailable fino alla fine del comando.
+      # `tests/typecheck-gate-wired.test.ts` fissa il nuovo ordine.
+      # ══════════════════════════════════════════════════════════════════════
+      - name: Typecheck after related Vitest
+        id: typecheck-gate
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() && steps.body_contract.outcome != 'failure' }}
+        env:
+          NODE_OPTIONS: --max-old-space-size=12288
+        run: bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+
       # Collect the detached gate processes after the Vitest run. Each process
       # publishes an atomic status file; a missing status from a dead process is
       # a failure, and a non-zero status remains blocking.
       - name: Collect independent source gates
         id: collect-independent-gates
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
         env:
           SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
           INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
-          BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
-          NODE_OPTIONS: --max-old-space-size=10240
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -2830,16 +2824,6 @@ jobs:
             fi
           else
             echo "independent gate step skipped; no detached gates were expected"
-          fi
-          # Run the memory-heavy typecheck after Vitest and the detached source
-          # gates have finished, keeping it in this required check-run so its
-          # failure still blocks auto-merge. If the independent-gates step was
-          # skipped, preserve its original condition and do not start tsc.
-          if [ "$INDEPENDENT_GATES_OUTCOME" != "skipped" ] && [ "$BODY_CONTRACT_OUTCOME" != "failure" ]; then
-            bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
-            tsc_status=$?
-            echo "[tsc] exit=$tsc_status"
-            if [ "$tsc_status" -ne 0 ]; then failures=1; fi
           fi
           exit "$failures"
 

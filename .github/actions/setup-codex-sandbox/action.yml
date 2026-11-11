@@ -65,11 +65,16 @@ runs:
         # (smoke-test-ai-models run 35995800618). This job never needs those
         # daemons restarted: suspend the hook and keep needrestart list-only.
         # `env` runs under sudo, so sudo's env_reset cannot drop the variables.
+        if command -v sudo >/dev/null 2>&1; then
+          sudo mkdir -p /etc/apt/apt.conf.d
+          printf 'Acquire::ForceIPv4 "true";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\nAcquire::Retries "3";\n' | sudo tee /etc/apt/apt.conf.d/99runner-network-tuning >/dev/null
+        fi
         apt_env=(/usr/bin/env DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 NEEDRESTART_MODE=l)
         apt_options=(
+          -o Acquire::ForceIPv4=true
           -o Acquire::http::Timeout=15
           -o Acquire::https::Timeout=15
-          -o Acquire::Retries=2
+          -o Acquire::Retries=3
           -o DPkg::Lock::Timeout=10
         )
         run_retried 'apt-get update' 45 \
