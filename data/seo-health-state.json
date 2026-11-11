@@ -1,24 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-10T12:44:33.918Z",
-  "findings": {
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-st-gallen/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-09T12:58:49.845Z",
-      "lastSeenAt": "2026-11-10T12:44:33.918Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/articles-frontalier/enterrement-avec-animaux-domestiques-berne-2026/chat/completions/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/articles-frontalier/enterrement-avec-animaux-domestiques-berne-2026/chat/completions/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-10T12:44:33.918Z",
-      "lastSeenAt": "2026-11-10T12:44:33.918Z",
-      "detail": "edge=503 count=1 live=503 surface=worker-shard"
-    }
-  },
-  "cleanRuns": 0,
-  "lastActionable": true
+  "lastRunAt": "2026-11-11T11:57:13.063Z",
+  "findings": {},
+  "cleanRuns": 1,
+  "lastActionable": false
 }
