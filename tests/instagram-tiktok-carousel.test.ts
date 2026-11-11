@@ -154,6 +154,13 @@ describe('buildTikTokCaption', () => {
     expect(caption).toContain('#confine');
   });
 
+  it('uses literal rank markers that TikTok Studio does not convert into a list', () => {
+    const caption = buildTikTokCaption({ kind: 'job', dayLabel: '23/08/2026', picks });
+    expect(caption).toContain('1) Infermiere/a EOC — 312 visualizzazioni');
+    expect(caption).toContain('2) Magazziniere Migros — 210 visualizzazioni');
+    expect(caption).not.toMatch(/(?:^|\n)\d+\. /u);
+  });
+
   it('uses Codex video copy while retaining the platform link destination', () => {
     const caption = buildTikTokCaption({
       kind: 'article',

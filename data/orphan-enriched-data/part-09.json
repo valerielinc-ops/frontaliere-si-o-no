@@ -4410,12 +4410,27 @@
           "impressions": 1
         },
         {
+          "query": "apprendistato ticino posti liberi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "operia",
           "clicks": 0,
           "impressions": 1
         },
         {
           "query": "si",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stipendi apprendisti ticino 2026",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "tirocinio ticino",
           "clicks": 0,
           "impressions": 1
         },
@@ -4435,7 +4450,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 9,
+      "totalImpressions": 12,
       "totalClicks": 1,
       "topQuery": "a fribourg",
       "title": "Apprenticeships",
@@ -11324,7 +11339,7 @@
         {
           "query": "bellinzona offerte di lavoro",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "offerte di lavoro a bellinzona",
@@ -11397,12 +11412,12 @@
           "impressions": 2
         },
         {
-          "query": "lavoro bellinzona giubiasco",
+          "query": "il team bellinzona",
           "clicks": 0,
           "impressions": 2
         }
       ],
-      "totalImpressions": 213,
+      "totalImpressions": 217,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -11665,6 +11680,58 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "betriebselektriker-100-m-w-yellowshark-ag-aarau",
+      "locale": "en",
+      "path": "/en/find-jobs-lucerne/betriebselektriker-100-m-w-yellowshark-ag-aarau",
+      "observedPaths": {
+        "en": "/en/find-jobs-lucerne/betriebselektriker-100-m-w-yellowshark-ag-aarau"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Betriebselektriker yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Aarau",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "en": "betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "de": "betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "fr": "betriebselektriker-100-m-w-yellowshark-ag-aarau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "en": "/en/find-jobs-lucerne/betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "de": "/de/jobs-im-luzern/betriebselektriker-100-m-w-yellowshark-ag-aarau",
+        "fr": "/fr/trouver-emploi-lucerne/betriebselektriker-100-m-w-yellowshark-ag-aarau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -12770,6 +12837,58 @@
       ]
     },
     {
+      "slug": "business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Business analista document operations german fluent",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "en": "business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "de": "business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "fr": "business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "en": "/en/find-jobs-zurich/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "de": "/de/jobs-im-zurich/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino",
+        "fr": "/fr/trouver-emploi-zurich/business-analista-document-operations-german-fluent-m-w-d-zurich-insurance-sede-ticino"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "business-analista-in-compliance-operations-postfinance-bern",
       "locale": "it",
       "path": "/cerca-lavoro-berna/business-analista-in-compliance-operations-postfinance-bern",
@@ -12810,6 +12929,58 @@
         "en": "/en/find-jobs-bern/business-analista-in-compliance-operations-postfinance-bern",
         "de": "/de/jobs-im-bern/business-analista-in-compliance-operations-postfinance-bern",
         "fr": "/fr/trouver-emploi-berne/business-analista-in-compliance-operations-postfinance-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+      "locale": "de",
+      "path": "/de/jobs-im-tessin/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+      "observedPaths": {
+        "de": "/de/jobs-im-tessin/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Business analyst zahlungen und fintech",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "en": "business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "de": "business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "fr": "business-analyst-zahlungen-und-fintech-lastminute-com-chiasso"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "en": "/en/find-jobs-ticino/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "de": "/de/jobs-im-tessin/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso",
+        "fr": "/fr/trouver-emploi-tessin/business-analyst-zahlungen-und-fintech-lastminute-com-chiasso"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -14641,6 +14812,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Ceded reinsurance manager zurich 1373356957",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance",
+      "companyKey": "zurich-insurance",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "en": "ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "de": "ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "fr": "ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "en": "/en/find-jobs-aargau/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "de": "/de/jobs-im-aargau/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957",
+        "fr": "/fr/trouver-emploi-argovie/ceded-reinsurance-manager-100-zurich-insurance-zurich-1373356957"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -16542,6 +16765,58 @@
       ]
     },
     {
+      "slug": "client-consulente-affluent-versoix-ubs-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/client-consulente-affluent-versoix-ubs-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/client-consulente-affluent-versoix-ubs-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Client consulente affluent versoix",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "client-consulente-affluent-versoix-ubs-zurich",
+        "en": "client-consulente-affluent-versoix-ubs-zurich",
+        "de": "client-consulente-affluent-versoix-ubs-zurich",
+        "fr": "client-consulente-affluent-versoix-ubs-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/client-consulente-affluent-versoix-ubs-zurich",
+        "en": "/en/find-jobs-zurich/client-consulente-affluent-versoix-ubs-zurich",
+        "de": "/de/jobs-im-zurich/client-consulente-affluent-versoix-ubs-zurich",
+        "fr": "/fr/trouver-emploi-zurich/client-consulente-affluent-versoix-ubs-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "client-consulente-gwm-fim-m-w-d-ubs-ticino",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/client-consulente-gwm-fim-m-w-d-ubs-ticino/",
@@ -17495,10 +17770,10 @@
         "fr": "collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
-        "en": "/en/find-jobs-ticino/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
-        "de": "/de/jobs-im-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
-        "fr": "/fr/trouver-emploi-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen"
+        "it": "/cerca-lavoro-san-gallo/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
+        "en": "/en/find-jobs-st-gallen/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
+        "de": "/de/jobs-in-st-gallen/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/collaboratore-trice-gastronomie-coop-genossenschaft-st-gallen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24302,6 +24577,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Dipl expertin experte intensivpflege sro ag spital region oberaargau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Langenthal",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "/en/find-jobs-bern/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "/de/jobs-im-bern/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "/fr/trouver-emploi-berne/dipl-expertin-experte-intensivpflege-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -33535,6 +33862,58 @@
       ]
     },
     {
+      "slug": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Global manufacturing process definition improvement specialista professional",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "en": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "de": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "fr": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "en": "/en/find-jobs-zurich/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "de": "/de/jobs-im-zurich/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich",
+        "fr": "/fr/trouver-emploi-zurich/global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "global-technology-lead-technical-operations-asciugatura-a-spruzzo-f-m-d-100-bachem-ag-bubendorf",
       "locale": "de",
       "path": "/de/jobs-im-tessin/global-technology-lead-technical-operations-asciugatura-a-spruzzo-f-m-d-100-bachem-ag-bubendorf",
@@ -35581,6 +35960,64 @@
       ]
     },
     {
+      "slug": "infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+      "locale": "it",
+      "path": "/cerca-lavoro-vaud/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vaud/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1/"
+      },
+      "queries": [
+        {
+          "query": "infirmier emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "infirmier emploi",
+      "title": "Infermiera all flex hirslanden klinik adf06817d1",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lausanne",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "en": "infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "de": "infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "fr": "infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "en": "/en/find-jobs-vaud/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "de": "/de/jobs-im-waadt/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1",
+        "fr": "/fr/trouver-emploi-vaud/infermiera-all-80-flex-hirslanden-klinik-lausanne-adf06817d1"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "infermiera-h-f-unita-di-recupero-80-swiss-medical-network-moutier",
       "locale": "it",
       "path": "/cerca-lavoro-giura/infermiera-h-f-unita-di-recupero-80-swiss-medical-network-moutier/",
@@ -36448,6 +36885,57 @@
         "en": "/en/find-jobs-ticino/infirmieres-et-infirmiers-en-soins-intensifs-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola",
         "de": "/de/jobs-im-tessin/infirmieres-et-infirmiers-en-soins-intensifs-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola",
         "fr": "/fr/trouver-emploi-tessin/infirmieres-et-infirmiers-en-soins-intensifs-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+      "locale": "en",
+      "path": "/en/find-jobs-schaffhausen/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+      "observedPaths": {
+        "en": "/en/find-jobs-schaffhausen/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Informatikerin informatiker applikationsmanagement und datenverarbeitung kanton aargau schafisheim",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "en": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "de": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "fr": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-sciaffusa/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "en": "/en/find-jobs-schaffhausen/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "de": "/de/jobs-im-schaffhausen/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim",
+        "fr": "/fr/trouver-emploi-schaffhouse/informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton-aargau-schafisheim"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37645,6 +38133,57 @@
       ]
     },
     {
+      "slug": "installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-lucerne/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-lucerne/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Installateur trice electricien ne mit servicetatigkeiten fachkraft ch gmbh sursee",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "en": "installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "de": "installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "fr": "installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "en": "/en/find-jobs-lucerne/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "de": "/de/jobs-im-luzern/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee",
+        "fr": "/fr/trouver-emploi-lucerne/installateur-trice-electricien-ne-mit-servicetatigkeiten-fachkraft-ch-gmbh-sursee"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "instandhaltungs-und-unterhaltsmechaniker-in-coop-genossenschaft-pratteln",
       "locale": "it",
       "path": "/fr/trouver-emploi-zurich/instandhaltungs-und-unterhaltsmechaniker-in-coop-genossenschaft-pratteln",
@@ -38802,6 +39341,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Jurist in rechtsdienst con schwerpunkt fremdmandate all genders",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "en": "jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "de": "jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "fr": "jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "en": "/en/find-jobs-zurich/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "de": "/de/jobs-im-zurich/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich",
+        "fr": "/fr/trouver-emploi-zurich/jurist-in-rechtsdienst-con-schwerpunkt-fremdmandate-all-genders-axa-svizzera-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -48697,7 +49288,7 @@
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 1,
-          "impressions": 63
+          "impressions": 72
         },
         {
           "query": "lavoro mendrisio",
@@ -48707,17 +49298,22 @@
         {
           "query": "offerte di lavoro mendrisio",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 20
+        },
+        {
+          "query": "\"das\" \"assicurazioni\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
+          "clicks": 0,
+          "impressions": 18
         },
         {
           "query": "aziende mendrisio che assumono",
           "clicks": 1,
-          "impressions": 15
+          "impressions": 16
         },
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 1,
-          "impressions": 13
+          "impressions": 14
         },
         {
           "query": "cerco lavoro mendrisio",
@@ -48735,13 +49331,23 @@
           "impressions": 9
         },
         {
-          "query": "\"das\" \"assicurazioni\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\"",
+          "query": "lavoro mendrisio chiasso",
           "clicks": 0,
           "impressions": 7
         },
         {
           "query": "ti offro lavoro mendrisio",
           "clicks": 1,
+          "impressions": 6
+        },
+        {
+          "query": "cerco lavoro a mendrisio",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "fabbriche mendrisio offerta lavoro",
+          "clicks": 0,
           "impressions": 6
         },
         {
@@ -48770,12 +49376,7 @@
           "impressions": 6
         },
         {
-          "query": "cerco lavoro a mendrisio",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "fabbriche mendrisio offerta lavoro",
+          "query": "\"das\" \"assicurazioni\"",
           "clicks": 0,
           "impressions": 5
         },
@@ -48783,19 +49384,9 @@
           "query": "lavoro grafico",
           "clicks": 0,
           "impressions": 5
-        },
-        {
-          "query": "lavoro mendrisio chiasso",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "offerte lavoro mendrisio chiasso",
-          "clicks": 0,
-          "impressions": 5
         }
       ],
-      "totalImpressions": 349,
+      "totalImpressions": 387,
       "totalClicks": 6,
       "topQuery": "offerte di lavoro mendrisio negli ultimi 3 giorni",
       "title": "mendrisio",
@@ -50806,6 +51397,58 @@
       ]
     },
     {
+      "slug": "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Multiuso controllore componenovimento x breitling",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "ti&m",
+      "companyKey": "ti-m",
+      "location": "La Chaux-de-Fonds",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "en": "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "de": "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "fr": "multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "en": "/en/find-jobs-neuchatel/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "de": "/de/jobs-im-neuenburg/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds",
+        "fr": "/fr/trouver-emploi-neuchatel/multiuso-controllore-componenti-movimento-m-f-x-breitling-la-chaux-de-fonds"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "muri-ag",
       "locale": "it",
       "path": "/cerca-lavoro-argovia/muri-ag",
@@ -51182,6 +51825,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "offerte-di-lavoro-neuchatel-oggi",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/offerte-di-lavoro-neuchatel-oggi/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/offerte-di-lavoro-neuchatel-oggi/"
+      },
+      "queries": [
+        {
+          "query": "offerte lavoro parrucchiere neuchâtel",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offerte lavoro parrucchiere neuchâtel",
+      "title": "Offerte di lavoro neuchatel oggi",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "offerte-di-lavoro-neuchatel-oggi",
+        "en": "offerte-di-lavoro-neuchatel-oggi",
+        "de": "offerte-di-lavoro-neuchatel-oggi",
+        "fr": "offerte-di-lavoro-neuchatel-oggi"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/offerte-di-lavoro-neuchatel-oggi",
+        "en": "/en/find-jobs-neuchatel/offerte-di-lavoro-neuchatel-oggi",
+        "de": "/de/jobs-im-neuenburg/offerte-di-lavoro-neuchatel-oggi",
+        "fr": "/fr/trouver-emploi-neuchatel/offerte-di-lavoro-neuchatel-oggi"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -72382,6 +73082,58 @@
       ]
     },
     {
+      "slug": "specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+      "locale": "it",
+      "path": "/cerca-lavoro-soletta/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+      "observedPaths": {
+        "it": "/cerca-lavoro-soletta/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Specialistica del measuramento in loco",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "ETA SA (Swatch Group)",
+      "companyKey": "eta-sa-swatch-group",
+      "location": "Ticino",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "en": "specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "de": "specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "fr": "specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "en": "/en/find-jobs-solothurn/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "de": "/de/jobs-im-solothurn/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino",
+        "fr": "/fr/trouver-emploi-soleure/specialistica-del-measuramento-in-loco-eta-sa-swatch-group-ticino"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "spezialisiertes-pflegepersonal-in-der-intensivpflege-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-all",
       "locale": "en",
       "path": "/en/find-jobs-ticino/spezialisiertes-pflegepersonal-in-der-intensivpflege-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-all",
@@ -88427,6 +89179,58 @@
       ]
     },
     {
+      "slug": "welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Welder for piping systems in pharmaceutical operation sta personal ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "en": "welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "de": "welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "fr": "welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "en": "/en/find-jobs-zurich/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "de": "/de/jobs-im-zurich/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern",
+        "fr": "/fr/trouver-emploi-zurich/welder-for-piping-systems-in-pharmaceutical-operation-sta-personal-ag-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "welder-tubist-pemsa-torricella",
       "locale": "en",
       "path": "/en/find-jobs-ticino/welder-tubist-pemsa-torricella",
@@ -89082,6 +89886,58 @@
       ]
     },
     {
+      "slug": "zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Zimmermann zimmerin fur holzfassaden und objektbau fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Frauenfeld",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "en": "zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "de": "zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "fr": "zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "en": "/en/find-jobs-bern/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "de": "/de/jobs-im-bern/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld",
+        "fr": "/fr/trouver-emploi-berne/zimmermann-zimmerin-fur-holzfassaden-und-objektbau-fachkraft-ch-gmbh-frauenfeld"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "zusteller-in-briefe-und-pakete-post-10",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/zusteller-in-briefe-und-pakete-post-10/",
@@ -89136,6 +89992,57 @@
         "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-10",
         "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-10",
         "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-10"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+      "locale": "en",
+      "path": "/en/find-jobs-valais/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+      "observedPaths": {
+        "en": "/en/find-jobs-valais/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Zusteller in briefe und pakete st niklaus die schweizerische post st niklaus",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "en": "zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "de": "zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "fr": "zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "en": "/en/find-jobs-valais/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "de": "/de/jobs-im-wallis/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus",
+        "fr": "/fr/trouver-emploi-valais/zusteller-in-briefe-und-pakete-st-niklaus-die-schweizerische-post-st-niklaus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

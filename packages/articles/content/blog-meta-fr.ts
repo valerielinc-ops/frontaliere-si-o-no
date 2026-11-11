@@ -13712,6 +13712,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Salaires des travailleurs frontaliers 2027 : hausse nominale de 1% selon UBS',
     'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'En 2027, les rémunérations des travailleurs frontaliers en Suisse devraient augmenter de 1% en termes nominaux.',
     'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.como-rinnovo-illuminazione-varese.title': 'Como rénove l’éclairage de l’avenue Varese, projet de 80mila euro',
+    'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'La commune de Como a officiellement lancé le projet de rénovation de l’éclairage public le long de deux tronçons de l’avenue Varese.',
+    'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

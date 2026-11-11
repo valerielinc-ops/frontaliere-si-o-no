@@ -1,7 +1,7 @@
 {
   "key": "data-unit-ag",
   "label": "DATA UNIT AG",
-  "generatedAt": "2026-11-11T09:53:04.612Z",
+  "generatedAt": "2026-11-11T21:44:02.537Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -16,16 +16,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16960,
-  "avgDurationMs": 16960,
+  "unchangedCount": 3,
+  "durationMs": 22076,
+  "avgDurationMs": 22076,
   "durationHistory": [
-    16960
+    22076
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
       "slug": "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
@@ -38,7 +40,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.502Z",
+      "crawledAt": "2026-11-11T21:43:12.042Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -62,7 +64,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:52:32.502Z",
+      "validThrough": "2027-02-09T21:43:12.042Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -84,7 +86,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.501Z",
+      "crawledAt": "2026-11-11T21:43:12.041Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -107,7 +109,7 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:52:32.501Z",
+      "validThrough": "2027-02-09T21:43:12.041Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -129,7 +131,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.497Z",
+      "crawledAt": "2026-11-11T21:43:12.036Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -152,7 +154,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:52:32.497Z",
+      "validThrough": "2027-02-09T21:43:12.036Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -163,7 +165,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

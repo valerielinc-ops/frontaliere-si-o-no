@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1145,
+      "5": 1146,
       "6": 5062
     },
-    "publishedCovers": 7888,
+    "publishedCovers": 7889,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217574,6 +217574,39 @@
         "provider": "openai-codex",
         "assetId": "article-svitto-seminario-wohnraum-rickenbach",
         "imageUrl": "/images/blog/article-svitto-seminario-wohnraum-rickenbach.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-como-rinnovo-illuminazione-varese": {
+      "cover": "/images/blog/article-como-rinnovo-illuminazione-varese.webp",
+      "hash": "279be21ed87de0c43aba7c03ed71a3a5d9c63d8ccd6b87acab6079ccef5355bb",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "como-rinnovo-illuminazione-varese",
+          "category": "novita",
+          "date": "2026-11-11T21:48:02.723Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-como-rinnovo-illuminazione-varese.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-como-rinnovo-illuminazione-varese",
+        "imageUrl": "/images/blog/article-como-rinnovo-illuminazione-varese.webp",
         "evidence": "generated-engine-record"
       }
     }

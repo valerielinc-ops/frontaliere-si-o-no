@@ -1,14 +1,14 @@
 {
   "crawlerKey": "locarno-film-festival",
-  "assembledAt": "2026-11-10T21:52:11.044Z",
-  "runId": "42905176639",
+  "assembledAt": "2026-11-11T21:36:33.508Z",
+  "runId": "43103508411",
   "jobs": [
     {
       "id": "locarno-film-festival-60e37bf7da16",
       "slug": "atelier-du-futur-project-manager-locarno-locarno-film-festival-ch",
       "slugByLocale": {
         "it": "atelier-du-futur-project-manager-locarno-locarno-film-festival-ch",
-        "en": "atelier-du-futur-project-manager-locarno-locarno-film-festival-ch",
+        "en": "atelier-du-futur-pro-manager-locarno-film-festival-locarno",
         "de": "projektmanager-atelier-du-futur-locarno-film-festival-locarno",
         "fr": "atelier-du-futur-chef-de-projet-locarno-film-festival-locarno"
       },
@@ -17,8 +17,8 @@
       "companyDomain": "locarnofestival.ch",
       "title": "Atelier du Futur Project Manager",
       "titleByLocale": {
-        "en": "Atelier du Futur Pro Manager",
         "it": "Atelier du Futur Project Manager",
+        "en": "Atelier du Futur Pro Manager",
         "de": "Projektmanager Atelier du Futur",
         "fr": "Atelier du Futur Chef de projet"
       },
@@ -34,7 +34,7 @@
       "url": "https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/lff80%20%20-%20%20adf%20project%20manager.pdf",
       "source": "Locarno Film Festival Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-10T21:52:04.047Z",
+      "crawledAt": "2026-11-11T21:36:27.760Z",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -53,10 +53,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://form.locarnofestival.ch/forms/5dc3eb78-901b-4a95-b29a-9f2413612d6e",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-10T21:52:04.047Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -71,9 +70,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:52:04.047Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:52:04.047Z"
+      "validThrough": "2027-02-09T21:36:27.760Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

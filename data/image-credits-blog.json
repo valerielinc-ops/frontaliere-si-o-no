@@ -95026,6 +95026,80 @@
           "notes": "Original synthetic photorealistic alpine editorial scene; no text, signage, logos, watermarks, signatures, faces, or foreground people."
         }
       }
+    },
+    "generated:article-como-rinnovo-illuminazione-varese": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-11T21:47:49.339Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-11",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-como-rinnovo-illuminazione-varese",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "f030417c52ac12e241deb921213b88ef25d59b39d5c58220abff751a003d75be",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "279be21ed87de0c43aba7c03ed71a3a5d9c63d8ccd6b87acab6079ccef5355bb",
+        "bytes": 169068,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-11T21:47:49.339Z",
+        "verifiedAt": "2026-11-11T21:48:01.428Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-como-rinnovo-illuminazione-varese.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of an illuminated urban street; no text, logos, people, or specific-event cues."
+        }
+      }
     }
   },
   "covers": {
@@ -136505,6 +136579,10 @@
     },
     "article-svitto-seminario-wohnraum-rickenbach": {
       "file": "generated:article-svitto-seminario-wohnraum-rickenbach",
+      "modified": "resized"
+    },
+    "article-como-rinnovo-illuminazione-varese": {
+      "file": "generated:article-como-rinnovo-illuminazione-varese",
       "modified": "resized"
     }
   }

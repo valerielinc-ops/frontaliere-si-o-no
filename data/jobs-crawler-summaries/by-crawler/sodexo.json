@@ -1,7 +1,7 @@
 {
   "key": "sodexo",
   "label": "Sodexo (Suisse) SA",
-  "generatedAt": "2026-11-11T09:17:07.469Z",
+  "generatedAt": "2026-11-11T21:15:55.316Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 10968,
-  "avgDurationMs": 10968,
+  "durationMs": 10628,
+  "avgDurationMs": 10628,
   "durationHistory": [
-    10968
+    10628
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/a2232b5b6b17429cdff8ddc2f14ea8c9_0/5632/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:49.551Z",
+      "crawledAt": "2026-11-11T21:15:38.851Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:16:49.551Z",
+      "validThrough": "2026-12-11T21:15:38.851Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/167ccbe15cc1664c9a63c20ac4c6a55a_0/5739/Technischer_Leiter_m_w_d_-_Facility_Management_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:48.961Z",
+      "crawledAt": "2026-11-11T21:15:38.244Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T09:16:48.961Z",
+      "validThrough": "2026-12-17T21:15:38.244Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/31f81674a348511b990af268ca3a8391_0/5743/HLKS-Fachmitarbeiter_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:48.370Z",
+      "crawledAt": "2026-11-11T21:15:37.690Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T09:16:48.370Z",
+      "validThrough": "2026-12-17T21:15:37.690Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/f7dd39d47c6f28f7877155ccffad0192_0/5703/Unterhaltsreiniger_in_m_w_d_15h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:47.764Z",
+      "crawledAt": "2026-11-11T21:15:37.155Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:16:47.764Z",
+      "validThrough": "2026-12-24T21:15:37.155Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5c971edc0c2cc92fc99b5a3609450cb7_0/5699/Unterhaltsreiniger_in_m_w_d_11_25_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:47.096Z",
+      "crawledAt": "2026-11-11T21:15:36.640Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:16:47.096Z",
+      "validThrough": "2026-12-24T21:15:36.640Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/810462d01f318bd13e628a77fc3f92c0_0/5710/Betriebsmitarbeiter_in_Service_Attache_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:46.496Z",
+      "crawledAt": "2026-11-11T21:15:36.094Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:16:46.496Z",
+      "validThrough": "2026-12-24T21:15:36.094Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -314,7 +314,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/e347c51419ffb23ca3fd5050202f9c3d_0/5750/Unterhaltsreiniger_in_m_w_d_12h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:45.911Z",
+      "crawledAt": "2026-11-11T21:15:35.580Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T09:16:45.911Z",
+      "validThrough": "2027-01-05T21:15:35.580Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -360,7 +360,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/ca7be8306ecc3f5fa30ff2c41e64fa7b_0/5778/Unterhaltsreiniger_in_m_w_d_15_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:45.337Z",
+      "crawledAt": "2026-11-11T21:15:34.945Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:16:45.337Z",
+      "validThrough": "2027-01-06T21:15:34.945Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -406,7 +406,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/8763d72bba4a7ade23f9ae1f09f4efc7_0/5790/Unterhaltsreiniger_in_m_w_d_ca_15.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:44.755Z",
+      "crawledAt": "2026-11-11T21:15:34.340Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -429,7 +429,7 @@
       "salaryMax": 15900,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:16:44.755Z",
+      "validThrough": "2027-01-13T21:15:34.340Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -452,7 +452,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5f11b27f131494a1c014fcced2f13165_0/5795/Koch_Koechin_Premium_Lounge_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:44.198Z",
+      "crawledAt": "2026-11-11T21:15:33.798Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -475,7 +475,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:16:44.198Z",
+      "validThrough": "2027-01-18T21:15:33.798Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -498,7 +498,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5a29503a4909fcade36b1823e7cebcf5_0/5803/Rezeptionist_in_100_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:16:43.609Z",
+      "crawledAt": "2026-11-11T21:15:33.259Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -521,7 +521,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:16:43.609Z",
+      "validThrough": "2027-01-26T21:15:33.259Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -532,5 +532,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

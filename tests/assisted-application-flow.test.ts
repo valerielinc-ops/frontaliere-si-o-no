@@ -11,6 +11,7 @@ const {
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   PORTAL_AUTO_RETRY_DELAYS_MS,
+  URGENT_FIELD_DISPATCH_TIMEOUT_MS,
   canOwnerHandoffToCandidate,
   evaluateRedFlags,
   isTransientRunError,
@@ -396,18 +397,35 @@ describe('approval flow', () => {
     }]);
   });
 
-  it('hands a portal question missing from the current draft to owner takeover', () => {
+  it('holds an unpredicted ATS question for four hours, then escalates without submitting', () => {
     const step = transition(
-      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
-      { type: 'submit_needs_candidate', questions: [{ id: 'stale_portal_question' }], documents: [] },
+      { state: 'submitting', round: 1, heldBy: [], portalAutoRetryAt: T0 + 60_000, dispatch: { mode: 'submit', attempts: 1 } },
+      {
+        type: 'submit_needs_candidate',
+        questions: [{ id: 'stale_portal_question' }],
+        questionDetails: [{ id: 'stale_portal_question', question: 'What is your tax identifier?', type: 'text' }],
+        documents: [],
+      },
       { draft: cleanDraft, nowMs: T0 },
     );
     expect(step.flow).toMatchObject({
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
-      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+      state: 'operator_expedited_review',
+      heldBy: ['unpredicted_ats_field'],
+      heldReason: 'unpredicted_ats_field',
+      pendingFields: [{ id: 'stale_portal_question', question: 'What is your tax identifier?', type: 'text' }],
+      portalAutoRetryAt: null,
+      deadlineAt: T0 + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
     });
-    expect(step.effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
+    expect(step.effects).toEqual([]);
+
+    const escalated = transition(step.flow, { type: 'tick' }, {
+      draft: cleanDraft,
+      nowMs: T0 + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+    });
+    expect(escalated.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['unpredicted_ats_field'] });
+    expect(escalated.effects).toEqual([{
+      type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit',
+    }]);
   });
 
   it('retries a regional notice from the Swiss runner, because the portal geolocates the runner and not the candidate', () => {

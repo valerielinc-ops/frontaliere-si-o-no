@@ -34,7 +34,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
@@ -67,6 +67,29 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
+// instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
+export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
+
+/**
+ * Holds unexpected ATS fields for bounded operator review before owner escalation.
+ * The four-hour deadline uses epoch milliseconds so the normal automation sweep can deliver it.
+ * @param {object} flow
+ * @param {object} event
+ * @param {number} [nowMs]
+ * @returns {object}
+ */
+export function handleUnresolvedAtsQuestions(flow, event, nowMs = Date.now()) {
+  return {
+    ...flow,
+    state: 'operator_expedited_review',
+    heldReason: 'unpredicted_ats_field',
+    heldBy: ['unpredicted_ats_field'],
+    pendingFields: Array.isArray(event?.missingFields) ? event.missingFields.slice(0, 20) : [],
+    portalAutoRetryAt: null,
+    deadlineAt: nowMs + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+  };
+}
 // Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
 // portal pages have a bounded repair window; definite infrastructure outages
 // stay in the normal queue with a capped delay until the posting closes.
@@ -115,6 +138,7 @@ export const FLOW_STATES = Object.freeze([
   'candidate_review',
   'regenerating',
   'submitting',
+  'operator_expedited_review',
   'needs_candidate_action',
   'candidate_handoff',
   'submitted',
@@ -265,6 +289,8 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
+    ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
@@ -334,6 +360,8 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(flow?.portalFinalReviewAmbiguousRecoveryVersion === PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION
+      ? { portalFinalReviewAmbiguousRecoveryVersion: PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } : {}),
     ...(portalRecoveryMatchAnswerIds(flow).length && Number.isSafeInteger(Number(flow?.portalRecoveryMatchAnswerRound))
       && Number(flow.portalRecoveryMatchAnswerRound) > 0
       ? { portalRecoveryMatchAnswerIds: portalRecoveryMatchAnswerIds(flow),
@@ -798,6 +826,15 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      if (state === 'operator_expedited_review' && deadline && nowMs >= deadline) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['unpredicted_ats_field'];
+        next.heldSince = current.heldSince || nowMs;
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit' }];
+        break;
+      }
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
       // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
       // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
@@ -996,7 +1033,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
-        && !portalExhaustedRecoveryPending(current)) return ignore('portal_retry_limit');
+        && !portalExhaustedRecoveryPending(current) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
       next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;
@@ -1208,9 +1245,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The review page is generated from the draft, not from the runner
       // event. If a live requirement was not persisted into that draft, a
       // candidate-action e-mail would open a page with nothing to answer.
-      // Fail closed into the bounded owner recovery path instead.
+      // Unpredicted fields wait for bounded operator escalation; a candidate
+      // is never asked to approve a field the review page cannot show.
       if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
-        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        const visibleQuestions = new Set((flags.candidate || []).map(String));
+        const unpredictedFields = unresolvedQuestions
+          .filter((id) => !visibleQuestions.has(id))
+          .map((id) => detailsById.get(id) || { id });
+        if (unpredictedFields.length) {
+          Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
+        } else {
+          effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        }
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;

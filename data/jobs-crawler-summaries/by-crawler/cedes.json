@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-11T09:17:56.175Z",
-  "total": 2,
+  "generatedAt": "2026-11-11T21:20:00.735Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5761,
-  "avgDurationMs": 5761,
+  "unchangedCount": 1,
+  "durationMs": 4224,
+  "avgDurationMs": 4224,
   "durationHistory": [
-    5761
+    4224
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T09:17:29.517Z",
+      "crawledAt": "2026-11-11T21:19:44.134Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -59,7 +59,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-11T09:17:29.517Z",
+      "validThrough": "2026-12-11T21:19:44.134Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -68,61 +68,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "id": "cedes-586f99785859",
-      "slug": "smd-assembly-operator-production-assistant-cedes-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes-ag",
-      "companyDomain": "cedes.com",
-      "title": "SMD Assembly Operator / Production Assistant",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-10T21:58:07.612Z",
-      "firstSeenAt": "2026-10-27T21:19:40.726Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "applyUrl": "https://www.cedes.com/en/career/jobs/production-assistant/",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "CEDES AG",
-        "streetAddress": "Kantonsstrasse 14",
-        "postalCode": "7302",
-        "addressLocality": "Landquart",
-        "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:02.284Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Kantonsstrasse 14",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:58:07.612Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

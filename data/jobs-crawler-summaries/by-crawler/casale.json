@@ -1,18 +1,66 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-11-11T09:20:54.715Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-11-11T21:15:20.913Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2752,
-  "avgDurationMs": 2752,
+  "durationMs": 2820,
+  "avgDurationMs": 2820,
   "durationHistory": [
-    2752
+    2820
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
+      "applyUrl": "https://recruit.casale.ch/o/process-engineer-recently-graduated/c/new",
+      "title": "Process Engineer (recently graduated)",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "process-engineer-recently-graduated-casale-lugano",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-11T21:15:11.220Z",
+      "crawledAtSource": "slice-writer",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:15:11.220Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-11-11T21:15:11.220Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -45,10 +93,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-11T09:20:40.206Z",
+      "crawledAt": "2026-11-11T21:15:11.220Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:20:40.206Z",
+      "validThrough": "2027-01-07T21:15:11.220Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -101,6 +149,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -110,5 +159,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

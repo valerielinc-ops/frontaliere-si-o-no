@@ -820,6 +820,69 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }, 'umantis')).toBe(false);
   });
 
+  // Bank Cler, 8BhQom09 run 42990198426 (2026-11-11): the order's channel is the employer's career site, whose
+  // Apply opens the bank's Umantis tenant; its Application/New form asks for the login e-mail and a new password
+  // with the application, has technical field names (form_dataNN) and asks for «Zeugnisse/Diplome», not a cover
+  // letter. The runner took it for a sign-in page and stopped with portal:account (no_create_button).
+  // Rebuilt from the form's captions: no candidate data.
+  it('recognizes an Umantis account/application step reached from the employer site, with certificates instead of a letter', () => {
+    const field = (id: string, kind: string, label: string, extra: Record<string, unknown> = {}) => ({
+      id, kind, inputType: kind === 'textarea' ? 'textarea' : kind, name: `form_data${id}`, label, form: 0,
+      context: 'Ruolo di esempio (f/m) - Bewerbung', ...extra,
+    });
+    const snapshot = {
+      url: 'https://recruitingapp-1234.umantis.com/Vacancies/567/Application/New/1',
+      text: 'Ruolo di esempio (f/m) - Bewerbung\nLogin\nKlicke auf Login, wenn du dein Profil bereits früher online hinterlegt hast.',
+      passwordVisible: true,
+      fields: [
+        field('6', 'file', 'Foto'),
+        field('8', 'text', 'Vorname', { required: true }),
+        field('9', 'text', 'Nachname', { required: true }),
+        field('10', 'text', 'Geburtsdatum'),
+        field('12', 'text', 'E-Mail-Adresse/Login', { required: true }),
+        field('15', 'text', 'Passwort', { inputType: 'password', autocomplete: 'off', required: true }),
+        field('18', 'text', 'Strasse', { required: true }),
+        field('19', 'text', 'Hausnummer', { required: true }),
+        field('20', 'text', 'PLZ', { required: true }),
+        field('21', 'text', 'Ort', { required: true }),
+        field('22', 'select', 'Land', { required: true }),
+        field('23', 'text', 'Mobiltelefon', { required: true }),
+        field('28', 'file', 'Lebenslauf', { required: true }),
+        field('29', 'file', 'Zeugnisse/Diplome', { required: true }),
+        field('30', 'file', 'Weitere Unterlagen'),
+        field('38', 'textarea', 'Anmerkungen zur Bewerbung'),
+      ],
+      buttons: [{ text: 'Weiter' }],
+      links: [{ text: 'Login' }],
+    };
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(sendsApplication(snapshot)).toBe(false);
+    expect(ownAccountForm(snapshot, 'employer_site')).toBe(true);
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    // Another channel, or none, keeps its own rules.
+    expect(ownAccountForm(snapshot)).toBe(false);
+    expect(ownAccountForm(snapshot, 'successfactors')).toBe(false);
+    // Only the Umantis application route, over https.
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-1234.umantis.com', 'careers.example.org') }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/1', '/Login') }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('https:', 'http:') }, 'employer_site')).toBe(false);
+    // A sign-in password is never a new account's.
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.map(item => item.label === 'Passwort' ? { ...item, label: 'Aktuelles Passwort' } : item),
+    }, 'employer_site')).toBe(false);
+    // The applicant's details are read from the caption, not hidden by the technical name beside it.
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(item => !['Geburtsdatum', 'PLZ'].includes(item.label)),
+    }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(item => item.label !== 'Geburtsdatum'),
+    }, 'employer_site')).toBe(true);
+  });
+
   it('recognizes the live EOC Umantis profile step without street or country fields', () => {
     const snapshot = {
       url: 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4',
