@@ -1,8 +1,8 @@
 /**
  * Meilisearch Wire-Shape Cache Generator
  * Converte un annuncio di lavoro nella forma wire-shape compatta (100% dei campi della card).
- * Questo elimina qualsiasi query di idratazione verso Firestore/Postgres a tempo di ricerca,
- * consentendo risposte in 2–5 ms direttamente da Meilisearch.
+ * Prepara i campi della card nel documento indicizzato, così la ricerca non richiede
+ * query di idratazione verso Firestore/Postgres.
  */
 
 export function buildMeiliJobWireDocument(job) {
