@@ -50,6 +50,7 @@ export const SITE_ONLY_RC_KEYS = new Set([
   'EVENTFROG_ENABLED',
   'EVENTFROG_PUBLIC_API_KEY',
   'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+  'EXPIRED_JOB_EDGE_SECTIONS',
   // Stealth browser and crawler policy (owner decision 2026-11-09), read only
   // by site scripts: scripts/lib/stealth-browser.mjs, robots-policy.mjs.
   'CLOAKBROWSER_LICENSE_KEY_ASSISTED',
@@ -77,6 +78,9 @@ export const RC_TO_ENV = {
   // direct-employer SEO fail-closed; the owner can enable the next build by
   // setting the same Firebase Remote Config parameter to "true".
   DIRECT_EMPLOYER_CHANNEL_ENABLED: ['DIRECT_EMPLOYER_CHANNEL_ENABLED'],
+  // Build-time, comma-separated section allowlist for expired-job edge
+  // soft-landings. Missing/invalid input means off and keeps pages static.
+  EXPIRED_JOB_EDGE_SECTIONS: ['EXPIRED_JOB_EDGE_SECTIONS'],
   GEMINI_API_KEY:                 ['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'],
   BING_API_KEY:                   ['BING_API_KEY'],
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],

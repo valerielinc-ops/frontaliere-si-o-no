@@ -4,6 +4,7 @@ import {
   EXPIRED_JOB_EDGE_GA4_MAX_AGE_MS,
   isEdgeServedExpiredJob,
   isExpiredJobGa4EvidenceUsable,
+  shouldSkipExpiredJobStaticPage,
 } from '../build-plugins/shared/expiredJobEdgePolicy.mjs';
 
 const NOW = Date.parse('2026-11-10T12:00:00.000Z');
@@ -81,6 +82,25 @@ describe('expired job edge selection', () => {
     expect(isEdgeServedExpiredJob({ p1Noindex: false, paths, ga4Evidence: evidence(), nowMs: NOW })).toBe(false);
     expect(isEdgeServedExpiredJob({
       p1Noindex: true, paths, ga4Evidence: evidence({ pages: { '/en/find-jobs-ticino/job/': 1 } }), nowMs: NOW,
+    })).toBe(false);
+  });
+
+  it('skips static output only after a selected page is recorded for its enabled section', () => {
+    const requestedSections = ['zurigo'];
+    expect(shouldSkipExpiredJobStaticPage({
+      selected: true, section: 'zurigo', requestedSections, datasetRecordAdded: true,
+    })).toBe(true);
+    expect(shouldSkipExpiredJobStaticPage({
+      selected: true, section: 'berna', requestedSections, datasetRecordAdded: true,
+    })).toBe(false);
+    expect(shouldSkipExpiredJobStaticPage({
+      selected: true, section: 'zurigo', requestedSections, datasetRecordAdded: false,
+    })).toBe(false);
+    expect(shouldSkipExpiredJobStaticPage({
+      selected: false, section: 'zurigo', requestedSections, datasetRecordAdded: true,
+    })).toBe(false);
+    expect(shouldSkipExpiredJobStaticPage({
+      selected: true, section: 'zurigo', requestedSections: [], datasetRecordAdded: true,
     })).toBe(false);
   });
 

@@ -83,8 +83,13 @@ import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { createExpiredArchivePublicationEvidence } from './shared/expiredArchivePublicationEvidence.mjs';
-import { isEdgeServedExpiredJob, isExpiredJobGa4EvidenceUsable } from './shared/expiredJobEdgePolicy.mjs';
+import {
+ isEdgeServedExpiredJob,
+ isExpiredJobGa4EvidenceUsable,
+ shouldSkipExpiredJobStaticPage,
+} from './shared/expiredJobEdgePolicy.mjs';
 import { createExpiredJobEdgeDatasetWriter } from '../scripts/lib/expired-job-edge-dataset-writer.mjs';
+import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scripts/lib/expired-job-edge-dataset.mjs';
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -1791,6 +1796,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   returnedRows: expiredJobGa4Evidence?.coverage?.returnedRows ?? null,
   reportedRows: expiredJobGa4Evidence?.coverage?.reportedRows ?? null,
  };
+ // The deploy workflow hydrates this build-only allowlist from Firebase
+ // Remote Config before SSG. Empty or malformed input keeps every page static.
+ const expiredJobEdgeRequestedSections = parseExpiredJobEdgeSections(
+  process.env.EXPIRED_JOB_EDGE_SECTIONS ?? '',
+ );
+ const expiredJobEdgeStaticSkipPaths = new Set<string>();
+ const expiredJobEdgeStaticSkipPathsByLocale = new Map<string, Set<string>>();
+ const expiredJobEdgeStaticSkipSectionsByLocale = new Map<string, Set<string>>();
  let expiredJobEdgeCandidateCount = 0;
  let expiredJobEdgeRecordCount = 0;
  // Day-granular clock for the expired-job grace window, so every
@@ -14444,10 +14457,10 @@ ${staticAnalyticsHtml}
    template: edgeTemplateByLocale.get(locale)!,
    adSnippetHtml: ADSENSE_SNIPPET,
    coverage: expiredJobEdgeEvidenceCoverage,
-   requestedSections: [], // PR B ships the dataset with the rollout safely off.
+   requestedSections: expiredJobEdgeRequestedSections,
   }));
  }
- const writeSoftLandingPage = (outRelPath: string, html: string) => {
+ const writeSoftLandingPage = (outRelPath: string, html: string, skipForExpiredJobEdge = false) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
  const normPath = outRelPath.replace(/\/+$/, '');
  const distPath = `/${normPath}`;
@@ -14467,8 +14480,15 @@ ${staticAnalyticsHtml}
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
  const targetFile = safeTargets.indexPath;
- if (pathWasClaimed(targetFile)) return false;
- if (activeJobDirs.has(normPath)) return false;
+ const canonicalPath = `/${normPath}/`;
+ const intentionallyEdgeSkipped = skipForExpiredJobEdge || expiredJobEdgeStaticSkipPaths.has(canonicalPath);
+ if (pathWasClaimed(targetFile) || activeJobDirs.has(normPath)) {
+  if (intentionallyEdgeSkipped) {
+   throw new Error(`Expired-job edge rollout cannot remove a path already claimed by another page: ${distPath}`);
+  }
+  return false;
+ }
+ if (intentionallyEdgeSkipped) return false;
 
  const outDir = safeTargets.directoryPath;
  _qw(safeTargets.indexPath, html);
@@ -14521,6 +14541,21 @@ ${staticAnalyticsHtml}
   expiredHtmlCacheOnDisk.clear();
   collector.forgetWrittenPaths();
   expiredHtmlCacheChunks++;
+ };
+ const drainExpiredSweepSlot = async (expiredSlugIndex: number): Promise<void> => {
+  await collector.awaitDrainSlot(2);
+  if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE !== 0) return;
+  await releaseExpiredHtmlCacheChunk();
+  maybeForceJobsSeoHtmlGc();
+  if ((expiredSlugIndex + 1) % (EXPIRED_HTML_CACHE_CHUNK_SIZE * EXPIRED_MEM_MILESTONE_EVERY_CHUNKS) === 0) {
+   logJobsSeoMem('expired-sweep-progress', {
+    expiredSlugIndex: expiredSlugIndex + 1,
+    expiredSlugs: expiredSlugs.length,
+    expiredCount,
+    expiredHtmlCacheChunks,
+    jobsSeoHtmlGcRuns,
+   });
+  }
  };
  const expiredCacheKeys = new Set<string>();
  for (const ej of expiredJobsData) {
@@ -14929,8 +14964,8 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:title', __tEjpTitle);
  // Substantial-content retention (memory-safe): keep the supplemental frontalier
  // prose + FAQ only on expired pages with real 90d GSC/GA4 traffic. This gate also
- // controls the Auto Ads snippet. It no longer controls shell replacement: every
- // expired URL publishes the complete static body assembled below.
+ // controls the Auto Ads snippet. Static pages keep the full body; selected edge
+ // pages can bypass that body after their compact dataset record is accepted.
  //
  // Candidate paths include the current locale path, its legacy bridge (when
  // distinct), and the other locales' legacy paths. The prose/Auto-Ads gate adds
@@ -14957,8 +14992,8 @@ ${staticAnalyticsHtml}
  ? __slCandidatePaths
  : [...__slCandidatePaths, __slItLegacyMirror];
  const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
- // PR B only prepares the edge copy. The manifest deliberately keeps every
- // section inactive until the separate, owner-approved rollout PR.
+ // Add the edge copy before considering static suppression. The exact same
+ // successful writer call is required by `shouldSkipExpiredJobStaticPage`.
  if (expiredJobEdgeSelected) {
   const section = expiredJobEdgeSectionForPath(relPath, locale);
   const writer = expiredJobEdgeWriters.get(locale);
@@ -15024,11 +15059,50 @@ ${staticAnalyticsHtml}
     titleByLocale: recordedJobTitleByLocale,
     slugByLocale: ejData?.slugByLocale || gscInfo?.slugByLocale || {},
    });
-   if (added) expiredJobEdgeRecordCount++;
+   if (added) {
+    expiredJobEdgeRecordCount++;
+    if (shouldSkipExpiredJobStaticPage({
+     selected: expiredJobEdgeSelected,
+     section,
+     requestedSections: expiredJobEdgeRequestedSections,
+     datasetRecordAdded: added,
+    })) {
+     const canonicalPath = normalizeExpiredJobEdgePath(relPath);
+     if (!canonicalPath) {
+      throw new Error(`Expired-job edge rollout selected an invalid canonical path: ${relPath}`);
+     }
+     const skipPaths = expiredJobEdgeStaticSkipPathsByLocale.get(locale) ?? new Set<string>();
+     skipPaths.add(canonicalPath);
+     expiredJobEdgeStaticSkipPathsByLocale.set(locale, skipPaths);
+     expiredJobEdgeStaticSkipPaths.add(canonicalPath);
+     const skipSections = expiredJobEdgeStaticSkipSectionsByLocale.get(locale) ?? new Set<string>();
+     skipSections.add(section);
+     expiredJobEdgeStaticSkipSectionsByLocale.set(locale, skipSections);
+    }
+   }
   }
  }
+ const canonicalEdgePathForSkip = normalizeExpiredJobEdgePath(relPath);
+ const skipStaticForExpiredJobEdge = Boolean(
+  canonicalEdgePathForSkip
+  && expiredJobEdgeStaticSkipPathsByLocale.get(locale)?.has(canonicalEdgePathForSkip),
+ );
+ const expiredJobEdgeCacheKey = jobsSeoHtmlCacheKey(locale, relPath);
+ if (skipStaticForExpiredJobEdge && !expiredCacheKeys.has(expiredJobEdgeCacheKey)) {
+  const targets = getSafeDistPageTargets(distDir, canonicalEdgePathForSkip);
+  const normalizedRelPath = relPath.replace(/^\/+|\/+$/g, '');
+  if (targets && (pathWasClaimed(targets.indexPath) || activeJobDirs.has(normalizedRelPath))) {
+   throw new Error(`Expired-job edge rollout cannot remove a path already claimed by another page: ${canonicalEdgePathForSkip}`);
+  }
+  // This noindex page is already represented in the edge dataset. It cannot
+  // enter the expired sitemap; skip its full body, cache entry and shard write.
+  recordEmit('expired-job-edge-static-skip', __tExpiredSoftLanding);
+  expiredCount++;
+  await drainExpiredSweepSlot(expiredSlugIndex);
+  continue;
+ }
  const __tEjpDecide = phaseTimer();
- // Owner contract: every expired URL keeps the complete generated body.
+ // Every statically emitted expired URL keeps the complete generated body.
  // `action` is part of the reuse input so older cached thin shells are invalidated.
  const __slAction: 'full' = 'full';
  recordPhase('ejp:decide', __tEjpDecide);
@@ -15405,9 +15479,8 @@ ${staticAnalyticsHtml}
  );
  recordPhase('ejp:shell', __tEjpShell);
 
- // Publish the complete static article for every expired URL. The former
- // thin-shell transform discarded this body after it had already been built;
- // complete archived content stays on its canonical URL now.
+ // Publish the complete static article for pages that remain in their shard.
+ // The edge-selected path above uses its compact soft-landing record instead.
  softLandingHtml = __slFullHtml;
  softLandingFullCount++;
  } else {
@@ -15422,7 +15495,11 @@ ${staticAnalyticsHtml}
  jobsSeoReuse?.finish(softLandingReuse, softLandingHtml);
 
  const __tEjpWrite = phaseTimer();
- const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml);
+ const canonicalEdgePath = normalizeExpiredJobEdgePath(relPath);
+ const skipForExpiredJobEdge = Boolean(
+  canonicalEdgePath && expiredJobEdgeStaticSkipPathsByLocale.get(locale)?.has(canonicalEdgePath),
+ );
+ const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml, skipForExpiredJobEdge);
  if (wroteSoftLanding) {
   if (expiredArchiveOverflowOwned) {
    expiredArchivePublicationEvidence.record({
@@ -15453,8 +15530,8 @@ ${staticAnalyticsHtml}
    expiredHtmlCachePaths.set(cacheKey, relPath);
    expiredHtmlCacheOnDisk.add(cacheKey);
   } else {
-   // A collision means the generated string is still the only faithful
-   // fallback; do not let a previous disk path evict this replacement.
+   // A collision or intentional edge skip means the generated string is still
+   // the only faithful fallback; do not let a previous disk path evict it.
    expiredHtmlCachePaths.delete(cacheKey);
    expiredHtmlCacheOnDisk.delete(cacheKey);
   }
@@ -15536,26 +15613,7 @@ ${staticAnalyticsHtml}
  // oltre gli 8.5 GB e 3 batch (~450 MB, il default documentato di
  // awaitDrainSlot) sono il bound giusto, mentre 7 batch (~1 GB) erano
  // tarati sulle fasi iniziali a heap basso.
- await collector.awaitDrainSlot(2);
- if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE === 0) {
-  await releaseExpiredHtmlCacheChunk();
-  // This ~940k-page sweep is the jobs-SEO memory peak on a zero-reuse
-  // build (run 40057008446, leg de: rss-ceiling at 19 539 MB, mid-sweep),
-  // yet it was the only large emit without the 1 GB last-resort GC that
-  // the active and hub phases already run at their flush boundaries.
-  // The chunk boundary is the cheap point: the collector has just drained
-  // and the released HTML chunk is garbage.
-  maybeForceJobsSeoHtmlGc();
-  if ((expiredSlugIndex + 1) % (EXPIRED_HTML_CACHE_CHUNK_SIZE * EXPIRED_MEM_MILESTONE_EVERY_CHUNKS) === 0) {
-   logJobsSeoMem('expired-sweep-progress', {
-    expiredSlugIndex: expiredSlugIndex + 1,
-    expiredSlugs: expiredSlugs.length,
-    expiredCount,
-    expiredHtmlCacheChunks,
-    jobsSeoHtmlGcRuns,
-   });
-  }
- }
+ await drainExpiredSweepSlot(expiredSlugIndex);
  }
 
  // Release the final partial chunk before the retained-set checkpoint. The
@@ -15716,6 +15774,8 @@ ${staticAnalyticsHtml}
  // company-hub canonical contract (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const edgeCanonicalPath = normalizeExpiredJobEdgePath(relPath);
+ if (edgeCanonicalPath && expiredJobEdgeStaticSkipPaths.has(edgeCanonicalPath)) continue;
  if (isDistPathOverFilesystemLimits(relPath)) {
   skippedFilesystemLimitPaths++;
   continue;
@@ -16955,10 +17015,25 @@ ${staticAnalyticsHtml}
 
  for (const [locale, writer] of expiredJobEdgeWriters) {
   const { manifest } = writer.finish();
+  const skippedPaths = expiredJobEdgeStaticSkipPathsByLocale.get(locale) ?? new Set<string>();
+  const skippedSections = expiredJobEdgeStaticSkipSectionsByLocale.get(locale) ?? new Set<string>();
+  if (skippedPaths.size > 0) {
+   if (manifest.coverage.complete !== true
+    || [...skippedSections].some((section) => !manifest.activeSections.includes(section))) {
+    throw new Error(`Expired-job edge rollout for ${locale} is missing complete active dataset coverage`);
+   }
+   for (const canonicalPath of skippedPaths) {
+    const targets = getSafeDistPageTargets(distDir, canonicalPath);
+    if (targets && pathWasClaimed(targets.indexPath)) {
+     throw new Error(`Expired-job edge path was emitted statically after suppression: ${canonicalPath}`);
+    }
+   }
+  }
   console.log(
    `[expired-job-edge-dataset] ${locale}: candidates=${expiredJobEdgeCandidateCount} `
    + `records=${expiredJobEdgeRecordCount} sections=${manifest.availableSections.length} `
-   + `active=${manifest.activeSections.length} evidence-complete=${manifest.coverage.complete}`,
+   + `active=${manifest.activeSections.length} static-skipped=${skippedPaths.size} `
+   + `evidence-complete=${manifest.coverage.complete}`,
   );
  }
 

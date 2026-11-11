@@ -21,6 +21,7 @@
  *   - search-stats-landing       → top locations + titles from jobs-stats.json
  *   - search-combo-landing       → location × title combinations
  *   - expired-soft-landing       → soft-landing pages for expired job slugs
+ *   - expired-job-edge-static-skip → edge-recorded pages omitted from static shards
  *   - expired-legacy-bridge      → legacy slug bridges for expired jobs
  *   - previous-slug-bridge       → full-content bridge at old slug, canonical
  *                                  points to current slug
