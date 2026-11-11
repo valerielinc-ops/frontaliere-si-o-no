@@ -30,7 +30,11 @@ describe('Proplaning AG crawler parser', () => {
       })).toBe(true);
     });
 
-    it('rejects another Jobalino employer even when the host is shared', () => {
+    it('rejects shared Jobalino hosts without the Proplaning tenant path', () => {
+      expect(isProplaningAgJob({ url: 'https://my.jobalino.ch/jobs/123' })).toBe(false);
+      expect(isProplaningAgJob({
+        url: 'https://my.jobalino.ch/job/abc/other-employer/role',
+      })).toBe(false);
       expect(isProplaningAgJob({
         companyKey: 'other-employer',
         company: 'Other Employer',
@@ -51,12 +55,24 @@ describe('Proplaning AG crawler parser', () => {
 
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
-    it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://my.jobalino.ch/careers/job-123')).toBe(true);
+    it('trusts the Proplaning tenant path on the shared Jobalino host', () => {
+      expect(isTrustedDomain(
+        'https://my.jobalino.ch/job/abc/proplaning-ag/role',
+      )).toBe(true);
     });
 
-    it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.my.jobalino.ch/job/456')).toBe(true);
+    it('trusts Jobalino subdomains only when the Proplaning tenant path is present', () => {
+      expect(isTrustedDomain(
+        'https://careers.my.jobalino.ch/job/abc/proplaning-ag/role',
+      )).toBe(true);
+      expect(isTrustedDomain('https://careers.my.jobalino.ch/job/456')).toBe(false);
+    });
+
+    it('rejects a shared Jobalino host without the Proplaning tenant path', () => {
+      expect(isTrustedDomain('https://my.jobalino.ch/careers/job-123')).toBe(false);
+      expect(isTrustedDomain(
+        'https://my.jobalino.ch/job/abc/other-employer/role',
+      )).toBe(false);
     });
 
     it('rejects other domains', () => {

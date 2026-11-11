@@ -51,10 +51,14 @@ function isProplaningAgUrl(rawUrl = '') {
       || host.endsWith(`.${PROPLANING_AG_COMPANY_DOMAIN}`);
     if (!isJobalinoHost) return false;
 
-    return parsed.pathname
+    const [resource, jobId, employerSlug] = parsed.pathname
       .split('/')
       .filter(Boolean)
-      .some((segment) => decodeURIComponent(segment).toLowerCase() === PROPLANING_AG_KEY);
+      .map((segment) => decodeURIComponent(segment).toLowerCase());
+
+    return resource === 'job'
+      && Boolean(jobId)
+      && employerSlug === PROPLANING_AG_KEY;
   } catch {
     return false;
   }
@@ -84,15 +88,11 @@ export function isProplaningAgJob(job) {
 }
 
 /**
- * Validate that a URL belongs to Proplaning AG's domain.
+ * Validate a Jobalino URL using its Proplaning-specific tenant path.
+ * The host is shared by multiple employers and is not sufficient alone.
  */
 export function isTrustedDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'my.jobalino.ch' || host.endsWith('.my.jobalino.ch');
-  } catch {
-    return false;
-  }
+  return isProplaningAgUrl(rawUrl);
 }
 
 /* ── Category Detection ────────────────────────────────────── */
