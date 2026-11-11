@@ -15,6 +15,7 @@
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
 import { ACTIVE_JOB_IDS_FILE_NAME, JOB_ID_RE } from './assistedApplicationActiveJobIndex.js';
+import { guardPosting } from './lib/postingGuard.js';
 
 export const JOB_DATA_BASE = 'https://cdn.frontaliereticino.ch/data';
 export const JOB_DETAIL_BASE = `${JOB_DATA_BASE}/job-detail`;
@@ -488,12 +489,17 @@ function postingUrlFromDetail(detail) {
 function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
   const description = String(detail?.description || '').trim();
   const requirements = Array.isArray(detail?.requirements) ? detail.requirements.map((item) => clean(item, 400)).filter(Boolean) : [];
-  const text = [description, requirements.length ? requirements.map((item) => `- ${item}`).join('\n') : '']
+  const rawText = [description, requirements.length ? requirements.map((item) => `- ${item}`).join('\n') : '']
     .filter(Boolean)
     .join('\n\n');
+  const guarded = guardPosting(rawText, 'auto');
+  const text = guarded.cleanText;
   return {
     text: text.slice(0, maxPostingChars),
     textTruncated: text.length > maxPostingChars,
+    postingGuardVerdict: guarded.verdict,
+    postingGuardClean: guarded.isClean,
+    postingGuardFindings: guarded.findings,
     postingUrl: postingUrlFromDetail(detail),
     applyUrl: clean(detail?.applyUrl, 1000),
     titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
@@ -516,7 +522,8 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
 /**
  * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, jobRoomChannelResolved?:boolean, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
- *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
+ *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string,
+ *   postingGuardVerdict?:string, postingGuardClean?:boolean, postingGuardFindings?:object}>}
  */
 export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup, maxPostingChars = MAX_POSTING_CHARS, signal = null } = {}) {
   if (signal) {
@@ -530,6 +537,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
   const empty = {
     source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), publishedPostingUrl: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
+    postingGuardVerdict: 'posting_guard: uninspected', postingGuardClean: true, postingGuardFindings: {},
   };
   const jobId = String(order?.jobId || '');
   const jobRoomOrder = Boolean(jobRoomAdvertisementId(order));
@@ -569,12 +577,15 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     try {
       // A Workday page has no text of its own: the posting is in Workday's JSON.
       const workday = await fetchWorkdayPosting(fetchImpl, order.jobUrl, resolve);
-      const description = workday?.info ? htmlToText(workday.info.jobDescription) : '';
-      if (description.length > 200) {
+      const rawDescription = workday?.info ? htmlToText(workday.info.jobDescription) : '';
+      if (rawDescription.length > 200) {
+        const guarded = guardPosting(rawDescription, 'text');
+        const description = guarded.cleanText;
         const startDate = clean(workday.info.startDate, 40);
         return {
           ...empty, text: description.slice(0, maxPostingChars), textTruncated: description.length > maxPostingChars, source: 'job_page', location: clean(workday.info.location, 200),
           datePosted: startDate, postingDateSource: startDate ? 'reported' : 'unknown',
+          postingGuardVerdict: guarded.verdict, postingGuardClean: guarded.isClean, postingGuardFindings: guarded.findings,
         };
       }
       const response = await fetchPublicPage(fetchImpl, order.jobUrl, resolve);
@@ -583,7 +594,8 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
         const pageHtml = await response.text();
         const pageTruncated = pageHtml.length > MAX_PAGE_BYTES;
         const html = pageHtml.slice(0, MAX_PAGE_BYTES);
-        const fullText = htmlToText(html);
+        const guarded = guardPosting(html, 'html');
+        const fullText = guarded.cleanText || htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
         if (text.length > 200) {
           const resolvedApplyUrl = await jobRoomApplyUrl();
@@ -594,6 +606,9 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
             applyUrl: resolvedApplyUrl || empty.applyUrl,
             ...(jobRoomOrder ? { jobRoomChannelResolved: Boolean(resolvedApplyUrl) } : {}),
             source: 'job_page',
+            postingGuardVerdict: guarded.verdict,
+            postingGuardClean: guarded.isClean,
+            postingGuardFindings: guarded.findings,
           };
         }
       }
