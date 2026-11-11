@@ -813,7 +813,14 @@ export const getPlateAuctions = onRequest(
   return;
  }
  const { body, gzip } = sourceKey
-  ? await getCachedPublicPlateAuctionSourceBody({ sourceKey })
+  ? await getCachedPublicPlateAuctionSourceBody({
+    sourceKey,
+    // The static collector adds a unique `fresh` value after a direct-source
+    // failure. Honour it inside the function too: the query string bypasses
+    // an intermediary HTTP cache, but cannot otherwise invalidate this
+    // instance's five-minute source snapshot cache.
+    bypassCache: req.query?.fresh !== undefined,
+  })
   : await getCachedPublicPlateAuctionSnapshotBody();
  res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
  res.vary('Accept-Encoding');

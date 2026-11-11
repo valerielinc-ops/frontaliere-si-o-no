@@ -6,6 +6,7 @@ import {
   PLATE_AUCTION_SNAPSHOT_OBJECT,
   publishPublicPlateAuctionSnapshot,
   getCachedPublicPlateAuctionSnapshotBody,
+  getCachedPublicPlateAuctionSourceBody,
   getPublicPlateAuctionSourceSnapshot,
   getPublicPlateAuctionSnapshot,
   PLATE_AUCTION_SNAPSHOT_CACHE_MS,
@@ -201,6 +202,37 @@ describe("public plate-auction snapshot cache", () => {
     const { body, gzip } = await getCachedPublicPlateAuctionSnapshotBody({ db: db as never, bucket: null });
     expect(gunzipSync(gzip).equals(body)).toBe(true);
     expect(gzip.length * 5).toBeLessThan(body.length);
+  });
+
+  it("bypasses a stale source-scoped body when the relay asks for fresh data", async () => {
+    const clock = Date.parse("2026-09-14T12:00:00.000Z");
+    const auctions = [row({ id: "fr-old", sourceKey: "FR", platePrefix: "FR" })];
+    const sources = [{
+      id: "fr",
+      canton: "Friburgo",
+      plateCode: "FR",
+      officialUrl: FR_ECARI_CATALOGUE_URL,
+      status: "active",
+      rowCount: 1,
+      lastSuccessAt: "2026-09-14T12:00:00.000Z",
+    }];
+    const db = makeDb({ auctions, sources });
+    const now = () => clock;
+
+    const first = await getCachedPublicPlateAuctionSourceBody({ sourceKey: "fr", db: db as never, now });
+    auctions.splice(0, 1, row({ id: "fr-current", sourceKey: "FR", platePrefix: "FR" }));
+
+    const cached = await getCachedPublicPlateAuctionSourceBody({ sourceKey: "fr", db: db as never, now });
+    expect(JSON.parse(cached.body.toString("utf8")).auctions.map((auction: { id: string }) => auction.id)).toEqual(["fr-old"]);
+
+    const fresh = await getCachedPublicPlateAuctionSourceBody({
+      sourceKey: "fr",
+      db: db as never,
+      now,
+      bypassCache: true,
+    });
+    expect(JSON.parse(first.body.toString("utf8")).auctions.map((auction: { id: string }) => auction.id)).toEqual(["fr-old"]);
+    expect(JSON.parse(fresh.body.toString("utf8")).auctions.map((auction: { id: string }) => auction.id)).toEqual(["fr-current"]);
   });
 });
 
