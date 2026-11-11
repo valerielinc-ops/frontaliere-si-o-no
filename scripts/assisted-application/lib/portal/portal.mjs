@@ -4022,7 +4022,21 @@ const documentContextRe = (terms) => new RegExp(
 const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
 const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
-const UMANTIS_NON_SUPPORTING_UPLOAD_RE = /\b(?:photo|foto|passport|passaport|passeport|ausweis|licen[cs]\w*|patent\w*|permit|permess\w*|permis|bewilligung\w*)\b/iu;
+const UMANTIS_NON_SUPPORTING_UPLOAD_RE = documentContextRe(
+  '(?:[\\p{L}\\p{N}\\p{M}]*(?:photo|foto|passport|passaport|passeport|ausweis|licen[cs]|patent|permit|permess|permis|bewilligung)[\\p{L}\\p{N}\\p{M}]*)',
+);
+const normalizeUmantisUploadRole = value => String(value || '')
+  .normalize('NFKC')
+  .replace(/\p{Cf}/gu, '')
+  .normalize('NFD')
+  .replace(/\p{M}/gu, '')
+  .replace(/[_:.-]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+// A section/context describes nearby questions, not the document represented
+// by this file control. Use the control's own caption or semantic identity for
+// the non-supporting veto so a «work permit» section cannot reject a diploma.
+const umantisUploadRole = field => normalizeUmantisUploadRole(field?.label || field?.name || field?.id);
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
 const portalUploadFieldIdentity = (field) => [
   field?.domId && `dom:${field.domId}`,
@@ -4122,7 +4136,7 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const hasSupportingDocument = fields.some(field => {
     if (!isFileField(field) || isCvFileField(field)) return false;
     const text = `${field.label || ''} ${field.name || ''} ${field.id || ''} ${field.context || ''}`;
-    return isNonCvDocumentLabel(text) && !UMANTIS_NON_SUPPORTING_UPLOAD_RE.test(text);
+    return isNonCvDocumentLabel(text) && !UMANTIS_NON_SUPPORTING_UPLOAD_RE.test(umantisUploadRole(field));
   });
   const hasCv = fields.some(isCvFileField);
 

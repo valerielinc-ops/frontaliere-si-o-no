@@ -7,6 +7,7 @@ import {
   candidateForForm,
   COOKIE_ACCEPT_RE,
   COOKIE_REJECT_RE,
+  isNonCvDocumentLabel,
   applicationEntryControls,
   formPostingMatch,
   hasApplicationSurface,
@@ -886,10 +887,22 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
     expect(authPageKind(snapshot)).toBe('sign_in');
     expect(ownAccountForm(snapshot, 'employer_site')).toBe(true);
-    expect(ownAccountForm({
+    const certificateWithPermitContext = {
       ...snapshot,
-      fields: snapshot.fields.filter(field => !['certificates', 'other-documents'].includes(field.id)),
-    }, 'employer_site')).toBe(false);
+      fields: snapshot.fields
+        .filter(field => !['other-documents', 'form-data-31', 'form-data-32'].includes(field.id))
+        .map(field => field.id === 'certificates' ? { ...field, context: 'Work permit documents' } : field),
+    };
+    expect(ownAccountForm(certificateWithPermitContext, 'employer_site')).toBe(true);
+
+    expect(isNonCvDocumentLabel('Personalausweis')).toBe(true);
+    const identityOnly = {
+      ...snapshot,
+      fields: snapshot.fields
+        .filter(field => !['certificates', 'other-documents', 'form-data-31', 'form-data-32'].includes(field.id))
+        .map(field => field.id === 'photo' ? { ...field, label: 'Personalausweis', id: 'identity-document' } : field),
+    };
+    expect(ownAccountForm(identityOnly, 'employer_site')).toBe(false);
   });
 
   it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
