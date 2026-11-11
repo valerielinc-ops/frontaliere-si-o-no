@@ -174,7 +174,21 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
     expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
-    expect(steps.some((step: any) => step.name === 'Download publisher section manifests')).toBe(true);
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const upperLocale = locale.toUpperCase();
+      const step = steps.find((candidate: any) => candidate.name === `Download publisher ${upperLocale} section manifests`);
+      expect(step, `missing ${locale} publisher section manifest download`).toMatchObject({
+        'continue-on-error': true,
+        uses: 'actions/download-artifact@v8',
+        with: {
+          pattern: `section-page-manifest-${locale}-*`,
+          path: '${{ runner.temp }}/publisher-audit-manifests/sections',
+          'run-id': '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
+          'merge-multiple': true,
+        },
+      });
+      expect(step.if).toContain(`env.SHARD_ARTIFACT_RUN_ID_${upperLocale}`);
+    }
     const indexDetector = steps.find((step: any) => step.id === 'publisher-index');
     expect(indexDetector.name).toContain('complete');
     expect(indexDetector.run).toContain('current-index-validator/scripts/ci/page-audit-index.mjs');
@@ -196,6 +210,13 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
 
     expect(rehydrateStep?.env?.REHYDRATE_MAX_PARALLEL)
       .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
+  });
+
+  it('fetches Pages from the source run by default so only successful publishers resolve', () => {
+    const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
+    const fetchPages = workflow.jobs.audit.steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
+    expect(fetchPages.with['run-id']).toBe('${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}');
+    expect(fetchPages.with['run-id']).not.toContain('SHARD_ARTIFACT_RUN_ID_IT');
   });
 
   it('prunes only the source-only image tree for the opted-in weekly full replay', () => {

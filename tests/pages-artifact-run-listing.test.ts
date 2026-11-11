@@ -128,6 +128,12 @@ function resolve({
   for (const stale of STALE_RUNS) {
     writeFileSync(path.join(dir, `artifacts-${stale.id}.json`), JSON.stringify(artifact(stale.id, true)));
   }
+  for (const candidate of [...withCreated, ...withoutCreated] as Array<{ id: number }>) {
+    const candidatePath = path.join(dir, `artifacts-${candidate.id}.json`);
+    if (!existsSync(candidatePath)) {
+      writeFileSync(candidatePath, JSON.stringify(artifact(candidate.id, sourceArtifactExpired ?? false)));
+    }
+  }
   for (const [id, expired] of Object.entries(publisherArtifacts)) {
     writeFileSync(path.join(dir, `artifacts-${id}.json`), JSON.stringify(artifact(Number(id), expired)));
   }
@@ -208,19 +214,54 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
       runId: '4001',
       pinnedRun: source,
       sourceArtifactExpired: true,
+      publisherRuns: [
+        {
+          databaseId: 5001,
+          displayTitle: `Publish Pages build 4001 @ ${sourceSha}`,
+          createdAt: isoDaysAgo(0.1),
+          headBranch: 'main',
+          status: 'completed',
+          conclusion: 'failure',
+        },
+        {
+          databaseId: 5002,
+          displayTitle: `Publish Pages build 4001 @ ${sourceSha}`,
+          createdAt: isoDaysAgo(0.2),
+          headBranch: 'main',
+          status: 'completed',
+          conclusion: 'success',
+        },
+      ],
+      publisherArtifacts: { 5001: false, 5002: false },
+    });
+    expect(result.status, result.log).toBe(0);
+    expect(result.outputs).toContain('run-id=5002');
+    expect(result.outputs).toContain(`head-sha=${sourceSha}`);
+    expect(result.log).toContain('Operator-pinned source deploy run');
+    expect(result.calls.some((call) => call.includes('/actions/runs/5001/artifacts'))).toBe(false);
+    expect(result.calls.some((call) => call.includes('/actions/runs/5002/artifacts'))).toBe(true);
+  });
+
+  it('fallisce il walk-back automatico se l\'unico publisher con github-pages e\' fallito', () => {
+    const result = resolve({
+      withCreated: [run(4001, 0.1)],
+      withoutCreated: [],
+      runId: '',
+      sourceArtifactExpired: true,
       publisherRuns: [{
         databaseId: 5001,
-        displayTitle: `Publish Pages build 4001 @ ${sourceSha}`,
+        displayTitle: `Publish Pages build 4001 @ ${String(run(4001, 0.1).head_sha)}`,
         createdAt: isoDaysAgo(0.1),
         headBranch: 'main',
         status: 'completed',
+        conclusion: 'failure',
       }],
       publisherArtifacts: { 5001: false },
     });
-    expect(result.status, result.log).toBe(0);
-    expect(result.outputs).toContain('run-id=5001');
-    expect(result.outputs).toContain(`head-sha=${sourceSha}`);
-    expect(result.log).toContain('Operator-pinned source deploy run');
+    expect(result.status).toBe(1);
+    expect(result.log).toContain('No successful deploy.yml run');
+    expect(result.calls.some((call) => call.includes('/actions/runs/5001/artifacts'))).toBe(false);
+    expect(result.outputs).toBe('');
   });
 
   it('accetta il run publisher esplicito solo se il titolo prova la build sorgente canonica', () => {
@@ -232,7 +273,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
       path: '.github/workflows/deploy-publish.yml',
       event: 'workflow_dispatch',
       status: 'completed',
-      conclusion: 'cancelled',
+      conclusion: 'success',
       head_branch: 'main',
       created_at: isoDaysAgo(0.1),
       display_title: `Publish Pages build 4001 @ ${sourceSha}`,
@@ -248,6 +289,33 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
     expect(result.status, result.log).toBe(0);
     expect(result.outputs).toContain('run-id=5001');
     expect(result.outputs).toContain(`head-sha=${sourceSha}`);
+  });
+
+  it('rifiuta il publisher esplicito fallito anche se il run ha un github-pages artifact', () => {
+    const source = canonicalSourceRun(4001);
+    const sourceSha = String(source.head_sha);
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '5001',
+      pinnedRun: {
+        id: 5001,
+        name: 'Publish to GitHub Pages (deploy + validate)',
+        path: '.github/workflows/deploy-publish.yml',
+        event: 'workflow_dispatch',
+        status: 'completed',
+        conclusion: 'failure',
+        head_branch: 'main',
+        created_at: isoDaysAgo(0.1),
+        display_title: `Publish Pages build 4001 @ ${sourceSha}`,
+      },
+      sourceRun: source,
+      publisherArtifacts: { 5001: false },
+    });
+    expect(result.status).toBe(1);
+    expect(result.log).toContain('is not a successful deploy.yml source or deploy-publish.yml run on main');
+    expect(result.calls.some((call) => call.includes('/artifacts?'))).toBe(false);
+    expect(result.outputs).toBe('');
   });
 
   it('la query porta la finestra created = retention + 1 giorno', () => {

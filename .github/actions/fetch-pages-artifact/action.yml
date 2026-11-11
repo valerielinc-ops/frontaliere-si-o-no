@@ -16,11 +16,11 @@ description: >-
 inputs:
   run-id:
     description: >-
-      Pin either a successful deploy.yml source run or its deploy-publish.yml
-      run on main whose github-pages artifact to download.
+      Pin either a successful deploy.yml source run or its successful
+      deploy-publish.yml run on main whose github-pages artifact to download.
       Leave EMPTY (the normal case) to walk back over the most recent
-      successful deploy.yml runs on main until the matching publisher run has
-      a live artifact.
+      successful deploy.yml runs on main until a matching successful publisher
+      run has a live artifact.
       A pinned run is never walked back from: if its identity or artifact is
       invalid, the step fails, because silently auditing a different run than
       the operator asked for is worse than failing.
@@ -136,6 +136,7 @@ runs:
                 and .head_branch == "main"
                 and .event == "workflow_dispatch"
                 and .status == "completed"
+                and .conclusion == "success"
                 and ((.display_title // "") | test("^Publish Pages build [0-9]+ @ [0-9a-fA-F]{40}$"))
               ' "$PINNED_RUN_JSON" >/dev/null 2>&1; then
             PINNED_SOURCE_ID=$(jq -r '.display_title | capture("^Publish Pages build (?<id>[0-9]+) @ (?<sha>[0-9a-fA-F]{40})$").id' "$PINNED_RUN_JSON")
@@ -247,7 +248,7 @@ runs:
           EXPANDED_CANDS="$WORK/expanded-candidates.tsv"
           cp "$CANDS" "$SOURCE_CANDS"
           if ! gh run list -R "$GH_REPO" --workflow deploy-publish.yml --limit 200 \
-               --json databaseId,displayTitle,createdAt,headBranch,status > "$PUBLISH_RUNS"; then
+               --json databaseId,displayTitle,createdAt,headBranch,status,conclusion > "$PUBLISH_RUNS"; then
             echo "::error::gh run list failed while resolving deploy-publish.yml runs for Pages artifacts."
             exit 1
           fi
@@ -260,7 +261,7 @@ runs:
             [ -n "$source_id" ] || continue
             printf '%s\t%s\t%s\n' "$source_id" "$source_created" "$source_sha" >> "$EXPANDED_CANDS"
             jq -r --arg source "$source_id" --arg sha "$source_sha" '
-              [.[] | select(.headBranch == "main" and .status == "completed" and
+              [.[] | select(.headBranch == "main" and .status == "completed" and .conclusion == "success" and
                 .displayTitle == ("Publish Pages build " + $source + " @ " + $sha))]
               | sort_by(.createdAt) | reverse
               | .[] | [(.databaseId | tostring), .createdAt, $sha] | @tsv
