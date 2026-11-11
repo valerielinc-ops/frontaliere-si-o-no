@@ -127,6 +127,9 @@ export function validateItShardGroupPlan(plan, { sourceRunId, sourceSha, buildId
   if (!RUN_ID_RE.test(text(plan.buildId))) errors.push('buildId is missing or malformed');
   const required = Array.isArray(plan.requiredSections) ? plan.requiredSections : [];
   if (required.length === 0) errors.push('requiredSections is empty or missing');
+  if (required.some((section) => typeof section !== 'string' || !text(section))) {
+    errors.push('requiredSections contains an invalid section key');
+  }
   if (new Set(required).size !== required.length) errors.push('requiredSections contains duplicate sections');
   if (!Array.isArray(plan.groups)) errors.push('groups is not an array');
   else {

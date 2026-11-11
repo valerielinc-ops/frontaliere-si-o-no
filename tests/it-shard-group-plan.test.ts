@@ -99,6 +99,17 @@ describe('IT section shard group plan', () => {
       groups: IT_SHARD_GROUP_IDS.map((id) => ({ id, sections: [], files: 0 })),
     };
     expect(validateItShardGroupPlan(emptyPlan).errors).toContain('requiredSections is empty or missing');
+
+    const malformedPlan = {
+      ...emptyPlan,
+      requiredSections: [false],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? [false] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    };
+    expect(validateItShardGroupPlan(malformedPlan).errors).toContain('requiredSections contains an invalid section key');
   });
 
   it('fails a publisher group with an empty assignment before attempting a shard push', () => {
@@ -225,7 +236,7 @@ describe('IT section shard group plan', () => {
       }
       expect(failure).toBeDefined();
       expect(failure.status, String(failure.stderr)).toBe(1);
-      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('cannot read the required IT section set');
+      expect(`${String(failure.stdout)}${String(failure.stderr)}`).toContain('cannot read required IT sections from the publish plan');
       expect(`${String(failure.stdout)}${String(failure.stderr)}`).not.toContain('[it-publish] root extracted');
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });

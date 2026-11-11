@@ -16,7 +16,6 @@ const cdnSteps = publish.jobs['publish-it-cdn'].steps as Array<Record<string, an
 const groupSteps = publish.jobs['push-it-shard-groups'].steps as Array<Record<string, any>>;
 const finalizeSteps = publish.jobs['finalize-it-publish'].steps as Array<Record<string, any>>;
 const namedStep = (steps: Array<Record<string, any>>, name: string) => steps.find((step) => step.name === name);
-const bashSupportsMapfile = spawnSync('bash', ['-c', 'type mapfile'], { encoding: 'utf8' }).status === 0;
 
 const publisherEntrypoints = [
   'scripts/ci/list-live-shard-sections.mjs',
@@ -118,11 +117,14 @@ describe('deploy IT build-to-publish handoff', () => {
 
     const assembler = readFileSync(resolve(root, 'scripts/ci/assemble-it-publish-root.sh'), 'utf8');
     expect(assembler).toContain('--validate-plan "$plan_dir/it-shard-group-plan.json"');
+    expect(assembler).toContain('required_sections_output="$(jq -er');
+    expect(assembler).toContain('cannot read required IT sections from the publish plan');
+    expect(assembler).not.toContain('mapfile -t required_sections < <(jq');
     expect(assembler).toContain('missing the required ok-marker for $section');
     expect(assembler).toContain('missing the required section manifest for $section');
   });
 
-  it.skipIf(!bashSupportsMapfile)('fails before the success marker when jq cannot read required sections', () => {
+  it('fails before the success marker when jq cannot read required sections', () => {
     const tempRoot = mkdtempSync(resolve(tmpdir(), 'it-publish-jq-failure-'));
     const repo = resolve(tempRoot, 'repo');
     const runnerTemp = resolve(tempRoot, 'runner-temp');
