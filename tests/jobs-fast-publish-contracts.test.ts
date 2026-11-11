@@ -88,4 +88,20 @@ describe("jobs fast-publish HTML asset contract", () => {
       "filterFastLaneHubInventory(cantonInventory, visibleIds)",
     );
   });
+
+  it("renders into the fast publisher's isolated staging directory", () => {
+    const renderer = readFileSync(
+      new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),
+      "utf8",
+    );
+    const fastPublisher = readFileSync(
+      new URL("../scripts/publish-jobs-fast.mjs", import.meta.url),
+      "utf8",
+    );
+
+    expect(renderer).toContain("fastLaneDistDir?: string;");
+    expect(renderer).toContain("!options.fastLaneDistDir");
+    expect(renderer).toContain("np.resolve(rootDir, options.fastLaneDistDir)");
+    expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
+  });
 });
