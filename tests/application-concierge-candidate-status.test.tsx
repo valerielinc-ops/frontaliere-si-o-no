@@ -208,10 +208,22 @@ describe('the platform decision after 12 hours (owner decision 2026-11-11)', () 
     expect(accepted.getByText(translations['jobBoard.concierge.autoAccepted'])).toBeInTheDocument();
   });
 
-  it('shows no deadline while the proposal waits on the platform or the candidate cannot accept yet', () => {
+  it('hides proposals with pending or missing verification and shows no deadline without consent', () => {
     const autoAcceptAt = new Date(Date.now() + 60 * 60 * 1000).toISOString();
-    const verifying = cardFor({ ...service, proposals: [{ ...undecided, autoAcceptAt, eligibilityStatus: 'needs_verification' }] });
-    expect(verifying.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+    const missingEligibility: ApplicationConciergeProposal = { ...undecided, autoAcceptAt };
+    delete missingEligibility.eligibilityStatus;
+    for (const proposalRow of [
+      { ...undecided, autoAcceptAt, eligibilityStatus: 'needs_verification' },
+      missingEligibility,
+    ]) {
+      cleanup();
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+      render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{
+        ...service, proposals: [proposalRow],
+      }} locationSearch="" />);
+      expect(screen.queryByRole('heading', { name: 'Posizione test' })).not.toBeInTheDocument();
+      expect(screen.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+    }
     cleanup();
     const noConsent = cardFor({ ...service, hasConsent: false, proposals: [{ ...undecided, autoAcceptAt }] });
     expect(noConsent.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();

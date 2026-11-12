@@ -13,6 +13,7 @@ function proposal(proposalId: string, status: string): ApplicationConciergePropo
     companyName: 'Example AG',
     jobTitle: 'Application Manager',
     status,
+    ...(status === 'proposed' ? { eligibilityStatus: 'compatible' as const } : {}),
   };
 }
 
