@@ -1,0 +1,23 @@
+{
+  "companyKey": "regimo-ch-regimo-ch",
+  "companyName": "Regimo AG",
+  "companyHost": "regimo-basel.ch",
+  "verifiedEmployerDomain": "regimo.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://regimo-basel.ch/stellen/stellenbeschrieb/praktikumsstelle-in-der-immobilien-bewirtschaftung"
+  ],
+  "detailTemplate": "/stellen/stellenbeschrieb/praktikumsstelle-in-der-immobilien-bewirtschaftung",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Immobilienbewirtschafter*in (100%)"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:47:08.803Z",
+  "candidateKey": "regimo@basel"
+}

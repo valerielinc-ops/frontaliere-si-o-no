@@ -142,6 +142,58 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('scopes shared locale and concierge service roots to their owning tests', () => {
+    const locale = 'services/locales/en-core.ts';
+    const concierge = 'services/applicationConciergeService.ts';
+    const root = fixture({
+      [locale]: 'export const translations = {} as const;\n',
+      [concierge]: 'export const fetchApplicationConciergeServices = () => [];\n',
+      'services/i18n.ts': "import './locales/en-core'; export const translate = () => '';\n",
+      'components/pages/UserProfile.tsx': "import { fetchApplicationConciergeServices } from '../../services/applicationConciergeService'; export const profile = fetchApplicationConciergeServices;\n",
+      'components/community/JobBoard.tsx': "import { profile } from '../pages/UserProfile'; export const board = profile;\n",
+      'services/router.ts': "import { board } from '../components/community/JobBoard'; export const route = board;\n",
+      'components/community/AdBlockGate.tsx': "import '../../services/i18n'; import '../../services/router'; export const gate = true;\n",
+      'tests/i18n.test.ts': "import '../services/i18n'; export const localeContract = true;\n",
+      'tests/i18n-completeness.test.ts': "import { readFileSync } from 'node:fs'; export const localeKeys = readFileSync('../services/locales/en-core.ts', 'utf8');\n",
+      'tests/application-concierge-contract.test.ts': "export const conciergeCopy = true;\n",
+      'tests/assisted-application-decided-answers-review.test.ts': "export const assistedReviewCopy = true;\n",
+      'tests/application-intent-consent-ui.test.ts': "export const intentConsentCopy = true;\n",
+      'tests/company-alert.test.ts': "export const companyAlertCopy = true;\n",
+      'tests/employer-insights-surface.test.ts': "export const employerCopy = true;\n",
+      'tests/jobgate-experiment.test.ts': "export const jobGateCopy = true;\n",
+      'tests/newsletter-title-neutrality.test.ts': "export const newsletterCopy = true;\n",
+      'tests/signup-prompt-funnel.test.ts': "export const signupCopy = true;\n",
+      'tests/telegram-channel-cta.test.tsx': "export const telegramCopy = true;\n",
+      'tests/application-concierge-service.test.ts': "import '../services/applicationConciergeService'; import '../services/i18n'; export const concierge = true;\n",
+      'tests/userProfile.test.ts': "import '../components/pages/UserProfile'; export const profile = true;\n",
+      'tests/AdBlockGate.test.tsx': "import '../components/community/AdBlockGate'; export const unrelatedUi = true;\n",
+    });
+
+    const localeChange = select(root, [locale]);
+    expect(localeChange.status, localeChange.stderr || localeChange.stdout).toBe(0);
+    expect(localeChange.stdout).toContain('tests/i18n.test.ts');
+    expect(localeChange.stdout).toContain('tests/application-concierge-service.test.ts');
+    for (const test of [
+      'tests/i18n-completeness.test.ts',
+      'tests/application-concierge-contract.test.ts',
+      'tests/assisted-application-decided-answers-review.test.ts',
+      'tests/application-intent-consent-ui.test.ts',
+      'tests/company-alert.test.ts',
+      'tests/employer-insights-surface.test.ts',
+      'tests/jobgate-experiment.test.ts',
+      'tests/newsletter-title-neutrality.test.ts',
+      'tests/signup-prompt-funnel.test.ts',
+      'tests/telegram-channel-cta.test.tsx',
+    ]) expect(localeChange.stdout).toContain(test);
+    expect(localeChange.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+
+    const conciergeChange = select(root, [concierge]);
+    expect(conciergeChange.status, conciergeChange.stderr || conciergeChange.stdout).toBe(0);
+    expect(conciergeChange.stdout).toContain('tests/application-concierge-service.test.ts');
+    expect(conciergeChange.stdout).toContain('tests/userProfile.test.ts');
+    expect(conciergeChange.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+  });
+
   it('selects the trusted mid-plugin equivalence suite when the shared flag facade changes', () => {
     const source = 'build-plugins/shared/midPluginFlags.ts';
     const trusted = 'tests/mid-plugins-equivalence.test.ts';

@@ -1,0 +1,24 @@
+{
+  "companyKey": "gruner-ch",
+  "companyName": "Gruner AG",
+  "companyHost": "gruner.ch",
+  "verifiedEmployerDomain": "gruner.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.gruner.ch/fr/carriere/postes-vacants"
+  ],
+  "detailTemplate": "/fr/carriere/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Expérience Professionnelle",
+    "Questions fréquemment posées"
+  ],
+  "canton": "BS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-12T13:44:18.373Z",
+  "candidateKey": "gruner@basel"
+}

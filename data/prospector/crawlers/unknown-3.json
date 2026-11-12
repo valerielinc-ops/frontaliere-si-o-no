@@ -1,0 +1,22 @@
+{
+  "companyKey": "unknown-3",
+  "companyName": "83BAR",
+  "companyHost": "83bar.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://83bar.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Join our Talent Pool!",
+    "Performance Media Buyer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:20.523Z",
+  "candidateKey": "83bar@applytojob.com"
+}
