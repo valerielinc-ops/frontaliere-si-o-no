@@ -4,27 +4,27 @@
   "generatorSha256": "ba16e369b92e237cf6a1ffc9dd3b85b58a980ca9358738cd0756c89b9e14e65b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "b6fa929444b3159b61b64b6e3932f73f5a09e84e",
-  "sourceCommitVerified": true,
+  "sourceCommit": "c059d926588f2d4609a9377cc993ebd7591ab457",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "ba16e369b92e237cf6a1ffc9dd3b85b58a980ca9358738cd0756c89b9e14e65b",
     "sourceRef": "main",
-    "sourceCommit": "b6fa929444b3159b61b64b6e3932f73f5a09e84e"
+    "sourceCommit": "c059d926588f2d4609a9377cc993ebd7591ab457"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 701,
+  "crawlerCount": 703,
   "crawlerRosterCardinality": {
-    "sourceCommit": "b6fa929444b3159b61b64b6e3932f73f5a09e84e",
+    "sourceCommit": "c059d926588f2d4609a9377cc993ebd7591ab457",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 701
+    "crawlerCount": 703
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:404e97da9ef6c3b20ed927ed3c6d7a612cfc78153592713d392714ddd95ea775",
+    "rosterDigest": "sha256:48807f7c3b6ef5ff11a5afb5f59e1323fe8d59c28e2d778611edb89bc38ed418",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -121,6 +121,7 @@
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
     "scripts/update-avantgarten-ch-jobs.mjs",
+    "scripts/update-averecura-holding-ag-jobs.mjs",
     "scripts/update-axa-jobs.mjs",
     "scripts/update-az-systems-ch-jobs.mjs",
     "scripts/update-bachem-jobs.mjs",
@@ -128,6 +129,7 @@
     "scripts/update-badrutts-palace-jobs.mjs",
     "scripts/update-balgrist-jobs.mjs",
     "scripts/update-baloise-jobs.mjs",
+    "scripts/update-bankslm-jobs.mjs",
     "scripts/update-baronie-jobs.mjs",
     "scripts/update-barry-callebaut-jobs.mjs",
     "scripts/update-bb-trading-werbeartikel-ag-jobs.mjs",
@@ -1291,8 +1293,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "3d4fe1e6ef70e2be1aea4b80b09314f0af3db1cce08d6e0aeaabb087a5396d70",
-      "artifactSha256": "03d830f702f2a4cdcc1c5760e5b4eca97e544247904cb269fe39ca4828db88ba",
+      "sourceSha256": "7ddc6b2103cf320715307e2dfea7a1306f396956339604d3caf1ef15f6a3b3fa",
+      "artifactSha256": "952ec73e85313ed167c8623f572137838e5cee23db40b6c4499889de03082fe8",
       "generatorSha256": "ba16e369b92e237cf6a1ffc9dd3b85b58a980ca9358738cd0756c89b9e14e65b",
       "members": [
         "ksgr",
@@ -1324,14 +1326,15 @@
         "buersten-technik",
         "matterhorn-gotthard-bahn",
         "deillon-delley-architectes",
-        "mueller-frauenfeld"
+        "mueller-frauenfeld",
+        "bankslm"
       ]
     },
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "a5e63ca4c2c2c858bf3e32843a0ad55610b904f3f4b1f2a99b134efd0a0ba694",
-      "artifactSha256": "88becc51d330adc33a94116006579bb475fc80910b637b24dcefd875e232e365",
+      "sourceSha256": "12327844b932f656e6cfb049cfc575632109a2389d7aa6b1fd7c349c29d1b6c6",
+      "artifactSha256": "f501ffc235f86c766114e72006b862023acd7ed3e8817a67d6fc637583e2b4a0",
       "generatorSha256": "ba16e369b92e237cf6a1ffc9dd3b85b58a980ca9358738cd0756c89b9e14e65b",
       "members": [
         "siemens-healthineers",
@@ -1363,7 +1366,8 @@
         "aldi-suisse",
         "badrutts-palace",
         "asile-des-aveugles",
-        "technic-emplois"
+        "technic-emplois",
+        "averecura-holding-ag"
       ]
     },
     {
