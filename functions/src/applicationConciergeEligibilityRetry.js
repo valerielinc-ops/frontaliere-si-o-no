@@ -5,11 +5,12 @@ import {
   mergeConciergeMatchingRuntime,
   writeConciergeMatchingRuntime,
 } from './applicationConciergeRuntime.js';
+import { CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON, CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS } from './applicationConciergeEligibility.js';
 
 const DELAYS = [60 * 60_000, 3 * 60 * 60_000, 12 * 60 * 60_000, 3 * 86400_000];
 const DEFERRED_RETRY_DELAY_MS = 15 * 60_000;
 const FAILURE_CAUSES = new Set(['not_configured', 'rate_limited', 'timeout', 'auth', 'network', 'provider_http', 'provider_error']);
-const RETRY_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required', 'unverified']);
+const RETRY_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required', 'unverified', CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS]);
 /**
  * Persisted retry reasons are a versioned contract. Reasons marked `current`
  * have a producer in this source tree. `legacy` keeps old rows readable after
@@ -47,9 +48,10 @@ export const ELIGIBILITY_RETRY_REASON_PROVENANCE = Object.freeze({
   requirements_over_limit: 'current:applicationConciergeEligibility',
   requirements_response_invalid: 'current:applicationConciergeEligibility',
   retry_backoff: 'internal:transient retry state',
+  [CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON]: 'current:applicationConciergeEligibility',
 });
 const RETRY_REASONS = new Set(Object.keys(ELIGIBILITY_RETRY_REASON_PROVENANCE));
-const TERMINAL_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required']);
+const TERMINAL_STATUSES = new Set(['compatible', 'incompatible', 'clarification_required', CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS]);
 export const MAX_ELIGIBILITY_RETRIES_PER_RUN = 8;
 export const MAX_ELIGIBILITY_RETRY_ATTEMPTS = DELAYS.length + 1;
 export const MAX_ELIGIBILITY_DEFERRALS = 8;
@@ -254,7 +256,7 @@ export async function recordEligibilityRetry({ db, serviceRef, url, result, cont
   });
 }
 
-export async function eligibilityRetrySummary(serviceRef) {
+export async function eligibilityRetrySummary(serviceRef, nowMs = Date.now()) {
   const eligibility = serviceRef.collection('eligibility');
   const active = eligibility.where('retryAt', '>', 0);
   const exhausted = eligibility.where('retryState', '==', 'exhausted');
@@ -266,7 +268,10 @@ export async function eligibilityRetrySummary(serviceRef) {
   const [retryCount, exhaustedCount, first, statusValues, reasonValues, serviceSnapshot, runtimeSnapshot] = await Promise.all([
     count(active),
     count(exhausted),
-    active.orderBy('retryAt').limit(1).get(),
+    // Past-due rows beyond this run's cap cannot be retried in this pass.
+    // Keep them in counts, but do not let their old timestamp schedule another
+    // 15-minute run; the lifecycle's hourly retry cadence drains the backlog.
+    eligibility.where('retryAt', '>', nowMs).orderBy('retryAt').limit(1).get(),
     Promise.all(statuses.map(async status => [status, await count(eligibility.where('lastStatus', '==', status))])),
     Promise.all(reasons.map(async reason => [reason, await count(eligibility.where('lastReason', '==', reason))])),
     serviceRef.get(),

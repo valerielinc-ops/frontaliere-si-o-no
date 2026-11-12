@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
 import { withdrawAssistedApplication } from '../functions/src/assistedApplicationWithdrawal.js';
 import {
   conciergeMatchingRecoveryContext,
@@ -31,12 +32,16 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets
 vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({
   isApplicationConciergeRenewalEnabledFor: renewalRollout.isEnabledFor,
 }));
-vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicationConciergeMatching: vi.fn() }));
+vi.mock('../functions/src/applicationConciergeMatching.js', () => ({
+  runApplicationConciergeMatching: vi.fn(),
+  proposalDocumentId: vi.fn(() => 'job-test'),
+  rankingFeaturesForJob: vi.fn(() => ({})),
+}));
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
 vi.mock('../functions/src/applicationConciergePaymentReminders.js', () => ({ paymentReminderUrl: (uid: string) => `https://example.test/unsubscribe/?uid=${uid}` }));
 const { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
-const { buildConciergeRenewalEmail } = await import('../functions/src/applicationConciergeLifecycleEmails.js');
+const { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } = await import('../functions/src/applicationConciergeLifecycleEmails.js');
 
 const DAY = 24 * 60 * 60 * 1000;
 const now = Date.now();
@@ -79,6 +84,12 @@ function active(patch = {}) {
 const deliveries: string[] = [];
 const trackingTargets: Array<{ key: string; trackingTarget?: any }> = [];
 const passThroughJobCards = async (proposals: any[]) => proposals;
+const eligibleProposal = (patch: Record<string, unknown> = {}) => ({
+  status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+  eligibilityCvStorageKey: 'private/cv.pdf', eligibilityFactsRevision: 0,
+  eligibilityAcceptableSince: new Date(now), proposalNoticeSentAt: null,
+  ...patch,
+});
 const send = vi.fn(async ({ recordRef, key, build, eligible, trackingTarget }: any) => db.runTransaction(async (transaction: any) => {
   const current = (await transaction.get(recordRef)).data();
   if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
@@ -90,7 +101,12 @@ const send = vi.fn(async ({ recordRef, key, build, eligible, trackingTarget }: a
   return { ok: true };
 }));
 const match = vi.fn(async ({ serviceId }: any) => {
-  await ref(`application_concierge_services/${serviceId}/proposals/new-job`).set({ status: 'proposed', eligibilityStatus: 'compatible', jobTitle: 'Commerciale', companyName: 'Example' });
+  const proposalRef = ref(`application_concierge_services/${serviceId}/proposals/new-job`);
+  const existing = (await proposalRef.get()).data() || null;
+  if (!existing || existing.status === 'retracted') {
+    await proposalRef.set(eligibleProposal({ jobTitle: 'Commerciale', companyName: 'Example',
+      ...(existing?.status === 'retracted' ? { reactivatedAt: new Date(now) } : {}) }));
+  }
   await ref(`application_concierge_services/${serviceId}`).set({ matchingCompletedAt: new Date(now), matchingStatus: 'complete', matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION });
   return { status: 'complete' };
 });
@@ -218,23 +234,36 @@ describe('concierge refresh and notification lifecycle', () => {
     records.set('application_concierge_services/service', active({
       pendingProposalNotice: { key: 'new_proposals_card', proposalIds: ['card-proposal'] },
     }));
-    records.set('application_concierge_services/service/proposals/card-proposal', proposal);
+    records.set('application_concierge_services/service/proposals/card-proposal', eligibleProposal(proposal));
     const companyLogo = 'https://cdn.frontaliereticino.ch/images/brands/stadt-zuerich.png';
     const enrichJobCards = vi.fn(async (items: any[]) => items.map((item) => ({ ...item, companyLogo })));
     const messages: any[] = [];
-    const buildAndSend = vi.fn(async ({ recordRef, build, eligible }: any) => {
-      const current = (await recordRef.get()).data();
-      if (eligible && !await eligible(current)) return { ok: false, reason: 'ineligible' };
+    const buildAndSend = vi.fn(async ({ recordRef, build, eligible }: any) => db.runTransaction(async (transaction: any) => {
+      const current = (await transaction.get(recordRef)).data();
+      if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
       messages.push(await build(current, {}));
       return { ok: true };
-    });
+    }));
 
     const result = await sweep({ enqueueOnly: true, send: buildAndSend, enrichJobCards });
 
     expect(result.newJobEmails).toBe(1);
-    expect(enrichJobCards).toHaveBeenCalledWith([proposal]);
+    expect(enrichJobCards).toHaveBeenCalledWith([expect.objectContaining(proposal)]);
     expect(messages).toHaveLength(1);
     expect(messages[0].html).toContain(`<img src="${companyLogo}"`);
+  });
+  it('rechecks acceptability before retrying an announcement and drops stale pending notices', async () => {
+    records.set('application_concierge_services/service', active({
+      eligibilityFactsRevision: 1,
+      pendingProposalNotice: { key: 'new_proposals_stale', proposalIds: ['stale-proposal'] },
+    }));
+    records.set('application_concierge_services/service/proposals/stale-proposal', eligibleProposal({ eligibilityFactsRevision: 0 }));
+    const sendNotice = vi.fn(async () => ({ ok: true }));
+
+    await sweep({ enqueueOnly: true, send: sendNotice });
+
+    expect(sendNotice).not.toHaveBeenCalled();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
   });
   it.each([{ acceptedPositionsCount: 10 }, { expiresAt: now }])('does not refresh beyond the cap or expiry: %j', async patch => {
     records.set('application_concierge_services/service', active(patch));
@@ -244,7 +273,9 @@ describe('concierge refresh and notification lifecycle', () => {
   });
   it('does not notify jobs that were already present before the refresh', async () => {
     records.set('application_concierge_services/service', active());
-    records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed' });
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal({
+      eligibilityAcceptableSince: new Date(now - DAY), proposalNoticeSentAt: new Date(now - DAY),
+    }));
     await sweep();
     expect(deliveries).toHaveLength(0);
   });
@@ -427,7 +458,7 @@ describe('concierge refresh and notification lifecycle', () => {
   });
   it('retries a failed notice without repeating the matching run', async () => {
     records.set('application_concierge_services/service', active({ matchingCompletedAt: now, pendingProposalNotice: { key: 'new_proposals_retry', proposalIds: ['new-job'] } }));
-    records.set('application_concierge_services/service/proposals/new-job', { status: 'proposed', jobTitle: 'Example', companyName: 'Example' });
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal({ jobTitle: 'Example', companyName: 'Example' }));
     const failure = vi.fn(async () => ({ ok: false, reason: 'provider_failed' }));
     await sweep({ send: failure });
     expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
@@ -435,6 +466,45 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(match).not.toHaveBeenCalled();
     expect(deliveries).toEqual(['new_proposals_retry']);
     expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+  });
+  it('rechecks acceptability before retrying a failed announcement', async () => {
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      pendingProposalNotice: { key: 'new_proposals_retry_stale', proposalIds: ['new-job'] } }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal({
+      eligibilityFactsDependency: { languages: true, answers: false }, eligibilityLanguagesRevision: 0,
+    }));
+    const failedNotice = vi.fn(async () => ({ ok: false, reason: 'provider_failed' }));
+    await sweep({ send: failedNotice });
+    expect(failedNotice).toHaveBeenCalledTimes(1);
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeTruthy();
+
+    await ref('application_concierge_services/service').set({ eligibilityLanguagesRevision: 1 });
+    await sweep({ send: failedNotice });
+
+    expect(failedNotice).toHaveBeenCalledTimes(1);
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+  });
+  it('revalidates every proposal inside the announcement claim before building the email', async () => {
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      pendingProposalNotice: { key: 'new_proposals_race', proposalIds: ['still-eligible', 'stale-at-claim'] } }));
+    records.set('application_concierge_services/service/proposals/still-eligible', eligibleProposal());
+    records.set('application_concierge_services/service/proposals/stale-at-claim', eligibleProposal());
+    const build = vi.fn(async (buildMessage: any, current: any, options: any) => buildMessage(current, options));
+    const claimNotice = vi.fn(async ({ recordRef, eligible, build: buildMessage }: any) => {
+      await ref('application_concierge_services/service/proposals/stale-at-claim').set({ eligibilityStatus: 'unverified' });
+      const current = (await recordRef.get()).data();
+      const transaction = { get: (document: any) => document.get() };
+      if (!await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
+      await build(buildMessage, current, {});
+      return { ok: true };
+    });
+
+    await sweep({ enqueueOnly: true, send: claimNotice });
+
+    expect(claimNotice).toHaveBeenCalledTimes(1);
+    expect(build).not.toHaveBeenCalled();
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice?.proposalIds)
+      .toEqual(['still-eligible']);
   });
   it('sends the current daily renewal once, respects opt-out and stops after payment or deadline', async () => {
     records.set('application_concierge_services/service', active({ expiresAt: now - DAY }));
@@ -483,6 +553,19 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(finalReminder.subject).toMatch(/25\s?%/);
     expect(() => buildConciergeRenewalEmail(active({ expiresAt: now - 3 * DAY }), 'service', { nowMs: now, unsubscribeUrl: 'https://example.test/unsubscribe/' })).toThrow('concierge_renewal_offer_expired');
   });
+  it.each([
+    ['it', 'di nuovo disponibile'],
+    ['en', 'available again'],
+    ['de', 'wieder verfügbar'],
+    ['fr', 'de nouveau disponible'],
+  ])('announces a reactivated proposal as available again in %s', (locale, phrase) => {
+    const email = buildConciergeNewJobsEmail(active({ locale }), 'service', [
+      { jobTitle: 'Example', companyName: 'Example SA', reactivatedAt: new Date(now) },
+    ]);
+    expect(`${email.subject}\n${email.text}`).toContain(phrase);
+    expect(email.subject.toLowerCase()).not.toContain('new opportunity');
+    expect(email.text).toMatch(/12[- ]hour|12 ore|12 Stunden|12 heures/);
+  });
 });
 
 const WITHDRAWAL_NOW = now;
@@ -520,7 +603,7 @@ async function realWithdrawal(servicePatch: Record<string, any> = {}) {
 function refreshStubs() {
   const match = vi.fn(async ({ db, serviceId }: any) => {
     const ref = db.collection('application_concierge_services').doc(serviceId);
-    await ref.collection('proposals').doc('new-compatible').set({ status: 'proposed', eligibilityStatus: 'compatible' });
+    await ref.collection('proposals').doc('new-compatible').set(eligibleProposal({ eligibilityFactsRevision: 0 }));
     await ref.collection('proposals').doc('new-unverified').set({ status: 'proposed', eligibilityStatus: 'unverified' });
     await ref.collection('proposals').doc('new-declined').set({ status: 'declined', eligibilityStatus: 'compatible' });
     return { status: 'complete' };
@@ -531,7 +614,7 @@ function refreshStubs() {
       recordRef.get(), recordRef.collection('runtime').doc('matching').get(),
     ]);
     const current = mergeConciergeMatchingRuntime(parentSnapshot.data() || {}, runtimeSnapshot.data() || null);
-    if (eligible && !(await eligible(current))) return { ok: false, reason: 'ineligible' };
+    if (eligible && !(await eligible(current, { get: (document: any) => document.get() }))) return { ok: false, reason: 'ineligible' };
     notices.push({ key, proposalIds: [...(current.pendingProposalNotice?.proposalIds || [])] });
     return { ok: true };
   });
@@ -610,8 +693,11 @@ describe('candidate withdrawal → trigger → idempotent replenishment worker',
     await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
       .collection('proposals').doc('legacy-recovered').set({ status: 'retracted', eligibilityStatus: 'unverified' });
     const match = vi.fn(async ({ db }: any) => {
-      await db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
-        .collection('proposals').doc('legacy-recovered').set({ status: 'proposed', eligibilityStatus: 'compatible' }, { merge: true });
+      const proposalRef = db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+        .collection('proposals').doc('legacy-recovered');
+      const existing = (await proposalRef.get()).data() || {};
+      await proposalRef.set(eligibleProposal({ ...existing, status: 'proposed', eligibilityStatus: 'compatible',
+        ...(existing.status === 'retracted' ? { reactivatedAt: new Date(WITHDRAWAL_NOW) } : {}) }), { merge: true });
       return { status: 'complete' };
     });
     const { send, notices } = refreshStubs();

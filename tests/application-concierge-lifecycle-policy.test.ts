@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { CONCIERGE_DAY_MS as DAY, CONCIERGE_FRESH_PENDING_INTERVAL_MS, CONCIERGE_RETRY_INTERVAL_MS,
   CONCIERGE_MATCHING_VERSION_SETTLE_MS, CONCIERGE_STALE_RECOVERY_BACKOFF_MS, CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+  conciergeAutoAcceptAt, conciergeAutoAcceptDue, conciergeProposalDecisionOpenedAt,
   conciergeMatchingRecoveryContext, conciergeMatchingVersionRefreshReady, conciergeRefreshDue, conciergeRenewalOffer,
   conciergeStaleRecoveryExhausted } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
@@ -129,5 +130,24 @@ describe('three-day renewal discount', () => {
   it('stops reminders and offers after a renewal or refund', () => {
     expect(conciergeRenewalOffer(active({ expiresAt: now, renewedByServiceId: 'renewal-example' }), now)).toBeNull();
     expect(conciergeRenewalOffer(active({ expiresAt: now, paymentStatus: 'refunded' }), now)).toBeNull();
+  });
+});
+
+describe('proposal decision window', () => {
+  it('starts after both the proposal becomes acceptable and its announcement is sent', () => {
+    const eligibleAt = now - 2 * DAY;
+    const announcedAt = now - 3 * 60 * 60 * 1000;
+    const proposal = { status: 'proposed', proposedAt: now - 5 * DAY,
+      eligibilityAcceptableSince: eligibleAt, proposalNoticeSentAt: announcedAt };
+    expect(conciergeProposalDecisionOpenedAt(proposal)).toBe(announcedAt);
+    expect(conciergeAutoAcceptAt(proposal)).toBe(announcedAt + 12 * 60 * 60 * 1000);
+    expect(conciergeAutoAcceptDue(proposal, announcedAt + 12 * 60 * 60 * 1000 - 1)).toBe(false);
+    expect(conciergeAutoAcceptDue(proposal, announcedAt + 12 * 60 * 60 * 1000)).toBe(true);
+  });
+
+  it('keeps the timer paused when eligibility or announcement time is unknown', () => {
+    expect(conciergeAutoAcceptAt({ status: 'proposed', eligibilityAcceptableSince: now })).toBe(0);
+    expect(conciergeAutoAcceptAt({ status: 'proposed', proposalNoticeSentAt: now })).toBe(0);
+    expect(conciergeAutoAcceptAt({ status: 'retracted', eligibilityAcceptableSince: now, proposalNoticeSentAt: now })).toBe(0);
   });
 });

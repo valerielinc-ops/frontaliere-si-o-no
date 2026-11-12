@@ -7,7 +7,9 @@
  * accepts every position before an assisted application child is created.
  */
 
-import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSION,
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON, CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS,
+  normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, eligibilityRetryIsDue, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import {
@@ -1297,9 +1299,19 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const retryScanContexts = new Map(rankedWork.map(({ job, url }) => {
       const retry = retryRowsByUrl.get(url)?.data() || {};
       const dependency = retry.candidateFactsDependency || {};
-      const candidateFactsDependent = dependency.languages === true || dependency.answers === true
+      const proposal = existingData.find(data => data.status === 'proposed' && data.jobUrl === url) || null;
+      const proposalDependency = proposal?.eligibilityFactsDependency || {};
+      const answersDependent = dependency.answers === true || proposalDependency.answers === true
+        || Boolean(proposal?.candidateAnsweredAt);
+      const candidateFactsDependent = dependency.languages === true || answersDependent
+        || proposalDependency.languages === true
         || legacyFactsDependentReasons.has(retry.lastReason);
-      return [url, candidateFactsDependent ? eligibilityContext : retryBudgetContext];
+      const rawAnswerRevision = Number(proposal?.candidateAnswersRevision);
+      const candidateAnswerRevision = answersDependent
+        ? (Number.isSafeInteger(rawAnswerRevision) && rawAnswerRevision >= 0 ? rawAnswerRevision : 0)
+        : null;
+      const context = candidateFactsDependent ? eligibilityContext : retryBudgetContext;
+      return [url, candidateAnswerRevision === null ? context : `${context}|proposal-answers:${candidateAnswerRevision}`];
     }));
     const retryJobContexts = new Map(rankedWork.map(({ job, url }) =>
       [url, eligibilityRetryContext(retryScanContexts.get(url) || retryBudgetContext, job)]));
@@ -1433,15 +1445,25 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           && Array.isArray(checks.get(candidate.url)?.questions)
           && checks.get(candidate.url).questions.some(question => question?.required === true))))
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
-    const eligibilityFields = (result = { status: 'unverified' }) => ({
-      eligibilityStatus: result.status,
-      eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
-      eligibilityFactsRevision,
-      eligibilityFingerprint: result.fingerprint || null,
-      eligibilityCacheId: result.cacheId || null,
-      eligibilityCvStorageKey: service.cvStorageKey || null,
-      eligibilityCheckedAt: Timestamp.now(),
-    });
+    const eligibilityFields = (result = { status: 'unverified' }, proposal = {}) => {
+      const dependency = result.candidateFactsDependency;
+      return {
+        eligibilityStatus: result.status,
+        eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityFactsRevision,
+        ...(dependency && typeof dependency === 'object'
+          && typeof dependency.languages === 'boolean' && typeof dependency.answers === 'boolean'
+          ? { eligibilityFactsDependency: { languages: dependency.languages, answers: dependency.answers } } : {}),
+        eligibilityLanguagesRevision: Number.isSafeInteger(Number(service.eligibilityLanguagesRevision))
+          && Number(service.eligibilityLanguagesRevision) >= 0 ? Number(service.eligibilityLanguagesRevision) : 0,
+        eligibilityAnswersRevision: Number.isSafeInteger(Number(proposal.candidateAnswersRevision))
+          && Number(proposal.candidateAnswersRevision) >= 0 ? Number(proposal.candidateAnswersRevision) : 0,
+        eligibilityFingerprint: result.fingerprint || null,
+        eligibilityCacheId: result.cacheId || null,
+        eligibilityCvStorageKey: service.cvStorageKey || null,
+        eligibilityCheckedAt: Timestamp.now(),
+      };
+    };
     let refreshedProposals = 0;
     let retractedProposals = 0;
     let stallReleaseAt = 0;
@@ -1468,7 +1490,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           serviceRef,
           proposalRef,
           {
-            ...eligibilityFields(result),
+            ...eligibilityFields(result, data),
             ...(data.eligibilityStalledAt != null ? { eligibilityStalledAt: null, eligibilityStallReason: null } : {}),
             matchScore: rescored.score,
             matchRankingScore: rescored.rankScore ?? rescored.score,
@@ -1484,15 +1506,17 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         );
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
-        if (jobClosed || isDecisivelyIncompatible) {
-          const retractionReason = jobClosed ? 'job_closed' : 'decisive_requirement_missing';
+        const answeredButUnresolved = result.status === CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS;
+        if (answeredButUnresolved || jobClosed || isDecisivelyIncompatible) {
+          const retractionReason = answeredButUnresolved ? CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON
+            : jobClosed ? 'job_closed' : 'decisive_requirement_missing';
           const changed = await updateExistingProposal(
             db,
             serviceRef,
             proposalRef,
             {
               matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
-              ...eligibilityFields(result),
+              ...eligibilityFields(result, data),
               retractionReason,
               matchScore: rescored.score,
               matchRankingScore: rescored.rankScore ?? rescored.score,
@@ -1521,7 +1545,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             proposalRef,
             {
               matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
-              ...eligibilityFields(retainedResult),
+              ...eligibilityFields(retainedResult, data),
               ...(job && rescored.score >= MIN_MATCH_SCORE ? {
                 matchScore: rescored.score,
                 matchRankingScore: rescored.rankScore ?? rescored.score,
@@ -1579,7 +1603,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       if (result.status === 'compatible' || canOfferClarification(result)) {
         const rescored = preflight.rescored;
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
-          ...eligibilityFields(result),
+          ...eligibilityFields(result, row.data),
           matchScore: rescored.score,
           matchRankingScore: rescored.rankScore ?? rescored.score,
           matchReasons: rescored.reasons,
@@ -1601,7 +1625,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         }
       } else if (decisiveIncompatibility(result)) {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, {
-          ...eligibilityFields(result),
+          ...eligibilityFields(result, row.data),
           ...legacyProposalRecoveryTerminalFields({ context: eligibilityRecoveryContext, nowMs: Date.now(), reason: 'decisive_requirement_missing' }),
           retractionReason: 'decisive_requirement_missing',
           matchScore: preflight.rescored.score,
@@ -1614,7 +1638,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       } else {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
           ...(result.status === 'unverified' || result.status === 'clarification_required'
-            ? eligibilityFields({ ...result, status: 'unverified' })
+            ? eligibilityFields({ ...result, status: 'unverified' }, row.data)
             : {}),
           ...legacyProposalRecoveryRetryFields(current, {
             context: eligibilityRecoveryContext,
@@ -1640,6 +1664,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         applyMode: candidate.job.applyMode || 'portal',
         status: 'proposed',
         ...eligibilityFields(checks.get(candidate.url)),
+        candidateAnswersRevision: 0,
         matchScore: candidate.score,
         matchRankingScore: candidate.rankScore,
         matchReasons: candidate.reasons,
@@ -1672,7 +1697,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       });
       if (created) createdProposals += 1;
     }
-    const retrySummary = await eligibilityRetrySummary(serviceRef);
+    const retrySummary = await eligibilityRetrySummary(serviceRef, Date.now());
     const legacyRecoverySummary = summarizeLegacyProposalRecovery(legacyRecovery.queued, recoveryOutcomes, {
       context: eligibilityRecoveryContext,
       nowMs: Date.now(),

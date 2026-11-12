@@ -21,6 +21,8 @@ vi.mock('firebase-admin/firestore', () => {
 vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({ getAdminDb: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   CONCIERGE_ELIGIBILITY_VERSION: 'test-eligibility-v1',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS: 'unresolved',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON: 'eligibility_unresolved',
   normalizeConciergeJobRecord: (job: any) => ({
     ...job,
     id: job.id || job.jobId || '',

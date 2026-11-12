@@ -13,6 +13,7 @@ vi.mock('firebase-admin/firestore', () => {
 import { readFileSync } from 'node:fs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS } from '../functions/src/applicationConciergeEligibility.js';
 import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary,
   eligibilityRetryIsDue, ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
 import { conciergeMatchingWork, eligibilityRetryContext, prioritizeEligibilityRetryCandidates } from '../functions/src/applicationConciergeMatching.js';
@@ -176,7 +177,7 @@ describe('independent qualification retry queue', () => {
     });
   });
 
-  it.each(['compatible', 'incompatible', 'clarification_required'])('removes retry state after %s', async status => {
+  it.each(['compatible', 'incompatible', 'clarification_required', CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS])('removes retry state after %s', async status => {
     const store = createMemoryFirestore();
     const serviceRef = store.db.collection('application_concierge_services').doc(`service_${status}`);
     const ctx = { db: store.db, serviceRef, url: `https://jobs.example.test/${status}`, context: 'current-context', nowMs: now };
@@ -185,6 +186,21 @@ describe('independent qualification retry queue', () => {
 
     expect((await eligibilityRetryRef(serviceRef, ctx.url).get()).exists).toBe(false);
     expect(await eligibilityRetrySummary(serviceRef)).toMatchObject({ count: 0, statusCounts: {}, reasonCounts: {} });
+  });
+
+  it('excludes due rows the current capped run cannot process from nextRetryAt', async () => {
+    const store = createMemoryFirestore();
+    const serviceRef = store.db.collection('application_concierge_services').doc('service_retry_window');
+    const eligibility = serviceRef.collection('eligibility');
+    await eligibility.doc('retry-already-due').set({ retryAt: now - 1, retryState: 'scheduled', lastStatus: 'unverified' });
+    await eligibility.doc('retry-future').set({ retryAt: now + 2 * 60 * 60_000, retryState: 'scheduled', lastStatus: 'unverified' });
+
+    expect(await eligibilityRetrySummary(serviceRef, now)).toMatchObject({
+      count: 2, retryCount: 2, retryAt: now + 2 * 60 * 60_000,
+    });
+    expect(await eligibilityRetrySummary(serviceRef, now + 3 * 60 * 60_000)).toMatchObject({
+      count: 2, retryCount: 2, retryAt: null,
+    });
   });
 
   it('schedules first-time deferred work with a bounded next check', async () => {
@@ -251,7 +267,7 @@ describe('independent qualification retry queue', () => {
       });
     }
 
-    expect(await eligibilityRetrySummary(aggregateOnlyEligibilityServiceRef(serviceRef))).toMatchObject({
+    expect(await eligibilityRetrySummary(aggregateOnlyEligibilityServiceRef(serviceRef), now)).toMatchObject({
       count: rows, retryCount: rows, exhaustedCount: 0,
       retryAt: now + 1,
       statusCounts: { unverified: 146, unknown: 74 },

@@ -18,6 +18,7 @@ import {
 } from './applicationConciergeLifecyclePolicy.js';
 import * as conciergeMatcher from './applicationConciergeMatching.js';
 const { runApplicationConciergeMatching } = conciergeMatcher;
+import { proposalAcceptability } from './applicationConciergeCore.js';
 import { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } from './applicationConciergeLifecycleEmails.js';
 import { sendOrderNotification } from './assistedApplicationNotifications.js';
 import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
@@ -276,29 +277,168 @@ async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
   });
 }
 
+function proposalNoticeKey(ids, proposals, salt = '') {
+  const epoch = ids.map(id => `${id}:${timestampMillis(proposals.get(id)?.eligibilityAcceptableSince)}`).sort().join('|');
+  return `new_proposals_${createHash('sha256').update(`${epoch}|${salt}`).digest('hex').slice(0, 24)}`;
+}
+
+/** Persist each acceptable proposal's own clock and queue one idempotent notice. */
+async function reconcileProposalAcceptability({ db, ref, nowMs, priorAcceptability = null }) {
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  const [snapshot, proposalSnapshot] = await Promise.all([
+    ref.get(), ref.collection('proposals').where('status', '==', 'proposed').get(),
+  ]);
+  if (!snapshot.exists) return;
+  const proposalRefs = proposalSnapshot.docs || [];
+  await db.runTransaction(async tx => {
+    const [currentServiceSnapshot, currentRuntimeSnapshot, ...currentProposalSnapshots] = await Promise.all([
+      tx.get(ref), tx.get(runtimeRef), ...proposalRefs.map(doc => tx.get(doc.ref || doc)),
+    ]);
+    if (!currentServiceSnapshot.exists) return;
+    const legacyService = currentServiceSnapshot.data() || {};
+    const runtime = currentRuntimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const changes = [];
+    const missingNoticeIds = [];
+    const proposalsById = new Map();
+    const clockAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
+    for (let index = 0; index < currentProposalSnapshots.length; index += 1) {
+      const currentSnapshot = currentProposalSnapshots[index];
+      if (!currentSnapshot.exists) continue;
+      const proposal = currentSnapshot.data() || {};
+      if (proposal.status !== 'proposed') continue;
+      const id = proposalRefs[index].id;
+      const decision = proposalAcceptability(service, proposal, runtime);
+      const previousWasAcceptable = priorAcceptability?.get(id);
+      if (!decision.acceptable) {
+        if (proposal.eligibilityAcceptableSince != null || proposal.proposalNoticeSentAt != null) {
+          changes.push({ ref: currentSnapshot.ref || proposalRefs[index].ref, patch: {
+            eligibilityAcceptableSince: FieldValue.delete(),
+            proposalNoticeSentAt: FieldValue.delete(),
+          } });
+        }
+        continue;
+      }
+      const newEligibilityWindow = previousWasAcceptable === false;
+      const needsAnchor = !timestampMillis(proposal.eligibilityAcceptableSince) || newEligibilityWindow;
+      const patch = needsAnchor ? {
+        eligibilityAcceptableSince: clockAt,
+        ...(newEligibilityWindow ? { proposalNoticeSentAt: FieldValue.delete() } : {}),
+      } : null;
+      if (patch) changes.push({ ref: currentSnapshot.ref || proposalRefs[index].ref, patch });
+      const currentProposal = patch ? { ...proposal, ...patch, eligibilityAcceptableSince: clockAt,
+        ...(newEligibilityWindow ? { proposalNoticeSentAt: null } : {}) } : proposal;
+      proposalsById.set(id, currentProposal);
+      if (!timestampMillis(currentProposal.proposalNoticeSentAt)) missingNoticeIds.push(id);
+    }
+    for (const change of changes) tx.set(change.ref, change.patch, { merge: true });
+    const current = mergeConciergeMatchingRuntime(legacyService, runtime);
+    if (missingNoticeIds.length && !current.pendingProposalNotice
+      && serviceIsActive(service, nowMs) && underCap(service)) {
+      const ids = missingNoticeIds.sort();
+      writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
+        pendingProposalNotice: { key: proposalNoticeKey(ids, proposalsById, 'availability'), proposalIds: ids, createdAt: clockAt },
+      });
+    }
+  });
+}
+
+async function markProposalNoticeSent({ db, ref, proposalIds, nowMs }) {
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  const proposalRefs = proposalIds.map(id => ref.collection('proposals').doc(id));
+  const sentAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
+  return db.runTransaction(async tx => {
+    const [serviceSnapshot, runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
+      tx.get(ref), tx.get(runtimeRef), ...proposalRefs.map(proposalRef => tx.get(proposalRef)),
+    ]);
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const written = [];
+    for (let index = 0; index < proposalSnapshots.length; index += 1) {
+      const proposalSnapshot = proposalSnapshots[index];
+      const proposal = proposalSnapshot.data() || {};
+      if (proposalSnapshot.exists && proposal.status === 'proposed'
+        && proposalAcceptability(service, proposal, runtime).acceptable) {
+        tx.set(proposalRefs[index], { proposalNoticeSentAt: sentAt }, { merge: true });
+        written.push(proposalIds[index]);
+      }
+    }
+    return written;
+  });
+}
+
+async function settlePendingProposalNotice({ db, ref, pending, settledIds }) {
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  return db.runTransaction(async tx => {
+    const [serviceSnapshot, runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
+      tx.get(ref), tx.get(runtimeRef), ...(pending.proposalIds || []).map(id => tx.get(ref.collection('proposals').doc(id))),
+    ]);
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const current = mergeConciergeMatchingRuntime(legacyService, runtime);
+    if (current.pendingProposalNotice?.key !== pending.key) return;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const keep = [];
+    for (let index = 0; index < (pending.proposalIds || []).length; index += 1) {
+      if (settledIds.has(pending.proposalIds[index])) continue;
+      const proposal = proposalSnapshots[index].data() || {};
+      if (proposalSnapshots[index].exists && proposal.status === 'proposed'
+        && proposalAcceptability(service, proposal, runtime).acceptable) keep.push(pending.proposalIds[index]);
+    }
+    const patch = keep.length
+      ? { pendingProposalNotice: { ...pending, proposalIds: keep } }
+      : { pendingProposalNotice: FieldValue.delete() };
+    writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, patch);
+  });
+}
+
 async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
   const runtimeRef = conciergeMatchingRuntimeRef(ref);
   const [snapshot, runtimeSnapshot] = await Promise.all([ref.get(), runtimeRef.get()]);
-  const service = mergeConciergeMatchingRuntime(snapshot.data() || {}, runtimeSnapshot.data() || null);
+  const runtime = runtimeSnapshot.data() || null;
+  const service = mergeConciergeMatchingRuntime(snapshot.data() || {}, runtime);
   const pending = service?.pendingProposalNotice;
   if (!pending?.key || !serviceIsActive(service, nowMs) || !underCap(service)) return false;
   const snapshots = await Promise.all((pending.proposalIds || []).map(id => ref.collection('proposals').doc(id).get()));
-  const proposals = snapshots.filter(s => s.exists && s.data()?.status === 'proposed').map(s => s.data());
+  const currentProposals = snapshots.map((s, index) => ({ snapshot: s, id: pending.proposalIds[index], data: s.data() || {} }));
+  const proposals = currentProposals.filter(({ snapshot: proposalSnapshot, data }) => proposalSnapshot.exists
+    && data.status === 'proposed' && proposalAcceptability(service, data, runtime).acceptable).map(({ data }) => data);
+  const proposalIds = currentProposals.filter(({ snapshot: proposalSnapshot, data }) => proposalSnapshot.exists
+    && data.status === 'proposed' && proposalAcceptability(service, data, runtime).acceptable).map(({ id }) => id);
   if (!proposals.length) {
-    await updateConciergeMatchingRuntime({ db, serviceRef: ref, patch: { pendingProposalNotice: FieldValue.delete() } });
+    await settlePendingProposalNotice({ db, ref, pending, settledIds: new Set() });
     return false;
   }
+  const currentProposalIds = new Set(proposalIds);
+  const serviceRuntimeRef = conciergeMatchingRuntimeRef(ref);
+  let proposalsAtClaim = proposals;
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
     trackingTarget: { kind: 'application-concierge', id: ref.id },
-    eligible: (current) => serviceIsActive(current, Math.max(nowMs, Date.now())) && underCap(current),
+    eligible: async (current, tx) => {
+      if (!serviceIsActive(current, Math.max(nowMs, Date.now())) || !underCap(current)) return false;
+      const [runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
+        tx.get(serviceRuntimeRef), ...proposalIds.map(id => tx.get(ref.collection('proposals').doc(id))),
+      ]);
+      const runtimeNow = runtimeSnapshot.data() || null;
+      const serviceNow = mergeConciergeMatchingRuntime(current, runtimeNow);
+      const currentProposals = proposalSnapshots.map(snapshot => snapshot.data() || {});
+      const allAcceptable = proposalSnapshots.length === proposalIds.length && proposalSnapshots.every(proposalSnapshot =>
+        proposalSnapshot.exists && proposalAcceptability(serviceNow, proposalSnapshot.data() || {}, runtimeNow).acceptable);
+      if (allAcceptable) proposalsAtClaim = currentProposals;
+      return allAcceptable;
+    },
     build: async (current, options) => {
-      const cardProposals = await enrichJobCards(proposals.slice(0, 3));
-      return buildConciergeNewJobsEmail(current, ref.id, [...cardProposals, ...proposals.slice(3)], options);
+      const cardProposals = await enrichJobCards(proposalsAtClaim.slice(0, 3));
+      return buildConciergeNewJobsEmail(current, ref.id, [...cardProposals, ...proposalsAtClaim.slice(3)], options);
     },
   });
-  if (result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)) {
-    await updateConciergeMatchingRuntime({ db, serviceRef: ref, patch: { pendingProposalNotice: FieldValue.delete() } });
+  if (result.ok || result.reason === 'already_sent') {
+    await markProposalNoticeSent({ db, ref, proposalIds: [...currentProposalIds], nowMs });
   }
+  const settledIds = result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)
+    ? currentProposalIds : new Set();
+  await settlePendingProposalNotice({ db, ref, pending, settledIds });
   return result.ok;
 }
 
@@ -313,15 +453,17 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
   }
   let refreshed = 0;
   try {
-    const before = await ref.collection('proposals').get();
-    const previouslyProposed = new Set(before.docs.filter(d => d.data().status === 'proposed').map(d => d.id));
+    const [beforeServiceSnapshot, beforeRuntimeSnapshot, before] = await Promise.all([
+      ref.get(), conciergeMatchingRuntimeRef(ref).get(), ref.collection('proposals').get(),
+    ]);
+    const beforeRuntime = beforeRuntimeSnapshot.data() || null;
+    const beforeService = mergeConciergeMatchingRuntime(beforeServiceSnapshot.data() || {}, beforeRuntime);
+    const priorAcceptability = new Map((before.docs || []).map(doc => [doc.id,
+      proposalAcceptability(beforeService, doc.data() || {}, beforeRuntime).acceptable]));
     const result = await match({ db, serviceId, ...(deadlineMs ? { deadlineMs } : {}) });
     if (result.status === 'complete') {
       refreshed = 1;
-      const after = await ref.collection('proposals').get();
-      const ids = after.docs.filter(d => !previouslyProposed.has(d.id)
-        && d.data().status === 'proposed' && d.data().eligibilityStatus === 'compatible').map(d => d.id).sort();
-      const key = `new_proposals_${createHash('sha256').update(`${ids.join('|')}|${requestId || nowMs}`).digest('hex').slice(0, 24)}`;
+      await reconcileProposalAcceptability({ db, ref, nowMs, priorAcceptability });
       const persisted = await db.runTransaction(async tx => {
         const runtimeRef = conciergeMatchingRuntimeRef(ref);
         const [serviceSnapshot, runtimeSnapshot] = await Promise.all([tx.get(ref), tx.get(runtimeRef)]);
@@ -334,9 +476,6 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
           ...(requestId ? { proposalRefreshCompletedRequestId: requestId } : {}),
           proposalRefreshLastError: FieldValue.delete(),
         };
-        if (ids.length && !current?.pendingProposalNotice && serviceIsActive(current, nowMs) && underCap(current)) {
-          runtimePatch.pendingProposalNotice = { key, proposalIds: ids, createdAt: new Date(nowMs) };
-        }
         if (Object.keys(runtimePatch).length) writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, runtimePatch);
         return true;
       });
@@ -391,8 +530,18 @@ export async function runConciergeMatchingWithLease({ db, serviceId, nowMs = Dat
     if (!claimed) return { status: 'skipped', reason: 'matching_worker_active' };
   }
   try {
+    const [serviceSnapshot, runtimeSnapshot, proposalsSnapshot] = await Promise.all([
+      ref.get(), conciergeMatchingRuntimeRef(ref).get(), ref.collection('proposals').get(),
+    ]);
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(serviceSnapshot.data() || {}, runtime);
+    const priorAcceptability = new Map((proposalsSnapshot.docs || []).map(doc => [doc.id,
+      proposalAcceptability(service, doc.data() || {}, runtime).acceptable]));
     const result = await match({ db, serviceId, ...(deadlineMs ? { deadlineMs } : {}) });
-    if (result?.status === 'complete') await clearMatchingRecoveryState({ db, ref, workerLeaseId });
+    if (result?.status === 'complete') {
+      await reconcileProposalAcceptability({ db, ref, nowMs, priorAcceptability });
+      await clearMatchingRecoveryState({ db, ref, workerLeaseId });
+    }
     return result;
   } finally {
     await releaseMatchingWorkerLease({ db, ref, workerLeaseId, nowMs });
@@ -409,6 +558,7 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
       await inheritConciergeRenewalMaterials({ db, serviceId: ref.id, nowMs });
       // Retry a failed notice before a later refresh can replace its pending batch.
       await reconcileExhaustedStaleMatching(db, ref, nowMs);
+      await reconcileProposalAcceptability({ db, ref, nowMs });
       if (await deliverNewProposals({ db, ref, nowMs, send, enrichJobCards })) summary.newJobEmails += 1;
       // A rolling deployment must never email lexical-only matches as verified proposals.
       const verifiedMatcherAvailable = match !== runApplicationConciergeMatching || conciergeMatcher.APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED === true;

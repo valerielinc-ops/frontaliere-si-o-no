@@ -17,7 +17,9 @@ vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({
   MAX_CV_SOURCE_BYTES: 12 * 1024 * 1024,
   extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems, 2020–2025\nLanguages: English B2, French B2\nInfrastructure management and operations experience.'),
 }));
-const { CONCIERGE_ELIGIBILITY_VERSION, candidateAnswersDocumentId, eligibilityHash, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { CONCIERGE_ELIGIBILITY_VERSION, CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS,
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON, candidateAnswersDocumentId, eligibilityHash,
+  prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION } = await import('../functions/src/applicationConciergeConstants.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { hasUncoveredHardEligibilityStatements, hasUnverifiedCurrentStudentEligibility, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
@@ -633,6 +635,33 @@ describe('qualification before proposal publication', () => {
     expect(refreshed).toMatchObject({ status: 'clarification_required' });
     expect(refreshed.questions?.[0]).toMatchObject(currentQuestion);
     expect(f.generate).not.toHaveBeenCalled();
+  });
+  it('ends eligibility as unresolved after a candidate answer yields no new required question', async () => {
+    const question = { id: 'availability', question: 'Can you start next month?', required: true };
+    const f = fixture({ matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good', questions: [question] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'answered-without-followup', title: 'IT Support Specialist' };
+    expect(await check(job)).toMatchObject({ status: 'clarification_required' });
+    const cacheId = [...f.records.keys()].find(key => key.includes('/eligibility/job-'))!.split('/').at(-1)!;
+    f.records.set(`application_concierge_services/service/eligibility/${candidateAnswersDocumentId(cacheId)}`, {
+      provenance: 'candidate_confirmed',
+      schemaVersion: 'application-concierge-candidate-answers-v1',
+      confirmedAt: new Date(),
+      cacheId,
+      questionSetHash: eligibilityHash(JSON.stringify([[question.id, question.question]])),
+      answers: [{ questionId: question.id, question: question.question, answer: 'Yes, next month.' }],
+    });
+    f.generate.mockImplementation(async (system: string) => system === PROFILE_SYSTEM_PROMPT ? rawProfile
+      : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements
+        : { matches: [{ index: 0, status: 'partial', evidence: '' }], verdict: 'good', questions: [] });
+
+    const result = await check(job);
+    expect(result).toMatchObject({ status: CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS,
+      reason: CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON });
+    const generateCount = f.generate.mock.calls.length;
+    expect(await check(job)).toMatchObject({ status: CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS,
+      reason: CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON });
+    expect(f.generate).toHaveBeenCalledTimes(generateCount);
   });
   it('keeps the verified answer set attached to a compatible cache result', async () => {
     const question = { id: 'language_de_any_proficiency', question: 'What is your German level?', required: true };
