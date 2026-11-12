@@ -63,6 +63,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // One-run memory canary compares the former Map with the compact native
   // route index on the same assembled snapshot. Production defaults compact.
   'JOBS_SEO_NATIVE_ROUTE_INDEX',
+  // Output-neutral expired-sweep memory comparison: 0 keeps the prior
+  // retained set; 1 releases archive rows and already-covered tracking rows.
+  'JOBS_SEO_PROGRESSIVE_RELEASE',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);
