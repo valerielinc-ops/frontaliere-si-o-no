@@ -41,10 +41,10 @@ describe('jobs dataset assembly wiring', () => {
     }
   });
 
-  it('does not build unused summaries for employer contact enrichment', () => {
+  it('does not build unused expired archives or summaries for employer contact enrichment', () => {
     const steps = workflow('.github/workflows/employer-contacts-refresh.yml').jobs.refresh.steps;
     const assemble = steps.find((step: any) => step.name === 'Assemble jobs dataset (own-domain source)');
 
-    expect(assemble?.run).toBe('node scripts/assemble-jobs-dataset.mjs --no-summaries || true');
+    expect(assemble?.run).toBe('node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries || true');
   });
 });
