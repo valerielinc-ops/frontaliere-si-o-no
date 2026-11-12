@@ -174,6 +174,96 @@ describe("jobs-fast durable state", () => {
     expect(pending[0].previousPaths).toEqual([]);
   });
 
+  it("queues newly owned routes when the fingerprint is unchanged", async () => {
+    const db = new FakeFirestore();
+    const original = job("owner-gain", 10);
+    const ownedPaths = ["/cerca-lavoro-ticino/owner-gain/"];
+
+    await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => [],
+    });
+
+    const pending = await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => ownedPaths,
+    });
+
+    expect(pending).toHaveLength(1);
+    expect(pending[0].hash).toBe(fastPublishJobFingerprint(original));
+    expect(pending[0].previousPaths).toEqual([]);
+
+    await markFastPublishJobsPublished(
+      [{ id: pending[0].id, hash: pending[0].hash, paths: ownedPaths }],
+      { db },
+    );
+    expect(
+      await discoverFastPublishJobs([original], {
+        db,
+        now,
+        write: true,
+        pathsForJob: () => ownedPaths,
+      }),
+    ).toEqual([]);
+  });
+
+  it("retains a zero-page ownership transition until the route is reacquired", async () => {
+    const db = new FakeFirestore();
+    const original = job("owner-loss-and-regain", 10);
+    const ownedPaths = ["/cerca-lavoro-ticino/owner-loss-and-regain/"];
+
+    await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => ownedPaths,
+    });
+
+    expect(
+      await discoverFastPublishJobs([original], {
+        db,
+        now,
+        write: true,
+        pathsForJob: () => [],
+      }),
+    ).toEqual([]);
+    const pendingOwnership = [...db.documents.values()]
+      .flatMap((bucket) => Object.values(bucket.pending || {}))
+      .find((row) => row.id === original.stableId);
+    expect(pendingOwnership).toMatchObject({
+      ownershipChangePending: true,
+      paths: [],
+    });
+
+    const regained = await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => ownedPaths,
+    });
+
+    expect(regained).toHaveLength(1);
+    expect(regained[0].previousPaths).toEqual(ownedPaths);
+    expect(regained[0].hash).toBe(fastPublishJobFingerprint(original));
+
+    await markFastPublishJobsPublished(
+      [{ id: regained[0].id, hash: regained[0].hash, paths: ownedPaths }],
+      { db },
+    );
+    expect(
+      await discoverFastPublishJobs([original], {
+        db,
+        now,
+        write: true,
+        pathsForJob: () => ownedPaths,
+      }),
+    ).toEqual([]);
+  });
+
   it("deduplicates published fingerprints and carries prior canonical paths for changed offers", async () => {
     const db = new FakeFirestore();
     const original = job("offer-1", 1);
