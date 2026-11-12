@@ -37,6 +37,9 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+const WORKDAY_HOST_RE = /(?:^|\.)myworkdayjobs\.com$/i;
+const WORKDAY_JOB_ROUTE_RE = /(?:^|\/)job\/[^/]+\/[^/]+(?:\/apply)?\/?$/i;
+const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 
 /** The same posting-bound final-review test is shared by the runner and encrypted-evidence repair. */
@@ -119,6 +122,24 @@ export function inPageApplicationOpeners(snapshot, url = snapshot?.url) {
     && GENERIC_APPLY_RE.test(String(button?.text || ''))
     && !button?.leavesDocument
     && (!button?.href || sameDocumentFragment(button.href, url)));
+}
+
+function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUrl = '' } = {}) {
+  const actual = parsed(url);
+  const expected = parsed(applyUrl);
+  if (!actual || !expected || actual.protocol !== 'https:' || actual.origin !== expected.origin
+    || !WORKDAY_HOST_RE.test(actual.hostname)
+    || !WORKDAY_JOB_ROUTE_RE.test(actual.pathname)
+    || !WORKDAY_JOB_ROUTE_RE.test(expected.pathname)) return null;
+  const buttons = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
+  const controlText = button => String(button?.text || button?.label || button?.ariaLabel || '');
+  const applyButtons = buttons.filter(button => GENERIC_APPLY_RE.test(controlText(button)));
+  const starts = buttons.filter(button => !button?.href && !button?.leavesDocument
+    && WORKDAY_APPLICATION_START_RE.test(controlText(button)));
+  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  if (applyButtons.length === 0 || starts.length !== 1 || fields.length > 0) return null;
+  return starts[0];
 }
 
 // A SuccessFactors profile/application page may keep the CV in «Meine
@@ -338,6 +359,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
+  const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl });
+  if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash
