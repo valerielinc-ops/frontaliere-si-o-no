@@ -265,6 +265,27 @@ describe('a profile or registration confirmation of the order’s account', () =
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
+  it('recognizes the ordinary “Password reset requested” wording and claims its exact-host recovery link', async () => {
+    const link = `https://${SBB}/password-reset?token=synthetic-requested-reset`;
+    const raw = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Password reset requested',
+      `Password reset requested. Choose a new password: ${link}`);
+    const { inbox, sendCascade } = await deliver(SBB, raw, {
+      ...verification, category: 'verification', verificationUrl: link,
+    }, {
+      accountEntry: {
+        host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+        recoveryRequestedAt: 900, recoveryRequestId: 'recovery-request-requested',
+      },
+    });
+
+    expect(inbox).toMatchObject({
+      passwordResetHost: SBB,
+      passwordResetRequestId: 'recovery-request-requested',
+      forwardDelivery: { status: 'skipped', reason: 'portal_password_reset' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
   it('forwards a reset mail for a sibling tenant or when no recovery is active', async () => {
     const wrongTenantLink = 'https://another.successfactors.eu/password-reset?token=synthetic-wrong-tenant';
     const wrongTenantMail = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
@@ -313,5 +334,25 @@ describe('a profile or registration confirmation of the order’s account', () =
     expect(earlier.inbox.sourceVerificationLinkEnc).toBeTruthy();
     expect(earlier.inbox.forwardDelivery.status).toBe('sent');
     expect(earlier.sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not claim a stale verification code for a newer recovery request', async () => {
+    const code = '604218';
+    const raw = mail(`Careers <noreply@${SBB}>`, SBB, 'Verify your account',
+      `Use your verification code to verify your account: ${code}`);
+    const answer = { ...verification, verificationCode: code };
+    const accountEntry = {
+      host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+      createdAt: 500, recoveryRequestedAt: 2000, recoveryRequestId: 'recovery-request-code',
+    };
+
+    const stale = await deliver(SBB, raw, answer, { accountEntry, receivedAt: 1999, processedAt: 1999 });
+    expect(stale.inbox.portalVerificationHost).toBe('');
+    expect(stale.inbox.forwardDelivery.status).toBe('sent');
+    expect(stale.sendCascade).toHaveBeenCalledTimes(1);
+
+    const current = await deliver(SBB, raw, answer, { accountEntry, receivedAt: 2001, processedAt: 2001 });
+    expect(current.inbox.portalVerificationHost).toBe(SBB);
+    expect(current.sendCascade).not.toHaveBeenCalled();
   });
 });

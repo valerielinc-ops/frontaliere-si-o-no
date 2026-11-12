@@ -285,8 +285,8 @@ const isAccountCreatedNotice = (text) => ACCOUNT_NOTICE_RE.test(text) || ACCOUNT
 // Damiani (same day): «Thanks for your registration! … Your registration on the site was successful.»
 // The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
 const ACCOUNT_ACTIVATED_RE = /((ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(aktiviert|freigeschaltet|best[aä]tigt|verifiziert)|(your )?(account|profile) (has been |was |is (now )?)?(successfully )?(activated|verified|confirmed)|(il tuo |il suo )?(account|profilo) (è stato )?(attivato|verificato|confermato)|(votre )?(compte|profil) (a été )?(activé|vérifié|confirmé))/i;
-const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
-const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|password\s+reset\s+(?:link|instructions|request))\b|\bpasswort\s+(?:zurücksetzen|zuruecksetzen|wiederherstellen)(?:\s+(?:angefordert|beantragt))?\b|\bkennwort\s+(?:zurücksetzen|zuruecksetzen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer)\s+(?:votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare)\s+(?:la\s+)?password\b)/iu;
+const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset(?!\s+(?:(?:has been|was)\s+)?(?:requested|request|link|instructions)\b)|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
+const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|password\s+reset\s+(?:(?:has\s+been\s+|was\s+)?requested|link|instructions|request))\b|\bpasswort\s+(?:zurücksetzen|zuruecksetzen|wiederherstellen)(?:\s+(?:angefordert|beantragt))?\b|\bkennwort\s+(?:zurücksetzen|zuruecksetzen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer)\s+(?:votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare)\s+(?:la\s+)?password\b)/iu;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
 // The federal SuccessFactors tenant (2026-11-10): «Ihre Bewerbung ist bei uns angekommen».
 const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
@@ -983,6 +983,15 @@ async function portalAccountsForOrder(orderRef) {
   return snapshot.data() || {};
 }
 
+function portalAccountMessageIsCurrent(candidate, receivedAt) {
+  const hasRecoveryRequest = typeof candidate?.recoveryRequestedAt === 'number'
+    && Number.isFinite(candidate.recoveryRequestedAt);
+  const received = Number(receivedAt);
+  return candidate?.status === 'recovering'
+    ? hasRecoveryRequest && Number.isFinite(received) && received > candidate.recoveryRequestedAt
+    : !hasRecoveryRequest || (Number.isFinite(received) && received > candidate.recoveryRequestedAt);
+}
+
 async function verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked, linkAsked, text, receivedAt } = {}) {
   if (!authenticated || !verificationAsked || classification.category !== 'verification') return '';
   const accounts = await portalAccountsForOrder(orderRef);
@@ -998,19 +1007,16 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
     try {
       const linkHost = new URL(link).hostname.toLowerCase();
       const candidate = currentPendingPortalAccount(accounts, linkHost);
-      const received = Number(receivedAt);
-      const hasRecoveryRequest = typeof candidate?.recoveryRequestedAt === 'number'
-        && Number.isFinite(candidate.recoveryRequestedAt);
-      const recoveryIsCurrent = candidate?.status === 'recovering'
-        ? hasRecoveryRequest && Number.isFinite(received) && received > candidate.recoveryRequestedAt
-        : !hasRecoveryRequest || (Number.isFinite(received) && received > candidate.recoveryRequestedAt);
-      if (candidate && recoveryIsCurrent && exactPortalVerificationUrl(link, candidate.host)) account = candidate;
+      if (candidate && portalAccountMessageIsCurrent(candidate, receivedAt)
+        && exactPortalVerificationUrl(link, candidate.host)) account = candidate;
     } catch {
       account = null;
     }
   }
   if (!account && verbatimCode && senderHost) {
-    account = currentPendingPortalAccount(accounts, senderHost) || pendingAccountForCode(accounts, senderHost, { receivedAt });
+    const candidate = currentPendingPortalAccount(accounts, senderHost)
+      || pendingAccountForCode(accounts, senderHost, { receivedAt });
+    if (candidate && portalAccountMessageIsCurrent(candidate, receivedAt)) account = candidate;
   }
   return account ? String(account.host).toLowerCase() : '';
 }
