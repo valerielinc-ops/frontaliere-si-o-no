@@ -14,7 +14,7 @@ import { readFileSync } from 'node:fs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary,
-  ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
+  eligibilityRetryIsDue, ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
 import { conciergeMatchingWork, eligibilityRetryContext } from '../functions/src/applicationConciergeMatching.js';
 
 const now = Date.now();
@@ -40,6 +40,15 @@ function aggregateOnlyEligibilityServiceRef(serviceRef: any) {
 }
 
 describe('independent qualification retry queue', () => {
+  it('keeps retries reachable when their backoff ends after the active service window', () => {
+    const expiresAt = now + 24 * 60 * 60_000;
+    expect(eligibilityRetryIsDue({ retryAt: expiresAt + 3 * 86400_000, retryState: 'scheduled' }, now, expiresAt)).toBe(true);
+    expect(eligibilityRetryIsDue({ retryAt: expiresAt, retryState: 'scheduled' }, now, expiresAt)).toBe(true);
+    expect(eligibilityRetryIsDue({ retryAt: expiresAt - 1, retryState: 'scheduled' }, now, expiresAt)).toBe(false);
+    expect(eligibilityRetryIsDue({ retryAt: expiresAt + 3 * 86400_000, retryState: 'exhausted' }, now, expiresAt)).toBe(false);
+    expect(eligibilityRetryIsDue({ retryAt: expiresAt + 3 * 86400_000, retryState: 'scheduled' }, expiresAt, expiresAt)).toBe(false);
+  });
+
   it('classifies every persisted retry reason and keeps the removed requirements emitter explicitly legacy', () => {
     for (const [reason, provenance] of Object.entries(ELIGIBILITY_RETRY_REASON_PROVENANCE)) {
       expect(provenance).toMatch(/^(?:current:[A-Za-z][A-Za-z0-9]+|legacy(?::.*)?|internal:.*)$/);
