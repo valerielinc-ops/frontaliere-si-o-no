@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-12T14:23:03.471Z",
+  "updatedAt": "2026-11-12T14:23:34.162Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -128528,12 +128528,12 @@
     },
     "averecura@uetikon-am-see": {
       "key": "averecura@uetikon-am-see",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-25T04:11:19.634Z",
-      "updatedAt": "2026-11-12T13:53:34.070Z",
+      "updatedAt": "2026-11-12T14:23:34.105Z",
       "name": "averecura holding ag",
       "city": "Uetikon am See",
       "zip": "8707",
@@ -128777,7 +128777,9 @@
           "logoSourceUrl": "https://www.averecura.ch/assets/logos/averecura/averecura_RGB_B_Small.svg",
           "employerSiteName": "averecura"
         }
-      ]
+      ],
+      "promotionPr": "18328",
+      "promotionBranch": "prospector/promote-2026-11-12"
     },
     "averio.ch": {
       "key": "averio.ch",
@@ -147367,12 +147369,12 @@
     },
     "bank-slm@munsingen": {
       "key": "bank-slm@munsingen",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.360Z",
-      "updatedAt": "2026-11-12T13:54:03.727Z",
+      "updatedAt": "2026-11-12T14:23:34.104Z",
       "name": "Bank SLM AG",
       "city": "Münsingen",
       "zip": "3110",
@@ -148071,7 +148073,9 @@
       "secoEmployerName": "Bank SLM AG",
       "secoEmployerClassification": "direct",
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
-      "emailDomainHints": []
+      "emailDomainHints": [],
+      "promotionPr": "18328",
+      "promotionBranch": "prospector/promote-2026-11-12"
     },
     "bank-zimmerberg@horgen": {
       "key": "bank-zimmerberg@horgen",

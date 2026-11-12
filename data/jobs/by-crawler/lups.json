@@ -6251,12 +6251,12 @@
     },
     {
       "id": "lups-57e14c7b2c89",
-      "slug": "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban",
+      "slug": "servizio-sociale-di-stage-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban",
-        "it": "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban",
-        "en": "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban",
-        "fr": "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban"
+        "it": "servizio-sociale-di-stage-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "en": "internship-social-service-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
+        "fr": "internat-service-social-h-f-d-60-80-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6318,7 +6318,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:21:54.804Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:21:54.804Z"
+      "firstSeenAt": "2026-11-12T09:21:54.804Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban"
+        ],
+        "en": [
+          "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban"
+        ],
+        "fr": [
+          "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-sozialdienst-w-m-d-60-80-lups-st-urban"
+      ]
     }
   ]
 }

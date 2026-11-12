@@ -9549,7 +9549,7 @@
       "slugByLocale": {
         "de": "identity-amp-access-management-engineer-iam-uzh-zurich",
         "it": "identity-amp-access-management-engineer-iam-uzh-zurich",
-        "en": "identity-amp-access-management-engineer-iam-uzh-zurich",
+        "en": "the-iam-iam-universitat-zurich-zurich",
         "fr": "identity-amp-access-management-engineer-iam-uzh-zurich"
       },
       "company": "Universität Zürich",
@@ -9615,12 +9615,12 @@
     },
     {
       "id": "uzh-21dcca646ac7",
-      "slug": "it-programm-e-projektmanager-in-senior-fokus-digitale-barrierefreiheit-universitat-zurich",
+      "slug": "responsabile-senior-di-programmi-e-progetti-it-focus-sull-accessibilita-digitale-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich",
-        "it": "it-programm-e-projektmanager-in-senior-fokus-digitale-barrierefreiheit-universitat-zurich",
-        "en": "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich",
-        "fr": "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich"
+        "it": "responsabile-senior-di-programmi-e-progetti-it-focus-sull-accessibilita-digitale-universitat-zurich-zurich",
+        "en": "senior-it-program-and-project-manager-focus-on-digital-accessibility-universitat-zurich-zurich",
+        "fr": "responsable-senior-des-programmes-et-projets-informatiques-focus-sur-l-accessibilite-numerique-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9669,11 +9669,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich",
+          "it-programm-e-projektmanager-in-senior-fokus-digitale-barrierefreiheit-universitat-zurich"
+        ],
+        "en": [
+          "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich"
+        ],
+        "fr": [
           "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich"
         ]
       },
       "previousSlugs": [
-        "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich"
+        "it-programm-und-projektmanager-in-senior-fokus-digitale-barrierefreiheit-uzh-zurich",
+        "it-programm-e-projektmanager-in-senior-fokus-digitale-barrierefreiheit-universitat-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -9695,12 +9703,12 @@
     },
     {
       "id": "uzh-6621711d0ad7",
-      "slug": "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich",
+      "slug": "lead-software-engineer-senior-nel-settore-dell-accessibilita-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich",
-        "it": "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich",
+        "it": "lead-software-engineer-senior-nel-settore-dell-accessibilita-universitat-zurich-zurich",
         "en": "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich",
-        "fr": "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich"
+        "fr": "ingenieur-logiciel-principal-senior-dans-le-domaine-de-l-accessibilite-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9763,7 +9771,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:20:24.555Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:20:24.555Z"
+      "firstSeenAt": "2026-11-12T09:20:24.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich"
+        ],
+        "fr": [
+          "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lead-software-engineer-senior-im-bereich-accessibility-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-dc1fd404283c",

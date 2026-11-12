@@ -2374,12 +2374,12 @@
     },
     {
       "id": "puk-zuerich-9b65b63bd854",
-      "slug": "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-o-fachfrau-gesundheit-fachmann-gesundheit-fage-cfc-psychiatrische-universitatsklinik-zurich",
+      "slug": "assistente-di-studio-medico-assistente-di-studio-medico-mpa-oppure-operatrice-sociosanitaria-operatore-sociosanitario",
       "slugByLocale": {
         "de": "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau",
-        "it": "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-o-fachfrau-gesundheit-fachmann-gesundheit-fage-cfc-psychiatrische-universitatsklinik-zurich",
-        "en": "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau",
-        "fr": "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau"
+        "it": "assistente-di-studio-medico-assistente-di-studio-medico-mpa-oppure-operatrice-sociosanitaria-operatore-sociosanitario",
+        "en": "medical-practitioner-medical-practitioner-mpa-or-health-specialist-health-specialist-fage-efz-psychiatrische",
+        "fr": "medecin-medecin-mpa-ou-specialiste-de-la-sante-specialiste-de-la-sante-fage-efz-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -2431,11 +2431,19 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau",
+          "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-o-fachfrau-gesundheit-fachmann-gesundheit-fage-cfc-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau"
+        ],
+        "fr": [
           "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau"
+        "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-oder-fachfrau",
+        "medizinische-praxisangestellte-medizinischen-praxisangestellten-mpa-o-fachfrau-gesundheit-fachmann-gesundheit-fage-cfc-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3336,12 +3344,12 @@
     },
     {
       "id": "puk-zuerich-fa366f7ef683",
-      "slug": "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich",
+      "slug": "posto-di-apprendistato-come-impiegata-impiegato-di-commercio-efz-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
-        "it": "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "posto-di-apprendistato-come-impiegata-impiegato-di-commercio-efz-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "apprenticeship-as-a-merchant-merchant-efz-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "apprentissage-en-tant-que-marchand-marchand-efz-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3393,11 +3401,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich"
+          "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
+          "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich"
+        "lehrstelle-als-kauffrau-kaufmann-efz-puk-zuerich-zurich",
+        "apprendistato-come-kauffrau-kaufmann-cfc-psychiatrische-universitatsklinik-zurich",
+        "lehrstelle-als-kauffrau-kaufmann-efz-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -4765,12 +4782,12 @@
     },
     {
       "id": "puk-zuerich-f029e2a11613",
-      "slug": "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-con-option-auf-verlangerung-psychiatrische-universitatsklinik-zurich",
+      "slug": "dietista-bsc-50-a-tempo-determinato-fino-al-31-dicembre-2027-con-possibilita-di-proroga-psychiatrische",
       "slugByLocale": {
         "de": "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf",
-        "it": "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-con-option-auf-verlangerung-psychiatrische-universitatsklinik-zurich",
-        "en": "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf",
-        "fr": "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf"
+        "it": "dietista-bsc-50-a-tempo-determinato-fino-al-31-dicembre-2027-con-possibilita-di-proroga-psychiatrische",
+        "en": "nutritionist-bsc-50-temporary-until-31-december-2027-with-extension-option-psychiatrische-universitatsklinik-zurich",
+        "fr": "nutritionniste-bsc-50-temporaire-jusqu-a-31-decembre-2027-avec-option-d-extension-psychiatrische-universitatsklinik"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4822,11 +4839,19 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
+          "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf",
+          "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-con-option-auf-verlangerung-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf"
+        ],
+        "fr": [
           "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf"
+        "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-mit-option-auf",
+        "ernahrungsberaterin-ernahrungsberater-bsc-50-befristet-bis-31-dezember-2027-con-option-auf-verlangerung-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 45800,
       "salaryMax": 64000,

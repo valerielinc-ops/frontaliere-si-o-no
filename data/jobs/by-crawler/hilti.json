@@ -1142,7 +1142,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
+        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -1192,7 +1192,7 @@
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "en": [
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborator-customer-data-management-m-w-d-hilti-zurich"
         ],
         "de": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch"
@@ -1203,7 +1203,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+        "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
       "salaryMin": 73500,
@@ -1544,10 +1545,10 @@
     },
     {
       "id": "hilti-22389-de",
-      "slug": "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch",
+      "slug": "consulente-vendite-del-conto-chiave-zurigo-aargau-m-f-d-hilti-aarau-aargau",
       "slugByLocale": {
         "de": "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch",
-        "it": "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch",
+        "it": "consulente-vendite-del-conto-chiave-zurigo-aargau-m-f-d-hilti-aarau-aargau",
         "en": "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch",
         "fr": "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch"
       },
@@ -1611,7 +1612,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:00.865Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:22:00.865Z"
+      "firstSeenAt": "2026-11-12T09:22:00.865Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-verkaufsberater-zurich-aargau-m-w-d-hilti-ch"
+      ]
     }
   ]
 }

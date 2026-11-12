@@ -688,12 +688,12 @@
     },
     {
       "id": "strabag-2f2d4d092a4b",
-      "slug": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
+      "slug": "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
       "slugByLocale": {
         "de": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "it": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "en": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-        "fr": "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        "it": "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
+        "en": "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon",
+        "fr": "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -756,16 +756,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:41:54.572Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:18:09.716Z"
+      "firstSeenAt": "2026-09-10T23:18:09.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ],
+        "en": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ],
+        "fr": [
+          "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+      ]
     },
     {
       "id": "strabag-20935323fcea",
-      "slug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
+      "slug": "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",
       "slugByLocale": {
         "de": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
-        "it": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
-        "en": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
-        "fr": "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        "it": "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",
+        "en": "construction-manager-civil-engineering-and-road-construction-strabag-ag-bern",
+        "fr": "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -814,11 +828,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern"
+        ],
+        "en": [
+          "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        ],
+        "fr": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern"
       ],
       "salaryMin": 76500,
       "salaryMax": 97000,
@@ -840,12 +862,12 @@
     },
     {
       "id": "strabag-dba565f5b22d",
-      "slug": "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren",
+      "slug": "responsabile-commerciale-di-settore-per-il-genio-civile-speciale-strabag-ag-schlieren",
       "slugByLocale": {
         "de": "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren",
-        "it": "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren",
-        "en": "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren",
-        "fr": "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren"
+        "it": "responsabile-commerciale-di-settore-per-il-genio-civile-speciale-strabag-ag-schlieren",
+        "en": "commercial-division-manager-special-foundation-engineering-strabag-ag-schlieren",
+        "fr": "responsable-de-secteur-commercial-en-travaux-speciaux-de-genie-civil-strabag-ag-schlieren"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -922,16 +944,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:41:52.843Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:41:52.843Z"
+      "firstSeenAt": "2026-11-12T09:41:52.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren"
+        ],
+        "en": [
+          "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren"
+        ],
+        "fr": [
+          "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannische-r-bereichsleiter-in-spezialtiefbau-strabag-schlieren"
+      ]
     },
     {
       "id": "strabag-ec0d4f65ae47",
-      "slug": "polier-in-strassenbau-e-genio-civile-strabag-ag-bern",
+      "slug": "capocantiere-per-costruzioni-stradali-e-genio-civile-strabag-ag-bern",
       "slugByLocale": {
         "de": "polier-in-strassenbau-und-tiefbau-strabag-bern",
-        "it": "polier-in-strassenbau-e-genio-civile-strabag-ag-bern",
-        "en": "polier-in-strassenbau-und-tiefbau-strabag-bern",
-        "fr": "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        "it": "capocantiere-per-costruzioni-stradali-e-genio-civile-strabag-ag-bern",
+        "en": "foreperson-in-road-construction-and-civil-engineering-strabag-ag-bern",
+        "fr": "contremaitre-esse-en-construction-routiere-et-genie-civil-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -980,11 +1016,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polier-in-strassenbau-und-tiefbau-strabag-bern",
+          "polier-in-strassenbau-e-genio-civile-strabag-ag-bern"
+        ],
+        "en": [
+          "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        ],
+        "fr": [
           "polier-in-strassenbau-und-tiefbau-strabag-bern"
         ]
       },
       "previousSlugs": [
-        "polier-in-strassenbau-und-tiefbau-strabag-bern"
+        "polier-in-strassenbau-und-tiefbau-strabag-bern",
+        "polier-in-strassenbau-e-genio-civile-strabag-ag-bern"
       ],
       "salaryMin": 76500,
       "salaryMax": 97000,

@@ -53079,3 +53079,5 @@
 {"eventType":"candidate_transition","key":"lip@geneve","from":"awaiting_first_crawl","to":"production","at":"2026-11-12T14:23:03.380Z","runId":"43208714488","runAttempt":1,"phase":"promote","eventId":"603dfdab9ebb166936a53dda"}
 {"eventType":"candidate_transition","key":"proplaning@zurich","from":"awaiting_first_crawl","to":"production","at":"2026-11-12T14:23:03.380Z","runId":"43208714488","runAttempt":1,"phase":"promote","eventId":"a48ac0d3c8329761562edee9"}
 {"eventType":"candidate_attempt","key":"skan","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-12T14:23:03.380Z","runId":"43208714488","runAttempt":1,"phase":"promote","eventId":"03b4191ec038238390f03de6"}
+{"eventType":"candidate_transition","key":"bank-slm@munsingen","from":"promoted","to":"promoting","at":"2026-11-12T14:23:34.104Z","runId":"43208714488","runAttempt":1,"phase":"promote","eventId":"ccbb9cd45590967cf9b1344a"}
+{"eventType":"candidate_transition","key":"averecura@uetikon-am-see","from":"promoted","to":"promoting","at":"2026-11-12T14:23:34.105Z","runId":"43208714488","runAttempt":1,"phase":"promote","eventId":"d5065e5dfa98112f019bab33"}

@@ -43,8 +43,8 @@
       "slugByLocale": {
         "de": "logistiker-in-confederazione-svizzera-rikon",
         "it": "impiegato-a-in-logistica-confederazione-svizzera-rikon",
-        "en": "logistiker-in-confederazione-svizzera-rikon",
-        "fr": "logistiker-in-confederazione-svizzera-rikon"
+        "en": "logistics-specialist-confederazione-svizzera-rikon",
+        "fr": "logisticien-ne-confederazione-svizzera-rikon"
       },
       "id": "confederazione-ticino-7ccdd1cdc915",
       "needsRetranslation": true,
@@ -54,10 +54,17 @@
         ],
         "de": [
           "logistiker-in-confederazione-rikon"
+        ],
+        "en": [
+          "logistiker-in-confederazione-svizzera-rikon"
+        ],
+        "fr": [
+          "logistiker-in-confederazione-svizzera-rikon"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-confederazione-rikon"
+        "logistiker-in-confederazione-rikon",
+        "logistiker-in-confederazione-svizzera-rikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -83,7 +90,7 @@
     },
     {
       "title": "Bereichsleiter/-in IT-Infrastruktur",
-      "slug": "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen",
+      "slug": "responsabile-del-settore-infrastruttura-it-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/bereichsleiter-in-it-infrastruktur/0248fa52-b0ee-46ba-8bb0-225caae7780f",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21036",
       "company": "Confederazione Svizzera",
@@ -120,9 +127,9 @@
       },
       "slugByLocale": {
         "de": "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen",
-        "it": "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen",
-        "en": "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen",
-        "fr": "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen"
+        "it": "responsabile-del-settore-infrastruttura-it-confederazione-svizzera-zollikofen",
+        "en": "it-infrastructure-division-manager-confederazione-svizzera-zollikofen",
+        "fr": "responsable-du-secteur-infrastructure-informatique-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-165e07da103d",
       "needsRetranslation": true,
@@ -146,11 +153,25 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:42:54.490Z"
+      "firstSeenAt": "2026-11-12T09:42:54.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen"
+        ],
+        "en": [
+          "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen"
+        ],
+        "fr": [
+          "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-it-infrastruktur-confederazione-zollikofen"
+      ]
     },
     {
       "title": "Hochschulpraktikant/-in Internationale Beziehungen",
-      "slug": "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern",
+      "slug": "tirocinante-universitario-a-in-relazioni-internazionali-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-internationale-beziehungen/9f9bcb46-6e86-48bf-aaff-f3ec4afb49d8",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21037",
       "company": "Confederazione Svizzera",
@@ -187,9 +208,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern",
-        "it": "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern",
-        "en": "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern",
-        "fr": "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern"
+        "it": "tirocinante-universitario-a-in-relazioni-internazionali-confederazione-svizzera-bern",
+        "en": "university-intern-international-relations-confederazione-svizzera-bern",
+        "fr": "stagiaire-universitaire-en-relations-internationales-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-4ad3fc782272",
       "needsRetranslation": true,
@@ -213,11 +234,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:42:54.490Z"
+      "firstSeenAt": "2026-11-12T09:42:54.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-internationale-beziehungen-confederazione-bern"
+      ]
     },
     {
       "title": "Zeitoffizier/-in: Einheitskommandant/-in",
-      "slug": "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard",
+      "slug": "ufficiale-temporaneo-a-comandante-di-unita-confederazione-svizzera-1666-grandvillard",
       "url": "https://jobs.admin.ch/posti-vacanti/zeitoffizier-in-einheitskommandant-in/618c696d-9e95-4ec3-9e5c-c30263b0f736",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20965",
       "company": "Confederazione Svizzera",
@@ -254,9 +289,9 @@
       },
       "slugByLocale": {
         "de": "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard",
-        "it": "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard",
-        "en": "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard",
-        "fr": "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard"
+        "it": "ufficiale-temporaneo-a-comandante-di-unita-confederazione-svizzera-1666-grandvillard",
+        "en": "temporary-officer-unit-commander-confederazione-svizzera-1666-grandvillard",
+        "fr": "officier-ere-sous-contrat-commandant-e-d-unite-confederazione-svizzera-1666-grandvillard"
       },
       "id": "confederazione-ticino-3163c6d58387",
       "needsRetranslation": true,
@@ -280,7 +315,21 @@
       "streetAddress": "Grandvillard",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T09:42:54.490Z"
+      "firstSeenAt": "2026-11-12T09:42:54.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard"
+        ],
+        "en": [
+          "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard"
+        ],
+        "fr": [
+          "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard"
+        ]
+      },
+      "previousSlugs": [
+        "zeitoffizier-in-einheitskommandant-in-confederazione-grandvillard"
+      ]
     },
     {
       "title": "Hochschulpraktikant/in AFWA",
@@ -608,7 +657,7 @@
     },
     {
       "title": "Assistent/-in Administration S-Status",
-      "slug": "assistent-in-administration-s-status-confederazione-bern",
+      "slug": "assistente-amministrativo-a-s-status-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/assistent-in-administration-s-status/4db74e4d-ef88-459b-999b-775c9dab7a09",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21028",
       "company": "Confederazione Svizzera",
@@ -645,9 +694,9 @@
       },
       "slugByLocale": {
         "de": "assistent-in-administration-s-status-confederazione-bern",
-        "it": "assistent-in-administration-s-status-confederazione-bern",
-        "en": "assistent-in-administration-s-status-confederazione-bern",
-        "fr": "assistent-in-administration-s-status-confederazione-bern"
+        "it": "assistente-amministrativo-a-s-status-confederazione-svizzera-bern",
+        "en": "administrative-assistant-s-status-confederazione-svizzera-bern",
+        "fr": "assistant-e-administration-statut-s-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-1388ec083fcd",
       "needsRetranslation": true,
@@ -671,7 +720,21 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:42:54.490Z"
+      "firstSeenAt": "2026-11-12T09:42:54.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-administration-s-status-confederazione-bern"
+        ],
+        "en": [
+          "assistent-in-administration-s-status-confederazione-bern"
+        ],
+        "fr": [
+          "assistent-in-administration-s-status-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-administration-s-status-confederazione-bern"
+      ]
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in",
@@ -7334,12 +7397,13 @@
         "en": "real-estate-project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-immobilien-confederazione-bern",
         "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern",
-        "it": "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
+        "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-576bb222693c",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-immobilien-confederazione-bern"
+          "projektleiter-in-immobilien-confederazione-bern",
+          "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-immobilien-confederazione-bern"
@@ -7349,7 +7413,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-immobilien-confederazione-bern"
+        "projektleiter-in-immobilien-confederazione-bern",
+        "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7688,7 +7753,8 @@
       },
       "previousSlugs": [
         "juristische-r-praktikant-in-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/-in Sektion Kulturelle Vielfalt und Teilhabe",
@@ -14668,12 +14734,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -14683,7 +14750,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -15877,7 +15945,7 @@
         "fr": "## Mettre au point\n\nVoulez-vous trouver indépendamment des solutions difficiles? En collaboration avec vos collègues, assurez la sécurité des installations techniques dans les bâtiments complexes, 365 jours par an.\n\n- Date d'entrée: 01.11.2026\n- Type d'emploi: perpétuel\n- Numéro de référence: 620-17485\n\n## Vous pouvez faire cette contribution\n\n- Co-responsable de la mesure, du contrôle, du contrôle et de la technologie de contrôle des installations techniques\n- Entretien, entretien et exploitation du matériel complexe de construction et de construction\n- Effectuer l'entretien et la planification des commandes\n- Effectuer des travaux de dépannage et d'optimisation\n- Mettre en œuvre de petites réparations et des mesures pour prévenir les défaillances opérationnelles, les perturbations et les dommages de toutes sortes\n\n## Cela les rend uniques.\n\n- Formation complète dans un domaine de la technologie du bâtiment avec un permis de raccordement NIV 15\n- Expertise en technologie du bâtiment avec expérience dans l'application des systèmes de contrôle du bâtiment\n- des manières indépendantes, socialement compétentes, discrètes et agréables\n- Connaissances des utilisateurs en administration et en informatique (p. ex. MS-Office, système de gestion des bâtiments); Ticket Cat B; prêt à fournir un service de picettage\n- Connaissance orale d'une deuxième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Questions relatives aux demandes\n\nManuel Meyer\nConsultant en ressources humaines\n+41 58 46 08320\n\n## Travailler chez BBL\n\nConstruire, acquérir, déplacer, consulter – c'est l'ADN de la BBL. Chaque jour, nous sommes heureux de faire de notre mieux pour la Suisse, la politique et l'administration fédérale. Ensemble, nous veillons à ce que les 43 000 employés fédéraux puissent faire leur travail et non seulement façonner leur coopération, mais aussi établir de nouvelles normes pour la durabilité.\n\n## Informations complémentaires\n\nVeuillez vous inscrire à notre système de gestion des applications. Cliquez sur \"Appliquer maintenant\"."
       },
       "slugByLocale": {
-        "it": "tecnici-edili-confederazione-svizzera-bern",
+        "it": "tecnico-in-confederazione-svizzera-bern",
         "en": "building-technician-in-confederazione-svizzera-bern",
         "de": "gebaudetechniker-in-confederazione-svizzera-bern",
         "fr": "technicien-des-batiments-confederazione-svizzera-bern"
@@ -15887,8 +15955,7 @@
         "it": [
           "gebaudetechniker-in-confederazione-svizzera-bern",
           "gebaudetechniker-in-confederazione-bern",
-          "servicetechniker-in-gebaudetechnik-confederazione-bern",
-          "tecnico-in-confederazione-svizzera-bern"
+          "servicetechniker-in-gebaudetechnik-confederazione-bern"
         ],
         "de": [
           "gebaudetechniker-in-confederazione-bern"
@@ -15901,8 +15968,7 @@
         "gebaudetechniker-in-confederazione-svizzera-bern",
         "gebaudetechniker-in-confederazione-bern",
         "servicetechniker-in-gebaudetechnik-confederazione-svizzera-bern",
-        "servicetechniker-in-gebaudetechnik-confederazione-bern",
-        "tecnico-in-confederazione-svizzera-bern"
+        "servicetechniker-in-gebaudetechnik-confederazione-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -16861,19 +16927,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "fr": "gestionnaire-bim-et-chef-de-projet-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
-        "it": "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
       },
       "id": "confederazione-ticino-47ced81b7cdc",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+          "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+        "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -17417,7 +17485,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -17425,7 +17493,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -17438,7 +17507,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17504,12 +17574,13 @@
         "en": "bim-manager-and-project-manager-confederazione-svizzera-winterthur",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
         "fr": "gestionnaire-bim-et-gestionnaire-de-projet-confederazione-svizzera-winterthur",
-        "it": "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-winterthur"
       },
       "id": "confederazione-ticino-fd60d9620266",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+          "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+          "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
         ],
         "en": [
           "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
@@ -17519,7 +17590,8 @@
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+        "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+        "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
       ],
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -18440,16 +18512,18 @@
         "en": "apprentice-kauffrau-mann-eba-confederazione-svizzera-bern",
         "de": "lernende-r-kauffrau-mann-eba-confederazione-bern",
         "fr": "apprenti-e-kauffrau-mann-eba-confederazione-svizzera-bern",
-        "it": "apprentice-businessman-eba-confederazione-svizzera-bern"
+        "it": "apprendista-kauffrau-mann-afp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-e6cde7c07b76",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-confederazione-bern"
+          "lernende-r-kauffrau-mann-eba-confederazione-bern",
+          "apprentice-businessman-eba-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-confederazione-bern"
+        "lernende-r-kauffrau-mann-eba-confederazione-bern",
+        "apprentice-businessman-eba-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -18595,16 +18669,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -18667,16 +18743,18 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-basel",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-basel",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-basel",
-        "it": "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-basel"
       },
       "id": "confederazione-ticino-6cbfef4587e8",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-basel"
+          "lernende-r-kauffrau-mann-efz-confederazione-basel",
+          "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-basel"
+        "lernende-r-kauffrau-mann-efz-confederazione-basel",
+        "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -19126,7 +19204,7 @@
         "it": "pki-security-officer-operator-confederazione-bern",
         "en": "pki-securit-officer-confederazione-svizzera-bern",
         "de": "pki-sicherheitsbeauftragter-confederazione-svizzera-bern",
-        "fr": "pki-security-officer-operateur-confederazione-svizzera-bern"
+        "fr": "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8a925debd86b",
       "needsRetranslation": true,
@@ -19151,11 +19229,11 @@
       "firstSeenAt": "2026-11-08T21:39:44.557Z",
       "previousSlugsByLocale": {
         "fr": [
-          "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+          "pki-security-officer-operateur-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+        "pki-security-officer-operateur-confederazione-svizzera-bern"
       ],
       "crawledAt": "2026-11-12T09:42:54.490Z",
       "crawledAtSource": "slice-writer"

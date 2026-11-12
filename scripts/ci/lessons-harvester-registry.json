@@ -103,9 +103,9 @@
     {
       "key": "reviewer-finding/fp:scripts-funnel-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-11-07T11:54:26Z",
-      "ref": "#17135, #17104, #16583",
-      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non trattano truthy/non-empty come prova, ma validano dominio, contesto, unknown/ambigui e vicino non-target; nessuna nuova riga."
+      "decidedAt": "2026-11-12T13:57:42Z",
+      "ref": "#18288, #18184, #17990",
+      "reason": "Gia' coperto da AGENTS.md #6: gli esempi ricadono ancora nel divieto di trattare una shape truthy/non-empty come prova senza dominio, contesto e gestione di unknown/ambigui; nessuna nuova riga."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
@@ -204,6 +204,13 @@
       "decidedAt": "2026-11-11T12:54:53Z",
       "ref": "#18036, #18012, #16596",
       "reason": "Regola in AGENTS.md #6: regex/pattern testuali in functions/** devono coprire varianti di lingua/locale, sinonimi, negazioni e near-match del consumer; la forma italiana/nominale non basta."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-still-treats",
+      "outcome": "declined",
+      "decidedAt": "2026-11-12T13:57:42Z",
+      "ref": "#18184, #17546, #17261",
+      "reason": "Gia' coperto da AGENTS.md #6: ownership non dimostrata, assenza non provata e identita' ambigua sono casi di dominio/contesto e unknown da preservare; una nuova riga duplicherà la regola."
     }
   ]
 }

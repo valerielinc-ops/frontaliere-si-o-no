@@ -174,9 +174,9 @@
     },
     {
       "id": "ipersonal-73624a3fc984",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -231,8 +231,8 @@
           "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
@@ -252,8 +252,8 @@
         "emplois-vacants-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
       ],
       "firstSeenAt": "2026-11-04T09:17:17.925Z",
       "salaryMin": 68500,
@@ -581,9 +581,9 @@
     },
     {
       "id": "ipersonal-b6bfedc76300",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -637,9 +637,9 @@
           "offene-stellen-per-betreuung-medipersonal-bern-bern",
           "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-bern-bern",
@@ -658,9 +658,9 @@
         "care-vacancies-medipersonal-bern-bern",
         "emplois-vacants-medipersonal-bern-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-        "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+        "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44"
       ],
       "firstSeenAt": "2026-11-04T09:17:16.716Z",
       "salaryMin": 68500,
@@ -1182,12 +1182,12 @@
     },
     {
       "id": "ipersonal-7f7261a7dfa2",
-      "slug": "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu",
+      "slug": "assistente-di-studio-medico-afc-medipersonal-rain-lu",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
-        "it": "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu",
-        "en": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
-        "fr": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+        "it": "assistente-di-studio-medico-afc-medipersonal-rain-lu",
+        "en": "medical-practice-assistant-efz-medipersonal-rain-lu",
+        "fr": "assistant-e-medical-e-cfc-medipersonal-rain-lu"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1249,21 +1249,29 @@
       "firstSeenAt": "2026-11-12T09:20:05.876Z",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
+          "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+        "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
+        "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu"
       ]
     },
     {
       "id": "ipersonal-c92e3e1ad001",
-      "slug": "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be",
+      "slug": "assistente-di-studio-medico-afc-medipersonal-koppigen-be",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
-        "it": "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be",
-        "en": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
-        "fr": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+        "it": "assistente-di-studio-medico-afc-medipersonal-koppigen-be",
+        "en": "medical-practice-assistant-efz-medipersonal-koppigen-be",
+        "fr": "assistant-e-medical-e-cfc-medipersonal-koppigen-be"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1325,21 +1333,29 @@
       "firstSeenAt": "2026-11-12T09:20:05.575Z",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
+          "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+        "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
+        "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be"
       ]
     },
     {
       "id": "ipersonal-12db6a1fafa0",
-      "slug": "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be",
+      "slug": "operatore-operatrice-sociosanitario-a-efz-medipersonal-langnau-im-emmental-be",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
-        "it": "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be",
-        "en": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
-        "fr": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be"
+        "it": "operatore-operatrice-sociosanitario-a-efz-medipersonal-langnau-im-emmental-be",
+        "en": "healthcare-professional-efz-medipersonal-langnau-im-emmental-be",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-medipersonal-langnau-im-emmental-be"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1384,12 +1400,20 @@
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
-          "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental"
+          "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental",
+          "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be"
         ]
       },
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
-        "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental"
+        "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental",
+        "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1412,12 +1436,12 @@
     },
     {
       "id": "ipersonal-991286b9e792",
-      "slug": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
+      "slug": "consulente-del-personale-nel-settore-sanitario-medipersonal-region-wallisellen-zh",
       "slugByLocale": {
         "de": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
-        "it": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
-        "en": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
-        "fr": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+        "it": "consulente-del-personale-nel-settore-sanitario-medipersonal-region-wallisellen-zh",
+        "en": "recruitment-consultant-healthcare-medipersonal-region-wallisellen-zh",
+        "fr": "conseiller-conseillere-en-personnel-dans-le-secteur-de-la-sante-medipersonal-region-wallisellen-zh"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -1476,7 +1500,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:20:04.972Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:20:04.972Z"
+      "firstSeenAt": "2026-11-12T09:20:04.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+        ],
+        "en": [
+          "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+        ],
+        "fr": [
+          "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+      ]
     }
   ]
 }

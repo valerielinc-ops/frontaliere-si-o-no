@@ -771,12 +771,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-b967a4cf43fd",
-      "slug": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "team-leader-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "team-leader-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "team-leader-hemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "chef-d-equipe-hemodialyse-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -838,7 +838,21 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:20:49.030Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     }
   ]
 }
