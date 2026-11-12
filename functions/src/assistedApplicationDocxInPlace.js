@@ -344,9 +344,10 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
   const candidateEmail = String(identity.email || '').trim();
   if (candidateEmail) {
     const sourceEmail = String(profile.email || '').trim();
-    const alreadyHasCandidateEmail = paragraphs.some((paragraph) => containsEmail(paragraph.text, candidateEmail));
-    let replacedSourceEmail = false;
-    if (sourceEmail && sourceEmail.toLowerCase() !== candidateEmail.toLowerCase()) {
+    let verifiedContactEmail = false;
+    if (sourceEmail && sourceEmail.toLowerCase() === candidateEmail.toLowerCase()) {
+      verifiedContactEmail = paragraphs.some((paragraph) => containsEmail(paragraph.text, sourceEmail));
+    } else if (sourceEmail) {
       for (let index = 0; index < paragraphs.length; index += 1) {
         const paragraph = paragraphs[index];
         if (!containsEmail(paragraph.text, sourceEmail)) continue;
@@ -356,12 +357,13 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
         const nextText = replaceEmail(text, sourceEmail, candidateEmail);
         if (nextText === text) return { status: 'fallback', reason: 'contact_email_uneditable' };
         const fullText = `${label}${nextText}`;
+        if (!containsEmail(fullText, candidateEmail)) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
         patches.push({ id: `contact-email-${index}`, index, text: fullText, keep: paragraph.label?.count || 0, growth: fullText.length - paragraph.text.length, required: true });
         used.add(index);
-        replacedSourceEmail = true;
+        verifiedContactEmail = true;
       }
     }
-    if (!alreadyHasCandidateEmail && !replacedSourceEmail) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
+    if (!verifiedContactEmail) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
   }
 
   const place = (id, original, text) => {

@@ -187,6 +187,19 @@ describe('in-place DOCX (phase 5)', () => {
     expect(result.patched).toContain('contact-email-1');
   });
 
+  it('falls back when the candidate email appears only outside the source contact paragraph', () => {
+    const candidateEmail = 'candidate@example.test';
+    const body = BODY
+      .replace(p(`${profile.email} · Como`), p('Contatto non disponibile · Como'))
+      .replace(p('Competenze: Docker, Node.js, React, SQL'), `${p(`Nota interna: ${candidateEmail}`)}${p('Competenze: Docker, Node.js, React, SQL')}`);
+    const result = buildInPlaceDocx(makeDocx(documentXml(body)), tailored(), {
+      profile,
+      identity: { name: profile.fullName, email: candidateEmail },
+    });
+
+    expect(result).toEqual({ status: 'fallback', reason: 'candidate_email_not_in_source' });
+  });
+
   it('follows the candidate’s choices: their CV’s line stays, their own words go in', () => {
     const result = buildInPlaceDocx(makeDocx(), tailored(), {
       profile,
