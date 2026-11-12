@@ -23,6 +23,7 @@ import { resolve } from 'node:path';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
 import {
+  SECTION_TREE_FANOUT_SECTIONS,
   legacyTicinoTreeBucket,
   sectionTreeBucket,
   sectionUsesHashFanout,
@@ -60,7 +61,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
     const utf8Encoder = new TextEncoder();
-    const HASH_FANOUT_SECTIONS = ['ticino', 'zurigo'];
+    const SECTION_TREE_FANOUT_SECTIONS = ${JSON.stringify(SECTION_TREE_FANOUT_SECTIONS)};
     ${sectionTreeBucket.toString()}
     ${sectionUsesHashFanout.toString()}
     ${legacyTicinoTreeBucket.toString()}
