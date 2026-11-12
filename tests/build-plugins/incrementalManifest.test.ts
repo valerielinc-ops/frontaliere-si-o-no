@@ -190,7 +190,7 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(');
     expect(source.slice(crossInputStart, crossEnd)).toContain('sourceInputHash: baseInputHash');
     expect(source.slice(crossHashStart, crossInputStart)).not.toContain('getReuseHash(');
-    expect(source).toContain('rewriteActiveBridgeHtml(bridgeHtml, cachedHtml)');
+    expect(source).toContain('rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml)');
   });
 
   it('keeps active reuse stable for crawledAt while the publish hash changes', () => {
