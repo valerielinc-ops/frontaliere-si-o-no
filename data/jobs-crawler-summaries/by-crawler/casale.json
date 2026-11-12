@@ -1,18 +1,21 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-11-12T09:16:55.697Z",
-  "total": 3,
-  "newCount": 1,
+  "generatedAt": "2026-11-12T21:18:30.988Z",
+  "total": 2,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2877,
-  "avgDurationMs": 2877,
+  "durationMs": 2613,
+  "avgDurationMs": 2613,
   "durationHistory": [
-    2877
+    2613
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
       "applyUrl": "https://recruit.casale.ch/o/process-engineer-recently-graduated/c/new",
@@ -42,10 +45,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-11-11T21:15:11.220Z",
-      "crawledAt": "2026-11-12T09:16:43.887Z",
+      "crawledAt": "2026-11-12T21:18:21.660Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:16:43.887Z",
+      "validThrough": "2027-02-09T21:18:21.660Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -58,58 +61,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
-      "applyUrl": "https://recruit.casale.ch/o/process-engineer-recently-graduated/c/new",
-      "title": "Process Engineer (recently graduated)",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "ingegnere-di-processo-ricentemente-graduato-casale-sa-lugano-ticino",
-      "category": "engineering",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "2026-11-11T21:15:11.220Z",
-      "crawledAtSource": "slice-writer",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:15:11.220Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-11-11T21:15:11.220Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
       "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
@@ -139,10 +91,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-12T09:16:43.887Z",
+      "crawledAt": "2026-11-12T21:18:21.660Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:16:43.887Z",
+      "validThrough": "2027-01-07T21:18:21.660Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -155,55 +107,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/expediter-1",
-      "applyUrl": "https://recruit.casale.ch/o/expediter-1/c/new",
-      "title": "Expediter",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "expediter-casale-lugano",
-      "category": "logistics",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-da760cf6afeb",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "crawledAt": "2026-11-11T09:20:40.206Z",
-      "crawledAtSource": "slice-writer",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:20:40.206Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

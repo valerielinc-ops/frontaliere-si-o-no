@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "galleria-italo-svizzera-enigmista",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/galleria-italo-svizzera-enigmista/",
-      "ts": "2026-05-07T10:05:09.377Z",
-      "seed": true
-    },
-    {
       "id": "svizzera-deroghe-costi-sanitari-crans-montana",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-deroghe-costi-sanitari-crans-montana/",
       "ts": "2026-05-07T10:14:18.326Z",
@@ -6275,6 +6269,23 @@
       "copyAngleIntent": "both",
       "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
       "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "bollettino-frontaliere-2026-11-12",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/bollettino-frontaliere-2026-11-12/",
+      "ts": "2026-11-12T20:58:59.293Z",
+      "fbPostId": "951226518080080_122131234767272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
