@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-11T13:22:46.788Z",
+  "assembledAt": "2026-11-12T14:25:50.016Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -55576,12 +55576,11 @@
       },
       "startDate": "2026-11-21",
       "endDate": "2026-11-21",
-      "startTime": "09:00",
       "category": "Event",
-      "venue": "Jardins de l'église de St-Pierre-de-Clages",
+      "venue": "St-Pierre-de-Clages",
       "comune": "Chamoson",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/truffes-et-vins-de-chamoson/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/truffles-and-wines-of-chamoson/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -161255,14 +161254,13 @@
         "de": "Geigenbau-Atelier Kuhn",
         "fr": "Geigenbau-Atelier Kuhn"
       },
-      "startDate": "2027-02-27",
-      "endDate": "2027-02-27",
-      "startTime": "17:00",
-      "category": "Music",
-      "venue": "Geigen- und Saiteninstrumentenbauer Kuhn Martin u. Michèle",
+      "startDate": "2027-02-14",
+      "endDate": "2027-02-14",
+      "category": "Event",
+      "venue": "Diessenhofen",
       "comune": "Diessenhofen",
       "canton": "TG",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/geigenbau-atelier-kuhn/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/geigenbau-atelier-kuhn/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -161270,7 +161268,14 @@
         "lng": 8.7511973
       },
       "recurring": false,
-      "sourceDescriptionHash": "e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2"
+      "sourceDescriptionHash": "e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2",
+      "previousRoutes": [
+        {
+          "canton": "TG",
+          "comune": "Diessenhofen",
+          "slug": "geigenbau-atelier-kuhn-2027-02-27"
+        }
+      ]
     },
     {
       "id": "myswitzerland:b96f6b3e8cb9416c967cb4a9c044e057",
@@ -182885,9 +182890,8 @@
       },
       "startDate": "2026-11-19",
       "endDate": "2027-01-06",
-      "startTime": "01:00",
-      "category": "Festival",
-      "venue": "Piazza Grande",
+      "category": "Event",
+      "venue": "Locarno",
       "comune": "Locarno",
       "canton": "TI",
       "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/winterland-202627/",
@@ -182898,13 +182902,21 @@
         "lng": 8.7960181
       },
       "recurring": true,
+      "performer": [
+        {
+          "name": "Projektionen"
+        },
+        {
+          "name": "Trenord"
+        }
+      ],
       "italianFrontierComuni": [
         "Tronzano Lago Maggiore",
         "Maccagno con Pino e Veddasca",
         "Curiglia con Monteviasco",
         "Cannobio"
       ],
-      "sourceDescriptionHash": "c5d082361f37d7f8ac5330de4b0581a38a71fdc4e0229fd4ef76cd1174e74b46"
+      "sourceDescriptionHash": "934b97109abaf1dc912582b66c654b52b11e39ffef8a9d5453c120e81e473164"
     },
     {
       "id": "myswitzerland:b43dc78f1d9c41709098a81c1f42c13a",
@@ -275555,6 +275567,385 @@
         }
       ],
       "sourceDescriptionHash": "67efa3c038754e0a67ce2104927358eb3c459f057efd70f6d987253b793373c5"
+    },
+    {
+      "id": "myswitzerland:bb720cd781de49ffb652bfea3fad60f6",
+      "title": "Simon Enzler «zmetztinne»",
+      "titleByLocale": {
+        "it": "Simon Enzler «zmetztinne»",
+        "en": "Simon Enzler «zmetztinne»",
+        "de": "Simon Enzler «zmetztinne»",
+        "fr": "Simon Enzler «zmetztinne»"
+      },
+      "startDate": "2026-12-17",
+      "endDate": "2026-12-18",
+      "category": "Event",
+      "venue": "Rüti ZH",
+      "comune": "Rüti (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/simon-enzler-zmetztinne-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2553992,
+        "lng": 8.8577735
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "92ebe47a2cf65e6b0973ddb13086ae9f6819d2215dbc99726e5d5a9762509d5d"
+    },
+    {
+      "id": "myswitzerland:baaa2520b6b741809c611ae971e02726",
+      "title": "Reality Solvent",
+      "titleByLocale": {
+        "it": "Reality Solvent",
+        "en": "Reality Solvent",
+        "de": "Reality Solvent",
+        "fr": "Reality Solvent"
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Ginevra",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/reality-solvent/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2047246,
+        "lng": 6.1409633
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Erfahrung"
+        },
+        {
+          "name": "Wert"
+        },
+        {
+          "name": "Formen"
+        },
+        {
+          "name": "Geste"
+        },
+        {
+          "name": "Gegenopfern"
+        }
+      ],
+      "sourceDescriptionHash": "e1a6ba73949caaff6c53eab0b12ca5d37e4e5efaa8609a6c84b4c12c06224bbf"
+    },
+    {
+      "id": "myswitzerland:b9c5265cb6704c8d8c47d860c0f5f9fd",
+      "title": "Altrüti Schlager Fäscht 2027",
+      "titleByLocale": {
+        "it": "Altrüti Schlager Fäscht 2027",
+        "en": "Altrüti Schlager Fäscht 2027",
+        "de": "Altrüti Schlager Fäscht 2027",
+        "fr": "Altrüti Schlager Fäscht 2027"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "category": "Event",
+      "venue": "Gossau ZH",
+      "comune": "Gossau (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/altrueti-schlager-faescht-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2982882,
+        "lng": 8.7699036
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Anita Hofmann"
+      },
+      "sourceDescriptionHash": "2c231ab837a3682812f529a7cb088b5e9f39869029fafbf3b9e4886900a0effb"
+    },
+    {
+      "id": "myswitzerland:b8ff7a21f7c64a38bdab2e5dcca82cfd",
+      "title": "\"Ottocento Divino\", concerto per voce e organo",
+      "titleByLocale": {
+        "it": "\"Ottocento Divino\", concerto per voce e organo",
+        "en": "\"Ottocento Divino\", concerto per voce e organo",
+        "de": "\"Ottocento Divino\", concerto per voce e organo",
+        "fr": "\"Ottocento Divino\", concerto per voce e organo"
+      },
+      "startDate": "2027-04-02",
+      "endDate": "2027-04-02",
+      "category": "Event",
+      "venue": "Brusio",
+      "comune": "Brusio",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ottocento-divino-concerto-per-voce-e-organo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2585168,
+        "lng": 10.1253777
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano",
+        "Sernio",
+        "Bianzone",
+        "Lovero"
+      ],
+      "sourceDescriptionHash": "8ee644e4122caa3b6ca999b3adb071d615d06f7ae9a601846c7466cba022d512"
+    },
+    {
+      "id": "myswitzerland:b8cd3556fdba43038488c0d37b0a2535",
+      "title": "Vendita domenicale",
+      "titleByLocale": {
+        "it": "Vendita domenicale",
+        "en": "Sunday Sales",
+        "de": "Sonntagsverkauf",
+        "fr": "Vente le dimanche"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "category": "Event",
+      "venue": "Thusis",
+      "comune": "Thusis",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/vendita-domenicale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.698142,
+        "lng": 9.439709
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5753fd2c47fc6bd6791bd5293604bdf26335ae23618e355045bdfa49a7232d47"
+    },
+    {
+      "id": "myswitzerland:b865454f59154785aeb04f1c23b270c4",
+      "title": "Sein oder Nichtsein",
+      "titleByLocale": {
+        "it": "Sein oder Nichtsein",
+        "en": "Sein oder Nichtsein",
+        "de": "Sein oder Nichtsein",
+        "fr": "Sein oder Nichtsein"
+      },
+      "startDate": "2027-05-20",
+      "endDate": "2027-05-21",
+      "category": "Event",
+      "venue": "Schaan",
+      "canton": "",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sein-oder-nichtsein/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.167627,
+        "lng": 9.5118214
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "83eb653e34ed8510f04fba2fe5c7d1cc36fce9e1f7b342693a272123ea867233"
+    },
+    {
+      "id": "myswitzerland:b85a04d20a994ed38684ed3057578c4e",
+      "title": "Weihnachtsreiten",
+      "titleByLocale": {
+        "it": "Weihnachtsreiten",
+        "en": "Weihnachtsreiten",
+        "de": "Weihnachtsreiten",
+        "fr": "Weihnachtsreiten"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Schwarzenburg",
+      "comune": "Schwarzenburg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsreiten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.812498,
+        "lng": 7.331859
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a889ab960830241ee31c0e7a9ca7a5e3754b92d90973396466dbea2d0dd91faa"
+    },
+    {
+      "id": "myswitzerland:b84d340dc2354a19b6022a992130f424",
+      "title": "Orthodoxe Chormusik von LYRA",
+      "titleByLocale": {
+        "it": "Orthodoxe Chormusik von LYRA",
+        "en": "Orthodoxe Chormusik von LYRA",
+        "de": "Orthodoxe Chormusik von LYRA",
+        "fr": "Orthodoxe Chormusik von LYRA"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/orthodoxe-chormusik-von-lyra/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1822988,
+        "lng": 8.4861928
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2a03bbfe25610467b4c75cee5c27b13cf3329c233e93a2556c8093faec9acf8f"
+    },
+    {
+      "id": "myswitzerland:b82bccb9188d4e61b7f1ecc087dbec6c",
+      "title": "Grand Raid BCVS",
+      "titleByLocale": {
+        "it": "Grand Raid BCVS",
+        "en": "Grand Raid BCVS",
+        "de": "Grand Raid WKB",
+        "fr": "Grand Raid BCVS"
+      },
+      "startDate": "2027-08-21",
+      "endDate": "2027-08-21",
+      "category": "Event",
+      "venue": "Nendaz",
+      "comune": "Nendaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/grand-raid-bcvs/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1805278,
+        "lng": 7.291921
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f6482cd86a648bc65e5ea5b5f6fb881dc92c23a26c951284026ab4796b84b5fc"
+    },
+    {
+      "id": "myswitzerland:b61ba38d8b034348838648f0001e7b84",
+      "title": "12meat Social Dinner: Offline-Tisch für Begegnung",
+      "titleByLocale": {
+        "it": "12meat Social Dinner: Offline-Tisch für Begegnung",
+        "en": "12meat Social Dinner: Offline-Tisch für Begegnung",
+        "de": "12meat Social Dinner: Offline-Tisch für Begegnung",
+        "fr": "12meat Social Dinner: Offline-Tisch für Begegnung"
+      },
+      "startDate": "2027-01-08",
+      "endDate": "2027-03-12",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/12meat-social-dinner-offline-tisch-fuer-begegnung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9479739,
+        "lng": 7.4474468
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5feb16e50e8cb28ec9f803e4b03a0b38599c5bae899b387092915089d361d02d"
+    },
+    {
+      "id": "myswitzerland:b6008352cc4c4170828342d906340f7c",
+      "title": "Lanzner-Wintermärit",
+      "titleByLocale": {
+        "it": "Lanzner-Wintermärit",
+        "en": "Lanzner-Wintermärit",
+        "de": "Lanzner-Wintermärit",
+        "fr": "Lanzner-Wintermärit"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "category": "Event",
+      "venue": "Lanzenhäusern",
+      "comune": "Schwarzenburg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lanzner-wintermaerit/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8420813,
+        "lng": 7.3477735
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Verpflegungsmöglichkeit"
+      },
+      "sourceDescriptionHash": "afa4431e0120c8d055cb42554384170ced155defcce7dec489a3f2964424e285"
+    },
+    {
+      "id": "myswitzerland:b5b13806fe8a44dfad7ce43fd4710685",
+      "title": "Tanz- und Singnachmittag im Center da Sanadad",
+      "titleByLocale": {
+        "it": "Tanz- und Singnachmittag im Center da Sanadad",
+        "en": "Tanz- und Singnachmittag im Center da Sanadad",
+        "de": "Tanz- und Singnachmittag im Center da Sanadad",
+        "fr": "Tanz- und Singnachmittag im Center da Sanadad"
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2027-11-16",
+      "category": "Event",
+      "venue": "Val Surses: Savognin",
+      "comune": "Surses",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/tanz-und-singnachmittag-im-center-da-sanadad/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5952835,
+        "lng": 9.600365
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "b4d9e40dd22acc3a595e8542e351ee96c391382858e8567ca03fee7decf9ebf0"
+    },
+    {
+      "id": "myswitzerland:b5ac733a109f4a22894978e830091369",
+      "title": "Märchenhafte Altstadtweihnacht Laufenburg",
+      "titleByLocale": {
+        "it": "Märchenhafte Altstadtweihnacht Laufenburg",
+        "en": "Märchenhafte Altstadtweihnacht Laufenburg",
+        "de": "Märchenhafte Altstadtweihnacht Laufenburg",
+        "fr": "Märchenhafte Altstadtweihnacht Laufenburg"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-20",
+      "category": "Event",
+      "venue": "Laufenburg",
+      "comune": "Laufenburg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/maerchenhafte-altstadtweihnacht-laufenburg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5641702,
+        "lng": 8.0622128
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7994814ec4c8c8cdaf6a45a861160dfd712dfba8b7090510d7e5eda9dd7a6287"
+    },
+    {
+      "id": "myswitzerland:b3e6e029a3554bcaa0ccc5bfe7f85e8f",
+      "title": "Lyôba, spectacle musical inspiré de l'Abbé Bovet",
+      "titleByLocale": {
+        "it": "Lyôba, spectacle musical inspiré de l'Abbé Bovet",
+        "en": "Lyôba, spectacle musical inspiré de l'Abbé Bovet",
+        "de": "Lyôba, spectacle musical inspiré de l'Abbé Bovet",
+        "fr": "Lyôba, spectacle musical inspiré de l'Abbé Bovet"
+      },
+      "startDate": "2027-03-31",
+      "endDate": "2027-04-11",
+      "category": "Event",
+      "venue": "La Tour-de-Trême",
+      "comune": "Bulle",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lyoba-spectacle-musical-inspire-de-labbe-bovet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6061104,
+        "lng": 7.0594403
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "8453c3a833811c52401ebaf50e4abaa7b84547667d41de8b97cda48fa09ffb01"
     }
   ]
 }

@@ -358,17 +358,117 @@
     "sector": "Altro",
     "expiredAt": "2026-11-12T13:41:29.941Z",
     "previousSlugs": [
-      "bauspengler-m-w-liestal-bl-yellowshark-ch"
+      "bauspengler-m-w-liestal-bl-yellowshark-ch",
+      "lattoniere-edile-m-f-yellowshark-ag-liestal",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-c63ff4c3",
+      "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65",
+      "bauspengler-m-w-liestal-bl-yellowshark-ch-4c793e89",
+      "construction-plunger-m-f-yellowshark-ag-liestal",
+      "bauspengler-m-w-d-yellowshark-ag-liestal",
+      "manufacturer-m-w-d-yellowshark-ag-liestal",
+      "construction-plunger-m-f-yellowshark-ag-liestal-bl",
+      "baupengler-h-f-yellowshark-ag-liestal",
+      "fabricant-m-w-d-yellowshark-ag-liestal",
+      "baupengler-h-f-yellowshark-ag-liestal-bl"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch"
+        "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-4c793e89",
+        "lattoniere-edile-m-f-yellowshark-ag-liestal"
       ],
       "en": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch"
+        "construction-plunger-m-f-yellowshark-ag-liestal-bl",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
       ],
       "fr": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch"
+        "baupengler-h-f-yellowshark-ag-liestal-bl",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
+      ],
+      "de": [
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
+        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
       ]
     },
     "postalCode": "4410",
@@ -378,7 +478,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa056617",
-    "firstSeenAt": "2026-09-28T21:58:25.619Z"
+    "firstSeenAt": "2026-09-28T21:58:25.619Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa003701",
+        "firstSeenAt": "2026-09-28T21:58:25.619Z",
+        "title": "Bauspengler (m/w)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa056617",
+        "firstSeenAt": "2026-09-28T21:58:25.619Z",
+        "title": "Bauspengler (m/w)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa056624",
+        "firstSeenAt": "2026-09-28T21:58:25.619Z",
+        "title": "Bauspengler (m/w)"
+      }
+    ]
   },
   {
     "slug": "filetto-di-soffitto-m-f-yellowshark-ag-bern-e866807ddf",
@@ -1265,6 +1382,9 @@
       "en": [
         "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich-zh",
         "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch-c38ccfd2"
+      ],
+      "de": [
+        "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch-c38ccfd2"
       ]
     },
     "postalCode": "8001",
@@ -1834,7 +1954,8 @@
         "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch-72360195",
         "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch-bec0f2fa",
         "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch-e7ebadc5",
-        "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch"
+        "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch",
+        "dachdecker-bauspengler-m-w-zug-zg-yellowshark-ch-5a7b0083"
       ]
     },
     "postalCode": "6300",
@@ -1908,7 +2029,8 @@
         "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch-2198191b",
         "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch-8dca4edf",
         "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch-b721f22c",
-        "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch"
+        "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch",
+        "betriebselektriker-automatiker-100-m-w-bulach-zh-yellowshark-ch-1810b62f"
       ]
     },
     "postalCode": "8180",
@@ -2009,7 +2131,8 @@
         "fassadenmonteur-m-w-zurich-zh-yellowshark-ch-7fe94db7",
         "fassadenmonteur-m-w-zurich-zh-yellowshark-ch-7da48b3a",
         "fassadenmonteur-m-w-zurich-zh-yellowshark-ch-7238b03f",
-        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch"
+        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch-8891483c"
       ],
       "fr": [
         "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
@@ -2205,7 +2328,8 @@
         "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch-f782af86",
         "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch-f593da8f",
         "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch-b6c76bc4",
-        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
+        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
+        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch-91260bf0"
       ]
     },
     "postalCode": "8001",
@@ -2279,7 +2403,8 @@
         "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch-3e4b2a2d",
         "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch-87fa7ebd",
         "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch-5fd03281",
-        "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch"
+        "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch",
+        "kranfuhrer-oberdrehkran-m-w-liestal-bl-yellowshark-ch-3dd1dfee"
       ]
     },
     "postalCode": "4410",
@@ -2557,7 +2682,8 @@
         "maurer-m-w-chur-gr-yellowshark-ch-321091e1",
         "maurer-m-w-chur-gr-yellowshark-ch-a6ec6f9d",
         "maurer-m-w-chur-gr-yellowshark-ch-beb9cf11",
-        "maurer-m-w-chur-gr-yellowshark-ch"
+        "maurer-m-w-chur-gr-yellowshark-ch",
+        "maurer-m-w-chur-gr-yellowshark-ch-f631bea0"
       ]
     },
     "postalCode": "7000",
@@ -2633,7 +2759,8 @@
         "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch-6cc5df4d",
         "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch-b45f9718",
         "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch-ac9baf61",
-        "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch"
+        "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch",
+        "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch-a976d3cf"
       ],
       "fr": [
         "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch-a976d3cf",
@@ -2704,7 +2831,8 @@
         "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch-69014809",
         "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch-22da2926",
         "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch-21b76975",
-        "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch"
+        "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch",
+        "kranfuhrer-unterdrehkran-m-w-zug-zg-yellowshark-ch-3c706079"
       ]
     },
     "postalCode": "6300",
@@ -3038,7 +3166,8 @@
         "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-15d6956c",
         "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-cbd1f66d",
         "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-33cec8c8",
-        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch"
+        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch",
+        "servicetechniker-elektrotechnik-100-m-w-olten-so-yellowshark-ch-0da65b39"
       ]
     },
     "postalCode": "4600",
@@ -4521,7 +4650,8 @@
         "schreiner-m-w-luzern-lu-yellowshark-ch-3c9fa576",
         "schreiner-m-w-luzern-lu-yellowshark-ch-49ea0e22",
         "schreiner-m-w-luzern-lu-yellowshark-ch-0d61ad6d",
-        "schreiner-m-w-luzern-lu-yellowshark-ch"
+        "schreiner-m-w-luzern-lu-yellowshark-ch",
+        "schreiner-m-w-luzern-lu-yellowshark-ch-60292038"
       ]
     },
     "postalCode": "6003",
@@ -4715,7 +4845,8 @@
         "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-ffe88399",
         "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-414bf4ab",
         "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-bcdc4e1f",
-        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch"
+        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch",
+        "holzbau-arbeiter-m-w-zurich-zh-yellowshark-ch-408cdb17"
       ]
     },
     "postalCode": "8001",
@@ -4901,7 +5032,8 @@
         "maurer-m-w-zurich-zh-yellowshark-ch-f09c5ea4",
         "maurer-m-w-zurich-zh-yellowshark-ch-45f95c27",
         "maurer-m-w-zurich-zh-yellowshark-ch-0a4f2cfb",
-        "maurer-m-w-zurich-zh-yellowshark-ch"
+        "maurer-m-w-zurich-zh-yellowshark-ch",
+        "maurer-m-w-zurich-zh-yellowshark-ch-eb2db683"
       ],
       "fr": [
         "maurer-m-w-zurich-zh-yellowshark-ch",
@@ -5392,7 +5524,8 @@
         "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch-981e7db2",
         "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch-7f175f1d",
         "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch-7c391ce3",
-        "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch"
+        "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch",
+        "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch-79ba7f76"
       ],
       "fr": [
         "sanitar-heizungsmonteur-m-w-liestal-bl-yellowshark-ch-a244ff1f",
@@ -5939,7 +6072,8 @@
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-6fb701b0",
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-4f7f4bb4",
         "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-5b981951",
-        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch"
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch",
+        "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch-cc9d40ef"
       ]
     },
     "postalCode": "8001",
@@ -6973,7 +7107,8 @@
         "gartner-unterhalt-m-w-zug-zg-yellowshark-ch-f316ba40",
         "gartner-unterhalt-m-w-zug-zg-yellowshark-ch-a7ab69b6",
         "gartner-unterhalt-m-w-zug-zg-yellowshark-ch-163fa1d9",
-        "gartner-unterhalt-m-w-zug-zg-yellowshark-ch"
+        "gartner-unterhalt-m-w-zug-zg-yellowshark-ch",
+        "gartner-unterhalt-m-w-zug-zg-yellowshark-ch-c6f84d85"
       ],
       "fr": [
         "gartner-unterhalt-m-w-zug-zg-yellowshark-ch-c6f84d85",
@@ -7508,7 +7643,8 @@
         "schreiner-monteur-m-w-chur-gr-yellowshark-ch-b9549228",
         "schreiner-monteur-m-w-chur-gr-yellowshark-ch-d7e49069",
         "schreiner-monteur-m-w-chur-gr-yellowshark-ch-53b3eea1",
-        "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
+        "schreiner-monteur-m-w-chur-gr-yellowshark-ch-8a2cc664"
       ]
     },
     "postalCode": "7000",
@@ -7766,7 +7902,8 @@
         "maler-m-w-sarnen-ow-yellowshark-ch-d9b5c0d1",
         "maler-m-w-sarnen-ow-yellowshark-ch-89019419",
         "maler-m-w-sarnen-ow-yellowshark-ch-a9bf47ec",
-        "maler-m-w-sarnen-ow-yellowshark-ch"
+        "maler-m-w-sarnen-ow-yellowshark-ch",
+        "maler-m-w-sarnen-ow-yellowshark-ch-a0e2a9ea"
       ],
       "fr": [
         "maler-m-w-sarnen-ow-yellowshark-ch"
@@ -8066,7 +8203,8 @@
         "maurer-m-w-bern-be-yellowshark-ch-f80be6a2",
         "maurer-m-w-bern-be-yellowshark-ch-de729fbe",
         "maurer-m-w-bern-be-yellowshark-ch-32f26dd3",
-        "maurer-m-w-bern-be-yellowshark-ch"
+        "maurer-m-w-bern-be-yellowshark-ch",
+        "maurer-m-w-bern-be-yellowshark-ch-2a998f43"
       ]
     },
     "postalCode": "3004",
@@ -9132,7 +9270,8 @@
         "mobelschreiner-m-w-bern-be-yellowshark-ch-c52816a9",
         "mobelschreiner-m-w-bern-be-yellowshark-ch-c440b837",
         "mobelschreiner-m-w-bern-be-yellowshark-ch-077b71c6",
-        "mobelschreiner-m-w-bern-be-yellowshark-ch"
+        "mobelschreiner-m-w-bern-be-yellowshark-ch",
+        "mobelschreiner-m-w-bern-be-yellowshark-ch-49684571"
       ],
       "fr": [
         "mobelschreiner-m-w-bern-be-yellowshark-ch-49684571",
@@ -9985,7 +10124,8 @@
         "plattenleger-m-w-chur-gr-yellowshark-ch-09f807a7",
         "plattenleger-m-w-chur-gr-yellowshark-ch-a0c827b1",
         "plattenleger-m-w-chur-gr-yellowshark-ch-17dcf0e2",
-        "plattenleger-m-w-chur-gr-yellowshark-ch"
+        "plattenleger-m-w-chur-gr-yellowshark-ch",
+        "plattenleger-m-w-chur-gr-yellowshark-ch-d2458916"
       ]
     },
     "postalCode": "7000",
@@ -10129,7 +10269,8 @@
         "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch-347ce5a9",
         "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch-a511fae9",
         "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch-7d4e354a",
-        "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch"
+        "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch",
+        "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch-2cf53b7e"
       ],
       "fr": [
         "projektleiter-gebaudeautomation-m-w-80-100-zurich-zh-yellowshark-ch-2cf53b7e",
@@ -10302,7 +10443,8 @@
         "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-c1ee6329",
         "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-d7ac2fbc",
         "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-3ee37e79",
-        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch"
+        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch",
+        "dachdecker-flach-steildach-m-w-bern-be-yellowshark-ch-72ea8749"
       ]
     },
     "postalCode": "3004",
@@ -11520,7 +11662,8 @@
         "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch-6e20450a",
         "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch-995b55b5",
         "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch-144ecac7",
-        "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch"
+        "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch",
+        "gartner-unterhalt-m-w-sarnen-ow-yellowshark-ch-f9eeefe0"
       ]
     },
     "postalCode": "6060",
@@ -12026,7 +12169,8 @@
         "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch-2983d3b6",
         "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch-f73faee5",
         "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch-f04c5bf0",
-        "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch"
+        "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch",
+        "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch-d70bf620"
       ],
       "fr": [
         "maschinist-schreitbagger-m-w-liestal-bl-yellowshark-ch-d70bf620",
@@ -13540,7 +13684,8 @@
         "trockenbauer-m-w-chur-gr-yellowshark-ch-fe9f4938",
         "trockenbauer-m-w-chur-gr-yellowshark-ch-19d9a239",
         "trockenbauer-m-w-chur-gr-yellowshark-ch-030fbff5",
-        "trockenbauer-m-w-chur-gr-yellowshark-ch"
+        "trockenbauer-m-w-chur-gr-yellowshark-ch",
+        "trockenbauer-m-w-chur-gr-yellowshark-ch-fac03b9d"
       ]
     },
     "postalCode": "7000",
@@ -14160,7 +14305,8 @@
         "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch-bcdfcb95",
         "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch-83a0f2c9",
         "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch-b299928e",
-        "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch"
+        "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
+        "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch-04294332"
       ]
     },
     "postalCode": "6300",
@@ -15009,7 +15155,8 @@
         "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch-5473b8bf",
         "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch-72d2ec23",
         "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch-593ca4e8",
-        "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch"
+        "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch",
+        "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch-4ec36b7f"
       ]
     },
     "postalCode": "8598",
@@ -16342,7 +16489,8 @@
         "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch-61f0eeb2",
         "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch-d8ee1f27",
         "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch-ad662f11",
-        "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch"
+        "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch",
+        "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch-4ac9d7e3"
       ]
     },
     "postalCode": "5000",
@@ -16506,165 +16654,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa068354",
     "firstSeenAt": "2026-10-06T22:04:36.533Z"
-  },
-  {
-    "slug": "lattoniere-edile-m-f-yellowshark-ag-liestal",
-    "title": "Bauspengler (m/w)",
-    "titleByLocale": {
-      "it": "Costruttore (m/f)",
-      "en": "Manufacturer (m/f)",
-      "de": "Bauspengler (m/w)",
-      "fr": "Fabricant (h/f)"
-    },
-    "company": "yellowshark AG",
-    "companyKey": "yellowshark",
-    "location": "Liestal, BL",
-    "addressLocality": "Liestal",
-    "descriptionByLocale": {
-      "it": "06.10.2026\nCostruttore (m/f)\n4410 Liestal\nSpettacolo\n- Temporaneo\nUfficio\n01\nDatore di lavoro futuro\nStai cercando un nuovo lavoro come sfida? Per i nostri clienti nel Cantone di Basilea (BL), stiamo cercando un impiego temporaneo o permanente con un accordo immediato.\n02\nIl tuo compito\nCome Bauspengler si lavora in modo indipendente o in una squadra. Essi producono componenti e quindi rendono gli edifici antitempo. La misurazione e la lavorazione di vari fogli e l'assemblaggio professionale successivo è una delle vostre competenze. Il vostro posto di lavoro è sia il negozio di valore che il cantiere. Agiscono in modo sicuro ed efficiente. Sono privi di vertigini e conformi a tutte le normative di sicurezza. I nostri clienti lavorano principalmente nella regione.\n04\nIl tuo profilo\n– Formazione professionale completa come azienda edile in Svizzera o nei paesi dell’UE\n– Buona condizione fisica\n– Esperienza nella copertura\nApprezzamento del lavoro autonomo Lei e lavorare in una squadra\n– Parli una delle lingue: tedesco o italiano\nPatente di guida categoria B\n– Conoscenza della sicurezza sul lavoro\n05\nVale la pena sapere\nPossono essere considerate solo applicazioni elettroniche. Le domande per posta non saranno restituite.\nAltre raccomandazioni\nApplicare ora\nPurtroppo non possiamo attualmente sostenere le applicazioni della vostra regione.\nPersona di contatto\nT\nE-mail\nAlla squadra\nProcesso di applicazione\n01\nInvia la tua richiesta in 10 minuti\n02\nEsame dei documenti\n03\nRispondi entro 5 giorni\n22.09.2026 / 6300 treno\nAttrezzature per la costruzione (m/f)\n13.10.2026 / 4410 Liestal\nAttrezzature per la costruzione (m/f)\nOccupazione\nOttieni le ultime offerte di lavoro direttamente nella tua casella di posta.\nApplicazione spontanea\nSi prende l'iniziativa, esaminiamo le offerte di lavoro adatte.\nCOMUNICAZIONI\nNEXT JOB\nAbbiamo suscitato il vostro interesse?\nInvia la tua applicazione in 3 semplici passaggi.\nApplicare ora\nPurtroppo non possiamo attualmente sostenere le applicazioni della vostra regione.",
-      "en": "06.10.2026\nManufacturer (m/f)\n4410 Liestal\nSpelt\n- Temporary\nOffice\n01\nFuture employer\nAre you looking for a new job as a challenge? For our customers in the Canton of Basel (BL), we are looking for temporary or permanent employment by immediate agreement.\n02\nYour task\nAs a Bauspengler you work independently or in a team. They produce components and thus make the buildings weatherproof. The measurement and processing of various sheets and the subsequent professional assembly is one of your skills. Your workplace is both the value store and the construction site. They act safety-consciously and efficiently. They are vertigo-free and comply with all safety regulations. Our customers work mainly in the region.\n04\nYour profile\n– Completed vocational training as a construction company in Switzerland or EU countries\n– Good physical condition\n– Experience in roofing\nAppreciating self-employment You as well as working in a team\n– You speak one of the languages: German or Italian\nDriving licence category B\n– Knowledge of occupational safety\n05\nWorth knowing\nOnly electronic applications can be considered. Applications by post will not be returned.\nOther Recommendations\nApply now\nUnfortunately, we cannot currently support applications from your region.\nContact person\nT\nE-mail\nTo the team\nApplication process\n01\nSubmit your application in 10 minutes\n02\nExamination of documents\n03\nReply within 5 days\n22.09.2026 / 6300 train\nConstruction equipment (m/f)\n13.10.2026 / 4410 Liestal\nConstruction equipment (m/f)\nJob ticker\nGet the latest job offers directly into your mailbox.\nSpontaneous application\nYou take the initiative, we examine suitable job offers.\nPREVIOUS JOB\nNEXT JOB\nHave we aroused your interest?\nSend your application in 3 easy steps.\nApply now\nUnfortunately, we cannot currently support applications from your region.",
-      "de": "06.10.2026\nBauspengler (m/w)\n4410 Liestal\nSpenglerei\n- Temporär\nOffice\n01\nZukünftiger Arbeitgeber\nSie suchen eine neuen Job als Herausforderung!? Für unsere Kunden im Kanton Basel (BL) suchen wir per sofort oder nach Vereinbarung Bauspengler zur Temporär- oder Festanstellung.\n02\nIhre Aufgabe\nAls Bauspengler arbeiten Sie selbstständig oder im Team. Sie produzieren Bauteile und machen damit die Gebäude wetterfest. Das Vermessen und Verarbeiten diverser Blechen und die anschliessend fachgerechte Montage gehört zu Ihren Fähigkeiten. Ihr Arbeitsplatz ist sowohl die Wertstatt als auch die Baustelle. Sie handeln sicherheitsbewusst und effizient. Sie sind schwindelfrei und halten sich an alle Sicherheitsvorschriften. Unsere Kunden arbeiten vorwiegend in der Region.\n04\nIhr Profil\n– Abgeschlossene Berufsausbildung als Bauspengler in der Schweiz oder EU-Staaten\n– Gute körperliche Verfassung\n– Erfahrung im Bedachungsbereich\n– Selbstständiges Arbeiten schätzen Sie genauso wie das Arbeiten im Team\n– Sie beherrschen eine der Sprachen: Deutsch oder Italienisch\n– Führerschein Kategorie B\n– Kenntnisse über die Arbeitssicherheit\n05\nWissenswertes\nEs können nur elektronische Bewerbungen berücksichtigt werden. Bewerbungen auf dem Postweg werden nicht retourniert.\nStelle weiterempfehlen\nJetzt bewerben\nAnsprechpartner\nT\nE-Mail\nZum Team\nBewerbungsprozess\n01\nEinreichen deiner Bewerbung in 10 Minuten\n02\nPrüfung der Unterlagen\n03\nRückmeldung innerhalb von 5 Tagen\n13.10.2026 / 4410 Liestal\nBauspengler (m/w)\n20.10.2026 / 6300 Zug\nBauspengler (m/w)\n27.10.2026 / 4410 Liestal\nBauspengler (m/w)\nJob-Ticker\nErhalten Sie die neusten Jobangebote direkt in Ihr Postfach.\nSpontanbewerbung\nSie ergreifen die Initiative, wir prüfen passende Stellenangebote.\nVORHERIGER JOB\nNÄCHSTER JOB\nHaben wir Ihr Interesse geweckt?\nSenden Sie Ihre Bewerbung in 3 einfachen Schritten.\nJetzt bewerben",
-      "fr": "06.10.2026\nFabricant (h/f)\n4410 Liestal\nÉpeautre\n- temporaire\nBureau\n01\nFutur employeur\nVous cherchez un nouveau travail comme un défi? Pour nos clients du Canton de Bâle (BL), nous recherchons un emploi temporaire ou permanent par accord immédiat.\n02\nVotre tâche\nEn tant que Bauspengler, vous travaillez indépendamment ou en équipe. Ils produisent des composants et rendent ainsi les bâtiments imperméables aux intempéries. La mesure et le traitement de différentes feuilles et l'assemblage professionnel subséquent sont l'une de vos compétences. Votre lieu de travail est à la fois le magasin de valeur et le chantier. Ils agissent consciemment et efficacement. Ils sont exempts de vertiges et respectent toutes les règles de sécurité. Nos clients travaillent principalement dans la région.\n04\nVotre profil\n– Formation professionnelle terminée en tant qu'entreprise de construction en Suisse ou dans les pays de l'UE\n– Bonne condition physique\n– Expérience dans la toiture\nAppréciation du travail indépendant Vous et travailler dans une équipe\n– Vous parlez une des langues: allemand ou italien\nPermis de conduire catégorie B\n– Connaissance de la sécurité au travail\n05\nIl faut savoir\nSeules les applications électroniques peuvent être envisagées. Les demandes par la poste ne seront pas retournées.\nAutres recommandations\nAppliquer maintenant\nMalheureusement, nous ne pouvons pas soutenir les applications de votre région.\nPersonne à contacter\nT\nCourriel\nÀ l'équipe\nProcessus de demande\n01\nSoumettre votre demande en 10 minutes\n02\nExamen des documents\n03\nRéponse dans les 5 jours\n22.09.2026 / 6300 train\nMatériel de construction (h/f)\n13.10.2026 / 4410 Liestal\nMatériel de construction (h/f)\nJeu de rôle\nObtenez les dernières offres d'emploi directement dans votre boîte aux lettres.\nDemande spontanée\nVous prenez l'initiative, nous examinons les offres d'emploi appropriées.\nEMPLOI PRÉCÉDENT\nPROCHAINE EMPLOI\nAvons-nous suscité votre intérêt?\nEnvoyez votre application en 3 étapes faciles.\nAppliquer maintenant\nMalheureusement, nous ne pouvons pas soutenir les applications de votre région."
-    },
-    "slugByLocale": {
-      "it": "lattoniere-edile-m-f-yellowshark-ag-liestal",
-      "en": "construction-plunger-m-f-yellowshark-ag-liestal",
-      "de": "bauspengler-m-w-liestal-bl-yellowshark-ch-c63ff4c3",
-      "fr": "baupengler-h-f-yellowshark-ag-liestal"
-    },
-    "sector": "Altro",
-    "expiredAt": "2026-11-05T13:14:02.926Z",
-    "previousSlugs": [
-      "bauspengler-m-w-d-yellowshark-ag-liestal",
-      "manufacturer-m-w-d-yellowshark-ag-liestal",
-      "fabricant-m-w-d-yellowshark-ag-liestal",
-      "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
-      "construction-plunger-m-f-yellowshark-ag-liestal-bl",
-      "baupengler-h-f-yellowshark-ag-liestal-bl",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
-      "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-c63ff4c3",
-        "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
-      ],
-      "en": [
-        "bauspengler-m-w-d-yellowshark-ag-liestal",
-        "manufacturer-m-w-d-yellowshark-ag-liestal",
-        "construction-plunger-m-f-yellowshark-ag-liestal-bl",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-c63ff4c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
-      ],
-      "fr": [
-        "bauspengler-m-w-d-yellowshark-ag-liestal",
-        "fabricant-m-w-d-yellowshark-ag-liestal",
-        "baupengler-h-f-yellowshark-ag-liestal-bl",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-c63ff4c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9445bb65"
-      ],
-      "de": [
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b97e55e5",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-d1bad4c0",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-29d0adf4",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-977c0631",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-ed143853",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-b60acafd",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-6ba6ba04",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-9f549466",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-495c11ca",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-144e2abc",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-bbbec73b",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-a64485b6",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-4d6b16c3",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-86381624",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-04bce0f7",
-        "bauspengler-m-w-liestal-bl-yellowshark-ch-94df42de"
-      ]
-    },
-    "postalCode": "4410",
-    "streetAddress": "Liestal",
-    "salaryMin": 62000,
-    "salaryMax": 94000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa003701",
-    "firstSeenAt": "2026-09-28T21:58:25.619Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa003701",
-        "firstSeenAt": "2026-09-28T21:58:25.619Z",
-        "title": "Bauspengler (m/w)"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.yellowshark.com/job/sa056624",
-        "firstSeenAt": "2026-09-28T21:58:25.619Z",
-        "title": "Bauspengler (m/w)"
-      }
-    ]
   },
   {
     "slug": "leiter-business-applikationen-crm-hubspot-salesforce-bsi-yellowshark-ag-langenthal",
@@ -16979,7 +16968,8 @@
         "mobelschreiner-m-w-chur-gr-yellowshark-ch-0cbff888",
         "mobelschreiner-m-w-chur-gr-yellowshark-ch-853fc289",
         "mobelschreiner-m-w-chur-gr-yellowshark-ch-5808e2dc",
-        "mobelschreiner-m-w-chur-gr-yellowshark-ch"
+        "mobelschreiner-m-w-chur-gr-yellowshark-ch",
+        "mobelschreiner-m-w-chur-gr-yellowshark-ch-879a7e63"
       ]
     },
     "postalCode": "7000",
@@ -18032,7 +18022,10 @@
       "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow-4db38f80",
       "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-de862ad3",
       "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow-0ee13994",
-      "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-4b2039f0"
+      "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-4b2039f0",
+      "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow-8c16496f",
+      "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-a2936ce0",
+      "montaggio-sanitario-m-f-yellowshark-ag-sarnen-ow"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -18152,7 +18145,8 @@
         "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-210dcd36",
         "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-de862ad3",
         "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-4b2039f0",
-        "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-a2936ce0"
+        "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-a2936ce0",
+        "sanitarmonteur-m-w-sarnen-ow-yellowshark-ch-06eb9535"
       ]
     },
     "postalCode": "6060",
@@ -18568,7 +18562,8 @@
         "zimmermann-m-w-luzern-lu-yellowshark-ch-6b8db8c9",
         "zimmermann-m-w-luzern-lu-yellowshark-ch-24350c5c",
         "zimmermann-m-w-luzern-lu-yellowshark-ch-46e0f7a9",
-        "zimmermann-m-w-luzern-lu-yellowshark-ch"
+        "zimmermann-m-w-luzern-lu-yellowshark-ch",
+        "zimmermann-m-w-luzern-lu-yellowshark-ch-dd49e339"
       ]
     },
     "postalCode": "6003",
@@ -19156,7 +19151,8 @@
         "trockenbauer-m-w-zurich-zh-yellowshark-ch-734aa76f",
         "trockenbauer-m-w-zurich-zh-yellowshark-ch-78eff197",
         "trockenbauer-m-w-zurich-zh-yellowshark-ch-e60f8984",
-        "trockenbauer-m-w-zurich-zh-yellowshark-ch"
+        "trockenbauer-m-w-zurich-zh-yellowshark-ch",
+        "trockenbauer-m-w-zurich-zh-yellowshark-ch-62435bc5"
       ],
       "fr": [
         "trockenbauer-m-w-zurich-zh-yellowshark-ch-62435bc5",
@@ -19377,7 +19373,8 @@
         "mobelschreiner-m-w-zurich-zh-yellowshark-ch-5fdb94c1",
         "mobelschreiner-m-w-zurich-zh-yellowshark-ch-4e22615d",
         "mobelschreiner-m-w-zurich-zh-yellowshark-ch-74e68610",
-        "mobelschreiner-m-w-zurich-zh-yellowshark-ch"
+        "mobelschreiner-m-w-zurich-zh-yellowshark-ch",
+        "mobelschreiner-m-w-zurich-zh-yellowshark-ch-a784f70c"
       ]
     },
     "postalCode": "8001",
@@ -19603,7 +19600,8 @@
         "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch-42f41a58",
         "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch-083674fb",
         "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch-5db75bd0",
-        "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch"
+        "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch",
+        "kranfuhrer-oberdrehkran-m-w-sarnen-ow-yellowshark-ch-213e6b9b"
       ]
     },
     "postalCode": "6060",
@@ -20029,7 +20027,8 @@
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-de42437b",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-94318d51",
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-ea242016",
-        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-28a9b3fb"
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-28a9b3fb",
+        "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-160349a7"
       ],
       "fr": [
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
@@ -20062,7 +20061,9 @@
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-fd9f25ca",
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-de42437b",
       "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-94318d51",
-      "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-ea242016"
+      "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-ea242016",
+      "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch-28a9b3fb",
+      "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch"
     ]
   },
   {
@@ -20824,7 +20825,8 @@
         "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch-603882af",
         "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch-83186728",
         "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch-d28de5b5",
-        "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch"
+        "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch",
+        "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch-0c2a8256"
       ]
     },
     "postalCode": "6060",
@@ -24110,7 +24112,8 @@
         "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch-0338947f",
         "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch-51686134",
         "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch-aa3ed71a",
-        "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch"
+        "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch",
+        "instandhaltungsmechaniker-80-100-m-w-lausen-bl-yellowshark-ch-83299133"
       ]
     },
     "postalCode": "4415",
@@ -25329,7 +25332,9 @@
       "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-ace6fec2",
       "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-c1602cc3",
       "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-966c902b",
-      "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-4ae3c0fa"
+      "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-4ae3c0fa",
+      "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch-95a90c55",
+      "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -29780,7 +29785,8 @@
         "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch-22dac473",
         "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch-bbc06813",
         "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch-7473de8b",
-        "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch"
+        "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch",
+        "sachbearbeiter-export-m-w-80-100-oftringen-ag-yellowshark-ch-44f38877"
       ]
     },
     "postalCode": "4665",
@@ -43869,7 +43875,15 @@
       "mobile-cabinet-m-f-yellowshark-ag-luzern-1c449b31",
       "mobelschreiner-m-w-luzern-lu-yellowshark-ch-029924ff",
       "furniture-cabinet-m-f-yellowshark-ag-luzern-1fc0ec87",
-      "armoire-de-meubles-h-f-yellowshark-ag-luzern-b9ce7e4b"
+      "armoire-de-meubles-h-f-yellowshark-ag-luzern-b9ce7e4b",
+      "furniture-cabinet-m-f-yellowshark-ag-luzern",
+      "armoire-de-meubles-h-f-yellowshark-ag-luzern",
+      "mobile-cabinet-m-f-yellowshark-ag-luzern-68429448",
+      "mobelschreiner-m-w-luzern-lu-yellowshark-ch-23d533b4",
+      "mobelschreiner-m-w-luzern-lu-yellowshark-ch",
+      "mobile-cabinet-m-f-yellowshark-ag-luzern",
+      "furniture-cabinet-m-f-yellowshark-ag-luzern-b907862f",
+      "armoire-de-meubles-h-f-yellowshark-ag-luzern-ce0ee84e"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -47746,7 +47760,11 @@
       "crane-operator-with-suva-id-m-f-yellowshark-ag-bern-732194de",
       "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern-3236f607",
       "crane-operator-with-suva-id-m-f-yellowshark-ag-bern-cf9ebb3c",
-      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern-3dbefdc2"
+      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern-3dbefdc2",
+      "crane-operator-with-suva-id-m-f-yellowshark-ag-bern",
+      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern",
+      "crane-operator-with-suva-id-m-f-yellowshark-ag-bern-37a7ad12",
+      "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern-a187c371"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -56181,7 +56199,9 @@
       "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-07d1e049",
       "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-7bc1f8cc",
       "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-3a2a96ff",
-      "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-a26b442e"
+      "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-a26b442e",
+      "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch-4043947d",
+      "deckenmonteur-m-w-st-gallen-sg-yellowshark-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -77441,7 +77461,14 @@
       "gipser-m-w-yellowshark-ag-sarnen-1ed86584",
       "plaster-m-f-yellowshark-ag-sarnen-ow-6e691ee2",
       "gipser-m-w-sarnen-ow-yellowshark-ch-75c52c9d",
-      "gipser-m-w-yellowshark-ag-sarnen-25be881e"
+      "gipser-m-w-yellowshark-ag-sarnen-25be881e",
+      "gipser-m-w-yellowshark-ag-sarnen",
+      "plaster-m-f-yellowshark-ag-sarnen-ow-57fe68bc",
+      "plaster-m-f-yellowshark-ag-sarnen-ow",
+      "gipser-m-w-sarnen-ow-yellowshark-ch-f8a59e98",
+      "gipser-m-w-yellowshark-ag-sarnen-63517100",
+      "gipser-m-w-sarnen-ow-yellowshark-ch-9db22c1d",
+      "gipser-m-w-sarnen-ow-yellowshark-ch-3d73c0d1"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -77710,7 +77737,10 @@
         "plaster-m-f-yellowshark-ag-sarnen-ow-416285ac",
         "plaster-m-f-yellowshark-ag-sarnen-ow-6e691ee2",
         "plaster-m-f-yellowshark-ag-sarnen-ow-57fe68bc",
-        "gipser-m-w-sarnen-ow-yellowshark-ch-1a4107cf"
+        "gipser-m-w-sarnen-ow-yellowshark-ch-1a4107cf",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-77fdf80b",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-75c52c9d",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-f8a59e98"
       ],
       "en": [
         "gipser-m-w-sarnen-ow-yellowshark-ch-bd24fcae",
@@ -77845,7 +77875,10 @@
         "gipser-m-w-sarnen-ow-yellowshark-ch-148a1c23",
         "gipser-m-w-sarnen-ow-yellowshark-ch-77fdf80b",
         "gipser-m-w-sarnen-ow-yellowshark-ch-75c52c9d",
-        "gipser-m-w-sarnen-ow-yellowshark-ch-f8a59e98"
+        "gipser-m-w-sarnen-ow-yellowshark-ch-f8a59e98",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-9db22c1d",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-3d73c0d1",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-ab332271"
       ],
       "fr": [
         "gipser-m-w-yellowshark-ag-sarnen-c4033b58",
@@ -78016,7 +78049,10 @@
         "gipser-m-w-sarnen-ow-yellowshark-ch-7c22fc3e",
         "gipser-m-w-sarnen-ow-yellowshark-ch-3c51da46",
         "gipser-m-w-sarnen-ow-yellowshark-ch-88b476fb",
-        "gipser-m-w-sarnen-ow-yellowshark-ch-74d34382"
+        "gipser-m-w-sarnen-ow-yellowshark-ch-74d34382",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-cb7b256b",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-53021fc1",
+        "gipser-m-w-sarnen-ow-yellowshark-ch-8cad8b81"
       ]
     },
     "postalCode": "6060",
@@ -88324,7 +88360,8 @@
         "elektrotechniker-betriebsunterhalt-m-w-100-laufen-bl-yellowshark-ch"
       ],
       "de": [
-        "elektrotechniker-betriebsunterhalt-m-w-100-laufen-bl-yellowshark-ch-52ff887c"
+        "elektrotechniker-betriebsunterhalt-m-w-100-laufen-bl-yellowshark-ch-52ff887c",
+        "elektrotechniker-betriebsunterhalt-m-w-100-laufen-bl-yellowshark-ch-78622afb"
       ]
     },
     "postalCode": "4242",
