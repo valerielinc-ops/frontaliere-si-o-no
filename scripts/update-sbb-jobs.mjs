@@ -20,8 +20,8 @@ import { realpathSync } from 'node:fs';
  *   4. Runs the base crawler which fetches each detail page and parses content.
  *
  * API endpoint:
- *   https://company.sbb.ch/content/internet/corporate/it/jobs-karriere/jobs/
- *     job-suche/jcr:content/parmain/jobfilter.results.json
+ *   https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/
+ *     posti-liberi/jcr:content/parmain/jobfilter.results.json
  *
  * Apprenticeship listing endpoint:
  *   https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel
@@ -92,7 +92,7 @@ const DEFAULT_CANTON = getCompanyDefaults(SBB_KEY)?.canton || 'TI';
  * always returns all jobs.
  */
 const SBB_API_URL =
-  'https://company.sbb.ch/content/internet/corporate/it/jobs-karriere/jobs/job-suche/jcr:content/parmain/jobfilter.results.json';
+  'https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/posti-liberi/jcr:content/parmain/jobfilter.results.json';
 
 /**
  * We use the API region and city attributes together to keep jobs assigned to

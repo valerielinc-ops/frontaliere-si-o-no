@@ -423,6 +423,20 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
 
 describe('SBB two-source discovery invariants', () => {
   const sbbUrl = 'https://jobs.sbb.ch/v2/offene-stellen/macchinista/11111111-1111-4111-8111-111111111111';
+  it('uses the current Italian vacancies page for AEM discovery', async () => {
+    const requestedUrls: string[] = [];
+    const fetchAem = async (url: string) => {
+      requestedUrls.push(url);
+      return '[]';
+    };
+
+    await expect(fetchSbbJobDetailUrls({ fetchPageImpl: fetchAem, timeoutMs: 1000 }))
+      .resolves.toMatchObject({ urls: [], sourceZero: true });
+    expect(requestedUrls).toEqual([
+      'https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/posti-liberi/jcr:content/parmain/jobfilter.results.json',
+    ]);
+  });
+
   it('validates the AEM identity and the explicitly drained login.org listing', async () => {
     const aemJob = {
       id: '1', title: 'Macchinista', links: { directlink: sbbUrl },
