@@ -364,6 +364,44 @@ describe('run-related-tests selection contract', () => {
     expect(shared.stdout).not.toContain(policy);
   });
 
+  it('does not fan the crawler registry cache key into every parser test', () => {
+    const registry = 'data/crawler-companies-auto.json';
+    const parserTest = 'tests/crawler-parser.test.ts';
+    const registryTest = 'tests/crawler-company-identity.test.ts';
+    const root = fixture({
+      [registry]: '[]\n',
+      'scripts/assemble-jobs-dataset.mjs': `export const ASSEMBLE_AUX_DATA_INPUTS = ['${registry}'];\nexport const writeJobsCrawlerSlice = () => true;\n`,
+      'scripts/lib/crawler-template.mjs': "import { writeJobsCrawlerSlice } from '../assemble-jobs-dataset.mjs'; export const writeSlice = writeJobsCrawlerSlice;\n",
+      'scripts/lib/crawler-parser.mjs': "import { writeSlice } from './crawler-template.mjs'; export const parse = writeSlice;\n",
+      [parserTest]: "import { parse } from '../scripts/lib/crawler-parser.mjs'; export const observed = parse;\n",
+      [registryTest]: "import { readFileSync } from 'node:fs'; export const companies = readFileSync('data/crawler-companies-auto.json', 'utf8');\n",
+    });
+
+    const dataChange = select(root, [registry]);
+    expect(dataChange.status, dataChange.stderr || dataChange.stdout).toBe(0);
+    expect(dataChange.stdout).toContain(registryTest);
+    expect(dataChange.stdout).not.toContain(parserTest);
+    expect(dataChange.output).toContain('required=false');
+
+    // A restored v13 graph contains the old fingerprint-only edge. The cache
+    // version bump must rebuild it before selecting tests for the data change.
+    const graphPath = path.join(root, 'graph.json');
+    const staleGraph = JSON.parse(fs.readFileSync(graphPath, 'utf8'));
+    staleGraph.version = 13;
+    staleGraph.files['scripts/assemble-jobs-dataset.mjs'].deps.push(registry);
+    fs.writeFileSync(graphPath, JSON.stringify(staleGraph));
+    const staleCacheChange = select(root, [registry]);
+    expect(staleCacheChange.status, staleCacheChange.stderr || staleCacheChange.stdout).toBe(0);
+    expect(staleCacheChange.stdout).toMatch(/Related graph: reused 0 entries, rebuilt [1-9]\d*\./);
+    expect(staleCacheChange.stdout).toContain(registryTest);
+    expect(staleCacheChange.stdout).not.toContain(parserTest);
+    expect(staleCacheChange.output).toContain('required=false');
+
+    const assemblyCodeChange = select(root, ['scripts/assemble-jobs-dataset.mjs']);
+    expect(assemblyCodeChange.status, assemblyCodeChange.stderr || assemblyCodeChange.stdout).toBe(0);
+    expect(assemblyCodeChange.stdout).toContain(parserTest);
+  });
+
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
     const reader = 'tests/translation-data-reader.test.ts';
     const segmentedReader = 'tests/translation-data-segmented-reader.test.ts';
