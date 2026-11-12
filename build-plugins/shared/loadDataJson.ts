@@ -23,6 +23,7 @@
  * makes the static-import anti-pattern impossible to reintroduce by copy-paste.
  */
 import fs from 'node:fs';
+import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -77,7 +78,7 @@ export function loadDataJson<T = unknown>(relPath: string, rootDir?: string): T 
   const abs = resolveDataPath(relPath, rootDir);
   const hit = cache.get(abs);
   if (hit !== undefined) return hit as T;
-  const data = JSON.parse(fs.readFileSync(abs, 'utf-8')) as T;
+  const data = readJsonFile(abs) as T;
   cache.set(abs, data);
   return data;
 }

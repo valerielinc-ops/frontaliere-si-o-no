@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 import path from 'node:path';
 import { isReportedAnnualChfSalary, type SalaryCarrier } from './realSalaryMedian';
 
@@ -36,7 +37,7 @@ export function isReportSalaryJob(job: ReportJob): boolean {
 /** Null means source unavailable; [] means a valid, empty observation set. */
 export function loadReportJobPanel(rootDir: string, year: number): ReportJob[] | null {
   try {
-    const raw: unknown = JSON.parse(fs.readFileSync(path.join(rootDir, 'data/jobs.json'), 'utf8'));
+    const raw: unknown = readJsonFile(path.join(rootDir, 'data/jobs.json'));
     if (!Array.isArray(raw) || !raw.every(isReportJob)) return null;
     return raw.filter((job) => isReportYearJob(job, year));
   } catch {

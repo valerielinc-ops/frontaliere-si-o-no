@@ -39,6 +39,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
@@ -3258,8 +3259,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       let jobs: JobRecord[] = [];
       try {
         if (fs.existsSync(jobsPath)) {
-          const raw = fs.readFileSync(jobsPath, 'utf-8');
-          const parsed = JSON.parse(raw);
+          const parsed = readJsonFile(jobsPath);
           if (Array.isArray(parsed)) jobs = parsed as JobRecord[];
         }
       } catch (err) {

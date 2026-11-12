@@ -15,6 +15,7 @@
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffix';
@@ -136,7 +137,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
       let jobs: Array<Record<string, unknown>> = [];
       try {
         if (fs.existsSync(jobsPath)) {
-          const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+          const raw = readJsonFile(jobsPath);
           if (Array.isArray(raw)) jobs = raw as Array<Record<string, unknown>>;
         }
       } catch (err) {

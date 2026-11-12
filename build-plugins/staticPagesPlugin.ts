@@ -1,4 +1,5 @@
 import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
 import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from './shared/legalEditorial';
 /**
@@ -2298,7 +2299,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // fraction of the transient allocation.
  let jobsRawShared: Array<Record<string, unknown>> = [];
  try {
-   const parsedJobsRawShared = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8'));
+   const parsedJobsRawShared = readJsonFile(np.resolve(rootDir, 'data/jobs.json'));
    if (Array.isArray(parsedJobsRawShared)) jobsRawShared = parsedJobsRawShared as Array<Record<string, unknown>>;
  } catch (e) {
    console.warn('[static-pages] Could not read/parse data/jobs.json for TI/non-TI nav computations:', e);

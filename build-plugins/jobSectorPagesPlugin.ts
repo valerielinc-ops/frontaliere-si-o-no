@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Vite build plugin that emits static HTML for every registered sector-based
@@ -854,7 +855,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       let jobs: SectorCountableJob[] = [];
       try {
         if (fs.existsSync(jobsPath)) {
-          const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+          const raw = readJsonFile(jobsPath);
           if (Array.isArray(raw)) jobs = raw as SectorCountableJob[];
         }
       } catch (err) {

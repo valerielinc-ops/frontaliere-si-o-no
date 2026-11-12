@@ -35,6 +35,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { apexDomain, pickBestEmail } from './lib/email-finder.mjs';
@@ -70,7 +71,7 @@ function loadJobsDomains() {
   const p = ['data/jobs.json', 'public/data/jobs.json'].map((x) => path.join(ROOT, x)).find(fs.existsSync);
   const byKey = new Map(); // key → Map(domain → count)
   if (!p) return new Map();
-  const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+  const raw = readJsonFile(p);
   const jobs = Array.isArray(raw) ? raw : raw.jobs || [];
   for (const j of jobs) {
     const key = j.companyKey;

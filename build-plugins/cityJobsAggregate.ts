@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 /**
  * Build-time aggregator for the cost-of-living city landings (AE-4 template B).
  *
@@ -185,8 +186,7 @@ function loadJobs(rootDir: string): readonly JobRecord[] {
   const jobsPath = np.join(rootDir, 'data', 'jobs.json');
   if (!fs.existsSync(jobsPath)) return [];
   try {
-    const raw = fs.readFileSync(jobsPath, 'utf-8');
-    const parsed = JSON.parse(raw);
+    const parsed = readJsonFile(jobsPath);
     if (Array.isArray(parsed)) return parsed as JobRecord[];
     return [];
   } catch (err) {
