@@ -475,6 +475,13 @@ const testTreeRe = /^(?:tests|packages\/[^/]+\/tests)\//;
 // `data/` stays out of the source graph, but tracked data files enter through
 // the related-asset graph so a data-only diff can select its exact readers.
 const dataAssetRe = /^data\/[A-Za-z0-9._/-]+$/;
+// `assemble-jobs-dataset.mjs` includes this registry only in its conservative
+// cache-key inventory; it does not consume it to produce outputs. Treating that
+// fingerprint entry as a Vitest import edge follows the crawler-template cycle
+// and selects almost every parser test. Direct runtime readers remain in graph.
+const testIrrelevantAssetEdges = new Map([
+  ['scripts/assemble-jobs-dataset.mjs', new Set(['data/crawler-companies-auto.json'])],
+]);
 const isRelatedAsset = (file) => githubAssetRe.test(file)
   || testFixtureRe.test(file)
   || dataAssetRe.test(file)
@@ -685,7 +692,7 @@ function importsOf(file, fileSet, assets, assetSet) {
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = resolveAssetLiteral(file, rawLiteral);
     const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
-    if (assetSet.has(literal)) deps.add(literal);
+    if (assetSet.has(literal) && !testIrrelevantAssetEdges.get(file)?.has(literal)) deps.add(literal);
     if (directoryLiteral) {
       for (const asset of assets) {
         if (asset.startsWith(`${literal}/`)) deps.add(asset);
@@ -747,6 +754,8 @@ function loadGraph(files, assets) {
   // 12 aggiunge gli asset `data/` e consente agli import di risolvere anche
   // verso gli asset esclusi dal grafo dei sorgenti. La versione 13 registra
   // anche i literal `../data/...` e i loro equivalenti costruiti a segmenti.
+  // La versione 14 rimuove l'arco cache-only del registro crawler: le entry v13
+  // ripristinate devono essere ricostruite.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -757,7 +766,7 @@ function loadGraph(files, assets) {
   } catch {}
   let changedSinceCache = null;
   let sourceTopologyChanged = false;
-  if (previousVersion === 13 && previousAssets === assetsDigest
+  if (previousVersion === 14 && previousAssets === assetsDigest
     && previousRevision !== '' && currentRevision !== '') {
     try {
       execFileSync('git', ['merge-base', '--is-ancestor', previousRevision, currentRevision], {
@@ -830,7 +839,7 @@ function loadGraph(files, assets) {
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 13,
+    version: 14,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,
