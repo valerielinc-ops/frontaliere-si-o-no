@@ -53,6 +53,7 @@ jobs:
       source_run_id: ${{ steps.identity.outputs.source_run_id }}
       source_sha: ${{ steps.identity.outputs.source_sha }}
       publisher_run_id: ${{ steps.identity.outputs.publisher_run_id }}
+      it_shard_artifact_run_id: ${{ steps.identity.outputs.it_shard_artifact_run_id }}
     steps:
       - name: Select newest complete publisher artifact set
         id: identity
@@ -95,30 +96,58 @@ jobs:
             fi
             has_name() { printf '%s\n' "$1" | grep -Fxq -- "$2"; }
 
-            complete=true
+            # During the split rollout the publisher owns Pages and the
+            # non-IT tails, while the source run still owns the IT sitemap,
+            # section manifest, and six IT shard batches. Newer publishers
+            # own those IT artifacts themselves. Detect the owner from the
+            # complete artifact contract instead of assuming one layout.
+            source_complete=true
             for name in "jobs-master-$source_id" \
               "sitemap-page-manifest-en-$source_id" \
               "sitemap-page-manifest-de-$source_id" "sitemap-page-manifest-fr-$source_id"; do
-              has_name "$source_names" "$name" || complete=false
+              has_name "$source_names" "$name" || source_complete=false
             done
-            for name in "github-pages" "sitemaps-$publisher_id" \
-              "sitemap-page-manifest-it-$publisher_id" "section-page-manifest-it-$publisher_id"; do
-              has_name "$publisher_names" "$name" || complete=false
-            done
-            for batch in 1 2 3 4 5 6; do
-              has_name "$publisher_names" "shard-batch-$batch-dist-it-$publisher_id" || complete=false
-            done
+            publisher_complete=true
+            has_name "$publisher_names" "github-pages" || publisher_complete=false
             for locale in en de fr; do
-              has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false
-              has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || complete=false
+              has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || publisher_complete=false
+              has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || publisher_complete=false
               for batch in 1 2 3 4 5 6; do
-                has_name "$publisher_names" "shard-batch-$batch-dist-$locale-$publisher_id" || complete=false
+                has_name "$publisher_names" "shard-batch-$batch-dist-$locale-$publisher_id" || publisher_complete=false
               done
             done
-            if [ "$complete" = true ]; then
+            source_it_complete=true
+            for name in "sitemaps-$source_id" \
+              "sitemap-page-manifest-it-$source_id" "section-page-manifest-it-$source_id"; do
+              has_name "$source_names" "$name" || source_it_complete=false
+            done
+            for batch in 1 2 3 4 5 6; do
+              has_name "$source_names" "shard-batch-$batch-dist-it-$source_id" || source_it_complete=false
+            done
+            publisher_it_complete=true
+            for name in "sitemaps-$publisher_id" \
+              "sitemap-page-manifest-it-$publisher_id" "section-page-manifest-it-$publisher_id"; do
+              has_name "$publisher_names" "$name" || publisher_it_complete=false
+            done
+            for batch in 1 2 3 4 5 6; do
+              has_name "$publisher_names" "shard-batch-$batch-dist-it-$publisher_id" || publisher_it_complete=false
+            done
+            if [ "$source_complete" != true ] || [ "$publisher_complete" != true ]; then
+              continue
+            fi
+            it_artifact_run_id=""
+            if [ "$publisher_it_complete" = true ]; then
+              it_artifact_run_id="$publisher_id"
+            elif [ "$source_it_complete" = true ]; then
+              it_artifact_run_id="$source_id"
+            else
+              continue
+            fi
+            if [ -n "$it_artifact_run_id" ]; then
               printf 'source_run_id=%s\nsource_sha=%s\npublisher_run_id=%s\n' \
                 "$source_id" "$source_sha" "$publisher_id" >> "$GITHUB_OUTPUT"
-              echo "Selected source run $source_id ($source_sha), publisher run $publisher_id"
+              printf 'it_shard_artifact_run_id=%s\n' "$it_artifact_run_id" >> "$GITHUB_OUTPUT"
+              echo "Selected source run $source_id ($source_sha), publisher run $publisher_id, IT artifacts from run $it_artifact_run_id"
               exit 0
             fi
           done < <(jq -r '.[] | select(.headBranch == "main") | [.databaseId, .displayTitle] | @tsv' <<< "$runs")
@@ -132,6 +161,7 @@ jobs:
     with:
       deploy_run_id: ${{ needs.source-identity.outputs.source_run_id }}
       shard_artifact_run_id: ${{ needs.source-identity.outputs.publisher_run_id }}
+      it_shard_artifact_run_id: ${{ needs.source-identity.outputs.it_shard_artifact_run_id }}
       deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
       full_scan: true
       prune_source_images: true
