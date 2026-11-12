@@ -1619,7 +1619,10 @@ describe('portal: identity on an exact posting route without a heading', () => {
     expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: job.title })).toBe(true);
   });
 
-  it.each(['open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content'])
+  it.each([
+    'open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content',
+    'Zum Hauptinhalt springen', 'Salta al contenuto', 'Aller au contenu',
+  ])
   ('does not treat the «%s» row as an employer title candidate', (navigationLabel) => {
     expect(hasVacancySpecificPostingEvidence(`${navigationLabel}\n${job.company}\n${job.title}`, job, route)).toBe(true);
   });
@@ -1671,6 +1674,13 @@ describe('portal: identity on an exact posting route without a heading', () => {
     const addressedPosting = `https://jobs.example.test/jobs/${uuid}`;
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${uuid}/apply`, addressedPosting)).toBe(true);
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${otherUuid}/apply`, addressedPosting)).toBe(false);
+  });
+
+  it('normalizes explicit posting ids before matching apply-link ids', () => {
+    expect(applicationEntryCarriesPostingId(
+      'https://ats.example.test/apply/?postingid=AbC',
+      'https://jobs.example.test/role/?postingid=AbC',
+    )).toBe(true);
   });
 
   it('does not bind an ATS link to a tenant UUID when the posting route has a later requisition UUID', () => {

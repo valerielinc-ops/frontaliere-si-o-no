@@ -3608,7 +3608,7 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
   return neutral;
 }
 
-const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content)[.!…:]*$/i;
+const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?)[.!…:]*$/i;
 
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
@@ -3914,7 +3914,7 @@ function postingAddressIds(postingUrl) {
     if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return ids;
     const url = new URL(address);
     const key = portalJobKey(url.href);
-    if (key) ids.add(key);
+    if (key) ids.add(String(key).toLowerCase());
     const segments = boundedPostingIdPathSegments(url.pathname);
     if (!segments) return ids;
     const lastSegment = segments[segments.length - 1] || '';
