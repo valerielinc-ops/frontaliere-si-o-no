@@ -3,10 +3,13 @@ import { once } from 'node:events';
 import { mkdirSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
+  SECTION_TREE_FANOUT_SECTIONS,
   sectionTreeBucket,
   sectionUsesHashFanout,
 } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
+
+export { SECTION_TREE_FANOUT_SECTIONS };
 
 export function sectionTreePhysicalPath(section, relativePath) {
   if (!sectionUsesHashFanout(section)) return relativePath;
@@ -115,10 +118,14 @@ if (isInvokedDirectly(import.meta.url)) {
   await (async () => {
     const [command, firstArgument] = process.argv.slice(2);
     try {
-      if (command === 'map-paths') {
+      if (command === 'is-fanned') {
+        if (!firstArgument) throw new Error('Usage: ticino-tree-fanout.mjs is-fanned <section>');
+        if (sectionUsesHashFanout(firstArgument)) process.stdout.write('true\n');
+        else process.exitCode = 1;
+      } else if (command === 'map-paths') {
         await mapPathStream(firstArgument || 'ticino');
       } else if (!firstArgument || !['fanout', 'unfanout'].includes(command)) {
-        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section]');
+        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section] | is-fanned <section>');
       } else if (command === 'fanout') {
         fanoutTicinoTree(firstArgument);
       } else {

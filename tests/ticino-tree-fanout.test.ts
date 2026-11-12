@@ -8,13 +8,25 @@ import { describe, expect, it } from 'vitest';
 import { sectionTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral fan-out helper has no separate declarations.
-import { sectionTreePhysicalPath, ticinoTreePhysicalPath } from '../scripts/lib/ticino-tree-fanout.mjs';
+import {
+  SECTION_TREE_FANOUT_SECTIONS as SCRIPT_FANOUT_SECTIONS,
+  sectionTreePhysicalPath,
+  ticinoTreePhysicalPath,
+} from '../scripts/lib/ticino-tree-fanout.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain JS Worker module, no type declarations.
+import { SECTION_TREE_FANOUT_SECTIONS as WORKER_FANOUT_SECTIONS } from '../infra/cloudflare-worker/locale-router.js';
 
 const HELPER = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh');
 const TOOL = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.mjs');
 const PUSH_SCRIPT = join(process.cwd(), 'scripts/lib/push-section-shard.sh');
 
 describe('Ticino shard tree fan-out', () => {
+  it('keeps the Worker and publisher static floor in sync', () => {
+    expect(SCRIPT_FANOUT_SECTIONS).toEqual(['ticino', 'zurigo', 'berna']);
+    expect(WORKER_FANOUT_SECTIONS).toEqual(SCRIPT_FANOUT_SECTIONS);
+  });
+
   it('is wired into the section push and disables the incompatible delta path', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
@@ -65,7 +77,31 @@ describe('Ticino shard tree fan-out', () => {
     expect(sectionTreePhysicalPath('zurigo', 'new-offer/index.html')).toBe(
       `_tree/${sectionTreeBucket('new-offer')}/new-offer/index.html`,
     );
+    expect(sectionTreePhysicalPath('berna', 'new-offer/index.html')).toBe(
+      `_tree/${sectionTreeBucket('new-offer')}/new-offer/index.html`,
+    );
     expect(sectionTreePhysicalPath('svizzera', 'new-offer/index.html')).toBe('new-offer/index.html');
+  });
+
+  it.each(SCRIPT_FANOUT_SECTIONS)('stages and rehydrates the %s section layout', (section) => {
+    const temp = mkdtempSync(join(tmpdir(), `section-tree-${section}-`));
+    const root = join(temp, 'section');
+    try {
+      mkdirSync(root, { recursive: true });
+      mkdirSync(join(root, 'first-entry'), { recursive: true });
+      writeFileSync(join(root, 'first-entry', 'index.html'), 'page');
+
+      execFileSync(
+        'bash',
+        ['-c', 'source "$1" && section_tree_fanout_stage "$2" "$3" && section_tree_unfanout_stage "$2" "$3"', 'section-layout-test', HELPER, section, root],
+        { stdio: 'pipe' },
+      );
+
+      expect(readFileSync(join(root, 'first-entry', 'index.html'), 'utf8')).toBe('page');
+      expect(() => readFileSync(join(root, '_tree'))).toThrow();
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
   });
 
   it('maps NUL-delimited path records through the CLI', () => {
@@ -193,10 +229,11 @@ describe('Ticino shard tree fan-out', () => {
         }
       };
 
-      expect(invoke('HTTP/2 204\nx-frontaliere-ticino-tree-layout: hash-v1')).toBe('probe-ok\n');
+      expect(invoke('HTTP/2 204\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe('probe-ok\n');
       expect(readFileSync(join(temp, 'curl-args.txt'), 'utf8')).toContain(
-        'https://frontaliereticino.ch/de/jobs-im-tessin/?__frontaliere_ticino_tree_layout=hash-v1',
+        'https://frontaliereticino.ch/de/jobs-im-tessin/?__frontaliere_section_tree_layout=hash-v1&section=ticino',
       );
+      expect(invoke('HTTP/2 204\nx-frontaliere-ticino-tree-layout: hash-v1')).toBe('probe-ok\n');
       expect(invoke('HTTP/2 200\n')).toBe(1);
     } finally {
       rmSync(temp, { recursive: true, force: true });
@@ -218,7 +255,7 @@ describe('Ticino shard tree fan-out', () => {
           'attempts=$((attempts + 1))\n' +
           'printf "%s" "$attempts" > "$TICINO_PROBE_ATTEMPTS"\n' +
           'if [ "$attempts" -lt 2 ]; then exit 28; fi\n' +
-          'printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: hash-v1\\n"\n',
+          'printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: hash-v1\\nx-frontaliere-section: ticino\\n"\n',
       );
       writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
       chmodSync(fakeCurl, 0o755);
