@@ -37,7 +37,7 @@ import { createHash, randomUUID, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
+import { currentPendingPortalAccount, currentRecoveringPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VERIFICATION_URL, pendingAccountForCode, portalAccountForNotice } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { applyAutomationEvent, AUTOMATION_SUBCOLLECTION, confirmSubmissionByEmployer, FLOW_DOC_ID } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -267,7 +267,7 @@ summaryIt: one sentence in Italian for the operator.
 summaryCandidate: one or two sentences in ${LANGUAGE_NAMES[locale] || 'Italian'} for the candidate: what the employer wants and what to do next, if anything.
 interviewWhen: date/time/place of a proposed interview exactly as written, else "".
 requestedDocuments: documents or information the employer asks for, else [].
-verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address or account, else "". A one-time password, OTP, or password à usage unique is a verificationCode. Never construct them.
+verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address/account or reset an account password, else "". A one-time password, OTP, or password à usage unique is a verificationCode. Never construct them.
 needsReply: true when the employer expects an answer from the candidate.`;
 }
 
@@ -286,6 +286,7 @@ const isAccountCreatedNotice = (text) => ACCOUNT_NOTICE_RE.test(text) || ACCOUNT
 // The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
 const ACCOUNT_ACTIVATED_RE = /((ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(aktiviert|freigeschaltet|best[aä]tigt|verifiziert)|(your )?(account|profile) (has been |was |is (now )?)?(successfully )?(activated|verified|confirmed)|(il tuo |il suo )?(account|profilo) (è stato )?(attivato|verificato|confermato)|(votre )?(compte|profil) (a été )?(activé|vérifié|confirmé))/i;
 const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolgreich )?(geändert|zurückgesetzt|aktualisiert)|(your )?password (has been |was )?(successfully )?(changed|reset|updated)|(la tua |la sua )?password (è stata )?(modificata|cambiata|reimpostata)|(votre )?mot de passe (a été )?(modifié|changé|réinitialisé))/i;
+const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|password\s+reset\s+(?:link|instructions|request))\b|\bpasswort\s+(?:zurücksetzen|zuruecksetzen|wiederherstellen)(?:\s+(?:angefordert|beantragt))?\b|\bkennwort\s+(?:zurücksetzen|zuruecksetzen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer)\s+(?:votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare)\s+(?:la\s+)?password\b)/iu;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
 // The federal SuccessFactors tenant (2026-11-10): «Ihre Bewerbung ist bei uns angekommen».
 const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
@@ -498,6 +499,8 @@ function acknowledgesApplication(sentence) {
 
 function categoryOfSentences(sentences, topic, body) {
   const any = (purpose) => sentences.some(purpose);
+  if (sentences.some((sentence) => !/\?\s*$/.test(sentence)
+    && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence))) return 'verification';
   if (any(asksAccountVerification)) return 'verification';
   if (any(changesInterview)) return 'other';
   if (any(rejectsApplication)) return any(proposesInterview) ? 'other' : 'rejection';
@@ -528,6 +531,8 @@ function readByRules({ subject = '', text = '' }) {
     sourceText,
     category: categoryOfSentences(sentences, topic, body),
     verificationAsked: sentences.some(asksAccountVerification),
+    asksPasswordReset: sentences.some((sentence) => !/\?\s*$/.test(sentence)
+      && PASSWORD_RESET_REQUEST_RE.test(sentence) && !PASSWORD_CHANGED_RE.test(sentence)),
     postingWithdrawn: sentences.some(withdrawsPosting),
     linkAsked: sentences.some(requestsVerification) && !sentences.some(acknowledgesApplication) && !sentences.some((sentence) => INTERVIEW_RE.test(sentence)),
   };
@@ -993,7 +998,13 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
     try {
       const linkHost = new URL(link).hostname.toLowerCase();
       const candidate = currentPendingPortalAccount(accounts, linkHost);
-      if (candidate && exactPortalVerificationUrl(link, candidate.host)) account = candidate;
+      const received = Number(receivedAt);
+      const hasRecoveryRequest = typeof candidate?.recoveryRequestedAt === 'number'
+        && Number.isFinite(candidate.recoveryRequestedAt);
+      const recoveryIsCurrent = candidate?.status === 'recovering'
+        ? hasRecoveryRequest && Number.isFinite(received) && received > candidate.recoveryRequestedAt
+        : !hasRecoveryRequest || (Number.isFinite(received) && received > candidate.recoveryRequestedAt);
+      if (candidate && recoveryIsCurrent && exactPortalVerificationUrl(link, candidate.host)) account = candidate;
     } catch {
       account = null;
     }
@@ -1002,6 +1013,23 @@ async function verificationAccountHost(orderRef, classification, sender, { authe
     account = currentPendingPortalAccount(accounts, senderHost) || pendingAccountForCode(accounts, senderHost, { receivedAt });
   }
   return account ? String(account.host).toLowerCase() : '';
+}
+
+async function passwordResetAccount(orderRef, { authenticated, asksPasswordReset, sourceText, receivedAt } = {}) {
+  if (!authenticated || !asksPasswordReset) return null;
+  const link = soleSecureLink(String(sourceText || ''));
+  if (!link) return null;
+  let host = '';
+  try {
+    host = new URL(link).hostname.toLowerCase();
+  } catch {
+    return null;
+  }
+  const account = currentRecoveringPortalAccount(await portalAccountsForOrder(orderRef), host);
+  const received = Number(receivedAt);
+  if (!account || !Number.isFinite(received) || received <= Number(account.recoveryRequestedAt)
+    || !exactPortalVerificationUrl(link, account.host)) return null;
+  return { host: account.host.toLowerCase(), requestId: String(account.recoveryRequestId), url: link };
 }
 
 /**
@@ -1032,13 +1060,15 @@ export async function claimedByPortalAccount(orderRef, classification, sender = 
  * (shared ATS tenants, ATS families, two-label suffixes). Anything else stays
  * with the candidate.
  */
-async function linkOfWaitingAccount(orderRef, { sourceText, linkAsked, authenticated }) {
+async function linkOfWaitingAccount(orderRef, { sourceText, linkAsked, authenticated, receivedAt }) {
   const link = linkAsked && authenticated ? soleSecureLink(sourceText) : '';
   if (!link) return '';
   const accounts = await portalAccountsForOrder(orderRef);
   try {
     const linkHost = new URL(link).hostname.toLowerCase();
     const account = currentPendingPortalAccount(accounts, linkHost);
+    if (typeof account?.recoveryRequestedAt === 'number'
+      && (!Number.isFinite(Number(receivedAt)) || Number(receivedAt) <= account.recoveryRequestedAt)) return '';
     return account && exactPortalVerificationUrl(link, account.host) ? link : '';
   } catch {
     return '';
@@ -1169,7 +1199,7 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const order = orderSnapshot.data() || {};
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
-    const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt
+    const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.passwordResetHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt
       || inbox.portalApplicationReminder);
     if (!to || keptFromCandidate) {
       const status = keptFromCandidate ? 'skipped' : 'failed';
@@ -1356,7 +1386,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       classification = sanitizeClassification({
         category: rules.category,
         verificationCode: rules.verificationAsked ? NAMED_CODE_RE.exec(rules.sourceText)?.[1] : '',
-        verificationUrl: await linkOfWaitingAccount(orderRef, { ...rules, authenticated }),
+        verificationUrl: await linkOfWaitingAccount(orderRef, { ...rules, authenticated, receivedAt: claimed.receivedAt }),
       }, { subject: rules.sourceSubject, text: rules.sourceText });
     }
 
@@ -1365,7 +1395,22 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // candidate, only when an account of this order waits for it: a link on
     // that portal's site, or a code. Anything else reaches the candidate.
     const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
-    const consumedByRunner = Boolean(portalVerificationHost);
+    const passwordReset = await passwordResetAccount(orderRef, {
+      authenticated,
+      asksPasswordReset: rules.asksPasswordReset,
+      sourceText: rules.sourceText,
+      receivedAt: claimed.receivedAt,
+    });
+    const consumedByRunner = Boolean(portalVerificationHost || passwordReset);
+    let sourceVerificationLinkHost = '';
+    let sourceVerificationLink = '';
+    if (authenticated && rules.verificationAsked) {
+      sourceVerificationLink = soleSecureLink(rules.sourceText);
+      try { sourceVerificationLinkHost = sourceVerificationLink ? new URL(sourceVerificationLink).hostname.toLowerCase() : ''; } catch { sourceVerificationLinkHost = ''; }
+    } else if (authenticated && rules.linkAsked) {
+      const sourceLink = soleSecureLink(rules.sourceText);
+      try { sourceVerificationLinkHost = sourceLink ? new URL(sourceLink).hostname.toLowerCase() : ''; } catch { sourceVerificationLinkHost = ''; }
+    }
     // A portal's own account mail (created, activated, password changed) for an
     // account the runner holds for this order is the runner's, not news for the
     // candidate: recorded, never forwarded. Real employer content never qualifies.
@@ -1389,7 +1434,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     const applicationReminder = Boolean(reminderHost);
     const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder;
     // What the order records: a reminder is no answer of the employer, whatever the model read.
-    const recorded = applicationReminder
+    const recorded = passwordReset
+      ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
+      : applicationReminder
       ? { ...classification, category: 'other', summaryCandidate: '', needsReply: false }
       : portalAccountNoticeHost
         ? {
@@ -1400,8 +1447,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         }
         : classification;
     const to = customerEmailFor(order);
-    const initialDelivery = consumedByRunner
+    const initialDelivery = passwordReset
+      ? { status: 'skipped', reason: 'portal_password_reset', attempts: 0, lastError: null }
+      : portalVerificationHost
       ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
+      : consumedByRunner
+        ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }
       : portalAccountNoticeHost
         ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
         : applicationReceipt
@@ -1438,8 +1489,16 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
         ...recorded,
+        senderAuthenticated: authenticated,
+        ...(sourceVerificationLinkHost ? { sourceVerificationLinkHost } : {}),
+        ...(sourceVerificationLink ? { sourceVerificationLinkEnc: encryptJson({ url: sourceVerificationLink }, runKeyFrom(runKey)) } : {}),
         correlationStatus: RECEIPT_CATEGORIES.has(recorded.category) ? 'verified' : 'unknown',
         portalVerificationHost,
+        ...(passwordReset ? {
+          passwordResetHost: passwordReset.host,
+          passwordResetRequestId: passwordReset.requestId,
+          passwordResetLinkEnc: encryptJson({ url: passwordReset.url }, runKeyFrom(runKey)),
+        } : {}),
         ...(portalAccountNoticeHost ? { portalAccountNoticeHost, portalAccountNotice } : {}),
         ...(applicationReceipt ? { automaticApplicationReceipt: true } : {}),
         ...(applicationReminder ? { portalApplicationReminder: true, portalApplicationReminderHost: reminderHost, modelCategory: classification.category } : {}),

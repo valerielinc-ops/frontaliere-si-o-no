@@ -9,6 +9,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const { handleAuth, signedInApplicationSurface, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { decryptJson, runKeyFrom } = await import('../functions/src/lib/evidenceCrypto.js');
 
 // Two SuccessFactors tenants, 2026-11-10, synthetic copies without candidate data.
 // SBB accepted the passcode and opened the job's form in the candidate's own
@@ -189,22 +190,27 @@ describe('a profile or registration confirmation of the order’s account', () =
     Buffer.from(text, 'utf8').toString('base64'),
     '',
   ].join('\r\n'), 'latin1');
-  async function deliver(host: string, raw: Buffer, answer: any) {
+  async function deliver(host: string, raw: Buffer, answer: any, { accountEntry, receivedAt = 1000, processedAt = 1000 } = {} as any) {
     const store = createMemoryFirestore({
       [ORDER_PATH]: { paymentStatus: 'paid', cvUploadedAt: 1, cvStorageKey: `assisted-application-uploads/${ORDER}/cv.pdf`, locale: 'de', companyName: 'Muster AG', jobTitle: 'Testrolle', applicantEmail: 'candidate@example.test' },
     });
     const alias = await ensureOrderAlias({ db: store.db, orderId: ORDER, cf: cf() });
-    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
-      .set({ portal: { host, passwordEnc: { v: 1 }, verifiedAt: null, status: 'created', createdAt: 500 } });
+    const configuredAccount = accountEntry === undefined
+      ? { host, passwordEnc: { v: 1 }, verifiedAt: null, status: 'created', createdAt: 500 }
+      : accountEntry;
+    if (configuredAccount) {
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
+        .set({ portal: configuredAccount });
+    }
     const files = bucket();
     const accepted = await handleAssistedApplicationInbound({
       method: 'POST', rawBody: raw,
       get: (name: string) => ({ 'x-stop-secret': SECRET, 'x-envelope-to': alias.address } as Record<string, string>)[name],
-    }, { db: store.db, bucket: files, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    }, { db: store.db, bucket: files, secret: SECRET, runKey: RUN_KEY, nowMs: receivedAt });
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
     await processAssistedApplicationInbound({
       db: store.db, bucket: files, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY,
-      classify: answer ? vi.fn(async () => answer) : vi.fn(async () => { throw new Error('codex_unavailable'); }), sendCascade, nowMs: 1000,
+      classify: answer ? vi.fn(async () => answer) : vi.fn(async () => { throw new Error('codex_unavailable'); }), sendCascade, nowMs: processedAt,
     });
     return { inbox: store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)!, sendCascade };
   }
@@ -232,5 +238,80 @@ describe('a profile or registration confirmation of the order’s account', () =
     const { inbox, sendCascade } = await deliver(DAMIANI, raw, { ...verification, category: 'interview_invite', interviewWhen: '12 December 10:00' });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
     expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('claims an authenticated reset link only for the active exact-host recovery and stores it encrypted', async () => {
+    const link = `https://${SBB}/password-reset?token=synthetic-reset-token`;
+    const raw = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
+      `You requested a password reset. Use this link to choose a new password:\n${link}`);
+    const { inbox, sendCascade } = await deliver(SBB, raw, {
+      ...verification, category: 'other', verificationUrl: link, needsReply: true,
+    }, {
+      accountEntry: {
+        host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+        recoveryRequestedAt: 900, recoveryRequestId: 'recovery-request-1',
+      },
+    });
+
+    expect(inbox).toMatchObject({
+      passwordResetHost: SBB,
+      passwordResetRequestId: 'recovery-request-1',
+      verificationUrl: '',
+      forwardDelivery: { status: 'skipped', reason: 'portal_password_reset' },
+    });
+    expect(inbox.passwordResetLinkEnc).toBeTruthy();
+    expect(JSON.stringify(inbox)).not.toContain('synthetic-reset-token');
+    expect(decryptJson(inbox.passwordResetLinkEnc, runKeyFrom(RUN_KEY))).toEqual({ url: link });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('forwards a reset mail for a sibling tenant or when no recovery is active', async () => {
+    const wrongTenantLink = 'https://another.successfactors.eu/password-reset?token=synthetic-wrong-tenant';
+    const wrongTenantMail = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
+      `You requested a password reset. Use this link:\n${wrongTenantLink}`);
+    const wrongTenant = await deliver(SBB, wrongTenantMail, { ...verification, category: 'verification', verificationUrl: wrongTenantLink }, {
+      accountEntry: {
+        host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+        recoveryRequestedAt: 900, recoveryRequestId: 'recovery-request-2',
+      },
+    });
+    expect(wrongTenant.inbox.passwordResetHost).toBeUndefined();
+    expect(wrongTenant.inbox.forwardDelivery.status).toBe('sent');
+    expect(wrongTenant.sendCascade).toHaveBeenCalledTimes(1);
+
+    const link = `https://${SBB}/password-reset?token=synthetic-no-recovery`;
+    const noRecovery = await deliver(SBB, mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
+      `You requested a password reset. Use this link:\n${link}`), { ...verification, verificationUrl: link }, { accountEntry: null });
+    expect(noRecovery.inbox.passwordResetHost).toBeUndefined();
+    expect(noRecovery.inbox.forwardDelivery.status).toBe('sent');
+    expect(noRecovery.sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('claims an activation mail only after recovery begins; earlier mail remains candidate-visible', async () => {
+    const link = `https://${SBB}/activate?token=synthetic-activation`;
+    const raw = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Verify your account',
+      `Please verify your account. Click here to verify your account:\n${link}`);
+    const active = await deliver(SBB, raw, { ...verification, verificationUrl: link }, {
+      accountEntry: {
+        host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+        recoveryRequestedAt: 900, recoveryRequestId: 'recovery-request-3',
+      },
+    });
+    expect(active.inbox.portalVerificationHost).toBe(SBB);
+    expect(active.sendCascade).not.toHaveBeenCalled();
+
+    const earlier = await deliver(SBB, raw, { ...verification, verificationUrl: link }, {
+      accountEntry: {
+        host: SBB, passwordEnc: { v: 1 }, verifiedAt: null, status: 'recovering',
+        recoveryRequestedAt: 900, recoveryRequestId: 'recovery-request-3',
+      },
+      receivedAt: 800,
+      processedAt: 1000,
+    });
+    expect(earlier.inbox.portalVerificationHost).toBe('');
+    expect(earlier.inbox.sourceVerificationLinkHost).toBe(SBB);
+    expect(earlier.inbox.sourceVerificationLinkEnc).toBeTruthy();
+    expect(earlier.inbox.forwardDelivery.status).toBe('sent');
+    expect(earlier.sendCascade).toHaveBeenCalledTimes(1);
   });
 });

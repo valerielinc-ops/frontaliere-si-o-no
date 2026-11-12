@@ -25,6 +25,7 @@ import {
 } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { handleAutomationAdminAction, loadAutomationForAdmin } from '../functions/src/assistedApplicationAutomationAdmin.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const ORDER = 'order-1';
 const ACCOUNTS = `assisted_applications/${ORDER}/automation/accounts`;
@@ -376,6 +377,64 @@ describe('portal account store', () => {
       createdAt: 1234,
       status: 'exists_unknown_password',
     });
+  });
+
+  it('stages one alias password reset before the request and accepts only its encrypted exact-host reply', async () => {
+    const store = createMemoryFirestore();
+    let now = 2000;
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => now });
+    await accounts.recordExistingUnknownPassword(HOST);
+
+    const begun = await accounts.beginRecovery(HOST, { email: ALIAS, password: 'Reset-Synthetic-42!' });
+    expect(begun).toMatchObject({ status: 'started', requestedAt: now, attempt: 1 });
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({
+      status: 'recovering', email: ALIAS, verifiedAt: null, recoveryRequestedAt: now,
+      recoveryRequestId: begun.requestId,
+    });
+    expect(JSON.stringify(store.read(ACCOUNTS))).not.toContain('Reset-Synthetic-42!');
+    expect(await accounts.load(HOST)).toMatchObject({
+      password: 'Reset-Synthetic-42!', status: 'recovering', recoveryApplicationCheckRequired: true,
+    });
+    await expect(accounts.beginRecovery(HOST, { email: ALIAS, password: 'Other-Synthetic-43!' }))
+      .resolves.toMatchObject({ status: 'in_progress' });
+
+    const inbox = store.db.collection('assisted_applications').doc(ORDER).collection('inbox');
+    await inbox.doc('reset-wrong-tenant').set({
+      receivedAt: now + 1, passwordResetHost: HOST, passwordResetRequestId: begun.requestId,
+      passwordResetLinkEnc: encryptJson({ url: 'https://other.wd3.myworkdayjobs.com/reset?token=fake' }, KEY),
+    });
+    await inbox.doc('reset-wrong-request').set({
+      receivedAt: now + 2, passwordResetHost: HOST, passwordResetRequestId: 'different-request',
+      passwordResetLinkEnc: encryptJson({ url: `https://${HOST}/reset?token=wrong` }, KEY),
+    });
+    await inbox.doc('reset-valid').set({
+      receivedAt: now + 3, passwordResetHost: HOST, passwordResetRequestId: begun.requestId,
+      passwordResetLinkEnc: encryptJson({ url: `https://${HOST}/reset?token=synthetic` }, KEY),
+    });
+    await expect(accounts.waitForPasswordReset({ host: HOST, sinceMs: now, timeoutMs: 50 }))
+      .resolves.toMatchObject({ url: `https://${HOST}/reset?token=synthetic`, messageId: 'reset-valid' });
+
+    await expect(accounts.completeRecovery(HOST)).resolves.toBe(true);
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({
+      status: 'pending', verifiedAt: null, recoveryApplicationCheckRequired: true,
+    });
+    expect(await accounts.load(HOST)).toMatchObject({
+      password: 'Reset-Synthetic-42!', status: 'pending', recoveryApplicationCheckRequired: true,
+    });
+  });
+
+  it('does not spend a recovery attempt when the reset request was never clicked', async () => {
+    const store = createMemoryFirestore();
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 3000 });
+    await accounts.recordExistingUnknownPassword(HOST);
+    const begun = await accounts.beginRecovery(HOST, { email: ALIAS, password: 'Reset-Synthetic-44!' });
+    await expect(accounts.abortRecovery(HOST, { requestSubmitted: false })).resolves.toBe(true);
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({
+      status: 'exists_unknown_password', passwordEnc: null, recoveryRequestTimes: [], recoveryApplicationCheckRequired: false,
+    });
+    await expect(accounts.beginRecovery(HOST, { email: ALIAS, password: 'Reset-Synthetic-45!' }))
+      .resolves.toMatchObject({ status: 'started', attempt: 1 });
+    expect(begun.status).toBe('started');
   });
 
   it('waits for the verification message received after the account was created, on the portal’s site', async () => {
