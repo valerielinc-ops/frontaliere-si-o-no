@@ -221,10 +221,13 @@ export function resolveJobAlertCapacity({
 }
 
 // Keep the full matched list only for a bounded number of alerts at a time.
-// Each match carries a copied job object until live-link checks and email
-// rendering finish; retaining every alert's list made the daily sender grow
-// beyond Node's heap as the audience and catch-up windows grew.
-export const JOB_ALERT_PLAN_BATCH_SIZE = 64;
+// Each plan retains its full match list and ranking metadata until its cards
+// are rendered. The 2026-11-12 production run exhausted Node's 4 GiB heap while
+// starting its 11th 64-alert plan group; broad alerts can each scan ~19k rows.
+// Keep planning groups below the provider's 64-recipient send batch so the
+// working set is bounded independently of the audience size.
+export const JOB_ALERT_PLAN_BATCH_SIZE = 16;
+const JOB_ALERT_SEND_BATCH_SIZE = 64;
 
 /** Build per-run profile references; auxiliary state is fetched only after cadence. */
 // Canonical title of the job-alert matcher monitor. Kept stable across the
@@ -607,7 +610,8 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
  * Run plan/build work in bounded batches so full match lists are released after
  * each batch. The callback is awaited before the next slice is created; the
  * sender uses this to keep its per-alert plan memory proportional to the batch
- * size instead of to the whole audience.
+ * size instead of to the whole audience. Provider sends are coalesced separately
+ * so reducing the planning batch does not fragment provider requests.
  */
 export async function forEachJobAlertPlanBatch(
   alerts,
@@ -3702,14 +3706,38 @@ async function main() {
     }
   };
 
+  // Matching keeps its working set to JOB_ALERT_PLAN_BATCH_SIZE. Keep rendered
+  // payloads in a separate, smaller-lived queue so provider calls retain their
+  // previous 64-recipient grouping without retaining full match pools.
+  const pendingSendBatch = [];
+  const flushPendingSendBatch = async (count = pendingSendBatch.length) => {
+    const emails = pendingSendBatch.splice(0, count);
+    if (emails.length === 0) return;
+    const result = await sendBatch(emails);
+    runStats.batches += 1;
+    console.log(formatJobAlertBatchLine(runStats.batches, result));
+    if (result.failed > 0) await enqueueFailedEmails(db, result.failedItems);
+    await persistSentBatch(emails, result);
+  };
+
   const cursorReasons = {};
   let cursorCandidateCount = 0;
   let planningMs = 0;
   let prefetchDrainMs = 0;
   let quotaExhausted = quotaCapacity <= 0;
+  let planBatchNumber = 0;
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
+    planBatchNumber += 1;
     const batchPlans = [];
     const featureCache = createJobFeatureCache();
+    const memoryAtStart = process.memoryUsage();
+    let sampledPeakHeapBytes = memoryAtStart.heapUsed;
+    let sampledPeakRssBytes = memoryAtStart.rss;
+    const sampleBatchMemory = () => {
+      const usage = process.memoryUsage();
+      sampledPeakHeapBytes = Math.max(sampledPeakHeapBytes, usage.heapUsed);
+      sampledPeakRssBytes = Math.max(sampledPeakRssBytes, usage.rss);
+    };
     const batchPlanningStartedAt = Date.now();
     for (const alert of alertBatch) {
       const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
@@ -3772,6 +3800,7 @@ async function main() {
         subjectAssignment,
       });
       if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
+      sampleBatchMemory();
       await new Promise((resolve) => setImmediate(resolve));
     }
     planningMs += Date.now() - batchPlanningStartedAt;
@@ -3779,10 +3808,11 @@ async function main() {
     const batchDrainStartedAt = Date.now();
     await livenessPrefetcher.drain();
     prefetchDrainMs += Date.now() - batchDrainStartedAt;
+    sampleBatchMemory();
 
-    // Build and send before the next batch is planned. This is the memory
-    // boundary: `batchPlans` and `batchEmails` contain the only full matched
-    // lists and rendered payloads retained by the sender.
+    // Render this small plan group before creating the next one. Full match
+    // lists are released at the group boundary; only rendered payloads can
+    // accumulate in pendingSendBatch, independently bounded to provider size.
     const batchEmails = [];
     for (const {
       alert,
@@ -3841,6 +3871,7 @@ async function main() {
       rankingOptions,
       { initialRanked: preflightRanked },
     );
+    sampleBatchMemory();
     if (rankedForEmail.length === 0) {
       funnelIn.deadLinks += 1;
       logDetail(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
@@ -3948,6 +3979,7 @@ async function main() {
       scheduledAt,
       sendTimeSource,
     });
+    sampleBatchMemory();
 
     logDetail(`   📬 Alert ${alert.id}: ${matched.length} matches`);
     }
@@ -3956,12 +3988,16 @@ async function main() {
     if (DRY_RUN) {
       if (batchEmails.length > 0) logScheduleDistribution(batchEmails, { indent: '   ' });
     } else if (batchEmails.length > 0) {
-      const result = await sendBatch(batchEmails);
-      runStats.batches += 1;
-      console.log(formatJobAlertBatchLine(runStats.batches, result));
-      if (result.failed > 0) await enqueueFailedEmails(db, result.failedItems);
-      await persistSentBatch(batchEmails, result);
+      for (const email of batchEmails) {
+        pendingSendBatch.push(email);
+        if (pendingSendBatch.length >= JOB_ALERT_SEND_BATCH_SIZE) {
+          await flushPendingSendBatch(JOB_ALERT_SEND_BATCH_SIZE);
+        }
+      }
     }
+    if (quotaExhausted && !DRY_RUN) await flushPendingSendBatch();
+    sampleBatchMemory();
+    console.log(`   🧠 Plan batch ${planBatchNumber} memory (sampled max): heap ${(sampledPeakHeapBytes / 1024 / 1024).toFixed(1)} MiB, RSS ${(sampledPeakRssBytes / 1024 / 1024).toFixed(1)} MiB`);
     // Drop the current batch's copied match rows and rendered payloads before
     // the next slice is planned. The callback is awaited by
     // forEachJobAlertPlanBatch, so no subsequent batch can observe these refs.
@@ -3969,6 +4005,7 @@ async function main() {
     batchPlans.length = 0;
     return !quotaExhausted && runStats.planned < quotaCapacity;
   });
+  if (!DRY_RUN) await flushPendingSendBatch();
   if (quotaExhausted && alerts.length > runStats.planned) {
     console.log(`   ⏸️ Send budget exhausted after ${runStats.planned} email(s); remaining eligible alerts stay untouched for the next run`);
   }

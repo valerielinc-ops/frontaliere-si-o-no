@@ -204,6 +204,10 @@ describe('planAlertMatch', () => {
 });
 
 describe('job-alert plan batching', () => {
+  it('caps full-match planning groups at 16 alerts, independently of send capacity', () => {
+    expect(JOB_ALERT_PLAN_BATCH_SIZE).toBeLessThanOrEqual(16);
+  });
+
   it('never hands the sender more than the bounded plan batch, and invokes batches sequentially', async () => {
     const alertCount = 9449;
     const alerts = Array.from(
