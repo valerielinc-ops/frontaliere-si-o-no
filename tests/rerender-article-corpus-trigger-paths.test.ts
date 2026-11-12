@@ -321,9 +321,9 @@ describe('rerender-article-hubs deployment ordering', () => {
   it('defers a deploy completion that no longer represents the current main tip', () => {
     const run = String(compute?.run ?? '');
     expect(compute?.env?.GH_TOKEN).toBe('${{ github.token }}');
-    expect(compute?.env?.DEPLOY_HEAD_SHA).toBe('${{ github.event.workflow_run.head_sha }}');
+    expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ github.event.workflow_run.head_sha }}');
     expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
-    expect(run).toContain('$DEPLOY_HEAD_SHA');
+    expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
     expect(run).toContain("echo 'sections=[]' >> \"$GITHUB_OUTPUT\"");
   });
 });

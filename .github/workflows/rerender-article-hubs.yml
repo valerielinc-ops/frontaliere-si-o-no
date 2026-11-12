@@ -208,7 +208,7 @@ jobs:
       - id: compute
         env:
           GH_TOKEN: ${{ github.token }}
-          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          PUBLISHED_DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
@@ -223,8 +223,8 @@ jobs:
               echo 'sections=[]' >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            if [ "$current_main_sha" != "$DEPLOY_HEAD_SHA" ]; then
-              echo "full deploy $DEPLOY_HEAD_SHA is behind current main $current_main_sha; deferring hub rerender"
+            if [ "$current_main_sha" != "$PUBLISHED_DEPLOY_HEAD_SHA" ]; then
+              echo "full deploy $PUBLISHED_DEPLOY_HEAD_SHA is behind current main $current_main_sha; deferring hub rerender"
               echo 'sections=[]' >> "$GITHUB_OUTPUT"
               exit 0
             fi
