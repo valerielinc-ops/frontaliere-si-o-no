@@ -249,11 +249,25 @@ def main() -> int:
         except PrivilegeRequired:
             if args.test_cgroup_dir is not None:
                 raise
-            sudo = shutil.which("sudo")
+            sudo = shutil.which("sudo", path="/usr/bin:/bin")
             if sudo is None:
                 raise MeasurementError("reset di memory.peak negato e sudo non disponibile")
+            preserved = [
+                f"{name}={os.environ[name]}"
+                for name in (
+                    "HOME",
+                    "PATH",
+                    "NODE_OPTIONS",
+                    "TMPDIR",
+                    "CI",
+                    "GITHUB_ACTIONS",
+                    "GITHUB_WORKSPACE",
+                    "RUNNER_TEMP",
+                )
+                if name in os.environ
+            ]
             elevated = subprocess.run(
-                [sudo, "-n", "-E", sys.executable, *sys.argv],
+                [sudo, "-n", "/usr/bin/env", *preserved, sys.executable, *sys.argv],
                 check=False,
             )
             return elevated.returncode
