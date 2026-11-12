@@ -299,11 +299,10 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
     const frontier = sitemapFrontier(parseSitemapEntries(xml), SWISS_LOC_PATTERNS.it);
 
-    // Issue #3010 item 1 correction (2026-07-03): a canonical-overridden
-    // article's <url> block is intentionally DROPPED from sitemap-blog-ch.xml
-    // (same convention as data/job-canonical-overrides.json for jobs) — its
-    // own IT slug is a key in the override map. Excluded here, asserted
-    // ABSENT in the dedicated test below instead.
+    // Canonical-overridden and editorially withdrawn articles are deliberately
+    // absent from sitemap-blog-ch.xml. The publisher reads both ledgers before
+    // emitting the sitemap, so this consumer-side gate must apply the same
+    // exclusions before classifying a missing URL as drift.
     const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
     const shadowedIds = new Set(
       Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)
@@ -312,6 +311,11 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     );
     const sitemapExcludedIds = new Set([
       ...shadowedIds,
+      ...indexExcludedArticleIds(
+        path.resolve(__dirname, '..'),
+        'svizzera',
+        SWISS_SLUGS as Record<string, Record<string, string>>,
+      ),
       ...fullyRetiredArticleIds(SWISS_SLUGS as Record<string, Record<string, string>>, SWISS_URL_BASE),
     ]);
 
