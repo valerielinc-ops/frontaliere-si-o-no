@@ -424,6 +424,9 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const statedCode = statedNationality ? nationalityOf(statedNationality)?.code || countryCodeOf(statedNationality)
     || (statedCodes.includes('CH') ? 'CH' : statedCodes[0] || '') : '';
   const passport = passportOf({ passport: uploaded.passport, nationality });
+  const passportSource = !passport ? ''
+    : CANDIDATE_PASSPORTS.includes(uploaded.passport) || statedNationality ? 'candidate'
+      : declared ? 'cv' : deduced ? 'deduced' : '';
   // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
   // with a level of its own.
   const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
@@ -477,6 +480,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     nationalityCodes: statedNationality ? statedCodes : declared ? declared.codes : deduced ? [deduced.code] : [],
     nationalitySignals: declared ? ['cv_declaration'] : deduced ? deduced.signals : [],
     passport,
+    passportSource,
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
@@ -1674,8 +1678,9 @@ function swissArmyValue(question, facts, lang) {
   // A fact for a candidate who said they are not Swiss: a nationality deduced from the CV is no such statement.
   // The CV's own declaration ('cv') is the candidate's statement; a dual one carries Swiss first.
   const nationality = facts?.nationalitySource === 'deduced' ? '' : nationalityOf(facts?.nationality)?.code || facts?.nationalityCode || '';
-  const swiss = facts?.passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
-  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(facts?.passport));
+  const passport = facts?.passportSource === 'deduced' ? '' : facts?.passport;
+  const swiss = passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
+  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(passport));
   return knownForeign ? noValue(question, lang) : '';
 }
 
