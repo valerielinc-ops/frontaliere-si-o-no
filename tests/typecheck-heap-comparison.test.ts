@@ -188,7 +188,8 @@ describe('typecheck heap comparison contract (#18199)', () => {
       if (process.platform !== 'linux') return;
 
       const spike = [
-        'import mmap, time',
+        'import mmap, os, time',
+        'assert os.getuid() == int(os.environ.get("SUDO_UID", os.getuid()))',
         'time.sleep(1.0)',
         'size = 256 * 1024 * 1024',
         'mapping = mmap.mmap(-1, size)',

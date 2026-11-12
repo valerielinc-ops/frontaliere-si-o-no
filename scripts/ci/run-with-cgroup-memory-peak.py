@@ -6,17 +6,21 @@ retained even when they happen between userspace sampler ticks. The peak is
 measured on the current job cgroup so unrelated sibling processes cannot affect
 the result; ancestor memory.max values still set the effective runner limit.
 Per-FD reset requires a writable current-job cgroup v2 memory.peak (mainline
-Linux 6.12+; vendor backports also work). Missing or read-only counters are
-fatal; there is no sampled-RSS fallback. The counter is reset and read on the
-same descriptor.
+Linux 6.12+; vendor backports also work). If the runner user cannot reset it,
+the helper retries through non-interactive sudo and runs the measured command
+as the original user. Missing or read-only counters are fatal; there is no
+sampled-RSS fallback. The counter is reset and read on the same descriptor.
 """
 
 from __future__ import annotations
 
 import argparse
+import errno
 import os
 from pathlib import Path
+import pwd
 import re
+import shutil
 import subprocess
 import sys
 
@@ -24,6 +28,10 @@ MIB = 1024 * 1024
 
 
 class MeasurementError(RuntimeError):
+    pass
+
+
+class PrivilegeRequired(MeasurementError):
     pass
 
 
@@ -125,12 +133,19 @@ def _current_memory_bytes(group: Path) -> int:
     return current
 
 
-def _measure_command(group: Path, limit_bytes: int, command: list[str]) -> int:
+def _measure_command(
+    group: Path,
+    limit_bytes: int,
+    command: list[str],
+    drop_to: tuple[int, int, str] | None,
+) -> int:
     peak_file = group / "memory.peak"
     baseline_bytes = _current_memory_bytes(group)
     try:
         peak_fd = os.open(peak_file, os.O_RDWR | os.O_CLOEXEC)
     except OSError as error:
+        if error.errno in (errno.EACCES, errno.EPERM) and os.geteuid() != 0:
+            raise PrivilegeRequired(f"{peak_file} richiede accesso privilegiato per il reset: {error}") from error
         raise MeasurementError(f"{peak_file} non apribile in lettura/scrittura: {error}") from error
 
     try:
@@ -142,7 +157,17 @@ def _measure_command(group: Path, limit_bytes: int, command: list[str]) -> int:
             raise MeasurementError(f"reset di {peak_file} non riuscito: {error}") from error
 
         try:
-            result = subprocess.run(command, check=False)
+            preexec_fn = None
+            if drop_to is not None:
+                uid, gid, username = drop_to
+
+                def restore_caller_identity() -> None:
+                    os.initgroups(username, gid)
+                    os.setgid(gid)
+                    os.setuid(uid)
+
+                preexec_fn = restore_caller_identity
+            result = subprocess.run(command, check=False, preexec_fn=preexec_fn)
         except OSError as error:
             raise MeasurementError(f"comando non avviabile: {error}") from error
 
@@ -210,7 +235,28 @@ def main() -> int:
         else:
             group, mount_point = _cgroup_v2_mount()
         limit_bytes = _effective_runner_limit_bytes(group, mount_point)
-        return _measure_command(group, limit_bytes, command)
+        drop_to = None
+        if os.geteuid() == 0 and os.environ.get("SUDO_UID"):
+            try:
+                uid = int(os.environ["SUDO_UID"])
+                gid = int(os.environ["SUDO_GID"])
+                username = pwd.getpwuid(uid).pw_name
+            except (KeyError, ValueError, OSError) as error:
+                raise MeasurementError(f"identità utente originale di sudo non valida: {error}") from error
+            drop_to = (uid, gid, username)
+        try:
+            return _measure_command(group, limit_bytes, command, drop_to)
+        except PrivilegeRequired:
+            if args.test_cgroup_dir is not None:
+                raise
+            sudo = shutil.which("sudo")
+            if sudo is None:
+                raise MeasurementError("reset di memory.peak negato e sudo non disponibile")
+            elevated = subprocess.run(
+                [sudo, "-n", "-E", sys.executable, *sys.argv],
+                check=False,
+            )
+            return elevated.returncode
     except (MeasurementError, OSError) as error:
         print(f"::error::misura esatta del peak cgroup non verificabile: {error}", file=sys.stderr)
         return 2
