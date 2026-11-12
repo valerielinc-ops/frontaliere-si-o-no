@@ -1564,12 +1564,12 @@
     },
     {
       "id": "ksgl-36c6c321cdd1",
-      "slug": "dipl-expertin-experte-nds-hf-notfallpflege-e-o-dipl-pflegefachfrau-mann-hf-notfall-kantonsspital-glarus-ksgl-glarus",
+      "slug": "esperto-a-diplomato-a-nds-hf-in-cure-d-urgenza-e-o-infermiere-a-sss-di-emergenza-urgenza-kantonsspital-glarus-ksgl",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
-        "it": "dipl-expertin-experte-nds-hf-notfallpflege-e-o-dipl-pflegefachfrau-mann-hf-notfall-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
-        "fr": "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
+        "it": "esperto-a-diplomato-a-nds-hf-in-cure-d-urgenza-e-o-infermiere-a-sss-di-emergenza-urgenza-kantonsspital-glarus-ksgl",
+        "en": "dipl-expert-expert-nds-hf-emergency-care-and-or-dipl-nursing-professional-hf-emergency-kantonsspital-glarus-ksgl-glarus",
+        "fr": "dipl-expert-expert-nds-hf-soins-d-urgence-et-ou-dipl-soins-infirmiers-professionnels-hf-urgence-kantonsspital-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1617,11 +1617,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
+          "dipl-expertin-experte-nds-hf-notfallpflege-e-o-dipl-pflegefachfrau-mann-hf-notfall-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
+        ],
+        "fr": [
           "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall"
+        "dipl-expertin-experte-nds-hf-notfallpflege-und-oder-dipl-pflegefachfrau-mann-hf-notfall",
+        "dipl-expertin-experte-nds-hf-notfallpflege-e-o-dipl-pflegefachfrau-mann-hf-notfall-kantonsspital-glarus-ksgl-glarus"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -1726,7 +1734,7 @@
       "id": "ksgl-c4e04279e5b0",
       "slug": "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-90bfddeb5a",
       "slugByLocale": {
-        "it": "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus-90bfddeb5a",
+        "it": "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-nurse-man-hf-medicine-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",
         "fr": "infirmiere-diplomee-en-medecine-hf-kantonsspital-glarus-ksgl-glarus"
@@ -1780,8 +1788,7 @@
         "dipl-pflegefachfrau-mann-hf-onkologie-ksgl-glarus",
         "infirmiere-diplomee-en-oncologie-kantonsspital-glarus-ksgl-glarus",
         "dipl-pflegefachfrau-mann-hf-onkologie-kantonsspital-glarus-ksgl-glarus",
-        "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus",
-        "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1791,8 +1798,7 @@
           "dipl-pflegefachfrau-mann-hf-onkologie-ksgl-glarus",
           "infirmiere-diplomee-en-oncologie-kantonsspital-glarus-ksgl-glarus",
           "dipl-pflegefachfrau-mann-hf-onkologie-kantonsspital-glarus-ksgl-glarus",
-          "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus",
-          "infermiera-man-hf-medicina-kantonsspital-glarus-ksgl-glarus"
+          "dipl-pflegefachfrau-mann-hf-medizin-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-medizin-ksgl-glarus",

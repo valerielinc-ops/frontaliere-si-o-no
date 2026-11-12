@@ -1407,9 +1407,9 @@
       "slug": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
-        "it": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva-switzerland",
+        "it": "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
         "de": "teamleiter-cash-services-union-bancaire-privee-geneva-switzerland",
-        "fr": "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
+        "fr": "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -1464,8 +1464,7 @@
           "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
           "programme-pmo-and-delivery-lead-consultant-ubp-ch",
           "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
-          "senior-cash-projects-coordination-manager-ubp-ch",
-          "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland"
+          "senior-cash-projects-coordination-manager-ubp-ch"
         ],
         "de": [
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland"
@@ -1473,7 +1472,7 @@
         "fr": [
           "gestionnaire-principal-des-projets-de-tresorerie-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
           "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
-          "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
+          "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "previousSlugs": [
@@ -1485,8 +1484,7 @@
         "programme-pmo-and-delivery-lead-consultant-ubp-ch",
         "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
         "senior-cash-projects-coordination-manager-ubp-ch",
-        "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
-        "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
+        "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-24T21:42:59.407Z",
       "salaryMin": 83500,
@@ -4571,12 +4569,12 @@
     },
     {
       "id": "ubp-af92a5a426b7",
-      "slug": "business-analyst-ubp-ch",
+      "slug": "business-analista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "business-analyst-ubp-ch",
-        "it": "business-analyst-ubp-ch",
-        "de": "business-analyst-ubp-ch",
-        "fr": "business-analyst-ubp-ch"
+        "it": "business-analista-union-bancaire-privee-geneva-switzerland",
+        "de": "unternehmen-union-bancaire-privee-geneva-switzerland",
+        "fr": "business-analyste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -4638,7 +4636,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:26:02.249Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:26:02.249Z"
+      "firstSeenAt": "2026-11-11T21:26:02.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-ubp-ch"
+        ],
+        "de": [
+          "business-analyst-ubp-ch"
+        ],
+        "fr": [
+          "business-analyst-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-ubp-ch"
+      ]
     },
     {
       "id": "ubp-9ff885eb834f",

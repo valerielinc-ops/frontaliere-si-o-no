@@ -1446,7 +1446,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1515,14 +1515,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5791,10 +5791,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5869,21 +5869,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -13704,12 +13703,12 @@
     },
     {
       "id": "helvetia-91ddf7d46935",
-      "slug": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
+      "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
-        "it": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
-        "en": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
-        "fr": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit"
+        "it": "consulente-clienti-m-f-d-regione-di-assicurazione-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
+        "en": "customer-advisor-m-f-d-insurance-region-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
+        "fr": "conseiller-client-h-f-d-assurance-region-rapperswil-jona-see-gaster-temps-partiel-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13771,16 +13770,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:18:37.440Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-10T21:43:06.482Z"
+      "firstSeenAt": "2026-08-10T21:43:06.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit"
+      ]
     },
     {
       "id": "helvetia-4209ada26fbf",
-      "slug": "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen",
+      "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-upper-lake-zurich-linth-area-part-time-full-time-helvetia",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-amp-linthgebiet-teilzeit-vollzeit",
-        "it": "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen",
-        "en": "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen",
-        "fr": "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen"
+        "it": "consulente-clienti-m-f-d-regione-di-assicurazione-upper-lake-zurich-linth-area-part-time-full-time-helvetia",
+        "en": "customer-advisor-m-f-d-insurance-region-upper-lake-zurich-linth-area-part-time-full-time-helvetia-versicherungen",
+        "fr": "conseiller-client-h-f-d-region-d-assurance-upper-lake-zurich-linth-region-temps-partiel-temps-plein-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13828,11 +13841,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-amp-linthgebiet-teilzeit-vollzeit"
+          "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-amp-linthgebiet-teilzeit-vollzeit",
+          "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen"
         ]
       },
       "previousSlugs": [
-        "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-amp-linthgebiet-teilzeit-vollzeit"
+        "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-amp-linthgebiet-teilzeit-vollzeit",
+        "kundenberater-w-m-d-versicherung-region-oberer-zurichsee-linthgebiet-teilzeit-vollzeit-helvetia-versicherungen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13854,12 +13875,12 @@
     },
     {
       "id": "helvetia-1f487844303b",
-      "slug": "fachspezialist-m-w-d-previdenza-patrimonio-eigenheim-im-servizio-interno-teilzeit-vollzeit-helvetia-versicherungen-liestal",
+      "slug": "specialista-m-f-d-previdenza-patrimonio-e-proprieta-abitativa-nel-servizio-interno-a-tempo-parziale-tempo-pieno-helvetia",
       "slugByLocale": {
         "de": "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit",
-        "it": "fachspezialist-m-w-d-previdenza-patrimonio-eigenheim-im-servizio-interno-teilzeit-vollzeit-helvetia-versicherungen-liestal",
-        "en": "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit",
-        "fr": "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit"
+        "it": "specialista-m-f-d-previdenza-patrimonio-e-proprieta-abitativa-nel-servizio-interno-a-tempo-parziale-tempo-pieno-helvetia",
+        "en": "specialist-m-f-d-provision-assets-home-in-house-part-time-full-time-helvetia-versicherungen-liestal",
+        "fr": "specialiste-h-f-d-fourniture-actifs-et-maison-a-temps-partiel-a-temps-plein-helvetia-versicherungen-liestal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13908,11 +13929,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit",
+          "fachspezialist-m-w-d-previdenza-patrimonio-eigenheim-im-servizio-interno-teilzeit-vollzeit-helvetia-versicherungen-liestal"
+        ],
+        "en": [
+          "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit"
+        ],
+        "fr": [
           "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit"
+        "fachspezialist-w-m-d-vorsorge-vermogen-amp-eigenheim-im-innendienst-teilzeit-vollzeit",
+        "fachspezialist-m-w-d-previdenza-patrimonio-eigenheim-im-servizio-interno-teilzeit-vollzeit-helvetia-versicherungen-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

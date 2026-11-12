@@ -693,12 +693,12 @@
     },
     {
       "id": "ipw-f0cbd80444b2",
-      "slug": "oberarztin-oberarzt-ipw-winterthur",
+      "slug": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-ipw-winterthur",
-        "it": "oberarztin-oberarzt-ipw-winterthur",
-        "en": "oberarztin-oberarzt-ipw-winterthur",
-        "fr": "oberarztin-oberarzt-ipw-winterthur"
+        "it": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "senior-physician-senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "medecin-superieur-medecin-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -764,7 +764,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:25:08.768Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-16T09:21:34.692Z"
+      "firstSeenAt": "2026-09-16T09:21:34.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-5dd697153e28",
@@ -1362,12 +1376,12 @@
     },
     {
       "id": "ipw-8fbe17347cd5",
-      "slug": "oberneuropsychologin-oberneuropsychologe-ipw-winterthur",
+      "slug": "neuropsicologa-neuropsicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "oberneuropsychologin-oberneuropsychologe-ipw-winterthur",
-        "it": "oberneuropsychologin-oberneuropsychologe-ipw-winterthur",
-        "en": "oberneuropsychologin-oberneuropsychologe-ipw-winterthur",
-        "fr": "oberneuropsychologin-oberneuropsychologe-ipw-winterthur"
+        "it": "neuropsicologa-neuropsicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "senior-neuropsychologist-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "neuropsychologue-en-chef-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1434,7 +1448,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T21:25:04.022Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T21:31:49.895Z"
+      "firstSeenAt": "2026-10-07T21:31:49.895Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberneuropsychologin-oberneuropsychologe-ipw-winterthur"
+        ],
+        "en": [
+          "oberneuropsychologin-oberneuropsychologe-ipw-winterthur"
+        ],
+        "fr": [
+          "oberneuropsychologin-oberneuropsychologe-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "oberneuropsychologin-oberneuropsychologe-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-bda7637537dc",

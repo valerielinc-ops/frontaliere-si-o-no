@@ -5616,7 +5616,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -5663,7 +5663,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5672,7 +5672,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -17807,12 +17807,12 @@
     },
     {
       "id": "lonza-2c754286d47d",
-      "slug": "anlagemeister-m-w-d-lonza-ch",
+      "slug": "manager-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "anlagemeister-m-w-d-lonza-ch",
-        "it": "anlagemeister-m-w-d-lonza-ch",
+        "it": "manager-m-f-d-lonza-visp",
         "en": "anlagemeister-m-w-d-lonza-ch",
-        "fr": "anlagemeister-m-w-d-lonza-ch"
+        "fr": "gestionnaire-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17886,7 +17886,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T21:16:18.084Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:16:18.084Z"
+      "firstSeenAt": "2026-11-11T21:16:18.084Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagemeister-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "anlagemeister-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagemeister-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-98e839387d56",
@@ -17894,8 +17905,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-support-produktion-m-w-d-lonza-ch",
         "it": "collaboratore-trice-in-support-produktion-m-w-d-lonza-visp",
-        "en": "mitarbeiter-in-support-produktion-m-w-d-lonza-ch",
-        "fr": "mitarbeiter-in-support-produktion-m-w-d-lonza-ch"
+        "en": "employee-in-support-production-m-f-d-lonza-visp",
+        "fr": "employe-dans-la-production-de-soutien-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17941,6 +17952,12 @@
       "jobReqId": "R80680",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-support-produktion-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-support-produktion-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-support-produktion-m-w-d-lonza-ch"
         ]
       },
@@ -18152,8 +18169,8 @@
       "slugByLocale": {
         "en": "head-of-global-supply-chain-transformation-lonza-ch",
         "it": "head-of-global-supply-chain-transformation-lonza-ch",
-        "de": "head-of-global-supply-chain-transformation-lonza-ch",
-        "fr": "head-of-global-supply-chain-transformation-lonza-ch"
+        "de": "leiter-global-lieferkette-transformation-lonza-basel",
+        "fr": "responsable-global-chaine-d-approvisionnement-transformation-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",

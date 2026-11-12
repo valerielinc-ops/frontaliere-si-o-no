@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pole-sante-pays-enhaut-089cc3881003",
-      "slug": "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "medical-radiology-technician-mrt-poolist-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex",
-        "it": "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "medical-radiology-technician-mrt-poolist-pole-sante-pays-d-enhaut-chateau-d-oex",
         "en": "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex"
+        "de": "medizinische-radiologie-techniker-mrt-poolist-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -72,7 +72,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:22:36.282Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:22:36.282Z"
+      "firstSeenAt": "2026-11-11T21:22:36.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-medicale-trm-pooliste-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-295c404754f0",

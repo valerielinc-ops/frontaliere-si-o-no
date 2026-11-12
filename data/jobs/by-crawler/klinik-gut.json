@@ -94,12 +94,12 @@
     },
     {
       "id": "klinik-gut-5387-75d551e2529b",
-      "slug": "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch",
+      "slug": "assistente-direzione-assistente-direzione-50-60-klinik-gut-ag-flasch",
       "slugByLocale": {
         "de": "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch",
-        "it": "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch",
-        "en": "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch",
-        "fr": "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch"
+        "it": "assistente-direzione-assistente-direzione-50-60-klinik-gut-ag-flasch",
+        "en": "directorate-assistant-directorate-assistant-50-60-klinik-gut-ag-flasch",
+        "fr": "assistant-de-direction-assistant-de-direction-50-60-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -161,16 +161,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:26:49.437Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:26:49.437Z"
+      "firstSeenAt": "2026-11-11T21:26:49.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch"
+        ],
+        "en": [
+          "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch"
+        ],
+        "fr": [
+          "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch"
+        ]
+      },
+      "previousSlugs": [
+        "direktionsassistentin-direktionsassistent-50-60-klinik-gut-flasch"
+      ]
     },
     {
       "id": "klinik-gut-1581-00c45976f0f5",
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
+        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -216,18 +230,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
-        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
+        "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
         ],
         "en": [
-          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch"
+          "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+          "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",

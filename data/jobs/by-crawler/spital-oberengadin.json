@@ -825,12 +825,12 @@
     },
     {
       "id": "spital-oberengadin-89fe588c771a",
-      "slug": "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin",
+      "slug": "assistente-medico-mpa-presso-il-centro-di-emergenza-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin",
-        "it": "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin",
-        "en": "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin",
-        "fr": "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin"
+        "it": "assistente-medico-mpa-presso-il-centro-di-emergenza-spital-oberengadin-samedan",
+        "en": "medical-practice-assistant-mpa-at-the-emergency-centre-spital-oberengadin-samedan",
+        "fr": "assistant-medical-au-centre-d-urgence-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -910,7 +910,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T21:27:06.774Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:27:06.774Z"
+      "firstSeenAt": "2026-11-11T21:27:06.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin"
+        ],
+        "en": [
+          "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistentin-assistenten-mpa-im-notfallzentrum-spital-oberengadin"
+      ]
     },
     {
       "id": "spital-oberengadin-f539b754af76",

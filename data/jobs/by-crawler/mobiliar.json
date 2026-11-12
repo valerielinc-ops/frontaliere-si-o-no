@@ -2861,7 +2861,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-maklersupport-w-m-generalagentur-winterthur-mobiliar-ch",
         "it": "collaboratore-trice-maklersupport-m-w-d-agenzia-generale-winterthur-die-mobiliar-sind-fur-uns-attraktive-anstellungsbedingungen-eine-selbstverstandlichkeit",
-        "en": "mitarbeiter-maklersupport-m-w-d-generalagentur-winterthur-die-mobiliar-winterthur",
+        "en": "employee-brokerage-support-m-f-general-agency-winterthur-die-mobiliar-ticino",
         "fr": "soutien-du-courtage-des-employes-h-f-agence-generale-winterthur-die-mobiliar-ticino"
       },
       "company": "die Mobiliar",
@@ -2912,12 +2912,12 @@
           "mitarbeiter-maklersupport-w-m-generalagentur-winterthur-mobiliar-ch"
         ],
         "en": [
-          "employee-brokerage-support-m-f-general-agency-winterthur-die-mobiliar-ticino"
+          "mitarbeiter-maklersupport-m-w-d-generalagentur-winterthur-die-mobiliar-winterthur"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-maklersupport-w-m-generalagentur-winterthur-mobiliar-ch",
-        "employee-brokerage-support-m-f-general-agency-winterthur-die-mobiliar-ticino"
+        "mitarbeiter-maklersupport-m-w-d-generalagentur-winterthur-die-mobiliar-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2942,12 +2942,12 @@
     },
     {
       "id": "mobiliar-3cc2152839c1",
-      "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-balsthal-die-mobiliar-balsthal",
+      "slug": "addetto-sinistri-m-f-d-agenzia-generale-di-balsthal-die-mobiliar-balsthal",
       "slugByLocale": {
         "de": "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch",
-        "it": "schadenmitarbeiter-m-w-d-agenzia-generale-balsthal-die-mobiliar-balsthal",
-        "en": "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch",
-        "fr": "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        "it": "addetto-sinistri-m-f-d-agenzia-generale-di-balsthal-die-mobiliar-balsthal",
+        "en": "claims-employee-m-f-d-general-agency-balsthal-die-mobiliar-balsthal",
+        "fr": "employe-des-reclamations-h-f-d-agence-generale-balsthal-die-mobiliar-balsthal"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3009,11 +3009,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch",
+          "schadenmitarbeiter-m-w-d-agenzia-generale-balsthal-die-mobiliar-balsthal"
+        ],
+        "en": [
+          "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        ],
+        "fr": [
           "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch"
+        "schadenmitarbeiter-w-m-d-generalagentur-balsthal-mobiliar-ch",
+        "schadenmitarbeiter-m-w-d-agenzia-generale-balsthal-die-mobiliar-balsthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3038,12 +3046,12 @@
     },
     {
       "id": "mobiliar-46acb9290d8f",
-      "slug": "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
+      "slug": "coach-previdenza-privata-mercato-ovest-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "it": "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "en": "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "de": "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        "it": "coach-previdenza-privata-mercato-ovest-m-f-d-die-mobiliar-nyon",
+        "en": "private-provident-coach-west-market-m-f-d-die-mobiliar-nyon",
+        "de": "private-provident-coach-west-market-m-w-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3108,7 +3116,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:19:37.172Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:19:37.172Z"
+      "firstSeenAt": "2026-11-11T21:19:37.172Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coach-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-56be787cb2a3",
@@ -6569,9 +6591,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6635,17 +6657,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

@@ -18977,8 +18977,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch",
         "it": "collaboratore-trice-catering-auf-abruf-10-20-universitatsspital-zurich-usz-zurich",
-        "en": "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch",
-        "fr": "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
+        "en": "catering-staff-on-call-10-20-universitatsspital-zurich-usz-zurich",
+        "fr": "employe-e-de-restauration-sur-appel-10-20-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19027,6 +19027,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-catering-auf-abruf-10-20-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -19053,10 +19059,10 @@
     },
     {
       "id": "usz-cf43f7b1dbfd",
-      "slug": "spezialpflege-fage-per-imc-pool-10-100-universitatsspital-zurich-usz-zurich",
+      "slug": "assistenza-specialistica-oss-per-pool-imc-10-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "spezialpflege-fage-fur-imc-pool-10-100-usz-ch",
-        "it": "spezialpflege-fage-per-imc-pool-10-100-universitatsspital-zurich-usz-zurich",
+        "it": "assistenza-specialistica-oss-per-pool-imc-10-100-universitatsspital-zurich-usz-zurich",
         "en": "spezialpflege-fage-fur-imc-pool-10-100-usz-ch",
         "fr": "spezialpflege-fage-fur-imc-pool-10-100-usz-ch"
       },
@@ -19106,11 +19112,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "spezialpflege-fage-fur-imc-pool-10-100-usz-ch"
+          "spezialpflege-fage-fur-imc-pool-10-100-usz-ch",
+          "spezialpflege-fage-per-imc-pool-10-100-universitatsspital-zurich-usz-zurich"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-fage-fur-imc-pool-10-100-usz-ch"
+        "spezialpflege-fage-fur-imc-pool-10-100-usz-ch",
+        "spezialpflege-fage-per-imc-pool-10-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19133,12 +19141,12 @@
     },
     {
       "id": "usz-60d86f2c97db",
-      "slug": "fage-per-la-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "operatore-sociosanitario-per-il-reparto-di-puerperio-e-prenatale-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch",
-        "it": "fage-per-la-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich",
-        "fr": "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
+        "it": "operatore-sociosanitario-per-il-reparto-di-puerperio-e-prenatale-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "fage-for-the-postpartum-prenatal-department-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "fage-pour-le-departement-postnatal-et-prenatal-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19186,11 +19194,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch"
+          "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch",
+          "fage-per-la-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "fr": [
+          "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
         ]
       },
       "previousSlugs": [
-        "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch"
+        "fage-fur-die-wochenbett-amp-pranatalabteilung-80-100-usz-ch",
+        "fage-per-la-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich",
+        "fage-fur-die-wochenbett-pranatalabteilung-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19213,12 +19230,12 @@
     },
     {
       "id": "usz-dff01734c712",
-      "slug": "responsabile-forschung-responsabile-ricerca-klinik-per-ohren-nasen-hals-e-gesichtschirurgie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "responsabile-della-ricerca-head-of-research-clinica-di-chirurgia-otorinolaringoiatrica-e-maxillo-facciale-80-100",
       "slugByLocale": {
         "de": "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80",
-        "it": "responsabile-forschung-responsabile-ricerca-klinik-per-ohren-nasen-hals-e-gesichtschirurgie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80",
-        "fr": "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80"
+        "it": "responsabile-della-ricerca-head-of-research-clinica-di-chirurgia-otorinolaringoiatrica-e-maxillo-facciale-80-100",
+        "en": "head-of-research-department-of-ear-nose-throat-and-facial-surgery-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "responsable-de-la-recherche-head-of-research-clinique-d-oto-rhino-laryngologie-et-de-chirurgie-faciale-80-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19266,11 +19283,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80",
+          "responsabile-forschung-responsabile-ricerca-klinik-per-ohren-nasen-hals-e-gesichtschirurgie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80"
+        ],
+        "fr": [
           "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80"
         ]
       },
       "previousSlugs": [
-        "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80"
+        "leiter-in-forschung-head-of-research-klinik-fur-ohren-nasen-hals-und-gesichtschirurgie-80",
+        "responsabile-forschung-responsabile-ricerca-klinik-per-ohren-nasen-hals-e-gesichtschirurgie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -19293,12 +19318,12 @@
     },
     {
       "id": "usz-88a2529f2bb9",
-      "slug": "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch",
+      "slug": "ricercatore-post-dottorato-in-elettrofisiologia-singolo-neuron-umana-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch",
-        "it": "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch",
+        "it": "ricercatore-post-dottorato-in-elettrofisiologia-singolo-neuron-umana-80-100-universitatsspital-zurich-usz-zurich",
         "de": "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch",
-        "fr": "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch"
+        "fr": "chercheur-postdoctoral-en-electrophysiologie-humaine-mononucleaire-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19360,7 +19385,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:16:31.703Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:16:31.703Z"
+      "firstSeenAt": "2026-11-11T21:16:31.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-human-single-neuron-electrophysiology-80-100-usz-ch"
+      ]
     }
   ]
 }

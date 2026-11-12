@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bcv-0ca7ba81416e",
-      "slug": "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne",
+      "slug": "vendita-di-prodotti-strutturati-per-la-svizzera-tedesca-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "en": "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne",
-        "it": "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne",
-        "de": "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne",
-        "fr": "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne"
+        "it": "vendita-di-prodotti-strutturati-per-la-svizzera-tedesca-banque-cantonale-vaudoise-lausanne",
+        "de": "strukturierte-produkte-fur-die-deutschschweiz-banque-cantonale-vaudoise-lausanne",
+        "fr": "vente-de-produits-structures-pour-la-suisse-germanophone-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -73,7 +73,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:26:45.020Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:26:45.020Z"
+      "firstSeenAt": "2026-11-11T21:26:45.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne"
+        ],
+        "de": [
+          "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne"
+        ],
+        "fr": [
+          "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "structured-products-sales-for-german-speaking-switzerland-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-59613193bd40",
@@ -1650,7 +1664,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -1711,7 +1725,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -1720,7 +1734,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

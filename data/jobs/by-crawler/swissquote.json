@@ -538,7 +538,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-executeur-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -587,7 +587,7 @@
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
         "commerce-fx-execution-swissquote-gland",
-        "operateur-de-change-d-execution-swissquote-gland"
+        "fx-executeur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -599,7 +599,7 @@
         "fr": [
           "commerce-fx-execution-swissquote-gland",
           "fx-execution-trader-swissquote-gland",
-          "operateur-de-change-d-execution-swissquote-gland"
+          "fx-executeur-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",
@@ -2242,7 +2242,7 @@
       "id": "swissquote-9af282d3ac1f",
       "slug": "apprendistato-dipendente-di-affari-banca-swissquote-gland-2e4ccd0478",
       "slugByLocale": {
-        "it": "apprendistato-dipendente-di-affari-banca-swissquote-gland-2e4ccd0478",
+        "it": "apprendistato-dipendente-di-affari-banca-swissquote-gland",
         "en": "apprenticeship-business-employee-bank-swissquote-gland",
         "de": "lehrling-betriebsangestellte-bank-swissquote-gland",
         "fr": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
@@ -2296,8 +2296,7 @@
         "apprendimento-dipendente-di-affari-banca-swissquote-gland",
         "learning-business-employee-bank-swissquote-gland",
         "learning-business-mitarbeiter-bank-swissquote-gland",
-        "apprentissage-employe-e-de-commerce-banque-swissquote-gland",
-        "apprendistato-dipendente-di-affari-banca-swissquote-gland"
+        "apprentissage-employe-e-de-commerce-banque-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2305,8 +2304,7 @@
           "apprendimento-dipendente-di-affari-banca-swissquote-gland",
           "learning-business-employee-bank-swissquote-gland",
           "learning-business-mitarbeiter-bank-swissquote-gland",
-          "apprentissage-employe-e-de-commerce-banque-swissquote-gland",
-          "apprendistato-dipendente-di-affari-banca-swissquote-gland"
+          "apprentissage-employe-e-de-commerce-banque-swissquote-gland"
         ],
         "en": [
           "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",

@@ -733,12 +733,12 @@
     },
     {
       "id": "georg-fischer-f99834ac4f27",
-      "slug": "teamleiterin-risorse-umane-werk-sissach-m-w-d-80-befristet-per-9-monate-georg-fischer-sissach",
+      "slug": "responsabile-del-team-hr-stabilimento-di-sissach-m-f-d-80-a-tempo-determinato-per-9-mesi-georg-fischer-sissach",
       "slugByLocale": {
         "de": "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch",
-        "it": "teamleiterin-risorse-umane-werk-sissach-m-w-d-80-befristet-per-9-monate-georg-fischer-sissach",
-        "en": "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch",
-        "fr": "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch"
+        "it": "responsabile-del-team-hr-stabilimento-di-sissach-m-f-d-80-a-tempo-determinato-per-9-mesi-georg-fischer-sissach",
+        "en": "team-leader-hr-plant-sissach-m-f-d-80-temporary-for-9-months-georg-fischer-sissach",
+        "fr": "chef-fe-d-equipe-rh-usine-de-sissach-h-f-d-80-contrat-a-duree-determinee-de-9-mois-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -786,11 +786,19 @@
       "jobReqId": "JR11765",
       "previousSlugsByLocale": {
         "it": [
+          "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch",
+          "teamleiterin-risorse-umane-werk-sissach-m-w-d-80-befristet-per-9-monate-georg-fischer-sissach"
+        ],
+        "en": [
+          "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch"
+        ],
+        "fr": [
           "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch"
         ]
       },
       "previousSlugs": [
-        "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch"
+        "teamleiterin-hr-werk-sissach-m-w-d-80-befristet-fur-9-monate-georg-fischer-ch",
+        "teamleiterin-risorse-umane-werk-sissach-m-w-d-80-befristet-per-9-monate-georg-fischer-sissach"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -814,12 +822,12 @@
     },
     {
       "id": "georg-fischer-d0faeae095d6",
-      "slug": "teamleiterin-spritzguss-m-w-d-georg-fischer-ch",
+      "slug": "team-leader-iniezione-stampa-m-f-d-georg-fischer-seewis",
       "slugByLocale": {
         "de": "teamleiterin-spritzguss-m-w-d-georg-fischer-ch",
-        "it": "teamleiterin-spritzguss-m-w-d-georg-fischer-ch",
-        "en": "teamleiterin-spritzguss-m-w-d-georg-fischer-ch",
-        "fr": "teamleiterin-spritzguss-m-w-d-georg-fischer-ch"
+        "it": "team-leader-iniezione-stampa-m-f-d-georg-fischer-seewis",
+        "en": "team-leader-injection-molding-m-f-d-georg-fischer-seewis",
+        "fr": "moulage-par-injection-du-chef-d-equipe-h-f-d-georg-fischer-seewis"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -882,7 +890,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:35:30.742Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:35:30.742Z"
+      "firstSeenAt": "2026-11-11T21:35:30.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-spritzguss-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "teamleiterin-spritzguss-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "teamleiterin-spritzguss-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-spritzguss-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-0347f1597747",

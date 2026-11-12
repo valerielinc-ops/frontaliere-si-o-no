@@ -18905,12 +18905,12 @@
     },
     {
       "id": "jumbo-7cd03b86-28c",
-      "slug": "verkaufer-in-kassen-services-jumbo-langnau-im-emmental",
+      "slug": "addetto-a-alle-vendite-alle-casse-ai-servizi-jumbo-langnau-im-emmental",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-langnau-im-emmental",
-        "it": "verkaufer-in-kassen-services-jumbo-langnau-im-emmental",
-        "en": "verkaufer-in-kassen-services-jumbo-langnau-im-emmental",
-        "fr": "verkaufer-in-kassen-services-jumbo-langnau-im-emmental"
+        "it": "addetto-a-alle-vendite-alle-casse-ai-servizi-jumbo-langnau-im-emmental",
+        "en": "sales-assistant-at-checkouts-services-jumbo-langnau-im-emmental",
+        "fr": "vendeur-vendeuse-aux-caisses-services-jumbo-langnau-im-emmental"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18987,16 +18987,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:22:42.236Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:22:42.236Z"
+      "firstSeenAt": "2026-11-11T21:22:42.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-langnau-im-emmental"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-langnau-im-emmental"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-langnau-im-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-langnau-im-emmental"
+      ]
     },
     {
       "id": "jumbo-053a355a-71a",
-      "slug": "auffuller-in-jumbo-lyssach",
+      "slug": "addetto-a-al-riempimento-jumbo-lyssach",
       "slugByLocale": {
         "de": "auffuller-in-jumbo-lyssach",
-        "it": "auffuller-in-jumbo-lyssach",
-        "en": "auffuller-in-jumbo-lyssach",
-        "fr": "auffuller-in-jumbo-lyssach"
+        "it": "addetto-a-al-riempimento-jumbo-lyssach",
+        "en": "filler-jumbo-lyssach",
+        "fr": "remplisseur-remplisseuse-jumbo-lyssach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19069,7 +19083,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:22:42.236Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:22:42.236Z"
+      "firstSeenAt": "2026-11-11T21:22:42.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auffuller-in-jumbo-lyssach"
+        ],
+        "en": [
+          "auffuller-in-jumbo-lyssach"
+        ],
+        "fr": [
+          "auffuller-in-jumbo-lyssach"
+        ]
+      },
+      "previousSlugs": [
+        "auffuller-in-jumbo-lyssach"
+      ]
     },
     {
       "id": "jumbo-ff4d4ea0-3f1",
@@ -19077,8 +19105,8 @@
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-oron",
         "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-oron",
-        "en": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-oron",
-        "de": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-oron"
+        "en": "sales-advisor-do-it-m-f-d-jumbo-oron",
+        "de": "verkaufsberater-do-it-m-w-d-jumbo-oron"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19158,12 +19186,12 @@
     },
     {
       "id": "jumbo-8b0c7611-2f0",
-      "slug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-kusnacht",
+      "slug": "collaboratore-trice-nel-settore-vendite-amministrazione-e-servizio-clienti-jumbo-kusnacht",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht",
-        "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-kusnacht",
-        "en": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht",
-        "fr": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht"
+        "it": "collaboratore-trice-nel-settore-vendite-amministrazione-e-servizio-clienti-jumbo-kusnacht",
+        "en": "sales-administration-and-customer-service-employee-jumbo-kusnacht",
+        "fr": "collaborateur-trice-aux-ventes-a-l-administration-et-au-service-clientele-jumbo-kusnacht"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19230,11 +19258,19 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht",
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-kusnacht"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht"
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-kusnacht",
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-kusnacht"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

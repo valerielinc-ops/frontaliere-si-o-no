@@ -3956,12 +3956,12 @@
     },
     {
       "id": "hopital-du-valais-66ea9310d240",
-      "slug": "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais",
+      "slug": "assistente-medico-a-mpa-50-clinica-diurna-interdisciplinare-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais",
-        "it": "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais",
-        "en": "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais",
-        "fr": "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais"
+        "it": "assistente-medico-a-mpa-50-clinica-diurna-interdisciplinare-hopital-du-valais-brig",
+        "en": "medical-practice-assistant-mpa-50-interdisciplinary-day-clinic-hopital-du-valais-brig",
+        "fr": "assistant-e-medical-e-am-50-clinique-de-jour-interdisciplinaire-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4026,7 +4026,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:20:06.661Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:20:06.661Z"
+      "firstSeenAt": "2026-11-11T21:20:06.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais"
+        ],
+        "en": [
+          "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais"
+        ],
+        "fr": [
+          "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistent-in-mpa-50-interdisziplinare-tagesklinik-hopital-du-valais"
+      ]
     },
     {
       "id": "hopital-du-valais-4a49e271ccc4",

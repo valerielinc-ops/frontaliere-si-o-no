@@ -31,9 +31,12 @@
         "fr": "Ingénieur de procédé (récemment diplômé)"
       },
       "slugByLocale": {
-        "en": "process-engineer-recently-graduated-casale-lugano"
+        "en": "process-engineer-recently-graduated-casale-lugano",
+        "it": "ingegnere-di-processo-ricentemente-graduato-casale-sa-lugano-ticino",
+        "de": "process-engineer-vor-kurzem-absolviert-casale-sa-lugano-ticino",
+        "fr": "ingenieur-de-procede-recemment-diplome-casale-sa-lugano-ticino"
       },
-      "slug": "process-engineer-recently-graduated-casale-lugano",
+      "slug": "ingegnere-di-processo-ricentemente-graduato-casale-sa-lugano-ticino",
       "category": "engineering",
       "datePosted": "",
       "postedDate": "",
@@ -66,7 +69,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-11T21:15:11.220Z"
+      "firstSeenAt": "2026-11-11T21:15:11.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-recently-graduated-casale-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "process-engineer-recently-graduated-casale-lugano"
+      ]
     },
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",

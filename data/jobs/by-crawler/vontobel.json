@@ -3669,12 +3669,12 @@
     },
     {
       "id": "vontobel-387c46240e75",
-      "slug": "relationship-manager-eam-vontobel-ch",
+      "slug": "responsabile-relazioni-eam-vontobel-basel",
       "slugByLocale": {
         "en": "relationship-manager-eam-vontobel-ch",
-        "it": "relationship-manager-eam-vontobel-ch",
-        "de": "relationship-manager-eam-vontobel-ch",
-        "fr": "relationship-manager-eam-vontobel-ch"
+        "it": "responsabile-relazioni-eam-vontobel-basel",
+        "de": "beziehungsmanager-eam-vontobel-basel",
+        "fr": "gestionnaire-de-relations-eam-vontobel-basel"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -3737,7 +3737,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:36:18.925Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T09:59:21.259Z"
+      "firstSeenAt": "2026-10-19T09:59:21.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "relationship-manager-eam-vontobel-ch"
+        ],
+        "de": [
+          "relationship-manager-eam-vontobel-ch"
+        ],
+        "fr": [
+          "relationship-manager-eam-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "relationship-manager-eam-vontobel-ch"
+      ]
     }
   ]
 }

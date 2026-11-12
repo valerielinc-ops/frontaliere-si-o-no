@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-1a40910692fc",
-      "slug": "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch",
+      "slug": "carrosserielackierer-cfc-asanti-ag-zurich-aargau",
       "slugByLocale": {
         "de": "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch",
-        "it": "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch",
-        "en": "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch",
-        "fr": "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch"
+        "it": "carrosserielackierer-cfc-asanti-ag-zurich-aargau",
+        "en": "carrosserie-painter-efz-asanti-ag-zurich-aargau",
+        "fr": "carrosserie-peintre-efz-asanti-ag-zurich-aargau"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:42:03.903Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:42:03.903Z"
+      "firstSeenAt": "2026-11-11T21:42:03.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch"
+        ],
+        "en": [
+          "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch"
+        ],
+        "fr": [
+          "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "carrosserielackierer-efz-zurich-aargau-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-1043867d8c76",

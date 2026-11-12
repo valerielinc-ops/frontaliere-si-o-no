@@ -9624,12 +9624,12 @@
     },
     {
       "id": "uzh-730801146441",
-      "slug": "responsabile-forschung-responsabile-ricerca-universitat-zurich",
+      "slug": "responsabile-della-ricerca-head-of-research-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "leiter-in-forschung-head-of-research-uzh-zurich",
-        "it": "responsabile-forschung-responsabile-ricerca-universitat-zurich",
+        "it": "responsabile-della-ricerca-head-of-research-universitat-zurich-zurich",
         "en": "leiter-in-forschung-head-of-research-uzh-zurich",
-        "fr": "leiter-in-forschung-head-of-research-uzh-zurich"
+        "fr": "responsable-de-la-recherche-head-of-research-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9678,11 +9678,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-forschung-head-of-research-uzh-zurich",
+          "responsabile-forschung-responsabile-ricerca-universitat-zurich"
+        ],
+        "fr": [
           "leiter-in-forschung-head-of-research-uzh-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-in-forschung-head-of-research-uzh-zurich"
+        "leiter-in-forschung-head-of-research-uzh-zurich",
+        "responsabile-forschung-responsabile-ricerca-universitat-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

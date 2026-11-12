@@ -340,12 +340,12 @@
     },
     {
       "id": "medimeo-5d87fb689f81",
-      "slug": "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch",
+      "slug": "medico-di-famiglia-un-giovane-team-con-una-ventata-di-aria-fresca-medimeo-ag-biel-solothurn-mittelland",
       "slugByLocale": {
         "de": "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch",
-        "it": "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch",
-        "en": "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch",
-        "fr": "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch"
+        "it": "medico-di-famiglia-un-giovane-team-con-una-ventata-di-aria-fresca-medimeo-ag-biel-solothurn-mittelland",
+        "en": "family-doctor-young-team-with-fresh-wind-medimeo-ag-biel-solothurn-mittelland",
+        "fr": "medecin-de-famille-jeune-equipe-au-vent-frais-medimeo-ag-biel-solothurn-mittelland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -408,16 +408,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:36.027Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:36.027Z"
+      "firstSeenAt": "2026-11-11T21:17:36.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch"
+        ],
+        "en": [
+          "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch"
+        ],
+        "fr": [
+          "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarzt-hausarztin-junges-team-mit-frischem-wind-biel-solothurn-mittelland-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-6b7e97b46651",
-      "slug": "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region",
+      "slug": "principale-medico-principale-psichiatria-medica-80-100-accompagnamento-di-pazienti-a-casa-medimeo-ag-region-bern-berner",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region",
-        "it": "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region",
-        "en": "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region",
-        "fr": "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region"
+        "it": "principale-medico-principale-psichiatria-medica-80-100-accompagnamento-di-pazienti-a-casa-medimeo-ag-region-bern-berner",
+        "en": "principal-physician-principal-physician-psychiatry-80-100-accompaniment-of-patients-at-home-medimeo-ag-region-bern",
+        "fr": "medecin-principal-medecin-principal-psychiatrie-80-100-accompagnement-des-patients-a-domicile-medimeo-ag-region-bern"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -479,16 +493,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:36.026Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:36.026Z"
+      "firstSeenAt": "2026-11-11T21:17:36.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-psychiatrie-80-100-begleitung-von-patienten-zu-hause-region"
+      ]
     },
     {
       "id": "medimeo-02f01eba32cd",
-      "slug": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-olten",
+      "slug": "primario-a-di-psichiatria-e-psicoterapia-80-100-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch",
-        "it": "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-olten",
-        "en": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch",
-        "fr": "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch"
+        "it": "primario-a-di-psichiatria-e-psicoterapia-80-100-medimeo-ag-olten-aargau",
+        "en": "senior-physician-psychiatry-and-psychotherapy-80-100-medimeo-ag-olten-aargau",
+        "fr": "medecin-principal-psychiatrie-et-psychotherapie-80-100-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -535,11 +563,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch",
+          "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch"
+        "oberarztin-oberarzt-psychiatrie-und-psychotherapie-80-100-olten-aargau-medimeo-ch",
+        "oberarztin-oberarzt-psychiatrie-e-psychotherapie-80-100-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

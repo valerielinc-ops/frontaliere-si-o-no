@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "belimo-e1748adacf75",
-      "slug": "it-werkstudent-in-40-50-belimo-hinwil",
+      "slug": "studente-studentessa-lavoratore-lavoratrice-it-40-50-belimo-hinwil",
       "slugByLocale": {
         "de": "it-werkstudent-in-40-50-belimo-hinwil",
-        "it": "it-werkstudent-in-40-50-belimo-hinwil",
-        "en": "it-werkstudent-in-40-50-belimo-hinwil",
-        "fr": "it-werkstudent-in-40-50-belimo-hinwil"
+        "it": "studente-studentessa-lavoratore-lavoratrice-it-40-50-belimo-hinwil",
+        "en": "it-working-student-40-50-belimo-hinwil",
+        "fr": "etudiant-e-employe-e-en-informatique-40-50-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -74,7 +74,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:21:17.242Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:21:17.242Z"
+      "firstSeenAt": "2026-11-11T21:21:17.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-werkstudent-in-40-50-belimo-hinwil"
+        ],
+        "en": [
+          "it-werkstudent-in-40-50-belimo-hinwil"
+        ],
+        "fr": [
+          "it-werkstudent-in-40-50-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "it-werkstudent-in-40-50-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-24c351acfe38",

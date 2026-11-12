@@ -555,12 +555,12 @@
     },
     {
       "id": "ottos-e01311debe8d",
-      "slug": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b",
+      "slug": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne",
       "slugByLocale": {
         "fr": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "it": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b",
-        "en": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "de": "vendeur-food-non-food-h-f-ottos-lausanne"
+        "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne",
+        "en": "food-non-food-seller-m-f-otto-s-ag-lausanne",
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -613,12 +613,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-food-non-food-h-f-ottos-lausanne",
-          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+          "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b"
+        ],
+        "en": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
+        ],
+        "de": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
         ]
       },
       "previousSlugs": [
         "vendeur-food-non-food-h-f-ottos-lausanne",
-        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -4139,9 +4147,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4192,17 +4200,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -5777,12 +5786,12 @@
     },
     {
       "id": "ottos-c72f2403e813",
-      "slug": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-316883a8cb",
+      "slug": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne-f05849",
       "slugByLocale": {
         "fr": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "it": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-316883a8cb",
-        "en": "vendeur-food-non-food-h-f-ottos-lausanne-2",
-        "de": "vendeur-food-non-food-h-f-ottos-lausanne-2"
+        "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne-f05849",
+        "en": "food-non-food-seller-m-f-otto-s-ag-lausanne-f05849",
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne-f05849"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5835,12 +5844,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-food-non-food-h-f-ottos-lausanne-2",
-          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+          "vendeur-food-non-food-h-f-otto-s-ag-lausanne-316883a8cb"
+        ],
+        "en": [
+          "vendeur-food-non-food-h-f-ottos-lausanne-2"
+        ],
+        "de": [
+          "vendeur-food-non-food-h-f-ottos-lausanne-2"
         ]
       },
       "previousSlugs": [
         "vendeur-food-non-food-h-f-ottos-lausanne-2",
-        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-316883a8cb"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

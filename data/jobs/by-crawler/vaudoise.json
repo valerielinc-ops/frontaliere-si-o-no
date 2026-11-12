@@ -2997,12 +2997,12 @@
     },
     {
       "id": "vaudoise-0b5e1d021a6d",
-      "slug": "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch",
+      "slug": "broker-advisor-m-f-x-100-vaudoise-assurances-sion",
       "slugByLocale": {
         "fr": "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch",
+        "it": "broker-advisor-m-f-x-100-vaudoise-assurances-sion",
         "en": "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch",
-        "de": "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch"
+        "de": "broker-advisor-m-w-x-100-vaudoise-assurances-sion"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3065,16 +3065,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:16:24.927Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:16:24.927Z"
+      "firstSeenAt": "2026-11-11T21:16:24.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-aux-courtiers-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-0543bf3e721b",
-      "slug": "gestionnaire-prevoyance-vie-individuelle-fr-de-m-w-d-60-80-vaudoise-assurances-lausanne",
+      "slug": "gestione-pianificazione-della-vita-individuale-en-de-m-f-x-60-80-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch",
-        "it": "gestionnaire-prevoyance-vie-individuelle-fr-de-m-w-d-60-80-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch",
-        "de": "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch"
+        "it": "gestione-pianificazione-della-vita-individuale-en-de-m-f-x-60-80-vaudoise-assurances-lausanne",
+        "en": "manager-planning-individual-life-en-de-m-f-x-60-80-vaudoise-assurances-lausanne",
+        "de": "manager-planning-individual-life-de-de-m-w-x-60-80-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3120,11 +3131,19 @@
       "jobCategory": "Previdenza",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch",
+          "gestionnaire-prevoyance-vie-individuelle-fr-de-m-w-d-60-80-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch"
+        ],
+        "de": [
           "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch"
+        "gestionnaire-prevoyance-vie-individuelle-fr-de-h-f-x-60-80-vaudoise-ch",
+        "gestionnaire-prevoyance-vie-individuelle-fr-de-m-w-d-60-80-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,

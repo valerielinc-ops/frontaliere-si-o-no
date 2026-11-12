@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-fa6c7d1ee29d",
-      "slug": "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch",
+      "slug": "consulente-di-vendita-shop-materiali-a-tempo-pieno-m-f-d-bms-building-materials-saint-legier-la-chiesaz",
       "slugByLocale": {
         "fr": "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch",
-        "it": "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch"
+        "it": "consulente-di-vendita-shop-materiali-a-tempo-pieno-m-f-d-bms-building-materials-saint-legier-la-chiesaz",
+        "en": "sales-advisor-shop-materials-100-m-f-d-bms-building-materials-saint-legier-la-chiesaz",
+        "de": "verkaufsberater-shopmaterialien-100-m-w-d-bms-building-materials-saint-legier-la-chiesaz"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -105,16 +105,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:18:07.457Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:18:07.457Z"
+      "firstSeenAt": "2026-11-11T21:18:07.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-shop-materiaux-a-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-6e632d4e889d",
-      "slug": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
+      "slug": "consulente-di-vendita-interno-legno-100-m-f-d-bms-building-materials-aigle",
       "slugByLocale": {
         "fr": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "it": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        "it": "consulente-di-vendita-interno-legno-100-m-f-d-bms-building-materials-aigle",
+        "en": "internal-sales-advisor-wood-100-m-f-d-bms-building-materials-aigle",
+        "de": "interner-verkaufsberater-wood-100-m-w-d-bms-building-materials-aigle"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -209,7 +223,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T21:18:06.287Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-02T22:47:14.143Z"
+      "firstSeenAt": "2026-06-02T22:47:14.143Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-7c45ec85dabd",

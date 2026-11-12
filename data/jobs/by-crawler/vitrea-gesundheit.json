@@ -764,12 +764,12 @@
     },
     {
       "id": "vitrea-gesundheit-8e5c877859f1",
-      "slug": "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "pratico-a-terapia-fisica-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "pratico-a-terapia-fisica-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "practical-a-physical-therapy-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "pratique-a-physique-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -831,7 +831,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:18:26.531Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:18:26.531Z"
+      "firstSeenAt": "2026-11-11T21:18:26.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
+          "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikantin-a-physiotherapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-a816b2a01924",

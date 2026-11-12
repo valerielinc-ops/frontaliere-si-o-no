@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "berner-klinik-montana-948e968fed3d",
-      "slug": "stagiaire-mpe-berner-klinik-montana-crans-montana",
+      "slug": "interno-mpe-berner-klinik-montana-crans-montana",
       "slugByLocale": {
         "fr": "stagiaire-mpe-berner-klinik-montana-crans-montana",
-        "it": "stagiaire-mpe-berner-klinik-montana-crans-montana",
-        "en": "stagiaire-mpe-berner-klinik-montana-crans-montana",
-        "de": "stagiaire-mpe-berner-klinik-montana-crans-montana"
+        "it": "interno-mpe-berner-klinik-montana-crans-montana",
+        "en": "intern-mpe-berner-klinik-montana-crans-montana",
+        "de": "interne-mpe-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
       "companyKey": "berner-klinik-montana",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:54.537Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:54.537Z"
+      "firstSeenAt": "2026-11-11T21:17:54.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-berner-klinik-montana-crans-montana"
+        ],
+        "en": [
+          "stagiaire-mpe-berner-klinik-montana-crans-montana"
+        ],
+        "de": [
+          "stagiaire-mpe-berner-klinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-berner-klinik-montana-crans-montana"
+      ]
     },
     {
       "id": "berner-klinik-montana-15179945cb12",
@@ -244,12 +258,12 @@
     },
     {
       "id": "berner-klinik-montana-a7921b1f9ea1",
-      "slug": "comptable-junior-berner-klinik-montana-crans-montana",
+      "slug": "junior-accountant-berner-klinik-montana-crans-montana",
       "slugByLocale": {
         "fr": "comptable-junior-berner-klinik-montana-crans-montana",
-        "it": "comptable-junior-berner-klinik-montana-crans-montana",
+        "it": "junior-accountant-berner-klinik-montana-crans-montana",
         "en": "comptable-junior-berner-klinik-montana-crans-montana",
-        "de": "comptable-junior-berner-klinik-montana-crans-montana"
+        "de": "junior-accounting-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
       "companyKey": "berner-klinik-montana",
@@ -311,7 +325,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:51.027Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:51.027Z"
+      "firstSeenAt": "2026-11-11T21:17:51.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-junior-berner-klinik-montana-crans-montana"
+        ],
+        "de": [
+          "comptable-junior-berner-klinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-junior-berner-klinik-montana-crans-montana"
+      ]
     },
     {
       "id": "berner-klinik-montana-fb815f2b592c",
@@ -510,7 +535,7 @@
       "slugByLocale": {
         "it": "infermiere-a-a-tempo-pieno-berner-klinik-montana-crans-montana",
         "en": "full-time-nurse-berner-klinik-montana-crans-montana",
-        "de": "krankenschwester-100-berner-klinik-montana-crans-montana",
+        "de": "vollzeit-pflegekraft-berner-klinik-montana-crans-montana",
         "fr": "infirmier-ere-100-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
@@ -588,7 +613,7 @@
       },
       "previousSlugs": [
         "infirmier-ere-100-berner-klinik-montana-crans-montana",
-        "vollzeit-pflegekraft-berner-klinik-montana-crans-montana"
+        "krankenschwester-100-berner-klinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -596,7 +621,7 @@
         ],
         "de": [
           "infirmier-ere-100-berner-klinik-montana-crans-montana",
-          "vollzeit-pflegekraft-berner-klinik-montana-crans-montana"
+          "krankenschwester-100-berner-klinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T10:50:54.698Z",

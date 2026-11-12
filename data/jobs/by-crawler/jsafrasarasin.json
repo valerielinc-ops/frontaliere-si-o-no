@@ -1067,12 +1067,12 @@
     },
     {
       "id": "jsafrasarasin-60838f2092bb",
-      "slug": "ux-ui-designer-ai-powered-jsafrasarasin-ch",
+      "slug": "designer-ux-ui-alimentatore-aic-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "en": "ux-ui-designer-ai-powered-jsafrasarasin-ch",
-        "it": "ux-ui-designer-ai-powered-jsafrasarasin-ch",
-        "de": "ux-ui-designer-ai-powered-jsafrasarasin-ch",
-        "fr": "ux-ui-designer-ai-powered-jsafrasarasin-ch"
+        "it": "designer-ux-ui-alimentatore-aic-j-safra-sarasin-geneva-ch",
+        "de": "ux-ui-designer-ki-gestutzt-j-safra-sarasin-geneva-ch",
+        "fr": "designer-ux-ui-puissance-ai-j-safra-sarasin-geneva-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1135,16 +1135,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:52.339Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:52.339Z"
+      "firstSeenAt": "2026-11-11T21:17:52.339Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ux-ui-designer-ai-powered-jsafrasarasin-ch"
+        ],
+        "de": [
+          "ux-ui-designer-ai-powered-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "ux-ui-designer-ai-powered-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ux-ui-designer-ai-powered-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-dc4f7a688b29",
-      "slug": "product-owner-ai-powered-jsafrasarasin-ch",
+      "slug": "proprietario-del-prodotto-ai-powered-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "en": "product-owner-ai-powered-jsafrasarasin-ch",
-        "it": "product-owner-ai-powered-jsafrasarasin-ch",
-        "de": "product-owner-ai-powered-jsafrasarasin-ch",
-        "fr": "product-owner-ai-powered-jsafrasarasin-ch"
+        "it": "proprietario-del-prodotto-ai-powered-j-safra-sarasin-geneva-ch",
+        "de": "produktbesitzer-ki-powered-j-safra-sarasin-geneva-ch",
+        "fr": "proprietaire-du-produit-ai-powered-j-safra-sarasin-geneva-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1206,16 +1220,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:52.038Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:52.038Z"
+      "firstSeenAt": "2026-11-11T21:17:52.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-ai-powered-jsafrasarasin-ch"
+        ],
+        "de": [
+          "product-owner-ai-powered-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "product-owner-ai-powered-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-ai-powered-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-021e5626ca04",
-      "slug": "project-manager-ai-powered-jsafrasarasin-ch",
+      "slug": "responsabile-del-progetto-ai-powered-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "en": "project-manager-ai-powered-jsafrasarasin-ch",
-        "it": "project-manager-ai-powered-jsafrasarasin-ch",
-        "de": "project-manager-ai-powered-jsafrasarasin-ch",
-        "fr": "project-manager-ai-powered-jsafrasarasin-ch"
+        "it": "responsabile-del-progetto-ai-powered-j-safra-sarasin-geneva-ch",
+        "de": "projektleiter-ai-powered-j-safra-sarasin-geneva-ch",
+        "fr": "gestionnaire-de-projet-ai-powered-j-safra-sarasin-geneva-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1277,15 +1305,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:51.736Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:51.736Z"
+      "firstSeenAt": "2026-11-11T21:17:51.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-ai-powered-jsafrasarasin-ch"
+        ],
+        "de": [
+          "project-manager-ai-powered-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "project-manager-ai-powered-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-ai-powered-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-826301b6eb0a",
-      "slug": "qa-engineer-ai-powered-jsafrasarasin-ch",
+      "slug": "qa-ingegnere-ai-powered-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "en": "qa-engineer-ai-powered-jsafrasarasin-ch",
-        "it": "qa-engineer-ai-powered-jsafrasarasin-ch",
-        "de": "qa-engineer-ai-powered-jsafrasarasin-ch",
+        "it": "qa-ingegnere-ai-powered-j-safra-sarasin-geneva-ch",
+        "de": "qa-ingenieur-ai-powered-j-safra-sarasin-geneva-ch",
         "fr": "qa-engineer-ai-powered-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -1348,7 +1390,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:51.435Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:51.435Z"
+      "firstSeenAt": "2026-11-11T21:17:51.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ai-powered-jsafrasarasin-ch"
+        ],
+        "de": [
+          "qa-engineer-ai-powered-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qa-engineer-ai-powered-jsafrasarasin-ch"
+      ]
     }
   ]
 }

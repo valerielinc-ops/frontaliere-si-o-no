@@ -6644,10 +6644,10 @@
     },
     {
       "id": "etat-de-fribourg-cb7ef06f1349",
-      "slug": "stagiaire-pre-heg-administration-etat-de-fribourg-ch",
+      "slug": "pre-heg-amministrazione-trainee-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "stagiaire-pre-heg-administration-etat-de-fribourg-ch",
-        "it": "stagiaire-pre-heg-administration-etat-de-fribourg-ch",
+        "it": "pre-heg-amministrazione-trainee-etat-de-fribourg-fribourg",
         "en": "stagiaire-pre-heg-administration-etat-de-fribourg-ch",
         "de": "stagiaire-pre-heg-administration-etat-de-fribourg-ch"
       },
@@ -6715,7 +6715,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:31:45.555Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:31:45.555Z"
+      "firstSeenAt": "2026-11-11T21:31:45.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-pre-heg-administration-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-pre-heg-administration-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-6100e3147e96",

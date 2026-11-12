@@ -721,12 +721,12 @@
     },
     {
       "id": "apleona-schweiz-ag-6282558849e2",
-      "slug": "servicetechniker-werkzeugmaschinen-fordertechnik-con-zusatzfunktion-come-stv-serviceleiter-m-w-d-apleona-schweiz-ag-schaffhausen",
+      "slug": "tecnico-di-assistenza-per-macchine-utensili-sistemi-di-movimentazione-con-funzione-aggiuntiva-di-vice-responsabile-dell",
       "slugByLocale": {
         "de": "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter",
-        "it": "servicetechniker-werkzeugmaschinen-fordertechnik-con-zusatzfunktion-come-stv-serviceleiter-m-w-d-apleona-schweiz-ag-schaffhausen",
-        "en": "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter",
-        "fr": "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter"
+        "it": "tecnico-di-assistenza-per-macchine-utensili-sistemi-di-movimentazione-con-funzione-aggiuntiva-di-vice-responsabile-dell",
+        "en": "service-technician-for-machine-tools-conveyor-systems-with-additional-role-as-deputy-service-manager-m-f-d-apleona",
+        "fr": "technicien-de-maintenance-machines-outils-systemes-de-manutention-avec-fonction-supplementaire-de-responsable-de"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -773,11 +773,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter",
+          "servicetechniker-werkzeugmaschinen-fordertechnik-con-zusatzfunktion-come-stv-serviceleiter-m-w-d-apleona-schweiz-ag-schaffhausen"
+        ],
+        "en": [
+          "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter"
+        ],
+        "fr": [
           "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter"
+        "servicetechniker-werkzeugmaschinen-fordertechnik-mit-zusatzfunktion-als-stv-serviceleiter",
+        "servicetechniker-werkzeugmaschinen-fordertechnik-con-zusatzfunktion-come-stv-serviceleiter-m-w-d-apleona-schweiz-ag-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

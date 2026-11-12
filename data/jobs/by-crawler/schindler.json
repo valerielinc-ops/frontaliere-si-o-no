@@ -10,7 +10,7 @@
         "fr": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "it": "apprendistato-di-polimeccanico-a-cfc-installatore-trice-di-ascensori-per-il-2027-schindler-le-mont-sur-lausanne",
         "en": "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-le",
-        "de": "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-le-mont-sur-lausanne"
+        "de": "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-0876d4"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -70,7 +70,7 @@
         "de": [
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-le",
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-le-mont-sur-lausanne",
-          "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-0876d4"
+          "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-le-mont-sur-lausanne"
         ]
       },
       "previousSlugs": [
@@ -82,7 +82,7 @@
         "apprentissage-d-employe-e-de-75-cfc-class-i-class-ii-class-iii-class",
         "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
         "swc-trade-employee-learning-fur-2027-schindler-le-mont-sur-lausanne",
-        "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-0876d4"
+        "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-le-mont-sur-lausanne"
       ],
       "firstSeenAt": "2026-08-24T21:33:08.226Z",
       "salaryMin": 71000,
@@ -1297,12 +1297,12 @@
     },
     {
       "id": "schindler-54e3f3780ea3",
-      "slug": "monteur-in-per-aufzuge-m-w-d-80-100-schindler-steinach",
+      "slug": "installatore-installatrice-di-ascensori-m-f-d-80-100-schindler-steinach",
       "slugByLocale": {
         "de": "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach",
-        "it": "monteur-in-per-aufzuge-m-w-d-80-100-schindler-steinach",
-        "en": "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach",
-        "fr": "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach"
+        "it": "installatore-installatrice-di-ascensori-m-f-d-80-100-schindler-steinach",
+        "en": "lift-installer-m-f-d-80-100-schindler-steinach",
+        "fr": "monteur-monteuse-d-ascenseurs-h-f-d-80-100-schindler-steinach"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1350,11 +1350,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach",
+          "monteur-in-per-aufzuge-m-w-d-80-100-schindler-steinach"
+        ],
+        "en": [
+          "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach"
+        ],
+        "fr": [
           "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach"
         ]
       },
       "previousSlugs": [
-        "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach"
+        "monteur-in-fur-aufzuge-m-w-d-80-100-schindler-steinach",
+        "monteur-in-per-aufzuge-m-w-d-80-100-schindler-steinach"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1742,8 +1750,8 @@
       "slugByLocale": {
         "it": "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
         "en": "cookie-consent-manager-schindler-locarno",
-        "de": "afc-electronic-learning-fur-2027-schindler-locarno",
-        "fr": "afc-apprentissage-electronique-pour-2027-schindler-locarno"
+        "de": "zustimmung-des-managers-zu-cookies-schindler-locarno",
+        "fr": "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1788,9 +1796,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-        "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno"
+        "gestore-consenso-ai-cookie-schindler-locarno",
+        "afc-electronic-learning-fur-2027-schindler-locarno",
+        "afc-apprentissage-electronique-pour-2027-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1799,11 +1807,11 @@
         ],
         "de": [
           "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-          "zustimmung-des-managers-zu-cookies-schindler-locarno"
+          "afc-electronic-learning-fur-2027-schindler-locarno"
         ],
         "fr": [
           "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-          "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+          "afc-apprentissage-electronique-pour-2027-schindler-locarno"
         ]
       },
       "firstSeenAt": "2026-09-23T23:36:56.546Z",
@@ -3889,10 +3897,10 @@
       "id": "schindler-3b0eeec16cf9",
       "slug": "tecnico-a-di-riparazioni-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "tecnico-a-di-riparazioni-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
-        "en": "repair-technician-in-the-zurich-region-m-w-d-80-100-schindler-zurich",
+        "it": "projektleiter-m-w-d-schindler-zurich",
+        "en": "projektleiter-m-w-d-schindler-zurich",
         "de": "reparaturtechniker-in-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "fr": "technicien-ne-de-reparation-dans-la-region-de-zurich-m-w-d-80-100-schindler-zurich"
+        "fr": "projektleiter-m-w-d-schindler-zurich"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3938,19 +3946,19 @@
       "previousSlugs": [
         "reparaturtechniker-in-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "reparaturtechniker-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "projektleiter-m-w-d-schindler-zurich"
+        "repair-technician-in-the-zurich-region-m-w-d-80-100-schindler-zurich",
+        "technicien-ne-de-reparation-dans-la-region-de-zurich-m-w-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reparaturtechniker-in-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "reparaturtechniker-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "projektleiter-m-w-d-schindler-zurich"
+          "reparaturtechniker-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
-          "projektleiter-m-w-d-schindler-zurich"
+          "repair-technician-in-the-zurich-region-m-w-d-80-100-schindler-zurich"
         ],
         "fr": [
-          "projektleiter-m-w-d-schindler-zurich"
+          "technicien-ne-de-reparation-dans-la-region-de-zurich-m-w-d-80-100-schindler-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -4054,10 +4062,10 @@
       "id": "schindler-4d9b959b6a91",
       "slug": "apparecchio-di-sollevamento-in-oberwallis-m-w-d-80-100-schindler-visp",
       "slugByLocale": {
-        "it": "apparecchio-di-sollevamento-in-oberwallis-m-w-d-80-100-schindler-visp",
-        "en": "elevator-fitter-in-oberwallis-m-w-d-80-100-schindler-visp",
+        "it": "projektleiter-m-w-d-schindler-visp",
+        "en": "projektleiter-m-w-d-schindler-visp",
         "de": "aufzugsmonteur-in-im-oberwallis-m-w-d-80-100-schindler-visp",
-        "fr": "monteur-d-ascenseur-en-oberwallis-m-w-d-80-100-schindler-visp"
+        "fr": "projektleiter-m-w-d-schindler-visp"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4105,25 +4113,25 @@
         "tecnico-di-servizio-a-oberwallis-m-f-d-80-100-schindler-visp",
         "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
         "technicien-en-oberwallis-m-f-d-80-100-schindler-visp",
-        "projektleiter-m-w-d-schindler-visp"
+        "elevator-fitter-in-oberwallis-m-w-d-80-100-schindler-visp",
+        "monteur-d-ascenseur-en-oberwallis-m-w-d-80-100-schindler-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-im-oberwallis-m-w-d-80-100-schindler-visp",
           "tecnico-di-servizio-a-oberwallis-m-f-d-80-100-schindler-visp",
           "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
-          "technicien-en-oberwallis-m-f-d-80-100-schindler-visp",
-          "projektleiter-m-w-d-schindler-visp"
+          "technicien-en-oberwallis-m-f-d-80-100-schindler-visp"
         ],
         "en": [
-          "projektleiter-m-w-d-schindler-visp"
+          "elevator-fitter-in-oberwallis-m-w-d-80-100-schindler-visp"
         ],
         "de": [
           "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp"
         ],
         "fr": [
           "technicien-en-oberwallis-m-f-d-80-100-schindler-visp",
-          "projektleiter-m-w-d-schindler-visp"
+          "monteur-d-ascenseur-en-oberwallis-m-w-d-80-100-schindler-visp"
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:35.929Z",
@@ -5082,9 +5090,9 @@
       "id": "schindler-6cee39e5ef53",
       "slug": "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
       "slugByLocale": {
-        "it": "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
-        "en": "swc-trade-employee-learning-for-2027-schindler-bussigny",
-        "de": "swc-trade-employee-learning-fur-2027-schindler-bussigny",
+        "it": "cookie-consent-manager-schindler-bussigny",
+        "en": "cookie-consent-manager-schindler-bussigny",
+        "de": "cookie-consent-manager-schindler-bussigny",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       },
       "company": "Schindler",
@@ -5134,14 +5142,13 @@
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
           "cookie-einwilligungsmanager-schindler-bussigny",
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-          "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
-          "cookie-consent-manager-schindler-bussigny"
+          "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny"
+          "swc-trade-employee-learning-for-2027-schindler-bussigny"
         ],
         "de": [
-          "cookie-consent-manager-schindler-bussigny"
+          "swc-trade-employee-learning-fur-2027-schindler-bussigny"
         ],
         "fr": [
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny"
@@ -5153,7 +5160,8 @@
         "cookie-einwilligungsmanager-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny"
+        "swc-trade-employee-learning-for-2027-schindler-bussigny",
+        "swc-trade-employee-learning-fur-2027-schindler-bussigny"
       ],
       "firstSeenAt": "2026-08-24T21:32:21.267Z",
       "salaryMin": 72000,
@@ -8832,9 +8840,9 @@
       "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
       "slugByLocale": {
         "it": "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
-        "en": "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
-        "de": "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
-        "fr": "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno"
+        "en": "manager-consent-to-cookies-schindler-locarno",
+        "de": "zustimmung-des-managers-zu-cookies-schindler-locarno",
+        "fr": "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -8879,10 +8887,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "manager-consent-to-cookies-schindler-locarno",
-        "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno"
+        "gestore-consenso-ai-cookie-schindler-locarno",
+        "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
+        "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
+        "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8891,15 +8899,15 @@
         ],
         "en": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-          "manager-consent-to-cookies-schindler-locarno"
+          "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno"
         ],
         "de": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-          "zustimmung-des-managers-zu-cookies-schindler-locarno"
+          "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno"
         ],
         "fr": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-          "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+          "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno"
         ]
       },
       "firstSeenAt": "2026-09-28T03:23:27.827Z",
@@ -9092,9 +9100,9 @@
       "slug": "apparecchio-di-sollevamento-nella-regione-di-aarau-m-f-d-80-100-schindler-oberentfelden",
       "slugByLocale": {
         "it": "apparecchio-di-sollevamento-nella-regione-di-aarau-m-f-d-80-100-schindler-oberentfelden",
-        "en": "elevator-fitter-in-the-aarau-region-m-w-d-80-100-schindler-oberentfelden",
+        "en": "projektleiter-m-w-d-schindler-oberentfelden",
         "de": "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden",
-        "fr": "monteur-d-ascenseur-dans-la-region-d-aarau-m-w-d-80-100-schindler-oberentfelden"
+        "fr": "projektleiter-m-w-d-schindler-oberentfelden"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -9139,17 +9147,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden",
-        "projektleiter-m-w-d-schindler-oberentfelden"
+        "elevator-fitter-in-the-aarau-region-m-w-d-80-100-schindler-oberentfelden",
+        "monteur-d-ascenseur-dans-la-region-d-aarau-m-w-d-80-100-schindler-oberentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-in-der-region-aarau-m-w-d-80-100-schindler-oberentfelden"
         ],
         "en": [
-          "projektleiter-m-w-d-schindler-oberentfelden"
+          "elevator-fitter-in-the-aarau-region-m-w-d-80-100-schindler-oberentfelden"
         ],
         "fr": [
-          "projektleiter-m-w-d-schindler-oberentfelden"
+          "monteur-d-ascenseur-dans-la-region-d-aarau-m-w-d-80-100-schindler-oberentfelden"
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
@@ -9749,8 +9758,8 @@
       "slug": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
       "slugByLocale": {
         "it": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
-        "en": "apprentissage-d-employe-e-de-75-cfc-class-i-class-ii-class-iii-class",
-        "de": "swc-trade-employee-learning-fur-2027-schindler-le-mont-sur-lausanne",
+        "en": "swc-business-employer-learning-for-2027-schindler-le-mont-sur-lausanne",
+        "de": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2",
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-le-mont-sur-lausanne"
       },
       "company": "Schindler",
@@ -9802,8 +9811,8 @@
         "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "titel-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-0876d4",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-le-mont-sur-lausanne",
-        "swc-business-employer-learning-for-2027-schindler-le-mont-sur-lausanne",
-        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+        "apprentissage-d-employe-e-de-75-cfc-class-i-class-ii-class-iii-class",
+        "swc-trade-employee-learning-fur-2027-schindler-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9816,11 +9825,11 @@
         ],
         "en": [
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-le-mont-sur-lausanne",
-          "swc-business-employer-learning-for-2027-schindler-le-mont-sur-lausanne"
+          "apprentissage-d-employe-e-de-75-cfc-class-i-class-ii-class-iii-class"
         ],
         "de": [
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-le-mont-sur-lausanne",
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
+          "swc-trade-employee-learning-fur-2027-schindler-le-mont-sur-lausanne"
         ],
         "fr": [
           "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
@@ -10386,9 +10395,9 @@
       "id": "schindler-5ce0113bb788",
       "slug": "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
       "slugByLocale": {
-        "it": "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
-        "en": "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion",
-        "de": "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
+        "it": "cookie-consent-manager-schindler-sion",
+        "en": "cookie-consent-manager-schindler-sion",
+        "de": "cookie-consent-manager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
       "company": "Schindler",
@@ -10438,16 +10447,15 @@
           "responsabile-del-consenso-ai-cookie-schindler-sion",
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-sion",
           "cookie-einwilligungsmanager-schindler-sion",
-          "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion"
+          "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion"
         ],
         "en": [
           "polymechanical-cfc-elevator-mounter-learning-for-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion"
+          "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion"
         ],
         "de": [
           "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion"
+          "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion"
         ],
         "fr": [
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion"
@@ -10461,7 +10469,8 @@
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion"
+        "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion",
+        "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion"
       ],
       "firstSeenAt": "2026-08-24T21:32:04.815Z",
       "salaryMin": 71000,
@@ -10490,7 +10499,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "it": "apprendistato-come-costruttore-di-impianti-e-apparecchiature-in-afc-con-particolare-attenzione-al-montaggio-degli-d15d64",
         "en": "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027",
-        "fr": "place-d-apprentissage-en-tant-que-constructeur-d-installations-et-d-appareils-cfc-avec-un-accent-particulier-sur-le-montage-d-ascenseurs-pour-2027-schindler-bern"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -10543,14 +10552,14 @@
         ],
         "fr": [
           "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-bern",
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
+          "place-d-apprentissage-en-tant-que-constructeur-d-installations-et-d-appareils-cfc-avec-un-accent-particulier-sur-le-montage-d-ascenseurs-pour-2027-schindler-bern"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-bern",
         "apprendistato-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-per-2027-schindler-bern",
         "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
+        "place-d-apprentissage-en-tant-que-constructeur-d-installations-et-d-appareils-cfc-avec-un-accent-particulier-sur-le-montage-d-ascenseurs-pour-2027-schindler-bern"
       ],
       "firstSeenAt": "2026-08-24T21:31:50.536Z",
       "salaryMin": 57500,

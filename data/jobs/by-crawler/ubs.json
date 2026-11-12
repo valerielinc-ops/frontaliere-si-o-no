@@ -3436,7 +3436,7 @@
         "en": "2027-graduate-talent-program-p-c-cfo-zurich-ubs-zurich",
         "it": "2027-graduate-talent-program-p-c-cfo-zurich-ubs-zurich",
         "de": "2027-graduate-talent-program-p-c-cfo-zurich-ubs-zurich",
-        "fr": "2027-graduate-talent-program-p-c-cfo-zurich-ubs-zurich"
+        "fr": "2027-programme-des-talents-diplomes-cfo-p-c-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3525,12 +3525,12 @@
     },
     {
       "id": "ubs-3660759f9372",
-      "slug": "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich",
+      "slug": "graduate-talent-program-2027-controlling-di-liquidita-e-finanziamenti-del-gruppo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich",
-        "it": "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich",
-        "de": "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich",
-        "fr": "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich"
+        "it": "graduate-talent-program-2027-controlling-di-liquidita-e-finanziamenti-del-gruppo-ubs-zurich",
+        "de": "2027-graduate-talent-program-gruppenliquiditat-und-finanzierungscontrolling-ubs-zurich",
+        "fr": "2027-programme-des-talents-diplomes-liquidite-de-groupe-et-controle-du-financement-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3616,7 +3616,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T21:16:21.329Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:16:21.329Z"
+      "firstSeenAt": "2026-11-11T21:16:21.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich"
+        ],
+        "de": [
+          "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich"
+        ],
+        "fr": [
+          "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-group-liquidity-funding-controlling-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-4c6d1b542647",
@@ -9249,7 +9263,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9302,11 +9316,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",

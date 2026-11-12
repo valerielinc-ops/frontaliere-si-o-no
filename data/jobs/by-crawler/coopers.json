@@ -4699,7 +4699,7 @@
         "de": "senior-executive-search-consultant-m-w-d-coopers-basel-stadt",
         "it": "senior-executive-search-consultant-m-w-d-coopers-basel-stadt",
         "en": "senior-executive-search-consultant-m-w-d-coopers-basel-stadt",
-        "fr": "senior-executive-search-consultant-m-w-d-coopers-basel-stadt"
+        "fr": "consultant-senior-en-recrutement-de-cadres-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4778,12 +4778,12 @@
     },
     {
       "id": "coopers-61429c7e83ea",
-      "slug": "office-event-koordinator-in-m-w-d-coopers-schaffhausen",
+      "slug": "coordinatore-coordinatrice-office-event-m-f-d-coopers-group-ag-schaffhausen",
       "slugByLocale": {
         "de": "office-event-koordinator-in-m-w-d-coopers-schaffhausen",
-        "it": "office-event-koordinator-in-m-w-d-coopers-schaffhausen",
+        "it": "coordinatore-coordinatrice-office-event-m-f-d-coopers-group-ag-schaffhausen",
         "en": "office-event-koordinator-in-m-w-d-coopers-schaffhausen",
-        "fr": "office-event-koordinator-in-m-w-d-coopers-schaffhausen"
+        "fr": "coordinateur-trice-d-agence-et-d-evenements-h-f-d-coopers-group-ag-schaffhausen"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4860,7 +4860,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T21:27:32.611Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:27:32.611Z"
+      "firstSeenAt": "2026-11-11T21:27:32.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-event-koordinator-in-m-w-d-coopers-schaffhausen"
+        ],
+        "fr": [
+          "office-event-koordinator-in-m-w-d-coopers-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "office-event-koordinator-in-m-w-d-coopers-schaffhausen"
+      ]
     },
     {
       "id": "coopers-851243d32e73",

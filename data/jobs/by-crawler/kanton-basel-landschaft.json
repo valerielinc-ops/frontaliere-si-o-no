@@ -2896,7 +2896,7 @@
       "slug": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "it": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "vice-president-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "konrektorin-konrektor-kanton-basel-landschaft-liestal",
         "fr": "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -2945,14 +2945,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konrektorin-konrektor-kanton-basel-landschaft-liestal",
-        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
+        "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konrektorin-konrektor-kanton-basel-landschaft-liestal"
         ],
         "en": [
-          "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
+          "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "fr": [
           "konrektorin-konrektor-kanton-basel-landschaft-liestal"
@@ -2981,7 +2981,7 @@
       "slug": "corso-di-biologia-insegnante-2a-kantonale-verwaltung-basel-landschaft-therwil",
       "slugByLocale": {
         "it": "corso-di-biologia-insegnante-2a-kantonale-verwaltung-basel-landschaft-therwil",
-        "en": "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil",
+        "en": "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil",
         "de": "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil",
         "fr": "cours-de-biologie-des-enseignants-2a-kantonale-verwaltung-basel-landschaft-therwil"
       },
@@ -3030,14 +3030,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil",
-        "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil"
+        "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil"
         ],
         "en": [
-          "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil"
+          "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil"
         ],
         "fr": [
           "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil"
@@ -3149,7 +3149,7 @@
       "slug": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "it": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "en": "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
         "fr": "enseignant-6e-classe-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -3198,14 +3198,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ],
         "en": [
-          "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "fr": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
@@ -6076,12 +6076,12 @@
     },
     {
       "id": "kanton-basel-landschaft-9602f2a607e8",
-      "slug": "apprendistato-kauffrau-kaufmann-afp-kantonale-verwaltung-basel-landschaft-muttenz",
+      "slug": "apprendistato-come-impiegato-a-di-commercio-afc-kantonale-verwaltung-basel-landschaft-muttenz",
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz",
-        "it": "apprendistato-kauffrau-kaufmann-afp-kantonale-verwaltung-basel-landschaft-muttenz",
-        "en": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz",
-        "fr": "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz"
+        "it": "apprendistato-come-impiegato-a-di-commercio-afc-kantonale-verwaltung-basel-landschaft-muttenz",
+        "en": "apprenticeship-as-a-business-administrator-eba-kantonale-verwaltung-basel-landschaft-muttenz",
+        "fr": "apprentissage-d-employe-e-de-commerce-afp-kantonale-verwaltung-basel-landschaft-muttenz"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6130,11 +6130,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz",
+          "apprendistato-kauffrau-kaufmann-afp-kantonale-verwaltung-basel-landschaft-muttenz"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz"
+        ],
+        "fr": [
           "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz"
+        "lehrstelle-kauffrau-kaufmann-eba-kanton-basel-landschaft-muttenz",
+        "apprendistato-kauffrau-kaufmann-afp-kantonale-verwaltung-basel-landschaft-muttenz"
       ],
       "salaryMin": 79000,
       "salaryMax": 110500,
@@ -6156,12 +6164,12 @@
     },
     {
       "id": "kanton-basel-landschaft-8833a9b428d3",
-      "slug": "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "responsabile-della-sicurezza-delle-informazioni-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kanton-basel",
-        "it": "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal",
-        "fr": "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal"
+        "it": "responsabile-della-sicurezza-delle-informazioni-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "information-security-officer-s-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "agent-s-charge-s-de-la-securite-de-l-information-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6209,11 +6217,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kanton-basel"
+          "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kanton-basel",
+          "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kanton-basel"
+        "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kanton-basel",
+        "informationssicherheitsbeauftragte-informationssicherheitsbeauftragter-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6235,12 +6251,12 @@
     },
     {
       "id": "kanton-basel-landschaft-9c34198c1b40",
-      "slug": "praktikantin-praktikant-stabstelle-amt-per-kultur-bl-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "tirocinante-presso-l-ufficio-per-la-cultura-del-canton-basilea-campagna-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal",
-        "it": "praktikantin-praktikant-stabstelle-amt-per-kultur-bl-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal",
-        "fr": "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal"
+        "it": "tirocinante-presso-l-ufficio-per-la-cultura-del-canton-basilea-campagna-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "intern-executive-office-office-for-culture-canton-of-basel-landschaft-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "stagiaire-au-sein-de-l-equipe-de-direction-de-l-office-de-la-culture-du-canton-de-bale-campagne-kantonale-verwaltung"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6289,11 +6305,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal",
+          "praktikantin-praktikant-stabstelle-amt-per-kultur-bl-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal"
+        "praktikantin-praktikant-stabstelle-amt-fur-kultur-bl-kanton-basel-landschaft-liestal",
+        "praktikantin-praktikant-stabstelle-amt-per-kultur-bl-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 44500,
       "salaryMax": 82500,
@@ -6315,12 +6339,12 @@
     },
     {
       "id": "kanton-basel-landschaft-0d5f890eadfd",
-      "slug": "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal",
+      "slug": "insegnante-francese-3-6-class-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal",
-        "it": "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal",
-        "en": "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal",
-        "fr": "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal"
+        "it": "insegnante-francese-3-6-class-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "french-teacher-3-6-class-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "professeur-de-francais-3-6-classe-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6382,16 +6406,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:16:05.184Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:16:05.184Z"
+      "firstSeenAt": "2026-11-11T21:16:05.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "franzosisch-lehrperson-3-6-klasse-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-d4800280e787",
-      "slug": "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen",
+      "slug": "insegnante-di-classe-6-classe-kantonale-verwaltung-basel-landschaft-rumlingen",
       "slugByLocale": {
         "de": "klassenlehrperson-6-klasse-kanton-basel-landschaft-rumlingen",
-        "it": "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen",
-        "en": "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen",
-        "fr": "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen"
+        "it": "insegnante-di-classe-6-classe-kantonale-verwaltung-basel-landschaft-rumlingen",
+        "en": "class-teacher-6-class-kantonale-verwaltung-basel-landschaft-rumlingen",
+        "fr": "professeur-de-classe-6-classe-kantonale-verwaltung-basel-landschaft-rumlingen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6439,11 +6477,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klassenlehrperson-6-klasse-kanton-basel-landschaft-rumlingen"
+          "klassenlehrperson-6-klasse-kanton-basel-landschaft-rumlingen",
+          "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen"
+        ],
+        "en": [
+          "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen"
+        ],
+        "fr": [
+          "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen"
         ]
       },
       "previousSlugs": [
-        "klassenlehrperson-6-klasse-kanton-basel-landschaft-rumlingen"
+        "klassenlehrperson-6-klasse-kanton-basel-landschaft-rumlingen",
+        "klassenlehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-rumlingen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

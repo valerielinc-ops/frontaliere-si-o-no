@@ -3495,12 +3495,12 @@
     },
     {
       "id": "csd-engineers-8d481752ff3b",
-      "slug": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-st-gallen",
+      "slug": "project-manager-ambiente-80-100-m-f-d-csd-engineers-st-gallen",
       "slugByLocale": {
         "de": "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch",
-        "it": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-st-gallen",
-        "en": "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch",
-        "fr": "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch"
+        "it": "project-manager-ambiente-80-100-m-f-d-csd-engineers-st-gallen",
+        "en": "project-manager-environment-80-100-m-f-d-csd-engineers-st-gallen",
+        "fr": "gestionnaire-de-projet-environnement-80-100-h-f-d-csd-engineers-st-gallen"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3547,11 +3547,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch",
+          "projektleiter-umwelt-80-100-m-w-d-csd-engineers-st-gallen"
+        ],
+        "en": [
+          "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "fr": [
           "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch"
+        "projektleiter-umwelt-80-100-w-m-d-csd-engineers-ch",
+        "projektleiter-umwelt-80-100-m-w-d-csd-engineers-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3578,8 +3586,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch",
         "it": "apprendistato-come-disegnatore-trice-cfc-specializzazione-ingegneria-civile-per-august-2027-csd-engineers-bern",
-        "en": "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch",
-        "fr": "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch"
+        "en": "apprenticeship-as-a-draughtsperson-with-an-efz-swiss-federal-vet-diploma-specialising-in-civil-engineering-starting-in",
+        "fr": "apprentissage-de-dessinateur-dessinatrice-cfc-specialisation-genie-civil-a-partir-d-aout-2027-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3627,6 +3635,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch"
+        ],
+        "en": [
+          "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch"
+        ],
+        "fr": [
           "lehrstelle-als-zeichner-in-efz-fachrichtung-ingenieurbau-per-august-2027-csd-engineers-ch"
         ]
       },

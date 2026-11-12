@@ -498,12 +498,12 @@
     },
     {
       "id": "trafigura-cb6cef971425",
-      "slug": "onboarding-global-manager-trafigura-ch",
+      "slug": "gestione-globale-di-bordo-trafigura-geneva",
       "slugByLocale": {
         "en": "onboarding-global-manager-trafigura-ch",
-        "it": "onboarding-global-manager-trafigura-ch",
+        "it": "gestione-globale-di-bordo-trafigura-geneva",
         "de": "onboarding-global-manager-trafigura-ch",
-        "fr": "onboarding-global-manager-trafigura-ch"
+        "fr": "gestionnaire-mondial-embarque-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -566,16 +566,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:19:18.669Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:19:18.669Z"
+      "firstSeenAt": "2026-11-11T21:19:18.669Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "onboarding-global-manager-trafigura-ch"
+        ],
+        "fr": [
+          "onboarding-global-manager-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "onboarding-global-manager-trafigura-ch"
+      ]
     },
     {
       "id": "trafigura-da440ccc13a3",
-      "slug": "m-a-associate-trafigura-ch",
+      "slug": "addetto-alle-fusioni-e-acquisizioni-trafigura-geneva",
       "slugByLocale": {
         "en": "m-a-associate-trafigura-ch",
-        "it": "m-a-associate-trafigura-ch",
-        "de": "m-a-associate-trafigura-ch",
-        "fr": "m-a-associate-trafigura-ch"
+        "it": "addetto-alle-fusioni-e-acquisizioni-trafigura-geneva",
+        "de": "m-a-assoziiert-trafigura-geneva",
+        "fr": "m-a-associe-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -639,7 +650,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:19:17.951Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:19:17.951Z"
+      "firstSeenAt": "2026-11-11T21:19:17.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "m-a-associate-trafigura-ch"
+        ],
+        "de": [
+          "m-a-associate-trafigura-ch"
+        ],
+        "fr": [
+          "m-a-associate-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "m-a-associate-trafigura-ch"
+      ]
     }
   ]
 }

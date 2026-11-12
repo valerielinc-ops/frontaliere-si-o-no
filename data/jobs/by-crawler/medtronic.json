@@ -176,7 +176,7 @@
       "slugByLocale": {
         "it": "gestione-dell-ingegneria-medtronic-lausanne",
         "en": "engineering-manager-medtronic-ch",
-        "de": "leitung-der-entwicklungsabteilung-medtronic-lausanne",
+        "de": "ingenieurleiter-medtronic-lausanne",
         "fr": "directeur-technique-medtronic-lausanne"
       },
       "company": "Medtronic",
@@ -224,7 +224,7 @@
       "previousSlugs": [
         "engineering-manager-medtronic-ch",
         "engineering-manager-medtronic-lausanne",
-        "ingenieurleiter-medtronic-lausanne"
+        "leitung-der-entwicklungsabteilung-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -232,7 +232,7 @@
         ],
         "de": [
           "engineering-manager-medtronic-lausanne",
-          "ingenieurleiter-medtronic-lausanne"
+          "leitung-der-entwicklungsabteilung-medtronic-lausanne"
         ],
         "fr": [
           "engineering-manager-medtronic-lausanne"
@@ -436,12 +436,12 @@
     },
     {
       "id": "medtronic-01e83d0ff4c4",
-      "slug": "sales-representative-ii-medtronic-ch",
+      "slug": "rappresentante-delle-vendite-ii-medtronic-bern",
       "slugByLocale": {
         "de": "sales-representative-ii-medtronic-ch",
-        "it": "sales-representative-ii-medtronic-ch",
+        "it": "rappresentante-delle-vendite-ii-medtronic-bern",
         "en": "sales-representative-ii-medtronic-ch",
-        "fr": "sales-representative-ii-medtronic-ch"
+        "fr": "representant-des-ventes-ii-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -504,7 +504,18 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:16:48.187Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-ii-medtronic-ch"
+        ],
+        "fr": [
+          "sales-representative-ii-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-ii-medtronic-ch"
+      ]
     }
   ]
 }

@@ -1662,12 +1662,12 @@
     },
     {
       "id": "epi-stiftung-319ca9efa6b3",
-      "slug": "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich",
+      "slug": "ict-application-manager-application-manager-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich",
-        "it": "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich",
+        "it": "ict-application-manager-application-manager-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich",
-        "fr": "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich"
+        "fr": "gestionnaire-d-applications-tic-gestionnaire-d-applications-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1729,7 +1729,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:19:38.860Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:19:38.860Z"
+      "firstSeenAt": "2026-11-11T21:19:38.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ict-applikationsverantwortliche-applikationsverantwortlicher-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-910c97903c35",

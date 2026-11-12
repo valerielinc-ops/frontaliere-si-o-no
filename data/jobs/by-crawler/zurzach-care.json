@@ -5844,7 +5844,7 @@
         "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
         "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5901,13 +5901,13 @@
         ],
         "fr": [
           "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
         ]
       },
       "previousSlugs": [
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
         "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
       ],
       "firstSeenAt": "2026-10-08T21:15:07.730Z",
       "salaryMin": 70400,
@@ -6671,12 +6671,12 @@
     },
     {
       "id": "zurzach-care-a02c7f43f5bc",
-      "slug": "fachangestellte-gesundheit-fachangestellter-gesundheit-cfc-per-la-mahlzeitenbegleitung-80-zurzach-care-luzern",
+      "slug": "assistente-sanitario-assistente-sanitaria-afc-per-l-assistenza-durante-i-pasti-80-zurzach-care-luzern",
       "slugByLocale": {
         "de": "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80",
-        "it": "fachangestellte-gesundheit-fachangestellter-gesundheit-cfc-per-la-mahlzeitenbegleitung-80-zurzach-care-luzern",
-        "en": "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80",
-        "fr": "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80"
+        "it": "assistente-sanitario-assistente-sanitaria-afc-per-l-assistenza-durante-i-pasti-80-zurzach-care-luzern",
+        "en": "specialist-health-specialist-health-efz-for-meal-accompanying-80-zurzach-care-luzern",
+        "fr": "specialiste-de-la-sante-specialiste-de-la-sante-efz-pour-accompagner-les-repas-80-zurzach-care-luzern"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -6724,11 +6724,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80",
+          "fachangestellte-gesundheit-fachangestellter-gesundheit-cfc-per-la-mahlzeitenbegleitung-80-zurzach-care-luzern"
+        ],
+        "en": [
+          "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80"
+        ],
+        "fr": [
           "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80"
         ]
       },
       "previousSlugs": [
-        "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80"
+        "fachangestellte-gesundheit-fachangestellter-gesundheit-efz-fur-die-mahlzeitenbegleitung-80",
+        "fachangestellte-gesundheit-fachangestellter-gesundheit-cfc-per-la-mahlzeitenbegleitung-80-zurzach-care-luzern"
       ],
       "salaryMin": 59600,
       "salaryMax": 101600,

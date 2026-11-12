@@ -1857,12 +1857,12 @@
     },
     {
       "id": "spitex-ch-15f960bafb88",
-      "slug": "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten",
+      "slug": "operatore-socio-sanitario-afc-psichiatria-40-80-in-team-auto-organizzato-spitex-region-olten-olten",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten",
-        "it": "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten",
-        "en": "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten",
-        "fr": "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten"
+        "it": "operatore-socio-sanitario-afc-psichiatria-40-80-in-team-auto-organizzato-spitex-region-olten-olten",
+        "en": "efz-psychiatry-40-80-in-self-organized-team-spitex-region-olten-olten",
+        "fr": "efz-psychiatrie-40-80-en-equipe-auto-organisee-spitex-region-olten-olten"
       },
       "company": "Spitex Region Olten",
       "companyKey": "spitex-ch",
@@ -1925,7 +1925,21 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-11T21:17:48.851Z"
+      "firstSeenAt": "2026-11-11T21:17:48.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-psychiatrie-40-80-in-selbstorganisiertem-team-spitex-ch-olten"
+      ]
     },
     {
       "id": "spitex-ch-8dbfc2b16541",
@@ -1933,8 +1947,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
         "it": "specialista-sanitario-60-spitex-spitex-stadt-winterthur-winterthur",
-        "en": "fachfrau-mann-gesundheit-80-spitex-stadt-winterthur",
-        "fr": "fachfrau-mann-gesundheit-80-spitex-stadt-winterthur"
+        "en": "health-specialist-60-spitex-spitex-stadt-winterthur-winterthur",
+        "fr": "specialiste-de-la-sante-60-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -1989,16 +2003,15 @@
           "fachfrau-mann-gesundheit-80-spitex-spitex-ch-winterthur"
         ],
         "en": [
-          "health-specialist-60-spitex-spitex-stadt-winterthur-winterthur"
+          "fachfrau-mann-gesundheit-80-spitex-stadt-winterthur"
         ],
         "fr": [
-          "specialiste-de-la-sante-60-spitex-spitex-stadt-winterthur-winterthur"
+          "fachfrau-mann-gesundheit-80-spitex-stadt-winterthur"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-80-spitex-spitex-ch-winterthur",
-        "health-specialist-60-spitex-spitex-stadt-winterthur-winterthur",
-        "specialiste-de-la-sante-60-spitex-spitex-stadt-winterthur-winterthur"
+        "fachfrau-mann-gesundheit-80-spitex-stadt-winterthur"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -2020,12 +2033,12 @@
     },
     {
       "id": "spitex-ch-1096bc1dc981",
-      "slug": "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach",
+      "slug": "infermieristica-60-80-spitex-region-bulach-bulach",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach",
-        "it": "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach",
-        "en": "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach",
-        "fr": "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach"
+        "it": "infermieristica-60-80-spitex-region-bulach-bulach",
+        "en": "nursing-expert-60-80-spitex-region-bulach-bulach",
+        "fr": "expert-en-soins-infirmiers-60-80-spitex-region-bulach-bulach"
       },
       "company": "Spitex Region Bülach",
       "companyKey": "spitex-ch",
@@ -2087,7 +2100,21 @@
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-11T21:17:47.477Z"
+      "firstSeenAt": "2026-11-11T21:17:47.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-60-80-spitex-ch-bulach"
+      ]
     },
     {
       "id": "spitex-ch-eabfcecab87e",

@@ -769,12 +769,12 @@
     },
     {
       "id": "psgn-5f0f0c8cd7a2",
-      "slug": "stationsleitung-pflege-psychiatrie-st-gallen-pfafers",
+      "slug": "gestione-della-stazione-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "stationsleitung-pflege-psgn-pfafers",
-        "it": "stationsleitung-pflege-psychiatrie-st-gallen-pfafers",
-        "en": "stationsleitung-pflege-psychiatrie-st-gallen-pfafers",
-        "fr": "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
+        "it": "gestione-della-stazione-psychiatrie-st-gallen-pfafers",
+        "en": "station-management-care-psychiatrie-st-gallen-pfafers",
+        "fr": "gestion-des-stations-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -821,11 +821,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-pflege-psgn-pfafers"
+          "stationsleitung-pflege-psgn-pfafers",
+          "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "stationsleitung-pflege-psgn-pfafers"
+        "stationsleitung-pflege-psgn-pfafers",
+        "stationsleitung-pflege-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18130,12 +18130,12 @@
     },
     {
       "id": "luks-0aa2d7c9083f",
-      "slug": "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern",
+      "slug": "specialista-chirurgia-pediatrica-sanitaria-50-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern",
-        "it": "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern",
-        "en": "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern",
-        "fr": "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern"
+        "it": "specialista-chirurgia-pediatrica-sanitaria-50-100-luzerner-kantonsspital-luks-luzern",
+        "en": "specialist-health-care-pediatric-surgery-50-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-soins-de-sante-chirurgie-pediatrique-50-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18197,7 +18197,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:17:42.906Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:42.906Z"
+      "firstSeenAt": "2026-11-11T21:17:42.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-kinderchirurgie-50-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-bd5f5015cbaa",
@@ -18284,12 +18298,12 @@
     },
     {
       "id": "luks-00e0cfbfd333",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-anasthesie-80-luzerner-kantonsspital-luks-luzern",
+      "slug": "assistente-socio-sanitario-a-o-assistente-infermieristico-a-in-anestesia-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent",
-        "it": "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-anasthesie-80-luzerner-kantonsspital-luks-luzern",
-        "en": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent",
-        "fr": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent"
+        "it": "assistente-socio-sanitario-a-o-assistente-infermieristico-a-in-anestesia-80-luzerner-kantonsspital-luks-luzern",
+        "en": "assistant-assistant-health-and-social-affairs-or-nursing-assistant-nursing-assistant-anesthesia-80-luzerner",
+        "fr": "assistante-adjointe-en-sante-et-en-affaires-sociales-ou-infirmiere-assistante-infirmiere-assistante-anesthesie-80"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18338,11 +18352,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent",
+          "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-anasthesie-80-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent"
+        ],
+        "fr": [
           "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent"
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent"
+        "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent",
+        "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-anasthesie-80-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,

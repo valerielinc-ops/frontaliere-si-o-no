@@ -1178,12 +1178,12 @@
     },
     {
       "id": "spital-nidwalden-67ed3f7ebc1e",
-      "slug": "medizinische-praxisassistent-in-cfc-per-la-notfallpraxis-20-spital-nidwalden-stans",
+      "slug": "assistente-medico-a-afc-per-l-ambulatorio-di-pronto-soccorso-20-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans",
-        "it": "medizinische-praxisassistent-in-cfc-per-la-notfallpraxis-20-spital-nidwalden-stans",
-        "en": "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans",
-        "fr": "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans"
+        "it": "assistente-medico-a-afc-per-l-ambulatorio-di-pronto-soccorso-20-spital-nidwalden-stans",
+        "en": "medical-practice-assistant-with-a-federal-certificate-of-proficiency-efz-for-the-emergency-practice-20-spital-nidwalden",
+        "fr": "assistant-e-medical-e-cfc-pour-le-cabinet-d-urgence-20-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -1232,11 +1232,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans",
+          "medizinische-praxisassistent-in-cfc-per-la-notfallpraxis-20-spital-nidwalden-stans"
+        ],
+        "en": [
+          "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans"
+        ],
+        "fr": [
           "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans"
+        "medizinische-praxisassistent-in-efz-fur-die-notfallpraxis-20-spital-nidwalden-stans",
+        "medizinische-praxisassistent-in-cfc-per-la-notfallpraxis-20-spital-nidwalden-stans"
       ],
       "salaryMin": 17300,
       "salaryMax": 24100,

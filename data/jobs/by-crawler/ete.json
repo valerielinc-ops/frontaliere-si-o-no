@@ -178,12 +178,12 @@
     },
     {
       "id": "ete-46bf37cba9a7",
-      "slug": "mechaniker-in-per-arbeitsbuhnen-e-stapler-80-100-emil-egger-ag-st-gallen",
+      "slug": "meccanico-a-per-piattaforme-di-lavoro-e-carrelli-elevatori-80-100-emil-egger-ag-st-gallen-46bf37cb",
       "slugByLocale": {
         "de": "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb",
-        "it": "mechaniker-in-per-arbeitsbuhnen-e-stapler-80-100-emil-egger-ag-st-gallen",
-        "en": "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb",
-        "fr": "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb"
+        "it": "meccanico-a-per-piattaforme-di-lavoro-e-carrelli-elevatori-80-100-emil-egger-ag-st-gallen-46bf37cb",
+        "en": "mechanic-in-for-work-platforms-and-forklifts-80-100-emil-egger-ag-st-gallen-46bf37cb",
+        "fr": "mecanicien-in-pour-plates-formes-de-travail-et-chariots-elevateurs-80-100-emil-egger-ag-st-gallen-46bf37cb"
       },
       "slugDisambiguator": "46bf37cb",
       "company": "Emil Egger AG",
@@ -231,11 +231,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb",
+          "mechaniker-in-per-arbeitsbuhnen-e-stapler-80-100-emil-egger-ag-st-gallen"
+        ],
+        "en": [
+          "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb"
+        ],
+        "fr": [
           "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb"
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb"
+        "mechaniker-in-fur-arbeitsbuhnen-und-stapler-80-100-emil-egger-ag-st-gallen-46bf37cb",
+        "mechaniker-in-per-arbeitsbuhnen-e-stapler-80-100-emil-egger-ag-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

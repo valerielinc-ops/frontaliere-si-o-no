@@ -918,12 +918,12 @@
     },
     {
       "id": "vista-c0ec66811c8c",
-      "slug": "orthoptist-in-60-vista-basel",
+      "slug": "ortottista-60-vista-augenpraxen-kliniken-basel",
       "slugByLocale": {
         "de": "orthoptist-in-60-vista-basel",
-        "it": "orthoptist-in-60-vista-basel",
+        "it": "ortottista-60-vista-augenpraxen-kliniken-basel",
         "en": "orthoptist-in-60-vista-basel",
-        "fr": "orthoptist-in-60-vista-basel"
+        "fr": "orthoptiste-60-vista-augenpraxen-kliniken-basel"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
@@ -990,7 +990,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:19:06.571Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:19:06.571Z"
+      "firstSeenAt": "2026-11-11T21:19:06.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "orthoptist-in-60-vista-basel"
+        ],
+        "fr": [
+          "orthoptist-in-60-vista-basel"
+        ]
+      },
+      "previousSlugs": [
+        "orthoptist-in-60-vista-basel"
+      ]
     }
   ]
 }

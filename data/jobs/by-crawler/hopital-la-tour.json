@@ -2050,12 +2050,12 @@
     },
     {
       "id": "hopital-la-tour-c9438f44cd3f",
-      "slug": "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour",
+      "slug": "coordinatore-hr-project-80-gestione-del-tempo-e-pianificazione-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour",
-        "it": "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour",
-        "en": "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour",
-        "de": "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour"
+        "it": "coordinatore-hr-project-80-gestione-del-tempo-e-pianificazione-hopital-de-la-tour-meyrin",
+        "en": "coordinator-hr-project-80-time-management-and-planning-hopital-de-la-tour-meyrin",
+        "de": "coordinator-hr-project-80-zeitmanagement-und-planung-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -2128,7 +2128,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T21:36:06.719Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:36:06.719Z"
+      "firstSeenAt": "2026-11-11T21:36:06.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour"
+        ],
+        "en": [
+          "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour"
+        ],
+        "de": [
+          "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-projet-rh-gestion-des-temps-et-planification-a-80-hopital-la-tour"
+      ]
     }
   ]
 }

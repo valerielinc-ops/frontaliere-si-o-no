@@ -7092,12 +7092,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-6435d7cfb20e",
-      "slug": "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich",
+      "slug": "incaricato-a-legale-per-l-esecuzione-testamentaria-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermoegenszentrum-ch",
-        "it": "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich",
-        "en": "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich",
-        "fr": "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich"
+        "it": "incaricato-a-legale-per-l-esecuzione-testamentaria-vz-vermogenszentrum-zurich-zurich",
+        "en": "legal-officer-for-probate-vz-vermogenszentrum-zurich-zurich",
+        "fr": "juriste-charge-e-de-l-execution-testamentaire-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7159,11 +7159,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermoegenszentrum-ch"
+          "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermoegenszentrum-ch",
+          "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermoegenszentrum-ch"
+        "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermoegenszentrum-ch",
+        "juristische-r-sachbearbeiter-in-willensvollstreckung-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -7185,12 +7193,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-5a90af56f49f",
-      "slug": "senior-it-security-officer-vz-vermogenszentrum-zurich",
+      "slug": "responsabile-senior-della-sicurezza-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "senior-it-security-officer-vz-vermoegenszentrum-ch",
-        "it": "senior-it-security-officer-vz-vermogenszentrum-zurich",
+        "it": "responsabile-senior-della-sicurezza-informatica-vz-vermogenszentrum-zurich-zurich",
         "en": "senior-it-security-officer-vz-vermogenszentrum-zurich",
-        "fr": "senior-it-security-officer-vz-vermogenszentrum-zurich"
+        "fr": "agent-principal-de-la-securite-informatique-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7252,11 +7260,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-security-officer-vz-vermoegenszentrum-ch"
+          "senior-it-security-officer-vz-vermoegenszentrum-ch",
+          "senior-it-security-officer-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "senior-it-security-officer-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-it-security-officer-vz-vermoegenszentrum-ch"
+        "senior-it-security-officer-vz-vermoegenszentrum-ch",
+        "senior-it-security-officer-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,

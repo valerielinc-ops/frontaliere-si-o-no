@@ -869,12 +869,12 @@
     },
     {
       "id": "ksw-55051131c968",
-      "slug": "projektleiterin-projektleiter-ict-applikationen-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "project-manager-project-manager-applicazioni-ict-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-ict-applikationen-ksw-ch",
-        "it": "projektleiterin-projektleiter-ict-applikationen-kantonsspital-winterthur-ksw-winterthur",
-        "en": "projektleiterin-projektleiter-ict-applikationen-ksw-ch",
-        "fr": "projektleiterin-projektleiter-ict-applikationen-ksw-ch"
+        "it": "project-manager-project-manager-applicazioni-ict-kantonsspital-winterthur-ksw-winterthur",
+        "en": "project-manager-project-manager-ict-applications-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-applications-tic-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -922,11 +922,19 @@
       "department": "Prozessgestaltung und Digitalisierung",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiterin-projektleiter-ict-applikationen-ksw-ch",
+          "projektleiterin-projektleiter-ict-applikationen-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "projektleiterin-projektleiter-ict-applikationen-ksw-ch"
+        ],
+        "fr": [
           "projektleiterin-projektleiter-ict-applikationen-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-ict-applikationen-ksw-ch"
+        "projektleiterin-projektleiter-ict-applikationen-ksw-ch",
+        "projektleiterin-projektleiter-ict-applikationen-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4749,12 +4757,12 @@
     },
     {
       "id": "ksw-b5edb23af521",
-      "slug": "hebamme-gebarabteilung-ksw-ch",
+      "slug": "divisione-parto-di-ostetricia-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "hebamme-gebarabteilung-ksw-ch",
-        "it": "hebamme-gebarabteilung-ksw-ch",
-        "en": "hebamme-gebarabteilung-ksw-ch",
-        "fr": "hebamme-gebarabteilung-ksw-ch"
+        "it": "divisione-parto-di-ostetricia-kantonsspital-winterthur-ksw-winterthur",
+        "en": "midwife-childbirth-division-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "division-de-l-accouchement-des-sages-femmes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4817,7 +4825,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:17:56.128Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:17:56.128Z"
+      "firstSeenAt": "2026-11-11T21:17:56.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-gebarabteilung-ksw-ch"
+        ],
+        "en": [
+          "hebamme-gebarabteilung-ksw-ch"
+        ],
+        "fr": [
+          "hebamme-gebarabteilung-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-gebarabteilung-ksw-ch"
+      ]
     },
     {
       "id": "ksw-370736d03cf5",

@@ -963,12 +963,12 @@
     },
     {
       "id": "bachtelen-ffa645df5fc5",
-      "slug": "schulleiter-in-80-100-bachtelen-grenchen",
+      "slug": "dirigente-scolastico-80-100-stiftung-bachtelen-grenchen",
       "slugByLocale": {
         "de": "schulleiter-in-80-100-bachtelen-grenchen",
-        "it": "schulleiter-in-80-100-bachtelen-grenchen",
+        "it": "dirigente-scolastico-80-100-stiftung-bachtelen-grenchen",
         "en": "schulleiter-in-80-100-bachtelen-grenchen",
-        "fr": "schulleiter-in-80-100-bachtelen-grenchen"
+        "fr": "directeur-directrice-d-ecole-80-100-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -1031,16 +1031,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:40:53.065Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:40:53.065Z"
+      "firstSeenAt": "2026-11-11T21:40:53.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulleiter-in-80-100-bachtelen-grenchen"
+        ],
+        "fr": [
+          "schulleiter-in-80-100-bachtelen-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "schulleiter-in-80-100-bachtelen-grenchen"
+      ]
     },
     {
       "id": "bachtelen-b2eaae7af892",
-      "slug": "gruppenleiter-in-80-100-bachtelen-grenchen",
+      "slug": "responsabile-di-gruppo-80-100-stiftung-bachtelen-grenchen",
       "slugByLocale": {
         "de": "gruppenleiter-in-80-100-bachtelen-grenchen",
-        "it": "gruppenleiter-in-80-100-bachtelen-grenchen",
-        "en": "gruppenleiter-in-80-100-bachtelen-grenchen",
-        "fr": "gruppenleiter-in-80-100-bachtelen-grenchen"
+        "it": "responsabile-di-gruppo-80-100-stiftung-bachtelen-grenchen",
+        "en": "team-leader-80-100-stiftung-bachtelen-grenchen",
+        "fr": "chef-fe-de-groupe-80-100-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -1103,7 +1114,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:40:53.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:40:53.059Z"
+      "firstSeenAt": "2026-11-11T21:40:53.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-80-100-bachtelen-grenchen"
+        ],
+        "en": [
+          "gruppenleiter-in-80-100-bachtelen-grenchen"
+        ],
+        "fr": [
+          "gruppenleiter-in-80-100-bachtelen-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-80-100-bachtelen-grenchen"
+      ]
     }
   ]
 }

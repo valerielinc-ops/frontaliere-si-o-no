@@ -4555,12 +4555,12 @@
     },
     {
       "id": "balgrist-7d15b9160333",
-      "slug": "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich",
+      "slug": "terapeuta-fisica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich",
-        "it": "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich",
-        "en": "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich",
-        "fr": "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich"
+        "it": "terapeuta-fisica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "en": "physical-therapist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "fr": "physiotherapeute-h-f-d-80-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4622,7 +4622,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:28:42.791Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:28:42.791Z"
+      "firstSeenAt": "2026-11-11T21:28:42.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-w-m-d-80-100-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-08929508326c",

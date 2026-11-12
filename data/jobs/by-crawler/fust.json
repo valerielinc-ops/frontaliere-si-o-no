@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-g8b56j",
-      "slug": "verkaufer-in-planer-in-kuchen-bader-fust-biel",
+      "slug": "venditore-venditrice-progettista-progettista-di-cucine-e-bagni-fust-vallese",
       "company": "Fust",
       "title": "Verkäufer:in / Planer:in Küchen & Bäder",
       "location": "Vallese",
@@ -45,10 +45,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-planer-in-kuchen-bader-fust-biel",
-        "en": "verkaufer-in-planer-in-kuchen-bader-fust-biel",
+        "it": "venditore-venditrice-progettista-progettista-di-cucine-e-bagni-fust-vallese",
+        "en": "kitchen-bathroom-salesperson-designer-fust-vallese",
         "de": "verkaufer-in-planer-in-kuchen-bader-fust-biel",
-        "fr": "verkaufer-in-planer-in-kuchen-bader-fust-biel"
+        "fr": "vendeur-se-concepteur-trice-de-cuisines-et-de-salles-de-bains-fust-vallese"
       },
       "requirementsByLocale": {},
       "addressLocality": "Vallese",
@@ -73,7 +73,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-planer-in-kuchen-bader-fust-biel"
+        ],
+        "en": [
+          "verkaufer-in-planer-in-kuchen-bader-fust-biel"
+        ],
+        "fr": [
+          "verkaufer-in-planer-in-kuchen-bader-fust-biel"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-planer-in-kuchen-bader-fust-biel"
+      ]
     },
     {
       "id": "company-nk18bs",
@@ -118,9 +132,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "direttore-trice-lavori-fust-egerkingen",
-        "en": "bauleiter-in-fust-egerkingen",
+        "en": "construction-project-manager-fust-egerkingen",
         "de": "bauleiter-in-fust-egerkingen",
-        "fr": "bauleiter-in-fust-egerkingen"
+        "fr": "chef-fe-de-chantier-fust-egerkingen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Egerkingen",
