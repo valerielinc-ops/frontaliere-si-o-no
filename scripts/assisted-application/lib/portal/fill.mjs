@@ -750,14 +750,45 @@ async function dateRegistered(locator, value) {
  * none has been in flight for UPLOAD_QUIET_MS — bounded, and a short pause on
  * a form that sends its files with the submit.
  */
-async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now, onSelection = () => {} } = {}) {
+async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now, onSelection = () => {}, expectedNames = [] } = {}) {
   const inFlight = new Set();
   const uploads = new Set();
   const failed = new Set();
   const accepted = new Set();
+  const workdayPage = (() => {
+    try {
+      const url = new URL(page.url());
+      return /^[^.]+\.wd\d+\.myworkdayjobs\.com$/i.test(url.hostname) ? url : null;
+    } catch {
+      return null;
+    }
+  })();
+  const requestHasExpectedFile = (request) => {
+    if (!expectedNames.length || typeof request.postData !== 'function') return false;
+    try {
+      const body = String(request.postData() || '');
+      return expectedNames.some((name) => body.includes(name));
+    } catch {
+      return false;
+    }
+  };
+  const isWorkdayStructuredUpload = (request) => {
+    if (!workdayPage || typeof request.url !== 'function') return false;
+    let url;
+    try {
+      url = new URL(request.url(), workdayPage.href);
+    } catch {
+      return false;
+    }
+    if (url.origin !== workdayPage.origin) return false;
+    const pathSegments = url.pathname.split('/').filter(Boolean);
+    const uploadPath = pathSegments.some((segment) => /(?:upload|file|attachment|document|resume|cv)/i.test(segment));
+    return uploadPath || (/\/wday\/cxs\//i.test(url.pathname) && requestHasExpectedFile(request));
+  };
   const isUploadRequest = (request) => {
     const contentType = String(request.headers?.()['content-type'] || '');
-    return /multipart\/form-data|application\/(?:octet-stream|pdf|msword|vnd\.openxmlformats-officedocument\.|vnd\.oasis\.opendocument\.)/i.test(contentType);
+    return /multipart\/form-data|application\/(?:octet-stream|pdf|msword|vnd\.openxmlformats-officedocument\.|vnd\.oasis\.opendocument\.)/i.test(contentType)
+      || (/application\/json/i.test(contentType) && isWorkdayStructuredUpload(request));
   };
   const started = (request) => {
     if (request.method() === 'GET') return;
@@ -803,11 +834,17 @@ async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, 
 }
 
 export function chooseFiles(page, locator, paths, options = {}) {
-  return observeFileUpload(page, () => locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS }), options);
+  return observeFileUpload(page, () => locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS }), {
+    ...options,
+    expectedNames: (Array.isArray(paths) ? paths : [paths]).map((file) => path.basename(file)),
+  });
 }
 
 export function chooseChooserFiles(page, chooser, paths, options = {}) {
-  return observeFileUpload(page, () => chooser.setFiles(paths), options);
+  return observeFileUpload(page, () => chooser.setFiles(paths), {
+    ...options,
+    expectedNames: (Array.isArray(paths) ? paths : [paths]).map((file) => path.basename(file)),
+  });
 }
 
 /** The files a file input can actually accept from this document. */
