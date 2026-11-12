@@ -569,7 +569,7 @@ describe('approval flow', () => {
     const priorAt = T0 - 2_000;
     const dispatch = { mode: 'submit', round: 1, requestedAt: T0, attempts: 3 };
     const held = transition({ state: 'submitting', round: 1, dispatch,
-      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      portalAutoRetryCount: 0,
       transportAutoRetryCount: 3,
       swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'navigation_unavailable', at: priorAt }] },
     { type: 'submit_handoff', round: 1, reason: 'navigation_unavailable', portalNetworkFailure: { host, kind: 'navigation_unavailable' } },
@@ -578,7 +578,7 @@ describe('approval flow', () => {
     expect(held.flow).toMatchObject({
       state: 'owner_takeover', heldBy: ['portal:navigation_unavailable'],
       egress: { required: 'ch', source: 'repeated_network_failure' },
-      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      portalAutoRetryCount: 0,
       portalAutoRetryAt: T0,
       portalRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,
       portalExhaustedRecoveryVersion: SWISS_EGRESS_NETWORK_RECOVERY_VERSION,

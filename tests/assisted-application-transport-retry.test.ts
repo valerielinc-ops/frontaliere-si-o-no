@@ -68,6 +68,7 @@ describe('infrastructure failures use the scheduler without a manual retry', () 
       'connect EHOSTUNREACH 203.0.113.10:443',
     ]) expect(navigationInfrastructureFailure(error)).toBe(true);
     expect(navigationInfrastructureFailure('https://portal.example/chrome-error/form/')).toBe(false);
+    expect(navigationInfrastructureFailure('https://portal.example/apply/?next=chrome-error://form/')).toBe(false);
     expect(navigationInfrastructureFailure(Object.assign(new Error('connect failed'), { code: 'ENETUNREACH' }))).toBe(true);
     expect(navigationInfrastructureFailure(Object.assign(new Error('fetch failed'), { cause: { code: 'EHOSTUNREACH' } }))).toBe(true);
     expect(navigationInfrastructureFailure('portal_validation')).toBe(false);
@@ -100,6 +101,11 @@ describe('network evidence passed to the shared flow', () => {
     expect(portalNetworkFailureMetadata({
       event: { type: 'submit_handoff', reason: 'posting_mismatch' },
       evidence: { stopReport: { errors: ['chrome-error://chromewebdata net::ERR_CONNECTION_REFUSED'] } },
+      draft: verifiedDraft,
+    })).toEqual({ host: 'forms.example.test', kind: 'chrome_error' });
+    expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff' },
+      evidence: { finalUrl: 'chrome-error://chromewebdata/' },
       draft: verifiedDraft,
     })).toEqual({ host: 'forms.example.test', kind: 'chrome_error' });
     expect(portalNetworkFailureMetadata({
@@ -143,7 +149,7 @@ describe('network evidence passed to the shared flow', () => {
     })).toBeNull();
     expect(portalNetworkFailureMetadata({
       event: { type: 'submit_handoff' },
-      evidence: { finalUrl: 'https://portal.example/chrome-error/form/' },
+      evidence: { finalUrl: 'https://portal.example/apply/?next=chrome-error://form/' },
       postingUrl: 'https://portal.example/apply/',
       draft: { portalContract: { postingMatch: 'match', applyUrl: 'https://portal.example/apply/' } },
     })).toBeNull();

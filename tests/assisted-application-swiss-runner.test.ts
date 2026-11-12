@@ -6,7 +6,7 @@ import { applyAutomationEvent, handleRunnerEvent, runAutomationSweep } from '../
 import { runAutomationEffect } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
-import { PORTAL_AUTO_RETRY_DELAYS_MS, TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 import {
   LOCAL_DISPATCH_COLLECTION,
   LOCAL_DISPATCH_LEASE_MS,
@@ -121,7 +121,7 @@ describe('dispatch of a marked order', () => {
     const requestedAt = now - 1_000;
     const priorAt = now - 10_000;
     const flow = {
-      state: 'submitting', round: 1, heldBy: [], portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1,
+      state: 'submitting', round: 1, heldBy: [], portalAutoRetryCount: 0,
       transportAutoRetryCount: TRANSPORT_AUTO_RETRY_DELAYS_MS.length,
       dispatch: { mode: 'submit', round: 1, attempts: 3, requestedAt },
       swissEgressNetworkFailures: [{ host, round: 1, requestedAt: priorAt, kind: 'connection_failure', at: priorAt }],
@@ -148,7 +148,7 @@ describe('dispatch of a marked order', () => {
     expect(store.read(flowPath)).toMatchObject({
       state: 'owner_takeover', heldBy: ['portal:navigation_unavailable'],
       egress: { required: 'ch', reason: 'repeated_network_failure', source: 'repeated_network_failure' },
-      portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length + 1, portalAutoRetryAt: now,
+      portalAutoRetryCount: 0, portalAutoRetryAt: now,
     });
     expect(github).not.toHaveBeenCalled();
 

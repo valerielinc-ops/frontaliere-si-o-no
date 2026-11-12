@@ -359,23 +359,32 @@ function verifiedNetworkFailureObservation(flow, event, draft, nowMs) {
   return { host: verifiedHost, round, requestedAt, kind, at: nowMs };
 }
 
+function transportAutoRetryCountValue(flow) {
+  const raw = flow?.transportAutoRetryCount;
+  if (raw === undefined) return 0;
+  if (typeof raw === 'number') return Number.isSafeInteger(raw) && raw >= 0 ? raw : null;
+  if (typeof raw !== 'string') return null;
+  const text = raw.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const attempts = Number(text);
+  return Number.isSafeInteger(attempts) ? attempts : null;
+}
+
 function scheduleSwissNetworkRetry(next, flow, nowMs) {
-  const attempts = portalAutoRetryCountValue(flow);
-  if (attempts === null) return;
   const infrastructureHold = isInfrastructureRetryHold(next);
-  const portalRetryLimit = PORTAL_RETRY_DELAYS.length;
-  const oneShotRetryLimit = portalRetryLimit + 1;
-  if (attempts < portalRetryLimit) {
+  const delays = infrastructureHold ? TRANSPORT_AUTO_RETRY_DELAYS_MS : PORTAL_RETRY_DELAYS;
+  const attempts = infrastructureHold ? transportAutoRetryCountValue(flow) : portalAutoRetryCountValue(flow);
+  if (attempts === null) return;
+  const retryLimit = delays.length;
+  const oneShotRetryLimit = retryLimit + (infrastructureHold ? 0 : 1);
+  if (attempts < retryLimit) {
     if (Number(next.portalAutoRetryAt) > 0) return;
-    const delay = autoRetryDelaysForFlow(next)[attempts];
+    const delay = delays[attempts];
     if (delay) next.portalAutoRetryAt = nowMs + delay;
     return;
   }
-  // Keep the existing transport backoff while that ladder is still running.
-  // The portal counter can be 3 in older flows where the initial submit was
-  // included; that count also proves the ordinary portal retry ladder ended.
-  if (infrastructureHold && attempts === portalRetryLimit
-    && (Number(flow?.transportAutoRetryCount) || 0) < TRANSPORT_AUTO_RETRY_DELAYS_MS.length) return;
+  // Use the counter for the active retry lane. Older portal flows may include
+  // the original submit in their count; transport counters count retries only.
   if (attempts > oneShotRetryLimit
     || flow?.portalRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION
     || flow?.portalExhaustedRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION) return;

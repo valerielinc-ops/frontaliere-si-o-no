@@ -94,6 +94,26 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
   const host = portalContractHost(draft);
   if (!host) return null;
   const stopReport = evidence?.stopReport || event.stopReport || {};
+  const chromeErrorPage = (() => {
+    const finalUrl = typeof evidence?.finalUrl === 'string' ? evidence.finalUrl.trim() : '';
+    if (finalUrl) {
+      try {
+        if (new URL(finalUrl).protocol.toLowerCase() === 'chrome-error:') return true;
+      } catch { /* use explicit browser diagnostics below */ }
+    }
+    return chromeErrorPageFailure([
+      event.reason,
+      event.error?.message,
+      event.error?.code,
+      error?.message,
+      error?.code,
+      error?.cause?.message,
+      error?.cause?.code,
+      stopReport.reason,
+      stopReport.path,
+      ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
+    ].filter(Boolean).map(String).join(' '));
+  })();
   const diagnostics = [
     event.reason,
     event.error?.message,
@@ -102,7 +122,6 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
     error?.code,
     error?.cause?.message,
     error?.cause?.code,
-    evidence?.finalUrl,
     stopReport.reason,
     stopReport.path,
     ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
@@ -113,7 +132,7 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
   const connectionError = navigationInfrastructureFailure(diagnostics);
   const kind = accessBlocked
     ? 'access_blocked'
-    : chromeErrorPageFailure(diagnostics)
+    : chromeErrorPage
       ? 'chrome_error'
       : event.reason === 'navigation_unavailable'
         ? 'navigation_unavailable'
