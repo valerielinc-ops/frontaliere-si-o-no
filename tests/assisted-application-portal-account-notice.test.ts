@@ -14,7 +14,7 @@ vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { handleAssistedApplicationInbound, portalAccountNoticeKind, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { portalAccountForNotice } = await import('../functions/src/assistedApplicationPortalSites.js');
-const { decodeHtmlEntities } = await import('../functions/src/lib/mimeMessage.js');
+const { decodeHtmlEntities, parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 
 // A portal's own account mail (the federal SuccessFactors tenant, 2026-11-10:
 // «Ihr Bewerbungskonto wurde erfolgreich erstellt», a sign-in link on the
@@ -70,11 +70,11 @@ async function setup(accounts: Record<string, unknown> | null = { portal: { host
   return { store, alias };
 }
 
-const mail = ({ subject = 'Ihr Bewerbungskonto bei stelle.admin.ch', text = CREATED, from = 'Bundesverwaltung <job@stelle.admin.ch>', dkim = 'stelle.admin.ch' } = {}) => Buffer.from([
+const mail = ({ subject = 'Ihr Bewerbungskonto bei stelle.admin.ch', text = CREATED, contentType = 'text/plain; charset=utf-8', from = 'Bundesverwaltung <job@stelle.admin.ch>', dkim = 'stelle.admin.ch' } = {}) => Buffer.from([
   `From: ${from}`,
   ...(dkim ? [`Authentication-Results: mx.cloudflare.net; dkim=pass header.d=${dkim}`] : []),
   `Subject: =?utf-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=`,
-  'Content-Type: text/plain; charset=utf-8',
+  `Content-Type: ${contentType}`,
   'Content-Transfer-Encoding: base64',
   '',
   Buffer.from(text, 'utf8').toString('base64'),
@@ -197,6 +197,12 @@ describe('a portal account notice for the order’s own account', () => {
       .toBe('ü ö ä « »   & ä ä &unknown; &uuml; ?copy=1&notin=2');
   });
 
+  it('keeps the parsed source text while exposing a once-decoded MIME rule input', () => {
+    const parsed = parseMimeMessage(mail({ subject: 'Konto', text: 'Ihr Passwort wurde ge&auml;ndert.' }));
+    expect(parsed.text).toBe('Ihr Passwort wurde ge&auml;ndert.');
+    expect(parsed.ruleText).toBe('Ihr Passwort wurde geändert.');
+  });
+
   it('keeps a recognized account notice from being forwarded for a withdrawn order', async () => {
     const { store, alias } = await setup();
     await store.db.collection('assisted_applications').doc(ORDER).set({ submissionStatus: 'withdrawn' }, { merge: true });
@@ -254,6 +260,40 @@ describe('what still reaches the candidate', () => {
 
     expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'sent' } });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    ['sign-in before profile', 'You may sign in to update your profile and provide your salary expectation, please.'],
+    ['profile before sign-in', 'Please complete your profile, provide your salary expectation, and then sign in.'],
+  ])('forwards a remaining request after removing self-service guidance (%s)', async (_order, sentence) => {
+    const { store, alias } = await setup();
+    const text = `Welcome to our city recruiting portal. ${sentence}`;
+    const answer = modelAnswer({ verificationUrl: '', needsReply: true });
+    expect(portalAccountNoticeKind({ subject: 'Welcome', text }, answer)).toBe('');
+
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Welcome', text }), answer });
+    expect(inbox).toMatchObject({ forwarded: { status: 'sent' } });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not decode an HTML-only welcome more than once before filtering', async () => {
+    const { store, alias } = await setup();
+    const html = '<p>&amp;#87;illkommen beim Stellenportal der Stadt.</p>';
+    const raw = mail({ subject: 'Portal message', contentType: 'text/html; charset=utf-8', text: html });
+    const parsed = parseMimeMessage(raw);
+    expect(parsed.text).toBe('&#87;illkommen beim Stellenportal der Stadt.');
+    expect(parsed.ruleText).toBe(parsed.text);
+
+    const { inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw,
+      answer: modelAnswer({ verificationUrl: '' }),
+    });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 

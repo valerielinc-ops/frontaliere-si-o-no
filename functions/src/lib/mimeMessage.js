@@ -245,7 +245,7 @@ function collectParts(headerText, body, depth, out) {
 
 /**
  * @param {Buffer|string} raw RFC 5322 message
- * @returns {{headers:Array<[string,string]>, from:string, replyTo:string, subject:string, text:string,
+ * @returns {{headers:Array<[string,string]>, from:string, replyTo:string, subject:string, text:string, ruleText:string,
  *   attachments:Array<{filename:string, contentType:string, content:Buffer}>}}
  */
 export function parseMimeMessage(raw) {
@@ -265,9 +265,15 @@ export function parseMimeMessage(raw) {
   };
   const plainText = textPart ? contentOf(textPart) : '';
   const htmlText = htmlPart ? contentOf(htmlPart) : '';
+  let ruleText = '';
   if (plainText.trim()) text = htmlPart ? appendHtmlOnlyLinks(plainText, htmlText) : plainText;
   else if (htmlPart) text = htmlToText(htmlText, { safeLinksOnly: true });
   else if (textPart) text = plainText;
+  if (plainText.trim()) ruleText = htmlPart
+    ? appendHtmlOnlyLinks(decodeHtmlEntities(plainText), htmlText)
+    : decodeHtmlEntities(plainText);
+  else if (htmlPart) ruleText = text;
+  else if (textPart) ruleText = decodeHtmlEntities(plainText);
   const replyToHeaders = headers.filter(([key]) => key === 'reply-to');
   return {
     headers,
@@ -276,6 +282,9 @@ export function parseMimeMessage(raw) {
     replyTo: replyToHeaders.length === 1 ? decodeEncodedWords(replyToHeaders[0][1]) : '',
     subject: decodeEncodedWords(header(headers, 'subject')),
     text,
+    // Keep `text` as the source used for verbatim proof; rule consumers use this
+    // once-decoded view so HTML-only parts are not entity-decoded twice.
+    ruleText,
     attachments: parts.filter((part) => part.isAttachment).map(({ filename, contentType, content }) => ({ filename, contentType, content })),
   };
 }

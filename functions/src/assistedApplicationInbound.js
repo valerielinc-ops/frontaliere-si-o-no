@@ -281,6 +281,9 @@ const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgr
 const ACCOUNT_WELCOME_RE = /(?:willkommen\s+(?:beim|im|auf\s+(?:dem|unserem))\s+(?:stellen|karriere|job|bewerbungs|bewerber)portal|(?:ihr|dein) benutzername\s+(?:entspricht|lautet|ist)|(?:kennwort|passwort)[^.\n]{0,100}bei der registrierung[^.\n]{0,80}gesetzt|benvenut[oa]\s+(?:nel|sul)\s+portale\s+(?:lavoro|carriere|candidature|delle offerte|delle candidature)|(?:il )?(?:tuo|suo) nome utente\s+(?:è|corrisponde)|bienvenue sur (?:le|notre) portail (?:carrières|emploi|candidats)|votre nom d['’]utilisateur\s+(?:est|correspond)|your username is|welcome to (?:the|our)\s+[^.\n]{0,80}?(?:careers?|jobs?|recruiting|talent)\s+(?:portal|site))/i;
 const ACCOUNT_SELF_SERVICE_RE = /(?:you (?:can|may)\s+[^.\n]{0,40}(?:log in|sign in)[^.\n]{0,90}(?:complete|update|finish)[^.\n]{0,40}your profile|(?:complete|update|finish)\s+your profile[^.\n]{0,90}(?:log in|sign in)|(?:sie können|bitte melden sie sich)[^.\n]{0,50}(?:einloggen|anmelden)[^.\n]{0,100}ihr profil[^.\n]{0,40}(?:ergänz|vervollständ|aktualisier)\p{L}*|(?:ergänz|vervollständ|aktualisier)\p{L}*[^.\n]{0,40}ihr profil[^.\n]{0,100}(?:einloggen|anmelden)|(?:puoi|può|potrai)[^.\n]{0,50}accedere[^.\n]{0,100}(?:completare|aggiornare|integrare)[^.\n]{0,40}profil|(?:completare|aggiornare|integrare)[^.\n]{0,40}profil[^.\n]{0,100}accedere|(?:vous pouvez|veuillez)[^.\n]{0,50}connect\p{L}*[^.\n]{0,100}(?:compléter|mettre à jour)[^.\n]{0,40}profil|(?:compléter|mettre à jour)[^.\n]{0,40}profil[^.\n]{0,100}connect\p{L}*|(?:password|passwort|kennwort|mot de passe)[^.\n]{0,40}(?:forgot|forgotten|forget|vergessen|oubli\p{L}*|dimenticat\p{L}*)|(?:forgot|forgotten|forget|vergessen|oubli\p{L}*|dimenticat\p{L}*)[^.\n]{0,40}(?:password|passwort|kennwort|mot de passe))/iu;
 const isAccountCreatedNotice = (text) => ACCOUNT_NOTICE_RE.test(text) || ACCOUNT_WELCOME_RE.test(text);
+const ACCOUNT_SELF_SERVICE_ALL_RE = new RegExp(ACCOUNT_SELF_SERVICE_RE.source, `${ACCOUNT_SELF_SERVICE_RE.flags}g`);
+// Strip only the generic guidance actions; the regex span can also contain a separate request.
+const ACCOUNT_SELF_SERVICE_ACTION_ALL_RE = /(?:log ?in|sign ?in|(?:complete|update|finish)\s+your profile|(?:ergänz|vervollständ|aktualisier)\p{L}*\s+(?:ihr|dein)\s+profil|(?:ihr|dein)\s+profil\s+(?:zu\s+)?(?:ergänz|vervollständ|aktualisier)\p{L}*|(?:completare|aggiornare|integrare)\s+(?:il\s+)?profil\p{L}*|(?:compléter|mettre à jour)\s+(?:votre\s+)?profil\p{L}*|(?:einloggen|anmelden|accedere|connect\p{L}*))/giu;
 // SBB (2026-11-10): «Vielen Dank für die Profilerstellung … Du hast im Karriereportal ein Profil erstellt»;
 // Damiani (same day): «Thanks for your registration! … Your registration on the site was successful.»
 // The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
@@ -291,8 +294,15 @@ const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolg
 const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
 
 /** An "acknowledgement" that only confirms a portal account is the account's own mail. */
-export function correctedCategory(category, { subject = '', text = '' } = {}) {
-  const haystack = decodeHtmlEntities(`${subject}\n${text}`).slice(0, 20_000);
+function ruleTextOf(message = {}) {
+  return typeof message.ruleText === 'string'
+    ? message.ruleText
+    : decodeHtmlEntities(String(message.text || ''));
+}
+
+export function correctedCategory(category, message = {}) {
+  const subject = String(message.subject || '');
+  const haystack = `${decodeHtmlEntities(subject)}\n${ruleTextOf(message)}`.slice(0, 20_000);
   if (category === 'auto_acknowledgement' && isAccountCreatedNotice(haystack) && !APPLICATION_RECEIVED_RE.test(haystack)) return 'verification';
   return category;
 }
@@ -513,11 +523,13 @@ function categoryOfSentences(sentences, topic, body) {
 }
 
 /** The sender's own words with their category; a reply's subject repeats the old message. */
-function readByRules({ subject = '', text = '' }) {
+function readByRules(message = {}) {
+  const subject = String(message.subject || '');
+  const text = String(message.text || '');
   const heading = normalizedMail(decodeHtmlEntities(subject));
   const reply = REPLY_SUBJECT_RE.test(heading);
-  const sourceText = ownMessageText(String(text || '').replace(/\r\n?/g, '\n').slice(0, 20_000));
-  const current = normalizedMail(decodeHtmlEntities(sourceText));
+  const sourceText = ownMessageText(text.replace(/\r\n?/g, '\n').slice(0, 20_000));
+  const current = normalizedMail(ownMessageText(ruleTextOf(message).replace(/\r\n?/g, '\n').slice(0, 20_000)));
   const topic = reply ? [] : sentencesOf(heading);
   const body = sentencesOf(current);
   const sentences = [...topic, ...body];
@@ -557,7 +569,13 @@ export function portalAccountNoticeKind(message, classification = {}) {
   if (rules.verificationAsked) return '';
   const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
   const hasGenericAccessGuidance = sentences.some((sentence) => ACCOUNT_SELF_SERVICE_RE.test(sentence));
-  const hasOtherRequestedAction = sentences.some((sentence) => asksForAction(sentence) && !ACCOUNT_SELF_SERVICE_RE.test(sentence));
+  const hasOtherRequestedAction = sentences.some((sentence) => {
+    const remaining = sentence.replace(ACCOUNT_SELF_SERVICE_ALL_RE, (guidance) => {
+      const residual = guidance.replace(ACCOUNT_SELF_SERVICE_ACTION_ALL_RE, ' ');
+      return ACTION_VERB_RE.test(residual) || DOCUMENT_NOUN_RE.test(residual) ? guidance : ' ';
+    });
+    return asksForAction(remaining);
+  });
   if (classification.needsReply === true && (!hasGenericAccessGuidance || hasOtherRequestedAction)) return '';
   if (sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
     || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || acknowledgesApplication(sentence))) return '';
@@ -598,7 +616,7 @@ function automatedMessage(message) {
   if (headers.some(([key, value]) => AUTOMATED_HEADER[key]?.test(String(value || '').trim()))) return true;
   const local = /^([^@\s]+)@[^@\s]+$/.exec(singleMailboxAddress(message.from) || '')?.[1] || '';
   if (local && NO_REPLY_MAILBOX_RE.test(local)) return true;
-  const own = normalizedMail(ownMessageText(decodeHtmlEntities(String(message.text || '').replace(/\r\n?/g, '\n').slice(0, 20_000))));
+  const own = normalizedMail(ownMessageText(ruleTextOf(message).replace(/\r\n?/g, '\n').slice(0, 20_000)));
   return AUTOMATED_TEXT_RE.test(own) || NO_REPLY_TEXT_RE.test(own);
 }
 
@@ -1345,7 +1363,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     try {
       const answer = await classify({
         systemPrompt: classificationPrompt(resolveOrderLocale(order)),
-        userText: `From: ${message.from}\nSubject: ${message.subject}\n\n${String(message.text || '').slice(0, 12_000)}`,
+        userText: `From: ${message.from}\nSubject: ${message.subject}\n\n${ruleTextOf(message).slice(0, 12_000)}`,
         schema: CLASSIFICATION_SCHEMA,
         name: 'employer_message',
       });
@@ -1357,7 +1375,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         category: rules.category,
         verificationCode: rules.verificationAsked ? NAMED_CODE_RE.exec(rules.sourceText)?.[1] : '',
         verificationUrl: await linkOfWaitingAccount(orderRef, { ...rules, authenticated }),
-      }, { subject: rules.sourceSubject, text: rules.sourceText });
+      }, { subject: rules.sourceSubject, text: rules.sourceText, ruleText: rules.text });
     }
 
     // A portal's account verification (a verbatim link or code) is read by the
