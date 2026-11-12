@@ -215,7 +215,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
   });
 
-  it('fetches Pages from the source run by default so only successful publishers resolve', () => {
+  it('pins the selected source or publisher run so the shared action validates publication identity', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const fetchPages = workflow.jobs.audit.steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
     expect(fetchPages.with['run-id']).toBe('${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}');
