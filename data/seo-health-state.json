@@ -1,7 +1,16 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-11T11:57:13.063Z",
-  "findings": {},
-  "cleanRuns": 1,
+  "lastRunAt": "2026-11-12T12:48:51.958Z",
+  "findings": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch:8443/enterprise/control/agent.php": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch:8443/enterprise/control/agent.php",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-12T12:48:51.958Z",
+      "lastSeenAt": "2026-11-12T12:48:51.958Z",
+      "detail": "edge=503 count=1 live=503 surface=other"
+    }
+  },
+  "cleanRuns": 0,
   "lastActionable": false
 }
