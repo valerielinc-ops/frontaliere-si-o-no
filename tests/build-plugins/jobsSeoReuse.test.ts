@@ -31,6 +31,7 @@ import {
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
   replaceJobPostingJsonLd,
+  replaceJobPostingJsonLdWithChange,
   activeJobSourceValidThrough,
   rewriteActiveBridgeHtml,
   rewriteActiveJobHtml,
@@ -526,6 +527,18 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(result).not.toContain('"description":"Old"');
   });
 
+  it('reports an unchanged archived JobPosting fragment as unchanged', () => {
+    const currentScript = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","description":"Current"}'
+      + '</script>';
+    const html = `<html><head>${currentScript}</head></html>`;
+
+    expect(replaceJobPostingJsonLdWithChange(html, currentScript)).toEqual({
+      html,
+      changed: false,
+    });
+  });
+
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {
     const rootDir = fixtureRoot();
     try {
@@ -664,12 +677,16 @@ describe('jobs SEO disk HTML reuse', () => {
         null,
         {
           reuseInput,
-          rewriteHtml: (html: string) => html.replaceAll('old-', 'new-'),
+          rewriteHtml: (html: string) => ({
+            html: html.replaceAll('old-', 'new-'),
+            changed: true,
+          }),
         },
       );
       expect(candidate).toMatchObject({
         hit: true,
         html: '<html><body>new-feed new-date</body></html>',
+        rewrittenBytesChanged: true,
       });
       reuse.finish(candidate, candidate.html);
       expect(reuse.summary().active).toMatchObject({
