@@ -80,6 +80,9 @@ emit() { if [ -n "$jqf" ]; then jq -r "$jqf" "$1"; else cat "$1"; fi; }
     */actions/runs/*/artifacts\\?*)
       id="\${url#*/actions/runs/}"; id="\${id%%/*}"
       emit "$GH_STUB_DIR/artifacts-$id.json" ;;
+    */actions/runs/*/jobs\\?*)
+      id="\${url#*/actions/runs/}"; id="\${id%%/*}"
+      emit "$GH_STUB_DIR/jobs-$id.json" ;;
     */actions/runs/*)
       id="\${url##*/}"
       emit "$GH_STUB_DIR/run-$id.json" ;;
@@ -99,6 +102,7 @@ function resolve({
   sourceRun,
   publisherRuns = [],
   publisherArtifacts = {},
+  publisherJobs = {},
   sourceArtifactExpired = false,
 }: {
   withCreated: unknown[];
@@ -108,6 +112,7 @@ function resolve({
   sourceRun?: Record<string, unknown>;
   publisherRuns?: unknown[];
   publisherArtifacts?: Record<string, boolean>;
+  publisherJobs?: Record<string, unknown>;
   sourceArtifactExpired?: boolean;
 }) {
   const dir = mkdtempSync(path.join(sandbox, 'case-'));
@@ -136,6 +141,9 @@ function resolve({
   }
   for (const [id, expired] of Object.entries(publisherArtifacts)) {
     writeFileSync(path.join(dir, `artifacts-${id}.json`), JSON.stringify(artifact(Number(id), expired)));
+  }
+  for (const [id, jobs] of Object.entries(publisherJobs)) {
+    writeFileSync(path.join(dir, `jobs-${id}.json`), JSON.stringify(jobs));
   }
   if (runId) {
     writeFileSync(path.join(dir, `run-${runId}.json`), JSON.stringify(pinnedRun));
@@ -233,6 +241,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
         },
       ],
       publisherArtifacts: { 5001: false, 5002: false },
+      publisherJobs: { 5001: [{ jobs: [{ name: 'deploy', conclusion: 'failure' }] }] },
     });
     expect(result.status, result.log).toBe(0);
     expect(result.outputs).toContain('run-id=5002');
@@ -257,6 +266,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
         conclusion: 'failure',
       }],
       publisherArtifacts: { 5001: false },
+      publisherJobs: { 5001: [{ jobs: [{ name: 'deploy', conclusion: 'failure' }] }] },
     });
     expect(result.status).toBe(1);
     expect(result.log).toContain('No successful deploy.yml run');
@@ -291,7 +301,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
     expect(result.outputs).toContain(`head-sha=${sourceSha}`);
   });
 
-  it('rifiuta il publisher esplicito fallito anche se il run ha un github-pages artifact', () => {
+  it('accetta il publisher esplicito fallito quando il job deploy e\' riuscito', () => {
     const source = canonicalSourceRun(4001);
     const sourceSha = String(source.head_sha);
     const result = resolve({
@@ -311,11 +321,60 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
       },
       sourceRun: source,
       publisherArtifacts: { 5001: false },
+      publisherJobs: { 5001: [{ jobs: [{ name: 'deploy', conclusion: 'success' }] }] },
+    });
+    expect(result.status, result.log).toBe(0);
+    expect(result.outputs).toContain('run-id=5001');
+    expect(result.outputs).toContain(`head-sha=${sourceSha}`);
+  });
+
+  it('rifiuta il publisher esplicito fallito quando anche il job deploy e\' fallito', () => {
+    const source = canonicalSourceRun(4001);
+    const sourceSha = String(source.head_sha);
+    const result = resolve({
+      withCreated: [],
+      withoutCreated: [],
+      runId: '5001',
+      pinnedRun: {
+        id: 5001,
+        name: 'Publish to GitHub Pages (deploy + validate)',
+        path: '.github/workflows/deploy-publish.yml',
+        event: 'workflow_dispatch',
+        status: 'completed',
+        conclusion: 'failure',
+        head_branch: 'main',
+        created_at: isoDaysAgo(0.1),
+        display_title: `Publish Pages build 4001 @ ${sourceSha}`,
+      },
+      sourceRun: source,
+      publisherArtifacts: { 5001: false },
+      publisherJobs: { 5001: [{ jobs: [{ name: 'deploy', conclusion: 'failure' }] }] },
     });
     expect(result.status).toBe(1);
-    expect(result.log).toContain('is not a successful deploy.yml source or deploy-publish.yml run on main');
+    expect(result.log).toContain('not a publisher with a successful deploy job');
     expect(result.calls.some((call) => call.includes('/artifacts?'))).toBe(false);
     expect(result.outputs).toBe('');
+  });
+
+  it('usa il publisher fallito nel walk-back quando il job deploy e\' riuscito', () => {
+    const source = run(4001, 0.1);
+    const result = resolve({
+      withCreated: [source],
+      withoutCreated: [],
+      sourceArtifactExpired: true,
+      publisherRuns: [{
+        databaseId: 5001,
+        displayTitle: `Publish Pages build 4001 @ ${source.head_sha}`,
+        createdAt: isoDaysAgo(0.1),
+        headBranch: 'main',
+        status: 'completed',
+        conclusion: 'failure',
+      }],
+      publisherArtifacts: { 5001: false },
+      publisherJobs: { 5001: [{ jobs: [{ name: 'deploy', conclusion: 'success' }] }] },
+    });
+    expect(result.status, result.log).toBe(0);
+    expect(result.outputs).toContain('run-id=5001');
   });
 
   it('la query porta la finestra created = retention + 1 giorno', () => {
