@@ -243,9 +243,9 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toContain('replay shard artifact unavailable for $section $loc');
   });
 
-  it('restores a physical Ticino fan-out before moving a clone into canonical dist', () => {
+  it('restores a physical section fan-out before moving a clone into canonical dist', () => {
     expect(script).toContain('ticino-tree-fanout.sh');
-    const restoreIdx = script.indexOf('ticino_tree_unfanout_stage "$section" "$tmp/$sub"');
+    const restoreIdx = script.indexOf('section_tree_unfanout_stage "$section" "$tmp/$sub"');
     const moveIdx = script.indexOf('mv "$tmp/$sub" "dist/$sub"');
     expect(restoreIdx).toBeGreaterThan(-1);
     expect(moveIdx).toBeGreaterThan(restoreIdx);

@@ -342,6 +342,25 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       expect(output).toBe('RC=0 REASON=');
     });
 
+    it('accetta i path canonici quando l’indice usa il fan-out fisico di Zurigo', () => {
+      const prefix = 'de/jobs-in-zurich';
+      const entry = 'Ir-Job-123';
+      const stage = stageWithFiles('zurigo-source-path-stage', {
+        [`${prefix}/index.html`]: '<html>section</html>',
+        [`${prefix}/_tree/${ticinoTreeBucket(entry)}/${entry}/index.html`]: '<html>job</html>',
+      });
+      const source = join(root, 'zurigo-source-path-source');
+      sh(`mkdir -p "${join(source, entry)}"`);
+      writeFileSync(join(source, 'index.html'), '<html>section</html>');
+      writeFileSync(join(source, entry, 'index.html'), '<html>job</html>');
+
+      const output = runHelperScript(
+        `cd "${stage}"; SHARD_DELTA_REASON=''; shard_assert_source_paths_indexed "${stage}" "${source}" "${prefix}" test-shard zurigo-hash-v1; `
+          + 'echo "RC=$? REASON=$SHARD_DELTA_REASON"',
+      );
+      expect(output).toBe('RC=0 REASON=');
+    });
+
     it('fallisce chiuso se manca l’inventario dei file coperti dal manifest', () => {
       const stage = stageWithFiles('tombstone-missing-inventory-stage', {
         'en/jobs/job/index.html': '<html>route</html>',

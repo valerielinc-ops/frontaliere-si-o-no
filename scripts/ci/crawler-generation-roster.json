@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 701,
+  "crawlerCount": 703,
   "groups": {
     "10": [
       "atec-personal",
@@ -136,6 +136,7 @@
       "alten-switzerland",
       "artisa-group",
       "audemars-piguet",
+      "bankslm",
       "cham-swiss-properties",
       "city-pop",
       "clinique-de-genolier",
@@ -230,6 +231,7 @@
     "17": [
       "aldi-suisse",
       "asile-des-aveugles",
+      "averecura-holding-ag",
       "badrutts-palace",
       "baronie",
       "barry-callebaut",
@@ -807,6 +809,7 @@
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
     "avantgarten-ch": "data/jobs/by-crawler/avantgarten-ch.json",
+    "averecura-holding-ag": "data/jobs/by-crawler/averecura-holding-ag.json",
     "axa-svizzera": "data/jobs/by-crawler/axa-svizzera.json",
     "axpo-group": "data/jobs/by-crawler/axpo-group.json",
     "az-systems-ch": "data/jobs/by-crawler/az-systems-ch.json",
@@ -818,6 +821,7 @@
     "banca-cler": "data/jobs/by-crawler/banca-cler.json",
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
     "banca-sempione": "data/jobs/by-crawler/banca-sempione.json",
+    "bankslm": "data/jobs/by-crawler/bankslm.json",
     "baronie": "data/jobs/by-crawler/baronie.json",
     "barry-callebaut": "data/jobs/by-crawler/barry-callebaut.json",
     "bb-trading-werbeartikel-ag": "data/jobs/by-crawler/bb-trading-werbeartikel-ag.json",
@@ -1458,5 +1462,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:404e97da9ef6c3b20ed927ed3c6d7a612cfc78153592713d392714ddd95ea775"
+  "digest": "sha256:3d8a92c499bba5d43d962fa2c970851728bc5c7d18ee04de70c355f6939c9d38"
 }

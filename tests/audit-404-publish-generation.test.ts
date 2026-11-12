@@ -22,7 +22,13 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
-import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import {
+  SECTION_TREE_FANOUT_SECTIONS,
+  legacyTicinoTreeBucket,
+  sectionTreeBucket,
+  sectionUsesHashFanout,
+  ticinoTreeBucket,
+} from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
@@ -51,11 +57,13 @@ function loadHelpers(env: Record<string, string> = {}) {
     return SCRIPT.slice(start, end < 0 ? undefined : end);
   };
 
-  const slugs = JSON.parse(readFileSync(resolve(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf-8'));
-  const src = `
+    const slugs = JSON.parse(readFileSync(resolve(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf-8'));
+    const src = `
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
     const utf8Encoder = new TextEncoder();
-    ${ticinoTreeBucket.toString()}
+    const SECTION_TREE_FANOUT_SECTIONS = ${JSON.stringify(SECTION_TREE_FANOUT_SECTIONS)};
+    ${sectionTreeBucket.toString()}
+    ${sectionUsesHashFanout.toString()}
     ${legacyTicinoTreeBucket.toString()}
     const process = { env: ${JSON.stringify(env)} };
     const flatString = (value) => value;
@@ -166,6 +174,27 @@ describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', (
       'ticino',
       'it',
     )).toBe(`/cerca-lavoro-ticino/_tree/${wrongMuratoreBucket}/muratore`);
+  });
+});
+
+describe('treeEntryToRoute — Zurich physical fan-out maps to public routes', () => {
+  const { treeEntryToRoute } = loadHelpers();
+  const wrongBucket = sectionTreeBucket('muratore') === '00' ? '01' : '00';
+
+  it('removes the storage bucket for localized Zurich section shards', () => {
+    expect(treeEntryToRoute(
+      `de/jobs-in-zurich/_tree/${sectionTreeBucket('muratore')}/muratore/index.html`,
+      'zurigo',
+      'de',
+    )).toBe('/de/jobs-in-zurich/muratore');
+  });
+
+  it('leaves an unrelated Zurich bucket as a real missing route', () => {
+    expect(treeEntryToRoute(
+      `de/jobs-in-zurich/_tree/${wrongBucket}/muratore/index.html`,
+      'zurigo',
+      'de',
+    )).toBe(`/de/jobs-in-zurich/_tree/${wrongBucket}/muratore`);
   });
 });
 

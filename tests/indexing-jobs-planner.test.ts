@@ -22,6 +22,7 @@ import {
   newRank,
   countDedupSkipped,
   GONE_FORGET_DAYS,
+  PRIORITY_RESUBMIT_DAYS,
 } from '../scripts/lib/indexing-jobs-planner.mjs';
 import {
   parseArgs,
@@ -183,7 +184,7 @@ describe('planSubmissions', () => {
     expect(backlogRank(job('/cerca-lavoro-ticino/x/'))).toBeLessThan(backlogRank(job('/cerca-lavoro-zurigo/x/')));
   });
 
-  it('new beats delete, delete beats priority (no Jobs rich result), priority beats backlog', () => {
+  it('priority beats new and delete, then the remaining tiers keep their order', () => {
     const l = seeded();
     const day1 = '2026-10-25';
     observeSitemap(l, [
@@ -194,9 +195,9 @@ describe('planSubmissions', () => {
     ], day1); // old-ti left the sitemaps
     const plan = planSubmissions(l, { today: day1, max: 10, priority: [job('/cerca-lavoro-zurigo/old-zh/'), job('/not/in/ledger/')] });
     expect(plan.slice(0, 3).map((p) => [p.tier, p.type, p.url])).toEqual([
+      ['priority', 'URL_UPDATED', job('/cerca-lavoro-zurigo/old-zh/')],
       ['new', 'URL_UPDATED', job('/cerca-lavoro-vaud/brand-new/')],
       ['delete', 'URL_DELETED', job('/cerca-lavoro-ticino/old-ti/')],
-      ['priority', 'URL_UPDATED', job('/cerca-lavoro-zurigo/old-zh/')],
     ]);
     // A priority URL that is not an active sitemap job is never sent.
     expect(plan.some((p) => p.url === job('/not/in/ledger/'))).toBe(false);
@@ -241,13 +242,31 @@ describe('planSubmissions', () => {
     expect(newRank(job('/cerca-lavoro-zurigo/x/'))).toBeLessThan(newRank(job('/en/find-jobs-ticino/x/')));
   });
 
-  it('never re-sends the same URL+type unchanged, not even when the monitor flags it', () => {
+  it('re-notifies a monitored URL after the priority cooldown, but not before', () => {
     const l = seeded();
     for (const item of planSubmissions(l, { today: day0, max: 10 })) recordOutcome(l, item, 'sent', day0);
     expect(countDedupSkipped(l)).toBe(4);
-    const day3 = '2026-10-27';
-    const plan = planSubmissions(l, { today: day3, max: 10, priority: [job('/cerca-lavoro-zurigo/old-zh/')] });
-    expect(plan).toEqual([]);
+    const beforeCooldown = '2026-10-26';
+    expect(planSubmissions(l, {
+      today: beforeCooldown,
+      max: 10,
+      priority: [job('/cerca-lavoro-zurigo/old-zh/')],
+    })).toEqual([]);
+    const due = '2026-10-27';
+    expect(planSubmissions(l, {
+      today: due,
+      max: 10,
+      priority: [job('/cerca-lavoro-zurigo/old-zh/')],
+    })).toEqual([{
+      url: job('/cerca-lavoro-zurigo/old-zh/'),
+      type: 'URL_UPDATED',
+      tier: 'priority',
+    }]);
+    expect(countDedupSkipped(l, {
+      today: due,
+      priority: [job('/cerca-lavoro-zurigo/old-zh/')],
+    })).toBe(3);
+    expect(PRIORITY_RESUBMIT_DAYS).toBe(3);
   });
 
   it('does not re-send what was sent, re-sends what the sitemap says changed', () => {

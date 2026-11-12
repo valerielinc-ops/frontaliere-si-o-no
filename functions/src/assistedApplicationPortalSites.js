@@ -53,6 +53,17 @@ export function currentPendingPortalAccount(accounts, portalHost) {
     && entry.verifiedAt == null ? entry : null;
 }
 
+/** A password-reset request the runner made for this exact portal account. */
+export function currentRecoveringPortalAccount(accounts, portalHost) {
+  const account = currentPendingPortalAccount(accounts, portalHost);
+  return account?.status === 'recovering'
+    && typeof account.recoveryRequestedAt === 'number'
+    && Number.isFinite(account.recoveryRequestedAt)
+    && Boolean(account.recoveryRequestId)
+    ? account
+    : null;
+}
+
 /**
  * The order's accounts still waiting for their verification, one per host (a
  * host with an ambiguous record set is left out, as currentPendingPortalAccount does).
@@ -107,7 +118,10 @@ export const PORTAL_ACCOUNT_NOTICES_CONFIRMING = Object.freeze(['created', 'acti
  */
 export function portalAccountForNotice(accounts, { link = '', senderHost = '', receivedAt } = {}) {
   const entries = Object.values(accounts || {}).filter((entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
-    && typeof entry.host === 'string' && entry.host && entry.status !== 'discarded');
+    && typeof entry.host === 'string' && entry.host && entry.status !== 'discarded'
+    && (entry.status !== 'recovering' || typeof entry.recoveryRequestedAt === 'number')
+    && (typeof entry.recoveryRequestedAt !== 'number' || (Number.isFinite(Number(receivedAt))
+      && Number(receivedAt) > entry.recoveryRequestedAt)));
   const byHost = new Map();
   for (const entry of entries) {
     const host = entry.host.toLowerCase();

@@ -206,7 +206,7 @@ async function answerTargets({ order, draft, plan, codex, log }) {
     postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
     facts: {
       ...plan.platformFacts,
-      cvAnswers: verifiedCvAnswers(cv.questions, cvText),
+      cvAnswers: verifiedCvAnswers(cv.questions, cvText, draft?.profile),
       decisionAnswers: verifiedDecisionAnswers(cv.questions, cvText, { postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [] }),
     },
   });

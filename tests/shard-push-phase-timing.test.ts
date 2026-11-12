@@ -65,7 +65,7 @@ describe('push-section-shard.sh phase timing', () => {
     after('cp -al "$dist_dir/$sub" "$stage_src/dist/$sub"', 'stage-source');
     after('if git clone -q --depth 1 --filter=blob:none --no-checkout', 'clone-previous');
     after('cp -al "$stage_src/dist/$sub" "$stage/$sub"', 'overlay-copy');
-    after('if ! ticino_tree_fanout_stage "$section" "$stage/$sub"', 'tree-fanout');
+    after('if ! section_tree_fanout_stage "$section" "$stage/$sub"', 'tree-fanout');
     after('git add -A', 'git-add');
     after('git commit -qm', 'git-commit');
     after('elif shard_push_with_retry "$stage" "$SHARD_REPO" "main"', 'git-push');

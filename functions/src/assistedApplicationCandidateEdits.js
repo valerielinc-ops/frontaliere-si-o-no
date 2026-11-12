@@ -40,7 +40,7 @@ import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, per
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
 import { candidateAddressStatements, candidateAddressTopics, candidateStatementsOf, ownedAddressTwinFields, platformCandidateFacts, platformSalutationGender, withCandidateAddress } from './assistedApplicationPlatformDefaults.js';
-import { verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
+import { isMatcherExperienceQuestion, verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
@@ -360,9 +360,14 @@ export function questionsForCandidate(questions, profile, answers = {}, memory =
   const candidates = (Array.isArray(questions) ? questions : []).filter((question) =>
     questionNeedsCandidateAnswer(question, profile, draft)
       && !(isIdentityEmailConfirmationQuestion(question) && hasQuestionAnswer(projectedAnswers[question?.id])))
-    .map(question => hasPortalQuestionEvidence(question) ? { ...question, question: portalQuestionText(question),
-      ...(question.portalNativeContract && question.required === false
-        && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question);
+    .map(question => {
+      const visible = hasPortalQuestionEvidence(question) ? { ...question, question: portalQuestionText(question),
+        ...(question.portalNativeContract && question.required === false
+          && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question;
+      // A matcher question about prior experience describes job fit, not a field the application portal
+      // requires. Keep it on the review page as an editable proposal, but do not gate the portal send.
+      return isMatcherExperienceQuestion(visible) && visible.required ? { ...visible, required: false } : visible;
+    });
   // The same field of two address blocks of the candidate's own (candidateAddressTopics) is one request: shown
   // once, its answer reaches the other block (withTwinAddressAnswers). Two different answers show both again.
   const addressTopics = candidateAddressTopics(questions);
@@ -698,7 +703,7 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   platformFacts.ownedAddressFields = ownedAddressTwinFields(draft?.questions);
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
   // assistedApplicationCvAnswers.js), checked against the CV again on every read: form-only too.
-  platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text);
+  platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text, draft?.profile || profile);
   // The decision engine's choices for the questions no rule and no CV answer cover (2026-11-10,
   // assistedApplicationDecisionAnswers.js), checked again on every read: form-only as well.
   platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, {

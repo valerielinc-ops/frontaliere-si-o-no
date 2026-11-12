@@ -501,7 +501,7 @@ export async function buildDraft(ctx) {
   ({ questions } = await draftDecisionAnswers({
     questions, answers, cvText, codex, log, employer: order.companyName || '', jobTitle: title,
     postingRequirements: requirements.requirements,
-    facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText) },
+    facts: { ...edited.platformFacts, cvAnswers: verifiedCvAnswers(questions, cvText, profile) },
   }));
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
@@ -516,7 +516,7 @@ export async function buildDraft(ctx) {
     answers,
     facts: {
       ...edited.platformFacts,
-      cvAnswers: verifiedCvAnswers(questions, cvText),
+      cvAnswers: verifiedCvAnswers(questions, cvText, profile),
       decisionAnswers: verifiedDecisionAnswers(questions, cvText, { postingTitle: title, postingRequirements: requirements.requirements }),
     },
   });

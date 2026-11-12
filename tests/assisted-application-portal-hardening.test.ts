@@ -422,6 +422,33 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe(false);
   });
 
+  it('binds a legacy SuccessFactors module when career_ns is omitted', () => {
+    const postingUrl = 'https://jobs.admin.example/job/Example-Role/123456/';
+    const moduleUrl = 'https://career2.successfactors.eu/career?company=STZH&career_job_req_id=1';
+    const portalCareerUrl = 'https://career2.successfactors.eu/portalcareer';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const job = { company: 'Stadt Zürich', title: 'Example Role' };
+    const form = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nBewerbung abschicken';
+
+    expect(isVerifiedPostingEntry({ applyUrl: moduleUrl, postingUrl })).toBe(false);
+    expect(isVerifiedPostingEntry({ applyUrl: moduleUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(isVerifiedPostingEntry({ applyUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(isPostingRouteBound({ pageUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: portalCareerUrl,
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
+
+    expect(isVerifiedPostingEntry({
+      applyUrl: `${moduleUrl}&career_ns=job_listing`,
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe(false);
+  });
+
   it('keeps a SuccessFactors portalcareer continuation bound to its source module', () => {
     const postingUrl = 'https://jobs.admin.example/job/Example-Role/123456/';
     const moduleUrl = 'https://career74.sapsf.eu/career?company=examplefed&career_job_req_id=34525&career_ns=job_application';

@@ -38,6 +38,8 @@ export const ACCOUNT_FAILURE_CODES = Object.freeze([
   'verification_timeout',
   'verification_unobserved',
   'verification_rejected',
+  'account_recovery_timeout',
+  'account_recovery_rejected',
   'auth_steps_exhausted',
   'unknown',
 ]);

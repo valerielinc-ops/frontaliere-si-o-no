@@ -73,16 +73,28 @@ describe('concierge admin proposal decision and application progress', () => {
   });
 
   it('does not infer application progress for an unaccepted proposal', async () => {
-    const row = await renderProposal({ status: 'proposed', childApplicationState: 'submitting' });
+    const row = await renderProposal({ status: 'proposed', eligibilityStatus: 'compatible', childApplicationState: 'submitting' });
     expect(row.getByText('In attesa del candidato')).toBeInTheDocument();
     expect(row.queryByText('Candidatura:')).not.toBeInTheDocument();
   });
 
   it('names a proposal still under the platform re-check as waiting on the platform, not on the candidate', async () => {
     const row = await renderProposal({ status: 'proposed', eligibilityStatus: 'needs_verification', childApplicationId: null });
-    expect(row.getByText('In verifica dalla piattaforma').closest('div')).toHaveTextContent('Decisione proposta: In verifica dalla piattaforma');
+    expect(row.getByText('Requisiti non confermati').closest('div')).toHaveTextContent('Decisione proposta: Requisiti non confermati');
     expect(row.queryByText('In attesa del candidato')).not.toBeInTheDocument();
-    expect(row.getByText('Da verificare di nuovo')).toBeInTheDocument();
+    expect(row.getByText(translations['jobBoard.concierge.proposalStatus.needs_verification'])).toBeInTheDocument();
+  });
+
+  it('labels a clarification as waiting on candidate information instead of an open decision', async () => {
+    const row = await renderProposal({ status: 'proposed', eligibilityStatus: 'clarification_required', childApplicationId: null });
+    expect(row.getByText('In attesa di un chiarimento del candidato')).toBeInTheDocument();
+    expect(row.getByText(translations['jobBoard.concierge.proposalStatus.needs_clarification'])).toBeInTheDocument();
+    expect(row.queryByText('In attesa del candidato')).not.toBeInTheDocument();
+  });
+
+  it('shows a terminally undeliverable proposal email with the timer paused', async () => {
+    const row = await renderProposal({ status: 'proposed', eligibilityStatus: 'compatible', proposalNoticeStatus: 'undeliverable' });
+    expect(row.getByText('Email proposta non recapitata · timer sospeso')).toBeInTheDocument();
   });
 
   it('distinguishes a withdrawn application from a declined proposal using the persisted decision', async () => {

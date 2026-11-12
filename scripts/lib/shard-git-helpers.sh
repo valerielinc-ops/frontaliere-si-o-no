@@ -269,11 +269,11 @@ shard_count_files() {
 # report a healthy copy while the sitemap's exact URL is absent. Compare the
 # NUL-safe, byte-sorted path streams instead of materializing the whole source
 # or index inventory in a shell array; locale shards can contain ~1M files.
-# `layout=ticino-hash-v1` maps the canonical source paths through the same
-# runtime-neutral fan-out helper used to stage the physical Ticino tree. The
+# `layout=<section>-hash-v1` maps the canonical source paths through the same
+# runtime-neutral fan-out helper used to stage the physical section tree. The
 # index deliberately stores those paths under `_tree/<bucket>/<entry>`, so
-# comparing the canonical list directly would reject every valid Ticino push.
-# Extra indexed paths are allowed here: Ticino's physical _tree fan-out and
+# comparing the canonical list directly would reject every valid hash-fanned
+# push. Extra indexed paths are allowed here: the physical _tree fan-out and
 # service metadata deliberately add paths that are not in the source subtree.
 shard_assert_source_paths_indexed() {
   local stage="$1" source_root="$2" target_prefix="$3" label="${4:-shard}"
@@ -324,12 +324,13 @@ shard_assert_source_paths_indexed() {
   expected_paths="$source_paths"
   case "$layout" in
     canonical) ;;
-    ticino-hash-v1)
+    ticino-hash-v1|zurigo-hash-v1)
+      local fanout_section="${layout%-hash-v1}"
       mapped_paths="$work/expected-physical-paths"
       if ! node "$SHARD_GIT_HELPERS_DIR/ticino-tree-fanout.mjs" \
-          map-paths < "$source_paths" > "$mapped_paths" \
-        || ! LC_ALL=C sort -z -o "$mapped_paths" "$mapped_paths"; then
-        echo "::error::$label source path integrity check could not map Ticino fan-out paths" >&2
+          map-paths "$fanout_section" < "$source_paths" > "$mapped_paths" \
+          || ! LC_ALL=C sort -z -o "$mapped_paths" "$mapped_paths"; then
+        echo "::error::$label source path integrity check could not map $fanout_section fan-out paths" >&2
         rm -rf "$work"
         return 1
       fi

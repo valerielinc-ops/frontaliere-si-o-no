@@ -58,9 +58,12 @@
 //      identici a un commit della PR (trasporto `identical-twins` rifatto sopra
 //      main); commit e sporco identici a origin/main; symlink `node_modules`
 //      non tracciato = rumore, tolto senza seguirlo
-//   • cartelle `.wt/`, `.worktrees/`, `.claude/worktrees/` della ROOT del
-//      workspace: una directory lì è orfana solo se NESSUN repo del workspace la
-//      registra, e la prova usa i ref del repo a cui appartiene
+//   • cartelle `.wt/`, `.worktrees/`, `.claude/worktrees/`, `.codex/worktrees/`
+//     e `.gemini/worktrees/` della ROOT del workspace: una directory lì è
+//     orfana solo se NESSUN repo del workspace la registra, e la prova usa i
+//     ref del repo a cui appartiene
+//   • cartella sorella `<repo>.worktrees/` usata da Copilot CLI con il percorso
+//     predefinito: stessa prova conservativa e worktree registrati protetti
 // Lo stesso script gira nel sito e nel corpus (cwd nel checkout del repo).
 // Ciò che è solo probabile (punta superata, issue chiusa, file in tmp/, sporco
 // vecchio su PR mergiata) resta REPORT-ONLY con un'annotazione.
@@ -102,8 +105,8 @@ import {
   appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
   writeFileSync,
 } from 'node:fs';
-import { basename, join, relative, resolve } from 'node:path';
-import { hostname } from 'node:os';
+import { basename, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { homedir, hostname } from 'node:os';
 
 import {
   isMergedIntoBaseAtHead,
@@ -703,11 +706,12 @@ if (!fetchRun.acquired) {
 }
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md):
-// `.claude/worktrees`, `.worktrees` o `.wt`. Il
+// `.claude/worktrees`, `.codex/worktrees`, `.gemini/worktrees`, `.worktrees`,
+// `.wt` o nella cartella sorella `<repo>.worktrees` di Copilot CLI. Il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
 // `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
-const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees|wt)[/\\]/;
+const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|codex[/\\]worktrees|gemini[/\\]worktrees|worktrees|wt)[/\\]/;
 
 // Mappa branch → stato e metadati PR (MERGED|CLOSED|OPEN). NON gateare su
 // `gh auth status`:
@@ -1019,6 +1023,22 @@ function canonicalPath(pathname) {
   try { return realpathSync(absolute); } catch { return absolute; }
 }
 
+function isWithinPath(root, pathname) {
+  const pathFromRoot = relative(root, canonicalPath(pathname));
+  return pathFromRoot === ''
+    || (pathFromRoot !== '..'
+      && !pathFromRoot.startsWith(`..${sep}`)
+      && !isAbsolute(pathFromRoot));
+}
+
+const CODEX_MANAGED_WORKTREES_ROOT = canonicalPath(join(
+  process.env.CODEX_HOME || join(homedir(), '.codex'),
+  'worktrees',
+));
+function isCodexManagedWorktree(pathname) {
+  return isWithinPath(CODEX_MANAGED_WORKTREES_ROOT, pathname);
+}
+
 const currentWorktree = canonicalPath(repoRoot || process.cwd());
 const infrastructureWorktrees = new Set([
   canonicalPath(process.env.FRONTALIERE_SITE_HOOKS_DIR || join(repoRoot, '.claude/worktrees/hooks-main')),
@@ -1027,7 +1047,7 @@ const infrastructureWorktrees = new Set([
 function isInfrastructureWorktree(pathname) {
   const canonical = canonicalPath(pathname);
   return infrastructureWorktrees.has(canonical)
-    || (basename(canonical) === 'hooks-main' && ISOLATION_RE.test(canonical));
+    || (basename(canonical) === 'hooks-main' && isSupportedWorktreePath(canonical));
 }
 
 function isCurrentWorktree(pathname) {
@@ -1590,6 +1610,16 @@ for (const line of wtPorcelain.split('\n')) {
   }
 }
 
+const mainWorktreeRoot = worktrees[0]?.path || repoRoot;
+const COPILOT_WORKTREES_ROOT = canonicalPath(`${mainWorktreeRoot}.worktrees`);
+function isCopilotWorktreePath(pathname) {
+  const pathFromRoot = relative(COPILOT_WORKTREES_ROOT, canonicalPath(pathname));
+  return pathFromRoot !== '' && isWithinPath(COPILOT_WORKTREES_ROOT, pathname);
+}
+function isSupportedWorktreePath(pathname) {
+  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname);
+}
+
 const removeWt = []; // {path, branch}
 const reportWt = []; // {path, branch, reason}
 function openPrFor(branch, head) {
@@ -1608,7 +1638,8 @@ function knownPrFor(branch, head) {
 }
 
 for (const wt of worktrees) {
-  if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees|.wt → mai toccare (incl. main checkout)
+  if (isCodexManagedWorktree(wt.path)) continue; // i worktree gestiti dall'app Codex restano sotto il suo lifecycle
+  if (!isSupportedWorktreePath(wt.path)) continue; // fuori dalle cartelle di isolamento note → mai toccare (incl. main checkout)
   if (!selected(wt.path, wt.branch)) continue;
   if (isCurrentWorktree(wt.path)) {
     reportWt.push({ ...wt, reason: 'checkout corrente — KEEP, mai rimuovere automaticamente' });
@@ -1832,11 +1863,10 @@ for (const wt of worktrees) {
 // radice è quella del checkout PRINCIPALE (primo record del porcelain), non la
 // cwd: lanciato da hooks-main via bin/site-hook, `--show-toplevel` darebbe il
 // worktree degli hook.
-const mainWorktreeRoot = worktrees[0]?.path || repoRoot;
-
 // Il workspace: la cartella che contiene i checkout (sito, corpus, ...) e
-// `bin/site-hook`. I worktree nascono anche nelle sue `.wt/`, `.worktrees/` e
-// `.claude/worktrees/`, che ospitano worktree di PIÙ repo: lì una directory è
+// `bin/site-hook`. I worktree nascono anche nelle sue `.wt/`, `.worktrees/`,
+// `.claude/worktrees/`, `.codex/worktrees/` e `.gemini/worktrees/`, che ospitano
+// worktree di PIÙ repo: lì una directory è
 // orfana solo se nessun repo del workspace la registra, e la prova C1 può
 // usare i ref di ciascun repo (un residuo del sito in `.wt/` della root si
 // prova con i ref del sito, anche se lo sweep gira nel corpus).
@@ -1849,7 +1879,7 @@ function detectWorkspaceRoot() {
   return null;
 }
 const WORKSPACE_ROOT = detectWorkspaceRoot();
-const ORPHAN_FOLDERS = ['.claude/worktrees', '.worktrees', '.wt'];
+const ORPHAN_FOLDERS = ['.claude/worktrees', '.codex/worktrees', '.gemini/worktrees', '.worktrees', '.wt'];
 
 // Repo del workspace: la root (se è un repo) e ogni cartella figlia con una
 // directory `.git` (i clone, non i worktree). Il repo corrente c'è sempre.
@@ -1996,6 +2026,7 @@ function sweepOrphans(dir, contexts) {
     if (!entry.isDirectory()) continue;
     const full = join(dir, entry.name);
     const canonical = canonicalPath(full);
+    if (isCodexManagedWorktree(canonical)) continue; // la pulizia dei worktree app-managed appartiene a Codex
     if (registered.has(canonical)) continue;
     // Cartella di raggruppamento (`fix/`, `codex/`) con worktree registrati
     // dentro: si scende a guardare i fratelli, mai si cancella in blocco.
@@ -2036,6 +2067,15 @@ if (WORKSPACE_ROOT && WORKSPACE_ROOT !== canonicalPath(mainWorktreeRoot) && regi
   for (const folder of ORPHAN_FOLDERS) {
     const dir = join(WORKSPACE_ROOT, folder);
     if (existsSync(dir)) sweepOrphans(dir, repoContexts);
+  }
+}
+// Copilot CLI usa per default una cartella sorella per repo. La lista completa
+// di worktree registrati protegge checkout vivi; senza registrazione completa
+// i residui in queste cartelle restano intatti.
+if (registrationKnown) {
+  for (const context of repoContexts) {
+    const dir = canonicalPath(`${context.root}.worktrees`);
+    if (existsSync(dir)) sweepOrphans(dir, [context]);
   }
 }
 

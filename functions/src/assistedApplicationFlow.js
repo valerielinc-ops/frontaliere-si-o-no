@@ -39,6 +39,7 @@ import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueA
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
+import { isMatcherExperienceQuestion } from './assistedApplicationCvAnswers.js';
 import {
   REGION_UNSUPPORTED_HOLD,
   REGION_UNSUPPORTED_REASON,
@@ -1345,11 +1346,30 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // objects with an `id`. Normalize both shapes before persisting the hold.
       const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
       const rawDetails = Array.isArray(event.questionDetails) ? event.questionDetails : [];
-      const detailsById = new Map(rawDetails.map(questionDescriptor).filter(Boolean).map((question) => [question.id, question]));
-      const questionIds = [...new Set([...rawQuestions, ...rawDetails].map((question) => {
+      const eventQuestionsById = new Map([...rawQuestions, ...rawDetails].map(questionDescriptor).filter(Boolean).map((question) => [question.id, question]));
+      const draftQuestionsById = new Map((draft?.questions || []).filter((question) => question?.id).map((question) => [String(question.id), question]));
+      const questionForEventId = (id) => {
+        const persisted = draftQuestionsById.get(id);
+        const reported = eventQuestionsById.get(id);
+        if (!persisted) return reported || { id };
+        if (!reported) return persisted;
+        return {
+          ...persisted,
+          ...reported,
+          source: persisted.source === 'portal' || reported.source === 'portal'
+            ? 'portal'
+            : reported.source || persisted.source,
+        };
+      };
+      const reportedQuestionIds = [...new Set([...rawQuestions, ...rawDetails].map((question) => {
         const id = typeof question === 'string' ? question : question?.id;
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
       }).filter(Boolean))];
+      const questionIds = reportedQuestionIds.filter((id) => {
+        // A matcher prompt is a job-fit proposal, not proof that the portal asked for that field.
+        // A native portal descriptor always wins, including when its generated id collides.
+        return !isMatcherExperienceQuestion(questionForEventId(id));
+      });
       const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
       recordCandidateRequestTelemetry(next, event.candidateRequestTelemetry);
       const attempts = Number(flow?.dispatch?.attempts) || 1;
@@ -1357,6 +1377,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // on. Treat it as an unsupported portal stop so the owner can retry
       // after the runner or portal changes, instead of sending a blank request.
       if (questionIds.length === 0 && eventDocuments.length === 0) {
+        const onlyMatcherQuestions = reportedQuestionIds.length > 0 && reportedQuestionIds.every((id) => {
+          return isMatcherExperienceQuestion(questionForEventId(id));
+        });
+        if (onlyMatcherQuestions && candidateHolds(flags).length === 0 && roundWasSent(flow, current.round)) {
+          if (attempts < 2) {
+            effects = enterSubmitting(next, 'non_portal_match_question');
+            effects[0].attempts = attempts + 1;
+          } else {
+            effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+          }
+          break;
+        }
         // Keep the stop visible to the owner, but schedule the same bounded
         // recovery used by an unsupported portal page. In particular, a
         // portal that only exposes a generic form (without the employer or
@@ -1366,7 +1398,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       const { platformFacts } = candidateWithEdits({ order, draft, flow: { ...(flow || {}), answers } });
       const unresolvedQuestions = questionIds.filter((id) => {
-        const question = detailsById.get(id) || (draft?.questions || []).find(item => item.id === id) || { id };
+        const question = questionForEventId(id);
         return !hasAnswer(knownAnswerForQuestion(question, {
           draft,
           answers,
@@ -1383,7 +1415,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         const visibleQuestions = new Set((flags.candidate || []).map(String));
         const unpredictedFields = unresolvedQuestions
           .filter((id) => !visibleQuestions.has(id))
-          .map((id) => detailsById.get(id) || { id });
+          .map((id) => questionForEventId(id));
         if (unpredictedFields.length) {
           Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
         } else {

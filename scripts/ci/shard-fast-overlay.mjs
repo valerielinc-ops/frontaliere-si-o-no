@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { ticinoTreePhysicalPath } from "../lib/ticino-tree-fanout.mjs";
+import { sectionTreePhysicalPath } from "../lib/ticino-tree-fanout.mjs";
 import { isInvokedDirectly } from "../lib/is-invoked-directly.mjs";
 
 const JOB_SECTIONS = new Set(
@@ -200,10 +200,7 @@ export function applyFastShardOverlay(options) {
         "[shard-fast-overlay] source path contains an unsupported control character",
       );
     }
-    const physical =
-      section === "ticino"
-        ? ticinoTreePhysicalPath(file.relative)
-        : file.relative;
+    const physical = sectionTreePhysicalPath(section, file.relative);
     const relative = `${sectionRoot}/${physical}`;
     if (
       relative.split("/").some((part) => part === "." || part === "..") ||

@@ -29,6 +29,8 @@ const OLD = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
 let root = '';
 let clone = '';
 let bin = '';
+let appManagedCodexWt = '';
+let copilotLookalikeWt = '';
 let env: NodeJS.ProcessEnv = {};
 const sha: Record<string, string> = {};
 let dryRun = '';
@@ -72,6 +74,18 @@ function commitFile(cwd: string, file: string, content: string): string {
 
 function wt(name: string): string {
   return path.join(clone, '.claude', 'worktrees', name);
+}
+
+function codexWt(name: string): string {
+  return path.join(clone, '.codex', 'worktrees', name);
+}
+
+function geminiWt(name: string): string {
+  return path.join(clone, '.gemini', 'worktrees', name);
+}
+
+function copilotWt(name: string): string {
+  return path.join(`${clone}.worktrees`, name);
 }
 
 // Invecchia i segnali di attività e i file reali della fixture. L'index resta
@@ -185,6 +199,7 @@ beforeAll(() => {
     FAKE_GH_FIXTURE: path.join(root, 'gh-fixture.json'),
     FAKE_LSOF_CWDS: '',
   };
+  env.CODEX_HOME = path.join(root, 'codex-home');
   delete env.PRUNE_FAIL_FETCH;
 
   const origin = path.join(root, 'origin.git');
@@ -220,12 +235,24 @@ beforeAll(() => {
   git(clone, 'checkout', '-q', 'main');
 
   fs.mkdirSync(path.join(clone, '.claude', 'worktrees'), { recursive: true });
+  fs.mkdirSync(path.join(clone, '.codex', 'worktrees'), { recursive: true });
+  fs.mkdirSync(path.join(clone, '.gemini', 'worktrees'), { recursive: true });
+  fs.mkdirSync(path.dirname(copilotWt('copilot-idle-main')), { recursive: true });
+  copilotLookalikeWt = path.join(`${clone}.worktrees-old`, 'copilot-lookalike');
+  fs.mkdirSync(path.dirname(copilotLookalikeWt), { recursive: true });
   const add = (...args: string[]) => git(clone, 'worktree', 'add', '-q', ...args);
   add(wt('feat-merged'), 'feat-merged');
   fs.writeFileSync(path.join(wt('feat-merged'), '.pr-body-feat.md'), '## Implementato\n');
   add(wt('feat-merged-dirty'), 'feat-merged-dirty');
   fs.writeFileSync(path.join(wt('feat-merged-dirty'), 'notes.ts'), 'export const x = 1;\n');
   add('-b', 'idle-main', wt('idle-main'), 'origin/main');
+  add('-b', 'codex-idle-main', codexWt('codex-idle-main'), 'origin/main');
+  add('-b', 'gemini-idle-main', geminiWt('gemini-idle-main'), 'origin/main');
+  add('-b', 'copilot-idle-main', copilotWt('copilot-idle-main'), 'origin/main');
+  add('-b', 'copilot-lookalike', copilotLookalikeWt, 'origin/main');
+  appManagedCodexWt = path.join(env.CODEX_HOME as string, 'worktrees', 'managed-main');
+  fs.mkdirSync(path.dirname(appManagedCodexWt), { recursive: true });
+  add('-b', 'codex-app-managed-main', appManagedCodexWt, 'origin/main');
   add('-b', 'fresh-main', wt('fresh-main'), 'origin/main');
   add('-b', 'busy-main', wt('busy-main'), 'origin/main');
   add(wt('idle-ahead'), 'idle-ahead');
@@ -244,12 +271,29 @@ beforeAll(() => {
     'resolve-detached', 'detached-unrelated', 'aborted', 'aborted-work', 'hooks-main', 'locked-main']) {
     age(wt(name));
   }
+  age(codexWt('codex-idle-main'));
+  age(geminiWt('gemini-idle-main'));
+  age(copilotWt('copilot-idle-main'));
+  age(copilotLookalikeWt);
+  age(appManagedCodexWt);
 
   // Directory che git non conosce più.
   const ghost = wt('ghost');
   fs.mkdirSync(ghost);
   fs.writeFileSync(path.join(ghost, '.DS_Store'), 'x');
   ageTree(ghost);
+  const codexGhost = codexWt('codex-ghost');
+  fs.mkdirSync(codexGhost);
+  fs.writeFileSync(path.join(codexGhost, '.DS_Store'), 'x');
+  ageTree(codexGhost);
+  const geminiGhost = geminiWt('gemini-ghost');
+  fs.mkdirSync(geminiGhost);
+  fs.writeFileSync(path.join(geminiGhost, '.DS_Store'), 'x');
+  ageTree(geminiGhost);
+  const copilotGhost = copilotWt('copilot-ghost');
+  fs.mkdirSync(copilotGhost);
+  fs.writeFileSync(path.join(copilotGhost, '.DS_Store'), 'x');
+  ageTree(copilotGhost);
   const ghostWork = wt('ghost-work');
   fs.mkdirSync(ghostWork);
   fs.writeFileSync(path.join(ghostWork, 'x.ts'), 'lavoro\n');
@@ -406,8 +450,9 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
   });
   it('il dry-run non tocca niente', () => {
     expect(dryRun).toContain('dry-run: niente rimosso');
-    expect(dryRun).toMatch(/worktree da rimuovere \(4\)/);
-    expect(dryRun).toMatch(/directory orfane da rimuovere \(1\)/);
+    expect(dryRun).toMatch(/worktree da rimuovere \(7\)/);
+    expect(dryRun).toMatch(/directory orfane da rimuovere \(4\)/);
+    expect(dryRun).not.toContain(appManagedCodexWt);
   });
 
   it.each([
@@ -418,6 +463,27 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
     ['ghost', 'directory orfana fatta di soli residui'],
   ])('rimuove %s (%s)', (name) => {
     expect(fs.existsSync(wt(name)), applyRun).toBe(false);
+  });
+
+  it('rimuove worktree e residui repo-locali Gemini e worktree Copilot', () => {
+    for (const candidate of [
+      codexWt('codex-idle-main'),
+      codexWt('codex-ghost'),
+      geminiWt('gemini-idle-main'),
+      geminiWt('gemini-ghost'),
+      copilotWt('copilot-idle-main'),
+      copilotWt('copilot-ghost'),
+    ]) {
+      expect(fs.existsSync(candidate), applyRun).toBe(false);
+    }
+  });
+
+  it('non include directory sorelle con nomi simili alla cartella Copilot', () => {
+    expect(fs.existsSync(copilotLookalikeWt), applyRun).toBe(true);
+  });
+
+  it('lascia i worktree sotto `CODEX_HOME/worktrees` a Codex', () => {
+    expect(fs.existsSync(appManagedCodexWt)).toBe(true);
   });
 
   it.each([
@@ -437,8 +503,12 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
 
   it('cancella i branch rimossi e quello di risoluzione, tiene gli altri', () => {
     const branches = git(clone, 'for-each-ref', '--format=%(refname:short)', 'refs/heads').split('\n');
-    for (const gone of ['feat-merged', 'idle-main', 'aborted', 'resolve-branch']) expect(branches).not.toContain(gone);
-    for (const kept of ['feat-merged-dirty', 'fresh-main', 'busy-main', 'idle-ahead', 'aborted-work', 'locked-main']) {
+    for (const gone of ['feat-merged', 'idle-main', 'codex-idle-main', 'gemini-idle-main',
+      'copilot-idle-main', 'aborted', 'resolve-branch']) {
+      expect(branches).not.toContain(gone);
+    }
+    for (const kept of ['feat-merged-dirty', 'fresh-main', 'busy-main', 'idle-ahead', 'aborted-work',
+      'locked-main', 'codex-app-managed-main', 'copilot-lookalike']) {
       expect(branches).toContain(kept);
     }
   });
@@ -452,9 +522,13 @@ describe('prune-merged-worktrees.mjs su un clone di prova', () => {
 
   it('git non conosce più i worktree rimossi', () => {
     const listed = git(clone, 'worktree', 'list', '--porcelain');
-    for (const gone of ['feat-merged', 'idle-main', 'resolve-detached', 'aborted']) {
-      expect(listed).not.toContain(`${wt(gone)}\n`);
+    for (const gone of [wt('feat-merged'), wt('idle-main'), geminiWt('gemini-idle-main'),
+      copilotWt('copilot-idle-main'), wt('resolve-detached'), wt('aborted')]) {
+      expect(listed).not.toContain(`${gone}\n`);
     }
+    expect(listed).not.toContain(`${codexWt('codex-idle-main')}\n`);
+    expect(listed).toContain(`${appManagedCodexWt}\n`);
+    expect(listed).toContain(`${copilotLookalikeWt}\n`);
     expect(applyRun).toMatch(/applicate \d+ rimozioni\./);
     expect(applyRun).not.toContain('FALLIT');
   });

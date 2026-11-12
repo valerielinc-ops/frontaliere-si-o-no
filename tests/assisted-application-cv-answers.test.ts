@@ -15,7 +15,7 @@ import {
 } from '../functions/src/assistedApplicationCvAnswers.js';
 import { sanitizeApplicationAnswerSuggestions } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
-import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { draftCvAnswers } from '../scripts/assisted-application/lib/cv-answers.mjs';
@@ -53,6 +53,10 @@ const leadership = {
 const travel = {
   id: 'travel_availability', source: 'match', type: 'yes_no', required: true, options: [],
   question: 'Are you fully available for national and international business travel?',
+};
+const bigFour = {
+  id: 'matcher_consulting_history', source: 'match', type: 'text', required: true, options: [],
+  question: 'Hai maturato esperienza in una società di consulenza Big Four o in un ambiente equivalente? Indica organizzazione, ruolo e periodo.',
 };
 // An identifier nobody can deduce (assistedApplicationDecisionAnswers.js CANDIDATE_ONLY_CATEGORIES): it stays open.
 const ahv = {
@@ -119,7 +123,7 @@ describe('technical questions: answered only with CV evidence', () => {
       const [question] = sanitizeApplicationAnswerSuggestions({ answers: [{ id: windows.id, missingDetail: '', ...item }] }, [windows], CV_WITHOUT_WINDOWS);
       expect(question.suggestedAnswer).toBe('');
       const draft = draftOf(CV_WITHOUT_WINDOWS, [question]);
-      expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([windows.id]);
+      expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([]);
     }
   });
 
@@ -166,7 +170,7 @@ describe('generic questions: a plausible description built from the CV', () => {
         { id: leadership.id, kind: 'behavioral', suggestedAnswer: answer, evidence: [leadershipAnchor], missingDetail: '' },
       ] }, [leadership], CV_WITH_WINDOWS);
       expect(question.suggestedAnswer, why).toBe('');
-      expect(evaluateRedFlags(draftOf(CV_WITH_WINDOWS, [question]), {}, {}, {}, null, order).candidate, why).toEqual([leadership.id]);
+      expect(evaluateRedFlags(draftOf(CV_WITH_WINDOWS, [question]), {}, {}, {}, null, order).candidate, why).toEqual([]);
     }
     expect(cvAnswerInventions(invented.name, CV_WITH_WINDOWS)).toContainEqual({ kind: 'name', token: 'Contoso' });
     expect(cvAnswerInventions(leadershipAnswer, CV_WITH_WINDOWS)).toEqual([]);
@@ -177,6 +181,76 @@ describe('generic questions: a plausible description built from the CV', () => {
     expect(cvAnswerInventions('Ich habe die Sekundarschule im Niveau E besucht und meine Aufgaben immer zuverlässig erledigt.', cv)).toEqual([]);
     expect(cvAnswerInventions('Ich habe bei der Firma Contoso gearbeitet und mit dem Team Projekte geplant.', cv))
       .toContainEqual({ kind: 'name', token: 'Contoso' });
+  });
+});
+
+describe('matcher questions about Big Four experience', () => {
+  const CV_WITH_DELOITTE = [
+    'Work Experience',
+    '2019 – 2024 Consultant, Deloitte, Zurich',
+    'Education',
+    'Bachelor of Arts',
+  ].join('\n');
+  const CV_WITHOUT_BIG_FOUR = [
+    'Work Experience',
+    '2018 – 2024 Warehouse Operator, Beta Logistics, Example City',
+    'Education',
+    'Vocational diploma',
+  ].join('\n');
+  const completeNonConsultingProfile = { experience: [
+    { kind: 'job', role: 'Warehouse Operator', employer: 'Beta Logistics', location: 'Example City', start: '2018', end: '2024' },
+  ] };
+
+  it('proposes an explicitly listed consulting employer, role and period with a CV citation', () => {
+    const profile = { experience: [
+      { kind: 'job', role: 'Consultant', employer: 'Deloitte', location: 'Zurich', start: '2019', end: '2024' },
+    ] };
+    const verified = verifiedCvAnswers([bigFour], CV_WITH_DELOITTE, profile)[bigFour.id];
+    expect(verified).toMatchObject({
+      value: expect.stringContaining('Consultant'), kind: 'technical',
+      evidence: ['2019 – 2024 Consultant, Deloitte, Zurich'],
+    });
+    const draft = { ...draftOf(CV_WITH_DELOITTE, [bigFour]), profile };
+    const candidate = candidateWithEdits({ order, draft, flow: {} });
+    expect(candidate.platformFacts.cvAnswers[bigFour.id]).toMatchObject({ value: verified.value, kind: 'technical' });
+    expect(withOperationalQuestionAnswers([bigFour], {}, { facts: candidate.platformFacts }).defaults[bigFour.id])
+      .toMatchObject({ value: verified.value, origin: 'cv_evidence' });
+  });
+
+  it('recognizes an equivalent professional-services employer from its CV wording', () => {
+    const cv = ['Work Experience', '2020 – 2024 Senior Auditor, Grant Thornton, Example City', 'Education', 'Bachelor of Arts'].join('\n');
+    const profile = { experience: [{ kind: 'job', role: 'Senior Auditor', employer: 'Grant Thornton Audit GmbH', start: '2020', end: '2024' }] };
+    expect(verifiedCvAnswers([bigFour], cv, profile)[bigFour.id]).toMatchObject({
+      value: expect.stringContaining('Grant Thornton'),
+      evidence: ['2020 – 2024 Senior Auditor, Grant Thornton, Example City'],
+    });
+  });
+
+  it('says the CV lists no such experience only when a complete work-history section is corroborated', () => {
+    const verified = verifiedCvAnswers([bigFour], CV_WITHOUT_BIG_FOUR, completeNonConsultingProfile)[bigFour.id];
+    expect(verified).toMatchObject({ value: 'Nessuna esperienza di questo tipo è riportata.', kind: 'technical' });
+    expect(verified.evidence[0]).toContain('Work Experience');
+  });
+
+  it('keeps the matcher question unknown for an incomplete or unstructured CV and ignores generic model suggestions', () => {
+    const incomplete = 'Experienced professional with broad client exposure.';
+    const modelGuess = {
+      ...bigFour,
+      suggestedAnswer: 'Ho maturato esperienza in Deloitte come Consultant.',
+      answerEvidence: ['Experienced professional with broad client exposure.'],
+      answerKind: 'behavioral',
+    };
+    expect(verifiedCvAnswers([modelGuess], incomplete, { experience: [] })).toEqual({});
+    expect(verifiedCvAnswers([bigFour], '2018 – 2024 Warehouse Operator, Beta Logistics', completeNonConsultingProfile)).toEqual({});
+    const unrecognizedConsultancy = [
+      'Work Experience', '2020 – 2024 Consultant, Local Strategy Firm', 'Education', 'Bachelor of Arts',
+    ].join('\n');
+    expect(verifiedCvAnswers([bigFour], unrecognizedConsultancy, { experience: [
+      { kind: 'job', role: 'Consultant', employer: 'Local Strategy Firm', start: '2020', end: '2024' },
+    ] })).toEqual({});
+    const draft = { ...draftOf(incomplete, [bigFour]), profile: { experience: [] } };
+    expect(questionsForCandidate([bigFour], { experience: [] }, {}, {}, draft)).toMatchObject([{ id: bigFour.id, required: false }]);
+    expect(evaluateRedFlags(draft, {}, {}, {}, null, order).candidate).toEqual([]);
   });
 });
 
@@ -277,7 +351,7 @@ describe('backfill of the orders drafted before (reconcile-cv-answers.mjs)', () 
       state: 'needs_candidate_action', round: 1, heldBy: [`question:${windows.id}`],
       dispatch: { mode: 'submit', round: 1, attempts: 1 }, heldSince: now - 1000,
     },
-    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...draftOf(CV_WITH_WINDOWS, [windows]), channel: { type: 'portal', applyUrl: 'https://jobs.example.test/apply' } },
+    [`${base}/ai_drafts/current`]: { status: 'ready', round: 1, ...draftOf(CV_WITH_WINDOWS, [{ ...windows, source: 'portal' }]), channel: { type: 'portal', applyUrl: 'https://jobs.example.test/apply' } },
   });
   const codex = async (request: { prompt: string, schema: { properties: { answers: { items: { properties: { evidence: { items: { enum: string[] } } } } } } } }) => {
     const ids = request.schema.properties.answers.items.properties.evidence.items.enum;

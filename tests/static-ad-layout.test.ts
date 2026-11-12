@@ -26,6 +26,7 @@ describe('static AdSense layout recovery', () => {
 
     expect(html).toContain('data-ft-static-ad="true"');
     expect(html).toContain('min-height:1100px');
+    expect(html).toContain('max-height:1100px;overflow:hidden');
   });
 
   it('reserves the measured wide-screen drive-by fill in the critical sheet', () => {

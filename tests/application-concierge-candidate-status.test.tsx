@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
-import type { ApplicationConciergeProposal, ApplicationConciergeService } from '../services/applicationConciergeService';
+import { getCandidateVisibleApplicationConciergeProposals, getCandidateVisibleConciergeClarificationTasks, type ApplicationConciergePreProposalCheck, type ApplicationConciergeProposal, type ApplicationConciergeService } from '../services/applicationConciergeService';
 import translations from '../services/locales/it-core';
 
 vi.mock('@/services/i18n', () => ({
@@ -48,10 +48,14 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(screen.getByText('0/10')).toBeInTheDocument();
   });
 
-  it('prioritizes candidate actions and keeps every proposal category available without horizontal tabs', () => {
+  it('keeps actionable proposals separate from preliminary qualification checks', () => {
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
     const proposals: ApplicationConciergeProposal[] = [
-      { ...proposal, proposalId: 'proposal-offered', jobTitle: 'Offerta da valutare', status: 'proposed', childApplicationId: null },
+      { ...proposal, proposalId: 'proposal-offered', jobTitle: 'Offerta da valutare', status: 'proposed', eligibilityStatus: 'compatible', childApplicationId: null },
+      { ...proposal, proposalId: 'proposal-clarification', jobTitle: 'Posizione da chiarire', status: 'proposed', eligibilityStatus: 'clarification_required', childApplicationId: null,
+        clarificationQuestions: [{ id: 'experience', question: 'Hai esperienza nella gestione di applicazioni?', required: true }] },
+      { ...proposal, proposalId: 'proposal-verification', jobTitle: 'Posizione da verificare', status: 'proposed', eligibilityStatus: 'needs_verification', matchScore: 58,
+        matchReasons: ['Ruolo compatibile'], childApplicationId: null },
       { ...proposal, proposalId: 'proposal-needs-info', jobTitle: 'Informazioni richieste', childApplicationState: 'needs_candidate_action' },
       { ...proposal, proposalId: 'proposal-accepted', jobTitle: 'Proposta accettata', childApplicationState: 'accepted' },
       { ...proposal, proposalId: 'proposal-queued', jobTitle: 'Candidatura in coda', childApplicationState: 'submitting' },
@@ -89,6 +93,51 @@ describe('candidate proposal status with the shared progress helper', () => {
     fireEvent.click(offered.querySelector('summary')!);
     expect(offered).toHaveAttribute('open');
     expect(within(offered).getByRole('heading', { name: 'Offerta da valutare' })).toBeInTheDocument();
+    expect(within(proposalsPanel!).queryByRole('heading', { name: 'Posizione da verificare' })).not.toBeInTheDocument();
+
+    const clarificationTasks = screen.getByRole('heading', { name: translations['jobBoard.concierge.clarificationTasksTitle'] }).closest('section')!;
+    expect(within(clarificationTasks).getByRole('heading', { name: 'Posizione da chiarire' })).toBeInTheDocument();
+    expect(within(clarificationTasks).getByText(translations['jobBoard.concierge.clarificationTasksIntro'])).toBeInTheDocument();
+    expect(within(clarificationTasks).queryByRole('button', { name: translations['jobBoard.concierge.accept'] })).not.toBeInTheDocument();
+    expect(within(clarificationTasks).queryByRole('button', { name: translations['jobBoard.concierge.decline'] })).not.toBeInTheDocument();
+    expect(getCandidateVisibleApplicationConciergeProposals(proposals).map(item => item.proposalId)).not.toContain('proposal-clarification');
+    expect(getCandidateVisibleConciergeClarificationTasks(proposals).map(item => item.proposalId)).toEqual(['proposal-clarification']);
+  });
+
+  it('does not show an unverified listing as a proposal or expose its stale match score', () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+    const waiting: ApplicationConciergeProposal = {
+      ...proposal, status: 'proposed', childApplicationId: null, eligibilityStatus: 'needs_verification',
+      autoAcceptAt: new Date(Date.now() + 60 * 60 * 1000).toISOString(), matchScore: 58, matchReasons: ['Ruolo compatibile'],
+    };
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [waiting] }} locationSearch="" />);
+
+    expect(screen.queryByRole('heading', { name: 'Posizione test' })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Indice di affinità/)).not.toBeInTheDocument();
+    expect(screen.queryByText('Ruolo compatibile')).not.toBeInTheDocument();
+    expect(screen.queryByText(translations['jobBoard.concierge.proposalStatus.needs_verification'])).not.toBeInTheDocument();
+    expect(getCandidateVisibleApplicationConciergeProposals([waiting])).toEqual([]);
+  });
+
+  it('shows clarification outside proposals and explains that the listing cannot yet be accepted', () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+    const needsClarification: ApplicationConciergeProposal = {
+      ...proposal, status: 'proposed', childApplicationId: null, eligibilityStatus: 'clarification_required',
+      clarificationQuestions: [{ id: 'experience', question: 'Hai esperienza nella gestione di applicazioni?', required: true }],
+    };
+    const check: ApplicationConciergePreProposalCheck = { ...needsClarification, status: 'preproposal_check' };
+    render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [], preProposalChecks: [check] }} locationSearch="" />);
+
+    const taskSection = screen.getByRole('heading', { name: translations['jobBoard.concierge.clarificationTasksTitle'] }).closest('section')!;
+    const card = within(screen.getByRole('heading', { name: 'Posizione test' }).closest('article')!);
+    expect(card.getByText(translations['jobBoard.concierge.proposalStatus.needs_clarification'])).toBeInTheDocument();
+    expect(card.getByText(translations['jobBoard.concierge.clarificationTitle'])).toBeInTheDocument();
+    expect(card.getByText(translations['jobBoard.concierge.interestOnly'])).toBeInTheDocument();
+    expect(within(taskSection).getByText(translations['jobBoard.concierge.clarificationTasksIntro'])).toBeInTheDocument();
+    expect(card.queryByRole('button', { name: translations['jobBoard.concierge.accept'] })).not.toBeInTheDocument();
+    expect(card.queryByRole('button', { name: translations['jobBoard.concierge.decline'] })).not.toBeInTheDocument();
+    expect(getCandidateVisibleApplicationConciergeProposals([check])).toEqual([]);
+    expect(getCandidateVisibleConciergeClarificationTasks([check])).toEqual([check]);
   });
 
   it('keeps the existing child link for an accepted queued application without another accept action', () => {
@@ -159,10 +208,22 @@ describe('the platform decision after 12 hours (owner decision 2026-11-11)', () 
     expect(accepted.getByText(translations['jobBoard.concierge.autoAccepted'])).toBeInTheDocument();
   });
 
-  it('shows no deadline while the proposal waits on the platform or the candidate cannot accept yet', () => {
+  it('hides proposals with pending or missing verification and shows no deadline without consent', () => {
     const autoAcceptAt = new Date(Date.now() + 60 * 60 * 1000).toISOString();
-    const verifying = cardFor({ ...service, proposals: [{ ...undecided, autoAcceptAt, eligibilityStatus: 'needs_verification' }] });
-    expect(verifying.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+    const missingEligibility: ApplicationConciergeProposal = { ...undecided, autoAcceptAt };
+    delete missingEligibility.eligibilityStatus;
+    for (const proposalRow of [
+      { ...undecided, autoAcceptAt, eligibilityStatus: 'needs_verification' },
+      missingEligibility,
+    ]) {
+      cleanup();
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+      render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{
+        ...service, proposals: [proposalRow],
+      }} locationSearch="" />);
+      expect(screen.queryByRole('heading', { name: 'Posizione test' })).not.toBeInTheDocument();
+      expect(screen.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();
+    }
     cleanup();
     const noConsent = cardFor({ ...service, hasConsent: false, proposals: [{ ...undecided, autoAcceptAt }] });
     expect(noConsent.queryByText(translations['jobBoard.concierge.autoAcceptAt'])).not.toBeInTheDocument();

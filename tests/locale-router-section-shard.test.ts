@@ -23,10 +23,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+import worker, { SECTION_ROUTES, SECTION_TREE_FANOUT_SECTIONS } from '../infra/cloudflare-worker/locale-router.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
-import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import {
+  legacyTicinoTreeBucket,
+  sectionTreeBucket,
+  ticinoTreeBucket,
+} from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -49,6 +53,12 @@ const SECTION_ORIGIN = {
     en: 'origin-zurigo-en.frontaliereticino.ch',
     de: 'origin-zurigo-de.frontaliereticino.ch',
     fr: 'origin-zurigo-fr.frontaliereticino.ch',
+  },
+  berna: {
+    it: 'origin-berna-it.frontaliereticino.ch',
+    en: 'origin-berna-en.frontaliereticino.ch',
+    de: 'origin-berna-de.frontaliereticino.ch',
+    fr: 'origin-berna-fr.frontaliereticino.ch',
   },
 };
 
@@ -156,6 +166,18 @@ describe('locale-router Ticino-section shard routing', () => {
     expect(upstreamPathHistory).toEqual([]);
   });
 
+  it('proves hash-v1 support for Zurich through a no-store HTTP probe', async () => {
+    const response = await worker.fetch(
+      new Request(`${APEX}/de/jobs-in-zurich/?__frontaliere_zurigo_tree_layout=hash-v1`, { method: 'HEAD' }),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(204);
+    expect(response.headers.get('x-frontaliere-zurigo-tree-layout')).toBe('hash-v1');
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(upstreamPathHistory).toEqual([]);
+  });
+
   it('reads the old first-two-character physical layout during migration', async () => {
     const slug = 'irgendein-job';
     const hashed = `/de/jobs-im-tessin/_tree/${ticinoTreeBucket(slug)}/${slug}/`;
@@ -248,9 +270,57 @@ describe('locale-router Zurigo-section shard routing', () => {
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.zurigo.de);
   });
 
+  it('fans out a Zurich page below its shared hash bucket', async () => {
+    await worker.fetch(new Request(`${APEX}/de/jobs-in-zurich/irgendein-job/`), {}, ctx);
+    expect(lastUpstreamPath).toBe(
+      `/de/jobs-in-zurich/_tree/${sectionTreeBucket('irgendein-job')}/irgendein-job/`,
+    );
+  });
+
+  it('retries the canonical Zurich path during hash-v1 migration', async () => {
+    const slug = 'irgendein-job';
+    const hashed = `/de/jobs-in-zurich/_tree/${sectionTreeBucket(slug)}/${slug}/`;
+    upstreamHandler = (url) => url.pathname === hashed
+      ? new Response(null, { status: 404 })
+      : new Response('<html>canonical</html>', { status: 200 });
+
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-in-zurich/${slug}/`), {}, ctx);
+    expect(response.status).toBe(200);
+    expect(upstreamPathHistory).toEqual([hashed, `/de/jobs-in-zurich/${slug}/`]);
+  });
+
   it('routes /fr/trouver-emploi-zurich to origin-zurigo-fr', async () => {
     await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-zurich/un-emploi/`), {}, ctx);
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.zurigo.fr);
+  });
+});
+
+describe('locale-router Berna-section shard routing', () => {
+  it('routes and fans out a Berna page while keeping its public URL', async () => {
+    const slug = 'berner-job';
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-in-bern/${slug}/`), {}, ctx);
+    expect(response.status).toBe(200);
+    expect(lastUpstreamHost).toBe(SECTION_ORIGIN.berna.de);
+    expect(lastUpstreamPath).toBe(
+      `/de/jobs-in-bern/_tree/${sectionTreeBucket(slug)}/${slug}/`,
+    );
+  });
+
+  it('advertises the generic hash-v1 probe for Berna without an origin request', async () => {
+    const response = await worker.fetch(
+      new Request(`${APEX}/de/jobs-in-bern/?__frontaliere_section_tree_layout=hash-v1&section=berna`, { method: 'HEAD' }),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(204);
+    expect(response.headers.get('x-frontaliere-section-tree-layout')).toBe('hash-v1');
+    expect(response.headers.get('x-frontaliere-section')).toBe('berna');
+    expect(response.headers.get('x-frontaliere-berna-tree-layout')).toBe('hash-v1');
+    expect(upstreamPathHistory).toEqual([]);
+  });
+
+  it('exposes the expected static fan-out floor', () => {
+    expect(SECTION_TREE_FANOUT_SECTIONS).toEqual(['ticino', 'zurigo', 'berna']);
   });
 });
 

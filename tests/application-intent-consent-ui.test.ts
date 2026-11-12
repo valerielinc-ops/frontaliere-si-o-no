@@ -46,7 +46,7 @@ describe('application-intent consent copy', () => {
     expect(jobBoardSource.match(/data-testid="application-intent-consent"/g)).toHaveLength(1);
 
     const headerStart = jobBoardSource.indexOf("{companyFollowCta(selectedJob, 'company_follow_button')");
-    const headerEnd = jobBoardSource.indexOf('</header>', headerStart);
+    const headerEnd = jobBoardSource.indexOf('</JobDetailHeaderCard>', headerStart);
     expect(jobBoardSource.slice(headerStart, headerEnd)).not.toContain('renderApplicationIntentConsent');
   });
 

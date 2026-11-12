@@ -1103,10 +1103,10 @@
     },
     {
       "id": "weisse-arena-033df4fa896b",
-      "slug": "allrounder-in-restauration-weisse-arena-ch",
+      "slug": "addetto-a-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "allrounder-in-restauration-weisse-arena-ch",
-        "en": "allrounder-in-restauration-weisse-arena-ch",
+        "it": "addetto-a-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
+        "en": "restaurant-all-rounder-weisse-arena-gruppe-laax",
         "de": "allrounder-in-restauration-weisse-arena-ch",
         "fr": "polyvalent-en-restauration-weisse-arena-gruppe-laax"
       },
@@ -1115,8 +1115,8 @@
       "companyDomain": "weissearena.com",
       "title": "Allrounder:in Restauration",
       "titleByLocale": {
-        "it": "Allrounder:in Restauration",
-        "en": "Allrounder:in Restauration",
+        "it": "Addetto/a polivalente alla ristorazione",
+        "en": "Restaurant all-rounder",
         "de": "Allrounder:in Restauration",
         "fr": "Polyvalent :en restauration"
       },
@@ -1173,7 +1173,18 @@
       "streetAddress": "Laax",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-12T09:19:45.767Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-restauration-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-in-restauration-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-restauration-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-99e0ae899a38",

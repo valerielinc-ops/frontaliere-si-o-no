@@ -2145,9 +2145,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "manager-consent-to-cookies-schindler-locarno",
-        "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
         "gestore-consenso-ai-cookie-schindler-locarno",
         "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
         "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
@@ -2421,8 +2418,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-        "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
         "gestore-consenso-ai-cookie-schindler-locarno",
         "afc-electronic-learning-fur-2027-schindler-locarno",
         "afc-apprentissage-electronique-pour-2027-schindler-locarno"
@@ -5207,9 +5202,9 @@
     },
     {
       "id": "schindler-ee05d98e236c",
-      "slug": "projektleiter-in-m-w-d-80-100-schindler-zurich",
+      "slug": "responsabile-di-progetto-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "projektleiter-in-m-w-d-80-100-schindler-zurich",
+        "it": "responsabile-di-progetto-m-f-d-80-100-schindler-zurich",
         "en": "projectmanager-m-f-d-80-100-schindler-zurich",
         "de": "projektleiter-in-m-w-d-80-100-schindler-zurich",
         "fr": "chef-fe-de-projet-h-f-d-80-100-schindler-zurich"
@@ -5219,7 +5214,7 @@
       "companyDomain": "schindler.com",
       "title": "Projektleiter*in (m/w/d), 80-100%",
       "titleByLocale": {
-        "it": "Projektleiter*in (m/w/d), 80-100%",
+        "it": "Responsabile di progetto (m/f/d), 80-100%",
         "en": "Projectmanager (m/f/d), 80-100%",
         "de": "Projektleiter*in (m/w/d), 80-100%",
         "fr": "Chef· fe de projet (h/f/d), 80-100 %"
@@ -5274,7 +5269,15 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:16:45.775Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-m-w-d-80-100-schindler-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-m-w-d-80-100-schindler-zurich"
+      ]
     },
     {
       "id": "schindler-7be6f3153345",

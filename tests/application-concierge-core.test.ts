@@ -534,7 +534,8 @@ describe('application concierge candidate API', () => {
       query: { serviceId: 'service-1' },
       get: () => 'Bearer candidate-token',
     });
-    expect((listed.body as any).service.proposals[0]).toMatchObject({ status: 'proposed', eligibilityStatus: 'needs_verification' });
+    expect((listed.body as any).service.proposals).toEqual([]);
+    expect((listed.body as any).service.preProposalChecks).toEqual([]);
 
     const accepted = await handleApplicationConcierge({
       method: 'POST',
@@ -556,7 +557,8 @@ describe('application concierge candidate API', () => {
       query: { serviceId: 'service-1' },
       get: () => 'Bearer candidate-token',
     });
-    expect((listed.body as any).service.proposals[0]).toMatchObject({ status: 'proposed', eligibilityStatus: 'needs_verification' });
+    expect((listed.body as any).service.proposals).toEqual([]);
+    expect((listed.body as any).service.preProposalChecks).toEqual([]);
 
     const accepted = await handleApplicationConcierge({
       method: 'POST',
@@ -623,7 +625,8 @@ describe('application concierge candidate API', () => {
       serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1',
     }, get: () => 'Bearer candidate-token' });
 
-    expect((listed.body as any).service.proposals[0]).toMatchObject({ status: 'proposed', eligibilityStatus: 'needs_verification' });
+    expect((listed.body as any).service.proposals).toEqual([]);
+    expect((listed.body as any).service.preProposalChecks).toEqual([]);
     expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
     expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
@@ -744,6 +747,13 @@ describe('application concierge candidate API', () => {
       ] },
     });
 
+    const beforeAnswer = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token' });
+    expect((beforeAnswer.body as any).service.proposals).toEqual([]);
+    expect((beforeAnswer.body as any).service.preProposalChecks[0]).toMatchObject({
+      status: 'preproposal_check', eligibilityStatus: 'clarification_required',
+    });
+
     const missingAnswer = await handleApplicationConcierge({ method: 'POST', body: {
       serviceId: 'service-1', proposalId: 'proposal-1', action: 'submitProposalInterest',
       answers: [{ questionId: 'weekend', answer: 'Yes, if scheduled ahead.' }],
@@ -760,6 +770,8 @@ describe('application concierge candidate API', () => {
     const answerDoc = mocks.documents.get(`${servicePath}/eligibility/candidate-answers-${cacheId}`);
 
     expect(interested.status).toBe(200);
+    expect((interested.body as any).service.proposals).toEqual([]);
+    expect((interested.body as any).service.preProposalChecks).toEqual([]);
     expect(answerDoc).toMatchObject({
       provenance: 'candidate_confirmed',
       schemaVersion: 'application-concierge-candidate-answers-v1',
@@ -952,6 +964,7 @@ describe('application concierge candidate API', () => {
       status: 'proposed',
     eligibilityStatus: 'compatible',
     eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      eligibilityCvStorageKey: 'application-concierge-uploads/service-1/cv.pdf',
       matchScore: 53,
       matchRankingScore: 53,
     });
@@ -966,7 +979,7 @@ describe('application concierge candidate API', () => {
     expect((result.body as any).service.proposals[0].matchScore).toBe(50);
   });
 
-  it('reports the legacy open-proposal count before a matching run initializes its counter', async () => {
+  it('counts only decision-ready proposals before a matching run initializes its counter', async () => {
     delete mocks.documents.get('application_concierge_services/service-1')!.matchingOpenProposalCount;
     mocks.documents.set('application_concierge_services/service-1/proposals/proposal-2', {
       jobId: 'job-2', jobUrl: 'https://jobs.example.test/job-2', jobTitle: 'Analyst', status: 'proposed',
@@ -976,7 +989,7 @@ describe('application concierge candidate API', () => {
       method: 'GET', query: { serviceId: 'service-1' }, get: () => 'Bearer candidate-token',
     });
 
-    expect((result.body as any).service.openProposalsCount).toBe(2);
+    expect((result.body as any).service.openProposalsCount).toBe(1);
     expect((result.body as any).service.maxOpenProposals).toBe(3);
   });
 
@@ -1105,7 +1118,7 @@ describe('admin-created concierge proposals', () => {
 });
 
 
-it('blocks accepting an unverified legacy proposal while still allowing the candidate to decline it', async () => {
+it('blocks both candidate decisions on an unverified legacy proposal', async () => {
   seedService();
   const proposal = mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!;
   delete proposal.eligibilityStatus;
@@ -1114,7 +1127,8 @@ it('blocks accepting an unverified legacy proposal while still allowing the cand
   expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
   expect([...mocks.documents.keys()].filter(path => path.startsWith('assisted_applications/'))).toHaveLength(0);
   const declined = await handleApplicationConcierge({ method: 'POST', body: { ...base, action: 'declineProposal' }, get: () => 'Bearer candidate-token' });
-  expect(declined.status).toBe(200);
+  expect(declined).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+  expect(mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')).toMatchObject({ status: 'proposed' });
 });
 
 describe('owned child status and private review access from the service', () => {

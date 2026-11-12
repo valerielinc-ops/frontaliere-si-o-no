@@ -956,25 +956,57 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 }
 
 /**
- * Memo of {@link jobMatchFeatures} for one scoring pass over an IMMUTABLE job
- * pool (keyed by object identity, then locale). Opt-in via the 4th argument of
- * {@link scoreJobForAlert}: a caller that mutates a job between two scores must
- * not pass one, and the default (no cache) recomputes exactly as before.
+ * Run-scoped memo of immutable job-side features, keyed by job identity and
+ * locale. This store deliberately contains no alert-keyword bitmaps: those are
+ * audience-dependent and stay in the shorter-lived cache returned by
+ * {@link createJobFeatureCache}. Reusing this store across plan batches avoids
+ * rebuilding normalized descriptions and other job features for every batch.
  *
- * Besides the features it memoises, per job/locale, the other answers that
- * depend only on the job and never on the alert (#9314): the normalized
- * location haystack, the pinned-company identity keys, and — per locale and
- * hard keyword — whether `fullText` contains that keyword. Since #9471 every
- * alert is scored against the recipient's whole catch-up window (~19K rows in
- * production), and #9695 expands each profession keyword into its 8-27
- * cross-locale aliases: the same `fullText.includes(alias)` scan over a ~2.4 KB
- * description was repeated for every alert that shares the alias. The memo is
- * a pair of bitmaps per (locale, keyword) plus one per keyword for the
- * locale-independent description, a few KB each.
+ * A caller that mutates a job between scores must not reuse this store. The
+ * default (no cache) recomputes exactly as before.
  */
-export function createJobFeatureCache() {
+export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
+  const entry = (job, locale) => {
+    let byLocale = byJob.get(job);
+    if (!byLocale) {
+      byLocale = new Map();
+      byJob.set(job, byLocale);
+    }
+    const key = locale || '';
+    let found = byLocale.get(key);
+    if (!found) {
+      const features = jobMatchFeatures(job, locale);
+      found = { features, locHaystack: null, searchHaystack: null };
+      byLocale.set(key, found);
+    }
+    return found;
+  };
+  return {
+    get(job, locale) {
+      return entry(job, locale).features;
+    },
+    entry,
+    pinnedKeys(job) {
+      let keys = pinnedKeysByJob.get(job);
+      if (!keys) {
+        keys = pinnedCompanyIdentityKeys(job);
+        pinnedKeysByJob.set(job, keys);
+      }
+      return keys;
+    },
+  };
+}
+
+/**
+ * Audience-bounded memo around a {@link createJobFeatureStore}. Per-job
+ * features and stable indexes can be shared across plan batches, while keyword
+ * and search bitmaps are released with each batch instead of growing with the
+ * full audience.
+ */
+export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
+  const byJob = new WeakMap();
   const jobIndexByJob = new WeakMap();
   let jobCount = 0;
   /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
@@ -998,20 +1030,31 @@ export function createJobFeatureCache() {
     const key = locale || '';
     let found = byLocale.get(key);
     if (!found) {
+      const featureEntry = featureStore.entry(job, locale);
+      const space = spaceFor(key);
       let jobIndex = jobIndexByJob.get(job);
       if (jobIndex === undefined) {
         jobIndex = jobCount++;
         jobIndexByJob.set(job, jobIndex);
       }
-      const features = jobMatchFeatures(job, locale);
-      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null, searchHaystack: null };
+      // Bitmap indexes are dense and local to this cache. The underlying
+      // feature values (including lazy job-only haystacks) remain run-scoped.
+      found = {
+        features: featureEntry.features,
+        index: space.size++,
+        jobIndex,
+        get locHaystack() { return featureEntry.locHaystack; },
+        set locHaystack(value) { featureEntry.locHaystack = value; },
+        get searchHaystack() { return featureEntry.searchHaystack; },
+        set searchHaystack(value) { featureEntry.searchHaystack = value; },
+      };
       byLocale.set(key, found);
     }
     return found;
   };
   return {
     get(job, locale) {
-      return entry(job, locale).features;
+      return featureStore.get(job, locale);
     },
     /**
      * Internal to {@link createAlertScorer}: the cache entry of `job` in
@@ -1055,12 +1098,7 @@ export function createJobFeatureCache() {
     },
     /** Internal to {@link createAlertScorer}: {@link pinnedCompanyIdentityKeys}, once per job. */
     pinnedKeys(job) {
-      let keys = pinnedKeysByJob.get(job);
-      if (!keys) {
-        keys = pinnedCompanyIdentityKeys(job);
-        pinnedKeysByJob.set(job, keys);
-      }
-      return keys;
+      return featureStore.pinnedKeys(job);
     },
   };
 }

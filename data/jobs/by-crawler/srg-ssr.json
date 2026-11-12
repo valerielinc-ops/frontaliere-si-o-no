@@ -3791,7 +3791,7 @@
       "companyDomain": "srgssr.ch",
       "title": "​​Gruppenleiter:in Contribution Media Management​",
       "titleByLocale": {
-        "it": "​​Gruppenleiter:in Contribution Media Management​",
+        "it": "​​Responsabile del gruppo Contribution Media Management​",
         "en": "​​Group Leader Contribution Media Management​",
         "de": "​​Gruppenleiter:in Contribution Media Management​",
         "fr": "​​Responsable de groupe :in Contribution Media Management​"
@@ -3867,9 +3867,9 @@
     },
     {
       "id": "srg-ssr-783b2c576a8e",
-      "slug": "praktikant-in-news-inland-srg-ssr-zurich",
+      "slug": "tirocinante-news-nazionali-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "praktikant-in-news-inland-srg-ssr-zurich",
+        "it": "tirocinante-news-nazionali-srg-ssr-zurich",
         "en": "intern-news-domestic-srg-ssr-zurich",
         "de": "praktikant-in-news-inland-srg-ssr-zurich",
         "fr": "praktikant-in-news-inland-srg-ssr-zurich"
@@ -3879,7 +3879,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Praktikant:in News Inland",
       "titleByLocale": {
-        "it": "Praktikant:in News Inland",
+        "it": "Tirocinante News nazionali",
         "en": "Intern News Domestic",
         "de": "Praktikant:in News Inland",
         "fr": "Stagiaire :in News Inland"
@@ -3950,7 +3950,15 @@
       "addressRegion": "ZH",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:18:09.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-news-inland-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-news-inland-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-66e43c127286",
