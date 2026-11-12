@@ -35,6 +35,9 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+const HOTEL_NO_H1_UUID = '01234567-89ab-cdef-0123-456789abcdef';
+const HOTEL_NO_H1_PATH = `/hotel-job-no-h1/${HOTEL_NO_H1_UUID}`;
+const HOTEL_NO_H1_OTHER_TITLE_PATH = `/hotel-job-no-h1-other-title/${HOTEL_NO_H1_UUID}`;
 const PORTAL_TEST_DATA_RETENTION_KEEP_OPTION = 'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.';
 const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
 const PORTAL_TEST_DATA_RETENTION_CONTEXT = `Data release * · ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION} · ${PORTAL_TEST_DATA_RETENTION_ANSWER}`;
@@ -158,6 +161,7 @@ const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
 // The same form with its photo and documents in sections still closed (review of #11033).
 const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
+const localOrigin = (server) => `http://127.0.0.1:${server.address().port}`;
 
 async function createWorkdayTlsFixture(directory) {
   const caKeyPath = path.join(directory, 'workday-test-ca.key');
@@ -989,6 +993,17 @@ function fakePortal() {
         <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>
         <p>Pontresina</p><button type="button">ACCEPT COOKIES</button>`));
     }
+    if (route === `GET ${HOTEL_NO_H1_PATH}` || route === `GET ${HOTEL_NO_H1_OTHER_TITLE_PATH}`) {
+      const otherTitle = route === `GET ${HOTEL_NO_H1_OTHER_TITLE_PATH}`;
+      const title = otherTitle ? 'Chef de Rang' : 'Concierge Host (m/w/d)';
+      const applyPath = otherTitle ? HOTEL_NO_H1_OTHER_TITLE_PATH : HOTEL_NO_H1_PATH;
+      return send(page(title, `<header><nav><button type="button">open navigation</button></nav></header>
+        <section class="job-detail" data-job-id="hotel-concierge-no-heading">
+          <p>Grand Hotel Esempio</p><p>Concierge Host (m/w/d)</p>
+          <a class="button" href="${localOrigin(server)}${applyPath}/apply">Applica ora</a>
+        </section>`));
+    }
+    if (route === `GET ${HOTEL_NO_H1_PATH}/apply` || route === `GET ${HOTEL_NO_H1_OTHER_TITLE_PATH}/apply`) return send(umantisForm());
     if (route === 'GET /hotel-job-other-role') {
       return send(page('Chef de Rang | Grand Hotel Esempio', `<section class="job-detail" data-job-id="hotel-chef-de-rang"><h1>Chef de Rang</h1>
         <p>Grand Hotel Esempio</p><a target="_blank" href="${umantisOrigin(server)}${UMANTIS_FORM}">Apply</a></section>`));
@@ -1472,7 +1487,7 @@ async function main() {
     const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
       : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
         : undefined;
-    const postingUrl = runOptions.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
+    const postingUrl = runOptions.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', HOTEL_NO_H1_PATH, HOTEL_NO_H1_OTHER_TITLE_PATH, '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
     const result = await submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
@@ -1549,6 +1564,14 @@ async function main() {
     };
     const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)', location: 'Pontresina' };
     const hotelHost = new URL(umantisOrigin(server)).hostname;
+    const noHeading = await run({ applyUrl: `${base}${HOTEL_NO_H1_PATH}`, job: hotelJob, accounts: hotelAccounts, dryRun: true, capturePortalNavigationDiagnostics: true });
+    check('umantis: an exact posting route with navigation first, no h1 and «Applica ora» reaches the matching form', noHeading.event.type === 'dry_run_ready'
+      && noHeading.evidence.finalButton?.label === 'Submit final application' && noHeading.evidence.postingMatch === 'match'
+      && noHeading.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run')
+      && umantis.applications.length === 0, stopContext(noHeading));
+    const noHeadingOtherTitle = await run({ applyUrl: `${base}${HOTEL_NO_H1_OTHER_TITLE_PATH}`, job: hotelJob, accounts: hotelAccounts });
+    check('umantis: a no-h1 posting whose document title names another role stops before its form', noHeadingOtherTitle.event.type === 'submit_handoff'
+      && noHeadingOtherTitle.event.reason === 'posting_mismatch' && umantis.applications.length === 0, stopContext(noHeadingOtherTitle));
     const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
       && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0

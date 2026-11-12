@@ -1662,8 +1662,31 @@ function applicationEntryBelongsToPosting(control, {
     && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
 }
 
+const MAX_APPLICATION_ENTRY_CONTEXT_LENGTH = 700;
+
+function applicationEntryContextText(control) {
+  const rawContext = String(control?.vacancyContext || '');
+  if (rawContext.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
+  let text = rawContext.normalize('NFKC').replace(/\s+/g, ' ').trim();
+  if (text.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || ''))
+    .filter((value) => value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
+    .map((value) => value.normalize('NFKC').replace(/\s+/g, ' ').trim())
+    .filter((value) => value && value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
+    .sort((left, right) => right.length - left.length);
+  for (const label of ownLabels) {
+    const pattern = new RegExp(`(^|[^\\p{L}\\p{N}])(${escapeRegex(label)})(?=$|[^\\p{L}\\p{N}])`, 'giu');
+    let match;
+    let lastMatch;
+    while ((match = pattern.exec(text))) lastMatch = match;
+    if (lastMatch) text = `${text.slice(0, lastMatch.index)}${lastMatch[1]}${text.slice(lastMatch.index + lastMatch[0].length)}`;
+  }
+  return text.replace(/\s+/g, ' ').trim();
+}
+
 function applicationEntryContextMatchesPosting(control, context = {}) {
-  const localContext = String(control?.vacancyContext || '').trim();
+  const localContext = applicationEntryContextText(control);
   const job = context.job || {};
   return Boolean(localContext && job.title
     && titleMatches(localContext, job.title)
@@ -3585,6 +3608,8 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
   return neutral;
 }
 
+const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?)[.!…:]*$/i;
+
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
@@ -3612,7 +3637,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
-  const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
+  const titleLine = text.split(/\r?\n/).map((line) => line.trim())
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line)) || '';
+  // Page chrome may precede the posting's own heading. Ignore only known
+  // navigation labels as a title candidate; the employer check below still
+  // reads every phrase in the full page text.
+  const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   const ourKinds = employerKindsOf([...ours]);
@@ -3714,21 +3744,17 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
     || sameEmployerFamily(job.organization, job.company);
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
-  // On an exact selected-posting route, the body also contains navigation and
-  // Apply labels (for example «Später bewerben»). Keep the conflict guard on
-  // rendered page text: a generic document title must not hide an unrelated
-  // role in the selected route, while a proven employer/location suffix in
-  // the posting body may be ignored.
-  // namesAnotherEmployer reads the first line of its text as the page's title.
-  // The rendered text of a selected route starts with whatever the site puts
-  // first, often a skip link («Zum Inhalt springen», «Skip to content»; order
-  // 1EpmkrDu, jobs.yellowshark.com, 2026-11-10: posting_mismatch before its
-  // Apply). When the page's own main heading is exactly the role, that heading
-  // is the title line; the employer-conflict rule still reads the whole page.
-  // A heading naming another role, a second employer or nothing keeps the
-  // rendered first line, as before.
-  const routeHeading = routeBound && isRoleHeading(pageHeading, job?.title) ? String(pageHeading).trim() : '';
-  const conflictText = routeBound ? (routeHeading ? `${routeHeading}\n${pageText}` : pageText) : sourceText;
+  // On an exact selected-posting route the rendered text may start with
+  // navigation chrome. The page's H1 remains authoritative when present; use
+  // document.title only when there is no H1 and it is exactly the order's
+  // role. A different title or H1 must never be hidden by that fallback.
+  const renderedHeading = String(pageHeading || '').trim();
+  const documentTitle = String(pageTitle || '').trim();
+  if (routeBound && !renderedHeading && documentTitle && !isRoleHeading(documentTitle, job?.title)) return false;
+  const routeTitleLine = routeBound
+    ? (renderedHeading || (isRoleHeading(documentTitle, job?.title) ? documentTitle : ''))
+    : '';
+  const conflictText = routeBound ? (routeTitleLine ? `${routeTitleLine}\n${pageText}` : pageText) : sourceText;
   if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
@@ -3857,17 +3883,52 @@ async function postingDocumentHostMatch(snapshot, ctx = {}, pageUrl = '') {
 
 /**
  * The posting's own id in its address: the number its last path segment ends
- * with («…-lugano-f-m-2779», «/stellen/2779») or its posting-id parameter.
+ * with («…-lugano-f-m-2779», «/stellen/2779»), the final path segment when it
+ * is a whole UUID, or its posting-id parameter.
  */
+const MAX_POSTING_ID_URL_LENGTH = 16_384;
+const MAX_POSTING_ID_PATH_LENGTH = 8_192;
+const MAX_POSTING_ID_PATH_SEGMENTS = 128;
+
+function boundedPostingIdPathSegments(pathname) {
+  const path = String(pathname || '');
+  if (path.length > MAX_POSTING_ID_PATH_LENGTH) return null;
+  let count = 0;
+  let insideSegment = false;
+  for (const character of path) {
+    if (character === '/') {
+      insideSegment = false;
+    } else if (!insideSegment) {
+      count += 1;
+      if (count > MAX_POSTING_ID_PATH_SEGMENTS) return null;
+      insideSegment = true;
+    }
+  }
+  return path.split('/').filter(Boolean);
+}
+
 function postingAddressIds(postingUrl) {
   const ids = new Set();
   try {
-    const url = new URL(String(postingUrl || ''));
-    const last = decodeURIComponent(url.pathname.replace(/\/+$/, '').split('/').pop() || '');
-    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
-    if (tail) ids.add(tail);
+    const address = String(postingUrl || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return ids;
+    const url = new URL(address);
     const key = portalJobKey(url.href);
-    if (key) ids.add(key);
+    if (key) ids.add(String(key).toLowerCase());
+    const segments = boundedPostingIdPathSegments(url.pathname);
+    if (!segments) return ids;
+    const lastSegment = segments[segments.length - 1] || '';
+    const last = (() => {
+      try {
+        return decodeURIComponent(lastSegment);
+      } catch {
+        return lastSegment;
+      }
+    })();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last);
+    if (isUuid) ids.add(last.toLowerCase());
+    const tail = isUuid ? null : /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
+    if (tail) ids.add(tail);
   } catch {
     // No address, no id.
   }
@@ -3885,10 +3946,14 @@ export function applicationEntryCarriesPostingId(href, postingUrl) {
   const ids = postingAddressIds(postingUrl);
   if (!ids.size) return false;
   try {
-    const url = new URL(String(href || ''));
+    const address = String(href || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return false;
+    const url = new URL(address);
     if (url.protocol !== 'https:' || url.username || url.password) return false;
-    const segments = url.pathname.split('/').filter(Boolean).map((segment) => decodeURIComponent(segment));
-    return [...segments, ...url.searchParams.values()].some((value) => ids.has(value));
+    const rawSegments = boundedPostingIdPathSegments(url.pathname);
+    if (!rawSegments) return false;
+    const segments = rawSegments.map((segment) => decodeURIComponent(segment));
+    return [...segments, ...url.searchParams.values()].some((value) => ids.has(String(value).toLowerCase()));
   } catch {
     return false;
   }

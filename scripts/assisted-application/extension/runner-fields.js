@@ -635,6 +635,16 @@ function nativeQuestionText(value, counter = null) {
     ];
     return nearby.find((text) => text && text !== label && text.length <= 300 && !GENERATED_ID_RE.test(text)) || label;
   };
+  // Preserve the narrow case where the control's associated native label is
+  // empty and its own fieldset legend supplies the readable consent text.
+  const hasEmptyNativeLabelWithOwnedLegend = (element, label) => {
+    if (element.type !== 'checkbox' || !label) return false;
+    const associatedLabels = [...(element.labels || [])];
+    if (!associatedLabels.length || associatedLabels.some(node => clean(captionText(node, element)))) return false;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    return ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element).some(node => node.tagName === 'LEGEND'
+      && !node.contains(element) && clean(node.innerText || node.textContent) === label);
+  };
   // A heading of another step a portal keeps in the page, hidden, names nothing.
   const shown = (node) => {
     if (node.closest('[hidden], [aria-hidden="true"]')) return false;
@@ -1082,6 +1092,7 @@ function nativeQuestionText(value, counter = null) {
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
+      ...(hasEmptyNativeLabelWithOwnedLegend(element, label) ? { emptyNativeLabelOwnedLegend: true } : {}),
       ...privacyFieldMetadata(element, label),
       context: sectionContext(element),
       addressContext: ownedAddressContext(element),
@@ -1313,8 +1324,12 @@ function nativeQuestionText(value, counter = null) {
     return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
   };
   const VACANCY_CARD_SELECTOR = 'article, li, [role="listitem"], [data-job-id], [data-vacancy-id], [data-posting-id], [class*="job-card"], [class*="job-listing"], [class*="job-detail"], [class*="vacancy-card"], [class*="vacancy-listing"], [class*="vacancy-detail"]';
-  const applicationEntryLabel = (value) => /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(clean(value))
-    && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(clean(value));
+  const applicationEntryLabel = (value) => {
+    const label = clean(value);
+    return (/^applica(?: ora| adesso| subito)?$/i.test(label)
+      || /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(label))
+      && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(label);
+  };
   // Text around an external Apply link is useful only inside a bounded job
   // card. Never collect a form, dialog, or an entire page as vacancy evidence.
   const vacancyContext = (element) => {

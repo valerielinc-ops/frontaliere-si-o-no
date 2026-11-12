@@ -1334,8 +1334,12 @@ function nativeQuestionText(value, counter = null) {
     return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
   };
   const VACANCY_CARD_SELECTOR = 'article, li, [role="listitem"], [data-job-id], [data-vacancy-id], [data-posting-id], [class*="job-card"], [class*="job-listing"], [class*="job-detail"], [class*="vacancy-card"], [class*="vacancy-listing"], [class*="vacancy-detail"]';
-  const applicationEntryLabel = (value) => /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(clean(value))
-    && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(clean(value));
+  const applicationEntryLabel = (value) => {
+    const label = clean(value);
+    return (/^applica(?: ora| adesso| subito)?$/i.test(label)
+      || /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(label))
+      && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(label);
+  };
   // Text around an external Apply link is useful only inside a bounded job
   // card. Never collect a form, dialog, or an entire page as vacancy evidence.
   const vacancyContext = (element) => {
