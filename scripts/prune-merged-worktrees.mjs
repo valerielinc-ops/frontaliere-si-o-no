@@ -418,7 +418,7 @@ if (RECLAIM || reclaimAutomatic) {
       process.exit(0);
     }
   }
-  runWorktreeReclaim({
+  const reclaimResult = runWorktreeReclaim({
     apply: APPLY,
     only: ONLY,
     automatic: reclaimAutomatic,
@@ -428,6 +428,7 @@ if (RECLAIM || reclaimAutomatic) {
     repoPath: process.cwd(),
     mainBranch,
   });
+  if (SESSION_START && reclaimResult?.failed > 0) markSessionStartComplete = false;
   process.exit(0);
 }
 
@@ -2371,3 +2372,4 @@ console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (ved
 console.log(`riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi ${removedWorktrees}; branch rimossi ${removedBranches}; spazio liberato ${formatBytes(spaceFreedBytes)}; saltati per motivo: ${skippedSummary()}${skippedSnapshotFailures ? `; snapshot falliti=${skippedSnapshotFailures}` : ''}.`);
 console.log(costLine());
 console.log(cacheLine());
+if (SESSION_START && failed > 0) markSessionStartComplete = false;
