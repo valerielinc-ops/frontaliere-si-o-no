@@ -25,12 +25,12 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048597EXTERNALENGLOBAL/Field-Service-Technician--80---100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049148EXTERNALENGLOBAL/IS-Project-Manager---SAP-ARIBA-SCC-Implementation-Coordinator--flexible-location",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00049913EXTERNALENGLOBAL/IS-Project-Manager--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049984EXTERNALENGLOBAL/Service-Technician-f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050203EXTERNALENGLOBAL/Data-Managmenet-Specialist---Operations--m-w-d--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050217EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Support-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050336EXTERNALENGLOBAL/R-D-Senior-Engineer---Power-Electronics",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050382EXTERNALENGLOBAL/Events---Exhibitions-CoE-Manager--f-m-d---80-100---12-Month-Maternity-Cover-_JR00050382-1",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050454EXTERNALENGLOBAL/Global-Procurement-Sustainability-Specialist",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050654EXTERNALENGLOBAL/Manufacturing-Unit-Manager",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050689EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050739EXTERNALENGLOBAL/XMLNAME--80---100---Lead-DC-DC-Converter-System-Design",
@@ -56,7 +56,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00052869EXTERNALENGLOBAL/Product-Manager"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-12T09:23:37.548Z",
+  "updatedAt": "2026-11-12T21:23:07.163Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050946EXTERNALENGLOBAL/PIM-Senior-Admin_JR00050946-1": {
       "location": "Heidelberg, Baden-Wurttemberg, Germany",
@@ -186,6 +186,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00049913EXTERNALENGLOBAL/IS-Project-Manager--80-100": {
+      "location": "Schaffhausen, Schaffhausen, Switzerland",
+      "canton": "SH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051041EXTERNALENGLOBAL/XMLNAME--80---100---Customer-Application-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -260,14 +268,6 @@
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00047028EXTERNALENGLOBAL/Research-Scientist-in-Operational-Technology--OT--Cybersecurity--80-100": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050454EXTERNALENGLOBAL/Global-Procurement-Sustainability-Specialist": {
-      "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
