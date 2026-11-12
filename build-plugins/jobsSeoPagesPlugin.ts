@@ -1,4 +1,5 @@
 import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -2738,7 +2739,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  resolveJobsSeoPagesFlushed();
  return;
  }
- let jobsRaw: any = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+ let jobsRaw: any = readJsonFile(jobsPath);
  let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
  jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const slugify = (input: string) => String(input || '')
