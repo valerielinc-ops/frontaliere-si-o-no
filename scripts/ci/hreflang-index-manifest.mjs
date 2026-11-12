@@ -535,17 +535,17 @@ export async function runHreflangIndexManifest({
         const transactionId = path.basename(transactionDir);
         const moved = [];
         try {
-          // Files of one batch are independent: install them concurrently.
-          // mapPool waits for every in-flight rename before rejecting, so
-          // `moved` is complete when the rollback below reads it.
-          await mapPool(staged, concurrency, async (item) => {
+          // Installed one at a time, as before: installing a batch
+          // concurrently was measured to retain ~2.8 MB more live heap after
+          // a 30k-page leg for no measurable time gain on the same dist.
+          for (const item of staged) {
             const backup = `${item.file}.${transactionId}.bak`;
             await fs.promises.rename(item.file, backup);
             const record = { ...item, backup, installed: false };
             moved.push(record);
             await fs.promises.rename(item.stagedFile, item.file);
             record.installed = true;
-          });
+          }
         } catch (error) {
           for (const item of [...moved].reverse()) {
             try {
@@ -557,6 +557,8 @@ export async function runHreflangIndexManifest({
           }
           throw error;
         }
+        // Backups are dropped only after the whole batch is installed, so
+        // removing them concurrently cannot affect the rollback above.
         await mapPool(moved, concurrency, (item) => fs.promises.rm(item.backup, { force: true }));
         stagingRecords.push(...staged);
         filesRewritten += moved.length;
