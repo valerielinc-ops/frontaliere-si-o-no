@@ -12,10 +12,15 @@
 
 import type { Plugin } from 'vite';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 import {
+  captureFirstV8HeapCheckpoint,
   profileGcMinGrowthMb,
   resetProfileGcBaseline,
+  resetV8HeapCheckpointForTests,
   shouldForceGcAfterPlugin,
   withProfile,
 } from '../build-plugins/profilePlugin';
@@ -24,11 +29,17 @@ import { resetGcProbe } from '../build-plugins/shared/forceGc';
 type GcHolder = { gc?: unknown };
 const originalGc = (globalThis as GcHolder).gc;
 const originalThreshold = process.env.PROFILE_GC_MIN_GROWTH_MB;
+const originalHeapDiagnostics = process.env.V8_HEAP_DIAGNOSTICS;
+const originalHeapDiagnosticsFile = process.env.V8_HEAP_DIAGNOSTICS_FILE;
 const MB = 1048576;
+let diagnosticDirs: string[] = [];
 
 beforeEach(() => {
   resetProfileGcBaseline();
   resetGcProbe();
+  resetV8HeapCheckpointForTests();
+  delete process.env.V8_HEAP_DIAGNOSTICS;
+  delete process.env.V8_HEAP_DIAGNOSTICS_FILE;
   vi.spyOn(console, 'log').mockImplementation(() => {});
 });
 
@@ -38,8 +49,44 @@ afterEach(() => {
   else (globalThis as GcHolder).gc = originalGc;
   if (originalThreshold === undefined) delete process.env.PROFILE_GC_MIN_GROWTH_MB;
   else process.env.PROFILE_GC_MIN_GROWTH_MB = originalThreshold;
+  if (originalHeapDiagnostics === undefined) delete process.env.V8_HEAP_DIAGNOSTICS;
+  else process.env.V8_HEAP_DIAGNOSTICS = originalHeapDiagnostics;
+  if (originalHeapDiagnosticsFile === undefined) delete process.env.V8_HEAP_DIAGNOSTICS_FILE;
+  else process.env.V8_HEAP_DIAGNOSTICS_FILE = originalHeapDiagnosticsFile;
+  for (const dir of diagnosticDirs) fs.rmSync(dir, { recursive: true, force: true });
+  diagnosticDirs = [];
   resetProfileGcBaseline();
   resetGcProbe();
+  resetV8HeapCheckpointForTests();
+});
+
+describe('first closeBundle V8 heap checkpoint', () => {
+  it('writes compact V8 space statistics once when opted in', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'profile-v8-checkpoint-'));
+    diagnosticDirs.push(dir);
+    const output = path.join(dir, 'heap.json');
+    process.env.V8_HEAP_DIAGNOSTICS = '1';
+    process.env.V8_HEAP_DIAGNOSTICS_FILE = output;
+
+    const checkpoint = captureFirstV8HeapCheckpoint('build-id') as {
+      checkpoint: string;
+      plugin: string;
+      processMemoryBytes: { heapUsed: number };
+      spaces: Array<{ name: string; size: number; used: number }>;
+    };
+
+    expect(checkpoint.checkpoint).toBe('first-closeBundle-after-plugin-gc');
+    expect(checkpoint.plugin).toBe('build-id');
+    expect(checkpoint.processMemoryBytes.heapUsed).toBeGreaterThan(0);
+    expect(checkpoint.spaces.length).toBeGreaterThan(0);
+    expect(checkpoint.spaces[0]).toMatchObject({
+      name: expect.any(String),
+      size: expect.any(Number),
+      used: expect.any(Number),
+    });
+    expect(JSON.parse(fs.readFileSync(output, 'utf8'))).toEqual(checkpoint);
+    expect(captureFirstV8HeapCheckpoint('later-plugin')).toBeNull();
+  });
 });
 
 describe('profileGcMinGrowthMb', () => {

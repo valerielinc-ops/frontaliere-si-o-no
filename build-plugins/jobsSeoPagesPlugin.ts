@@ -2145,11 +2145,10 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // collector's active Map is now also bounded at the jobs-SEO threshold for
  // every page family, including phases that do not release a page cache
  // chunk. The generic collector default remains unchanged for other plugins.
- // Keep production on the existing 1-GiB cadence. The matrix experiment may
- // select the 512-MiB candidate only when it explicitly marks the build as a
- // benchmark, so the comparison cannot silently change a deploy build.
- const JOBS_SEO_HTML_GC_INTERVAL_MB = process.env.BUILD_BENCH === '1'
-  && process.env.JOBS_SEO_HTML_GC_INTERVAL_MB === '512'
+ // Production selects the 512-MiB cadence explicitly in deploy.yml after the
+ // no-deploy matrix canary proves its memory benefit and byte identity. Other
+ // build contexts keep the 1-GiB default.
+ const JOBS_SEO_HTML_GC_INTERVAL_MB = process.env.JOBS_SEO_HTML_GC_INTERVAL_MB === '512'
   ? 512
   : 1024;
  const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
