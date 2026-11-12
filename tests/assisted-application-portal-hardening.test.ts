@@ -1616,7 +1616,10 @@ describe('portal: identity on an exact posting route without a heading', () => {
   const pageText = `open navigation\n${job.company}\nDescrizione del ruolo\n${job.title}`;
 
   it('uses the matching document title when the route has no h1 and ignores leading navigation chrome', () => {
-    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: job.title })).toBe(true);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: job.title })).toBe(false);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, pageTitle: job.title, uniqueApplicationEntryProven: true,
+    })).toBe(true);
   });
 
   it.each([
@@ -1627,7 +1630,9 @@ describe('portal: identity on an exact posting route without a heading', () => {
     const pageText = `${navigationLabel}
 ${job.company}
 ${job.title}`;
-    expect(hasVacancySpecificPostingEvidence(pageText, job, route)).toBe(true);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, uniqueApplicationEntryProven: true,
+    })).toBe(true);
   });
 
   it('rejects a different document title, another h1, and another employer in the page text', () => {
