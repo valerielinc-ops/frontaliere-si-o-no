@@ -39,6 +39,7 @@
 import http from 'node:http';
 import { URL } from 'node:url';
 import crypto from 'node:crypto';
+import { classifyLinkedInMemberAuthCallback } from './lib/linkedin-member-auth-callback.mjs';
 
 const CLIENT_ID = process.env.LINKEDIN_MEMBER_CLIENT_ID || '78ikswckn74d2t';
 const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
@@ -120,25 +121,36 @@ async function main() {
         res.writeHead(404).end('not the callback path');
         return;
       }
-      const got = reqUrl.searchParams.get('code');
-      const gotState = reqUrl.searchParams.get('state');
-      const err = reqUrl.searchParams.get('error');
+      const callback = classifyLinkedInMemberAuthCallback(
+        {
+          code: reqUrl.searchParams.get('code'),
+          error: reqUrl.searchParams.get('error'),
+          state: reqUrl.searchParams.get('state'),
+        },
+        state,
+      );
+      if (callback.kind === 'stale') {
+        console.warn('Ignoring a LinkedIn OAuth callback with stale state; the active flow remains open.');
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('Stale OAuth callback ignored. The active authorization is still waiting.');
+        return;
+      }
+      if (callback.kind === 'error') {
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end(`LinkedIn returned an error: ${callback.error}. You can close this tab.`);
+        server.close();
+        reject(new Error(`authorization denied: ${callback.error}`));
+        return;
+      }
+      if (callback.kind === 'invalid') {
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('LinkedIn callback did not include an authorization code. The active authorization is still waiting.');
+        return;
+      }
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-      if (err) {
-        res.end(`LinkedIn returned an error: ${err}. You can close this tab.`);
-        server.close();
-        reject(new Error(`authorization denied: ${err}`));
-        return;
-      }
-      if (gotState !== state) {
-        res.end('state mismatch — aborted. You can close this tab.');
-        server.close();
-        reject(new Error('state mismatch (possible CSRF) — aborted'));
-        return;
-      }
       res.end('Authorization received. You can close this tab.');
       server.close();
-      resolve(got);
+      resolve(callback.code);
     });
     server.listen(PORT, () => console.log(`⏳ waiting for the callback on port ${PORT}…`));
     server.on('error', reject);
