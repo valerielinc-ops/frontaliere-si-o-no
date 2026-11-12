@@ -4529,10 +4529,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With compact waiter and the safe incomplete-metadata retry, size is
-    // 479039 bytes (<= 480000 budget).
+    // With compact waiter, safe incomplete-metadata retry, and empty-workspace
+    // cleanup, size is 479504 bytes (<= 480000 budget).
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(479039);
+    expect(bytes).toBe(479504);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
