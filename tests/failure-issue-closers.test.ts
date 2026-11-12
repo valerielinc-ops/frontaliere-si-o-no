@@ -384,6 +384,10 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       'secret-scanning-sweep.yml': 'close-recovered-failure-issues',
       'social-copy-pack.yml': 'close-recovered-failure-issues',
       'sync-articles-sitemaps.yml': 'close-recovered-failure-issues',
+      // L'osservatore post-job dello sweep deve usare lo stesso titolo
+      // canonico, così il closer centrale può chiudere il thread al primo
+      // run verde successivo.
+      'needs-human-sweep.yml': 'close-recovered-failure-issues',
     };
     // A workflow can keep an existing custom reporter and add the canonical
     // post-job reporter as a second adoption. Compare file + closer pairs so
@@ -397,6 +401,9 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
       'sync-articles-sitemaps.yml\tclose-recovered-failure-issues',
+      // needs-human-sweep osserva separatamente prepass, verdetto del closer
+      // e sweep agentico, ma tutti aprono lo stesso thread canonico.
+      ...Array.from({ length: 2 }, () => 'needs-human-sweep.yml\tclose-recovered-failure-issues'),
       // settima adozione: la misura full-corpus del build jobs SEO (#9618),
       // uscita dal cammino bloccante del deploy dopo che un'invariante
       // sbagliata (#9754 → #9773) aveva fermato la pubblicazione. Come per i
