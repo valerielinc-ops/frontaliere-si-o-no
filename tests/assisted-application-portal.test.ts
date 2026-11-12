@@ -1457,6 +1457,49 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     ] }, 'cv')).toBeNull();
   });
 
+  it('binds a French Workday file picker to its sole anonymous file field', () => {
+    const page = {
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/introduceYourself',
+      fields: [
+        { id: 'first-name', kind: 'text', label: 'Prénom(s)*', inputType: 'text', required: true },
+        { id: 'last-name', kind: 'text', label: 'Nom de famille*', inputType: 'text', required: true },
+        { id: 'email', kind: 'text', label: 'E-mail', inputType: 'email' },
+        { id: 'phone', kind: 'text', label: 'No de téléphone', inputType: 'tel' },
+        { id: 'file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)' },
+        { id: 'terms', kind: 'checkbox', label: "Oui, j'ai lu et j'accepte les termes et conditions*", required: true },
+        { id: 'country', kind: 'listbox', label: 'Pays*', required: true },
+        { id: 'phone-type', kind: 'listbox', label: 'Type d’appareil téléphonique' },
+        { id: 'phone-code', kind: 'listbox', label: 'Indicatif de pays' },
+      ],
+      buttons: [
+        { id: 'privacy-read', text: 'Lire tout le message sur la confidentialité', disabled: false },
+        { id: 'reject', text: 'Refuser', disabled: false },
+        { id: 'accept', text: 'Accepter les cookies', disabled: false },
+        { id: 'sign-in', text: 'Connexion', disabled: false },
+        { id: 'employer', text: 'Visite Swarovski.com', disabled: false },
+        { id: 'search', text: 'Rechercher des emplois', disabled: false },
+        { id: 'heading', text: 'Présentez-vous', disabled: false },
+        { id: 'file-picker', text: 'sélectionner un fichier', disabled: false },
+        { id: 'cancel', text: 'Annuler', disabled: false },
+        { id: 'submit', text: 'Soumettre', disabled: false },
+      ],
+    };
+
+    expect(uploadButtonCandidatesFor({
+      ...page,
+      buttons: [
+        { id: 'cv-specific', text: 'Télécharger le CV', disabled: false },
+        ...page.buttons,
+      ],
+    }, 'cv').map((button) => button.id)).toEqual(['cv-specific']);
+    expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'file-picker', text: 'sélectionner un fichier' });
+    expect(uploadButtonCandidatesFor(page, 'cv').map((button) => button.id)).toEqual(['file-picker']);
+    expect(uploadButtonCandidatesFor({
+      ...page,
+      fields: [...page.fields, { id: 'second-file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)' }],
+    }, 'cv')).toEqual([]);
+  });
+
   it('keeps upload retry keys stable across redraws and shared automation ids', () => {
     const cv = {
       frame: 0,
