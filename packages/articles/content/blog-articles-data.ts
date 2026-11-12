@@ -29217,7 +29217,7 @@ const RAW_ARTICLES_CHUNK_11: Article[] = [
  id: 'eventi-weekend-ticino',
  category: 'novita',
  date: '2026-06-29',
- updatedAt: '2026-10-31',
+ updatedAt: '2026-11-12',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  canton: ['TI'],
@@ -48207,6 +48207,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  articleType: 'news',
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-11-12',
+ category: 'novita',
+ date: '2026-11-12T13:40:39.520Z',
+ image: '/images/blog/article-bollettino-frontaliere-2026-11-12.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
 ];
 
