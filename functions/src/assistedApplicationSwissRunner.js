@@ -60,10 +60,10 @@ export function requiresSwissEgress(flow) {
 }
 
 /** The persistent mark, with its proof: which portal answer, in which round, when, and how it was learnt. */
-export function swissEgressMark({ round, nowMs, source }) {
+export function swissEgressMark({ round, nowMs, source, reason = REGION_UNSUPPORTED_REASON }) {
   return {
     required: SWISS_EGRESS,
-    reason: REGION_UNSUPPORTED_REASON,
+    reason: String(reason || REGION_UNSUPPORTED_REASON).slice(0, 60),
     round: Number(round) || 1,
     at: Number(nowMs) || Date.now(),
     source: String(source || 'portal_handoff').slice(0, 40),

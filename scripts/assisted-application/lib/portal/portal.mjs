@@ -3553,7 +3553,7 @@ const employerKindsOf = (words) => new Set(words.map((word) => EMPLOYER_KIND_CLA
 const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder', 'ou', 'sowie']);
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
-  'the', 'and', 'for', 'our', 'your', 'with', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
+  'the', 'and', 'for', 'our', 'your', 'with', 'at', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
   'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
   'chez', 'avec', 'aux', 'une',
 ]);
@@ -3733,6 +3733,7 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   postingUrl = '',
   postingRouteProof = null,
   vacancyIdentityContexts = [],
+  uniqueApplicationEntryProven = false,
 } = {}) {
   const sourceText = `${pageTitle}\n${pageText}`;
   const contexts = Array.isArray(vacancyIdentityContexts)
@@ -3745,14 +3746,23 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
   // On an exact selected-posting route the rendered text may start with
-  // navigation chrome. The page's H1 remains authoritative when present; use
-  // document.title only when there is no H1 and it is exactly the order's
-  // role. A different title or H1 must never be hidden by that fallback.
+  // navigation chrome. The page's H1 remains authoritative when present. With
+  // no H1, accept the role/employer in the page snapshot only when one owned
+  // application entry is already bound to this vacancy. The conflict guard
+  // below still checks the title and full page.
   const renderedHeading = String(pageHeading || '').trim();
   const documentTitle = String(pageTitle || '').trim();
-  if (routeBound && !renderedHeading && documentTitle && !isRoleHeading(documentTitle, job?.title)) return false;
+  if (routeBound && pageHeading === null) return false;
+  // A unique Apply control can stand in for an absent H1, but it cannot
+  // override a visible heading that proves only part of a different role.
+  if (routeBound && renderedHeading && !isRoleHeading(renderedHeading, job?.title)) return false;
+  const noHeadingPostingIdentityProven = Boolean(uniqueApplicationEntryProven === true && job?.title && company
+    && titleMatches(`${documentTitle}\n${pageText}`, job.title)
+    && hasDistinctiveCompanyIdentity(company)
+    && postingMatch(`${documentTitle}\n${pageText}`, job, pageUrl) === 'match');
+  if (routeBound && !renderedHeading && !noHeadingPostingIdentityProven) return false;
   const routeTitleLine = routeBound
-    ? (renderedHeading || (isRoleHeading(documentTitle, job?.title) ? documentTitle : ''))
+    ? (renderedHeading || (noHeadingPostingIdentityProven ? documentTitle : ''))
     : '';
   const conflictText = routeBound ? (routeTitleLine ? `${routeTitleLine}\n${pageText}` : pageText) : sourceText;
   if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
@@ -4024,9 +4034,9 @@ export function isRoleHeading(heading, title) {
     && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
 }
 
-/** The single main heading (h1) the page shows, or '' when it shows none or several different ones. */
+/** The single main heading, '' when absent, or null when unavailable/ambiguous. */
 export async function postingMainHeading(page) {
-  if (typeof page?.evaluate !== 'function') return '';
+  if (typeof page?.evaluate !== 'function') return null;
   const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
     .filter((node) => {
       const rect = node.getBoundingClientRect();
@@ -4038,10 +4048,11 @@ export async function postingMainHeading(page) {
     .slice(0, 201)).catch(() => null);
   // Distinct across every visible main heading: a different one after ten copies of the role still counts. A page
   // with more main headings than that is no single-heading posting.
-  if (!Array.isArray(headings) || headings.length > 200) return '';
+  if (!Array.isArray(headings) || headings.length > 200) return null;
   const distinct = [...new Set(headings)];
+  if (distinct.length > 1) return null;
   // The whole heading: isRoleHeading refuses one longer than a title, never a cut that hides «… at Other Employer».
-  return distinct.length === 1 ? distinct[0] : '';
+  return distinct[0] || '';
 }
 
 /** The line names the role and nothing else of substance (no second role or employer around it). */
@@ -8331,6 +8342,15 @@ export async function readPortalRequirements(ctx) {
     const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
     const sourceTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const sourcePostingText = `${sourceTitle}\n${snapshot.text || ''}\n${page.url()}`;
+    const sourceApplicationEntryProven = applicationEntryControls(snapshot, {
+      applyUrl: stageApplyUrl,
+      postingUrl: ctx.postingUrl || page.url(),
+      pageTitle: sourceTitle,
+      sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
+      postingRouteProof: ctx.postingRouteProof,
+      job: ctx.job,
+      allowSingleExternalApplicationEntry: true,
+    }).length === 1;
     // A posting published as a document: its host page stands for it once the document is the order's.
     const sourceDocument = hasJobContract ? await postingDocumentHostMatch(snapshot, ctx, page.url()) : null;
     const sourceDocumentHost = sourceDocument?.identity === true;
@@ -8341,6 +8361,7 @@ export async function readPortalRequirements(ctx) {
       postingUrl: ctx.postingUrl,
       postingRouteProof: ctx.postingRouteProof,
       vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+      uniqueApplicationEntryProven: sourceApplicationEntryProven,
     }));
     const sourcePageUrl = page.url();
     const opened = await openApplicationForm(context, page, snapshot, {
@@ -8780,6 +8801,15 @@ export async function submitViaPortal(ctx) {
       && isNonApplicationJobSearchSurface(snapshot);
     const postingTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const postingSeen = `${postingTitle} ${initialPageText} ${postingUrl}`;
+    const initialApplicationEntryProven = applicationEntryControls(snapshot, {
+      applyUrl: ctx.applyUrl,
+      postingUrl: ctx.postingUrl || postingUrl,
+      pageTitle: postingTitle,
+      sourceProtocol,
+      postingRouteProof: ctx.postingRouteProof,
+      job: ctx.job,
+      allowSingleExternalApplicationEntry: true,
+    }).length === 1;
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
@@ -8811,6 +8841,7 @@ export async function submitViaPortal(ctx) {
         postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+        uniqueApplicationEntryProven: initialApplicationEntryProven,
       });
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on

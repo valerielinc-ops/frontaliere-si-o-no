@@ -8723,6 +8723,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-iva-finanzia-avs.title': 'November 29 vote: VAT increase to finance 13th AHV pension',
     'blog.article.aumento-iva-finanzia-avs.excerpt': 'On November 29, Swiss voters will vote on the increase in VAT intended to finance the 13th AVS pension.',
     'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Minimum wage of 5,000 francs: the debate heats up',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debate on a minimum wage of CHF 5,000 for those who have completed an apprenticeship.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

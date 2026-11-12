@@ -31,7 +31,7 @@ import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } fr
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
-import { emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { chromeErrorPageFailure, emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -64,6 +64,89 @@ export function navigationHandoffFor(error, { clicked = false, succeeded = false
     return { type: 'submit_handoff', reason: 'navigation_unavailable' };
   }
   return null;
+}
+
+function portalContractHost(draft) {
+  const contract = draft?.portalContract;
+  if (contract?.postingMatch !== 'match') return null;
+  const locations = contract.form?.observed === true
+    ? [contract.currentUrl, contract.applyUrl]
+    : [contract.applyUrl, contract.currentUrl];
+  for (const location of locations) {
+    const raw = typeof location === 'string'
+      ? location
+      : location && typeof location.origin === 'string'
+        ? `${location.origin}${typeof location.path === 'string' ? location.path : '/'}`
+        : '';
+    if (!raw) continue;
+    try {
+      const url = new URL(raw);
+      if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) continue;
+      return url.hostname.toLowerCase().replace(/\.$/, '');
+    } catch { /* the next verified contract address may still identify the form */ }
+  }
+  return null;
+}
+
+/** Keep only a verified form host and a closed network-failure code on the runner event. */
+export function portalNetworkFailureMetadata({ event, evidence = null, error = null, postingUrl = '', draft, liveness } = {}) {
+  if (event?.type !== 'submit_handoff') return null;
+  const host = portalContractHost(draft);
+  if (!host) return null;
+  const stopReport = evidence?.stopReport || event.stopReport || {};
+  const chromeErrorPage = (() => {
+    const finalUrl = typeof evidence?.finalUrl === 'string' ? evidence.finalUrl.trim() : '';
+    if (finalUrl) {
+      try {
+        if (new URL(finalUrl).protocol.toLowerCase() === 'chrome-error:') return true;
+      } catch { /* use explicit browser diagnostics below */ }
+    }
+    return chromeErrorPageFailure([
+      event.reason,
+      event.error?.message,
+      event.error?.code,
+      error?.message,
+      error?.code,
+      error?.cause?.message,
+      error?.cause?.code,
+      stopReport.reason,
+      stopReport.path,
+      ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
+    ].filter(Boolean).map(String).join(' '));
+  })();
+  const diagnostics = [
+    event.reason,
+    event.error?.message,
+    event.error?.code,
+    error?.message,
+    error?.code,
+    error?.cause?.message,
+    error?.cause?.code,
+    stopReport.reason,
+    stopReport.path,
+    ...(Array.isArray(stopReport.errors) ? stopReport.errors : []),
+  ].filter(Boolean).map(String).join(' ');
+  const portalAccessBlocked = event.reason === 'access_blocked';
+  const livenessAccessBlocked = liveness?.page?.code === 'access_blocked';
+  const accessBlocked = portalAccessBlocked || livenessAccessBlocked;
+  const connectionError = navigationInfrastructureFailure(diagnostics);
+  const kind = accessBlocked
+    ? 'access_blocked'
+    : chromeErrorPage
+      ? 'chrome_error'
+      : event.reason === 'navigation_unavailable'
+        ? 'navigation_unavailable'
+        : connectionError ? 'connection_failure' : null;
+  if (!kind) return null;
+
+  // A liveness block applies to the page being checked. Do not attribute it to a different form host.
+  if (livenessAccessBlocked && !portalAccessBlocked) {
+    if (!postingUrl) return null;
+    try {
+      if (new URL(postingUrl).hostname.toLowerCase().replace(/\.$/, '') !== host) return null;
+    } catch { return null; }
+  }
+  return { host, kind };
 }
 
 /** Open required questions block the submission, whatever the channel. */
@@ -613,7 +696,7 @@ export async function submitApplication(ctx) {
           attemptKept = false;
         }
       };
-      const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
+      let { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         postingUrl: portalPostingUrl,
         postingRouteProof,
@@ -678,6 +761,8 @@ export async function submitApplication(ctx) {
           throw lastError;
         } : null,
       });
+      const portalNetworkFailure = portalNetworkFailureMetadata({ event, evidence, postingUrl, draft, liveness });
+      if (portalNetworkFailure) event = { ...event, portalNetworkFailure };
       succeeded = event.type === 'submit_succeeded' || receiptPersisted;
       const portalPass = portalPassFrom({ applyUrl, channel: channelType, event, evidence, dryRun: Boolean(ctx.dryRun) });
       // A dry run keeps its files under dry-run-… and its record in the evidence only.
@@ -745,7 +830,10 @@ export async function submitApplication(ctx) {
         return { type: 'submit_handoff', reason: 'question_localization_unavailable' };
       }
       const navigationHandoff = navigationHandoffFor(error, { clicked, succeeded });
-      if (navigationHandoff) return navigationHandoff;
+      if (navigationHandoff) {
+        const portalNetworkFailure = portalNetworkFailureMetadata({ event: navigationHandoff, error, postingUrl, draft, liveness });
+        return portalNetworkFailure ? { ...navigationHandoff, portalNetworkFailure } : navigationHandoff;
+      }
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

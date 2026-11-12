@@ -129,14 +129,35 @@ describe('frontaliere article first-render work', () => {
     expect(reactImport).toBeGreaterThan(articleGate);
   });
 
-  it('keeps the bare Ticino job-board snapshot outside #root until results are ready', () => {
+  it('keeps the bare Ticino job-board snapshot outside #root on the sub-desktop LCP path', () => {
     const route = { activeTab: 'job-board' as const, jobBoardCanton: 'TI' };
     expect(shouldKeepStaticFallbackOutsideRoot(route, 'job-board', true)).toBe(true);
     expect(shouldAdoptStaticFallbackIntoRoot(route, false, 'job-board', true)).toBe(false);
+    expect(shouldKeepStaticFallbackOutsideRoot(
+      route,
+      'job-board',
+      true,
+      { keepJobBoardOutsideRoot: true },
+    )).toBe(true);
+    expect(shouldKeepStaticFallbackOutsideRoot(
+      route,
+      'job-board',
+      true,
+      { keepJobBoardOutsideRoot: false },
+    )).toBe(false);
+    expect(shouldAdoptStaticFallbackIntoRoot(
+      route,
+      false,
+      'job-board',
+      true,
+      { keepJobBoardOutsideRoot: false },
+    )).toBe(true);
     expect(shouldKeepStaticFallbackOutsideRoot({ ...route, jobSlug: 'offerta' }, 'job-board', true)).toBe(false);
     expect(shouldKeepStaticFallbackOutsideRoot({ ...route, staticOverlay: true }, 'job-board', true)).toBe(false);
     expect(entrySource).toContain("fallback?.classList.contains('job-board-static-content')");
+    expect(entrySource).toContain('keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot');
     expect(appSource).toContain('onInitialContentReady={markJobBoardSnapshotReady}');
+    expect(appSource).toContain('keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot');
     expect(appSource).toContain('staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback || jobBoardStaticFallback');
     expect(appSource).toContain('fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}');
     expect(appSource).toContain('{!jobBoardStaticFallback && <SafeLazy boundary="job-save-mount"><JobSaveMount /></SafeLazy>}');

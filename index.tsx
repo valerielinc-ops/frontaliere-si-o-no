@@ -259,7 +259,7 @@ const bootstrapApp = async () => {
  // search). MOVE that fallback into #root so React+s createRoot().render()
  // replaces it IN-PLACE (reusing the reserve+crossfade below) instead of an
  // external collapse. Bare canton/aggregate job-board roots keep their
- // external snapshot outside until the first result set.
+ // external snapshot outside only on the sub-desktop LCP path.
  // parsePath is dynamic-imported (NOT a static entry import) so router+s heavy
  // route registries stay out of the entry chunk — it is already loaded with App
  // above, so this resolves from cache.
@@ -273,6 +273,7 @@ const bootstrapApp = async () => {
    keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(fallback);
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
+   const keepJobBoardSnapshotOutsideRoot = shouldWaitForJobBoardLcp(window.innerWidth);
    const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
      ? 'article'
      : fallback?.classList.contains('job-board-static-content')
@@ -297,6 +298,7 @@ const bootstrapApp = async () => {
        hasPlateAuctionStaticFallback(),
        fallbackKind,
        true,
+       { keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot },
      )) {
        const isJobBoardRoute = parsedRoute.activeTab === 'job-board';
        fallback.style.removeProperty('display');
