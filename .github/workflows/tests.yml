@@ -2732,8 +2732,10 @@ jobs:
       # mantiene `tsconfig.ci.json`, `--noEmit`, `--listFiles`, l'intero programma
       # e la baseline. Sul runner da 16 GiB, le misure PR del 2026-11-11 mostrano
       # RSS TSC di 8,45 GiB e almeno 6,4 GiB disponibili quando non si sovrappone
-      # agli altri gate. Il wrapper riceve NODE_OPTIONS da 10 GiB; il limite
-      # esplicito da 12 GiB del processo TSC resta nel gate di baseline.
+      # agli altri gate. Il wrapper riceve NODE_OPTIONS da 10 GiB e il gate non
+      # lo sovrascrive nel figlio. Quando cambia questo contratto, lo stesso step
+      # misura in sequenza la variante storica da 12 GiB e quella corrente,
+      # azzerando la cache incrementale prima di entrambe (#18199).
       #
       # Il collector attende Vitest e tutti i gate detached. Prima di proseguire
       # verifica l'uscita di ciascun process group; al timeout lo termina e lo
@@ -2871,11 +2873,29 @@ jobs:
       - name: Typecheck after detached source gates
         id: typecheck-gate
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() && !cancelled() && steps.collect-independent-gates.outputs.tsc_safe_to_start == 'true' && steps.body_contract.outcome != 'failure' }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           set -euo pipefail
           echo "[tsc] starting after detached independent gates"
-          env NODE_OPTIONS=--max-old-space-size=10240 \
-            bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+          TYPECHECK_HEAP_COMPARISON=false
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            changed="$(git diff --name-only "origin/${BASE_REF}"...HEAD -- \
+              scripts/ci/check-typecheck-baseline.mjs \
+              scripts/ci/compare-typecheck-heap.sh \
+              tests/typecheck-heap-comparison.test.ts)"
+            if [ -n "$changed" ]; then
+              TYPECHECK_HEAP_COMPARISON=true
+              printf 'Confronto heap richiesto da:\n%s\n' "$changed"
+            fi
+          fi
+          if [ "$TYPECHECK_HEAP_COMPARISON" = "true" ]; then
+            bash scripts/ci/compare-typecheck-heap.sh
+          else
+            env NODE_OPTIONS=--max-old-space-size=10240 \
+              bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
+          fi
 
       # Il salvataggio post-job di `actions/cache` non parte quando uno step
       # successivo fallisce (per esempio Vitest): TSC può essere verde, ma la
