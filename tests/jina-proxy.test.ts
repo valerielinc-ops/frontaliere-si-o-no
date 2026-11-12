@@ -160,6 +160,7 @@ describe('looksLikeAntiBotChallenge', () => {
     expect(looksLikeAntiBotChallenge('<title>Just a moment...</title>')).toBe(true);
     expect(looksLikeAntiBotChallenge('<h1>Attention Required!</h1> Cloudflare')).toBe(true);
     expect(looksLikeAntiBotChallenge('Checking your browser before accessing the site.')).toBe(true);
+    expect(looksLikeAntiBotChallenge("JavaScript is disabled. In order to continue, we need to verify that you're not a robot.")).toBe(true);
     expect(looksLikeAntiBotChallenge('window.__CF$cv$params; cf_chl_opt')).toBe(true);
     expect(looksLikeAntiBotChallenge('<script>_Incapsula_Resource</script>')).toBe(true);
     expect(looksLikeAntiBotChallenge('<title>Challenge Validation</title><meta name="sec-cpt-if" content="provider=crypto">')).toBe(true);
