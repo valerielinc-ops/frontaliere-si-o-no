@@ -3,12 +3,13 @@
  *
  * Why it exists (2026-08-05). The `cloudflare-5xx` family was treated for weeks as a single
  * defect: "R2 does not answer and Cloudflare synthesises the 502". Measuring the zone with
- * `originResponseStatus` + `cacheStatus` showed it is at least THREE surfaces, with different
+ * `originResponseStatus` + `cacheStatus` showed it is at least FOUR surfaces, with different
  * origins, that one label was hiding:
  *
  *   502 on cdn.frontaliereticino.ch/assets|data           -> origin R2
  *   502 on frontaliereticino.ch/commit-hash.txt, /fonts/  -> origin GitHub Pages
  *   503 on frontaliereticino.ch/{en,de,fr}/…              -> Worker -> per-locale Pages shard
+ *   5xx on frontaliereticino.ch/api/public-config/         -> Worker -> public-config Function
  *
  * The cost of that conflation is concrete: `serve_stale`, applied to the CDN rule only, was
  * taken to mitigate #5082 too — which is a 503 on the apex and could never be touched by it.
@@ -19,6 +20,8 @@
  * separate Cloudflare Tunnel ingress surfaces; their receiver ports come from the workspace
  * tunnel configuration, and status codes alone do not attribute a failure to a tunnel hop.
  */
+
+import { PUBLIC_CONFIG_PATH } from '../../services/publicConfigConstants.mjs';
 
 /** R2 CDN host. Also used by cf-5xx-snapshot.mjs for per-surface reporting. */
 export const CDN_HOST = 'cdn.frontaliereticino.ch';
@@ -56,6 +59,11 @@ export const SURFACES = {
   'worker-shard': {
     origin: 'frontaliere-locale-router Worker -> per-locale GitHub Pages shard',
     cacheRule: 'locale-shard-failover-cache',
+    serveStale: false,
+  },
+  'worker-public-config': {
+    origin: 'frontaliere-locale-router Worker -> public-config Cloud Function',
+    cacheRule: 'public-config-cache',
     serveStale: false,
   },
   'apex-pages': {
@@ -100,7 +108,7 @@ export function isWebhookTunnelSurface(surface) {
   return WEBHOOK_TUNNEL_SURFACES.includes(surface);
 }
 
-/** @typedef {'cdn-r2'|'worker-shard'|'apex-pages'|'github-webhook-default'|'github-webhook-default-agenti'|'github-webhook-nanako'|'github-webhook-nanako-agenti'|'www-redirect'|'other'} SurfaceKey */
+/** @typedef {'cdn-r2'|'worker-shard'|'worker-public-config'|'apex-pages'|'github-webhook-default'|'github-webhook-default-agenti'|'github-webhook-nanako'|'github-webhook-nanako-agenti'|'www-redirect'|'other'} SurfaceKey */
 
 /**
  * Classify a request into the surface that served it.
@@ -130,6 +138,7 @@ export function classifySurface(row) {
 
   const path = row?.path == null ? null : String(row.path);
   if (path === '' || path === null) return 'apex-unknown';
+  if (path === PUBLIC_CONFIG_PATH) return 'worker-public-config';
   if (LOCALE_SHARD_EXACT.has(path)) return 'worker-shard';
   if (LOCALE_SHARD_PREFIXES.some((p) => path.startsWith(p))) return 'worker-shard';
   return 'apex-pages';

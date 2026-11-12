@@ -21,10 +21,14 @@
  *       ELIGIBLE for cache so the apex-keyed entries the Worker writes via
  *       cache.put() are reachable on the fail-open path. 3xx-5xx → TTL 0 so a
  *       transient fail-open 404 never outlives the cap window.
- *    b) it-apex-html-cache — caches the IT/apex HTML (the ~95% Worker-
+ *    b) public-config-cache — makes the exact public-config endpoint eligible
+ *       for edge caching while respecting its response Cache-Control. A healthy
+ *       response is cacheable for five minutes; the Worker/function fail-open
+ *       response carries `no-store` and therefore is never frozen at the edge.
+ *    c) it-apex-html-cache — caches the IT/apex HTML (the ~95% Worker-
  *       passthrough bulk, previously cf-cache-status=DYNAMIC i.e. uncached).
  *       Query-string requests bypass (no cache pollution); 3xx-5xx → TTL 0.
- *    a) and b) override Edge TTL to APEX_EDGE_TTL_SECONDS (300s, self-
+ *    a) and c) override Edge TTL to APEX_EDGE_TTL_SECONDS (300s, self-
  *    invalidating — NOT purge-invalidated since 2026-08-05, #5162; the
  *    zone-wide purge_everything this comment used to describe was removed
  *    from post-deploy-validate-live.yml because it also wiped the CDN's
@@ -37,7 +41,7 @@
  *    `Vary: Accept-Encoding` one (#5483): a caller purging an apex URL can
  *    report ✅ without moving the copy browsers get, but the 300s TTL still
  *    catches it regardless.
- *    c) cdn-r2-passthrough-cache — makes cdn.frontaliereticino.ch (R2 custom
+ *    d) cdn-r2-passthrough-cache — makes cdn.frontaliereticino.ch (R2 custom
  *       domain, CDN_TARGET=r2) ELIGIBLE for cache, RESPECTING the origin's own
  *       Cache-Control (no override, no purge mechanism needed — R2 objects
  *       already carry correct explicit per-prefix Cache-Control from
@@ -148,6 +152,10 @@
 
 import { stableStringify } from './lib/stable-stringify.mjs';
 import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import {
+  PUBLIC_CONFIG_PATH,
+  PUBLIC_CONFIG_SITE_HOST,
+} from '../services/publicConfigConstants.mjs';
 
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
@@ -368,6 +376,19 @@ const CACHE_ACTION_PARAMETERS = {
   serve_stale: { disable_stale_while_updating: false },
 };
 
+// The public-config endpoint is a JSON proxy with an explicit Cache-Control
+// contract: successful function responses are public for 300 seconds, while
+// every fail-open response is `no-store`. Respect the origin here instead of
+// reusing CACHE_ACTION_PARAMETERS, whose override_origin mode would be allowed
+// to cache a 200 fallback and turn a transient upstream failure into a stale
+// configuration outage.
+const PUBLIC_CONFIG_CACHE_ACTION_PARAMETERS = {
+  cache: true,
+  edge_ttl: { mode: 'respect_origin' },
+  browser_ttl: { mode: 'respect_origin' },
+  serve_stale: { disable_stale_while_updating: false },
+};
+
 // cdn.frontaliereticino.ch (R2) cache settings: RESPECT origin instead of
 // overriding it — unlike the apex HTML above, R2 objects already carry
 // correct explicit per-prefix Cache-Control (assets/og/images/data/job-canon,
@@ -445,9 +466,24 @@ const IT_APEX_CACHE_REQUEST_EXPRESSION =
   'and not starts_with(http.request.uri.path, "/api/") ' +
   'and not http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"}';
 
+const PUBLIC_CONFIG_CACHE_REQUEST_EXPRESSION =
+  `http.host eq "${PUBLIC_CONFIG_SITE_HOST}" and ` +
+  'http.request.method eq "GET" and ' +
+  `http.request.uri.path eq "${PUBLIC_CONFIG_PATH}" and ` +
+  'http.request.uri.query eq ""';
+
 // Every cache rule this script owns, keyed by description (the idempotency
 // marker — foreign rules sharing the entrypoint are preserved untouched).
 const MANAGED_CACHE_RULES = [
+  {
+    // The public-config route is Worker-routed, but an over-cap/fail-open
+    // request bypasses the Worker and can only be protected by the normal CDN
+    // cache. Keep this exact and queryless: other APIs must remain uncached,
+    // and the response's own `no-store` protects the fail-open `{}` body.
+    description: 'public-config-cache (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression: `(${PUBLIC_CONFIG_CACHE_REQUEST_EXPRESSION})`,
+    action_parameters: PUBLIC_CONFIG_CACHE_ACTION_PARAMETERS,
+  },
   {
     // Locale-shard over-cap failover: extensionless HTML is not edge-cache
     // looked-up by default, so without this the apex-keyed entries the Worker
@@ -466,7 +502,8 @@ const MANAGED_CACHE_RULES = [
     // and was served cf-cache-status=DYNAMIC (every hit reached GitHub Pages).
     // Cache GET page requests with NO query string (so ?q= search / ?debug=
     // variations bypass and never pollute the cache), excluding the locale
-    // shards (handled above), /api/, and the shard root paths. This rule is
+    // shards (handled above), every /api/ path, and the shard root paths. The
+    // public-config endpoint has its own exact rule above. This rule is
     // host-scoped to the apex, so it never matches cdn.* — no asset-extension
     // exclusion is needed here (see cdn-r2-passthrough-cache below, which
     // owns cdn.frontaliereticino.ch).

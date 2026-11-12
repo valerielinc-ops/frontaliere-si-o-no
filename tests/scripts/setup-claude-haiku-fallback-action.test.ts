@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const actionPath = path.resolve(process.cwd(), '.github/actions/setup-claude-haiku-fallback/action.yml');
+const trustedPathScriptPath = path.resolve(process.cwd(), '.github/actions/setup-claude-haiku-fallback/trusted-path.sh');
 const fallbackActionPath = path.resolve(process.cwd(), '.github/actions/claude-codex-fallback/action.yml');
 const sandboxActionPath = path.resolve(process.cwd(), '.github/actions/setup-codex-sandbox/action.yml');
 const eventRewriteWorkflowPath = path.resolve(process.cwd(), '.github/workflows/event-description-rewrite.yml');
@@ -88,7 +89,13 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(gate).toContain('ENABLE_CODEX_ARTICLE_FALLBACK=$resolved_gate');
     expect(gate).not.toContain('ENABLE_CODEX_ARTICLE_FALLBACK=0');
     expect(resolver).toContain('report_runtime_candidates()');
-    expect(resolver).toContain('path_components_trusted');
+    expect(resolver).toContain('source "$action_path/trusted-path.sh"');
+    expect(resolver).toContain('bootstrap_path_components_trusted "$bootstrap_tool"');
+    expect(resolver.indexOf('bootstrap_path_components_trusted "$bootstrap_tool"'))
+      .toBeLessThan(resolver.indexOf('workspace_root="$(realpath "$workspace_root")"'));
+    expect(resolver).toContain('trusted_path_resolve "$host_tool"');
+    expect(resolver).toContain('trusted_path_resolve "$candidate"');
+    expect(fs.readFileSync(trustedPathScriptPath, 'utf8')).toContain('if [ -L "$current" ]; then');
     expect(resolver).toContain('node_version=');
     expect(resolver).toContain('node_archive_sha256=');
     // Il download resta bounded e usa chunk HTTP espliciti con il checksum finale.
@@ -103,6 +110,128 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(install).toContain('npm_config_cache="$npm_cache"');
     expect(install).toContain('@openai/codex@0.153.4');
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
+  });
+
+  it('attesta link root-owned e l’intera catena senza fidarsi del mode 0777 del link', () => {
+    const fixtureRoot = fs.mkdtempSync(path.join(process.cwd(), 'scripts', '.trusted-path-fixture-'));
+    const temporaryRoot = fs.mkdtempSync('/tmp/trusted-path-tmp-');
+    const shellQuote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
+    const runTrustedPath = (
+      candidate: string,
+      root: string,
+      linkOwner = '0',
+      forbiddenBy = '',
+      bootstrap = false,
+    ) => {
+      const script = [
+        'set -euo pipefail',
+        'stat_cmd="$FIXTURE_STAT"; if [ "$CHECK_BOOTSTRAP" != 1 ]; then stat_cmd=/usr/bin/stat; [ -x "$stat_cmd" ] || stat_cmd=/bin/stat; fi',
+        'readlink_cmd=/usr/bin/readlink; [ -x "$readlink_cmd" ] || readlink_cmd=/bin/readlink',
+        'realpath_cmd=/usr/bin/realpath; [ -x "$realpath_cmd" ] || realpath_cmd=/bin/realpath',
+        'realpath() { "$realpath_cmd" "$@"; }',
+        `source ${shellQuote(trustedPathScriptPath)}`,
+        'workspace_root=/definitely-not-the-fixture-workspace',
+        'action_path=/definitely-not-the-fixture-action',
+        'runner_temp=/definitely-not-the-fixture-runner-temp',
+        'case "$FORBIDDEN_BY" in workspace) workspace_root="$BLOCKED_ROOT" ;; action) action_path="$BLOCKED_ROOT" ;; runner_temp) runner_temp="$BLOCKED_ROOT" ;; esac',
+        'temporary_root=',
+        'trusted_roots=("$TRUSTED_ROOT")',
+        'bootstrap_roots=("$TRUSTED_ROOT")',
+        'TRUSTED_PATH_OWNER_POLICY=current',
+        'stat_owner() { if [ -L "$1" ]; then printf "%s" "$LINK_OWNER"; else printf 0; fi; }',
+        'if [ "$CHECK_BOOTSTRAP" = 1 ]; then bootstrap_path_components_trusted "$CANDIDATE"; else trusted_path_resolve "$CANDIDATE"; fi',
+      ].join('\n');
+      const result = spawnSync(bashPath, ['--noprofile', '--norc', '-e', '-u', '-o', 'pipefail', '-c', script], {
+        encoding: 'utf8',
+        env: {
+          PATH: '/usr/bin:/bin',
+          TRUSTED_ROOT: root,
+          CANDIDATE: candidate,
+          LINK_OWNER: linkOwner,
+          FORBIDDEN_BY: forbiddenBy,
+          BLOCKED_ROOT: root,
+          CHECK_BOOTSTRAP: String(Number(bootstrap)),
+          FIXTURE_STAT: path.join(root, 'tools', 'stat'),
+        },
+      });
+      return { status: result.status, output: `${result.stdout}${result.stderr}`.trim() };
+    };
+    try {
+      const bin = path.join(fixtureRoot, 'bin');
+      const lib = path.join(fixtureRoot, 'lib');
+      const alternatives = path.join(fixtureRoot, 'etc', 'alternatives');
+      fs.mkdirSync(bin, { recursive: true, mode: 0o755 });
+      fs.mkdirSync(lib, { recursive: true, mode: 0o755 });
+      fs.mkdirSync(alternatives, { recursive: true, mode: 0o755 });
+      const fakeStat = path.join(fixtureRoot, 'tools', 'stat');
+      fs.mkdirSync(path.dirname(fakeStat), { recursive: true, mode: 0o755 });
+      fs.writeFileSync(fakeStat, [
+        '#!/bin/bash',
+        'format="$2"; candidate="$3"',
+        '[ "$format" = "%u %a %N" ] || exit 2',
+        'if [ -L "$candidate" ]; then',
+        '  target="$(/usr/bin/readlink "$candidate")"',
+        '  printf "%s 777 \'%s\' -> \'%s\'\\n" "$LINK_OWNER" "$candidate" "$target"',
+        'else',
+        '  mode="$(/usr/bin/stat -c \'%a\' "$candidate" 2>/dev/null || /usr/bin/stat -f \'%Lp\' "$candidate" 2>/dev/null)"',
+        '  printf "0 %s \'%s\'\\n" "$mode" "$candidate"',
+        'fi',
+      ].join('\n'));
+      fs.chmodSync(fakeStat, 0o755);
+      const target = path.join(lib, 'coreutils');
+      fs.writeFileSync(target, '#!/bin/sh\nexit 0\n');
+      fs.chmodSync(target, 0o755);
+
+      const directLink = path.join(bin, 'sha256sum');
+      fs.symlinkSync('../lib/coreutils', directLink);
+      const directResult = runTrustedPath(directLink, fixtureRoot);
+      expect(directResult.status, directResult.output).toBe(0);
+      expect(directResult.output).toBe(target);
+      const directBootstrapResult = runTrustedPath(directLink, fixtureRoot, '0', '', true);
+      expect(directBootstrapResult.status, directBootstrapResult.output).toBe(0);
+      for (const forbiddenBy of ['workspace', 'action', 'runner_temp']) {
+        expect(runTrustedPath(directLink, fixtureRoot, '0', forbiddenBy).status, forbiddenBy).not.toBe(0);
+      }
+
+      const writableTarget = path.join(fixtureRoot, 'other-writable', 'coreutils');
+      fs.mkdirSync(path.dirname(writableTarget), { recursive: true, mode: 0o777 });
+      fs.chmodSync(path.dirname(writableTarget), 0o777);
+      fs.copyFileSync(target, writableTarget);
+      fs.chmodSync(writableTarget, 0o755);
+      const writableLink = path.join(bin, 'writable-target');
+      fs.symlinkSync('../other-writable/coreutils', writableLink);
+      expect(runTrustedPath(writableLink, fixtureRoot).status).not.toBe(0);
+      expect(runTrustedPath(writableLink, fixtureRoot, '0', '', true).status).not.toBe(0);
+
+      const firstLink = path.join(bin, 'coreutils');
+      const secondLink = path.join(alternatives, 'coreutils');
+      fs.symlinkSync('../etc/alternatives/coreutils', firstLink);
+      fs.symlinkSync('../../lib/coreutils', secondLink);
+      const chainedResult = runTrustedPath(firstLink, fixtureRoot);
+      expect(chainedResult.status, chainedResult.output).toBe(0);
+      expect(chainedResult.output).toBe(target);
+      expect(runTrustedPath(firstLink, fixtureRoot, '0', '', true).status).toBe(0);
+
+      const tempLink = path.join(temporaryRoot, 'sha256sum');
+      fs.symlinkSync(target, tempLink);
+      expect(runTrustedPath(tempLink, fixtureRoot).status).not.toBe(0);
+      expect(runTrustedPath(tempLink, fixtureRoot, '0', '', true).status).not.toBe(0);
+
+      const escapedBootstrapLink = path.join(bin, 'escaped-bootstrap-target');
+      const lexicalEscapeTarget = `${fixtureRoot}/${path.relative(fixtureRoot, tempLink)}`;
+      fs.symlinkSync(lexicalEscapeTarget, escapedBootstrapLink);
+      expect(runTrustedPath(escapedBootstrapLink, fixtureRoot, '0', '', true).status).not.toBe(0);
+
+      const unownedLink = path.join(bin, 'unowned-link');
+      fs.symlinkSync('../lib/coreutils', unownedLink);
+      const currentUid = process.getuid?.() ?? 1001;
+      const nonRootUid = currentUid === 0 ? 1001 : currentUid;
+      expect(runTrustedPath(unownedLink, fixtureRoot, String(nonRootUid)).status).not.toBe(0);
+      expect(runTrustedPath(unownedLink, fixtureRoot, String(nonRootUid), '', true).status).not.toBe(0);
+    } finally {
+      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+      fs.rmSync(temporaryRoot, { recursive: true, force: true });
+    }
   });
 
   it('resumes the checksum-pinned Node download with validated HTTP ranges in both setup actions', () => {

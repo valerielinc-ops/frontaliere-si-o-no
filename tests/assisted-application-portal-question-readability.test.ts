@@ -855,7 +855,7 @@ it('requires vacancy evidence beyond a company match before trusting one externa
   })).toBe(false);
   expect(hasVacancySpecificPostingEvidence('Muster AG Karriere', job, {
     pageUrl: postingUrl, postingUrl,
-  })).toBe(true);
+  })).toBe(false); // The exact route and company alone prove neither the role nor its Apply control.
   expect(hasVacancySpecificPostingEvidence('Andere GmbH — Bewerbung', job, {
     pageUrl: postingUrl, pageTitle: 'Andere GmbH — Bewerbung', postingUrl,
   })).toBe(false);
@@ -881,7 +881,15 @@ it('keeps proven posting location metadata out of the employer conflict guard', 
     pageTitle: `Coop: ${job.title}`,
     postingUrl,
     vacancyIdentityContexts: [vacancyContext],
+    uniqueApplicationEntryProven: true,
   })).toBe(true);
+  expect(hasVacancySpecificPostingEvidence(vacancyContext, job, {
+    pageUrl: postingUrl,
+    pageTitle: `Andere GmbH: ${job.title}`,
+    postingUrl,
+    vacancyIdentityContexts: [vacancyContext],
+    uniqueApplicationEntryProven: true,
+  })).toBe(false);
   expect(applicationEntryControls({ links: [apply] }, {
     postingUrl,
     job,
@@ -1121,6 +1129,13 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
     fields: [],
     links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
   };
+  const job = { title: 'Social worker', company: 'Acme AG' };
+  expect(hasVacancySpecificPostingEvidence(postingSnapshot.text, job, {
+    pageUrl: postingUrl,
+    pageTitle: 'Social worker | Rival AG',
+    postingUrl,
+    uniqueApplicationEntryProven: true,
+  })).toBe(false);
   const state = { url: postingUrl, snapshot: postingSnapshot };
   const applyLink = {
     first: () => applyLink,
@@ -1139,7 +1154,9 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
       state.url = url;
       state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
     }),
-    evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    evaluate: vi.fn(async (evaluate: unknown) => typeof evaluate === 'function'
+      && String(evaluate).includes("querySelectorAll('h1,") ? [] : false),
+    waitForLoadState: vi.fn(async () => {}),
     waitForTimeout: vi.fn(async () => {}),
   };
   const context = { newPage: async () => page, waitForEvent: () => Promise.resolve(null) };
@@ -1148,7 +1165,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
 
   const result = await readPortalRequirements({
     channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'en', candidateLocale: 'en',
-    job: { title: 'Social worker', company: 'Acme AG' },
+    job,
     candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
   });
 

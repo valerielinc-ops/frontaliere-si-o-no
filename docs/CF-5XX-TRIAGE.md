@@ -6,13 +6,14 @@ Guida per diagnosticare la famiglia `cloudflare-5xx` senza rifare gli errori del
 
 Per settimane i 5xx sono stati letti come un difetto solo — «R2 non risponde e Cloudflare
 sintetizza il 502». Misurando la zona con `originResponseStatus` e `cacheStatus` sono emerse
-**tre superfici del sito con origin diversi**; gli host webhook sono invece ingressi
+**quattro superfici del sito con origin diversi**; gli host webhook sono invece ingressi
 Cloudflare Tunnel distinti:
 
 | superficie | dove | origin | cache rule |
 |---|---|---|---|
 | `cdn-r2` | `cdn.frontaliereticino.ch/assets`, `/data` | R2 | `cdn-r2-passthrough-cache` |
 | `worker-shard` | `frontaliereticino.ch/{en,de,fr}/…` | Worker → shard Pages per-locale | `locale-shard-failover-cache` |
+| `worker-public-config` | `frontaliereticino.ch/api/public-config/` | Worker → Cloud Function di configurazione pubblica | `public-config-cache` |
 | `apex-pages` | `frontaliereticino.ch/commit-hash.txt`, `/fonts/`, `/favicon.svg` | GitHub Pages | `it-apex-html-cache` |
 | `github-webhook-default` | `gh-default.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver locale `18787` | nessuna cache rule del sito |
 | `github-webhook-default-agenti` | `gh-default-agenti.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver webhook degli agenti | nessuna cache rule del sito |
@@ -22,7 +23,7 @@ Cloudflare Tunnel distinti:
 e dato per mitigante anche di #5082 — che è un `503` sull'apex e non poteva toccare. Chiuderla
 «perché i 5xx sono scesi» avrebbe archiviato un difetto mai diagnosticato.
 
-La partizione vive in `scripts/lib/cf-error-surface.mjs`. Le tre superfici del sito rispecchiano
+La partizione vive in `scripts/lib/cf-error-surface.mjs`. Le quattro superfici del sito rispecchiano
 le cache rule possedute da `scripts/cf-locale-failover-setup.mjs`; gli ingressi webhook sono
 classificati dagli hostname configurati per i tunnel. `classifySurface()` descrive il percorso
 atteso: da sola non prova quale hop abbia restituito un 5xx.

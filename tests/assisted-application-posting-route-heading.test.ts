@@ -72,6 +72,7 @@ describe('selected posting route whose rendered text starts with a skip link', (
   it('keeps a heading with only part of the role a mismatch (review of #18003)', () => {
     expect(hasVacancySpecificPostingEvidence(renderedPosting('Product Manager'), job, {
       pageUrl: postingUrl, pageTitle, pageHeading: 'Product Manager', postingUrl,
+      uniqueApplicationEntryProven: true,
     })).toBe(false);
   });
 
@@ -120,11 +121,19 @@ describe('postingMainHeading', () => {
     expect(await postingMainHeading(pageOf('<h1>IT Product Manager</h1><h1 style="display:none">Other Role</h1>'))).toBe('IT Product Manager');
   });
 
-  it('gives nothing for two different headings or none', async () => {
-    expect(await postingMainHeading(pageOf('<h1>IT Product Manager</h1><h1>Senior Software Engineer Java</h1>'))).toBe('');
+  it('distinguishes no heading from ambiguous or unreadable heading evidence', async () => {
+    expect(await postingMainHeading(pageOf('<h1>IT Product Manager</h1><h1>Senior Software Engineer Java</h1>'))).toBeNull();
     expect(await postingMainHeading(pageOf('<h2>IT Product Manager</h2>'))).toBe('');
+    expect(await postingMainHeading({ evaluate: async () => { throw new Error('unavailable'); } })).toBeNull();
+    expect(hasVacancySpecificPostingEvidence(renderedPosting(), job, {
+      pageUrl: postingUrl,
+      pageTitle: 'IT Product Manager | yellowshark AG',
+      pageHeading: null,
+      postingUrl,
+      uniqueApplicationEntryProven: true,
+    })).toBe(false);
     // A different heading after ten copies of the role is still a second heading (review of #18003).
-    expect(await postingMainHeading(pageOf(`${'<h1>IT Product Manager</h1>'.repeat(10)}<h1>Apply now</h1>`))).toBe('');
+    expect(await postingMainHeading(pageOf(`${'<h1>IT Product Manager</h1>'.repeat(10)}<h1>Apply now</h1>`))).toBeNull();
     // A long heading is returned whole, so the role check sees its suffix (review of #18003).
     const long = `Product Manager${'—'.repeat(190)} at Other Employer`;
     expect(isRoleHeading(await postingMainHeading(pageOf(`<h1>${long}</h1>`)), 'Product Manager')).toBe(false);
