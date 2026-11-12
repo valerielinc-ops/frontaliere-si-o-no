@@ -30335,6 +30335,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'dibattito-salario-minimo-5000',
+    category: 'novita',
+    date: '2026-11-12T04:07:34.153Z',
+    image: '/images/blog/article-dibattito-salario-minimo-5000.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

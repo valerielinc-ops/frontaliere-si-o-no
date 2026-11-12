@@ -8723,6 +8723,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-iva-finanzia-avs.title': 'Voto 29 novembre: aumento IVA per finanziare 13a rendita AVS',
     'blog.article.aumento-iva-finanzia-avs.excerpt': 'Il 29 novembre gli elettori svizzeri si pronunceranno sull\'incremento dell\'IVA destinato a finanziare la 13a rendita AVS.',
     'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Salario minimo di 5000 franchi: il dibattito si accende',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Dibattito su salario minimo di 5000 franchi per chi ha finito apprendistato.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

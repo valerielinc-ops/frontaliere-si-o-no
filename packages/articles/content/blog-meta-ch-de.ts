@@ -8723,6 +8723,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aumento-iva-finanzia-avs.title': 'Abstimmung 29. Nov: Mehrwertsteuererhöhung für 13. AHV-Rente',
     'blog.article.aumento-iva-finanzia-avs.excerpt': 'Am 29. November stimmen die Schweizer Stimmberechtigten über die Erhöhung der Mehrwertsteuer zur Finanzierung der 13. AHV-Rente ab.',
     'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Mindestlohn von 5000 Franken: Die Debatte entfacht sich',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debatte über einen Mindestlohn von 5000 Franken für Personen, die eine Lehre abgeschlossen haben.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
