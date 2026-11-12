@@ -314,6 +314,8 @@ describe('rerender-article-hubs deployment ordering', () => {
     const condition = String(plan?.if ?? '');
     expect(condition).toContain("github.event_name != 'push'");
     expect(String(compute?.run ?? '')).toContain('[ "${{ github.event.workflow_run.name }}" = "Deploy to GitHub Pages" ]');
+    expect(plan?.outputs?.deferred).toBe('${{ steps.compute.outputs.deferred }}');
+    expect(String(workflow?.jobs?.rerender?.if ?? '')).toContain("needs.plan.outputs.deferred != 'true'");
     expect(condition).toContain("github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)'");
     expect(condition).toContain("github.event.workflow_run.conclusion == 'success'");
     expect(condition).toContain("github.event.workflow_run.name == 'Hydrated article parity'");
@@ -326,6 +328,7 @@ describe('rerender-article-hubs deployment ordering', () => {
     expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ github.event.workflow_run.head_sha }}');
     expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
     expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
-    expect(run).toContain("echo 'sections=[]' >> \"$GITHUB_OUTPUT\"");
+    expect(run).toContain("echo 'deferred=true' >> \"$GITHUB_OUTPUT\"");
+    expect(run).toContain("echo 'sections=[\"frontaliere\",\"svizzera\"]' >> \"$GITHUB_OUTPUT\"");
   });
 });

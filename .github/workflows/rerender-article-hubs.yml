@@ -207,6 +207,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
+      deferred: ${{ steps.compute.outputs.deferred }}
     steps:
       - id: compute
         env:
@@ -225,15 +226,18 @@ jobs:
             current_main_sha="$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq '.sha' 2>/dev/null || true)"
             if [ -z "$current_main_sha" ]; then
               echo "::warning::cannot verify the current main tip after the full deploy; deferring hub rerender"
-              echo 'sections=[]' >> "$GITHUB_OUTPUT"
+              echo 'deferred=true' >> "$GITHUB_OUTPUT"
+              echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
               exit 0
             fi
             if [ "$current_main_sha" != "$PUBLISHED_DEPLOY_HEAD_SHA" ]; then
               echo "full deploy $PUBLISHED_DEPLOY_HEAD_SHA is behind current main $current_main_sha; deferring hub rerender"
-              echo 'sections=[]' >> "$GITHUB_OUTPUT"
+              echo 'deferred=true' >> "$GITHUB_OUTPUT"
+              echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
               exit 0
             fi
           fi
+          echo 'deferred=false' >> "$GITHUB_OUTPUT"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${INPUT_SECTION:-all}" != "all" ]; then
             printf 'sections=["%s"]\n' "$INPUT_SECTION" >> "$GITHUB_OUTPUT"
           else
@@ -242,6 +246,7 @@ jobs:
 
   rerender:
     needs: plan
+    if: needs.plan.outputs.deferred != 'true'
     strategy:
       fail-fast: false
       max-parallel: 2
