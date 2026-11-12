@@ -13715,6 +13715,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-rinnovo-illuminazione-varese.title': 'Como rénove l’éclairage de l’avenue Varese, projet de 80mila euro',
     'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'La commune de Como a officiellement lancé le projet de rénovation de l’éclairage public le long de deux tronçons de l’avenue Varese.',
     'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-12.title': 'Frontaliers : les relevés disponibles aujourd’hui — 12 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-12.excerpt': 'Les chiffres du jour, 12 novembre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher, le taux franc-euro et les offres d\'emploi actives en Suisse sur notre job board. Relevés quotidiens de notre suivi.',
+    'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Bulletin frontalier 12 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'Les chiffres du 12 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
 };
 
 export default blogMetaFr;

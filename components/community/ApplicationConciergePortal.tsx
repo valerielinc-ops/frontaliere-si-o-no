@@ -32,6 +32,7 @@ import {
   saveApplicationConciergeCandidateLanguageFacts,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
+  getCandidateVisibleConciergeClarificationTasks,
 } from '@/services/applicationConciergeService';
 
 const ChildApplicationReview = lazy(() => import('@/components/community/AssistedApplicationReview'));
@@ -1079,6 +1080,7 @@ export default function ApplicationConciergePortal({
     || (pending && !['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase()));
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
+  const clarificationTasks = getCandidateVisibleConciergeClarificationTasks(service.preProposalChecks || service.proposals);
   const proposalGroups = groupApplicationConciergeProposals(visibleProposals);
 
   const matchingStatus = String(service.matchingStatus || '');
@@ -1087,7 +1089,7 @@ export default function ApplicationConciergePortal({
   const matchingFailed = matchingStatus === 'failed';
   const canVerifyMore = !expired && service.remainingPositions > 0 && matchingStatus === 'complete';
   const verificationPending = canVerifyMore && Number(service.matchingUnverifiedCount) > 0;
-  const qualificationNeedsDetails = canVerifyMore && Number(service.matchingClarificationCount) > 0;
+  const qualificationNeedsDetails = canVerifyMore && Number(service.matchingClarificationCount) > 0 && clarificationTasks.length === 0;
 
   const PortalTitle = previewService ? 'h3' : 'h1';
   const SectionTitle = previewService ? 'h4' : 'h2';
@@ -1162,7 +1164,7 @@ export default function ApplicationConciergePortal({
                   </div>
                   <div className="shrink-0 space-y-1 text-right">
                     <p className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-muted">
-                      {t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed').length}/{service.maxOpenProposals ?? 3}
+                      {t('jobBoard.concierge.openProposalCount')}: {service.openProposalsCount ?? visibleProposals.filter(proposal => proposal.status === 'proposed' && proposal.eligibilityStatus === 'compatible').length}/{service.maxOpenProposals ?? 3}
                     </p>
                     <div>
                       <p className="text-xs font-medium text-subtle">{t('jobBoard.concierge.acceptedProposalCount')}</p>
@@ -1178,7 +1180,14 @@ export default function ApplicationConciergePortal({
                 {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
                 {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
                 <div className="mt-5">
-                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && clarificationTasks.length === 0 && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {clarificationTasks.length > 0 && <section aria-labelledby="concierge-clarification-tasks-title" className="mb-5 rounded-xl border border-info-border bg-info-subtle/40 p-4">
+                    <SectionTitle id="concierge-clarification-tasks-title" className="font-bold text-heading">{t('jobBoard.concierge.clarificationTasksTitle')}</SectionTitle>
+                    <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.clarificationTasksIntro')}</p>
+                    <div className="mt-3 space-y-3">
+                      {clarificationTasks.map(proposal => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
+                    </div>
+                  </section>}
                   {proposalGroups.length > 0 && <div className="space-y-3">
                     {proposalGroups.map(({ category, proposals: groupProposals }, index) => {
                       const labelStatus = category === 'reviewing' ? 'technical_review' : category;
@@ -1385,9 +1394,11 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   t: (key: string, params?: Record<string, string>) => string;
 }) {
   const proposed = proposal.status === 'proposed';
+  const preProposalCheck = proposal.status === 'preproposal_check';
   const accepted = proposal.status === 'accepted';
   const requiredQuestions = (proposal.clarificationQuestions || []).filter(question => question.required);
-  const needsCandidateFacts = proposed && proposal.eligibilityStatus === 'clarification_required' && requiredQuestions.length > 0;
+  const needsCandidateFacts = (proposed || preProposalCheck) && proposal.eligibilityStatus === 'clarification_required' && requiredQuestions.length > 0;
+  const eligibilityConfirmed = proposal.eligibilityStatus === 'compatible';
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [declineReason, setDeclineReason] = useState('');
   const [jobHref, setJobHref] = useState<string | null>(null);
@@ -1411,7 +1422,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   const autoAcceptDate = Number.isFinite(autoAcceptMs) ? new Date(autoAcceptMs) : null;
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
     : displayStatus === 'failed' ? 'bg-danger-subtle text-danger'
-    : ['proposed', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
+    : ['proposed', 'needs_clarification', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : ['queued', 'sending', 'retry_scheduled', 'technical_review', 'unknown'].includes(displayStatus) ? 'bg-info-subtle text-info'
     : 'bg-surface-raised text-muted';
   const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
@@ -1426,11 +1437,11 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <div className="flex min-w-0 flex-1 basis-48 items-start gap-3">
       <div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div>
       <div className="min-w-0 flex-1"><h3 className="break-words font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
-        {typeof proposal.matchScore === 'number' && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {Math.round(proposal.matchScore)}</p>}</div>
+        {eligibilityConfirmed && typeof proposal.matchScore === 'number' && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {Math.round(proposal.matchScore)}</p>}</div>
       </div>
       <span className={`max-w-[45%] shrink-0 rounded-full px-2 py-1 text-center text-xs font-bold ${statusTone}`}>{t(displayStatus.startsWith('employer_') ? `jobBoard.assisted.employerResponse.${displayStatus.slice(9)}` : `jobBoard.concierge.proposalStatus.${displayStatus}`)}</span>
     </div>
-    {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
+    {eligibilityConfirmed && proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
       <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} timeline={proposal.childEmployerResponseTimeline} compact /></div>
       <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${displayStatus === 'needs_answers' ? 'answerChild' : displayStatus === 'needs_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
@@ -1456,8 +1467,8 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       </button>
       {proposal.candidateInterestRecorded && <p className="text-xs leading-5 text-success">{t('jobBoard.concierge.interestRecorded')}</p>}
     </form>}
-    {proposed && <div className="mt-4 flex flex-wrap items-end gap-2">
-      {proposal.eligibilityStatus === 'compatible' && <button type="button" disabled={disabled || !canAccept || displayStatus === 'needs_verification'} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>}
+    {proposed && eligibilityConfirmed && <div className="mt-4 flex flex-wrap items-end gap-2">
+      <button type="button" disabled={disabled || !canAccept || displayStatus === 'needs_verification'} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
       <label className="text-xs font-medium text-subtle">{t('jobBoard.concierge.declineReasonLabel')}
         <select value={declineReason} onChange={event => setDeclineReason(event.target.value)} disabled={disabled}
           className="mt-1 min-h-[40px] rounded-lg border border-edge bg-surface px-2 text-xs text-body">
@@ -1467,7 +1478,6 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       </label>
       <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline', declineReason || undefined)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
     </div>}
-    {proposed && displayStatus === 'needs_verification' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityNeedsVerification')}</p>}
     {proposal.status === 'retracted' && proposal.eligibilityUnresolved && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityUnresolved')}</p>}
     {proposed && proposal.eligibilityStatus === 'compatible' && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
     {autoAcceptDate && <p className="mt-2 text-xs text-subtle">{autoAcceptDate.getTime() > Date.now()

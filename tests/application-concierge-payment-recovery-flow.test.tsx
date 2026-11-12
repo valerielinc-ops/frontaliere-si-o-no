@@ -424,7 +424,7 @@ it('shows proposals added after matching completes while the concierge page stay
     ...completed,
     proposals: [{
       proposalId: 'lifecycle-proposal', jobId: 'job-new', jobUrl: 'https://jobs.example.test/new-role',
-      companyId: 'company-new', companyName: 'New Example AG', jobTitle: 'Lifecycle-created role', status: 'proposed',
+      companyId: 'company-new', companyName: 'New Example AG', jobTitle: 'Lifecycle-created role', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   mocks.fetchService.mockReset().mockResolvedValueOnce(completed).mockResolvedValueOnce(refreshed);
@@ -488,7 +488,7 @@ it('refreshes completed proposals immediately when the user returns to the conci
     ...completed,
     proposals: [{
       proposalId: 'foreground-proposal', jobId: 'job-foreground', jobUrl: 'https://jobs.example.test/foreground-role',
-      companyId: 'company-foreground', companyName: 'Foreground Example AG', jobTitle: 'New proposal after focus', status: 'proposed',
+      companyId: 'company-foreground', companyName: 'Foreground Example AG', jobTitle: 'New proposal after focus', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   mocks.fetchService.mockReset().mockResolvedValueOnce(completed).mockResolvedValueOnce(refreshed);
@@ -517,14 +517,14 @@ it('ignores a late settled refresh after switching to another concierge service'
     ...oldService, serviceId: 'service-current',
     proposals: [{
       proposalId: 'current-proposal', jobId: 'job-current', jobUrl: 'https://jobs.example.test/current-role',
-      companyId: 'company-current', companyName: 'Current Example AG', jobTitle: 'Current service proposal', status: 'proposed',
+      companyId: 'company-current', companyName: 'Current Example AG', jobTitle: 'Current service proposal', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   const staleService = {
     ...oldService,
     proposals: [{
       proposalId: 'stale-proposal', jobId: 'job-stale', jobUrl: 'https://jobs.example.test/stale-role',
-      companyId: 'company-stale', companyName: 'Stale Example AG', jobTitle: 'Stale service proposal', status: 'proposed',
+      companyId: 'company-stale', companyName: 'Stale Example AG', jobTitle: 'Stale service proposal', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   let resolveStale!: (value: typeof staleService) => void;
@@ -567,14 +567,14 @@ it('ignores a late settled refresh after switching candidate accounts', async ()
     serviceId: 'service-next-owner',
     proposals: [{
       proposalId: 'next-account-proposal', jobId: 'job-next-account', jobUrl: 'https://jobs.example.test/next-account-role',
-      companyId: 'company-next-account', companyName: 'Next Account AG', jobTitle: 'Next account proposal', status: 'proposed',
+      companyId: 'company-next-account', companyName: 'Next Account AG', jobTitle: 'Next account proposal', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   const staleService = {
     ...oldService,
     proposals: [{
       proposalId: 'old-account-proposal', jobId: 'job-old-account', jobUrl: 'https://jobs.example.test/old-account-role',
-      companyId: 'company-old-account', companyName: 'Old Account AG', jobTitle: 'Old account proposal', status: 'proposed',
+      companyId: 'company-old-account', companyName: 'Old Account AG', jobTitle: 'Old account proposal', status: 'proposed', eligibilityStatus: 'compatible',
     }],
   };
   const nextOwner = { uid: 'next-owner', getIdToken: async () => 'next-owner-token' };

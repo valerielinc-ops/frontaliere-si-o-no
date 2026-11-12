@@ -14,6 +14,7 @@ export const APPLICATION_CONCIERGE_CURRENCY = 'eur';
 export const APPLICATION_CONCIERGE_DURATION_DAYS = 30;
 export const APPLICATION_CONCIERGE_MAX_POSITIONS = 10;
 export const APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS = 3;
+export const APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS = 3;
 // The consent texts candidates agreed to, oldest first; the last is the one shown now and recorded on a new
 // consent. v2 (owner decision 2026-11-11): the proposals the candidate does not decide within 12 hours are
 // accepted and sent by the platform. A consent given under an earlier version is still honoured, never asked

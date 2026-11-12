@@ -20,7 +20,7 @@ import * as conciergeMatcher from './applicationConciergeMatching.js';
 const { runApplicationConciergeMatching } = conciergeMatcher;
 import { proposalAcceptability } from './applicationConciergeCore.js';
 import { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } from './applicationConciergeLifecycleEmails.js';
-import { sendOrderNotification } from './assistedApplicationNotifications.js';
+import { customerEmailFor, sendOrderNotification } from './assistedApplicationNotifications.js';
 import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
 import {
   conciergeMatchingRuntimeRef,
@@ -277,9 +277,38 @@ async function reconcileExhaustedStaleMatching(db, ref, nowMs) {
   });
 }
 
-function proposalNoticeKey(ids, proposals, salt = '') {
+function proposalNoticeRecipientHash(service, serviceId) {
+  const recipient = customerEmailFor(service);
+  return recipient ? createHash('sha256').update(`${serviceId || ''}|${recipient}`).digest('hex').slice(0, 24) : '';
+}
+
+function proposalNoticeRecipientHashFromAddress(value, serviceId) {
+  const recipient = customerEmailFor({ applicantEmail: value });
+  return recipient ? createHash('sha256').update(`${serviceId || ''}|${recipient}`).digest('hex').slice(0, 24) : '';
+}
+
+function proposalNoticeKey(ids, proposals, salt = '', recipientHash = '') {
   const epoch = ids.map(id => `${id}:${timestampMillis(proposals.get(id)?.eligibilityAcceptableSince)}`).sort().join('|');
-  return `new_proposals_${createHash('sha256').update(`${epoch}|${salt}`).digest('hex').slice(0, 24)}`;
+  return `new_proposals_${createHash('sha256').update(`${epoch}|${salt}|${recipientHash}`).digest('hex').slice(0, 24)}`;
+}
+
+function pendingNoticeCanMoveToRecipient(service, pending, recipientHash, serviceId) {
+  if (!pending?.recipientHash || !recipientHash || pending.recipientHash === recipientHash) return false;
+  const notification = service.notifications?.[pending.key] || null;
+  if (!notification) return true;
+  if (notification.deliveryStatus === 'bounced') {
+    const attemptedHash = proposalNoticeRecipientHashFromAddress(notification.to, serviceId) || pending.recipientHash;
+    return Boolean(attemptedHash && attemptedHash !== recipientHash);
+  }
+  return notification.status === 'failed'
+    && notification.providerStatus !== 'accepted'
+    && notification.providerAcceptedAt == null
+    && !['delivered', 'bounced', 'complained'].includes(notification.deliveryStatus);
+}
+
+function proposalNoticeAttemptRecipientHash(service, key, recipientHashHint, serviceId) {
+  return proposalNoticeRecipientHashFromAddress(service.notifications?.[key]?.to, serviceId)
+    || recipientHashHint || '';
 }
 
 /** Persist each acceptable proposal's own clock and queue one idempotent notice. */
@@ -302,51 +331,151 @@ async function reconcileProposalAcceptability({ db, ref, nowMs, priorAcceptabili
     const missingNoticeIds = [];
     const proposalsById = new Map();
     const clockAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
+    const recipientHash = proposalNoticeRecipientHash(service, ref.id);
     for (let index = 0; index < currentProposalSnapshots.length; index += 1) {
       const currentSnapshot = currentProposalSnapshots[index];
       if (!currentSnapshot.exists) continue;
-      const proposal = currentSnapshot.data() || {};
+      let proposal = currentSnapshot.data() || {};
       if (proposal.status !== 'proposed') continue;
       const id = proposalRefs[index].id;
       const decision = proposalAcceptability(service, proposal, runtime);
       const previousWasAcceptable = priorAcceptability?.get(id);
+      let noticePatch = null;
+      const previousNotification = proposal.proposalNoticeKey
+        ? service.notifications?.[proposal.proposalNoticeKey] || null
+        : null;
+      const providerDeliveryStatus = previousNotification?.deliveryStatus;
+      const attemptedRecipientHash = proposal.proposalNoticeRecipientHash
+        || proposalNoticeRecipientHashFromAddress(previousNotification?.to, ref.id);
+      const bouncedToCorrectedAddress = (providerDeliveryStatus === 'bounced'
+          || (proposal.proposalNoticeStatus === 'undeliverable' && proposal.proposalNoticeFailureReason === 'bounced'))
+        && Boolean(attemptedRecipientHash && recipientHash && attemptedRecipientHash !== recipientHash);
+      if (bouncedToCorrectedAddress) {
+        noticePatch = {
+          proposalNoticeSentAt: FieldValue.delete(),
+          proposalNoticeStatus: FieldValue.delete(),
+          proposalNoticeUnknownAt: FieldValue.delete(),
+          proposalNoticeUndeliverableAt: FieldValue.delete(),
+          proposalNoticeFailureReason: FieldValue.delete(),
+          proposalNoticeKey: FieldValue.delete(),
+          proposalNoticeRecipientHash: FieldValue.delete(),
+        };
+        proposal = { ...proposal, proposalNoticeSentAt: null, proposalNoticeStatus: null,
+          proposalNoticeUnknownAt: null, proposalNoticeUndeliverableAt: null,
+          proposalNoticeFailureReason: null, proposalNoticeKey: null, proposalNoticeRecipientHash: null };
+      } else if (providerDeliveryStatus === 'delivered') {
+        const deliveredAt = timestampMillis(previousNotification?.providerAcceptedAt)
+          || timestampMillis(previousNotification?.sentAt)
+          || timestampMillis(previousNotification?.deliveredAt)
+          || clockAt.getTime();
+        noticePatch = {
+          proposalNoticeSentAt: new Date(deliveredAt),
+          proposalNoticeStatus: 'sent',
+          proposalNoticeUnknownAt: FieldValue.delete(),
+          proposalNoticeUndeliverableAt: FieldValue.delete(),
+          proposalNoticeFailureReason: FieldValue.delete(),
+          proposalNoticeKey: proposal.proposalNoticeKey,
+          proposalNoticeRecipientHash: attemptedRecipientHash || recipientHash || null,
+        };
+        proposal = { ...proposal, proposalNoticeSentAt: new Date(deliveredAt), proposalNoticeStatus: 'sent',
+          proposalNoticeUnknownAt: null, proposalNoticeUndeliverableAt: null, proposalNoticeFailureReason: null,
+          proposalNoticeRecipientHash: attemptedRecipientHash || recipientHash || null };
+      } else if (providerDeliveryStatus === 'bounced' || providerDeliveryStatus === 'complained') {
+        const failedAt = timestampMillis(providerDeliveryStatus === 'bounced'
+          ? previousNotification?.bouncedAt
+          : previousNotification?.complainedAt) || clockAt.getTime();
+        noticePatch = {
+          proposalNoticeSentAt: FieldValue.delete(),
+          proposalNoticeStatus: 'undeliverable',
+          proposalNoticeUndeliverableAt: timestampMillis(proposal.proposalNoticeUndeliverableAt)
+            ? proposal.proposalNoticeUndeliverableAt : new Date(failedAt),
+          proposalNoticeFailureReason: providerDeliveryStatus,
+          proposalNoticeKey: proposal.proposalNoticeKey,
+          proposalNoticeRecipientHash: attemptedRecipientHash || recipientHash || null,
+        };
+        proposal = { ...proposal, proposalNoticeSentAt: null, proposalNoticeUnknownAt: null, proposalNoticeStatus: 'undeliverable',
+          proposalNoticeUndeliverableAt: noticePatch.proposalNoticeUndeliverableAt,
+          proposalNoticeFailureReason: providerDeliveryStatus,
+          proposalNoticeRecipientHash: attemptedRecipientHash || recipientHash || null };
+      }
       if (!decision.acceptable) {
-        if (proposal.eligibilityAcceptableSince != null || proposal.proposalNoticeSentAt != null) {
+        const noticeOutcomeTerminal = ['unknown', 'undeliverable'].includes(proposal.proposalNoticeStatus)
+          || proposal.proposalNoticeUnknownAt != null || proposal.proposalNoticeUndeliverableAt != null;
+        if (proposal.eligibilityAcceptableSince != null || proposal.proposalNoticeSentAt != null
+          || (!noticeOutcomeTerminal && (proposal.proposalNoticeStatus != null || proposal.proposalNoticeUnknownAt != null
+            || proposal.proposalNoticeUndeliverableAt != null))) {
           changes.push({ ref: currentSnapshot.ref || proposalRefs[index].ref, patch: {
+            ...(noticePatch || {}),
             eligibilityAcceptableSince: FieldValue.delete(),
             proposalNoticeSentAt: FieldValue.delete(),
+            ...(!noticeOutcomeTerminal ? {
+              proposalNoticeStatus: FieldValue.delete(),
+              proposalNoticeUnknownAt: FieldValue.delete(),
+              proposalNoticeUndeliverableAt: FieldValue.delete(),
+              proposalNoticeFailureReason: FieldValue.delete(),
+              proposalNoticeKey: FieldValue.delete(),
+              proposalNoticeRecipientHash: FieldValue.delete(),
+            } : {}),
           } });
+        } else if (noticePatch) {
+          changes.push({ ref: currentSnapshot.ref || proposalRefs[index].ref, patch: noticePatch });
         }
         continue;
       }
       const newEligibilityWindow = previousWasAcceptable === false;
       const needsAnchor = !timestampMillis(proposal.eligibilityAcceptableSince) || newEligibilityWindow;
-      const patch = needsAnchor ? {
+      const canResetNotice = newEligibilityWindow
+        && !['unknown', 'undeliverable'].includes(proposal.proposalNoticeStatus)
+        && proposal.proposalNoticeUnknownAt == null && proposal.proposalNoticeUndeliverableAt == null;
+      const eligibilityPatch = needsAnchor ? {
         eligibilityAcceptableSince: clockAt,
-        ...(newEligibilityWindow ? { proposalNoticeSentAt: FieldValue.delete() } : {}),
+        ...(canResetNotice ? {
+          proposalNoticeSentAt: FieldValue.delete(),
+          proposalNoticeStatus: FieldValue.delete(),
+          proposalNoticeUnknownAt: FieldValue.delete(),
+          proposalNoticeUndeliverableAt: FieldValue.delete(),
+          proposalNoticeFailureReason: FieldValue.delete(),
+          proposalNoticeKey: FieldValue.delete(),
+          proposalNoticeRecipientHash: FieldValue.delete(),
+        } : {}),
       } : null;
+      const patch = noticePatch || eligibilityPatch
+        ? { ...(noticePatch || {}), ...(eligibilityPatch || {}) }
+        : null;
       if (patch) changes.push({ ref: currentSnapshot.ref || proposalRefs[index].ref, patch });
-      const currentProposal = patch ? { ...proposal, ...patch, eligibilityAcceptableSince: clockAt,
-        ...(newEligibilityWindow ? { proposalNoticeSentAt: null } : {}) } : proposal;
+      const currentProposal = {
+        ...proposal,
+        ...(eligibilityPatch || {}),
+        ...(needsAnchor ? { eligibilityAcceptableSince: clockAt } : {}),
+        ...(canResetNotice ? { proposalNoticeSentAt: null, proposalNoticeStatus: null, proposalNoticeUnknownAt: null,
+          proposalNoticeUndeliverableAt: null, proposalNoticeFailureReason: null, proposalNoticeKey: null,
+          proposalNoticeRecipientHash: null } : {}),
+      };
       proposalsById.set(id, currentProposal);
-      if (!timestampMillis(currentProposal.proposalNoticeSentAt)) missingNoticeIds.push(id);
+      if (!timestampMillis(currentProposal.proposalNoticeSentAt)
+        && !['unknown', 'undeliverable'].includes(currentProposal.proposalNoticeStatus)
+        && currentProposal.proposalNoticeUnknownAt == null && currentProposal.proposalNoticeUndeliverableAt == null) {
+        missingNoticeIds.push(id);
+      }
     }
     for (const change of changes) tx.set(change.ref, change.patch, { merge: true });
     const current = mergeConciergeMatchingRuntime(legacyService, runtime);
-    if (missingNoticeIds.length && !current.pendingProposalNotice
-      && serviceIsActive(service, nowMs) && underCap(service)) {
+    const currentPending = current.pendingProposalNotice || null;
+    const movePending = pendingNoticeCanMoveToRecipient(current, currentPending, recipientHash, ref.id);
+    if ((missingNoticeIds.length && (!currentPending || movePending)) || (currentPending && movePending)) {
       const ids = missingNoticeIds.sort();
-      writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, {
-        pendingProposalNotice: { key: proposalNoticeKey(ids, proposalsById, 'availability'), proposalIds: ids, createdAt: clockAt },
-      });
+      const nextPending = ids.length && serviceIsActive(service, nowMs) && underCap(service)
+        ? { key: proposalNoticeKey(ids, proposalsById, 'availability', recipientHash), proposalIds: ids,
+          createdAt: clockAt, recipientHash }
+        : FieldValue.delete();
+      writeConciergeMatchingRuntime(tx, ref, runtimeRef, legacyService, runtime, { pendingProposalNotice: nextPending });
     }
   });
 }
 
-async function markProposalNoticeSent({ db, ref, proposalIds, nowMs }) {
+async function markProposalNoticeSent({ db, ref, proposalIds, key, recipientHashHint = null, nowMs }) {
   const runtimeRef = conciergeMatchingRuntimeRef(ref);
   const proposalRefs = proposalIds.map(id => ref.collection('proposals').doc(id));
-  const sentAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
   return db.runTransaction(async tx => {
     const [serviceSnapshot, runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
       tx.get(ref), tx.get(runtimeRef), ...proposalRefs.map(proposalRef => tx.get(proposalRef)),
@@ -354,13 +483,90 @@ async function markProposalNoticeSent({ db, ref, proposalIds, nowMs }) {
     const legacyService = serviceSnapshot.data() || {};
     const runtime = runtimeSnapshot.data() || null;
     const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const notice = service.notifications?.[key] || null;
+    const sentAtMs = timestampMillis(notice?.providerAcceptedAt)
+      || timestampMillis(notice?.sentAt)
+      || Number(nowMs) || Date.now();
+    const sentAt = new Date(sentAtMs);
+    const recipientHash = proposalNoticeAttemptRecipientHash(service, key, recipientHashHint, ref.id);
     const written = [];
     for (let index = 0; index < proposalSnapshots.length; index += 1) {
       const proposalSnapshot = proposalSnapshots[index];
       const proposal = proposalSnapshot.data() || {};
       if (proposalSnapshot.exists && proposal.status === 'proposed'
         && proposalAcceptability(service, proposal, runtime).acceptable) {
-        tx.set(proposalRefs[index], { proposalNoticeSentAt: sentAt }, { merge: true });
+        tx.set(proposalRefs[index], {
+          proposalNoticeSentAt: sentAt, proposalNoticeStatus: 'sent',
+          proposalNoticeUnknownAt: FieldValue.delete(), proposalNoticeUndeliverableAt: FieldValue.delete(),
+          proposalNoticeFailureReason: FieldValue.delete(), proposalNoticeKey: key,
+          proposalNoticeRecipientHash: recipientHash || null,
+        }, { merge: true });
+        written.push(proposalIds[index]);
+      }
+    }
+    return written;
+  });
+}
+
+async function markProposalNoticeUnknown({ db, ref, proposalIds, key, recipientHashHint = null, nowMs }) {
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  const proposalRefs = proposalIds.map(id => ref.collection('proposals').doc(id));
+  const unknownAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
+  return db.runTransaction(async tx => {
+    const [serviceSnapshot, runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
+      tx.get(ref), tx.get(runtimeRef), ...proposalRefs.map(proposalRef => tx.get(proposalRef)),
+    ]);
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const recipientHash = proposalNoticeAttemptRecipientHash(service, key, recipientHashHint, ref.id);
+    const written = [];
+    for (let index = 0; index < proposalSnapshots.length; index += 1) {
+      const proposalSnapshot = proposalSnapshots[index];
+      const proposal = proposalSnapshot.data() || {};
+      if (proposalSnapshot.exists && proposal.status === 'proposed'
+        && proposalAcceptability(service, proposal, runtime).acceptable) {
+        tx.set(proposalRefs[index], {
+          proposalNoticeSentAt: FieldValue.delete(),
+          proposalNoticeStatus: 'unknown',
+          proposalNoticeUnknownAt: unknownAt,
+          proposalNoticeFailureReason: FieldValue.delete(),
+          proposalNoticeKey: key,
+          proposalNoticeRecipientHash: recipientHash || null,
+        }, { merge: true });
+        written.push(proposalIds[index]);
+      }
+    }
+    return written;
+  });
+}
+
+async function markProposalNoticeUndeliverable({ db, ref, proposalIds, key, recipientHashHint = null, reason, nowMs }) {
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
+  const proposalRefs = proposalIds.map(id => ref.collection('proposals').doc(id));
+  const failedAt = new Date(Math.max(Number(nowMs) || 0, Date.now()));
+  return db.runTransaction(async tx => {
+    const [serviceSnapshot, runtimeSnapshot, ...proposalSnapshots] = await Promise.all([
+      tx.get(ref), tx.get(runtimeRef), ...proposalRefs.map(proposalRef => tx.get(proposalRef)),
+    ]);
+    const legacyService = serviceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const service = mergeConciergeMatchingRuntime(legacyService, runtime);
+    const recipientHash = proposalNoticeAttemptRecipientHash(service, key, recipientHashHint, ref.id);
+    const written = [];
+    for (let index = 0; index < proposalSnapshots.length; index += 1) {
+      const proposalSnapshot = proposalSnapshots[index];
+      const proposal = proposalSnapshot.data() || {};
+      if (proposalSnapshot.exists && proposal.status === 'proposed'
+        && proposalAcceptability(service, proposal, runtime).acceptable) {
+        tx.set(proposalRefs[index], {
+          proposalNoticeSentAt: FieldValue.delete(),
+          proposalNoticeStatus: 'undeliverable',
+          proposalNoticeUndeliverableAt: failedAt,
+          proposalNoticeFailureReason: reason,
+          proposalNoticeKey: key,
+          proposalNoticeRecipientHash: recipientHash || null,
+        }, { merge: true });
         written.push(proposalIds[index]);
       }
     }
@@ -412,6 +618,7 @@ async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
   }
   const currentProposalIds = new Set(proposalIds);
   const serviceRuntimeRef = conciergeMatchingRuntimeRef(ref);
+  const noticeRecipientHash = pending.recipientHash || proposalNoticeRecipientHash(service, ref.id);
   let proposalsAtClaim = proposals;
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
     trackingTarget: { kind: 'application-concierge', id: ref.id },
@@ -422,6 +629,14 @@ async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
       ]);
       const runtimeNow = runtimeSnapshot.data() || null;
       const serviceNow = mergeConciergeMatchingRuntime(current, runtimeNow);
+      const currentRecipientHash = proposalNoticeRecipientHash(serviceNow, ref.id);
+      const previousAttempt = serviceNow.notifications?.[pending.key] || null;
+      const previousAttemptCanOnlySettle = Boolean(previousAttempt && (
+        ['sending', 'sent', 'ambiguous'].includes(previousAttempt.status)
+        || previousAttempt.providerStatus === 'accepted'
+        || ['delivered', 'bounced', 'complained'].includes(previousAttempt.deliveryStatus)
+      ));
+      if (currentRecipientHash !== noticeRecipientHash && !previousAttemptCanOnlySettle) return false;
       const currentProposals = proposalSnapshots.map(snapshot => snapshot.data() || {});
       const allAcceptable = proposalSnapshots.length === proposalIds.length && proposalSnapshots.every(proposalSnapshot =>
         proposalSnapshot.exists && proposalAcceptability(serviceNow, proposalSnapshot.data() || {}, runtimeNow).acceptable);
@@ -433,10 +648,22 @@ async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
       return buildConciergeNewJobsEmail(current, ref.id, [...cardProposals, ...proposalsAtClaim.slice(3)], options);
     },
   });
-  if (result.ok || result.reason === 'already_sent') {
-    await markProposalNoticeSent({ db, ref, proposalIds: [...currentProposalIds], nowMs });
+  const alreadyDelivered = result.reason === 'already_delivered';
+  const alreadySent = result.reason === 'already_sent';
+  const terminalNonDelivery = ['already_bounced', 'already_complained'].includes(result.reason);
+  const ambiguousOutcome = ['already_ambiguous', 'stale_send_outcome_unknown'].includes(result.reason);
+  if (result.ok || alreadySent || alreadyDelivered) {
+    await markProposalNoticeSent({ db, ref, proposalIds: [...currentProposalIds], key: pending.key,
+      recipientHashHint: pending.recipientHash || null, nowMs });
+  } else if (ambiguousOutcome) {
+    await markProposalNoticeUnknown({ db, ref, proposalIds: [...currentProposalIds], key: pending.key,
+      recipientHashHint: pending.recipientHash || null, nowMs });
+  } else if (terminalNonDelivery) {
+    await markProposalNoticeUndeliverable({ db, ref, proposalIds: [...currentProposalIds], key: pending.key,
+      recipientHashHint: pending.recipientHash || null,
+      reason: result.reason === 'already_bounced' ? 'bounced' : 'complained', nowMs });
   }
-  const settledIds = result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)
+  const settledIds = result.ok || alreadySent || alreadyDelivered || terminalNonDelivery || ambiguousOutcome
     ? currentProposalIds : new Set();
   await settlePendingProposalNotice({ db, ref, pending, settledIds });
   return result.ok;

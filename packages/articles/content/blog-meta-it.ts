@@ -13714,6 +13714,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-rinnovo-illuminazione-varese.title': 'Como rinnova illuminazione viale Varese progetto 80mila euro',
     'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'Il Comune di Como ha dato il via ufficiale al progetto di rinnovo dell’illuminazione pubblica lungo due tratti di viale Varese.',
     'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-12.title': 'Frontalieri: i dati verificati di oggi — 12 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-12.excerpt': 'I numeri di oggi, 12 novembre 2026, per chi attraversa il confine: le ultime attese ai valichi, i comuni con la benzina meno cara, il cambio franco-euro e gli annunci di lavoro attivi sul nostro job board in Svizzera. Dati del nostro monitoraggio quotidiano.',
+    'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Bollettino frontalieri 12 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'I numeri del 12 novembre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
 };
 
 export default blogMetaIt;
