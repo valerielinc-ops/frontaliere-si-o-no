@@ -956,39 +956,20 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 }
 
 /**
- * Memo of {@link jobMatchFeatures} for one scoring pass over an IMMUTABLE job
- * pool (keyed by object identity, then locale). Opt-in via the 4th argument of
- * {@link scoreJobForAlert}: a caller that mutates a job between two scores must
- * not pass one, and the default (no cache) recomputes exactly as before.
+ * Run-scoped memo of immutable job-side features, keyed by job identity and
+ * locale. This store deliberately contains no alert-keyword bitmaps: those are
+ * audience-dependent and stay in the shorter-lived cache returned by
+ * {@link createJobFeatureCache}. Reusing this store across plan batches avoids
+ * rebuilding normalized descriptions and other job features for every batch.
  *
- * Besides the features it memoises, per job/locale, the other answers that
- * depend only on the job and never on the alert (#9314): the normalized
- * location haystack, the pinned-company identity keys, and — per locale and
- * hard keyword — whether `fullText` contains that keyword. Since #9471 every
- * alert is scored against the recipient's whole catch-up window (~19K rows in
- * production), and #9695 expands each profession keyword into its 8-27
- * cross-locale aliases: the same `fullText.includes(alias)` scan over a ~2.4 KB
- * description was repeated for every alert that shares the alias. The memo is
- * a pair of bitmaps per (locale, keyword) plus one per keyword for the
- * locale-independent description, a few KB each.
+ * A caller that mutates a job between scores must not reuse this store. The
+ * default (no cache) recomputes exactly as before.
  */
-export function createJobFeatureCache() {
+export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
   const jobIndexByJob = new WeakMap();
   let jobCount = 0;
-  /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
-  const descriptionMemos = new Map();
-  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
-  const spaces = new Map();
-  const spaceFor = (key) => {
-    let space = spaces.get(key);
-    if (!space) {
-      space = { size: 0, keywordMemos: new Map(), searchMemos: new Map() };
-      spaces.set(key, space);
-    }
-    return space;
-  };
   const entry = (job, locale) => {
     let byLocale = byJob.get(job);
     if (!byLocale) {
@@ -1004,7 +985,9 @@ export function createJobFeatureCache() {
         jobIndexByJob.set(job, jobIndex);
       }
       const features = jobMatchFeatures(job, locale);
-      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null, searchHaystack: null };
+      // The index is stable for the lifetime of this store. Batch-local memo
+      // bitmaps may therefore be discarded without recomputing job features.
+      found = { features, index: jobIndex, jobIndex, locHaystack: null, searchHaystack: null };
       byLocale.set(key, found);
     }
     return found;
@@ -1013,12 +996,47 @@ export function createJobFeatureCache() {
     get(job, locale) {
       return entry(job, locale).features;
     },
+    entry,
+    pinnedKeys(job) {
+      let keys = pinnedKeysByJob.get(job);
+      if (!keys) {
+        keys = pinnedCompanyIdentityKeys(job);
+        pinnedKeysByJob.set(job, keys);
+      }
+      return keys;
+    },
+  };
+}
+
+/**
+ * Audience-bounded memo around a {@link createJobFeatureStore}. Per-job
+ * features and stable indexes can be shared across plan batches, while keyword
+ * and search bitmaps are released with each batch instead of growing with the
+ * full audience.
+ */
+export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
+  /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
+  const descriptionMemos = new Map();
+  /** @type {Map<string, {keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
+  const spaces = new Map();
+  const spaceFor = (key) => {
+    let space = spaces.get(key);
+    if (!space) {
+      space = { keywordMemos: new Map(), searchMemos: new Map() };
+      spaces.set(key, space);
+    }
+    return space;
+  };
+  return {
+    get(job, locale) {
+      return featureStore.get(job, locale);
+    },
     /**
      * Internal to {@link createAlertScorer}: the cache entry of `job` in
      * `locale` — its features, its index in that locale's keyword bitmaps and
      * its lazily normalized location haystack.
      */
-    entry,
+    entry: featureStore.entry,
     /**
      * Internal to {@link createAlertScorer}: `(entry) => fullText.includes(keyword)`
      * for `locale`, memoised as described on {@link memoKeywordInFullText}.
@@ -1055,12 +1073,7 @@ export function createJobFeatureCache() {
     },
     /** Internal to {@link createAlertScorer}: {@link pinnedCompanyIdentityKeys}, once per job. */
     pinnedKeys(job) {
-      let keys = pinnedKeysByJob.get(job);
-      if (!keys) {
-        keys = pinnedCompanyIdentityKeys(job);
-        pinnedKeysByJob.set(job, keys);
-      }
-      return keys;
+      return featureStore.pinnedKeys(job);
     },
   };
 }

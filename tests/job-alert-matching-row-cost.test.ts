@@ -33,6 +33,7 @@ import {
   buildAlertProfile,
   createAlertScorer,
   createJobFeatureCache,
+  createJobFeatureStore,
   jobMatchFeatures,
   partitionByGeoPreference,
   scoreJobForAlert,
@@ -396,6 +397,38 @@ describe('matching cost per alert (#9314)', () => {
     // Pre-#9314 the scorer normalized the job location per job, per location
     // needle and per alert: six times the alerts, six times the count.
     expect(jobSide(geoAlerts(6 * LOCALES.length))).toBe(once);
+  });
+
+  it('reuses immutable job features across fresh per-batch keyword caches', () => {
+    const jobs = [fixtureJobs()[6], fixtureJobs()[1]];
+    const alert = {
+      id: 'across-batches',
+      email: 'batch@example.test',
+      locale: 'en',
+      keywords: ['manager lugano'],
+    };
+    const profile = profileOf(alert);
+    const expectedScores = jobs.map((job) => scoreJobForAlert(job, profile, 'en'));
+    const oneBatchCost = countDuring(() => {
+      const cache = createJobFeatureCache(createJobFeatureStore());
+      jobs.forEach((job) => cache.get(job, 'en'));
+    }).counts.normalizations;
+
+    const store = createJobFeatureStore();
+    const firstBatchCache = createJobFeatureCache(store);
+    const secondBatchCache = createJobFeatureCache(store);
+    const { result: entries, counts } = countDuring(() => ({
+      first: jobs.map((job) => firstBatchCache.entry(job, 'en')),
+      second: [...jobs].reverse().map((job) => secondBatchCache.entry(job, 'en')),
+    }));
+
+    jobs.forEach((job, index) => {
+      expect(scoreJobForAlert(job, profile, 'en', firstBatchCache)).toBe(expectedScores[index]);
+      expect(scoreJobForAlert(job, profile, 'en', secondBatchCache)).toBe(expectedScores[index]);
+      expect(entries.first[index]).toBe(entries.second.find((entry) => entry.features === entries.first[index].features));
+      expect(entries.first[index].index).toBe(entries.second.find((entry) => entry.features === entries.first[index].features)?.index);
+    });
+    expect(counts.normalizations).toBe(oneBatchCost);
   });
 
   it('parses each inventory timestamp once for the run, not once per alert', () => {
