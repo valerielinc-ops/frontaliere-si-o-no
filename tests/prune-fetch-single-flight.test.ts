@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -207,6 +208,36 @@ describe('accoppiamento timeout fetch ↔ scadenza lock', () => {
   it('il cleanup globale copre sia pack sia oggetti temporanei', () => {
     expect(src).toContain("sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))");
     expect(src).toContain("sweepStaleFetchObjects(join(gitDir, 'objects'))");
+  });
+
+  it('il fast-worktree usa lo stesso lock interprocesso del pruner', () => {
+    const fastWorktree = fs.readFileSync(
+      path.join(__dirname, '..', 'scripts', 'dev', 'fast-worktree.sh'),
+      'utf8',
+    );
+    const fetchHelper = fs.readFileSync(
+      path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs'),
+      'utf8',
+    );
+    expect(fastWorktree).toContain('fetch-origin-main.mjs');
+    expect(fetchHelper).toContain('withSingleFlightLock');
+    expect(fetchHelper).toContain('frontaliere-prune-fetch.lock');
+    expect(fetchHelper).toContain("killSignal: 'SIGTERM'");
+    expect(fetchHelper).toContain('25 * 60 * 1000');
+  });
+
+  it('non avvia un secondo fetch quando il lock condiviso è già vivo', () => {
+    const repo = tmpDir();
+    execFileSync('git', ['init', '-q', repo]);
+    const commonDir = execFileSync('git', ['-C', repo, 'rev-parse', '--git-common-dir'], { encoding: 'utf8' }).trim();
+    const lock = path.join(repo, commonDir, 'frontaliere-prune-fetch.lock');
+    fs.writeFileSync(lock, JSON.stringify({ pid: process.pid, startedAt: Date.now() }));
+
+    const helper = path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs');
+    const result = spawnSync(process.execPath, [helper, repo, 'main'], { encoding: 'utf8' });
+    expect(result.status).toBe(0);
+    expect(result.stderr).toContain('fetch saltato');
+    expect(fs.existsSync(lock)).toBe(true);
   });
 });
 

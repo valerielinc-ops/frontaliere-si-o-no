@@ -172,10 +172,22 @@ function isSkipWorktree(flag) {
   return flag === 'S' || flag === 's';
 }
 
-function walkWorkingFiles(wtPath) {
+const RECENT_ACTIVITY = Symbol('recent worktree activity');
+
+function walkWorkingFiles(wtPath, { recentAfterMs } = {}) {
   const files = [];
   const ignored = [];
+  let latestMtimeMs = 0;
+  const recordActivity = (stat) => {
+    latestMtimeMs = Math.max(latestMtimeMs, stat.mtimeMs);
+    if (Number.isFinite(recentAfterMs) && stat.mtimeMs >= recentAfterMs) throw RECENT_ACTIVITY;
+  };
   const walk = (directory, relativeDirectory, isRoot = false) => {
+    let directoryStat;
+    try { directoryStat = lstatSync(directory); } catch (error) {
+      throw new Error(`stat di ${directory} fallita: ${error?.message || 'errore sconosciuto'}`);
+    }
+    recordActivity(directoryStat);
     let entries;
     try {
       entries = readdirSync(directory, { withFileTypes: true });
@@ -192,9 +204,13 @@ function walkWorkingFiles(wtPath) {
       try { lstat = lstatSync(fullPath); } catch (error) {
         throw new Error(`stat di ${fullPath} fallita: ${error?.message || 'errore sconosciuto'}`);
       }
+      if (isRoot && entry.name === 'node_modules' && lstat.isSymbolicLink()) {
+        ignored.push(filePath);
+        continue;
+      }
+      recordActivity(lstat);
       if (lstat.isSymbolicLink()) {
-        if (isRoot && entry.name === 'node_modules') ignored.push(filePath);
-        else files.push({ path: normalizeRelativePath(filePath), kind: 'symlink', fullPath });
+        files.push({ path: normalizeRelativePath(filePath), kind: 'symlink', fullPath });
         continue;
       }
       if (lstat.isDirectory()) {
@@ -211,8 +227,13 @@ function walkWorkingFiles(wtPath) {
       if (lstat.isFile()) files.push({ path: normalizeRelativePath(filePath), kind: 'file', fullPath });
     }
   };
-  walk(wtPath, '', true);
-  return { files, ignored };
+  try {
+    walk(wtPath, '', true);
+  } catch (error) {
+    if (error === RECENT_ACTIVITY) return { files: [], ignored, latestMtimeMs, recent: true };
+    throw error;
+  }
+  return { files, ignored, latestMtimeMs, recent: false };
 }
 
 function hashWorkingFiles(wtPath, files) {
@@ -251,11 +272,23 @@ function workingMode(file) {
 // index incoerente può dichiarare migliaia di cancellazioni staged mentre i
 // file sono tutti presenti e il contenuto è quasi intatto. Qui confrontiamo
 // direttamente i blob di HEAD con hash-object sui file presenti.
-export function classifyRealChanges(wtPath, { prExists = true } = {}) {
+export function classifyRealChanges(wtPath, { prExists = true, recentAfterMs } = {}) {
   try {
+    // Walk metadata before reading HEAD or hashing blobs. A recent file or
+    // directory is enough to keep the worktree for another pass.
+    const { files, ignored, latestMtimeMs, recent } = walkWorkingFiles(wtPath, { recentAfterMs });
+    if (recent) {
+      return {
+        significant: [],
+        significantEntries: [],
+        ignored: [...new Set(ignored)],
+        error: false,
+        recent: true,
+        latestMtimeMs,
+      };
+    }
     const tree = headTree(wtPath);
     const flags = indexFlags(wtPath);
-    const { files, ignored } = walkWorkingFiles(wtPath);
     const hashes = hashWorkingFiles(wtPath, files);
     const significantEntries = [];
     const significant = [];
@@ -295,6 +328,8 @@ export function classifyRealChanges(wtPath, { prExists = true } = {}) {
       significantEntries,
       ignored: [...new Set(ignored)],
       error: false,
+      recent: false,
+      latestMtimeMs,
     };
   } catch (error) {
     return {
@@ -302,6 +337,8 @@ export function classifyRealChanges(wtPath, { prExists = true } = {}) {
       significantEntries: [],
       ignored: [],
       error: true,
+      recent: false,
+      latestMtimeMs: 0,
       errorMessage: error?.message || 'classificazione hash fallita',
     };
   }
