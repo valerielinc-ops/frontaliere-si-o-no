@@ -31,6 +31,7 @@ import {
   egressVerdict,
   initializeSwissRunnerRuntime,
   parseExportLines,
+  resolveSwissRunnerServiceAccountPath,
   readEgressCountry,
   runCycle,
   systemChromeFor,
@@ -386,8 +387,10 @@ describe('local runner', () => {
   it('activates private dependencies before loading Firestore Admin', async () => {
     const order: string[] = [];
     const db = { fixture: true };
+    const env: Record<string, string> = { SWISS_RUNNER_SA: '/fixture/swiss-service-account.json' };
     const result = await initializeSwissRunnerRuntime({
       repoRoot: '/fixture/site',
+      env,
       runnerId: 'fixture-runner',
       getEgressCountry: async () => {
         order.push('egress');
@@ -403,15 +406,25 @@ describe('local runner', () => {
         return { versionKey: 'fixture-locks' };
       },
       loadDatabase: async () => {
-        order.push('firestore');
+        order.push(`firestore:${env.GOOGLE_APPLICATION_CREDENTIALS}`);
         return db;
       },
     });
 
     expect(order).toEqual([
-      'dependencies:/fixture/site', 'egress', 'heartbeat:deps_installing:CH', 'firestore',
+      'dependencies:/fixture/site', 'egress', 'heartbeat:deps_installing:CH',
+      'firestore:/fixture/swiss-service-account.json',
     ]);
     expect(result).toEqual({ db, dependencies: { versionKey: 'fixture-locks' } });
+  });
+
+  it('resolves the Swiss runner service account override before the generic ADC path', () => {
+    expect(resolveSwissRunnerServiceAccountPath({ SWISS_RUNNER_SA: '/fixture/swiss.json' }))
+      .toBe('/fixture/swiss.json');
+    expect(resolveSwissRunnerServiceAccountPath({ GOOGLE_APPLICATION_CREDENTIALS: '/fixture/google.json' }))
+      .toBe('/fixture/google.json');
+    expect(resolveSwissRunnerServiceAccountPath({}, '/fixture/home'))
+      .toBe('/fixture/home/.config/frontaliere/sa-frontaliere-ticino.json');
   });
 
   it('refreshes the ineligible bootstrap heartbeat until dependency installation finishes', async () => {
@@ -914,7 +927,7 @@ describe('Swiss runner bootstrap heartbeat', () => {
 
     const result = await writeSwissRunnerBootstrapHeartbeat({
       runnerId: 'fixture-runner', nowMs: now, egressCountry: 'CH', reason: 'deps_installing',
-      version: 'swiss-runner/fixture', credentialsPath: '/fixture/service-account.json',
+      version: 'swiss-runner/fixture', env: { SWISS_RUNNER_SA: '/fixture/service-account.json' },
       readFileImpl: () => JSON.stringify({
         client_email: 'fixture-service-account@example.invalid',
         private_key: keyText,

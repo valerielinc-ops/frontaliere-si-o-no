@@ -23,7 +23,7 @@
  * masker) are consumed here and every value they name, with every Remote Config value, is struck out of
  * all later output. The runner itself prints only opaque order ids, modes, rounds and codes.
  *
- * Environment: GOOGLE_APPLICATION_CREDENTIALS (required); SWISS_RUNNER_ID; SWISS_RUNNER_STATE_DIR;
+ * Environment: SWISS_RUNNER_SA or GOOGLE_APPLICATION_CREDENTIALS; SWISS_RUNNER_ID; SWISS_RUNNER_STATE_DIR;
  * SWISS_RUNNER_HEADED; SWISS_RUNNER_CODEX_BIN; SWISS_RUNNER_CODEX_AUTH; SWISS_RUNNER_BROKER_SOCKET;
  * SWISS_RUNNER_CHROME. Install: scripts/dev/install-swiss-runner.sh (README.md next to this file).
  */
@@ -123,10 +123,16 @@ function safeStorageProbeResult(result) {
     : { eligible: false, reason: 'storage_upload_unavailable' };
 }
 
+export function resolveSwissRunnerServiceAccountPath(env = process.env, home = os.homedir()) {
+  return String(env.SWISS_RUNNER_SA || env.GOOGLE_APPLICATION_CREDENTIALS
+    || path.join(home, '.config', 'frontaliere', 'sa-frontaliere-ticino.json')).trim();
+}
+
 /** Install and activate exact private dependency links before loading Firebase Admin. */
 export async function initializeSwissRunnerRuntime({
   repoRoot = REPO_ROOT,
   prepareDependencies = (options) => ensureSwissRunnerDependencies(options),
+  env = process.env,
   runnerId = '',
   version = RUNNER_VERSION,
   getEgressCountry = async () => (await readEgressCountry()).country,
@@ -137,6 +143,7 @@ export async function initializeSwissRunnerRuntime({
     return getFirestoreDb();
   },
 } = {}) {
+  const serviceAccountPath = resolveSwissRunnerServiceAccountPath(env);
   let egressCountry;
   let heartbeatTimer = null;
   let heartbeatInFlight = null;
@@ -147,7 +154,10 @@ export async function initializeSwissRunnerRuntime({
     return egressCountry;
   };
   const writeStatus = async (reason) => {
-    await writeBootstrapHeartbeat({ runnerId, egressCountry: await getCountryOnce(), eligible: false, reason, version });
+    await writeBootstrapHeartbeat({
+      runnerId, egressCountry: await getCountryOnce(), eligible: false, reason, version,
+      credentialsPath: serviceAccountPath,
+    });
   };
   const onInstalling = async () => {
     await writeStatus('deps_installing');
@@ -165,13 +175,14 @@ export async function initializeSwissRunnerRuntime({
   };
   let dependencies;
   try {
-    dependencies = await prepareDependencies({ repoRoot, onInstalling });
+    dependencies = await prepareDependencies({ repoRoot, env, onInstalling });
   } catch (error) {
     await stopInstallHeartbeats();
     await writeStatus(dependencyFailureReason(error));
     throw error;
   }
   await stopInstallHeartbeats();
+  if (serviceAccountPath) env.GOOGLE_APPLICATION_CREDENTIALS = serviceAccountPath;
   const db = await loadDatabase();
   return { db, dependencies };
 }
@@ -184,7 +195,8 @@ export async function writeSwissRunnerBootstrapHeartbeat({
   eligible = false,
   reason = null,
   version = null,
-  credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  env = process.env,
+  credentialsPath = resolveSwissRunnerServiceAccountPath(env),
   readFileImpl = fs.readFileSync,
   fetchImpl = fetch,
   createSignImpl = createSign,
