@@ -184,7 +184,9 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
         with: {
           pattern: `section-page-manifest-${locale}-*`,
           path: '${{ runner.temp }}/publisher-audit-manifests/sections',
-          'run-id': '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
+          'run-id': locale === 'it'
+            ? '${{ inputs.it_shard_artifact_run_id || inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_IT }}'
+            : '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
           'merge-multiple': true,
         },
       });
