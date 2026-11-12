@@ -178,7 +178,7 @@ describe('typecheck heap comparison contract (#18199)', () => {
       const sampledPeakMb = Number(output.match(/peak_rss_mb=(\d+)MB/u)?.[1]);
 
       expect(result.error).toBeUndefined();
-      expect(result.status).toBe(0);
+      expect(result.status, `cgroup helper output:\n${output}`).toBe(0);
       expect(peakDeltaBytes).toBeGreaterThanOrEqual(192 * 1024 * 1024);
       expect(sampledPeakMb).toBeLessThan(128);
     },
