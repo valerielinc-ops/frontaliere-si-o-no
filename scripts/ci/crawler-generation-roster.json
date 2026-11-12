@@ -278,6 +278,7 @@
       "ksml",
       "opus-personal",
       "pkb-private-bank",
+      "protectas",
       "rheinmetall-air-defence",
       "rohrer-gartenbau-und-hauswartungen",
       "sfs-group",
@@ -489,8 +490,7 @@
       "zindel-united-swiss"
     ],
     "25": [
-      "locarno-film-festival",
-      "protectas"
+      "locarno-film-festival"
     ],
     "01": [
       "coop-ticino"
@@ -1458,5 +1458,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:bfb203f2c71dc7a4261694ee687feae88f8470b691a3bbe1fdd20af406c672b1"
+  "digest": "sha256:404e97da9ef6c3b20ed927ed3c6d7a612cfc78153592713d392714ddd95ea775"
 }
