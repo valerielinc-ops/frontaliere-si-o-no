@@ -42,7 +42,7 @@ import { asksHeldStatus, isPermitField, permitLabel, permitOptions, permitStatus
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
-import { candidateAddressStatements, candidateAddressTopics, candidateStatementsOf, ownedAddressTwinFields, platformCandidateFacts, platformSalutationGender, withCandidateAddress } from './assistedApplicationPlatformDefaults.js';
+import { candidateAddressStatements, candidateAddressTopics, candidateStatementsOf, ownedAddressTwinFields, platformCandidateFacts, platformQuestionTopic, platformSalutationGender, withCandidateAddress } from './assistedApplicationPlatformDefaults.js';
 import { isMatcherExperienceQuestion, verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
 import { operationalAnswerForOption } from './assistedApplicationOperationalAnswers.js';
@@ -1142,6 +1142,20 @@ export const TEXT_LIMITS = {
 
 const has = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
 
+function candidatePassportAnswerInputs(questions, answers, flow) {
+  const direct = flow?.answers && typeof flow.answers === 'object' ? flow.answers : {};
+  const remembered = flow?.questionAnswers && typeof flow.questionAnswers === 'object' ? flow.questionAnswers : {};
+  return (Array.isArray(questions) ? questions : [])
+    .filter((question) => question?.id && platformQuestionTopic(question)?.startsWith('passport_'))
+    .filter((question) => has(direct, question.id) || has(remembered, question.id) || has(answers, question.id))
+    .map((question) => ({
+      question,
+      value: has(direct, question.id) ? direct[question.id]
+        : has(remembered, question.id) ? remembered[question.id] : answers[question.id],
+    }))
+    .filter(({ value }) => typeof value === 'string' || Array.isArray(value));
+}
+
 /** The stored overrides, only known keys and bounded values. */
 function storedOverrides(raw) {
   const out = {};
@@ -1290,9 +1304,25 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // The address the candidate typed in one of their own address blocks wins over the platform's, so every other
   // block of theirs receives the same one; a block proved theirs only by its fields is named for the platform
   // rule (owner decision 2026-11-11, assistedApplicationPlatformDefaults.js candidateAddressTopics).
+  const candidatePassportAnswers = candidatePassportAnswerInputs(draft?.questions, answers, flow);
+  const passportOverride = {
+    provided: has(flow?.formOverrides || {}, 'passport') && typeof flow?.formOverrides?.passport === 'string',
+    value: flow?.formOverrides?.passport,
+  };
+  const decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, {
+    postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
+  });
+  // A candidate's passport declaration has priority over a platform decision, including an explicit blank.
+  // Keep the deterministic rules available so every other passport form receives the same candidate fact.
+  if (passportOverride.provided || (has(uploaded, 'passport') && typeof uploaded.passport === 'string') || candidatePassportAnswers.length) {
+    for (const question of draft?.questions || []) {
+      if (question?.id && platformQuestionTopic(question)?.startsWith('passport_')) delete decisionAnswers[question.id];
+    }
+  }
   const platformFacts = withCandidateAddress(platformCandidateFacts({
     order, profile, identity, personal, answers, locale, seed: order?.userId || order?.orderId || '', permitDeduction,
-    nationalityDeduction, cvText: draft?.factSources?.text || '',
+    nationalityDeduction, cvText: draft?.factSources?.text || '', questions: draft?.questions,
+    decisionAnswers, candidatePassportAnswers, passportOverride,
   }), candidateAddressStatements(draft?.questions, answers));
   platformFacts.ownedAddressFields = ownedAddressTwinFields(draft?.questions);
   // The answers the CV gives to the open text questions (owner decisions 2026-11-10,
@@ -1300,9 +1330,7 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   platformFacts.cvAnswers = verifiedCvAnswers(draft?.questions, draft?.factSources?.text, draft?.profile || profile);
   // The decision engine's choices for the questions no rule and no CV answer cover (2026-11-10,
   // assistedApplicationDecisionAnswers.js), checked again on every read: form-only as well.
-  platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, {
-    postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
-  });
+  platformFacts.decisionAnswers = decisionAnswers;
   return { identity, profile, answers, overrides, personal, platformFacts,
     candidateAnswerDefaultSuppressionIds: answerProjection.suppressDefaultQuestionIds,
     candidateAnswerSuppressedQuestionContracts: answerProjection.suppressedAnswerContracts };
