@@ -415,7 +415,7 @@ describe('the third CV on the review page and at submission', () => {
   beforeEach(() => {
     bucket = fakeBucket();
     const base = makeDocx();
-    const first = buildInPlaceDocx(base, tailored(), { profile });
+    const first = buildInPlaceDocx(base, tailored(), { profile, identity: { name: profile.fullName, email: 'candidate@example.test' } });
     bucket.files.set(`assisted-application-uploads/${ORDER}/1-cv.docx`, base);
     bucket.files.set(`assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, first.docx);
     store = createMemoryFirestore({
