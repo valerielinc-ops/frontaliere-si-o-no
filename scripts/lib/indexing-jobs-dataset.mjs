@@ -85,6 +85,10 @@ export function jobDetailUrl(resolvers, locale, cantonCode, slug) {
  * `index` is the slim IT index (dates, canton, location); `slugMap` gives the
  * per-locale slugs. Without a slug map only the IT URL of each job is derived.
  */
+function isJobId(value) {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
 export function datasetJobEntries(index, slugMap, { resolvers = loadCantonResolvers(), now = new Date() } = {}) {
   const slugsById = new Map();
   for (const rec of Array.isArray(slugMap) ? slugMap : []) {
@@ -95,7 +99,9 @@ export function datasetJobEntries(index, slugMap, { resolvers = loadCantonResolv
   const out = [];
   const seen = new Set();
   for (const job of Array.isArray(index) ? index : []) {
-    if (!job || typeof job !== 'object') continue;
+    // No id, no identity check on the live page: such a URL could only ever be
+    // verified as "some active job", so it is not derived at all.
+    if (!job || typeof job !== 'object' || !isJobId(job.id)) continue;
     const canton = resolvers.resolveJobCanton({ canton: job.canton, location: job.location });
     const lastmod = jobSitemapLastmodDay(job, now) || null;
     const slugs = slugsById.get(job.id) || { it: job.slug };
@@ -105,7 +111,7 @@ export function datasetJobEntries(index, slugMap, { resolvers = loadCantonResolv
       const loc = jobDetailUrl(resolvers, locale, canton, slug);
       if (!loc || seen.has(loc) || !isJobDetailCandidate(loc)) continue;
       seen.add(loc);
-      out.push({ loc, lastmod, id: typeof job.id === 'string' ? job.id : null });
+      out.push({ loc, lastmod, id: job.id });
     }
   }
   return out;
@@ -169,7 +175,8 @@ function jobPostingValidThroughDays(html) {
  *     job-detail pages: the expired soft-landing and the «Offerta non
  *     verificata» archive stub never carry it (they use
  *     `__EXPIRED_JOB_DATA__`), even when they keep an archived JobPosting;
- *   - the seed names this job id, when the dataset gave one;
+ *   - the seed's top-level id is exactly this job id; without a non-empty
+ *     string id the page cannot be attributed and is never sent;
  *   - no JobPosting `validThrough` in the past.
  * @param {{status: number, html?: string}} res
  * @param {{id?: string|null, now?: Date}} [opts]
@@ -180,12 +187,13 @@ export function judgeDatasetLive(res, { id = null, now = new Date() } = {}) {
   const base = judgeLive('URL_UPDATED', res);
   if (base !== 'ok') return base;
   const html = res.html || '';
+  if (!isJobId(id)) return 'not-job';
   const seed = parseJobSeed(html);
   if (!seed) return 'not-job';
   // Exact match on the seed's own top-level id: a substring test would accept
   // `job-1234` for `job-123`, or an `"id"` nested in another field, i.e. the
   // active page of ANOTHER job reached through a stale slug or route.
-  if (id && seed.id !== id) return 'not-job';
+  if (seed.id !== id) return 'not-job';
   const nowMs = now.getTime();
   if (jobPostingValidThroughDays(html).some((v) => Number.isFinite(Date.parse(v)) && Date.parse(v) < nowMs)) return 'not-job';
   return 'ok';

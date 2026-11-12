@@ -31,7 +31,7 @@ import {
   planSubmissions,
   recordOutcome,
 } from '../scripts/lib/indexing-jobs-planner.mjs';
-import { formatRunReport, selectLiveChecks } from '../scripts/submit-google-indexing-jobs.js';
+import { annotationText, cleanReportText, formatRunReport, selectLiveChecks } from '../scripts/submit-google-indexing-jobs.js';
 
 const S = 'https://frontaliereticino.ch';
 const job = (p: string) => `${S}${p}`;
@@ -152,6 +152,27 @@ describe('live check of a dataset-only URL', () => {
     // A seed that is not a JSON object cannot be attributed to any job.
     expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"job-123",</script>') }, { id: 'job-123' })).toBe('not-job');
     expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"job-123"};</script>') }, { id: 'job-123' })).toBe('ok');
+  });
+
+  it('without a job id the page cannot be attributed: never sent', () => {
+    // Reviewer acceptance (PR 18373, review 5883241033).
+    const other = page(ld() + '<script>window.__JOB_SEED__={"id":"other-job"}</script>');
+    expect(judgeDatasetLive({ status: 200, html: other }, { id: null })).toBe('not-job');
+    expect(judgeDatasetLive({ status: 200, html: other }, { id: '' })).toBe('not-job');
+    expect(judgeDatasetLive({ status: 200, html: other }, { id: '   ' })).toBe('not-job');
+    expect(judgeDatasetLive({ status: 200, html: other })).toBe('not-job');
+  });
+
+  it('a dataset record without a string id yields no URL at all', () => {
+    const index = [
+      { id: null, slug: 'no-id', canton: 'TI' },
+      { id: '', slug: 'empty-id', canton: 'TI' },
+      { slug: 'missing-id', canton: 'TI' },
+      { id: 'ok-1', slug: 'with-id', canton: 'TI' },
+    ];
+    expect(datasetJobEntries(index, null, { resolvers, now: NOW }).map((e) => [e.loc, e.id])).toEqual([
+      [job('/cerca-lavoro-ticino/with-id/'), 'ok-1'],
+    ]);
   });
 });
 
@@ -290,6 +311,20 @@ describe('run report', () => {
     const nasty = formatRunReport({ outcome: 'Nothing to notify', sources: { sitemap: 10, dataset: 0, datasetOnly: 0, both: 0, datasetError: 'bad | gateway\nline two' }, today: '2026-11-12' });
     expect(nasty.line).toContain('dataset unavailable (bad \\| gateway line two)');
     expect(nasty.table.every((row) => !row.includes('\n'))).toBe(true);
+  });
+
+  it('tolerates legacy callers without bySource or sources', () => {
+    const r = formatRunReport({ outcome: 'Done', byTier: { backlog: 2 }, today: '2026-11-12' });
+    expect(r.line).toContain('sent 2 (new=0 delete=0 priority=0 updated=0 backlog=2)');
+    expect(r.line).toContain('[sitemap: new=0 delete=0 priority=0 updated=0 backlog=0; dataset: new=0 delete=0 priority=0 updated=0 backlog=0]');
+    expect(r.line).not.toContain('input:');
+    expect(r.table.join('\n')).toContain('| sitemap | 0 | 0 | 0 | 0 | 0 |');
+  });
+
+  it('annotation text is one line with workflow-command data escaping', () => {
+    expect(annotationText('HTTP 503 | 100%\r\nnext::error::x')).toBe('HTTP 503 \\| 100%25 next::error::x');
+    expect(annotationText('a\nb')).not.toMatch(/[\r\n]/);
+    expect(cleanReportText('a | b\nc')).toBe('a \\| b c');
   });
 
   it('repeats the slug-map fallback warning in every report, early returns included', () => {

@@ -256,6 +256,23 @@ function readPriority(file) {
   } catch { return []; }
 }
 
+/**
+ * Network/CDN text (status lines, exception messages) shown in the report:
+ * one line, no raw `|` that would split a summary table cell.
+ */
+export function cleanReportText(value) {
+  return String(value).replace(/[\r\n]+/g, ' ').replace(/\|/g, '\\|');
+}
+
+/**
+ * Message of a `::warning`/`::notice`/`::error` workflow command: the same
+ * cleaning, then the escaping GitHub's workflow commands require for data
+ * (`%`, `\r`, `\n`), so a message can neither be cut nor inject a command.
+ */
+export function annotationText(value) {
+  return cleanReportText(value).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+}
+
 function summary(lines) {
   if (!process.env.GITHUB_STEP_SUMMARY) return;
   try { appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`); } catch { /* ignore */ }
@@ -279,13 +296,12 @@ export function formatRunReport({
   const sent = TIERS.reduce((n, t) => n + (byTier[t] || 0), 0);
   const left = Math.max(0, budget - spent);
   const perSource = SOURCES.map((src) => `${src}: ${TIERS.map((t) => `${t}=${bySource[src]?.[t] || 0}`).join(' ')}`).join('; ');
-  // Error/warning text comes from the network (CDN status, exception
-  // messages): one line, no table separator, so it cannot break the summary.
-  const clean = (v) => String(v).replace(/[\r\n]+/g, ' ').replace(/\|/g, '\\|');
+  // Error/warning text comes from the network: cleanReportText keeps it on
+  // one line, without a raw table separator.
   const input = sources
     ? (sources.datasetError
-      ? `input: ${sources.sitemap} sitemap URLs, dataset unavailable (${clean(sources.datasetError)})`
-      : `input: ${sources.sitemap} sitemap URLs + ${sources.datasetOnly} dataset-only of ${sources.dataset} dataset URLs${sources.datasetWarning ? ` (${clean(sources.datasetWarning)})` : ''}`)
+      ? `input: ${sources.sitemap} sitemap URLs, dataset unavailable (${cleanReportText(sources.datasetError)})`
+      : `input: ${sources.sitemap} sitemap URLs + ${sources.datasetOnly} dataset-only of ${sources.dataset} dataset URLs${sources.datasetWarning ? ` (${cleanReportText(sources.datasetWarning)})` : ''}`)
     : null;
   return {
     line: `${outcome}: sent ${sent} (${tiers}) [${perSource}], skipped ${dedupSkipped} for dedup + ${liveSkipped} by live check (${notLive} dataset-only not published yet), failed ${failed}; quota ${spent}/${budget} used, ${left} left (day ${today} PT)${input ? `; ${input}` : ''}`,
@@ -330,7 +346,7 @@ async function main() {
       spent: ledger ? spentOn(ledger, today) : 0, today,
     });
     log('📊', r.line);
-    console.log(`::${level} title=Indexing API (jobs)::${r.line}`);
+    console.log(`::${level} title=Indexing API (jobs)::${annotationText(r.line)}`);
     summary(r.table);
   };
   const fail = (outcome) => { report(outcome, 'error'); process.exitCode = 1; };
@@ -359,9 +375,9 @@ async function main() {
   }
   const dataset = await loadDatasetJobEntries();
   if (dataset.error) {
-    console.log(`::warning title=Indexing API (jobs)::Dataset unavailable (${dataset.error}) — sitemap URLs only`);
+    console.log(`::warning title=Indexing API (jobs)::${annotationText(`Dataset unavailable (${dataset.error}) — sitemap URLs only`)}`);
   } else {
-    if (dataset.warning) console.log(`::warning title=Indexing API (jobs)::${dataset.warning}`);
+    if (dataset.warning) console.log(`::warning title=Indexing API (jobs)::${annotationText(dataset.warning)}`);
     log('📦', `${dataset.entries.length} job-detail URLs from ${dataset.jobs} active jobs in the published dataset`);
   }
   const merged = mergeJobSources(sitemapEntries, dataset.entries);
@@ -453,7 +469,7 @@ async function main() {
 
 if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
-    console.log(`::error title=Indexing API (jobs)::Unhandled error: ${err.stack || err.message}`);
+    console.log(`::error title=Indexing API (jobs)::${annotationText(`Unhandled error: ${err.stack || err.message}`)}`);
     process.exit(1);
   });
 }
