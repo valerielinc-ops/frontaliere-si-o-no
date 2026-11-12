@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Nov 2026 21:48:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 13:40:40 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,102 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cross-border workers: today&apos;s verified readings — November 12, 2026</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-daily-brief-2026-11-12/</link>
+      <description><![CDATA[Today's numbers, November 12, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate]]></description>
+      <content:encoded><![CDATA[No like-for-like comparison clears the threshold for a lead finding today. The edition reports the available readings and the period each source covers.
+
+Hello — it's Thursday, November 12, 2026. This is the daily brief for people who live on one side of the border and work on the other: four topics tracked by our monitoring — border queues, fuel, the exchange rate and jobs — each with a link to its live page.
+
+## Border waits: available readings
+
+The available readings show smooth crossings: of 141 monitored crossings, 141 report no queue and the longest recorded wait is just **0 minutes** (Anières).
+
+### Comparison with the previous edition
+Anières: 0 → 0 min (2026-11-11 → 2026-11-12).
+
+Traffic shifts by the hour — every crossing's live status is on the [border traffic page](/en/border-wait/).
+## Fuel: reported prices near the border
+
+| Municipality (IT) | Unleaded, reported minimum |
+|---|---|
+| Livigno (SO) | €1.206/L |
+| Gera Lario (CO) | €1.799/L |
+| Castione Andevenno (SO) | €1.799/L |
+| Cosio Valtellino (SO) | €1.799/L |
+| Rogolo (SO) | €1.799/L |
+
+In **Livigno** (SO), the reported prices differ by **€43.65 for 50 litres** (€1.206/L in Italy vs €2.079/L at the nearest Swiss station).
+
+### Reported prices at the same stations
+| Company / location | Petrol EUR/L | Diesel EUR/L | Last report |
+|---|---|---|---|
+| Gera Lario | 1.799 | 2.109 | 2026-11-12 |
+| Castione Andevenno | 1.799 | 2.109 | 2026-11-12 |
+| Cosio Valtellino | 1.799 | 2.099 | 2026-11-12 |
+| Rogolo | 1.799 | 2.109 | 2026-11-12 |
+
+Observation: 2026-11-12T13:09:35.505Z.
+
+Prices town by town, updated daily: [border fuel prices today](/en/gasoline-price-switzerland/today/).
+## CHF–EUR exchange rate
+
+One franc buys **€1.0862** (reported on 2026-11-11). Versus the previous reading it loses 0.0020 €; against the available weekly reference the move is -0.0032 €.
+
+### Exchange-only illustration for CHF 4,000
+Gross euro equivalent: **4'344.80 EUR** (2026-11-11).
+
+Difference from the available weekly exchange-rate reference: **-12.80 EUR**.
+
+💡 If you earn francs and spend euros, the rate IS part of your salary: on CHF 4,000, one cent of movement is worth €40 a month. The [net salary calculator](/en/calculate-salary/) and the [currency-exchange comparison](/en/service-comparison/chf-eur-exchange-rate/) run the numbers for your case.
+## Jobs: active listings
+
+Our job board currently carries **35'171 active Swiss job listings** from 1'646 companies.
+
+Filter by canton, sector and city: [find jobs in Ticino and Switzerland](/en/find-jobs-ticino/).
+
+### Companies with the most active listings in Switzerland
+| Company / location | Active listings |
+|---|---|
+| fachkraft.ch GmbH | 3'346 |
+| STA Personal AG | 1'599 |
+| Coop Genossenschaft | 1'093 |
+| Stellenpartner AG | 856 |
+| yellowshark AG | 851 |
+
+### Locations with the most active listings
+| Company / location | Active listings |
+|---|---|
+| Zurich | 4'086 |
+| Bern | 1'345 |
+| Lucerne | 1'320 |
+| Basel | 862 |
+| Winterthur | 771 |
+
+## Topics readers search for
+2026-11-03 → 2026-11-09
+
+| Topic | Google Search impressions | Site search events |
+|---|---|---|
+| Jobs | 3'281 | 6'437 |
+| Pension | 137 | 0 |
+| Net salary | 84 | 0 |
+| Fuel | 77 | 0 |
+
+Aggregated topics only: individual searches are never published. Impressions measure Google exposure. Site events may include search updates; these are not counts of people or unique searches.
+
+Source: Google Search Console, Firebase Analytics / GA4 (partial sample).
+
+## How this brief is made
+
+None of the numbers above come from an agency feed — they are our own monitoring: border queues sampled several times an hour at every Swiss crossing, fuel prices across Italian border municipalities and nearby Swiss stations, the official daily CHF/EUR series, and our job-board crawlers. The brief is published daily and may be refreshed during the day; observation periods depend on the source, the linked pages stay live all day.]]></content:encoded>
+      <pubDate>Thu, 12 Nov 2026 13:40:40 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bollettino-frontaliere-2026-11-12</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bollettino-frontaliere-2026-11-12.webp" medium="image"/>
+    </item>
     <item>
       <title>Como renews lighting on Viale Varese, 80-thousand-euro project</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/como-varese-lighting-renewal/</link>
@@ -3295,65 +3391,6 @@ Even for cross-border workers, the verifiable fact is therefore not an already e
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/hackeraggio-ipct-casse-pensioni-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Digital banking disruptions affect Swiss payments and FX</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/revolut-service-outage-switzerland/</link>
-      <description><![CDATA[Up to 1,3 million users in Switzerland may have been affected by the Revolut outage. The British digital bank reported difficulties accessing some]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Issues with payments, deposits and currency exchange
-- Disruptions began shortly after 8:00 in Switzerland
-- Google indicates a gradual return of services
-- Revolut: customers' money and data are safe
-
-## Key facts
-- Who → users of the Revolut digital bank in Switzerland
-- Services → payments, deposits and currency exchange
-- Start → Tuesday, shortly after 8:00
-- Cause → outage at Google Cloud in London
-- Restoration → gradual, with completion expected approximately by the afternoon
-
-Up to 1,3 million users in Switzerland may have been affected by the Revolut outage. The British digital bank reported difficulties accessing some services on the morning of Tuesday, October 20, 2026. The operations affected included payments, deposits and currency conversions.
-
-The disruptions began shortly after 8:00 in Switzerland. The source also reports repercussions for the services of banks, companies and online platforms in Europe. For this reason, the incident is described as an outage extending beyond the relationship between Swiss users and Revolut alone, although no list of the entities affected is provided.
-
-### The stated cause and the return of services
-
-The stated cause is an outage at Google Cloud, whose European data center in London was affected by serious network disruptions. Google stated that the problem had been resolved and that services were gradually returning to operation.
-
-Recovery is not yet complete: customers may still be unable to create new workloads, while restoration for existing ones is estimated, approximately, to be complete by the afternoon. The source does not provide a more precise time.
-
-In a message issued on October 20, Revolut reassured customers: all users' money and data are safe. The company added that it had been working on a solution since the problem was identified that morning and apologized to the people affected for the disruption.
-The clearest way to understand the case is to separate the operational level from the technical one. For users in Switzerland, the source describes difficulties accessing specific functions; at the infrastructure level, it indicates network outages at Google Cloud's European data center in London. It does not describe a series of independent failures for each Revolut function.
-
-### The comparison between the two levels
-
-| Level | What the source documents |
-|---|---|
-| Services | Payments, deposits and currency exchange are among the affected functions |
-| Infrastructure | Google Cloud reports severe network outages in London |
-| Recovery | Services gradually return to operation; completion of existing workloads is indicated for the afternoon |
-| Security | Revolut states that customers' money and data are safe |
-
-This distinction avoids confusing the technical solution communicated by Google with the immediate availability of each function to the user. In the text, in fact, the problem is declared resolved, but the return of services is gradual. There is also still a possibility of being unable to create new workloads, while for existing ones the indicated time frame is only approximate.
-
-For cross-border commuters, the documentable connection remains limited: payments and currency exchange are among the services mentioned, but the source does not specify which currencies are involved. It does not say how many users are cross-border workers, does not distinguish Canton Ticino from the rest of Switzerland and does not report effects on salaries, transfers or other work-related operations. The article can therefore describe a service disruption for Swiss users, without turning it into a measure of the impact on cross-border commuters.
-Revolut's communication completes the picture, without quantifying the impact. In a post dated October 20, 2026, the company assured that all its customers' money and data were safe. It also stated that it had been working on a solution since the problem was identified and apologized. This is reassurance about the security of the money and data, not accompanied by details about the availability of individual features.
-
-### The limitations of the available data
-
-The figure of 1,3 million is presented as the maximum potential number of users in Switzerland who could be affected, not as a count of users who actually experienced a problem. The source does not indicate which European banks, companies, or platforms experienced disruptions, nor does it specify which currencies are included in the exchange service.
-
-The timeline also remains indicative. Google refers to services gradually becoming operational again and places the complete restoration of existing workloads by the afternoon; no definitive time is provided for each Revolut feature. The source also does not report an overall duration for the outage.
-
-It does not limit the news to the Canton of Ticino and does not link the service disruption to a payslip, an employment relationship, or an INPS procedure. The term cross-border worker can therefore refer only to a potential reader interested in payments or currency exchange, not to a group measured by the source.
-
-*Source: [rsi.ch](https://www.rsi.ch/info/mondo/Problemi-di-funzionamento-di-Revolut-toccata-anche-la-Svizzera--4178758.html)*]]></content:encoded>
-      <pubDate>Wed, 21 Oct 2026 14:40:20 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/revolut-servizi-interrotti</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-revolut-servizi-interrotti.webp" medium="image"/>
     </item>
   </channel>
 </rss>
