@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-11-12T13:37:23.103Z",
-  "runId": "43188011974",
+  "assembledAt": "2026-11-12T21:22:17.462Z",
+  "runId": "43306588261",
   "jobs": [
     {
       "id": "stadt-bern-6dee1ce44d86",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.688Z",
+      "crawledAt": "2026-11-12T21:22:10.776Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.688Z",
+      "validThrough": "2026-12-12T21:22:10.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.687Z",
+      "crawledAt": "2026-11-12T21:22:10.773Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.687Z",
+      "validThrough": "2026-12-12T21:22:10.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.686Z",
+      "crawledAt": "2026-11-12T21:22:10.772Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -235,7 +235,84 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.686Z",
+      "validThrough": "2026-12-12T21:22:10.772Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "stadt-bern-8852ecd213a9",
+      "slug": "giardinieri-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "giardinieri-stadt-bern-bern",
+        "en": "gardeners-stadt-bern-bern",
+        "de": "gartner-in-stadt-bern-bern",
+        "fr": "jardiniers-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Gärtner*in",
+      "titleByLocale": {
+        "it": "Giardinieri",
+        "en": "Gardeners",
+        "de": "Gärtner*in",
+        "fr": "Jardiniers"
+      },
+      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Ti stiamo cercando a 1. Dicembre o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Lavorare in un team esperto\n\n• Manutenzione e manutenzione dello Schosshaldenfriedhof\n\n• Lavori di taglio, di semina e di cucito\n\n• Guida e manutenzione di veicoli, macchinari e attrezzature\n\nRequisiti\n• Apprendistato professionale come giardiniere* in EFZ, campo di giardinaggio e paesaggistica\n\n• Lavoratori autonomi e affidabili\n\n• Team-ready e responsabile\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you at 1. December or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• Working in an experienced team\n\n• Maintenance and maintenance of the Schosshaldenfriedhof\n\n• Cutting, planting and mowing work\n\n• Driving and maintaining vehicles, machinery and equipment\n\nRequirements\n• Vocational apprenticeship as a gardener*in EFZ, field of gardening and landscaping\n\n• Self-employed and reliable\n\n• Team-ready and responsible\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous rendons Berne plus belle, colorée et habitable. Voulez-vous nous soutenir ? Nous vous cherchons à 1. Décembre ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Travailler dans une équipe expérimentée\n\n• Entretien et entretien du Schosshaldenfriedhof\n\n• Travaux de coupe, de plantation et de fauchage\n\n• Conduite et entretien des véhicules, des machines et du matériel\n\nExigences\n• Apprentissage professionnel en tant que jardinier* à EFZ, domaine du jardinage et de l'aménagement paysager\n\n• Travailleurs indépendants et fiables\n\n• Équipe prête et responsable\n\n• Joy du travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T21:22:10.770Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Ostermundigenstrasse 116",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gartner-in-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:46:53.597Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T21:22:10.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -270,7 +347,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.682Z",
+      "crawledAt": "2026-11-12T21:22:10.770Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -315,7 +392,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.682Z",
+      "validThrough": "2026-12-12T21:22:10.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -349,7 +426,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.681Z",
+      "crawledAt": "2026-11-12T21:22:10.769Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -398,84 +475,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:20:59.681Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "stadt-bern-8852ecd213a9",
-      "slug": "giardinieri-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "giardinieri-stadt-bern-bern",
-        "en": "gardeners-stadt-bern-bern",
-        "de": "gartner-in-stadt-bern-bern",
-        "fr": "jardiniers-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Gärtner*in",
-      "titleByLocale": {
-        "it": "Giardinieri",
-        "en": "Gardeners",
-        "de": "Gärtner*in",
-        "fr": "Jardiniers"
-      },
-      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Ti stiamo cercando a 1. Dicembre o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Lavorare in un team esperto\n\n• Manutenzione e manutenzione dello Schosshaldenfriedhof\n\n• Lavori di taglio, di semina e di cucito\n\n• Guida e manutenzione di veicoli, macchinari e attrezzature\n\nRequisiti\n• Apprendistato professionale come giardiniere* in EFZ, campo di giardinaggio e paesaggistica\n\n• Lavoratori autonomi e affidabili\n\n• Team-ready e responsabile\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you at 1. December or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• Working in an experienced team\n\n• Maintenance and maintenance of the Schosshaldenfriedhof\n\n• Cutting, planting and mowing work\n\n• Driving and maintaining vehicles, machinery and equipment\n\nRequirements\n• Vocational apprenticeship as a gardener*in EFZ, field of gardening and landscaping\n\n• Self-employed and reliable\n\n• Team-ready and responsible\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per 1. Dezember oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Mitarbeit in einem eingespielten Team\n\n• Pflege und Unterhalt des Schosshaldenfriedhofs\n\n• Schnitt-, Pflanz- und Mäharbeiten vornehmen\n\n• Fahrzeugen, Maschinen und Geräten führen und unterhalten\n\nAnforderungen:\n• Berufslehre als Gärtner*in EFZ, Fachrichtung Garten- und Landschaftsbau\n\n• Selbstständig und zuverlässig\n\n• Teamfähig und verantwortungsbewusst\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Nous rendons Berne plus belle, colorée et habitable. Voulez-vous nous soutenir ? Nous vous cherchons à 1. Décembre ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Travailler dans une équipe expérimentée\n\n• Entretien et entretien du Schosshaldenfriedhof\n\n• Travaux de coupe, de plantation et de fauchage\n\n• Conduite et entretien des véhicules, des machines et du matériel\n\nExigences\n• Apprentissage professionnel en tant que jardinier* à EFZ, domaine du jardinage et de l'aménagement paysager\n\n• Travailleurs indépendants et fiables\n\n• Équipe prête et responsable\n\n• Joy du travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.681Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Ostermundigenstrasse 116",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:46:53.597Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:20:59.681Z",
+      "validThrough": "2027-01-11T21:22:10.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -510,7 +510,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/berufsbeistandspersonen-erwachsenenschutz/54a87209-bb47-4ea9-91c3-ab0c04de00ee",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.680Z",
+      "crawledAt": "2026-11-12T21:22:10.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -559,7 +559,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:20:59.680Z",
+      "validThrough": "2027-01-19T21:22:10.768Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -594,7 +594,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/1c75d449-b5d5-44d0-bc3d-0aee734a4768",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.679Z",
+      "crawledAt": "2026-11-12T21:22:10.767Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -643,7 +643,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.679Z",
+      "validThrough": "2026-12-12T21:22:10.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -678,7 +678,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/florist-in/b5d98f9a-2df6-46e9-97b6-03c955b9827a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.677Z",
+      "crawledAt": "2026-11-12T21:22:10.766Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -726,7 +726,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:59.677Z",
+      "validThrough": "2027-01-21T21:22:10.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -761,7 +761,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-rueckzugsraum-schuetzenmatte-oder-a/97d60574-89c1-4ab7-84ad-877015e690f0",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.676Z",
+      "crawledAt": "2026-11-12T21:22:10.765Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -837,7 +837,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:59.676Z",
+      "validThrough": "2027-02-10T21:22:10.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -872,7 +872,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/ffaf215c-3504-4df8-b447-30a0dc5b8c08",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.675Z",
+      "crawledAt": "2026-11-12T21:22:10.764Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -920,7 +920,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:59.675Z",
+      "validThrough": "2027-02-10T21:22:10.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -955,7 +955,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/419c65dd-e259-4d8b-9760-eafd38beb5d2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.673Z",
+      "crawledAt": "2026-11-12T21:22:10.763Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1001,7 +1001,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:20:59.673Z",
+      "validThrough": "2027-01-24T21:22:10.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1036,7 +1036,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/jobcoach-personalvermittlerin-personalvermittler/aa777a41-78cf-459a-bafa-1eeaa0db168c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.672Z",
+      "crawledAt": "2026-11-12T21:22:10.762Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1085,7 +1085,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:20:59.672Z",
+      "validThrough": "2027-01-25T21:22:10.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1120,7 +1120,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-erhaltungsmanagement-strasse/839404c1-ab5a-44f1-9080-03ae8dc777eb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.670Z",
+      "crawledAt": "2026-11-12T21:22:10.761Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1169,7 +1169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:20:59.670Z",
+      "validThrough": "2027-01-26T21:22:10.761Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1204,7 +1204,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/dd10b8ab-265d-4cb7-918e-43a2b2c094b5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.669Z",
+      "crawledAt": "2026-11-12T21:22:10.760Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1253,7 +1253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:20:59.669Z",
+      "validThrough": "2027-01-21T21:22:10.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1288,7 +1288,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/95001a06-8a96-4da4-9960-273a57872d2c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.667Z",
+      "crawledAt": "2026-11-12T21:22:10.759Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1337,7 +1337,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:59.667Z",
+      "validThrough": "2027-01-31T21:22:10.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1371,7 +1371,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-koch-koechin-efz/aef5eba5-2f26-4fa7-aacf-b442f3b2bd80",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.666Z",
+      "crawledAt": "2026-11-12T21:22:10.758Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1420,7 +1420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:20:59.666Z",
+      "validThrough": "2027-01-28T21:22:10.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1455,7 +1455,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-kasse/68ee64a9-cb33-48d1-823c-2a72197de104",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.664Z",
+      "crawledAt": "2026-11-12T21:22:10.757Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1504,7 +1504,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:20:59.664Z",
+      "validThrough": "2027-01-28T21:22:10.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1539,7 +1539,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachangestellte-r-administration-support/2c3dea10-c8bf-4bfd-a0ed-578e836af17f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.662Z",
+      "crawledAt": "2026-11-12T21:22:10.755Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1587,7 +1587,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:59.662Z",
+      "validThrough": "2027-02-10T21:22:10.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1621,7 +1621,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.660Z",
+      "crawledAt": "2026-11-12T21:22:10.754Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1666,7 +1666,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:20:59.660Z",
+      "validThrough": "2027-01-03T21:22:10.754Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1701,7 +1701,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/8f5ac90d-3c92-458f-b209-baf3a061a71f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.658Z",
+      "crawledAt": "2026-11-12T21:22:10.753Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1744,7 +1744,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:20:59.658Z",
+      "validThrough": "2027-02-04T21:22:10.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1779,7 +1779,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/cbf376d7-ccc5-47f4-88f8-bff170bd24c8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.657Z",
+      "crawledAt": "2026-11-12T21:22:10.752Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1828,7 +1828,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:20:59.657Z",
+      "validThrough": "2027-01-21T21:22:10.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1862,7 +1862,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/f9cd772c-4226-4ec8-a3c5-5005cedcd20e",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.655Z",
+      "crawledAt": "2026-11-12T21:22:10.751Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1911,7 +1911,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:20:59.655Z",
+      "validThrough": "2027-02-04T21:22:10.751Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1946,7 +1946,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gartenbauarbeiter-in/d3e67471-221a-4ec4-b820-f00afd051517",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.653Z",
+      "crawledAt": "2026-11-12T21:22:10.749Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1994,7 +1994,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:59.653Z",
+      "validThrough": "2027-02-10T21:22:10.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2029,7 +2029,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/e0698742-0957-4976-80b5-7b7a9f28225d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.651Z",
+      "crawledAt": "2026-11-12T21:22:10.748Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2078,7 +2078,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:20:59.651Z",
+      "validThrough": "2027-02-04T21:22:10.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2113,7 +2113,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/bbd72f61-aaa5-4057-ae57-e433e3a0f665",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.649Z",
+      "crawledAt": "2026-11-12T21:22:10.747Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2164,7 +2164,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:20:59.649Z",
+      "validThrough": "2026-12-12T21:22:10.747Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2199,7 +2199,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst/533def69-e87a-4e21-9bb1-2a6e514f85bc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.648Z",
+      "crawledAt": "2026-11-12T21:22:10.746Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2250,7 +2250,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:20:59.648Z",
+      "validThrough": "2027-02-07T21:22:10.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2285,7 +2285,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/entsorgungshofwart-in-mit-bedienung-von-maschinen/ed26edda-737d-471d-93c9-286778559218",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.647Z",
+      "crawledAt": "2026-11-12T21:22:10.744Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2334,7 +2334,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:59.647Z",
+      "validThrough": "2027-02-09T21:22:10.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2369,7 +2369,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-migration-und-rassismus/ac6f7ea9-c746-4c70-8dcb-07dee50ca8c7",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.645Z",
+      "crawledAt": "2026-11-12T21:22:10.743Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2420,7 +2420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:59.645Z",
+      "validThrough": "2027-02-09T21:22:10.743Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2449,13 +2449,13 @@
         "de": "Auf Grund einer Pensionierung suchen wir für den Bereich Inkasso und Finanzen der Steuerverwaltung per 1. Januar 2027 oder nach Vereinbarung eine*n Sachbearbeiter*in Inkasso\n\nAufgaben:\n• Beraten der steuerpflichtigen Personen inklusive Schalterdienst\n\n• Treffen von Zahlungsvereinbarungen\n\n• Bearbeiten von telefonischen Anfragen und Korrespondenzen\n\n• Führen von anspruchsvollen Kundenverhandlungen\n\n• Durchführen von rechtlichen Inkassomassnahmen\n\n• Überwachen von Steuerausständen und Verlustscheinen\n\nAnforderungen:\n• Abgeschlossene kaufmännische Lehre\n\n• Kenntnisse im Steuer- sowie Schuldbetreibungs- und Konkurswesen erwünscht\n\n• Französischkenntnisse\n\n• Freude an vielseitigen Kundenkontakten\n\n• Gewandtheit im mündlichen und schriftlichen Ausdruck\n\n• Ausgewiesene Informatikanwenderkenntnisse\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "En raison d'une retraite, nous cherchons à recouvrer la dette et à financer l'administration fiscale à partir de 1. Janvier 2027 ou par arrangement un gestionnaire de cas dans le recouvrement des créances\n\nTâches :\n• Conseiller les assujettis, y compris les services de comptoir\n\n• Modalités de paiement\n\n• Traitement des demandes téléphoniques et de la correspondance\n\n• Mener des négociations exigeantes avec les clients\n\n• Mise en œuvre des mesures légales de recouvrement des créances\n\n• Contrôle des obligations fiscales et des notes de perte\n\nExigences\n• Apprentissage commercial achevé\n\n• La connaissance de l'impôt, du recouvrement des créances et de la faillite est souhaitée\n\n• Compétences en français\n\n• Profitez de contacts clients polyvalents\n\n• Adaptation dans l'expression orale et écrite\n\n• Compétences informatiques éprouvées\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter la responsabilité et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-inkasso-a-l/892a4ca0-c301-4078-a9d1-499e6e0aa1f8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.644Z",
+      "crawledAt": "2026-11-12T21:22:10.742Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2506,16 +2506,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:20:59.644Z",
+      "validThrough": "2027-02-04T21:22:10.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadt-bern-46f5690baf44",
       "slug": "stagista-in-statistica-stadt-bern-bern",
       "slugByLocale": {
-        "de": "praktikant-in-statistik-stadt-bern-bern",
         "it": "stagista-in-statistica-stadt-bern-bern",
         "en": "statistics-intern-stadt-bern-bern",
+        "de": "praktikant-in-statistik-stadt-bern-bern",
         "fr": "stagiaire-en-statistique-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2523,25 +2523,25 @@
       "companyDomain": "bern.ch",
       "title": "Praktikant*in Statistik",
       "titleByLocale": {
-        "de": "Praktikant*in Statistik",
         "it": "Stagista in statistica",
         "en": "Statistics Intern",
+        "de": "Praktikant*in Statistik",
         "fr": "Stagiaire en statistique"
       },
       "description": "Du interessierst dich für Statistik und möchtest praktische Erfahrungen sammeln? Statistik Stadt Bern sucht per 1. Januar 2027 für sechs Monate Verstärkung. Dich erwartet ein spannendes Praktikum (50–100 %) mit vielseitigen Einblicken, einem attraktiven Arbeitsplatz mitten in der Berner Altstadt und flexiblen Arbeitszeiten.\n\nAufgaben:\n• Statistische Auswertungen zum Mikrozensus Mobilität und Verkehr erstellen und aufbereiten\n\n• Dokumentationen erarbeiten\n\n• Grafiken und Visualisierungen erstellen\n\n• An Berichten wie Methodenbericht mitwirken\n\nAnforderungen:\n• Begonnenes oder abgeschlossenes Hochschulstudium von Vorteil\n\n• Kenntnisse in der Programmiersprache R\n\n• Versierter Umgang mit MS Office, insbesondere Excel\n\n• Freude am Umgang mit Zahlen und ein ausgeprägtes Zahlenflair\n\n• Gute Dienstleistungsorientierung\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Du interessierst dich für Statistik und möchtest praktische Erfahrungen sammeln? Statistik Stadt Bern sucht per 1. Januar 2027 für sechs Monate Verstärkung. Dich erwartet ein spannendes Praktikum (50–100 %) mit vielseitigen Einblicken, einem attraktiven Arbeitsplatz mitten in der Berner Altstadt und flexiblen Arbeitszeiten.\n\nAufgaben:\n• Statistische Auswertungen zum Mikrozensus Mobilität und Verkehr erstellen und aufbereiten\n\n• Dokumentationen erarbeiten\n\n• Grafiken und Visualisierungen erstellen\n\n• An Berichten wie Methodenbericht mitwirken\n\nAnforderungen:\n• Begonnenes oder abgeschlossenes Hochschulstudium von Vorteil\n\n• Kenntnisse in der Programmiersprache R\n\n• Versierter Umgang mit MS Office, insbesondere Excel\n\n• Freude am Umgang mit Zahlen und ein ausgeprägtes Zahlenflair\n\n• Gute Dienstleistungsorientierung\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Sei interessato alle statistiche e vuoi acquisire esperienza pratica? Statistiche Città di Berna sta cercando rinforzi a partire dal 1 gennaio 2027 per sei mesi. Ci si può aspettare uno stage emozionante (50-100%) con intuizioni versatili, un posto di lavoro attraente nel centro della città vecchia di Berna e orari di lavoro flessibili.\n\nCompiti:\n• Preparare e preparare valutazioni statistiche sulla mobilità e sui trasporti del microcenso\n\n• Sviluppo della documentazione\n\n• Creazione di grafici e visualizzazioni\n\n• Partecipazione a relazioni come la relazione di metodologia\n\nRequisiti\n• Studi universitari avviati o completati benefici\n\n• Conoscenza del linguaggio di programmazione R\n\n• Gestione esperta di MS Office, in particolare Excel\n\n• Gioia nel trattare i numeri e un numero marcato\n\n• Buon servizio orientamento\n\nOffriamo:\nPer senso e vita della città\n Con noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Are you interested in statistics and would like to gain practical experience? Statistics City of Bern is looking for reinforcement as of January 1, 2027 for six months. You can expect an exciting internship (50-100%) with versatile insights, an attractive workplace in the middle of the old town of Bern and flexible working hours.\n\nTasks:\n• Prepare and prepare statistical evaluations on the microcensus mobility and transport\n\n• Developing documentation\n\n• Creating graphics and visualizations\n\n• Participate in reports such as methodology report\n\nRequirements\n• Started or completed university studies beneficial\n\n• Knowledge of the programming language R\n\n• Experienced handling of MS Office, especially Excel\n\n• Joy in dealing with numbers and a pronounced number flair\n\n• Good service orientation\n\nWe offer:\nFor sense and city life\n With us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "fr": "Vous intéressez-vous aux statistiques et souhaitez acquérir une expérience pratique? Statistics City de Berne cherche du renfort depuis le 1er janvier 2027 pendant six mois. Vous pouvez vous attendre à un stage passionnant (50-100%) avec des idées polyvalentes, un lieu de travail attrayant au milieu de la vieille ville de Berne et des horaires de travail flexibles.\n\nTâches :\n• Préparer et préparer des évaluations statistiques de la mobilité et des transports des microcenseurs\n\n• Élaboration de la documentation\n\n• Création de graphiques et de visualisations\n\n• Participer à des rapports tels que le rapport méthodologique\n\nExigences\n• Études universitaires commencées ou terminées bénéfiques\n\n• Connaissance du langage de programmation R\n\n• Gestion expérimentée de MS Office, en particulier Excel\n\n• La joie dans le traitement des nombres et un nombre prononcé flair\n\n• Bonne orientation du service\n\nNous offrons:\nPour le sens et la vie en ville\n Avec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Sei interessato alle statistiche e vuoi acquisire esperienza pratica? Statistiche Città di Berna sta cercando rinforzi a partire dal 1 gennaio 2027 per sei mesi. Ci si può aspettare uno stage emozionante (50-100%) con intuizioni versatili, un posto di lavoro attraente nel centro della città vecchia di Berna e orari di lavoro flessibili.\n\nCompiti:\n• Preparare e preparare valutazioni statistiche sulla mobilità e sui trasporti del microcenso\n\n• Sviluppo della documentazione\n\n• Creazione di grafici e visualizzazioni\n\n• Partecipazione a relazioni come la relazione di metodologia\n\nRequisiti\n• Studi universitari avviati o completati benefici\n\n• Conoscenza del linguaggio di programmazione R\n\n• Gestione esperta di MS Office, in particolare Excel\n\n• Gioia nel trattare i numeri e un numero marcato\n\n• Buon servizio orientamento\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Are you interested in statistics and would like to gain practical experience? Statistics City of Bern is looking for reinforcement as of January 1, 2027 for six months. You can expect an exciting internship (50-100%) with versatile insights, an attractive workplace in the middle of the old town of Bern and flexible working hours.\n\nTasks:\n• Prepare and prepare statistical evaluations on the microcensus mobility and transport\n\n• Developing documentation\n\n• Creating graphics and visualizations\n\n• Participate in reports such as methodology report\n\nRequirements\n• Started or completed university studies beneficial\n\n• Knowledge of the programming language R\n\n• Experienced handling of MS Office, especially Excel\n\n• Joy in dealing with numbers and a pronounced number flair\n\n• Good service orientation\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Du interessierst dich für Statistik und möchtest praktische Erfahrungen sammeln? Statistik Stadt Bern sucht per 1. Januar 2027 für sechs Monate Verstärkung. Dich erwartet ein spannendes Praktikum (50–100 %) mit vielseitigen Einblicken, einem attraktiven Arbeitsplatz mitten in der Berner Altstadt und flexiblen Arbeitszeiten.\n\nAufgaben:\n• Statistische Auswertungen zum Mikrozensus Mobilität und Verkehr erstellen und aufbereiten\n\n• Dokumentationen erarbeiten\n\n• Grafiken und Visualisierungen erstellen\n\n• An Berichten wie Methodenbericht mitwirken\n\nAnforderungen:\n• Begonnenes oder abgeschlossenes Hochschulstudium von Vorteil\n\n• Kenntnisse in der Programmiersprache R\n\n• Versierter Umgang mit MS Office, insbesondere Excel\n\n• Freude am Umgang mit Zahlen und ein ausgeprägtes Zahlenflair\n\n• Gute Dienstleistungsorientierung\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Vous intéressez-vous aux statistiques et souhaitez acquérir une expérience pratique? Statistics City de Berne cherche du renfort depuis le 1er janvier 2027 pendant six mois. Vous pouvez vous attendre à un stage passionnant (50-100%) avec des idées polyvalentes, un lieu de travail attrayant au milieu de la vieille ville de Berne et des horaires de travail flexibles.\n\nTâches :\n• Préparer et préparer des évaluations statistiques de la mobilité et des transports des microcenseurs\n\n• Élaboration de la documentation\n\n• Création de graphiques et de visualisations\n\n• Participer à des rapports tels que le rapport méthodologique\n\nExigences\n• Études universitaires commencées ou terminées bénéfiques\n\n• Connaissance du langage de programmation R\n\n• Gestion expérimentée de MS Office, en particulier Excel\n\n• La joie dans le traitement des nombres et un nombre prononcé flair\n\n• Bonne orientation du service\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/praktikant-in-statistik/f610f27a-0584-4f12-ad14-e6e9bb968caf",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:59.636Z",
+      "crawledAt": "2026-11-12T21:22:10.740Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2560,9 +2560,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/praktikant-in-statistik/f610f27a-0584-4f12-ad14-e6e9bb968caf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikant-in-statistik-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-statistik-stadt-bern-bern"
+        ],
+        "en": [
+          "praktikant-in-statistik-stadt-bern-bern"
+        ],
+        "fr": [
+          "praktikant-in-statistik-stadt-bern-bern"
+        ]
       },
+      "firstSeenAt": "2026-11-12T09:20:59.636Z",
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2577,23 +2590,80 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:59.636Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:20:59.636Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-statistik-stadt-bern-bern"
-        ],
-        "en": [
-          "praktikant-in-statistik-stadt-bern-bern"
-        ],
-        "fr": [
-          "praktikant-in-statistik-stadt-bern-bern"
-        ]
+      "validThrough": "2027-02-10T21:22:10.740Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "stadt-bern-517b515b178f",
+      "slug": "immobiliensachbearbeiter-in-stadt-bern-bern",
+      "slugByLocale": {
+        "de": "immobiliensachbearbeiter-in-stadt-bern-bern",
+        "it": "immobiliensachbearbeiter-in-stadt-bern-bern",
+        "en": "immobiliensachbearbeiter-in-stadt-bern-bern",
+        "fr": "immobiliensachbearbeiter-in-stadt-bern-bern"
       },
-      "previousSlugs": [
-        "praktikant-in-statistik-stadt-bern-bern"
-      ]
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Immobiliensachbearbeiter*in",
+      "titleByLocale": {
+        "de": "Immobiliensachbearbeiter*in",
+        "it": "Immobiliensachbearbeiter*in",
+        "en": "Immobiliensachbearbeiter*in",
+        "fr": "Immobiliensachbearbeiter*in"
+      },
+      "description": "Wir suchen dich per 1. Januar 2027 oder nach Vereinbarung als Immobiliensachbearbeiter*in\n\nAufgaben:\n• Assistenz Bewirtschaftung im Tagesgeschäft\n\n• Datenpflege und -mutation im Bewirtschaftungssystem SAP\n\n• Mietvertragserstellung, Reparaturaufträge und Korrespondenz\n\n• Rechnungsbearbeitung und Weiterverrechnungen\n\n• Kommunikation mit Mietern, Handwerkern usw.\n\nAnforderungen:\n• Kaufmännische oder gleichwertige Ausbildung\n\n• Praxiserfahrung, idealerweise im Immobilienbereich\n\n• Gute Kenntnisse der gängigen MS-Office Programme\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Dienstleistungs- und Kundenorientierung, exakte, effiziente und eigenverantwortliche Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "de": "Wir suchen dich per 1. Januar 2027 oder nach Vereinbarung als Immobiliensachbearbeiter*in\n\nAufgaben:\n• Assistenz Bewirtschaftung im Tagesgeschäft\n\n• Datenpflege und -mutation im Bewirtschaftungssystem SAP\n\n• Mietvertragserstellung, Reparaturaufträge und Korrespondenz\n\n• Rechnungsbearbeitung und Weiterverrechnungen\n\n• Kommunikation mit Mietern, Handwerkern usw.\n\nAnforderungen:\n• Kaufmännische oder gleichwertige Ausbildung\n\n• Praxiserfahrung, idealerweise im Immobilienbereich\n\n• Gute Kenntnisse der gängigen MS-Office Programme\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Dienstleistungs- und Kundenorientierung, exakte, effiziente und eigenverantwortliche Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "it": "Wir suchen dich per 1. Januar 2027 oder nach Vereinbarung als Immobiliensachbearbeiter*in\n\nAufgaben:\n• Assistenz Bewirtschaftung im Tagesgeschäft\n\n• Datenpflege und -mutation im Bewirtschaftungssystem SAP\n\n• Mietvertragserstellung, Reparaturaufträge und Korrespondenz\n\n• Rechnungsbearbeitung und Weiterverrechnungen\n\n• Kommunikation mit Mietern, Handwerkern usw.\n\nAnforderungen:\n• Kaufmännische oder gleichwertige Ausbildung\n\n• Praxiserfahrung, idealerweise im Immobilienbereich\n\n• Gute Kenntnisse der gängigen MS-Office Programme\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Dienstleistungs- und Kundenorientierung, exakte, effiziente und eigenverantwortliche Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Wir suchen dich per 1. Januar 2027 oder nach Vereinbarung als Immobiliensachbearbeiter*in\n\nAufgaben:\n• Assistenz Bewirtschaftung im Tagesgeschäft\n\n• Datenpflege und -mutation im Bewirtschaftungssystem SAP\n\n• Mietvertragserstellung, Reparaturaufträge und Korrespondenz\n\n• Rechnungsbearbeitung und Weiterverrechnungen\n\n• Kommunikation mit Mietern, Handwerkern usw.\n\nAnforderungen:\n• Kaufmännische oder gleichwertige Ausbildung\n\n• Praxiserfahrung, idealerweise im Immobilienbereich\n\n• Gute Kenntnisse der gängigen MS-Office Programme\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Dienstleistungs- und Kundenorientierung, exakte, effiziente und eigenverantwortliche Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Wir suchen dich per 1. Januar 2027 oder nach Vereinbarung als Immobiliensachbearbeiter*in\n\nAufgaben:\n• Assistenz Bewirtschaftung im Tagesgeschäft\n\n• Datenpflege und -mutation im Bewirtschaftungssystem SAP\n\n• Mietvertragserstellung, Reparaturaufträge und Korrespondenz\n\n• Rechnungsbearbeitung und Weiterverrechnungen\n\n• Kommunikation mit Mietern, Handwerkern usw.\n\nAnforderungen:\n• Kaufmännische oder gleichwertige Ausbildung\n\n• Praxiserfahrung, idealerweise im Immobilienbereich\n\n• Gute Kenntnisse der gängigen MS-Office Programme\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Hohe Dienstleistungs- und Kundenorientierung, exakte, effiziente und eigenverantwortliche Arbeitsweise\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/immobiliensachbearbeiter-in/7fc8cc0d-cedc-4630-a6cd-5afe5d20285f",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T21:22:10.732Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Bundesgasse 33",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/immobiliensachbearbeiter-in/7fc8cc0d-cedc-4630-a6cd-5afe5d20285f",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-10T21:22:10.732Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T21:22:10.732Z"
     },
     {
       "id": "stadt-bern-601412c09057",
@@ -2678,7 +2748,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-11T21:15:10.486Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
