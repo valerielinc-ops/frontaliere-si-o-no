@@ -48208,6 +48208,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bollettino-frontaliere-2026-11-12',
+ category: 'novita',
+ date: '2026-11-12T13:40:39.520Z',
+ image: '/images/blog/article-bollettino-frontaliere-2026-11-12.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

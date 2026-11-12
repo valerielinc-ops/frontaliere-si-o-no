@@ -13712,6 +13712,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-rinnovo-illuminazione-varese.title': 'Como erneuert die Beleuchtung der Viale Varese – Projekt im Wert von 80mila euro',
     'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'Die Stadtverwaltung von Como hat das Projekt zur Erneuerung der öffentlichen Beleuchtung entlang zweier Abschnitte der Viale Varese offiziell gestartet.',
     'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-12.title': 'Grenzgänger: die verfügbaren Messwerte von heute — 12. November 2026',
+    'blog.article.bollettino-frontaliere-2026-11-12.excerpt': 'Die Zahlen von heute, 12. November 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Grenzgänger-Bulletin am 12. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'Die Zahlen vom 12. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
 };
 
 export default blogMetaDe;
