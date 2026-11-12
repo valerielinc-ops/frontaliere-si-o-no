@@ -443,6 +443,7 @@ jobs:
             scripts/assemble-events-dataset.mjs
             scripts/load-rc-env.mjs
             scripts/lib/open-data-refresh-pr.sh
+            scripts/lib/compare-merge-base.sh
             scripts/ci/pr-body-check-gate.mjs
             data/events-description-rewrites.json
             data/events.json

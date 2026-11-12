@@ -38,6 +38,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/old-history-guard.mjs',
   'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/run-bounded-command.mjs',
+  'scripts/lib/compare-merge-base.sh',
   'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/git-add-resolved.mjs',
@@ -1033,6 +1034,7 @@ function compatHistoryFixture(
   historyLength: number,
   helperSource = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8'),
   stableReconcilerSource?: string,
+  options: { compareResponse?: 'success' | 'too-large' | 'malformed' } = {},
 ) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-compat-history-'));
   directories.push(directory);
@@ -1091,14 +1093,26 @@ function compatHistoryFixture(
   const bin = path.join(directory, 'bin');
   fs.mkdirSync(bin);
   const gh = path.join(bin, 'gh');
+  const compareResponse = options.compareResponse ?? 'success';
   fs.writeFileSync(gh, [
     '#!/usr/bin/env node',
     "const { spawnSync } = require('node:child_process');",
+    "const { writeSync } = require('node:fs');",
     `const remote = ${JSON.stringify(remote)};`,
+    `const compareResponse = ${JSON.stringify(compareResponse)};`,
     'const args = process.argv.slice(2);',
     "if (args[0] === 'api') {",
     "  const endpoint = args.find((arg) => arg.startsWith('repos/fixture/publisher/compare/'));",
     "  if (endpoint) {",
+    "    if (compareResponse === 'too-large') {",
+    "      writeSync(1, '{\"message\":\"Sorry, this diff is taking too long to generate.\"}\\n');",
+    "      writeSync(2, 'gh: HTTP 422\\n');",
+    '      process.exit(1);',
+    '    }',
+    "    if (compareResponse === 'malformed') {",
+    "      writeSync(1, '{\"message\":\"unexpected compare response\"}\\n');",
+    '      process.exit(0);',
+    '    }',
     "    const compare = endpoint.slice(endpoint.indexOf('/compare/') + '/compare/'.length);",
     "    const [left, right] = compare.split('...');",
     "    const result = spawnSync('git', ['--git-dir=' + remote, 'merge-base', left, right], { encoding: 'utf8' });",
@@ -1283,6 +1297,21 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
   }, 120_000);
 
+  it('falls back to a bounded blobless merge-base lookup when GitHub rejects a large compare diff', () => {
+    const setup = compatHistoryFixture(50, undefined, undefined, { compareResponse: 'too-large' });
+    advanceCompatMain(setup);
+    const currentMainHead = git(setup.remote, ['rev-parse', 'refs/heads/main']);
+
+    const run = publishCompat(setup);
+
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).toContain('GitHub compare diff is too large; using bounded commit-graph fallback');
+    expect(run.output).toContain('git deepen compatibility refresh compare merge base');
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run', '/stable'] });
+    expect(git(setup.remote, ['rev-parse', `${COMPAT_BRANCH}^`])).toBe(currentMainHead);
+    expect(run.commitCount).toBeLessThan(150);
+  }, 120_000);
+
   it('uses the current reconciler when a stale compat branch rejects --compat', () => {
     const staleReconciler = [
       "if (process.argv.includes('--compat')) {",
@@ -1398,10 +1427,45 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const run = publishCompat(setup);
     expect(run.result.status, run.output).not.toBe(0);
     expect(run.output).toContain('::error::Missing compatibility merge base');
+    expect(run.output).not.toContain('bounded commit-graph fallback');
     expect(run.commitCount).toBeLessThan(20);
     expect(Date.now() - startedAt).toBeLessThan(60_000);
     // Nothing was pushed over the branch.
     expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(unrelated);
+  }, 120_000);
+
+  it('fails closed without publishing when the large-diff fallback reaches its history cap', () => {
+    const setup = compatHistoryFixture(50, undefined, undefined, { compareResponse: 'too-large' });
+    const seed = path.join(setup.directory, 'seed');
+    git(seed, ['checkout', '-q', '--orphan', 'fixture-unrelated-capped']);
+    git(seed, ['commit', '-q', '-m', 'unrelated root']);
+    for (let index = 1; index <= 40; index += 1) {
+      write(seed, 'data/long-history.txt', `unrelated ${index}\n`);
+      git(seed, ['add', 'data/long-history.txt']);
+      git(seed, ['commit', '-q', '-m', `unrelated ${index}`]);
+    }
+    const unrelated = git(seed, ['rev-parse', 'HEAD']);
+    git(seed, ['push', '-q', '--force', 'origin', `${unrelated}:refs/heads/${COMPAT_BRANCH}`]);
+
+    const run = publishCompat(setup);
+
+    expect(run.result.status, run.output).not.toBe(0);
+    expect(run.output).toContain('No merge base found within the 1344-commit history-depth cap');
+    expect(run.output).toContain('deepening commit graph by 64 commits (cap 1344)');
+    expect(run.output).toContain('deepening commit graph by 256 commits (cap 1344)');
+    expect(run.output).toContain('deepening commit graph by 1024 commits (cap 1344)');
+    expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(unrelated);
+  }, 120_000);
+
+  it('rejects a successful compare response that does not contain a SHA-40 merge base', () => {
+    const setup = compatHistoryFixture(50, undefined, undefined, { compareResponse: 'malformed' });
+    const stableHead = git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`]);
+
+    const run = publishCompat(setup);
+
+    expect(run.result.status, run.output).not.toBe(0);
+    expect(run.output).toContain('Invalid compatibility refresh compare merge base response');
+    expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(stableHead);
   }, 120_000);
 
   it('stops in seconds, without downloading history, when the base cannot be created and main moved', () => {
