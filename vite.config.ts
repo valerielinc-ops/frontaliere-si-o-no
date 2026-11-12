@@ -778,6 +778,12 @@ export default defineConfig(({ mode }) => {
  },
  },
  rollupOptions: {
+ // The production build runs once and never reuses a Rollup watch cache. Keep
+ // Rollup's per-module AST cache disabled so the large article graph can use
+ // its bounded AST LRU instead of retaining every parsed module through the
+ // sequential SSG closeBundle chain. This changes memory retention only; the
+ // transformed modules and emitted chunks remain the same.
+ cache: false,
  // Rollup defaults to 1000 concurrent file operations. The deploy's 16 GiB
  // runners approach 13 GiB RSS while Vite loads this graph; cap the transient
  // file-operation fan-out to preserve memory headroom without changing output.
