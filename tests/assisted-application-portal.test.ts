@@ -2168,7 +2168,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
       { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
     ]);
-    // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
+    // A policy-defaultable privacy notice stays checked despite an opposing plan action; a prompt value stays blank and an optional newsletter may be cleared.
     const projected = guardPlan({
       actions: [
         { fieldId: 'p1', action: 'select', source: 'profile', value: 'Select One' },
@@ -2182,7 +2182,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
     ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
-    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
+    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
     expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
     expect(holdsValue({ kind: 'text', value: '-- Seleziona --' })).toBe(false);
