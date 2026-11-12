@@ -20,6 +20,7 @@ import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
 import { readAttr } from '../html-attr.mjs';
 import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
+import { parseYoustyApprenticeshipHtml } from '../yousty-job-parser.mjs';
 
 const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
 
@@ -137,6 +138,23 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     recordUrl: opts.recordUrl,
     recordTitle,
   });
+  if (spec?.platform === 'yousty.ch') {
+    const yousty = parseYoustyApprenticeshipHtml(html, url);
+    if (isSufficientVacancyDescription(yousty.description)) {
+      detail.description = yousty.description;
+    }
+    if (yousty.locationCandidates.length) {
+      const [candidate] = yousty.locationCandidates;
+      detail.locationCandidates = yousty.locationCandidates;
+      detail.location = candidate.location;
+      detail.addressLocality = candidate.addressLocality || '';
+      detail.addressCountry = candidate.addressCountry || '';
+      detail.country = candidate.addressCountry || '';
+      detail.postalCode = candidate.postalCode || '';
+      detail.streetAddress = candidate.streetAddress || '';
+    }
+    if (yousty.applyUrl) detail.applyUrl = yousty.applyUrl;
+  }
   const pdfApplyUrl = sourcePdfApplyUrl(html, spec);
   if (pdfApplyUrl) detail.applyUrl = pdfApplyUrl;
   const labelledLocation = extractLabelledDetailValue(html, spec?.detailLocationLabel);

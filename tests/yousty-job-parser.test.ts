@@ -45,6 +45,30 @@ describe('parseYoustyApprenticeshipHtml', () => {
     expect(parsed.description).not.toContain('Dein Arbeitsort');
   });
 
+  it('extracts the vacancy-specific Swiss address from the native workplace section', () => {
+    const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
+
+    expect(parsed.locationCandidates).toEqual([{
+      location: '6917 Lugano',
+      addressLocality: 'Lugano',
+      addressCountry: 'CH',
+      postalCode: '6917',
+      streetAddress: 'Via Figino 6',
+    }]);
+  });
+
+  it('does not treat postal-looking application-shell text as vacancy geography', () => {
+    const parsed = parseYoustyApprenticeshipHtml(`
+      <div>Grund 2, 6234 Triengen</div>
+      <noscript>
+        <h2>Lehrstellenbeschreibung</h2>
+        <div><p>Eine abwechslungsreiche Lehrstelle mit einer ausführlichen Beschreibung für interessierte Lernende.</p></div>
+      </noscript>
+    `);
+
+    expect(parsed.locationCandidates).toEqual([]);
+  });
+
   it('does not treat the profile page as an application URL when no handoff is parsed', () => {
     const parsed = parseYoustyApprenticeshipHtml(SAMPLE_HTML);
     expect(parsed.applyUrl).toBe('');
