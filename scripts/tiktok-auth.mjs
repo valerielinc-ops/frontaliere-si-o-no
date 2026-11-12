@@ -68,6 +68,7 @@ import { URL } from 'node:url';
 import crypto from 'node:crypto';
 
 import { TIKTOK_API } from './lib/tiktok-publish.mjs';
+import { classifyOAuthCallback } from './lib/oauth-callback-state.mjs';
 
 const isProd = process.argv.includes('--prod');
 const urlOnly = process.argv.includes('--url-only');
@@ -210,26 +211,37 @@ async function main() {
         res.writeHead(404).end('not the callback path');
         return;
       }
-      const got = reqUrl.searchParams.get('code');
-      const gotState = reqUrl.searchParams.get('state');
-      const err = reqUrl.searchParams.get('error');
       const errDescription = reqUrl.searchParams.get('error_description');
+      const callback = classifyOAuthCallback(
+        {
+          code: reqUrl.searchParams.get('code'),
+          error: reqUrl.searchParams.get('error'),
+          state: reqUrl.searchParams.get('state'),
+        },
+        state,
+      );
+      if (callback.kind === 'stale') {
+        console.warn('Ignoring a TikTok OAuth callback with stale state; the active flow remains open.');
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('Stale OAuth callback ignored. The active authorization is still waiting.');
+        return;
+      }
+      if (callback.kind === 'error') {
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end(`TikTok returned an error: ${callback.error} (${errDescription || 'no description'}). You can close this tab.`);
+        server.close();
+        reject(new Error(`authorization denied: ${callback.error} — ${errDescription || ''}`));
+        return;
+      }
+      if (callback.kind === 'invalid') {
+        res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('OAuth callback did not include an authorization code. The active authorization is still waiting.');
+        return;
+      }
       res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-      if (err) {
-        res.end(`TikTok returned an error: ${err} (${errDescription || 'no description'}). You can close this tab.`);
-        server.close();
-        reject(new Error(`authorization denied: ${err} — ${errDescription || ''}`));
-        return;
-      }
-      if (gotState !== state) {
-        res.end('state mismatch — aborted. You can close this tab.');
-        server.close();
-        reject(new Error('state mismatch (possible CSRF) — aborted'));
-        return;
-      }
       res.end('Authorization received. You can close this tab.');
       server.close();
-      resolve(got);
+      resolve(callback.code);
     });
     server.listen(PORT, () => console.log(`⏳ waiting for the callback on port ${PORT}…`));
     server.on('error', reject);
