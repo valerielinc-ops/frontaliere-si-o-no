@@ -160,7 +160,8 @@ describe('job OG cache prewarm and deferred publication', () => {
     const saveJob = prewarm.slice(prewarm.indexOf('  save-cache:'));
     expect(saveJob).toContain("needs.render.result == 'skipped'");
     expect(saveJob).toContain("needs.prepare.result == 'success'");
-    expect(prewarm).toContain("github.event.workflow_run.conclusion != 'cancelled'");
+    expect(prewarm).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(prewarm).not.toContain("github.event.workflow_run.conclusion != 'cancelled'");
     expect(saveJob).toContain("if: needs.prepare.outputs.has_missing == 'true'\n        uses: actions/download-artifact@v8");
   });
 

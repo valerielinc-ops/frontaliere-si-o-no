@@ -1486,18 +1486,31 @@ function jobPostingJsonLdScripts(html: string): Array<{ start: number; end: numb
 }
 
 /** Replace exactly one cached JobPosting script with the current rendering. */
-export function replaceJobPostingJsonLd(html: string, freshScript: string): string {
+export function replaceJobPostingJsonLdWithChange(
+ html: string,
+ freshScript: string,
+): ActiveJobHtmlRewrite {
  const currentMatches = jobPostingJsonLdScripts(html);
  const freshMatches = jobPostingJsonLdScripts(freshScript);
  if (!freshScript) {
-  if (currentMatches.length === 0) return html;
+  if (currentMatches.length === 0) return { html, changed: false };
   throw new Error('cached JobPosting JSON-LD has no current source');
  }
  if (currentMatches.length !== 1 || freshMatches.length !== 1) {
   throw new Error('expected one cached and fresh JobPosting JSON-LD script');
  }
  const current = currentMatches[0];
- return `${html.slice(0, current.start)}${freshMatches[0].script}${html.slice(current.end)}`;
+ const fresh = freshMatches[0];
+ return {
+  html: `${html.slice(0, current.start)}${fresh.script}${html.slice(current.end)}`,
+  // Compare only the replaced JSON-LD fragment. Comparing the complete page
+  // here would recreate the O(n) cache-hit work this rewrite avoids.
+  changed: current.script !== fresh.script,
+ };
+}
+
+export function replaceJobPostingJsonLd(html: string, freshScript: string): string {
+ return replaceJobPostingJsonLdWithChange(html, freshScript).html;
 }
 
 function hasCompleteActiveJobPostingContract(fragment: string): boolean {
@@ -15330,7 +15343,7 @@ ${staticAnalyticsHtml}
   {
    rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => {
     if (!context?.emitterFingerprintChanged) return { html, changed: false };
-    return { html: replaceJobPostingJsonLd(html, getCurrentJobPostingLd()), changed: true };
+    return replaceJobPostingJsonLdWithChange(html, getCurrentJobPostingLd());
    },
   },
  );

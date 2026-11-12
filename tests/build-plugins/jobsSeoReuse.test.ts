@@ -32,6 +32,7 @@ import {
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
   replaceJobPostingJsonLd,
+  replaceJobPostingJsonLdWithChange,
   activeJobSourceValidThrough,
   rewriteActiveBridgeHtml,
   rewriteActiveJobHtml,
@@ -539,6 +540,18 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(result).toContain('{"@type":"WebPage","description":"Keep me"}');
     expect(result).toContain('{"@context":"https://schema.org","@type":"JobPosting","description":"Fresh"}');
     expect(result).not.toContain('"description":"Old"');
+  });
+
+  it('reports an unchanged archived JobPosting fragment as unchanged', () => {
+    const currentScript = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","description":"Current"}'
+      + '</script>';
+    const html = `<html><head>${currentScript}</head></html>`;
+
+    expect(replaceJobPostingJsonLdWithChange(html, currentScript)).toEqual({
+      html,
+      changed: false,
+    });
   });
 
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {

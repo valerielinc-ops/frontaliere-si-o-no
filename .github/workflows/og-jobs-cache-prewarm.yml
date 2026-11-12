@@ -28,7 +28,7 @@ jobs:
       github.ref == 'refs/heads/main' &&
       (github.event_name != 'workflow_run' ||
        (github.event.workflow_run.head_branch == 'main' &&
-        github.event.workflow_run.conclusion != 'cancelled'))
+        github.event.workflow_run.conclusion == 'success'))
     runs-on: ubuntu-latest
     timeout-minutes: 120
     outputs:
