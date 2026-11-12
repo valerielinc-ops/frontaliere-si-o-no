@@ -163,12 +163,15 @@ import {
   relatedSearchClusterKeyFromAnyPath,
 } from '../scripts/lib/related-search-cluster-path.mjs';
 import {
+  ACTIVE_PAGE_REUSE_IGNORED_JOB_KEYS,
   buildMinimalJobInput,
   getIncrementalManifestInputCache,
   getIncrementalManifestMap,
   logIncrementalManifestMemory,
   INCREMENTAL_MANIFEST_ENABLED,
 } from './shared/incrementalManifest.mjs';
+
+const RELATED_CLUSTER_IGNORED_JOB_KEYS = new Set(ACTIVE_PAGE_REUSE_IGNORED_JOB_KEYS);
 import {
   registerKeywordLandingPaths,
   registerRetiredKeywordLandingPaths,
@@ -1289,6 +1292,9 @@ export function buildRelatedClusterManifestInput(input: {
       job.slugByLocale?.[input.locale] ?? job.slug ?? '',
       [],
       input.inputCache,
+      null,
+      null,
+      RELATED_CLUSTER_IGNORED_JOB_KEYS,
     ) as { jobId: string; jobRecordDigest: string };
     return { id: projection.jobId, digest: projection.jobRecordDigest };
   });

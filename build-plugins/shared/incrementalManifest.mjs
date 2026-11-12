@@ -520,6 +520,7 @@ export function buildMinimalJobInput(
   inputCache = null,
   canonicalJob = null,
   relatedJobIgnoredKeys = null,
+  sourceJobIgnoredKeys = null,
 ) {
   // Bridge page records may carry a page-local id/slug or other route fields.
   // Keep those fields in the page input below, but always derive the job
@@ -534,7 +535,7 @@ export function buildMinimalJobInput(
 
   const input = {
     jobId: stableJobId(sourceJob),
-    jobRecordDigest: digestJobRecord(sourceJob, inputCache),
+    jobRecordDigest: digestJobRecord(sourceJob, inputCache, sourceJobIgnoredKeys),
     jobVersion: stableJobVersion(sourceJob),
     locale: String(locale),
     relatedJobs: relatedJobProjections,

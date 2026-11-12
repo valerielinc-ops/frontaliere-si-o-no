@@ -78,6 +78,22 @@ describe('related-search cluster shadow manifest', () => {
     expect(hash(base, 'related-search-cluster@2')).not.toBe(hash(base));
   });
 
+  it('does not invalidate the cluster for a related job crawler heartbeat', () => {
+    const jobs = jobsFor(RELATED_CLUSTER_FIXTURE.clusters[0].matchingJobIds);
+    const before = clusterInput(0, jobs.map((job) => ({
+      ...job,
+      crawledAt: '2026-10-22T21:26:37.571Z',
+    })));
+    const after = clusterInput(0, jobs.map((job) => ({
+      ...job,
+      crawledAt: '2026-10-23T09:31:45.608Z',
+    })));
+
+    expect(computeInputHash(after, 'related-search-cluster')).toBe(
+      computeInputHash(before, 'related-search-cluster'),
+    );
+  });
+
   it('reuses stable-id job digests when a cluster recreates matching job objects', () => {
     const inputCache = createIncrementalManifestInputCache();
     const base = clusterInput(0, undefined, undefined, inputCache);
