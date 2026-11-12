@@ -513,32 +513,38 @@ async function clickChecked(page, locator, { step, snap, label = 'control', plat
 }
 
 /**
- * Type the caption like a person: focus, optionally clear what the page put
- * there (TikTok pre-fills the file name), then line by line with a per-key
- * delay. Checks the editor holds exactly the queued caption afterwards.
+ * Fill TikTok's Draft.js editor in one input operation: repeated Enter/key
+ * events can move text between blocks while TikTok updates the caption state.
+ * Other publishers keep the human-paced line-by-line input. All routes still
+ * verify that the editor contains the exact queued caption before publishing.
  */
-export async function typeCaption(page, editor, caption, { human, clear = false, hashtagSuggestions = false, platform, step = null, snap = async () => {} } = {}) {
-  await clickChecked(page, editor, { step, snap, platform, label: 'caption editor' });
-  if (clear) {
-    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
-    await page.keyboard.press('Backspace');
-    let cleared;
+export async function typeCaption(page, editor, caption, { human, clear = false, platform, step = null, snap = async () => {} } = {}) {
+  if (platform === 'tiktok') {
     try {
-      cleared = await editor.innerText();
+      await editor.fill(String(caption));
     } catch {
-      throw new RobotError('selector-missing', 'the caption editor could not be read after clearing', { step: 'caption' });
+      throw new RobotError('selector-missing', 'the TikTok caption editor could not be filled', { step: 'caption' });
     }
-    if (normalize(cleared)) {
-      throw new RobotError('selector-missing', 'the caption editor is not empty after clearing', { step: 'caption' });
+  } else {
+    await clickChecked(page, editor, { step, snap, platform, label: 'caption editor' });
+    if (clear) {
+      await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+      await page.keyboard.press('Backspace');
+      let cleared;
+      try {
+        cleared = await editor.innerText();
+      } catch {
+        throw new RobotError('selector-missing', 'the caption editor could not be read after clearing', { step: 'caption' });
+      }
+      if (normalize(cleared)) {
+        throw new RobotError('selector-missing', 'the caption editor is not empty after clearing', { step: 'caption' });
+      }
     }
-  }
-  const lines = String(caption).split('\n');
-  for (let i = 0; i < lines.length; i++) {
-    if (lines[i]) {
-      if (hashtagSuggestions) await typeTikTokLine(page, lines[i], human);
-      else await page.keyboard.type(lines[i], { delay: human.typeDelay() });
+    const lines = String(caption).split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i]) await page.keyboard.type(lines[i], { delay: human.typeDelay() });
+      if (i < lines.length - 1) await page.keyboard.press('Enter');
     }
-    if (i < lines.length - 1) await page.keyboard.press('Enter');
   }
   let written;
   try {
@@ -549,30 +555,6 @@ export async function typeCaption(page, editor, caption, { human, clear = false,
   if (written !== normalize(caption)) {
     throw new RobotError('selector-missing', 'the caption editor does not exactly match the queued caption', { step: 'caption' });
   }
-}
-
-/**
- * Type a TikTok line while closing the hashtag suggestion popup after every
- * tag. Escape leaves the text typed so far intact and cannot choose a
- * platform suggestion; the original separating space is then entered.
- */
-async function typeTikTokLine(page, line, human) {
-  const hashtag = /#[\p{L}\p{N}_]+/gu;
-  let cursor = 0;
-  for (const match of line.matchAll(hashtag)) {
-    const index = match.index ?? cursor;
-    const tag = match[0];
-    const before = line.slice(cursor, index);
-    if (before) await page.keyboard.type(before, { delay: human.typeDelay() });
-    await page.keyboard.type(tag, { delay: human.typeDelay() });
-    await page.keyboard.press('Escape');
-    cursor = index + tag.length;
-    if (line[cursor] === ' ') {
-      await page.keyboard.press('Space');
-      cursor += 1;
-    }
-  }
-  if (cursor < line.length) await page.keyboard.type(line.slice(cursor), { delay: human.typeDelay() });
 }
 
 async function waitForTikTokProcessing(page, { timeout, guard }) {
@@ -1582,7 +1564,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
     page.getByRole('combobox').and(page.locator('[contenteditable="true"]')),
   ], { guard, timeout: t.upload });
   await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap, timeout: 0 });
-  await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true, platform: 'tiktok', step, snap });
+  await typeCaption(page, editor, caption, { platform: 'tiktok', step, snap });
   await human.pause();
   await ensureTikTokPublicVisibility({ page, step, snap, guard, timeout: t.ui });
 
