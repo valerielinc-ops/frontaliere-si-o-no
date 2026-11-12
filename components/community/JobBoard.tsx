@@ -6208,25 +6208,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
    || filterAwaitsCatalog)
    && !clusterSeedApplies
  ) || returnVisitResultsPending;
- const initialContentReadyRef = useRef(false);
- useLayoutEffect(() => {
- // The slim first page is enough to paint the SPA, but not enough to release
- // the external snapshot: the authoritative catalog can still replace the
- // result set and card/ad geometry after the deferred interaction load.
- // If the first-page asset is unavailable, the full catalog can settle without
- // reader intent (for example while a CDN/deploy handoff is in progress). Keep
- // the static snapshot as the visible owner in that case; releasing it would
- // replace the already-painted LCP surface with the hidden SPA shell. Desktop
- // adopts the snapshot into #root, so it does not need the interaction gate.
- if (initialContentReadyRef.current
-   || (deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)
-   || jobsLoading
-   || fullLoadPending
-   || jobs.length === 0
-   || resultsResolving) return;
- initialContentReadyRef.current = true;
- onInitialContentReady?.();
- }, [deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
@@ -6246,6 +6227,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && (initialFilterCanton === null
    || initialFilterCanton === 'TI'
    || initialFilterCanton === AGGREGATE_CANTON_CODE);
+
+ const initialContentReadyRef = useRef(false);
+ useLayoutEffect(() => {
+ // The slim first page is enough to paint the SPA and release the external
+ // snapshot for the canonical unfiltered TI/aggregate listing. Its first
+ // viewport is deterministic, so the authoritative catalog can continue in
+ // the background without turning the already-painted handoff into the mobile
+ // LCP candidate. Filtered, editorial, and other canton views still wait for
+ // the full catalog because their first response is not authoritative for the
+ // visible result set.
+ // If the first-page asset is unavailable, the full catalog can settle without
+ // reader intent (for example while a CDN/deploy handoff is in progress). Keep
+ // the static snapshot as the visible owner in that case; releasing it would
+ // replace the already-painted LCP surface with the hidden SPA shell. Desktop
+ // adopts the snapshot into #root, so it does not need the interaction gate.
+ if (initialContentReadyRef.current
+   || (deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)
+   || jobsLoading
+   || (fullLoadPending && !isCanonicalFirstPageListing)
+   || jobs.length === 0
+   || resultsResolving) return;
+ initialContentReadyRef.current = true;
+ onInitialContentReady?.();
+ }, [deferJobBoardCatalogUntilInteraction, fullLoadPending, isCanonicalFirstPageListing, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
+
  const loadingCardCount = isUnfilteredListing
   ? isCanonicalFirstPageListing && jobsLoading && filteredJobs.length === 0
    ? pageSize

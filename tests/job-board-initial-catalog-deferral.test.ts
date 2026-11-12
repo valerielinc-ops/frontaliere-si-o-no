@@ -60,12 +60,13 @@ describe('job-board catalog loading after the first listing paint', () => {
 
   it('keeps the external static page until non-empty listing results are renderable', () => {
     const readinessStart = JOB_BOARD_SOURCE.indexOf('const initialContentReadyRef = useRef(false)');
-    const readinessEnd = JOB_BOARD_SOURCE.indexOf('// The canonical unfiltered TI/aggregate listing', readinessStart);
+    const readinessEnd = JOB_BOARD_SOURCE.indexOf('const loadingCardCount = isUnfilteredListing', readinessStart);
     const readiness = JOB_BOARD_SOURCE.slice(readinessStart, readinessEnd);
 
     expect(JOB_BOARD_SOURCE).toContain('onInitialContentReady?: () => void');
     expect(readiness).toContain('(deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)');
-    expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
+    expect(readiness).toContain('(fullLoadPending && !isCanonicalFirstPageListing)');
+    expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, isCanonicalFirstPageListing, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
     expect(readiness).toContain('onInitialContentReady?.()');
   });
   it('releases the catalog when a filter is already active, without any board interaction', () => {
