@@ -3253,7 +3253,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-12T09:18:22.101Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenzjahr für Pharmaziestudierende (w/m/d)",

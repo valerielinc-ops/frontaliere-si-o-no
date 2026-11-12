@@ -28,7 +28,8 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { applicationReceipt, applicationStage, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
@@ -4124,8 +4125,6 @@ const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 // that a SuccessFactors CV input is still in its upload dialog. Keep this
 // narrower than the complete document vocabulary used by the requirements
 // planner: only a CV/resume label counts as the CV being present.
-const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
-const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
 // Documents that prove a qualification (certificates, diplomas, references): asked by an application, never by
 // a bare account registration.
 const QUALIFICATION_DOCUMENT_TERMS = '(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
@@ -4134,8 +4133,6 @@ const documentContextRe = (terms) => new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
-const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
-const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
 const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
 const UMANTIS_NON_SUPPORTING_UPLOAD_RE = documentContextRe(
   '(?:[\\p{L}\\p{N}\\p{M}]*(?:photo|foto|passport|passaport|passeport|ausweis|licen[cs]|patent|permit|permess|permis|bewilligung)[\\p{L}\\p{N}\\p{M}]*)',
@@ -7719,6 +7716,47 @@ function invisibleRecaptcha(page) {
 const DONE_URL_RE = /(thank|danke|grazie|merci|success|confirmation|submitted|received|complete)/i;
 const REVIEW_URL_RE = /(review|preview|summary|riepilogo|zusammenfassung|überprüf|ueberpruef|vérif|verif|resume|récap)/i;
 
+/** Read Gravity Forms' native validation and confirmation markers after submit. */
+function gravityFormsEvidenceInPage(frameIndex = 0) {
+  const normalizeFormId = (value) => {
+    const match = /^(?:gform_(?:confirmation_message_|confirmation_wrapper_|wrapper_)?)(\d+)$/i.exec(String(value || '').trim());
+    return match ? `gform_${match[1]}` : '';
+  };
+  const frameFormId = (value) => {
+    const formId = normalizeFormId(value);
+    return formId ? `${Number(frameIndex) || 0}\u0000${formId}` : '';
+  };
+  const visible = (element) => {
+    try {
+      if (typeof element.checkVisibility === 'function') return element.checkVisibility({ visibilityProperty: true });
+      const style = getComputedStyle(element);
+      return style.display !== 'none' && style.visibility !== 'hidden' && element.getClientRects().length > 0;
+    } catch { return false; }
+  };
+  const formIdFor = (element) => {
+    for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
+      const id = frameFormId(node.id);
+      if (id) return id;
+    }
+    return '';
+  };
+  const confirmationNodes = [...new Set(document.querySelectorAll(
+    '.gform_confirmation_message, [id^="gform_confirmation_message_"], .gform_confirmation_wrapper',
+  ))];
+  const validationNodes = [...document.querySelectorAll('.gform_validation_error, .gform_validation_errors')];
+  return {
+    formIds: [...document.querySelectorAll('form[id^="gform_"]')]
+      .map((form) => frameFormId(form.id)).filter(Boolean),
+    validationError: validationNodes.length > 0,
+    validationFormIds: [...new Set(validationNodes.map(formIdFor).filter(Boolean))],
+    confirmations: confirmationNodes.map((element) => ({
+      formId: formIdFor(element),
+      visible: visible(element),
+      text: String(element.innerText || element.textContent || '').replace(/\s+/gu, ' ').trim().slice(0, 800),
+    })).filter((item) => item.text),
+  };
+}
+
 /** Completion URLs are only supplementary: explicit receipt copy must bind the same posting. */
 export function urlConfirms(url, snapshot, context = {}) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && applicationReceipt(snapshot, { ...context, url });
@@ -7738,14 +7776,24 @@ async function waitForOutcome(page, context = {}) {
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
+    let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    if (snapshot) {
+      const gravityFrame = context.finalSubmission?.frame || page.mainFrame();
+      const frameIndex = Number.isSafeInteger(context.finalSubmission?.frameIndex)
+        ? context.finalSubmission.frameIndex
+        : Math.max(0, page.frames().indexOf(gravityFrame));
+      const gravityForms = await gravityFrame.evaluate(gravityFormsEvidenceInPage, frameIndex).catch(() => null);
+      lastSnapshot = { ...snapshot, ...(gravityForms ? { gravityForms } : {}), text, url: page.url() };
+    }
+    if (gravityFormsSubmissionOutcome(lastSnapshot, { finalSubmission: context.finalSubmission }) === 'validation') {
+      return { outcome: 'validation', snapshot: lastSnapshot };
+    }
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return { outcome: 'refused', snapshot: lastSnapshot };
     // Refusal takes precedence when an error page retains generic thank-you copy.
-    let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
-    if (snapshot) lastSnapshot = { ...snapshot, text, url: page.url() };
-    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'confirmed', snapshot: lastSnapshot };
-    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
-    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
+    if (snapshot && applicationReceipt(lastSnapshot, { ...context, url: page.url() })) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (urlConfirms(page.url(), lastSnapshot, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (advancedToFinalReview(lastSnapshot, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
     if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return { outcome: 'validation', snapshot: lastSnapshot };
   }
@@ -9996,6 +10044,8 @@ export async function submitViaPortal(ctx) {
         return await handoff('portal_final_form_unbound');
       }
       const formBinding = createHash('sha256').update(armed.contractJson).digest('hex');
+      const nativeFormId = String(armed.nativeFormId || '');
+      const frameIndex = Math.max(0, page.frames().indexOf(final.frame || page.mainFrame()));
       activeFinalFormGuard = { frame: final.frame, locator: final.locator, token: guardToken };
       // The native form is bound before the durable send arm. The installed
       // capture listener compares it again synchronously before portal click
@@ -10013,7 +10063,14 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }
       await clearActiveFinalFormGuard();
-      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const finalSubmission = {
+        clicked: true,
+        formId: nativeFormId ? `${frameIndex}\u0000${nativeFormId}` : '',
+        nativeFormId,
+        frame: final.frame || page.mainFrame(),
+        frameIndex,
+      };
+      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job, finalSubmission });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
