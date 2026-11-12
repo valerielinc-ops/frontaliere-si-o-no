@@ -911,6 +911,14 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
+describe('deploy.yml — bounded jobs SEO heap collection cadence', () => {
+  it('sets the canary-validated 512 MiB collection interval for production builds', () => {
+    const build = ((YAML.parse(DEPLOY_YML) as any).jobs['build-locale'].steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Build (BUILD_LOCALE=${{ matrix.locale }})');
+    expect(build?.env?.JOBS_SEO_HTML_GC_INTERVAL_MB).toBe('512');
+  });
+});
+
 describe('deploy.yml — job OG cache version isolation (#12380)', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;

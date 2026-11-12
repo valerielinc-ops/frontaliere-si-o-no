@@ -249,6 +249,8 @@ export interface GscDemandEvidence {
   readonly impressedPaths: number;
   /** True when ANY of `paths` had ≥1 Search Console impression in the window. */
   hasImpressions(paths: readonly string[]): boolean;
+  /** Release the captured page index after its final build-time reader. */
+  release(): void;
 }
 
 /** The plan's window: "impressioni in Search Console negli ultimi 90 giorni". */
@@ -268,6 +270,7 @@ const DORMANT_GSC_DEMAND = (reason: string): GscDemandEvidence => ({
   windowDays: 0,
   impressedPaths: 0,
   hasImpressions: () => false,
+  release: () => {},
 });
 
 export class TrafficEvidenceFilter {
@@ -282,7 +285,8 @@ export class TrafficEvidenceFilter {
 
   private readonly firstSeen: Map<string, number>;
   private readonly gscDemandEvidence: GscDemandEvidence;
-  private readonly expiredJobGa4TrafficEvidence: EvidenceIndex['expiredJobGa4Traffic'] | null;
+  private expiredJobGa4TrafficEvidence: EvidenceIndex['expiredJobGa4Traffic'] | null;
+  private released = false;
 
   constructor(rootDir: string) {
     const evidencePath = path.join(rootDir, 'data', 'evidence-index.json');
@@ -464,6 +468,10 @@ export class TrafficEvidenceFilter {
     urlClass: UrlClass,
     opts?: DecideOptions,
   ): FilterDecision {
+    if (this.released) {
+      this.decisionsFull++;
+      return { action: 'full', reason: 'evidence-released' };
+    }
     if (!this.active) {
       this.decisionsFull++;
       return { action: 'full', reason: 'filter-dormant' };
@@ -553,6 +561,17 @@ export class TrafficEvidenceFilter {
     return this.gscDemandEvidence;
   }
 
+  /** Clear large path indexes once every build-time consumer has finished. */
+  releaseRetainedEvidence(): void {
+    if (this.released) return;
+    this.released = true;
+    this.trafficSet.clear();
+    this.firstSeen.clear();
+    this.patternsByClass.clear();
+    this.gscDemandEvidence.release();
+    this.expiredJobGa4TrafficEvidence = null;
+  }
+
   /**
    * Direct traffic-set lookup. Returns true iff the URL appears in the
    * merged GSC topLandingPage / GA4 sessions / PostHog pages / hourly
@@ -609,23 +628,49 @@ export function buildGscDemandEvidence(ev: EvidenceIndex | null | undefined): Gs
   if (impressed.size < GSC_DEMAND_MIN_IMPRESSED_PATHS) {
     return DORMANT_GSC_DEMAND(`only ${impressed.size} impressed paths (< ${GSC_DEMAND_MIN_IMPRESSED_PATHS})`);
   }
+  let released = false;
+  const impressedPaths = impressed.size;
   return {
-    active: true,
-    dormantReason: '',
+    get active() { return !released; },
+    get dormantReason() { return released ? 'evidence released after final reader' : ''; },
     windowDays,
-    impressedPaths: impressed.size,
+    get impressedPaths() { return released ? 0 : impressedPaths; },
     hasImpressions(paths: readonly string[]): boolean {
+      if (released) return false;
       for (const p of paths) if (impressed.has(normalizePath(p))) return true;
       return false;
+    },
+    release() {
+      if (released) return;
+      released = true;
+      impressed.clear();
     },
   };
 }
 
 let _singleton: TrafficEvidenceFilter | null = null;
+let _singletonRootDir: string | null = null;
 
 export function getTrafficEvidenceFilter(rootDir: string): TrafficEvidenceFilter {
-  if (!_singleton) _singleton = new TrafficEvidenceFilter(rootDir);
+  const resolvedRoot = path.resolve(rootDir);
+  if (!_singleton || _singletonRootDir !== resolvedRoot) {
+    _singleton = new TrafficEvidenceFilter(resolvedRoot);
+    _singletonRootDir = resolvedRoot;
+  }
   return _singleton;
 }
 
-export function _resetForTests(): void { _singleton = null; }
+/** Drop the shared evidence maps after the final SSG reader has finished. */
+export function releaseTrafficEvidenceFilter(rootDir?: string): boolean {
+  if (!_singleton) return false;
+  if (rootDir && _singletonRootDir !== path.resolve(rootDir)) return false;
+  _singleton.releaseRetainedEvidence();
+  _singleton = null;
+  _singletonRootDir = null;
+  return true;
+}
+
+export function _resetForTests(): void {
+  _singleton = null;
+  _singletonRootDir = null;
+}

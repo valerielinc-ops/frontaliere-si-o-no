@@ -27,11 +27,59 @@
  * plugin properties such as `enforce`) so wrapping is fully transparent.
  */
 
+import fs from 'node:fs';
+import v8 from 'node:v8';
 import type { Plugin } from 'vite';
 
 import { forceGc } from './shared/forceGc';
 
 const PROFILE_ON = process.env.BUILD_PROFILE !== '0';
+let firstV8HeapCheckpointWritten = false;
+
+/** Capture compact V8 heap-space stats once, after the first closeBundle GC. */
+export function captureFirstV8HeapCheckpoint(pluginName: string): Record<string, unknown> | null {
+  if (process.env.V8_HEAP_DIAGNOSTICS !== '1' || firstV8HeapCheckpointWritten) return null;
+  firstV8HeapCheckpointWritten = true;
+
+  const memory = process.memoryUsage();
+  const checkpoint = {
+    schemaVersion: 1,
+    checkpoint: 'first-closeBundle-after-plugin-gc',
+    plugin: pluginName,
+    processMemoryBytes: {
+      rss: memory.rss,
+      heapUsed: memory.heapUsed,
+      heapTotal: memory.heapTotal,
+      external: memory.external,
+      arrayBuffers: memory.arrayBuffers,
+    },
+    heap: v8.getHeapStatistics(),
+    spaces: v8.getHeapSpaceStatistics().map((space) => ({
+      name: space.space_name,
+      size: space.space_size,
+      used: space.space_used_size,
+      available: space.space_available_size,
+      physical: space.physical_space_size,
+    })),
+  };
+
+  const outputPath = process.env.V8_HEAP_DIAGNOSTICS_FILE;
+  if (outputPath) {
+    try {
+      fs.writeFileSync(outputPath, `${JSON.stringify(checkpoint, null, 2)}\n`);
+    } catch (error) {
+      console.warn(`[profile-v8-heap] could not write checkpoint (${(error as Error).message})`);
+    }
+  }
+  console.log(`[profile-v8-heap] ${JSON.stringify(checkpoint)}`);
+  return checkpoint;
+}
+
+/** Tests only. */
+export function resetV8HeapCheckpointForTests(): void {
+  firstV8HeapCheckpointWritten = false;
+}
+
 // Force sequential closeBundle execution. Use only for one-off profiling runs:
 // it serializes every plugin so wall-clock per plugin reflects real work
 // instead of parallel-overlapped time. Slower than normal — opt-in via env.
@@ -179,6 +227,7 @@ export function withProfile(plugin: Plugin): Plugin {
       // overhead, no behaviour change.
       const m = process.memoryUsage();
       if (gcRan) lastForcedGc = { heapUsed: m.heapUsed, rss: m.rss };
+      captureFirstV8HeapCheckpoint(name);
       console.log(
         `[profile-mem] ${name.padEnd(40)} rss_mb=${(m.rss / 1048576).toFixed(0)} heapUsed_mb=${(m.heapUsed / 1048576).toFixed(0)} heapTotal_mb=${(m.heapTotal / 1048576).toFixed(0)} external_mb=${(m.external / 1048576).toFixed(0)} arrayBuffers_mb=${(m.arrayBuffers / 1048576).toFixed(0)}${gcNote}`,
       );

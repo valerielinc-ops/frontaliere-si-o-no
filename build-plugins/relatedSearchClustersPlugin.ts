@@ -89,6 +89,7 @@ import {
 } from './shared/titleSuffix';
 import {
   getTrafficEvidenceFilter,
+  releaseTrafficEvidenceFilter,
   type FilterDecision,
   type GscDemandEvidence,
   type UrlClass,
@@ -5825,6 +5826,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
           );
+          releaseTrafficEvidenceFilter(rootDir);
           printRelatedSearchProfile();
           return;
         }
@@ -5836,6 +5838,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       if (candidates.length === 0) {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
         await writeIncrementalManifests();
+        releaseTrafficEvidenceFilter(rootDir);
         printRelatedSearchProfile();
         return;
       }
@@ -6152,12 +6155,14 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[36m[related-search-clusters]\x1b[0m wrote shared matching summary: ${contexts.length} contexts, ${candidates.length - contexts.length} skipped, ${jobs.length} jobs, ${summaryOutput}`,
         );
+        releaseTrafficEvidenceFilter(rootDir);
         printRelatedSearchProfile();
         return;
       }
 
       if (contexts.length === 0) {
         await writeIncrementalManifests();
+        releaseTrafficEvidenceFilter(rootDir);
         printRelatedSearchProfile();
         return;
       }
@@ -6809,6 +6814,10 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         );
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${trafficFilter.summary()}`);
       }
+      // This is the final build-time reader of the shared traffic evidence
+      // cache. Drop the singleton here so its large path sets do not survive
+      // into post-walk processing or the remaining closeBundle plugins.
+      releaseTrafficEvidenceFilter(rootDir);
       printRelatedSearchProfile();
     },
   };
