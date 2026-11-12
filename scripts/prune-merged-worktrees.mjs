@@ -73,6 +73,8 @@
 // Uso:
 //   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
+//   node scripts/prune-merged-worktrees.mjs --apply --session-start  # hook, al massimo ogni 6 ore
+//   FRONTALIERE_PRUNE_SESSION_START=1 node scripts/prune-merged-worktrees.mjs --apply
 //   node scripts/prune-merged-worktrees.mjs --reclaim  # recupero report-only, dry-run
 //   node scripts/prune-merged-worktrees.mjs --reclaim --apply
 //   node scripts/prune-merged-worktrees.mjs --expiry-days 5
@@ -94,7 +96,7 @@
 // scadenza resta report-only; il percorso normale conserva soltanto la vecchia
 // eccezione locale `worktree-agent-*` 0-ahead.
 
-import { execFileSync, execSync, spawn } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import {
   appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
@@ -157,6 +159,8 @@ import {
 const STARTED_AT = Date.now();
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_EXPIRY_DAYS = 3;
+const SESSION_START_COOLDOWN_MS = 6 * 60 * 60 * 1000;
+const SESSION_START_CRITICAL_FREE_BYTES = 1024 ** 3;
 
 // La scadenza è intenzionalmente separata da IDLE_WORKTREE_MS: un checkout
 // vuoto può essere raccolto dopo un giorno, ma un branch con commit propri
@@ -166,7 +170,14 @@ const DEFAULT_EXPIRY_DAYS = 3;
 // Valida l'intera CLI prima di leggere o modificare lo stato Git: un refuso non
 // deve mai trasformare un prune mirato in uno sweep completo.
 function parseOptions(args, env) {
-  const values = { apply: false, only: null, orphansOnly: false, reclaim: false, expiryDays: undefined };
+  const values = {
+    apply: false,
+    only: null,
+    orphansOnly: false,
+    reclaim: false,
+    sessionStart: env.FRONTALIERE_PRUNE_SESSION_START === '1',
+    expiryDays: undefined,
+  };
   const seen = new Set();
   const markSeen = (name) => {
     if (seen.has(name)) throw new Error(`${name} può essere specificato una sola volta`);
@@ -185,6 +196,9 @@ function parseOptions(args, env) {
     } else if (arg === '--reclaim') {
       markSeen(arg);
       values.reclaim = true;
+    } else if (arg === '--session-start') {
+      markSeen(arg);
+      values.sessionStart = true;
     } else if (arg === '--only') {
       markSeen(arg);
       const value = args[i + 1];
@@ -217,6 +231,9 @@ function parseOptions(args, env) {
   if (values.reclaim && values.orphansOnly) {
     throw new Error('--reclaim e --orphans-only non possono essere usati insieme');
   }
+  if (values.sessionStart && (!values.apply || values.only || values.orphansOnly || values.reclaim)) {
+    throw new Error('--session-start richiede --apply e non può essere combinato con --only, --orphans-only o --reclaim');
+  }
 
   const envExpiry = env.PRUNE_WORKTREE_EXPIRY_DAYS ?? env.PRUNE_EXPIRY_DAYS;
   const rawExpiryDays = values.expiryDays ?? (envExpiry === '' ? undefined : envExpiry);
@@ -229,6 +246,7 @@ function parseOptions(args, env) {
     only: values.only,
     orphansOnly: values.orphansOnly,
     reclaim: values.reclaim,
+    sessionStart: values.sessionStart,
     expiryDays: Math.max(1, expiryDays),
   };
 }
@@ -243,6 +261,7 @@ try {
 const APPLY = OPTIONS.apply;
 const ONLY = OPTIONS.only;
 const RECLAIM = OPTIONS.reclaim;
+const SESSION_START = OPTIONS.sessionStart;
 const EXPIRY_DAYS = OPTIONS.expiryDays;
 const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
 const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n === ONLY);
@@ -339,7 +358,35 @@ if (!releasePruneRunLock) {
   console.log(`ℹ️  sweep saltata: un'altra istanza è attiva o il lock ${pruneRunLock} non è recuperabile con certezza.`);
   process.exit(0);
 }
-process.once('exit', releasePruneRunLock);
+const sessionStartMarker = join(gitCommonDir, 'frontaliere-prune-session-start.json');
+let markSessionStartComplete = false;
+process.once('exit', (exitCode) => {
+  if (markSessionStartComplete && exitCode === 0) {
+    const temporaryMarker = `${sessionStartMarker}.${process.pid}.tmp`;
+    try {
+      writeFileSync(temporaryMarker, JSON.stringify({ completedAt: Date.now() }), { mode: 0o600 });
+      renameSync(temporaryMarker, sessionStartMarker);
+    } catch {
+      try { unlinkSync(temporaryMarker); } catch { /* marker best-effort */ }
+    }
+  }
+  releasePruneRunLock();
+});
+
+const reclaimFree = diskFreeBytes(process.cwd());
+if (SESSION_START) {
+  let previousCompletedAt = 0;
+  try {
+    previousCompletedAt = Number(JSON.parse(readFileSync(sessionStartMarker, 'utf8')).completedAt);
+  } catch { /* marker absent or malformed: run the session-start sweep */ }
+  const elapsed = Date.now() - previousCompletedAt;
+  const freeSpaceAllowsCooldown = reclaimFree !== null && reclaimFree >= SESSION_START_CRITICAL_FREE_BYTES;
+  if (Number.isFinite(previousCompletedAt) && previousCompletedAt > 0 && elapsed >= 0 && elapsed < SESSION_START_COOLDOWN_MS && freeSpaceAllowsCooldown) {
+    console.log(`ℹ️  session-start saltato: ultima sweep completata ${Math.floor(elapsed / 60000)} min fa; cooldown 6 h.`);
+    process.exit(0);
+  }
+  markSessionStartComplete = true;
+}
 
 // Il reclaim è una modalità separata e non tocca mai branch. I hook esistenti
 // continuano a invocare questo script in background: quando `--apply` vede il
@@ -347,26 +394,10 @@ process.once('exit', releasePruneRunLock);
 // secondo processo o bloccare la sessione. `--reclaim` forza invece il dry-run
 // (o l'azione con `--apply`) anche con disco libero.
 const reclaimThreshold = reclaimFreeThresholdBytes(process.env);
-let reclaimFree = diskFreeBytes(process.cwd());
-const reclaimAutomatic = APPLY && !ONLY && reclaimFree !== null && reclaimFree < reclaimThreshold;
+const reclaimAutomatic = APPLY && !ONLY && !ORPHANS_ONLY && reclaimFree !== null && reclaimFree < reclaimThreshold;
 if (RECLAIM || reclaimAutomatic) {
-  // SessionEnd still invokes `--orphans-only` synchronously with a short hook
-  // timeout. Under the emergency threshold, hand the heavier hash/snapshot
-  // pass to a detached child after releasing this lock; the hook returns
-  // immediately and the child acquires the same single-flight lock itself.
-  if (reclaimAutomatic && ORPHANS_ONLY) {
-    process.removeListener('exit', releasePruneRunLock);
-    releasePruneRunLock();
-    const child = spawn(process.execPath, [resolve(process.argv[1]), '--reclaim', '--apply'], {
-      cwd: process.cwd(),
-      env: process.env,
-      detached: true,
-      stdio: 'ignore',
-    });
-    child.unref();
-    console.log(`[reclaim] trigger automatico accodato in background: spazio libero ${reclaimFree === null ? 'sconosciuto' : `${Math.round(reclaimFree / 1024 ** 2)} MiB`} sotto soglia.`);
-    process.exit(0);
-  }
+  // --orphans-only resta il percorso breve di SessionEnd anche quando il disco
+  // è sotto soglia; solo uno sweep completo può avviare il reclaim automatico.
   if (APPLY && !ONLY) {
     const staleSweep = withSingleFlightLock(fetchLock, () => {
       const packs = sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));

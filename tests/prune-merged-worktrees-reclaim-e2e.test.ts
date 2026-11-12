@@ -181,6 +181,16 @@ afterAll(() => {
 });
 
 describe('prune-merged-worktrees --reclaim', () => {
+  it('mantiene --orphans-only sul percorso breve anche sotto la soglia disco', () => {
+    const output = run(['--apply', '--orphans-only'], {
+      PRUNE_RECLAIM_MIN_FREE_BYTES: '999999999999999',
+    });
+
+    expect(output).toContain('[orphans-only]');
+    expect(output).not.toContain('[reclaim]');
+    expect(fs.existsSync(worktreePath('corrupt-index'))).toBe(true);
+  });
+
   it('mantiene le soglie configurabili separate: emergenza 60 min e routine più lunga', () => {
     expect(reclaimIdleMs({})).toBe(DEFAULT_RECLAIM_IDLE_MINUTES * 60 * 1000);
     expect(reclaimIdleMs({ PRUNE_RECLAIM_IDLE_MINUTES: '180' })).toBe(180 * 60 * 1000);
@@ -352,5 +362,19 @@ exec "$PRUNE_REAL_GIT" "$@"
     const indexIgnored = run(['--reclaim', '--apply']);
     expect(indexIgnored).toContain('index-fresh');
     expect(fs.existsSync(worktreePath('index-fresh'))).toBe(false);
+  }, 120000);
+
+  it('limita la manutenzione degli hook SessionStart a una passata ogni sei ore', () => {
+    const marker = path.join(clone, '.git', 'frontaliere-prune-session-start.json');
+    const args = ['--apply', '--session-start'];
+    const testEnv = { PRUNE_RECLAIM_MIN_FREE_BYTES: '1' };
+
+    expect(fs.existsSync(marker)).toBe(false);
+    const first = run(args, testEnv);
+    expect(first).not.toContain('session-start saltato');
+    expect(JSON.parse(fs.readFileSync(marker, 'utf8')).completedAt).toBeGreaterThan(0);
+
+    const second = run(args, testEnv);
+    expect(second).toContain('session-start saltato');
   }, 120000);
 });
