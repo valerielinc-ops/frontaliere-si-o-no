@@ -3925,8 +3925,9 @@ function postingAddressIds(postingUrl) {
         return lastSegment;
       }
     })();
-    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last)) ids.add(last.toLowerCase());
-    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last);
+    if (isUuid) ids.add(last.toLowerCase());
+    const tail = isUuid ? null : /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
     if (tail) ids.add(tail);
   } catch {
     // No address, no id.

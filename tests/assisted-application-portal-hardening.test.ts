@@ -1624,7 +1624,10 @@ describe('portal: identity on an exact posting route without a heading', () => {
     'Zum Hauptinhalt springen', 'Salta al contenuto', 'Aller au contenu',
   ])
   ('does not treat the «%s» row as an employer title candidate', (navigationLabel) => {
-    expect(hasVacancySpecificPostingEvidence(`${navigationLabel}\n${job.company}\n${job.title}`, job, route)).toBe(true);
+    const pageText = `${navigationLabel}
+${job.company}
+${job.title}`;
+    expect(hasVacancySpecificPostingEvidence(pageText, job, route)).toBe(true);
   });
 
   it('rejects a different document title, another h1, and another employer in the page text', () => {
@@ -1669,11 +1672,12 @@ describe('portal: identity on an exact posting route without a heading', () => {
   });
 
   it('binds a full UUID posting segment and rejects a different UUID', () => {
-    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const uuid = '11111111-2222-3333-4444-555555555555';
     const otherUuid = 'fedcba98-7654-3210-fedc-ba9876543210';
     const addressedPosting = `https://jobs.example.test/jobs/${uuid}`;
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${uuid}/apply`, addressedPosting)).toBe(true);
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${otherUuid}/apply`, addressedPosting)).toBe(false);
+    expect(applicationEntryCarriesPostingId('https://apply.example.test/555555555555/apply', addressedPosting)).toBe(false);
   });
 
   it('normalizes explicit posting ids before matching apply-link ids', () => {
