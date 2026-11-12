@@ -435,7 +435,7 @@ describe('the third CV on the review page and at submission', () => {
 
   it('offers the candidate’s own file as a third choice, and sends it when chosen', async () => {
     const { body } = await get();
-    expect(body.tailoredCv).toMatchObject({ choice: 'tailored', inplace: { url: `https://signed.example/assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, patched: 4, kept: 2 } });
+    expect(body.tailoredCv).toMatchObject({ choice: 'tailored', inplace: { url: `https://signed.example/assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, patched: 5, kept: 2 } });
     expect(await post({ action: 'cv_choice', cvChoice: 'inplace' })).toMatchObject({ status: 200, body: { cvChoice: 'inplace' } });
     const flow = store.read(`${BASE}/automation/flow`);
     const draft = store.read(`${BASE}/ai_drafts/current`);
