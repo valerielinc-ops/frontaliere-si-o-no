@@ -114,6 +114,44 @@ describe('typecheck heap comparison contract (#18199)', () => {
     }
   });
 
+  it('misura il cgroup del job e applica il limite memory.max dell’antenato', () => {
+    if (process.platform !== 'linux') return;
+
+    const mountDir = fs.mkdtempSync(path.join(os.tmpdir(), 'typecheck-heap-cgroup-'));
+    const jobDir = path.join(mountDir, 'job');
+    fs.mkdirSync(jobDir);
+    fs.writeFileSync(path.join(mountDir, 'memory.current'), '524288\n');
+    fs.writeFileSync(path.join(mountDir, 'memory.max'), '100000000\n');
+    fs.writeFileSync(path.join(mountDir, 'memory.peak'), '524288\n');
+    fs.writeFileSync(path.join(jobDir, 'memory.current'), '1048576\n');
+    fs.writeFileSync(path.join(jobDir, 'memory.max'), 'max\n');
+    fs.writeFileSync(path.join(jobDir, 'memory.peak'), '1048576\n');
+
+    try {
+      const result = spawnSync(
+        'python3',
+        [
+          path.join(ROOT, 'scripts/ci/run-with-cgroup-memory-peak.py'),
+          '--test-cgroup-dir',
+          jobDir,
+          '--test-cgroup-mount',
+          mountDir,
+          '--',
+          'true',
+        ],
+        { encoding: 'utf8', timeout: 5000 },
+      );
+      const output = (result.stdout ?? '') + (result.stderr ?? '');
+
+      expect(result.status, output).toBe(0);
+      expect(output).toContain('baseline_cgroup_memory_bytes=1048576');
+      expect(output).toContain('peak_cgroup_memory_bytes=1048576');
+      expect(output).toContain('runner_limit_bytes=100000000');
+    } finally {
+      fs.rmSync(mountDir, { recursive: true, force: true });
+    }
+  });
+
   it('rifiuta un valore peak cgroup malformato', () => {
     if (process.platform !== 'linux') return;
 

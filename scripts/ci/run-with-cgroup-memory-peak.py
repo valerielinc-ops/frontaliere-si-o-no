@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Run a command while recording its cgroup's exact memory high-water mark.
+"""Run a command while recording its job cgroup's exact memory high-water mark.
 
 Linux cgroup v2 keeps memory.peak in the kernel, so short-lived RSS spikes are
-retained even when they happen between userspace sampler ticks. Per-FD reset
-requires a writable non-root cgroup v2 memory.peak (mainline Linux 6.12+;
-vendor backports also work). Missing or read-only counters are fatal; there is
-no sampled-RSS fallback. The counter is reset and read on the same descriptor.
+retained even when they happen between userspace sampler ticks. The peak is
+measured on the current job cgroup so unrelated sibling processes cannot affect
+the result; ancestor memory.max values still set the effective runner limit.
+Per-FD reset requires a writable current-job cgroup v2 memory.peak (mainline
+Linux 6.12+; vendor backports also work). Missing or read-only counters are
+fatal; there is no sampled-RSS fallback. The counter is reset and read on the
+same descriptor.
 """
 
 from __future__ import annotations
@@ -79,10 +82,9 @@ def _read_memtotal_bytes() -> int:
     raise MeasurementError("MemTotal del runner non trovato")
 
 
-def _measurement_group_and_limit(group: Path, mount_point: str) -> tuple[Path, int]:
+def _effective_runner_limit_bytes(group: Path, mount_point: str) -> int:
     host_limit = _read_memtotal_bytes()
     limit_bytes = host_limit
-    measurement_group = group
     mount = Path(mount_point)
     current = group
     while True:
@@ -100,18 +102,15 @@ def _measurement_group_and_limit(group: Path, mount_point: str) -> tuple[Path, i
                 raise MeasurementError(f"limite cgroup non valido in {limit_file}: {raw!r}") from error
             if limit <= 0:
                 raise MeasurementError(f"limite cgroup non positivo in {limit_file}: {limit}")
-            if limit <= limit_bytes:
+            if limit < limit_bytes:
                 limit_bytes = limit
-                measurement_group = current
         if current == mount:
             break
         parent = current.parent
         if parent == current or os.path.commonpath((mount, parent)) != str(mount):
             break
         current = parent
-    if not (measurement_group / "memory.peak").is_file():
-        raise MeasurementError(f"{measurement_group}/memory.peak non disponibile per il limite effettivo")
-    return measurement_group, limit_bytes
+    return limit_bytes
 
 
 def _current_memory_bytes(group: Path) -> int:
@@ -136,9 +135,10 @@ def _measure_command(group: Path, limit_bytes: int, command: list[str]) -> int:
 
     try:
         try:
-            os.write(peak_fd, b"1")
+            if os.write(peak_fd, b"1") != 1:
+                raise MeasurementError(f"reset di {peak_file} scritto parzialmente")
             os.lseek(peak_fd, 0, os.SEEK_SET)
-        except OSError as error:
+        except (OSError, MeasurementError) as error:
             raise MeasurementError(f"reset di {peak_file} non riuscito: {error}") from error
 
         try:
@@ -180,7 +180,12 @@ def main() -> int:
     parser.add_argument(
         "--test-cgroup-dir",
         type=Path,
-        help="directory fixture for the regression test; production uses the current cgroup",
+        help="current job cgroup fixture for regression tests; production uses the current cgroup",
+    )
+    parser.add_argument(
+        "--test-cgroup-mount",
+        type=Path,
+        help="fixture mount root for testing ancestor memory.max limits",
     )
     parser.add_argument("command", nargs=argparse.REMAINDER)
     args = parser.parse_args()
@@ -192,14 +197,20 @@ def main() -> int:
     try:
         if args.test_cgroup_dir is not None:
             group = args.test_cgroup_dir.resolve(strict=True)
-            mount_point = group.as_posix()
+            mount_point = (
+                args.test_cgroup_mount.resolve(strict=True).as_posix()
+                if args.test_cgroup_mount is not None
+                else group.as_posix()
+            )
+            if os.path.commonpath((mount_point, group.as_posix())) != mount_point:
+                raise MeasurementError("il cgroup fixture non è discendente della root fixture")
             for filename in ("memory.current", "memory.max", "memory.peak"):
                 if not (group / filename).is_file():
                     raise MeasurementError(f"{group}/{filename} non disponibile nel test")
         else:
             group, mount_point = _cgroup_v2_mount()
-        measurement_group, limit_bytes = _measurement_group_and_limit(group, mount_point)
-        return _measure_command(measurement_group, limit_bytes, command)
+        limit_bytes = _effective_runner_limit_bytes(group, mount_point)
+        return _measure_command(group, limit_bytes, command)
     except (MeasurementError, OSError) as error:
         print(f"::error::misura esatta del peak cgroup non verificabile: {error}", file=sys.stderr)
         return 2
