@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1157,
+      "5": 1158,
       "6": 5062
     },
-    "publishedCovers": 7900,
+    "publishedCovers": 7901,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217970,6 +217970,39 @@
         "provider": "openai-codex",
         "assetId": "article-bollettino-frontaliere-2026-11-12",
         "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-12.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tasso-vacanza-2027-ginevra": {
+      "cover": "/images/blog/article-tasso-vacanza-2027-ginevra.webp",
+      "hash": "b78b7caca1a505e3702901cd1df78cff20e9bd3ce4c37860d317b9b4b634b3e8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "tasso-vacanza-2027-ginevra",
+          "category": "pratico",
+          "date": "2026-11-12T21:02:13.473Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tasso-vacanza-2027-ginevra.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tasso-vacanza-2027-ginevra",
+        "imageUrl": "/images/blog/article-tasso-vacanza-2027-ginevra.webp",
         "evidence": "generated-engine-record"
       }
     }
