@@ -131,6 +131,42 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(answer({ question: 'Nazionalità', type: 'choice', options: ['Selezionare', 'Svizzera', 'Tedesca', 'Italiana'] })).toBe('Italiana');
   });
 
+  it('uses known nationality for Swiss/EU-EFTA passport prompts and catalog select options in all four languages', () => {
+    const cases = [
+      { locale: 'en', nationality: 'Italian', swissNationality: 'Swiss', binary: 'Do you hold a Swiss/EU/EFTA passport?', binaryOptions: ['Yes', 'No'], yes: 'Yes', no: 'No', select: 'Type of valid passport (select an option)', options: ['EU/EFTA passport', 'Swiss passport', 'Other'], expected: 'EU/EFTA passport', expectedSwiss: 'Swiss passport', expectedOther: 'Other' },
+      { locale: 'it', nationality: 'Italiana', swissNationality: 'Svizzera', binary: 'Possiedi un passaporto svizzero/UE/AELS?', binaryOptions: ['Sì', 'No'], yes: 'Sì', no: 'No', select: 'Tipo di passaporto valido (seleziona un’opzione)', options: ['Passaporto UE/AELS', 'Passaporto svizzero', 'Altro'], expected: 'Passaporto UE/AELS', expectedSwiss: 'Passaporto svizzero', expectedOther: 'Altro' },
+      { locale: 'de', nationality: 'Italienerin', swissNationality: 'Schweizerin', binary: 'Haben Sie einen Schweizer oder EU/EFTA-Reisepass?', binaryOptions: ['Ja', 'Nein'], yes: 'Ja', no: 'Nein', select: 'Art des gültigen Reisepasses (Option auswählen)', options: ['EU/EFTA-Reisepass', 'Schweizer Reisepass', 'Andere'], expected: 'EU/EFTA-Reisepass', expectedSwiss: 'Schweizer Reisepass', expectedOther: 'Andere' },
+      { locale: 'fr', nationality: 'italienne', swissNationality: 'Suisse', binary: 'Détenez-vous un passeport suisse/UE/AELE ?', binaryOptions: ['Oui', 'Non'], yes: 'Oui', no: 'Non', select: 'Type de passeport valide (sélectionnez une option)', options: ['Passeport UE/AELE', 'Passeport suisse', 'Autre'], expected: 'Passeport UE/AELE', expectedSwiss: 'Passeport suisse', expectedOther: 'Autre' },
+    ] as const;
+    for (const testCase of cases) {
+      const candidateFacts = platformCandidateFacts({ profile: { nationality: testCase.nationality }, nowMs: NOW, locale: testCase.locale });
+      const binary = { question: testCase.binary, type: 'yes_no', options: testCase.binaryOptions };
+      const select = { question: testCase.select, type: 'choice', options: testCase.options };
+      expect(candidateFacts.passport, testCase.locale).toBe('eu_efta');
+      expect(platformQuestionTopic(binary), testCase.locale).toBe('passport_swiss_eu_efta');
+      expect(platformDefaultAnswer(binary, candidateFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.yes);
+      expect(platformQuestionTopic(select), testCase.locale).toBe('passport_type');
+      expect(platformDefaultAnswer(select, candidateFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.expected);
+      const swissFacts = platformCandidateFacts({ profile: { nationality: testCase.swissNationality }, nowMs: NOW, locale: testCase.locale });
+      expect(swissFacts.passport, testCase.locale).toBe('swiss');
+      expect(platformDefaultAnswer(select, swissFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.expectedSwiss);
+      const otherFacts = platformCandidateFacts({ profile: { nationality: 'Ucraina' }, nowMs: NOW, locale: testCase.locale });
+      expect(otherFacts.passport, testCase.locale).toBe('other');
+      expect(platformDefaultAnswer(select, otherFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.expectedOther);
+      expect(platformDefaultAnswer(binary, otherFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.no);
+    }
+    const swiss = platformCandidateFacts({ profile: { nationality: 'Schweizerin' }, nowMs: NOW, locale: 'de' });
+    const other = platformCandidateFacts({ profile: { nationality: 'Ucraina' }, nowMs: NOW, locale: 'it' });
+    expect(swiss.passport).toBe('swiss');
+    expect(other.passport).toBe('other');
+    const otherType = { question: 'Type of valid passport (select an option)', type: 'choice', options: ['EU/EFTA passport', 'Swiss passport', 'Other'] };
+    expect(platformDefaultAnswer(otherType, other, { locale: 'en' })?.value).toBe('Other');
+    expect(passportOf({ passport: 'swiss', nationality: 'Italiana' })).toBe('swiss');
+    expect(passportOf({ nationality: 'nazionalità sconosciuta' })).toBe('');
+    const unknown = platformCandidateFacts({ profile: {}, nowMs: NOW, locale: 'en' });
+    expect(platformDefaultAnswer(otherType, unknown, { locale: 'en' })).toBeNull();
+  });
+
   it('languages from the CV, the CV language as native', () => {
     expect(answer({ question: 'Qual è il livello di italiano parlato?', type: 'choice', options: ['---', 'Lingua madre', 'Fluente', 'Avanzato', 'Conoscenze di base'] })).toBe('Lingua madre');
     expect(answer({ question: 'Qual è il tuo livello di inglese?', type: 'choice', options: ['A1 (Principiante)', 'A2 (Pre-intermedio)', 'B1 (Intermedio)', 'B2 (Intermedio superiore)', 'C1 (Avanzato)'] })).toBe('B2 (Intermedio superiore)');
@@ -333,8 +369,8 @@ describe('review of #17764', () => {
 });
 
 describe('review of #17879', () => {
-  it('reads the passport only from the upload answer', () => {
-    expect(passportOf({ nationality: 'Italy' } as any)).toBe('');
+  it('derives passport class from a known nationality, but never from a work permit', () => {
+    expect(passportOf({ nationality: 'Italy' } as any)).toBe('eu_efta');
     expect(passportOf({ permitStatus: 'swiss' } as any)).toBe('');
     expect(passportOf({ passport: 'eu_efta' })).toBe('eu_efta');
   });

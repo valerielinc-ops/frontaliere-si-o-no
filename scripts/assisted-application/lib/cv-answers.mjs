@@ -12,7 +12,7 @@ import {
   applicationAnswersUserText,
   codexPrompt,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
-import { cvAnswerQuestionEligible, verifyCvAnswer } from '../../../functions/src/assistedApplicationCvAnswers.js';
+import { cvAnswerQuestionEligible, isBigFourExperienceQuestion, verifyCvAnswer } from '../../../functions/src/assistedApplicationCvAnswers.js';
 import { operationalDefaultAnswer } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { questionTopic, SENSITIVE } from './portal/plan.mjs';
 
@@ -25,6 +25,9 @@ const NAME_QUESTION_RE = /\b(?:what(?:'s| is)\s+(?:your|the applicant'?s|the can
 /** A question the CV may answer: open text, not personal, not a fact the planner or the platform owns. */
 export function cvAnswerable(question, { answers = {}, facts = null } = {}) {
   if (!cvAnswerQuestionEligible(question) || String(answers?.[question.id] ?? '').trim()) return false;
+  // Big Four experience is resolved only from structured, corroborated work history; a generic model
+  // answer could turn an unrelated CV role into a personal experience claim.
+  if (isBigFourExperienceQuestion(question)) return false;
   const text = [question.question, question.applicationQuestion, question.context, question.section].filter(Boolean).join(' ');
   const topic = questionTopic(question.applicationQuestion || question.question, question.context || '', question);
   if (topic && !String(topic).startsWith('language:')) return false;

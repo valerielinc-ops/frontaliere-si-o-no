@@ -22,6 +22,7 @@ export function questionDetailsForEvent(rawQuestions, getPortalQuestionKey = () 
     const label = String(question.question || '').trim();
     if (!id || !label) return null;
     const result = { id, question: label.slice(0, 240) };
+    if (question.source === 'portal' || question.source === 'match') result.source = question.source;
     const applicationQuestion = String(question.applicationQuestion || question.portalQuestion || '').trim();
     if (applicationQuestion) result.applicationQuestion = applicationQuestion.slice(0, 240);
     const questionIdentityFingerprint = candidateQuestionTextFingerprint(question);

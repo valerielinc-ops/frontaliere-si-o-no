@@ -218,6 +218,62 @@ describe('red flags', () => {
   });
 });
 
+describe('matcher-only experience questions do not hold portal submission', () => {
+  it('resolves known EU passport fields and a complete CV without Big Four experience without requesting candidate action', () => {
+    const passportBinary = {
+      id: 'portal_passport_family', source: 'portal', question: 'Do you hold a Swiss/EU/EFTA passport?',
+      applicationQuestion: 'Do you hold a Swiss/EU/EFTA passport?', type: 'yes_no', options: ['Yes', 'No'], required: true,
+    };
+    const passportType = {
+      id: 'portal_passport_type', source: 'portal', question: 'Type of valid passport (select an option)',
+      applicationQuestion: 'Type of valid passport (select an option)', type: 'choice',
+      options: ['EU/EFTA passport', 'Swiss passport', 'Other'], required: true,
+    };
+    const matcherExperience = {
+      id: 'matcher_consulting_history', source: 'match', type: 'text', required: true, options: [],
+      question: 'Hai maturato esperienza in una società di consulenza Big Four o in un ambiente equivalente? Indica organizzazione, ruolo e periodo.',
+    };
+    const cvText = [
+      'Work Experience', '2018 – 2024 Warehouse Operator, Beta Logistics, Example City',
+      'Education', 'Vocational diploma',
+    ].join('\n');
+    const draft = {
+      ...cleanDraft,
+      profile: { nationality: 'Italian', experience: [
+        { kind: 'job', role: 'Warehouse Operator', employer: 'Beta Logistics', location: 'Example City', start: '2018', end: '2024' },
+      ] },
+      factSources: { text: cvText },
+      questions: [passportBinary, passportType, matcherExperience],
+    };
+    const event = {
+      type: 'submit_needs_candidate',
+      questions: [passportBinary, passportType, matcherExperience],
+      questionDetails: [passportBinary, passportType],
+      documents: [],
+    };
+    const step = transition(
+      { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+      event,
+      { draft, nowMs: T0 },
+    );
+    expect(evaluateRedFlags(draft).candidate).toEqual([]);
+    expect(step.flow).toMatchObject({ state: 'submitting', heldBy: [] });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+    expect(step.effects).not.toContainEqual({ type: 'email', kind: 'candidate_action_needed' });
+  });
+
+  it('retries one legacy matcher-only stop without asking the candidate', () => {
+    const draft = { ...cleanDraft, questions: [{ id: 'match_experience', source: 'match', question: 'Describe your experience.', type: 'text', required: true }] };
+    const step = transition(
+      { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [{ id: 'match_experience' }] },
+      { draft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({ state: 'submitting', heldBy: [] });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'non_portal_match_question', attempts: 2 }]);
+  });
+});
+
 describe('approval flow', () => {
   it('runs the ownerless happy path on the 12 h candidate clock', () => {
     let step = transition({ state: 'drafting', round: 1 }, { type: 'draft_ready' }, { draft: cleanDraft, nowMs: T0 });

@@ -31,11 +31,14 @@ import { unsupportedNumberDateMentions } from './lib/numberDateMentions.js';
 import { toolTokens } from './assistedApplicationAiFactCheck.js';
 import { vocabularyTools } from './lib/toolVocabulary.js';
 
-export const CV_ANSWERS_VERSION = 'cv-answers-v1';
+// v2 (2026-11-12): deterministic Big Four/equivalent proposals from corroborated work-history entries.
+export const CV_ANSWERS_VERSION = 'cv-answers-v2';
 export const CV_ANSWER_KINDS = Object.freeze(['technical', 'behavioral']);
 export const CV_ANSWER_QUESTION_SOURCES = Object.freeze(['portal', 'match']);
 const MAX_ANSWER = 450;
 const MAX_EVIDENCE = 3;
+const MAX_CV_TEXT_CHARS = 40_000;
+const MAX_COMPLETE_WORK_SECTION_EVIDENCE_CHARS = 1_000;
 
 const fold = (value) => String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
   .replace(/ß/g, 'ss').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -50,6 +53,172 @@ export function cvAnswerQuestionEligible(question) {
   if ((question.type || 'text') !== 'text') return false;
   if (Array.isArray(question.options) && question.options.length) return false;
   return Boolean(String(question.applicationQuestion || question.question || '').trim());
+}
+
+const BIG_FOUR_QUESTION = /\b(?:big\s*four|big\s*4|four\s+major\s+firms|four\s+largest\s+consult(?:ing|ancy)|consulting\s+(?:firm|company|environment)|societ[aà]\s+di\s+consulenza|cabinet\s+de\s+conseil|unternehmensberatung|beratungsgesellschaft)\b/i;
+const CONSULTING_EMPLOYERS = Object.freeze([
+  { name: 'Deloitte', aliases: ['deloitte'], family: 'big_four' },
+  { name: 'PwC', aliases: ['pwc', 'pricewaterhousecoopers'], family: 'big_four' },
+  { name: 'EY', aliases: ['ernst young', 'ey'], family: 'big_four' },
+  { name: 'KPMG', aliases: ['kpmg'], family: 'big_four' },
+  { name: 'Grant Thornton', aliases: ['grant thornton'], family: 'equivalent' },
+  { name: 'BDO', aliases: ['bdo'], family: 'equivalent' },
+  { name: 'RSM', aliases: ['rsm'], family: 'equivalent' },
+  { name: 'Forvis Mazars', aliases: ['forvis mazars', 'mazars'], family: 'equivalent' },
+  { name: 'Baker Tilly', aliases: ['baker tilly'], family: 'equivalent' },
+  { name: 'Crowe', aliases: ['crowe'], family: 'equivalent' },
+  { name: 'McKinsey', aliases: ['mckinsey'], family: 'equivalent' },
+  { name: 'Boston Consulting Group', aliases: ['boston consulting group', 'bcg'], family: 'equivalent' },
+  { name: 'Bain', aliases: ['bain company', 'bain'], family: 'equivalent' },
+  { name: 'Accenture', aliases: ['accenture'], family: 'equivalent' },
+  { name: 'Capgemini', aliases: ['capgemini'], family: 'equivalent' },
+  { name: 'BearingPoint', aliases: ['bearingpoint'], family: 'equivalent' },
+  { name: 'Arthur D. Little', aliases: ['arthur d little'], family: 'equivalent' },
+  { name: 'L.E.K. Consulting', aliases: ['lek consulting'], family: 'equivalent' },
+  { name: 'Oliver Wyman', aliases: ['oliver wyman'], family: 'equivalent' },
+  { name: 'Roland Berger', aliases: ['roland berger'], family: 'equivalent' },
+  { name: 'Kearney', aliases: ['kearney'], family: 'equivalent' },
+]);
+const EXPERIENCE_HEADINGS = new Set([
+  'experience', 'work experience', 'professional experience', 'employment history', 'work history',
+  'esperienza', 'esperienze', 'esperienza professionale', 'esperienze professionali', 'esperienza lavorativa', 'esperienze lavorative',
+  'berufserfahrung', 'beruflicher werdegang', 'experience professionnelle', 'experiences professionnelles', 'parcours professionnel',
+]);
+const OTHER_SECTION_HEADINGS = new Set([
+  'education', 'education and training', 'formation', 'formazione', 'ausbildung', 'studies', 'istruzione',
+  'languages', 'lingue', 'sprachen', 'langues', 'skills', 'competencies', 'competences', 'competenze', 'kenntnisse',
+  'certifications', 'certificazioni', 'certificats', 'zertifikate', 'references', 'referenze', 'referenzen',
+  'interests', 'hobbies', 'interessi', 'hobbys', 'summary', 'profile', 'profilo', 'profil', 'kurzprofil',
+]);
+const CONSULTING_ACTIVITY_RE = /\b(?:consult(?:ing|ancy|ant)?|advisory|professional services|management consulting|strategy consulting|audit\w*|revisione|revision\w*|prufung\w*|consulenz\w*|societ\w* di consulenz\w*|conseil|cabinet de conseil|berater\w*|unternehmensberat\w*|beratungsgesellschaft)\b/i;
+
+/** The matcher topic is text-based: generated question ids and tenant labels are never used. */
+export function isBigFourExperienceQuestion(question) {
+  if (!question || typeof question !== 'object') return false;
+  return BIG_FOUR_QUESTION.test([question.applicationQuestion, question.question, question.label].filter(Boolean).join(' '));
+}
+
+/** Past-work and behavioral matcher prompts are not requirements of the portal form. */
+export function isMatcherExperienceQuestion(question) {
+  if (question?.source !== 'match') return false;
+  return /\b(?:experience|experienc\w*|esperienz\w*|erfahr\w*|berufserfahrung|employment history|work history|career history|professional background|parcours professionnel|worked (?:for|at|with)|work(?:ed)? experience|previous (?:job|role|employer)|past (?:job|role|employer)|ancien(?:ne)?s? employeurs?|a travaill\w* chez|ha lavorat\w* presso|erfahrung bei|bei einem arbeitgeber|example (?:when|where)|exemple (?:ou|dans lequel)|esempio in cui|beispiel (?:wie|in dem))\b/
+    .test(fold([question.applicationQuestion, question.question, question.label].filter(Boolean).join(' ')));
+}
+
+function surfacePhrase(text, phrase) {
+  const expected = fold(phrase).split(' ').filter(Boolean);
+  if (!expected.length) return '';
+  const tokens = [...String(text ?? '').matchAll(/[\p{L}\p{N}]+/gu)];
+  for (let index = 0; index <= tokens.length - expected.length; index += 1) {
+    const group = tokens.slice(index, index + expected.length);
+    if (group.map((token) => fold(token[0])).join(' ') !== expected.join(' ')) continue;
+    const start = group[0].index;
+    const end = group.at(-1).index + group.at(-1)[0].length;
+    return String(text).slice(start, end);
+  }
+  return '';
+}
+
+function sectionHeading(value) {
+  return fold(String(value ?? '').replace(/^[\s•·▪●○■□*–—-]+/u, '').replace(/[:*]+$/u, '').trim());
+}
+
+function experienceSection(cvText) {
+  const lines = String(cvText ?? '').split(/\r?\n/u);
+  const start = lines.findIndex((line) => EXPERIENCE_HEADINGS.has(sectionHeading(line)));
+  if (start < 0) return null;
+  let end = lines.findIndex((line, index) => index > start && OTHER_SECTION_HEADINGS.has(sectionHeading(line)));
+  if (end < 0) end = lines.length;
+  const content = lines.slice(start + 1, end).filter((line) => line.trim());
+  return content.length ? { heading: lines[start].trim(), text: content.join('\n'), lines: content } : null;
+}
+
+function employerFamily(value) {
+  const normalized = fold(value);
+  if (!normalized) return null;
+  return CONSULTING_EMPLOYERS.find(({ aliases }) => aliases.some((alias) => {
+    return ` ${normalized} `.includes(` ${fold(alias)} `);
+  })) || null;
+}
+
+function experienceEvidence(entry, lines, { consultingOnly = false } = {}) {
+  const employer = employerFamily(entry?.employer);
+  const role = fold(entry?.role);
+  const employerText = fold(entry?.employer);
+  if (!employerText || !role || (consultingOnly && !employer)) return null;
+  const candidates = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const block = lines.slice(Math.max(0, index - 1), Math.min(lines.length, index + 2)).map((line) => line.trim()).filter(Boolean).join(' ');
+    const normalized = fold(block);
+    if (employer
+      ? !employer.aliases.some((alias) => ` ${normalized} `.includes(` ${fold(alias)} `))
+      : !` ${normalized} `.includes(` ${employerText} `)) continue;
+    if (!normalized.includes(role)) continue;
+    const periodParts = [entry.start, entry.end].map((value) => String(value ?? '').trim()).filter(Boolean);
+    const period = periodParts.length && periodParts.every((value) => normalized.includes(fold(value)))
+      ? periodParts.join(' – ') : '';
+    const employerName = employer
+      ? employer.aliases.map((alias) => surfacePhrase(block, alias)).find(Boolean) || employer.name
+      : surfacePhrase(block, entry.employer) || String(entry.employer).trim();
+    candidates.push({
+      employer: employerName,
+      role: surfacePhrase(block, entry.role) || String(entry.role).trim(),
+      period,
+      evidence: block,
+    });
+  }
+  return candidates[0] || null;
+}
+
+function answerLanguage(question) {
+  const text = fold([question?.applicationQuestion, question?.question, question?.label].filter(Boolean).join(' '));
+  if (/\b(?:hai|societa|maturato|indica|organizzazione|ruolo|periodo|esperienza)\b/.test(text)) return 'it';
+  if (/\b(?:haben sie|unternehmen|beratung|erfahrung|organisation|rolle|zeitraum)\b/.test(text)) return 'de';
+  if (/\b(?:avez vous|cabinet|experience|organisation|poste|periode)\b/.test(text)) return 'fr';
+  return 'en';
+}
+
+function experienceAnswerText(question, evidence) {
+  const language = answerLanguage(question);
+  if (!evidence) return ({
+    it: 'Nessuna esperienza di questo tipo è riportata.',
+    en: 'No such experience is listed.',
+    de: 'Der Lebenslauf nennt keine solche Erfahrung.',
+    fr: 'Aucune expérience de ce type ne figure dans le CV.',
+  })[language];
+  const period = evidence.period ? ` (${evidence.period})` : '';
+  return ({
+    it: `Esperienza${period} come ${evidence.role} presso ${evidence.employer}.`,
+    en: `Experience${period} as ${evidence.role} at ${evidence.employer}.`,
+    de: `Der Lebenslauf nennt Erfahrung${period} als ${evidence.role} bei ${evidence.employer}.`,
+    fr: `Le CV indique une expérience${period} comme ${evidence.role} chez ${evidence.employer}.`,
+  })[language];
+}
+
+/** A deterministic proposal from corroborated work history; absence requires a complete, structured CV section. */
+function bigFourExperienceProposal(question, cvText, profile) {
+  if (!cvAnswerQuestionEligible(question) || !isBigFourExperienceQuestion(question)) return null;
+  const rawText = String(cvText ?? '');
+  if (!rawText.trim()) return null;
+  const section = experienceSection(rawText);
+  const lines = section?.lines || rawText.split(/\r?\n/u).filter((line) => line.trim());
+  const workEntries = (Array.isArray(profile?.experience) ? profile.experience : [])
+    .filter((entry) => !['trial_apprenticeship', 'volunteer'].includes(entry?.kind));
+  const relevant = workEntries.map((entry) => experienceEvidence(entry, lines, { consultingOnly: true })).filter(Boolean);
+  if (relevant.length) {
+    const evidence = relevant[0];
+    return { kind: 'technical', answer: experienceAnswerText(question, evidence), evidence: [evidence.evidence] };
+  }
+  // Absence can only be stated when the source text is not capped and its explicit work-history section
+  // agrees with every structured employment entry. A partial, unstructured or ambiguous CV remains unknown.
+  if (!section || rawText.length >= MAX_CV_TEXT_CHARS || workEntries.length === 0 || workEntries.length >= 15) return null;
+  const sectionEvidence = `${section.heading}\n${section.text}`;
+  if (sectionEvidence.length > MAX_COMPLETE_WORK_SECTION_EVIDENCE_CHARS) return null;
+  const corroborated = workEntries.map((entry) => experienceEvidence(entry, section.lines));
+  if (corroborated.some((entry) => !entry)) return null;
+  if (CONSULTING_ACTIVITY_RE.test(section.text)) return null;
+  if (CONSULTING_EMPLOYERS.some(({ aliases }) => aliases.some((alias) => ` ${fold(section.text)} `.includes(` ${fold(alias)} `)))) return null;
+  return { kind: 'technical', answer: experienceAnswerText(question, null), evidence: [sectionEvidence] };
 }
 
 // ── The hard limit ────────────────────────────────────────────────────────────
@@ -198,10 +367,19 @@ export function verifyCvAnswer(proposal, { cvText, question }) {
  * changed, or an answer that no longer passes, drops out.
  * @returns {Record<string,{value:string, kind:string, evidence:string[], labels:string[], version:string}>}
  */
-export function verifiedCvAnswers(questions, cvText) {
+export function verifiedCvAnswers(questions, cvText, profile = null) {
   const out = {};
   if (!String(cvText ?? '').trim()) return out;
   for (const question of Array.isArray(questions) ? questions : []) {
+    if (isBigFourExperienceQuestion(question)) {
+      const proposal = bigFourExperienceProposal(question, cvText, profile);
+      if (!proposal) continue;
+      const checked = verifyCvAnswer(proposal, { cvText, question });
+      if (!checked.ok) continue;
+      const labels = [...new Set([question.applicationQuestion, question.question].map(labelKey).filter(Boolean))];
+      out[question.id] = { value: checked.value, kind: checked.kind, evidence: checked.evidence, labels, version: CV_ANSWERS_VERSION };
+      continue;
+    }
     if (!cvAnswerQuestionEligible(question) || !String(question.suggestedAnswer ?? '').trim()) continue;
     // The platform's own proposal mirrored on the draft (withPlatformSuggestions): not an answer of the CV.
     if (['platform_decision', 'platform_rule'].includes(question.answerOrigin)) continue;

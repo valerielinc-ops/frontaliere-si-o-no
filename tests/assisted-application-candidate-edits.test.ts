@@ -184,6 +184,27 @@ describe('candidate edits', () => {
     expect(candidateQuestionAnswerKey(translatedChoices)).toBe(candidateQuestionAnswerKey(nativeChoices));
   });
 
+  it('reuses a passport answer after generated ids and semantic keys change, but not after its options change', () => {
+    const first = {
+      id: 'passport_question_old', source: 'portal', question: 'Do you hold a Swiss/EU/EFTA passport?',
+      applicationQuestion: 'Do you hold a Swiss/EU/EFTA passport?', semanticKey: 'passport-native-old',
+      type: 'choice', options: ['Yes', 'No'], required: true,
+    };
+    const memory = rememberCandidateQuestionAnswers({
+      questions: [first], answers: { [first.id]: 'Yes' }, changed: { [first.id]: 'Yes' },
+    });
+    const regenerated = { ...first, id: 'passport_question_new', semanticKey: 'passport-native-new' };
+    expect(candidateAnswersForQuestions([regenerated], {}, memory)).toEqual({ [regenerated.id]: 'Yes' });
+    const incompatible = { ...regenerated, options: ['EU/EFTA passport', 'Swiss passport', 'Other'] };
+    expect(candidateAnswersForQuestions([incompatible], {}, memory)).not.toHaveProperty(incompatible.id);
+    const differentQuestion = {
+      ...regenerated,
+      question: 'Do you hold a valid Swiss work permit?',
+      applicationQuestion: 'Do you hold a valid Swiss work permit?',
+    };
+    expect(candidateAnswersForQuestions([differentQuestion], {}, memory)).not.toHaveProperty(differentQuestion.id);
+  });
+
   it('does not replace an explicit unknown multi-choice answer from memory', () => {
     const question = { id: 'contact_channels', question: 'How can we contact you?', type: 'multi_choice', options: ['Email', 'WhatsApp'] };
     const key = candidateQuestionAnswerKey(question);

@@ -387,6 +387,7 @@ export async function submitApplication(ctx) {
     // the backend can match an answer after an ATS regenerates that id.
     const questionDetails = open.filter((question) => question.source === 'portal').map((question) => ({
       id: question.id,
+      source: 'portal',
       question: question.question,
       ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
       ...(question.context ? { context: question.context } : {}),
