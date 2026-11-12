@@ -48,7 +48,10 @@ export const SWISS_RUNNER_HEARTBEAT_STALE_MS = 10 * 60 * 1000;
 export const LOCAL_DISPATCH_LEASE_MS = 140 * 60 * 1000;
 /** A run that could not even start (Remote Config, Codex broker) goes back to the queue this many times at most. */
 export const LOCAL_DISPATCH_PREP_MAX_ATTEMPTS = 3;
-export const SWISS_RUNNER_OFFLINE_REASONS = Object.freeze(['heartbeat_missing', 'heartbeat_stale', 'egress_not_swiss']);
+export const SWISS_RUNNER_OFFLINE_REASONS = Object.freeze([
+  'heartbeat_missing', 'heartbeat_stale', 'egress_not_swiss', 'entry_point_unavailable',
+  'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running',
+]);
 const RUNNING_STATES = new Set(['drafting', 'regenerating', 'submitting']);
 const LOCAL_MODES = new Set(['draft', 'submit']);
 const PENDING_SCAN_LIMIT = 50;
@@ -97,7 +100,15 @@ export function swissRunnerAvailability(heartbeats, nowMs = Date.now()) {
   const fresh = list.filter(beat => Number(beat.at) > 0 && nowMs - Number(beat.at) <= SWISS_RUNNER_HEARTBEAT_STALE_MS);
   if (!fresh.length) return { online: false, reason: 'heartbeat_stale', runners: 0 };
   const eligible = fresh.filter(beat => beat.eligible === true && beat.egressCountry === SWISS_EGRESS_COUNTRY);
-  if (!eligible.length) return { online: false, reason: 'egress_not_swiss', runners: 0 };
+  if (!eligible.length) {
+    const unavailableSwissRunner = fresh.find(beat => beat.egressCountry === SWISS_EGRESS_COUNTRY
+      && ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running']
+        .some(reason => String(beat.reason || '').startsWith(reason)));
+    const rawReason = String(unavailableSwissRunner?.reason || '');
+    const reason = ['entry_point_unavailable', 'deps_install_failed', 'deps_installing', 'storage_upload_unavailable', 'storage_probe_running']
+      .find(candidate => rawReason.startsWith(candidate)) || 'egress_not_swiss';
+    return { online: false, reason, runners: 0 };
+  }
   return { online: true, reason: null, runners: eligible.length };
 }
 
