@@ -109,8 +109,11 @@ function detectEmploymentType(text = '') {
 
 /* ── Greenhouse fetcher ───────────────────────────────────────
  * Pass either a boards.greenhouse.io URL (auto-extracts board token) or
- * override GREENHOUSE_BOARD_TOKEN below. Location filter is a list of
- * substrings matched (case-insensitive) against `location.name`.
+ * override GREENHOUSE_BOARD_TOKEN below. Location filtering is deliberately
+ * performed after the shared client returns the complete board: Scandit's
+ * `offices[]` metadata can contain the Zürich HQ alongside a foreign
+ * requisition, so it is not safe to use the shared client's office-aware
+ * `locationContains` filter here.
  */
 const GREENHOUSE_BOARD_TOKEN =
   extractGreenhouseBoardToken(CAREER_URL) || SCANDIT_KEY;
@@ -122,14 +125,33 @@ const GREENHOUSE_BOARD_TOKEN =
 // also matches against `offices[]`) would false-positive on e.g. "Germany"
 // or "Warsaw" postings. We fetch unfiltered and match only the resolved
 // primary `location` string ourselves instead.
-const SWISS_LOCATION_RE = /zurich|zürich|switzerland|schweiz|suisse|svizzera/i;
+const SWISS_LOCATION_RE = /zurich|zürich|zuerich|zurigo|switzerland|schweiz|suisse|svizzera/i;
+
+function attachFetchMetadata(jobs, { discoveredCount, fetchOutcome } = {}) {
+  if (!Array.isArray(jobs)) return jobs;
+  if (Number.isFinite(discoveredCount)) {
+    Object.defineProperty(jobs, 'discoveredCount', {
+      value: discoveredCount,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  if (fetchOutcome) {
+    Object.defineProperty(jobs, 'fetchOutcome', {
+      value: fetchOutcome,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return jobs;
+}
 
 async function fetchJobListings() {
   const jobs = await fetchGreenhouseJobs(GREENHOUSE_BOARD_TOKEN, {
     includeContent: true,
     companyName: SCANDIT_COMPANY_NAME,
   });
-  return jobs
+  const listings = jobs
     .filter((j) => SWISS_LOCATION_RE.test(j.location || ''))
     .map((j) => ({
       title: j.title,
@@ -139,6 +161,11 @@ async function fetchJobListings() {
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
+  // Greenhouse returns the complete board in one response. Preserve that
+  // observation through the geographic filter so a valid, non-empty source
+  // with no Swiss rows is recorded as `filtered_empty`, not as an unobserved
+  // `no-jobs-parsed` abort that leaves the health monitor red.
+  return attachFetchMetadata(listings, { discoveredCount: jobs.length });
 }
 
 /**
@@ -155,7 +182,10 @@ export async function fetchAllScanditJobs() {
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
-    return [];
+    const discoveredCount = Number(listings?.discoveredCount);
+    return discoveredCount > 0
+      ? attachFetchMetadata([], { discoveredCount, fetchOutcome: 'filtered_empty' })
+      : [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -225,5 +255,12 @@ export async function fetchAllScanditJobs() {
   }
 
   console.log(`\n📋 Total Scandit AG jobs discovered: ${jobs.length}`);
-  return jobs;
+  return jobs.length === 0
+    ? attachFetchMetadata(jobs, {
+      discoveredCount: Number.isFinite(listings.discoveredCount)
+        ? listings.discoveredCount
+        : listings.length,
+      fetchOutcome: 'filtered_empty',
+    })
+    : jobs;
 }

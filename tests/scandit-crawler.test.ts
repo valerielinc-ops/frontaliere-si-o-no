@@ -1,11 +1,24 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { fetchGreenhouseJobs } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import {
   SCANDIT_KEY,
   SCANDIT_COMPANY_NAME,
+  fetchAllScanditJobs,
   isScanditJob,
   isTrustedDomain,
 } from '../scripts/lib/scandit-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+vi.mock('../scripts/lib/ats-clients/greenhouse-client.mjs', () => ({
+  fetchGreenhouseJobs: vi.fn(),
+  extractGreenhouseBoardToken: vi.fn(() => 'scandit'),
+}));
+
+const fetchGreenhouseJobsMock = vi.mocked(fetchGreenhouseJobs);
+
+afterEach(() => {
+  fetchGreenhouseJobsMock.mockReset();
+});
 
 describe('Scandit AG crawler parser', () => {
   // ── Constants ──
@@ -124,6 +137,39 @@ describe('Scandit AG crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  describe('fetch observation contract', () => {
+    it('reports a full non-Swiss board as filtered_empty instead of an unobserved zero', async () => {
+      fetchGreenhouseJobsMock.mockResolvedValue([{
+        title: 'Product Engineer',
+        location: 'Tampere',
+        applyUrl: 'https://job-boards.greenhouse.io/scandit/jobs/1',
+        descriptionHtml: 'A substantive source description for this fixture.',
+        jobReqId: '1',
+      }] as never);
+
+      const jobs = await fetchAllScanditJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect(jobs).toHaveProperty('discoveredCount', 1);
+      expect(jobs).toHaveProperty('fetchOutcome', 'filtered_empty');
+    });
+
+    it('keeps an explicitly Swiss primary location publishable', async () => {
+      fetchGreenhouseJobsMock.mockResolvedValue([{
+        title: 'Senior Machine Learning Engineer',
+        location: 'Zuerich',
+        applyUrl: 'https://job-boards.greenhouse.io/scandit/jobs/2',
+        descriptionHtml: 'A substantive source description for this fixture.',
+        jobReqId: '2',
+      }] as never);
+
+      const jobs = await fetchAllScanditJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ location: 'Zuerich', canton: 'ZH' });
     });
   });
 });
