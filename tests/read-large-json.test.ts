@@ -89,6 +89,7 @@ describe('data/jobs.json readers', () => {
     'build-plugins/shared/reportJobPanel.ts',
     'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
+    'scripts/sync-employer-contacts-to-firestore.mjs',
   ];
   const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
 
