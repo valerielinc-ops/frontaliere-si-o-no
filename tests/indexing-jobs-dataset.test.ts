@@ -98,6 +98,12 @@ describe('mergeJobSources', () => {
     expect(m.counts).toEqual({ sitemap: 2, dataset: 2, datasetOnly: 1, both: 1 });
   });
 
+  it('counts every URL in both sources once, whatever the duplicates', () => {
+    const loc = job('/cerca-lavoro-ticino/both/');
+    const m = mergeJobSources([{ loc, lastmod: null }], [{ loc, lastmod: null, id: 'a' }, { loc, lastmod: null, id: 'a' }]);
+    expect(m.counts.both).toBe(1);
+  });
+
   it('an older dataset lastmod never moves a sitemap entry back', () => {
     const m = mergeJobSources([{ loc: job('/cerca-lavoro-ticino/x/'), lastmod: day(1) }], [{ loc: job('/cerca-lavoro-ticino/x/'), lastmod: day(5), id: 'x' }]);
     expect(m.entries[0].lastmod).toBe(day(1));
@@ -136,6 +142,16 @@ describe('live check of a dataset-only URL', () => {
 
   it('a page seeded with another job is not this job', () => {
     expect(judgeDatasetLive({ status: 200, html: page(ld() + seed('other')) }, { id: 'j1' })).toBe('not-job');
+  });
+
+  it('the seed id must match exactly, at the top level of the seed', () => {
+    // Reviewer acceptance (PR 18373): a longer id sharing the prefix is another job.
+    expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"job-1234"}</script>') }, { id: 'job-123' })).toBe('not-job');
+    // An "id" nested in another field does not name the job of the page.
+    expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"other","company":{"id":"job-123"}};</script>') }, { id: 'job-123' })).toBe('not-job');
+    // A seed that is not a JSON object cannot be attributed to any job.
+    expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"job-123",</script>') }, { id: 'job-123' })).toBe('not-job');
+    expect(judgeDatasetLive({ status: 200, html: page(ld() + '<script>window.__JOB_SEED__={"id":"job-123"};</script>') }, { id: 'job-123' })).toBe('ok');
   });
 });
 
@@ -268,9 +284,22 @@ describe('run report', () => {
     expect(table).toContain('| dataset | 6 | 0 | 0 | 0 | 0 |');
   });
 
-  it('says when the dataset was skipped', () => {
+  it('says when the dataset was skipped, on one line and without breaking the table', () => {
     const r = formatRunReport({ outcome: 'Done', sources: { sitemap: 10, dataset: 0, datasetOnly: 0, both: 0, datasetError: 'HTTP 503' }, today: '2026-11-12' });
     expect(r.line).toContain('dataset unavailable (HTTP 503)');
+    const nasty = formatRunReport({ outcome: 'Nothing to notify', sources: { sitemap: 10, dataset: 0, datasetOnly: 0, both: 0, datasetError: 'bad | gateway\nline two' }, today: '2026-11-12' });
+    expect(nasty.line).toContain('dataset unavailable (bad \\| gateway line two)');
+    expect(nasty.table.every((row) => !row.includes('\n'))).toBe(true);
+  });
+
+  it('repeats the slug-map fallback warning in every report, early returns included', () => {
+    const r = formatRunReport({
+      outcome: 'Daily quota already spent — nothing sent',
+      sources: { sitemap: 10, dataset: 4, datasetOnly: 4, both: 0, datasetError: null, datasetWarning: 'jobs-slug-map.json: HTTP 404 — Italian URLs only' },
+      today: '2026-11-12',
+    });
+    expect(r.line).toContain('(jobs-slug-map.json: HTTP 404 — Italian URLs only)');
+    expect(r.table.join('\n')).toContain('Italian URLs only');
   });
 });
 

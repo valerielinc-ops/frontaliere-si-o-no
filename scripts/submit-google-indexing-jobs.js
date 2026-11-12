@@ -279,10 +279,13 @@ export function formatRunReport({
   const sent = TIERS.reduce((n, t) => n + (byTier[t] || 0), 0);
   const left = Math.max(0, budget - spent);
   const perSource = SOURCES.map((src) => `${src}: ${TIERS.map((t) => `${t}=${bySource[src]?.[t] || 0}`).join(' ')}`).join('; ');
+  // Error/warning text comes from the network (CDN status, exception
+  // messages): one line, no table separator, so it cannot break the summary.
+  const clean = (v) => String(v).replace(/[\r\n]+/g, ' ').replace(/\|/g, '\\|');
   const input = sources
     ? (sources.datasetError
-      ? `input: ${sources.sitemap} sitemap URLs, dataset unavailable (${sources.datasetError})`
-      : `input: ${sources.sitemap} sitemap URLs + ${sources.datasetOnly} dataset-only of ${sources.dataset} dataset URLs`)
+      ? `input: ${sources.sitemap} sitemap URLs, dataset unavailable (${clean(sources.datasetError)})`
+      : `input: ${sources.sitemap} sitemap URLs + ${sources.datasetOnly} dataset-only of ${sources.dataset} dataset URLs${sources.datasetWarning ? ` (${clean(sources.datasetWarning)})` : ''}`)
     : null;
   return {
     line: `${outcome}: sent ${sent} (${tiers}) [${perSource}], skipped ${dedupSkipped} for dedup + ${liveSkipped} by live check (${notLive} dataset-only not published yet), failed ${failed}; quota ${spent}/${budget} used, ${left} left (day ${today} PT)${input ? `; ${input}` : ''}`,
@@ -362,7 +365,9 @@ async function main() {
     log('📦', `${dataset.entries.length} job-detail URLs from ${dataset.jobs} active jobs in the published dataset`);
   }
   const merged = mergeJobSources(sitemapEntries, dataset.entries);
-  sources = { ...merged.counts, datasetError: dataset.error };
+  // Kept in `sources` so every report — early returns included — repeats the
+  // dataset error/warning, not only the annotation printed above.
+  sources = { ...merged.counts, datasetError: dataset.error, datasetWarning: dataset.warning || null };
   log('🔀', `${merged.entries.length} URLs after merge: ${merged.counts.sitemap} from sitemaps, ${merged.counts.datasetOnly} only in the dataset (${merged.counts.both} in both)`);
   observeSitemap(ledger, merged.entries, today, { datasetOnly: merged.datasetOnly });
   dedupSkipped = countDedupSkipped(ledger, { today, priority });

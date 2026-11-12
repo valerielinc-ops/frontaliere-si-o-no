@@ -121,11 +121,11 @@ export function mergeJobSources(sitemapEntries, datasetEntries) {
   const byUrl = new Map();
   for (const e of sitemapEntries) byUrl.set(e.loc, { loc: e.loc, lastmod: e.lastmod ?? null });
   const datasetOnly = new Map();
-  let both = 0;
+  const both = new Set();
   for (const e of datasetEntries) {
     const prev = byUrl.get(e.loc);
     if (prev) {
-      if (!datasetOnly.has(e.loc)) both += 1;
+      both.add(e.loc);
       if (e.lastmod && (!prev.lastmod || e.lastmod > prev.lastmod)) prev.lastmod = e.lastmod;
       continue;
     }
@@ -135,13 +135,24 @@ export function mergeJobSources(sitemapEntries, datasetEntries) {
   return {
     entries: [...byUrl.values()],
     datasetOnly,
-    counts: { sitemap: sitemapEntries.length, dataset: datasetEntries.length, datasetOnly: datasetOnly.size, both },
+    counts: { sitemap: sitemapEntries.length, dataset: datasetEntries.length, datasetOnly: datasetOnly.size, both: both.size },
   };
 }
 
-function seedScript(html) {
+/**
+ * The active-page seed as an object: `undefined` when the page has no seed,
+ * `null` when it has one that is not a JSON object (never an active page we
+ * can attribute to a job).
+ */
+export function parseJobSeed(html) {
   const m = /<script\b[^>]*>\s*window\s*\.\s*__JOB_SEED__\s*=\s*([\s\S]*?)<\/script\s*>/i.exec(html);
-  return m ? m[1] : null;
+  if (!m) return undefined;
+  try {
+    const seed = JSON.parse(m[1].trim().replace(/;\s*$/, ''));
+    return seed && typeof seed === 'object' && !Array.isArray(seed) ? seed : null;
+  } catch {
+    return null;
+  }
 }
 
 function jobPostingValidThroughDays(html) {
@@ -169,9 +180,12 @@ export function judgeDatasetLive(res, { id = null, now = new Date() } = {}) {
   const base = judgeLive('URL_UPDATED', res);
   if (base !== 'ok') return base;
   const html = res.html || '';
-  const seed = seedScript(html);
-  if (seed === null) return 'not-job';
-  if (id && !seed.includes(`"id":${JSON.stringify(id)}`)) return 'not-job';
+  const seed = parseJobSeed(html);
+  if (!seed) return 'not-job';
+  // Exact match on the seed's own top-level id: a substring test would accept
+  // `job-1234` for `job-123`, or an `"id"` nested in another field, i.e. the
+  // active page of ANOTHER job reached through a stale slug or route.
+  if (id && seed.id !== id) return 'not-job';
   const nowMs = now.getTime();
   if (jobPostingValidThroughDays(html).some((v) => Number.isFinite(Date.parse(v)) && Date.parse(v) < nowMs)) return 'not-job';
   return 'ok';
@@ -191,7 +205,8 @@ async function fetchJson(url, fetchImpl, timeoutMs) {
 
 /**
  * Fetch and derive the dataset entries. Never throws.
- * @returns {Promise<{entries: Array<{loc: string, lastmod: string|null, id: string|null}>, jobs: number, error: string|null}>}
+ * @returns {Promise<{entries: Array<{loc: string, lastmod: string|null, id: string|null}>, jobs: number,
+ *   error: string|null, warning?: string|null}>} `warning`: the slug map failed, Italian URLs only.
  */
 export async function loadDatasetJobEntries({
   fetchImpl = fetch,
