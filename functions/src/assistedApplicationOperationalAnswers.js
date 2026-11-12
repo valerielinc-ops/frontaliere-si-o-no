@@ -5,9 +5,10 @@
 import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
+import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
 import { decisionAnswerFor, isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
-import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isOptionalPurpose, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
@@ -22,7 +23,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // language now help deduce (platform-defaults-v11): the waits on a nationality question are read again.
 // v11 (2026-11-11): every address block of the candidate's own takes the same address, the one they typed in
 // another block first (platform-defaults-v12): the waits on a second address block are read again.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v11';
+// v12 (2026-11-11): the accepted application privacy notice is a policy default, not a candidate fact; existing
+// waits on that acknowledgement are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v12';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -55,6 +58,26 @@ const SMALL_NUMBERS = { zero: 0, uno: 1, one: 1, un: 1, une: 1, ein: 1, eins: 1,
   six: 6, sei: 6, sechs: 6 };
 const NOTICE_MONTH_UNIT = /\b(?:months?|mesi|mese|monate?n?|mois)\b/;
 const literalAnswer = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+const NEGATIVE_CONSENT = /^(?:no|nein|non|false|0)$/;
+const affirmativeConsentOption = (option, question) => (AFFIRMATIVE_CONSENT.test(norm(option.label))
+  || AFFIRMATIVE_CONSENT.test(norm(option.value)))
+  && !hasConsentContradiction(`${option.label} ${option.value}`, question);
+const negativeConsentOption = (option, question) => NEGATIVE_CONSENT.test(norm(option.label))
+  || NEGATIVE_CONSENT.test(norm(option.value))
+  || hasConsentContradiction(`${option.label} ${option.value}`, question);
+
+function applicationPrivacyNoticeAnswerShape(question) {
+  const types = [question?.type, question?.kind, question?.inputType]
+    .map(type => String(type || '').toLowerCase()).filter(Boolean);
+  if (types.includes('checkbox')) return 'checkbox';
+  const options = optionsOf(question);
+  if (types.some(type => ['yes_no', 'boolean'].includes(type)) && options.length === 0) return 'binary';
+  if (options.length < 2 || options.length > 3) return null;
+  const affirmative = options.filter(option => affirmativeConsentOption(option, question));
+  const negative = options.filter(option => negativeConsentOption(option, question));
+  return affirmative.length === 1 && negative.length === options.length - 1 ? 'options' : null;
+}
+
 function noticeDuration(value) {
   const match = /^(\d{1,2}|[a-z]+)\s*(months?|mesi|mese|monate?n?|mois|days?|giorni|giorno|tage?n?|jours?)$/.exec(literalAnswer(value));
   if (!match) return null;
@@ -135,6 +158,7 @@ export function operationalQuestionTopic(question) {
   const label = String(question?.question || question?.label || question?.applicationQuestion || '')
     .replace(/\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*)\s*$/i, '');
   const text = norm(label + ' ' + (question?.applicationQuestion || ''));
+  const historyContext = isWorkHistoryContext(question);
   const privacyRepresentations = [question?.question, question?.label, question?.applicationQuestion]
     .filter(value => typeof value === 'string' && value.trim());
   const supplementalPrivacyLabels = Array.isArray(question?.labels)
@@ -148,6 +172,14 @@ export function operationalQuestionTopic(question) {
   if (isApplicationDataProcessingConsent(consentText, question, ...privacyRepresentations, ...supplementalPrivacyLabels)) {
     return 'application_data_processing_consent';
   }
+  const privacyNoticeText = privacyRepresentations.join(' ');
+  if (privacyRepresentations.length > 0
+    && applicationPrivacyNoticeAnswerShape(question)
+    && isConsentPurpose(privacyNoticeText)
+    && !isOptionalPurpose(privacyNoticeText)
+    && !hasConsentContradiction(privacyNoticeText, question, ...privacyRepresentations)) {
+    return 'application_privacy_notice';
+  }
   const retentionText = [question?.question, question?.label, question?.applicationQuestion, question?.context,
     ...optionsOf(question).flatMap(option => [option.label, option.value])]
     .filter(value => typeof value === 'string' && value.trim()).join(' ');
@@ -155,6 +187,7 @@ export function operationalQuestionTopic(question) {
   if (RETENTION_ACTION.test(retentionFolded) && RETENTION_DATA.test(retentionFolded) && RETENTION_TIME.test(retentionFolded)) {
     return 'application_data_retention';
   }
+  if (historyContext && NOTICE.test(text)) return null;
   if (!text || HARD_DECLARATION.test(text) || question?.type === 'date' || question?.inputType === 'date') return null;
   if (NOTICE.test(text) && OTHER_NOTICE_TOPIC.test(text)) return null;
   const workloadPrompt = [
@@ -164,6 +197,7 @@ export function operationalQuestionTopic(question) {
   ].filter(value => typeof value === 'string' && value.trim())
     // A portal's required marker («* (required)») is not a workload requirement.
     .map(value => value.replace(/\*?\s*\((?:required|obligatoire|obbligatorio|pflichtfeld)\)|\*/gi, ' ')).join(' ');
+  if (historyContext && isPreferredWorkloadQuestion(workloadPrompt)) return null;
   // A percentage preference fills a percentage field; «available at 80%?» (yes/no) asks a fixed pensum instead.
   if (isPreferredWorkloadQuestion(workloadPrompt)
     && !['yes_no', 'checkbox', 'boolean'].includes(question?.type || question?.kind)) return 'preferred_workload';
@@ -214,6 +248,16 @@ function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
       if (matches.length !== 1) return null;
       value = matches[0].label;
     } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
+      value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+    } else return null;
+  } else if (topic === 'application_privacy_notice') {
+    const answerShape = applicationPrivacyNoticeAnswerShape(question);
+    if (answerShape === 'checkbox') value = 'true';
+    else if (options.length) {
+      const matches = options.filter(option => affirmativeConsentOption(option, question));
+      if (matches.length !== 1) return null;
+      value = matches[0].label;
+    } else if (answerShape === 'binary') {
       value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
     } else return null;
   } else if (topic === 'application_data_retention') {
@@ -365,4 +409,63 @@ export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);
   const body = draft?.applicationEmail?.body || '';
   return lines.length ? `${body}\n\n${lines.join('\n')}` : body;
+}
+
+function explicitProfileValue(profile, keys) {
+  if (!profile || typeof profile !== 'object' || Array.isArray(profile)) return null;
+  for (const key of keys) {
+    const value = profile[key];
+    if (typeof value !== 'string' && !(typeof value === 'number' && Number.isFinite(value))) continue;
+    const text = String(value).trim();
+    if (!text || /^(?:unknown|not known|not provided|n\/?a|none|null|sconosciuto|non indicato|keine angabe|inconnu)$/i.test(text)) continue;
+    return text;
+  }
+  return null;
+}
+
+function explicitAnswerForField(field, value) {
+  const options = optionsOf(field);
+  if (options.length) {
+    const matches = options.filter(option => norm(option.label) === norm(value) || norm(option.value) === norm(value));
+    return matches.length === 1 ? matches[0].value : null;
+  }
+  if (field.type === 'number' || field.inputType === 'number') {
+    const number = Number(value);
+    return Number.isFinite(number) && String(value).trim() !== '' ? String(number) : null;
+  }
+  return value;
+}
+
+/**
+ * Returns only an explicit value already present in the candidate profile.
+ * Employer benchmarks, nationality, option wording and Swiss-market conventions
+ * are not evidence of the candidate's own permit, notice, salary or workload.
+ *
+ * @param {object} field ATS field { label, name, type, options }
+ * @param {object} [candidateProfile] Candidate-provided profile facts
+ * @param {object} [jobData] Legacy input ignored; an employer benchmark is not a candidate salary expectation
+ * @returns {string|null}
+ */
+export function resolveFrontaliereSmartDefaults(field, candidateProfile = null, jobData = null) {
+  void jobData;
+  if (!field) return null;
+  const text = (field.label || field.name || '').toLowerCase();
+
+  let keys = null;
+  if (/(?:permit|bewillig|permesso|permis|autorizzaz|authoriz)/i.test(text)) {
+    keys = ['workPermit'];
+  } else if (/(?:notice|preavvis|k[uü]ndigung|preavis)/i.test(text)) {
+    keys = ['noticePeriod'];
+  } else if (/(?:salary|gehalt|lohn|salari|remuneraz|stipend|pretention)/i.test(text)) {
+    if (/(?:current|attual|derzeit|actuel|pr[eé]sent|bisher|jetzig)/i.test(text)) {
+      keys = ['currentSalaryChf', 'currentSalary'];
+    } else {
+      keys = ['salaryExpectationChf', 'salaryExpectation'];
+    }
+  } else if (/(?:workload|pensum|occupaz|grado|taux)/i.test(text)) {
+    keys = ['preferredWorkload', 'workloadPercent', 'workload', 'pensum'];
+  }
+  if (!keys) return null;
+  const value = explicitProfileValue(candidateProfile, keys);
+  return value === null ? null : explicitAnswerForField(field, value);
 }

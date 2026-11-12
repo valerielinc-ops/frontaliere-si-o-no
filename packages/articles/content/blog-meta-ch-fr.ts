@@ -8711,6 +8711,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 entreprises sur 10 freinent leurs investissements',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Selon le service RG 12.30 du 9 novembre 2026, pour trois entreprises suisses sur dix, les contraintes administratives entraînent le report, la réduction ou l’annulation d’investissements.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA : Berta Serret lance le Smart Luxury avec diamants de laboratoire et or recyclé',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Le 11 novembre 2026, Berta Serret lance officiellement en ligne ETERIA JEWELLERY : haute joaillerie écoresponsable alliant or recyclé CoC, diamants de laboratoire IGI et traçabilité TRACEMARK.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Berta Serret, fondatrice de la marque de haute joaillerie durable ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Pensions suisses : feu vert à l’imposition substitutive',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù annonce le feu vert à l’imposition substitutive des pensions suisses.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.revisione-tardoc-2027.title': 'Le Conseil fédéral approuve la révision du TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'Le 11 novembre 2026, dans le journal radiophonique de 12.30, le reportage d’Alessio Veronelli a rendu compte de la première révision du système tarifaire ambulatoire TARDOC.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.aumento-iva-finanzia-avs.title': 'Vote du 29 novembre : hausse de la TVA pour financer la 13e rente AVS',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'Le 29 novembre, les électeurs suisses se prononceront sur la hausse de la TVA destinée à financer la 13e rente AVS.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Salaire minimum de 5 000 francs : le débat s’enflamme',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Débat sur un salaire minimum de 5 000 francs pour les personnes ayant terminé leur apprentissage.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

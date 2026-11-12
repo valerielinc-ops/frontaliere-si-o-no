@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "vd-120388",
+      "id": "vd-120652",
       "sourceKey": "VD",
-      "sourceRecordId": "120388",
+      "sourceRecordId": "120652",
       "canton": "Vaud",
       "platePrefix": "VD",
       "plateNumber": "2133",
@@ -13,17 +13,16 @@
       "vehicleType": "car",
       "auctionStatus": "closed",
       "currentBidChf": 2000,
-      "bidCount": 0,
-      "endsAt": "2026-10-11T20:00:00.000Z",
-      "closedAt": "2026-10-11T20:00:00.000Z",
+      "bidCount": 1,
+      "closedAt": "2026-11-08T13:24:09.715Z",
       "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
-      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120388",
-      "sourceFetchedAt": "2026-10-11T17:47:05.266Z",
-      "lastVerifiedAt": "2026-10-11T17:47:05.266Z",
-      "firstSeenAt": "2026-10-05T05:47:15.317Z",
-      "lastSeenAt": "2026-10-11T17:47:05.266Z",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120652",
+      "sourceFetchedAt": "2026-11-08T13:24:09.715Z",
+      "lastVerifiedAt": "2026-11-08T13:24:09.715Z",
+      "firstSeenAt": "2026-11-02T06:02:44.993Z",
+      "lastSeenAt": "2026-11-08T13:24:09.715Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "1ea8bdb918e5"
+      "rawSnapshotHash": "b3e0a25a7d82"
     }
   ]
 }

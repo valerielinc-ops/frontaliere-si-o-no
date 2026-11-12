@@ -103,7 +103,8 @@ describe('issue-fix.yml — App token wiring', () => {
     // Since actions/checkout v6 (v7 here) the header is no longer in .git/config but
     // in an includeIf'd `git-credentials-*.config`, which `--unset-all` never sees:
     // the step must go through the shared helper that removes both shapes.
-    expect(git).toContain('bash scripts/lib/clear-checkout-git-credentials.sh');
+    expect(git).toContain('git show origin/main:scripts/lib/clear-checkout-git-credentials.sh | bash');
+    expect(git).not.toContain('bash scripts/lib/clear-checkout-git-credentials.sh');
     // And it must stay conditional: with no token, rewriting the remote to
     // `x-access-token:@github.com` would break pushes that work today.
     expect(git).toMatch(/if \[ -n "\$\{APP_TOKEN:-\}" \]/);

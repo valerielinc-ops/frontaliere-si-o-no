@@ -90,6 +90,7 @@ test('merge job falls back to the immutable run snapshot when moving main is inc
     'scripts/assemble-events-dataset.mjs',
     'scripts/load-rc-env.mjs',
     'scripts/lib/open-data-refresh-pr.sh',
+    'scripts/lib/compare-merge-base.sh',
     'scripts/ci/pr-body-check-gate.mjs',
     'data/events-description-rewrites.json',
     'data/events.json',

@@ -5,7 +5,7 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { verifySubmissionReceipt } from '../../functions/src/lib/submissionReceiptContract.js';
-import { isUnconfirmedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { confirmedNotSentRecord, isUnconfirmedSubmission } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { runKeyFrom, storeEvidence } from './lib/secure-run.mjs';
 
 export async function reportRunnerFailure({ db, orderId, mode, round, runId, startedAt, nowMs = Date.now() }) {
@@ -34,10 +34,7 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
     // stays locked; e-mail sends are ambiguous even without clickedAt.
     if (mode === 'submit' && send?.state === 'sending' && send.channel === 'portal' && !send.clickedAt) {
       transaction.set(orderRef.collection('automation').doc('submission'), {
-        [`r${round}`]: {
-          state: 'failed', reason: 'runner_infrastructure_unavailable', releasedAt: nowMs,
-          confirmedNotSent: true,
-        },
+        [`r${round}`]: confirmedNotSentRecord(send, 'runner_infrastructure_unavailable', nowMs),
       }, { merge: true });
     }
     const receiptId = String(send?.receipt?.receiptId || '');

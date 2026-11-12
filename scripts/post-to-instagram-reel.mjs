@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Publish one controlled Instagram Reel through the official Graph API.
+ * Prepare one controlled Instagram Reel for the owner-approved publisher.
  *
  * This is intentionally separate from post-to-instagram.mjs: a Reel is a
  * different creative treatment and ledger cohort. The workflow reserves two
@@ -10,9 +10,10 @@
  *   npx tsx scripts/post-to-instagram-reel.mjs --dry-run
  *   npx tsx scripts/post-to-instagram-reel.mjs --kind=article --date=2026-10-10
  *
- * The normal path sends the vertical MP4 to Instagram's Graph API, waits for
- * container processing, and records the exact published media ID. Reels never
- * fall back to browser automation.
+ * When browser publishing is owner-approved, the normal path queues the
+ * verified vertical MP4 for the social robot. The official Graph API remains
+ * available only when the browser route is not selected and API credentials
+ * are explicitly configured.
  */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -40,15 +41,17 @@ import { planAnswerTimeline, synthesizeAnswerVoice } from './lib/tiktok-answer-f
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
 import {
   buildQueueEntry,
+  enqueuePost,
   dequeuePosts,
   loadQueue,
   queuePathFor,
-  resolveSocialRobotMode,
+  resolveSocialPublishingMode,
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishReel as publishInstagramReel } from './lib/instagram-publish.mjs';
 import { getInstagramPublisherCredentials } from './lib/instagram-publisher-credentials.mjs';
+import { isInstagramBrowserPublishingApproved } from './lib/social-automation-policy.mjs';
 import { buildSocialCopyBlockContext, loadSocialCopyPack, markSocialCopyAssignmentPublished, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
 import {
   markSocialPublishReservationPublished,
@@ -118,7 +121,7 @@ function buildItem(kind, pick, jobIndex) {
   };
 }
 
-async function publishReelSlot({ kind, day, dryRun, robotMode }) {
+async function publishReelSlot({ kind, day, dryRun, publishingMode }) {
   const ledger = loadLedger(LEDGER_PATH);
   if (!dryRun && isPublishedForKindDay(ledger, { kind: 'reel', day })) {
     dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind: 'reel' });
@@ -129,7 +132,11 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
   const publisher = getInstagramPublisherCredentials();
   const accessToken = publisher.accessToken;
   const igUserId = publisher.igUserId;
-  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken && igUserId), apiOnly: true, browserDeliveryAllowed: false });
+  const route = socialPublishRoute({
+    mode: publishingMode,
+    apiReady: Boolean(accessToken && igUserId),
+    browserDeliveryAllowed: isInstagramBrowserPublishingApproved(),
+  });
   const pending = pendingInstagramReel(loadQueue(QUEUE_PATH));
   if (pending) {
     const creativeId = pending.ledgerEntries?.[0]?.creativeId || 'creative non specificata';
@@ -142,8 +149,16 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
       console.log(`ℹ️  Instagram Reel legacy in coda: ${pending.id} (${creativeId}) — dry run, nessuna pubblicazione`);
       return 'dry-run';
     }
+    if (route.enqueue) {
+      if (!pending.video?.url || !pending.imageUrls?.[0] || !Array.isArray(pending.ledgerEntries)) {
+        console.log(`⚠️  Instagram Reel legacy ${pending.id} non ha video, cover o ledger validi; resta in coda per diagnosi`);
+        return 'invalid-legacy-queue-entry';
+      }
+      console.log(`🗂️  Instagram Reel ${pending.id} già in coda per il publisher web; nessun duplicato creato`);
+      return 'queued-existing';
+    }
     if (!route.api) {
-      console.log(`⚠️  Instagram Reel ${pending.id} resta in coda: INSTAGRAM_ACCESS_TOKEN o INSTAGRAM_BUSINESS_ACCOUNT_ID mancante`);
+      console.log(`⚠️  Instagram Reel ${pending.id} resta in coda: publisher disattivato o credenziali Graph API assenti`);
       return 'credentials-missing';
     }
     if (!pending.video?.url || !pending.imageUrls?.[0] || !Array.isArray(pending.ledgerEntries)) {
@@ -250,7 +265,7 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
     expectedObjective: creative.objective,
     assignmentKey: kind + ':' + day,
     blockContext: buildSocialCopyBlockContext({ sourceClass: kind, scheduledDate: day }),
-    allowExperimentExposure: true,
+    allowExperimentExposure: route.api,
     dryRun,
   });
   let reservedCopy = socialCopy;
@@ -267,8 +282,8 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
   console.log('───');
   if (dryRun) return 'dry-run';
 
-  if (!route.api) {
-    console.log('⚠️  Instagram Reel non pubblicabile: INSTAGRAM_ACCESS_TOKEN o INSTAGRAM_BUSINESS_ACCOUNT_ID mancante');
+  if (!route.render) {
+    console.log('⚠️  Instagram Reel non preparato: pubblicazione disattivata e publisher API non configurato');
     return 'credentials-missing';
   }
 
@@ -324,6 +339,7 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
     durationMs: rendered.durationMs,
     width: rendered.width,
     height: rendered.height,
+    creativeVariant: creative.id,
   };
 
   const queueEntry = buildQueueEntry({
@@ -335,6 +351,16 @@ async function publishReelSlot({ kind, day, dryRun, robotMode }) {
     video,
     ledgerEntries,
   });
+  if (route.enqueue) {
+    enqueuePost(QUEUE_PATH, queueEntry);
+    reservedCopy = null;
+    console.log(`🗂️  Instagram Reel ${queueEntry.id} accodato per il publisher web`);
+    return 'queued';
+  }
+  if (!route.api) {
+    console.log('⚠️  Instagram Reel non pubblicabile: publisher disattivato');
+    return 'publishing-disabled';
+  }
   const publishAt = new Date();
   const reservationKey = socialPublishReservationKey('instagram', 'post', queueEntry.id);
   const reservation = await reserveSocialPublishBatch({
@@ -416,10 +442,10 @@ async function main() {
     console.log('npx tsx scripts/post-to-instagram-reel.mjs [--dry-run] [--kind=article|job] [--date=YYYY-MM-DD]');
     return 0;
   }
-  const robotMode = resolveSocialRobotMode();
+  const publishingMode = resolveSocialPublishingMode();
   console.log(`─── Instagram Reel experiment — day ${args.day}${args.dryRun ? ' (dry run)' : ''} ───`);
-  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode}`);
-  const status = await publishReelSlot({ ...args, robotMode });
+  console.log(`ℹ️  SOCIAL_ROBOT_PUBLISHING_MODE=${publishingMode}`);
+  const status = await publishReelSlot({ ...args, publishingMode });
   const failedStatuses = new Set([
     'credentials-missing',
     'invalid-legacy-queue-entry',
@@ -431,6 +457,7 @@ async function main() {
     'cover-upload-failed',
     'video-render-failed',
     'video-upload-failed',
+    'publishing-disabled',
   ]);
   return failedStatuses.has(status) ? 1 : 0;
 }

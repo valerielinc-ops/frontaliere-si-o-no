@@ -205,6 +205,7 @@ async function enrichWithDetails(listings) {
         title: detail.title || item.title,
         description: detail.description || '',
         datePosted: detail.datePosted,
+        ...(detail.applyUrl ? { applyUrl: detail.applyUrl } : {}),
       });
       if ((i + 1) % 5 === 0) {
         console.log(`  ✅ ${i + 1}/${toFetch.length} detail pages fetched`);

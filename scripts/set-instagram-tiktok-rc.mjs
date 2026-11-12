@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 /**
- * One-shot: publish Instagram/TikTok profile identifiers to Firebase Remote
- * Config. Public account identifiers only. The browser robot publishes
- * through the owner's authenticated Chrome profile; API access tokens remain
- * optional and are not needed for that route.
+ * One-shot: publish Instagram/TikTok browser-publishing settings and profile
+ * identifiers to Firebase Remote Config. Account identifiers are public.
+ * Owner-approved content publishing stays separate from Community/Insights;
+ * this does not approve either platform's publishing API.
  *
  * Auth: GOOGLE_APPLICATION_CREDENTIALS → Firebase SA (Remote Config Admin).
  */
 import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
 
 const PARAMS = {
+  SOCIAL_ROBOT_PUBLISHING_MODE: 'live',
+  SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+  SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
   INSTAGRAM_USERNAME: 'frontaliereticino',
   INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982',
   // Four-arm test: control plus three high-contrast surfaces. Assignment is

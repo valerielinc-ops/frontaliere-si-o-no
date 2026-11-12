@@ -344,6 +344,50 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(fs.existsSync(path.join(tmp, 'm', 'it.json'))).toBe(true);
   });
 
+  it('reuses prepass classifications with identical reciprocal decisions and output bytes', async () => {
+    const fullDist = path.join(tmp, 'full-dist');
+    const cachedDist = path.join(tmp, 'cached-dist');
+    const fullManifests = path.join(tmp, 'full-manifests');
+    const cachedManifests = path.join(tmp, 'cached-manifests');
+    const prepassCache = path.join(tmp, 'it.pages.jsonl');
+    emitCorpus(fullDist);
+    emitCorpus(cachedDist);
+
+    const prepass = await runHreflangIndexManifest({
+      distDir: cachedDist,
+      manifestDir: cachedManifests,
+      dryRun: true,
+      manifestOnly: true,
+      prepassCachePath: prepassCache,
+      log: quiet,
+    });
+    expect(prepass.prepassCache).toBe('written');
+
+    const full = await runHreflangIndexManifest({
+      distDir: fullDist,
+      manifestDir: fullManifests,
+      log: quiet,
+    });
+    const reused = await runHreflangIndexManifest({
+      distDir: cachedDist,
+      manifestDir: cachedManifests,
+      reusePrepassCachePath: prepassCache,
+      log: quiet,
+    });
+
+    expect(reused.prepassCache).toBe('reused');
+    expect(reused.prepassClassificationsReused).toBe(reused.pagesWithHreflang);
+    expect(reused.blocksByDecision).toEqual(full.blocksByDecision);
+    expect(reused.unknownMembers).toEqual(full.unknownMembers);
+    expect(reused.filesToRewrite).toBe(full.filesToRewrite);
+    expect(reused.filesRewritten).toBe(full.filesRewritten);
+    const outputBytes = (dist: string) => [...walk(dist)]
+      .map((file) => [path.relative(dist, file).split(path.sep).join('/'), fs.readFileSync(file, 'utf8')] as const)
+      .sort(([left], [right]) => left.localeCompare(right));
+    expect(outputBytes(cachedDist)).toEqual(outputBytes(fullDist));
+    assertHreflangGraphIsClean(cachedDist);
+  });
+
   it('fails closed after the barrier when a foreign manifest is missing', async () => {
     const dist = path.join(tmp, 'dist');
     emitCorpus(dist);

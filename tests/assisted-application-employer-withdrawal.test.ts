@@ -114,13 +114,18 @@ describe('a native closure while the round waited for the candidate', () => {
     }
   });
 
-  it('still refunds by itself an ad that closed with nobody waiting for the candidate (Terms 6.5)', () => {
+  // Owner decision 2026-11-11 (later the same day: «il rimborso non è mai consentito una volta che il processo è
+  // stato avviato»): this automatic refund is left only to an order under the older Terms (a mandate v2 here).
+  // The new Terms are in assisted-application-no-refund-after-start.test.ts.
+  it('still refunds by itself, under the older Terms, an ad that closed with nobody waiting for the candidate', () => {
     const notWaited = { state: 'submitting', round: 1, shownRounds: [1], heldBy: [] };
-    const step = transition(notWaited, { type: 'posting_closed', reason: 'http_gone' }, { draft, nowMs: T0 });
+    const olderTerms = { consentVersion: 'assisted-application-v2', consentedAt: T0 };
+    const step = transition(notWaited, { type: 'posting_closed', reason: 'http_gone' }, { order: olderTerms, draft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'], postingClosure: { code: 'http_gone' } });
     expect(step.effects[0]).toMatchObject({ type: 'refund', notify: 'candidate_posting_closed' });
     // That proof on record never turns it into a withdrawal later.
     expect(employerWithdrawalPending(step.flow)).toBe(false);
+    expect(employerWithdrawalPending(step.flow, olderTerms)).toBe(false);
   });
 
   it('writes the withdrawal with its proof and closes the submission fence, without a refund', async () => {

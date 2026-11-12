@@ -152,6 +152,7 @@ import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/ass
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { processAssistedApplicationCandidateReply } from './src/assistedApplicationCandidateReply.js';
 import { handleGetAssistedApplicationCvUrl } from './src/assistedApplicationCvUrl.js';
+import { handleBilingualCvDownload } from './src/bilingualCvGeneration.js';
 import {
   handleAssistedApplicationInbound,
   processAssistedApplicationInbound,
@@ -3010,6 +3011,38 @@ export const getAssistedApplicationCvUrl = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[getAssistedApplicationCvUrl]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Generate a bilingual PDF from the authenticated owner's private CV profile.
+export const downloadBilingualCv = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '512MiB',
+    timeoutSeconds: 120,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleBilingualCvDownload(req, { db: getAdminDb() });
+      res.set('Cache-Control', 'private, no-store');
+      if (status === 200) {
+        res.set('Content-Type', 'application/pdf');
+        res.set('Content-Disposition', 'attachment; filename="CV-IT-DE.pdf"');
+        res.status(status).send(body);
+        return;
+      }
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[downloadBilingualCv]', error instanceof Error ? error.name : 'unknown_error');
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },

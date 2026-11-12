@@ -25,6 +25,7 @@ import {
   ledgerPathFor,
   loadQueue,
   queuePathFor,
+  resolveSocialPublishingMode,
   resolveSocialRobotMode,
   selectNextPending,
   socialPublishRoute,
@@ -48,6 +49,7 @@ import {
   hasVisibleDialogLoading,
   resolveTikTokMusicVariant,
   RobotError,
+  typeCaption,
   waitForDialogControl,
   findTikTokPublishedPost,
 } from '../scripts/social-robot/lib/flows.mjs';
@@ -72,20 +74,48 @@ describe('Instagram image upload accept guard', () => {
   });
 });
 
+describe('TikTok caption editor', () => {
+  const caption = 'Una domanda concreta per seguire il punto\n\nLe offerte di lavoro più cliccate dai frontalieri.';
+
+  it('fills the complete caption in one editor operation and checks the result', async () => {
+    let value = 'job-2026-11-10.mp4';
+    const fill = vi.fn(async (next: string) => { value = next; });
+    const innerText = vi.fn(async () => value);
+
+    await typeCaption({} as never, { fill, innerText } as never, caption, { platform: 'tiktok' });
+
+    expect(fill).toHaveBeenCalledTimes(1);
+    expect(fill).toHaveBeenCalledWith(caption);
+    expect(innerText).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails closed if TikTok changes characters after filling the caption', async () => {
+    let value = '';
+    const editor = {
+      fill: vi.fn(async (next: string) => { value = next.replace('Le offerte', 'ferte'); }),
+      innerText: async () => value,
+    };
+
+    await expect(typeCaption({} as never, editor as never, caption, { platform: 'tiktok' }))
+      .rejects.toMatchObject({ errorClass: 'selector-missing', step: 'caption' });
+  });
+});
+
 describe('social delivery policy', () => {
-  it('holds Instagram browser delivery until approved and always holds TikTok', () => {
+  it('holds browser delivery until owner flags are enabled for each channel', () => {
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'])).toEqual({
       allowed: [],
       held: [
-        { channel: 'instagram', reason: expect.stringContaining('Meta express permission') },
-        { channel: 'tiktok', reason: expect.stringContaining('eligible') },
+        { channel: 'instagram', reason: expect.stringContaining('owner-approved') },
+        { channel: 'tiktok', reason: expect.stringContaining('owner-approved') },
       ],
     });
     expect(filterAutomatedDeliveryPlatforms(['instagram', 'tiktok'], {
-      META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED: 'true',
+      SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+      SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
     })).toEqual({
-      allowed: ['instagram'],
-      held: [{ channel: 'tiktok', reason: expect.stringContaining('eligible') }],
+      allowed: ['instagram', 'tiktok'],
+      held: [],
     });
   });
 });
@@ -156,6 +186,7 @@ function reelEntry(overrides: Record<string, unknown> = {}) {
     day: '2026-10-09',
     caption: 'reel 2026-10-09\n\n#frontalieri',
     imageUrls: [cdn('reel-2026-10-09-0.jpg')],
+    video: tiktokVideo('instagram-reel'),
     ledgerEntries: [{
       id: 'article:reel-source',
       kind: 'reel',
@@ -258,6 +289,13 @@ describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
   it('is exported by the loader and never masked in CI logs', () => {
     expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_MODE).toEqual(['SOCIAL_ROBOT_MODE']);
     for (const value of SOCIAL_ROBOT_MODES) expect(isTrivialSecret(value), value).toBe(true);
+  });
+
+  it('keeps content publishing mode separate from Community/Insights mode', () => {
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'dry', SOCIAL_ROBOT_PUBLISHING_MODE: 'live' })).toBe('live');
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'live', SOCIAL_ROBOT_PUBLISHING_MODE: 'invalid' })).toBe('dry');
+    expect(resolveSocialPublishingMode({ SOCIAL_ROBOT_MODE: 'live' })).toBe('dry');
+    expect((RC_TO_ENV as Record<string, string[]>).SOCIAL_ROBOT_PUBLISHING_MODE).toEqual(['SOCIAL_ROBOT_PUBLISHING_MODE']);
   });
 
   it('routes only through an explicit API or approved browser path', () => {
@@ -743,13 +781,16 @@ describe('cadence', () => {
     expect(h.calls.flow).toEqual([]);
   });
 
-  it('keeps legacy Reel entries out of browser publication after the Instagram cap', async () => {
+  it('publishes a verified Reel in the next window after the Instagram cap', async () => {
     const journal = emptyJournal();
     journal.attempts.push(
       { channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-03', confirmDispatched: true },
       { channel: 'instagram', outcome: 'published', at: new Date(NOW - 2 * HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: true },
     );
-    const reel = entry('reel', '2026-10-03', { now: NOW - 3 * HOUR });
+    const reel = {
+      ...entry('reel', '2026-10-03', { now: NOW - 3 * HOUR }),
+      video: tiktokVideo('cap-reel'),
+    };
     const queue = { pending: [reel] };
     const reader = {
       readQueue: () => queue,
@@ -766,10 +807,10 @@ describe('cadence', () => {
 
     h.advance(24 * HOUR);
     const nextDay = await runRobot(h.deps({ reader }));
-    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'policy-held', queueId: reel.id });
-    expect(h.calls.flow).toEqual([]);
+    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published', queueId: reel.id });
+    expect(h.calls.flow).toHaveLength(1);
     expect(pressedToday(h.journal(), 'instagram', NOW)).toBe(2);
-    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(0);
+    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(1);
   });
 });
 
@@ -970,15 +1011,27 @@ describe('runRobot', () => {
     expect(output).toContain('commenti e DM consentiti vengono gestiti dal worker Chrome');
   });
 
-  it('holds legacy Instagram Reel queue entries out of browser publication', async () => {
+  it('publishes verified Instagram Reel queue entries through the browser flow', async () => {
     const reel = reelEntry({ video: tiktokVideo('legacy-instagram-reel') } as Record<string, unknown>);
     const h = harness({ queue: { pending: [reel] } });
     const out = await runRobot(h.deps());
     expect(out.results).toContainEqual(expect.objectContaining({
       channel: 'instagram',
-      outcome: 'policy-held',
-      reason: 'instagram-reels-require-graph-api',
+      outcome: 'published',
       queueId: reel.id,
+    }));
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('skips an Instagram Reel queue entry with no verified video', async () => {
+    const { video: _video, ...reelWithoutVideo } = reelEntry();
+    const h = harness({ queue: { pending: [reelWithoutVideo] } });
+    const out = await runRobot(h.deps());
+    expect(out.results).toContainEqual(expect.objectContaining({
+      channel: 'instagram',
+      outcome: 'skipped',
+      reason: 'reel-no-video',
+      queueId: reelWithoutVideo.id,
     }));
     expect(h.calls.flow).toEqual([]);
   });
@@ -1664,10 +1717,21 @@ describe('workflows', () => {
     }
   });
 
-  it('warns on a token-less Instagram run while browser delivery is held', () => {
+  it('warns when Instagram owner-approved browser delivery is disabled', () => {
     const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
-    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
-    expect(warn?.if).toBe("env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true' && env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED != 'true'");
+    const warn = steps.find((s) => /owner-approved browser route is disabled/.test(s.name ?? ''));
+    expect(warn?.if).toContain("env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED != 'true'");
+  });
+
+  it('keeps the default TikTok manual dispatch as a dry-run content preview', () => {
+    const workflow = wf('tiktok-daily-broadcast.yml');
+    const inputs = workflow.on.workflow_dispatch.inputs;
+    const steps = workflow.jobs.post.steps as Array<{ name?: string; if?: string; run?: string }>;
+    const preview = steps.find((s) => s.name === 'Generate TikTok content preview');
+    expect(inputs.dry_run.default).toBe('true');
+    expect(preview?.if).toContain("inputs.dry_run == 'true'");
+    expect(preview?.run).toContain('scripts/post-to-tiktok.mjs');
+    expect(preview?.run).toContain('ARGS=(--dry-run)');
   });
 
   it('reserves the scheduled Instagram Reel cadence before assembling daily-only data', () => {
@@ -1684,11 +1748,10 @@ describe('workflows', () => {
     expect(post?.if).toContain("env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip'");
 
     const reelSteps = wf('instagram-reel-experiment.yml').jobs.build.steps as Array<{ name?: string; run?: string }>
-    const publish = reelSteps.find((step) => /Render and publish controlled Reel through Graph API/.test(step.name ?? ''));
-    const ledgerCommit = reelSteps.find((step) => /Commit published Reel ledger/.test(step.name ?? ''));
+    const publish = reelSteps.find((step) => /Render and queue controlled Reel for Instagram web publisher/.test(step.name ?? ''));
+    const ledgerCommit = reelSteps.find((step) => /Commit Reel browser queue and ledger/.test(step.name ?? ''));
     expect(publish?.run).toContain('scripts/post-to-instagram-reel.mjs');
-    // Keep the static workflow path assertion distinct from a live-ledger read.
-    expect(ledgerCommit?.run).toContain(['data', 'instagram-posted.json'].join('/'));
+    expect(ledgerCommit?.run).toContain(['data', 'instagram-queue.json'].join('/'));
   });
 
   it('commits the queue file in the same step that commits the ledger', () => {
@@ -1756,6 +1819,7 @@ describe('workflows', () => {
   it('does not hide a failed social ledger push', () => {
     for (const workflow of [
       'instagram-daily-broadcast.yml',
+      'tiktok-daily-broadcast.yml',
       'linkedin-member-daily.yml',
     ]) {
       const steps = wf(workflow).jobs.post.steps as Array<{ name?: string; run?: string }>;

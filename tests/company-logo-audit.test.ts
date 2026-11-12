@@ -371,7 +371,7 @@ describe('company-logo-audit', () => {
     );
 
     const installMarker = 'run: npm ci --ignore-scripts --no-audit --no-fund';
-    const assembleMarker = 'run: node scripts/assemble-jobs-dataset.mjs --no-summaries';
+    const assembleMarker = 'run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries';
     expect(auditWorkflow).toContain('./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs');
     expect(auditWorkflow).toContain('node scripts/download-missing-company-logos.mjs --from-audit');
     expect(auditWorkflow).toContain('node scripts/verify-company-logo-acquisition.mjs');
@@ -383,7 +383,7 @@ describe('company-logo-audit', () => {
       expect(workflow).toContain('cache: npm');
       expect(workflow).toContain(installMarker);
       expect(workflow.indexOf(installMarker)).toBeLessThan(workflow.indexOf(assembleMarker));
-      expect(workflow).toContain('node scripts/assemble-jobs-dataset.mjs --no-summaries');
+      expect(workflow).toContain('node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries');
       expect(workflow).toContain("COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'");
       expect(workflow).toContain('COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch');
       expect(workflow).toMatch(/(?:npx tsx|\.\/node_modules\/\.bin\/tsx) scripts\//);

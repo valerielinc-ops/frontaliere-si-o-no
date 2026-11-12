@@ -110129,6 +110129,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eteria-gioielleria-berta-serret': {
+    title: 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti di laboratorio e oro riciclato',
+    description: 'L’11 novembre 2026 debutta online ETERIA JEWELLERY, il brand di Berta Serret: oro riciclato certificato CoC e diamanti di laboratorio certificati IGI.',
+    keywords: 'ETERIA, Berta Serret, Smart Luxury, lusso etico, gioielli oro riciclato, diamanti di laboratorio, Tracemark, Facet Barcelona, gioielleria sostenibile, acquisto gioielli online',
+    ogTitle: 'ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti di laboratorio e oro riciclato',
+    ogDescription: 'Debutto ufficiale online per ETERIA JEWELLERY: oro riciclato certificato CoC, diamanti di laboratorio IGI e tracciabilità TRACEMARK con il modello di lusso etico Smart Luxury.',
+    canonicalPath: '/articoli-svizzera/eteria-gioielleria-berta-serret/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ETERIA: Berta Serret lancia il nuovo lusso etico con diamanti di laboratorio e oro riciclato",
+      "description": "L’11 novembre 2026 debutta online ETERIA JEWELLERY, il brand di Berta Serret: oro riciclato certificato CoC e diamanti di laboratorio certificati IGI.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© Berta Serret / Instagram @bertaserret. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Person", "name": "Berta Serret", "url": "https://www.instagram.com/bertaserret/" },
+        "creditText": "Berta Serret",
+        "url": `${BASE_URL}/images/blog/article-eteria-gioielleria-berta-serret.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berta Serret, fondatrice di ETERIA JEWELLERY"
+      },
+      "datePublished": "2026-11-11T10:30:00+00:00",
+      "dateModified": "2026-11-11T10:30:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eteria-gioielleria-berta-serret/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regime-fiscale-rendite-elvetiche': {
+    title: 'Pensioni svizzere: via libera all\'imposizione sostitutiva',
+    description: 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere: il quadro fiscale e i limiti dei dati disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, svizzere, libera, imposizione',
+    ogTitle: 'Pensioni svizzere e imposizione sostitutiva',
+    ogDescription: 'QuotidianoPiù annuncia il via libera all\'imposizione sostitutiva sulle pensioni svizzere. Il titolo non precisa autorità, decorrenza o importi; il sistema fiscale svizzero distingue imposta federale diretta, Cantoni e comuni.',
+    canonicalPath: '/articoli-svizzera/regime-fiscale-rendite-elvetiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensioni svizzere: via libera all'imposizione sostitutiva",
+      "description": "QuotidianoPiù annuncia il via libera all'imposizione sostitutiva sulle pensioni svizzere: il quadro fiscale e i limiti dei dati disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-regime-fiscale-rendite-elvetiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T12:22:03+00:00",
+      "dateModified": "2026-11-11T12:22:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regime-fiscale-rendite-elvetiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revisione-tardoc-2027': {
+    title: 'Il Consiglio federale approva la revisione del TARDOC',
+    description: 'Prima revisione di TARDOC e forfait valida dal 2027: il Consiglio federale chiede correzioni su neutralità dei costi e medicina di base.',
+    keywords: 'TARDOC, Consiglio federale, tariffe ambulatoriali, importi forfettari, TARMED, pediatria, neutralità dei costi, medicina di base',
+    ogTitle: 'TARDOC: revisione federale valida dal 2027',
+    ogDescription: 'Dal 2027 TARDOC e forfait saranno aggiornati dopo oltre 500 richieste esaminate. Il Consiglio federale chiede un piano per il limite del 4%, la medicina di base e i criteri dei prossimi aggiornamenti previsti tra 2028 e 2029.',
+    canonicalPath: '/articoli-svizzera/revisione-tardoc-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale approva la revisione del TARDOC",
+      "description": "Prima revisione di TARDOC e forfait valida dal 2027: il Consiglio federale chiede correzioni su neutralità dei costi e medicina di base.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revisione-tardoc-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T18:29:23+00:00",
+      "dateModified": "2026-11-11T18:29:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-tardoc-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aumento-iva-finanzia-avs': {
+    title: 'Voto 29 novembre: aumento IVA per finanziare 13a rendita AVS',
+    description: 'Voto 29 novembre sull\'aumento IVA per la 13a rendita AVS. Aliquota normale passa dall\'8,1% all\'8,5% dal 2028. Costo oltre 4 miliardi/anno.',
+    keywords: 'aumento IVA, 13a AVS, voto 29 novembre, aliquota IVA, sistema pensionistico svizzera, 8,1%, 8,5%',
+    ogTitle: 'Aumento IVA per 13a AVS voto 29 novembre',
+    ogDescription: 'I cittadini svizzeri voteranno il 29 novembre sull\'aumento IVA per finanziare la 13a rendita AVS. Dal 2028 l\'aliquota normale sale dall\'8,1% all\'8,5%. Scopri i dettagli.',
+    canonicalPath: '/articoli-svizzera/aumento-iva-finanzia-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto 29 novembre: aumento IVA per finanziare 13a rendita AVS",
+      "description": "Voto 29 novembre sull'aumento IVA per la 13a rendita AVS. Aliquota normale passa dall'8,1% all'8,5% dal 2028. Costo oltre 4 miliardi/anno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aumento-iva-finanzia-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T22:42:43+00:00",
+      "dateModified": "2026-11-11T22:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-iva-finanzia-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dibattito-salario-minimo-5000': {
+    title: 'Salario minimo di 5000 franchi: il dibattito si accende',
+    description: 'Dibattito su salario minimo di 5000 franchi per chi ha finito apprendistato. USS valuta iniziativa popolare; USI si oppone a norme rigide.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, 5000, franchi',
+    ogTitle: 'Salario minimo di 5000 franchi: il dibattito in Svizzera',
+    ogDescription: 'Dibattito su salario minimo di 5000 franchi per chi ha finito apprendistato.',
+    canonicalPath: '/articoli-svizzera/dibattito-salario-minimo-5000/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo di 5000 franchi: il dibattito si accende",
+      "description": "Dibattito su salario minimo di 5000 franchi per chi ha finito apprendistato. USS valuta iniziativa popolare; USI si oppone a norme rigide.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dibattito-salario-minimo-5000.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-12T04:07:35+00:00",
+      "dateModified": "2026-11-12T04:07:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dibattito-salario-minimo-5000/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

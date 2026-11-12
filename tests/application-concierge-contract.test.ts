@@ -20,13 +20,14 @@ describe('application concierge contract', () => {
     expect(APPLICATION_CONCIERGE_PRICE_EUR_CENTS).toBe(3999);
     expect(APPLICATION_CONCIERGE_DURATION_DAYS).toBe(30);
     expect(APPLICATION_CONCIERGE_MAX_POSITIONS).toBe(10);
-    expect(APPLICATION_CONCIERGE_CONSENT_VERSION).toBe('application-concierge-v2');
+    expect(APPLICATION_CONCIERGE_CONSENT_VERSION).toBe('application-concierge-v3');
   });
 
   // Owner decision 2026-11-11: the consent text now says the platform accepts and sends a proposal left
-  // undecided for 12 hours. New consents record v2; a v1 consent is still honoured, never asked again.
+  // undecided for 12 hours (v2), and asks to start at once with no refund once started, Terms 6.5 (v3). New consents
+  // record v3; earlier consents are still honoured, never asked again.
   it('records the current consent text and honours every earlier version the storage rules accept', () => {
-    expect(APPLICATION_CONCIERGE_CONSENT_VERSIONS).toEqual(['application-concierge-v1', 'application-concierge-v2']);
+    expect(APPLICATION_CONCIERGE_CONSENT_VERSIONS).toEqual(['application-concierge-v1', 'application-concierge-v2', 'application-concierge-v3']);
     expect(APPLICATION_CONCIERGE_CONSENT_VERSIONS.at(-1)).toBe(APPLICATION_CONCIERGE_CONSENT_VERSION);
     const versions = `[${APPLICATION_CONCIERGE_CONSENT_VERSIONS.map((version) => `'${version}'`).join(', ')}]`;
     const storageRules = readFileSync(new URL('../storage.rules', import.meta.url), 'utf8');

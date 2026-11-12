@@ -8711,6 +8711,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 von 10 Unternehmen: Auflagen bremsen Investitionen',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'Laut dem Beitrag RG 12.30 vom 9. November 2026 führen administrative Auflagen bei drei von zehn Schweizer Unternehmen dazu, dass Investitionen verschoben, reduziert oder gestrichen werden.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret lanciert Smart Luxury mit Labordiamanten und Recyclinggold',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'Am 11. November 2026 startet Berta Serret offiziell ETERIA JEWELLERY online: nachhaltiger Echtschmuck im Zeichen von Smart Luxury mit CoC-Recyclinggold, IGI-Labordiamanten und TRACEMARK-Herkunftspass.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Berta Serret, Gründerin der nachhaltigen Haute-Joaillerie-Marke ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Schweizer Renten: grünes Licht für Ersatzbesteuerung',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'DailyMehr gibt grünes Licht für die Ersatzbesteuerung der schweizerischen Renten.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.revisione-tardoc-2027.title': 'Der Bundesrat genehmigt die Revision des TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'Am 11. November 2026 wurde in den Radionachrichten um 12.30 Uhr im Beitrag von Alessio Veronelli über die erste Revision des ambulanten Tarifsystems TARDOC berichtet.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.aumento-iva-finanzia-avs.title': 'Abstimmung 29. Nov: Mehrwertsteuererhöhung für 13. AHV-Rente',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'Am 29. November stimmen die Schweizer Stimmberechtigten über die Erhöhung der Mehrwertsteuer zur Finanzierung der 13. AHV-Rente ab.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Mindestlohn von 5000 Franken: Die Debatte entfacht sich',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debatte über einen Mindestlohn von 5000 Franken für Personen, die eine Lehre abgeschlossen haben.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

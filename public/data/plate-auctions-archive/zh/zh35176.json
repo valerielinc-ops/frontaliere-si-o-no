@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43737",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43737",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "35176",
+      "normalizedPlate": "ZH35176",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 870,
+      "bidCount": 21,
+      "endsAt": "2026-11-11T18:00:00.000Z",
+      "closedAt": "2026-11-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43737",
+      "sourceFetchedAt": "2026-11-11T14:19:21.126Z",
+      "lastVerifiedAt": "2026-11-11T14:19:21.126Z",
+      "firstSeenAt": "2026-11-05T06:49:35.716Z",
+      "lastSeenAt": "2026-11-11T14:19:21.126Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3ee0a4be73f2"
+    }
+  ]
+}

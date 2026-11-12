@@ -126,6 +126,18 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
 
+  it('restores the previous jobs SEO renderer cache for output-probed variants', () => {
+    const steps = WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>;
+    const fingerprint = steps.find((step) => step.id === 'jobs-seo-html-fingerprint');
+    const restore = steps.find((step) => step.id === 'jobs-seo-html-cache');
+    const save = steps.find((step) => step.name === 'Save chained jobs SEO HTML cache');
+
+    expect(fingerprint.env.JOBS_SEO_HTML_CACHE_LOCALE).toBe('${{ matrix.locale }}');
+    expect(restore.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint');
+    expect(restore.with).not.toHaveProperty('restore-keys');
+    expect(save.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
+  });
+
   it('writes only namespaced chained caches and uses an experiment-only concurrency group', () => {
     const saveSteps = (WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>)
       .filter((step) => step.uses === 'actions/cache/save@v6');
@@ -378,7 +390,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     );
     expect(html?.uses).toBe('actions/cache/restore@v6');
     expect(html?.with?.key).toBe(
-      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}",
+      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}",
     );
     expect(steps.indexOf(benchHtml!)).toBeLessThan(steps.indexOf(html!));
     expect(extract?.if).toBe('always()');

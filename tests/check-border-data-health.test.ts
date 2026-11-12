@@ -260,8 +260,16 @@ describe('collectWebcamUrls', () => {
       sourceName: 'Comune di Cannero Riviera – Veduta da Oggiogno',
       sourceUrl: 'https://comune.canneroriviera.vb.it/vivere-il-comune/luoghi/oggiogno/',
       refreshIntervalMs: 600000,
+      minBytes: 1500,
     });
-    expect(collectWebcamUrls([crossing!]).get(webcam!.imageUrl)?.crossings).toEqual(['Luino-Fornasette']);
+    const monitored = collectWebcamUrls([crossing!]).get(webcam!.imageUrl);
+    expect(monitored?.crossings).toEqual(['Luino-Fornasette']);
+    expect(
+      evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, monitored?.minBytes).broken,
+    ).toBe(false);
+    expect(
+      evaluateWebcamResult({ ok: true, status: 200, bytes: 117 }, monitored?.minBytes).broken,
+    ).toBe(true);
   });
 
   it('keeps the compact SITG camera family below the generic floor', () => {

@@ -18,6 +18,7 @@ import {
   applyLetterConventions,
   buildFormAnswers,
   checkDraftTexts,
+  filterAuthorizedEvidenceAtoms,
   ensureRequiredQuestions,
   letterAddressOf,
   letterEnclosures,
@@ -134,6 +135,7 @@ function candidateLocale(order) {
  * @param {(req:{prompt:string, schema:object, timeoutMs:number})=>Promise<object>} ctx.codex
  * @param {object} ctx.bucket Storage bucket
  * @param {Buffer} ctx.runKey evidence key
+ * @param {Array<object>} [ctx.evidenceAtoms] Candidate evidence from a trusted record; every atom is checked before any prompt.
  * @param {typeof fetch} [ctx.fetchImpl]
  * @param {Function} [ctx.resolve] DNS lookup of the posting's hosts (tests pass a fake)
  * @param {number} [ctx.nowMs]
@@ -142,6 +144,23 @@ function candidateLocale(order) {
  */
 export async function buildDraft(ctx) {
   const { order, orderId, flow, previousDraft, cvBuffer, cvType, codex, bucket, runKey } = ctx;
+  const rawEvidenceAtoms = [
+    ctx.evidenceAtoms,
+    order?.evidenceAtoms,
+    flow?.evidenceAtoms,
+    ctx.intake?.evidenceAtoms,
+    previousDraft?.evidenceAtoms,
+  ].flatMap((atoms) => Array.isArray(atoms) ? atoms : []);
+  const candidateEvidenceAtoms = filterAuthorizedEvidenceAtoms(rawEvidenceAtoms)
+    .filter((atom) => typeof atom.claim === 'string' && atom.claim.trim())
+    .map((atom) => ({
+      ...(typeof atom.id === 'string' ? { id: atom.id.slice(0, 120) } : {}),
+      claim: atom.claim.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 1000),
+      provenance: atom.provenance,
+      ...(atom.approvedByCandidate === true ? { approvedByCandidate: true } : {}),
+    }))
+    .filter((atom) => atom.claim);
+  const candidateEvidenceText = candidateEvidenceAtoms.map((atom) => atom.claim).join('\n');
   const fetchImpl = ctx.fetchImpl || fetch;
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
@@ -222,24 +241,28 @@ export async function buildDraft(ctx) {
   const tailoredCvPromise = buildTailoredCv({
     kind,
     rendererMode: await pdfRendererMode(),
-    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
+    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, candidateEvidenceAtoms,
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
     cvBuffer, cvType, cvKey: order.cvStorageKey, inPlace: ctx.inPlace,
   });
-  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
+  const reuseQualifiedMatch = qualification && candidateEvidenceAtoms.length === 0 && !candidateNotes && !Object.keys(edited.overrides).length
     && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
-  const evidenceText = `${cvText}\n${JSON.stringify(answers)}\n${candidateNotes}\n${JSON.stringify(edited.overrides)}`;
+  const candidateSourceText = candidateEvidenceText
+    ? `${cvText}\n${candidateNotes}\n${candidateEvidenceText}`
+    : `${cvText}\n${candidateNotes}`;
+  const evidenceText = [cvText, JSON.stringify(answers), candidateNotes, JSON.stringify(edited.overrides), ...(candidateEvidenceText ? [candidateEvidenceText] : [])].join('\n');
   const candidateSources = sourceCitations({ cv: cvText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '', notes: candidateNotes,
-    corrections: Object.keys(edited.overrides).length ? JSON.stringify(edited.overrides) : '' });
+    corrections: Object.keys(edited.overrides).length ? JSON.stringify(edited.overrides) : '',
+    ...(candidateEvidenceText ? { evidenceAtoms: candidateEvidenceText } : {}) });
   const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts,
+      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, candidateSourceExcerpts: candidateSources.excerpts, candidateEvidenceAtoms,
     })),
     schema: citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources),
     timeoutMs: CODEX_TIMEOUT_MS,
   });
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, evidenceText),
-    { profile, sourceText: `${cvText}\n${candidateNotes}`, answers, memory: flow?.questionAnswers || {}, locale });
+    { profile, sourceText: candidateSourceText, answers, memory: flow?.questionAnswers || {}, locale });
   let requiredDocuments = requiredDocumentsFromRequirements(requirements);
   // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
   // driver qualification card?» next to that very card among the documents held the order twice for one
@@ -270,6 +293,7 @@ export async function buildDraft(ctx) {
       candidateNotes,
       ...(flow?.feedback || []).map((item) => String(item?.text || '')),
       ...Object.values(edited.overrides),
+      ...candidateEvidenceAtoms.map((atom) => atom.claim),
     ].join('\n'),
     // The permit status the texts were written with (a code, '' when none): its presence marks a draft the gate
     // judges on the Swiss permit, with the status of the day (factSourcesNow).
@@ -300,6 +324,7 @@ export async function buildDraft(ctx) {
         postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
         language,
         factCheckFindings: findings,
+        candidateEvidenceAtoms,
       })),
       schema: DOCUMENTS_SCHEMA,
       timeoutMs,
@@ -594,20 +619,22 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, candidateEvidenceAtoms = [], cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
   try {
+    const candidateEvidenceText = candidateEvidenceAtoms.map((atom) => atom.claim).join('\n');
+    const tailoredSourceText = [cvText, ...(candidateEvidenceText ? [candidateEvidenceText] : [])].join('\n');
     const write = async (findings = [], timeoutMs = CODEX_TIMEOUT_MS) => {
       const raw = await codex({
         prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
-          profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type, factCheckFindings: findings,
+          profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type, factCheckFindings: findings, candidateEvidenceAtoms,
         })),
         schema: TAILORED_CV_SCHEMA,
         timeoutMs,
       });
-      const written = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
+      const written = sanitizeTailoredCv(raw, { profile, cvText: tailoredSourceText, language, type: kind.type, sector: kind.sector, title });
       return {
         cv: written,
-        facts: checkTailoredCvFacts(written, { cvText, profile, answers: { ...answers, notes: candidateNotes } }),
+        facts: checkTailoredCvFacts(written, { cvText: tailoredSourceText, profile, answers: { ...answers, notes: [candidateNotes, candidateEvidenceText].filter(Boolean).join('\n') } }),
         languageCheck: checkTailoredCvLanguage(written, { profile, language, type: kind.type }),
       };
     };

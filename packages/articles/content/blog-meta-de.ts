@@ -13701,6 +13701,17 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-svizzera-calo-ticino.title': 'Grenzgänger: Zunahme in der Schweiz, jährlicher Rückgang im Tessin',
     'blog.article.frontalieri-svizzera-calo-ticino.excerpt': 'Im dritten Quartal weist die Statistik zu den Grenzgängern einen deutlichen Gegensatz zwischen der Situation auf Bundesebene und jener im Kanton Tessin aus.',
     'blog.article.frontalieri-svizzera-calo-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-11.title': 'Grenzgänger: die verfügbaren Messwerte von heute — 11. November 2026',
+    'blog.article.bollettino-frontaliere-2026-11-11.excerpt': 'Die Zahlen von heute, 11. November 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-11.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-11-11.seoDescription': 'Grenzgänger-Bulletin am 11. November 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-11-11.ogDescription': 'Die Zahlen vom 11. November 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Gehälter von Grenzgängern 2027: Nominale Steigerung um 1 % laut UBS',
+    'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'Für 2027 wird erwartet, dass die Löhne der Grenzgänger in der Schweiz nominal um 1 % steigen werden.',
+    'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.como-rinnovo-illuminazione-varese.title': 'Como erneuert die Beleuchtung der Viale Varese – Projekt im Wert von 80mila euro',
+    'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'Die Stadtverwaltung von Como hat das Projekt zur Erneuerung der öffentlichen Beleuchtung entlang zweier Abschnitte der Viale Varese offiziell gestartet.',
+    'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

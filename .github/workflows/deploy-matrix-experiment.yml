@@ -660,6 +660,8 @@ jobs:
       - name: Fingerprint jobs SEO renderer for HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-fingerprint
+        env:
+          JOBS_SEO_HTML_CACHE_LOCALE: ${{ matrix.locale }}
         shell: bash
         run: node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
@@ -679,7 +681,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}
 
       - name: Document chained cache restores
         if: always()

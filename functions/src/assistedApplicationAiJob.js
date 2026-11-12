@@ -235,6 +235,43 @@ async function workdayPostingUnlisted(fetchImpl, api, resolve) {
   return true;
 }
 
+// ── Known portals & ATS ───────────────────────────────────────────────────
+
+const PORTALS = [
+  { id: 'workday', label: 'Workday', re: /(^|\.)(myworkdayjobs\.com|myworkdaysite\.com|workday\.com)$/, account: true },
+  { id: 'successfactors', label: 'SAP SuccessFactors', re: /(^|\.)(successfactors\.(com|eu)|sapsf\.(com|eu)|jobs\.sap\.com)$/, account: true },
+  { id: 'umantis', label: 'Abacus Umantis', re: /(^|\.)umantis\.com$/, account: false },
+  { id: 'refline', label: 'Refline', re: /(^|\.)refline\.ch$/, account: false },
+  { id: 'smartrecruiters', label: 'SmartRecruiters', re: /(^|\.)smartrecruiters\.com$/, account: false },
+  { id: 'lever', label: 'Lever', re: /(^|\.)lever\.co$/, account: false },
+  { id: 'greenhouse', label: 'Greenhouse', re: /(^|\.)greenhouse\.io$/, account: false },
+  { id: 'personio', label: 'Personio', re: /(^|\.)personio\.(de|com)$/, account: false },
+  { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
+  // Career Page is the public Manatal application surface. It is a real
+  // employer form even when the posting also publishes a recruiting address.
+  { id: 'manatal', label: 'Career Page (Manatal)', re: /(^|\.)careers-page\.com$/, account: false },
+  { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
+  { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
+  // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
+  // chat (QR code), from the candidate's own phone. No browser can send it.
+  { id: 'pastahr', label: 'PastaHR (WhatsApp)', re: /(^|\.)pastahr\.com$/, account: false },
+];
+
+// The employers' own application portals (not job boards): used even when the
+// posting also names an e-mail address. PastaHR is not among them: a WhatsApp
+// chat cannot be sent for the candidate, an address the posting gives can.
+const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden', 'manatal']);
+
+/** The known portal an address is on, or null. */
+function portalOf(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return PORTALS.find((candidate) => candidate.re.test(host)) || null;
+  } catch {
+    return null;
+  }
+}
+
 // ── Apply redirect ─────────────────────────────────────────────────────────
 
 // Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
@@ -349,6 +386,56 @@ async function redirectTarget(fetchImpl, startUrl, resolve) {
 }
 
 /**
+ * Employer pages that embed or host an ATS application (such as Next.js
+ * sites with Lever, Greenhouse, etc., or direct links/iframes to the ATS):
+ * when the embedded application URL belongs to a known ATS and matches the
+ * posting's vacancy identity, resolve directly to the ATS form.
+ *
+ * @param {string} html
+ * @param {string} [postingUrl]
+ * @returns {{applyUrl: string, via: string}|null}
+ */
+export function embeddedAtsApplyUrlFromPosting(html, postingUrl = '') {
+  const text = String(html || '');
+  if (!text) return null;
+  const ownUuid = String(postingUrl || '').match(UUID_RE)?.[0]?.toLowerCase();
+
+  // 1. Next.js payload: check __NEXT_DATA__
+  const nextDataMatch = text.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/i);
+  if (nextDataMatch) {
+    try {
+      const data = JSON.parse(nextDataMatch[1]);
+      const details = data.props?.pageProps?.data?.details || data.props?.pageProps?.details;
+      const urls = details?.posting?.urls || details?.urls;
+      const applyUrl = String(urls?.apply || '').trim();
+      if (applyUrl) {
+        const portal = portalOf(applyUrl);
+        if (portal && APPLICANT_TRACKING_SYSTEMS.has(portal.id)) {
+          if (!ownUuid || applyUrl.toLowerCase().includes(ownUuid) || details?.posting?.id?.toLowerCase() === ownUuid) {
+            return { applyUrl, via: portal.id };
+          }
+        }
+      }
+    } catch {
+      // ignore malformed JSON
+    }
+  }
+
+  // 2. Direct ATS links or iframes in HTML matching the posting UUID/ID
+  if (ownUuid) {
+    for (const match of text.matchAll(/<(?:a|iframe)\b[^>]*\b(?:href|src)=["']([^"']+)["'][^>]*>/gi)) {
+      const candidate = match[1].trim();
+      const portal = portalOf(candidate);
+      if (portal && APPLICANT_TRACKING_SYSTEMS.has(portal.id) && candidate.toLowerCase().includes(ownUuid)) {
+        return { applyUrl: candidate, via: portal.id };
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
  * The address «Apply» really leads to when the posting page sends it through
  * a known ATS redirect or exposes a validated Jobs2Web SuccessFactors route:
  * the channel is then the ATS's (its account, its quirks), not "Sito del
@@ -370,6 +457,10 @@ export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = l
         const successFactors = successFactorsApplyUrlFromPosting(html, url);
         if (successFactors && await resolvesToPublicHost(successFactors, resolve)) {
           return { applyUrl: successFactors, via: 'successfactors' };
+        }
+        const embeddedAts = embeddedAtsApplyUrlFromPosting(html, url);
+        if (embeddedAts && await resolvesToPublicHost(embeddedAts.applyUrl, resolve)) {
+          return embeddedAts;
         }
       }
     }
@@ -620,41 +711,6 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
 }
 
 // ── Channel ────────────────────────────────────────────────────────────────
-
-const PORTALS = [
-  { id: 'workday', label: 'Workday', re: /(^|\.)(myworkdayjobs\.com|myworkdaysite\.com|workday\.com)$/, account: true },
-  { id: 'successfactors', label: 'SAP SuccessFactors', re: /(^|\.)(successfactors\.(com|eu)|sapsf\.(com|eu)|jobs\.sap\.com)$/, account: true },
-  { id: 'umantis', label: 'Abacus Umantis', re: /(^|\.)umantis\.com$/, account: false },
-  { id: 'refline', label: 'Refline', re: /(^|\.)refline\.ch$/, account: false },
-  { id: 'smartrecruiters', label: 'SmartRecruiters', re: /(^|\.)smartrecruiters\.com$/, account: false },
-  { id: 'lever', label: 'Lever', re: /(^|\.)lever\.co$/, account: false },
-  { id: 'greenhouse', label: 'Greenhouse', re: /(^|\.)greenhouse\.io$/, account: false },
-  { id: 'personio', label: 'Personio', re: /(^|\.)personio\.(de|com)$/, account: false },
-  { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
-  // Career Page is the public Manatal application surface. It is a real
-  // employer form even when the posting also publishes a recruiting address.
-  { id: 'manatal', label: 'Career Page (Manatal)', re: /(^|\.)careers-page\.com$/, account: false },
-  { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
-  { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
-  // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
-  // chat (QR code), from the candidate's own phone. No browser can send it.
-  { id: 'pastahr', label: 'PastaHR (WhatsApp)', re: /(^|\.)pastahr\.com$/, account: false },
-];
-
-// The employers' own application portals (not job boards): used even when the
-// posting also names an e-mail address. PastaHR is not among them: a WhatsApp
-// chat cannot be sent for the candidate, an address the posting gives can.
-const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden', 'manatal']);
-
-/** The known portal an address is on, or null. */
-function portalOf(url) {
-  try {
-    const host = new URL(url).hostname.toLowerCase();
-    return PORTALS.find((candidate) => candidate.re.test(host)) || null;
-  } catch {
-    return null;
-  }
-}
 
 const EMAIL_ONLY_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 

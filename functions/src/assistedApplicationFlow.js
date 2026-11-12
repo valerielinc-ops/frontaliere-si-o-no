@@ -34,10 +34,11 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
+import { refundEndsAtStart } from './assistedApplicationConstants.js';
 import {
   REGION_UNSUPPORTED_HOLD,
   REGION_UNSUPPORTED_REASON,
@@ -66,6 +67,29 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
+// instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
+export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
+
+/**
+ * Holds unexpected ATS fields for bounded operator review before owner escalation.
+ * The four-hour deadline uses epoch milliseconds so the normal automation sweep can deliver it.
+ * @param {object} flow
+ * @param {object} event
+ * @param {number} [nowMs]
+ * @returns {object}
+ */
+export function handleUnresolvedAtsQuestions(flow, event, nowMs = Date.now()) {
+  return {
+    ...flow,
+    state: 'operator_expedited_review',
+    heldReason: 'unpredicted_ats_field',
+    heldBy: ['unpredicted_ats_field'],
+    pendingFields: Array.isArray(event?.missingFields) ? event.missingFields.slice(0, 20) : [],
+    portalAutoRetryAt: null,
+    deadlineAt: nowMs + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+  };
+}
 // Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
 // portal pages have a bounded repair window; definite infrastructure outages
 // stay in the normal queue with a capped delay until the posting closes.
@@ -114,6 +138,7 @@ export const FLOW_STATES = Object.freeze([
   'candidate_review',
   'regenerating',
   'submitting',
+  'operator_expedited_review',
   'needs_candidate_action',
   'candidate_handoff',
   'submitted',
@@ -264,6 +289,8 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
+    ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
@@ -333,6 +360,8 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(flow?.portalFinalReviewAmbiguousRecoveryVersion === PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION
+      ? { portalFinalReviewAmbiguousRecoveryVersion: PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } : {}),
     ...(portalRecoveryMatchAnswerIds(flow).length && Number.isSafeInteger(Number(flow?.portalRecoveryMatchAnswerRound))
       && Number(flow.portalRecoveryMatchAnswerRound) > 0
       ? { portalRecoveryMatchAnswerIds: portalRecoveryMatchAnswerIds(flow),
@@ -356,9 +385,19 @@ function waitedForCandidate(flow) {
 }
 
 /**
- * Owner decision 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
- * while this round waited for the candidate (Terms 6.5, not refunded). The application is withdrawn and
- * archived, every clock and retry stops, and the candidate is told once why. Nothing is refunded.
+ * The employer withdrew or closed the posting where Terms 6.5 refund nothing (assistedApplicationEmployerWithdrawal.js):
+ * an order whose process started under the Terms of 2026-11-11 (refundEndsAtStart), or, under the older ones,
+ * a round that waited for the candidate. The round waited, or the order's Terms no longer refund once started.
+ */
+function closesWithoutRefund(flow, order) {
+  return refundEndsAtStart(order) || waitedForCandidate(flow);
+}
+
+/**
+ * Owner decisions 2026-11-11 (assistedApplicationEmployerWithdrawal.js): the employer withdrew the posting
+ * while this round waited for the candidate, or after the process started under the Terms that refund nothing
+ * once it started (Terms 6.5). The application is withdrawn and archived, every clock and retry stops, and the
+ * candidate is told once why. Nothing is refunded.
  * `closure`: the native proof ({ code, source, at }); never a reading of ours.
  */
 function withdrawForEmployer(next, closure, nowMs) {
@@ -377,16 +416,17 @@ function withdrawForEmployer(next, closure, nowMs) {
 }
 
 /**
- * The posting's native proof of closure is on record and this round waited for the candidate, on an order
- * stopped for that closure: held for Valerie (owner_takeover, posting_closed), or waiting in silence for the
- * candidate since the sweep found the ad closed (postingExpiredAt). The employer's withdrawal closes it: the
- * sweep applies `posting_closure_recorded`; scripts/assisted-application/reconcile-posting-withdrawals.mjs
- * records the proof of the orders stopped before this rule. A send that may have left is checked by the
- * caller (sendMayHaveLeft), in the same transaction.
+ * The posting's native proof of closure is on record and this round waited for the candidate (or `order`'s
+ * Terms refund nothing once the process started, refundEndsAtStart), on an order stopped for that closure:
+ * held for Valerie (owner_takeover, posting_closed), or waiting in silence for the candidate since the sweep
+ * found the ad closed (postingExpiredAt). The employer's withdrawal closes it: the sweep applies
+ * `posting_closure_recorded`; scripts/assisted-application/reconcile-posting-withdrawals.mjs records the proof
+ * of the orders stopped before this rule. A send that may have left is checked by the caller
+ * (sendMayHaveLeft), in the same transaction. Without `order`, the older Terms' condition (a round that waited).
  */
-export function employerWithdrawalPending(flow) {
+export function employerWithdrawalPending(flow, order = null) {
   const current = base(flow);
-  if (!current.postingClosure || !waitedForCandidate(current)) return false;
+  if (!current.postingClosure || !closesWithoutRefund(current, order)) return false;
   if (current.state === 'owner_takeover') return current.heldBy.length === 1 && current.heldBy[0] === 'posting_closed';
   return ['candidate_review', 'needs_candidate_action'].includes(current.state) && Boolean(current.postingExpiredAt);
 }
@@ -786,6 +826,15 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      if (state === 'operator_expedited_review' && deadline && nowMs >= deadline) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['unpredicted_ats_field'];
+        next.heldSince = current.heldSince || nowMs;
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit' }];
+        break;
+      }
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
       // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
       // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
@@ -795,10 +844,12 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The candidate's own approval still sends it, and the runner then looks at the ad itself.
       // Owner decision 2026-11-11: when the look read the posting's own word (a native closure) and the round
       // waits for the candidate's documents or answers, the employer withdrew it (Terms 6.5): the application
-      // is withdrawn, the candidate told, nothing refunded. Any other look keeps the silent wait below.
+      // is withdrawn, the candidate told, nothing refunded. The same for any round of an order under the Terms
+      // that refund nothing once the process started (owner decision 2026-11-11, refundEndsAtStart): the wait
+      // for the candidate no longer decides anything there. Any other look keeps the silent wait below.
       const tickClosure = event.postingExpired ? nativeClosureOf(event.postingClosure, nowMs) : null;
       if (tickClosure && tickClosure.source !== 'employer_mail' && remindsCandidate(current, nowMs)
-        && current.state !== 'candidate_handoff' && waitedForCandidate(current) && !sendMayHaveLeft) {
+        && current.state !== 'candidate_handoff' && closesWithoutRefund(current, order) && !sendMayHaveLeft) {
         effects = withdrawForEmployer(next, tickClosure, nowMs);
         break;
       }
@@ -982,7 +1033,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
-        && !portalExhaustedRecoveryPending(current)) return ignore('portal_retry_limit');
+        && !portalExhaustedRecoveryPending(current) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
       next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;
@@ -1034,9 +1085,13 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       // The posting's own word (its page, its ATS, the employer's e-mail), or null for a reading of ours.
       const closure = nativeClosureOf(event, nowMs);
-      // Owner decision 2026-11-11 (Terms 6.5): withdrawn by the employer while this round waited for the
-      // candidate's documents or answers. Withdrawn and archived, the candidate told, nothing refunded.
-      if (closure && waitedForCandidate(current) && !sendMayHaveLeft) {
+      // Owner decisions 2026-11-11 (Terms 6.5): withdrawn by the employer while this round waited for the
+      // candidate's documents or answers, or, for an order under the Terms that refund nothing once the process
+      // started (refundEndsAtStart: «il rimborso non è mai consentito una volta che il processo è stato
+      // avviato»), whenever it closed: every state this event accepts comes after the start. Withdrawn and
+      // archived, the candidate told, nothing refunded.
+      const noRefund = refundEndsAtStart(order);
+      if (closure && closesWithoutRefund(current, order) && !sendMayHaveLeft) {
         effects = withdrawForEmployer(next, closure, nowMs);
         break;
       }
@@ -1047,6 +1102,12 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = ['posting_closed'];
+      // Owner decision 2026-11-11: after the start nothing is refunded by itself. Only a reading of ours (no
+      // native proof) or a send that may have left gets here: nothing to withdraw on that, so Valerie decides.
+      if (noRefund) {
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_after_start' }];
+        break;
+      }
       // Terms 6.5 (owner decision 2026-10-08): an ad that closes while the application waits for documents
       // or answers only the candidate can give is not refunded. The robot cannot tell when the ad closed,
       // only that this round waited for the candidate: it refunds nothing by itself, and Valerie decides
@@ -1056,8 +1117,8 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }];
         break;
       }
-      // Owner decision 2026-09-30: the refund the welcome e-mail promises is
-      // "the ad closed before we could send it" — so it is automatic.
+      // An order under the Terms before 2026-11-11 (a mandate v1/v2, or none). Owner decision 2026-09-30: the
+      // refund the welcome e-mail promised then is "the ad closed before we could send it" — so it is automatic.
       // The candidate's "we refunded you" e-mail is sent by the refund effect
       // itself, only once the refund went through (retried if it fails).
       effects = [
@@ -1069,7 +1130,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     case 'posting_closure_recorded':
       // An order stopped for a closed ad before the owner decision of 2026-11-11, with the posting's proof
       // recorded since (employerWithdrawalPending): closed now as posting_closed would close it today.
-      if (!employerWithdrawalPending(current)) return ignore('no_recorded_withdrawal');
+      if (!employerWithdrawalPending(current, order)) return ignore('no_recorded_withdrawal');
       if (sendMayHaveLeft) return ignore('send_may_have_left');
       effects = withdrawForEmployer(next, current.postingClosure, nowMs);
       break;
@@ -1184,9 +1245,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The review page is generated from the draft, not from the runner
       // event. If a live requirement was not persisted into that draft, a
       // candidate-action e-mail would open a page with nothing to answer.
-      // Fail closed into the bounded owner recovery path instead.
+      // Unpredicted fields wait for bounded operator escalation; a candidate
+      // is never asked to approve a field the review page cannot show.
       if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
-        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        const visibleQuestions = new Set((flags.candidate || []).map(String));
+        const unpredictedFields = unresolvedQuestions
+          .filter((id) => !visibleQuestions.has(id))
+          .map((id) => detailsById.get(id) || { id });
+        if (unpredictedFields.length) {
+          Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
+        } else {
+          effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        }
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;

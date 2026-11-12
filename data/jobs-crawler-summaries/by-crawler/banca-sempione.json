@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-11-11T09:30:13.667Z",
+  "generatedAt": "2026-11-11T21:28:00.223Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7065,
-  "avgDurationMs": 7065,
+  "durationMs": 5382,
+  "avgDurationMs": 5382,
   "durationHistory": [
-    7065
+    5382
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T09:29:59.294Z",
+      "crawledAt": "2026-11-11T21:27:42.644Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -44,7 +44,7 @@
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:29:59.294Z",
+      "validThrough": "2026-12-11T21:27:42.644Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -70,7 +70,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T09:29:59.294Z",
+      "crawledAt": "2026-11-11T21:27:42.644Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -87,7 +87,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T09:29:59.294Z",
+      "validThrough": "2026-12-11T21:27:42.644Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -98,5 +98,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

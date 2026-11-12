@@ -48178,6 +48178,36 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bollettino-frontaliere-2026-11-11',
+ category: 'novita',
+ date: '2026-11-11T12:37:21.200Z',
+ image: '/images/blog/article-bollettino-frontaliere-2026-11-11.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'aumenti-stipendi-frontalieri-2027',
+ category: 'novita',
+ date: '2026-11-11T16:44:41.881Z',
+ image: '/images/blog/article-aumenti-stipendi-frontalieri-2027.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'como-rinnovo-illuminazione-varese',
+ category: 'novita',
+ date: '2026-11-11T21:48:02.723Z',
+ image: '/images/blog/article-como-rinnovo-illuminazione-varese.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

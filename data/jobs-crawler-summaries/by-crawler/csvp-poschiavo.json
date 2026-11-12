@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-11-11T09:28:17.431Z",
+  "generatedAt": "2026-11-11T21:29:46.120Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6352,
-  "avgDurationMs": 6352,
+  "durationMs": 5015,
+  "avgDurationMs": 5015,
   "durationHistory": [
-    6352
+    5015
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvp-poschiavo-0843f26cd0d8",
       "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
@@ -29,13 +30,12 @@
       "companyKey": "csvp-poschiavo",
       "companyDomain": "csvp.ch",
       "title": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
-      "needsRetranslation": true,
       "location": "Poschiavo",
       "canton": "GR",
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.297Z",
+      "crawledAt": "2026-11-11T21:29:26.855Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -57,18 +57,17 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:27:48.297Z",
+      "validThrough": "2027-02-09T21:29:26.855Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -84,7 +83,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.767Z",
+      "crawledAt": "2026-11-11T21:29:27.357Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -107,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:27:48.767Z",
+      "validThrough": "2027-01-05T21:29:27.357Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -129,7 +128,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:27:48.568Z",
+      "crawledAt": "2026-11-11T21:29:27.147Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -152,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:27:48.568Z",
+      "validThrough": "2027-01-26T21:29:27.147Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -163,5 +162,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

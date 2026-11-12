@@ -135,22 +135,26 @@ describe('an unverified SuccessFactors account on its sign-in page', () => {
       accountNotice: vi.fn(async () => null),
     };
     const ctx = { accounts } as any;
+    const firstRunRestarts = new Set<string>();
 
-    const first = await handleAuth({ page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx });
+    const first = await handleAuth({ page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx, registrationRestarts: firstRunRestarts });
     expect(clicks).toEqual(['create']);
     expect(first).toMatchObject({ handoff: 'account_verification' });
 
-    const second = await handleAuth({ page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx });
+    const second = await handleAuth({ page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx, registrationRestarts: firstRunRestarts });
     expect(clicks).toEqual(['create', 'login']);
     expect(values).toEqual(new Map([['email', 'runner@example.test'], ['password', 'synthetic-password']]));
     expect(second).not.toHaveProperty('handoff');
     expect(account.verifiedAt).toEqual(expect.any(Number));
 
-    // A new run (a new account store) may restart the registration again.
-    const nextRun = { accounts: { ...accounts, load: vi.fn(async () => ({ ...account, verifiedAt: null })) } } as any;
+    // A new run reuses this account store but owns a fresh restart set.
+    account.verifiedAt = null;
     view = 'sign_in';
-    await handleAuth({ page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx: nextRun });
+    const secondRun = await handleAuth({
+      page: page as any, snapshot: signIn(DAMIANI, values) as any, ctx, registrationRestarts: new Set<string>(),
+    });
     expect(clicks.at(-1)).toBe('create');
+    expect(secondRun).toMatchObject({ handoff: 'account_verification' });
   });
 });
 

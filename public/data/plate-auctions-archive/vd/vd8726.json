@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120665",
+      "sourceKey": "VD",
+      "sourceRecordId": "120665",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "8726",
+      "normalizedPlate": "VD8726",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "closedAt": "2026-11-08T13:24:09.715Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120665",
+      "sourceFetchedAt": "2026-11-08T13:24:09.715Z",
+      "lastVerifiedAt": "2026-11-08T13:24:09.715Z",
+      "firstSeenAt": "2026-11-02T06:02:44.993Z",
+      "lastSeenAt": "2026-11-08T13:24:09.715Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6d2df4da2cb9"
+    }
+  ]
+}

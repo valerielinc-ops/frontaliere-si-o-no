@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109940",
+      "sourceKey": "TG",
+      "sourceRecordId": "109940",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "911930",
+      "normalizedPlate": "TG911930",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-11T18:00:00.000Z",
+      "closedAt": "2026-11-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109940",
+      "sourceFetchedAt": "2026-11-10T19:50:22.560Z",
+      "lastVerifiedAt": "2026-11-10T19:50:22.560Z",
+      "firstSeenAt": "2026-11-04T14:33:42.278Z",
+      "lastSeenAt": "2026-11-10T19:50:22.560Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "61ccdd67c3b3"
+    }
+  ]
+}

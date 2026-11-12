@@ -1,5 +1,6 @@
 /** Shared by the state machine, scheduler and owner queue. No I/O. */
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
+export const PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION = 'portal-final-review-ambiguous-v1';
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
 // Stops caused by where and how the runner connects, not by the portal form
 // or the candidate. `application_region_unsupported` belongs here: the
@@ -39,7 +40,7 @@ export function autoRetryDelaysForFlow(flow) {
 
 export function isAutoRetryablePortalHold(flow) {
   return (flow?.heldBy || []).some(reason => TRANSPORT_HOLDS.has(reason)
-    || reason === 'portal:portal_needs_candidate');
+    || reason === 'portal:portal_needs_candidate') || portalFinalReviewAmbiguousRecoveryPending(flow);
 }
 
 /** Parse the persisted portal retry counter without coercing malformed values. */
@@ -66,6 +67,14 @@ export function portalAutoRetryAttemptsRemaining(flow) {
   return attempts !== null && attempts < PORTAL_AUTO_RETRY_DELAYS_MS.length;
 }
 
+/** Exactly one delayed retry after encrypted evidence proved an ambiguous click stayed at final review. */
+export function portalFinalReviewAmbiguousRecoveryPending(flow) {
+  return flow?.heldBy?.length === 1 && flow.heldBy[0] === 'portal_ambiguous'
+    && flow?.portalFinalReviewAmbiguousRecoveryVersion === PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION
+    && portalAutoRetryCountValue(flow) === PORTAL_AUTO_RETRY_DELAYS_MS.length
+    && Number(flow?.portalAutoRetryAt) > 0;
+}
+
 /**
  * A source-version repair may spend one bounded extra attempt after the
  * ordinary two-attempt ladder, but only after the reconciler has recorded the
@@ -85,7 +94,8 @@ export function portalExhaustedRecoveryPending(flow) {
 export function portalRetryDueAt(flow) {
   const retryAt = Number(flow?.portalAutoRetryAt) || 0;
   const budgetAvailable = isInfrastructureRetryHold(flow)
-    || portalAutoRetryAttemptsRemaining(flow) || portalExhaustedRecoveryPending(flow);
+    || portalAutoRetryAttemptsRemaining(flow) || portalExhaustedRecoveryPending(flow)
+    || portalFinalReviewAmbiguousRecoveryPending(flow);
   return flow?.state === 'owner_takeover' && isAutoRetryablePortalHold(flow) && budgetAvailable
     && Number.isFinite(retryAt) && retryAt > 0 ? retryAt : null;
 }

@@ -151,6 +151,11 @@ runs:
         }
         path_components_trusted() {
           local current="$1" mode owner current_uid parent
+          # Ubuntu 26.04 exposes fixed system utilities as symlink wrappers
+          # (for example /usr/bin/sha256sum -> /usr/lib/cargo/bin/coreutils/*).
+          # Attest the canonical target; the component checks below still
+          # reject writable or non-root-owned paths.
+          current="$(realpath "$current" 2>/dev/null || return 1)"
           current_uid="$("$id_cmd" -u)"
           while :; do
             [ -e "$current" ] || return 1

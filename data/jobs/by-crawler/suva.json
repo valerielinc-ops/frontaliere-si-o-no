@@ -1,7 +1,7 @@
 {
   "crawlerKey": "suva",
-  "assembledAt": "2026-11-11T09:18:58.742Z",
-  "runId": "42992907697",
+  "assembledAt": "2026-11-11T21:26:02.734Z",
+  "runId": "43101052147",
   "jobs": [
     {
       "id": "suva-1d6db1eb6e9e",
@@ -34,7 +34,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Assistenz%C3%A4rztin-Assistenzarzt-Versicherungsmedizin-%28alle-Geschlechter%29-80-100-AG-5000/1395395933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:51.838Z",
+      "crawledAt": "2026-11-11T21:25:52.793Z",
       "addressLocality": "Argovia",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,14 +83,14 @@
       "addressRegion": "AG",
       "streetAddress": "Argovia",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:18:51.838Z",
+      "validThrough": "2027-02-09T21:25:52.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "suva-3e6dbb917f25",
-      "slug": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
+      "slug": "specialista-nella-gestione-dei-casi-80-100-suva-wetzikon-zurich-8620-schweiz",
       "slugByLocale": {
-        "it": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
+        "it": "specialista-nella-gestione-dei-casi-80-100-suva-wetzikon-zurich-8620-schweiz",
         "en": "case-management-specialist-80-100-suva-wetzikon-zurich-8620-schweiz",
         "de": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
         "fr": "specialiste-en-gestion-de-cas-80-100-suva-wetzikon-zurich-8620-schweiz"
@@ -100,7 +100,7 @@
       "companyDomain": "suva.ch",
       "title": "Spezialist:in Fallführung 80 - 100 %",
       "titleByLocale": {
-        "it": "Spezialist:in Fallführung 80 - 100 %",
+        "it": "Specialista nella gestione dei casi 80 - 100%",
         "en": "Case Management Specialist 80-100%",
         "de": "Spezialist:in Fallführung 80 - 100 %",
         "fr": "Spécialiste :en gestion de cas 80 - 100 %"
@@ -117,7 +117,7 @@
       "url": "https://jobs.suva.ch/job/Wetzikon-Spezialistin-Fallf%C3%BChrung-80-100-ZH-8620/1454336833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:50.684Z",
+      "crawledAt": "2026-11-11T21:25:54.960Z",
       "addressLocality": "Wetzikon, Zürich 8620 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,41 +153,49 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon, Zürich 8620 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:18:50.684Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T21:25:54.960Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz"
+      ]
     },
     {
       "id": "suva-f25776ba72d9",
       "slug": "psichiatra-80-100-suva-vallese",
       "slugByLocale": {
-        "fr": "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve",
         "it": "psichiatra-80-100-suva-vallese",
         "en": "psychiatrist-80-100-suva-vallese",
-        "de": "psychiater-80-100-suva-vallese"
+        "de": "psychiater-80-100-suva-vallese",
+        "fr": "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
       },
       "company": "Suva",
       "companyKey": "suva",
       "companyDomain": "suva.ch",
       "title": "Psychiatre 80 - 100 %",
       "titleByLocale": {
-        "fr": "Psychiatre 80 - 100 %",
         "it": "Psichiatra 80 - 100%",
         "en": "Psychiatrist 80 - 100%",
-        "de": "Psychiater 80 - 100%"
+        "de": "Psychiater 80 - 100%",
+        "fr": "Psychiatre 80 - 100 %"
       },
       "description": "Ce que tu accomplis\n• Tu fournis des appréciations sur la base des pièces des dossiers ou d’examens, y compris pour l’assurance militaire.\n• Tu réponds aux questions relatives au lien de causalité, à la capacité de travail, à l’exigibilité et à l’indemnité pour atteinte à l’intégrité.\n• Grâce à ton expertise, tu garantis le conseil en médecine d’assurance à l’attention des collègues chargés de la gestion des cas.\n• Tu travailles au sein d'une équipe pluridisciplinaire où la collaboration est collégiale et se fait d'égal à égal. Ce que tu apportes\n• Tu possèdes le titre de médecin spécialiste en psychiatrie reconnu en Suisse, ainsi que plusieurs années d'expérience clinique.\n• Une excellente maîtrise de la langue française est impérative, avec idéalement des connaissances en allemand. L'italien est un atout.\n• Tu es reconnu pour ta capacité à formuler des faits médicaux de manière concise et compréhensible, et tu conserves ton objectivité en cas d'avis divergents.\n• Tu maîtrises parfaitement le travail sur ordinateur et es ouvert∙e aux changements dans le domaine numérique.",
       "descriptionByLocale": {
-        "fr": "Ce que tu accomplis\n• Tu fournis des appréciations sur la base des pièces des dossiers ou d’examens, y compris pour l’assurance militaire.\n• Tu réponds aux questions relatives au lien de causalité, à la capacité de travail, à l’exigibilité et à l’indemnité pour atteinte à l’intégrité.\n• Grâce à ton expertise, tu garantis le conseil en médecine d’assurance à l’attention des collègues chargés de la gestion des cas.\n• Tu travailles au sein d'une équipe pluridisciplinaire où la collaboration est collégiale et se fait d'égal à égal. Ce que tu apportes\n• Tu possèdes le titre de médecin spécialiste en psychiatrie reconnu en Suisse, ainsi que plusieurs années d'expérience clinique.\n• Une excellente maîtrise de la langue française est impérative, avec idéalement des connaissances en allemand. L'italien est un atout.\n• Tu es reconnu pour ta capacité à formuler des faits médicaux de manière concise et compréhensible, et tu conserves ton objectivité en cas d'avis divergents.\n• Tu maîtrises parfaitement le travail sur ordinateur et es ouvert∙e aux changements dans le domaine numérique.",
         "it": "Che cosa fai\n• Fornire valutazioni sulla base di registri o esami, anche per l'assicurazione militare.\n• Risponde a domande sulla causazione, la capacità di lavorare, l'applicabilità e l'indennizzo per danni all'integrità.\n• Grazie alla vostra competenza, garantite consulenza medica di assicurazione all'attenzione dei colleghi nella gestione dei casi.\n• Si lavora in un team multidisciplinare dove la collaborazione è collegiale e uguale. Cosa porti\n• Hai il titolo di specialista in psichiatria riconosciuto in Svizzera, così come diversi anni di esperienza clinica.\n• Un ottimo comando della lingua francese è imperativo, idealmente con la conoscenza in tedesco. L'italiano è una risorsa.\n• Siete riconosciuti per la vostra capacità di formulare fatti medici in modo conciso e comprensibile, e si mantiene l'oggettività in caso di opinioni divergenti.\n• Si master computer funziona perfettamente e sono aperti a cambiamenti nel campo digitale.",
         "en": "What You Do\n• You provide assessments on the basis of records or examinations, including for military insurance.\n• You answer questions about causation, ability to work, enforceability and indemnification for damage to integrity.\n• Thanks to your expertise, you guarantee insurance medical advice to the attention of colleagues in case management.\n• You work in a multidisciplinary team where collaboration is collegial and equal. What you bring\n• You have the title of specialist in psychiatry recognized in Switzerland, as well as several years of clinical experience.\n• An excellent command of the French language is imperative, ideally with knowledge in German. Italian is an asset.\n• You are recognized for your ability to formulate medical facts in a concise and understandable manner, and you retain objectivity in the event of divergent opinions.\n• You master computer work perfectly and are open to changes in the digital field.",
-        "de": "Was Sie tun\n• Sie geben Beurteilungen auf der Grundlage von Aufzeichnungen oder Untersuchungen, auch für Militärversicherungen.\n• Sie beantworten Fragen zu Verursachung, Arbeitsfähigkeit, Durchsetzbarkeit und Entschädigung für Integritätsschäden.\n• Dank Ihrer Expertise garantieren Sie versicherungsmedizinische Beratung für die Aufmerksamkeit der Kollegen im Case Management.\n• Sie arbeiten in einem multidisziplinären Team, in dem die Zusammenarbeit kollegial und gleichberechtigt ist. Was du mitbringst\n• Sie haben den Titel eines in der Schweiz anerkannten Spezialisten für Psychiatrie sowie eine mehrjährige klinische Erfahrung.\n• Eine ausgezeichnete Beherrschung der französischen Sprache ist unerlässlich, idealerweise mit Deutschkenntnissen. Italienisch ist ein Asset.\n• Sie werden für Ihre Fähigkeit anerkannt, medizinische Fakten in einer prägnanten und verständlichen Weise zu formulieren, und Sie behalten Objektivität im Falle divergierender Meinungen.\n• Sie beherrschen die Computerarbeit perfekt und sind offen für Veränderungen im digitalen Bereich."
+        "de": "Was Sie tun\n• Sie geben Beurteilungen auf der Grundlage von Aufzeichnungen oder Untersuchungen, auch für Militärversicherungen.\n• Sie beantworten Fragen zu Verursachung, Arbeitsfähigkeit, Durchsetzbarkeit und Entschädigung für Integritätsschäden.\n• Dank Ihrer Expertise garantieren Sie versicherungsmedizinische Beratung für die Aufmerksamkeit der Kollegen im Case Management.\n• Sie arbeiten in einem multidisziplinären Team, in dem die Zusammenarbeit kollegial und gleichberechtigt ist. Was du mitbringst\n• Sie haben den Titel eines in der Schweiz anerkannten Spezialisten für Psychiatrie sowie eine mehrjährige klinische Erfahrung.\n• Eine ausgezeichnete Beherrschung der französischen Sprache ist unerlässlich, idealerweise mit Deutschkenntnissen. Italienisch ist ein Asset.\n• Sie werden für Ihre Fähigkeit anerkannt, medizinische Fakten in einer prägnanten und verständlichen Weise zu formulieren, und Sie behalten Objektivität im Falle divergierender Meinungen.\n• Sie beherrschen die Computerarbeit perfekt und sind offen für Veränderungen im digitalen Bereich.",
+        "fr": "Ce que tu accomplis\n• Tu fournis des appréciations sur la base des pièces des dossiers ou d’examens, y compris pour l’assurance militaire.\n• Tu réponds aux questions relatives au lien de causalité, à la capacité de travail, à l’exigibilité et à l’indemnité pour atteinte à l’intégrité.\n• Grâce à ton expertise, tu garantis le conseil en médecine d’assurance à l’attention des collègues chargés de la gestion des cas.\n• Tu travailles au sein d'une équipe pluridisciplinaire où la collaboration est collégiale et se fait d'égal à égal. Ce que tu apportes\n• Tu possèdes le titre de médecin spécialiste en psychiatrie reconnu en Suisse, ainsi que plusieurs années d'expérience clinique.\n• Une excellente maîtrise de la langue française est impérative, avec idéalement des connaissances en allemand. L'italien est un atout.\n• Tu es reconnu pour ta capacité à formuler des faits médicaux de manière concise et compréhensible, et tu conserves ton objectivité en cas d'avis divergents.\n• Tu maîtrises parfaitement le travail sur ordinateur et es ouvert∙e aux changements dans le domaine numérique."
       },
       "location": "Vallese",
       "canton": "VS",
       "url": "https://jobs.suva.ch/job/Sion-Psychiatre-80-100-VS-1950/1456320033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:49.476Z",
+      "crawledAt": "2026-11-11T21:25:51.708Z",
       "addressLocality": "Vallese",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,6 +213,21 @@
       "applyUrl": "https://jobs.suva.ch/job/Sion-Psychiatre-80-100-VS-1950/1456320033/",
       "pensum": "80-100%",
       "sfJobId": "1456320033",
+      "previousSlugs": [
+        "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
+        ],
+        "en": [
+          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
+        ],
+        "de": [
+          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-11-11T09:18:49.476Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -221,23 +244,8 @@
       "addressRegion": "VS",
       "streetAddress": "Vallese",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:18:49.476Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:18:49.476Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
-        ],
-        "en": [
-          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
-        ],
-        "de": [
-          "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "psychiatre-80-100-suva-delemont-jura-2800-suisse-fribourg-fribourg-1700-suisse-geneve"
-      ]
+      "validThrough": "2027-02-09T21:25:51.708Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "suva-d53355d93040",
@@ -270,7 +278,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Assistentin-CEO-60-LU-6004/1447245733/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:48.488Z",
+      "crawledAt": "2026-11-11T21:25:50.598Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -324,14 +332,14 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:18:48.488Z",
+      "validThrough": "2027-01-12T21:25:50.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "suva-98c7ec118fb3",
-      "slug": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
+      "slug": "medico-a-assicurativo-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
       "slugByLocale": {
-        "it": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
+        "it": "medico-a-assicurativo-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "en": "insurance-physician-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "de": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "fr": "medecin-d-assurance-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
@@ -341,7 +349,7 @@
       "companyDomain": "suva.ch",
       "title": "Versicherungsmediziner:in 80 %",
       "titleByLocale": {
-        "it": "Versicherungsmediziner:in 80 %",
+        "it": "Medico/a assicurativo/a 80%",
         "en": "Insurance Physician 80%",
         "de": "Versicherungsmediziner:in 80 %",
         "fr": "Médecin d'assurance :à 80 %"
@@ -358,7 +366,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Versicherungsmedizinerin-80-LU-6004/1455450133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:47.492Z",
+      "crawledAt": "2026-11-11T21:25:49.502Z",
       "addressLocality": "Bern, Bern 3008 Schweiz Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,8 +402,16 @@
       "addressRegion": "LU",
       "streetAddress": "Bern, Bern 3008 Schweiz Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:18:47.492Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T21:25:49.502Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
+      ]
     },
     {
       "id": "suva-3a510b5e7bf8",
@@ -428,7 +444,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Quereinsteigerin-Pr%C3%A4vention-100-LU-6004/1422839033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:46.505Z",
+      "crawledAt": "2026-11-11T21:25:48.399Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -485,7 +501,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:46.505Z",
+      "validThrough": "2026-12-11T21:25:48.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -519,7 +535,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:45.481Z",
+      "crawledAt": "2026-11-11T21:25:47.321Z",
       "addressLocality": "Genève, Genève 1207 Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -567,7 +583,7 @@
       "addressRegion": "GE",
       "streetAddress": "Genève, Genève 1207 Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:45.481Z",
+      "validThrough": "2026-12-11T21:25:47.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -601,7 +617,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Stagiaire-MPE-100-GE-1207/1436461933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:44.477Z",
+      "crawledAt": "2026-11-11T21:25:46.204Z",
       "addressLocality": "Genève, Genève 1207 Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -649,7 +665,7 @@
       "addressRegion": "GE",
       "streetAddress": "Genève, Genève 1207 Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:44.477Z",
+      "validThrough": "2026-12-19T21:25:46.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -683,7 +699,7 @@
       "url": "https://jobs.suva.ch/job/Fribourg-Stagiaire-MPE-100-FR-1700/1437526533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:43.473Z",
+      "crawledAt": "2026-11-11T21:25:45.121Z",
       "addressLocality": "Fribourg, Fribourg 1700 Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -736,7 +752,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg, Fribourg 1700 Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:43.473Z",
+      "validThrough": "2026-12-19T21:25:45.121Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -770,7 +786,7 @@
       "url": "https://jobs.suva.ch/job/Freiburg-Praktikantin-WMS-100-FR-1700/1437526633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:42.471Z",
+      "crawledAt": "2026-11-11T21:25:44.020Z",
       "addressLocality": "Freiburg, Fribourg 1700 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -826,7 +842,7 @@
       "addressRegion": "FR",
       "streetAddress": "Freiburg, Fribourg 1700 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:42.471Z",
+      "validThrough": "2026-12-19T21:25:44.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -860,7 +876,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:41.477Z",
+      "crawledAt": "2026-11-11T21:25:42.911Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -908,7 +924,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:41.477Z",
+      "validThrough": "2026-12-11T21:25:42.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -942,7 +958,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Fach%C3%A4rztin-Facharzt-Psychiatrie-%28alle-Geschlechter%29-80-100-SG-9000/1452152033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:40.464Z",
+      "crawledAt": "2026-11-11T21:25:41.739Z",
       "addressLocality": "San Gallo",
       "addressCountry": "CH",
       "country": "CH",
@@ -991,7 +1007,7 @@
       "addressRegion": "SG",
       "streetAddress": "San Gallo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:18:40.464Z",
+      "validThrough": "2027-01-26T21:25:41.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1025,7 +1041,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bereichsleiterin-Facharztleistungen-Arbeitsmedizin-80-100-LU-6004/1437227333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:39.444Z",
+      "crawledAt": "2026-11-11T21:25:40.638Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1073,7 +1089,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:39.444Z",
+      "validThrough": "2026-12-19T21:25:40.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1107,7 +1123,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Directrice-directeur-des-prestations-Suisse-occidentale-80-100-VD-1003/1450861733/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:38.398Z",
+      "crawledAt": "2026-11-11T21:25:39.510Z",
       "addressLocality": "Vaud",
       "addressCountry": "CH",
       "country": "CH",
@@ -1156,7 +1172,7 @@
       "addressRegion": "VD",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:18:38.398Z",
+      "validThrough": "2027-01-24T21:25:39.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1190,7 +1206,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Sp%C3%A9cialiste-conduite-des-cas-80-100-VD-1003/1437162333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T09:18:37.369Z",
+      "crawledAt": "2026-11-11T21:25:56.068Z",
       "addressLocality": "Vaud",
       "addressCountry": "CH",
       "country": "CH",
@@ -1238,7 +1254,7 @@
       "addressRegion": "VD",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:18:37.369Z",
+      "validThrough": "2026-12-19T21:25:56.068Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1272,7 +1288,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Product-Managerin-Datenschutz-80-100-LU-6004/1449239833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:36.376Z",
+      "crawledAt": "2026-11-11T21:25:38.403Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1307,7 +1323,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:36.376Z",
+      "validThrough": "2027-01-18T21:25:38.403Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1341,7 +1357,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Spezialistin-Heilkosten-station%C3%A4r-80-100-AG-5000/1435309533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:35.373Z",
+      "crawledAt": "2026-11-11T21:25:37.296Z",
       "addressLocality": "Aarau, Aargau 5000 Schweiz Solothurn, Solothurn 4500 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1389,7 +1405,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau, Aargau 5000 Schweiz Solothurn, Solothurn 4500 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:35.373Z",
+      "validThrough": "2026-12-11T21:25:37.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1423,7 +1439,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Spezialistin-Public-Affairs-80-100-LU-6004/1443413733/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:34.350Z",
+      "crawledAt": "2026-11-11T21:25:36.142Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,7 +1487,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:18:34.350Z",
+      "validThrough": "2027-01-03T21:25:36.142Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1505,7 +1521,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Case-Manager-50-80-AG-5000/1453725233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:33.353Z",
+      "crawledAt": "2026-11-11T21:25:35.036Z",
       "addressLocality": "Aarau, Aargau 5000 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1541,7 +1557,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau, Aargau 5000 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:18:33.353Z",
+      "validThrough": "2027-02-03T21:25:35.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1575,7 +1591,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Revisorin-80-100-BE-3008/1453264933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:32.327Z",
+      "crawledAt": "2026-11-11T21:25:33.890Z",
       "addressLocality": "Bern, Bern 3008 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1624,7 +1640,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern, Bern 3008 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:32.327Z",
+      "validThrough": "2027-01-31T21:25:33.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1658,7 +1674,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Network-&-VoIP-Engineer-%28all-genders%29-80-100-LU-6004/1443170933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:31.318Z",
+      "crawledAt": "2026-11-11T21:25:32.737Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1710,7 +1726,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:18:31.318Z",
+      "validThrough": "2027-01-03T21:25:32.737Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1744,7 +1760,7 @@
       "url": "https://jobs.suva.ch/job/Root-Technischer-Hauswartin-80-100-LU-6039/1453236033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:30.189Z",
+      "crawledAt": "2026-11-11T21:25:31.629Z",
       "addressLocality": "Root, Luzern 6039 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1793,7 +1809,7 @@
       "addressRegion": "LU",
       "streetAddress": "Root, Luzern 6039 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:30.189Z",
+      "validThrough": "2027-01-31T21:25:31.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1843,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-System-Engineer-Linux-%28all-genders%29-80-100-LU-6004/1444401933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:29.167Z",
+      "crawledAt": "2026-11-11T21:25:30.548Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1879,7 +1895,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:18:29.167Z",
+      "validThrough": "2027-01-10T21:25:30.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1913,7 +1929,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Fachspezialistin-Berufliche-Vorsorge-Pensionskasse-80-100-LU-6004/1453312933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:28.156Z",
+      "crawledAt": "2026-11-11T21:25:29.445Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1966,7 +1982,7 @@
       },
       "addressRegion": "LU",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:18:28.156Z",
+      "validThrough": "2027-02-01T21:25:29.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2000,7 +2016,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Business-Content-Managerin-80-100-LU-6004/1452033933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:27.106Z",
+      "crawledAt": "2026-11-11T21:25:28.342Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2046,7 +2062,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:18:27.106Z",
+      "validThrough": "2027-01-26T21:25:28.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2080,7 +2096,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Fachspezialistin-Milit%C3%A4rversicherung-100-%28befristet-f%C3%BCr-2_5-Jahre%29-BE-3008/1452171033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:26.062Z",
+      "crawledAt": "2026-11-11T21:25:27.240Z",
       "addressLocality": "Bern, Bern 3008 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2131,7 +2147,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern, Bern 3008 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:26.062Z",
+      "validThrough": "2027-01-31T21:25:27.240Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2165,7 +2181,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:25.042Z",
+      "crawledAt": "2026-11-11T21:25:26.125Z",
       "addressLocality": "Luzern, Luzern 6004 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2213,7 +2229,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:25.042Z",
+      "validThrough": "2026-12-11T21:25:26.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2247,7 +2263,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Spezialistin-Schadenteam-Milit%C3%A4rversicherung-60-100-%28befristet%29-SG-9000/1452079833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:23.976Z",
+      "crawledAt": "2026-11-11T21:25:24.982Z",
       "addressLocality": "St. Gallen, Sankt Gallen 9000 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2298,7 +2314,7 @@
       "addressRegion": "SG",
       "streetAddress": "St. Gallen, Sankt Gallen 9000 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:18:23.976Z",
+      "validThrough": "2027-01-26T21:25:24.982Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2332,7 +2348,7 @@
       "url": "https://jobs.suva.ch/job/Stage-52-settimane-per-l'ottenimento-della-maturit%C3%A0-commerciale/1420392133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:18:22.960Z",
+      "crawledAt": "2026-11-11T21:25:23.777Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2364,7 +2380,7 @@
       },
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:18:22.960Z",
+      "validThrough": "2026-12-27T21:25:23.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2398,7 +2414,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Versicherungsmedizinerin-80-100-ZH-8002/1451170833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:18:21.834Z",
+      "crawledAt": "2026-11-11T21:25:53.872Z",
       "addressLocality": "Winterthur, Zürich 8400 Schweiz Zürich, Zürich 8002 Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2447,7 +2463,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur, Zürich 8400 Schweiz Zürich, Zürich 8002 Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:18:21.834Z",
+      "validThrough": "2027-01-24T21:25:53.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2533,7 +2549,8 @@
       "streetAddress": "Bern, Bern 3008 Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:18:20.767Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "suva-dc78216a5bae",
@@ -2566,7 +2583,7 @@
       "url": "https://jobs.suva.ch/job/Apprendistato-come-impiegatao-di-commercio-AFC-assicurazioni-malattie-e-sociali-100-dal-2027/1420358633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-11T09:18:19.518Z",
+      "crawledAt": "2026-11-11T21:25:22.620Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2600,94 +2617,8 @@
       "postalCode": "",
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:18:19.518Z",
+      "validThrough": "2026-12-27T21:25:22.620Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "suva-6a1059f448e5",
-      "slug": "esperto-a-di-staff-della-direzione-generale-e-della-direzione-del-dipartimento-80-100-suva-luzern-luzern-6004-schweiz",
-      "slugByLocale": {
-        "it": "esperto-a-di-staff-della-direzione-generale-e-della-direzione-del-dipartimento-80-100-suva-luzern-luzern-6004-schweiz",
-        "en": "staff-expert-for-executive-management-and-department-management-80-100-suva-luzern-luzern-6004-schweiz",
-        "de": "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004",
-        "fr": "expert-e-d-etat-major-de-la-direction-generale-et-de-la-direction-du-departement-80-100-suva-luzern-luzern-6004-schweiz"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Stabsexpert:in Geschäftsleitung und Departementsleitung 80 - 100 %",
-      "titleByLocale": {
-        "it": "Esperto/a di staff della direzione generale e della direzione del dipartimento 80 - 100 %",
-        "en": "Staff expert for executive management and department management 80 - 100 %",
-        "de": "Stabsexpert:in Geschäftsleitung und Departementsleitung 80 - 100 %",
-        "fr": "Expert·e d’état-major de la direction générale et de la direction du département 80 - 100 %"
-      },
-      "description": "Du möchtest dort arbeiten, wo wichtige Entscheidungen entstehen? Du bringst Dinge ins Rollen, vernetzt Menschen und treibst Veränderungen aktiv voran? Dann bist du bei uns richtig. Was du bewirkst\n• Du arbeitest eng mit der Bereichsleiterin Stab in einem kleinen Team zusammen und unterstützt bei strategischen, organisatorischen und operativen Themen und wirkst bei der Budgetplanung und -überwachung mit.\n• Du unterstützt bei Führungsprozessen, bereitest Entscheidungsgrundlagen auf und stellst die Nachverfolgung von Massnahmen sicher.\n• Du begleitest Veränderungsvorhaben und bringst deine Ideen bei Transformations- und Change-Initiativen aktiv ein.\n• Du planst und koordinierst Workshops, Führungsveranstaltungen und weitere Formate zur Weiterentwicklung der Organisation.\n• Du arbeitest eng mit Führungskräften und unterschiedlichen Anspruchsgruppen zusammen und förderst die Zusammenarbeit über Bereiche hinweg. Was du mitbringst\n• Du hast ein Hochschul- oder Fachhochschulstudium abgeschlossen und verfügst über Berufserfahrung in einem anspruchsvollen Umfeld.\n• Idealerweise konntest du bereits Erfahrungen im Projekt-, Prozess- oder Changemanagement sammeln und fühlst dich in komplexen Organisationsformen wie agilen oder Matrixorganisationen wohl.\n• Du arbeitest strukturiert, denkst vernetzt und setzt Themen eigenverantwortlich voran.\n• Du überzeugst durch gute Kommunikationsfähigkeiten, Organisationsgeschick und ein selbstbewusstes Auftreten.\n• Du verfügst über sehr gute Deutschkenntnisse und kannst dich auch auf französisch verständigen.",
-      "descriptionByLocale": {
-        "it": "Vuoi lavorare dove si prendono decisioni importanti? Si ottiene le cose rotolare, collegare le persone e attivamente guidare il cambiamento? Allora hai ragione con noi. Cosa fai\n• Lavorerai a stretto contatto con il Capo di Stato Maggiore della Divisione e li supporterai su temi strategici, organizzativi e operativi e contribuirai alla pianificazione e al monitoraggio del bilancio.\n• Sostenere i processi di gestione, fornire la base per il processo decisionale e garantire il follow-up delle misure.\n• Accompagnate progetti di cambiamento e contribuite attivamente alle iniziative di trasformazione e cambiamento.\n• Pianifica e coordina workshop, eventi di leadership e altri formati per l'ulteriore sviluppo dell'organizzazione.\n• Lavorate a stretto contatto con i leader e le diverse parti interessate e promuovete la collaborazione in tutte le aree. Cosa porti\n• Hai completato un'università o un'università di laurea in scienze applicate e hai esperienza professionale in un ambiente stimolante.\n• Idealmente, hai già acquisito esperienza nella gestione di progetti, processi o cambiamenti e ti senti a tuo agio in forme organizzative complesse come le organizzazioni agili o matrici.\n• Si lavora in modo strutturato, pensare in modo in rete e mettere i problemi prima sulla propria responsabilità.\n• Convinci con buone capacità di comunicazione, capacità organizzative e un aspetto auto-confidente.\n• Hai una buona conoscenza del tedesco e puoi anche comunicare in francese.",
-        "en": "Do you want to work where important decisions are made? Do you get things rolling, connect people and actively drive change? Then you are right with us. What you do\n• You will work closely with the Division Head of Staff and support them on strategic, organizational and operational topics and contribute to budget planning and monitoring.\n• You support management processes, provide the basis for decision-making and ensure the follow-up of measures.\n• You accompany change projects and actively contribute your ideas to transformation and change initiatives.\n• You plan and coordinate workshops, leadership events and other formats for the further development of the organization.\n• You work closely with leaders and different stakeholders and promote collaboration across areas. What you bring\n• You have completed a university or university of applied sciences degree and have professional experience in a challenging environment.\n• Ideally, you have already gained experience in project, process or change management and feel comfortable in complex organizational forms such as agile or matrix organizations.\n• You work in a structured way, think in a networked way and put issues first on your own responsibility.\n• You convince with good communication skills, organizational skills and a self-confident appearance.\n• You have very good knowledge of German and can also communicate in French.",
-        "de": "Du möchtest dort arbeiten, wo wichtige Entscheidungen entstehen? Du bringst Dinge ins Rollen, vernetzt Menschen und treibst Veränderungen aktiv voran? Dann bist du bei uns richtig. Was du bewirkst\n• Du arbeitest eng mit der Bereichsleiterin Stab in einem kleinen Team zusammen und unterstützt bei strategischen, organisatorischen und operativen Themen und wirkst bei der Budgetplanung und -überwachung mit.\n• Du unterstützt bei Führungsprozessen, bereitest Entscheidungsgrundlagen auf und stellst die Nachverfolgung von Massnahmen sicher.\n• Du begleitest Veränderungsvorhaben und bringst deine Ideen bei Transformations- und Change-Initiativen aktiv ein.\n• Du planst und koordinierst Workshops, Führungsveranstaltungen und weitere Formate zur Weiterentwicklung der Organisation.\n• Du arbeitest eng mit Führungskräften und unterschiedlichen Anspruchsgruppen zusammen und förderst die Zusammenarbeit über Bereiche hinweg. Was du mitbringst\n• Du hast ein Hochschul- oder Fachhochschulstudium abgeschlossen und verfügst über Berufserfahrung in einem anspruchsvollen Umfeld.\n• Idealerweise konntest du bereits Erfahrungen im Projekt-, Prozess- oder Changemanagement sammeln und fühlst dich in komplexen Organisationsformen wie agilen oder Matrixorganisationen wohl.\n• Du arbeitest strukturiert, denkst vernetzt und setzt Themen eigenverantwortlich voran.\n• Du überzeugst durch gute Kommunikationsfähigkeiten, Organisationsgeschick und ein selbstbewusstes Auftreten.\n• Du verfügst über sehr gute Deutschkenntnisse und kannst dich auch auf französisch verständigen.",
-        "fr": "Voulez-vous travailler là où des décisions importantes sont prises? Est-ce que vous faites tourner les choses, connectez les gens et conduisez activement le changement? Alors vous avez raison avec nous. Ce que vous faites\n• Vous travaillerez en étroite collaboration avec le chef d'état-major de la Division et les aiderez sur des sujets stratégiques, organisationnels et opérationnels et contribuerez à la planification et au suivi budgétaires.\n• Vous soutenez les processus de gestion, fournissez la base de la prise de décision et assurez le suivi des mesures.\n• Vous accompagnez les projets de changement et contribuez activement à la transformation et aux initiatives de changement.\n• Vous planifiez et coordonnez des ateliers, des activités de leadership et d'autres formats pour le développement ultérieur de l'organisation.\n• Vous travaillez en étroite collaboration avec les dirigeants et les différents intervenants et favorisez la collaboration entre les secteurs. Ce que vous apportez\n• Vous avez obtenu un diplôme universitaire ou universitaire en sciences appliquées et avez une expérience professionnelle dans un environnement difficile.\n• Idéalement, vous avez déjà acquis de l'expérience en gestion de projet, de processus ou de changement et vous sentez à l'aise dans des formes organisationnelles complexes comme les organisations agiles ou matricielles.\n• Vous travaillez de manière structurée, réfléchissez en réseau et mettez les questions en premier sur votre propre responsabilité.\n• Vous convainquez avec de bonnes compétences en communication, des compétences organisationnelles et une apparence de confiance.\n• Vous avez une très bonne connaissance de l'allemand et pouvez également communiquer en français."
-      },
-      "location": "Luzern, Luzern 6004 Schweiz",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Stabsexpertin-Gesch%C3%A4ftsleitung-und-Departementsleitung-80-100-LU-6004/1449700833/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-10T09:22:21.445Z",
-      "addressLocality": "Luzern, Luzern 6004 Schweiz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Stabsexpertin-Gesch%C3%A4ftsleitung-und-Departementsleitung-80-100-LU-6004/1449700833/",
-      "pensum": "80-100%",
-      "sfJobId": "1449700833",
-      "previousSlugs": [
-        "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004",
-        "stabsexpert-in-geschaftsleitung-e-departementsleitung-80-100-suva-luzern-6004-schweiz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004",
-          "stabsexpert-in-geschaftsleitung-e-departementsleitung-80-100-suva-luzern-6004-schweiz"
-        ],
-        "en": [
-          "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004"
-        ],
-        "fr": [
-          "stabsexpert-in-geschaftsleitung-und-departementsleitung-80-100-suva-luzern-luzern-6004"
-        ]
-      },
-      "firstSeenAt": "2026-10-21T09:19:11.373Z",
-      "salaryMin": 74500,
-      "salaryMax": 123500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 123500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU",
-      "streetAddress": "Luzern, Luzern 6004 Schweiz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:21.445Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

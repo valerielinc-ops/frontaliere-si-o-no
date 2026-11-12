@@ -1,8 +1,8 @@
 name: Instagram Reel Experiment
 
-# Two reserved experiment slots per week publish through Instagram's Graph
-# API. The daily broadcast reserves the same-day cadence slot so these never
-# become an extra third post; Reels do not use the browser robot.
+# Two reserved experiment slots per week are prepared for Instagram's
+# owner-approved browser publisher. The daily broadcast reserves the same-day
+# cadence slot so these never become an extra third post.
 # Manual dispatch remains available for previews or an owner-selected cohort.
 on:
   # GitHub exposes the exact cron string in github.event.schedule; keep the
@@ -89,30 +89,14 @@ jobs:
         if: env.DRY_RUN != 'true'
         run: >-
           node scripts/load-rc-env.mjs
-          --only-env=INSTAGRAM_BUSINESS_ACCOUNT_ID,INSTAGRAM_ACCESS_TOKEN,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
+          --only-env=SOCIAL_ROBOT_PUBLISHING_MODE,SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED,GEMINI_API_KEY,SOCIAL_COPY_EXPERIMENT_CONFIG,GA4_PROPERTY_ID,R2_BUCKET,R2_S3_ENDPOINT,R2_ACCESS_KEY_ID,R2_SECRET_ACCESS_KEY
 
-      - name: Load Instagram Login publisher identity from server Remote Config
-        if: env.DRY_RUN != 'true'
-        env:
-          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
-        run: node scripts/load-instagram-login-env.mjs
+      - name: Warn when the owner-approved browser publisher is disabled
+        if: env.DRY_RUN != 'true' && (env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED != 'true' || env.SOCIAL_ROBOT_PUBLISHING_MODE == 'off')
+        run: echo "::warning::Instagram Reel browser queue is disabled by its owner flag or SOCIAL_ROBOT_PUBLISHING_MODE=off; no Reel will be queued."
 
-      - name: Report missing Instagram publisher credentials
-        if: env.DRY_RUN != 'true' && env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT != 'true'
-        run: |
-          set -euo pipefail
-          echo "::warning::Instagram Reel skipped: the selected publisher route has no usable token/account pair"
-
-      - name: Confirm Instagram credential transaction is idle before delivery
-        if: env.DRY_RUN != 'true'
-        env:
-          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
-        run: node scripts/load-instagram-login-env.mjs
-
-      - name: Render and publish controlled Reel through Graph API
-        if: env.DRY_RUN == 'true' || env.INSTAGRAM_PUBLISHER_CREDENTIALS_PRESENT == 'true'
-        env:
-          INSTAGRAM_LOGIN_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_LOGIN_ACCESS_TOKEN }}
+      - name: Render and queue controlled Reel for Instagram web publisher
+        if: env.DRY_RUN == 'true' || (env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off')
         run: |
           set -euo pipefail
           args=("--kind=$KIND")
@@ -120,22 +104,25 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
 
-      - name: Commit published Reel ledger
+      - name: Commit Reel browser queue and ledger
         if: env.DRY_RUN != 'true'
         run: |
           set -euo pipefail
-          if [ ! -f data/instagram-posted.json ]; then
-            echo 'no Instagram posted ledger written — nothing to commit'
+          if [ ! -f data/instagram-queue.json ] && [ ! -f data/instagram-posted.json ]; then
+            echo 'no Instagram queue or ledger written — nothing to commit'
             exit 0
           fi
-          git add data/instagram-posted.json
+          files=()
+          [ ! -f data/instagram-queue.json ] || files+=(data/instagram-queue.json)
+          [ ! -f data/instagram-posted.json ] || files+=(data/instagram-posted.json)
+          git add -- "${files[@]}"
           if git diff --cached --quiet; then
-            echo 'no Reel ledger changes'
+            echo 'no Reel queue or ledger changes'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore(instagram): record controlled Reel publication [skip ci]'
+          git commit -m 'chore(instagram): queue controlled Reel browser post [skip ci]'
           rc_exports="$(env -u GITHUB_ENV node scripts/load-rc-env.mjs --only-env=GITHUB_PAT)"
           eval "$rc_exports"
           bash scripts/lib/git-push-with-retry.sh --max-attempts 20 --stash-dirty

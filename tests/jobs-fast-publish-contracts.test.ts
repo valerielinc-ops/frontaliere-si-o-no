@@ -4,6 +4,7 @@ import {
   buildFastLaneRequestHeaders,
   buildFastLaneHubVisibleJobIdsByLocale,
   extractFirstPartyAssetUrls,
+  hasGoogleAnalyticsRuntime,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
@@ -42,6 +43,37 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(assets).not.toContain(
       "https://frontaliereticino.ch/en/jobs-in-tessin/new-offer/",
     );
+  });
+
+  it("recognizes analytics from either the static gtag loader or the SPA entry", () => {
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script>',
+      ),
+    ).toBe(true);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script data-src="https://www.googletagmanager.com/gtag/js?id=G-TEST"></script>',
+      ),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script type="module" src="/assets/index-entry.js"></script>',
+      ),
+    ).toBe(true);
+    expect(
+      hasGoogleAnalyticsRuntime('<script src="/assets/unrelated.js"></script>'),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script src="https://cdn.example.test/assets/index-entry.js"></script>',
+      ),
+    ).toBe(false);
+    expect(
+      hasGoogleAnalyticsRuntime(
+        '<script src="https://analytics.example.test/?next=googletagmanager.com/gtag/js"></script>',
+      ),
+    ).toBe(false);
   });
 
   it("keeps fast-lane hub cards to selected jobs and locale URLs in the live sitemap", () => {
@@ -87,5 +119,26 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(renderer).toContain(
       "filterFastLaneHubInventory(cantonInventory, visibleIds)",
     );
+  });
+
+  it("renders into the fast publisher's isolated staging directory", () => {
+    const renderer = readFileSync(
+      new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),
+      "utf8",
+    );
+    const fastPublisher = readFileSync(
+      new URL("../scripts/publish-jobs-fast.mjs", import.meta.url),
+      "utf8",
+    );
+
+    expect(renderer).toContain("fastLaneDistDir?: string;");
+    expect(renderer).toContain("!options.fastLaneDistDir");
+    expect(renderer).toContain("np.resolve(rootDir, options.fastLaneDistDir)");
+    expect(renderer).toContain("const bundleDistDir = options.fastLane");
+    expect(renderer).toContain("? np.resolve(rootDir, 'dist')");
+    expect(renderer).toContain("const spaBundle = resolveSpaBundle(bundleDistDir);");
+    expect(renderer).toContain("asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)");
+    expect(renderer).toContain('src="/assets/${entryJs}"');
+    expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
   });
 });

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * post-to-tiktok.mjs — TikTok content preview; automated delivery is held:
+ * post-to-tiktok.mjs — prepares TikTok carousels for the owner's browser uploader:
  *   • yesterday's top-5 most-clicked JOBS   (--only=job,   daily)
  *   • yesterday's top-5 most-read ARTICLES  (--only=article, daily)
  *   • this week's top-5 fastest DOGANE      (--only=border, weekly)
@@ -24,22 +24,18 @@
  * 3. Publishing is a two-call async flow: `content/init/` returns a
  *    `publish_id` immediately, then `status/fetch/` is polled until the
  *    post is PUBLISH_COMPLETE (or FAILED) — see waitForPublishComplete.
- * 4. The current TikTok guidelines reject an internal uploader for accounts
- *    managed by the developer or team. The scheduled API route and browser
- *    queue are held regardless of token or audit status; the legacy request
- *    implementation below is not an authorization to publish.
+ * 4. The owner explicitly authorizes the existing browser uploader for this
+ *    account. This is an owner decision for the UI route, not evidence of
+ *    TikTok API approval; this publisher queues videos and does not call the
+ *    Content Posting API.
  * 5. TikTok user-token rotation remains implemented for the separate
- *    read-only insights collector. This publisher does not load or refresh
- *    TikTok credentials while automated delivery is held.
+ *    read-only insights collector. This browser publisher does not need API
+ *    credentials.
  *
- * The exact request/response shape below is written from TikTok's published
- * Content Posting API docs, cross-checked field-by-field against the docs a
- * second time when scripts/tiktok-auth.mjs was added (including the
- * `publicaly_available_post_id` misspelling in TikTok's own response, which
- * is intentional here, not a bug) — but still never exercised against a live
- * call. The route remains held until TikTok confirms an eligible use case and
- * the creator-facing client meets current requirements. A token or API audit
- * does not clear this internal team workflow.
+ * The API request/response code below remains unused by this browser route.
+ * The existing account workflow renders queue videos for owner-authorized
+ * publishing in TikTok's web uploader; credentials and API approval do not
+ * participate in that route.
  *
  * Usage:
  *   npx tsx scripts/post-to-tiktok.mjs                     # article + job
@@ -49,11 +45,12 @@
  *   npx tsx scripts/post-to-tiktok.mjs --date=2026-08-23
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
- *   TikTok tokens are not read by this scheduled publisher while the policy
- *   hold is active. Read-only insights use their separate collector/workflow.
- *   SOCIAL_ROBOT_MODE      off | dry (default) | live — API or the
- *                          Playwright robot's queue (data/tiktok-queue.json);
- *                          see scripts/lib/social-publish-queue.mjs
+ *   TikTok API tokens are not read by this browser publisher. Read-only
+ *   insights use their separate collector/workflow.
+ *   SOCIAL_ROBOT_PUBLISHING_MODE off | dry (default) | live — queue / robot mode
+ *   SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED
+ *                          must be exactly `true` for the uploader queue
+ *                          (data/tiktok-queue.json)
  *   GA4_PROPERTY_ID        defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
  *                           required to host the carousel images — missing
@@ -120,12 +117,12 @@ import {
   dequeuePosts,
   enqueuePost,
   queuePathFor,
-  resolveSocialRobotMode,
+  resolveSocialPublishingMode,
   socialPublishRoute,
   isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/tiktok-publish.mjs';
-import { shouldHoldAutomatedSocialDelivery, socialAutomatedDeliveryPolicy } from './lib/social-automation-policy.mjs';
+import { isTikTokBrowserPublishingApproved, shouldHoldAutomatedSocialDelivery, socialAutomatedDeliveryPolicy } from './lib/social-automation-policy.mjs';
 import {
   loadSocialCopyPack,
   releaseSocialCopyAssignment,
@@ -159,7 +156,7 @@ const ANSWER_CANDIDATE_POOL = 30;
 // ─────────────────────────── delivery ───────────────────────────
 //
 // API or the Playwright robot's queue, chosen by the Remote Config switch
-// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
+// SOCIAL_ROBOT_PUBLISHING_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
 // written here only for an API publish; a queued post reaches the ledger once
 // the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
 
@@ -343,7 +340,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const route = socialPublishRoute({
     mode: robotMode,
     apiReady: Boolean(accessToken),
-    browserDeliveryAllowed: false,
+    browserDeliveryAllowed: isTikTokBrowserPublishingApproved(),
   });
   if (!dryRun && !route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
@@ -484,7 +481,7 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
   const route = socialPublishRoute({
     mode: robotMode,
     apiReady: Boolean(accessToken),
-    browserDeliveryAllowed: false,
+    browserDeliveryAllowed: isTikTokBrowserPublishingApproved(),
   });
   if (!dryRun && !route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
@@ -606,14 +603,15 @@ async function main() {
 
   console.log(`─── TikTok daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const deliveryPolicy = socialAutomatedDeliveryPolicy('tiktok');
-  if (shouldHoldAutomatedSocialDelivery('tiktok', { dryRun })) {
+  const deliveryOptions = { dryRun, tiktokBrowserPublishingApproved: isTikTokBrowserPublishingApproved() };
+  const deliveryPolicy = socialAutomatedDeliveryPolicy('tiktok', deliveryOptions);
+  if (shouldHoldAutomatedSocialDelivery('tiktok', deliveryOptions)) {
     console.warn(`⏸️  ${deliveryPolicy.reason} Use --dry-run for content preview; native insights remain on their separate read-only workflow.`);
     return;
   }
 
-  const robotMode = resolveSocialRobotMode();
-  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
+  const robotMode = resolveSocialPublishingMode();
+  console.log(`ℹ️  SOCIAL_ROBOT_PUBLISHING_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
 
   const accessToken = null;
 

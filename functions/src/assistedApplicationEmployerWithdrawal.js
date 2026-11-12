@@ -6,8 +6,14 @@
  * Terms 6.5: an ad closed or withdrawn while the application waits for documents or answers only the
  * candidate can give is not refunded. Such an order is no longer held for Valerie: it is withdrawn
  * (`withdrawn`, the state the candidate's dashboard shows as «Ritirata» next to the other closed
- * applications), the candidate is told once why, and nothing is refunded. An ad that closed with nobody
- * waiting for the candidate keeps the automatic refund the same clause promises (assistedApplicationFlow.js).
+ * applications), the candidate is told once why, and nothing is refunded.
+ *
+ * Owner decision 2026-11-11, later the same day («il rimborso non è mai consentito una volta che il processo è
+ * stato avviato»): under the Terms 6.5 of that day, accepted with the mandate v3 (and for every application of
+ * the automated search), nothing is refunded once the process started, so the same withdrawal closes the
+ * application whenever the posting closed, whether or not the round waited for the candidate
+ * (assistedApplicationConstants.js refundEndsAtStart). An order under the older Terms whose ad closed with
+ * nobody waiting for the candidate keeps the automatic refund those Terms promised (assistedApplicationFlow.js).
  *
  * Only the posting's own word is proof: its page (HTTP 404/410, the posting's or the portal's closure
  * statement), its ATS's own answer (Workday), or the employer's authenticated e-mail on the order's alias.

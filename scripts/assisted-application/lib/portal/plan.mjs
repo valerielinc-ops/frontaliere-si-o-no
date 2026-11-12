@@ -14,6 +14,7 @@ const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, is
 import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isDecisionAnswerDefault } from '../../../../functions/src/assistedApplicationDecisionAnswers.js';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
+import { WORK_HISTORY_SECTION_RE } from '../../../../functions/src/lib/workHistoryContext.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -670,7 +671,6 @@ export const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|employeur|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|contact\s+d['’]urgence|contatto\s+di\s+emergenza|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|(?:work|employment|professional|career|job)\s+(?:history|experience)|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
-const WORK_HISTORY_SECTION_RE = /(?:^\s*(?:(?:my|your|candidate(?:'s)?|profile'?s?)\s+)?(?:(?:work|employment|professional|career|job)\s+)?(?:history|experience|berufserfahrung|exp[ée]rience professionnelle|esperienza\s+(?:lavorativa|professionale))\s*$|^\s*(?:employment|work|career)\s*$|\b(?:(?:work|employment|professional|career|job)\s+(?:history|experience)|(?:previous|past|former)\s+(?:work|employment|professional|career|job)\s+(?:history|experience)|history\s+of\s+(?:work|employment|jobs?))\b)/i;
 const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
 const REFERRAL_SOURCE_QUESTION_RE = /\b(?:how (?:did|do) you (?:hear|learn|find out)|where did you (?:hear|find out)|how did you find (?:the )?(?:job|position|role)|come (?:hai|ha|avete) (?:saputo|scoperto|trovato)|come (?:sei|è) venut[oa] a conoscenza|come (?:hai|ha) conosciuto|wie haben (?:sie|du) (?:von|über|ueber)|wie bist du auf|comment (?:avez-vous|as-tu) (?:entendu|découvert)|source (?:of|for) (?:your )?(?:application|candidature)|referral source)\b/i;
@@ -2114,6 +2114,12 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
+    // A policy default may choose a checkbox, but a consent named by its own
+    // fieldset legend keeps consent provenance when its associated label is empty.
+    const ownedConsentWithEmptyNativeLabel = ownConsent(field) && field.emptyNativeLabelOwnedLegend === true;
+    if (action.action === 'check' && action.source === 'policy_default' && ownedConsentWithEmptyNativeLabel) {
+      action = { ...action, source: 'consent' };
+    }
     if (action.action === 'check'
       && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
@@ -2139,7 +2145,8 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value, source: known.source, evidence: '' };
+      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
+        source: known.source === 'policy_default' && ownedConsentWithEmptyNativeLabel ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

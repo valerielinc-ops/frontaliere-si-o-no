@@ -22,7 +22,7 @@ const {
   reconcileFactRepairSchedule,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
-const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS, URGENT_FIELD_DISPATCH_TIMEOUT_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { autoRetryDelaysForFlow, portalAutoRetryAttemptsRemaining, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { draftRetryDueAt } = await import('../functions/src/assistedApplicationDraftRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
@@ -291,7 +291,7 @@ describe('applying events', () => {
     });
   });
 
-  it('hands a runner question absent from the draft to the owner without a candidate-action email', async () => {
+  it('holds a runner question absent from the draft for four-hour operator review without a candidate-action email', async () => {
     const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
     await flowRef.set({
       state: 'submitting', round: 1, heldBy: [],
@@ -307,9 +307,13 @@ describe('applying events', () => {
     const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 });
     expect(result).toMatchObject({
       ok: true,
-      flow: { state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'] },
+      flow: {
+        state: 'operator_expedited_review',
+        heldBy: ['unpredicted_ats_field'],
+        deadlineAt: T0 + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+      },
     });
-    expect(effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
+    expect(effects).toEqual([]);
     expect(effects).not.toContainEqual(expect.objectContaining({ kind: 'candidate_action_needed' }));
   });
 
@@ -663,6 +667,9 @@ describe('applying events', () => {
   });
 });
 
+// Owner decision 2026-11-11: the automatic refund of a closed ad holds only for an order under the older Terms
+// (this order has no mandate v3). An order under the new Terms is never refunded by the effect:
+// assisted-application-no-refund-after-start.test.ts.
 describe('closed ad refund', () => {
   it('sends the "refunded" e-mail only after the refund went through, retrying a failed one', async () => {
     const sent: string[] = [];

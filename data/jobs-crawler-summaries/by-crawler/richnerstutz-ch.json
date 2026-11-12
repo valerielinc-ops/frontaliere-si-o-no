@@ -1,7 +1,7 @@
 {
   "key": "richnerstutz-ch",
   "label": "Richnerstutz AG",
-  "generatedAt": "2026-11-11T09:53:03.855Z",
+  "generatedAt": "2026-11-11T21:45:40.250Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 15006,
-  "avgDurationMs": 15006,
+  "durationMs": 16168,
+  "avgDurationMs": 16168,
   "durationHistory": [
-    15006
+    16168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://richnerstutz.ch/jobs/monteur",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.477Z",
+      "crawledAt": "2026-11-11T21:45:08.234Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T09:52:32.477Z",
+      "validThrough": "2027-02-06T21:45:08.234Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "url": "https://richnerstutz.ch/jobs/fachplanerin-raumgestaltung",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.475Z",
+      "crawledAt": "2026-11-11T21:45:08.229Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -134,7 +134,7 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T09:52:32.475Z",
+      "validThrough": "2027-02-06T21:45:08.229Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -156,7 +156,7 @@
       "url": "https://richnerstutz.ch/jobs/projektleiterin-werbetechnik",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.471Z",
+      "crawledAt": "2026-11-11T21:45:08.224Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T09:52:32.471Z",
+      "validThrough": "2027-02-06T21:45:08.224Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -215,7 +215,7 @@
       "url": "https://richnerstutz.ch/jobs/mitarbeiterin-produktionsplanung-vid",
       "source": "Richnerstutz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:52:32.469Z",
+      "crawledAt": "2026-11-11T21:45:08.222Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       },
       "streetAddress": "Nordstrasse 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-06T09:52:32.469Z",
+      "validThrough": "2027-02-06T21:45:08.222Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -263,5 +263,5 @@
       }
     }
   ],
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
 }

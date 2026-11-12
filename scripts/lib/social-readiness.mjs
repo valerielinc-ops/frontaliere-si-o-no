@@ -10,10 +10,9 @@ import {
  * ── The distinction this file exists to make ────────────────────────────────
  *
  * Three channels (Instagram, TikTok, Reddit) have distinct readiness states.
- * Instagram can become available through Meta grants; TikTok's current policy
- * holds this internal team uploader regardless of credentials or API audit;
- * Reddit REFUSED the Data Access Request on 2026-08-24, so the classic OAuth
- * path is dead and needs a replacement.
+ * Instagram and TikTok may use the browser publishing routes selected by the
+ * owner, independently of their API permissions; Reddit REFUSED the Data
+ * Access Request on 2026-08-24, so the classic OAuth path needs a replacement.
  *
  * Those three states need different handling and had none of them: they were
  * all "parked". So this module gives each channel one of five verdicts:
@@ -66,6 +65,14 @@ function present(env, name) {
 
 /** Instagram — require the Page link, publisher token identity, and publish grant to be verified. */
 export function classifyInstagram({ env = {}, probe = {} } = {}) {
+  if (env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED === 'true'
+    || env.META_INSTAGRAM_BROWSER_PUBLISHING_APPROVED === 'true') {
+    return {
+      channel: 'instagram',
+      state: READY,
+      reason: 'The owner has selected the existing Instagram browser publisher; this authorization is separate from Meta API permission and the scheduled post ledger remains authoritative.',
+    };
+  }
   const authMode = String(env?.INSTAGRAM_PUBLISHING_AUTH_MODE || '').trim();
   if (authMode && !['facebook_login', 'instagram_login'].includes(authMode)) {
     return {
@@ -241,13 +248,20 @@ export function classifyInstagram({ env = {}, probe = {} } = {}) {
   };
 }
 
-/** The internal team uploader remains held regardless of token or audit status. */
-export function classifyTikTok() {
+/** The owner may select the existing browser uploader independently of API status. */
+export function classifyTikTok({ env = {} } = {}) {
+  if (env.SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED === 'true') {
+    return {
+      channel: 'tiktok',
+      state: READY,
+      reason: 'The owner has selected the existing TikTok browser uploader; this authorization does not claim Content Posting API approval.',
+    };
+  }
   return {
     channel: 'tiktok',
     state: AWAITING_EXTERNAL_APPROVAL,
-    reason: 'TikTok currently rejects internal utilities for posting to team-managed accounts. Credentials or a Direct Post API audit do not clear this use case; the automated publisher remains held.',
-    waitingOn: 'TikTok confirmation of an eligible creator-facing use case and compliant publishing product',
+    reason: 'TikTok Content Posting API use for this team-managed account is awaiting external confirmation; credentials or an API audit do not clear that API route. The browser uploader is controlled separately by the owner flag.',
+    waitingOn: 'TikTok confirmation for the Content Posting API route',
   };
 }
 

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109758",
+      "sourceKey": "TG",
+      "sourceRecordId": "109758",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "2027",
+      "normalizedPlate": "TG2027",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 510,
+      "bidCount": 2,
+      "endsAt": "2026-11-11T18:00:00.000Z",
+      "closedAt": "2026-11-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109758",
+      "sourceFetchedAt": "2026-11-10T19:50:22.560Z",
+      "lastVerifiedAt": "2026-11-10T19:50:22.560Z",
+      "firstSeenAt": "2026-10-28T12:52:54.824Z",
+      "lastSeenAt": "2026-11-10T19:50:22.560Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "be66ee263aa9"
+    }
+  ]
+}

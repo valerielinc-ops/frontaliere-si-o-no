@@ -242,6 +242,7 @@ const sourceTreeLintTests = new Map([
   // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
   // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
   ['tests/r2-calls-bounded.test.ts', /^scripts\/(?:lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh|ci\/check-house-ad-images\.mjs)$/],
+  ['tests/r2-data-delta.test.ts', /^(?:scripts\/ci\/prepare-r2-data-delta\.mjs|scripts\/lib\/deploy-it-pages-prep\.sh)$/],
   // These guards read workflow and R2-manifest files from disk rather than
   // importing them, so keep their runtime dependencies in the related graph.
   ['tests/deploy-cdn-ordering-gate.test.ts', /^(?:\.github\/workflows\/deploy\.yml|scripts\/lib\/deploy-it-pages-prep\.sh)$/],
@@ -323,6 +324,16 @@ const sourceTreeLintTests = new Map([
   // importare; il test costa meno di un secondo.
   ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
   ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  // Deploy runs the SEO source suite once per build, but the PR related graph
+  // cannot see these readFileSync edges. Keep the source readers that inspect
+  // jobsSeoPagesPlugin in the PR selection whenever any build plugin changes;
+  // PR #18099 changed this file and its source-only guards were skipped.
+  ['tests/seo/cathedral-expired-tracking-canton.test.ts', /^build-plugins\//],
+  ['tests/seo/historical-archive-heading.test.ts', /^build-plugins\//],
+  ['tests/seo/historical-pages-full-content-policy.test.ts', /^build-plugins\//],
+  ['tests/seo/jobs-seo-self-heal-tracking-retention.test.ts', /^build-plugins\//],
+  ['tests/seo/one-static-main-landmark.test.ts', /^build-plugins\//],
+  ['tests/seo/static-job-page-spa-alignment.test.ts', /^build-plugins\//],
   // Metadati degli autori da un'unica fonte: il test confronta le pagine autore
   // di seo-pages.ts, il roster statico di /chi-siamo/ e llms.txt col registro.
   // `data/authors.ts` e `data/authorLocales.ts` sono fuori dal grafo e i due

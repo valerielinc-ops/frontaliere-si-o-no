@@ -8711,6 +8711,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.burocrazia-frena-investimenti-svizzera.title': '3 in 10 businesses delay or cut investments: red tape',
     'blog.article.burocrazia-frena-investimenti-svizzera.excerpt': 'According to the RG 12.30 service of November 9, 2026, for three out of ten Swiss companies, administrative constraints result in the postponement, reduction or cancellation of investments.',
     'blog.article.burocrazia-frena-investimenti-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.eteria-gioielleria-berta-serret.title': 'ETERIA: Berta Serret launches Smart Luxury brand with lab-grown diamonds and recycled gold',
+    'blog.article.eteria-gioielleria-berta-serret.excerpt': 'On November 11, 2026, Berta Serret officially launches ETERIA JEWELLERY online: sustainable fine jewelry blending IGI-certified lab-grown diamonds, CoC recycled gold, and TRACEMARK traceability.',
+    'blog.article.eteria-gioielleria-berta-serret.imageAlt': 'Berta Serret, founder of sustainable fine jewellery brand ETERIA',
+    'blog.article.regime-fiscale-rendite-elvetiche.title': 'Swiss pensions: go-ahead for substitute taxation',
+    'blog.article.regime-fiscale-rendite-elvetiche.excerpt': 'QuotidianoPiù announces the go-ahead for the substitute tax on Swiss pensions.',
+    'blog.article.regime-fiscale-rendite-elvetiche.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.revisione-tardoc-2027.title': 'The Federal Council approves the revision of TARDOC',
+    'blog.article.revisione-tardoc-2027.excerpt': 'On November 11, 2026, in the 12.30 news broadcast, Alessio Veronelli\'s report covered the first revision of the TARDOC outpatient tariff system.',
+    'blog.article.revisione-tardoc-2027.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.aumento-iva-finanzia-avs.title': 'November 29 vote: VAT increase to finance 13th AHV pension',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'On November 29, Swiss voters will vote on the increase in VAT intended to finance the 13th AVS pension.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Minimum wage of 5,000 francs: the debate heats up',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debate on a minimum wage of CHF 5,000 for those who have completed an apprenticeship.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

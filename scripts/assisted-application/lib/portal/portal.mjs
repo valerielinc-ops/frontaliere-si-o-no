@@ -29,6 +29,8 @@ import '../../extension/apply-control.js';
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { advancedToFinalReview } from './final-review.mjs';
+export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
@@ -1660,8 +1662,31 @@ function applicationEntryBelongsToPosting(control, {
     && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
 }
 
+const MAX_APPLICATION_ENTRY_CONTEXT_LENGTH = 700;
+
+function applicationEntryContextText(control) {
+  const rawContext = String(control?.vacancyContext || '');
+  if (rawContext.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
+  let text = rawContext.normalize('NFKC').replace(/\s+/g, ' ').trim();
+  if (text.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
+  const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || ''))
+    .filter((value) => value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
+    .map((value) => value.normalize('NFKC').replace(/\s+/g, ' ').trim())
+    .filter((value) => value && value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
+    .sort((left, right) => right.length - left.length);
+  for (const label of ownLabels) {
+    const pattern = new RegExp(`(^|[^\\p{L}\\p{N}])(${escapeRegex(label)})(?=$|[^\\p{L}\\p{N}])`, 'giu');
+    let match;
+    let lastMatch;
+    while ((match = pattern.exec(text))) lastMatch = match;
+    if (lastMatch) text = `${text.slice(0, lastMatch.index)}${lastMatch[1]}${text.slice(lastMatch.index + lastMatch[0].length)}`;
+  }
+  return text.replace(/\s+/g, ' ').trim();
+}
+
 function applicationEntryContextMatchesPosting(control, context = {}) {
-  const localContext = String(control?.vacancyContext || '').trim();
+  const localContext = applicationEntryContextText(control);
   const job = context.job || {};
   return Boolean(localContext && job.title
     && titleMatches(localContext, job.title)
@@ -1896,12 +1921,12 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
 }
 
 /**
- * An anti-bot interstitial is not evidence that the application belongs to a
- * different posting. The initial page is checked before the form loop, so an
- * unresolved challenge must take the same CAPTCHA handoff as a challenge
- * discovered on a later form step.
+ * An anti-bot interstitial or a body-confirmed runner IP block is not evidence
+ * that the application belongs to a different posting. Challenges take the
+ * CAPTCHA handoff; only the confirmed IP block takes the egress recovery lane.
  */
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
+  if (liveness?.code === 'runner_ip_blocked') return 'application_region_unsupported';
   return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
@@ -2273,6 +2298,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   // locator for several seconds before dispatching a target="_blank" popup.
   const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
   const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
+  const before = page.url();
   try {
     await link.click({ timeout: 6_000 });
   } catch (error) {
@@ -2288,13 +2314,45 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   if (!popup) return null;
   // A link without a popup should continue promptly after a short grace
   // window; clear the timer as soon as the popup arrives.
-  return new Promise((resolve) => {
+  const opened = await new Promise((resolve) => {
     const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
     popup.then((opened) => {
       clearTimeout(timer);
       resolve(opened);
     });
   });
+  if (opened) return opened;
+  // The browser announces a new window only once its address has answered. A
+  // link that opens another window (target="_blank") and left none, with this
+  // page where it was, has no answer from its address yet: ECAM's DocuWare
+  // form accepts no connection from the GitHub runner's country (CVRDEqJ3,
+  // run 42990206160, 2026-11-11), and the runner read the career page again
+  // as the application form (posting_mismatch). The address is opened in this
+  // page, where it loads or fails as a navigation (net::ERR_*, timeout:
+  // navigation_unavailable in submit.mjs, retried by the transport ladder).
+  if (page.url() !== before) return null;
+  const linkTarget = await link.getAttribute('target', { timeout: 2_000 }).catch(() => null);
+  const target = opensAnotherWindow(linkTarget) ? linkNavigationTarget(href, before) : '';
+  if (target && target !== before) await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  return null;
+}
+
+/** A link target that opens another browsing context: `_blank` or a named window, not this page or its parents. */
+function opensAnotherWindow(target) {
+  const name = String(target || '').trim().toLowerCase();
+  return Boolean(name) && !['_self', '_parent', '_top'].includes(name);
+}
+
+/** The absolute http(s) address a link's href opens from `base`, or '' (fragment, script, mail, phone, other scheme). */
+function linkNavigationTarget(href, base) {
+  const value = String(href || '').trim();
+  if (!value || /^(?:#|javascript:|mailto:|tel:)/i.test(value)) return '';
+  try {
+    const url = new URL(value, base);
+    return /^https?:$/.test(url.protocol) ? url.href : '';
+  } catch {
+    return '';
+  }
 }
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
@@ -3550,6 +3608,8 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
   return neutral;
 }
 
+const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?)[.!…:]*$/i;
+
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
@@ -3577,7 +3637,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
-  const title = normalizeWords(text.split(/\r?\n/)[0]).split(' ').filter(Boolean);
+  const titleLine = text.split(/\r?\n/).map((line) => line.trim())
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line)) || '';
+  // Page chrome may precede the posting's own heading. Ignore only known
+  // navigation labels as a title candidate; the employer check below still
+  // reads every phrase in the full page text.
+  const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   const ourKinds = employerKindsOf([...ours]);
@@ -3679,21 +3744,17 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
     || sameEmployerFamily(job.organization, job.company);
   const routeBound = samePostingAddress(pageUrl, postingUrl)
     || isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof });
-  // On an exact selected-posting route, the body also contains navigation and
-  // Apply labels (for example «Später bewerben»). Keep the conflict guard on
-  // rendered page text: a generic document title must not hide an unrelated
-  // role in the selected route, while a proven employer/location suffix in
-  // the posting body may be ignored.
-  // namesAnotherEmployer reads the first line of its text as the page's title.
-  // The rendered text of a selected route starts with whatever the site puts
-  // first, often a skip link («Zum Inhalt springen», «Skip to content»; order
-  // 1EpmkrDu, jobs.yellowshark.com, 2026-11-10: posting_mismatch before its
-  // Apply). When the page's own main heading is exactly the role, that heading
-  // is the title line; the employer-conflict rule still reads the whole page.
-  // A heading naming another role, a second employer or nothing keeps the
-  // rendered first line, as before.
-  const routeHeading = routeBound && isRoleHeading(pageHeading, job?.title) ? String(pageHeading).trim() : '';
-  const conflictText = routeBound ? (routeHeading ? `${routeHeading}\n${pageText}` : pageText) : sourceText;
+  // On an exact selected-posting route the rendered text may start with
+  // navigation chrome. The page's H1 remains authoritative when present; use
+  // document.title only when there is no H1 and it is exactly the order's
+  // role. A different title or H1 must never be hidden by that fallback.
+  const renderedHeading = String(pageHeading || '').trim();
+  const documentTitle = String(pageTitle || '').trim();
+  if (routeBound && !renderedHeading && documentTitle && !isRoleHeading(documentTitle, job?.title)) return false;
+  const routeTitleLine = routeBound
+    ? (renderedHeading || (isRoleHeading(documentTitle, job?.title) ? documentTitle : ''))
+    : '';
+  const conflictText = routeBound ? (routeTitleLine ? `${routeTitleLine}\n${pageText}` : pageText) : sourceText;
   if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
   const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
@@ -3822,17 +3883,52 @@ async function postingDocumentHostMatch(snapshot, ctx = {}, pageUrl = '') {
 
 /**
  * The posting's own id in its address: the number its last path segment ends
- * with («…-lugano-f-m-2779», «/stellen/2779») or its posting-id parameter.
+ * with («…-lugano-f-m-2779», «/stellen/2779»), the final path segment when it
+ * is a whole UUID, or its posting-id parameter.
  */
+const MAX_POSTING_ID_URL_LENGTH = 16_384;
+const MAX_POSTING_ID_PATH_LENGTH = 8_192;
+const MAX_POSTING_ID_PATH_SEGMENTS = 128;
+
+function boundedPostingIdPathSegments(pathname) {
+  const path = String(pathname || '');
+  if (path.length > MAX_POSTING_ID_PATH_LENGTH) return null;
+  let count = 0;
+  let insideSegment = false;
+  for (const character of path) {
+    if (character === '/') {
+      insideSegment = false;
+    } else if (!insideSegment) {
+      count += 1;
+      if (count > MAX_POSTING_ID_PATH_SEGMENTS) return null;
+      insideSegment = true;
+    }
+  }
+  return path.split('/').filter(Boolean);
+}
+
 function postingAddressIds(postingUrl) {
   const ids = new Set();
   try {
-    const url = new URL(String(postingUrl || ''));
-    const last = decodeURIComponent(url.pathname.replace(/\/+$/, '').split('/').pop() || '');
-    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
-    if (tail) ids.add(tail);
+    const address = String(postingUrl || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return ids;
+    const url = new URL(address);
     const key = portalJobKey(url.href);
-    if (key) ids.add(key);
+    if (key) ids.add(String(key).toLowerCase());
+    const segments = boundedPostingIdPathSegments(url.pathname);
+    if (!segments) return ids;
+    const lastSegment = segments[segments.length - 1] || '';
+    const last = (() => {
+      try {
+        return decodeURIComponent(lastSegment);
+      } catch {
+        return lastSegment;
+      }
+    })();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last);
+    if (isUuid) ids.add(last.toLowerCase());
+    const tail = isUuid ? null : /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
+    if (tail) ids.add(tail);
   } catch {
     // No address, no id.
   }
@@ -3850,10 +3946,14 @@ export function applicationEntryCarriesPostingId(href, postingUrl) {
   const ids = postingAddressIds(postingUrl);
   if (!ids.size) return false;
   try {
-    const url = new URL(String(href || ''));
+    const address = String(href || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return false;
+    const url = new URL(address);
     if (url.protocol !== 'https:' || url.username || url.password) return false;
-    const segments = url.pathname.split('/').filter(Boolean).map((segment) => decodeURIComponent(segment));
-    return [...segments, ...url.searchParams.values()].some((value) => ids.has(value));
+    const rawSegments = boundedPostingIdPathSegments(url.pathname);
+    if (!rawSegments) return false;
+    const segments = rawSegments.map((segment) => decodeURIComponent(segment));
+    return [...segments, ...url.searchParams.values()].some((value) => ids.has(String(value).toLowerCase()));
   } catch {
     return false;
   }
@@ -4015,6 +4115,10 @@ const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 // planner: only a CV/resume label counts as the CV being present.
 const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
 const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
+// Documents that prove a qualification (certificates, diplomas, references): asked by an application, never by
+// a bare account registration.
+const QUALIFICATION_DOCUMENT_TERMS = '(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
+  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze';
 const documentContextRe = (terms) => new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
@@ -4120,7 +4224,9 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   const profileDetails = new Set();
   for (const field of fields) {
     const label = `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`;
-    const residenceRole = residenceFieldRole(label);
+    // The caption alone first: the role is read whole («PLZ», «Ort»), and a technical name beside it
+    // («form_data20», Bank Cler's tenant) would hide it.
+    const residenceRole = residenceFieldRole(umantisIdentityCaption(field)) || residenceFieldRole(label);
     if (residenceRole === 'postalCode' || residenceRole === 'city') profileDetails.add(residenceRole);
     if (UMANTIS_PHONE_CONTEXT_RE.test(label)) profileDetails.add('phone');
     if (/\b(?:birth date|date of birth|data di nascita|geburtsdatum|date de naissance)\b/iu.test(label)) profileDetails.add('birthDate');
@@ -5204,18 +5310,6 @@ export function signedInApplicationSurface(view) {
     && (hasApplicationForm(view) || sendsApplication(view)) && showsCandidateSession(view);
 }
 
-// SuccessFactors registrations restarted in this run, per account store and host (see handleAuth).
-const restartedRegistrations = new WeakMap();
-function registrationRestarted(ctx, host) {
-  return Boolean(ctx?.accounts && restartedRegistrations.get(ctx.accounts)?.has(host));
-}
-function noteRegistrationRestart(ctx, host) {
-  if (!ctx?.accounts) return;
-  const hosts = restartedRegistrations.get(ctx.accounts) || new Set();
-  hosts.add(host);
-  restartedRegistrations.set(ctx.accounts, hosts);
-}
-
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -5665,9 +5759,7 @@ export function successFactorsDocumentSlotKind(button) {
 
 // The other documents a slot caption may list beside the CV («Lebenslauf - Zeugnisse - Diplome», Helsana
 // s2Tbwwjd). Every part of the caption must be one of these nouns: a caption with any other word is a question.
-const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}`
-  + '|(?:arbeits|schul|abschluss|diplom|lehr|zwischen)?zeugnis(?:se)?|diplom(?:e|i|as?)?|dipl[oô]mes?'
-  + '|zertifikate?|certificat(?:s|i)?|certificates?|attestati|attestations?|referenzen|references|referenze'
+const SLOT_CAPTION_PART_RE = new RegExp(`^(?:${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|${QUALIFICATION_DOCUMENT_TERMS}`
   + '|dokumente|documents|documenti|(?:bewerbungs)?unterlagen|bewerbungsdossier|anh[aä]nge|beilagen|attachments|allegati'
   + '|pi[eè]ces\\s+jointes)$', 'iu');
 const SLOT_CAPTION_SEPARATOR_RE = /\s*[-–—/,;|+&·]\s*|\s+(?:und|and|et|e|ed|sowie)\s+/iu;
@@ -6604,16 +6696,27 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       } catch {
         plan = null;
       }
-      if (plan?.missingRequired.length) {
-        const unresolved = [];
-        const recoveredActions = [...plan.actions];
-        for (const missing of plan.missingRequired) {
-          const field = rowFields.find((item) => item.id === missing.fieldId);
+      if (plan) {
+        const actions = Array.isArray(plan.actions) ? plan.actions : [];
+        const missingRequired = Array.isArray(plan.missingRequired) ? plan.missingRequired : [];
+        const profileActions = new Map();
+        for (const field of rowFields) {
           const answer = profileEntryAnswer(entry, kind, field);
-          if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
-          else unresolved.push(missing);
+          if (!answer) continue;
+          profileActions.set(field.id, {
+            ...actions.find((action) => action.fieldId === field.id),
+            fieldId: field.id,
+            action: field.options?.length ? 'select' : 'fill',
+            ...answer,
+            document: 'none',
+            evidence: '',
+          });
         }
-        plan = { ...plan, actions: recoveredActions, missingRequired: unresolved };
+        plan = {
+          ...plan,
+          actions: [...actions.filter((action) => !profileActions.has(action.fieldId)), ...profileActions.values()],
+          missingRequired: missingRequired.filter((missing) => !profileActions.has(missing.fieldId)),
+        };
       }
       const cancel = async () => {
         current = await extractFields(page);
@@ -6919,7 +7022,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null, registrationRestarts = new Set() }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -6978,17 +7081,17 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // page, and every step restarted it again until `auth_steps_exhausted`. The
   // second time the saved credential signs in; a failed sign-in is handed over.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
-    && !registrationRestarted(ctx, host)) {
+    && !registrationRestarts.has(host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
     // there; only restart registration when the page actually offers that
     // navigation control.
     const openedRegistration = await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE]);
     if (openedRegistration) {
-      noteRegistrationRestart(ctx, host);
+      registrationRestarts.add(host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets, registrationRestarts });
     }
   }
 
@@ -7044,7 +7147,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets, registrationRestarts });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -7612,28 +7715,46 @@ export function urlConfirms(url, snapshot, context = {}) {
  * Apply opened /ApplicationReview «please select Submit to finalise your
  * application»). The portal itself states that nothing was submitted yet.
  */
-export function advancedToFinalReview(snapshot, { url, submissionUrl, applyUrl, sourceProtocol = null, job = {} } = {}) {
-  if (!snapshot || !url || !submissionUrl || url === submissionUrl) return false;
-  return applicationStage(snapshot, { url, applyUrl, sourceProtocol, job }).kind === 'final_review';
-}
-
 async function waitForOutcome(page, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS;
+  let lastSnapshot = null;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     // The portal says it did not send: nothing left, by its own word.
-    if (REFUSED_RE.test(text)) return 'refused';
+    if (REFUSED_RE.test(text)) return { outcome: 'refused', snapshot: lastSnapshot };
     // Refusal takes precedence when an error page retains generic thank-you copy.
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
-    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
-    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
-    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return 'review_pending';
-    if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
+    if (snapshot) lastSnapshot = { ...snapshot, text, url: page.url() };
+    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return { outcome: 'confirmed', snapshot: lastSnapshot };
+    if (advancedToFinalReview(snapshot && { ...snapshot, text }, { ...context, url: page.url() })) return { outcome: 'review_pending', snapshot: lastSnapshot };
+    if (snapshot?.captcha) return { outcome: 'captcha', snapshot: lastSnapshot };
+    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return { outcome: 'validation', snapshot: lastSnapshot };
   }
-  return 'ambiguous';
+  return { outcome: 'ambiguous', snapshot: lastSnapshot };
+}
+
+function finalReviewEvidenceSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot.text !== 'string') return null;
+  return {
+    url: String(snapshot.url || ''),
+    text: snapshot.text,
+    protocol: snapshot.protocol || null,
+    errors: (snapshot.errors || []).length ? ['observed'] : [],
+    fields: (snapshot.fields || []).map(field => ({
+      inputType: field?.inputType || '',
+      disabled: Boolean(field?.disabled),
+      chrome: Boolean(field?.chrome),
+      invalid: field?.invalid === true,
+    })).slice(0, 120),
+    buttons: (snapshot.buttons || []).map(button => ({
+      text: String(button?.text || '').slice(0, 160),
+      disabled: Boolean(button?.disabled),
+      chrome: Boolean(button?.chrome),
+    })).slice(0, 80),
+  };
 }
 
 // Forms that can be read without creating an account or sending an
@@ -8395,6 +8516,33 @@ const REGION_GATED_STOPS = new Set(['portal_control_click_unresolved', 'cookie_p
 // application stage, or (with no form control left) as a page for the candidate. The closure is the cause
 // (the flow notifies and refunds it), not a page to teach.
 const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_unknown', 'portal_needs_candidate']);
+const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
+
+function isApplicationOwnedPortalField(field) {
+  const fieldIdentityText = [
+    field?.label,
+    field?.name,
+    field?.id,
+    field?.applicationQuestion,
+  ].filter(Boolean).join(' ');
+  const fieldContextText = [field?.context, field?.section].filter(Boolean).join(' ');
+  const fieldText = `${fieldIdentityText} ${fieldContextText}`;
+  if (field?.search === true || String(field?.inputType || '').toLowerCase() === 'search') return false;
+
+  // A generic section such as «Application portal» cannot turn a Username or
+  // other authentication control into an application-owned field.
+  const authenticationField = PORTAL_AUTH_FIELD_RE.test(fieldIdentityText)
+    || PORTAL_AUTH_FIELD_RE.test(fieldContextText);
+  const explicitlyApplicationOwned = APPLICATION_CONTROL_RE.test(fieldIdentityText);
+  if (authenticationField && !explicitlyApplicationOwned) return false;
+
+  return explicitlyApplicationOwned
+    || (!authenticationField && APPLICATION_CONTROL_RE.test(fieldContextText))
+    || isCvFileField(field)
+    || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(fieldText)
+    || (isFileField(field) && field.required === true)
+    || (!authenticationField && APPLICATION_IDENTITY_FIELD_RE.test(fieldText));
+}
 
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchPortalBrowser(ctx));
@@ -8404,6 +8552,7 @@ export async function submitViaPortal(ctx) {
   // start date, the employer's own questions, review): 8 pages were not enough.
   const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
+  const registrationRestarts = new Set();
   let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
     ? Math.min(1000, Math.max(0, Number(ctx.candidateRequestRound))) : 0;
   const knownPortalQuestionKeys = new Set((Array.isArray(ctx.knownPortalQuestionKeys) ? ctx.knownPortalQuestionKeys : [])
@@ -8449,12 +8598,27 @@ export async function submitViaPortal(ctx) {
     // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
     // kann zurzeit nicht angezeigt werden … nicht länger darauf bewerben», and the run stopped as a mismatch.
     // The page in front of the runner is read with the same classifier as the posting at the start; only a
-    // certain closure (isHardClosed) changes the outcome.
+    // certain closure (isHardClosed) changes the outcome. Still-interactive forms are left as-is, and their
+    // buttons and links are supplied as apply controls on pages without fields.
     if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
-      const current = classifyLiveness({ finalUrl: page.url(), bodyText: await pageText(page).catch(() => '') });
-      if (isHardClosed(current)) {
-        evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
-        return { event: { type: 'posting_closed', reason: current.code }, evidence };
+      const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+      const formFields = Array.isArray(currentSnapshot?.fields) ? currentSnapshot.fields : [];
+      const applicationFormVisible = formFields.some(isApplicationOwnedPortalField);
+      if (!applicationFormVisible) {
+        const applyControls = [
+          ...(currentSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
+          ...(currentSnapshot?.links || []).map((link) => link.text || link.label || ''),
+        ];
+        const current = classifyLiveness({
+          finalUrl: page.url(),
+          bodyText: await pageText(page).catch(() => ''),
+          applyControls,
+          locale: ctx.language,
+        });
+        if (isHardClosed(current)) {
+          evidence.livenessAtStop = { result: current.result, code: current.code, stop: reason };
+          return { event: { type: 'posting_closed', reason: current.code }, evidence };
+        }
       }
     }
     // A posting that refuses applications from this connection's region (the
@@ -8603,6 +8767,7 @@ export async function submitViaPortal(ctx) {
       finalUrl: page.url(),
       bodyText: initialPageText,
       applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
+      locale: ctx.language,
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
@@ -9016,7 +9181,7 @@ export async function submitViaPortal(ctx) {
       if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
         return { status: agent.status };
       }
-      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
       return { status: agent.status, auth };
     };
 
@@ -9132,7 +9297,7 @@ export async function submitViaPortal(ctx) {
         let agentRecovery = null;
         const authHost = new URL(page.url()).hostname;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
           // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
           // fallback once per page and stop before the owner does: the agent fills fields only,
           // then the deterministic path runs again on a stable re-read. Its own outcome stands
@@ -9775,6 +9940,7 @@ export async function submitViaPortal(ctx) {
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
+      evidence.submissionUrl = finalUrl;
       await diagnostics.beforeSubmit(page);
       const guardToken = randomUUID();
       const armed = await final.locator.evaluate(armFinalFormClickGuardInPage, {
@@ -9811,12 +9977,14 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }
       await clearActiveFinalFormGuard();
-      const outcome = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
+      const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
+      evidence.afterSubmitSnapshot = finalReviewEvidenceSnapshot(observed.snapshot);
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
         // The application went, and with it the account its form asked a password for.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 698,
+  "crawlerCount": 701,
   "groups": {
     "10": [
       "atec-personal",
@@ -311,6 +311,7 @@
       "migros-ticino",
       "mikron",
       "okjob",
+      "proplaning-ag",
       "rapelli",
       "rsbj",
       "spitaeler-schaffhausen",
@@ -342,6 +343,7 @@
       "klinik-wyssholzli",
       "kliniken-valens",
       "ksb",
+      "lipsuisse-ch-lipsuisse-ch",
       "medics-labor",
       "ocst",
       "ottos",
@@ -460,6 +462,7 @@
       "avantgarten-ch",
       "az-systems-ch",
       "bb-trading-werbeartikel-ag",
+      "benisasa-ch",
       "bodmerfischer-ch",
       "caisse-des-medecins-ch",
       "cdg-beratungen",
@@ -822,6 +825,7 @@
     "bcvs": "data/jobs/by-crawler/bcvs.json",
     "beekeeper": "data/jobs/by-crawler/beekeeper.json",
     "belimo": "data/jobs/by-crawler/belimo.json",
+    "benisasa-ch": "data/jobs/by-crawler/benisasa-ch.json",
     "benteler": "data/jobs/by-crawler/benteler.json",
     "benu": "data/jobs/by-crawler/benu.json",
     "berit-klinik": "data/jobs/by-crawler/berit-klinik.json",
@@ -1140,6 +1144,7 @@
     "lindt-spruengli": "data/jobs/by-crawler/lindt-spruengli.json",
     "linnea": "data/jobs/by-crawler/linnea.json",
     "lipsuisse-ch": "data/jobs/by-crawler/lipsuisse-ch.json",
+    "lipsuisse-ch-lipsuisse-ch": "data/jobs/by-crawler/lipsuisse-ch-lipsuisse-ch.json",
     "lis-lugano-istituti-sociali": "data/jobs/by-crawler/lis-lugano-istituti-sociali.json",
     "livit": "data/jobs/by-crawler/livit.json",
     "localsearch": "data/jobs/by-crawler/localsearch.json",
@@ -1245,6 +1250,7 @@
     "prodyna-com": "data/jobs/by-crawler/prodyna-com.json",
     "project-interim": "data/jobs/by-crawler/project-interim.json",
     "proman-fleurier": "data/jobs/by-crawler/proman-fleurier.json",
+    "proplaning-ag": "data/jobs/by-crawler/proplaning-ag.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
     "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
@@ -1452,5 +1458,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:9ca283146fff46139b46d15a64a4c208b43860630e207065a2cdb7c328cc060b"
+  "digest": "sha256:bfb203f2c71dc7a4261694ee687feae88f8470b691a3bbe1fdd20af406c672b1"
 }

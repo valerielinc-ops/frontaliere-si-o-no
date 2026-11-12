@@ -4,6 +4,8 @@
  * its UI from silently drifting apart.
  */
 
+import { APPLICATION_CONCIERGE_CONSENT_VERSIONS } from './applicationConciergeConstants.js';
+
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 export const ASSISTED_APPLICATION_ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 /** Keep runner question/document arrays within the backend's candidate-review contract. */
@@ -68,10 +70,50 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
 
 // The mandate texts candidates agreed to, oldest first; the last is the one
 // shown now. v2 (2026-09-30) names the employer's terms accepted on the
-// candidate's behalf. firestore.rules and storage.rules accept exactly these.
-export const ASSISTED_APPLICATION_CONSENT_VERSIONS = Object.freeze(['assisted-application-v1', 'assisted-application-v2']);
+// candidate's behalf. v3 (2026-11-11) adds the candidate's express request
+// that the service start at once, and their acknowledgement that once the
+// process started nothing is refunded (Terms 6.5). firestore.rules and
+// storage.rules accept exactly these.
+export const ASSISTED_APPLICATION_CONSENT_VERSIONS = Object.freeze(['assisted-application-v1', 'assisted-application-v2', 'assisted-application-v3']);
+
+/** The first mandate under which the Terms 6.5 of 2026-11-11 hold: no refund once the process started. */
+export const NO_REFUND_AFTER_START_CONSENT_VERSION = 'assisted-application-v3';
 
 /** The candidate already gave the mandate, in a version still honoured: never asked (nor rewritten) again. */
 export function hasAssistedApplicationConsent(order) {
   return ASSISTED_APPLICATION_CONSENT_VERSIONS.includes(String(order?.consentVersion || '')) && order?.consentedAt != null;
+}
+
+/**
+ * Owner decision 2026-11-11 («il rimborso non è mai consentito una volta che il processo è stato avviato»),
+ * Terms 6.5: once the process started, the order is never refunded by itself, whatever closes it (the ad closed
+ * or withdrawn by the employer, the candidate's own withdrawal, no answer from the employer). The process starts
+ * when the automated flow is created (assistedApplicationAutomation.js startAutomation: `flow.startedAt`, the
+ * first draft's dispatch, `order.automationState`), after the payment and the verified CV.
+ *
+ * It holds for the orders whose candidate gave the mandate that says so (v3 or later: the express request to
+ * start at once and the acknowledgement), and for every application of the automated search (a concierge
+ * child: its payment is the parent service's, never refunded per application, assistedApplicationAdminCore.js
+ * `parent_service_refund_required`). An order with an older mandate, or none (a CV sent by e-mail), keeps the
+ * refund its Terms promised: the candidate never accepted the new rule. The owner's manual refund is unchanged.
+ */
+export function refundEndsAtStart(order) {
+  if (order?.billingMode === 'application_concierge') return true;
+  const version = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(String(order?.consentVersion || ''));
+  return version >= ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(NO_REFUND_AFTER_START_CONSENT_VERSION)
+    && order?.consentedAt != null;
+}
+
+/** Whether the consent recorded for this application says no refund once preparation starts. */
+export function hasNoRefundAfterStartConsent(order) {
+  if (order?.billingMode === 'application_concierge') {
+    const conciergeVersion = APPLICATION_CONCIERGE_CONSENT_VERSIONS.indexOf(
+      String(order?.parentServiceConsentVersion || ''),
+    );
+    const noRefundVersion = APPLICATION_CONCIERGE_CONSENT_VERSIONS.indexOf('application-concierge-v3');
+    return noRefundVersion >= 0 && conciergeVersion >= noRefundVersion && order?.consentedAt != null;
+  }
+  const assistedVersion = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(String(order?.consentVersion || ''));
+  const noRefundVersion = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(NO_REFUND_AFTER_START_CONSENT_VERSION);
+  return noRefundVersion >= 0 && assistedVersion >= noRefundVersion && order?.consentedAt != null;
 }
