@@ -419,7 +419,7 @@ describe('the third CV on the review page and at submission', () => {
     bucket.files.set(`assisted-application-uploads/${ORDER}/1-cv.docx`, base);
     bucket.files.set(`assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, first.docx);
     store = createMemoryFirestore({
-      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi', cvStorageKey: `assisted-application-uploads/${ORDER}/1-cv.docx` },
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi', applicantEmail: 'candidate@example.test', cvStorageKey: `assisted-application-uploads/${ORDER}/1-cv.docx` },
       [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
       [`${BASE}/ai_drafts/current`]: {
         status: 'ready', round: 1, language: 'it', profile, job: { title: 'Sviluppatore' }, factSources: { text: CV_TEXT },
