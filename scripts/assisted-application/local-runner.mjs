@@ -8,7 +8,8 @@
  * One cycle (`--once`, what the launch agent runs every 2 minutes; `--loop` repeats it):
  *   1. reads the network exit's country (ipinfo.io, then ipapi.co). Not `CH`, or unknown: it takes no work
  *      and says why in its heartbeat (the Functions then hold the queued orders for the owner);
- *   2. writes its heartbeat, then leases at most one request in a transaction (never two runs of the same
+ *   2. checks the exact locked dependency trees, the agent entry point and a small Storage upload probe,
+ *      then writes its heartbeat and leases at most one request in a transaction (never two runs of the same
  *      order; a request whose flow moved on is closed as stale and never runs);
  *   3. starts the same Codex auth broker the workflow starts (.github/actions/setup-claude-haiku-fallback/
  *      codex-auth-broker.mjs), fed this Mac's Codex login, or reuses a live one (SWISS_RUNNER_BROKER_SOCKET);
@@ -22,12 +23,12 @@
  * masker) are consumed here and every value they name, with every Remote Config value, is struck out of
  * all later output. The runner itself prints only opaque order ids, modes, rounds and codes.
  *
- * Environment: GOOGLE_APPLICATION_CREDENTIALS (required); SWISS_RUNNER_ID; SWISS_RUNNER_STATE_DIR;
+ * Environment: SWISS_RUNNER_SA or GOOGLE_APPLICATION_CREDENTIALS; SWISS_RUNNER_ID; SWISS_RUNNER_STATE_DIR;
  * SWISS_RUNNER_HEADED; SWISS_RUNNER_CODEX_BIN; SWISS_RUNNER_CODEX_AUTH; SWISS_RUNNER_BROKER_SOCKET;
  * SWISS_RUNNER_CHROME. Install: scripts/dev/install-swiss-runner.sh (README.md next to this file).
  */
 import { spawn, spawnSync } from 'node:child_process';
-import { createHash, randomUUID } from 'node:crypto';
+import { createHash, createSign, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
@@ -39,8 +40,13 @@ import {
   leaseLocalDispatch,
   writeRunnerHeartbeat,
 } from '../../functions/src/assistedApplicationSwissRunner.js';
+import {
+  ensureSwissRunnerDependencies,
+  probeSwissRunnerStorageUpload,
+  swissRunnerDependencyHome,
+} from './lib/swiss-runner-deps.mjs';
 
-export const RUNNER_VERSION = 'swiss-runner/1';
+export const RUNNER_VERSION = 'swiss-runner/3';
 export const SWISS_COUNTRY = 'CH';
 export const EGRESS_SOURCES = Object.freeze(['https://ipinfo.io/country', 'https://ipapi.co/country/']);
 /** The workflow's `timeout-minutes: 120`. */
@@ -48,10 +54,208 @@ export const AGENT_TIMEOUT_MS = 120 * 60 * 1000;
 export const HEARTBEAT_EVERY_MS = 60 * 1000;
 export const DEFAULT_LOOP_INTERVAL_MS = 30 * 1000;
 export const SYSTEM_CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+export const ENTRY_POINT_CHECK_TIMEOUT_MS = 15_000;
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BROKER_SCRIPT = path.join(REPO_ROOT, '.github', 'actions', 'setup-claude-haiku-fallback', 'codex-auth-broker.mjs');
 const CHROME_PRELOAD = path.join(REPO_ROOT, 'scripts', 'assisted-application', 'local-runner-chrome-preload.cjs');
 const BROKER_MAX_TIMEOUT_MS = '1800000';
+const ENTRY_POINT_IMPORT = "await import('./scripts/assisted-application/agent.mjs')";
+const entryPointFailuresLogged = new Set();
+
+/** Import the same entry point as the workflow in a child, without exposing paths or captured output. */
+export function verifyAgentEntryPoint({ repoRoot = REPO_ROOT, timeoutMs = ENTRY_POINT_CHECK_TIMEOUT_MS, spawnSyncImpl = spawnSync } = {}) {
+  const result = spawnSyncImpl(process.execPath, ['--input-type=module', '-e', ENTRY_POINT_IMPORT], {
+    cwd: repoRoot,
+    encoding: 'utf8',
+    timeout: timeoutMs,
+    maxBuffer: 1024 * 1024,
+    windowsHide: true,
+  });
+  if (!result.error && result.status === 0) return { eligible: true, reason: null };
+  const output = `${result.stdout || ''}\n${result.stderr || ''}`;
+  const missingPackage = /Cannot find package ['"]([^'"]+)['"]/.exec(output)?.[1] || '';
+  const safePackage = /^[A-Za-z0-9@._/-]{1,50}$/.test(missingPackage) ? missingPackage : '';
+  const reason = result.error?.code === 'ETIMEDOUT'
+    ? 'entry_point_unavailable:timeout'
+    : `entry_point_unavailable${safePackage ? `:${safePackage}` : ''}`;
+  return { eligible: false, reason };
+}
+
+function safeEntryPointResult(result) {
+  const reason = String(result?.reason || '');
+  return result?.eligible === true
+    ? { eligible: true, reason: null }
+    : { eligible: false, reason: /^entry_point_unavailable(?::[A-Za-z0-9@._/-]{1,50})?$/.test(reason) ? reason : 'entry_point_unavailable' };
+}
+
+async function entryPointStatus({ repoRoot, checkEntryPoint }) {
+  try { return safeEntryPointResult(await checkEntryPoint({ repoRoot })); } catch {
+    return { eligible: false, reason: 'entry_point_unavailable' };
+  }
+}
+
+function logEntryPointFailureOnce({ version, reason, log, logDir = null }) {
+  const key = String(version || RUNNER_VERSION).slice(0, 80);
+  if (entryPointFailuresLogged.has(key)) return;
+  entryPointFailuresLogged.add(key);
+  if (logDir) {
+    const markerDir = path.join(logDir, 'entry-point-failures');
+    const marker = path.join(markerDir, createHash('sha256').update(key).digest('hex'));
+    try {
+      fs.mkdirSync(markerDir, { recursive: true, mode: 0o700 });
+      fs.writeFileSync(marker, 'logged\n', { flag: 'wx', mode: 0o600 });
+    } catch (error) {
+      if (error?.code === 'EEXIST') return;
+    }
+  }
+  log(`swiss-runner entry point unavailable version=${key} reason=${reason}`);
+}
+
+function dependencyFailureReason(error) {
+  const code = String(error?.code || '');
+  if (code === 'deps_installing') return code;
+  return /^deps_install_failed:(?:root|functions)$/.test(code) ? code : 'deps_install_failed';
+}
+
+function safeStorageProbeResult(result) {
+  return result?.eligible === true
+    ? { eligible: true, reason: null }
+    : { eligible: false, reason: 'storage_upload_unavailable' };
+}
+
+export function resolveSwissRunnerServiceAccountPath(env = process.env, home = os.homedir()) {
+  return String(env.SWISS_RUNNER_SA || env.GOOGLE_APPLICATION_CREDENTIALS
+    || path.join(home, '.config', 'frontaliere', 'sa-frontaliere-ticino.json')).trim();
+}
+
+/** Install and activate exact private dependency links before loading Firebase Admin. */
+export async function initializeSwissRunnerRuntime({
+  repoRoot = REPO_ROOT,
+  prepareDependencies = (options) => ensureSwissRunnerDependencies(options),
+  env = process.env,
+  runnerId = '',
+  version = RUNNER_VERSION,
+  getEgressCountry = async () => (await readEgressCountry()).country,
+  writeBootstrapHeartbeat = writeSwissRunnerBootstrapHeartbeat,
+  heartbeatIntervalMs = HEARTBEAT_EVERY_MS,
+  loadDatabase = async () => {
+    const { getFirestoreDb } = await import('../lib/firestore-admin.mjs');
+    return getFirestoreDb();
+  },
+} = {}) {
+  const serviceAccountPath = resolveSwissRunnerServiceAccountPath(env);
+  let egressCountry;
+  let heartbeatTimer = null;
+  let heartbeatInFlight = null;
+  const getCountryOnce = async () => {
+    if (egressCountry === undefined) {
+      try { egressCountry = await getEgressCountry(); } catch { egressCountry = null; }
+    }
+    return egressCountry;
+  };
+  const writeStatus = async (reason) => {
+    await writeBootstrapHeartbeat({
+      runnerId, egressCountry: await getCountryOnce(), eligible: false, reason, version,
+      credentialsPath: serviceAccountPath,
+    });
+  };
+  const onInstalling = async () => {
+    await writeStatus('deps_installing');
+    if (heartbeatTimer) return;
+    heartbeatTimer = setInterval(() => {
+      if (heartbeatInFlight) return;
+      heartbeatInFlight = writeStatus('deps_installing').catch(() => {}).finally(() => { heartbeatInFlight = null; });
+    }, heartbeatIntervalMs);
+    heartbeatTimer.unref?.();
+  };
+  const stopInstallHeartbeats = async () => {
+    if (heartbeatTimer) clearInterval(heartbeatTimer);
+    heartbeatTimer = null;
+    await heartbeatInFlight;
+  };
+  let dependencies;
+  try {
+    dependencies = await prepareDependencies({ repoRoot, env, onInstalling });
+  } catch (error) {
+    await stopInstallHeartbeats();
+    await writeStatus(dependencyFailureReason(error));
+    throw error;
+  }
+  await stopInstallHeartbeats();
+  if (serviceAccountPath) env.GOOGLE_APPLICATION_CREDENTIALS = serviceAccountPath;
+  const db = await loadDatabase();
+  return { db, dependencies };
+}
+
+/** Write an ineligible bootstrap heartbeat without loading any checkout package. */
+export async function writeSwissRunnerBootstrapHeartbeat({
+  runnerId,
+  nowMs = Date.now(),
+  egressCountry = null,
+  eligible = false,
+  reason = null,
+  version = null,
+  env = process.env,
+  credentialsPath = resolveSwissRunnerServiceAccountPath(env),
+  readFileImpl = fs.readFileSync,
+  fetchImpl = fetch,
+  createSignImpl = createSign,
+} = {}) {
+  const id = String(runnerId || '').trim();
+  if (!id || !credentialsPath || eligible === true) return false;
+  try {
+    const credentials = JSON.parse(readFileImpl(credentialsPath, 'utf8'));
+    if (!credentials?.client_email || !credentials?.private_key || !credentials?.project_id) return false;
+    const tokenUrl = 'https://oauth2.googleapis.com/token';
+    const encode = (value) => Buffer.from(JSON.stringify(value)).toString('base64url');
+    const issuedAt = Math.floor(nowMs / 1000);
+    const unsigned = `${encode({ alg: 'RS256', typ: 'JWT' })}.${encode({
+      iss: credentials.client_email,
+      scope: 'https://www.googleapis.com/auth/datastore',
+      aud: tokenUrl,
+      iat: issuedAt,
+      exp: issuedAt + 3600,
+    })}`;
+    const signer = createSignImpl('RSA-SHA256');
+    signer.update(unsigned);
+    signer.end();
+    const assertion = `${unsigned}.${signer.sign(credentials.private_key, 'base64url')}`;
+    const tokenResponse = await fetchImpl(tokenUrl, {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+        assertion,
+      }),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!tokenResponse?.ok) return false;
+    const accessToken = String((await tokenResponse.json())?.access_token || '');
+    if (!accessToken) return false;
+
+    const fields = {
+      runnerId: { stringValue: id },
+      at: { integerValue: String(Math.trunc(Number(nowMs) || Date.now())) },
+      egressCountry: egressCountry ? { stringValue: String(egressCountry).toUpperCase().slice(0, 4) } : { nullValue: 'NULL_VALUE' },
+      eligible: { booleanValue: false },
+      reason: { stringValue: String(reason || 'deps_install_failed').slice(0, 80) },
+      busy: { nullValue: 'NULL_VALUE' },
+      version: version ? { stringValue: String(version).slice(0, 64) } : { nullValue: 'NULL_VALUE' },
+    };
+    const document = `projects/${encodeURIComponent(credentials.project_id)}/databases/(default)/documents/assisted_application_local_runners/${encodeURIComponent(id)}`;
+    const url = new URL(`https://firestore.googleapis.com/v1/${document}`);
+    for (const fieldPath of Object.keys(fields)) url.searchParams.append('updateMask.fieldPaths', fieldPath);
+    const response = await fetchImpl(url, {
+      method: 'PATCH',
+      headers: { authorization: `Bearer ${accessToken}`, 'content-type': 'application/json' },
+      body: JSON.stringify({ fields }),
+      signal: AbortSignal.timeout(10_000),
+    });
+    return Boolean(response?.ok);
+  } catch {
+    return false;
+  }
+}
 
 // ── Network exit ────────────────────────────────────────────────────────────
 
@@ -392,17 +596,81 @@ export async function runAgentLocally({ db, leased, startedAt, signal = null, en
  * @param {{db, runnerId:string, now?:()=>number, fetchImpl?:Function, runAgent:Function, log?:(line:string)=>void, version?:string|null, checkEveryMs?:number}} args
  *   `checkEveryMs`: how often, during a run, the heartbeat is written and the exit read again.
  */
-export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent, log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS }) {
+export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent,
+  log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS,
+  repoRoot = REPO_ROOT,
+  ensureDependencies = (options) => ensureSwissRunnerDependencies({ repoRoot, ...options }),
+  checkEntryPoint = verifyAgentEntryPoint,
+  checkStorageUpload = (options) => probeSwissRunnerStorageUpload({ stateRoot: swissRunnerDependencyHome(), ...options }),
+  entryPointFailureLogDir = null }) {
   let egress = await readEgressCountry({ fetchImpl });
   let verdict = egressVerdict(egress);
   const beat = (busy = null) => writeRunnerHeartbeat({
     db, runnerId, nowMs: now(), egressCountry: egress.country, eligible: verdict.eligible, reason: verdict.reason, busy, version,
   });
-  await beat();
   if (!verdict.eligible) {
+    await beat();
     log(`swiss-runner idle: ${verdict.reason} (exit ${egress.country || 'unknown'})`);
     return { eligible: false, reason: verdict.reason, leased: null };
   }
+
+  let statusTimer = null;
+  let statusInFlight = null;
+  const markPreflight = async (reason) => {
+    verdict = { eligible: false, reason };
+    await beat();
+    if (statusTimer) return;
+    statusTimer = setInterval(() => {
+      if (statusInFlight) return;
+      statusInFlight = beat().catch(() => {}).finally(() => { statusInFlight = null; });
+    }, checkEveryMs);
+    statusTimer.unref?.();
+  };
+  const stopStatus = async () => {
+    if (statusTimer) clearInterval(statusTimer);
+    statusTimer = null;
+    await statusInFlight;
+  };
+
+  let dependencies;
+  try {
+    dependencies = await ensureDependencies({ repoRoot, onInstalling: () => markPreflight('deps_installing') });
+  } catch (error) {
+    await stopStatus();
+    verdict = { eligible: false, reason: dependencyFailureReason(error) };
+    await beat();
+    log(`swiss-runner dependency preflight unavailable: ${verdict.reason}`);
+    return { eligible: false, reason: verdict.reason, leased: null };
+  }
+  await stopStatus();
+
+  const entryPoint = await entryPointStatus({ repoRoot, checkEntryPoint });
+  if (!entryPoint.eligible) {
+    verdict = { eligible: false, reason: entryPoint.reason };
+    await beat();
+    logEntryPointFailureOnce({ version, reason: entryPoint.reason, log, logDir: entryPointFailureLogDir });
+    return { eligible: false, reason: entryPoint.reason, leased: null };
+  }
+
+  let storage;
+  try {
+    storage = safeStorageProbeResult(await checkStorageUpload({
+      versionKey: dependencies?.versionKey,
+      onProbing: () => markPreflight('storage_probe_running'),
+    }));
+  } catch {
+    storage = { eligible: false, reason: 'storage_upload_unavailable' };
+  }
+  await stopStatus();
+  if (!storage.eligible) {
+    verdict = { eligible: false, reason: storage.reason };
+    await beat();
+    log(`swiss-runner storage preflight unavailable: ${storage.reason}`);
+    return { eligible: false, reason: storage.reason, leased: null };
+  }
+
+  verdict = egressVerdict(egress);
+  await beat();
   const { leased, stale } = await leaseLocalDispatch({ db, runnerId, nowMs: now() });
   for (const item of stale) log(`swiss-runner closed stale request order=${item.orderId} ${item.code}`);
   if (!leased) return { eligible: true, reason: null, leased: null };
@@ -493,6 +761,11 @@ function checkoutVersion(repoRoot = REPO_ROOT) {
 }
 
 async function main(argv = process.argv.slice(2)) {
+  if (argv.includes('--prepare-deps')) {
+    await ensureSwissRunnerDependencies({ repoRoot: REPO_ROOT });
+    console.log('swiss-runner private dependencies ready');
+    return 0;
+  }
   const loop = argv.includes('--loop');
   const intervalIndex = argv.indexOf('--interval-ms');
   const intervalMs = intervalIndex >= 0 ? Math.max(10_000, Number(argv[intervalIndex + 1]) || DEFAULT_LOOP_INTERVAL_MS) : DEFAULT_LOOP_INTERVAL_MS;
@@ -503,12 +776,19 @@ async function main(argv = process.argv.slice(2)) {
     return 0;
   }
   try {
-    const { getFirestoreDb } = await import('../lib/firestore-admin.mjs');
-    const db = await getFirestoreDb();
     const runnerId = runnerIdFor({ dir });
-    const version = checkoutVersion();
+    const { db } = await initializeSwissRunnerRuntime({ repoRoot: REPO_ROOT, runnerId, version: checkoutVersion() });
     do {
-      const result = await runCycle({ db, runnerId, version, runAgent: (args) => runAgentLocally(args) });
+      const result = await runCycle({
+        db,
+        runnerId,
+        version: checkoutVersion(),
+        entryPointFailureLogDir: dir,
+        ensureDependencies: (options) => ensureSwissRunnerDependencies({ repoRoot: REPO_ROOT, ...options }),
+        checkEntryPoint: verifyAgentEntryPoint,
+        checkStorageUpload: (options) => probeSwissRunnerStorageUpload({ stateRoot: swissRunnerDependencyHome(), ...options }),
+        runAgent: (args) => runAgentLocally(args),
+      });
       if (!loop) break;
       if (!result.leased) await new Promise((resolve) => setTimeout(resolve, intervalMs));
     } while (loop);

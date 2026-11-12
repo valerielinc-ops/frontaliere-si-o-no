@@ -51,7 +51,7 @@ value they name is struck out of the log, together with every Remote Config valu
 ### Install (on the Swiss Mac)
 
 ```bash
-# from a site checkout on main with node_modules (a dedicated worktree is best: the runner fast-forwards it)
+# from a site checkout on main (a dedicated worktree is best: the runner fast-forwards it)
 bash scripts/dev/install-swiss-runner.sh install --checkout /path/to/site-checkout
 bash scripts/dev/install-swiss-runner.sh status
 ```
@@ -61,9 +61,19 @@ and at login. The log goes to `~/Library/Logs/frontaliere/swiss-runner.log`. The
 `~/.config/frontaliere/sa-frontaliere-ticino.json` (override with `SWISS_RUNNER_SA`), `node` in `PATH`, and
 this Mac's Codex login in `~/.codex/auth.json`. Add `--headed` to see the Chrome window.
 
-Before each cycle the runner fast-forwards the checkout to `origin/main`, but only when the checkout is on
-`main` with no local changes. It never runs `npm install`: after a dependency change, update
-`node_modules` by hand.
+The Swiss runner **never uses the checkout's shared `node_modules`**. The installer runs
+`npm ci --ignore-scripts --no-audit --no-fund` for the root and `functions` lockfiles in private trees under
+`~/.local/share/frontaliere/swiss-runner/root-deps/` and `functions-deps/`, keyed by each lockfile's SHA-256.
+The checkout's two `node_modules` links point to those trees. It installs or verifies both private trees
+before loading Firebase Admin. Before each lease, including after a
+fast-forward to `origin/main`, the runner checks both lock hashes. If a lock changed, it installs and verifies
+new trees first, then switches the links; a failed install leaves the prior links intact and the heartbeat
+ineligible, so no order is leased. It also checks that the workflow agent entry point imports and, once for
+each successful pair of dependency hashes, uploads and deletes a few random bytes under `diagnostics/` in the
+assisted-application Storage bucket. Failed Storage probes keep the queue untouched and retry at most three
+times for that dependency version, with a 1-minute then 5-minute backoff; after the final failure the runner
+stays ineligible for that version until its dependency hashes change or the failed-probe state is cleared
+after the Storage access problem is corrected.
 
 Useful variables: `SWISS_RUNNER_CODEX_BIN` (a specific Codex CLI; default: the newest
 `~/.codex/packages/standalone/releases/*/bin/codex`), `SWISS_RUNNER_BROKER_SOCKET` (reuse a broker that is

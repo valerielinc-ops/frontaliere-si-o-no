@@ -1,4 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
+import { generateKeyPairSync } from 'node:crypto';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 // This suite exercises runner routing, not the separately tested PDF packet renderer.
 vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({ postalPacketReadiness: vi.fn(() => ({ ready: true })) }));
@@ -25,11 +29,21 @@ import {
   agentEnvironment,
   createLogMasker,
   egressVerdict,
+  initializeSwissRunnerRuntime,
   parseExportLines,
+  resolveSwissRunnerServiceAccountPath,
   readEgressCountry,
   runCycle,
   systemChromeFor,
+  verifyAgentEntryPoint,
+  writeSwissRunnerBootstrapHeartbeat,
 } from '../scripts/assisted-application/local-runner.mjs';
+import {
+  ensureSwissRunnerDependencies,
+  needsSwissRunnerDependencyInstall,
+  probeSwissRunnerStorageUpload,
+  SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS,
+} from '../scripts/assisted-application/lib/swiss-runner-deps.mjs';
 
 // Opaque ids and synthetic data only: no candidate, no portal answer.
 const now = Date.UTC(2026, 10, 11, 9, 0, 0);
@@ -68,6 +82,15 @@ function effectRunner(github: ReturnType<typeof vi.fn>, others: any[] = []) {
 function okText(text: string) {
   return async () => ({ ok: true, text: async () => text });
 }
+
+const dependencyTreesReady = async () => ({ rootHash: 'a'.repeat(64), functionsHash: 'b'.repeat(64), versionKey: `${'a'.repeat(64)}:${'b'.repeat(64)}` });
+const entryPointReady = async () => ({ eligible: true, reason: null });
+const storageReady = async () => ({ eligible: true, cached: true });
+const safeRunnerPreflight = {
+  ensureDependencies: dependencyTreesReady,
+  checkEntryPoint: entryPointReady,
+  checkStorageUpload: storageReady,
+};
 
 describe('Swiss egress mark', () => {
   it('a regional notice marks the order with its proof, and the mark survives every later transition', () => {
@@ -316,8 +339,14 @@ describe('Swiss runner offline', () => {
     });
   });
 
-  it('no heartbeat at all, or one from a non-Swiss exit, holds as well', async () => {
-    for (const [runner, reason] of [[null, 'heartbeat_missing'], [{ at: now - 1000, eligible: false, egressCountry: 'IT' }, 'egress_not_swiss']] as const) {
+  it('no heartbeat, a non-Swiss exit, or an unavailable Swiss preflight holds the request with its reason', async () => {
+    for (const [runner, reason] of [
+      [null, 'heartbeat_missing'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'IT' }, 'egress_not_swiss'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib' }, 'entry_point_unavailable'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'deps_install_failed:root' }, 'deps_install_failed'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'storage_upload_unavailable' }, 'storage_upload_unavailable'],
+    ] as const) {
       const store = storeWith(submitting, { [queuePath]: pending, ...(runner ? { [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: runner } : {}) });
       await runAutomationSweep({ db: store.db, runEffect: effectRunner(vi.fn()), nowMs: now } as any);
       expect(store.read(flowPath)).toMatchObject({ heldBy: ['portal:swiss_runner_offline'], swissRunnerOffline: { reason } });
@@ -342,12 +371,95 @@ describe('Swiss runner offline', () => {
     expect(swissRunnerAvailability([], now)).toMatchObject({ online: false, reason: 'heartbeat_missing' });
     expect(swissRunnerAvailability([{ at: now - SWISS_RUNNER_HEARTBEAT_STALE_MS - 1, eligible: true, egressCountry: 'CH' }], now)).toMatchObject({ reason: 'heartbeat_stale' });
     expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'DE' }], now)).toMatchObject({ reason: 'egress_not_swiss' });
+    expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib' }], now))
+      .toMatchObject({ online: false, reason: 'entry_point_unavailable' });
+    expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'CH', reason: 'deps_install_failed:functions' }], now))
+      .toMatchObject({ online: false, reason: 'deps_install_failed' });
+    expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'CH', reason: 'storage_upload_unavailable' }], now))
+      .toMatchObject({ online: false, reason: 'storage_upload_unavailable' });
     expect(swissRunnerAvailability([{ at: now, eligible: true, egressCountry: 'CH' }], now)).toMatchObject({ online: true });
   });
 });
 
 describe('local runner', () => {
   const submitting = { state: 'submitting', round: 1, egress: mark, dispatch: { mode: 'submit', round: 1, attempts: 1, requestedAt: now } };
+
+  it('activates private dependencies before loading Firestore Admin', async () => {
+    const order: string[] = [];
+    const db = { fixture: true };
+    const env: Record<string, string> = { SWISS_RUNNER_SA: '/fixture/swiss-service-account.json' };
+    const result = await initializeSwissRunnerRuntime({
+      repoRoot: '/fixture/site',
+      env,
+      runnerId: 'fixture-runner',
+      getEgressCountry: async () => {
+        order.push('egress');
+        return 'CH';
+      },
+      writeBootstrapHeartbeat: async ({ reason, egressCountry }: any) => {
+        order.push(`heartbeat:${reason}:${egressCountry}`);
+        return true;
+      },
+      prepareDependencies: async ({ repoRoot, onInstalling }: any) => {
+        order.push(`dependencies:${repoRoot}`);
+        await onInstalling();
+        return { versionKey: 'fixture-locks' };
+      },
+      loadDatabase: async () => {
+        order.push(`firestore:${env.GOOGLE_APPLICATION_CREDENTIALS}`);
+        return db;
+      },
+    });
+
+    expect(order).toEqual([
+      'dependencies:/fixture/site', 'egress', 'heartbeat:deps_installing:CH',
+      'firestore:/fixture/swiss-service-account.json',
+    ]);
+    expect(result).toEqual({ db, dependencies: { versionKey: 'fixture-locks' } });
+  });
+
+  it('resolves the Swiss runner service account override before the generic ADC path', () => {
+    expect(resolveSwissRunnerServiceAccountPath({ SWISS_RUNNER_SA: '/fixture/swiss.json' }))
+      .toBe('/fixture/swiss.json');
+    expect(resolveSwissRunnerServiceAccountPath({ GOOGLE_APPLICATION_CREDENTIALS: '/fixture/google.json' }))
+      .toBe('/fixture/google.json');
+    expect(resolveSwissRunnerServiceAccountPath({}, '/fixture/home'))
+      .toBe('/fixture/home/.config/frontaliere/sa-frontaliere-ticino.json');
+  });
+
+  it('refreshes the ineligible bootstrap heartbeat until dependency installation finishes', async () => {
+    vi.useFakeTimers();
+    const heartbeat = vi.fn(async () => true);
+    let finishInstallation!: () => void;
+    let startedInstallation!: () => void;
+    const started = new Promise<void>((resolve) => { startedInstallation = resolve; });
+    const initialize = initializeSwissRunnerRuntime({
+      runnerId: 'fixture-runner', heartbeatIntervalMs: 5_000,
+      getEgressCountry: async () => 'CH',
+      writeBootstrapHeartbeat: heartbeat,
+      prepareDependencies: async ({ onInstalling }: any) => {
+        await onInstalling();
+        startedInstallation();
+        await new Promise<void>((resolve) => { finishInstallation = resolve; });
+        return { versionKey: 'fixture-locks' };
+      },
+      loadDatabase: async () => ({ fixture: true }),
+    });
+
+    try {
+      await started;
+      expect(heartbeat).toHaveBeenCalledTimes(1);
+      await vi.advanceTimersByTimeAsync(5_000);
+      expect(heartbeat).toHaveBeenCalledTimes(2);
+      expect(heartbeat).toHaveBeenLastCalledWith(expect.objectContaining({ eligible: false, reason: 'deps_installing' }));
+      finishInstallation();
+      await initialize;
+      await vi.advanceTimersByTimeAsync(10_000);
+      expect(heartbeat).toHaveBeenCalledTimes(2);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 
   it('a non-Swiss exit takes no work and says why in its heartbeat', async () => {
     const store = storeWith(submitting);
@@ -371,7 +483,7 @@ describe('local runner', () => {
     const store = storeWith(submitting);
     await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
     const runAgent = vi.fn(async (_args: any) => ({ status: 'done', exitCode: 0, code: null }));
-    const result = await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
+    const result = await runCycle({ ...safeRunnerPreflight, db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
 
     expect(runAgent).toHaveBeenCalledTimes(1);
     expect(runAgent.mock.calls[0][0]).toMatchObject({ leased: { orderId, mode: 'submit', round: 1 } });
@@ -379,7 +491,7 @@ describe('local runner', () => {
     expect(store.read(queuePath)).toMatchObject({ status: 'done', lease: null });
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: true, egressCountry: 'CH', busy: null });
     // Nothing left to run.
-    await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now + 1, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
+    await runCycle({ ...safeRunnerPreflight, db: store.db, runnerId: 'swiss-a', now: () => now + 1, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
     expect(runAgent).toHaveBeenCalledTimes(1);
   });
 
@@ -413,6 +525,100 @@ describe('local runner', () => {
 
   it('reads the Remote Config loader output without a shell', () => {
     expect(parseExportLines("export A='one'\nexport B='it'\\''s\nmulti'\nnoise\n")).toEqual({ A: 'one', B: "it's\nmulti" });
+  });
+
+  it('keeps queued work pending when dependency installation fails', async () => {
+    const store = storeWith(submitting);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
+    const runAgent = vi.fn();
+    const checkEntryPoint = vi.fn(entryPointReady);
+    const checkStorageUpload = vi.fn(storageReady);
+    const ensureDependencies = vi.fn(async ({ onInstalling }: any) => {
+      await onInstalling();
+      throw Object.assign(new Error('synthetic install error'), { code: 'deps_install_failed:root' });
+    });
+
+    const result = await runCycle({
+      db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any,
+      runAgent, ensureDependencies, checkEntryPoint, checkStorageUpload, log: () => {},
+    });
+
+    expect(result).toMatchObject({ eligible: false, reason: 'deps_install_failed:root', leased: null });
+    expect(ensureDependencies).toHaveBeenCalledTimes(1);
+    expect(checkEntryPoint).not.toHaveBeenCalled();
+    expect(checkStorageUpload).not.toHaveBeenCalled();
+    expect(runAgent).not.toHaveBeenCalled();
+    expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
+    expect(store.read(queuePath)).not.toHaveProperty('lease');
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({
+      eligible: false, egressCountry: 'CH', reason: 'deps_install_failed:root', busy: null,
+    });
+  });
+
+  it('keeps queued work pending when the agent entry point cannot import', async () => {
+    const store = storeWith(submitting);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
+    const runAgent = vi.fn();
+    const checkEntryPoint = vi.fn(async () => ({ eligible: false, reason: 'entry_point_unavailable:pdf-lib' }));
+    const checkStorageUpload = vi.fn(storageReady);
+    const logs: string[] = [];
+
+    const result = await runCycle({
+      ...safeRunnerPreflight,
+      db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any,
+      runAgent, checkEntryPoint, checkStorageUpload, version: 'entry-point-preflight-fixture', log: line => logs.push(line),
+    });
+
+    expect(checkEntryPoint).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ eligible: false, reason: 'entry_point_unavailable:pdf-lib', leased: null });
+    expect(checkStorageUpload).not.toHaveBeenCalled();
+    expect(runAgent).not.toHaveBeenCalled();
+    expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
+    expect(store.read(queuePath)).not.toHaveProperty('lease');
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({
+      eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib', busy: null,
+    });
+    expect(logs).toEqual(['swiss-runner entry point unavailable version=entry-point-preflight-fixture reason=entry_point_unavailable:pdf-lib']);
+  });
+
+  it('keeps queued work pending when the Storage upload probe fails', async () => {
+    const store = storeWith(submitting);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
+    const runAgent = vi.fn();
+    const checkStorageUpload = vi.fn(async ({ onProbing }: any) => {
+      await onProbing();
+      return { eligible: false, reason: 'storage_upload_unavailable' };
+    });
+
+    const result = await runCycle({
+      ...safeRunnerPreflight,
+      db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any,
+      runAgent, checkStorageUpload, log: () => {},
+    });
+
+    expect(result).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable', leased: null });
+    expect(checkStorageUpload).toHaveBeenCalledTimes(1);
+    expect(runAgent).not.toHaveBeenCalled();
+    expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
+    expect(store.read(queuePath)).not.toHaveProperty('lease');
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({
+      eligible: false, egressCountry: 'CH', reason: 'storage_upload_unavailable', busy: null,
+    });
+  });
+
+  it('checks the workflow entry point without exposing its local path', () => {
+    const spawnSyncImpl = vi.fn(() => ({
+      error: null, status: 1, stdout: '',
+      stderr: "Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'pdf-lib' imported from /private/checkout/scripts/assisted-application/lib/docx-inplace.mjs",
+    }));
+
+    const result = verifyAgentEntryPoint({ repoRoot: '/private/checkout', spawnSyncImpl: spawnSyncImpl as any });
+
+    expect(result).toEqual({ eligible: false, reason: 'entry_point_unavailable:pdf-lib' });
+    expect(result.reason).not.toContain('/private/checkout');
+    expect(spawnSyncImpl).toHaveBeenCalledWith(process.execPath,
+      ['--input-type=module', '-e', expect.stringContaining("import('./scripts/assisted-application/agent.mjs')")],
+      expect.objectContaining({ cwd: '/private/checkout', timeout: 15_000 }));
   });
 });
 
@@ -503,6 +709,7 @@ describe('review: crashed leases, a failing offline transition, an exit lost mid
     const runAgent = agentUntilStopped(5000);
     const started = Date.now();
     const result = await runCycle({
+      ...safeRunnerPreflight,
       db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', 'US'), runAgent, log: () => {}, checkEveryMs: 20,
     });
 
@@ -517,9 +724,233 @@ describe('review: crashed leases, a failing offline transition, an exit lost mid
     const store = storeWith(fresh);
     await enqueueLocalDispatch({ db: store.db, orderId, flow: fresh, mode: 'submit', nowMs: now });
     const result = await runCycle({
+      ...safeRunnerPreflight,
       db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', null), runAgent: agentUntilStopped(150), log: () => {}, checkEveryMs: 20,
     });
     expect(result).toMatchObject({ eligible: true, outcome: { status: 'done' }, release: { status: 'done' } });
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: true, egressCountry: 'CH' });
+  });
+});
+
+describe('Swiss runner private dependency trees', () => {
+  it.each([
+    ['same lock and installed tree', 'lock-a', 'lock-a', true, false],
+    ['different lock hash', 'lock-b', 'lock-a', true, true],
+    ['missing installed tree', 'lock-a', 'lock-a', false, true],
+  ])('decides whether to reinstall for %s', (_name, expectedHash, installedHash, treeExists, expected) => {
+    expect(needsSwissRunnerDependencyInstall({ expectedHash, installedHash, treeExists })).toBe(expected);
+  });
+
+  it('leaves both live links unchanged when either new tree fails to install', async () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-deps-test-'));
+    const repoRoot = path.join(tempRoot, 'site');
+    const stateRoot = path.join(tempRoot, 'runner-state');
+    const functionsRoot = path.join(repoRoot, 'functions');
+    fs.mkdirSync(functionsRoot, { recursive: true });
+    const writeSource = (dir: string, name: string) => {
+      fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify({ name, private: true }));
+      fs.writeFileSync(path.join(dir, 'package-lock.json'), JSON.stringify({ name, lockfileVersion: 3, packages: {} }));
+    };
+    writeSource(repoRoot, 'fixture-root');
+    writeSource(functionsRoot, 'fixture-functions');
+
+    const rootPrevious = path.join(stateRoot, 'root-deps', 'deps-previous');
+    const functionsPrevious = path.join(stateRoot, 'functions-deps', 'deps-previous');
+    for (const [previous, name] of [[rootPrevious, 'previous-root'], [functionsPrevious, 'previous-functions']]) {
+      fs.mkdirSync(path.join(previous, 'node_modules'), { recursive: true });
+      fs.writeFileSync(path.join(previous, 'package.json'), JSON.stringify({ name, private: true }));
+      fs.writeFileSync(path.join(previous, 'package-lock.json'), JSON.stringify({ name, lockfileVersion: 3, packages: {} }));
+    }
+    fs.symlinkSync(path.join(rootPrevious, 'node_modules'), path.join(repoRoot, 'node_modules'), 'dir');
+    fs.symlinkSync(path.join(functionsPrevious, 'node_modules'), path.join(functionsRoot, 'node_modules'), 'dir');
+    const rootLinkBefore = fs.readlinkSync(path.join(repoRoot, 'node_modules'));
+    const functionsLinkBefore = fs.readlinkSync(path.join(functionsRoot, 'node_modules'));
+
+    const executeNpmCi = vi.fn(async ({ cwd, args }: any) => {
+      expect(args).toEqual(['ci', '--ignore-scripts', '--no-audit', '--no-fund']);
+      if (cwd.includes(`${path.sep}root-deps${path.sep}`)) {
+        const modules = path.join(cwd, 'node_modules');
+        for (const name of ['@google-cloud/storage', '@pdf-lib/fontkit', 'firebase-admin', 'pdf-lib', 'playwright']) {
+          fs.mkdirSync(path.join(modules, ...name.split('/')), { recursive: true });
+        }
+        return { code: 0 };
+      }
+      return { code: 1 };
+    });
+
+    try {
+      await expect(ensureSwissRunnerDependencies({
+        repoRoot, env: { SWISS_RUNNER_DEPS_DIR: stateRoot }, executeNpmCi,
+      })).rejects.toMatchObject({ code: 'deps_install_failed:functions' });
+
+      expect(executeNpmCi).toHaveBeenCalledTimes(2);
+      expect(fs.readlinkSync(path.join(repoRoot, 'node_modules'))).toBe(rootLinkBefore);
+      expect(fs.readlinkSync(path.join(functionsRoot, 'node_modules'))).toBe(functionsLinkBefore);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('recognizes the existing private root tree and links functions to its verified node_modules directory', async () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-deps-legacy-test-'));
+    const repoRoot = path.join(tempRoot, 'site');
+    const stateRoot = path.join(tempRoot, 'runner-state');
+    const functionsRoot = path.join(repoRoot, 'functions');
+    const rootDeps = path.join(stateRoot, 'root-deps');
+    fs.mkdirSync(functionsRoot, { recursive: true });
+    const writeSource = (dir: string, name: string) => {
+      const manifest = JSON.stringify({ name, private: true });
+      const lock = JSON.stringify({ name, lockfileVersion: 3, packages: {} });
+      fs.writeFileSync(path.join(dir, 'package.json'), manifest);
+      fs.writeFileSync(path.join(dir, 'package-lock.json'), lock);
+      return { manifest, lock };
+    };
+    const rootSource = writeSource(repoRoot, 'fixture-root');
+    writeSource(functionsRoot, 'fixture-functions');
+    fs.mkdirSync(path.join(rootDeps, 'node_modules'), { recursive: true });
+    fs.writeFileSync(path.join(rootDeps, 'package.json'), rootSource.manifest);
+    fs.writeFileSync(path.join(rootDeps, 'package-lock.json'), rootSource.lock);
+    for (const name of ['@google-cloud/storage', '@pdf-lib/fontkit', 'firebase-admin', 'pdf-lib', 'playwright']) {
+      fs.mkdirSync(path.join(rootDeps, 'node_modules', ...name.split('/')), { recursive: true });
+    }
+    fs.symlinkSync(path.join(rootDeps, 'node_modules'), path.join(repoRoot, 'node_modules'), 'dir');
+
+    const executeNpmCi = vi.fn(async ({ cwd }: any) => {
+      const modules = path.join(cwd, 'node_modules');
+      for (const name of ['@google-cloud/storage', '@pdf-lib/fontkit', 'firebase-admin', 'firebase-functions', 'pdf-lib']) {
+        fs.mkdirSync(path.join(modules, ...name.split('/')), { recursive: true });
+      }
+      return { code: 0 };
+    });
+    try {
+      const result = await ensureSwissRunnerDependencies({
+        repoRoot, env: { SWISS_RUNNER_DEPS_DIR: stateRoot }, executeNpmCi,
+      });
+
+      expect(executeNpmCi).toHaveBeenCalledTimes(1);
+      expect(executeNpmCi.mock.calls[0][0].cwd).toContain(`${path.sep}functions-deps${path.sep}.install-`);
+      expect(result.rootModules).toBe(path.join(rootDeps, 'node_modules'));
+      expect(fs.readlinkSync(path.join(repoRoot, 'node_modules'))).toBe(path.join(rootDeps, 'node_modules'));
+      expect(fs.readlinkSync(path.join(functionsRoot, 'node_modules'))).toBe(result.functionsModules);
+      expect(path.basename(path.dirname(result.functionsModules))).toBe(`deps-${result.functionsHash}`);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('uses the tree hash to cache a successful Storage probe and removes the diagnostic object', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-test-'));
+    const file = { save: vi.fn(async () => {}), delete: vi.fn(async () => {}) };
+    const bucketFactory = vi.fn(async () => ({ file: vi.fn((name: string) => {
+      expect(name).toMatch(/^diagnostics\/swiss-runner-[a-f0-9-]+\.bin$/);
+      return file;
+    }) }));
+    try {
+      const first = await probeSwissRunnerStorageUpload({
+        versionKey: 'root-lock:functions-lock', stateRoot, bucketFactory,
+        randomBytesImpl: () => Buffer.from('fixture!'), uuidImpl: () => 'abc12345-def6',
+      });
+      const second = await probeSwissRunnerStorageUpload({ versionKey: 'root-lock:functions-lock', stateRoot, bucketFactory });
+
+      expect(first).toMatchObject({ eligible: true, cached: false });
+      expect(second).toMatchObject({ eligible: true, cached: true });
+      expect(bucketFactory).toHaveBeenCalledTimes(1);
+      expect(file.save).toHaveBeenCalledTimes(1);
+      expect(file.delete).toHaveBeenCalledTimes(1);
+      expect(file.save.mock.calls[0][0]).toEqual(Buffer.from('fixture!'));
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('returns ineligible when a diagnostic upload fails and attempts cleanup', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-failure-test-'));
+    const file = { save: vi.fn(async () => { throw new Error('synthetic upload failure'); }), delete: vi.fn(async () => {}) };
+    try {
+      const result = await probeSwissRunnerStorageUpload({
+        versionKey: 'fixture-locks', stateRoot,
+        bucketFactory: async () => ({ file: () => file }),
+        randomBytesImpl: () => Buffer.from('fixture!'), uuidImpl: () => 'abc12345-def6',
+      });
+
+      expect(result).toEqual({ eligible: false, reason: 'storage_upload_unavailable' });
+      expect(file.save).toHaveBeenCalledTimes(1);
+      expect(file.delete).toHaveBeenCalledTimes(1);
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('backs off and stops after bounded Storage probe failures for one dependency version', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-retry-test-'));
+    const file = { save: vi.fn(async () => { throw new Error('synthetic upload failure'); }), delete: vi.fn(async () => {}) };
+    const bucketFactory = vi.fn(async () => ({ file: () => file }));
+    let currentTime = now;
+    const probe = () => probeSwissRunnerStorageUpload({
+      versionKey: 'fixture-locks', stateRoot, bucketFactory,
+      randomBytesImpl: () => Buffer.from('fixture!'), uuidImpl: () => 'abc12345-def6',
+      now: () => currentTime,
+    });
+    try {
+      expect(await probe()).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable' });
+      currentTime += 59_999;
+      expect(await probe()).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable' });
+      expect(bucketFactory).toHaveBeenCalledTimes(1);
+
+      currentTime += 1;
+      await probe();
+      expect(bucketFactory).toHaveBeenCalledTimes(2);
+      currentTime += 5 * 60_000;
+      await probe();
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
+
+      currentTime += 24 * 60 * 60_000;
+      expect(await probe()).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable' });
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
+      expect(file.save).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('Swiss runner bootstrap heartbeat', () => {
+  it('writes an ineligible heartbeat through Firestore REST without importing checkout packages', async () => {
+    const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const keyText = privateKey.export({ type: 'pkcs8', format: 'pem' }).toString();
+    const requests: Array<{ url: string; init: any }> = [];
+    const fetchImpl = vi.fn(async (input: any, init: any) => {
+      requests.push({ url: String(input), init });
+      if (requests.length === 1) return { ok: true, json: async () => ({ access_token: 'fixture-access-token' }) };
+      return { ok: true };
+    });
+
+    const result = await writeSwissRunnerBootstrapHeartbeat({
+      runnerId: 'fixture-runner', nowMs: now, egressCountry: 'CH', reason: 'deps_installing',
+      version: 'swiss-runner/fixture', env: { SWISS_RUNNER_SA: '/fixture/service-account.json' },
+      readFileImpl: () => JSON.stringify({
+        client_email: 'fixture-service-account@example.invalid',
+        private_key: keyText,
+        project_id: 'fixture-project',
+      }),
+      fetchImpl: fetchImpl as any,
+    });
+
+    expect(result).toBe(true);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    const patch = requests[1];
+    const body = JSON.parse(patch.init.body);
+    expect(new URL(patch.url).pathname).toBe('/v1/projects/fixture-project/databases/(default)/documents/assisted_application_local_runners/fixture-runner');
+    expect(patch.init.method).toBe('PATCH');
+    expect(patch.init.headers.authorization).toBe('Bearer fixture-access-token');
+    expect(body.fields).toMatchObject({
+      runnerId: { stringValue: 'fixture-runner' },
+      at: { integerValue: String(now) },
+      egressCountry: { stringValue: 'CH' },
+      eligible: { booleanValue: false },
+      reason: { stringValue: 'deps_installing' },
+    });
+    expect(new URL(patch.url).searchParams.getAll('updateMask.fieldPaths'))
+      .toEqual(['runnerId', 'at', 'egressCountry', 'eligible', 'reason', 'busy', 'version']);
   });
 });
