@@ -38,12 +38,14 @@
  */
 
 import { execFileSync, spawn } from 'node:child_process';
+import { StringDecoder } from 'node:string_decoder';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isHeldFromPublication } from '../lib/translation-publication-hold.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
+import { DEFAULT_JSON_STRING_LIMIT, parseLargeJsonArray } from '../lib/read-large-json.mjs';
 import { prefetch as prefetchBlobs, verifyPrefetchedBlobs } from './prefetch-history-blobs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -191,7 +193,7 @@ function createBlobReader() {
       }
       const size = Number(header.split(' ')[2]);
       if (buffer.length < newline + 1 + size + 1) return;
-      const body = buffer.subarray(newline + 1, newline + 1 + size).toString('utf8');
+      const body = buffer.subarray(newline + 1, newline + 1 + size);
       buffer = buffer.subarray(newline + 1 + size + 1);
       waiting.shift().resolve(body);
     }
@@ -213,8 +215,23 @@ function createBlobReader() {
   };
 }
 
-function rowsOf(text) {
-  const parsed = JSON.parse(text);
+/**
+ * Parse one slice blob. Same rule as readJsonFile (#18272): below the V8
+ * string limit a plain parse, above it item-wise parsing of the array, and
+ * never a silent `[]` — an unreadable slice stops the measurement.
+ */
+function rowsOf(bytes) {
+  if (bytes.length > DEFAULT_JSON_STRING_LIMIT) {
+    const decoder = new StringDecoder('utf8');
+    const chunks = function* chunked() {
+      for (let offset = 0; offset < bytes.length; offset += 1024 * 1024) {
+        yield decoder.write(bytes.subarray(offset, offset + 1024 * 1024));
+      }
+      yield decoder.end();
+    };
+    return parseLargeJsonArray(chunks());
+  }
+  const parsed = JSON.parse(bytes.toString('utf8'));
   if (Array.isArray(parsed)) return parsed;
   if (parsed && Array.isArray(parsed.jobs)) return parsed.jobs;
   return [];

@@ -106,7 +106,6 @@ import {
   archiveRemovedJobsToSlice,
   collapseDuplicateRouteEntries,
   normalizeExpiredAtEntries,
-  readExpiredSlice,
   repairExpiredRoutesAgainstActive,
 } from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
@@ -2917,8 +2916,17 @@ function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJ
     // caller's own step (template pipeline, housekeeping, corroborated shrink)
     // or by a previous write of this run: rewriting it would only move its
     // expiredAt forward (same rule as archiveFilteredJobsToSlices).
+    // Read through readJsonFile (#18272) and fail closed: an archive that
+    // exists but cannot be read must not reach archiveRemovedJobsToSlice,
+    // whose own reader starts from `[]` on a parse error and would rewrite
+    // the slice with only this run's rows.
+    const expiredSlicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
+    const existingArchive = fs.existsSync(expiredSlicePath) ? readJsonFile(expiredSlicePath) : [];
+    if (!Array.isArray(existingArchive)) {
+      throw new Error(`existing archive ${path.basename(expiredSlicePath)} is not an array`);
+    }
     const archivedWithTitle = new Set(
-      readExpiredSlice(crawlerKey)
+      existingArchive
         .filter((entry) => entry?.slug && hasArchivedTitle(entry))
         .map((entry) => entry.slug),
     );
