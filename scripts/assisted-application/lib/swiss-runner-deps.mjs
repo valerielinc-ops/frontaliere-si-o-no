@@ -3,14 +3,63 @@ import { createHash, randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const NPM_CI_ARGS = Object.freeze(['ci', '--ignore-scripts', '--no-audit', '--no-fund']);
 export const SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS = 3;
 export const SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS = Object.freeze([60_000, 5 * 60_000]);
+export const SWISS_RUNNER_STORAGE_PROBE_EXHAUSTED_RETRY_DELAY_MS = 30 * 60_000;
+const ASSISTED_APPLICATION_CV_CHECK_MODULE_URL = new URL('../../../functions/src/assistedApplicationCvCheck.js', import.meta.url);
+const loggedStorageProbeVersions = new Set();
 const REQUIRED_PACKAGES = Object.freeze({
   root: Object.freeze(['@google-cloud/storage', '@pdf-lib/fontkit', 'firebase-admin', 'pdf-lib', 'playwright']),
   functions: Object.freeze(['@google-cloud/storage', '@pdf-lib/fontkit', 'firebase-admin', 'firebase-functions', 'pdf-lib']),
 });
+
+export function resolveSwissRunnerCvCheckModulePath() {
+  return fileURLToPath(ASSISTED_APPLICATION_CV_CHECK_MODULE_URL);
+}
+
+/** Resolve Firebase Admin and the canonical bucket definition from this checkout. */
+export async function resolveSwissRunnerStorageModules({ importModule = (specifier) => import(specifier) } = {}) {
+  const [app, storage, cvCheck] = await Promise.all([
+    importModule('firebase-admin/app'),
+    importModule('firebase-admin/storage'),
+    importModule(ASSISTED_APPLICATION_CV_CHECK_MODULE_URL.href),
+  ]);
+  return { app, storage, cvCheck };
+}
+
+function safeStorageProbeErrorCode(error) {
+  const code = String(error?.code ?? '');
+  if (/^[A-Za-z0-9_.:-]{1,80}$/.test(code)) return code;
+  const name = String(error?.name ?? '');
+  return /^[A-Za-z][A-Za-z0-9]{0,39}$/.test(name) ? name : 'Error';
+}
+
+function safeRunnerVersionLabel(version) {
+  const value = String(version || 'unknown');
+  return /^[A-Za-z0-9._/@:-]{1,100}$/.test(value) ? value : 'unknown';
+}
+
+function logStorageProbeFailureOnce({ markerDir, runnerVersion, errorCode, fsImpl, log }) {
+  if (typeof log !== 'function') return;
+  const version = String(runnerVersion || 'unknown');
+  const versionHash = createHash('sha256').update(version).digest('hex');
+  const logMarker = path.join(markerDir, `${versionHash}.error-logged`);
+  const memoryKey = `${markerDir}\0${version}`;
+  if (loggedStorageProbeVersions.has(memoryKey)) return;
+
+  let shouldLog = true;
+  try {
+    fsImpl.mkdirSync(markerDir, { recursive: true, mode: 0o700 });
+    fsImpl.writeFileSync(logMarker, 'logged\n', { flag: 'wx', mode: 0o600 });
+  } catch (error) {
+    if (error?.code === 'EEXIST') shouldLog = false;
+  }
+  loggedStorageProbeVersions.add(memoryKey);
+  if (shouldLog) log(`swiss-runner storage probe failed version=${safeRunnerVersionLabel(version)} error=${errorCode}`);
+}
 
 export function swissRunnerDependencyHome({ env = process.env, home = os.homedir() } = {}) {
   return path.resolve(env.SWISS_RUNNER_DEPS_DIR || path.join(home, '.local', 'share', 'frontaliere', 'swiss-runner'));
@@ -366,17 +415,23 @@ export async function ensureSwissRunnerDependencies({
 
 export async function probeSwissRunnerStorageUpload({
   versionKey,
+  runnerVersion = 'unknown',
   stateRoot,
   env = process.env,
   fsImpl = fs,
   randomBytesImpl = undefined,
   uuidImpl = randomUUID,
   bucketFactory = null,
+  resolveStorageModules = resolveSwissRunnerStorageModules,
+  log = null,
   onProbing = async () => {},
   now = Date.now,
 } = {}) {
   const markerDir = path.join(stateRoot || swissRunnerDependencyHome({ env }), 'storage-probes');
-  const key = createHash('sha256').update(String(versionKey || 'unknown')).digest('hex');
+  const key = createHash('sha256').update(JSON.stringify([
+    String(runnerVersion || 'unknown'),
+    String(versionKey || 'unknown'),
+  ])).digest('hex');
   const marker = path.join(markerDir, `${key}.ok`);
   const retryStatePath = path.join(markerDir, `${key}.retry.json`);
   if (fsImpl.existsSync(marker)) return { eligible: true, cached: true };
@@ -391,8 +446,14 @@ export async function probeSwissRunnerStorageUpload({
       };
     }
   } catch { /* first probe or a partial state file; this attempt rewrites it if needed */ }
-  if (retryState.attempts >= SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS
-    || retryState.nextAttemptAt > now()) {
+  const currentTime = now();
+  if (retryState.attempts >= SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS) {
+    if (retryState.nextAttemptAt > currentTime) {
+      return { eligible: false, reason: 'storage_upload_unavailable' };
+    }
+    retryState = { attempts: 0, nextAttemptAt: 0 };
+  }
+  if (retryState.nextAttemptAt > currentTime) {
     return { eligible: false, reason: 'storage_upload_unavailable' };
   }
 
@@ -404,11 +465,10 @@ export async function probeSwissRunnerStorageUpload({
     if (bucketFactory) {
       bucket = await bucketFactory();
     } else {
-      const [{ getApps, initializeApp, applicationDefault }, { getStorage }, { ASSISTED_APPLICATION_STORAGE_BUCKET }] = await Promise.all([
-        import('firebase-admin/app'),
-        import('firebase-admin/storage'),
-        import('../../functions/src/assistedApplicationCvCheck.js'),
-      ]);
+      const { app, storage, cvCheck } = await resolveStorageModules();
+      const { getApps, initializeApp, applicationDefault } = app;
+      const { getStorage } = storage;
+      const { ASSISTED_APPLICATION_STORAGE_BUCKET } = cvCheck;
       if (getApps().length === 0) initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
       bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
     }
@@ -425,21 +485,23 @@ export async function probeSwissRunnerStorageUpload({
     }
     try { fsImpl.rmSync(retryStatePath, { force: true }); } catch { /* success marker takes precedence */ }
     return { eligible: true, cached: false };
-  } catch {
+  } catch (error) {
     if (file && (uploaded || file)) {
       try { await file.delete({ ignoreNotFound: true }); } catch { /* retry cleanup once; never keep a probe on purpose */ }
     }
+    const errorCode = safeStorageProbeErrorCode(error);
     const attempts = retryState.attempts + 1;
     const exhausted = attempts >= SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS;
-    const nextAttemptAt = exhausted
-      ? null
-      : now() + SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[attempts - 1];
+    const nextAttemptAt = now() + (exhausted
+      ? SWISS_RUNNER_STORAGE_PROBE_EXHAUSTED_RETRY_DELAY_MS
+      : SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[attempts - 1]);
     try {
       fsImpl.mkdirSync(markerDir, { recursive: true, mode: 0o700 });
       const temporary = `${retryStatePath}.${process.pid}.${uuidImpl()}.tmp`;
-      fsImpl.writeFileSync(temporary, `${JSON.stringify({ attempts, nextAttemptAt, exhausted })}\n`, { flag: 'wx', mode: 0o600 });
+      fsImpl.writeFileSync(temporary, `${JSON.stringify({ attempts, nextAttemptAt, exhausted, errorCode })}\n`, { flag: 'wx', mode: 0o600 });
       fsImpl.renameSync(temporary, retryStatePath);
     } catch { /* unavailable state storage cannot make the runner eligible */ }
+    logStorageProbeFailureOnce({ markerDir, runnerVersion, errorCode, fsImpl, log });
     return { eligible: false, reason: 'storage_upload_unavailable' };
   }
 }
