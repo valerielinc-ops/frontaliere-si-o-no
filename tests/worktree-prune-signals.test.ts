@@ -400,7 +400,7 @@ describe('scope del purge dei worktree', () => {
     'utf8',
   );
 
-  it('considera `.codex/worktrees` e `.wt` senza allargarsi a directory simili', () => {
+  it('considera i worktree nativi e Gemini senza allargarsi a directory simili', () => {
     const match = src.match(/const ISOLATION_RE\s*=\s*(\/[^;]+\/);/);
     expect(match, 'ISOLATION_RE non trovato in prune-merged-worktrees.mjs').toBeTruthy();
     const literal = match![1];
@@ -409,6 +409,7 @@ describe('scope del purge dei worktree', () => {
 
     expect(isolation.test('/workspace/.claude/worktrees/fix')).toBe(true);
     expect(isolation.test('/workspace/.codex/worktrees/fix')).toBe(true);
+    expect(isolation.test('/workspace/.gemini/worktrees/fix')).toBe(true);
     expect(isolation.test('/workspace/.worktrees/fix')).toBe(true);
     expect(isolation.test('/workspace/.wt/fix')).toBe(true);
     expect(isolation.test('/workspace/.codex/worktree/fix')).toBe(false);
