@@ -99,6 +99,12 @@ import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scr
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import {
+ activeJobPathOwnerKey,
+ buildActiveJobPathOwners,
+ localizedActiveJobSlug,
+ ACTIVE_JOB_PAGE_LOCALES,
+} from './shared/activeJobPageSelection';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
 import { createJobOgLogoFingerprintResolver } from './shared/jobOgLogoFingerprint.mjs';
 import { selectJobOgPhoto } from './shared/jobPhotoClassification';
@@ -427,7 +433,7 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 // if they come from one implementation. Imported above with the other shared
 // helpers; the emitted format is unchanged.
 
-export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+export const JOB_SEO_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 
 type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
@@ -2741,25 +2747,8 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  let jobsRaw: any = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
  let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
  jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
- const slugify = (input: string) => String(input || '')
- .toLowerCase()
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, '-')
- .replace(/^-+|-+$/g, '')
- .slice(0, 200);
  const localeList = JOB_SEO_LOCALES;
- const localizedSlug = (job: any, locale: 'it' | 'en' | 'de' | 'fr') => {
- // 1. Explicit per-locale slug (from AI-translated crawlers)
- const explicit = String(job?.slugByLocale?.[locale] || '').trim();
- if (explicit) return explicit;
- // 2. Canonical slug from data (set by all crawlers, including custom ones)
- const canonical = String(job?.slug || '').trim();
- if (canonical) return canonical;
- // 3. Compute from localized title + company + location (last-resort fallback)
- const localizedTitle = String(job?.titleByLocale?.[locale] || job?.title || '');
- return slugify(`${localizedTitle}-${job?.company || ''}-${job?.location || ''}`) || slugify(localizedTitle);
- };
+ const localizedSlug = localizedActiveJobSlug;
 
  // Fixture-data guard — drop test/dev seed records (e.g. "Fixture Corp SA")
  // before they enter the validJobs pipeline. Without this, a local jobs.json
@@ -3760,7 +3749,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
  const renderedActiveJobPaths = new Set<string>();
- const activeJobPathOwners = new Map<string, unknown>();
+ const activeJobPathOwners = buildActiveJobPathOwners(
+  validJobs,
+  localeList,
+  (job) => sharedResolveJobCanton(job as { canton?: string; location?: string }),
+  localizedSlug,
+ );
  // Keep an independent population count for the coverage sidecar. It mirrors
  // only the active emitter's ownership rule (first `(canton, locale, slug)`
  // wins), before any HTML is written, so a skipped active loop cannot make an
@@ -3769,10 +3763,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   for (const locale of localeList) {
-   const key = `${jobCanton}:${locale}:${localizedSlug(job, locale)}`;
-   if (!activeJobPathOwners.has(key)) {
-    activeJobPathOwners.set(key, job);
-   }
+   const key = activeJobPathOwnerKey(jobCanton, locale, localizedSlug(job, locale));
    if (shouldEmitLocale(locale)
        && (activeJobIds === null || activeJobIds.has(stableJobId(job)))
        && activeJobPathOwners.get(key) === job) {
@@ -4272,7 +4263,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // surviving pages advertise the skipped variant as a 404 target.
  const activeJobEligibleLocales = new Set(
  localeList.filter((candidateLocale) =>
- activeJobPathOwners.get(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`) === job,
+    activeJobPathOwners.get(
+     activeJobPathOwnerKey(jobCanton, candidateLocale, perLocaleSlug[candidateLocale]),
+    ) === job,
  ),
  );
  const hreflangHtml = buildLocaleAlternateBlock({
@@ -4288,7 +4281,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // already won this path; emitting again would only register a
  // collision in dist/.write-collisions.json without changing the
  // bytes on disk (Map last-add-wins inside the WriteCollector).
- const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
+ const __activeJobKey = activeJobPathOwnerKey(jobCanton, locale, perLocaleSlug[locale]);
  if (activeJobPathOwners.get(__activeJobKey) !== job || renderedActiveJobPaths.has(__activeJobKey)) {
  consumeCanonicalFallbackUse(job, locale);
  recordEmit('active-job', __tActiveJob);
