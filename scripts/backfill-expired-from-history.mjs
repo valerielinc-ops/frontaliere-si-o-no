@@ -33,6 +33,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -272,7 +273,7 @@ function processSlice(sliceFile) {
   let existing = [];
   if (fs.existsSync(expiredPath)) {
     try {
-      const parsed = JSON.parse(fs.readFileSync(expiredPath, 'utf-8'));
+      const parsed = readJsonFile(expiredPath);
       if (Array.isArray(parsed)) existing = parsed;
     } catch { /* malformed → start fresh */ }
   }

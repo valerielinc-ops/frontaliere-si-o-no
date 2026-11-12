@@ -559,7 +559,7 @@ export function aggregateRecentlyExpiredProfessionCounts(
 
   let parsed: unknown;
   try {
-    parsed = JSON.parse(fs.readFileSync(expiredPath, 'utf-8'));
+    parsed = readJsonFile(expiredPath);
   } catch (err) {
     console.warn('[profession-aggregate] failed to read expired-jobs.json:', err);
     return null;
