@@ -373,7 +373,7 @@ process.once('exit', (exitCode) => {
   releasePruneRunLock();
 });
 
-const reclaimFree = diskFreeBytes(process.cwd());
+let reclaimFree = diskFreeBytes(process.cwd());
 if (SESSION_START) {
   let previousCompletedAt = 0;
   try {
