@@ -1,16 +1,16 @@
 {
   "key": "csc-costruzioni",
   "label": "CSC Costruzioni",
-  "generatedAt": "2026-11-11T21:29:02.834Z",
+  "generatedAt": "2026-11-12T09:18:23.907Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 54078,
-  "avgDurationMs": 54078,
+  "durationMs": 58269,
+  "avgDurationMs": 58269,
   "durationHistory": [
-    54078
+    58269
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "needsRetranslation": true,
@@ -58,7 +58,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:28:50.327Z",
+      "validThrough": "2026-12-14T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -87,7 +87,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 85500,
@@ -109,7 +109,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:28:50.327Z",
+      "validThrough": "2027-01-28T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "en",
       "salaryMin": 85500,
@@ -160,7 +160,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:28:50.327Z",
+      "validThrough": "2027-01-28T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -189,7 +189,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "salaryMin": 51500,
@@ -211,7 +211,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:28:50.327Z",
+      "validThrough": "2026-12-14T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -240,7 +240,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -262,7 +262,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:28:50.327Z",
+      "validThrough": "2027-01-28T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-11-11T21:28:50.327Z",
+      "crawledAt": "2026-11-12T09:17:59.808Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -313,7 +313,7 @@
       },
       "streetAddress": "Via Pioda 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:28:50.327Z",
+      "validThrough": "2026-12-14T09:17:59.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 98,
       "_qualityBreakdown": {
@@ -375,5 +375,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }
