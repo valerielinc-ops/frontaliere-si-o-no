@@ -74,9 +74,10 @@ export function accountResponseText(snapshot = {}) {
     .join('. ');
 }
 
-const EXISTING_ACCOUNT_RE = /(?:\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)/iu;
-const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )?account|\bsie haben bereits ein(?:en)? (?:bewerbungs?)?konto|\bvous avez déjà un compte|\bhai già un account)\s*\?/iu;
-const EXPLICIT_EXISTING_ACCOUNT_RE = /(?:\b(?:an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:esiste già un account|sei già registrato)\b)/iu;
+const EXISTING_ACCOUNT_ERROR_RE = /(?:\b(?:account|e-?mail(?: address)?|emailadresse|adresse e-?mail|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo e-?mail)\b[^.!?\n]{0,60}\b(?:already exists|already registered|already in use|already used|already taken|is already registered|is already in use|is already used|exists already|existiert bereits|bereits registriert|bereits verwendet|bereits benutzt|esiste già|già registrat[oa]|già utilizzat[oa]|già in uso|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?|déjà en usage)\b|\b(?:already exists|already registered|already in use|already used|already taken|existiert bereits|bereits registriert|bereits verwendet|esiste già|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?)\b[^.!?\n]{0,60}\b(?:account|e-?mail|emailadresse|adresse|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo)\b)/iu;
+const EXISTING_ACCOUNT_RE = new RegExp(String.raw`(?:${EXISTING_ACCOUNT_ERROR_RE.source}|\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)`, 'iu');
+const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )?account|\balready registered|\bbereits registriert|\bsie haben bereits ein(?:en)? (?:bewerbungs?)?konto|\bvous avez déjà un compte|\bvous êtes déjà inscrit|\bhai già un account|\bsei già registrato)\s*\?/iu;
+const EXPLICIT_EXISTING_ACCOUNT_RE = new RegExp(String.raw`(?:${EXISTING_ACCOUNT_ERROR_RE.source}|\b(?:an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:esiste già un account|sei già registrato)\b)`, 'iu');
 const REGISTRATION_EMAIL_FIELD_RE = /(?:e[-\s]?mail|emailadresse|mailadresse|benutzer(?:name)?|username|login)/iu;
 
 function hasRegistrationEmailField(snapshot) {
@@ -94,12 +95,12 @@ export function hasExistingAccountPrompt(snapshot = {}) {
     .flatMap((message) => message.split(/(?<=[.!?;])\s+|[\r\n]+/u).map((part) => part.trim()).filter(Boolean));
   const registrationSurface = hasRegistrationEmailField(snapshot);
   return messages.some((message) => {
+    if (EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)) return false;
     // A concrete e-mail/account error remains authoritative even when the
     // portal leaves the registration form mounted. Generic account copy on a
     // complete create form is only navigation, not proof that this candidate
     // already owns an account; let the registration flow inspect its fields.
     if (EXPLICIT_EXISTING_ACCOUNT_RE.test(message)) return true;
-    if (EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)) return false;
     return !registrationSurface && EXISTING_ACCOUNT_RE.test(message);
   });
 }
@@ -413,7 +414,10 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
     mask,
     async load(host) {
       const entry = (await ref.get()).data()?.[hostKey(host)];
-      if (!entry?.passwordEnc) return null;
+      if (!entry?.passwordEnc) {
+        if (entry?.status !== 'exists_unknown_password') return null;
+        return { email: null, password: null, createdAt: entry.at || null, verifiedAt: entry.verifiedAt || null, status: entry.status };
+      }
       const { password } = decryptJson(entry.passwordEnc, key);
       mask(password);
       return { email: entry.email, password, createdAt: entry.createdAt || null, verifiedAt: entry.verifiedAt || null, status: entry.status || null };
@@ -434,6 +438,21 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       const current = (await ref.get()).data()?.[hostKey(host)];
       if (!current) return;
       await ref.set({ [hostKey(host)]: { ...current, passwordEnc: null, status: 'discarded', discardedAt: nowMs(), discardReason: String(reason).slice(0, 80) } }, { merge: true });
+    },
+    /** Replace the just-generated credential with an explicit unknown-password state. */
+    async recordExistingUnknownPassword(host) {
+      await ref.set({
+        [hostKey(host)]: {
+          host: String(host).toLowerCase(),
+          email: null,
+          passwordEnc: null,
+          status: 'exists_unknown_password',
+          at: nowMs(),
+          createdAt: null,
+          verifiedAt: null,
+          lastSignInAt: null,
+        },
+      }, { merge: true });
     },
     async mark(host, patch) {
       const current = (await ref.get()).data()?.[hostKey(host)];

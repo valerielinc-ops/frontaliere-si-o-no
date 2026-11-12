@@ -685,6 +685,90 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
+const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
+const WORKDAY_REQUISITION_SLUG_RE = /^.+_R-[a-z0-9][a-z0-9-]*$/i;
+
+/**
+ * Parse only Workday's same-tenant job route and its two manual-application
+ * continuations. The requisition suffix is part of the route identity; a
+ * similar title, tenant, or neighbouring requisition cannot inherit proof.
+ */
+function workdayJobRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password || url.hash
+      || !WORKDAY_HOST_RE.test(url.hostname)) return null;
+    const rawSegments = url.pathname.split('/');
+    if (rawSegments[0] !== '') return null;
+    let segments = rawSegments.slice(1);
+    if (segments.at(-1) === '') segments.pop();
+    if (segments.some((segment) => segment === '')) return null;
+    let suffix = '';
+    if (segments.at(-1)?.toLowerCase() === 'applymanually'
+      && segments.at(-2)?.toLowerCase() === 'apply') {
+      segments = segments.slice(0, -2);
+      suffix = 'manual';
+    } else if (segments.at(-1)?.toLowerCase() === 'apply') {
+      segments = segments.slice(0, -1);
+      suffix = 'apply';
+    }
+    const jobIndex = segments.map((segment) => segment.toLowerCase()).lastIndexOf('job');
+    if (jobIndex < 0 || jobIndex === segments.length - 1) return null;
+    const site = segments.slice(0, jobIndex);
+    if (WORKDAY_LOCALE_SEGMENT_RE.test(site[0] || '')) site.shift();
+    const locationAndSlug = segments.slice(jobIndex + 1);
+    const requisitionSlug = locationAndSlug.at(-1) || '';
+    if (!site.length || locationAndSlug.length < 2 || !WORKDAY_REQUISITION_SLUG_RE.test(requisitionSlug)) return null;
+    const basePath = `/${segments.join('/')}`;
+    return {
+      origin: url.origin,
+      site,
+      location: locationAndSlug.slice(0, -1),
+      requisitionSlug,
+      suffix,
+      basePath,
+      search: url.search,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function sameWorkdayJobRoute(first, second) {
+  const sameParts = (left, right) => left.length === right.length
+    && left.every((part, index) => part === right[index]);
+  return Boolean(first && second && first.origin === second.origin
+    && first.requisitionSlug === second.requisitionSlug
+    && sameParts(first.site, second.site) && sameParts(first.location, second.location));
+}
+
+function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
+  const apply = workdayJobRoute(applyUrl);
+  const posting = workdayJobRoute(postingUrl);
+  return sameWorkdayJobRoute(apply, posting)
+    && (apply.suffix === 'apply' || apply.suffix === 'manual'
+      || posting.suffix === 'apply' || posting.suffix === 'manual');
+}
+
+function workdayManualApplyEntry(control, snapshot, context = {}) {
+  const current = workdayJobRoute(snapshot?.url);
+  const expected = workdayJobRoute(context.applyUrl);
+  if (!current || current.suffix !== 'apply' || !sameWorkdayJobRoute(current, expected)
+    || control?.disabled || control?.chrome || (Number(control?.frame) || 0) !== 0
+    || !MANUAL_APPLY_RE.test(String(control?.text || control?.label || '').trim())) return false;
+  if (!control?.href) return true;
+  const target = workdayJobRoute(control.href);
+  return Boolean(target?.suffix === 'manual' && sameWorkdayJobRoute(current, target));
+}
+
+function workdayManualApplicationTarget(currentUrl, expectedUrl) {
+  const current = workdayJobRoute(currentUrl);
+  const expected = workdayJobRoute(expectedUrl);
+  if (!current || current.suffix !== 'apply' || !sameWorkdayJobRoute(current, expected)) return '';
+  return `${current.origin}${current.basePath}/apply/applyManually${current.search}`;
+}
+
 function isUmantisUrl(value) {
   try {
     return /(?:^|\.)umantis\.com$/i.test(new URL(String(value || '')).hostname);
@@ -810,6 +894,7 @@ function verifiedPostingEntryFor(ctx = {}) {
 export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isWorkdayPostingEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
 
@@ -1649,8 +1734,10 @@ function applicationEntryBelongsToPosting(control, {
   job = {},
 } = {}) {
   const href = String(control?.href || '').trim();
-  if (href && [applyUrl, postingUrl].some((route) => samePortalRoute(href, route, postingUrl))) return true;
+  if (href && samePortalRoute(href, applyUrl, applyUrl)) return true;
+  if (href && samePortalRoute(href, postingUrl, postingUrl)) return true;
   if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl, postingRouteProof })) return true;
+  if (href && isVerifiedPostingEntry({ applyUrl: href, postingUrl: applyUrl })) return true;
 
   // A posting can use a button with no URL (Yellowshark). Its nearest heading
   // or explicit section must contain the selected role and a unique posting
@@ -1796,6 +1883,8 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     // route by construction: it must also carry this posting's context.
     && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
+  const workdayManualEntries = controls.filter((control) => workdayManualApplyEntry(control, snapshot, context));
+  matching.push(...workdayManualEntries.filter((control) => !matching.includes(control)));
   const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
   if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
@@ -2427,7 +2516,7 @@ const cookieContextIdentity = (button) => {
   return supportingContext ? `${frame}:supporting:${supportingContext}` : '';
 };
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
-const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
+const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidati manualmente|candidatura manuale|postuler manuellement)$/i;
 
 async function genericCookieControlsShareContainer(page, button, closeControls) {
   const scope = cookieContextIdentity(button);
@@ -3341,9 +3430,16 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
-      const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
-      await clickButton(page, manual || apply);
-      page = (await popup) || page;
+      const workdayManualTarget = manual
+        ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl)
+        : '';
+      if (workdayManualTarget) {
+        await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      } else {
+        const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+        await clickButton(page, manual || apply);
+        page = (await popup) || page;
+      }
     } else {
       enteredThroughApplicationEntry = true;
       page = (await clickPortalLink(page, link, { context })) || page;
@@ -6924,10 +7020,10 @@ async function knownCookieDialogSnapshot(page, snapshot) {
 }
 
 /**
- * Follow only a visible, explicitly named sign-in anchor whose live HTTPS
- * destination stays on the current portal or its verified ATS family. This
- * deliberately uses GET navigation instead of clicking a registration-form
- * control: generic and learned buttons must never become an auth action.
+ * Follow only an explicitly named sign-in destination. Workday's `signInLink`
+ * is a button, so it is accepted only when its live node is inside the same
+ * form as that page's email and password fields; the site-header control is
+ * never an account-navigation action.
  */
 export async function openVerifiedSignInNavigation(page, snapshot) {
   let currentSnapshot = snapshot;
@@ -6970,27 +7066,55 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (!await locator.isVisible().catch(() => false)) continue;
     const liveControl = await locator.evaluate((element) => {
       const doc = element.ownerDocument;
+      const form = element.form || element.closest('form');
       const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
         .map((id) => doc.getElementById(id)?.innerText || doc.getElementById(id)?.textContent || '')
         .join(' ');
+      const inputs = form ? [...form.querySelectorAll('input')] : [];
       return {
         tagName: String(element.tagName || '').toUpperCase(),
         text: element.innerText || element.textContent || '',
         ariaLabel: element.getAttribute('aria-label') || '',
         title: element.getAttribute('title') || '',
         labelledBy,
+        disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
         href: element.getAttribute('href'),
+        dataAutomationId: element.getAttribute('data-automation-id') || '',
+        formId: form?.getAttribute('data-aa-id') || '',
+        formHasEmail: inputs.some((input) => input.type === 'email'
+          || /email/i.test(`${input.getAttribute('autocomplete') || ''} ${input.name || ''} ${input.id || ''}`)),
+        formHasPassword: inputs.some((input) => input.type === 'password'),
       };
     }).catch(() => null);
-    if (liveControl?.tagName !== 'A'
-      || !isExplicitSignInNavigationLabel(liveControl.text, liveControl.ariaLabel, liveControl.title, liveControl.labelledBy)) continue;
     const currentUrl = frame.url();
     let portalHost;
+    let portalProtocol;
     try {
-      portalHost = new URL(currentUrl).hostname;
+      const parsedCurrentUrl = new URL(currentUrl);
+      portalHost = parsedCurrentUrl.hostname;
+      portalProtocol = parsedCurrentUrl.protocol;
     } catch {
       continue;
     }
+    const explicitSignInLabel = isExplicitSignInNavigationLabel(
+      liveControl?.text, liveControl?.ariaLabel, liveControl?.title, liveControl?.labelledBy,
+    );
+    const workdayFormButton = liveControl?.tagName === 'BUTTON'
+      && WORKDAY_HOST_RE.test(portalHost)
+      && portalProtocol === 'https:'
+      && candidate.disabled !== true
+      && liveControl.disabled !== true
+      && candidate.dataAutomationId === 'signInLink'
+      && liveControl.dataAutomationId === 'signInLink'
+      && Boolean(candidate.formId)
+      && candidate.formId === liveControl.formId
+      && liveControl.formHasEmail === true
+      && liveControl.formHasPassword === true
+      && explicitSignInLabel;
+    if (workdayFormButton) {
+      return locator.click({ timeout: 6_000 }).then(() => true, () => false);
+    }
+    if (liveControl?.tagName !== 'A' || !explicitSignInLabel) continue;
     const target = verifiedSignInTarget(liveControl.href, currentUrl, portalHost);
     if (!target) continue;
     try {
@@ -7041,6 +7165,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
+
+  if (account?.status === 'exists_unknown_password') {
+    return accountHandoff('account', 'account_exists', accountStageFor(snapshot));
+  }
 
   // The federal portal can show its create form even when the alias already
   // has an account. Without saved credentials, stop before the planner fills
@@ -7522,6 +7650,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const after = await awaitAuthOutcome(page, 'create', registrationSnapshot.errors, registrationSnapshot.fields);
     diagnostics?.afterClick();
+    if (hasExistingAccountPrompt(after)) {
+      if (typeof ctx.accounts.recordExistingUnknownPassword === 'function') {
+        await ctx.accounts.recordExistingUnknownPassword(host);
+      } else if (credentialSaved) {
+        await ctx.accounts.discard(host, 'existing_account_unknown_password');
+      }
+      return noted(accountHandoff('account', 'account_exists', 'registration'));
+    }
     const outcome = registrationOutcome(after);
     if (outcome !== 'refused') {
       await ctx.accounts.mark(host, { status: 'created' });
@@ -8837,7 +8973,13 @@ export async function submitViaPortal(ctx) {
     const documentHostContext = postingDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: postingUrl } : {};
     // A verified apply/posting URL pair is stronger than the title of a thin
     // shell, which may still show a stale or generic role while it mounts.
-    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost
+    // Workday's own job route carries the requisition in its `_R-...` slug.
+    // When the order opens that exact route and its single Apply control is
+    // bound to it, the route is vacancy evidence even if the page omits the
+    // employer and uses a localized role title.
+    const workdayRouteEntryProven = initialApplicationEntryProven
+      && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
+    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,

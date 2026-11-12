@@ -504,6 +504,54 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }, context)).toEqual([]);
   });
 
+  it('binds Workday Apply and manual entry to the same tenant, site, location, and requisition route', () => {
+    const postingUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Switzerland/Ticino/Consultant_R-12345-1';
+    const applyUrl = `${postingUrl}/apply?locationCountry=CH`;
+    const applyManuallyUrl = `${postingUrl}/apply/applyManually?locationCountry=CH`;
+    const jobRoomUrl = 'https://jobs.example.test/room/consultant';
+    const job = { title: 'Consulente vendite', company: 'Acme Switzerland' };
+    const context = { applyUrl: postingUrl, postingUrl: jobRoomUrl, job };
+    const postingSnapshot = {
+      url: postingUrl,
+      text: 'Apply for this job',
+      fields: [],
+      buttons: [],
+      links: [{ text: 'Postuler', href: applyUrl, role: 'button', dataAutomationId: 'adventureButton', frame: 0 }],
+    };
+    const manualSnapshot = {
+      url: applyUrl,
+      fields: [],
+      buttons: [
+        { text: 'Apply with Autofill', frame: 0 },
+        { text: 'Use my last application', frame: 0 },
+        { text: 'Postuler manuellement', frame: 0 },
+      ],
+      links: [],
+    };
+
+    expect(isVerifiedPostingEntry({ applyUrl, postingUrl })).toBe(true);
+    expect(isVerifiedPostingEntry({ applyUrl: applyUrl.replace('/en-US/', '/fr-CH/'), postingUrl })).toBe(true);
+    expect(applicationEntryControls(postingSnapshot, context)).toEqual([
+      expect.objectContaining({ text: 'Postuler', href: applyUrl, dataAutomationId: 'adventureButton' }),
+    ]);
+    expect(applicationEntryControls(manualSnapshot, context)).toEqual([
+      expect.objectContaining({ text: 'Postuler manuellement' }),
+    ]);
+    for (const text of ['Apply Manually', 'Manuell bewerben', 'Candidati manualmente']) {
+      expect(applicationEntryControls({ ...manualSnapshot, buttons: [{ text, frame: 0 }] }, context))
+        .toEqual([expect.objectContaining({ text })]);
+    }
+    expect(isVerifiedPostingEntry({ applyUrl: applyManuallyUrl, postingUrl })).toBe(true);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], href: `${postingUrl.replace('R-12345', 'R-99999')}/apply` }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], href: `${applyUrl.replace('/Ticino/', '/Zurich/')}` }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], href: applyUrl.replace('/AcmeCareers/', '/OtherCareers/') }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], href: applyUrl.replace('acme.wd3', 'other.wd3') }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], href: applyUrl.replace('https:', 'http:') }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...postingSnapshot, links: [{ ...postingSnapshot.links[0], text: 'Démarrer', href: applyUrl }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...manualSnapshot, url: `${postingUrl}/apply?locationCountry=CH`.replace('/AcmeCareers/', '/OtherCareers/') }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...manualSnapshot, buttons: [{ text: 'Use my last application', frame: 0 }] }, context)).toEqual([]);
+  });
+
   it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';

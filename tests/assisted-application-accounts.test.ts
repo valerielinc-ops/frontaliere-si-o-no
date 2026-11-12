@@ -41,6 +41,11 @@ describe('portal account pages', () => {
     'An account already exists for this email address.',
     'Vous avez déjà un compte.',
     'Hai già un account.',
+    'Diese E-Mail-Adresse existiert bereits.',
+    'Dieser Benutzer ist bereits registriert.',
+    'Cette adresse e-mail est déjà utilisée.',
+    'Questo indirizzo e-mail è già in uso.',
+    'This email is already used.',
   ])('recognizes an existing account prompt: %s', (text) => {
     expect(hasExistingAccountPrompt({ text })).toBe(true);
   });
@@ -50,6 +55,7 @@ describe('portal account pages', () => {
     'Sie haben noch kein Bewerbungskonto.',
     'Sign in to continue.',
     'Already have an account? Sign in to continue.',
+    'Already registered? Sign in to continue.',
     'Vous avez déjà un compte ? Se connecter pour continuer.',
   ])('does not mistake a registration or sign-in prompt for an existing account: %s', (text) => {
     expect(hasExistingAccountPrompt({ text })).toBe(false);
@@ -339,6 +345,33 @@ describe('portal account store', () => {
     await accounts.save(HOST, { email: ALIAS, password: 'Other123Aa7!' });
     await accounts.mark(HOST, { status: 'created' });
     expect(await accounts.load(HOST)).toMatchObject({ password: 'Other123Aa7!' });
+  });
+
+  it('records an existing account without retaining the generated password', async () => {
+    const store = createMemoryFirestore();
+    const accounts = portalAccountStore({ db: store.db, orderId: ORDER, key: KEY, nowMs: () => 1234 });
+    await accounts.save(HOST, { email: ALIAS, password: 'Synthetic-Only-42!' });
+
+    await accounts.recordExistingUnknownPassword(HOST);
+
+    expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toEqual({
+      host: HOST,
+      email: null,
+      passwordEnc: null,
+      status: 'exists_unknown_password',
+      at: 1234,
+      createdAt: null,
+      verifiedAt: null,
+      lastSignInAt: null,
+    });
+    expect(JSON.stringify(store.read(ACCOUNTS))).not.toContain('Synthetic-Only-42!');
+    expect(JSON.stringify(store.read(ACCOUNTS))).not.toContain(ALIAS);
+    expect(await accounts.load(HOST)).toMatchObject({
+      email: null,
+      password: null,
+      createdAt: 1234,
+      status: 'exists_unknown_password',
+    });
   });
 
   it('waits for the verification message received after the account was created, on the portal’s site', async () => {

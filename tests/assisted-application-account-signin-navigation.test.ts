@@ -4,8 +4,9 @@ import { openVerifiedSignInNavigation } from '../scripts/assisted-application/li
 const HOST = 'sunrise.wd3.myworkdayjobs.com';
 const CURRENT_URL = `https://${HOST}/de/registration`;
 
-function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible = true, tagName = 'A', cookieOverlay = false, cookieText = 'We use cookies.' }: {
-  href?: string; label: string; finalUrl?: string; currentUrl?: string; visible?: boolean; tagName?: string; cookieOverlay?: boolean; cookieText?: string;
+function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible = true, tagName = 'A', dataAutomationId = '', formId = '', formHasEmail = false, formHasPassword = false, cookieOverlay = false, cookieText = 'We use cookies.' }: {
+  href?: string; label: string; finalUrl?: string; currentUrl?: string; visible?: boolean; tagName?: string;
+  dataAutomationId?: string; formId?: string; formHasEmail?: boolean; formHasPassword?: boolean; cookieOverlay?: boolean; cookieText?: string;
 }) {
   let url = currentUrl;
   let cookieVisible = cookieOverlay;
@@ -22,6 +23,10 @@ function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible
       title: '',
       labelledBy: '',
       href: href ?? null,
+      dataAutomationId,
+      formId,
+      formHasEmail,
+      formHasPassword,
     })),
     getAttribute: vi.fn(async (name: string) => {
       if (name === 'href') return href ?? null;
@@ -119,6 +124,40 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(button.frame.goto).not.toHaveBeenCalled();
     expect(button.locator.click).not.toHaveBeenCalled();
     expect(button.page.request.post).not.toHaveBeenCalled();
+  });
+
+  it('uses the Workday signInLink button only inside the same live email and password form', async () => {
+    const currentUrl = `https://${HOST}/en-US/AcmeCareers/job/Switzerland/Consultant_R-12345-1/apply/applyManually`;
+    const workday = pageWithLink({
+      label: 'Connexion', currentUrl, tagName: 'BUTTON', dataAutomationId: 'signInLink',
+      formId: 'auth-form', formHasEmail: true, formHasPassword: true,
+    });
+    const snapshot = {
+      dialogs: [],
+      fields: [
+        { id: 'email', inputType: 'email', frame: 0, formId: 'auth-form' },
+        { id: 'password', inputType: 'password', frame: 0, formId: 'auth-form' },
+      ],
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Connexion', formId: 'auth-form', dataAutomationId: 'signInLink' }],
+      links: [],
+    };
+
+    await expect(openVerifiedSignInNavigation(workday.page as any, snapshot as any)).resolves.toBe(true);
+
+    expect(workday.locator.click).toHaveBeenCalledOnce();
+    expect(workday.frame.goto).not.toHaveBeenCalled();
+    expect(workday.page.request.post).not.toHaveBeenCalled();
+
+    const header = pageWithLink({
+      label: 'Sign In', currentUrl, tagName: 'BUTTON', dataAutomationId: 'utilityButtonSignIn',
+    });
+    await expect(openVerifiedSignInNavigation(header.page as any, {
+      dialogs: [], fields: snapshot.fields,
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Sign In', dataAutomationId: 'utilityButtonSignIn' }],
+      links: [],
+    } as any)).resolves.toBe(false);
+    expect(header.locator.click).not.toHaveBeenCalled();
+    expect(header.frame.goto).not.toHaveBeenCalled();
   });
 
   it('rejects an insecure HTTP destination even when it uses the same host', async () => {
