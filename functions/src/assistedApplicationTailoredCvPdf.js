@@ -17,6 +17,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { candidateDocumentIdentity } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
@@ -121,9 +122,12 @@ export function tailoredCvDocumentFor({ order, draft, flow = {}, cv }) {
   const tailored = draft?.tailoredCv;
   const source = cv || tailored?.cv;
   if (tailored?.status !== 'ready' || !source) return null;
-  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  const { identity: candidate, profile } = candidateWithEdits({ order, draft, flow });
   // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
-  return tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
+  return tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), {
+    identity: candidateDocumentIdentity(candidate, order),
+    profile,
+  });
 }
 
 /**
@@ -167,7 +171,9 @@ export async function rebuildInPlaceDocx({ bucket, order, draft, flow = {} }) {
   if (!reconsider || !inplace.verifiedKey || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
   const [[base], [verified]] = await Promise.all([bucket.file(inplace.baseKey).download(), bucket.file(inplace.verifiedKey).download()]);
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: cvChoicesOf(draft, flow) });
+  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, {
+    profile, identity: candidateDocumentIdentity(identity, order), choices: cvChoicesOf(draft, flow),
+  });
   const verifiedXml = documentXmlOf(Buffer.from(verified));
   const same = built.status === 'ready' && Boolean(verifiedXml) && documentXmlOf(built.docx) === verifiedXml;
   return same

@@ -679,6 +679,19 @@ export function candidateIdentity(order, profile) {
 }
 
 /**
+ * Contact identity printed on the CV and cover letter offered to the
+ * candidate. Portal answers and employer replies keep using `candidateIdentity`
+ * (and its routing alias); documents must use the e-mail the candidate entered
+ * in the intake form. The checkout customer's address and the routing alias are
+ * not evidence of the candidate's own address.
+ */
+export function candidateDocumentIdentity(identity, order) {
+  const email = clean(order?.applicantEmail, 320);
+  if (!email) throw new Error('assisted_application_candidate_email_missing');
+  return { ...identity, email };
+}
+
+/**
  * Given names and surname of a full name, as an application form asks them.
  * The surname is the last word with the particles that open it («De Luca»,
  * «von Arx», «van der Berg», «El Amrani», «Ben Ali»): a real order of

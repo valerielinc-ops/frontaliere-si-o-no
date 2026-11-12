@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+  'whatsNew.v31012.title': 'Des documents de candidature plus complets',
+  'whatsNew.v31012.assisted-application.title': 'Votre e-mail dans le CV et la lettre',
+  'whatsNew.v31012.assisted-application.desc': 'Le CV adapté et la lettre de motivation incluent désormais l’adresse e-mail que vous avez indiquée pour votre candidature assistée.',
   'whatsNew.v31011.title': 'Des candidatures assistées plus fiables',
   'whatsNew.v31011.swissEgress.title': 'Une autre voie pour les formulaires inaccessibles',
   'whatsNew.v31011.swissEgress.desc': 'Si le formulaire d’une offre vérifiée reste inaccessible depuis le réseau cloud après deux tentatives, la candidature peut se poursuivre via une connexion suisse.',

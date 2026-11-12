@@ -7,7 +7,7 @@
  * letterBlocksFor gives the same blocks to the candidate's Word copy.
  */
 
-import { letterEnclosures, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
+import { candidateDocumentIdentity, letterEnclosures, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { draftCandidateType } from './assistedApplicationCandidateType.js';
 import { enclosedDocumentLabels } from './assistedApplicationExtraDocuments.js';
@@ -19,10 +19,10 @@ import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRender
  * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number}} input
  */
 export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowMs }) {
-  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  const { identity: candidate, profile } = candidateWithEdits({ order, draft, flow });
   const language = draft?.language || 'it';
   return letterPdfBlocks({
-    identity,
+    identity: candidateDocumentIdentity(candidate, order),
     profile,
     posting: draft?.letterAddress || { contactPerson: draft?.contactPerson || '' },
     companyName: order?.companyName,

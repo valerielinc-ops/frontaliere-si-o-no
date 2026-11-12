@@ -289,6 +289,19 @@ function rewrittenParagraph(paragraph, text, keep = 0) {
   return `<w:p${paragraph.attributes}>${paragraph.pPr}${bookmarks.start.join('')}${kept}<w:r${first.attributes}>${first.rPr}${pieces.join('<w:tab/>')}</w:r>${bookmarks.end.join('')}</w:p>`;
 }
 
+function emailPattern(email, global = false) {
+  const escaped = email.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^A-Z0-9._%+-])${escaped}(?=$|[^A-Z0-9._%+-])`, global ? 'gi' : 'i');
+}
+
+function containsEmail(value, email) {
+  return emailPattern(email).test(value);
+}
+
+function replaceEmail(value, previous, candidate) {
+  return value.replace(emailPattern(previous, true), (...matches) => `${matches[1] || ''}${candidate}`);
+}
+
 function chosen(choice, adapted) {
   if (choice?.use === 'original') return '';
   if (choice?.use === 'own') return String(choice.text || '').replace(/\s+/g, ' ').trim().slice(0, MAX_OWN_LINE) || adapted;
@@ -322,6 +335,37 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
   const used = new Set();
   const patches = [];
   const skipped = [];
+
+  // This optional Word copy starts from the candidate's uploaded CV, whose
+  // contact block may contain an older address. Only replace the address the
+  // CV profile identified, and only in paragraphs we can safely rewrite. If
+  // the source address cannot be found or edited, keep this copy unavailable;
+  // the separately generated tailored PDF still carries the intake address.
+  const candidateEmail = String(identity.email || '').trim();
+  if (candidateEmail) {
+    const sourceEmail = String(profile.email || '').trim();
+    let verifiedContactEmail = false;
+    if (sourceEmail && sourceEmail.toLowerCase() === candidateEmail.toLowerCase()) {
+      verifiedContactEmail = paragraphs.some((paragraph) => containsEmail(paragraph.text, sourceEmail));
+    } else if (sourceEmail) {
+      for (let index = 0; index < paragraphs.length; index += 1) {
+        const paragraph = paragraphs[index];
+        if (!containsEmail(paragraph.text, sourceEmail)) continue;
+        if (!paragraph.plain && !paragraph.label) return { status: 'fallback', reason: 'contact_email_uneditable' };
+        const label = paragraph.label?.text || '';
+        const text = paragraph.text.slice(label.length);
+        const nextText = replaceEmail(text, sourceEmail, candidateEmail);
+        if (nextText === text) return { status: 'fallback', reason: 'contact_email_uneditable' };
+        const fullText = `${label}${nextText}`;
+        if (!containsEmail(fullText, candidateEmail)) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
+        patches.push({ id: `contact-email-${index}`, index, text: fullText, keep: paragraph.label?.count || 0, growth: fullText.length - paragraph.text.length, required: true });
+        used.add(index);
+        verifiedContactEmail = true;
+      }
+    }
+    if (!verifiedContactEmail) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
+  }
+
   const place = (id, original, text) => {
     if (!text) return;
     const { index, reason: unplaced } = anchorParagraph(paragraphs, used, original);
@@ -364,12 +408,13 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
   const total = paragraphs.reduce((sum, paragraph) => sum + paragraph.text.length, 0);
   const budget = Math.max(PAGE_SLACK, Math.round(total * PAGE_GROWTH));
   let growth = patches.reduce((sum, patch) => sum + Math.max(0, patch.growth), 0);
-  for (const patch of [...patches].sort((a, b) => b.growth - a.growth)) {
+  for (const patch of patches.filter((item) => !item.required).sort((a, b) => b.growth - a.growth)) {
     if (growth <= budget || patch.growth <= 0) break;
     patches.splice(patches.indexOf(patch), 1);
     skipped.push({ id: patch.id, reason: 'page_budget' });
     growth -= patch.growth;
   }
+  if (growth > budget) return { status: 'fallback', reason: 'contact_email_page_budget' };
   if (!patches.length) return { status: 'ready', docx: Buffer.from(docx), patched: [], skipped };
 
   let next = '';

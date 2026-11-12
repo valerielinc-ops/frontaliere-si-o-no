@@ -46,6 +46,7 @@ function paidOrder(extra: Record<string, any> = {}) {
     jobTitle: 'Infermiere',
     companyName: 'Ospedale',
     locale: 'it',
+    applicantEmail: 'candidate@example.test',
     cvStorageKey: CV_KEY,
     cvFileCheck: { key: CV_KEY, verdict: 'ok', detectedType: 'pdf' },
     ...extra,

@@ -1512,7 +1512,7 @@ describe('letter PDF', () => {
 
 describe('letter at submission', () => {
   const bucket = (stored: string) => ({ file: () => ({ download: async () => [Buffer.from(stored)] }) });
-  const order = { applicantName: 'Marco Bianchi', companyName: 'Esempio Fintech SA', jobTitle: 'Sviluppatore', locale: 'it' };
+  const order = { applicantName: 'Marco Bianchi', applicantEmail: 'candidate@example.test', companyName: 'Esempio Fintech SA', jobTitle: 'Sviluppatore', locale: 'it' };
 
   it('rebuilds the letter with the documents that leave, or sends the stored one of an older draft', async () => {
     const draft = {
