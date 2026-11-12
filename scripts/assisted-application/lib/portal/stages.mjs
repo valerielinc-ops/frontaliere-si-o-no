@@ -1,6 +1,7 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
+import { isWorkdayJobRouteBound, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
@@ -38,9 +39,9 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
-const WORKDAY_HOST_RE = /(?:^|\.)myworkdayjobs\.com$/i;
-const WORKDAY_JOB_ROUTE_RE = /(?:^|\/)job\/[^/]+(?:\/[^/]+)?(?:\/apply)?\/?$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
+const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
+const WORKDAY_TALENT_POOL_RE = /\bnot\s+an\s+application\s+for\s+a\s+specific\s+job\b|\bpas\s+une\s+candidature\s+pour\s+un\s+poste\s+spécifique\b|\bkeine\s+bewerbung\s+für\s+eine\s+bestimmte\s+stelle\b|\bnon\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica\b/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -171,13 +172,15 @@ function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUr
   const actual = parsed(url);
   const expected = parsed(applyUrl);
   if (!actual || !expected || actual.protocol !== 'https:' || actual.origin !== expected.origin
-    || !WORKDAY_HOST_RE.test(actual.hostname)
-    || !WORKDAY_JOB_ROUTE_RE.test(actual.pathname)
-    || !WORKDAY_JOB_ROUTE_RE.test(expected.pathname)) return null;
+    || !isWorkdayTenantUrl(actual.href)
+    || !sameWorkdayJobRoute(workdayJobRoute(actual.href), workdayJobRoute(expected.href))) return null;
+  if (WORKDAY_PROFILE_INTRO_RE.test(`${snapshot?.title || ''} ${snapshot?.text || ''}`)) return null;
   const buttons = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
   const controlText = button => String(button?.text || button?.label || button?.ariaLabel || '');
   const applyButtons = buttons.filter(button => GENERIC_APPLY_RE.test(controlText(button)));
-  const starts = buttons.filter(button => !button?.href && !button?.leavesDocument
+  const starts = buttons.filter(button => String(button?.dataAutomationId || '').toLowerCase() !== 'introduceyourselfbutton'
+    && !WORKDAY_PROFILE_INTRO_RE.test(`${button?.section || ''} ${button?.context || ''}`)
+    && !button?.href && !button?.leavesDocument
     && WORKDAY_APPLICATION_START_RE.test(controlText(button)));
   const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
     && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
@@ -214,6 +217,22 @@ function successFactorsReceipt(snapshot, { actual, source }) {
   const formFields = (snapshot.fields || []).filter(field => !field.disabled && !field.chrome
     && !['hidden', 'submit', 'button', 'reset', 'image'].includes(field.inputType));
   return formFields.length === 0 && !(snapshot.fields || []).some(field => field.invalid === true);
+}
+
+/** Workday confirms a submitted application on its same requisition route. */
+function workdaySubmissionReceipt(snapshot, { actual, source, finalSubmission }) {
+  if (finalSubmission?.clicked !== true || !actual || !source
+    || !trustedPortalTransport(actual) || !trustedPortalTransport(source)
+    || actual.origin !== source.origin) return false;
+  const actualRoute = workdayJobRoute(actual.href);
+  const sourceRoute = workdayJobRoute(source.href);
+  if (!actualRoute || !sourceRoute || !['apply', 'manual'].includes(actualRoute.suffix)
+    || !['apply', 'manual'].includes(sourceRoute.suffix)
+    || !sameWorkdayJobRoute(actualRoute, sourceRoute)) return false;
+  if ((snapshot.errors || []).length || (snapshot.fields || []).some(field => field.invalid === true)) return false;
+  const activeFields = (snapshot.fields || []).filter(field => !field.disabled && !field.chrome
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field.inputType || '').toLowerCase()));
+  return activeFields.length === 0;
 }
 
 const APPLICATION_REGION_UNSUPPORTED_PATTERNS = [
@@ -382,12 +401,13 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
     || PROFILE_CONTINUATION_RE.test(text) || incompleteApplication(text)
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
+  const actual = parsed(url);
+  const source = parsed(submissionUrl || applyUrl);
+  if (workdaySubmissionReceipt(snapshot, { actual, source, finalSubmission })) return true;
   const actualJobKey = portalJobKey(url);
   const expectedJobKey = portalJobKey(submissionUrl || applyUrl, sourceProtocol);
   // A receipt naming a different posting never borrows the title from generic page chrome.
   if (actualJobKey && expectedJobKey && actualJobKey !== expectedJobKey) return false;
-  const actual = parsed(url);
-  const source = parsed(submissionUrl || applyUrl);
   // Production receipts require HTTPS. The only HTTP exception is the local
   // fake portal used by deterministic browser tests; public HTTP ATS hosts
   // remain unknown even when their page says thank you.
@@ -419,8 +439,12 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
  */
 export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
-  const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
+  if (isWorkdayTenantUrl(applyUrl)
+    && (!isWorkdayJobRouteBound(url, applyUrl) || WORKDAY_TALENT_POOL_RE.test(text))) {
+    return { kind: 'posting_mismatch' };
+  }
+  const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);

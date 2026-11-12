@@ -11,6 +11,8 @@
  *   AA_PORTAL_E2E_FOCUS=diagnostics node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=umantis node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=modal-application node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=workday-tenant node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=workday-tenant-smoke node scripts/assisted-application/portal-e2e.mjs
  *
  * posting → sign-in page → "Konto erstellen" → register (two passwords, the
  * required consent, a newsletter box left alone) → "check your e-mail" →
@@ -39,7 +41,8 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const HOTEL_NO_H1_UUID = '01234567-89ab-cdef-0123-456789abcdef';
 const HOTEL_NO_H1_PATH = `/hotel-job-no-h1/${HOTEL_NO_H1_UUID}`;
 const HOTEL_NO_H1_OTHER_TITLE_PATH = `/hotel-job-no-h1-other-title/${HOTEL_NO_H1_UUID}`;
-const WORKDAY_JOB_PATH = '/en-US/AcmeCareers/job/Switzerland/Ticino/Consultant_R-12345-1';
+const WORKDAY_JOB_PATH = '/en-US/AcmeCareers/job/Mendrisio-Outlet-CHE/Consultant_R-12345-1';
+const WORKDAY_MANUAL_JOB_PATH = '/en-US/AcmeCareers/job/Mendrisio%2C-Outlet%2C-CHE/Consultant_R-12345-1/apply/applyManually';
 const workdayTenantOrigin = (server) => `https://acme.wd3.myworkdayjobs.com:${server.address().port}`;
 const PORTAL_TEST_DATA_RETENTION_KEEP_OPTION = 'I consent to my data being stored, including after a specific job has been filled, and to being advised of any interesting job offers.';
 const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
@@ -120,7 +123,7 @@ const safePortalNavigationDiagnostic = (entry = {}) => {
     linkVisible: entry.linkVisible === true,
   };
 };
-const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = [] }) => ({
+const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = [], tenantRequests = [] }) => ({
   type: event.type, reason: event.reason, error: event.error, stage: event.stage,
   ...(fakeLocalizationUnknowns.length ? { fakeLocalizationUnknowns: fakeLocalizationUnknowns.slice(-3) } : {}),
   ...(evidence.finalFormGuardFailure ? { finalFormGuardFailure: evidence.finalFormGuardFailure } : {}),
@@ -135,6 +138,8 @@ const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = 
   ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
   ...(Array.isArray(portalNavigationDiagnostics) && portalNavigationDiagnostics.length
     ? { portalNavigation: portalNavigationDiagnostics.slice(0, 12).map(safePortalNavigationDiagnostic) } : {}),
+  ...(Array.isArray(tenantRequests) && tenantRequests.length
+    ? { tenantRequests: tenantRequests.slice(-12).map((request) => String(request).replace(/([?&]token=)[^&]+/gi, '$1[redacted]')) } : {}),
   questions: (Array.isArray(event.questions) ? event.questions : []).map(question => {
     if (typeof question === 'string') return question;
     return {
@@ -241,9 +246,14 @@ function fakePortal() {
     return `${url.pathname}${url.search}${url.hash}`;
   };
   const bindLocalReceiptTarget = (value) => {
-    if (String(value).startsWith('/') && !String(value).startsWith('//')) return receiptQuery(value);
+    if (String(value).startsWith('/') && !String(value).startsWith('//')) {
+      const localPath = new URL(value, 'http://127.0.0.1').pathname;
+      if (/^\/en-US\/AcmeCareers\/job\/[^/]+\/Consultant_R-12345-1(?:\/|$)/i.test(localPath)) return value;
+      return receiptQuery(value);
+    }
     let url;
     try { url = new URL(value); } catch { return value; }
+    if (/^\/en-US\/AcmeCareers\/job\/[^/]+\/Consultant_R-12345-1(?:\/|$)/i.test(url.pathname)) return value;
     const port = String(server.address()?.port || '');
     const hostname = url.hostname.toLowerCase();
     const isLoopback = hostname === '127.0.0.1' || hostname === 'localhost' || hostname.endsWith('.localhost');
@@ -259,7 +269,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), verifiedAccounts: new Set(), resetEmails: [], resetLinksClaimed: 0, resetLinkSent: false, recoveryUsed: false, historyUnavailable: false, activationResends: 0, activationLinksClaimed: 0, alreadyApplied: false, silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
+  const workday = { accounts: new Map(), verifiedAccounts: new Set(), resetEmails: [], resetLinksClaimed: 0, resetLinkSent: false, recoveryUsed: false, recoveryHistoryChecked: false, historyUnavailable: false, activationResends: 0, activationLinksClaimed: 0, alreadyApplied: false, silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, nativeCvSelector: false, nativeCvSelectorClicks: 0, tenantMode: false, nativeCvMultipartUploads: 0, talentPoolRequests: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -439,7 +449,12 @@ function fakePortal() {
   // `signInLink` button inside the auth form; the sign-in form is drawn anew once, right
   // after it is typed into (on the real page, when what it loads arrives late): what was typed is gone and
   // its overlay is another element. `workday.cover` puts something over the button: it cannot be pressed.
-  const workdayAccountPage = (initialView = 'create', { buttonSignIn = false } = {}) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
+  const workdayAccountPage = (initialView = 'create', { buttonSignIn = false, tenantMode = false } = {}) => {
+    const signInRoute = tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=sign-in` : '/wd/sign-in';
+    const createRoute = tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=create` : '/wd/apply';
+    const resetRoute = tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=password-reset-request` : '/wd/password-reset-request';
+    const destination = tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=${workday.recoveryUsed ? 'home' : 'form'}` : `/wd/${workday.recoveryUsed ? 'home' : 'form'}`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
     <header><button id="util" type="button" data-automation-id="utilityButtonSignIn">Sign In</button></header>
     <div id="popup" role="dialog" aria-modal="true" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:#fff">
       <label for="pe">Email Address *</label><input id="pe" type="text">
@@ -462,7 +477,7 @@ function fakePortal() {
       </div>
       ${buttonSignIn
         ? `<button id="swap" type="button" data-automation-id="signInLink">${initialView === 'create' ? 'Sign In' : 'Create Account'}</button>`
-        : `<a id="swap" href="${initialView === 'create' ? '/wd/sign-in' : '/wd/apply'}">${initialView === 'create' ? 'Sign In' : 'Create Account'}</a>`}
+        : `<a id="swap" href="${initialView === 'create' ? signInRoute : createRoute}">${initialView === 'create' ? 'Sign In' : 'Create Account'}</a>`}
       <button id="forgot" type="button" data-automation-id="forgotPasswordLink" style="${initialView === 'sign_in' ? '' : 'display:none'}">Forgot Password?</button>
       <button id="activation" type="button" style="display:none">Resend verification email</button>
     </form>
@@ -478,7 +493,7 @@ function fakePortal() {
         el('go').textContent = name;
         el('filter').setAttribute('aria-label', name);
         el('swap').textContent = next === 'create' ? 'Sign In' : 'Create Account';
-        if (el('swap').tagName === 'A') el('swap').href = next === 'create' ? '/wd/sign-in' : '/wd/apply';
+        if (el('swap').tagName === 'A') el('swap').href = next === 'create' ? '${signInRoute}' : '${createRoute}';
         el('again').style.display = next === 'create' ? '' : 'none';
         el('p2').required = next === 'create';
         el('forgot').style.display = next === 'sign_in' ? '' : 'none';
@@ -486,7 +501,7 @@ function fakePortal() {
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
       show(view);
-      el('forgot').onclick = () => { window.location.href = '/wd/password-reset-request'; };
+      el('forgot').onclick = () => { window.location.href = '${resetRoute}'; };
       el('activation').onclick = () => { fetch('/wd/activation-resend', { method: 'POST' }); };
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       if (${buttonSignIn ? 'true' : 'false'}) el('swap').onclick = () => show(view === 'create' ? 'sign_in' : 'create');
@@ -512,18 +527,19 @@ function fakePortal() {
           const answer = await (await fetch(view === 'create' ? '/wd/register' : '/wd/login', { method: 'POST', body })).json();
           if (answer.silent) return;
           if (view === 'create') show(answer.ok ? 'sign_in' : 'create', answer.message);
-      else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '${workday.recoveryUsed ? '/wd/home' : '/wd/form'}'; }, 1200); }
+      else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '${destination}'; }, 1200); }
           else show('sign_in', answer.message);
         }, 1500);
       };
     </script></main></body></html>`;
-  const workdayPasswordRequestPage = () => page('Forgot Password', `<h1>Forgot Password</h1>
-    <form method="post" action="/wd/password-reset-request">
+  };
+  const workdayPasswordRequestPage = ({ tenantMode = false } = {}) => page('Forgot Password', `<h1>Forgot Password</h1>
+    <form method="post" action="${tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=password-reset-request` : '/wd/password-reset-request'}">
       <label for="reset-email">Email Address</label><input id="reset-email" type="email" name="email" required>
       <button type="submit">Reset Password</button>
     </form>`);
-  const workdayResetPasswordPage = () => page('Reset Password', `<h1>Reset Password</h1>
-    <form method="post" action="/wd/password-reset">
+  const workdayResetPasswordPage = ({ tenantMode = false } = {}) => page('Reset Password', `<h1>Reset Password</h1>
+    <form method="post" action="${tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=password-reset` : '/wd/password-reset'}">
       <input type="hidden" name="email" value="${ALIAS}">
       <label for="new-password">New Password</label><input id="new-password" type="password" name="password" autocomplete="new-password" required>
       <label for="confirm-password">Confirm New Password</label><input id="confirm-password" type="password" name="confirm" autocomplete="new-password" required>
@@ -534,7 +550,12 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(bindLocalReceiptTargets(html)); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: bindLocalReceiptTarget(to), ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
-    if (url.pathname.startsWith(WORKDAY_JOB_PATH)) workday.tenantRequests.push(`${req.method} ${url.pathname}${url.search}`);
+    const tenantWorkdayRequest = /(?:^|\.)wd\d+\.myworkdayjobs\.com(?::\d+)?$/i.test(String(req.headers.host || ''));
+    if (tenantWorkdayRequest && url.pathname.includes('/job/')) workday.tenantRequests.push(`${req.method} ${url.pathname}${url.search}`);
+    if (tenantWorkdayRequest && req.method === 'GET' && /\/introduceYourself\/?$/i.test(url.pathname)) {
+      workday.talentPoolRequests += 1;
+      return send(page('Introduce yourself', '<h1>Introduce yourself</h1><p>This is not an application for a specific job.</p>'));
+    }
     if (route === 'GET /cookiecheck-cc0.html') {
       const validCookie = /(?:^|;\s*)sid=synthetic-session(?:;|$)/.test(req.headers.cookie || '');
       res.writeHead(url.search ? 500 : 200, { 'content-type': 'application/json' });
@@ -708,23 +729,54 @@ function fakePortal() {
       const entryUrl = `https://${req.headers.host}`;
       return send(page('Consultant | Careers', `<section class="job-detail">
         <h1>Verkaufsberater/in</h1>
-        <a role="button" data-automation-id="adventureButton" href="${entryUrl}${WORKDAY_JOB_PATH}/apply?locationCountry=CH">Postuler</a>
+        <button type="button" data-automation-id="adventureButton" onclick="document.getElementById('wd-popup-frame').style.display='block'">Postuler</button>
+        <section><h2>Présentez-vous</h2><button type="button" data-automation-id="introduceYourselfButton" onclick="window.location.href='${entryUrl}${WORKDAY_JOB_PATH}/introduceYourself'">Démarrer</button></section>
+        <div id="wd-popup-frame" role="dialog" data-automation-id="wd-popup-frame" style="display:none">
+          <button type="button" onclick="fetch('/wd/autofill-click',{method:'POST'})">Apply with Autofill</button>
+          <button type="button" onclick="fetch('/wd/last-application-click',{method:'POST'})">Use my last application</button>
+          <a data-automation-id="applyManually" href="${entryUrl}${WORKDAY_MANUAL_JOB_PATH}">Postuler manuellement</a>
+        </div>
       </section>`));
     }
-    if (route === `GET ${WORKDAY_JOB_PATH}/apply`) {
-      return send(page('Application options', `<div role="dialog" aria-modal="true">
-        <button type="button" onclick="fetch('/wd/autofill-click',{method:'POST'})">Apply with Autofill</button>
-        <button type="button" onclick="fetch('/wd/last-application-click',{method:'POST'})">Use my last application</button>
-        <button type="button" data-automation-id="applyManually">Postuler manuellement</button>
-      </div>`));
-    }
-    if (route === `GET ${WORKDAY_JOB_PATH}/apply/applyManually`) {
-      return state.sessions.has(sessionOf(req))
-        ? redirect('/wd/form')
-        : send(workdayAccountPage('create', { buttonSignIn: true }));
+    if (tenantWorkdayRequest && route === `GET ${WORKDAY_MANUAL_JOB_PATH}`) {
+      const view = url.searchParams.get('view') || '';
+      if (view === 'password-reset-request') return send(workdayPasswordRequestPage({ tenantMode: true }));
+      if (view === 'password-reset') {
+        return workday.resetLinkSent && url.searchParams.get('token') === 'synthetic-reset-token'
+          ? send(workdayResetPasswordPage({ tenantMode: true }))
+          : send(page('Reset link expired', '<h1>This reset link has expired.</h1>'));
+      }
+      if (view === 'activate') {
+        if (url.searchParams.get('token') !== 'synthetic-activation' || workday.activationResends < 1) {
+          return send(page('Activation link expired', '<h1>This activation link has expired.</h1>'));
+        }
+        workday.verifiedAccounts.add(ALIAS);
+        return redirect(`${WORKDAY_MANUAL_JOB_PATH}?view=sign-in`);
+      }
+      if (view === 'home') {
+        if (!state.sessions.has(sessionOf(req))) return redirect(`${WORKDAY_MANUAL_JOB_PATH}?view=sign-in`);
+        return send(page('Candidate Home', workday.historyUnavailable
+          ? '<h1>Candidate Home</h1>'
+          : `<h1>Candidate Home</h1><a href="${WORKDAY_MANUAL_JOB_PATH}?view=my-applications">My Applications</a>`));
+      }
+      if (view === 'my-applications') {
+        if (!state.sessions.has(sessionOf(req))) return redirect(`${WORKDAY_MANUAL_JOB_PATH}?view=sign-in`);
+        if (workday.recoveryUsed) workday.recoveryHistoryChecked = true;
+        return workday.alreadyApplied
+          ? send(page('My Applications', '<h1>My Applications</h1><p>You have already applied to Consultant_R-12345-1.</p>'))
+          : send(page('My Applications', '<h1>My Applications</h1><p>You have no applications yet.</p>'));
+      }
+      if (view === 'form') {
+        if (!state.sessions.has(sessionOf(req))) return redirect(`${WORKDAY_MANUAL_JOB_PATH}?view=sign-in`);
+        // The application form is served by the shared Workday form route below.
+      } else {
+        if (state.sessions.has(sessionOf(req))) return redirect(`${WORKDAY_MANUAL_JOB_PATH}?view=${workday.recoveryUsed && !workday.recoveryHistoryChecked ? 'home' : 'form'}`);
+        return send(workdayAccountPage(view === 'sign-in' ? 'sign_in' : 'create', { buttonSignIn: true, tenantMode: true }));
+      }
     }
     if (route === 'GET /wd/password-reset-request') return send(workdayPasswordRequestPage());
-    if (route === 'POST /wd/password-reset-request') {
+    if (route === 'POST /wd/password-reset-request'
+      || (tenantWorkdayRequest && route === `POST ${WORKDAY_MANUAL_JOB_PATH}` && url.searchParams.get('view') === 'password-reset-request')) {
       const body = new URLSearchParams(await readBody(req));
       const email = String(body.get('email') || '').toLowerCase();
       workday.resetEmails.push(email);
@@ -736,7 +788,8 @@ function fakePortal() {
         ? send(workdayResetPasswordPage())
         : send(page('Reset link expired', '<h1>This reset link has expired.</h1>'));
     }
-    if (route === 'POST /wd/password-reset') {
+    if (route === 'POST /wd/password-reset'
+      || (tenantWorkdayRequest && route === `POST ${WORKDAY_MANUAL_JOB_PATH}` && url.searchParams.get('view') === 'password-reset')) {
       const body = new URLSearchParams(await readBody(req));
       const email = String(body.get('email') || '').toLowerCase();
       const password = String(body.get('password') || '');
@@ -746,7 +799,8 @@ function fakePortal() {
       workday.accounts.set(email, password);
       workday.resetLinkSent = false;
       workday.recoveryUsed = true;
-      return redirect('/wd/sign-in');
+      workday.recoveryHistoryChecked = false;
+      return redirect(workday.tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=sign-in` : '/wd/sign-in');
     }
     if (route === 'POST /wd/activation-resend') {
       workday.activationResends += 1;
@@ -783,8 +837,8 @@ function fakePortal() {
     // a session is then the portal's own «Something went wrong. Please refresh the page and then try again»
     // (its request for a new application is refused), the load after it is the application, and the CV an
     // earlier run uploaded is listed with its «Delete» button.
-    if (route === 'GET /wd/form') {
-      if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
+    if (route === 'GET /wd/form' || (tenantWorkdayRequest && route === `GET ${WORKDAY_MANUAL_JOB_PATH}` && url.searchParams.get('view') === 'form')) {
+      if (!state.sessions.has(sessionOf(req))) return redirect(workday.tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=sign-in` : '/wd/apply');
       if (workday.alreadyApplied) return send(page('My Applications', '<h1>My Applications</h1><p>You have already applied to Consultant_R-12345-1.</p>'));
       if (workday.resumed && !workday.refusedOnce.has(sessionOf(req))) {
         workday.refusedOnce.add(sessionOf(req));
@@ -794,7 +848,7 @@ function fakePortal() {
       return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
         <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
         <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>
-        <form method="post" action="/wd/submit" enctype="multipart/form-data">
+        <form method="post" action="${workday.tenantMode ? `${WORKDAY_MANUAL_JOB_PATH}?view=submit` : '/wd/submit'}" enctype="multipart/form-data">
           <label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required>
           <label for="m">E-Mail *</label><input id="m" type="email" name="mail" required>
           <div id="addr"></div><input type="hidden" name="country" id="countryValue" value="United States of America">
@@ -803,10 +857,11 @@ function fakePortal() {
           <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
           <label for="letter">Cover Letter</label><input id="letter" type="file" name="letter">
           <div id="letter-status" aria-live="polite"></div>
-          <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
-          <div id="cv-status" aria-live="polite"></div>
+          ${workday.nativeCvSelector
+            ? '<section id="cv-holder" hidden><h2>CV</h2><input id="cv" data-automation-id="file-upload-input-ref" type="file" name="cv" required style="display:none"><div id="cv-status" aria-live="polite"></div></section><section><h2>CV</h2><button id="select-files" data-automation-id="select-files" type="button">Select file</button></section>'
+            : '<label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><div id="cv-status" aria-live="polite"></div>'}
           ${workday.additionalCvField ? '<section id="additional-cv-holder" hidden><label for="additional-cv">Additional CV *</label><input id="additional-cv" type="file" name="additionalCv" required><div id="additional-cv-status" aria-live="polite"></div></section>' : ''}
-          ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete" style="width:24px;height:24px"></button></div>' : ''}
+          ${workday.resumed ? '<div id="kept"><span>candidate-cv.pdf successfully uploaded</span><input type="hidden" name="kept" value="candidate-cv.pdf"><button type="button" id="del" aria-label="Delete" style="width:24px;height:24px"></button></div>' : ''}
           <section><h2>Work Experience</h2><div id="experience-rows"></div><button type="button" id="add-experience">Add</button></section>
           <section><h2>Education</h2><div id="education-rows"></div><button type="button" id="add-education">Add</button></section>
           <button type="submit">Bewerbung absenden</button>
@@ -823,6 +878,7 @@ function fakePortal() {
             el('country').onkeydown = (event) => { if (event.key === 'Escape') el('countries').style.display = 'none'; };
           };
           draw('United States of America');
+          if (el('select-files')) el('select-files').onclick = async () => { await fetch('/wd/select-file', { method: 'POST' }); el('cv-holder').hidden = false; el('cv').click(); };
           if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
           el('cv').addEventListener('change', async () => {
             const body = new FormData();
@@ -903,19 +959,27 @@ function fakePortal() {
           };
         </script></body></html>`);
     }
-    if (route === 'POST /wd/submit') {
+    if (route === 'POST /wd/submit'
+      || (tenantWorkdayRequest && route === `POST ${WORKDAY_MANUAL_JOB_PATH}` && url.searchParams.get('view') === 'submit')) {
       const raw = await readBody(req);
       const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
       const many = (name) => [...raw.matchAll(new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`, 'g'))].map((match) => match[1]);
       workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept'), experience: many('experience'), education: many('education') });
-      state.applications.push({ hasCv: /filename="CV_/.test(raw), cvFiles: (raw.match(/filename="CV_/g) || []).length, first: part('first') });
+      state.applications.push({ hasCv: /name="cv"; filename="/i.test(raw), cvFiles: (raw.match(/name="cv"; filename="/gi) || []).length, first: part('first') });
       if (workday.recoveryUsed) workday.alreadyApplied = true;
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'POST /wd/upload') {
       workday.cvUploads += 1;
-      await readBody(req);
+      const uploadBody = await readBody(req);
+      if (/multipart\/form-data/i.test(String(req.headers['content-type'] || ''))
+        && /name="cv"; filename="/i.test(uploadBody)) workday.nativeCvMultipartUploads += 1;
       res.writeHead(workday.uploadFails ? 500 : 204);
+      return res.end();
+    }
+    if (route === 'POST /wd/select-file') {
+      workday.nativeCvSelectorClicks += 1;
+      res.writeHead(204);
       return res.end();
     }
     if (route === 'POST /wd/upload-additional-cv') {
@@ -1424,7 +1488,7 @@ async function fakeCodex({ prompt }) {
  * after storing its password, while the portal had not answered yet, called it refused and threw the
  * password away.
  */
-async function workdayAccountChecks({ base, tenantBase, state, workday, files, executablePath, browserTlsSpkiPin, check, bindReceiptJobId }, assistedOnly = false) {
+async function workdayAccountChecks({ base, tenantBase, state, workday, files, executablePath, browserTlsSpkiPin, check, bindReceiptJobId }, assistedOnly = false, tenantOnly = false, smokeOnly = false) {
   const host = new URL(base).hostname;
   const saved = new Map();
   const accounts = {
@@ -1448,7 +1512,10 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     async waitForPasswordReset() {
       if (workday.resetLinksClaimed >= workday.resetEmails.length || !workday.resetEmails.length) return null;
       workday.resetLinksClaimed += 1;
-      return { url: `${tenantBase}/wd/password-reset?token=synthetic-reset-token`, messageId: 'synthetic-reset' };
+      const url = workday.tenantMode
+        ? `${tenantBase}${WORKDAY_MANUAL_JOB_PATH}?view=password-reset&token=synthetic-reset-token`
+        : `${tenantBase}/wd/password-reset?token=synthetic-reset-token`;
+      return { url, messageId: 'synthetic-reset' };
     },
     async completeRecovery(hostname) {
       const current = saved.get(hostname);
@@ -1462,7 +1529,10 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     async waitForVerification() {
       if (workday.activationLinksClaimed >= workday.activationResends || !workday.activationResends) return null;
       workday.activationLinksClaimed += 1;
-      return { url: `${tenantBase}/wd/activate?token=synthetic-activation`, messageId: 'synthetic-activation' };
+      const url = workday.tenantMode
+        ? `${tenantBase}${WORKDAY_MANUAL_JOB_PATH}?view=activate&token=synthetic-activation`
+        : `${tenantBase}/wd/activate?token=synthetic-activation`;
+      return { url, messageId: 'synthetic-activation' };
     },
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
@@ -1478,31 +1548,48 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
       }),
     });
   };
-  const runTenantWorkday = (order = job, candidate = portalTestCandidate({ permitAnswer: 'Yes' })) => submitViaPortal({
-    applyUrl: `${tenantBase}${WORKDAY_JOB_PATH}`,
-    postingUrl: 'https://jobs.example.test/room/consultant',
-    job: order,
-    language: 'en',
-    candidateLocale: 'it',
-    candidate,
-    files,
-    codex: fakeCodex,
-    accounts,
-    launch: () => launchChromium({
-      headless: true,
-      executablePath,
-      args: [
-        `--ignore-certificate-errors-spki-list=${browserTlsSpkiPin}`,
-        '--host-resolver-rules=MAP acme.wd3.myworkdayjobs.com 127.0.0.1',
-      ],
-    }),
-  });
+  const runTenantWorkday = async (order = job, candidate = portalTestCandidate({ permitAnswer: 'Yes' })) => {
+    workday.tenantMode = true;
+    const portalNavigationDiagnostics = [];
+    const tenantRequestStart = workday.tenantRequests.length;
+    try {
+      const result = await submitViaPortal({
+        applyUrl: `${tenantBase}${WORKDAY_JOB_PATH}`,
+        postingUrl: `${tenantBase}${WORKDAY_JOB_PATH}`,
+        job: order,
+        language: 'en',
+        candidateLocale: 'it',
+        candidate,
+        files,
+        codex: fakeCodex,
+        accounts,
+        onPortalNavigationDiagnostic: (entry) => {
+          if (portalNavigationDiagnostics.length < 12) portalNavigationDiagnostics.push(safePortalNavigationDiagnostic(entry));
+        },
+        launch: () => launchChromium({
+          headless: true,
+          executablePath,
+          args: [
+            `--ignore-certificate-errors-spki-list=${browserTlsSpkiPin}`,
+            '--host-resolver-rules=MAP acme.wd3.myworkdayjobs.com 127.0.0.1',
+          ],
+        }),
+      });
+      return {
+        ...result,
+        portalNavigationDiagnostics,
+        tenantRequests: workday.tenantRequests.slice(tenantRequestStart),
+      };
+    } finally {
+      workday.tenantMode = false;
+    }
+  };
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
 
   if (assistedOnly) {
     const seeded = await run();
     check('Workday: focused assisted-flow setup creates the account and applies', seeded.event.type === 'submit_succeeded');
-  } else {
+  } else if (!tenantOnly) {
   // The portal never answers the registration: no word of refusal, so the password stays for the next run.
   workday.silent = true;
   const unanswered = await run();
@@ -1579,6 +1666,7 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
   check('Workday: the run after that stop creates the account and sends the application',
     afterCover.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password && saved.get(host)?.status === 'created');
   }
+  if (!tenantOnly) {
   // An application in progress from an earlier run (the one that stopped for a question, a dry run): the page
   // after the sign-in asks to be refreshed and is, and the CV that run left is taken away before this run's
   // goes in — one CV on the application, never two.
@@ -1668,6 +1756,7 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     && !uploadsAfterOptionalLetterFailure.some((upload) => upload.document === 'cover_letter')
     && optionalLetterFailure.evidence.steps.some((step) => (step.failures || []).some((failure) => failure.error === 'upload_not_confirmed')),
     optionalLetterDiagnostics);
+  }
 
   const tenantHost = new URL(tenantBase).hostname;
   workday.accounts.delete(ALIAS);
@@ -1676,19 +1765,53 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
   const tenantApplicationsBefore = state.applications.length;
   const tenantRegistrationsBefore = workday.registrations;
   const tenantChoiceClicksBefore = { ...workday.choiceClicks };
+  const tenantRequestsBefore = workday.tenantRequests.length;
+  const nativeCvUploadsBefore = workday.nativeCvMultipartUploads;
+  const nativeCvSelectorClicksBefore = workday.nativeCvSelectorClicks;
+  const talentPoolRequestsBefore = workday.talentPoolRequests;
+  workday.nativeCvSelector = true;
   const tenantSuccess = await runTenantWorkday();
+  workday.nativeCvSelector = false;
+  const tenantRequests = workday.tenantRequests.slice(tenantRequestsBefore);
   check('Workday: a no-jobid tenant posting opens Apply, chooses only manual apply, signs in, and submits once',
     tenantSuccess.event.type === 'submit_succeeded'
     && state.applications.length === tenantApplicationsBefore + 1
     && workday.registrations === tenantRegistrationsBefore + 1
-    && workday.tenantRequests.includes(`GET ${WORKDAY_JOB_PATH}`)
-    && workday.tenantRequests.includes(`GET ${WORKDAY_JOB_PATH}/apply?locationCountry=CH`)
-    && workday.tenantRequests.includes(`GET ${WORKDAY_JOB_PATH}/apply/applyManually?locationCountry=CH`)
-    && !workday.tenantRequests.some((request) => /jobid=/i.test(request))
+    && tenantRequests.includes(`GET ${WORKDAY_JOB_PATH}`)
+    && tenantRequests.includes(`GET ${WORKDAY_MANUAL_JOB_PATH}`)
+    && tenantRequests.some((request) => request.startsWith(`GET ${WORKDAY_MANUAL_JOB_PATH}?view=form`))
+    && !tenantRequests.some((request) => /introduceYourself|jobid=/i.test(request))
+    && workday.talentPoolRequests === talentPoolRequestsBefore
+    && workday.nativeCvMultipartUploads === nativeCvUploadsBefore + 1
+    && workday.nativeCvSelectorClicks === nativeCvSelectorClicksBefore + 1
     && workday.choiceClicks.autofill === tenantChoiceClicksBefore.autofill
     && workday.choiceClicks.lastApplication === tenantChoiceClicksBefore.lastApplication
     && workday.headerSignIns === 0,
-    { event: { type: tenantSuccess.event.type, reason: tenantSuccess.event.reason || null }, requests: workday.tenantRequests.slice(-3) });
+    {
+      event: { type: tenantSuccess.event.type, error: tenantSuccess.event.error || null },
+      requests: tenantRequests.slice(-3),
+      nativeCvMultipartUploads: workday.nativeCvMultipartUploads - nativeCvUploadsBefore,
+      nativeCvSelectorClicks: workday.nativeCvSelectorClicks - nativeCvSelectorClicksBefore,
+      talentPoolRequests: workday.talentPoolRequests - talentPoolRequestsBefore,
+      finalUrl: tenantSuccess.evidence.finalUrl || null,
+      portalNavigation: tenantSuccess.portalNavigationDiagnostics,
+      uploads: (tenantSuccess.evidence.uploads || []).map((upload) => upload.document),
+      steps: tenantSuccess.evidence.steps.map((step) => ({
+        cv: step.cv || null,
+        cvUploadGuard: step.cvUploadGuard || null,
+        cvUploadDiagnostics: step.cvUploadDiagnostics || [],
+        applicationStage: step.applicationStage || null,
+        actions: (step.actions || []).map((action) => action.action || 'unknown'),
+        failures: (step.failures || []).map((failure) => failure.error || 'unknown'),
+      })),
+      lastSteps: tenantSuccess.evidence.steps.slice(-2).map((step) => ({
+        applicationStage: step.applicationStage || null,
+        cv: step.cv || null,
+        cvUploadDiagnostics: step.cvUploadDiagnostics || null,
+        failures: (step.failures || []).map((failure) => failure.error || 'unknown'),
+      })),
+    });
+  if (smokeOnly) return;
 
   workday.alreadyApplied = false;
   workday.recoveryUsed = false;
@@ -1720,14 +1843,14 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     && workday.registrations === duplicateRegistrationBefore + 1
     && unknownPasswordRecord?.status === 'exists_unknown_password'
     && unknownPasswordRecord.password == null
-    && state.applications.length === applicationsBeforeDuplicate);
+    && state.applications.length === applicationsBeforeDuplicate, stopContext(duplicateAccount));
   state.sessions.clear();
   const duplicateRetry = await runTenantWorkday();
   check('Workday: a recorded unknown-password account recovers by one reset request without re-registering',
     duplicateRetry.event.type === 'submit_succeeded'
     && workday.resetEmails.length === 1
     && workday.registrations === duplicateRegistrationBefore + 1
-    && state.applications.length === applicationsBeforeDuplicate + 1);
+    && state.applications.length === applicationsBeforeDuplicate + 1, stopContext(duplicateRetry));
 
   const tenantRecoveryHost = new URL(tenantBase).hostname;
   workday.accounts.set(ALIAS, 'synthetic-unknown-old-password');
@@ -1872,7 +1995,7 @@ async function main() {
     // The e-mail the portal would send to the alias, as the inbound handler stores it.
     async waitForVerification() { return state.pending ? { url: `${base}/activate?t=${state.pending.token}`, code: '' } : null; },
   };
-  const files = { cv: path.join(dir, 'CV_Luca_Bianchi.pdf'), cover_letter: path.join(dir, 'Anschreiben_Luca_Bianchi.pdf') };
+  const files = { cv: path.join(dir, 'candidate-cv.pdf'), cover_letter: path.join(dir, 'candidate-cover-letter.pdf') };
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
@@ -2053,7 +2176,9 @@ async function main() {
       && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
   };
   const workdayFocus = process.env.AA_PORTAL_E2E_FOCUS;
-  const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth';
+  const focusWorkdayTenant = workdayFocus === 'workday-tenant';
+  const focusWorkdayTenantSmoke = workdayFocus === 'workday-tenant-smoke';
+  const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth' || focusWorkdayTenant || focusWorkdayTenantSmoke;
   const focusCoop = workdayFocus === 'coop';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   const focusAgentBirthDate = workdayFocus === 'agent-birth-date';
@@ -2061,9 +2186,9 @@ async function main() {
   const focusUmantis = workdayFocus === 'umantis';
   const focusModalApplication = workdayFocus === 'modal-application';
   try {
-    if (!focusModalApplication) await hiddenFutureStepFileCheck({ executablePath, check });
+    if (!focusModalApplication && !focusWorkdayTenant && !focusWorkdayTenantSmoke) await hiddenFutureStepFileCheck({ executablePath, check });
     if (focusWorkday) {
-      await workdayAccountChecks({ base: workdayBase, tenantBase: workdayTenantBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted');
+      await workdayAccountChecks({ base: workdayBase, tenantBase: workdayTenantBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted', focusWorkdayTenant || focusWorkdayTenantSmoke, focusWorkdayTenantSmoke);
     } else if (focusCoop) {
       await runCoopChecks();
     } else if (focusAgentBirthDate) {

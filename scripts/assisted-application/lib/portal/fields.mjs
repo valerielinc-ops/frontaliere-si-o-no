@@ -1057,6 +1057,8 @@ function nativeQuestionText(value, counter = null) {
   const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
   const radios = new Map();
   const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
+  const CV_SECTION_TITLE_RE = /^(?:cv|r[eé]sum[eé]\s*\/\s*cv|lebenslauf|curriculum(?:\s+vitae)?)(?:\b|$)/iu;
+  const FILE_UPLOAD_MACHINE_LABEL_RE = /^file[-_ ]upload[-_ ]input(?:[-_ ]ref)?$/i;
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
@@ -1090,7 +1092,11 @@ function nativeQuestionText(value, counter = null) {
     const pills = multiselectId
       ? [...document.querySelectorAll(`[data-uxi-widget-type="selectinputlistitem"][data-uxi-multiselect-id="${CSS.escape(multiselectId)}"]`)].map((item) => clean(item.innerText)).filter(Boolean)
       : [];
-    const label = type === 'checkbox' ? checkboxLabelFor(element) : labelFor(element);
+    const section = headingBefore(element);
+    const nativeLabel = type === 'checkbox' ? checkboxLabelFor(element) : labelFor(element);
+    const label = type === 'file' && CV_SECTION_TITLE_RE.test(section)
+      && (!nativeLabel || FILE_UPLOAD_MACHINE_LABEL_RE.test(nativeLabel))
+      ? section : nativeLabel;
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
@@ -1106,7 +1112,7 @@ function nativeQuestionText(value, counter = null) {
       ...privacyFieldMetadata(element, label),
       context: sectionContext(element),
       addressContext: ownedAddressContext(element),
-      section: headingBefore(element),
+      section,
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
@@ -1384,6 +1390,11 @@ function nativeQuestionText(value, counter = null) {
     return { form: forms.indexOf(element.form || element.closest('form')), ...(ownLabel ? { ownLabel } : {}), ...(leavesDocument(element) ? { leavesDocument: true } : {}) };
   };
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
+  const visibleDialogs = [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible);
+  const visibilityMetadata = (element) => ({
+    ariaHidden: hiddenFromPeople(element),
+    behindDialog: visibleDialogs.length > 0 && !visibleDialogs.some((dialog) => dialog.contains(element)),
+  });
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
     const name = buttonName(element);
@@ -1400,6 +1411,7 @@ function nativeQuestionText(value, counter = null) {
         const cookieSurface = cookieSurfaceFor(element);
         return cookieSurface ? { cookieSurface } : {};
       })(),
+      ...visibilityMetadata(element),
       // Consent confirmation compares this action with a later snapshot.
       // Keep the physical node identity so duplicate DOM ids cannot be
       // mistaken for the opener after a redraw or reorder.
@@ -1481,6 +1493,8 @@ function nativeQuestionText(value, counter = null) {
       && !disclosureMenuItem(element))
     .slice(0, 60)
     .map((element) => ({
+      ...visibilityMetadata(element),
+      ...dialogMeta(element),
       id: idFor(element),
       text: buttonName(element),
       label: buttonAccessibleLabel(element),

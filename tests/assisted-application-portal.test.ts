@@ -815,7 +815,7 @@ describe('legacy portal sections', () => {
       isMultiple: vi.fn(() => false),
       setFiles: vi.fn(async () => { selected = true; }),
       // The tenant redraws the native input after handling the chooser event.
-      element: vi.fn(async () => (selected ? null : input)),
+      element: vi.fn(() => (selected ? null : input)),
     };
     const frame = {
       url: () => snapshot.url,
@@ -844,6 +844,7 @@ describe('legacy portal sections', () => {
     expect(result.cv).toBe('uploaded');
     expect(page.waitForEvent).toHaveBeenCalledWith('filechooser', { timeout: 8_000 });
     expect(chooser.setFiles).toHaveBeenCalledWith('/fixtures/candidate-cv.pdf');
+    expect(chooser.element).toHaveBeenCalled();
     expect(trigger.click).toHaveBeenCalledOnce();
   });
 
@@ -929,7 +930,7 @@ describe('legacy portal sections', () => {
         eventListeners.get('response')?.({ request: () => request, status: () => 200 });
         eventListeners.get('requestfinished')?.(request);
       }),
-      element: vi.fn(async () => null),
+      element: vi.fn(() => null),
     };
     const snapshot = {
       url: 'https://career5.successfactors.eu/careers',
@@ -1034,7 +1035,7 @@ describe('legacy portal sections', () => {
       evaluate: vi.fn(async () => ['candidate-cv.pdf']),
     };
     const chooser = {
-      element: vi.fn(async () => activeTrigger === 'cv-b-live' ? uploadedInput : null),
+      element: vi.fn(() => activeTrigger === 'cv-b-live' ? uploadedInput : null),
       setFiles: vi.fn(async () => {
         if (activeTrigger === 'cv-a-old') {
           snapshotIndex = 1;
@@ -1576,6 +1577,20 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('other-frame-picker', 0)] }, 'cv')).toEqual([]);
     expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('same-frame-picker', 1)] }, 'cv'))
       .toMatchObject([{ id: 'same-frame-picker', frame: 1 }]);
+  });
+
+  it('keeps a generic Workday file picker bound to its own document section', () => {
+    const picker = { id: 'select-files', text: 'Select file', section: 'CV', context: 'CV · Cover Letter', frame: 0 };
+    const snapshot = {
+      fields: [
+        { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', name: 'cv' },
+        { id: 'letter', kind: 'file', inputType: 'file', label: 'Cover Letter', name: 'letter' },
+      ],
+      buttons: [picker],
+    };
+
+    expect(uploadButtonCandidatesFor(snapshot, 'cv')).toEqual([picker]);
+    expect(uploadButtonCandidatesFor(snapshot, 'cover_letter')).toEqual([]);
   });
 
   it('keeps upload retry keys stable across redraws and shared automation ids', () => {

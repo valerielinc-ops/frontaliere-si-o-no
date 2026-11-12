@@ -56,12 +56,12 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, url: slashReceiptUrl }, { applyUrl, job })).toBe(true);
   });
 
-  it('advances through Swarovski Workday’s fieldless French start screen instead of treating Postuler as final', () => {
-    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant-m-w-d-Mendrisio-Outlet_123';
-    const start = { id: 'start', text: 'Démarrer', frame: 0, disabled: false };
+  it('does not advance from the Workday posting into the talent-pool introduction', () => {
+    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant-m-w-d-Mendrisio-Outlet_R-12345';
+    const start = { id: 'introduce-yourself', text: 'Démarrer', dataAutomationId: 'introduceYourselfButton', section: 'Présentez-vous', frame: 0, disabled: false };
     const workdaySnapshot = {
       url: workdayApplyUrl,
-      text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet',
+      text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet Présentez-vous',
       fields: [],
       buttons: [
         { text: 'Lire tout le message sur la confidentialité', chrome: true },
@@ -79,20 +79,19 @@ describe('application stage ownership', () => {
     };
     const workdayJob = { title: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet' };
 
-    expect(applicationStage(workdaySnapshot, { applyUrl: workdayApplyUrl, job: workdayJob }))
-      .toMatchObject({ kind: 'application_start', control: start });
+    expect(applicationStage(workdaySnapshot, { applyUrl: workdayApplyUrl, job: workdayJob }).kind).toBe('unknown_apply');
     const result = pageControls(workdaySnapshot.buttons, known, workdayApplyUrl, {
       snapshot: workdaySnapshot,
       applyUrl: workdayApplyUrl,
       job: workdayJob,
     });
     expect(result.submit).toBeNull();
-    expect(result.next).toBe(start);
+    expect(result.next).toBeNull();
   });
 
   it.each([
-    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2',
-    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2/apply',
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Ticino/Consultant_R-12345-1',
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Ticino/Consultant_R-12345-1/apply',
   ])('accepts Swarovski Workday one-segment job routes: %s', (workdayApplyUrl) => {
     const start = { id: 'start', text: 'Démarrer', frame: 0, disabled: false };
     const snapshot = {
@@ -110,7 +109,7 @@ describe('application stage ownership', () => {
 
   it.each([
     ['a non-Workday host', 'https://careers.example/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
-    ['a non-start label', 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
+    ['a non-start label', 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345'],
   ])('keeps the generic Apply guard for %s', (_case, url) => {
     const buttons = [
       { text: 'Postuler', frame: 0, disabled: false },
@@ -122,7 +121,7 @@ describe('application stage ownership', () => {
   });
 
   it('does not bypass the field guard when Workday exposes a start label beside form controls', () => {
-    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123';
+    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345';
     const snapshot = {
       url: workdayApplyUrl,
       text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet',
@@ -134,6 +133,38 @@ describe('application stage ownership', () => {
     };
     expect(applicationStage(snapshot, { applyUrl: workdayApplyUrl, job: { title: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet' } }).kind)
       .toBe('unknown_apply');
+  });
+
+  it.each([
+    'Not an application for a specific job',
+    'Pas une candidature pour un poste spécifique',
+    'Keine Bewerbung für eine bestimmte Stelle',
+    'Non è una candidatura per una posizione specifica',
+  ])('rejects Workday talent-pool routes and non-job-specific application copy before form handling: %s', (copy) => {
+    const applyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345/apply/applyManually';
+    const talentPoolUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/introduceYourself';
+    expect(applicationStage({ url: talentPoolUrl, text: 'Démarrer' }, { applyUrl }).kind).toBe('posting_mismatch');
+    expect(applicationStage({ url: applyUrl, text: copy }, { applyUrl }).kind)
+      .toBe('posting_mismatch');
+  });
+
+  it('confirms a Workday receipt only after a final click on the same requisition and an empty form', () => {
+    const submissionUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Mendrisio-Outlet-CHE/Consultant_R-12345-1/apply/applyManually?view=submit';
+    const received = {
+      url: submissionUrl,
+      text: 'Vielen Dank für Ihre Bewerbung',
+      fields: [],
+      buttons: [],
+    };
+    const finalSubmission = { clicked: true };
+    expect(applicationReceipt(received, { applyUrl: submissionUrl, submissionUrl, finalSubmission })).toBe(true);
+    expect(applicationReceipt(received, { applyUrl: submissionUrl, submissionUrl })).toBe(false);
+    expect(applicationReceipt({ ...received, fields: [{ inputType: 'email', disabled: false }] }, {
+      applyUrl: submissionUrl, submissionUrl, finalSubmission,
+    })).toBe(false);
+    expect(applicationReceipt({ ...received, url: submissionUrl.replace('Consultant_R-12345-1', 'Consultant_R-54321-1') }, {
+      applyUrl: submissionUrl, submissionUrl, finalSubmission,
+    })).toBe(false);
   });
 
   it('recognizes Helsana receipt copy after the verified SuccessFactors route redirects to root', () => {
