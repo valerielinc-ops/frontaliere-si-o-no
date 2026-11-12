@@ -125,6 +125,9 @@ on:
   workflow_run:
     workflows:
       - "Hydrated article parity"
+      # Keep the pre-rename spelling while an in-flight deploy can still emit
+      # its completion event with the old workflow name.
+      - "Deploy to GitHub Pages"
       - "Publish to GitHub Pages (deploy + validate)"
     types: [completed]
 
@@ -212,8 +215,10 @@ jobs:
           INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
-          if [ "${{ github.event_name }}" = "workflow_run" ] &&
-             [ "${{ github.event.workflow_run.name }}" = "Publish to GitHub Pages (deploy + validate)" ]; then
+          if [ "${{ github.event_name }}" = "workflow_run" ] && {
+               [ "${{ github.event.workflow_run.name }}" = "Deploy to GitHub Pages" ] ||
+               [ "${{ github.event.workflow_run.name }}" = "Publish to GitHub Pages (deploy + validate)" ];
+             }; then
             # A queued deploy may complete after a newer push has reached main.
             # Do not replay its old source against the newer renderer: wait for
             # the deploy run whose head is still the current main tip.

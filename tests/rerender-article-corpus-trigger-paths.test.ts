@@ -308,10 +308,12 @@ describe('rerender-article-hubs deployment ordering', () => {
 
   it('waits for a successful full deploy before a code-triggered fan-out', () => {
     expect(workflow?.on?.workflow_run?.workflows).toContain('Hydrated article parity');
+    expect(workflow?.on?.workflow_run?.workflows).toContain('Deploy to GitHub Pages');
     expect(workflow?.on?.workflow_run?.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
 
     const condition = String(plan?.if ?? '');
     expect(condition).toContain("github.event_name != 'push'");
+    expect(String(compute?.run ?? '')).toContain('[ "${{ github.event.workflow_run.name }}" = "Deploy to GitHub Pages" ]');
     expect(condition).toContain("github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)'");
     expect(condition).toContain("github.event.workflow_run.conclusion == 'success'");
     expect(condition).toContain("github.event.workflow_run.name == 'Hydrated article parity'");
