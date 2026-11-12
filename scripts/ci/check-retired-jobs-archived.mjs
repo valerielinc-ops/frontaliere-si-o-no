@@ -33,8 +33,8 @@
  *     [--prefetch]
  *
  * `--prefetch` fetches, in one pack, the slice blobs of both revisions that a
- * blobless CI checkout does not have yet (CHECKOUT_TOKEN/GITHUB_TOKEN and
- * GITHUB_REPOSITORY are read as in scripts/ci/prefetch-history-blobs.mjs).
+ * blobless CI checkout does not have yet, through the fetch of
+ * scripts/ci/prefetch-history-blobs.mjs (CHECKOUT_TOKEN/GITHUB_TOKEN, REPOSITORY).
  */
 
 import { execFileSync, spawn } from 'node:child_process';
@@ -44,6 +44,7 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isHeldFromPublication } from '../lib/translation-publication-hold.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
+import { prefetch as prefetchBlobs, verifyPrefetchedBlobs } from './prefetch-history-blobs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -168,16 +169,9 @@ function prefetchMissing(oids) {
   });
   const missing = check.split('\n').filter((line) => / missing$/u.test(line)).map((line) => line.split(' ')[0]);
   if (missing.length === 0) return;
-  const token = process.env.CHECKOUT_TOKEN || process.env.GITHUB_TOKEN;
-  const repository = process.env.REPOSITORY || process.env.GITHUB_REPOSITORY;
-  if (!token || !repository) {
-    throw new Error(`${missing.length} slice blob(s) are not local and no token/repository is set for --prefetch`);
-  }
   console.log(`📦 Prefetching ${missing.length} slice blob(s) in one pack.`);
-  git(['fetch-pack', '--keep', '--no-progress', '--stdin',
-    `https://x-access-token:${encodeURIComponent(token)}@github.com/${repository}.git`], {
-    input: `${missing.join('\n')}\n`,
-  });
+  prefetchBlobs(missing);
+  verifyPrefetchedBlobs(missing);
 }
 
 /** Streams blobs through one `git cat-file --batch` and parses each slice. */

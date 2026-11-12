@@ -59,12 +59,13 @@ function checkoutRemoteUrl() {
   return `https://x-access-token:${encodeURIComponent(token)}@github.com/${repository}.git`;
 }
 
-function prefetch(oids) {
+/** Fetch the given blob ids in one pack (shared with check-retired-jobs-archived.mjs). */
+export function prefetch(oids) {
   const input = `${oids.join('\n')}\n`;
   runGit(['fetch-pack', '--keep', '--no-progress', '--stdin', checkoutRemoteUrl()], { input });
 }
 
-function verifyPrefetchedBlobs(oids) {
+export function verifyPrefetchedBlobs(oids) {
   const output = runGit(['cat-file', '--batch-check'], { input: `${oids.join('\n')}\n` });
   const invalid = output
     .trim()
