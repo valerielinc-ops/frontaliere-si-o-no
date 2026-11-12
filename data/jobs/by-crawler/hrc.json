@@ -510,12 +510,12 @@
     },
     {
       "id": "hrc-bbe1caa48e4e",
-      "slug": "medecin-adjoint-m-w-d-en-urologie-a-80-100-hopital-riviera-chablais-hrc-rennaz",
+      "slug": "assistente-medico-m-f-in-urologia-a-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz",
-        "it": "medecin-adjoint-m-w-d-en-urologie-a-80-100-hopital-riviera-chablais-hrc-rennaz",
-        "en": "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz",
-        "de": "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz"
+        "it": "assistente-medico-m-f-in-urologia-a-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "assistant-physician-m-f-in-urology-at-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "assistenzarzt-m-w-in-der-urologie-bei-80-100-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -563,11 +563,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz",
+          "medecin-adjoint-m-w-d-en-urologie-a-80-100-hopital-riviera-chablais-hrc-rennaz"
+        ],
+        "en": [
+          "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz"
+        ],
+        "de": [
           "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz"
+        "medecin-adjoint-h-f-en-urologie-a-80-100-hrc-rennaz",
+        "medecin-adjoint-m-w-d-en-urologie-a-80-100-hopital-riviera-chablais-hrc-rennaz"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

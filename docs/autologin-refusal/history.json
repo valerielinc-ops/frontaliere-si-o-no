@@ -16,36 +16,6 @@
   },
   "days": [
     {
-      "date": "2026-09-11",
-      "windowHours": 24,
-      "counts": {
-        "accepted": 142,
-        "lockout": 0,
-        "optout": 0,
-        "clock": 2,
-        "noise": 2,
-        "unknown": 0
-      },
-      "byReason": {
-        "invalid_auth_code": 2,
-        "auth_code_not_yet_valid": 2
-      },
-      "graded": 142,
-      "lockoutRate": 0,
-      "acceptedByScheme": {
-        "v1": 141,
-        "legacy": 1
-      },
-      "ageDaysP50": 0,
-      "ageDaysP95": 3,
-      "observedPolicy": {
-        "mintScheme": "v1",
-        "ttlDays": 30,
-        "legacySunset": null
-      },
-      "findings": []
-    },
-    {
       "date": "2026-09-12",
       "windowHours": 24,
       "counts": {
@@ -1802,6 +1772,35 @@
       "findings": [
         "first_lockout_after_zero_baseline"
       ]
+    },
+    {
+      "date": "2026-11-12",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 72,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 1,
+        "noise": 3,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 3,
+        "auth_code_not_yet_valid": 1
+      },
+      "graded": 72,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 72
+      },
+      "ageDaysP50": 1,
+      "ageDaysP95": 8,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
     }
   ]
 }

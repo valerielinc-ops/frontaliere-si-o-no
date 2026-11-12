@@ -1367,12 +1367,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-ebed0423d502",
-      "slug": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
+      "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland",
       "slugByLocale": {
         "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "en": "medical-secretary-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "de": "medizinische-sekretarin-hopital-fribourgeois-hfr-fribourg-switzerland"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -1436,7 +1436,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:58:00.862Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z"
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+      ]
     }
   ]
 }

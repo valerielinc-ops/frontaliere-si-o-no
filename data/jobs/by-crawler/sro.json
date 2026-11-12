@@ -431,12 +431,12 @@
     },
     {
       "id": "sro-474eca03dad6",
-      "slug": "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal",
+      "slug": "psicologo-psicologo-eta-psichiatria-50-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal",
-        "it": "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal",
-        "en": "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal",
-        "fr": "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal"
+        "it": "psicologo-psicologo-eta-psichiatria-50-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "psychologist-psychologist-age-psychiatry-50-80-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "psychologue-psychologue-psychiatrie-50-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -502,7 +502,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T09:22:50.020Z"
+      "firstSeenAt": "2026-11-12T09:22:50.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal"
+        ],
+        "en": [
+          "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal"
+        ],
+        "fr": [
+          "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologen-alterspsychiatrie-50-80-sro-langenthal"
+      ]
     },
     {
       "id": "sro-3b6dc526deb4",
