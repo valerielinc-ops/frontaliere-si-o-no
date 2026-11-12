@@ -1,5 +1,6 @@
 #!/usr/bin/env -S npx tsx
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * monitor-sector-coverage.mjs — Post-deploy check for job-matching coverage
@@ -973,7 +974,7 @@ async function main() {
   );
   const { resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
 
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = readJsonFile(JOBS_PATH);
 
   // Symlink (not copy) — instant, no 300MB+ duplicate read/write of the
   // jobs corpus just to satisfy the aggregators' hardcoded data/ path.

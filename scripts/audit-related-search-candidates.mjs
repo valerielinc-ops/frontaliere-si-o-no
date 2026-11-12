@@ -30,6 +30,7 @@
 // one, mirror to the other.
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serializeCandidatesFile } from './lib/related-search-serialize.mjs';
@@ -368,7 +369,7 @@ function main() {
     console.error(`✗ ${JOBS_PATH} not found. Run: node scripts/assemble-jobs-dataset.mjs`);
     process.exit(1);
   }
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = readJsonFile(JOBS_PATH);
   const gscClustersRaw = fs.existsSync(GSC_CLUSTERS_PATH)
     ? JSON.parse(fs.readFileSync(GSC_CLUSTERS_PATH, 'utf8'))
     : { clusters: [] };

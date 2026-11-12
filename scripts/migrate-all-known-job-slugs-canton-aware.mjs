@@ -30,6 +30,7 @@
 // TI invariance: jobs whose resolved canton is TI keep the legacy section
 // path verbatim — resolveCantonSection short-circuits on 'TI'.
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
@@ -69,7 +70,7 @@ for (const locale of LOCALES) {
 
 // ── Migration body ─────────────────────────────────────────────────
 const tracking = readAllKnownJobSlugs();
-const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+const jobs = readJsonFile(JOBS_PATH);
 
 // 1. Index every job slug-alias -> job (so we can resolve its canton).
 const slugToJob = new Map();

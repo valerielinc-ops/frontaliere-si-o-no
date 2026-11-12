@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { htmlToText } from '../functions/src/lib/mimeMessage.js';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
@@ -227,7 +228,7 @@ export function __setJobsForTest(jobs) {
 }
 
 function loadJobsById() {
-  const jobs = _jobsForTest || JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = _jobsForTest || readJsonFile(JOBS_PATH);
   const byId = new Map();
   for (const job of jobs) byId.set(job.id, job);
   return byId;

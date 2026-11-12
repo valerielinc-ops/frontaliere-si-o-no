@@ -435,7 +435,7 @@ function deduplicateWithinSliceSlugs(jobs) {
 function archiveExpiredJobs(removedJobs, allJobsById) {
   let existing = [];
   try {
-    existing = JSON.parse(fs.readFileSync(EXPIRED_JOBS_PATH, 'utf-8'));
+    existing = readJsonFile(EXPIRED_JOBS_PATH);
     if (!Array.isArray(existing)) existing = [];
   } catch { /* file missing or malformed — start fresh */ }
 

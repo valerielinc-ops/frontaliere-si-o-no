@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from '../lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * meta-translation-audit.mjs — Workstream G.3
@@ -37,7 +38,7 @@ function normalizeForCompare(s) {
 function loadJobs() {
   if (!existsSync(JOBS_JSON)) return null;
   try {
-    const parsed = JSON.parse(readFileSync(JOBS_JSON, 'utf-8'));
+    const parsed = readJsonFile(JOBS_JSON);
     if (Array.isArray(parsed)) return parsed;
     if (Array.isArray(parsed.jobs)) return parsed.jobs;
     if (parsed && typeof parsed === 'object') {

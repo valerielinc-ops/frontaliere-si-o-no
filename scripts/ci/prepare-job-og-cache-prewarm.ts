@@ -1,4 +1,5 @@
 import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { readJsonFile } from '../lib/read-large-json.mjs';
 import path from 'node:path';
 import {
   findMissingJobOgImageJobs,
@@ -10,7 +11,7 @@ const outputDir = process.argv[2];
 if (!outputDir) throw new Error('usage: prepare-job-og-cache-prewarm.ts <output-directory>');
 
 const jobsPath = path.join(rootDir, 'data/jobs.json');
-const parsed = JSON.parse(readFileSync(jobsPath, 'utf8')) as unknown;
+const parsed = readJsonFile(jobsPath) as unknown;
 const jobs = Array.isArray(parsed)
   ? parsed as JobMinimal[]
   : (parsed as { jobs?: JobMinimal[] } | null)?.jobs;

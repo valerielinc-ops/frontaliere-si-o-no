@@ -39,6 +39,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import {
@@ -154,7 +155,7 @@ export async function fetchOnsiteSearchTerms({
 function loadJobs() {
   if (fs.existsSync(JOBS_PATH)) {
     try {
-      const parsed = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+      const parsed = readJsonFile(JOBS_PATH);
       const jobs = Array.isArray(parsed) ? parsed : parsed.jobs;
       if (Array.isArray(jobs) && jobs.length > 0) {
         console.error(`[signal B] data/jobs.json: ${jobs.length} jobs`);

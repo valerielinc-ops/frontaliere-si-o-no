@@ -133,6 +133,7 @@
  *     qualityScore
  */
 import { decode as decodeHTML } from 'html-entities';
+import { readJsonFile } from './read-large-json.mjs';
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import path from 'node:path';
@@ -1350,7 +1351,7 @@ export async function runStandardCrawlerPipeline(config) {
   // corrected metadata. Restore the published identity once more at the
   // definitive boundary, immediately before slice publication.
   if (preserveExistingSlugs && fs.existsSync(DATA_JOBS)) {
-    const validatedRaw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const validatedRaw = readJsonFile(DATA_JOBS);
     const validatedJobs = Array.isArray(validatedRaw)
       ? validatedRaw
       : (Array.isArray(validatedRaw?.jobs) ? validatedRaw.jobs : []);
@@ -1368,7 +1369,7 @@ export async function runStandardCrawlerPipeline(config) {
   // writeJobsCrawlerSlice has a FINAL safety net that strips any
   // previousSlug matching an active slug — defense against all upstream bugs.
   const durationMs = getCrawlerElapsedMs();
-  const sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const sliceJobs = Array.isArray(sliceRaw) ? sliceRaw.filter(isCompanyJob) : [];
   const thinHousekeepingProof = buildThinSourceHousekeepingProof(
     diff.removedJobs,

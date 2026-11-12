@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from '../lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * slug-translation-audit.mjs — Workstream G.1
@@ -79,8 +80,7 @@ const LITERAL_FLAGS = {
 function loadJobs() {
   if (!existsSync(JOBS_JSON)) return null;
   try {
-    const raw = readFileSync(JOBS_JSON, 'utf-8');
-    const parsed = JSON.parse(raw);
+    const parsed = readJsonFile(JOBS_JSON);
     if (Array.isArray(parsed)) return parsed;
     if (Array.isArray(parsed.jobs)) return parsed.jobs;
     // Some shapes keyed by id.
