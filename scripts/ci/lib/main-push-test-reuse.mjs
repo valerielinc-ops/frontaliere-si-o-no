@@ -14,6 +14,10 @@ const exactTestPolicyPaths = new Set([
   'tests/run-related-tests-sparse.test.ts',
   'tests/scripts/main-push-test-reuse.test.ts',
   'tests/scripts/select-max-workers.test.ts',
+  'tests/trusted-policy-module-graph.test.ts',
+  'tests/typecheck-gate-wired.test.ts',
+  'tests/workflow-edited-body-isolation.test.ts',
+  'tests/workflow-review-autorebase-order.test.ts',
   'package-lock.json',
   'vitest.config.ts',
 ]);
