@@ -170,7 +170,6 @@ export async function discoverFastPublishJobs(
       const paths = pathsForJob(job);
       if (
         !Array.isArray(paths) ||
-        paths.length === 0 ||
         paths.some(
           (path) =>
             typeof path !== "string" ||

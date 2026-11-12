@@ -4,11 +4,17 @@ import {
   buildFastLaneExpectedPagePlan,
   buildFastLaneRequestHeaders,
   buildFastLaneHubVisibleJobIdsByLocale,
+  canonicalPathsForFastLaneJob,
   extractFirstPartyAssetUrls,
   hasGoogleAnalyticsRuntime,
   validateFullBuildActiveJobAlternates,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
+import {
+  ACTIVE_JOB_PAGE_LOCALES,
+  buildActiveJobPathOwners,
+  localizedActiveJobSlug,
+} from "../build-plugins/shared/activeJobPageSelection";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
 
 describe("jobs fast-publish HTML asset contract", () => {
@@ -104,6 +110,29 @@ describe("jobs fast-publish HTML asset contract", () => {
       { locale: "de", ownerId: "full-build-winner" },
       { locale: "fr", ownerId: "full-build-winner" },
     ]);
+
+    const pathOwners = buildActiveJobPathOwners(
+      jobs,
+      ACTIVE_JOB_PAGE_LOCALES,
+      helpers.resolveJobCanton,
+      localizedActiveJobSlug,
+    );
+    expect(
+      canonicalPathsForFastLaneJob(jobs[1], {
+        ...helpers,
+        pathOwners,
+      }),
+    ).toEqual([
+      "/cerca-lavoro-ticino/partial-role-it/",
+      "/de/jobs-im-tessin/partial-role-de/",
+      "/fr/trouver-emploi-tessin/partial-role-fr/",
+    ]);
+    expect(
+      canonicalPathsForFastLaneJob(jobs[2], {
+        ...helpers,
+        pathOwners,
+      }),
+    ).toEqual([]);
 
     const renderer = readFileSync(
       new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),

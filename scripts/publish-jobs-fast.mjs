@@ -68,12 +68,17 @@ function rootFromEnv() {
   return path.resolve(process.env.GITHUB_WORKSPACE || process.cwd());
 }
 
-function canonicalPathsForFastLaneJob(
+export function canonicalPathsForFastLaneJob(
   job,
-  { buildCanonicalJobDetailPath, resolveJobCanton },
+  { buildCanonicalJobDetailPath, resolveJobCanton, pathOwners },
 ) {
   const canton = resolveJobCanton(job);
-  return LOCALES.map((locale) =>
+  return LOCALES.filter((locale) => {
+    const slug = localizedActiveJobSlug(job, locale);
+    return (
+      pathOwners.get(activeJobPathOwnerKey(canton, locale, slug)) === job
+    );
+  }).map((locale) =>
     buildCanonicalJobDetailPath(
       locale,
       job,
@@ -1172,6 +1177,8 @@ function selectBatch(candidates, resolveJobCanton, pageCountForId) {
       detailPageCount +
       candidatePageCount +
       (nextCantons.size + 1) * LOCALES.length;
+    // Keep the durable oldest-first order. The first candidate that does not
+    // fit remains queued and is reconsidered after this batch publishes.
     if (expectedPageCount > MAX_PAGES_PER_RUN) break;
     selected.push(candidate);
     cantons.add(canton);
@@ -1202,8 +1209,7 @@ function logFullBuildPageSelection(pagePlan) {
       "[jobs-fast] full-build locale ownership partial offers=" +
         partial.length +
         ": " +
-        partial.slice(0, 20).join(" ") +
-        (partial.length > 20 ? " (+" + (partial.length - 20) + " more)" : ""),
+        partial.join(" "),
     );
   }
 }
@@ -1419,6 +1425,7 @@ export async function runJobsFastPublish({
     canonicalPathsForFastLaneJob(job, {
       buildCanonicalJobDetailPath: jobDetailPath.buildCanonicalJobDetailPath,
       resolveJobCanton: canton.resolveJobCanton,
+      pathOwners: fullBuildPathOwners,
     });
   const discovered = await discoverFastPublishJobs(validJobs, {
     write: !dryRun,

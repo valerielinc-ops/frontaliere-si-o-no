@@ -150,6 +150,30 @@ describe("jobs-fast durable state", () => {
     ).rejects.toThrow("pathsForJob is required");
   });
 
+  it("bootstraps a fully shadowed offer with no previous routes to remove", async () => {
+    const db = new FakeFirestore();
+    const original = job("shadowed-old-offer", 10);
+
+    await expect(
+      discoverFastPublishJobs([original], {
+        db,
+        now,
+        write: true,
+        pathsForJob: () => [],
+      }),
+    ).resolves.toEqual([]);
+
+    const changed = { ...original, title: "Titolo aggiornato" };
+    const pending = await discoverFastPublishJobs([changed], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => [],
+    });
+    expect(pending).toHaveLength(1);
+    expect(pending[0].previousPaths).toEqual([]);
+  });
+
   it("deduplicates published fingerprints and carries prior canonical paths for changed offers", async () => {
     const db = new FakeFirestore();
     const original = job("offer-1", 1);
