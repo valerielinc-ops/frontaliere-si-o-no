@@ -27,18 +27,18 @@ describe('selectMaxWorkers', () => {
     ).toBe('2');
   });
 
-  it('keeps exceptionally large related selections serial beside typecheck', () => {
+  it('uses two workers for very large related selections now that typecheck follows Vitest', () => {
     expect(
       selectMaxWorkers({
         usedFullFallback: false,
         maxWorkers: '1',
         maxWorkersFallback: '3',
-        relatedTestCount: 300,
+        relatedTestCount: 1724,
       }),
-    ).toBe('1');
+    ).toBe('2');
   });
 
-  it('retains two workers just below the exceptionally large threshold', () => {
+  it('keeps two workers for large related selections below 300 files', () => {
     expect(
       selectMaxWorkers({
         usedFullFallback: false,
@@ -103,6 +103,14 @@ describe('selectMaxWorkers', () => {
     expect(
       selectMaxWorkers({ usedFullFallback: true, maxWorkers: undefined, maxWorkersFallback: undefined }),
     ).toBeUndefined();
+  });
+
+  it('keeps the high-memory typecheck after the related Vitest run', () => {
+    const workflow = readFileSync(join(__dirname, '../../.github/workflows/tests.yml'), 'utf8');
+    const vitestAt = workflow.indexOf('      - name: vitest related (PR diff)');
+    const typecheckAt = workflow.indexOf('      - name: Typecheck after detached source gates');
+    expect(vitestAt).toBeGreaterThanOrEqual(0);
+    expect(typecheckAt).toBeGreaterThan(vitestAt);
   });
 });
 

@@ -65,6 +65,29 @@ const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).s
 const TIMEOUT = 180_000;
 
 describe('profili di sparse-checkout', () => {
+  it('il preflight di main materializza solo il verifier e i suoi helper', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'tests.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const job = workflow?.jobs?.['verify-main-push'];
+    const checkout = job?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const paths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(job?.if).toContain("github.event_name == 'push'");
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(paths).toEqual([
+      '/scripts/ci/lib/constants.mjs',
+      '/scripts/ci/lib/main-push-test-reuse.mjs',
+      '/scripts/ci/verify-main-push-test-reuse.mjs',
+    ]);
+  });
+
   it('non interpreta un suffisso .sh dell allow-list come comando shell', () => {
     expect(checkoutEntryPoints([
       '/scripts/ci/overlay-durable-loop-fleet-ledger.sh',

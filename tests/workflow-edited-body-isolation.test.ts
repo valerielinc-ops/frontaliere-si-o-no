@@ -184,15 +184,20 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
 }
 
 describe('one code verdict and metadata-triggered review recovery', () => {
-  it('has exactly one unconditional required execution job and reviews edited PR metadata', () => {
-    // L'unico altro job, `post-review`, e' condizionato, dipende da `vitest` e
-    // non porta il nome del check required.
-    expect(Object.keys(workflow.jobs)).toEqual(['vitest', 'post-review']);
+  it('has one required execution job and a main-only reuse preflight', () => {
+    // `verify-main-push` è leggero e produce solo una prova per il riuso;
+    // `vitest` resta l'unico job required e `post-review` non porta quel nome.
+    expect(Object.keys(workflow.jobs)).toEqual(['verify-main-push', 'vitest', 'post-review']);
+    expect(workflow.jobs['verify-main-push'].if).toContain("github.event_name == 'push'");
     expect(workflow.jobs['post-review'].needs).toBe('vitest');
     expect(workflow.jobs['post-review'].name).not.toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_CHECK_NAME);
     expect(job.name).toBe(VITEST_EXECUTION_JOB_NAME);
-    expect(job.if).toBeUndefined();
+    expect(job.if).toContain('always()');
+    expect(job.if).toContain('!cancelled()');
+    expect(job.if).toContain("github.event_name != 'push'");
+    expect(job.if).toContain("needs.verify-main-push.outputs.verified != 'true'");
+    expect(job.if).toContain("needs.verify-main-push.outputs.reuse != 'true'");
     expect(workflow.on.pull_request.types).not.toContain('labeled');
     // Un `edited` lascia l'HEAD invariato: far ripartire questa run rimisura
     // codice identico. Erano 38 delle 116 run su PR (33%) nelle ultime 200,
@@ -240,6 +245,11 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       if (step.name === 'Classify cancelled run') {
         expect(step.if).toContain('always()');
         expect(step.if).toContain('cancelled()');
+        continue;
+      }
+      if (step.name === 'Record tested merge tree for main health signal') {
+        expect(step.if).toContain("steps.event_tree_checkout.outcome == 'success'");
+        expect(step.if).toContain("github.event_name == 'pull_request'");
         continue;
       }
       if (step.if) expect(step.if).toContain("steps.body_contract.outcome != 'failure'");
