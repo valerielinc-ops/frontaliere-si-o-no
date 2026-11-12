@@ -28,13 +28,14 @@ async function runCleanup(
   expiredDir: string,
   fetchPreloadPath: string,
   fetchMarkerPath: string,
+  housekeepingScope = 'bucherer',
 ): Promise<{ code: number | null; output: string }> {
   return await new Promise((resolve, reject) => {
     const child = spawn(process.execPath, [SCRIPT_PATH], {
       env: {
         ...process.env,
         JOBS_SLICE_FILE: slicePath,
-        JOBS_HOUSEKEEPING_SCOPE: 'bucherer',
+        JOBS_HOUSEKEEPING_SCOPE: housekeepingScope,
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_SKIP_URL_VALIDATION: '',
         JOBS_STALE_DAYS: '60',
@@ -93,5 +94,52 @@ describe('grouped crawler slice housekeeping', () => {
     const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
     expect(written.jobs).toHaveLength(1);
     expect(written.jobs[0].id).toBe('bucherer-test-855');
+  });
+
+  it('keeps a fresh crawler observation when a generic probe returns a definitive 404', async () => {
+    const dir = makeTempDir();
+    const slicePath = path.join(dir, 'cippatrasporti.json');
+    const fetchPreloadPath = path.join(dir, 'fetch-404.mjs');
+    const fetchMarkerPath = path.join(dir, 'fetch-called');
+    fs.writeFileSync(
+      fetchPreloadPath,
+      [
+        "import fs from 'node:fs';",
+        "globalThis.fetch = async () => {",
+        "  fs.appendFileSync(process.env.TEST_FETCH_MARKER, 'called\\n');",
+        "  return new Response('', { status: 404 });",
+        '};',
+      ].join('\n'),
+      'utf8',
+    );
+    const slice = {
+      crawlerKey: 'cippatrasporti',
+      jobs: [{
+        id: 'cippatrasporti-5dd16ddc181a',
+        slug: 'ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch',
+        company: 'Cippà Trasporti SA',
+        title: 'Ocean Freight Operations Specialist – FCL & Project Cargo',
+        location: 'Chiasso',
+        url: 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm',
+        crawledAt: daysAgo(1),
+        firstSeenAt: daysAgo(80),
+      }],
+      assembledAt: daysAgo(1),
+    };
+    fs.writeFileSync(slicePath, JSON.stringify(slice, null, 2), 'utf8');
+
+    const result = await runCleanup(
+      slicePath,
+      path.join(dir, 'expired'),
+      fetchPreloadPath,
+      fetchMarkerPath,
+      '',
+    );
+    expect(result.code, result.output).toBe(0);
+    expect(fs.readFileSync(fetchMarkerPath, 'utf8')).toBe('called\n');
+
+    const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    expect(written.jobs).toHaveLength(1);
+    expect(written.jobs[0].id).toBe('cippatrasporti-5dd16ddc181a');
   });
 });
