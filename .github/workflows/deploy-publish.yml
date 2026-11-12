@@ -3325,6 +3325,26 @@ jobs:
             --ref main \
             -f deploy_run_id="$PUBLISHER_RUN_ID" \
             -f source_sha="$PUBLISHER_SOURCE_SHA"
+      # The hub writer must run only after the validated full publish: its
+      # HTML references the content-addressed shell assets that the publisher
+      # has just repaired. Use explicit workflow_dispatch rather than a
+      # workflow_run subscription; this caller is itself started with
+      # GITHUB_TOKEN, so its completion is not a reliable downstream event.
+      - name: Dispatch article hub rerender after validated publish
+        if: >-
+          ${{ needs.publish.result == 'success' &&
+              needs.validate-dist.result == 'success' &&
+              needs.validate-live.result == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISHED_DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+        run: |
+          gh workflow run rerender-article-hubs.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f section=all \
+            -f dry_run=false \
+            -f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"
 
   # The caller run can be red because a reusable validator failed. Reporters
   # inside those callees correctly open their gate-specific issues, but the
