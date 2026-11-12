@@ -398,6 +398,11 @@ const crawlerAssetScope = [
   /^\.github\/corpus-workflows\/contract\.json$/i,
   /^\.github\/corpus-workflows\/observers\/workflows\/crawler-generation-[^/]+\.ya?ml$/i,
 ];
+const crawlerDataAssetScope = [
+  /^data\/crawler-(?:manifest|group-assignments|companies-auto)\.json$/i,
+];
+const crawlerRelatedAssetScope = [...crawlerAssetScope, ...crawlerDataAssetScope];
+const companyLogoAssetScope = [/^data\/company-logos-manifest\.json$/i];
 const crawlerAssetRelatedTests = [
   'tests/crawler-generation-barrier-shadow.test.ts',
   'tests/crawler-generation-barrier-workflows.test.ts',
@@ -416,9 +421,21 @@ const relatedAssetFileScopes = new Map([
   // This module validates a remote Actions API binding. Its `.github/workflows/`
   // string is an API identity, not a local file read.
   ['scripts/lib/githubWorkflowDispatch.mjs', []],
-  ['tests/generate-crawler-group-workflows.test.ts', crawlerAssetScope],
-  ...crawlerAssetRelatedTests.map((file) => [file, crawlerAssetScope]),
+  ['tests/generate-crawler-group-workflows.test.ts', crawlerRelatedAssetScope],
+  ...crawlerAssetRelatedTests.map((file) => [file, crawlerRelatedAssetScope]),
 ]);
+// Some root assets are read by shared source modules imported by hundreds of
+// tests. For these roots, reaching an unscoped test through a shared module is
+// not proof that the test exercises the changed asset (many tests inject their
+// own data). Admit direct readers and the explicitly scoped crawler contracts;
+// leave the rest of the asset graph intact for other data domains.
+const boundedRootAssetScopes = [
+  /^data\/jobs\/expired\/by-crawler\/[^/]+\.json$/i,
+  ...crawlerRelatedAssetScope,
+  ...companyLogoAssetScope,
+];
+const hasBoundedRootAssetScope = (asset) =>
+  boundedRootAssetScopes.some((pattern) => pattern.test(asset));
 // A few source files are intentionally shared at runtime but are not shared
 // test contracts. Following their reverse import graph through the app shell
 // makes a feature-local edit select nearly every UI test: locale chunks flow
@@ -756,7 +773,7 @@ function importsOf(file, fileSet, assets, assetSet) {
   }
   const scope = relatedAssetFileScopes.get(file);
   return [...deps]
-    .filter((asset) => !scope || scope.some((pattern) => pattern.test(asset)))
+    .filter((dep) => !isRelatedAsset(dep) || !scope || scope.some((pattern) => pattern.test(dep)))
     .sort();
 }
 
@@ -798,7 +815,8 @@ function loadGraph(files, assets) {
   // verso gli asset esclusi dal grafo dei sorgenti. La versione 13 registra
   // anche i literal `../data/...` e i loro equivalenti costruiti a segmenti.
   // La versione 14 rimuove l'arco cache-only del registro crawler: le entry v13
-  // ripristinate devono essere ricostruite.
+  // ripristinate devono essere ricostruite. La versione 15 estende gli scope
+  // crawler agli asset dati e richiede di ricostruire gli archi dei loro test.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -809,7 +827,7 @@ function loadGraph(files, assets) {
   } catch {}
   let changedSinceCache = null;
   let sourceTopologyChanged = false;
-  if (previousVersion === 14 && previousAssets === assetsDigest
+  if (previousVersion === 15 && previousAssets === assetsDigest
     && previousRevision !== '' && currentRevision !== '') {
     try {
       execFileSync('git', ['merge-base', '--is-ancestor', previousRevision, currentRevision], {
@@ -882,7 +900,7 @@ function loadGraph(files, assets) {
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 14,
+    version: 15,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,
@@ -1015,7 +1033,9 @@ const usedFullFallback = fullSuiteRequired;
 const assetCandidate = isRelatedAsset;
 const assetScopeAllows = (test, asset) => {
   const scope = relatedAssetFileScopes.get(test);
-  return !scope || scope.some((pattern) => pattern.test(asset));
+  if (scope) return scope.some((pattern) => pattern.test(asset));
+  if (hasBoundedRootAssetScope(asset)) return graph[test]?.deps.includes(asset) === true;
+  return true;
 };
 const queue = candidates.map((file) => ({
   file,
