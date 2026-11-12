@@ -12,10 +12,10 @@
 #   bash scripts/dev/install-swiss-runner.sh status    launch agent state and the last log lines
 #   bash scripts/dev/install-swiss-runner.sh uninstall unload and remove the plist (the runner stops taking work)
 #
-# --checkout: the site checkout the runner executes (default: the checkout holding this script). It must
-# have node_modules (Playwright, firebase-admin). Before each cycle `run` fast-forwards it to origin/main
-# when it is on `main` with a clean tree; on any other branch, or with local changes, it runs it as it is
-# and says so in the log.
+# --checkout: the site checkout the runner executes (default: the checkout holding this script). Its root
+# and functions package locks are installed into private, hash-keyed trees under the runner's home. Before
+# each cycle `run` fast-forwards it to origin/main when it is on `main` with a clean tree; on any other
+# branch, or with local changes, it runs it as it is and says so in the log.
 # --headed: the agent opens a visible Chrome window on this Mac (ASSISTED_APPLICATION_HEADED=1). Default:
 # headless, nothing appears on the owner's screen.
 #
@@ -78,11 +78,12 @@ xml_escape() {
 
 check_site() {
   if [ ! -f "$1/scripts/assisted-application/local-runner.mjs" ]; then
-    echo "✖ $1 is not a site checkout with scripts/assisted-application/local-runner.mjs" >&2
+    echo '✖ checkout is not a site checkout with scripts/assisted-application/local-runner.mjs' >&2
     return 1
   fi
-  if [ ! -d "$1/node_modules/playwright" ] || [ ! -d "$1/node_modules/firebase-admin" ]; then
-    echo "✖ $1 has no node_modules with playwright and firebase-admin (the runner does not install them)" >&2
+  if [ ! -f "$1/package.json" ] || [ ! -f "$1/package-lock.json" ] \
+    || [ ! -f "$1/functions/package.json" ] || [ ! -f "$1/functions/package-lock.json" ]; then
+    echo '✖ checkout is missing a root or functions package lock' >&2
     return 1
   fi
 }
@@ -114,10 +115,12 @@ write_plist() {
   out=$1
   shift
   headed=''
+  prepare_deps=''
   while [ $# -gt 0 ]; do
     case "$1" in
       --checkout) site=$(CDPATH="" cd -- "${2:-}" && pwd -P) || { echo "✖ checkout not found: ${2:-}" >&2; return 1; }; shift 2 ;;
       --headed) headed=1; shift ;;
+      --prepare-deps) prepare_deps=1; shift ;;
       *) echo "✖ unknown option: $1" >&2; return 1 ;;
     esac
   done
@@ -127,6 +130,10 @@ write_plist() {
     return 1
   fi
   node_bin=$(node -p 'process.execPath' 2>/dev/null) || { echo '✖ node not found in PATH' >&2; return 1; }
+  if [ -n "$prepare_deps" ] && ! "$node_bin" "$site/scripts/assisted-application/local-runner.mjs" --prepare-deps >/dev/null; then
+    echo '✖ private Swiss runner dependencies could not be prepared from the package locks' >&2
+    return 1
+  fi
   node_dir=$(/usr/bin/dirname "$node_bin")
   headed_env=''
   if [ -n "$headed" ]; then
@@ -167,7 +174,7 @@ EOF
 
 cmd_install() {
   /bin/mkdir -p "$agents_dir" "$log_dir" || return 1
-  write_plist "$plist" "$@" || return 1
+  write_plist "$plist" --prepare-deps "$@" || return 1
   uid=$(/usr/bin/id -u)
   /bin/launchctl bootout "gui/$uid/$label" >/dev/null 2>&1 || true
   /bin/launchctl bootstrap "gui/$uid" "$plist" || { echo "✖ launchctl bootstrap failed for $plist" >&2; return 1; }

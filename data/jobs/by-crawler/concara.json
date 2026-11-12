@@ -3892,11 +3892,11 @@
     },
     {
       "id": "concara-39351e07ef2e",
-      "slug": "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern",
+      "slug": "addetto-a-alla-cucina-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern",
-        "en": "kitchen-staff-member-60-100-concara-domicil-spitex-bern-bern",
         "de": "mitarbeiter-in-kuche-60-100-concara-bern",
+        "it": "addetto-a-alla-cucina-60-100-concara-domicil-spitex-bern-bern",
+        "en": "kitchen-staff-member-60-100-concara-domicil-spitex-bern-bern",
         "fr": "employe-e-en-cuisine-60-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
@@ -3904,9 +3904,9 @@
       "companyDomain": "concara.ch",
       "title": "Mitarbeiter:in Küche 60-100%",
       "titleByLocale": {
+        "de": "Mitarbeiter:in Küche 60-100%",
         "it": "Addetto/a alla cucina 60-100%",
         "en": "Kitchen staff member 60–100%",
-        "de": "Mitarbeiter:in Küche 60-100%",
         "fr": "Employé(e) en cuisine 60-100 %"
       },
       "description": "Aufgaben:\nZu Deinen Aufgaben gehören das Regenerieren und Fertigstellen der vorbereiteten Speisen. Es liegt dir, einfache und saisonale Speisen zuzubereiten. Weiter gehören das ansprechende Anrichten der Mahlzeiten und die Durchführung des Mittag-und Abendservices zu Deinem Tagesablauf. Dazu gehören auch die Einhaltung und Sicherstellung der betrieblichen und gesetzlichen Hygienevorschriften. Freude und Kenntnisse im Umgang mit Lebensmitteln und an der Zubereitung von Speisen sind für Dich selbstverständlich.\n\nAnforderungen:\n• Mehrjährige Erfahrung in einer Küche der Gemeinschaftsgastronomie\n\n• Selbständige, sorgfältige und zuverlässige Arbeitsweise\n\n• Flexibilität und Teamfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Strukturierte und effiziente Arbeitsweise\n\n• Verständnis und Wertschätzung für die Bedürfnisse älterer Menschen\n\nWir bieten:\n• 5 Wochen Ferien, ab 45 Jahren 6 Wochen, ab 55 Jahren 7 Wochen\n\n• Funktions- und leistungsgerechte Entlöhnung, sowie attraktive Sozialleistungen\n\n• Eigenverantwortliches Handeln in einem motivierten und fördernden Arbeitsklima\n\nDomicil bietet Seniorinnen und Senioren stationäre Dienstleistungen in Pflege und Betreuung an. Mit mehr als 20 Standorten und rund 1'600 Mitarbeitenden ist Domicil die Nummer 1 in der Langzeitpflege im Kanton Bern. Unter dem Dach von Concara engagieren wir uns gemeinsam mit der Spitex Bern für eine integrierte Rundumversorgung.\n\nFür unsere Küchen im Domicil Alexandra und Egelmoos suchen wir eine engagierte und zuverlässige Persönlichkeit, die unser Küchenteam tatkräftig unterstützt. Du hast Freude am Kochen, ein Gespür für gutes Essen und trägst mit deiner Arbeit zu einer schmackhaften Verpflegung bei. Du sorgst mit dem Team für ein gute Verpflegung am Standort und trägst zur Zufriedenheit der Bewohnerinnen und Bewohner bei.",
@@ -3942,12 +3942,10 @@
       "applyUrl": "https://jobs.domicilbern.ch/offene-stellen/mitarbeiter-in-kueche/6dc8e2dc-c432-45d7-a5fa-1ec93388b26b",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-kuche-60-100-concara-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-60-100-concara-bern"
+          "mitarbeiter-in-kuche-60-100-concara-bern",
+          "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern"
         ],
         "en": [
           "mitarbeiter-in-kuche-60-100-concara-bern"
@@ -3956,7 +3954,10 @@
           "mitarbeiter-in-kuche-60-100-concara-bern"
         ]
       },
-      "firstSeenAt": "2026-11-11T21:23:02.354Z",
+      "previousSlugs": [
+        "mitarbeiter-in-kuche-60-100-concara-bern",
+        "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern"
+      ],
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -3972,7 +3973,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:19:10.663Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-11T21:23:02.354Z"
     },
     {
       "id": "concara-95eab73b3294",

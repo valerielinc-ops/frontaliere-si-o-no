@@ -63,9 +63,20 @@ async function main() {
       return;
     }
 
-    for (const pullRequest of pullRequests) {
-      if (pullRequest?.state !== 'closed' || !pullRequest.merged_at
-        || pullRequest.merge_commit_sha !== pushSha || !pullRequest.head?.sha) continue;
+    for (const associatedPullRequest of pullRequests) {
+      const pullRequestNumber = associatedPullRequest?.number;
+      const associatedHeadSha = associatedPullRequest?.head?.sha;
+      if (!Number.isSafeInteger(pullRequestNumber) || !associatedHeadSha
+        || associatedPullRequest.merge_commit_sha !== pushSha) continue;
+
+      // The commit-to-PR association response omits `changed_files` (and is
+      // intentionally treated as a compact summary). Fetch the canonical PR
+      // before requiring its complete file count or using any merge evidence.
+      const pullRequest = ghJson(`repos/${repository}/pulls/${pullRequestNumber}`);
+      if (pullRequest?.number !== pullRequestNumber
+        || pullRequest?.state !== 'closed' || !pullRequest.merged_at
+        || pullRequest.merge_commit_sha !== pushSha
+        || pullRequest.head?.sha !== associatedHeadSha) continue;
       if (!Number.isInteger(pullRequest.changed_files) || pullRequest.changed_files > 100) continue;
 
       const changedFiles = ghJson(`repos/${repository}/pulls/${pullRequest.number}/files`, ['-f', 'per_page=100']);

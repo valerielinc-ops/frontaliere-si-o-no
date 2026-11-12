@@ -15,7 +15,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
 import { dueEligibilityRetries, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary,
   eligibilityRetryIsDue, ELIGIBILITY_RETRY_REASON_PROVENANCE, MAX_ELIGIBILITY_DEFERRALS, MAX_ELIGIBILITY_RETRY_ATTEMPTS, recordEligibilityRetry } from '../functions/src/applicationConciergeEligibilityRetry.js';
-import { conciergeMatchingWork, eligibilityRetryContext } from '../functions/src/applicationConciergeMatching.js';
+import { conciergeMatchingWork, eligibilityRetryContext, prioritizeEligibilityRetryCandidates } from '../functions/src/applicationConciergeMatching.js';
 
 const now = Date.now();
 
@@ -321,6 +321,21 @@ describe('independent qualification retry queue', () => {
     expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
     expect(result.work.filter((row: any) => retry.has(row.url))).toHaveLength(8);
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
+  });
+
+  it('prioritizes retries due before service expiry over changed-input retries still in backoff', () => {
+    const expiresAt = now + 60 * 60_000;
+    const deadlineUrls = Array.from({ length: 10 }, (_, index) => `deadline-${index}`);
+    const changedUrls = Array.from({ length: 8 }, (_, index) => `changed-${index}`);
+    const rows = [
+      ...changedUrls.map((url, index) => [url, { data: () => ({ retryAt: now + 30 * 60_000 + index }) }]),
+      ...deadlineUrls.map((url, index) => [url, { data: () => ({ retryAt: expiresAt + 86_400_000 + index }) }]),
+    ] as Array<[string, { data: () => { retryAt: number } }]>;
+    const dueUrls = new Set(rows.filter(([, row]) => eligibilityRetryIsDue(row.data(), now, expiresAt)).map(([url]) => url));
+
+    const selected = prioritizeEligibilityRetryCandidates(rows, dueUrls);
+
+    expect(selected.map(([url]) => url)).toEqual(deadlineUrls.slice(0, 8));
   });
 
   it('keeps bounded provider diagnostics and excludes raw error details', async () => {
