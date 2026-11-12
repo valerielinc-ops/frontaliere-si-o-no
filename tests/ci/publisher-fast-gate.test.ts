@@ -580,6 +580,29 @@ describe('publisher fast provenance gate', () => {
     expect(manifest.sourcePathLayout).toBe('zurigo-hash-v1');
   });
 
+  it('records a registry-selected hash layout for a dynamic section receipt', () => {
+    const root = tempRoot();
+    const pageRoot = path.join(root, 'de', 'jobs-in-lucerne');
+    fs.mkdirSync(pageRoot, { recursive: true });
+    fs.writeFileSync(path.join(pageRoot, 'index.html'), '<html></html>');
+    const input = {
+      root: pageRoot,
+      prefix: 'de/jobs-in-lucerne',
+      locale: 'de' as const,
+      section: 'lucerna',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: SOURCE_RUN_ID,
+    };
+
+    expect(createSectionManifest({ ...input, sourcePathLayout: 'lucerna-hash-v1' }).sourcePathLayout)
+      .toBe('lucerna-hash-v1');
+    expect(createSectionManifest({ ...input, sourcePathLayout: 'canonical' }).sourcePathLayout)
+      .toBe('canonical');
+    expect(() => createSectionManifest({ ...input, sourcePathLayout: 'ticino-hash-v1' }))
+      .toThrow('lucerna sourcePathLayout must be canonical or lucerna-hash-v1');
+  });
+
   it('binds the EN Ticino shard receipt to the source SHA and published artifact digest', () => {
     const base = fixture();
     const pageManifest = base.pageManifests[1];

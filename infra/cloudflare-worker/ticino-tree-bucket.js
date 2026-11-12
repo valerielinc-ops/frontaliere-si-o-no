@@ -11,6 +11,12 @@ export function sectionTreeLayout(section) {
   return sectionUsesHashFanout(section) ? `${section}-hash-v1` : 'canonical';
 }
 
+export function sectionTreeLayoutAllowed(section, layout) {
+  const staticLayout = sectionTreeLayout(section);
+  if (staticLayout !== 'canonical') return layout === staticLayout;
+  return layout === 'canonical' || layout === `${section}-hash-v1`;
+}
+
 export function sectionTreeBucket(entry) {
   let hash = 0x811c9dc5;
   for (const byte of utf8Encoder.encode(entry)) {
