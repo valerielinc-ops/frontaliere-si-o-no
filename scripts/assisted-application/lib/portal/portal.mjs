@@ -531,7 +531,7 @@ function successFactorsModuleIdentity(url) {
     // still makes that /career URL the application module. A present value
     // must remain the application namespace, and duplicates stay ambiguous.
     && (namespace.length === 0
-      || (namespace.length === 1 && namespace[0].toLowerCase() === 'job_application'))) return null;
+      || (namespace.length === 1 && namespace[0].toLowerCase() === 'job_application')))) return null;
   return {
     origin: url.origin,
     path: url.pathname.replace(/\/+$/, ''),

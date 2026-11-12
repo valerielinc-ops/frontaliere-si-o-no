@@ -428,7 +428,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const portalCareerUrl = 'https://career2.successfactors.eu/portalcareer';
     const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
     const job = { company: 'Stadt Zürich', title: 'Example Role' };
-    const form = 'Konto anlegen\nE-Mail-Adresse\nKennwort\nBewerbung abschicken';
+    const form = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nBewerbung abschicken';
 
     expect(isVerifiedPostingEntry({ applyUrl: moduleUrl, postingUrl })).toBe(false);
     expect(isVerifiedPostingEntry({ applyUrl: moduleUrl, postingUrl, postingRouteProof: proof })).toBe(true);
