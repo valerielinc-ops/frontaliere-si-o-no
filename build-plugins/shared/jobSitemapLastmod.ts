@@ -19,23 +19,18 @@
  * dataset assembler at build time) and the build clock itself. A job without
  * any qualifying date gets NO `<lastmod>` rather than an invented one.
  */
-import {
-  compareValidatedPostingDates,
-  resolveFirstSeenPostingDate,
-  resolveReportedPostingDate,
-  type PostingDateInput,
-} from '../../scripts/lib/job-posting-date.mjs';
+import type { PostingDateInput } from '../../scripts/lib/job-posting-date.mjs';
+import { jobSitemapLastmodSource as sharedJobSitemapLastmodSource } from '../../scripts/lib/job-sitemap-lastmod.mjs';
 import { renderSitemapLastmod } from './sitemapLastmod';
 
-/** Most recent qualifying ISO date string for a job, or null when none exists. */
+/**
+ * Most recent qualifying ISO date string for a job, or null when none exists.
+ * The rule lives in scripts/lib/job-sitemap-lastmod.mjs so the Indexing API
+ * submitter, which runs under plain `node`, derives the same day for a URL it
+ * reads from the published dataset instead of a sitemap.
+ */
 export function jobSitemapLastmodSource(job: PostingDateInput | null | undefined, now: Date = new Date()): string | null {
-  if (!job) return null;
-  let latest: string | null = null;
-  for (const candidate of [resolveReportedPostingDate(job, now), resolveFirstSeenPostingDate(job, now)]) {
-    if (!candidate) continue;
-    if (latest === null || compareValidatedPostingDates(candidate, latest) > 0) latest = candidate;
-  }
-  return latest;
+  return sharedJobSitemapLastmodSource(job, now);
 }
 
 /** `YYYY-MM-DD` form of {@link jobSitemapLastmodSource}, or undefined. */
