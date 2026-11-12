@@ -32,7 +32,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { CompanyDossierCard } from '@/components/community/CompanyDossierCard';
-import { JobPreApplyChecklist } from '@/components/community/JobPreApplyChecklist';
+import { JobPreApplyChecklist, type ATSApplicationFormSnapshot } from '@/components/community/JobPreApplyChecklist';
 import { SwissBubbleMap, type CantonJobsData } from '@/components/community/SwissBubbleMap';
 import { JobDetailLinkedInPeopleButton } from '@/components/community/JobDetailPresentation';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
@@ -578,6 +578,8 @@ export interface JobListing {
  updatedAt?: JobInput['updatedAt'];
  url?: string;
  applyUrl?: string;
+ /** Public first-step fields observed on the employer's ATS page. */
+ atsApplicationForm?: ATSApplicationFormSnapshot;
  source?: string;
  companyDomain?: string;
  /** Publisher-provided logo URL (https-only, projected from the publish form). */
@@ -11822,13 +11824,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
- {/* Pre-Apply ATS Checklist & Smart Defaults (FreeHire-inspired) */}
- <JobPreApplyChecklist
- companyName={selectedJob.company}
- canton={selectedJob.canton}
- salaryBenchmarkChf={salary || null}
- />
-
  <CompanyDossierCard
  data={{
  companyName: selectedJob.company,
@@ -11865,7 +11860,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('common.share')}
  </button>
  <JobDetailLinkedInPeopleButton companyName={selectedJob.company} />
- </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
+ </div>
+ {/* Show the source-observed ATS fields directly below the application actions. */}
+ <JobPreApplyChecklist
+ companyName={selectedJob.company}
+ atsApplicationForm={selectedJob.atsApplicationForm}
+ />
+ {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
  {detailAlertButtonJsx}

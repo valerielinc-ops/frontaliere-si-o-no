@@ -6,6 +6,7 @@ import { describe, it, expect } from 'vitest';
 import {
   parseListingPage,
   parseDetailPage,
+  parseNcoreApplicationForm,
   slugify,
   detectCategory,
   detectExperienceLevel,
@@ -85,6 +86,23 @@ const FIXTURE_DETAIL_PAGE = `
 </div>
 </body>
 </html>
+`;
+
+const FIXTURE_NCORE_APPLICATION_PAGE = `
+<!DOCTYPE html><html><body>
+  <h2>Inoltra ora la candidatura</h2>
+  <form method="post">
+    <label for="first-name">Nome <span>*</span></label>
+    <input id="first-name" name="first_name" type="text" required value="value-must-not-be-captured">
+    <label for="last-name">Cognome *</label>
+    <input id="last-name" name="last_name" type="text" required>
+    <label for="email">Email *</label>
+    <input id="email" name="email" type="email" required>
+    <label for="privacy"><input id="privacy" name="privacy" type="checkbox" required> Ho letto ed accetto la Privacy Policy</label>
+    <label for="remember"><input id="remember" name="remember" type="checkbox"> Ricordami</label>
+    <input type="hidden" name="csrf" value="not-a-question">
+  </form>
+</body></html>
 `;
 
 // ─── parseListingPage tests ─────────────────────────────────────────────────
@@ -244,6 +262,41 @@ describe('parseDetailPage', () => {
     expect(result.body).toContain('Requirements');
     expect(result.body).toContain('MSc/PhD');
     expect(result.body).toContain('project management');
+  });
+});
+
+describe('parseNcoreApplicationForm', () => {
+  const sourceUrl = 'https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist/sintetica';
+  const checkedAt = '2026-11-12T12:00:00.000Z';
+
+  it('captures only labelled public fields and requiredness from the ATS first step', () => {
+    const snapshot = parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, { sourceUrl, checkedAt });
+
+    expect(snapshot).toEqual({
+      provider: 'ncoreplat',
+      sourceUrl,
+      checkedAt,
+      stage: 'Inoltra ora la candidatura',
+      fields: [
+        { label: 'Nome', type: 'text', required: true, kind: 'question' },
+        { label: 'Cognome', type: 'text', required: true, kind: 'question' },
+        { label: 'Email', type: 'email', required: true, kind: 'question' },
+        { label: 'Ho letto ed accetto la Privacy Policy', type: 'checkbox', required: true, kind: 'consent' },
+      ],
+    });
+    expect(JSON.stringify(snapshot)).not.toContain('value-must-not-be-captured');
+    expect(JSON.stringify(snapshot)).not.toContain('csrf');
+  });
+
+  it('rejects a source URL outside the NCore job route and pages without a form', () => {
+    expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
+      sourceUrl: 'https://evil.example/jobposition/808005/cmc/sintetica',
+      checkedAt,
+    })).toBeNull();
+    expect(parseNcoreApplicationForm('<html><body><p>No application form</p></body></html>', {
+      sourceUrl,
+      checkedAt,
+    })).toBeNull();
   });
 });
 
