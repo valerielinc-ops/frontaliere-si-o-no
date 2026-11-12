@@ -300,3 +300,30 @@ describe('rerender-article-hubs entrypoint budget', () => {
     expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
   });
 });
+
+describe('rerender-article-hubs deployment ordering', () => {
+  const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
+  const plan = workflow?.jobs?.plan;
+  const compute = plan?.steps?.find((step: { id?: string }) => step.id === 'compute');
+
+  it('waits for a successful full deploy before a code-triggered fan-out', () => {
+    expect(workflow?.on?.workflow_run?.workflows).toContain('Hydrated article parity');
+    expect(workflow?.on?.workflow_run?.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+
+    const condition = String(plan?.if ?? '');
+    expect(condition).toContain("github.event_name != 'push'");
+    expect(condition).toContain("github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)'");
+    expect(condition).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(condition).toContain("github.event.workflow_run.name == 'Hydrated article parity'");
+    expect(condition).toContain("github.event.workflow_run.conclusion == 'failure'");
+  });
+
+  it('defers a deploy completion that no longer represents the current main tip', () => {
+    const run = String(compute?.run ?? '');
+    expect(compute?.env?.GH_TOKEN).toBe('${{ github.token }}');
+    expect(compute?.env?.DEPLOY_HEAD_SHA).toBe('${{ github.event.workflow_run.head_sha }}');
+    expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
+    expect(run).toContain('$DEPLOY_HEAD_SHA');
+    expect(run).toContain("echo 'sections=[]' >> \"$GITHUB_OUTPUT\"");
+  });
+});

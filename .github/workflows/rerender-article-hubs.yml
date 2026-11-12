@@ -49,12 +49,20 @@ run-name: >-
 # 1236 pages, measured at 3.1 s wall on a laptop. The job is dominated by
 # checkout, the Node setup and the shard clones — minutes, not the hours
 # rerender-article-corpus.yml budgets for.
+#
+# ORDERING. A push is a signal that the hub renderer needs to run, but it is
+# not a safe publication point: the full deploy publishes the content-addressed
+# shell assets after the source build. Running the hub writer before that deploy
+# can leave the stable CDN alias one generation behind, which the shell guard
+# must reject. Push-triggered runs therefore stop at plan; the successful full
+# deploy completion replays the same writer against the now-published source.
 
 on:
   # 1. THE CODE CHANGED. These are the five files #5422 touched plus this
-  #    workflow's own driver and library. A push here means the renderer that
-  #    produces every hub page is no longer the one that produced the pages
-  #    currently being served.
+  #    workflow's own driver and library. A push here is the notification that
+  #    the renderer that produces every hub page is no longer the one that
+  #    produced the pages currently being served. The plan job waits for the
+  #    full deploy before it fans out the writer.
   push:
     branches: [main]
     paths:
@@ -92,9 +100,9 @@ on:
       - 'scripts/rerender-article-hubs.mjs'
       - 'scripts/lib/render-and-push-hubs.mjs'
       - 'scripts/lib/refresh-article-hub-landings.mjs'
-      # Self-test on change. A push touching only this file still runs the
-      # whole path (render + validate + push), which is what makes an edit
-      # here verifiable rather than hopeful.
+      # Self-test on change. A push touching only this file still schedules the
+      # workflow, and its successful full-deploy completion then exercises the
+      # changed path against the published shell assets.
       - '.github/workflows/rerender-article-hubs.yml'
 
   # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
@@ -106,15 +114,18 @@ on:
   repository_dispatch:
     types: [articles-published]
 
-  # 2b. THE PARITY RECOVERY. The publisher dispatch is the fast path, but it
+  # 2b. THE PARITY/DEPLOY RECOVERY. The publisher dispatch is the fast path, but it
   # is not a durable delivery guarantee: the corpus can make the hub/API
   # visible and fail before notifying this repository. Hydrated parity is the
   # independent served-bytes observer for exactly that gap. A failed
   # non-manual parity run must therefore replay this existing locked writer;
   # waiting for the six-hour safety schedule leaves React dropping the new
-  # card in the meantime.
+  # card in the meantime. A successful full deploy is the safe publication
+  # point for code-triggered rerenders because it has repaired the CDN shell.
   workflow_run:
-    workflows: ["Hydrated article parity"]
+    workflows:
+      - "Hydrated article parity"
+      - "Publish to GitHub Pages (deploy + validate)"
     types: [completed]
 
   # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
@@ -167,27 +178,57 @@ concurrency:
 
 jobs:
   plan:
-    # A manual forced-failure probe is an observability test, not permission to
-    # publish. Every other parity failure is a measured served hub/client
-    # mismatch (or a failed read that needs the same bounded recovery path).
+    # A push only records that work is needed; the full deploy publishes the
+    # shell assets that the writer is allowed to reference. A manual
+    # forced-failure probe is an observability test, not permission to publish.
+    # Parity failures use the existing bounded recovery path, while a
+    # successful full deploy is the code-change publication point.
     if: >-
-      github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.conclusion == 'failure' &&
-       github.event.workflow_run.event != 'workflow_dispatch')
-    # Which sections run as separate matrix jobs. A push, publisher dispatch or
-    # schedule means both: the renderers and the corpus they read are shared,
-    # so either kind of change affects the two sections identically. A manual
-    # dispatch honours the operator's choice. The overlay pins the published
-    # API manifest commit inside the render, so no workflow_run fan-out is needed.
+      github.event_name != 'push' &&
+      (
+        github.event_name != 'workflow_run' ||
+        (
+          (github.event.workflow_run.name == 'Hydrated article parity' &&
+           github.event.workflow_run.conclusion == 'failure' &&
+           github.event.workflow_run.event != 'workflow_dispatch') ||
+          (github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)' &&
+           github.event.workflow_run.conclusion == 'success' &&
+           github.event.workflow_run.head_branch == 'main')
+        )
+      )
+    # Which sections run as separate matrix jobs. A publisher dispatch,
+    # successful full deploy or schedule means both: the renderers and the
+    # corpus they read are shared, so either kind of change affects the two
+    # sections identically. A manual dispatch honours the operator's choice.
+    # The overlay pins the published API manifest commit inside the render.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
     steps:
       - id: compute
         env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ] &&
+             [ "${{ github.event.workflow_run.name }}" = "Publish to GitHub Pages (deploy + validate)" ]; then
+            # A queued deploy may complete after a newer push has reached main.
+            # Do not replay its old source against the newer renderer: wait for
+            # the deploy run whose head is still the current main tip.
+            current_main_sha="$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq '.sha' 2>/dev/null || true)"
+            if [ -z "$current_main_sha" ]; then
+              echo "::warning::cannot verify the current main tip after the full deploy; deferring hub rerender"
+              echo 'sections=[]' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$current_main_sha" != "$DEPLOY_HEAD_SHA" ]; then
+              echo "full deploy $DEPLOY_HEAD_SHA is behind current main $current_main_sha; deferring hub rerender"
+              echo 'sections=[]' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${INPUT_SECTION:-all}" != "all" ]; then
             printf 'sections=["%s"]\n' "$INPUT_SECTION" >> "$GITHUB_OUTPUT"
           else
