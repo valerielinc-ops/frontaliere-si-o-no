@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
 import { withdrawAssistedApplication } from '../functions/src/assistedApplicationWithdrawal.js';
@@ -37,7 +38,16 @@ vi.mock('../functions/src/applicationConciergeMatching.js', () => ({
   proposalDocumentId: vi.fn(() => 'job-test'),
   rankingFeaturesForJob: vi.fn(() => ({})),
 }));
-vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
+vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({
+  customerEmailFor: (service: any) => {
+    for (const candidate of [service?.applicantEmail, service?.customerEmail]) {
+      const value = String(candidate || '').trim().toLowerCase();
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 320) return value;
+    }
+    return '';
+  },
+  sendOrderNotification: vi.fn(),
+}));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
 vi.mock('../functions/src/applicationConciergePaymentReminders.js', () => ({ paymentReminderUrl: (uid: string) => `https://example.test/unsubscribe/?uid=${uid}` }));
 const { isFreshConciergeProposalRefreshRequest, queueConciergeMatchingRefresh, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
@@ -90,6 +100,7 @@ const eligibleProposal = (patch: Record<string, unknown> = {}) => ({
   eligibilityAcceptableSince: new Date(now), proposalNoticeSentAt: null,
   ...patch,
 });
+const recipientHash = (email: string) => createHash('sha256').update(`service|${email.trim().toLowerCase()}`).digest('hex').slice(0, 24);
 const send = vi.fn(async ({ recordRef, key, build, eligible, trackingTarget }: any) => db.runTransaction(async (transaction: any) => {
   const current = (await transaction.get(recordRef)).data();
   if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
@@ -465,6 +476,139 @@ describe('concierge refresh and notification lifecycle', () => {
     await sweep();
     expect(match).not.toHaveBeenCalled();
     expect(deliveries).toEqual(['new_proposals_retry']);
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+  });
+  it('records an ambiguous announcement as unknown and never requeues it or starts the decision timer', async () => {
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      pendingProposalNotice: { key: 'new_proposals_ambiguous', proposalIds: ['new-job'] } }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal());
+    const ambiguousNotice = vi.fn(async ({ recordRef, eligible }: any) => db.runTransaction(async (transaction: any) => {
+      const current = (await transaction.get(recordRef)).data();
+      if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
+      return { ok: false, reason: 'already_ambiguous' };
+    }));
+
+    await sweep({ send: ambiguousNotice });
+    await ref('application_concierge_services/service/proposals/new-job').set({ eligibilityStatus: 'unverified' });
+    await sweep({ send: ambiguousNotice });
+    await ref('application_concierge_services/service/proposals/new-job').set({ eligibilityStatus: 'compatible' });
+    await sweep({ send: ambiguousNotice });
+
+    expect(ambiguousNotice).toHaveBeenCalledTimes(1);
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+    expect(records.get('application_concierge_services/service/proposals/new-job')).toMatchObject({
+      proposalNoticeStatus: 'unknown', proposalNoticeUnknownAt: expect.any(Date),
+    });
+    expect(records.get('application_concierge_services/service/proposals/new-job')).not.toHaveProperty('proposalNoticeSentAt');
+  });
+  it.each([
+    ['already_delivered', 'sent', true],
+    ['already_bounced', 'undeliverable', false],
+    ['already_complained', 'undeliverable', false],
+  ] as const)('settles terminal provider outcome %s without a repeat send', async (reason, expectedStatus, startsTimer) => {
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      pendingProposalNotice: { key: `new_proposals_${reason}`, proposalIds: ['new-job'] } }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal());
+    const terminalNotice = vi.fn(async ({ recordRef, eligible }: any) => db.runTransaction(async (transaction: any) => {
+      const current = (await transaction.get(recordRef)).data();
+      if (eligible && !await eligible(current, transaction)) return { ok: false, reason: 'ineligible' };
+      return { ok: false, reason };
+    }));
+
+    await sweep({ send: terminalNotice });
+    await sweep({ send: terminalNotice });
+
+    const proposal = records.get('application_concierge_services/service/proposals/new-job');
+    expect(terminalNotice).toHaveBeenCalledTimes(1);
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+    expect(proposal.proposalNoticeStatus).toBe(expectedStatus);
+    expect(Boolean(proposal.proposalNoticeSentAt)).toBe(startsTimer);
+    if (startsTimer) expect(proposal.proposalNoticeSentAt).toBeInstanceOf(Date);
+    else expect(proposal.proposalNoticeUndeliverableAt).toBeInstanceOf(Date);
+  });
+  it('requeues a provider-bounced proposal only after the candidate changes the recipient address', async () => {
+    const oldKey = 'new_proposals_old_recipient';
+    const oldEmail = 'old@example.test';
+    const newEmail = 'corrected@example.test';
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      applicantEmail: newEmail,
+      notifications: { [oldKey]: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'bounced',
+        to: oldEmail, bouncedAt: new Date(now - 1000) } },
+    }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal({
+      proposalNoticeSentAt: new Date(now - 60_000), proposalNoticeStatus: 'sent',
+      proposalNoticeKey: oldKey, proposalNoticeRecipientHash: recipientHash(oldEmail),
+    }));
+
+    await sweep();
+
+    const proposal = records.get('application_concierge_services/service/proposals/new-job');
+    expect(deliveries).toHaveLength(1);
+    expect(deliveries[0]).toMatch(/^new_proposals_/);
+    expect(deliveries[0]).not.toBe(oldKey);
+    expect(proposal).toMatchObject({
+      proposalNoticeStatus: 'sent',
+      proposalNoticeKey: deliveries[0],
+      proposalNoticeRecipientHash: recipientHash(newEmail),
+      proposalNoticeSentAt: expect.any(Date),
+    });
+    expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
+  });
+  it('moves an unsent pending proposal notice to a corrected recipient without reusing the old idempotency key', async () => {
+    const oldEmail = 'old@example.test';
+    const newEmail = 'corrected@example.test';
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now, applicantEmail: newEmail,
+      pendingProposalNotice: { key: 'new_proposals_pending_old_email', proposalIds: ['new-job'],
+        recipientHash: recipientHash(oldEmail), createdAt: new Date(now - 1000) },
+    }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal());
+
+    await sweep();
+
+    expect(deliveries).toHaveLength(1);
+    expect(deliveries[0]).not.toBe('new_proposals_pending_old_email');
+    expect(records.get('application_concierge_services/service/proposals/new-job')).toMatchObject({
+      proposalNoticeStatus: 'sent', proposalNoticeRecipientHash: recipientHash(newEmail),
+    });
+  });
+  it('uses the queued recipient fingerprint when a bounce webhook arrives before the sender persists its address', async () => {
+    const oldEmail = 'old@example.test';
+    const newEmail = 'corrected@example.test';
+    const oldKey = 'new_proposals_bounced_before_to';
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now, applicantEmail: newEmail,
+      notifications: { [oldKey]: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'bounced' } },
+      pendingProposalNotice: { key: oldKey, proposalIds: ['new-job'], recipientHash: recipientHash(oldEmail),
+        createdAt: new Date(now - 1000) },
+    }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal());
+
+    await sweep();
+
+    expect(deliveries).toHaveLength(1);
+    expect(deliveries[0]).not.toBe(oldKey);
+    expect(records.get('application_concierge_services/service/proposals/new-job')).toMatchObject({
+      proposalNoticeStatus: 'sent', proposalNoticeRecipientHash: recipientHash(newEmail),
+    });
+  });
+  it('does not retry a provider complaint after the candidate changes the recipient address', async () => {
+    const oldKey = 'new_proposals_complaint';
+    const oldEmail = 'old@example.test';
+    records.set('application_concierge_services/service', active({ matchingCompletedAt: now,
+      applicantEmail: 'corrected@example.test',
+      notifications: { [oldKey]: { status: 'sent', providerStatus: 'accepted', deliveryStatus: 'complained',
+        to: oldEmail, complainedAt: new Date(now - 1000) } },
+    }));
+    records.set('application_concierge_services/service/proposals/new-job', eligibleProposal({
+      proposalNoticeSentAt: new Date(now - 60_000), proposalNoticeStatus: 'sent',
+      proposalNoticeKey: oldKey, proposalNoticeRecipientHash: recipientHash(oldEmail),
+    }));
+
+    await sweep();
+
+    const proposal = records.get('application_concierge_services/service/proposals/new-job');
+    expect(deliveries).toHaveLength(0);
+    expect(proposal).toMatchObject({ proposalNoticeStatus: 'undeliverable', proposalNoticeFailureReason: 'complained' });
+    expect(proposal.proposalNoticeSentAt).toBeUndefined();
     expect(serviceWithRuntime('application_concierge_services/service').pendingProposalNotice).toBeUndefined();
   });
   it('rechecks acceptability before retrying a failed announcement', async () => {

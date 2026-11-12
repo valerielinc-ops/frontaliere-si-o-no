@@ -30,11 +30,11 @@ import { retentionPurgeDueAt } from './assistedApplicationRetention.js';
 import { CANDIDATE_LANGUAGE_OPTIONS } from './lib/languageFacts.js';
 import {
   APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
+  APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS,
   APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
   APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
-  openProposalsCount,
   serviceIsActive,
   servicePositionLimit,
   timestampMillis,
@@ -45,6 +45,7 @@ import {
   updateConciergeMatchingRuntime,
   writeConciergeMatchingRuntime,
 } from './applicationConciergeRuntime.js';
+import { countConciergeProposalCapacity, proposalAcceptability } from './applicationConciergeProposalEligibility.js';
 
 const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-index.json';
 const FETCH_TIMEOUT_MS = 90_000;
@@ -52,12 +53,12 @@ const MAX_PROPOSALS_PER_RUN = APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS;
 const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
 const MIN_MATCH_SCORE = 28;
 /**
- * An open proposal the matcher can no longer make acceptable on its own (its
- * listing left the ranked work, its relevance fell below the gate, or its
- * eligibility retries are exhausted) keeps one of the few open slots forever:
- * the candidate cannot accept it and no new proposal can be published. After
- * this grace it is retracted as uncertain (never as a proven mismatch), and the
- * bounded legacy recovery re-proposes it if a later check passes.
+ * A pre-proposal check the matcher cannot resolve (its listing left the ranked
+ * work, its relevance fell below the gate, or its retries are exhausted) stays
+ * visible for a bounded grace. It uses the separate verification-task capacity,
+ * never a candidate decision slot. After this grace it is retracted as uncertain
+ * (never as a proven mismatch), then bounded recovery may restore it if a later
+ * check passes.
  */
 export const PROPOSAL_STALL_GRACE_MS = 24 * 60 * 60_000;
 const LETTER_PREFERENCE_STOP_WORDS = new Set([
@@ -933,22 +934,23 @@ export async function queueSubmittedConciergeLetterFeedback({ db, orderId, nowMs
   });
 }
 
-async function ensureOpenProposalCounter(db, serviceRef, fallbackCount) {
+async function ensureOpenProposalCounter(db, serviceRef) {
   return db.runTransaction(async transaction => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-    const [snapshot, runtimeSnapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(runtimeRef),
+    const proposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+    const [snapshot, runtimeSnapshot, proposalsSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(proposalQuery),
     ]);
     if (!snapshot.exists) return 0;
     const legacyService = snapshot.data() || {};
     const runtime = runtimeSnapshot.data() || null;
     const service = mergeConciergeMatchingRuntime(legacyService, runtime);
-    if (Number.isSafeInteger(Number(service.matchingOpenProposalCount))
-      && Number(service.matchingOpenProposalCount) >= 0) return Number(service.matchingOpenProposalCount);
-    const count = openProposalsCount({}, fallbackCount);
-    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
-      { matchingOpenProposalCount: count });
-    return count;
+    const capacity = countConciergeProposalCapacity(proposalsSnapshot.docs, service, runtime);
+    if (Number(service.matchingOpenProposalCount) !== capacity.decisionReady) {
+      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: capacity.decisionReady });
+    }
+    return capacity;
   });
 }
 
@@ -1001,11 +1003,12 @@ export function prioritizeEligibilityRetryCandidates(candidates, dueUrls, limit 
   }).slice(0, limit);
 }
 
-async function updateExistingProposal(db, serviceRef, ref, update, expectedStatus, nextStatus = null, fallbackOpenCount = 0) {
+async function updateExistingProposal(db, serviceRef, ref, update, expectedStatus, nextStatus = null) {
   return db.runTransaction(async (transaction) => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-    const [serviceSnapshot, runtimeSnapshot, snapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+    const proposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+    const [serviceSnapshot, runtimeSnapshot, snapshot, proposalsSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref), transaction.get(proposalQuery),
     ]);
     if (!snapshot.exists) return false;
     const legacyService = serviceSnapshot.data() || {};
@@ -1013,20 +1016,23 @@ async function updateExistingProposal(db, serviceRef, ref, update, expectedStatu
     const service = mergeConciergeMatchingRuntime(legacyService, runtime);
     const current = snapshot.data() || {};
     if (current.status !== expectedStatus) return false;
+    const capacity = countConciergeProposalCapacity(proposalsSnapshot.docs, service, runtime);
+    const currentAcceptable = proposalAcceptability(service, current, runtime).acceptable;
+    const nextProposal = { ...current, ...update, ...(nextStatus ? { status: nextStatus } : {}) };
+    const nextAcceptable = proposalAcceptability(service, nextProposal, runtime).acceptable;
+    const currentVerificationPending = current.status === 'proposed' && !currentAcceptable;
+    const nextVerificationPending = nextProposal.status === 'proposed' && !nextAcceptable;
+    const addingDecision = !currentAcceptable && nextAcceptable;
+    const addingVerification = !currentVerificationPending && nextVerificationPending;
     if (nextStatus === 'proposed' && current.status !== 'proposed') {
-      const openCount = openProposalsCount(service, fallbackOpenCount);
       const cap = servicePositionLimit(service);
-      if (!serviceIsActive(service) || acceptedPositionsCount(service) >= cap
-        || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-      const count = openCount + 1;
-      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
-        { matchingOpenProposalCount: count });
-    } else if (nextStatus && current.status === 'proposed' && nextStatus !== 'proposed') {
-      const openCount = openProposalsCount(service, fallbackOpenCount);
-      const count = Math.max(0, openCount - 1);
-      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
-        { matchingOpenProposalCount: count });
+      if (!serviceIsActive(service) || acceptedPositionsCount(service) >= cap) return false;
     }
+    if (addingDecision && capacity.decisionReady >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+    if (addingVerification && capacity.verificationPending >= APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS) return false;
+    const nextOpenCount = capacity.decisionReady + Number(nextAcceptable) - Number(currentAcceptable);
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+      { matchingOpenProposalCount: Math.max(0, nextOpenCount) });
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
@@ -1044,12 +1050,13 @@ async function updateExistingProposal(db, serviceRef, ref, update, expectedStatu
   });
 }
 
-async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey, fallbackOpenCount = 0) {
+async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expectedCvStorageKey) {
   let appliedUpdate = null;
   const changed = await db.runTransaction(async (transaction) => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-    const [serviceSnapshot, runtimeSnapshot, snapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+    const proposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+    const [serviceSnapshot, runtimeSnapshot, snapshot, proposalsSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref), transaction.get(proposalQuery),
     ]);
     const legacyService = serviceSnapshot.data() || {};
     const runtime = runtimeSnapshot.data() || null;
@@ -1058,19 +1065,21 @@ async function updateLegacyRecoveryProposal(db, serviceRef, ref, update, expecte
     const current = snapshot.data() || {};
     if (!isLegacyUnverifiedRetraction(current)) return false;
     appliedUpdate = typeof update === 'function' ? update(current) : update;
-    const cap = servicePositionLimit(service);
-    if (appliedUpdate.status === 'proposed' && acceptedPositionsCount(service) >= cap) return false;
-    const openCount = openProposalsCount(service, fallbackOpenCount);
-    if (appliedUpdate.status === 'proposed' && current.status !== 'proposed') {
-      if (openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-      const count = openCount + 1;
-      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
-        { matchingOpenProposalCount: count });
-    } else if (current.status === 'proposed' && appliedUpdate.status && appliedUpdate.status !== 'proposed') {
-      const count = Math.max(0, openCount - 1);
-      writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
-        { matchingOpenProposalCount: count });
-    }
+    const capacity = countConciergeProposalCapacity(proposalsSnapshot.docs, service, runtime);
+    const currentAcceptable = proposalAcceptability(service, current, runtime).acceptable;
+    const nextProposal = { ...current, ...appliedUpdate };
+    const nextAcceptable = proposalAcceptability(service, nextProposal, runtime).acceptable;
+    const currentVerificationPending = current.status === 'proposed' && !currentAcceptable;
+    const nextVerificationPending = nextProposal.status === 'proposed' && !nextAcceptable;
+    const addingDecision = !currentAcceptable && nextAcceptable;
+    const addingVerification = !currentVerificationPending && nextVerificationPending;
+    if (appliedUpdate.status === 'proposed' && current.status !== 'proposed'
+      && acceptedPositionsCount(service) >= servicePositionLimit(service)) return false;
+    if (addingDecision && capacity.decisionReady >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
+    if (addingVerification && capacity.verificationPending >= APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS) return false;
+    const nextOpenCount = capacity.decisionReady + Number(nextAcceptable) - Number(currentAcceptable);
+    writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
+      { matchingOpenProposalCount: Math.max(0, nextOpenCount) });
     transaction.set(ref, appliedUpdate, { merge: true });
     return true;
   });
@@ -1188,8 +1197,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const existingData = existing.map(doc => doc.data() || {});
     const matchSignals = await loadConciergeMatchSignals({ db, serviceRef, serviceId, userId: service.userId,
       profileRecord, proposals: existing, service, nowMs: matchingNowMs });
-    const fallbackOpenCount = existingData.filter(data => data.status === 'proposed').length;
-    await ensureOpenProposalCounter(db, serviceRef, fallbackOpenCount);
+    const openCapacity = await ensureOpenProposalCounter(db, serviceRef);
+    const fallbackOpenCount = openCapacity.decisionReady;
+    const fallbackVerificationCount = openCapacity.verificationPending;
     const existingUrls = new Set(existingData.map(data => data.jobUrl).filter(Boolean));
     const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
     const rankedWork = jobs.map((job) => {
@@ -1439,12 +1449,21 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         return result?.reason === 'analysis_deferred';
       })) break;
     }
-    const candidates = rankedCandidates.filter(candidate => candidate.score >= MIN_MATCH_SCORE
-      && (checks.get(candidate.url)?.status === 'compatible'
-        || (checks.get(candidate.url)?.status === 'clarification_required'
-          && Array.isArray(checks.get(candidate.url)?.questions)
-          && checks.get(candidate.url).questions.some(question => question?.required === true))))
-      .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
+    const verifiedCandidates = rankedCandidates.filter(candidate => candidate.score >= MIN_MATCH_SCORE
+      && checks.get(candidate.url)?.status === 'compatible');
+    const clarificationCandidates = rankedCandidates.filter(candidate => candidate.score >= MIN_MATCH_SCORE
+      && canOfferClarification(checks.get(candidate.url)));
+    const selectedVerifiedCandidates = verifiedCandidates.slice(0,
+      Math.min(available, APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS, MAX_PROPOSALS_PER_RUN - fallbackOpenCount));
+    const remainingRunSlots = Math.max(0, Math.min(
+      MAX_PROPOSALS_PER_RUN - selectedVerifiedCandidates.length,
+      available - selectedVerifiedCandidates.length,
+      APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS - fallbackVerificationCount,
+    ));
+    // Decision-ready matches get first claim on this run. Clarification tasks
+    // have their own small cap and never consume the proposal decision slots.
+    const candidates = [...selectedVerifiedCandidates,
+      ...clarificationCandidates.slice(0, remainingRunSlots)];
     const eligibilityFields = (result = { status: 'unverified' }, proposal = {}) => {
       const dependency = result.candidateFactsDependency;
       return {
@@ -1502,7 +1521,6 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           },
           data.status,
           data.status === 'retracted' ? 'proposed' : null,
-          fallbackOpenCount,
         );
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
@@ -1526,7 +1544,6 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             },
             'proposed',
             'retracted',
-            fallbackOpenCount,
           );
           if (changed) retractedProposals += 1;
         } else {
@@ -1566,7 +1583,6 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             },
             'proposed',
             stall.release ? 'retracted' : null,
-            fallbackOpenCount,
           );
           if (changed && stall.release) retractedProposals += 1;
           if (!stall.release && stall.releaseAt) {
@@ -1585,7 +1601,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           ...legacyProposalRecoveryTerminalFields({ context: eligibilityRecoveryContext, nowMs: Date.now(), reason: preflight.reason }),
           retractionReason,
           updatedAt: FieldValue.serverTimestamp(),
-        }, service.cvStorageKey, fallbackOpenCount);
+        }, service.cvStorageKey);
         if (changed) recoveryOutcomes.set(row.id, { ...changed, eligibilityStatus: 'unverified', retractionReason });
         continue;
       }
@@ -1594,7 +1610,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
           ...legacyProposalRecoveryRetryFields(current, { context: eligibilityRecoveryContext, nowMs: Date.now(), reason: preflight.reason }),
           updatedAt: FieldValue.serverTimestamp(),
-        }), service.cvStorageKey, fallbackOpenCount);
+        }), service.cvStorageKey);
         if (changed) recoveryOutcomes.set(row.id, changed);
         continue;
       }
@@ -1618,7 +1634,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           legacyRecoveryResolvedAt: Date.now(),
           legacyRecoveryNextAt: null,
           legacyRecoveryLastReason: 'verified_compatible',
-        }, service.cvStorageKey, fallbackOpenCount);
+        }, service.cvStorageKey);
         if (changed) {
           refreshedProposals += 1;
           recoveryOutcomes.set(row.id, { ...changed, status: 'proposed' });
@@ -1633,7 +1649,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           matchReasons: preflight.rescored.reasons,
           matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
           updatedAt: FieldValue.serverTimestamp(),
-        }, service.cvStorageKey, fallbackOpenCount);
+        }, service.cvStorageKey);
         if (changed) recoveryOutcomes.set(row.id, { ...changed, retractionReason: 'decisive_requirement_missing', eligibilityStatus: result.status });
       } else {
         const changed = await updateLegacyRecoveryProposal(db, serviceRef, proposalRef, current => ({
@@ -1646,7 +1662,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
             reason: result.reason || result.status || 'eligibility_unverified',
           }),
           updatedAt: FieldValue.serverTimestamp(),
-        }), service.cvStorageKey, fallbackOpenCount);
+        }), service.cvStorageKey);
         if (changed) recoveryOutcomes.set(row.id, changed);
       }
     }
@@ -1679,17 +1695,20 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       };
       const created = await db.runTransaction(async transaction => {
         const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-        const [currentServiceDoc, currentRuntimeDoc, currentProposalDoc] = await Promise.all([
-          transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref),
+        const openProposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+        const [currentServiceDoc, currentRuntimeDoc, currentProposalDoc, openProposalSnapshot] = await Promise.all([
+          transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(ref), transaction.get(openProposalQuery),
         ]);
         const legacyService = currentServiceDoc.data() || {};
         const runtime = currentRuntimeDoc.data() || null;
         const currentService = mergeConciergeMatchingRuntime(legacyService, runtime);
-        const openCount = openProposalsCount(currentService, fallbackOpenCount);
+        const capacity = countConciergeProposalCapacity(openProposalSnapshot.docs, currentService, runtime);
+        const proposalIsAcceptable = proposalAcceptability(currentService, proposal, runtime).acceptable;
         if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
           || acceptedPositionsCount(currentService) >= servicePositionLimit(currentService)
-          || openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) return false;
-        const count = openCount + 1;
+          || (proposalIsAcceptable && capacity.decisionReady >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS)
+          || (!proposalIsAcceptable && capacity.verificationPending >= APPLICATION_CONCIERGE_MAX_OPEN_PREPROPOSAL_CHECKS)) return false;
+        const count = capacity.decisionReady + Number(proposalIsAcceptable);
         writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyService, runtime,
           { matchingOpenProposalCount: count });
         transaction.set(ref, proposal);
@@ -1734,21 +1753,23 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     };
     // Replace aggregate maps as whole fields so causes/statuses that disappeared
     // from the retry queue do not survive a recursive merge as stale counts.
-    const finalRuntime = (await runtimeRef.get()).data() || null;
-    completionUpdate.matchingOpenProposalCount = openProposalsCount(
-      mergeConciergeMatchingRuntime(service, finalRuntime), fallbackOpenCount,
-    );
     await db.runTransaction(async transaction => {
-      const [latestServiceSnapshot, latestRuntimeSnapshot] = await Promise.all([
-        transaction.get(serviceRef), transaction.get(runtimeRef),
+      const openProposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+      const [latestServiceSnapshot, latestRuntimeSnapshot, openProposalSnapshot] = await Promise.all([
+        transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(openProposalQuery),
       ]);
       const latestService = latestServiceSnapshot.data() || {};
+      const latestRuntime = latestRuntimeSnapshot.data() || null;
+      const latestMergedService = mergeConciergeMatchingRuntime(latestService, latestRuntime);
+      const latestCapacity = countConciergeProposalCapacity(openProposalSnapshot.docs, latestMergedService, latestRuntime);
       writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, latestService,
-        latestRuntimeSnapshot.data() || null, {
+        latestRuntime, {
           matchingRunStatus: FieldValue.delete(),
           matchingStartedAt: FieldValue.delete(),
+          matchingOpenProposalCount: latestCapacity.decisionReady,
         });
-      transaction.set(serviceRef, completionUpdate, { mergeFields: Object.keys(completionUpdate) });
+      transaction.set(serviceRef, { ...completionUpdate, matchingOpenProposalCount: latestCapacity.decisionReady },
+        { mergeFields: [...Object.keys(completionUpdate), 'matchingOpenProposalCount'] });
     });
     const telemetry = {
       scanned: checks.size,

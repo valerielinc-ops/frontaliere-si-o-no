@@ -13713,6 +13713,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-rinnovo-illuminazione-varese.title': 'Como renews lighting on Viale Varese, 80-thousand-euro project',
     'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'The Municipality of Como officially launched the public lighting renewal project along two sections of Varese Avenue.',
     'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-11-12.title': 'Cross-border workers: today\'s verified readings — November 12, 2026',
+    'blog.article.bollettino-frontaliere-2026-11-12.excerpt': 'Today\'s numbers, November 12, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate and active Swiss job listings on our job board. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Cross-border daily brief for workers, November 12, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'Daily figures for cross-border commuters, November 12, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
 };
 
 export default blogMetaEn;

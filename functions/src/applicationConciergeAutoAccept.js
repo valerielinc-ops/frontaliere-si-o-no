@@ -1,11 +1,11 @@
 /**
  * The platform's acceptance of the concierge proposals a candidate leaves undecided (owner decision 2026-11-11).
  *
- * A proposal still "proposed" CONCIERGE_AUTO_ACCEPT_MS after it was put in front of the candidate is accepted
- * through the candidate's own acceptance path (autoAcceptApplicationConciergeProposal): the same ownership,
- * service, quota and eligibility checks, the same CV copy and the same transaction, which reads the proposal
- * again and refuses it once the candidate has declined or accepted it. The child application then leaves with
- * the platform's answers like any other.
+ * An eligible proposal still "proposed" CONCIERGE_AUTO_ACCEPT_MS after its verified announcement was sent is
+ * accepted through the candidate's own acceptance path (autoAcceptApplicationConciergeProposal): the same
+ * ownership, service, quota and eligibility checks, the same CV copy and the same transaction, which reads the
+ * proposal again and refuses it once the candidate has declined or accepted it. The child application then
+ * leaves with the platform's answers like any other.
  *
  * Runs inside the existing 15-minute lifecycle tick (sweepApplicationConciergeLifecycle), never its own cron.
  * At most one proposal per service per tick: an acceptance queues a new matching run, and the next acceptance
@@ -20,7 +20,11 @@ import {
   servicePositionLimit,
   timestampMillis,
 } from './applicationConciergeConstants.js';
-import { conciergeAutoAcceptDue, conciergeProposalDecisionOpenedAt } from './applicationConciergeLifecyclePolicy.js';
+import {
+  conciergeAutoAcceptDue,
+  conciergeProposalDecisionOpenedAt,
+  conciergeProposalNoticeDecisionReady,
+} from './applicationConciergeLifecyclePolicy.js';
 import { autoAcceptApplicationConciergeProposal, proposalAcceptability } from './applicationConciergeCore.js';
 import { checkPostingLiveness, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { conciergeMatchingRuntimeRef, mergeConciergeMatchingRuntime } from './applicationConciergeRuntime.js';
@@ -105,6 +109,7 @@ export async function runConciergeAutoAcceptSweep({
     const proposals = await serviceDoc.ref.collection('proposals').where('status', '==', 'proposed').get();
     const due = (proposals.docs || [])
       .filter(doc => proposalAcceptability(currentService, doc.data() || {}, runtime).acceptable)
+      .filter(doc => conciergeProposalNoticeDecisionReady(currentService, doc.data() || {}))
       .filter(doc => conciergeAutoAcceptDue(doc.data() || {}, nowMs))
       .sort((left, right) => conciergeProposalDecisionOpenedAt(left.data()) - conciergeProposalDecisionOpenedAt(right.data())
         || String(left.id).localeCompare(String(right.id)));

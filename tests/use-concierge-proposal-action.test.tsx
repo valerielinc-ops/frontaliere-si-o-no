@@ -1,7 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react';
 const mocks = vi.hoisted(() => ({ fetchService: vi.fn(), accept: vi.fn(), auth: { currentUser: null as any } }));
-vi.mock('@/services/applicationConciergeService', () => ({ fetchApplicationConciergeService: mocks.fetchService, acceptApplicationConciergeProposal: mocks.accept }));
+vi.mock('@/services/applicationConciergeService', () => ({
+  fetchApplicationConciergeService: mocks.fetchService,
+  acceptApplicationConciergeProposal: mocks.accept,
+  getCandidateVisibleConciergeClarificationTasks: () => [],
+}));
 vi.mock('firebase/auth', () => ({ getAuth: () => mocks.auth }));
 vi.mock('@/services/firebase', () => ({ getApp: async () => ({}) }));
 import { useConciergeProposalAction } from '../hooks/useConciergeProposalAction';

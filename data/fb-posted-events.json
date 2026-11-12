@@ -2,16 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "myswitzerland:a19a0fef211140bcb4d675cf19161640",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
-      "id": "myswitzerland:7c0a9d54d1ba45f4a9979ddf1b939a48",
-      "viaDigest": "weekend-digest-ZH-2026-11-07",
-      "postedAt": "2026-11-06T16:23:20.337Z"
-    },
-    {
       "id": "myswitzerland:c36bd54ed4764b4c9227d75a1b1f5f97",
       "viaDigest": "weekend-digest-ZH-2026-11-07",
       "postedAt": "2026-11-06T16:23:20.337Z"
@@ -5360,6 +5350,40 @@
       "copyAngleIntent": "both",
       "copyHook": "Un appuntamento di musica da verificare prima di organizzarti.",
       "copyCta": "Consulta il programma."
+    },
+    {
+      "id": "myswitzerland:e4d94283874d4a839d7132a3dad7df8f",
+      "url": "https://frontaliereticino.ch/eventi/basilea/",
+      "postId": "951226518080080_122131226889272498",
+      "postedAt": "2026-11-12T17:09:28.180Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-conference",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una conferenza locale da valutare con le informazioni aggiornate.",
+      "copyCta": "Apri le informazioni."
+    },
+    {
+      "id": "myswitzerland:4bd745b999bf447b996684a7a70d8ee5",
+      "url": "https://frontaliereticino.ch/eventi/turgovia/frauenfeld/",
+      "postId": "951226518080080_122131226919272498",
+      "postedAt": "2026-11-12T17:09:33.846Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una proposta di teatro da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
     }
   ]
 }

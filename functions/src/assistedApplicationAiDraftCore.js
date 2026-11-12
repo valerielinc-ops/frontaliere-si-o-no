@@ -687,7 +687,6 @@ export function candidateIdentity(order, profile) {
  */
 export function candidateDocumentIdentity(identity, order) {
   const email = clean(order?.applicantEmail, 320);
-  if (!email) throw new Error('assisted_application_candidate_email_missing');
   return { ...identity, email };
 }
 

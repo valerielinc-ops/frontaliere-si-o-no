@@ -239,6 +239,45 @@ describe('platform acceptance of an undecided concierge proposal', () => {
     })]);
   });
 
+  it.each(['bounced', 'complained'])('does not auto-accept after the proposal email is %s', async deliveryStatus => {
+    const noticeKey = 'new_proposals_notice';
+    seedService('service-1', { notifications: { [noticeKey]: {
+      status: 'sent', providerStatus: 'accepted', deliveryStatus, to: 'person@example.test',
+    } } });
+    seedProposal('service-1', 'proposal-1', 20 * HOUR, {
+      proposalNoticeStatus: 'sent', proposalNoticeKey: noticeKey,
+    });
+
+    const summary = await sweep();
+
+    expect(summary).toMatchObject({ due: 0, attempted: 0, accepted: 0 });
+    expect(proposal('service-1', 'proposal-1')).toMatchObject({ status: 'proposed' });
+    expect(children()).toHaveLength(0);
+    const listed = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(listed.body.service.proposals[0]).toMatchObject({ status: 'proposed', autoAcceptAt: null });
+  });
+
+  it('rechecks provider delivery in the publishing transaction when a bounce arrives during CV copy', async () => {
+    const noticeKey = 'new_proposals_notice';
+    seedService('service-1', { notifications: { [noticeKey]: {
+      status: 'sent', providerStatus: 'accepted', deliveryStatus: 'delivered', to: 'person@example.test',
+    } } });
+    seedProposal('service-1', 'proposal-1', 20 * HOUR, {
+      proposalNoticeStatus: 'sent', proposalNoticeKey: noticeKey,
+    });
+    mocks.setCopyHook(() => {
+      const current = service('service-1');
+      current.notifications = { [noticeKey]: { ...current.notifications?.[noticeKey], deliveryStatus: 'bounced' } };
+    });
+
+    const summary = await sweep();
+
+    expect(summary).toMatchObject({ due: 1, attempted: 1, accepted: 0, skipped: { proposal_notice_not_delivered: 1 } });
+    expect(proposal('service-1', 'proposal-1')).toMatchObject({ status: 'proposed' });
+    expect(proposal('service-1', 'proposal-1').childApplicationId).toBeUndefined();
+    expect(children()).toHaveLength(0);
+  });
+
   it('never touches a declined, withdrawn, retracted or expired proposal', async () => {
     seedProposal('service-1', 'declined', 30 * HOUR, { status: 'declined', decidedBy: 'candidate' });
     seedProposal('service-1', 'withdrawn', 30 * HOUR, { status: 'declined', withdrawnAt: new Date() });

@@ -40,13 +40,25 @@ describe('application concierge contract', () => {
     expect(hasApplicationConciergeConsent({ consentVersion: null, consentedAt: new Date(1) })).toBe(false);
   });
 
-  it('says in every language that an undecided proposal is accepted and sent after 12 hours', async () => {
-    const expected: Record<string, RegExp> = { it: /12 ore/, en: /12 hours/, de: /12 Stunden/, fr: /12 heures/ };
+  it('keeps the 12-hour decision rule on confirmed proposals and labels preliminary checks separately', async () => {
+    const expected: Record<string, RegExp> = { it: /12 ore/, en: /12[- ]hours?/, de: /12 Stunden/, fr: /12 heures/ };
+    const preliminary: Record<string, { proposalIntro: RegExp; checksAreNotOffers: RegExp; cannotAccept: RegExp }> = {
+      it: { proposalIntro: /proposte compatibili/i, checksAreNotOffers: /controlli preliminari non sono proposte/i, cannotAccept: /non puoi accettarla/i },
+      en: { proposalIntro: /compatible proposals/i, checksAreNotOffers: /preliminary checks are not proposals/i, cannotAccept: /cannot be accepted/i },
+      de: { proposalIntro: /passende Vorschläge/i, checksAreNotOffers: /Vorprüfungen sind keine Vorschläge/i, cannotAccept: /kann nicht angenommen werden/i },
+      fr: { proposalIntro: /propositions compatibles/i, checksAreNotOffers: /vérifications préalables ne sont pas des propositions/i, cannotAccept: /ne pouvez pas l’accepter/i },
+    };
     for (const [locale, twelveHours] of Object.entries(expected)) {
       const { default: translations } = await import(`../services/locales/${locale}-core.ts`);
-      for (const key of ['clarityApproval', 'consent', 'step4Text', 'offerLinkHint', 'proposalsIntro']) {
+      for (const key of ['clarityApproval', 'consent', 'step4Text', 'offerLinkHint']) {
         expect(translations[`jobBoard.concierge.${key}`], `${locale} ${key}`).toMatch(twelveHours);
       }
+      expect(translations['jobBoard.concierge.proposalsIntro'], `${locale} proposalsIntro`).toMatch(preliminary[locale].proposalIntro);
+      expect(translations['jobBoard.concierge.proposalsIntro'], `${locale} proposalsIntro`)
+        .toMatch(preliminary[locale].checksAreNotOffers);
+      expect(translations['jobBoard.concierge.clarificationTasksIntro'], `${locale} clarificationTasksIntro`)
+        .toMatch(preliminary[locale].cannotAccept);
+      expect(translations['jobBoard.concierge.proposalsIntro'], `${locale} proposalsIntro`).not.toMatch(twelveHours);
       for (const key of ['clarityApproval', 'clarityNoRenewal', 'offerLinkHint', 'step4Text', 'benefitApprovalText', 'consent', 'proposalsIntro']) {
         expect(translations[`jobBoard.concierge.${key}`], `${locale} ${key}`)
           .not.toMatch(/via libera|approvazione|go-ahead|after you approve|Einverständnis|Zustimmung|Freigabe|après votre accord|validation/i);
