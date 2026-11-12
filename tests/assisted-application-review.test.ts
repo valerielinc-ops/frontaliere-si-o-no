@@ -81,7 +81,7 @@ beforeEach(() => {
   store = createMemoryFirestore({
     [BASE]: { userId: 'candidate-review-test', jobId: 'job-review-test', jobUrl: 'https://example.test/jobs/review/',
       cvStorageKey: `assisted-application-uploads/${ORDER}/review-cv.pdf`, cvUploadedAt: T0,
-      paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi' },
+      paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi', applicantEmail: 'candidate@example.test' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: draft(),
   });

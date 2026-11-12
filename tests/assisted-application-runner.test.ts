@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { isDeepStrictEqual } from 'node:util';
-import { renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
+import { extractCvText, renderPdf } from '../functions/src/assistedApplicationAiDocuments.js';
 import { JOB_ACTIVE_IDS_URL, JOB_DETAIL_BASE } from '../functions/src/assistedApplicationAiJob.js';
 import {
   DOCUMENTS_SCHEMA,
@@ -173,8 +173,13 @@ describe('draft mode', () => {
   it('builds the draft from Codex answers, with the career-ops guards applied in code', async () => {
     const bucket = fakeBucket();
     const codex = fakeCodex();
+    const draftOrder = {
+      ...order,
+      applicantEmail: 'candidate@example.test',
+      candidateAlias: { active: true, address: 'routing@example.test' },
+    };
     const draft = await buildDraft({
-      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      order: draftOrder, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
       codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
     // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras), and the one repair
@@ -182,6 +187,13 @@ describe('draft mode', () => {
     expect(codex).toHaveBeenCalledTimes(6);
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
     expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
+    const tailoredCvText = await extractCvText(bucket.files.get(draft.tailoredCv.pdfKey)!, 'pdf');
+    const coverLetterText = await extractCvText(bucket.files.get(draft.coverLetterPdfKey)!, 'pdf');
+    for (const documentText of [tailoredCvText, coverLetterText]) {
+      expect(documentText).toContain('candidate@example.test');
+      expect(documentText).not.toContain('routing@example.test');
+      expect(documentText).not.toContain('maria.rossi@example.com');
+    }
     expect(draft.ats.original.structural.grade).toBeTruthy();
     expect(draft.ats.tailored.keywords).toBeTruthy();
     expect(['high_confidence', 'caution', 'suspicious']).toContain(draft.legitimacy.tier);
@@ -190,6 +202,7 @@ describe('draft mode', () => {
     // Inferred rows are never critical; unverified quotes and invented addresses are dropped.
     expect(draft.requirements[2]).toMatchObject({ basis: 'inferred', importance: 'meaningful', quote: '' });
     expect(draft.requirements[3]).toMatchObject({ quote: '', quoteUnverified: true });
+    expect(draft.formAnswers.find((field: any) => field.key === 'email')?.value).toBe('routing@example.test');
     expect(draft.requirementsRaw.applicationEmail).toBe('');
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
@@ -209,7 +222,7 @@ describe('draft mode', () => {
     // The subject names the position and the candidate (the model's "Candidatura infermiera" is not used).
     expect(draft.applicationEmail.subject).toMatch(/^Candidatura per la posizione di .+ – Maria Rossi$/);
     // The e-mail framed like the letter: the code's salutation and closing, once each, the model's own removed.
-    expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
+    expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nrouting@example.test\n+41 79 123 45 67');
     const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
     expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
   });

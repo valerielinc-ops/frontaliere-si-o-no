@@ -10,6 +10,7 @@
  *   AA_PORTAL_E2E_FOCUS=agent-birth-date node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=diagnostics node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=umantis node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=modal-application node scripts/assisted-application/portal-e2e.mjs
  *
  * posting → sign-in page → "Konto erstellen" → register (two passwords, the
  * required consent, a newsletter box left alone) → "check your e-mail" →
@@ -212,7 +213,7 @@ async function createWorkdayTlsFixture(directory) {
 }
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], gravityApplication: { openerClicks: 0, submissions: 0, day: '', month: '', year: '' }, rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   let receiptJobId = '';
   let receiptJobParam = 'jobid';
   let receiptJobSequence = 0;
@@ -917,6 +918,64 @@ function fakePortal() {
       state.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
+    if (route === 'GET /gravity-modal-job') {
+      const days = Array.from({ length: 31 }, (_, index) => `<option value="${String(index + 1).padStart(2, '0')}.">${index + 1}.</option>`).join('');
+      const months = Array.from({ length: 12 }, (_, index) => `<option value="${String(index + 1).padStart(2, '0')}">${index + 1}</option>`).join('');
+      const years = Array.from({ length: 31 }, (_, index) => `<option value="${1980 + index}">${1980 + index}</option>`).join('');
+      return send(page('Bewerbung: Fachperson Betreuung', `<h1>Fachperson Betreuung 80%</h1>
+        <a class="gravity-opener" href="#">Jetzt bewerben</a><a class="gravity-opener" href="#">Jetzt bewerben</a>
+        <div class="job-application-modal" id="gravity-modal" style="position:fixed;inset:5%;background:white;z-index:2">
+          <form id="gravity-form" method="post" action="/gravity-submit" enctype="multipart/form-data">
+            <label for="gravity-first">Vorname *</label><input id="gravity-first" name="first" required>
+            <label for="gravity-last">Nachname *</label><input id="gravity-last" name="last" required>
+            <label for="gravity-email">E-Mail *</label><input id="gravity-email" type="email" name="email" required>
+            <section id="gravity-step-one">
+              <label for="gravity-day">Geburtstag Tag</label><select id="gravity-day" name="birthDay" required><option value="">Tag</option>${days}</select>
+              <label for="gravity-month">Geburtstag Monat</label><select id="gravity-month" name="birthMonth" required><option value="">Monat</option>${months}</select>
+              <label for="gravity-year">Geburtstag Jahr</label><select id="gravity-year" name="birthYear" required><option value="">Jahr</option>${years}</select>
+              <button type="button" id="gravity-next">Weiter</button>
+            </section>
+            <section id="gravity-step-two" hidden>
+              <label for="gravity-cv">Lebenslauf *</label><input id="gravity-cv" type="file" name="cv" required>
+              <label for="gravity-start">Frühester Eintritt</label><input id="gravity-start" type="date" name="startDate">
+              <button type="submit">Abschicken</button>
+            </section>
+          </form>
+        </div>
+        <script>
+          for (const opener of document.querySelectorAll('.gravity-opener')) opener.addEventListener('click', async (event) => {
+            event.preventDefault(); await fetch('/gravity-opener-click', { method: 'POST' });
+          });
+          document.getElementById('gravity-next').addEventListener('click', async () => {
+            const body = new URLSearchParams({
+              day: document.getElementById('gravity-day').value,
+              month: document.getElementById('gravity-month').value,
+              year: document.getElementById('gravity-year').value,
+            });
+            await fetch('/gravity-birth-date', { method: 'POST', body });
+            document.getElementById('gravity-step-one').hidden = true;
+            document.getElementById('gravity-step-two').hidden = false;
+          });
+          document.getElementById('gravity-form').addEventListener('submit', (event) => {
+            event.preventDefault(); fetch('/gravity-submit', { method: 'POST' });
+          });
+        </script>`));
+    }
+    if (route === 'POST /gravity-opener-click') {
+      state.gravityApplication.openerClicks += 1;
+      res.writeHead(204); return res.end();
+    }
+    if (route === 'POST /gravity-birth-date') {
+      const body = new URLSearchParams(await readBody(req));
+      state.gravityApplication.day = body.get('day') || '';
+      state.gravityApplication.month = body.get('month') || '';
+      state.gravityApplication.year = body.get('year') || '';
+      res.writeHead(204); return res.end();
+    }
+    if (route === 'POST /gravity-submit') {
+      state.gravityApplication.submissions += 1;
+      res.writeHead(204); return res.end();
+    }
     // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
     // nato?"): the send button stays disabled until a day is chosen.
     if (route === 'GET /widget-job') return send(page('Pflegefachperson', '<section class="job-detail" data-job-id="fixture-60"><h1>Pflegefachperson 60%</h1><a href="/widget">Jetzt bewerben</a></section>'));
@@ -1486,8 +1545,9 @@ async function main() {
     // role, just as the production runner receives it from the application order.
     const fixtureJob = fixturePath === '/job' ? { title: 'Pflegefachperson 80%' }
       : fixturePath === '/widget-job' ? { title: 'Pflegefachperson 60%' }
+        : fixturePath === '/gravity-modal-job' ? { title: 'Fachperson Betreuung 80%' }
         : undefined;
-    const postingUrl = runOptions.postingUrl || (['/job', '/widget-job', '/coop-job', '/wd/job', '/hotel-job', HOTEL_NO_H1_PATH, HOTEL_NO_H1_OTHER_TITLE_PATH, '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
+    const postingUrl = runOptions.postingUrl || (['/job', '/widget-job', '/gravity-modal-job', '/coop-job', '/wd/job', '/hotel-job', HOTEL_NO_H1_PATH, HOTEL_NO_H1_OTHER_TITLE_PATH, '/hotel-job-closed'].includes(fixturePath) ? applyUrl : '');
     const result = await submitViaPortal({
       language: 'de',
       candidateLocale: 'it',
@@ -1659,8 +1719,9 @@ async function main() {
   const focusAgentBirthDate = workdayFocus === 'agent-birth-date';
   const focusDiagnostics = workdayFocus === 'diagnostics';
   const focusUmantis = workdayFocus === 'umantis';
+  const focusModalApplication = workdayFocus === 'modal-application';
   try {
-    await hiddenFutureStepFileCheck({ executablePath, check });
+    if (!focusModalApplication) await hiddenFutureStepFileCheck({ executablePath, check });
     if (focusWorkday) {
       await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted');
     } else if (focusCoop) {
@@ -1684,6 +1745,19 @@ async function main() {
         { capturedChunkedError, capturedInvalidLinkedIn });
     } else if (focusUmantis) {
       await runUmantisChecks();
+    } else if (focusModalApplication) {
+      Object.assign(state.gravityApplication, { openerClicks: 0, submissions: 0, day: '', month: '', year: '' });
+      const modal = await run({ applyUrl: `${base}/gravity-modal-job`, dryRun: true });
+      const dayCorrect = state.gravityApplication.day === '12.';
+      const monthCorrect = state.gravityApplication.month === '05';
+      const yearCorrect = state.gravityApplication.year === '1990';
+      const birthDateCorrect = dayCorrect && monthCorrect && yearCorrect;
+      const openerUnused = state.gravityApplication.openerClicks === 0;
+      const submissionProtected = state.gravityApplication.submissions === 0;
+      const finalControlProtected = modal.event.type === 'dry_run_ready' && modal.evidence.finalButton?.label === 'Abschicken';
+      check('non-ARIA two-page application ignores both openers, chooses the birth-date day, and protects Abschicken',
+        finalControlProtected && birthDateCorrect && openerUnused && submissionProtected,
+        { finalControlProtected, dayCorrect, monthCorrect, yearCorrect, openerUnused, submissionProtected });
     } else if (!focusRegistration) {
     // Keep this timing-sensitive portal first in the full suite; the same
     // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
@@ -2076,7 +2150,7 @@ async function main() {
     await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId });
     }
 
-    if (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis) {
+    if (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis && !focusModalApplication) {
       const resetRegistration = () => {
         state.accounts.clear();
         state.verified.clear();

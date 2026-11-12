@@ -2,10 +2,11 @@ import { describe, expect, it, vi } from 'vitest';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { PORTAL_AUTO_RETRY_DELAYS_MS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION,
   portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
-import { reconcileFinalReviewAmbiguous } from '../scripts/assisted-application/reconcile-final-review-ambiguous.mjs';
+import { isFinalOcrControlLabel, reconcileFinalReviewAmbiguous } from '../scripts/assisted-application/reconcile-final-review-ambiguous.mjs';
 import { decideFinalReviewAmbiguousReconciliation } from '../scripts/assisted-application/lib/final-review-ambiguous-reconciliation.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { advancedToFinalReview } from '../scripts/assisted-application/lib/portal/final-review.mjs';
+import { SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const applyUrl = 'https://careers.example/Careers/ApplicationMethods?jobId=42';
@@ -37,6 +38,18 @@ function eligibleInput(overrides = {}) {
 }
 
 describe('shared final-review predicate', () => {
+  it('recognizes standalone German final controls in saved OCR evidence', () => {
+    expect(isFinalOcrControlLabel('Abschicken')).toBe(true);
+    expect(isFinalOcrControlLabel('Weiter')).toBe(false);
+    expect(isFinalOcrControlLabel('Abschicken!')).toBe(false);
+    expect(SUBMIT_RE.test('Abschicken!')).toBe(false);
+  });
+
+  it('keeps duplicate OCR rows from changing final-review control presence', () => {
+    const duplicateRows = { ...reviewSnapshot, buttons: [...reviewSnapshot.buttons, { ...reviewSnapshot.buttons[0] }] };
+    expect(advancedToFinalReview(duplicateRows, { url: finalUrl, submissionUrl, applyUrl })).toBe(true);
+  });
+
   it('accepts a bound review page that asks for another active final submit', () => {
     expect(advancedToFinalReview(reviewSnapshot, { url: finalUrl, submissionUrl, applyUrl, job: { title: 'Example role' } })).toBe(true);
   });

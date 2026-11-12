@@ -295,6 +295,69 @@ export function normalizeDateAnswer(field, value) {
   return field?.kind === 'date' || field?.inputType === 'date' ? iso : raw;
 }
 
+const DOB_MONTH_NUMBER = new Map([
+  ['january', 1], ['jan', 1], ['januar', 1], ['gennaio', 1], ['janvier', 1],
+  ['february', 2], ['feb', 2], ['februar', 2], ['febbraio', 2], ['fevrier', 2], ['fevr', 2],
+  ['march', 3], ['mar', 3], ['marz', 3], ['maerz', 3], ['marzo', 3], ['mars', 3],
+  ['april', 4], ['apr', 4], ['aprile', 4], ['avril', 4],
+  ['may', 5], ['mai', 5], ['maggio', 5],
+  ['june', 6], ['jun', 6], ['juni', 6], ['giugno', 6], ['juin', 6],
+  ['july', 7], ['jul', 7], ['juli', 7], ['luglio', 7], ['juillet', 7],
+  ['august', 8], ['aug', 8], ['agosto', 8], ['aout', 8],
+  ['september', 9], ['sep', 9], ['sept', 9], ['settembre', 9], ['septembre', 9],
+  ['october', 10], ['oct', 10], ['oktober', 10], ['ottobre', 10], ['octobre', 10],
+  ['november', 11], ['nov', 11], ['novembre', 11],
+  ['december', 12], ['dec', 12], ['dezember', 12], ['dicembre', 12], ['decembre', 12],
+]);
+
+function birthDatePartHint(value) {
+  const text = String(value || '');
+  if (/\b(?:tag|day|giorno|jour)\b/i.test(text)) return 'day';
+  if (/\b(?:monat|month|mese|mois)\b/i.test(text)) return 'month';
+  if (/\b(?:jahr|year|anno|ann[ée]e)\b/i.test(text)) return 'year';
+  return '';
+}
+
+function monthNumber(value) {
+  const normalized = String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/\.$/, '').replace(/\s+/g, ' ').trim();
+  return DOB_MONTH_NUMBER.get(normalized) || null;
+}
+
+function numericOptionValue(value, digits = 2) {
+  const match = new RegExp(`^\\s*0*(\\d{1,${digits}})\\.?\\s*$`).exec(String(value || ''));
+  return match ? Number(match[1]) : null;
+}
+
+/** Resolve one birth-date part against the select's observed option catalogue. */
+export function birthDatePartOption(field, dob) {
+  const iso = isoDateOf(dob);
+  const options = optionEntries(field);
+  if (!iso || !options.length) return null;
+  const part = birthDatePartHint(field?.placeholder)
+    || birthDatePartHint(field?.label)
+    || (() => {
+      const values = options.flatMap((option) => [option.label, option.value].filter(Boolean));
+      if (values.some((value) => /^\s*\d{4}\s*$/.test(String(value)))) return 'year';
+      const monthNames = new Set(values.map(monthNumber).filter(Boolean));
+      if (monthNames.size === 12) return 'month';
+      const numeric = new Set(values.map((value) => numericOptionValue(value)).filter((value) => value !== null));
+      if (numeric.size >= 28 && numeric.size <= 31 && [...numeric].every((value) => value >= 1 && value <= 31)) return 'day';
+      if (numeric.size === 12 && [...numeric].every((value) => value >= 1 && value <= 12)) return 'month';
+      return '';
+    })();
+  if (!part) return null;
+  const [year, month, day] = iso.split('-').map(Number);
+  const wanted = { day, month, year }[part];
+  const matches = options.filter((option) => {
+    const values = [option.label, option.value].filter(Boolean);
+    if (part === 'day') return values.some((value) => numericOptionValue(value) === wanted);
+    if (part === 'month') return values.some((value) => monthNumber(value) === wanted || numericOptionValue(value) === wanted);
+    return values.some((value) => /^\s*\d{4}\s*$/.test(String(value)) && Number(value) === wanted);
+  });
+  return matches.length === 1 ? String(matches[0].label || matches[0].value || '').trim() || null : null;
+}
+
 /** Whether the CV explicitly contains an experience that is still current. */
 function hasCurrentExperience(candidate) {
   return (candidate?.profile?.experience || []).some((item) => CURRENT_EXPERIENCE_RE.test(item?.end || ''));
@@ -1263,8 +1326,7 @@ function operationalAnswerAlreadyHeld(field, value) {
 
 function optionForAnswer(field, answer) {
   const rawOptions = Array.isArray(field?.options) ? field.options : [];
-  const options = rawOptions.map(option => typeof option === 'string' ? { label: option, value: option } : option)
-    .filter(option => option && option.placeholder !== true && String(option.label || '').trim());
+  const options = optionEntries(field);
   if (rawOptions.length && !options.length) return '';
   const topic = questionTopic(field.label, field.context, field);
   if (topic === 'permit') {
@@ -1336,6 +1398,20 @@ function optionForAnswer(field, answer) {
   }
   if (topic === 'civil_status') return civilStatusOption(options.map((option) => typeof option === 'string' ? option : option.label), answer);
   return '';
+}
+
+function optionEntries(field) {
+  return (Array.isArray(field?.options) ? field.options : [])
+    .map((option) => typeof option === 'string' ? { label: option, value: option } : option)
+    .filter((option) => option && option.placeholder !== true && String(option.label || option.value || '').trim());
+}
+
+function catalogOptionLabel(field, answer) {
+  const expected = comparableAnswer(answer);
+  if (!expected) return '';
+  const matches = optionEntries(field).filter((entry) =>
+    [entry.label, entry.value].some((value) => comparableAnswer(value) === expected));
+  return matches.length === 1 ? String(matches[0].label || matches[0].value || '').trim() : '';
 }
 
 const NO_LANGUAGE_OPTION_RE = /^(?:none|no (?:knowledge|proficiency|skills?)|no language skills|not applicable|i do not speak (?:this |the )?language|i don['’]t speak (?:this |the )?language|ich spreche (?:diese |die )?sprache nicht|je ne parle pas (?:cette |la )langue|non parlo (?:questa )?lingua|keine (?:sprach)?kenntnisse|aucune (?:connaissance|comp[eé]tence)|nessun[ae] conoscenz[ae]|nessun livello|non parl[oa])$/i;
@@ -1781,7 +1857,8 @@ function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit
     }
     if (['birth_date', 'nationality', 'start_date', 'start_date_contextual', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
       || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || isExactAvailableFromLabel(field?.label) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
-      const value = ['start_date', 'start_date_contextual', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
+      const value = topic === 'birth_date' && field?.options?.length ? birthDatePartOption(field, previous)
+        : ['start_date', 'start_date_contextual', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
         : field?.options?.length ? optionForAnswer(field, previous) : previous;
       return value ? { value, source: 'answers' } : null;
     }
@@ -1807,7 +1884,8 @@ function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit
     if (value) return { value, source: 'identity' };
   }
   if (topic === 'birth_date' && candidate?.profile?.dateOfBirth) {
-    const value = normalizeDateAnswer(field, candidate.profile.dateOfBirth);
+    const value = field?.options?.length ? birthDatePartOption(field, candidate.profile.dateOfBirth)
+      : normalizeDateAnswer(field, candidate.profile.dateOfBirth);
     if (value) return { value, source: 'profile' };
   }
   if (topic === 'nationality' && candidate?.profile?.nationality) {
@@ -2156,7 +2234,18 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
-      if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
+      const knownOption = isChoiceField(field) && field?.options?.length ? catalogOptionLabel(field, known?.value) : '';
+      const knownChoiceIsListed = !isChoiceField(field) || Boolean(knownOption);
+      if (knownHasValue && knownChoiceIsListed) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: isChoiceField(field) ? knownOption : known.value, source: known.source, evidence: '' };
+      if (action.action === 'select' && field?.options?.length) {
+        const listedOption = catalogOptionLabel(field, action.value);
+        if (!listedOption) {
+          rejectedActionFields.add(field.id);
+          ask(field);
+          continue;
+        }
+        action = { ...action, value: listedOption };
+      }
       // The planner's own value obeys the same value-shape invariant as the
       // deterministic one: a value that contradicts the field is not typed.
       if (action.action === 'fill' && !valueFitsField(field, action.value, candidate)) {
@@ -2211,9 +2300,11 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     const fromPolicy = action.source === 'policy_default' && isOperationalDefaultValue(field, action.value, { facts: candidate?.platformFacts });
+    const deterministicAnswer = candidateAnswerForField(candidate, field);
     const fromCandidate = (addressNeedsProvenance
       ? answeredByCandidate(candidate, field.label, action.value, field.context, field)
-      : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value))
+      : ['answers', 'profile'].includes(action.source) && (knownAnswer(knownValues, value)
+        || comparableAnswer(deterministicAnswer?.value) === comparableAnswer(action.value)))
       || (action.source === 'identity' && identityAnswerMatches(candidate, field, action.value));
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     const native = ['fill', 'select'].includes(action.action)
@@ -2286,7 +2377,7 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const value = isCheckboxField(field)
       ? String(answer.value ?? '').trim()
-      : field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
+      : field.options?.length ? catalogOptionLabel(field, answer.value) : normalizeDateAnswer(field, answer.value);
     if (!value) {
       ask(field);
       continue;

@@ -47,12 +47,16 @@ print(String(data: data, encoding: .utf8) ?? "[]")
 
 const OCR_FINAL_CONTROL_LABELS = new Set([
   'submit', 'submit application', 'send application', 'apply', 'apply now', 'confirm and apply',
-  'confirm and send', 'confirm and submit', 'absenden', 'senden', 'bewerben', 'jetzt bewerben',
+  'confirm and send', 'confirm and submit', 'absenden', 'abschicken', 'senden', 'bewerben', 'jetzt bewerben',
   'bestätigen und bewerben', 'bestätigen und absenden', 'bestätigen und senden', 'invia candidatura',
   'invia la candidatura', 'invia', 'inviare', 'candidati ora', 'candidati', 'applica',
   'conferma e applica', 'conferma e invia', 'envoyer candidature', 'envoyer ma candidature',
   'envoyer', 'postuler', 'soumettre', 'confirmer et postuler', 'confirmer et envoyer',
 ]);
+
+export function isFinalOcrControlLabel(label) {
+  return OCR_FINAL_CONTROL_LABELS.has(String(label ?? '').trim().toLocaleLowerCase());
+}
 
 function sourceEvidencePath(orderId, claim) {
   const startedAt = Number(claim?.startedAt);
@@ -93,7 +97,7 @@ async function screenshotTextOnMac(screenshotBase64) {
     });
     const lines = orderedRows.map(row => String(row?.text || '').trim()).filter(Boolean);
     if (!lines.length) return null;
-    const buttons = lines.filter(line => OCR_FINAL_CONTROL_LABELS.has(line.toLocaleLowerCase()) && SUBMIT_RE.test(line))
+    const buttons = lines.filter(line => isFinalOcrControlLabel(line) && SUBMIT_RE.test(line))
       .map(text => ({ text, disabled: null, chrome: false }));
     return { text: lines.join('\n'), buttons };
   } catch {

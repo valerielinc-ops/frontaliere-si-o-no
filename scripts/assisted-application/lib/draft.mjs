@@ -18,6 +18,7 @@ import {
   applyLetterConventions,
   buildFormAnswers,
   checkDraftTexts,
+  candidateDocumentIdentity,
   filterAuthorizedEvidenceAtoms,
   ensureRequiredQuestions,
   letterAddressOf,
@@ -229,6 +230,7 @@ export async function buildDraft(ctx) {
   profile = edited.profile;
   const answers = edited.answers;
   const identity = edited.identity;
+  const documentIdentity = candidateDocumentIdentity(identity, order);
   const personal = edited.personal;
 
   const locale = candidateLocale(order);
@@ -241,7 +243,7 @@ export async function buildDraft(ctx) {
   const tailoredCvPromise = buildTailoredCv({
     kind,
     rendererMode: await pdfRendererMode(),
-    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, candidateEvidenceAtoms,
+    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, documentIdentity, answers, candidateNotes, candidateEvidenceAtoms,
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
     cvBuffer, cvType, cvKey: order.cvStorageKey, inPlace: ctx.inPlace,
   });
@@ -522,7 +524,7 @@ export async function buildDraft(ctx) {
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
   const rendererMode = await pdfRendererMode();
   const { pdf, renderer: letterRenderer } = await renderLetterPdf(letterPdfBlocks({
-    identity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
+    identity: documentIdentity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,
   }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
@@ -619,7 +621,7 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, candidateEvidenceAtoms = [], cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, documentIdentity, answers, candidateNotes, candidateEvidenceAtoms = [], cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
   try {
     const candidateEvidenceText = candidateEvidenceAtoms.map((atom) => atom.claim).join('\n');
     const tailoredSourceText = [cvText, ...(candidateEvidenceText ? [candidateEvidenceText] : [])].join('\n');
@@ -651,7 +653,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
         repaired = true;
       }
     }
-    const text = tailoredCvPlainText(cv, { identity, profile });
+    const text = tailoredCvPlainText(cv, { identity: documentIdentity, profile });
     if (!facts.ok) {
       log('tailored cv: fact gate failed, the original CV will be sent');
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
@@ -663,10 +665,10 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
     // The photo the candidate gave on an earlier round stays on the new tailored CV.
     const photo = await candidatePhoto(flow, bucket);
-    const { pdf, renderer, photo: photoPrinted } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
+    const { pdf, renderer, photo: photoPrinted } = await buildTailoredCvPdf(cv, { identity: documentIdentity, profile, mode: rendererMode, log, ...photo });
     await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
     // Phase 5: the candidate's own Word file with the adapted lines, when the switch is on.
-    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
+    const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity: documentIdentity, bucket, orderId, round, nowMs, log });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
     return { record: { status: 'ready', pdfKey, size: pdf.byteLength ?? pdf.length, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };

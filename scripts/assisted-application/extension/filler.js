@@ -22,7 +22,7 @@
   'use strict';
 
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächst(?:e(?:r|s|n)?(?:\s+schritt)?)|save and continue|speichern und weiter|proceed)\b/i;
-  const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|bewerbung (absenden|senden|abschicken|einreichen)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia(?:re)?$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
+  const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|^abschicken$|bewerbung (absenden|senden|abschicken|einreichen)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia(?:re)?$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
   const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken|einreichen)|invia( la)? candidatura|^inviare$|envoyer( ma)? candidature)/i;
   // Cippà labels the human's final action «Invia CV». Keep this recognition in
   // the owner extension: the shared runner regex also authorizes its click.

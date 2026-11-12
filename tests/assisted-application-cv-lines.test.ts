@@ -82,7 +82,7 @@ const post = (body: Record<string, any>) => handleAssistedApplicationReview({ me
 
 function seed(cv: any) {
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi' },
+    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi', applicantEmail: 'candidate@example.test' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: {
       status: 'ready', round: 1, language: 'it', profile, job: { title: 'Sviluppatore' }, factSources: { text: CV_TEXT },
