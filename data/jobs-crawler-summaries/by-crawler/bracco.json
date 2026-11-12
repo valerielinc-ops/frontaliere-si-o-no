@@ -1,16 +1,16 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-11-11T21:20:07.402Z",
+  "generatedAt": "2026-11-12T09:19:10.926Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 17674,
-  "avgDurationMs": 17674,
+  "durationMs": 17102,
+  "avgDurationMs": 17102,
   "durationHistory": [
-    17674
+    17102
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,7 +30,7 @@
       "datePosted": "2026-11-09",
       "postedDate": "2026-11-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T21:19:52.974Z",
+      "crawledAt": "2026-11-12T09:18:53.047Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -52,7 +52,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:19:52.974Z",
+      "validThrough": "2027-02-07T09:18:53.047Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -76,7 +76,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T21:19:52.974Z",
+      "crawledAt": "2026-11-12T09:18:53.047Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -98,7 +98,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:52.974Z",
+      "validThrough": "2027-02-01T09:18:53.047Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -122,7 +122,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T21:19:52.974Z",
+      "crawledAt": "2026-11-12T09:18:53.047Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -144,7 +144,7 @@
       "postalCode": "1228",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:19:52.974Z",
+      "validThrough": "2027-01-25T09:18:53.047Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -168,7 +168,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T21:19:52.974Z",
+      "crawledAt": "2026-11-12T09:18:53.047Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -190,7 +190,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:19:52.974Z",
+      "validThrough": "2027-01-25T09:18:53.047Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -214,7 +214,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-11T21:19:52.974Z",
+      "crawledAt": "2026-11-12T09:18:53.047Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -236,7 +236,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:19:52.974Z",
+      "validThrough": "2027-01-25T09:18:53.047Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -247,5 +247,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

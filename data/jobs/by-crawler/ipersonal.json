@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-11-11T21:19:49.277Z",
-  "runId": "43100436674",
+  "assembledAt": "2026-11-12T09:20:26.495Z",
+  "runId": "43188488376",
   "jobs": [
     {
       "id": "ipersonal-b14d0297131a",
@@ -34,7 +34,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:30.783Z",
+      "crawledAt": "2026-11-12T09:20:09.492Z",
       "addressLocality": "Littenheid",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       },
       "streetAddress": "Littenheid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:30.783Z",
+      "validThrough": "2027-01-24T09:20:09.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:30.480Z",
+      "crawledAt": "2026-11-12T09:20:09.190Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -169,14 +169,14 @@
       },
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:30.480Z",
+      "validThrough": "2027-01-24T09:20:09.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-73624a3fc984",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -203,7 +203,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:30.178Z",
+      "crawledAt": "2026-11-12T09:20:08.889Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -231,7 +231,8 @@
           "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
@@ -251,7 +252,8 @@
         "emplois-vacants-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
+        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
       "firstSeenAt": "2026-11-04T09:17:17.925Z",
       "salaryMin": 68500,
@@ -270,7 +272,7 @@
       "postalCode": "3270",
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:30.178Z",
+      "validThrough": "2027-01-24T09:20:08.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -304,7 +306,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:29.874Z",
+      "crawledAt": "2026-11-12T09:20:08.587Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,8 +367,8 @@
           "fachfrau-fachmann-gesundheit-efz-fage-medipersonal-langenthal-bern"
         ]
       },
-      "firstSeenAt": "2026-11-04T09:17:17.624Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:17:17.624Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -382,7 +384,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:29.874Z",
+      "validThrough": "2027-01-24T09:20:08.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -416,7 +418,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:29.573Z",
+      "crawledAt": "2026-11-12T09:20:08.286Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -434,11 +436,17 @@
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
+      "previousSlugs": [
+        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
+        "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
+        "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
+        "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
+        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-zurich",
+        "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo",
+        "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo",
+        "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
-        ],
         "it": [
           "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
           "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
@@ -451,22 +459,16 @@
           "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
           "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo"
         ],
+        "de": [
+          "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
+          "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo"
+        ],
         "fr": [
           "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
           "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
           "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo"
         ]
       },
-      "previousSlugs": [
-        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-und-umgebung-baretswil-einsatzbeginn-ab-sofort-oder",
-        "personalberater-in-per-la-medizinbranche-medipersonal-wallisellen",
-        "personalberater-in-per-la-medizinbranche-medipersonal-zurigo",
-        "personalberater-in-fur-die-medizinbranche-medipersonal-zurigo",
-        "personalberater-in-fur-die-medizinbranche-medipersonal-wallisellen-zurich",
-        "recruitment-consultant-for-the-medical-sector-medipersonal-zurigo",
-        "conseiller-ere-en-personnel-pour-le-secteur-medical-medipersonal-zurigo",
-        "consulente-del-personale-per-il-settore-medico-medipersonal-zurigo"
-      ],
       "firstSeenAt": "2026-11-04T09:17:17.321Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -482,7 +484,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:19:29.573Z",
+      "validThrough": "2027-01-24T09:20:08.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -516,7 +518,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:29.271Z",
+      "crawledAt": "2026-11-12T09:20:07.985Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -556,8 +558,8 @@
         "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
         "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
       ],
-      "firstSeenAt": "2026-11-04T09:17:17.019Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:17:17.019Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -574,14 +576,14 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:29.271Z",
+      "validThrough": "2027-01-24T09:20:07.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-b6bfedc76300",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -608,7 +610,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:28.969Z",
+      "crawledAt": "2026-11-12T09:20:07.683Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -636,6 +638,7 @@
           "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna"
         ],
         "en": [
@@ -656,6 +659,7 @@
         "emplois-vacants-medipersonal-bern-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+        "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
       "firstSeenAt": "2026-11-04T09:17:16.716Z",
@@ -675,7 +679,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:28.969Z",
+      "validThrough": "2027-01-24T09:20:07.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -709,7 +713,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:28.666Z",
+      "crawledAt": "2026-11-12T09:20:07.382Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -768,8 +772,8 @@
           "fachfrau-fachmann-gesundheit-efz-fage-medipersonal-frauenfeld-thurgau"
         ]
       },
-      "firstSeenAt": "2026-11-04T09:17:16.415Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:17:16.415Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -785,7 +789,7 @@
       },
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:19:28.666Z",
+      "validThrough": "2027-01-24T09:20:07.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -819,7 +823,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:28.364Z",
+      "crawledAt": "2026-11-12T09:20:07.081Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -863,8 +867,8 @@
           "infirmier-ere-diplome-e-es-100-medipersonal-region-bern-be"
         ]
       },
-      "firstSeenAt": "2026-11-04T09:17:16.112Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-04T09:17:16.112Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -880,7 +884,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:19:28.364Z",
+      "validThrough": "2027-01-27T09:20:07.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -914,7 +918,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:28.062Z",
+      "crawledAt": "2026-11-12T09:20:06.780Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -976,7 +980,7 @@
       },
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:28.062Z",
+      "validThrough": "2027-02-01T09:20:06.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1010,7 +1014,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:27.759Z",
+      "crawledAt": "2026-11-12T09:20:06.478Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1060,8 +1064,8 @@
           "infirmier-infirmiere-hf-80-100-medipersonal-region-stein-am-rhein-sh"
         ]
       },
-      "firstSeenAt": "2026-11-06T21:22:17.118Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:22:17.118Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1077,7 +1081,7 @@
       },
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:19:27.759Z",
+      "validThrough": "2027-02-04T09:20:06.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1111,7 +1115,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:19:27.456Z",
+      "crawledAt": "2026-11-12T09:20:06.177Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1173,8 +1177,306 @@
       },
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:19:27.456Z",
+      "validThrough": "2027-02-04T09:20:06.177Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ipersonal-7f7261a7dfa2",
+      "slug": "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu",
+      "slugByLocale": {
+        "de": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
+        "it": "medizinische-r-praxisassistent-in-cfc-medipersonal-rain-lu",
+        "en": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu",
+        "fr": "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Medizinische/r Praxisassistent/in EFZ",
+      "titleByLocale": {
+        "de": "Medizinische/r Praxisassistent/in EFZ",
+        "it": "Medizinische/r Praxisassistent/in CFC",
+        "en": "Medizinische/r Praxisassistent/in EFZ",
+        "fr": "Medizinische/r Praxisassistent/in EFZ"
+      },
+      "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Abrechnung der Leistungen und Korrespondenz\n• Führen der Patientendossiers\n• Bewirtschaften von Material und Medikamenten\n• Durchführen von EKG und Lungenfunktion\nIhre Stärken\n• Medizinische/r Praxisassistent/in EFZ mit Erfahrung in Labor und Sprechstunde\n• Freundlicher Umgang mit Patientinnen und Patienten\n• Belastbar bei viel Betrieb\n• Diskret und zuverlässig\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+      "descriptionByLocale": {
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Abrechnung der Leistungen und Korrespondenz\n• Führen der Patientendossiers\n• Bewirtschaften von Material und Medikamenten\n• Durchführen von EKG und Lungenfunktion\nIhre Stärken\n• Medizinische/r Praxisassistent/in EFZ mit Erfahrung in Labor und Sprechstunde\n• Freundlicher Umgang mit Patientinnen und Patienten\n• Belastbar bei viel Betrieb\n• Diskret und zuverlässig\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "it": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Abrechnung der Leistungen und Korrespondenz\n• Führen der Patientendossiers\n• Bewirtschaften von Material und Medikamenten\n• Durchführen von EKG und Lungenfunktion\nIhre Stärken\n• Medizinische/r Praxisassistent/in EFZ mit Erfahrung in Labor und Sprechstunde\n• Freundlicher Umgang mit Patientinnen und Patienten\n• Belastbar bei viel Betrieb\n• Diskret und zuverlässig\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "en": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Abrechnung der Leistungen und Korrespondenz\n• Führen der Patientendossiers\n• Bewirtschaften von Material und Medikamenten\n• Durchführen von EKG und Lungenfunktion\nIhre Stärken\n• Medizinische/r Praxisassistent/in EFZ mit Erfahrung in Labor und Sprechstunde\n• Freundlicher Umgang mit Patientinnen und Patienten\n• Belastbar bei viel Betrieb\n• Diskret und zuverlässig\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "fr": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Abrechnung der Leistungen und Korrespondenz\n• Führen der Patientendossiers\n• Bewirtschaften von Material und Medikamenten\n• Durchführen von EKG und Lungenfunktion\nIhre Stärken\n• Medizinische/r Praxisassistent/in EFZ mit Erfahrung in Labor und Sprechstunde\n• Freundlicher Umgang mit Patientinnen und Patienten\n• Belastbar bei viel Betrieb\n• Diskret und zuverlässig\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration."
+      },
+      "location": "Rain, LU",
+      "canton": "LU",
+      "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:05.876Z",
+      "addressLocality": "Rain",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6026",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-11",
+      "postedDate": "2026-11-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045/",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rain",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T09:20:05.876Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T09:20:05.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-medipersonal-rain-lu"
+      ]
+    },
+    {
+      "id": "ipersonal-c92e3e1ad001",
+      "slug": "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be",
+      "slugByLocale": {
+        "de": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
+        "it": "medizinische-r-praxisassistent-in-cfc-medipersonal-koppigen-be",
+        "en": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be",
+        "fr": "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Medizinische/r Praxisassistent/in EFZ",
+      "titleByLocale": {
+        "de": "Medizinische/r Praxisassistent/in EFZ",
+        "it": "Medizinische/r Praxisassistent/in CFC",
+        "en": "Medizinische/r Praxisassistent/in EFZ",
+        "fr": "Medizinische/r Praxisassistent/in EFZ"
+      },
+      "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Empfang der Patientinnen und Patienten, Telefon und Terminplanung\n• Blutentnahmen und Laboranalysen\n• Röntgenaufnahmen nach Ausbildung\n• Assistenz bei Untersuchungen und kleinen Eingriffen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Erfahrung in einer Praxis von Vorteil\n• Erfahrung mit einer Praxissoftware von Vorteil\n• Teamfähig\nIhre Vorteile mit MediPersonal\n• Für Fachpersonen kostenlos\n• Ihre Kontaktperson begleitet Sie persönlich bis zum unterschriebenen Vertrag\n• Vorstellung bei der Institution durch Ihre Kontaktperson\n• Offene Angaben zu Lohn, Diensten und Pensum vor dem ersten Gespräch\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+      "descriptionByLocale": {
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Empfang der Patientinnen und Patienten, Telefon und Terminplanung\n• Blutentnahmen und Laboranalysen\n• Röntgenaufnahmen nach Ausbildung\n• Assistenz bei Untersuchungen und kleinen Eingriffen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Erfahrung in einer Praxis von Vorteil\n• Erfahrung mit einer Praxissoftware von Vorteil\n• Teamfähig\nIhre Vorteile mit MediPersonal\n• Für Fachpersonen kostenlos\n• Ihre Kontaktperson begleitet Sie persönlich bis zum unterschriebenen Vertrag\n• Vorstellung bei der Institution durch Ihre Kontaktperson\n• Offene Angaben zu Lohn, Diensten und Pensum vor dem ersten Gespräch\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "it": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Empfang der Patientinnen und Patienten, Telefon und Terminplanung\n• Blutentnahmen und Laboranalysen\n• Röntgenaufnahmen nach Ausbildung\n• Assistenz bei Untersuchungen und kleinen Eingriffen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Erfahrung in einer Praxis von Vorteil\n• Erfahrung mit einer Praxissoftware von Vorteil\n• Teamfähig\nIhre Vorteile mit MediPersonal\n• Für Fachpersonen kostenlos\n• Ihre Kontaktperson begleitet Sie persönlich bis zum unterschriebenen Vertrag\n• Vorstellung bei der Institution durch Ihre Kontaktperson\n• Offene Angaben zu Lohn, Diensten und Pensum vor dem ersten Gespräch\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "en": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Empfang der Patientinnen und Patienten, Telefon und Terminplanung\n• Blutentnahmen und Laboranalysen\n• Röntgenaufnahmen nach Ausbildung\n• Assistenz bei Untersuchungen und kleinen Eingriffen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Erfahrung in einer Praxis von Vorteil\n• Erfahrung mit einer Praxissoftware von Vorteil\n• Teamfähig\nIhre Vorteile mit MediPersonal\n• Für Fachpersonen kostenlos\n• Ihre Kontaktperson begleitet Sie persönlich bis zum unterschriebenen Vertrag\n• Vorstellung bei der Institution durch Ihre Kontaktperson\n• Offene Angaben zu Lohn, Diensten und Pensum vor dem ersten Gespräch\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration.",
+        "fr": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Empfang der Patientinnen und Patienten, Telefon und Terminplanung\n• Blutentnahmen und Laboranalysen\n• Röntgenaufnahmen nach Ausbildung\n• Assistenz bei Untersuchungen und kleinen Eingriffen\nIhre Stärken\n• Abschluss als Medizinische/r Praxisassistent/in EFZ\n• Erfahrung in einer Praxis von Vorteil\n• Erfahrung mit einer Praxissoftware von Vorteil\n• Teamfähig\nIhre Vorteile mit MediPersonal\n• Für Fachpersonen kostenlos\n• Ihre Kontaktperson begleitet Sie persönlich bis zum unterschriebenen Vertrag\n• Vorstellung bei der Institution durch Ihre Kontaktperson\n• Offene Angaben zu Lohn, Diensten und Pensum vor dem ersten Gespräch\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK\nIhr Arbeitsumfeld\nBerufsgruppe Praxis und MPA\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Medizinische/r Praxisassistent/in\nAls Medizinische Praxisassistentin oder Medizinischer Praxisassistent EFZ sind Sie in der Arztpraxis die Verbindung zwischen Patientinnen, Ärzten und Administration."
+      },
+      "location": "Koppigen, BE",
+      "canton": "BE",
+      "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:05.575Z",
+      "addressLocality": "Koppigen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3425",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-11",
+      "postedDate": "2026-11-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044/",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Koppigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T09:20:05.575Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T09:20:05.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-medipersonal-koppigen-be"
+      ]
+    },
+    {
+      "id": "ipersonal-12db6a1fafa0",
+      "slug": "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be",
+      "slugByLocale": {
+        "de": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
+        "it": "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental-be",
+        "en": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
+        "fr": "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Fachmann/frau Gesundheit EFZ",
+      "titleByLocale": {
+        "de": "Fachmann/frau Gesundheit EFZ",
+        "it": "Fachmann/frau Gesundheit CFC",
+        "en": "Fachmann/frau Gesundheit EFZ",
+        "fr": "Fachmann/frau Gesundheit EFZ"
+      },
+      "description": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Zusammenarbeit mit dem Pflegeteam\n• Vorbereiten und Begleiten von Untersuchungen\n• Mithilfe bei der Wundversorgung nach Kompetenz\n• Administrative Aufgaben auf der Abteilung\nIhre Stärken\n• Abschluss als Fachmann/frau Gesundheit EFZ\n• Zuverlässig und sorgfältig\n• Teamfähig\n• Belastbar und flexibel\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+      "descriptionByLocale": {
+        "de": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Zusammenarbeit mit dem Pflegeteam\n• Vorbereiten und Begleiten von Untersuchungen\n• Mithilfe bei der Wundversorgung nach Kompetenz\n• Administrative Aufgaben auf der Abteilung\nIhre Stärken\n• Abschluss als Fachmann/frau Gesundheit EFZ\n• Zuverlässig und sorgfältig\n• Teamfähig\n• Belastbar und flexibel\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+        "it": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Zusammenarbeit mit dem Pflegeteam\n• Vorbereiten und Begleiten von Untersuchungen\n• Mithilfe bei der Wundversorgung nach Kompetenz\n• Administrative Aufgaben auf der Abteilung\nIhre Stärken\n• Abschluss als Fachmann/frau Gesundheit EFZ\n• Zuverlässig und sorgfältig\n• Teamfähig\n• Belastbar und flexibel\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+        "en": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Zusammenarbeit mit dem Pflegeteam\n• Vorbereiten und Begleiten von Untersuchungen\n• Mithilfe bei der Wundversorgung nach Kompetenz\n• Administrative Aufgaben auf der Abteilung\nIhre Stärken\n• Abschluss als Fachmann/frau Gesundheit EFZ\n• Zuverlässig und sorgfältig\n• Teamfähig\n• Belastbar und flexibel\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten.",
+        "fr": "Aus dem Ausland? Diplom noch nicht anerkannt? Bewerben Sie sich trotzdem. Wir helfen Ihnen bei der Anerkennung beim Schweizerischen Roten Kreuz (SRK) oder bei der MEBEKO und bei der Bewilligung.\nDiese Tätigkeiten erwarten Sie\n• Zusammenarbeit mit dem Pflegeteam\n• Vorbereiten und Begleiten von Untersuchungen\n• Mithilfe bei der Wundversorgung nach Kompetenz\n• Administrative Aufgaben auf der Abteilung\nIhre Stärken\n• Abschluss als Fachmann/frau Gesundheit EFZ\n• Zuverlässig und sorgfältig\n• Teamfähig\n• Belastbar und flexibel\nIhre Vorteile mit MediPersonal\n• Wöchentliche Lohnauszahlung, auch bei kurzen Einsätzen\n• Ihre Kontaktperson bei MediPersonal begleitet Sie persönlich, vom ersten Gespräch bis zum letzten Dienst\n• Dienste, Pensum und Einsatzort planen wir mit Ihnen zusammen\n• Spätere Festanstellung in der Institution möglich, wenn beide Seiten wollen\n• Unterstützung bei der Anerkennung Ihres Diploms beim SRK und bei der Bewilligung\n• Vertrag, Lohnabrechnung und Versicherungen über die iPersonal AG\n• Für Fachpersonen kostenlos\nIhr Arbeitsumfeld\nBerufsgruppe Pflege\nDienste nach Dienstplan der Institution, wir besprechen ihn vorher mit Ihnen\nDen Namen der Institution erfahren Sie im persönlichen Gespräch.\nIhr Beruf: Fachmann/frau Gesundheit\nAls Fachfrau oder Fachmann Gesundheit EFZ sind Sie nah bei den Menschen. Sie unterstützen bei der Körperpflege, messen Vitalzeichen, richten und verabreichen Medikamente nach ärztlicher Verordnung, wechseln Verbände und dokumentieren sorgfältig, was Sie beobachten."
+      },
+      "location": "Langnau im Emmental, BE",
+      "canton": "BE",
+      "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:05.274Z",
+      "addressLocality": "Langnau im Emmental",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3550",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-11",
+      "postedDate": "2026-11-11",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046/",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
+          "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-medipersonal-langnau-im-emmental-be",
+        "fachmann-frau-gesundheit-cfc-medipersonal-langnau-im-emmental"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Langnau im Emmental",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T09:20:05.274Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T09:20:05.274Z"
+    },
+    {
+      "id": "ipersonal-991286b9e792",
+      "slug": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
+      "slugByLocale": {
+        "de": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
+        "it": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
+        "en": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh",
+        "fr": "personalberater-in-gesundheitswesen-medipersonal-region-wallisellen-zh"
+      },
+      "company": "MediPersonal",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Personalberater/in Gesundheitswesen",
+      "titleByLocale": {
+        "de": "Personalberater/in Gesundheitswesen",
+        "it": "Personalberater/in Gesundheitswesen",
+        "en": "Personalberater/in Gesundheitswesen",
+        "fr": "Personalberater/in Gesundheitswesen"
+      },
+      "description": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,32 von 5 (475 Bewertungen).",
+      "descriptionByLocale": {
+        "de": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,32 von 5 (475 Bewertungen).",
+        "it": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,32 von 5 (475 Bewertungen).",
+        "en": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,32 von 5 (475 Bewertungen).",
+        "fr": "Diese Tätigkeiten erwarten Sie\n• Sie betreuen Pflegedienstleitungen, Heimleitungen und HR-Abteilungen und gewinnen neue Institutionen dazu.\n• Sie finden Pflegefachpersonen und weitere Fachkräfte, prüfen Diplome und Anerkennungen (SRK) und vermitteln sie temporär, als Springer oder fest.\n• Sie organisieren auch kurzfristige Einsätze, wenn im Dienstplan jemand ausfällt.\nIhre Stärken\n• Erfahrung im Gesundheitswesen: als Personalberater/in im Medical-Bereich oder aus Pflege und Medizin mit langjähriger Leitungsfunktion, in der Sie selbst Personal eingestellt haben\n• Mindestens drei Jahre Berufserfahrung in dieser Rolle\n• Abgeschlossene kaufmännische Lehre oder eine höhere Ausbildung im Gesundheitswesen (z.B. HF Pflege) mit Führungserfahrung\n• Eigenes Netzwerk im Gesundheitswesen von Vorteil\n• Sehr gute PC-Kenntnisse\n• Sie sind zuverlässig und pünktlich, Institutionen und Fachpersonen vertrauen Ihnen\n• Deutsch sehr gut\nIhre Vorteile mit MediPersonal\n• Einen Lohn über dem Marktüblichen\n• Bonusmodell für Ihre Vermittlungen und einen Firmenbonus für den ganzen Betrieb\n• Die gesamte Infrastruktur und unsere eigene Vermittlungssoftware\n• Ein familiär geführtes Unternehmen, das in weitere Kantone expandiert\nIhr Arbeitsumfeld\nBerufsgruppe weitere\nArbeitszeiten nach Vereinbarung\nAnstellung direkt bei der iPersonal AG\nSie werden fest bei der iPersonal AG angestellt, Bahnhofplatz 1C, 8304 Wallisellen, und arbeiten im Team ihrer Marke MediPersonal. Vertrag, Lohnabrechnung und Versicherungen erhalten Sie direkt von uns als Ihrer Arbeitgeberin.\nMehr über die Arbeit bei MediPersonal: Jobs bei uns\nWer hinter MediPersonal steht\nMediPersonal ist die Marke der iPersonal AG für das Gesundheitswesen. Unser Team bringt Fachpersonen und Institutionen aus Pflege, Spital und Praxis zusammen. Die Firma gehört dem Verband swissstaffing an. Bei ProvenExpert bewerten Kundinnen und Kunden die iPersonal AG mit 4,32 von 5 (475 Bewertungen)."
+      },
+      "location": "Region Wallisellen (ZH)",
+      "canton": "ZH",
+      "url": "https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:04.972Z",
+      "addressLocality": "Wallisellen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-12",
+      "postedDate": "2026-11-12",
+      "postingDateSource": "reported",
+      "applyUrl": "https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039/",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8304",
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T09:20:04.972Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T09:20:04.972Z"
     }
   ]
 }

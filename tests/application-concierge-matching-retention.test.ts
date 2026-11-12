@@ -500,6 +500,52 @@ describe('application concierge proposal retention', () => {
     expect(Number(retry?.retryAt)).toBeGreaterThan(Date.now() + 3 * 60 * 60_000);
   });
 
+  it('runs a scheduled retry whose backoff would otherwise land after service expiry', async () => {
+    const store = matchingFixture();
+    store.docs.delete(PROPOSAL_PATH);
+    const expiresAt = new Date(Date.now() + 24 * 60 * 60_000);
+    store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, expiresAt });
+    stubJobIndex([matchingJob]);
+
+    const profile = store.read('user_cv_profiles/candidate-1')?.profile;
+    const retryBudgetContext = createHash('sha256').update(JSON.stringify([
+      'test-eligibility-v1', CV_KEY, profile,
+    ])).digest('hex');
+    const normalizedJob = { ...matchingJob, location: '' };
+    const sourceFingerprint = 'f'.repeat(64);
+    const fingerprint = 'e'.repeat(64);
+    const serviceRef = store.db.collection('application_concierge_services').doc(SERVICE_ID);
+    const retryRef = eligibilityRetryRef(serviceRef, JOB_URL);
+    const context = eligibilityRetryContext(retryBudgetContext, normalizedJob, fingerprint);
+    const jobContext = eligibilityRetryContext(retryBudgetContext, normalizedJob);
+    await retryRef.set({
+      jobUrl: JOB_URL,
+      context,
+      jobContext,
+      retryBudgetContext: eligibilityRetryContext(retryBudgetContext, normalizedJob, sourceFingerprint),
+      retryBudgetJobContext: jobContext,
+      eligibilityFactsRevision: 0,
+      fingerprint,
+      sourceFingerprint,
+      attempts: 4,
+      deferrals: 0,
+      retryAt: expiresAt.getTime() + 3 * 86400_000,
+      retryState: 'scheduled',
+      lastStatus: 'unverified',
+      lastReason: 'hard_requirement_uncovered',
+      firstAttemptAt: Date.now() - 5 * 86400_000,
+      lastAttemptAt: Date.now() - 2 * 86400_000,
+    });
+
+    const eligibility = vi.fn(async () => ({ status: 'compatible', fingerprint: 'a'.repeat(64), sourceFingerprint }));
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect((await retryRef.get()).exists).toBe(false);
+    expect(store.list(`${SERVICE_PATH}/proposals/`)).toHaveLength(1);
+  });
+
   it('resumes a scheduled legacy proposal when confirmed candidate facts change', async () => {
     const store = matchingFixture();
     const originalProposal = store.read(PROPOSAL_PATH)!;

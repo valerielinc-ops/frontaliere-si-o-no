@@ -1,11 +1,27 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { pruneSelfHealTracking } from '../../build-plugins/shared/pruneSelfHealTracking';
+import {
+  pruneSelfHealTracking,
+  pruneSelfHealTrackingRow,
+} from '../../build-plugins/shared/pruneSelfHealTracking';
 
 const pluginSource = readFileSync(resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
 
 describe('self-heal tracking retention', () => {
+  it('can progressively prune a row with the same claimed-path rule as the final pass', () => {
+    const tracking = {
+      alreadyCovered: { it: '/it/jobs/a', de: '/de/jobs/a' },
+      stillPending: { it: '/it/jobs/b', de: '/de/jobs/b' },
+    };
+
+    expect(pruneSelfHealTrackingRow(tracking, 'alreadyCovered', ['de'], () => true)).toBe(true);
+    expect(pruneSelfHealTrackingRow(tracking, 'stillPending', ['de'], () => false)).toBe(false);
+    expect(tracking).toEqual({
+      stillPending: { it: '/it/jobs/b', de: '/de/jobs/b' },
+    });
+  });
+
   it('drops claimed shard rows and preserves every locale path for pending rows', () => {
     const tracking = {
       alreadyEmitted: { it: '/it/jobs/a', de: '/de/jobs/a', fr: '/fr/jobs/a' },
@@ -72,6 +88,22 @@ describe('self-heal tracking retention', () => {
     expect(lastExpiredPathRead).toBeGreaterThan(-1);
     expect(prune).toBeGreaterThan(lastExpiredPathRead);
     expect(previousSlugPhase).toBeGreaterThan(prune);
+  });
+
+  it('releases expired-sweep rows on both sweep exits and preserves cross-locale rows', () => {
+    const release = pluginSource.indexOf('const releaseExpiredSweepSlug = (slug: string, expiredSlugIndex: number)');
+    const releaseCalls = [...pluginSource.matchAll(/releaseExpiredSweepSlug\(slug, expiredSlugIndex\);/gu)]
+      .map((match) => match.index ?? -1);
+    const crossLocalePass = pluginSource.indexOf('/* ── Cross-locale reconciliation for expired jobs');
+    const retainedCrossLocaleSlugs = pluginSource.indexOf(
+      '!progressiveExpiredCrossLocaleSlugs?.has(slug)',
+    );
+
+    expect(release).toBeGreaterThan(-1);
+    expect(releaseCalls).toHaveLength(2);
+    expect(releaseCalls.every((index) => index > release && index < crossLocalePass)).toBe(true);
+    expect(retainedCrossLocaleSlugs).toBeGreaterThan(release);
+    expect(retainedCrossLocaleSlugs).toBeLessThan(crossLocalePass);
   });
 
   it('releases native route and tracking indexes after the final self-heal readers', () => {

@@ -14,7 +14,8 @@ import {
  renderJobPostingDescription,
 } from './shared/jobDescriptionContent';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
-import { pruneSelfHealTracking } from './shared/pruneSelfHealTracking';
+import { releaseExpiredArchiveRowAfterRender } from './shared/expiredArchiveRetention';
+import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneSelfHealTracking';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -14697,6 +14698,13 @@ ${staticAnalyticsHtml}
   collector.forgetWrittenPaths();
   expiredHtmlCacheChunks++;
  };
+ let progressiveExpiredArchiveRowsReleased = 0;
+ let progressiveExpiredArchiveRowsCompacted = 0;
+ let progressiveExpiredArchiveRowsRemoved = 0;
+ let progressiveExpiredArchiveFieldsReleased = 0;
+ let progressiveExpiredBySlugEntriesReleased = 0;
+ let progressiveExpiredOrphanEntriesReleased = 0;
+ let progressiveExpiredTrackingRowsReleased = 0;
  const drainExpiredSweepSlot = async (expiredSlugIndex: number): Promise<void> => {
   await collector.awaitDrainSlot(2);
   if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE !== 0) return;
@@ -14709,17 +14717,46 @@ ${staticAnalyticsHtml}
     expiredCount,
     expiredHtmlCacheChunks,
     jobsSeoHtmlGcRuns,
+    progressiveExpiredArchiveRowsReleased,
+    progressiveExpiredArchiveRowsCompacted,
+    progressiveExpiredArchiveRowsRemoved,
+    progressiveExpiredArchiveFieldsReleased,
+    progressiveExpiredBySlugEntriesReleased,
+    progressiveExpiredOrphanEntriesReleased,
+    progressiveExpiredTrackingRowsReleased,
    });
   }
  };
+ const progressiveExpiredReleaseEnabled = process.env.JOBS_SEO_PROGRESSIVE_RELEASE !== '0';
+ const progressiveExpiredCrossLocaleSlugs = progressiveExpiredReleaseEnabled
+  ? new Set<string>()
+  : null;
+ const progressiveExpiredArchiveIndexByRow = progressiveExpiredReleaseEnabled
+  ? new Map<object, number>()
+  : null;
+ const progressiveExpiredCrossLocaleArchiveRows = progressiveExpiredReleaseEnabled
+  ? new Set<object>()
+  : null;
+ if (progressiveExpiredArchiveIndexByRow) {
+  for (let index = 0; index < expiredJobsData.length; index++) {
+   const row = expiredJobsData[index];
+   if (row && typeof row === 'object') progressiveExpiredArchiveIndexByRow.set(row, index);
+  }
+ }
+ const selfHealLocales = localeList.filter(shouldEmitLocale);
+ const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(
+  np.join(distDir, relativePath.replace(/^\//, ''), 'index.html'),
+ );
  const expiredCacheKeys = new Set<string>();
  for (const ej of expiredJobsData) {
  const sbl = (ej && ej.slugByLocale) as Record<string, string> | undefined;
  if (!sbl || typeof sbl !== 'object') continue;
  const distinct = new Set(Object.values(sbl).filter(Boolean));
  if (distinct.size < 2) continue;
+ progressiveExpiredCrossLocaleArchiveRows?.add(ej);
  for (const loc of localeList) {
  const s = sbl[loc];
+ if (s) progressiveExpiredCrossLocaleSlugs?.add(s);
  const relPath = s ? tracking[s]?.[loc] : undefined;
  if (relPath) expiredCacheKeys.add(jobsSeoHtmlCacheKey(loc, relPath));
  }
@@ -14775,6 +14812,86 @@ ${staticAnalyticsHtml}
  if (ra !== rb) return rb - ra;
  return a.localeCompare(b);
  });
+
+ // Archive rows can be large, but only their route metadata is read after
+ // their final expired-page render. Keep multilingual slugs intact until the
+ // cross-locale pass below, and release each alias set after its last reader.
+ const progressiveExpiredAliasesByRow = progressiveExpiredReleaseEnabled
+  ? new Map<object, string[]>()
+  : null;
+ const progressiveExpiredReadersByRow = progressiveExpiredReleaseEnabled
+  ? new Map<object, number>()
+  : null;
+ const releaseExpiredSweepArchiveRow = (row: object): void => {
+  if (!progressiveExpiredAliasesByRow || !progressiveExpiredReadersByRow) return;
+  const aliases = progressiveExpiredAliasesByRow.get(row) ?? [];
+  for (const alias of aliases) {
+   if (expiredBySlug.delete(alias)) progressiveExpiredBySlugEntriesReleased++;
+  }
+  aliases.length = 0;
+  const archiveIndex = progressiveExpiredArchiveIndexByRow?.get(row);
+  if (archiveIndex !== undefined) {
+   const outcome = releaseExpiredArchiveRowAfterRender(
+    expiredJobsData,
+    archiveIndex,
+    row as Record<string, unknown>,
+    progressiveExpiredCrossLocaleArchiveRows?.has(row) === true,
+   );
+   progressiveExpiredArchiveRowsReleased++;
+   if (outcome.kind === 'compacted') progressiveExpiredArchiveRowsCompacted++;
+   else progressiveExpiredArchiveRowsRemoved++;
+   progressiveExpiredArchiveFieldsReleased += outcome.fieldsReleased;
+   progressiveExpiredArchiveIndexByRow?.delete(row);
+  }
+  progressiveExpiredAliasesByRow.delete(row);
+  progressiveExpiredReadersByRow.delete(row);
+ };
+ if (progressiveExpiredAliasesByRow && progressiveExpiredReadersByRow) {
+  for (const [alias, row] of expiredBySlug) {
+   let aliases = progressiveExpiredAliasesByRow.get(row);
+   if (!aliases) {
+    aliases = [];
+    progressiveExpiredAliasesByRow.set(row, aliases);
+   }
+   aliases.push(alias);
+  }
+  for (const slug of expiredSlugs) {
+   const row = expiredBySlug.get(slug);
+   if (row) progressiveExpiredReadersByRow.set(
+    row,
+    (progressiveExpiredReadersByRow.get(row) ?? 0) + 1,
+   );
+  }
+  for (const row of progressiveExpiredArchiveIndexByRow?.keys() ?? []) {
+   if (!progressiveExpiredReadersByRow.has(row)) releaseExpiredSweepArchiveRow(row);
+  }
+  for (const row of progressiveExpiredAliasesByRow.keys()) {
+   if (!progressiveExpiredReadersByRow.has(row)) releaseExpiredSweepArchiveRow(row);
+  }
+ }
+ const releaseExpiredSweepSlug = (slug: string, expiredSlugIndex: number): void => {
+  if (!progressiveExpiredReleaseEnabled) return;
+  const archiveRow = expiredBySlug.get(slug);
+  if (archiveRow && progressiveExpiredAliasesByRow && progressiveExpiredReadersByRow) {
+   const remainingReaders = (progressiveExpiredReadersByRow.get(archiveRow) ?? 1) - 1;
+   if (remainingReaders <= 0) releaseExpiredSweepArchiveRow(archiveRow);
+   else {
+    progressiveExpiredReadersByRow.set(archiveRow, remainingReaders);
+    if (expiredBySlug.delete(slug)) progressiveExpiredBySlugEntriesReleased++;
+   }
+  } else if (expiredBySlug.delete(slug)) {
+   progressiveExpiredBySlugEntriesReleased++;
+  }
+  if (orphanGscData.delete(slug)) progressiveExpiredOrphanEntriesReleased++;
+  if (
+   !currentSlugs.has(slug)
+   && !progressiveExpiredCrossLocaleSlugs?.has(slug)
+   && pruneSelfHealTrackingRow(tracking, slug, selfHealLocales, isSelfHealTrackingPathClaimed)
+  ) {
+   progressiveExpiredTrackingRowsReleased++;
+  }
+  expiredSlugs[expiredSlugIndex] = '';
+ };
 
  // One path-claim set covers active job pages and the recency-ordered
  // soft-landing sweep. Multiple distinct slugs can map to the same
@@ -15253,6 +15370,7 @@ ${staticAnalyticsHtml}
   // enter the expired sitemap; skip its full body, cache entry and shard write.
   recordEmit('expired-job-edge-static-skip', __tExpiredSoftLanding);
   expiredCount++;
+  releaseExpiredSweepSlug(slug, expiredSlugIndex);
   await drainExpiredSweepSlot(expiredSlugIndex);
   continue;
  }
@@ -15757,6 +15875,7 @@ ${staticAnalyticsHtml}
   }),
  );
  }
+ releaseExpiredSweepSlug(slug, expiredSlugIndex);
  // Bound the WriteCollector background-flush backlog INSIDE this
  // ~150k-page expired-soft-landing loop. Previously the only
  // awaitDrainSlot ran AFTER the whole loop, so _pendingFlushes
@@ -15836,6 +15955,13 @@ ${staticAnalyticsHtml}
   expiredCount,
   expiredSitemapEntries: expiredSitemapEntryCount,
   sitemapEntries: expiredSitemapEntryCount,
+  progressiveExpiredArchiveRowsReleased,
+  progressiveExpiredArchiveRowsCompacted,
+  progressiveExpiredArchiveRowsRemoved,
+  progressiveExpiredArchiveFieldsReleased,
+  progressiveExpiredBySlugEntriesReleased,
+  progressiveExpiredOrphanEntriesReleased,
+  progressiveExpiredTrackingRowsReleased,
  });
 
  // Last-reader release, proven by the marker immediately above: the expired
@@ -15863,6 +15989,11 @@ ${staticAnalyticsHtml}
  claimedJobPaths.clear();
  expiredCacheKeys.clear();
  expiredSlugs.length = 0;
+ progressiveExpiredCrossLocaleSlugs?.clear();
+ progressiveExpiredArchiveIndexByRow?.clear();
+ progressiveExpiredCrossLocaleArchiveRows?.clear();
+ progressiveExpiredAliasesByRow?.clear();
+ progressiveExpiredReadersByRow?.clear();
 
  /* ── Cross-locale reconciliation for expired jobs ──────────── */
  // Mirrors the active-jobs cross-locale block below, but for expired jobs.
@@ -16055,13 +16186,10 @@ ${staticAnalyticsHtml}
  // Retain only rows with an unclaimed path in a locale this shard emits. A
  // pending row keeps all its locale paths so self-heal can still build the
  // original hreflang cluster; covered rows would only be scanned and skipped.
- const selfHealLocales = localeList.filter(shouldEmitLocale);
  const selfHealTrackingRetention = pruneSelfHealTracking(
   tracking,
   selfHealLocales,
-  (relativePath) => pathWasClaimed(
-   np.join(distDir, relativePath.replace(/^\//, ''), 'index.html'),
-  ),
+  isSelfHealTrackingPathClaimed,
  );
  forceGc();
  logBuildMem('jobsSeoPages: after-self-heal-tracking-prune', collector, jobsSeoMemDetails({

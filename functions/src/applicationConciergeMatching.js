@@ -9,7 +9,7 @@
 
 import { CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID, CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
-import { MAX_ELIGIBILITY_RETRIES_PER_RUN, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
+import { MAX_ELIGIBILITY_RETRIES_PER_RUN, eligibilityRetryIsDue, eligibilityRetryRef, eligibilityRetryRows, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import {
   LEGACY_UNVERIFIED_RETRACTION_REASON,
   isLegacyUnverifiedRetraction,
@@ -1296,10 +1296,14 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const retryBudgetJobContexts = new Map(rankedWork.map(({ job, url }) => [url, eligibilityRetryContext(retryBudgetContext, job)]));
     const allRetryUrls = new Set(retryRowsByUrl.keys());
     const nowForRetries = Date.now();
+    const serviceExpiresAtMs = timestampMillis(service.expiresAt);
+    const dueRetryUrls = new Set();
     const retryCandidates = [...retryRowsByUrl.entries()].filter(([url, row]) => {
       const value = row.data() || {};
       const changedInputs = value.jobContext !== retryJobContexts.get(url);
-      return changedInputs || (value.retryState !== 'exhausted' && Number(value.retryAt) <= nowForRetries);
+      const due = eligibilityRetryIsDue(value, nowForRetries, serviceExpiresAtMs);
+      if (due) dueRetryUrls.add(url);
+      return changedInputs || due;
     }).sort(([leftUrl, left], [rightUrl, right]) => {
       const leftChanged = left.data()?.jobContext !== retryJobContexts.get(leftUrl);
       const rightChanged = right.data()?.jobContext !== retryJobContexts.get(rightUrl);
@@ -1360,7 +1364,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         if (!retryInputsChanged && retry?.retryState === 'exhausted') {
           result = { status: 'unverified', reason: retry.lastReason || 'unknown', fingerprint: retry.fingerprint || null, retryExhausted: true };
           shouldRecordRetry = false;
-        } else if (!retryInputsChanged && Number(retry?.retryAt) > Date.now()) {
+        } else if (!retryInputsChanged && !dueRetryUrls.has(url)) {
           result = { status: 'unverified', reason: 'retry_backoff' };
           shouldRecordRetry = false;
         }

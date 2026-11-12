@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-11-11T21:19:03.426Z",
+  "generatedAt": "2026-11-12T09:18:40.311Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4370,
-  "avgDurationMs": 4370,
+  "durationMs": 3205,
+  "avgDurationMs": 3205,
   "durationHistory": [
-    4370
+    3205
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:18:49.796Z",
+      "crawledAt": "2026-11-12T09:18:25.540Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +61,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:18:49.796Z",
+      "validThrough": "2027-01-11T09:18:25.540Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:18:49.792Z",
+      "crawledAt": "2026-11-12T09:18:25.539Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,7 +108,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:18:49.792Z",
+      "validThrough": "2027-01-14T09:18:25.539Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:18:49.790Z",
+      "crawledAt": "2026-11-12T09:18:25.537Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,7 +154,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:18:49.790Z",
+      "validThrough": "2027-01-27T09:18:25.537Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:18:49.787Z",
+      "crawledAt": "2026-11-12T09:18:25.535Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -201,7 +201,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:18:49.787Z",
+      "validThrough": "2026-12-12T09:18:25.535Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -223,7 +223,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-konstruktionsingenieur-wmx-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:18:49.780Z",
+      "crawledAt": "2026-11-12T09:18:25.531Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,7 +248,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:18:49.780Z",
+      "validThrough": "2027-02-08T09:18:25.531Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -259,5 +259,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

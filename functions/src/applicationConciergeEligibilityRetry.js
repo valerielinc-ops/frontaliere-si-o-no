@@ -95,6 +95,19 @@ export async function dueEligibilityRetries(serviceRef, nowMs) {
   return result.docs;
 }
 
+/**
+ * A backoff longer than the remaining paid window would otherwise make the
+ * retry unreachable: the matcher stops when the service expires. Let that
+ * retry run during the active window; per-run and total-attempt caps still
+ * bound the work.
+ */
+export function eligibilityRetryIsDue(retry, nowMs, serviceExpiresAtMs = 0) {
+  const retryAt = Number(retry?.retryAt);
+  if (!Number.isFinite(retryAt) || retryAt <= 0 || retry?.retryState === 'exhausted') return false;
+  return retryAt <= nowMs
+    || (Number.isFinite(serviceExpiresAtMs) && serviceExpiresAtMs > nowMs && retryAt >= serviceExpiresAtMs);
+}
+
 export async function recordEligibilityRetry({ db, serviceRef, url, result, context, jobContext = context,
   budgetContext = context, budgetJobContext = jobContext, eligibilityFactsRevision = 0, nowMs }) {
   const ref = eligibilityRetryRef(serviceRef, url);
