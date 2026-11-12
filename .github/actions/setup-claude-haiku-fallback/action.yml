@@ -91,7 +91,8 @@ runs:
       shell: bash
       run: |
         codex_switch="${ENABLE_CODEX_ARTICLE_FALLBACK:-1}"
-        case "${codex_switch,,}" in
+        shopt -s nocasematch
+        case "$codex_switch" in
           0|false|no|off) resolved_gate=0 ;;
           *) resolved_gate=1 ;;
         esac
@@ -121,103 +122,70 @@ runs:
           if [ -x "$candidate_realpath" ]; then realpath_cmd="$candidate_realpath"; break; fi
         done
         [ -n "$realpath_cmd" ] || disable_codex_lane 'Trusted realpath utility is unavailable.'
-        tr_cmd=/usr/bin/tr
-        [ -x "$tr_cmd" ] || tr_cmd=/bin/tr
-        [ -x "$tr_cmd" ] || disable_codex_lane 'Trusted tr utility is unavailable.'
         stat_cmd=/usr/bin/stat
         [ -x "$stat_cmd" ] || stat_cmd=/bin/stat
         [ -x "$stat_cmd" ] || disable_codex_lane 'Trusted stat utility is unavailable.'
-        id_cmd=/usr/bin/id
-        [ -x "$id_cmd" ] || id_cmd=/bin/id
-        [ -x "$id_cmd" ] || disable_codex_lane 'Trusted id utility is unavailable.'
+        readlink_cmd=/usr/bin/readlink
+        [ -x "$readlink_cmd" ] || readlink_cmd=/bin/readlink
+        [ -x "$readlink_cmd" ] || disable_codex_lane 'Trusted readlink utility is unavailable.'
         cut_cmd=/usr/bin/cut
         [ -x "$cut_cmd" ] || cut_cmd=/bin/cut
         [ -x "$cut_cmd" ] || disable_codex_lane 'Trusted cut utility is unavailable.'
+        source "$action_path/trusted-path.sh"
+        TRUSTED_PATH_OWNER_POLICY=current
+        bootstrap_roots=(/usr/bin /usr/local/bin /bin /usr/lib /usr/libexec /usr/lib/cargo/bin /opt/hostedtoolcache /opt/runner /opt/homebrew)
+        # Bash has no lstat builtin. The fixed OS stat binary is the single
+        # bootstrap trust anchor; use it to attest every helper before running
+        # realpath/readlink, then apply the complete resolver below.
+        for bootstrap_tool in "$stat_cmd" "$realpath_cmd" "$readlink_cmd" "$cut_cmd"; do
+          [ -x "$bootstrap_tool" ] || disable_codex_lane "Trusted path helper is unavailable: $bootstrap_tool"
+          bootstrap_path_components_trusted "$bootstrap_tool" || disable_codex_lane "Trusted path helper is writable or untrusted: $bootstrap_tool"
+        done
         realpath() { "$realpath_cmd" "$@"; }
         workspace_root="$(realpath "$workspace_root")"
         action_path="$(realpath "$action_path")"
         runner_temp="$(realpath "$runner_temp")"
+        tmp_realpath="$(realpath /tmp 2>/dev/null || true)"
+        temporary_root="$tmp_realpath"
         trusted_roots=()
-        for trusted_root in /usr /usr/local /bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do
+        for trusted_root in /usr/bin /usr/local/bin /bin /usr/lib /usr/libexec /usr/lib/cargo/bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do
           [ -d "$trusted_root" ] || continue
+          path_components_trusted "$trusted_root" || continue
           trusted_root="$(realpath "$trusted_root" 2>/dev/null || true)"
-          [ -n "$trusted_root" ] && trusted_roots+=("$trusted_root")
+          [ -n "$trusted_root" ] || continue
+          path_forbidden "$trusted_root" && continue
+          path_components_trusted "$trusted_root" || continue
+          trusted_roots+=("$trusted_root")
         done
-        stat_mode() {
-          "$stat_cmd" -c '%a' "$1" 2>/dev/null || "$stat_cmd" -f '%Lp' "$1" 2>/dev/null || true
-        }
-        stat_owner() {
-          "$stat_cmd" -c '%u' "$1" 2>/dev/null || "$stat_cmd" -f '%u' "$1" 2>/dev/null || true
-        }
-        path_components_trusted() {
-          local current="$1" mode owner current_uid parent
-          # Ubuntu 26.04 exposes fixed system utilities as symlink wrappers
-          # (for example /usr/bin/sha256sum -> /usr/lib/cargo/bin/coreutils/*).
-          # Attest the canonical target; the component checks below still
-          # reject writable or non-root-owned paths.
-          current="$(realpath "$current" 2>/dev/null || return 1)"
-          current_uid="$("$id_cmd" -u)"
-          while :; do
-            [ -e "$current" ] || return 1
-            mode="$(stat_mode "$current")"
-            owner="$(stat_owner "$current")"
-            [ -n "$mode" ] && [ -n "$owner" ] || return 1
-            mode="${mode: -3}"
-            case "$mode" in
-              [0-7][0-7][0-7]) ;;
-              *) return 1 ;;
-            esac
-            # `stat` prints an octal permission string (for example 0755).
-            # Interpret it as octal before masking group/other write bits.
-            (( (8#$mode & 022) == 0 )) || return 1
-            [ "$owner" = '0' ] || [ "$owner" = "$current_uid" ] || return 1
-            [ "$current" = '/' ] && break
-            parent="$(/usr/bin/dirname "$current" 2>/dev/null || /bin/dirname "$current")"
-            [ "$parent" != "$current" ] || break
-            current="$parent"
-          done
-        }
-        path_forbidden() {
-          local candidate="$1" forbidden_root
-          case "$candidate" in
-            /tmp|/tmp/*) return 0 ;;
-          esac
-          for forbidden_root in "$workspace_root" "$action_path" "$runner_temp"; do
-            [ -n "$forbidden_root" ] || continue
-            case "$candidate" in
-              "$forbidden_root"|"$forbidden_root"/*) return 0 ;;
-            esac
-          done
-          return 1
-        }
-        trusted_prefix() {
-          local resolved="$1" trusted_root
-          path_forbidden "$resolved" && return 1
-          for trusted_root in "${trusted_roots[@]}"; do
-            case "$resolved" in
-              "$trusted_root"|"$trusted_root"/*) return 0 ;;
-            esac
-          done
-          return 1
-        }
+        for bootstrap_tool in "$realpath_cmd" "$stat_cmd" "$readlink_cmd" "$cut_cmd"; do
+          [ -x "$bootstrap_tool" ] || disable_codex_lane "Trusted path helper is unavailable: $bootstrap_tool"
+          bootstrap_resolved="$(trusted_path_resolve "$bootstrap_tool" 2>/dev/null || true)"
+          [ -n "$bootstrap_resolved" ] || disable_codex_lane "Trusted path helper is writable or untrusted: $bootstrap_tool"
+        done
+        for host_tool in /usr/bin/dirname /usr/bin/sha256sum /usr/bin/env /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/rm; do
+          [ -x "$host_tool" ] || disable_codex_lane "Required root-owned host tool is unavailable: $host_tool"
+          host_tool_resolved="$(trusted_path_resolve "$host_tool" 2>/dev/null || true)"
+          [ -n "$host_tool_resolved" ] || disable_codex_lane "Required host tool path is writable or untrusted: $host_tool"
+        done
         find_trusted_tool() {
           local binary="$1" path_entry candidate resolved
-          while IFS= read -r path_entry; do
+          local path_entries=()
+          local IFS=:
+          IFS=: read -r -a path_entries <<< "${PATH:-}"
+          for path_entry in "${path_entries[@]}"; do
             [ -n "$path_entry" ] || continue
             case "$path_entry" in /*) ;; *) continue ;; esac
             path_forbidden "$path_entry" && continue
             candidate="$path_entry/$binary"
             [ -f "$candidate" ] || continue
             [ -x "$candidate" ] || continue
-            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            resolved="$(trusted_path_resolve "$candidate" 2>/dev/null || true)"
             [ -n "$resolved" ] || continue
-            trusted_prefix "$resolved" || continue
-            path_components_trusted "$resolved" || continue
             case "$resolved" in *.mjs|*.js) continue ;; esac
             [ -f "$resolved" ] && [ -x "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
-          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          done
           return 1
         }
         find_trusted_node() {
@@ -225,29 +193,33 @@ runs:
         }
         find_trusted_npm() {
           local path_entry candidate resolved
-          while IFS= read -r path_entry; do
+          local path_entries=()
+          local IFS=:
+          IFS=: read -r -a path_entries <<< "${PATH:-}"
+          for path_entry in "${path_entries[@]}"; do
             [ -n "$path_entry" ] || continue
             case "$path_entry" in /*) ;; *) continue ;; esac
             path_forbidden "$path_entry" && continue
             candidate="$path_entry/npm"
             [ -f "$candidate" ] || continue
             [ -x "$candidate" ] || continue
-            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            resolved="$(trusted_path_resolve "$candidate" 2>/dev/null || true)"
             [ -n "$resolved" ] || continue
-            trusted_prefix "$resolved" || continue
-            path_components_trusted "$resolved" || continue
             # npm is a JavaScript launcher. It is invoked with the attested
             # Node executable below, never through its shebang/PATH lookup.
             case "$resolved" in *.js) ;; *) continue ;; esac
             [ -f "$resolved" ] && [ -x "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
-          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          done
           return 1
         }
         report_runtime_candidates() {
           local path_entry binary candidate resolved mode owner
-          while IFS= read -r path_entry; do
+          local path_entries=()
+          local IFS=:
+          IFS=: read -r -a path_entries <<< "${PATH:-}"
+          for path_entry in "${path_entries[@]}"; do
             [ -n "$path_entry" ] || continue
             case "$path_entry" in
               /*) ;;
@@ -270,7 +242,7 @@ runs:
               printf 'trusted-runtime candidate=%s mode=%s owner=%s\n' \
                 "$resolved" "$mode" "$owner"
             done
-          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          done
         }
         node_realpath="$(find_trusted_node || true)"
         npm_realpath="$(find_trusted_npm || true)"
@@ -288,14 +260,15 @@ runs:
           uname_cmd=/usr/bin/uname
           [ -x "$uname_cmd" ] || uname_cmd=/bin/uname
           [ -x "$uname_cmd" ] || disable_codex_lane 'Trusted uname utility is unavailable.'
+          for host_tool in "$realpath_cmd" "$stat_cmd" "$readlink_cmd" "$cut_cmd" "$uname_cmd" /usr/bin/dirname /usr/bin/curl /usr/bin/sha256sum /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/touch /usr/bin/mv /usr/bin/cat /usr/bin/sleep /usr/bin/env /usr/bin/rm; do
+            [ -x "$host_tool" ] || disable_codex_lane "Required root-owned host tool is unavailable: $host_tool"
+            host_tool_resolved="$(trusted_path_resolve "$host_tool" 2>/dev/null || true)"
+            [ -n "$host_tool_resolved" ] || disable_codex_lane "Required host tool path is writable or untrusted: $host_tool"
+          done
           case "$($uname_cmd -s 2>/dev/null || true):$($uname_cmd -m 2>/dev/null || true)" in
             Linux:x86_64) ;;
             *) disable_codex_lane 'Pinned Node fallback requires Linux x64.' ;;
           esac
-          for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/touch /usr/bin/mv /usr/bin/cat /usr/bin/sleep; do
-            [ -x "$host_tool" ] || disable_codex_lane "Required root-owned host tool is unavailable: $host_tool"
-            path_components_trusted "$host_tool" || disable_codex_lane "Required host tool path is writable or untrusted: $host_tool"
-          done
           case "$runner_temp" in
             "$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*)
               disable_codex_lane 'RUNNER_TEMP must be outside workspace and action directories.'
@@ -427,30 +400,23 @@ runs:
         [ "$node_major" -ge 18 ] || {
           disable_codex_lane 'Trusted Node runtime is older than Node 18.'
         }
-        toolchain_path="$(/usr/bin/dirname "$npm_realpath"):$("/usr/bin/dirname" "$node_realpath"):/usr/bin:/bin"
+        toolchain_path="${npm_realpath%/*}:${node_realpath%/*}:/usr/bin:/bin"
         npm_global_config="$(/usr/bin/mktemp "$runner_temp/codex-luna-max-toolchain.XXXXXX")"
         /usr/bin/chmod 600 "$npm_global_config"
         npm_version="$(/usr/bin/env -i PATH="$toolchain_path" HOME=/tmp CI=true NPM_CONFIG_USERCONFIG=/dev/null NPM_CONFIG_GLOBALCONFIG="$npm_global_config" "$node_realpath" "$npm_realpath" --version 2>/dev/null || true)"
-        /bin/rm -f -- "$npm_global_config"
+        /usr/bin/rm -f -- "$npm_global_config"
         case "$npm_version" in
           [0-9]*.[0-9]*.[0-9]*) ;;
           *) disable_codex_lane 'Trusted npm launcher returned an invalid version.' ;;
         esac
         sha256_file() {
-          if [ -x /usr/bin/sha256sum ]; then
-            /usr/bin/sha256sum -- "$1" | "$cut_cmd" -d ' ' -f 1
-          elif [ -x /bin/sha256sum ]; then
-            /bin/sha256sum -- "$1" | "$cut_cmd" -d ' ' -f 1
-          elif [ -x /usr/bin/shasum ]; then
-            /usr/bin/shasum -a 256 -- "$1" | "$cut_cmd" -d ' ' -f 1
-          else
-            return 1
-          fi
+          local checksum_output
+          checksum_output="$(/usr/bin/sha256sum -- "$1")" || return 1
+          printf '%s' "${checksum_output%% *}"
         }
         node_sha256="$(sha256_file "$node_realpath" || true)"
         npm_sha256="$(sha256_file "$npm_realpath" || true)"
-        if ! printf '%s' "$node_sha256" | /usr/bin/grep -Eq '^[a-f0-9]{64}$' || \
-          ! printf '%s' "$npm_sha256" | /usr/bin/grep -Eq '^[a-f0-9]{64}$'; then
+        if [[ ! "$node_sha256" =~ ^[a-f0-9]{64}$ ]] || [[ ! "$npm_sha256" =~ ^[a-f0-9]{64}$ ]]; then
           disable_codex_lane 'Unable to attest trusted Node/npm runtime.'
         fi
         printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\nnpm_realpath=%s\nnpm_version=%s\nnpm_sha256=%s\n' \
@@ -488,7 +454,7 @@ runs:
         # contracts: @openai/codex@0.153.4. Image lanes pass a newer version
         # only after their own feature attestation.
         requested_codex_version="${CODEX_CLI_VERSION:-0.153.4}"
-        if ! printf '%s' "$requested_codex_version" | /usr/bin/grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+        if [[ ! "$requested_codex_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
           echo '::warning::Invalid Codex CLI version input; using 0.153.4'
           requested_codex_version='0.153.4'
         fi
@@ -522,8 +488,8 @@ runs:
           echo "::warning::Trusted Node/npm runtime changed after attestation; the normal fallback cascade remain available"
           exit 0
         fi
-        trusted_npm_dir="$(/usr/bin/dirname "$trusted_npm")"
-        trusted_node_dir="$(/usr/bin/dirname "$trusted_node")"
+        trusted_npm_dir="${trusted_npm%/*}"
+        trusted_node_dir="${trusted_node%/*}"
         safe_path="$trusted_npm_dir:$trusted_node_dir:/usr/bin:/bin"
         PATH="$safe_path"
         export PATH
