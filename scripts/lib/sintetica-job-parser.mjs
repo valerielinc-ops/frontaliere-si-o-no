@@ -341,10 +341,15 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
   // "form", and posts back to that exact jobposition route. Do not infer the
   // application form from page order: job pages may also contain login,
   // newsletter, or other unrelated forms.
-  const form = [...document.querySelectorAll('#hiddenForm form[name="form"][action]')].find((candidate) => {
+  const form = [...document.querySelectorAll('#hiddenForm form[name="form"]')].find((candidate) => {
+    const rawAction = candidate.getAttribute('action')?.trim();
+    // The live NCore application form omits `action`, which means the browser
+    // posts back to this same jobposition route. If an action is declared,
+    // require it to target the same trusted NCore route.
+    if (!rawAction) return true;
     let action;
     try {
-      action = new URL(candidate.getAttribute('action'), verifiedSourceUrl);
+      action = new URL(rawAction, verifiedSourceUrl);
     } catch {
       return false;
     }

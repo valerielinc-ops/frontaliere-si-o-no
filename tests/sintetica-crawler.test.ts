@@ -100,7 +100,7 @@ const FIXTURE_NCORE_APPLICATION_PAGE = `
     <input id="newsletter-email" name="email" type="email">
   </form>
   <div id="hiddenForm">
-  <form name="form" class="form-horizontal" action="/jobposition/808005/cmc-senior-specialist/sintetica" method="post">
+  <form name="form" class="form-horizontal" method="post">
     <label for="first-name">Nome <span>*</span></label>
     <input id="first-name" name="first_name" type="text" required value="value-must-not-be-captured">
     <label for="last-name">Cognome *</label>
@@ -307,6 +307,10 @@ describe('parseNcoreApplicationForm', () => {
       checkedAt,
     })).toBeNull();
     expect(parseNcoreApplicationForm('<html><body><form name="login"><label>Password<input type="password"></label></form><form><label>Email<input type="email"></label></form></body></html>', {
+      sourceUrl,
+      checkedAt,
+    })).toBeNull();
+    expect(parseNcoreApplicationForm('<html><body><div id="hiddenForm"><form name="form" action="/account/login"><label>Email<input type="email"></label></form></div></body></html>', {
       sourceUrl,
       checkedAt,
     })).toBeNull();
