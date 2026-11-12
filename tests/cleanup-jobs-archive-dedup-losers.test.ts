@@ -277,7 +277,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         id: `convit-${index}`,
         slug: `convit-position-${index}`,
         title: `Convit position ${index}`,
-        crawledAt: new Date().toISOString(),
+        crawledAt: daysAgo(5),
         url: `${baseUrl}/${index < 81 ? 'gone' : 'live'}/${index}`,
         description: 'x'.repeat(20_000),
       }));
@@ -636,6 +636,8 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         return rest;
       };
 
+      // Five days is outside the recent-crawl protection but inside the
+      // 60-day stale window, so URL validation determines the outcome.
       // Both jobs are id-less. One has a dead canonical URL but a live
       // applyUrl fallback (must survive); the other has a fully dead URL
       // with no fallback (must be removed). Before the fix, checkById /
@@ -646,7 +648,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
           id: 'job-fallback-kept',
           slug: 'nurse-live-apply',
           title: 'Nurse With Live Apply URL',
-          crawledAt: new Date().toISOString(),
+          crawledAt: daysAgo(5),
           url: `${baseUrl}/dead-detail-A`,
           applyUrl: `${baseUrl}/apply`,
         })),
@@ -654,7 +656,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
           id: 'job-dead-removed',
           slug: 'nurse-dead-url',
           title: 'Nurse With Dead URL',
-          crawledAt: new Date().toISOString(),
+          crawledAt: daysAgo(5),
           url: `${baseUrl}/dead-detail-B`,
         })),
       ];
