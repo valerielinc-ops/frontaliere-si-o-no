@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-12T06:43:56.240Z",
+  "generatedAt": "2026-11-12T07:28:53.772Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -191202,8 +191202,8 @@
       "id": "myswitzerland:3426330a1ee8467ab32e03a76417036d",
       "sourceDescriptionHash": "f01fd3a03092ac8a625aaaa3daea13085f5485ac3b7e968cbb10577ec9e87979",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-12T05:27:49.601Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-12T07:21:23.855Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -191238,8 +191238,8 @@
       "id": "myswitzerland:3578dee90b40423685822b94dab57144",
       "sourceDescriptionHash": "15d276e60a58a586c3c7addfb6cd8f2b639f9b04a39be20731d2aaee86992f4b",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-12T05:26:42.703Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-12T07:20:18.235Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195882,8 +195882,8 @@
       "id": "tio-agenda:64932",
       "sourceDescriptionHash": "950bd84b6b6881facf55ed7f1304985b85c8f5bf3ef18231fcb2ca4978f70c57",
       "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-12T05:23:57.095Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-12T07:24:26.852Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195945,8 +195945,8 @@
       "id": "tio-agenda:64987",
       "sourceDescriptionHash": "c198c9a1f7fe799bce998977a48a8683c2f9bb2a4d148deadda3940b5affd35e",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-12T05:21:43.430Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-12T07:22:51.333Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
