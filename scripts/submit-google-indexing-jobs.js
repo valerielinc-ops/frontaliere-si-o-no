@@ -283,6 +283,7 @@ async function main() {
   const spent = spentOn(ledger, today);
   const runBudget = runBudgetFor(args, spent);
   log('📊', `Budget: ${spent}/${DAILY_BUDGET} used today, this run may send ${Math.max(0, runBudget)}`);
+  const priority = readPriority(args.priorityFile);
 
   let entries;
   try { entries = await loadLiveJobUrls(); } catch (err) {
@@ -292,7 +293,7 @@ async function main() {
     return;
   }
   observeSitemap(ledger, entries, today);
-  dedupSkipped = countDedupSkipped(ledger);
+  dedupSkipped = countDedupSkipped(ledger, { today, priority });
   const save = () => { if (!args.dryRun) writeLedgerFile(args.ledger, ledger); };
   const reserveRequest = () => {
     const reserved = reserveQuota(ledger, today);
@@ -302,7 +303,6 @@ async function main() {
 
   if (runBudget <= 0) { save(); report('Daily quota already spent — nothing sent'); return; }
 
-  const priority = readPriority(args.priorityFile);
   if (args.priorityFile) {
     log('🎯', existsSync(args.priorityFile)
       ? `${priority.length} priority URL(s) without Jobs rich result from ${args.priorityFile}`

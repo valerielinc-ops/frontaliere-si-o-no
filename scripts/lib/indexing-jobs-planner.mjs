@@ -75,6 +75,14 @@ export function daysBetween(a, b) {
   return Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86_400_000);
 }
 
+function isFreshEntry(e, today) {
+  return !e.gone && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS);
+}
+
+function isPriorityDue(e, today) {
+  return !e.s || daysBetween(e.s, today) >= PRIORITY_RESUBMIT_DAYS;
+}
+
 /**
  * Cheap shape filter for a job DETAIL page: one slug segment below a canton
  * job-board section, not a company hub, not a pagination page. It is a
@@ -229,13 +237,12 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
     taken.add(url);
     out.push({ url, type, tier });
   };
-  const fresh = (e) => !e.gone && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS);
-  const priorityDue = (e) => !e.s || daysBetween(e.s, today) >= PRIORITY_RESUBMIT_DAYS;
+  const fresh = (e) => isFreshEntry(e, today);
   const entries = Object.entries(ledger.urls);
 
   for (const url of priority) {
     const e = ledger.urls[url];
-    if (!e || !fresh(e) || !priorityDue(e)) continue;
+    if (!e || !fresh(e) || !isPriorityDue(e, today)) continue;
     push(url, 'URL_UPDATED', 'priority');
   }
 
@@ -270,9 +277,11 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
  * and already URL_DELETED. Logged every run so the saving is visible.
  * @param {object} ledger
  */
-export function countDedupSkipped(ledger) {
+export function countDedupSkipped(ledger, { today = null, priority = [] } = {}) {
+  const prioritySet = new Set(priority);
   let n = 0;
-  for (const e of Object.values(ledger.urls)) {
+  for (const [url, e] of Object.entries(ledger.urls)) {
+    if (today && prioritySet.has(url) && isFreshEntry(e, today) && isPriorityDue(e, today)) continue;
     if (e.gone ? Boolean(e.d) : Boolean(e.s && !(e.m && e.m > e.s))) n += 1;
   }
   return n;

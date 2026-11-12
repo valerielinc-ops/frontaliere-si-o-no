@@ -262,6 +262,10 @@ describe('planSubmissions', () => {
       type: 'URL_UPDATED',
       tier: 'priority',
     }]);
+    expect(countDedupSkipped(l, {
+      today: due,
+      priority: [job('/cerca-lavoro-zurigo/old-zh/')],
+    })).toBe(3);
     expect(PRIORITY_RESUBMIT_DAYS).toBe(3);
   });
 
