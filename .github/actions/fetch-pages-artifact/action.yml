@@ -1,7 +1,8 @@
 name: "Fetch GitHub Pages artifact"
 description: >-
-  Resolves a deploy-publish.yml run that still HAS a downloadable, non-expired
-  `github-pages` artifact and downloads it via the REST API (zip), producing
+  Resolves a deploy-publish.yml run whose `deploy` job succeeded and that still
+  HAS a downloadable, non-expired `github-pages` artifact, then downloads it via
+  the REST API (zip), producing
   `<output-dir>/artifact.tar`.
   `gh run download --name github-pages` does not reliably yield artifact.tar
   for the large (>1 GB) GitHub Pages artifact — this is the proven gh-api-zip
@@ -16,11 +17,13 @@ description: >-
 inputs:
   run-id:
     description: >-
-      Pin either a successful deploy.yml source run or its successful
-      deploy-publish.yml run on main whose github-pages artifact to download.
+      Pin either a successful deploy.yml source run or its completed
+      deploy-publish.yml run on main whose `deploy` job succeeded and whose
+      github-pages artifact should be downloaded.
       Leave EMPTY (the normal case) to walk back over the most recent
-      successful deploy.yml runs on main until a matching successful publisher
-      run has a live artifact.
+      successful deploy.yml runs on main until a matching publisher run with a
+      successful `deploy` job has a live artifact. The publisher aggregate may
+      be failure when an independent validator fails after publication.
       A pinned run is never walked back from: if its identity or artifact is
       invalid, the step fails, because silently auditing a different run than
       the operator asked for is worse than failing.
@@ -99,6 +102,36 @@ runs:
         WINDOW_DAYS=$((RETENTION_DAYS + 1))
         CREATED_SINCE="$(jq -rn --argjson days "$WINDOW_DAYS" 'now - ($days * 86400) | strftime("%Y-%m-%d")')"
 
+        # A publisher aggregate can be red after Pages is already live because
+        # an independent validator failed. The publication contract is the
+        # deploy job, not the aggregate conclusion. Keep this check here so a
+        # pinned publisher and the source-run walk-back use the same predicate.
+        publisher_deploy_succeeded() {
+          local publisher_id="$1"
+          local jobs_json="$WORK/publisher-jobs-$publisher_id.json"
+          local deploy_conclusion
+          if ! gh api --paginate --slurp \
+               "repos/$GH_REPO/actions/runs/$publisher_id/jobs?per_page=100" \
+               > "$jobs_json"; then
+            echo "::error::gh api failed while listing jobs for publisher run $publisher_id."
+            return 2
+          fi
+          if ! jq -e 'type == "array" and all(.[]; type == "object" and (.jobs | type == "array"))' \
+               "$jobs_json" >/dev/null 2>&1; then
+            echo "::error::publisher run $publisher_id returned an unreadable jobs response."
+            return 2
+          fi
+          if ! deploy_conclusion="$(jq -r '[.[] | .jobs[]? | select(.name == "deploy") | .conclusion][0] // empty' "$jobs_json")"; then
+            echo "::error::publisher run $publisher_id jobs response was not valid JSON."
+            return 2
+          fi
+          if [ "$deploy_conclusion" != 'success' ]; then
+            echo "Skipping publisher run $publisher_id: deploy job conclusion=${deploy_conclusion:-<missing>}"
+            return 1
+          fi
+          return 0
+        }
+
         PINNED_PUBLISHER=false
         if [ -n "$PINNED" ]; then
           # The pinned run needs its created_at looked up: this is the branch
@@ -136,9 +169,30 @@ runs:
                 and .head_branch == "main"
                 and .event == "workflow_dispatch"
                 and .status == "completed"
-                and .conclusion == "success"
+                and (.conclusion == "success" or .conclusion == "failure")
                 and ((.display_title // "") | test("^Publish Pages build [0-9]+ @ [0-9a-fA-F]{40}$"))
               ' "$PINNED_RUN_JSON" >/dev/null 2>&1; then
+            PINNED_CONCLUSION=$(jq -r '.conclusion' "$PINNED_RUN_JSON")
+            if [ "$PINNED_CONCLUSION" = 'failure' ]; then
+              publisher_deploy_rc=0
+              publisher_deploy_succeeded "$PINNED" || publisher_deploy_rc=$?
+              if [ "$publisher_deploy_rc" -ge 2 ]; then
+                exit 1
+              fi
+              if [ "$publisher_deploy_rc" -ne 0 ]; then
+                PINNED_META=$(jq -r '[
+                  (.name // "(missing)"),
+                  (.path // "(missing)"),
+                  (.head_branch // "(missing)"),
+                  (.event // "(missing)"),
+                  (.status // "(missing)"),
+                  (.conclusion // "(missing)")
+                ] | @tsv' "$PINNED_RUN_JSON")
+                IFS=$'\t' read -r PINNED_NAME PINNED_PATH PINNED_BRANCH PINNED_EVENT PINNED_STATUS PINNED_CONCLUSION <<< "$PINNED_META"
+                echo "::error::Pinned run $PINNED is not a publisher with a successful deploy job (name=$PINNED_NAME, path=$PINNED_PATH, branch=$PINNED_BRANCH, event=$PINNED_EVENT, status=$PINNED_STATUS, conclusion=$PINNED_CONCLUSION). Pass a source/publisher run ID with a published dist or leave run-id empty to walk back automatically."
+                exit 1
+              fi
+            fi
             PINNED_SOURCE_ID=$(jq -r '.display_title | capture("^Publish Pages build (?<id>[0-9]+) @ (?<sha>[0-9a-fA-F]{40})$").id' "$PINNED_RUN_JSON")
             PINNED_SOURCE_SHA=$(jq -r '.display_title | capture("^Publish Pages build (?<id>[0-9]+) @ (?<sha>[0-9a-fA-F]{40})$").sha' "$PINNED_RUN_JSON")
             SOURCE_RUN_JSON="$WORK/pinned-source-run.json"
@@ -239,8 +293,10 @@ runs:
         fi
 
         # The source build no longer owns the final Pages artifact. Expand each
-        # successful source candidate with its matching publisher run, keeping a
-        # legacy source artifact first for runs created before the split.
+        # successful source candidate with its matching publisher run whose
+        # deploy job succeeded, keeping a legacy source artifact first for runs
+        # created before the split. An independent validator may leave the
+        # publisher aggregate red after that deploy job has published Pages.
         # A pinned publisher id is already exact and must never walk elsewhere.
         if [ "$PINNED_PUBLISHER" != true ] && [ -s "$CANDS" ]; then
           SOURCE_CANDS="$WORK/source-candidates.tsv"
@@ -257,16 +313,29 @@ runs:
             exit 1
           fi
           : > "$EXPANDED_CANDS"
-          while IFS=$'\t' read -r source_id source_created source_sha; do
+          while IFS=$'\t' read -r -u 9 source_id source_created source_sha; do
             [ -n "$source_id" ] || continue
             printf '%s\t%s\t%s\n' "$source_id" "$source_created" "$source_sha" >> "$EXPANDED_CANDS"
             jq -r --arg source "$source_id" --arg sha "$source_sha" '
-              [.[] | select(.headBranch == "main" and .status == "completed" and .conclusion == "success" and
+              [.[] | select(.headBranch == "main" and .status == "completed" and
+                (.conclusion == "success" or .conclusion == "failure") and
                 .displayTitle == ("Publish Pages build " + $source + " @ " + $sha))]
               | sort_by(.createdAt) | reverse
-              | .[] | [(.databaseId | tostring), .createdAt, $sha] | @tsv
-            ' "$PUBLISH_RUNS" >> "$EXPANDED_CANDS"
-          done < "$SOURCE_CANDS"
+              | .[] | [(.databaseId | tostring), .createdAt, $sha, .conclusion] | @tsv
+            ' "$PUBLISH_RUNS" > "$WORK/publisher-candidates.tsv"
+            while IFS=$'\t' read -r -u 8 publisher_id publisher_created publisher_sha publisher_conclusion; do
+              [ -n "$publisher_id" ] || continue
+              if [ "$publisher_conclusion" = 'failure' ]; then
+                publisher_deploy_rc=0
+                publisher_deploy_succeeded "$publisher_id" || publisher_deploy_rc=$?
+                if [ "$publisher_deploy_rc" -ge 2 ]; then
+                  exit 1
+                fi
+                [ "$publisher_deploy_rc" -eq 0 ] || continue
+              fi
+              printf '%s\t%s\t%s\n' "$publisher_id" "$publisher_created" "$publisher_sha" >> "$EXPANDED_CANDS"
+            done 8< "$WORK/publisher-candidates.tsv"
+          done 9< "$SOURCE_CANDS"
           mv "$EXPANDED_CANDS" "$CANDS"
         fi
 
