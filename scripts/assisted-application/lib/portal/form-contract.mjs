@@ -219,7 +219,7 @@ export function armFinalFormClickGuardInPage(button, {
     state.status = 'click_checked';
   };
   registry[token] = state;
-  return { ok: true, buttonId, formId, contractJson };
+  return { ok: true, buttonId, formId, nativeFormId: String(owner.getAttribute('id') || ''), contractJson };
 }
 
 /** Read the in-page result after Playwright dispatched the final click. */

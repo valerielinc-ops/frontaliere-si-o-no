@@ -33,6 +33,7 @@ export const ACCOUNT_FAILURE_CODES = Object.freeze([
   'login_unobserved',
   'create_unanswered',
   'create_refused',
+  'account_exists',
   'locator_control_error',
   'verification_timeout',
   'verification_unobserved',

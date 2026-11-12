@@ -665,7 +665,11 @@ async function main() {
           if (c && c.valid === false) {
             const fallback = fallbackById.get(resolveJobDiffKey(job));
             if (fallback && fallback.valid !== false) return true;
-            if (isFreshProtected(job) && !c.definitive) return true;
+            // A recent successful crawler observation is stronger than one
+            // generic URL probe, including a definitive HTTP status. Let the
+            // source crawler or the 72-hour freshness window settle transient
+            // portal responses before archiving a live posting.
+            if (isFreshProtected(job)) return true;
             urlRemoved.push({
               job,
               id: resolveJobDiffKey(job),
@@ -890,9 +894,11 @@ async function main() {
           kept.push(job);
           continue;
         }
-        // Definitive signals (HTTP 404/410, explicit closure phrases, portal-specific)
-        // bypass fresh protection — the job is unambiguously gone.
-        if (isFreshProtected(job) && !c.definitive) {
+        // A recent successful crawler observation is stronger than one generic
+        // URL probe, including HTTP 404/410 and portal-specific signals. Let
+        // the source crawler or the 72-hour freshness window settle a transient
+        // response before archiving a live posting.
+        if (isFreshProtected(job)) {
           kept.push(job);
           continue;
         }

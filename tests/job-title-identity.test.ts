@@ -173,14 +173,15 @@ describe('localeTitleDropsSourceWords — a truncation is not a translation', ()
 });
 
 // Observer: the display sites of a job title must read the shared helper. A
-// new `titleByLocale?.[locale] … .title` display expression in these files
-// would bring the machine-translated title back on the job pages. The
-// remaining occurrences are SEARCH / SLUG inputs (allowlisted with the reason)
-// and are pinned by count so a new one has to be classified here.
+// direct locale-slot read in these files could bring the machine-translated
+// title back on the job pages. The
+// remaining occurrences are non-display inputs (search / slug or
+// employment-type inference), allowlisted with their reason and pinned by
+// count so a new one has to be classified here.
 const ROOT = resolve(__dirname, '..');
-const LOCALE_TITLE_RE = /titleByLocale\?\.\[(?:locale|entry\.locale)\]/g;
+const LOCALE_TITLE_RE = /titleByLocale\?\.\[(?:locale|entry\.locale|loc)\]/g;
 const ALLOWED_LOCALE_TITLE_READS: Record<string, { count: number; why: string }> = {
-  'build-plugins/jobsSeoPagesPlugin.ts': { count: 1, why: 'localizedSlug() last-resort slug fallback' },
+  'build-plugins/jobsSeoPagesPlugin.ts': { count: 1, why: 'localized title used only for employment-type workload inference' },
   'components/community/JobBoard.tsx': { count: 5, why: 'search haystack, related-article matching, slug fallback, query suggestions (x2)' },
   'components/community/JobBridgeView.tsx': { count: 0, why: '' },
   'components/community/JobExpiredView.tsx': { count: 0, why: '' },
