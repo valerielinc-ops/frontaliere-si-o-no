@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import {
   buildSlimExpiredEntry,
@@ -25,7 +26,7 @@ export function expiredJobsSplitPlugin(rootDir: string): Plugin {
     if (!fs.existsSync(expiredJobsPath)) return 0;
     let entries: Record<string, unknown>[];
     try {
-      entries = JSON.parse(fs.readFileSync(expiredJobsPath, 'utf-8'));
+      entries = readJsonFile(expiredJobsPath);
     } catch {
       return 0;
     }

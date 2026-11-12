@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import {
  buildLocaleJob,
@@ -93,7 +94,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
 
- const rawJobs: JobEntry[] = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+ const rawJobs: JobEntry[] = readJsonFile(dataJobsPath);
  if (!Array.isArray(rawJobs)) return 0;
 
  // Strip fixture-data records (e.g. "Fixture Corp SA" seed) so they cannot

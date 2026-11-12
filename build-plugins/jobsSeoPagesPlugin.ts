@@ -13716,7 +13716,7 @@ ${staticAnalyticsHtml}
  const expiredJobsPath = np.resolve(rootDir, 'data/expired-jobs.json');
  let expiredJobsData: any[] = [];
  try {
- expiredJobsData = JSON.parse(fs.readFileSync(expiredJobsPath, 'utf-8'));
+ expiredJobsData = readJsonFile(expiredJobsPath);
  if (!Array.isArray(expiredJobsData)) expiredJobsData = [];
  } catch { /* no expired data */ }
  // Sort DESC by recency BEFORE populating expiredBySlug. Combined with the

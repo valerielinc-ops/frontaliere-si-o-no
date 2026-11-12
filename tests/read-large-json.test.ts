@@ -101,6 +101,27 @@ describe('data/jobs.json readers', () => {
   ];
   const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|JOBS_PATH|DATA_JOBS|DATA_JOBS_PATH|EXPIRED_JOBS_PATH|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
 
+  // Deploy 43181176266 died in localeJobsSplitPlugin (`dataJobsPath`), a name
+  // the per-file list above did not know. Scan every build plugin instead:
+  // any JSON.parse of a whole jobs/expired-jobs file is a build-breaker once
+  // the corpus crosses 512 MB, or silently empties pages where errors are caught.
+  it('no build plugin parses a whole jobs or expired-jobs file', () => {
+    const offenders: string[] = [];
+    const walk = (dir: string) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const abs = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(abs);
+        else if (/\.(ts|mjs|js)$/.test(entry.name)) {
+          const src = fs.readFileSync(abs, 'utf8');
+          const rx = /JSON\.parse\(\s*(?:fs\.)?readFileSync\(\s*([^,()]*(?:[Jj]obs(?:Path|File|_PATH|JSON)?|[Ee]xpired[A-Za-z]*Path)[^,()]*|[^()]*'data\/(?:expired-)?jobs\.json'\))\s*,/g;
+          for (const m of src.matchAll(rx)) offenders.push(`${path.relative(root, abs)}: ${m[1]}`);
+        }
+      }
+    };
+    walk(path.join(root, 'build-plugins'));
+    expect(offenders).toEqual([]);
+  });
+
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
     const src = fs.readFileSync(path.join(root, rel), 'utf8');
     expect(src).toMatch(/import \{ readJsonFile \} from '(\.\.?\/)+(scripts\/)?lib\/read-large-json\.mjs';/);
