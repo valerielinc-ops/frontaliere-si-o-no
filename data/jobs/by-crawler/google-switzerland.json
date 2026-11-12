@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-11-12T09:17:11.496Z",
-  "runId": "43188327333",
+  "assembledAt": "2026-11-12T21:22:26.480Z",
+  "runId": "43306951710",
   "jobs": [
     {
       "id": "google-switzerland-93a8572772f9",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/128594980477248198-security-sales-specialist-google-cloud-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:03.021Z",
+      "crawledAt": "2026-11-12T21:22:21.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:17:03.021Z",
+      "validThrough": "2027-01-25T21:22:21.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -99,8 +99,8 @@
       "companyDomain": "google.com",
       "title": "Senior Software Engineer, Google Cloud Generative AI Blackbelt Team",
       "titleByLocale": {
-        "en": "Senior Software Engineer, Google Cloud Generative AI Blackbelt Team",
         "it": "Ingegnere software senior, team Blackbelt per l'IA generativa di Google Cloud",
+        "en": "Senior Software Engineer, Google Cloud Generative AI Blackbelt Team",
         "de": "Senior-Softwareentwickler, Google Cloud Generative AI Blackbelt Team",
         "fr": "Ingénieur logiciel senior, équipe Blackbelt IA générative Google Cloud"
       },
@@ -116,7 +116,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/107667015740596934-senior-software-engineer-google-cloud-generative-ai-blackbelt-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:02.496Z",
+      "crawledAt": "2026-11-12T21:22:20.603Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -147,7 +147,19 @@
           "5 years of experience in a people management role within software engineering."
         ]
       },
+      "previousSlugs": [
+        "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
+        ],
+        "de": [
+          "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-11T21:21:35.671Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -162,20 +174,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:17:02.496Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:21:35.671Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
-        ],
-        "de": [
-          "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "senior-software-engineer-google-cloud-generative-ai-blackbelt-team-google-switzerland"
-      ]
+      "validThrough": "2027-02-09T21:22:20.603Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-30025ee810c0",
@@ -208,7 +208,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:01.960Z",
+      "crawledAt": "2026-11-12T21:22:20.024Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -253,7 +253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:17:01.960Z",
+      "validThrough": "2026-12-12T21:22:20.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:01.420Z",
+      "crawledAt": "2026-11-12T21:22:19.495Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -331,7 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:17:01.420Z",
+      "validThrough": "2026-12-12T21:22:19.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/98438078061781702-staff-software-engineer-aai-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:00.886Z",
+      "crawledAt": "2026-11-12T21:22:18.970Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -423,7 +423,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:17:00.886Z",
+      "validThrough": "2027-02-02T21:22:18.970Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -457,7 +457,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:17:00.361Z",
+      "crawledAt": "2026-11-12T21:22:18.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -504,7 +504,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:17:00.361Z",
+      "validThrough": "2027-01-27T21:22:18.445Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -538,7 +538,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:59.821Z",
+      "crawledAt": "2026-11-12T21:22:17.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -588,7 +588,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:16:59.821Z",
+      "validThrough": "2026-12-29T21:22:17.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -622,7 +622,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118953332948509382-senior-security-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:59.243Z",
+      "crawledAt": "2026-11-12T21:22:17.400Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -670,7 +670,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:16:59.243Z",
+      "validThrough": "2027-02-03T21:22:17.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -704,7 +704,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:58.693Z",
+      "crawledAt": "2026-11-12T21:22:16.885Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -750,7 +750,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:16:58.693Z",
+      "validThrough": "2027-01-11T21:22:16.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -784,7 +784,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/129187054603903686-senior-product-manager-ai-ecosystems-frontier-ai-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:58.146Z",
+      "crawledAt": "2026-11-12T21:22:16.399Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -841,7 +841,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:16:58.146Z",
+      "validThrough": "2027-02-02T21:22:16.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -875,7 +875,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72112067431015110-director-martech-and-applied-ai-youtube-marketing",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:57.609Z",
+      "crawledAt": "2026-11-12T21:22:15.884Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -922,7 +922,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:16:57.609Z",
+      "validThrough": "2027-02-05T21:22:15.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -956,7 +956,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81313308207915718-group-product-manager-search-content-platform",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:57.070Z",
+      "crawledAt": "2026-11-12T21:22:15.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1013,7 +1013,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:16:57.070Z",
+      "validThrough": "2026-12-19T21:22:15.375Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1047,7 +1047,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102134702726357702-information-security-engineer-hardware-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:56.556Z",
+      "crawledAt": "2026-11-12T21:22:14.857Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1091,7 +1091,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:56.556Z",
+      "validThrough": "2027-02-09T21:22:14.857Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1125,7 +1125,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131677068336210630-senior-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:56.019Z",
+      "crawledAt": "2026-11-12T21:22:14.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1174,7 +1174,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:56.019Z",
+      "validThrough": "2027-02-08T21:22:14.320Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1208,7 +1208,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/101053210633872070-senior-software-engineer-search-quality",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:55.487Z",
+      "crawledAt": "2026-11-12T21:22:13.835Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1255,7 +1255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:16:55.487Z",
+      "validThrough": "2027-01-26T21:22:13.835Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1289,7 +1289,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/132589149738672838-software-engineer-iii-retail-advertiser-intelligence-google-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:54.958Z",
+      "crawledAt": "2026-11-12T21:22:13.335Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1333,7 +1333,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:16:54.958Z",
+      "validThrough": "2027-02-01T21:22:13.335Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1367,7 +1367,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:54.426Z",
+      "crawledAt": "2026-11-12T21:22:12.812Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1412,7 +1412,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:16:54.426Z",
+      "validThrough": "2026-12-12T21:22:12.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1446,7 +1446,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:53.901Z",
+      "crawledAt": "2026-11-12T21:22:12.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1489,7 +1489,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:16:53.901Z",
+      "validThrough": "2026-12-12T21:22:12.304Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1523,7 +1523,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/80851750352757446-ai-sales-specialist-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:53.339Z",
+      "crawledAt": "2026-11-12T21:22:11.789Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1570,7 +1570,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:16:53.339Z",
+      "validThrough": "2027-02-04T21:22:11.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1604,7 +1604,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110546686085866182-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:52.782Z",
+      "crawledAt": "2026-11-12T21:22:11.292Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1664,7 +1664,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:16:52.782Z",
+      "validThrough": "2027-01-06T21:22:11.292Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1698,7 +1698,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108511099220828870-staff-security-engineer-dynamic-reasoning-and-nextgen-detection-and-response",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:52.225Z",
+      "crawledAt": "2026-11-12T21:22:10.777Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1760,7 +1760,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:16:52.225Z",
+      "validThrough": "2027-02-03T21:22:10.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1794,7 +1794,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/125554354085077702-software-engineer-iii-youtube-shopping-search-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:51.668Z",
+      "crawledAt": "2026-11-12T21:22:10.259Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1838,7 +1838,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:16:51.668Z",
+      "validThrough": "2027-02-03T21:22:10.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1872,7 +1872,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92934080961618630-security-engineer-operational-technology-google-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:51.141Z",
+      "crawledAt": "2026-11-12T21:22:09.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1921,7 +1921,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T09:16:51.141Z",
+      "validThrough": "2027-01-14T21:22:09.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1955,7 +1955,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:50.557Z",
+      "crawledAt": "2026-11-12T21:22:09.144Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2010,7 +2010,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:16:50.557Z",
+      "validThrough": "2027-01-17T21:22:09.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2044,7 +2044,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100862281352389318-senior-product-manager-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:50.005Z",
+      "crawledAt": "2026-11-12T21:22:08.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2103,7 +2103,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:16:50.005Z",
+      "validThrough": "2027-01-14T21:22:08.616Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2137,7 +2137,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:49.494Z",
+      "crawledAt": "2026-11-12T21:22:08.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2207,7 +2207,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:16:49.494Z",
+      "validThrough": "2026-12-12T21:22:08.079Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2241,7 +2241,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73200092168757958-senior-software-engineer-site-reliability-engineering-youtube-ml",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:48.898Z",
+      "crawledAt": "2026-11-12T21:22:07.549Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2301,7 +2301,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:16:48.898Z",
+      "validThrough": "2027-01-18T21:22:07.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2335,7 +2335,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/124012647656891078-technical-program-manager-google-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:48.298Z",
+      "crawledAt": "2026-11-12T21:22:07.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2395,7 +2395,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:48.298Z",
+      "validThrough": "2027-02-08T21:22:07.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2429,7 +2429,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105218557964362438-staff-security-engineer-security-research",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:47.752Z",
+      "crawledAt": "2026-11-12T21:22:06.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2494,8 +2494,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:47.752Z",
+      "validThrough": "2027-02-09T21:22:06.513Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-9e51165d42ea",
+      "slug": "principal-engineer-ai-research-and-development-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "principal-engineer-ai-research-and-development-google-switzerland-zurich",
+        "it": "principal-engineer-ai-research-and-development-google-switzerland-zurich",
+        "de": "principal-engineer-ai-research-and-development-google-switzerland-zurich",
+        "fr": "principal-engineer-ai-research-and-development-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Principal Engineer, AI Research and Development",
+      "titleByLocale": {
+        "en": "Principal Engineer, AI Research and Development",
+        "it": "Principal Ingegnere, AI Ricerca and Development",
+        "de": "Principal Ingenieur, AI Forschung and Development",
+        "fr": "Principal Ingénieur, AI Recherche and Development"
+      },
+      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science or equivalent practical experience.\n\n• 15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.\n\n• 3 years of experience building AI applications, models, or infrastructure.\n\nPreferred qualifications:\n\n• PhD in Computer Science or related technical field. Track record of technical leadership delivering novel research concepts, algorithms, or systems architectures into production software or commercial platforms.\n\n• 20 years of combined experience across systems research, infrastructure engineering, and commercial product delivery.\n\n• Experience establishing multi-organizational technical strategy across multidisciplinary teams, including research (e.g. DeepMind), core engineering, and product management.\n\n• Ability to engage with research and engineering teams and translate ambiguous infrastructure, security, and production pain points into foundational systems solutions.\n\n• Recognized authority in research community with significant contributions to open-source ecosystems, standards, or industry consortia.\n\nAbout the job\n As a Principal Engineer for AI and Infrastructure Research and Development, you will bring deep systems accuracy to agent scale, connecting cutting-edge model research to large-scale production platforms. In this role, you will define the technical strategy bridging systems infrastructure and agent architectures, such as model inference acceleration, simulation-driven infrastructure optimization, and end-to-end platform efficiency. You will establish the engineering foundations and shared frameworks that enable internal organizations to deploy autonomous agents safely, robustly, and at hyperscale.\n Additionally, you will serve as an executive technical advisor and external thought leader, engaging C-suite customers on advanced architecture, delivering keynote perspectives, and shaping industry and governance standards while driving strategic alignment across DeepMind, Core, and Google Cloud.\n The AI and Infrastructure team is redefining what’s possible. We empower Google customers with breakthrough capabilities and insights by delivering AI and Infrastructure at unparalleled scale, efficiency, reliability and velocity. Our customers include Googlers, Google Cloud customers, and billions of Google users worldwide.\n We're the driving force behind Google's groundbreaking innovations, empowering the development of our cutting-edge AI models, delivering unparalleled computing power to global services, and providing the essential platforms that enable developers to build the future. From software to hardware our teams are shaping the future of world-leading hyperscale computing, with key teams working on the development of our TPUs, Vertex AI for Google Cloud, Google Global Networking, Data Center operations, systems research, and much more.\n Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $307000 - $427000 (USD) + 30% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Define the multi-year architectural outlook and technical strategy for how AI and Infrastructure Research and Development incubates, prototypes and productionizes agent platforms, inference efficiency, and AI systems infrastructure.\n\n• Drive inference optimization through simulation-driven infrastructure modeling, acceleration, and hardware-software co-design.\n\n• Architect shared evaluation harnesses, developer frameworks, multi-tenant standards, and safety rails to lead the AI-native engineering transformation across the organization.\n\n• Partner with DeepMind research and modeling teams to align frontier model requirements with next-generation AI and Cloud infrastructure.\n\n• Lead end-to-end incubation programs, steering experimental systems through rigorous benchmarking, production hardening, and multi-tenant operational deployment.",
+      "descriptionByLocale": {
+        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science or equivalent practical experience.\n\n• 15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.\n\n• 3 years of experience building AI applications, models, or infrastructure.\n\nPreferred qualifications:\n\n• PhD in Computer Science or related technical field. Track record of technical leadership delivering novel research concepts, algorithms, or systems architectures into production software or commercial platforms.\n\n• 20 years of combined experience across systems research, infrastructure engineering, and commercial product delivery.\n\n• Experience establishing multi-organizational technical strategy across multidisciplinary teams, including research (e.g. DeepMind), core engineering, and product management.\n\n• Ability to engage with research and engineering teams and translate ambiguous infrastructure, security, and production pain points into foundational systems solutions.\n\n• Recognized authority in research community with significant contributions to open-source ecosystems, standards, or industry consortia.\n\nAbout the job\n As a Principal Engineer for AI and Infrastructure Research and Development, you will bring deep systems accuracy to agent scale, connecting cutting-edge model research to large-scale production platforms. In this role, you will define the technical strategy bridging systems infrastructure and agent architectures, such as model inference acceleration, simulation-driven infrastructure optimization, and end-to-end platform efficiency. You will establish the engineering foundations and shared frameworks that enable internal organizations to deploy autonomous agents safely, robustly, and at hyperscale.\n Additionally, you will serve as an executive technical advisor and external thought leader, engaging C-suite customers on advanced architecture, delivering keynote perspectives, and shaping industry and governance standards while driving strategic alignment across DeepMind, Core, and Google Cloud.\n The AI and Infrastructure team is redefining what’s possible. We empower Google customers with breakthrough capabilities and insights by delivering AI and Infrastructure at unparalleled scale, efficiency, reliability and velocity. Our customers include Googlers, Google Cloud customers, and billions of Google users worldwide.\n We're the driving force behind Google's groundbreaking innovations, empowering the development of our cutting-edge AI models, delivering unparalleled computing power to global services, and providing the essential platforms that enable developers to build the future. From software to hardware our teams are shaping the future of world-leading hyperscale computing, with key teams working on the development of our TPUs, Vertex AI for Google Cloud, Google Global Networking, Data Center operations, systems research, and much more.\n Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $307000 - $427000 (USD) + 30% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Define the multi-year architectural outlook and technical strategy for how AI and Infrastructure Research and Development incubates, prototypes and productionizes agent platforms, inference efficiency, and AI systems infrastructure.\n\n• Drive inference optimization through simulation-driven infrastructure modeling, acceleration, and hardware-software co-design.\n\n• Architect shared evaluation harnesses, developer frameworks, multi-tenant standards, and safety rails to lead the AI-native engineering transformation across the organization.\n\n• Partner with DeepMind research and modeling teams to align frontier model requirements with next-generation AI and Cloud infrastructure.\n\n• Lead end-to-end incubation programs, steering experimental systems through rigorous benchmarking, production hardening, and multi-tenant operational deployment.",
+        "it": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science or equivalent practical experience.\n\n• 15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.\n\n• 3 years of experience building AI applications, models, or infrastructure.\n\nPreferred qualifications:\n\n• PhD in Computer Science or related technical field. Track record of technical leadership delivering novel research concepts, algorithms, or systems architectures into production software or commercial platforms.\n\n• 20 years of combined experience across systems research, infrastructure engineering, and commercial product delivery.\n\n• Experience establishing multi-organizational technical strategy across multidisciplinary teams, including research (e.g. DeepMind), core engineering, and product management.\n\n• Ability to engage with research and engineering teams and translate ambiguous infrastructure, security, and production pain points into foundational systems solutions.\n\n• Recognized authority in research community with significant contributions to open-source ecosystems, standards, or industry consortia.\n\nAbout the job\n As a Principal Engineer for AI and Infrastructure Research and Development, you will bring deep systems accuracy to agent scale, connecting cutting-edge model research to large-scale production platforms. In this role, you will define the technical strategy bridging systems infrastructure and agent architectures, such as model inference acceleration, simulation-driven infrastructure optimization, and end-to-end platform efficiency. You will establish the engineering foundations and shared frameworks that enable internal organizations to deploy autonomous agents safely, robustly, and at hyperscale.\n Additionally, you will serve as an executive technical advisor and external thought leader, engaging C-suite customers on advanced architecture, delivering keynote perspectives, and shaping industry and governance standards while driving strategic alignment across DeepMind, Core, and Google Cloud.\n The AI and Infrastructure team is redefining what’s possible. We empower Google customers with breakthrough capabilities and insights by delivering AI and Infrastructure at unparalleled scale, efficiency, reliability and velocity. Our customers include Googlers, Google Cloud customers, and billions of Google users worldwide.\n We're the driving force behind Google's groundbreaking innovations, empowering the development of our cutting-edge AI models, delivering unparalleled computing power to global services, and providing the essential platforms that enable developers to build the future. From software to hardware our teams are shaping the future of world-leading hyperscale computing, with key teams working on the development of our TPUs, Vertex AI for Google Cloud, Google Global Networking, Data Center operations, systems research, and much more.\n Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $307000 - $427000 (USD) + 30% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Define the multi-year architectural outlook and technical strategy for how AI and Infrastructure Research and Development incubates, prototypes and productionizes agent platforms, inference efficiency, and AI systems infrastructure.\n\n• Drive inference optimization through simulation-driven infrastructure modeling, acceleration, and hardware-software co-design.\n\n• Architect shared evaluation harnesses, developer frameworks, multi-tenant standards, and safety rails to lead the AI-native engineering transformation across the organization.\n\n• Partner with DeepMind research and modeling teams to align frontier model requirements with next-generation AI and Cloud infrastructure.\n\n• Lead end-to-end incubation programs, steering experimental systems through rigorous benchmarking, production hardening, and multi-tenant operational deployment.",
+        "de": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science or equivalent practical experience.\n\n• 15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.\n\n• 3 years of experience building AI applications, models, or infrastructure.\n\nPreferred qualifications:\n\n• PhD in Computer Science or related technical field. Track record of technical leadership delivering novel research concepts, algorithms, or systems architectures into production software or commercial platforms.\n\n• 20 years of combined experience across systems research, infrastructure engineering, and commercial product delivery.\n\n• Experience establishing multi-organizational technical strategy across multidisciplinary teams, including research (e.g. DeepMind), core engineering, and product management.\n\n• Ability to engage with research and engineering teams and translate ambiguous infrastructure, security, and production pain points into foundational systems solutions.\n\n• Recognized authority in research community with significant contributions to open-source ecosystems, standards, or industry consortia.\n\nAbout the job\n As a Principal Engineer for AI and Infrastructure Research and Development, you will bring deep systems accuracy to agent scale, connecting cutting-edge model research to large-scale production platforms. In this role, you will define the technical strategy bridging systems infrastructure and agent architectures, such as model inference acceleration, simulation-driven infrastructure optimization, and end-to-end platform efficiency. You will establish the engineering foundations and shared frameworks that enable internal organizations to deploy autonomous agents safely, robustly, and at hyperscale.\n Additionally, you will serve as an executive technical advisor and external thought leader, engaging C-suite customers on advanced architecture, delivering keynote perspectives, and shaping industry and governance standards while driving strategic alignment across DeepMind, Core, and Google Cloud.\n The AI and Infrastructure team is redefining what’s possible. We empower Google customers with breakthrough capabilities and insights by delivering AI and Infrastructure at unparalleled scale, efficiency, reliability and velocity. Our customers include Googlers, Google Cloud customers, and billions of Google users worldwide.\n We're the driving force behind Google's groundbreaking innovations, empowering the development of our cutting-edge AI models, delivering unparalleled computing power to global services, and providing the essential platforms that enable developers to build the future. From software to hardware our teams are shaping the future of world-leading hyperscale computing, with key teams working on the development of our TPUs, Vertex AI for Google Cloud, Google Global Networking, Data Center operations, systems research, and much more.\n Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $307000 - $427000 (USD) + 30% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Define the multi-year architectural outlook and technical strategy for how AI and Infrastructure Research and Development incubates, prototypes and productionizes agent platforms, inference efficiency, and AI systems infrastructure.\n\n• Drive inference optimization through simulation-driven infrastructure modeling, acceleration, and hardware-software co-design.\n\n• Architect shared evaluation harnesses, developer frameworks, multi-tenant standards, and safety rails to lead the AI-native engineering transformation across the organization.\n\n• Partner with DeepMind research and modeling teams to align frontier model requirements with next-generation AI and Cloud infrastructure.\n\n• Lead end-to-end incubation programs, steering experimental systems through rigorous benchmarking, production hardening, and multi-tenant operational deployment.",
+        "fr": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland.\n\nMinimum qualifications:\n\n• Bachelor's degree in Computer Science or equivalent practical experience.\n\n• 15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.\n\n• 3 years of experience building AI applications, models, or infrastructure.\n\nPreferred qualifications:\n\n• PhD in Computer Science or related technical field. Track record of technical leadership delivering novel research concepts, algorithms, or systems architectures into production software or commercial platforms.\n\n• 20 years of combined experience across systems research, infrastructure engineering, and commercial product delivery.\n\n• Experience establishing multi-organizational technical strategy across multidisciplinary teams, including research (e.g. DeepMind), core engineering, and product management.\n\n• Ability to engage with research and engineering teams and translate ambiguous infrastructure, security, and production pain points into foundational systems solutions.\n\n• Recognized authority in research community with significant contributions to open-source ecosystems, standards, or industry consortia.\n\nAbout the job\n As a Principal Engineer for AI and Infrastructure Research and Development, you will bring deep systems accuracy to agent scale, connecting cutting-edge model research to large-scale production platforms. In this role, you will define the technical strategy bridging systems infrastructure and agent architectures, such as model inference acceleration, simulation-driven infrastructure optimization, and end-to-end platform efficiency. You will establish the engineering foundations and shared frameworks that enable internal organizations to deploy autonomous agents safely, robustly, and at hyperscale.\n Additionally, you will serve as an executive technical advisor and external thought leader, engaging C-suite customers on advanced architecture, delivering keynote perspectives, and shaping industry and governance standards while driving strategic alignment across DeepMind, Core, and Google Cloud.\n The AI and Infrastructure team is redefining what’s possible. We empower Google customers with breakthrough capabilities and insights by delivering AI and Infrastructure at unparalleled scale, efficiency, reliability and velocity. Our customers include Googlers, Google Cloud customers, and billions of Google users worldwide.\n We're the driving force behind Google's groundbreaking innovations, empowering the development of our cutting-edge AI models, delivering unparalleled computing power to global services, and providing the essential platforms that enable developers to build the future. From software to hardware our teams are shaping the future of world-leading hyperscale computing, with key teams working on the development of our TPUs, Vertex AI for Google Cloud, Google Global Networking, Data Center operations, systems research, and much more.\n Individual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $307000 - $427000 (USD) + 30% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Define the multi-year architectural outlook and technical strategy for how AI and Infrastructure Research and Development incubates, prototypes and productionizes agent platforms, inference efficiency, and AI systems infrastructure.\n\n• Drive inference optimization through simulation-driven infrastructure modeling, acceleration, and hardware-software co-design.\n\n• Architect shared evaluation harnesses, developer frameworks, multi-tenant standards, and safety rails to lead the AI-native engineering transformation across the organization.\n\n• Partner with DeepMind research and modeling teams to align frontier model requirements with next-generation AI and Cloud infrastructure.\n\n• Lead end-to-end incubation programs, steering experimental systems through rigorous benchmarking, production hardening, and multi-tenant operational deployment."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/111066250427146950-principal-engineer-ai-research-and-development",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-12T21:22:05.601Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/111066250427146950-principal-engineer-ai-research-and-development",
+      "jobReqId": "111066250427146950",
+      "requirements": [
+        "Bachelor's degree in Computer Science or equivalent practical experience.",
+        "15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.",
+        "3 years of experience building AI applications, models, or infrastructure."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree in Computer Science or equivalent practical experience.",
+          "15 years of software engineering or applied research experience building, optimizing, and operating large-scale distributed systems in production.",
+          "3 years of experience building AI applications, models, or infrastructure."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-10T21:22:05.601Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T21:22:05.601Z"
     },
     {
       "id": "google-switzerland-12890118f613",
@@ -2528,7 +2609,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103614681884566214-senior-engineering-traffic-analyst-search-antiscraper",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:47.217Z",
+      "crawledAt": "2026-11-12T21:22:04.893Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2586,7 +2667,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:16:47.217Z",
+      "validThrough": "2027-01-31T21:22:04.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2620,7 +2701,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:46.547Z",
+      "crawledAt": "2026-11-12T21:22:04.368Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2665,7 +2746,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:16:46.547Z",
+      "validThrough": "2027-01-26T21:22:04.368Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2699,7 +2780,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/78601150982431430-senior-quantitative-ux-researcher-merchant-shopping",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:46.007Z",
+      "crawledAt": "2026-11-12T21:22:03.829Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2760,7 +2841,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:16:46.007Z",
+      "validThrough": "2027-02-09T21:22:03.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2794,7 +2875,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79361738150945478-technical-program-manager-gemma-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:45.495Z",
+      "crawledAt": "2026-11-12T21:22:03.173Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2851,7 +2932,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:16:45.495Z",
+      "validThrough": "2027-02-09T21:22:03.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2885,7 +2966,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/116974862706057926-software-engineer-proof-and-verification-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:44.957Z",
+      "crawledAt": "2026-11-12T21:22:02.533Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2935,7 +3016,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:44.957Z",
+      "validThrough": "2027-02-09T21:22:02.533Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2969,7 +3050,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86512016885195462-security-engineer-red-team",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:44.413Z",
+      "crawledAt": "2026-11-12T21:22:02.014Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3018,7 +3099,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:44.413Z",
+      "validThrough": "2027-02-09T21:22:02.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3052,7 +3133,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:43.818Z",
+      "crawledAt": "2026-11-12T21:22:01.436Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3105,7 +3186,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:16:43.818Z",
+      "validThrough": "2026-12-23T21:22:01.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3139,7 +3220,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/84561862556820166-data-scientist-product-ms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:43.252Z",
+      "crawledAt": "2026-11-12T21:22:00.729Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3183,7 +3264,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:16:43.252Z",
+      "validThrough": "2027-01-01T21:22:00.729Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3217,7 +3298,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:42.715Z",
+      "crawledAt": "2026-11-12T21:22:00.215Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3261,7 +3342,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:16:42.715Z",
+      "validThrough": "2026-12-12T21:22:00.215Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3295,7 +3376,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112295976873403078-software-engineer-iii-youtube-content-id-claiming",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:42.142Z",
+      "crawledAt": "2026-11-12T21:21:59.490Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3340,7 +3421,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:16:42.142Z",
+      "validThrough": "2027-02-08T21:21:59.490Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3374,7 +3455,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:41.596Z",
+      "crawledAt": "2026-11-12T21:21:58.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3421,7 +3502,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:16:41.596Z",
+      "validThrough": "2027-01-04T21:21:58.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3455,7 +3536,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:41.046Z",
+      "crawledAt": "2026-11-12T21:21:58.180Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3500,7 +3581,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:16:41.046Z",
+      "validThrough": "2027-01-26T21:21:58.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3534,7 +3615,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:40.501Z",
+      "crawledAt": "2026-11-12T21:21:57.660Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3602,7 +3683,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:16:40.501Z",
+      "validThrough": "2026-12-12T21:21:57.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3636,7 +3717,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:39.975Z",
+      "crawledAt": "2026-11-12T21:21:57.136Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3697,7 +3778,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:16:39.975Z",
+      "validThrough": "2027-01-18T21:21:57.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3731,7 +3812,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:39.411Z",
+      "crawledAt": "2026-11-12T21:21:56.632Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3776,7 +3857,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:16:39.411Z",
+      "validThrough": "2027-01-21T21:21:56.632Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3810,7 +3891,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:16:38.887Z",
+      "crawledAt": "2026-11-12T21:21:56.123Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3855,7 +3936,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:16:38.887Z",
+      "validThrough": "2027-01-22T21:21:56.123Z",
       "validThroughSource": "last-observed-window"
     }
   ]
