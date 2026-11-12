@@ -255,12 +255,17 @@ export async function fetchAllScanditJobs() {
   }
 
   console.log(`\n📋 Total Scandit AG jobs discovered: ${jobs.length}`);
-  return jobs.length === 0
-    ? attachFetchMetadata(jobs, {
-      discoveredCount: Number.isFinite(listings.discoveredCount)
-        ? listings.discoveredCount
-        : listings.length,
-      fetchOutcome: 'filtered_empty',
-    })
-    : jobs;
+  if (jobs.length > 0) return jobs;
+
+  const discoveredCount = Number.isFinite(listings.discoveredCount)
+    ? listings.discoveredCount
+    : listings.length;
+  // `filtered_empty` is authoritative only for the geographic filter above.
+  // Rows that reach parsing but fail a later title/canton check are not proof
+  // that the board has no publishable Swiss job; leave that zero unclassified
+  // so the standard pipeline preserves the previous slice.
+  return attachFetchMetadata(jobs, {
+    discoveredCount,
+    ...(listings.length === 0 ? { fetchOutcome: 'filtered_empty' } : {}),
+  });
 }

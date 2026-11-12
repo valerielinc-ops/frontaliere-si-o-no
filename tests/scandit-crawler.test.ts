@@ -157,6 +157,22 @@ describe('Scandit AG crawler parser', () => {
       expect(jobs).toHaveProperty('fetchOutcome', 'filtered_empty');
     });
 
+    it('does not mark post-parse canton drops as filtered_empty', async () => {
+      fetchGreenhouseJobsMock.mockResolvedValue([{
+        title: 'Product Engineer',
+        location: 'Switzerland',
+        applyUrl: 'https://job-boards.greenhouse.io/scandit/jobs/1b',
+        descriptionHtml: 'A substantive source description for this fixture.',
+        jobReqId: '1b',
+      }] as never);
+
+      const jobs = await fetchAllScanditJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect(jobs).toHaveProperty('discoveredCount', 1);
+      expect(jobs).not.toHaveProperty('fetchOutcome');
+    });
+
     it('keeps an explicitly Swiss primary location publishable', async () => {
       fetchGreenhouseJobsMock.mockResolvedValue([{
         title: 'Senior Machine Learning Engineer',
