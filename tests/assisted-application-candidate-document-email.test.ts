@@ -4,6 +4,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 
 const { candidateWithEdits } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { candidateDocumentIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
+const { withRegisteredCandidateEmail } = await import('../functions/src/assistedApplicationDocumentIdentity.js');
 const { letterBlocksFor } = await import('../functions/src/assistedApplicationLetterPdf.js');
 const { tailoredCvDocumentFor } = await import('../functions/src/assistedApplicationTailoredCvPdf.js');
 const { renderCvDocx, renderLetterDocx } = await import('../functions/src/assistedApplicationDocx.js');
@@ -47,10 +48,11 @@ const draft = {
 };
 
 describe('candidate e-mail in assisted-application documents', () => {
-  it('prints the intake e-mail in the tailored CV and cover letter, not the routing alias or an older CV address', async () => {
+  it('prints applicantEmail before the account email, routing alias, or an older CV address', async () => {
     const flow = {};
-    const cv = tailoredCvDocumentFor({ order, draft, flow });
-    const letter = letterBlocksFor({ order, orderId: 'order-1', draft, flow, nowMs: Date.UTC(2026, 10, 12) });
+    const orderWithAccountEmail = { ...order, documentAccountEmail: 'account@example.test' };
+    const cv = tailoredCvDocumentFor({ order: orderWithAccountEmail, draft, flow });
+    const letter = letterBlocksFor({ order: orderWithAccountEmail, orderId: 'order-1', draft, flow, nowMs: Date.UTC(2026, 10, 12) });
 
     expect(cv?.contact).toContain(applicantEmail);
     expect(cv?.contact).not.toContain(aliasEmail);
@@ -69,21 +71,61 @@ describe('candidate e-mail in assisted-application documents', () => {
     expect(candidateWithEdits({ order, draft, flow }).identity.email).toBe(aliasEmail);
   });
 
-  it('does not substitute a routing alias or checkout address when the candidate e-mail is unknown', () => {
+  it('uses the registered Firebase account email fetched for the order userId', async () => {
+    const storedOrder = { userId: 'synthetic-user-id', applicantEmail: '', customerEmail: 'payer@example.test' };
+    const auth = { getUser: vi.fn(async () => ({ email: 'account@example.test', emailVerified: true })) };
+    const documentOrder = await withRegisteredCandidateEmail(storedOrder, { auth });
+
+    expect(auth.getUser).toHaveBeenCalledWith('synthetic-user-id');
+    expect(documentOrder).toEqual({ ...storedOrder, documentAccountEmail: 'account@example.test' });
+    expect(storedOrder).not.toHaveProperty('documentAccountEmail');
+    expect(candidateDocumentIdentity({ name: 'Test Candidate', email: '' }, documentOrder).email).toBe('account@example.test');
+
+    const cv = tailoredCvDocumentFor({ order: documentOrder, draft, flow: {} });
+    const letter = letterBlocksFor({ order: documentOrder, orderId: 'order-1', draft, flow: {}, nowMs: Date.UTC(2026, 10, 12) });
+    expect(cv?.contact).toContain('account@example.test');
+    expect(letter.senderLines).toContain('account@example.test');
+    expect(cv?.contact).not.toContain(aliasEmail);
+    expect(letter.senderLines).not.toContain(aliasEmail);
+  });
+
+  it('uses customerEmail when the Firebase account email cannot be read', async () => {
+    const storedOrder = { userId: 'missing-user-id', customerEmail: 'payer@example.test' };
+    const auth = { getUser: vi.fn(async () => { throw new Error('auth_user_not_found'); }) };
+    const documentOrder = await withRegisteredCandidateEmail(storedOrder, { auth });
+
+    expect(documentOrder).toBe(storedOrder);
+    expect(candidateDocumentIdentity({ name: 'Test Candidate', email: aliasEmail }, documentOrder).email).toBe('payer@example.test');
+  });
+
+  it('uses customerEmail when the order has no registered user', async () => {
+    const orderWithoutUser = { customerEmail: 'payer@example.test' };
+    const auth = { getUser: vi.fn() };
+    const documentOrder = await withRegisteredCandidateEmail(orderWithoutUser, { auth });
+
+    expect(auth.getUser).not.toHaveBeenCalled();
+    expect(candidateDocumentIdentity({ name: 'Test Candidate', email: '' }, documentOrder).email).toBe('payer@example.test');
+  });
+
+  it('uses the active alias only when applicant, account, and customer email are absent', () => {
+    const aliasOrder = { candidateAlias: { active: true, address: aliasEmail } };
+    expect(candidateDocumentIdentity({ name: 'Test Candidate', email: '' }, aliasOrder).email).toBe(aliasEmail);
+  });
+
+  it('does not throw when no email source or active alias exists', () => {
     expect(candidateDocumentIdentity(
       { name: 'Test Candidate', email: aliasEmail, phone: '' },
-      { candidateAlias: { active: true, address: aliasEmail }, customerEmail: 'payer@example.test' },
+      { candidateAlias: { active: false, address: aliasEmail } },
     )).toEqual({ name: 'Test Candidate', email: '', phone: '' });
   });
 
-  it('omits every e-mail row when intake has no applicant address, including the merged dossier', async () => {
-    const noEmailOrder = { ...order, applicantEmail: '', customerEmail: 'payer@example.test' };
+  it('omits every e-mail row when no source or active alias is available, including the merged dossier', async () => {
+    const noEmailOrder = { ...order, applicantEmail: '', documentAccountEmail: '', customerEmail: '', candidateAlias: { active: false, address: aliasEmail } };
     const flow = {};
     const cv = tailoredCvDocumentFor({ order: noEmailOrder, draft, flow });
     const letter = letterBlocksFor({ order: noEmailOrder, orderId: 'order-1', draft, flow, nowMs: Date.UTC(2026, 10, 12) });
 
     expect(candidateDocumentIdentity({ name: 'Test Candidate', email: aliasEmail, phone: '' }, noEmailOrder).email).toBe('');
-    expect(candidateWithEdits({ order: noEmailOrder, draft, flow }).identity.email).toBe(aliasEmail);
     expect(cv?.contact.join(' ')).not.toMatch(/@|example\.test/i);
     expect(letter.senderLines.join(' ')).not.toMatch(/@|example\.test/i);
 
@@ -104,7 +146,6 @@ describe('candidate e-mail in assisted-application documents', () => {
     for (const text of [cvDocx, letterDocx, cvPdfText, letterPdfText, dossierText]) {
       expect(text).not.toMatch(/@|example\.test|\b(?:e-?mail|courriel)\s*:/i);
       expect(text).not.toContain(aliasEmail);
-      expect(text).not.toContain('payer@example.test');
     }
   });
 });

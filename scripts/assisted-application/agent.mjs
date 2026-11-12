@@ -31,6 +31,7 @@ import { scheduleFollowups } from '../../functions/src/assistedApplicationFollow
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { withRegisteredCandidateEmail } from '../../functions/src/assistedApplicationDocumentIdentity.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 import { createAnswerSourceGuard } from '../../functions/src/assistedApplicationAnswerSourceGuard.js';
@@ -213,8 +214,10 @@ async function main() {
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const started = Date.now();
     try {
+      const documentOrder = await withRegisteredCandidateEmail(order);
+      if (documentOrder.documentAccountEmail) maskValues([documentOrder.documentAccountEmail]);
       const draft = await buildDraft({
-        db, order, orderId, flow: executionFlow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        db, order: documentOrder, orderId, flow: executionFlow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
