@@ -1,7 +1,7 @@
 {
   "crawlerKey": "prodyna-com",
-  "assembledAt": "2026-11-11T21:43:18.356Z",
-  "runId": "43103359344",
+  "assembledAt": "2026-11-12T09:37:53.923Z",
+  "runId": "43191512000",
   "jobs": [
     {
       "id": "prodyna-com-227cd4ac5dec",
@@ -34,7 +34,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:43:00.610Z",
+      "crawledAt": "2026-11-12T09:37:44.391Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:00.610Z",
+      "validThrough": "2027-02-09T09:37:44.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:43:00.603Z",
+      "crawledAt": "2026-11-12T09:37:44.387Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:00.603Z",
+      "validThrough": "2027-02-09T09:37:44.387Z",
       "validThroughSource": "last-observed-window"
     }
   ]

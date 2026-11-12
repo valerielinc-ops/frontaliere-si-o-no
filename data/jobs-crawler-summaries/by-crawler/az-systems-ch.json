@@ -1,7 +1,7 @@
 {
   "key": "az-systems-ch",
   "label": "AZ systems AG",
-  "generatedAt": "2026-11-11T21:45:36.715Z",
+  "generatedAt": "2026-11-12T09:39:13.314Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14627,
-  "avgDurationMs": 14627,
+  "durationMs": 14173,
+  "avgDurationMs": 14173,
   "durationHistory": [
-    14627
+    14173
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/techniker-in-gebaeudeautomation-msrl-1664",
       "source": "AZ systems AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:44:59.484Z",
+      "crawledAt": "2026-11-12T09:38:36.345Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T21:44:59.484Z",
+      "validThrough": "2026-12-12T09:38:36.345Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/sachbearbeiter-in-administration-innendienst",
       "source": "AZ systems AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:44:59.482Z",
+      "crawledAt": "2026-11-12T09:38:36.343Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:44:59.482Z",
+      "validThrough": "2027-01-26T09:38:36.343Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -119,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }
