@@ -4,6 +4,8 @@
  * its UI from silently drifting apart.
  */
 
+import { APPLICATION_CONCIERGE_CONSENT_VERSIONS } from './applicationConciergeConstants.js';
+
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 export const ASSISTED_APPLICATION_ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 /** Keep runner question/document arrays within the backend's candidate-review contract. */
@@ -100,4 +102,18 @@ export function refundEndsAtStart(order) {
   const version = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(String(order?.consentVersion || ''));
   return version >= ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(NO_REFUND_AFTER_START_CONSENT_VERSION)
     && order?.consentedAt != null;
+}
+
+/** Whether the consent recorded for this application says no refund once preparation starts. */
+export function hasNoRefundAfterStartConsent(order) {
+  if (order?.billingMode === 'application_concierge') {
+    const conciergeVersion = APPLICATION_CONCIERGE_CONSENT_VERSIONS.indexOf(
+      String(order?.parentServiceConsentVersion || ''),
+    );
+    const noRefundVersion = APPLICATION_CONCIERGE_CONSENT_VERSIONS.indexOf('application-concierge-v3');
+    return noRefundVersion >= 0 && conciergeVersion >= noRefundVersion && order?.consentedAt != null;
+  }
+  const assistedVersion = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(String(order?.consentVersion || ''));
+  const noRefundVersion = ASSISTED_APPLICATION_CONSENT_VERSIONS.indexOf(NO_REFUND_AFTER_START_CONSENT_VERSION);
+  return noRefundVersion >= 0 && assistedVersion >= noRefundVersion && order?.consentedAt != null;
 }

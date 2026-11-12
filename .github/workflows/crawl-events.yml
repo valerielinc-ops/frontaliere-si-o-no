@@ -156,6 +156,7 @@ jobs:
           run_bounded() {
             node scripts/lib/run-bounded-command.mjs --timeout-seconds "$1" --label "$2" -- "${@:3}"
           }
+          . scripts/lib/compare-merge-base.sh
           [ -n "$GH_TOKEN" ] || {
             echo "::error::No authenticated refresh token is available to probe the stable events refresh branch"
             exit 1
@@ -217,12 +218,10 @@ jobs:
             exit 0
           fi
           refresh_sha="$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
-          merge_base="$(run_bounded 60 'gh api events refresh merge base' \
-            gh api "repos/${GITHUB_REPOSITORY}/compare/${main_sha}...${refresh_sha}" --jq '.merge_base_commit.sha')"
-          [ -n "$merge_base" ] && [ "$merge_base" != null ] || {
-            echo "::error::GitHub did not return a merge base for the pending events refresh"
+          if ! merge_base="$(compare_merge_base "$GITHUB_REPOSITORY" "$main_sha" "$refresh_sha" "$remote_url" 60 'events refresh')"; then
+            echo "::error::Unable to resolve a valid merge base for the pending events refresh"
             exit 1
-          }
+          fi
           if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${merge_base}^{commit}" 2>/dev/null; then
             run_bounded 300 'git fetch events refresh merge base' \
               git fetch --no-tags --depth=1 "$remote_url" "$merge_base" >/dev/null 2>&1 || {

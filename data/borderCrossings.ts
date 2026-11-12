@@ -686,6 +686,10 @@ export const borderCrossings: BorderCrossing[] = [
  sourceUrl: 'https://comune.canneroriviera.vb.it/vivere-il-comune/luoghi/oggiogno/',
  // The municipal page advertises a 10-minute update cadence.
  refreshIntervalMs: 600000,
+ // The official 1024x579 WebP can compress below the generic 10KB floor
+ // (6.7KB observed on 2026-11-12) while remaining a valid current frame.
+ // Keep a feed-specific floor that still rejects tiny error/stub bodies.
+ minBytes: 1500,
  },
  ],
  },

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "so-3393",
+      "sourceKey": "SO",
+      "sourceRecordId": "3393",
+      "canton": "Soletta",
+      "platePrefix": "SO",
+      "plateNumber": "9334",
+      "normalizedPlate": "SO9334",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1500,
+      "startingPriceChf": 1500,
+      "bidCount": 0,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-11-11T16:00:00.000Z",
+      "closedAt": "2026-11-11T16:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH",
+      "officialDetailUrl": "https://eauktion.so.ch/ecari-auction/ui/app/details/app?id=3393&locale=de_CH",
+      "sourceFetchedAt": "2026-11-11T14:18:39.322Z",
+      "lastVerifiedAt": "2026-11-11T14:18:39.322Z",
+      "firstSeenAt": "2026-11-04T23:47:03.408Z",
+      "lastSeenAt": "2026-11-11T14:18:39.322Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "59966361fa94"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231475",
+      "sourceKey": "BE",
+      "sourceRecordId": "231475",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "96569",
+      "normalizedPlate": "BE96569",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 790,
+      "bidCount": 1,
+      "endsAt": "2026-11-11T20:00:00.000Z",
+      "closedAt": "2026-11-11T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231475",
+      "sourceFetchedAt": "2026-11-11T14:18:02.127Z",
+      "lastVerifiedAt": "2026-11-11T14:18:02.127Z",
+      "firstSeenAt": "2026-11-05T06:46:35.278Z",
+      "lastSeenAt": "2026-11-11T14:18:02.127Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3c1c1cfe8e31"
+    }
+  ]
+}

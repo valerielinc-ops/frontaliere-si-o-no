@@ -584,7 +584,7 @@ async function main() {
     r = await run('tiktok', `${base}/tiktokstudio/upload`, { dryRun: false, label: 'tt-publish' });
     check(r.result?.status === 'published', `publish returns with the redirect to the content page (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.length === 1 && !state.ttPosts[0].caption.includes('slide-1.jpg'), 'the pre-filled file name was replaced by the caption');
-    check(state.ttPosts[0].caption.includes('#ticino') && state.ttPosts[0].files === videoFiles.length && state.ttPosts[0].popupEscapes > 0, 'caption, hashtag popup handling and video reached the platform');
+    check(normalized(state.ttPosts[0].caption) === normalized(CAPTION) && state.ttPosts[0].files === videoFiles.length, 'the exact caption, including hashtags, and video reached the platform');
     check(state.ttPosts[0].visibility === 'Tutti', 'published TikTok content is sent with the public audience');
 
     r = await run('tiktok', `${base}/tt-music/tiktokstudio/upload`, { dryRun: false, label: 'tt-music', musicVariant: 'treatment' });
@@ -652,7 +652,7 @@ async function main() {
     const unknownStarted = Date.now();
     r = await run('tiktok', `${base}/tt-unknown/tiktokstudio/upload`, { dryRun: false, label: 'tt-unknown' });
     const unknownElapsed = Date.now() - unknownStarted;
-    check(r.error?.errorClass === 'interstitial-unknown' && r.error?.step === 'caption', `an unknown overlay stops before the caption click (${r.error?.errorClass || r.error?.message})`);
+    check(r.error?.errorClass === 'interstitial-unknown' && r.error?.step === 'publish', `an unknown overlay fails closed at the publish control (${r.error?.errorClass || r.error?.message})`);
     check(unknownElapsed < 10_000, `the unknown overlay fails closed without the long click timeout (${unknownElapsed}ms)`);
     check(state.ttPosts.length === beforeInterstitials + 1, 'the unknown-overlay scenario never posted');
     check(existsSync(path.join(r.dir, 'interstitial-unknown.png')), 'the unknown overlay leaves a dedicated screenshot');

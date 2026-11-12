@@ -1472,6 +1472,7 @@ export class JobsSeoHtmlReuse {
     this.diagnosticCounts = new Map();
     this.diagnosticsByLocale = new Map();
     this.packStores = new Map();
+    this.cacheWriteStatus = new Map();
   }
 
   /**
@@ -1565,6 +1566,23 @@ export class JobsSeoHtmlReuse {
     return { html: null, storage: null };
   }
 
+  /**
+   * Read the raw active-page source from this build's reuse pack. Bridge
+   * emitters need the source markers that minifyHtml strips from dist/, so a
+   * disk fallback is not equivalent here.
+   */
+  readHtml(locale, pagePath, kind, inputHash, buildId = undefined) {
+    const block = KIND_TO_REUSE_BLOCK[kind];
+    if (!block || !inputHash) return null;
+    const normalizedPath = normalizeManifestPath(pagePath);
+    const cacheKey = cacheFileName(normalizedPath, kind, inputHash);
+    const statusKey = `${String(locale)}\0${cacheKey}`;
+    if (this.cacheWriteStatus.get(statusKey) === false) return null;
+    const html = this.packStore(locale, block).read(cacheKey);
+    if (html === null || buildId === undefined) return html;
+    return buildId === null ? stripHtmlBuildId(html) : refreshHtmlBuildId(html, buildId);
+  }
+
   lookup(locale, pagePath, kind, input, block, shapeHints = null, options = null) {
     const stats = this.stats.get(block);
     if (!stats) throw new Error(`Unknown jobs SEO reuse block: ${block}`);
@@ -1648,14 +1666,18 @@ export class JobsSeoHtmlReuse {
       }
     }
 
+    let rewrittenBytesChanged = false;
     if (!missReason && html !== null && rewriteHtml) {
       try {
+        const cachedSourceHtml = html;
         const rewritten = rewriteHtml(html, {
           block,
           kind,
           emitterFingerprintChanged,
         });
         if (typeof rewritten !== 'string') throw new Error('HTML rewrite must return a string');
+        rewrittenBytesChanged = normalizeHtmlForReuse(cachedSourceHtml)
+          !== normalizeHtmlForReuse(rewritten);
         html = rewritten;
       } catch (error) {
         html = null;
@@ -1690,6 +1712,7 @@ export class JobsSeoHtmlReuse {
       cachePath,
       cacheKey,
       html,
+      rewrittenBytesChanged,
       hit: html !== null,
       storage,
       verify,
@@ -1867,12 +1890,20 @@ export class JobsSeoHtmlReuse {
       stats.reusable += 1;
       if (!candidate.verify) {
         stats.reused += 1;
-        if (candidate.cacheable && (candidate.storage === 'legacy' || candidate.emitterFingerprintChanged)) {
+        if (
+          candidate.cacheable
+          && (
+            candidate.storage === 'legacy'
+            || candidate.emitterFingerprintChanged
+            || candidate.rewrittenBytesChanged
+          )
+        ) {
           // A successful output probe advances the renderer fingerprint even
           // when most pages were reused. Persist the actual page bytes (after
           // the caller's JSON-LD/alias rewrites) with that new baseline so a
-          // later run without an intervening publish cannot pair the new
-          // fingerprint with stale HTML from the last release.
+          // later bridge read cannot inherit stale volatile fragments from the
+          // last release. The normalized comparison avoids rewriting solely
+          // because the generated build-id changed.
           this.persist(candidate, renderedHtml);
         }
         return;
@@ -1949,16 +1980,21 @@ export class JobsSeoHtmlReuse {
   }
 
   persist(candidate, html) {
+    const statusKey = `${candidate.locale}\0${candidate.cacheKey}`;
     try {
       const store = this.packStore(candidate.locale, candidate.block);
       if (!store.append(candidate.cacheKey, html)) {
         throw new Error('empty jobs SEO HTML pack entry');
       }
+      this.cacheWriteStatus.set(statusKey, true);
+      return true;
     } catch (error) {
+      this.cacheWriteStatus.set(statusKey, false);
       console.warn(
         `[jobs-seo-reuse] cache-write-failed block=${candidate.block} path=${candidate.path}`
         + ` reason=${error?.message || error}`,
       );
+      return false;
     }
   }
 
@@ -2082,6 +2118,7 @@ export class JobsSeoHtmlReuse {
     this.mismatchLogCounts.clear();
     this.diagnosticCounts.clear();
     this.diagnosticsByLocale.clear();
+    this.cacheWriteStatus.clear();
     this.stats.clear();
     return released;
   }

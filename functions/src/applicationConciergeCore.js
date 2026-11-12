@@ -855,6 +855,7 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
         currency: currentService.currency || 'eur',
         submissionStatus: 'awaiting_upload',
         locale: candidateCommunicationLocale(currentService),
+        parentServiceConsentVersion: currentService.consentVersion || null,
         jobId: currentProposal.jobId,
         jobUrl: currentProposal.jobUrl,
         companyId: currentProposal.companyId,

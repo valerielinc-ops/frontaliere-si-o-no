@@ -30,7 +30,7 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
-  refundEndsAtStart,
+  hasNoRefundAfterStartConsent,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking, conciergeEmailTracking, hasTerminalDeliveryEvidence } from './assistedApplicationEmailEvents.js';
@@ -870,12 +870,9 @@ export function buildCustomerEmail(kind, order, orderId, {
     htmlParts.push(uploadHtml());
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
     // With the automated flow on, the promise changes: a draft to approve, 12 h auto-approval.
-    // The refund wording follows the Terms the order is under, as the flow's own behaviour does
-    // (assistedApplicationConstants.js refundEndsAtStart; review PRR_kwDORN5k2M8AAAABXRUNfA of #18104):
-    // the Terms 6.5 of 2026-11-11 (mandate v3, an application of the automated search) say no refund once the
-    // preparation started and a refund on request before it; any other order keeps the prior refund of a
-    // closed ad, with its exception next to it.
-    const refundWording = refundEndsAtStart(order)
+    // Terms 6.5 of 2026-11-11 apply only when the candidate accepted mandate v3. Concierge children carry the
+    // parent service's consent version; the automatic refund guard remains separate in the automation flow.
+    const refundWording = hasNoRefundAfterStartConsent(order)
       ? copy.refundException
       : `${automation ? copy.legacyRefundPromiseAuto : copy.legacyRefundPromise} ${copy.legacyRefundException}`;
     const nextBody = `${automation ? copy.nextBodyAuto : copy.nextBody} ${refundWording}`;

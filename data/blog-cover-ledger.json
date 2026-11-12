@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1149,
+      "5": 1150,
       "6": 5062
     },
-    "publishedCovers": 7892,
+    "publishedCovers": 7893,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217706,6 +217706,39 @@
         "provider": "openai-codex",
         "assetId": "article-basilea-mozioni-climatizzazione",
         "imageUrl": "/images/blog/article-basilea-mozioni-climatizzazione.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-janett-protezione-uri": {
+      "cover": "/images/blog/article-janett-protezione-uri.webp",
+      "hash": "98b7250e1e2cd65b04aba2a8cdc1b2d21c830ac249cc5934d4e94db347d3d8e6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "janett-protezione-uri",
+          "category": "novita",
+          "date": "2026-11-11T23:29:16.716Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-janett-protezione-uri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-11",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-janett-protezione-uri",
+        "imageUrl": "/images/blog/article-janett-protezione-uri.webp",
         "evidence": "generated-engine-record"
       }
     }

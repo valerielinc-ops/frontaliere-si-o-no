@@ -242,14 +242,14 @@ run_bounded() {
   node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
 }
 
+. "$(dirname "${BASH_SOURCE[0]}")/compare-merge-base.sh"
+
 compat_merge_base() {
   local left="$1" right="$2" label="$3" base
-  base="$(run_bounded "$API_TIMEOUT_SECONDS" "$label" \
-    gh api "repos/${REPOSITORY}/compare/${left}...${right}" --jq '.merge_base_commit.sha')"
-  [ -n "$base" ] && [ "$base" != null ] || {
+  if ! base="$(compare_merge_base "$REPOSITORY" "$left" "$right" "$PUSH_URL" "$API_TIMEOUT_SECONDS" "$label")"; then
     echo "::error::Missing compatibility merge base for ${left}...${right}" >&2
     return 1
-  }
+  fi
   if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${base}^{commit}" 2>/dev/null; then
     run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch compatibility merge base" \
       git fetch --no-tags --depth=1 "$PUSH_URL" "$base"
