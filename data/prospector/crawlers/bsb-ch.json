@@ -1,0 +1,26 @@
+{
+  "companyKey": "bsb-ch",
+  "companyName": "BSB",
+  "companyHost": "bsb.ch",
+  "verifiedEmployerDomain": "bsb.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bsb.ch/jobs-und-karriere/offene-stellen/hotellerie-und-gastronomie"
+  ],
+  "detailTemplate": "/jobs-und-karriere/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "L’étang ↗",
+    "Hauswirtschaft & Reinigung",
+    "Administration & Verwaltung",
+    "Sozialpädagogik & Arbeitsagogik"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:45:27.608Z",
+  "candidateKey": "bsb@basel"
+}

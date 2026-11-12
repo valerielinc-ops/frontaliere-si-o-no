@@ -7666,6 +7666,7 @@ async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField
 export function pageControls(buttons, known, url, context = null) {
   const stage = context ? applicationStage(context.snapshot, { ...context, url }) : null;
   if (stage) {
+    if (stage.kind === 'application_start') return { submit: null, next: stage.control, stage };
     if (stage.kind === 'review_navigation') return { submit: null, next: stage.control, stage };
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }

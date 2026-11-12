@@ -1,0 +1,21 @@
+{
+  "companyKey": "acluofwashingtondf",
+  "companyName": "ACLU of Washington",
+  "companyHost": "acluofwashingtondf.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acluofwashingtondf.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Winter-Spring 2027 Legal Internship-Externship"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:24.624Z",
+  "candidateKey": "acluofwashingtondf@applytojob.com"
+}

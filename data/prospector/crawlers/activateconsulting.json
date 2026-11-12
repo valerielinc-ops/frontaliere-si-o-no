@@ -1,0 +1,24 @@
+{
+  "companyKey": "activateconsulting",
+  "companyName": "Activate Consulting",
+  "companyHost": "activateconsulting.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://activateconsulting.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "2027 Business Analyst",
+    "2027 Summer Business Analyst",
+    "Senior Business Analyst",
+    "Associate"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:27.325Z",
+  "candidateKey": "activateconsulting@applytojob.com"
+}

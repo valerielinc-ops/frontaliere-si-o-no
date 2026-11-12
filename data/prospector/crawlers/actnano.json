@@ -1,0 +1,21 @@
+{
+  "companyKey": "actnano",
+  "companyName": "actnano",
+  "companyHost": "actnano.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://actnano.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Senior Engineer (Bay Area)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:28.664Z",
+  "candidateKey": "actnano@applytojob.com"
+}

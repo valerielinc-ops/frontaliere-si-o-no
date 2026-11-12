@@ -123,7 +123,25 @@ const socialRobotClosurePaths = new Set([
   'scripts/lib/social-publish-queue.mjs',
   'scripts/load-rc-env.mjs',
 ]);
+const coreLocaleSource = /^services\/locales\/[^/]+-core\.ts$/;
 const sourceTreeLintTests = new Map([
+  // This completeness guard discovers translation keys by scanning all of
+  // `services/` and `components/`, so no import edge ties a locale dictionary
+  // edit to the check that proves every used key still exists in all locales.
+  ['tests/i18n-completeness.test.ts', /^services\/locales\//],
+  // These cross-locale contracts read locale shards through computed paths, so
+  // the import graph cannot connect a core locale edit to their assertions.
+  ...[
+    'tests/application-concierge-contract.test.ts',
+    'tests/assisted-application-decided-answers-review.test.ts',
+    'tests/application-intent-consent-ui.test.ts',
+    'tests/company-alert.test.ts',
+    'tests/employer-insights-surface.test.ts',
+    'tests/jobgate-experiment.test.ts',
+    'tests/newsletter-title-neutrality.test.ts',
+    'tests/signup-prompt-funnel.test.ts',
+    'tests/telegram-channel-cta.test.tsx',
+  ].map((test) => [test, coreLocaleSource]),
   // The mid-plugin equivalence suite imports its variants dynamically and is
   // the trusted oracle for the module-load flag contract. The shared facade
   // is otherwise only consumed by build plugins, so a facade-only change can
@@ -401,6 +419,31 @@ const relatedAssetFileScopes = new Map([
   ['tests/generate-crawler-group-workflows.test.ts', crawlerAssetScope],
   ...crawlerAssetRelatedTests.map((file) => [file, crawlerAssetScope]),
 ]);
+// A few source files are intentionally shared at runtime but are not shared
+// test contracts. Following their reverse import graph through the app shell
+// makes a feature-local edit select nearly every UI test: locale chunks flow
+// through `services/i18n.ts`, while the concierge client is reachable from the
+// profile, JobBoard and router graph. Keep those roots scoped to their owning
+// tests. Direct tests of a scoped root are always retained below.
+const relatedSourceTestScopes = [
+  {
+    matches: (file) => /^services\/locales\/[^/]+\.ts$/.test(file),
+    tests: [
+      /^tests\/i18n(?:-[^/]+)?\.test\.[cm]?[jt]sx?$/,
+      /^tests\/application-concierge-[^/]+\.test\.[cm]?[jt]sx?$/,
+    ],
+  },
+  {
+    matches: (file) => file === 'services/applicationConciergeService.ts',
+    tests: [
+      /^tests\/(?:application-concierge|concierge|use-concierge)-[^/]+\.test\.[cm]?[jt]sx?$/,
+      /^tests\/admin-candidature-revamp\.test\.[cm]?[jt]sx?$/,
+      /^tests\/userProfile\.test\.[cm]?[jt]sx?$/,
+      /^tests\/assisted-application-(?:employer-response|no-refund-after-start|review)\.test\.[cm]?[jt]sx?$/,
+    ],
+  },
+];
+const sourceTestScopeFor = (file) => relatedSourceTestScopes.find((scope) => scope.matches(file)) || null;
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
 // e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
 // PR non materializza `packages/articles/content`, quindi quel guard scatta
@@ -977,28 +1020,33 @@ const assetScopeAllows = (test, asset) => {
 const queue = candidates.map((file) => ({
   file,
   rootAsset: assetCandidate(file) ? file : null,
+  rootSource: sourceTestScopeFor(file) ? file : null,
 }));
-const queued = new Set(queue.map(({ file, rootAsset }) => `${rootAsset || ''}\0${file}`));
+const queued = new Set(queue.map(({ file, rootAsset, rootSource }) => `${rootAsset || ''}\0${rootSource || ''}\0${file}`));
 const visited = new Set();
 while (queue.length) {
   const current = queue.shift();
-  const { file, rootAsset } = current;
-  const visitKey = `${rootAsset || ''}\0${file}`;
+  const { file, rootAsset, rootSource } = current;
+  const visitKey = `${rootAsset || ''}\0${rootSource || ''}\0${file}`;
   if (visited.has(visitKey)) continue;
   visited.add(visitKey);
   for (const importer of reverse.get(file) || []) {
     const importerIsTest = isRunnableTest(importer);
-    const admitted = !rootAsset || !importerIsTest || assetScopeAllows(importer, rootAsset);
+    const sourceScope = rootSource ? sourceTestScopeFor(rootSource) : null;
+    const directScopedTest = rootSource === file && importerIsTest;
+    const sourceScopeAllows = !sourceScope || directScopedTest
+      || sourceScope.tests.some((pattern) => pattern.test(importer));
+    const admitted = (!rootAsset || !importerIsTest || assetScopeAllows(importer, rootAsset))
+      && (!importerIsTest || sourceScopeAllows);
     if (admitted && importerIsTest) related.add(importer);
-    // Once a scoped test rejects this asset, do not use that test as a bridge
-    // to admit more files through the same root. Other source modules remain
-    // traversable, preserving the old conservative behavior for unscoped
-    // consumers.
+    // A test rejected by either root scope cannot act as a bridge to other
+    // shared modules and reconnect the scoped change to the whole app. Other
+    // source modules remain traversable so in-scope consumers stay reachable.
     if (!admitted) continue;
-    const queueKey = `${rootAsset || ''}\0${importer}`;
+    const queueKey = `${rootAsset || ''}\0${rootSource || ''}\0${importer}`;
     if (!queued.has(queueKey)) {
       queued.add(queueKey);
-      queue.push({ file: importer, rootAsset });
+      queue.push({ file: importer, rootAsset, rootSource });
     }
   }
 }

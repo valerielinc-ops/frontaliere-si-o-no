@@ -1,0 +1,25 @@
+{
+  "companyKey": "addictionrecoverycare",
+  "companyName": "Addiction Recovery Care",
+  "companyHost": "addictionrecoverycare.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://addictionrecoverycare.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 71,
+  "sampleTitles": [
+    "Admissions Clerk",
+    "Behavioral Health Assessor - Weekend Shifts",
+    "Behavioral Health Assessor - Weekend Shifts",
+    "Benefits Verification Clerk",
+    "CADC Addiction Counselor - Telehealth (Weekends - KY Licensed Required)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:31.367Z",
+  "candidateKey": "addictionrecoverycare@applytojob.com"
+}

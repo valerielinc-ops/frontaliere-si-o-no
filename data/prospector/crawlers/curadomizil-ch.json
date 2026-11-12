@@ -1,0 +1,27 @@
+{
+  "companyKey": "curadomizil-ch",
+  "companyName": "CURAdomizil AG, Ihre Spitex in der Nordwestschweiz",
+  "companyHost": "curadomizil.ch",
+  "verifiedEmployerDomain": "curadomizil.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://curadomizil.ch/offene-stellen"
+  ],
+  "detailTemplate": "/fileadmin/filesharing/curadomizil/Downloads/Jobs/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Stelleninserat",
+    "Stelleninserat",
+    "Stelleninserat",
+    "Stelleninserat",
+    "Stelleninserat"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:45:29.008Z",
+  "candidateKey": "curadomizil-ihre-spitex-in-der-nordwestschweiz@basel"
+}

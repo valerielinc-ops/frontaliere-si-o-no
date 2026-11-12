@@ -1,0 +1,27 @@
+{
+  "companyKey": "carepeople-ch",
+  "companyName": "CarePeople AG",
+  "companyHost": "carepeople.ch",
+  "verifiedEmployerDomain": "carepeople.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.carepeople.ch/Jobboerse"
+  ],
+  "detailTemplate": "/de/Jobboerse",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Leitung Pflege und Betreuung 80-100%",
+    "Psychiatriepflege im ambulanten Bereich, ohne Wochenenddienste 80-100%",
+    "Dipl. Pflegefachperson HF Demenzpflege, ohne Wochenenddienste",
+    "THUN: Dipl. Pflegefachperson HF/ temporär Notfallmedizin",
+    "THUN: Dipl. Pflegefachperson HF/ temporär Chirurgie"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:44:13.124Z",
+  "candidateKey": "carepeople@basel"
+}
