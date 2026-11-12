@@ -242,7 +242,6 @@ const sourceTreeLintTests = new Map([
   // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
   // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
   ['tests/r2-calls-bounded.test.ts', /^scripts\/(?:lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh|ci\/check-house-ad-images\.mjs)$/],
-  ['tests/r2-data-delta.test.ts', /^(?:scripts\/ci\/prepare-r2-data-delta\.mjs|scripts\/lib\/deploy-it-pages-prep\.sh)$/],
   // These guards read workflow and R2-manifest files from disk rather than
   // importing them, so keep their runtime dependencies in the related graph.
   ['tests/deploy-cdn-ordering-gate.test.ts', /^(?:\.github\/workflows\/deploy\.yml|scripts\/lib\/deploy-it-pages-prep\.sh)$/],
