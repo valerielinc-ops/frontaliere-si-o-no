@@ -208,11 +208,19 @@ function timed(trace, step, fn) {
 }
 
 function historyGuardLockPath(cwd) {
-  return resolve(cwd, gitCommonDir(cwd), 'frontaliere-old-history-guard.lock');
+  return join(realpathSync(resolve(cwd, gitCommonDir(cwd))), 'frontaliere-old-history-guard.lock');
+}
+
+function sharedGitFetchLockPath(cwd) {
+  return join(realpathSync(resolve(cwd, gitCommonDir(cwd))), 'frontaliere-prune-fetch.lock');
 }
 
 function withHistoryGuardLock(cwd, fn) {
-  const result = withSingleFlightLock(historyGuardLockPath(cwd), fn);
+  const result = withSingleFlightLock(historyGuardLockPath(cwd), () => {
+    const fetchResult = withSingleFlightLock(sharedGitFetchLockPath(cwd), fn);
+    if (!fetchResult.acquired) throw new Error('un altro fetch Git è già in corso nel repository.');
+    return fetchResult.value;
+  });
   if (!result.acquired) {
     throw new Error('non è stato possibile acquisire il lock per aggiornare il grafo della storia.');
   }

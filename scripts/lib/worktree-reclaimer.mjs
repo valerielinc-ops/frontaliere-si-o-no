@@ -208,9 +208,8 @@ function normalizePr(raw) {
   };
 }
 
-function ghPrList(state, branch = null) {
+function ghPrList(state) {
   const args = ['pr', 'list', '--state', state, '--limit', String(GH_LIMIT), '--json', 'number,state,baseRefName,headRefName,headRefOid,mergedAt'];
-  if (branch) args.push('--head', branch);
   try {
     const raw = execFileSync('gh', args, {
       encoding: 'utf8',
@@ -229,35 +228,36 @@ function ghPrList(state, branch = null) {
 function loadPrs() {
   const all = ghPrList('all');
   const open = ghPrList('open');
-  if (!all.ok || !open.ok || !all.complete || !open.complete) return { available: false };
-  return { available: true, all: all.records, open: open.records };
+  if (!open.ok || !open.complete) return { available: false };
+  return {
+    available: true,
+    all: all.ok ? all.records : [],
+    allAvailable: all.ok,
+    allComplete: all.ok && all.complete,
+    open: open.records,
+  };
 }
 
 function resolvePr(prs, branch, head) {
-  if (!prs.available) return { known: false, reason: 'stato PR non verificabile: gh indisponibile o lista troncata' };
+  if (!prs.available) return { known: false, reason: 'lista PR aperte non verificabile: gh indisponibile o lista troncata' };
   // For a branch, the branch name is the authoritative association. Matching
   // every worktree at the same SHA would misclassify a clean checkout of main
   // as a PR when a PR happens to point at that SHA. Detached worktrees have no
   // branch name, so the SHA association is the only useful signal there.
-  const matches = branch
-    ? prs.all.filter((pr) => pr.headRefName === branch)
-    : prs.all.filter((pr) => head && pr.headRefOid === head);
   const openMatch = (branch
     ? prs.open.find((pr) => pr.headRefName === branch)
     : prs.open.find((pr) => head && pr.headRefOid === head));
-  if (openMatch) return { known: true, pr: openMatch };
-  if (matches.length) return { known: true, pr: matches[0] };
-  if (!branch) return { known: true, pr: null };
-  // The complete bulk list is enough for the normal case. The targeted query
-  // also makes an explicit negative result available if GitHub returns a
-  // future list larger than the safety limit.
-  const targeted = ghPrList('all', branch);
-  if (!targeted.ok || !targeted.complete) return { known: false, reason: `PR per ${branch} non verificabile` };
-  const targetedMatches = targeted.records.filter((pr) => !head || pr.headRefOid === head);
-  return {
-    known: true,
-    pr: targetedMatches.find((pr) => pr.state === 'OPEN') || targetedMatches[0] || null,
-  };
+  if (openMatch) return { known: true, pr: openMatch, historyComplete: prs.allComplete };
+  const matches = prs.allComplete
+    ? branch
+      ? prs.all.filter((pr) => pr.headRefName === branch)
+      : prs.all.filter((pr) => head && pr.headRefOid === head)
+    : [];
+  if (prs.allComplete && matches.length) return { known: true, pr: matches[0], historyComplete: true };
+  // La lista open completa basta a escludere una PR viva. Se lo storico è
+  // troncato, però, non usiamo l'assenza da `all` per trattare il body locale
+  // di una PR come file temporaneo: verrà incluso nello snapshot.
+  return { known: true, pr: null, historyComplete: prs.allComplete };
 }
 
 function mainRef(repoPath, mainBranch) {
@@ -387,8 +387,8 @@ function selected(only, entry) {
   return only === entry.branch || only === entry.path || only === canonical(entry.path);
 }
 
-function candidateReason({ pr, detached, ahead, changes, idleMinutes }) {
-  const source = pr ? `PR ${pr.state}` : 'nessuna PR';
+function candidateReason({ pr, historyComplete, detached, ahead, changes, idleMinutes }) {
+  const source = pr ? `PR ${pr.state}` : historyComplete ? 'nessuna PR' : 'nessuna PR aperta; storico PR non completo';
   const dirty = changes.significantEntries.length ? `, ${changes.significantEntries.length} modifica/e reale/i` : ', contenuto pulito';
   return `${source}, ahead=${ahead}${detached ? ', HEAD detached' : ''}${dirty}, inattivo >= ${idleMinutes} min`;
 }
@@ -416,20 +416,38 @@ function collectCandidates({ repoPath, mainBranch, only, idleMs, now }) {
 
     const head = entry.head || (entry.branch ? git(repoPath, ['rev-parse', '--verify', `refs/heads/${entry.branch}`], { allowFail: true }) : '');
     if (!head) { report('HEAD non leggibile — KEEP'); continue; }
-    // Classify first with `prExists=false`: a local PR body is real work until
-    // GitHub proves that the PR exists. Re-run only after the association is
-    // known so a merged/open PR body can be treated as tool scratch safely.
-    const unfilteredChanges = classifyRealChanges(path, { prExists: false });
-    if (unfilteredChanges.error) { report(`contenuto non classificabile (${unfilteredChanges.errorMessage || 'errore hash/index'}) — KEEP`); continue; }
     const prResolution = resolvePr(prs, entry.branch, head);
     if (!prResolution.known) { report(`${prResolution.reason} — KEEP`); continue; }
     const pr = prResolution.pr;
     if (pr?.state === 'OPEN') { report('PR aperta — KEEP, lavoro vivo'); continue; }
-    const changes = pr ? classifyRealChanges(path, { prExists: true }) : unfilteredChanges;
-    if (changes.error) { report(`contenuto non classificabile (${changes.errorMessage || 'errore hash/index'}) — KEEP`); continue; }
 
     const admin = worktreeAdminDir(path);
-    const activity = admin ? lastActivityMs(path, admin, changes) : 0;
+    const adminActivity = admin
+      ? lastActivityMs(path, admin, { significantEntries: [] })
+      : 0;
+    if (adminActivity && now - adminActivity < idleMs) {
+      const age = Math.max(0, Math.floor((now - adminActivity) / 60000));
+      report(`attività recente (${age} min, soglia ${Math.round(idleMs / 60000)} min) — KEEP`);
+      continue;
+    }
+
+    const changes = classifyRealChanges(path, {
+      prExists: Boolean(pr),
+      recentAfterMs: now - idleMs,
+    });
+    if (changes.error) { report(`contenuto non classificabile (${changes.errorMessage || 'errore hash/index'}) — KEEP`); continue; }
+    if (changes.recent) {
+      const activity = Math.max(adminActivity, changes.latestMtimeMs || 0);
+      const age = Math.max(0, Math.floor((now - activity) / 60000));
+      report(`attività recente (${age} min, soglia ${Math.round(idleMs / 60000)}) — KEEP`);
+      continue;
+    }
+
+    const activity = Math.max(
+      adminActivity,
+      changes.latestMtimeMs || 0,
+      admin ? lastActivityMs(path, admin, changes) : 0,
+    );
     if (!activity || now - activity < idleMs) {
       const age = activity ? Math.max(0, Math.floor((now - activity) / 60000)) : 0;
       report(`attività recente (${age} min, soglia ${Math.round(idleMs / 60000)} min) — KEEP`);
@@ -446,11 +464,18 @@ function collectCandidates({ repoPath, mainBranch, only, idleMs, now }) {
       ahead,
       pr,
       signature: signature(changes),
-      reason: candidateReason({ pr, detached: entry.detached, ahead, changes, idleMinutes: idleMs / 60000 }),
+      reason: candidateReason({ pr, historyComplete: prResolution.historyComplete, detached: entry.detached, ahead, changes, idleMinutes: idleMs / 60000 }),
       upstreamGone: upstreamGone(repoPath, entry.branch),
     });
   }
-  return { candidates, reports, processState, prsAvailable: prs.available };
+  return {
+    candidates,
+    reports,
+    processState,
+    prsAvailable: prs.available,
+    prsAllAvailable: Boolean(prs.allAvailable),
+    prsAllComplete: Boolean(prs.allComplete),
+  };
 }
 
 function recheckCandidate(repoPath, candidate, mainBranch, idleMs, now) {
@@ -459,11 +484,18 @@ function recheckCandidate(repoPath, candidate, mainBranch, idleMs, now) {
   if (!processState.known || isBusy(candidate.path, processState)) return { ok: false, reason: 'processo attivo o lsof non verificabile' };
   const head = git(candidate.path, ['rev-parse', '--verify', 'HEAD'], { allowFail: true });
   if (head !== candidate.head) return { ok: false, reason: 'HEAD cambiato durante lo sweep' };
-  const changes = classifyRealChanges(candidate.path, { prExists: Boolean(candidate.pr) });
+  const changes = classifyRealChanges(candidate.path, {
+    prExists: Boolean(candidate.pr),
+    recentAfterMs: now - idleMs,
+  });
   if (changes.error) return { ok: false, reason: changes.errorMessage || 'classificazione hash fallita' };
+  if (changes.recent) return { ok: false, reason: 'attività filesystem recente' };
   if (signature(changes) !== candidate.signature) return { ok: false, reason: 'contenuto reale cambiato durante lo sweep' };
   const admin = worktreeAdminDir(candidate.path);
-  const activity = admin ? lastActivityMs(candidate.path, admin, changes) : 0;
+  const activity = Math.max(
+    admin ? lastActivityMs(candidate.path, admin, changes) : 0,
+    changes.latestMtimeMs || 0,
+  );
   if (activity !== candidate.activity || now - activity < idleMs) return { ok: false, reason: 'attività cambiata durante lo sweep' };
   if (aheadOfMain(repoPath, head, mainBranch) === null) return { ok: false, reason: 'confronto con main non più verificabile' };
   return { ok: true, changes };
@@ -482,7 +514,7 @@ export function runWorktreeReclaim({
 } = {}) {
   const repoRoot = git(repoPath, ['rev-parse', '--show-toplevel'], { allowFail: true }) || resolve(repoPath);
   const measuredFree = freeBytes === undefined ? diskFreeBytes(repoRoot) : freeBytes;
-  const { candidates, reports, processState, prsAvailable } = collectCandidates({
+  const { candidates, reports, processState, prsAvailable, prsAllAvailable, prsAllComplete } = collectCandidates({
     repoPath: repoRoot,
     mainBranch,
     only,
@@ -490,7 +522,14 @@ export function runWorktreeReclaim({
     now,
   });
   const thresholdLine = `spazio libero=${formatBytes(measuredFree)}; soglia=${formatBytes(freeThresholdBytes)}`;
-  console.log(`[reclaim] ${automatic ? 'trigger automatico' : '--reclaim'} | ${thresholdLine} | inattività >= ${Math.round(idleMs / 60000)} min | gh=${prsAvailable ? 'ok' : 'UNAVAILABLE'} | mode=${apply ? 'APPLY' : 'dry-run'}`);
+  const ghStatus = !prsAvailable
+    ? 'UNAVAILABLE'
+    : prsAllComplete
+      ? 'ok'
+      : prsAllAvailable
+        ? 'open-ok/all-truncated'
+        : 'open-ok/all-unavailable';
+  console.log(`[reclaim] ${automatic ? 'trigger automatico' : '--reclaim'} | ${thresholdLine} | inattività >= ${Math.round(idleMs / 60000)} min | gh=${ghStatus} | mode=${apply ? 'APPLY' : 'dry-run'}`);
   if (!processState.known) console.log('[reclaim] lsof non verificabile: nessun worktree può essere rimosso.');
   console.log(`[reclaim] candidati=${candidates.length}; report-only/protetti=${reports.length}`);
   for (const candidate of candidates) {

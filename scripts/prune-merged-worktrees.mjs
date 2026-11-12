@@ -325,7 +325,9 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
   .replace(/^origin\//, '') || 'main';
 const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
-const pruneRunLock = join(realpathSync(resolve(gitDir)), 'frontaliere-prune-run.lock');
+const gitCommonDir = realpathSync(resolve(gitDir));
+const pruneRunLock = join(gitCommonDir, 'frontaliere-prune-run.lock');
+const fetchLock = join(gitCommonDir, 'frontaliere-prune-fetch.lock');
 let releasePruneRunLock;
 try {
   releasePruneRunLock = acquireSingleFlightLockHandle(pruneRunLock, { stalePolicy: 'owner-dead-only' });
@@ -345,7 +347,7 @@ process.once('exit', releasePruneRunLock);
 // secondo processo o bloccare la sessione. `--reclaim` forza invece il dry-run
 // (o l'azione con `--apply`) anche con disco libero.
 const reclaimThreshold = reclaimFreeThresholdBytes(process.env);
-const reclaimFree = diskFreeBytes(process.cwd());
+let reclaimFree = diskFreeBytes(process.cwd());
 const reclaimAutomatic = APPLY && !ONLY && reclaimFree !== null && reclaimFree < reclaimThreshold;
 if (RECLAIM || reclaimAutomatic) {
   // SessionEnd still invokes `--orphans-only` synchronously with a short hook
@@ -365,6 +367,26 @@ if (RECLAIM || reclaimAutomatic) {
     console.log(`[reclaim] trigger automatico accodato in background: spazio libero ${reclaimFree === null ? 'sconosciuto' : `${Math.round(reclaimFree / 1024 ** 2)} MiB`} sotto soglia.`);
     process.exit(0);
   }
+  if (APPLY && !ONLY) {
+    const staleSweep = withSingleFlightLock(fetchLock, () => {
+      const packs = sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+      const objects = sweepStaleFetchObjects(join(gitDir, 'objects'));
+      return {
+        removed: packs.removed + objects.removed,
+        bytes: packs.bytes + objects.bytes,
+      };
+    });
+    if (!staleSweep.acquired) {
+      console.log(`ℹ️  [reclaim] pulizia dei pack temporanei saltata: un fetch tiene ${fetchLock}.`);
+    } else if (staleSweep.value?.removed) {
+      console.log(`[reclaim] rimossi ${staleSweep.value.removed} residui temporanei di fetch (${Math.round(staleSweep.value.bytes / 1048576)} MB).`);
+      reclaimFree = diskFreeBytes(process.cwd());
+    }
+    if (reclaimAutomatic && reclaimFree !== null && reclaimFree >= reclaimThreshold) {
+      console.log(`[reclaim] pulizia temporanei sufficiente: ${Math.round(reclaimFree / 1024 ** 2)} MiB liberi, sopra soglia; nessun worktree candidato scandito.`);
+      process.exit(0);
+    }
+  }
   runWorktreeReclaim({
     apply: APPLY,
     only: ONLY,
@@ -378,7 +400,6 @@ if (RECLAIM || reclaimAutomatic) {
   process.exit(0);
 }
 
-const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
 const SNAPSHOT_DATE = new Date().toISOString().slice(0, 10).replaceAll('-', '');
