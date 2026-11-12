@@ -1,6 +1,6 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
-import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
 // suffix under an unknown parent such as ApplicationSave/ApplicationReview.
@@ -60,6 +60,47 @@ function applicantIdentityLabel(value) {
 
 function isApplicantIdentity(field) {
   return field?.inputType === 'email' || APPLICANT_IDENTITY_LABEL_RE.test(applicantIdentityLabel(field?.label));
+}
+
+function applicationFormKey(control) {
+  const formId = String(control?.formId || '').trim();
+  return formId ? `${Number(control?.frame || 0)}\u0000${formId}` : '';
+}
+
+function sameDocumentFragment(href, url) {
+  if (!String(href || '').includes('#')) return false;
+  const current = parsed(url);
+  if (!current) return false;
+  let destination;
+  try { destination = new URL(href, current.href); } catch { return false; }
+  return Boolean(destination && current.origin === destination.origin
+    && current.pathname === destination.pathname && current.search === destination.search);
+}
+
+/**
+ * A bare Apply link is an in-page opener only when the same frame contains a
+ * single applicant form with its own step or send control. Ambiguous links
+ * remain visible to the stage classifier as unknown Apply actions.
+ */
+export function inPageApplicationOpeners(snapshot, url = snapshot?.url) {
+  const buttons = Array.isArray(snapshot?.buttons) ? snapshot.buttons : [];
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const identityForms = new Set(fields
+    .filter((field) => !field?.disabled && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase())
+      && isApplicantIdentity(field))
+    .map(applicationFormKey).filter(Boolean));
+  const qualifyingForms = new Set(buttons
+    .filter((button) => !button?.chrome && !button?.disabled && !button?.href && !button?.leavesDocument
+      && (NEXT_RE.test(String(button?.text || '')) || SUBMIT_RE.test(String(button?.text || ''))))
+    .map(applicationFormKey).filter((key) => key && identityForms.has(key)));
+  if (qualifyingForms.size !== 1) return [];
+  const [applicationForm] = qualifyingForms;
+  const applicationFrame = Number(applicationForm.split('\u0000', 1)[0]);
+  return buttons.filter((button) => Number(button?.frame || 0) === applicationFrame
+    && !String(button?.formId || '').trim()
+    && GENERIC_APPLY_RE.test(String(button?.text || ''))
+    && !button?.leavesDocument
+    && (!button?.href || sameDocumentFragment(button.href, url)));
 }
 
 // A SuccessFactors profile/application page may keep the CV in «Meine
@@ -288,7 +329,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   if (pending) return { kind: 'unknown_apply', prefinal: true };
   // A form's Apply can be a final send. A bare Apply on a profile/summary is
   // insufficient, even if an agent or a learned button calls it a submission.
-  const apply = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || ''));
+  const openers = new Set(inPageApplicationOpeners(snapshot, url));
+  const apply = buttons.filter(button => !openers.has(button) && GENERIC_APPLY_RE.test(button.text || ''));
   const applicationFields = apply.length === 1
     ? (snapshot?.fields || []).filter(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0))
     : [];

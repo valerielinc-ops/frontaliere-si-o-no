@@ -3302,6 +3302,7 @@ describe('portal runner helpers', () => {
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
     // RhB's exact final label must not depend on a model naming the button.
     for (const text of ['Senden', 'senden', 'SENDEN']) expect(SUBMIT_RE.test(text)).toBe(true);
+    expect(SUBMIT_RE.test('Abschicken')).toBe(true);
     for (const text of ['Nicht senden', 'Senden an einen Freund', 'Unterlagen senden']) expect(SUBMIT_RE.test(text)).toBe(false);
     expect(findButton([{ id: 'rhb', text: 'Senden', disabled: false }], SUBMIT_RE)?.id).toBe('rhb');
     const amagForm = {
