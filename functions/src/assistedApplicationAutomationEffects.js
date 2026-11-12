@@ -17,7 +17,7 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
-import { refundEndsAtStart } from './assistedApplicationConstants.js';
+import { hasNoRefundAfterStartConsent, refundEndsAtStart } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { dispatchAgentWorkflow, draftRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { enqueueLocalDispatch, requiresSwissEgress } from './assistedApplicationSwissRunner.js';
@@ -150,8 +150,9 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         candidateEmail: customerEmailFor(order),
         days: effect.days,
         nudges: effect.nudges,
-        // Which Terms 6.5 the order is under: the advice on a closed ad differs (refundEndsAtStart).
-        refundEndsAtStart: refundEndsAtStart(order),
+        // The owner copy follows the accepted terms; concierge child refunds still go through the parent service.
+        noRefundAfterStartConsent: hasNoRefundAfterStartConsent(order),
+        conciergeChild: order?.billingMode === 'application_concierge',
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {
@@ -169,7 +170,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
       // Which Terms 6.5 the candidate accepted: the withdrawn posting's e-mail cites that one.
-      refundEndsAtStart: refundEndsAtStart(order),
+      noRefundAfterStartConsent: hasNoRefundAfterStartConsent(order),
     });
   };
   return (deps.sendNotification || sendOrderNotification)({
