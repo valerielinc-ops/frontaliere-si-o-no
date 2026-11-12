@@ -73,7 +73,7 @@ jobs:
         timeout-minutes: 1
 
       - name: Assemble canonical jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
         timeout-minutes: 12
 
       - name: Audit missing company logos
