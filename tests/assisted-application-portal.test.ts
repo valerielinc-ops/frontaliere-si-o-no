@@ -1326,7 +1326,9 @@ describe('Workday anonymous file picker', () => {
     const listeners = new Map<string, (value: any) => void>();
     const request = {
       method: () => 'POST',
-      headers: () => ({ 'content-type': 'multipart/form-data' }),
+      headers: () => ({ 'content-type': 'application/json' }),
+      url: () => 'https://swarovski.wd3.myworkdayjobs.com/wday/cxs/swarovski/swarovski/apply',
+      postData: () => JSON.stringify({ name: 'candidate-cv.pdf' }),
     };
     const fileInput = {
       evaluate: vi.fn(async () => (selected ? ['candidate-cv.pdf'] : [])),
@@ -2741,13 +2743,16 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
   it('waits for upload requests, fails on an HTTP error, and removes its listeners', async () => {
-    const run = async (requests: Array<{ at: number; until: number; method?: string; status?: number; upload?: boolean; failAfterResponse?: boolean }>) => {
+    const run = async (requests: Array<{ at: number; until: number; method?: string; status?: number; upload?: boolean; failAfterResponse?: boolean; pageUrl?: string; url?: string; postData?: string }>) => {
       let clock = 0;
       const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set(), response: new Set() };
-      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', headers: () => ({ 'content-type': item.upload === false ? 'application/json' : 'multipart/form-data; boundary=test' }), started: false, ended: false }));
+      const pageUrl = requests.find((item) => item.pageUrl)?.pageUrl || 'https://jobs.example.test/apply';
+      const pageOrigin = new URL(pageUrl).origin;
+      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', headers: () => ({ 'content-type': item.upload === false ? 'application/json' : 'multipart/form-data; boundary=test' }), url: () => item.url || `${pageOrigin}/other`, postData: () => item.postData || '', started: false, ended: false }));
       const page = {
         on: (event: string, handler: any) => handlers[event].add(handler),
         off: (event: string, handler: any) => handlers[event].delete(handler),
+        url: () => pageUrl,
         waitForTimeout: async (ms: number) => {
           clock += ms;
           for (const request of live) {
@@ -2780,6 +2785,24 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(upload.clock).toBeLessThan(6500);
     expect((await run([{ at: 150, until: 500, status: 204 }])).accepted).toBe(true);
     expect((await run([{ at: 150, until: 500, status: 204, failAfterResponse: true }])).accepted).toBe(true);
+    expect((await run([{
+      at: 150,
+      until: 500,
+      status: 204,
+      upload: false,
+      pageUrl: 'https://acme.wd3.myworkdayjobs.com/en-US/acme/apply',
+      url: 'https://acme.wd3.myworkdayjobs.com/wday/cxs/acme/acme/apply',
+      postData: JSON.stringify({ name: 'cv.pdf' }),
+    }])).accepted).toBe(true);
+    expect((await run([{
+      at: 150,
+      until: 500,
+      status: 204,
+      upload: false,
+      pageUrl: 'https://acme.wd3.myworkdayjobs.com/en-US/acme/apply',
+      url: 'https://uploads.example.test/wday/cxs/acme/acme/apply',
+      postData: JSON.stringify({ name: 'cv.pdf' }),
+    }])).accepted).toBe(false);
     // Sent in two pieces with a short gap: both.
     expect((await run([{ at: 150, until: 2000 }, { at: 2300, until: 4000 }])).clock).toBeGreaterThanOrEqual(4600);
     // A plain GET (an image, a script) is nobody's upload; a request that never ends is not waited for ever.
