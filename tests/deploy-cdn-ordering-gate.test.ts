@@ -573,7 +573,9 @@ function slowFakeGh(payload: unknown, delaySeconds: number): string {
     join(dir, 'gh'),
     [
       '#!/usr/bin/env bash',
-      `sleep ${delaySeconds}`,
+      // Model one stalled CLI process. Without exec, killing the shell leaves
+      // its sleep child holding the command pipe open until the fake delay ends.
+      `exec sleep ${delaySeconds}`,
       'filter="."',
       'while [ $# -gt 0 ]; do case "$1" in --jq) filter="$2"; shift 2 ;; *) shift ;; esac; done',
       `jq -r "$filter" < "${join(dir, 'payload.json')}"`,
@@ -588,7 +590,12 @@ function slowFakeCurl(marker: string, delaySeconds: number): string {
   const dir = mkdtempSync(join(tmpdir(), 'slow-fake-curl-'));
   writeFileSync(
     join(dir, 'curl'),
-    ['#!/usr/bin/env bash', `sleep ${delaySeconds}`, `printf '%s' ${JSON.stringify(marker)}`].join('\n'),
+    [
+      '#!/usr/bin/env bash',
+      // Keep the stalled endpoint as the process `timeout` must terminate.
+      `exec sleep ${delaySeconds}`,
+      `printf '%s' ${JSON.stringify(marker)}`,
+    ].join('\n'),
     { mode: 0o755 },
   );
   return dir;
