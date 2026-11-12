@@ -1,0 +1,24 @@
+{
+  "companyKey": "adimab",
+  "companyName": "Adimab",
+  "companyHost": "adimab.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://adimab.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Predoctoral Research Associate - Summer 2027",
+    "Principal Research Associate, Antibody Discovery (Immunology)",
+    "Scientist, Computational Protein Design",
+    "Vice President, Human Resources"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:32.721Z",
+  "candidateKey": "adimab@applytojob.com"
+}

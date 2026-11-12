@@ -31,9 +31,10 @@ const HOME_CRITICAL_PATHS = new Set([
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
 
 /**
- * The fixed loading shell is a skeleton overlay, not the page content that
- * should gate the SPA runtime. Counting its FCP makes the home page wait for
- * a paint that is immediately covered by the app's real LCP candidate.
+ * The fixed loading shell is a route-aware first-paint surface on the home:
+ * its calculator heading/input are the LCP fallback while the SPA runtime
+ * loads. On other routes it remains a generic skeleton and must not gate the
+ * runtime, so only home-critical paths opt into the FCP wait below.
  */
 const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  'main.seo-static-content, main.cluster-seo-prose',
@@ -131,13 +132,16 @@ const hasPlateAuctionStaticFallback = (): boolean =>
 let recoverFromBootFailure: ((error: unknown) => void) | undefined;
 
 const bootstrapApp = async () => {
+ const homeCritical = isHomeCriticalPath(window.location.pathname);
  // Static SEO pages already contain useful HTML. Wait for its actual FCP before
  // importing React's large shared runtime: two rAF callbacks can run before a
  // contentful frame when mobile CPU work is saturated. Empty SPA shells keep
  // the short frame-only wait so their runtime is never waiting for a paint it
- // must create itself.
+ // must create itself. The route-aware homepage shell is the exception: it is
+ // the desktop/mobile LCP fallback and must be painted before React can replace
+ // it, otherwise a slow Lighthouse runner can lose the only early candidate.
  await waitForInitialPaintOpportunity({
-   waitForContentfulPaint: hasPreRenderedPaintContent(),
+   waitForContentfulPaint: homeCritical || hasPreRenderedPaintContent(),
  });
  const shouldWaitForJobBoardStaticLcp =
    hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
@@ -210,7 +214,6 @@ const bootstrapApp = async () => {
  if (mounted) return;
  mounted = true;
 
- const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
  let keepStaticRootVisible = false;
  // Let the browser present the static HTML once before anything below can

@@ -1,0 +1,26 @@
+{
+  "companyKey": "tareno-ch",
+  "companyName": "TARENO AG",
+  "companyHost": "tareno.ch",
+  "verifiedEmployerDomain": "tareno.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://tareno.ch/firma/karriere/"
+  ],
+  "detailTemplate": "/firma/karriere/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "MEHR ERFAHREN",
+    "MEHR ERFAHREN",
+    "MEHR ERFAHREN",
+    "MEHR ERFAHREN"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:45:44.485Z",
+  "candidateKey": "tareno@basel"
+}

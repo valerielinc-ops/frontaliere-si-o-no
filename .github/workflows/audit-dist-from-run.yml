@@ -67,9 +67,10 @@ on:
       shard_artifact_run_id:
         description: >-
           Run ID containing the en/de/fr shard artifacts (locale-dist-*,
-          shard-batch-*-dist-{en,de,fr}): a successful deploy-publish run, NOT
-          the build. Empty = resolved from the source build's Pages artifact
-          and its successful matching deploy-publish runs.
+          shard-batch-*-dist-{en,de,fr}): a completed deploy-publish run whose
+          `deploy` job succeeded, NOT the build. Empty = resolved from the
+          source build's Pages artifact and matching publishers whose `deploy`
+          job succeeded.
         required: false
         default: ''
         type: string
@@ -136,7 +137,7 @@ on:
         default: ''
         type: string
       shard_artifact_run_id:
-        description: 'Successful publisher run ID containing the locale/section artifacts; empty resolves successful runs per locale.'
+        description: 'Publisher run ID whose `deploy` job succeeded and contains the locale/section artifacts; empty resolves matching runs per locale.'
         required: false
         default: ''
         type: string
@@ -241,7 +242,9 @@ jobs:
         uses: ./.github/actions/fetch-pages-artifact
         with:
           # A supplied publisher ID is exact. Otherwise pin the source build
-          # and let the shared resolver walk only successful matching publishers.
+          # and let the shared resolver walk matching publishers whose deploy
+          # job succeeded, even when an independent validator made the
+          # aggregate publisher conclusion fail after publication.
           run-id: ${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}
           output-dir: /tmp/pages
           github-token: ${{ github.token }}

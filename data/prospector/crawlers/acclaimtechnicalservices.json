@@ -1,0 +1,25 @@
+{
+  "companyKey": "acclaimtechnicalservices",
+  "companyName": "Acclaim Technical Services",
+  "companyHost": "acclaimtechnicalservices.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://acclaimtechnicalservices.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 104,
+  "sampleTitles": [
+    "AI-Integrated Creative Designer (2026-0253)",
+    "Application Security Engineer (2026-0248)",
+    "Arabic / French Linguist (2026-0190)",
+    "Arabic Linguist - Travel (2026-0001)",
+    "Business Process Consultant/Budget Analyst (2026-0255)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:23.276Z",
+  "candidateKey": "acclaimtechnicalservices@applytojob.com"
+}

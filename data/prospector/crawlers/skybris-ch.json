@@ -1,0 +1,27 @@
+{
+  "companyKey": "skybris-ch",
+  "companyName": "skybris gmbh",
+  "companyHost": "skybris.ch",
+  "verifiedEmployerDomain": "skybris.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://skybris.ch/de/jobs"
+  ],
+  "detailTemplate": "/de/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 28,
+  "sampleTitles": [
+    "Details ansehen →",
+    "Details ansehen →",
+    "Details ansehen →",
+    "Details ansehen →",
+    "Details ansehen →"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-12T13:46:40.801Z",
+  "candidateKey": "skybris@basel"
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "adamsoutdoor",
+  "companyName": "Adams Outdoor",
+  "companyHost": "adamsoutdoor.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://adamsoutdoor.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 43,
+  "sampleTitles": [
+    "Account Executive",
+    "Account Executive",
+    "Account Executive",
+    "Account Executive",
+    "Account Executive"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-12T13:34:30.037Z",
+  "candidateKey": "adamsoutdoor@applytojob.com"
+}
