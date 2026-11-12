@@ -257,8 +257,22 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     const name = findCrawlerGroupWorkflowName('roche', realWorkflowsDir);
     expect(name).not.toBeNull();
     expect(name).toMatch(/^Crawler Group \d+/);
-    // Il gruppo di quarantena reale si riconosce, gli altri no.
-    expect(findCrawlerGroupWorkflow('protectas', realWorkflowsDir)?.quarantine).toBe(true);
+    // Il gruppo di quarantena reale si riconosce per ogni membro del registro,
+    // non per uno slug che puo' rientrare nel proprio gruppo nel tempo.
+    const quarantinePath = path.resolve(import.meta.dirname, '..', 'data', 'crawler-quarantine.json');
+    const quarantine = JSON.parse(fs.readFileSync(quarantinePath, 'utf8')) as {
+      group: number;
+      members: Record<string, unknown>;
+    };
+    const quarantineFile = `crawler-group-${String(quarantine.group).padStart(2, '0')}.yml`;
+    const quarantineSlugs = Object.keys(quarantine.members ?? {});
+    expect(quarantineSlugs.length).toBeGreaterThan(0);
+    for (const slug of quarantineSlugs) {
+      expect(findCrawlerGroupWorkflow(slug, realWorkflowsDir)).toMatchObject({
+        filename: quarantineFile,
+        quarantine: true,
+      });
+    }
     expect(findCrawlerGroupWorkflow('roche', realWorkflowsDir)?.quarantine).toBe(false);
   });
 
