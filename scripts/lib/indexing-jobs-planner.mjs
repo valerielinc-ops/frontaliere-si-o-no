@@ -3,6 +3,12 @@
  *
  * Decides WHICH job URLs to notify on a given day and in which order, from:
  *   - the live job sitemaps (what Google is told exists right now),
+ *   - the active jobs of the published dataset (scripts/lib/indexing-jobs-dataset.mjs):
+ *     the job sitemaps only move with a full publish, the offer pages also go
+ *     live through the section shard pushes, so a page can be live and in no
+ *     sitemap for days. Ledger entries first seen ONLY there carry `o: 1`;
+ *     the caller live-checks every dataset-only URL as the ACTIVE page of its
+ *     job before spending a request on it (judgeDatasetLive),
  *   - a persistent ledger of what was already notified (pulled from and
  *     pushed back to Firestore by scripts/lib/indexing-ledger-store.mjs),
  *   - an optional priority list (job pages the GSC monitor inspected and found
@@ -45,6 +51,12 @@ export const PRIORITY_RESUBMIT_DAYS = 3;
 export const NEW_JOB_DAYS = 1;
 /** A URL that failed the live JobPosting check is re-checked after this many days. */
 export const NOT_JOB_RECHECK_DAYS = 7;
+/**
+ * A dataset-only URL that answered 404/410 (its page is not published yet) is
+ * re-checked on the next quota day, not after the 7-day not-job penalty: it is
+ * a fresh offer waiting for its shard, the case this source exists for.
+ */
+export const NOT_LIVE_RECHECK_DAYS = 1;
 /** A URL gone from the sitemaps but still served indexable is re-checked after this many days. */
 export const GONE_RECHECK_DAYS = 7;
 /** Ledger entries for URLs gone from the sitemaps are dropped after this many days. */
@@ -76,7 +88,9 @@ export function daysBetween(a, b) {
 }
 
 function isFreshEntry(e, today) {
-  return !e.gone && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS);
+  return !e.gone
+    && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS)
+    && !(e.u && daysBetween(e.u, today) < NOT_LIVE_RECHECK_DAYS);
 }
 
 function isPriorityDue(e, today) {
@@ -186,22 +200,37 @@ export function recordNotification(ledger, { url, type = 'URL_UPDATED', source =
 }
 
 /**
- * Record the current sitemap population: set first-seen on new URLs, refresh
- * the observed lastmod, and mark entries that left the sitemaps.
+ * Record the current population (sitemaps + dataset): set first-seen on new
+ * URLs, refresh the observed lastmod, and mark entries that left both sources.
  * @param {object} ledger mutated in place
  * @param {Array<{loc: string, lastmod: string|null}>} entries job-detail candidates only
  * @param {string} today YYYY-MM-DD
+ * @param {{datasetOnly?: {has(url: string): boolean}}} [opts] URLs of `entries`
+ *   found only in the dataset. A ledger entry CREATED from one of them gets
+ *   `o: 1` ("first seen outside the sitemaps"); seeing the URL in a sitemap
+ *   clears it.
  */
-export function observeSitemap(ledger, entries, today) {
+export function observeSitemap(ledger, entries, today, { datasetOnly = null } = {}) {
   const present = new Set();
   for (const { loc, lastmod } of entries) {
     present.add(loc);
-    const e = ledger.urls[loc] || (ledger.urls[loc] = { f: today });
+    const onlyDataset = Boolean(datasetOnly?.has(loc));
+    let e = ledger.urls[loc];
+    if (!e) {
+      e = ledger.urls[loc] = { f: today };
+      if (onlyDataset) e.o = 1;
+    } else if (!onlyDataset) {
+      delete e.o;
+    }
     if (lastmod) e.m = lastmod;
     delete e.gone;
   }
   for (const [url, e] of Object.entries(ledger.urls)) {
     if (present.has(url)) continue;
+    // Never in a sitemap, never notified: Google has nothing to forget and the
+    // delete tier skips it, so keeping it would only grow the ledger (~2.8k
+    // dataset URLs leave every day).
+    if (e.o && !e.s) { delete ledger.urls[url]; continue; }
     if (!e.gone) e.gone = today;
     if (daysBetween(e.gone, today) > GONE_FORGET_DAYS) delete ledger.urls[url];
   }
@@ -215,9 +244,15 @@ export function observeSitemap(ledger, entries, today) {
  *      result (`job-rich-missing`), re-notified at most every
  *      PRIORITY_RESUBMIT_DAYS;
  *   2. new — never notified, posted (lastmod) or first seen in the sitemaps
- *      within NEW_JOB_DAYS; Italian URL before its EN/DE/FR alternates;
+ *      within NEW_JOB_DAYS; Italian URL before its EN/DE/FR alternates. A
+ *      dataset-only entry (`o`) counts by lastmod alone: its lastmod already
+ *      includes the job's firstSeenAt, while the ledger's first-seen day is
+ *      only the day this source was switched on (2026-11-12: every offer
+ *      posted since the sitemaps froze would otherwise be "new" at once);
  *   3. delete — dropped from the sitemaps after the ledger saw it there, never
- *      URL_DELETED-notified (the caller still verifies 404/410/noindex);
+ *      URL_DELETED-notified (the caller still verifies 404/410/noindex). A
+ *      dataset-only entry never notified is skipped: Google was never told
+ *      about it, by a sitemap or by us;
  *   4. updated — sitemap lastmod newer than the last notification;
  *   5. backlog — never notified, newest lastmod first.
  * Never planned: an URL+type already notified whose lastmod has not moved,
@@ -248,7 +283,7 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
 
   const isNew = (e) => fresh(e) && !e.s && (
     (e.m && daysBetween(e.m, today) <= NEW_JOB_DAYS)
-    || (e.f > ledger.createdAt && daysBetween(e.f, today) <= NEW_JOB_DAYS)
+    || (!e.o && e.f > ledger.createdAt && daysBetween(e.f, today) <= NEW_JOB_DAYS)
   );
   entries
     .filter(([, e]) => isNew(e))
@@ -256,7 +291,7 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
     .forEach(([url]) => push(url, 'URL_UPDATED', 'new'));
 
   entries
-    .filter(([, e]) => e.gone && !e.d && !(e.g && daysBetween(e.g, today) < GONE_RECHECK_DAYS))
+    .filter(([, e]) => e.gone && !e.d && !(e.o && !e.s) && !(e.g && daysBetween(e.g, today) < GONE_RECHECK_DAYS))
     .sort(([, a], [, b]) => String(b.gone).localeCompare(String(a.gone)))
     .forEach(([url]) => push(url, 'URL_DELETED', 'delete'));
 
@@ -317,18 +352,21 @@ export function backlogRank(url) {
  * Apply the outcome of one attempt to the ledger.
  * @param {object} ledger
  * @param {{url: string, type: string}} item
- * @param {'sent'|'not-job'|'still-live'|'transient'|'failed'} outcome
+ * @param {'sent'|'not-job'|'not-live'|'still-live'|'transient'|'failed'} outcome
  *   `transient` (timeout, network error, 429/5xx) leaves the entry untouched,
- *   so the URL stays plannable on the next run.
+ *   so the URL stays plannable on the next run. `not-live` (dataset-only URL,
+ *   404/410: not published yet) parks it until the next quota day.
  * @param {string} today
  */
 export function recordOutcome(ledger, item, outcome, today, { quotaReserved = false } = {}) {
   const e = ledger.urls[item.url] || (ledger.urls[item.url] = { f: today });
   if (outcome === 'sent') {
-    if (item.type === 'URL_DELETED') e.d = today; else { e.s = today; delete e.n; }
+    if (item.type === 'URL_DELETED') e.d = today; else { e.s = today; delete e.n; delete e.u; }
     if (!quotaReserved) ledger.days[today] = spentOn(ledger, today) + 1;
   } else if (outcome === 'not-job') {
     e.n = today;
+  } else if (outcome === 'not-live') {
+    e.u = today;
   } else if (outcome === 'still-live') {
     e.g = today;
   }
