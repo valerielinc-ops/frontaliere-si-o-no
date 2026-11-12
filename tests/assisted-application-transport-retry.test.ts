@@ -109,6 +109,11 @@ describe('network evidence passed to the shared flow', () => {
       draft: verifiedDraft,
     })).toEqual({ host: 'forms.example.test', kind: 'chrome_error' });
     expect(portalNetworkFailureMetadata({
+      event: { type: 'submit_handoff' },
+      evidence: { finalUrl: 'https://forms.example.test/apply/?next=chrome-error://form/' },
+      draft: verifiedDraft,
+    })).toBeNull();
+    expect(portalNetworkFailureMetadata({
       event: { type: 'submit_handoff', reason: 'portal_needs_candidate' },
       liveness: { page: { code: 'access_blocked' } },
       postingUrl: 'https://forms.example.test/job/', draft: verifiedDraft,

@@ -2166,7 +2166,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
+      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
     ]);
     // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
     const projected = guardPlan({
@@ -2190,7 +2190,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
+  it('uses policy defaults for application privacy acknowledgments and keeps marketing/fact questions', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2202,13 +2202,15 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       // server rejects the application until this agreement is checked.
       { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
     ];
-    // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
+    // umantis, 2026-10-03: the planner skipped the application privacy box; code must answer it without asking the candidate.
     const guarded = guardPlan({
       actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
-    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent'], ['c6', 'consent']]);
-    // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
+    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([
+      ['c1', 'policy_default'], ['c4', 'policy_default'], ['c5', 'policy_default'], ['c6', 'policy_default'],
+    ]);
+    // Marketing and a checkbox that also declares a candidate fact remain questions.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
     expect(ownConsent(fields[3])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
