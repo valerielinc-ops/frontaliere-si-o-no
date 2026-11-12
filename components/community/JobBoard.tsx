@@ -18,7 +18,7 @@ import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
-import { waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
+import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSyncExternalStore } from 'react';
@@ -2839,6 +2839,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // view shows the loading skeleton instead of the provisional count + cards.
  const [fullLoadPending, setFullLoadPending] = useState(true);
  const [jobBoardInteractionObserved, setJobBoardInteractionObserved] = useState(false);
+ const deferJobBoardCatalogUntilInteraction = typeof window === 'undefined'
+  || shouldWaitForJobBoardLcp(window.innerWidth);
  const jobBoardInteractionSeenRef = useRef(false);
  const catalogInteractionGestureRef = useRef(false);
  const catalogInteractionWaitersRef = useRef(new Set<() => void>());
@@ -3968,8 +3970,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  // First-page fast paint (#2580): on listing routes (no build-time seed),
  // fetch the tiny first-page slim asset first and paint page-1 cards before
- // the full index lands. The authoritative shard waits for a board
- // interaction before supplying the complete
+ // the full index lands. The authoritative shard waits for a board interaction
+ // before supplying the complete corpus only on the sub-desktop LCP path.
  // filter/pagination corpus. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
  // existing full-index path immediately. Skipped for canton-scoped pages other than TI because the
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
@@ -3992,7 +3994,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstPage = await loadFirstPageSlim();
  if (firstPage && !cancelled) {
  await finalize(scopeJobsToCanton(firstPage, targetCanton));
- if (!cancelled) await waitForCatalogInteraction();
+ if (!cancelled && deferJobBoardCatalogUntilInteraction) await waitForCatalogInteraction();
  }
  }
  if (cancelled) return;
@@ -4073,7 +4075,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  cancelled = true;
   cancelCatalogInteractionWait?.();
  };
- }, [locale, initialFilterCanton]);
+ }, [deferJobBoardCatalogUntilInteraction, locale, initialFilterCanton]);
 
  const categories: { value: JobCategory | 'all'; labelKey: string }[] = [
  { value: 'all', labelKey: 'jobBoard.filter.all' },
@@ -6185,11 +6187,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // If the first-page asset is unavailable, the full catalog can settle without
  // reader intent (for example while a CDN/deploy handoff is in progress). Keep
  // the static snapshot as the visible owner in that case; releasing it would
- // replace the already-painted LCP surface with the hidden SPA shell.
- if (initialContentReadyRef.current || !jobBoardInteractionObserved || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving) return;
+ // replace the already-painted LCP surface with the hidden SPA shell. Desktop
+ // adopts the snapshot into #root, so it does not need the interaction gate.
+ if (initialContentReadyRef.current
+   || (deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)
+   || jobsLoading
+   || fullLoadPending
+   || jobs.length === 0
+   || resultsResolving) return;
  initialContentReadyRef.current = true;
  onInitialContentReady?.();
- }, [fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
+ }, [deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]);
 
  // The canonical unfiltered TI/aggregate listing has a deterministic first
  // viewport: its first-page asset is `pageSize` cards. Reserve that footprint

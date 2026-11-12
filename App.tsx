@@ -243,6 +243,7 @@ import {
   shouldKeepStaticFallbackOutsideRoot,
   STATIC_SNAPSHOT_OWNER_ATTR,
 } from '@/services/staticFallbackHandoff';
+import { shouldWaitForJobBoardLcp } from '@/services/initialPaintBootstrap';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
 import type { UserProfileData } from '@/components/pages/UserProfile';
@@ -415,6 +416,8 @@ const App: React.FC = () => {
   ? parsePath(window.location.pathname).route
   : null;
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+ const keepJobBoardSnapshotOutsideRoot = typeof window === 'undefined'
+  || shouldWaitForJobBoardLcp(window.innerWidth);
  const isArticleDetailForAuth = activeTab === 'blog' && Boolean(
   blogArticle || swissArticle || cantonArticle || articleStaticFallbackKey
   || currentArticleRoute?.blogSlug || currentArticleRoute?.blogArticle
@@ -440,9 +443,14 @@ const App: React.FC = () => {
    const fallback = document.querySelector<HTMLElement>('main.seo-static-content.job-board-static-content');
    const root = document.getElementById('root');
    if (!fallback || root?.contains(fallback)
-     || !shouldKeepStaticFallbackOutsideRoot(route, 'job-board', true)) return;
+     || !shouldKeepStaticFallbackOutsideRoot(
+       route,
+       'job-board',
+       true,
+       { keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot },
+     )) return;
    afterRootCrossfade(() => setJobBoardSnapshotReadyPath(contextualPath));
- }, [contextualPath]);
+ }, [contextualPath, keepJobBoardSnapshotOutsideRoot]);
  const cantonTopicRouteKey = blogSection.startsWith('canton-') && cantonTopic
    ? `${blogSection}:${cantonTopic}:${locale}`
    : null;
@@ -467,6 +475,7 @@ const App: React.FC = () => {
      currentArticleRoute ?? { activeTab: 'calculator' },
      'job-board',
      true,
+     { keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot },
    );
  // A static snapshot (article, or canton topic hub) still owns the body. On a
  // SPA handoff the React <main> has to mount to load and announce readiness,
