@@ -1,6 +1,8 @@
 /** Shared bounded recovery policy for a draft run that failed before review. */
 export const DRAFT_AUTO_RETRY_DELAY_MS = 5 * 60 * 1000;
 export const DRAFT_AUTO_RETRY_MAX_ATTEMPTS = 1;
+export const DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION = 'draft-recovery-candidate-email-v1';
+export const DRAFT_CANDIDATE_EMAIL_MISSING_CODE = 'assisted_application_candidate_email_missing';
 
 /** Parse the persisted draft retry counter without coercing malformed values. */
 export function draftAutoRetryCountValue(flow) {

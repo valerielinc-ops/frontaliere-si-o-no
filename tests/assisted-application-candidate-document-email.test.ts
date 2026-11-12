@@ -70,9 +70,41 @@ describe('candidate e-mail in assisted-application documents', () => {
   });
 
   it('does not substitute a routing alias or checkout address when the candidate e-mail is unknown', () => {
-    expect(() => candidateDocumentIdentity(
+    expect(candidateDocumentIdentity(
       { name: 'Test Candidate', email: aliasEmail, phone: '' },
       { candidateAlias: { active: true, address: aliasEmail }, customerEmail: 'payer@example.test' },
-    )).toThrow('assisted_application_candidate_email_missing');
+    )).toEqual({ name: 'Test Candidate', email: '', phone: '' });
+  });
+
+  it('omits every e-mail row when intake has no applicant address, including the merged dossier', async () => {
+    const noEmailOrder = { ...order, applicantEmail: '', customerEmail: 'payer@example.test' };
+    const flow = {};
+    const cv = tailoredCvDocumentFor({ order: noEmailOrder, draft, flow });
+    const letter = letterBlocksFor({ order: noEmailOrder, orderId: 'order-1', draft, flow, nowMs: Date.UTC(2026, 10, 12) });
+
+    expect(candidateDocumentIdentity({ name: 'Test Candidate', email: aliasEmail, phone: '' }, noEmailOrder).email).toBe('');
+    expect(candidateWithEdits({ order: noEmailOrder, draft, flow }).identity.email).toBe(aliasEmail);
+    expect(cv?.contact.join(' ')).not.toMatch(/@|example\.test/i);
+    expect(letter.senderLines.join(' ')).not.toMatch(/@|example\.test/i);
+
+    const cvDocx = extractDocxText(renderCvDocx(cv!));
+    const letterDocx = extractDocxText(renderLetterDocx(letter));
+    const cvPdf = await renderCvPdf(cv!, { mode: 'legacy' });
+    const letterPdf = await renderLetterPdf(letter, { mode: 'legacy' });
+    const cvPdfText = await extractCvText(cvPdf.pdf, 'pdf');
+    const letterPdfText = await extractCvText(letterPdf.pdf, 'pdf');
+    const { dossierAttachment } = await import('../scripts/assisted-application/lib/dossier.mjs');
+    const dossier = await dossierAttachment({
+      language: 'it', stem: 'test-candidate', name: 'Test Candidate', letter: letterPdf.pdf,
+      cv: { buffer: cvPdf.pdf, type: 'pdf', name: 'cv.pdf' }, nowMs: Date.UTC(2026, 10, 12),
+    });
+    expect(dossier.ok).toBe(true);
+    const dossierText = await extractCvText(dossier.pdf, 'pdf');
+
+    for (const text of [cvDocx, letterDocx, cvPdfText, letterPdfText, dossierText]) {
+      expect(text).not.toMatch(/@|example\.test|\b(?:e-?mail|courriel)\s*:/i);
+      expect(text).not.toContain(aliasEmail);
+      expect(text).not.toContain('payer@example.test');
+    }
   });
 });
