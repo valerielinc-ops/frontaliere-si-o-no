@@ -5,7 +5,6 @@
 import fs from 'node:fs';
 import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
-import { readJsonFile } from './lib/read-large-json.mjs';
 
 const REG_PATH = path.resolve('data/slug-registry.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
