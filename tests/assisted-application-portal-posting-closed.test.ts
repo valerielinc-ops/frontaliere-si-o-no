@@ -218,6 +218,7 @@ describe('a posting that closes behind the registration', () => {
 
   it.each([
     '<label for="application">Application details</label><input id="application" name="application" type="text">',
+    '<label for="password">Password</label><input id="password" name="password" type="password">',
     '<label for="attachment">Curriculum Vitae</label><input id="attachment" name="attachment" type="file">',
   ])('does not reclassify a still-interactive form as closed (%s)', async (field) => {
     const landing = `<main><p>Die Stelle wurde leider bereits besetzt.</p><form>${field}<button type="submit">Weiter</button></form></main>`;
@@ -228,8 +229,7 @@ describe('a posting that closes behind the registration', () => {
   it.each([
     '<label for="query">Search jobs</label><input id="query" name="query" type="search"><button type="submit">Search</button>',
     '<label for="query">Search applications</label><input id="query" name="query" type="search"><button type="submit">Search</button>',
-    '<label for="password">Password</label><input id="password" name="password" type="password">',
-    '<label for="email">Email</label><input id="email" name="email" type="email">',
+    '<section><h2>Sign in</h2><form><label for="email">Email</label><input id="email" name="email" type="email"></form></section>',
     '<section><h2>Application portal</h2><label for="username">Username</label><input id="username" name="username" type="text"></section>',
   ])('still recognizes a closure when only a non-application field is present (%s)', async (field) => {
     const landing = `<main><p>This job is no longer available.</p><form>${field}</form></main>`;

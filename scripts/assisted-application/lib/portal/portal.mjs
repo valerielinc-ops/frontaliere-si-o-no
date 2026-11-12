@@ -8466,20 +8466,29 @@ const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_un
 const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
 
 function isApplicationOwnedPortalField(field) {
-  const fieldText = [
+  const fieldIdentityText = [
     field?.label,
     field?.name,
     field?.id,
-    field?.context,
-    field?.section,
     field?.applicationQuestion,
   ].filter(Boolean).join(' ');
+  const fieldContextText = [field?.context, field?.section].filter(Boolean).join(' ');
+  const fieldText = `${fieldIdentityText} ${fieldContextText}`;
   if (field?.search === true || String(field?.inputType || '').toLowerCase() === 'search') return false;
-  if (PORTAL_AUTH_FIELD_RE.test(fieldText)) return false;
-  return APPLICATION_CONTROL_RE.test(fieldText)
+
+  // A generic section such as «Application portal» cannot turn a Username or
+  // other authentication control into an application-owned field.
+  const authenticationField = PORTAL_AUTH_FIELD_RE.test(fieldIdentityText)
+    || PORTAL_AUTH_FIELD_RE.test(fieldContextText);
+  const explicitlyApplicationOwned = APPLICATION_CONTROL_RE.test(fieldIdentityText);
+  if (authenticationField && !explicitlyApplicationOwned) return false;
+
+  return explicitlyApplicationOwned
+    || (!authenticationField && APPLICATION_CONTROL_RE.test(fieldContextText))
     || isCvFileField(field)
     || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(fieldText)
-    || (isFileField(field) && field.required === true);
+    || (isFileField(field) && field.required === true)
+    || (!authenticationField && APPLICATION_IDENTITY_FIELD_RE.test(fieldText));
 }
 
 export async function submitViaPortal(ctx) {
