@@ -365,7 +365,7 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
     if (type === 'checkbox' && /\b(?:remember me|ricordami|se souvenir de moi|m[eé]moriser ma session)\b/i.test(labelText)) continue;
 
     const required = control.hasAttribute('required')
-      || control.getAttribute('aria-required') === 'true'
+      || String(control.getAttribute('aria-required') || '').trim().toLowerCase() === 'true'
       || /\s\*\s*$/.test(labelText);
     const label = labelText.replace(/\s*\*\s*$/, '').slice(0, 160);
     const key = `${type}:${label.toLocaleLowerCase()}`;

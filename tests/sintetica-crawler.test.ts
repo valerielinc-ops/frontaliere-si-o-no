@@ -96,6 +96,8 @@ const FIXTURE_NCORE_APPLICATION_PAGE = `
     <input id="first-name" name="first_name" type="text" required value="value-must-not-be-captured">
     <label for="last-name">Cognome *</label>
     <input id="last-name" name="last_name" type="text" required>
+    <label for="availability">Disponibilità</label>
+    <input id="availability" name="availability" type="text" aria-required=" TRUE ">
     <label for="email">Email *</label>
     <input id="email" name="email" type="email" required>
     <label for="privacy"><input id="privacy" name="privacy" type="checkbox" required> Ho letto ed accetto la Privacy Policy</label>
@@ -280,6 +282,7 @@ describe('parseNcoreApplicationForm', () => {
       fields: [
         { label: 'Nome', type: 'text', required: true, kind: 'question' },
         { label: 'Cognome', type: 'text', required: true, kind: 'question' },
+        { label: 'Disponibilità', type: 'text', required: true, kind: 'question' },
         { label: 'Email', type: 'email', required: true, kind: 'question' },
         { label: 'Ho letto ed accetto la Privacy Policy', type: 'checkbox', required: true, kind: 'consent' },
       ],
