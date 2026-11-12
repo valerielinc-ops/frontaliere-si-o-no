@@ -1617,7 +1617,7 @@ function isBlogDataModule(value: unknown): value is {
 export function preloadBlogData(): Promise<void> {
  if (_blogSlugs) return Promise.resolve();
  if (!_blogDataPromise) {
-  const promise = resilientImport(
+  const promise = resilientImport<typeof import('./routerBlogData')>(
    () => import('./routerBlogData'),
    isBlogDataModule,
   ).then(m => {
@@ -1724,7 +1724,7 @@ function isSwissDataModule(value: unknown): value is {
 export function preloadSwissData(): Promise<void> {
  if (_swissSlugs) return Promise.resolve();
  if (!_swissDataPromise) {
-  const promise = resilientImport(
+  const promise = resilientImport<typeof import('./routerSwissData')>(
    () => import('./routerSwissData'),
    isSwissDataModule,
   ).then(m => {

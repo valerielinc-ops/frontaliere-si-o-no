@@ -62,7 +62,7 @@ function isTranslationChunk(value: unknown): value is TranslationChunk {
 }
 
 function loadTranslationChunk(loader: ChunkLoader): Promise<TranslationChunk> {
- return resilientImport(loader, isTranslationChunk);
+ return resilientImport<TranslationChunk>(loader, isTranslationChunk);
 }
 
 // Above-the-fold critical keys for non-IT locales (tiny ~4KB, loaded first)
