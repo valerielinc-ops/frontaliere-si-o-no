@@ -46,7 +46,10 @@ export const SOURCE_VERSION = 'input@1';
 // job-digest@9: expired soft landings can emit a locale-cluster hreflang block
 // selected by the mutable path-claim registry. That exact block is now part of
 // the page input, so old manifests must not be treated as current.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@9';
+// job-digest@10: qualityScore is serialized into the active-page slim seed,
+// and needsRetranslation controls whether a related job is an internal link;
+// changing either must invalidate cached HTML.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@10';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -106,9 +109,17 @@ export const LEGACY_OPTIONAL_KINDS = new Set([
 // changes the related-job projections; keeping the fields in every selected
 // record digest would also invalidate otherwise identical job HTML.
 const NON_RENDERED_JOB_KEYS = new Set([
-  'needsRetranslation',
-  'qualityScore',
   'retranslationAttempts',
+  // lastUpdatedAt is source bookkeeping. The active JobPosting deadline reads
+  // lastSeenAt and lastObservedAt when it has no explicit live deadline, so
+  // those fields remain in the full record digest with crawledAt, scrapedAt
+  // and updatedAt.
+  'lastUpdatedAt',
+  // Source hashes are pipeline identity metadata. The renderer consumes the
+  // source fields themselves; it never reads either hash, so a crawler-side
+  // hash refresh with byte-identical rendered fields must not invalidate HTML.
+  'sourceHash',
+  'sourceRecordHash',
   // Alias history is used to enumerate previous-slug/cross-locale bridge
   // paths, but is not read when rendering any individual page. The active,
   // expired and card renderers do not read these arrays, so putting them in
@@ -488,17 +499,13 @@ export function computeInputHash(input, kind, templateVersion = templateVersionF
 }
 
 /**
- * Return the smallest stable identity available for a source job. The build
- * data has no universal source-record hash, so prefer one when a crawler
- * provides it and otherwise fall back to the stable job id/slug plus the
- * dataset's existing version-like fields.
+ * Return the smallest stable renderer-visible version available for a source
+ * job. Observation/update timestamps and crawler hashes can churn without
+ * changing emitted bytes, so use only source fields used by the renderer.
  */
 export function stableJobVersion(job) {
   return String(
-    job?.sourceRecordHash
-    ?? job?.sourceHash
-    ?? job?.updatedAt
-    ?? job?.lastUpdatedAt
+    job?.updatedAt
     ?? job?.datePosted
     ?? job?.postedDate
     ?? job?.firstSeenAt
