@@ -50,7 +50,8 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(note.indexOf('scheduleAfterPaintOpportunity')).toBeLessThan(
       note.indexOf('setJobBoardInteractionObserved(true)'),
     );
-    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: 1000 })');
+    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: idleTimeoutMs })');
+    expect(JOB_BOARD_SOURCE).toContain('scheduleAfterPaintOpportunity(finish, INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS)');
     expect(JOB_BOARD_SOURCE).not.toContain('catalogInteractionReadyRef.current');
   });
 
@@ -65,6 +66,7 @@ describe('job-board catalog loading after the first listing paint', () => {
 
     expect(JOB_BOARD_SOURCE).toContain('onInitialContentReady?: () => void');
     expect(readiness).toContain('(deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)');
+    expect(readiness).toContain('|| fullLoadPending');
     expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
     expect(readiness).toContain('onInitialContentReady?.()');
   });

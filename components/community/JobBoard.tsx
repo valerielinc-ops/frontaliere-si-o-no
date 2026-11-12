@@ -18,7 +18,11 @@ import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
 import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
-import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
+import {
+ INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
+ shouldWaitForJobBoardLcp,
+ waitForInitialPaintOpportunity,
+} from '@/services/initialPaintBootstrap';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSyncExternalStore } from 'react';
@@ -1017,7 +1021,10 @@ function yieldToMainThread(): Promise<void> {
  * must not be the event that starts the full-catalog fetch and its React
  * commit. The same boundary is also used for the static-snapshot handoff.
  */
-function scheduleAfterPaintOpportunity(callback: () => void): () => void {
+function scheduleAfterPaintOpportunity(
+ callback: () => void,
+ idleTimeoutMs = 1000,
+): () => void {
  if (typeof window === 'undefined') {
   callback();
   return () => {};
@@ -1037,12 +1044,14 @@ function scheduleAfterPaintOpportunity(callback: () => void): () => void {
 
  // Idle callbacks are scheduled outside the input event. The fallback adds a
  // frame plus a timer so browsers without requestIdleCallback get a paint
- // boundary before the catalog continuation starts.
+ // boundary before the catalog continuation starts. The timeout is caller-
+ // controlled because the authoritative catalog must also stay outside the
+ // initial LCP window.
  if (typeof browserWindow.requestIdleCallback === 'function') {
-  idleHandle = browserWindow.requestIdleCallback(run, { timeout: 1000 });
+  idleHandle = browserWindow.requestIdleCallback(run, { timeout: idleTimeoutMs });
  } else {
   frameHandle = browserWindow.requestAnimationFrame(() => {
-   timeoutHandle = browserWindow.setTimeout(run, 0);
+   timeoutHandle = browserWindow.setTimeout(run, idleTimeoutMs);
   });
  }
 
@@ -3871,7 +3880,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    cancelCatalogBackgroundWait = null;
    resolve();
   };
-  cancelScheduled = scheduleAfterPaintOpportunity(finish);
+  // Keep the full-catalog parse outside the same bounded initial-LCP window
+  // used by bootstrap. This preserves the interaction-independent hydration
+  // contract without letting the background work compete with the static
+  // snapshot's largest candidate.
+  cancelScheduled = scheduleAfterPaintOpportunity(finish, INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS);
   cancelCatalogBackgroundWait = () => {
    cancelScheduled?.();
    finish();
