@@ -435,11 +435,11 @@ describe('run-related-tests selection contract', () => {
     expect(dataChange.stdout).not.toContain(parserTest);
     expect(dataChange.output).toContain('required=false');
 
-    // A restored v13 graph contains the old fingerprint-only edge. The cache
-    // version bump must rebuild it before selecting tests for the data change.
+    // A restored v14 graph predates the crawler data-reader scope. Simulate
+    // its stale cache-only edge; the version bump must rebuild before select.
     const graphPath = path.join(root, 'graph.json');
     const staleGraph = JSON.parse(fs.readFileSync(graphPath, 'utf8'));
-    staleGraph.version = 13;
+    staleGraph.version = 14;
     staleGraph.files['scripts/assemble-jobs-dataset.mjs'].deps.push(registry);
     fs.writeFileSync(graphPath, JSON.stringify(staleGraph));
     const staleCacheChange = select(root, [registry]);
@@ -452,6 +452,54 @@ describe('run-related-tests selection contract', () => {
     const assemblyCodeChange = select(root, ['scripts/assemble-jobs-dataset.mjs']);
     expect(assemblyCodeChange.status, assemblyCodeChange.stderr || assemblyCodeChange.stdout).toBe(0);
     expect(assemblyCodeChange.stdout).toContain(parserTest);
+  });
+
+  it('bounds shared job and crawler asset roots to direct or scoped readers', () => {
+    const expiredSlice = 'data/jobs/expired/by-crawler/galenica.json';
+    const crawlerManifest = 'data/crawler-manifest.json';
+    const crawlerAssignments = 'data/crawler-group-assignments.json';
+    const crawlerCompanies = 'data/crawler-companies-auto.json';
+    const companyLogoManifest = 'data/company-logos-manifest.json';
+    const crawlerWorkflow = '.github/workflows/crawler-group-14.yml';
+    const crawlerBarrier = 'tests/generate-crawler-group-workflows.test.ts';
+    const cleanupFixtureTest = 'tests/cleanup-jobs-archive-dedup-losers.test.ts';
+    const unrelated = 'tests/unrelated-job-projection.test.ts';
+    const directExpired = 'tests/direct-expired-slice-reader.test.ts';
+    const directCrawler = 'tests/direct-crawler-asset-reader.test.ts';
+    const directCompanyLogos = 'tests/direct-company-logo-manifest-reader.test.ts';
+    const root = fixture({
+      [expiredSlice]: '{"jobs":[] }\n',
+      [crawlerManifest]: '{"manifest":[]}\n',
+      [crawlerAssignments]: '{"groups":[]}\n',
+      [crawlerCompanies]: '[]\n',
+      [companyLogoManifest]: '{"logos":[]}\n',
+      [crawlerWorkflow]: 'name: crawler group 14\n',
+      'scripts/shared-jobs-reader.mjs': "import { readFileSync } from 'node:fs'; export const expired = readFileSync('data/jobs/expired/by-crawler/galenica.json', 'utf8'); export const manifest = readFileSync('data/crawler-manifest.json', 'utf8'); export const assignments = readFileSync('data/crawler-group-assignments.json', 'utf8'); export const companies = readFileSync('data/crawler-companies-auto.json', 'utf8'); export const logos = readFileSync('data/company-logos-manifest.json', 'utf8'); export const workflow = readFileSync('.github/workflows/crawler-group-14.yml', 'utf8');\n",
+      [crawlerBarrier]: `import '../scripts/shared-jobs-reader.mjs'; import { readFileSync } from 'node:fs'; export const assignments = readFileSync('${crawlerAssignments}', 'utf8');\n`,
+      [cleanupFixtureTest]: "import '../scripts/shared-jobs-reader.mjs'; export const fixture = true;\n",
+      [unrelated]: "import '../scripts/shared-jobs-reader.mjs'; export const projection = true;\n",
+      [directExpired]: `import { readFileSync } from 'node:fs'; export const expired = readFileSync('${expiredSlice}', 'utf8');\n`,
+      [directCrawler]: `import { readFileSync } from 'node:fs'; export const manifest = readFileSync('${crawlerManifest}', 'utf8'); export const assignments = readFileSync('${crawlerAssignments}', 'utf8'); export const companies = readFileSync('${crawlerCompanies}', 'utf8'); export const workflow = readFileSync('${crawlerWorkflow}', 'utf8');\n`,
+      [directCompanyLogos]: `import { readFileSync } from 'node:fs'; export const logos = readFileSync('${companyLogoManifest}', 'utf8');\n`,
+    });
+
+    for (const changedAsset of [expiredSlice, crawlerManifest, crawlerAssignments, crawlerCompanies, crawlerWorkflow, companyLogoManifest]) {
+      const result = select(root, [changedAsset]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      expect(result.stdout, changedAsset).not.toContain(cleanupFixtureTest);
+      expect(result.stdout, changedAsset).not.toContain(unrelated);
+      if (changedAsset === expiredSlice) {
+        expect(result.stdout).toContain(directExpired);
+        expect(result.stdout).not.toContain(crawlerBarrier);
+      } else if (changedAsset === companyLogoManifest) {
+        expect(result.stdout).toContain(directCompanyLogos);
+        expect(result.stdout).not.toContain(crawlerBarrier);
+      } else {
+        expect(result.stdout).toContain(directCrawler);
+        expect(result.stdout).toContain(crawlerBarrier);
+      }
+      expect(result.output).not.toContain('selection_failed=true');
+    }
   });
 
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
