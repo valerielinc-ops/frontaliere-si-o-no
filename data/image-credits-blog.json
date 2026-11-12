@@ -95766,6 +95766,80 @@
           "notes": "Generic synthetic editorial scene of a neutral lakeside civic building in Vaud; no people, text, signage, logos, or event-specific cues."
         }
       }
+    },
+    "generated:article-juko-supporto-aumento-corpo-polizia": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-12T12:38:44.356Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-12",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-juko-supporto-aumento-corpo-polizia",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "8e229f00b09740a96077546ad91d6900fe18f4f51719e6c20ca29c5845aa2c2a",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ea88c7c49781468716b85889722ccb4a054d821ee1318aa232c852e2e11757cd",
+        "bytes": 189032,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-12T12:38:44.356Z",
+        "verifiedAt": "2026-11-12T12:38:57.314Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-juko-supporto-aumento-corpo-polizia.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic architectural illustration of a formal Solothurn governmental setting; no people, text, logos, or event-specific cues."
+        }
+      }
     }
   },
   "covers": {
@@ -137285,6 +137359,10 @@
     },
     "article-quattro-temi-puntata-vaud": {
       "file": "generated:article-quattro-temi-puntata-vaud",
+      "modified": "resized"
+    },
+    "article-juko-supporto-aumento-corpo-polizia": {
+      "file": "generated:article-juko-supporto-aumento-corpo-polizia",
       "modified": "resized"
     }
   }
