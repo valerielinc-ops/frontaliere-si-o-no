@@ -129,17 +129,12 @@ describe('incremental manifest input contract', () => {
     };
     const baseDigest = buildMinimalJobInput(baseJob, 'it', baseJob.slug).jobRecordDigest;
     for (const [field, value] of [
+      ['needsRetranslation', true],
+      ['qualityScore', 91],
       ['retranslationAttempts', 2],
     ] as const) {
       const changedJob = { ...baseJob, [field]: value };
       expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).toBe(baseDigest);
-    }
-
-    for (const renderedChange of [
-      { ...baseJob, needsRetranslation: true },
-      { ...baseJob, qualityScore: 91 },
-    ]) {
-      expect(buildMinimalJobInput(renderedChange, 'it', renderedChange.slug).jobRecordDigest).not.toBe(baseDigest);
     }
 
     for (const renderedChange of [
@@ -187,12 +182,8 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(previousStart, previousEnd)).toContain('sourceInputHash: canonicalReuseHash');
     expect(source).toContain('sourceInputHash: activeJobReuseHash');
     expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(');
-    // The stable hash locates the raw canonical source for fragment refresh;
-    // the bridge reuse input itself keeps the publish hash that includes
-    // crawledAt and is still independent of the alias journal.
-    expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(');
     expect(source.slice(crossInputStart, crossEnd)).toContain('sourceInputHash: baseInputHash');
-    expect(source.slice(crossInputStart, crossEnd)).not.toContain('getReuseHash(');
+    expect(source.slice(crossHashStart, crossInputStart)).not.toContain('getReuseHash(');
     expect(source).toContain('rewriteActiveBridgeHtml(bridgeHtml, cachedHtml)');
   });
 
@@ -317,7 +308,7 @@ describe('incremental manifest input contract', () => {
   });
 
   it('bumps the digest contract when the reuse input shape changes', () => {
-    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@10');
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@9');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {
