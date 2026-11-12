@@ -3753,6 +3753,9 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const renderedHeading = String(pageHeading || '').trim();
   const documentTitle = String(pageTitle || '').trim();
   if (routeBound && pageHeading === null) return false;
+  // A unique Apply control can stand in for an absent H1, but it cannot
+  // override a visible heading that proves only part of a different role.
+  if (routeBound && renderedHeading && !isRoleHeading(renderedHeading, job?.title)) return false;
   const noHeadingPostingIdentityProven = Boolean(uniqueApplicationEntryProven === true && job?.title && company
     && titleMatches(`${documentTitle}\n${pageText}`, job.title)
     && hasDistinctiveCompanyIdentity(company)

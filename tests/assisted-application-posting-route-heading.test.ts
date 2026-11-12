@@ -72,6 +72,7 @@ describe('selected posting route whose rendered text starts with a skip link', (
   it('keeps a heading with only part of the role a mismatch (review of #18003)', () => {
     expect(hasVacancySpecificPostingEvidence(renderedPosting('Product Manager'), job, {
       pageUrl: postingUrl, pageTitle, pageHeading: 'Product Manager', postingUrl,
+      uniqueApplicationEntryProven: true,
     })).toBe(false);
   });
 
