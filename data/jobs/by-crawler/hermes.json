@@ -340,12 +340,12 @@
     },
     {
       "id": "hermes-b27da2909ac4",
-      "slug": "stagiaire-activation-evenementielle-h-f-hermes-ch",
+      "slug": "evento-di-attivazione-interna-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "stagiaire-activation-evenementielle-h-f-hermes-ch",
-        "it": "stagiaire-activation-evenementielle-h-f-hermes-ch",
-        "en": "stagiaire-activation-evenementielle-h-f-hermes-ch",
-        "de": "stagiaire-activation-evenementielle-h-f-hermes-ch"
+        "it": "evento-di-attivazione-interna-m-f-hermes-brugg-be-bern-switzerland",
+        "en": "intern-activation-event-m-f-hermes-brugg-be-bern-switzerland",
+        "de": "intern-aktivierungsereignis-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -407,7 +407,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:17:47.978Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:17:47.978Z"
+      "firstSeenAt": "2026-11-12T09:17:47.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-activation-evenementielle-h-f-hermes-ch"
+        ],
+        "en": [
+          "stagiaire-activation-evenementielle-h-f-hermes-ch"
+        ],
+        "de": [
+          "stagiaire-activation-evenementielle-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-activation-evenementielle-h-f-hermes-ch"
+      ]
     },
     {
       "id": "hermes-63e88d3db80f",

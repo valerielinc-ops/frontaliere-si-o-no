@@ -861,7 +861,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -908,7 +908,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18291,12 +18291,12 @@
     },
     {
       "id": "luks-e96b5beb8eff",
-      "slug": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2",
+      "slug": "analista-biomedico-analista-biomedico-hf-80-100-luzerner-kantonsspital-luks-luzern-2eff09",
       "slugByLocale": {
         "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
-        "it": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2",
-        "en": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2",
-        "fr": "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2"
+        "it": "analista-biomedico-analista-biomedico-hf-80-100-luzerner-kantonsspital-luks-luzern-2eff09",
+        "en": "biomedical-analyst-biomedical-analyst-hf-80-100-luzerner-kantonsspital-luks-luzern-2eff09",
+        "fr": "analyste-biomedical-analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern-2eff09"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18358,7 +18358,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:24:28.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-17T03:44:41.686Z"
+      "firstSeenAt": "2026-09-17T03:44:41.686Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2"
+        ],
+        "en": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2"
+        ],
+        "fr": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2"
+        ]
+      },
+      "previousSlugs": [
+        "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern-2"
+      ]
     },
     {
       "id": "luks-9406dbca9a34",

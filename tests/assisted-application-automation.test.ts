@@ -1307,6 +1307,7 @@ describe('account failure observability', () => {
   it('rejects extra or unknown codes without touching sent or clicked-unknown phases', async () => {
     const valid = { code: 'locator_control_error', stage: 'registration' };
     expect(serializeAccountFailure(valid)).toEqual(valid);
+    expect(serializeAccountFailure({ code: 'account_exists', stage: 'registration' })).toEqual({ code: 'account_exists', stage: 'registration' });
     expect(getAccountFailure({ state: 'failed', accountFailure: valid })).toEqual(valid);
     expect(serializeAccountFailure({ ...valid, secret: 'A1B2C3' })).toBeNull();
     expect(getAccountFailure({ accountFailure: { ...valid, secret: 'A1B2C3' } })).toBeNull();

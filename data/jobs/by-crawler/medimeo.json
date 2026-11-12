@@ -424,12 +424,12 @@
     },
     {
       "id": "medimeo-8a8170e0af30",
-      "slug": "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch",
+      "slug": "oculista-60-100-regione-di-basilea-medimeo-ag-region-basel",
       "slugByLocale": {
         "de": "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch",
-        "it": "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch",
-        "en": "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch",
-        "fr": "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch"
+        "it": "oculista-60-100-regione-di-basilea-medimeo-ag-region-basel",
+        "en": "ophthalmologist-60-100-basel-region-medimeo-ag-region-basel",
+        "fr": "ophtalmologiste-60-100-region-de-bale-medimeo-ag-region-basel"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -491,16 +491,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:19:51.810Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:19:51.810Z"
+      "firstSeenAt": "2026-11-12T09:19:51.810Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch"
+        ],
+        "en": [
+          "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch"
+        ],
+        "fr": [
+          "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "augenarztin-augenarzt-60-100-region-basel-region-basel-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-e38c620971a0",
-      "slug": "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn",
+      "slug": "professionista-generale-80-100-da-gennaio-marzo-2027-medimeo-ag-biel-solothurn-mittelland",
       "slugByLocale": {
         "de": "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn",
-        "it": "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn",
-        "en": "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn",
-        "fr": "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn"
+        "it": "professionista-generale-80-100-da-gennaio-marzo-2027-medimeo-ag-biel-solothurn-mittelland",
+        "en": "general-practitioner-80-100-from-january-march-2027-medimeo-ag-biel-solothurn-mittelland",
+        "fr": "generaliste-80-100-de-janvier-a-mars-2027-medimeo-ag-biel-solothurn-mittelland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -562,16 +576,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:19:51.809Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:19:51.809Z"
+      "firstSeenAt": "2026-11-12T09:19:51.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn"
+        ],
+        "en": [
+          "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn"
+        ],
+        "fr": [
+          "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "vertretungseinsatz-hausarzt-hausarztin-80-100-von-januar-marz-2027-biel-solothurn"
+      ]
     },
     {
       "id": "medimeo-2a39aa2880e9",
-      "slug": "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz",
+      "slug": "gp-gp-medicina-interna-generale-60-100-famiglia-invece-di-mvz-impersonale-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz",
-        "it": "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz",
-        "en": "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz",
-        "fr": "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz"
+        "it": "gp-gp-medicina-interna-generale-60-100-famiglia-invece-di-mvz-impersonale-medimeo-ag-region-zurich",
+        "en": "gp-gp-general-internal-medicine-60-100-family-instead-of-impersonal-mvz-medimeo-ag-region-zurich",
+        "fr": "gp-gp-medecine-interne-generale-60-100-famille-au-lieu-de-mvz-impersonnel-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -633,7 +661,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:19:51.807Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:19:51.807Z"
+      "firstSeenAt": "2026-11-12T09:19:51.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz"
+        ],
+        "en": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-allgemeine-innere-medizin-60-100-familiar-statt-unpersonliches-mvz"
+      ]
     },
     {
       "id": "medimeo-ab3a090e4bf2",
