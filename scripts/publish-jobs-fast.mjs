@@ -30,6 +30,7 @@ import {
   buildActiveJobPathOwners,
   localizedActiveJobSlug,
 } from "../build-plugins/shared/activeJobPageSelection.ts";
+import { getJobSitemapAllowlist } from "../build-plugins/shared/buildSignals.ts";
 import {
   isListingInventoryJob,
   normalizeListingIdentity,
@@ -577,6 +578,40 @@ function localeForRoute(route) {
   return ["en", "de", "fr"].includes(first) ? first : "it";
 }
 
+export function previousJobSitemapEntriesToRemove(
+  previousPaths,
+  currentReceiptLocs,
+  fullBuildSitemapLocs,
+) {
+  if (
+    !currentReceiptLocs ||
+    typeof currentReceiptLocs.has !== "function" ||
+    !fullBuildSitemapLocs ||
+    typeof fullBuildSitemapLocs.has !== "function"
+  ) {
+    throw new Error(
+      "[jobs-fast] full-build sitemap eligibility is required before removing previous routes",
+    );
+  }
+  const oldPaths = [...new Set(Array.isArray(previousPaths) ? previousPaths : [])]
+    .filter(
+      (route) =>
+        typeof route === "string" &&
+        route.startsWith("/") &&
+        route.endsWith("/"),
+    );
+  return oldPaths
+    .map((route) => ({
+      route,
+      loc: `${BASE_URL}${route}`,
+      locale: localeForRoute(route),
+    }))
+    .filter(
+      ({ loc }) =>
+        !currentReceiptLocs.has(loc) && !fullBuildSitemapLocs.has(loc),
+    );
+}
+
 function copyRenderedRoute(sourceDist, targetDist, route) {
   const source = routeToDistFile(sourceDist, route);
   if (!fs.existsSync(source) || !fs.statSync(source).isFile())
@@ -740,6 +775,7 @@ async function prepareSitemapUpdates(
   previousPaths,
   slugToSection,
   sectionSlugs,
+  fullBuildSitemapLocs,
   liveJobsSitemapXml,
 ) {
   const sitemapDir = path.join(tempDir, "sitemap-payload");
@@ -759,17 +795,11 @@ async function prepareSitemapUpdates(
       ...(entry.variants || []).map((variant) => variant.loc),
     ]),
   );
-  const oldPaths = [...new Set(previousPaths)].filter(
-    (route) =>
-      typeof route === "string" && route.startsWith("/") && route.endsWith("/"),
+  const oldLocs = previousJobSitemapEntriesToRemove(
+    previousPaths,
+    currentLocs,
+    fullBuildSitemapLocs,
   );
-  const oldLocs = oldPaths
-    .map((route) => ({
-      route,
-      loc: `${BASE_URL}${route}`,
-      locale: localeForRoute(route),
-    }))
-    .filter(({ loc }) => !currentLocs.has(loc));
   const itRemovals = oldLocs
     .filter((item) => item.locale === "it")
     .map((item) => item.loc);
@@ -1610,6 +1640,13 @@ export async function runJobsFastPublish({
       fastLaneResultFile: receiptFile,
     }).closeBundle();
 
+    const fullBuildSitemapLocs = getJobSitemapAllowlist();
+    if (!fullBuildSitemapLocs) {
+      throw new Error(
+        "[jobs-fast] jobs SEO renderer did not publish the full-build sitemap allowlist; refusing previous-route removals",
+      );
+    }
+
     const receipt = JSON.parse(fs.readFileSync(receiptFile, "utf8"));
     checkJobPageContracts(receipt, expectedPagePlan);
     const outputPageCount =
@@ -1753,6 +1790,7 @@ export async function runJobsFastPublish({
         candidates.flatMap((candidate) => candidate.previousPaths || []),
         slugToSection,
         sectionSlugs,
+        fullBuildSitemapLocs,
         liveJobsSitemap,
       );
       heartbeat.assertHealthy();

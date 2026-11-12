@@ -7,6 +7,7 @@ import {
   canonicalPathsForFastLaneJob,
   extractFirstPartyAssetUrls,
   hasGoogleAnalyticsRuntime,
+  previousJobSitemapEntriesToRemove,
   validateFullBuildActiveJobAlternates,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
@@ -141,6 +142,73 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(renderer).toContain("buildActiveJobPathOwners(");
     expect(renderer).toContain("activeJobPathOwnerKey(");
     expect(renderer).toContain("localizedActiveJobSlug");
+  });
+
+  it("preserves previous routes admitted by the full-build sitemap", () => {
+    const winner = { id: "full-build-winner", slug: "shared-route", canton: "TI" };
+    const noindexWinner = {
+      id: "active-noindex-winner",
+      slug: "noindex-route",
+      canton: "TI",
+    };
+    const partialTranslation = {
+      id: "partial-translation",
+      slug: "partial-role",
+      slugByLocale: {
+        it: "partial-role-it",
+        en: "shared-route",
+        de: "partial-role-de",
+        fr: "partial-role-fr",
+      },
+      canton: "TI",
+      needsRetranslation: true,
+      sourceLang: "de",
+    };
+    const previousWinnerPath = buildCanonicalJobDetailPath(
+      "en",
+      winner,
+      "shared-route",
+      "TI",
+    );
+    const previousNoindexPath = buildCanonicalJobDetailPath(
+      "de",
+      noindexWinner,
+      "noindex-route",
+      "TI",
+    );
+    const previousRemovedPath = buildCanonicalJobDetailPath(
+      "fr",
+      partialTranslation,
+      "previous-role-fr",
+      "TI",
+    );
+    const selectedPages = buildFastLaneExpectedPagePlan(
+      [winner, noindexWinner, partialTranslation],
+      [partialTranslation.id],
+      {
+        buildCanonicalJobDetailPath,
+        resolveJobCanton: (job: { canton: string }) => job.canton,
+      },
+    ).pagesById.get(partialTranslation.id);
+    const currentReceiptLocs = new Set(
+      selectedPages.map((page: { path: string }) =>
+        `https://frontaliereticino.ch${page.path}`,
+      ),
+    );
+    const fullBuildSitemapLocs = new Set([
+      `https://frontaliereticino.ch${previousWinnerPath}`,
+    ]);
+
+    const removals = previousJobSitemapEntriesToRemove(
+      [previousWinnerPath, previousNoindexPath, previousRemovedPath],
+      currentReceiptLocs,
+      fullBuildSitemapLocs,
+    );
+
+    expect(removals.map(({ route }: { route: string }) => route)).toEqual([
+      previousNoindexPath,
+      previousRemovedPath,
+    ]);
   });
 
   it("identifies public requests so Cloudflare accepts the Node publisher", () => {
