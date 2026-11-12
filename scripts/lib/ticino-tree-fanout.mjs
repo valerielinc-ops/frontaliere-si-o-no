@@ -120,8 +120,7 @@ if (isInvokedDirectly(import.meta.url)) {
     try {
       if (command === 'is-fanned') {
         if (!firstArgument) throw new Error('Usage: ticino-tree-fanout.mjs is-fanned <section>');
-        if (sectionUsesHashFanout(firstArgument)) process.stdout.write('true\n');
-        else process.exitCode = 1;
+        process.stdout.write(`${sectionUsesHashFanout(firstArgument) ? 'true' : 'false'}\n`);
       } else if (command === 'map-paths') {
         await mapPathStream(firstArgument || 'ticino');
       } else if (!firstArgument || !['fanout', 'unfanout'].includes(command)) {

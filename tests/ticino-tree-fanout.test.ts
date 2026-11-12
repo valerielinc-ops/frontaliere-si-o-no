@@ -39,6 +39,34 @@ describe('Ticino shard tree fan-out', () => {
     expect(script).toContain('section_tree_fanout_stage "$section" "$stage/$sub"');
   });
 
+  it('fails closed when the fan-out classifier is unavailable', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'section-tree-missing-tool-'));
+    const root = join(temp, 'section');
+    try {
+      mkdirSync(root, { recursive: true });
+      const output = execFileSync(
+        'bash',
+        [
+          '-c',
+          'source "$1"; TICINO_TREE_FANOUT_TOOL="$2/missing.mjs"; '
+            + 'if section_tree_fanout_stage berna "$3"; then exit 10; fi; '
+            + 'if section_tree_unfanout_stage berna "$3"; then exit 11; fi; '
+            + 'if section_tree_require_worker_layout berna de/jobs-in-bern; then exit 12; fi; '
+            + 'if section_tree_layout berna >/dev/null; then exit 13; fi; '
+            + 'printf "failed-closed\\n"',
+          'fanout-missing-tool-test',
+          HELPER,
+          temp,
+          root,
+        ],
+        { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+      );
+      expect(output).toBe('failed-closed\n');
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('moves first-level entries into shared hash buckets and keeps the root index', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-tree-fanout-'));
     const root = join(temp, 'de', 'jobs-im-tessin');
