@@ -5866,15 +5866,35 @@ const anonymousFileField = (field) => {
   return !label || machineLabel(label) || ANONYMOUS_FILE_LABEL_RE.test(label);
 };
 
-const hasSingleAnonymousFileField = (snapshot) => {
+const singleAnonymousFileField = (snapshot) => {
   const fileFields = (snapshot?.fields || []).filter(isFileField);
-  return fileFields.length === 1 && anonymousFileField(fileFields[0]);
+  return fileFields.length === 1 && anonymousFileField(fileFields[0]) ? fileFields[0] : null;
 };
+
+const hasSingleAnonymousFileField = (snapshot) => Boolean(singleAnonymousFileField(snapshot));
 
 const buttonMatchesDocumentContext = (button, contextPattern) => {
   const context = buttonHasExplicitDocumentContext(button);
   return !context || contextPattern.test(context);
 };
+
+const anonymousCvPickerCandidate = (snapshot) => {
+  const field = singleAnonymousFileField(snapshot);
+  if (!field) return null;
+  const eligible = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button?.text || '').trim())) return false;
+    const context = buttonHasExplicitDocumentContext(button);
+    return !context || !(CV_DOCUMENT_CONTEXT_RE.test(context)
+      || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
+      || isNonCvDocumentLabel(context));
+  });
+  if (eligible.length !== 1) return null;
+  const [candidate] = eligible;
+  const candidateFrame = Number.isInteger(candidate.frame) ? candidate.frame : 0;
+  return candidateFrame === fieldFrame(field) ? candidate : null;
+};
+
+const isAnonymousCvPickerButton = (snapshot, button) => anonymousCvPickerCandidate(snapshot) === button;
 
 function stableUploadTriggerDiscriminator(button) {
   if (!button || typeof button !== 'object') return '';
@@ -6005,11 +6025,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   // the sole anonymous file field; multiple anonymous inputs stay ambiguous.
   if (hasAnonymousCvPicker && candidates.length === 0 && contextIconCandidates.length === 0) {
     for (const button of snapshot?.buttons || []) {
-      if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button.text || '').trim())) continue;
-      const context = buttonHasExplicitDocumentContext(button);
-      if (context && (CV_DOCUMENT_CONTEXT_RE.test(context)
-        || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
-        || isNonCvDocumentLabel(context))) continue;
+      if (button.disabled || button.chrome || !isAnonymousCvPickerButton(snapshot, button)) continue;
       add(button);
     }
   }
@@ -6639,6 +6655,34 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   return finish(closed ? 'uploaded' : 'uploaded_unconfirmed');
 }
 
+/** Upload the one anonymous field already mounted behind a generic Workday picker. */
+async function uploadThroughExistingFileField(page, field, file, trace = null) {
+  const locator = locatorFor(page, field);
+  try {
+    const [result] = await applyActions(page, [field], [{
+      fieldId: field.id,
+      action: 'upload',
+      document: 'cv',
+    }], { cv: file }, { pause: async () => {} });
+    if (trace) {
+      trace.target = 'existing_field';
+      trace.selection = result?.ok ? 'succeeded' : 'failed';
+    }
+    if (!result?.ok) {
+      if (trace) trace.failure = result?.error || 'existing_field_selection_failed';
+      return 'unavailable';
+    }
+    const confirmed = await uploadReceipt(page, locator, [file], {
+      acceptedResponse: result.uploadAccepted === true,
+    });
+    if (trace) trace.portalReceipt = confirmed;
+    return confirmed ? 'uploaded' : 'uploaded_unconfirmed';
+  } catch (error) {
+    if (trace) trace.failure = error?.message === 'upload_http_failed' ? 'upload_http_failed' : 'existing_field_selection_failed';
+    return 'unavailable';
+  }
+}
+
 /** Dequeue an upload trigger that is still allowed after a portal redraw. */
 function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tried) {
   // `pending` contains keys, not button objects. Re-resolve every queued key
@@ -6770,7 +6814,11 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       continue;
     }
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
-    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
+    const anonymousField = isAnonymousCvPickerButton(current, triggerButton)
+      ? singleAnonymousFileField(current) : null;
+    cv = anonymousField
+      ? await uploadThroughExistingFileField(page, anonymousField, cvFile, trace)
+      : await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
     current = await extractFields(page);
     const uploadedCvField = current.fields.find(isCvFileField);
     trace.portalFileFieldObserved = Boolean(uploadedCvField);
