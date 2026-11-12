@@ -23,7 +23,10 @@
 # `timeout`, niente `mapfile`.
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+REPO_ROOT="$(git -C "$SCRIPT_ROOT" worktree list --porcelain | sed -n 's/^worktree //p' | sed -n '1p')"
+[ -n "$REPO_ROOT" ] || { echo "impossibile individuare il worktree principale del repository" >&2; exit 1; }
+REPO_ROOT="$(cd "$REPO_ROOT" && pwd)"
 cd "$REPO_ROOT"
 
 NAME=""
@@ -48,7 +51,7 @@ START=$(date +%s)
 # Il fetch della base: senza, `origin/main` puo' essere di giorni fa e il
 # worktree nasce vecchio senza dirlo.
 case "$BASE" in
-  origin/*) node "$REPO_ROOT/scripts/dev/fetch-origin-main.mjs" "$REPO_ROOT" "${BASE#origin/}" ;;
+  origin/*) node "$SCRIPT_ROOT/scripts/dev/fetch-origin-main.mjs" "$REPO_ROOT" "${BASE#origin/}" ;;
 esac
 
 # --no-checkout e' obbligatorio: senza, git scrive l'albero pieno PRIMA che si

@@ -36,6 +36,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.101.3',
+    date: '2026-11-12',
+    titleKey: 'whatsNew.v31013.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v31013.job-affinity.title',
+        descKey: 'whatsNew.v31013.job-affinity.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
     version: '3.101.2',
     date: '2026-11-12',
     titleKey: 'whatsNew.v31012.title',
