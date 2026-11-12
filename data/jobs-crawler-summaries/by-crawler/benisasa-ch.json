@@ -1,7 +1,7 @@
 {
   "key": "benisasa-ch",
   "label": "Benisa SA",
-  "generatedAt": "2026-11-12T09:38:32.236Z",
+  "generatedAt": "2026-11-12T22:04:52.679Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -15,16 +15,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15546,
-  "avgDurationMs": 15546,
+  "durationMs": 15748,
+  "avgDurationMs": 15748,
   "durationHistory": [
-    15546
+    15748
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "benisasa-ch-4bcebb0ad8b7",
       "slug": "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
@@ -37,7 +38,7 @@
       "url": "https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T09:37:46.131Z",
+      "crawledAt": "2026-11-12T22:04:21.750Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -55,19 +56,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T09:37:46.131Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:37:46.131Z",
+      "validThrough": "2027-02-10T22:04:21.750Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:37:46.131Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -83,7 +83,7 @@
       "url": "https://www.benisasa.ch/jobs/installatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T09:37:46.130Z",
+      "crawledAt": "2026-11-12T22:04:21.749Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -101,19 +101,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.benisasa.ch/jobs/installatore-elettricista-afc",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T09:37:46.130Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:37:46.130Z",
+      "validThrough": "2027-02-10T22:04:21.749Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:37:46.130Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -129,7 +128,7 @@
       "url": "https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T09:37:46.123Z",
+      "crawledAt": "2026-11-12T22:04:21.747Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -147,25 +146,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T09:37:46.123Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:37:46.123Z",
+      "validThrough": "2027-02-10T22:04:21.747Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:37:46.123Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }
