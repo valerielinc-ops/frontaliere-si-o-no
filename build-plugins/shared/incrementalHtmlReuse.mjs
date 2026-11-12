@@ -1591,6 +1591,7 @@ export class JobsSeoHtmlReuse {
     let storage = null;
     let probe = null;
     let emitterFingerprintChanged = false;
+    let rewrittenBytesChanged = false;
 
     if (!missReason && !previous) {
       missReason = 'manifest-missing';
@@ -1650,13 +1651,30 @@ export class JobsSeoHtmlReuse {
 
     if (!missReason && html !== null && rewriteHtml) {
       try {
-        const rewritten = rewriteHtml(html, {
+        const cachedSourceHtml = html;
+        const rewriteResult = rewriteHtml(html, {
           block,
           kind,
           emitterFingerprintChanged,
         });
-        if (typeof rewritten !== 'string') throw new Error('HTML rewrite must return a string');
-        html = rewritten;
+        if (typeof rewriteResult === 'string') {
+          // Keep the legacy callback contract for callers outside the page
+          // generator. The built-in jobs SEO callbacks return fragment-level
+          // change metadata below, so cache hits do not normalize full pages.
+          rewrittenBytesChanged = normalizeHtmlForReuse(cachedSourceHtml)
+            !== normalizeHtmlForReuse(rewriteResult);
+          html = rewriteResult;
+        } else if (
+          rewriteResult
+          && typeof rewriteResult === 'object'
+          && typeof rewriteResult.html === 'string'
+          && typeof rewriteResult.changed === 'boolean'
+        ) {
+          html = rewriteResult.html;
+          rewrittenBytesChanged = rewriteResult.changed;
+        } else {
+          throw new Error('HTML rewrite must return a string or { html, changed }');
+        }
       } catch (error) {
         html = null;
         storage = null;
@@ -1695,6 +1713,7 @@ export class JobsSeoHtmlReuse {
       verify,
       probe,
       emitterFingerprintChanged,
+      rewrittenBytesChanged,
       cacheable: !inputUnavailable,
       startedAt: process.hrtime.bigint(),
     };

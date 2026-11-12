@@ -1375,11 +1375,13 @@ export function compareActiveJobsByStableOrder(left: unknown, right: unknown): n
   .localeCompare(String(rightRecord?.id || rightRecord?.slug || ''));
 }
 
-function replaceActiveJobReuseFragment(
+type ActiveJobHtmlRewrite = { html: string; changed: boolean };
+
+function replaceActiveJobReuseFragmentWithChange(
  html: string,
  name: string,
  replacement: string | ((current: string) => string),
-): string {
+): ActiveJobHtmlRewrite {
  const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
  const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
  const start = html.indexOf(startMarker);
@@ -1388,7 +1390,12 @@ function replaceActiveJobReuseFragment(
  if (start < 0 || end < 0) throw new Error(`missing active-page reuse markers: ${name}`);
  const current = html.slice(contentStart, end);
  const next = typeof replacement === 'function' ? replacement(current) : replacement;
- return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
+ return {
+  html: `${html.slice(0, contentStart)}${next}${html.slice(end)}`,
+  // Compare only the replaced fragment. Comparing the complete page here
+  // would recreate the O(n) cache-hit work that this contract avoids.
+  changed: current !== next,
+ };
 }
 
 /**
@@ -1546,18 +1553,31 @@ function jobPostingJsonLdScripts(html: string): Array<{ start: number; end: numb
 }
 
 /** Replace exactly one cached JobPosting script with the current rendering. */
-export function replaceJobPostingJsonLd(html: string, freshScript: string): string {
+export function replaceJobPostingJsonLdWithChange(
+ html: string,
+ freshScript: string,
+): ActiveJobHtmlRewrite {
  const currentMatches = jobPostingJsonLdScripts(html);
  const freshMatches = jobPostingJsonLdScripts(freshScript);
  if (!freshScript) {
-  if (currentMatches.length === 0) return html;
+  if (currentMatches.length === 0) return { html, changed: false };
   throw new Error('cached JobPosting JSON-LD has no current source');
  }
  if (currentMatches.length !== 1 || freshMatches.length !== 1) {
   throw new Error('expected one cached and fresh JobPosting JSON-LD script');
  }
  const current = currentMatches[0];
- return `${html.slice(0, current.start)}${freshMatches[0].script}${html.slice(current.end)}`;
+ const fresh = freshMatches[0];
+ return {
+  html: `${html.slice(0, current.start)}${fresh.script}${html.slice(current.end)}`,
+  // Compare only the replaced JSON-LD fragment. Comparing the complete page
+  // here would recreate the O(n) cache-hit work this rewrite avoids.
+  changed: current.script !== fresh.script,
+ };
+}
+
+export function replaceJobPostingJsonLd(html: string, freshScript: string): string {
+ return replaceJobPostingJsonLdWithChange(html, freshScript).html;
 }
 
 function hasCompleteActiveJobPostingContract(fragment: string): boolean {
@@ -1607,11 +1627,16 @@ export function shouldInvalidateActiveJobReuseWithoutJobPosting(fragment: string
  return !hasCompleteActiveJobPostingContract(fragment);
 }
 
-export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
- let rewritten = replaceActiveJobReuseFragment(
-  html,
-  ACTIVE_JOB_REUSE_MARKERS.jobPosting,
-  (current) => {
+export function rewriteActiveJobHtmlWithChange(
+ html: string,
+ fragments: ActiveJobReuseFragments,
+): ActiveJobHtmlRewrite {
+ let rewritten = html;
+ let changed = false;
+ let replacement = replaceActiveJobReuseFragmentWithChange(
+ html,
+ ACTIVE_JOB_REUSE_MARKERS.jobPosting,
+ (current) => {
    if (shouldInvalidateActiveJobReuseWithoutJobPosting(current)) {
     throw new Error(`cached active-job HTML missing JobPosting JSON-LD (${fragments.jobPostingDateProvenance} date)`);
    }
@@ -1621,24 +1646,35 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
     fragments.jobPostingValidThrough,
     fragments.jobPostingCrawledAt,
    fragments.jobPostingDescription,
-   );
-  },
+  );
+ },
  );
- rewritten = replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.heroBadges,
   fragments.heroBadges,
  );
- rewritten = replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.mobileAction,
   fragments.mobileAction,
  );
- return replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.recentArticles,
   fragments.recentArticles,
  );
+ return { html: replacement.html, changed: changed || replacement.changed };
+}
+
+export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+ return rewriteActiveJobHtmlWithChange(html, fragments).html;
 }
 
 /**
@@ -1648,8 +1684,12 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
  * article feed and the other explicitly volatile fragments cannot remain
  * stale on a bridge cache hit.
  */
-export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: string): string {
+export function rewriteActiveBridgeHtmlWithChange(
+ bridgeHtml: string,
+ canonicalHtml: string,
+): ActiveJobHtmlRewrite {
  let rewritten = bridgeHtml;
+ let changed = false;
  for (const name of Object.values(ACTIVE_JOB_REUSE_MARKERS)) {
   const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
   const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
@@ -1658,9 +1698,16 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
   const end = contentStart < 0 ? -1 : canonicalHtml.indexOf(endMarker, contentStart);
   if (contentStart < 0 || end < 0) throw new Error(`missing active-page source marker: ${name}`);
   const replacement = canonicalHtml.slice(contentStart, end);
-  rewritten = replaceActiveJobReuseFragment(rewritten, name, replacement);
+  const result = replaceActiveJobReuseFragmentWithChange(rewritten, name, replacement);
+  rewritten = result.html;
+  changed ||= result.changed;
  }
- return replaceActiveJobSeed(rewritten, activeJobSeedJson(canonicalHtml));
+ const seed = replaceActiveJobSeedWithChange(rewritten, activeJobSeedJson(canonicalHtml));
+ return { html: seed.html, changed: changed || seed.changed };
+}
+
+export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: string): string {
+ return rewriteActiveBridgeHtmlWithChange(bridgeHtml, canonicalHtml).html;
 }
 
 const ACTIVE_JOB_SEED_SCRIPT_RE = /(<script\b[^>]*>\s*window\.__JOB_SEED__\s*=\s*)([\s\S]*?)(;\s*<\/script\s*>)/i;
@@ -1676,18 +1723,26 @@ function activeJobSeedJson(html: string): string {
  return match[2];
 }
 
-function replaceActiveJobSeed(html: string, seedJson: string): string {
+function replaceActiveJobSeedWithChange(html: string, seedJson: string): ActiveJobHtmlRewrite {
  const source = String(html);
  const match = ACTIVE_JOB_SEED_SCRIPT_RE.exec(source);
  if (!match) throw new Error('missing window.__JOB_SEED__ script');
+ const nextSeed = String(seedJson);
  try {
   JSON.parse(match[2]);
-  JSON.parse(seedJson);
+  JSON.parse(nextSeed);
  } catch {
   throw new Error('malformed window.__JOB_SEED__ JSON');
  }
  const start = match.index ?? 0;
- return `${source.slice(0, start)}${match[1]}${seedJson}${match[3]}${source.slice(start + match[0].length)}`;
+ return {
+  html: `${source.slice(0, start)}${match[1]}${nextSeed}${match[3]}${source.slice(start + match[0].length)}`,
+  changed: match[2] !== nextSeed,
+ };
+}
+
+function replaceActiveJobSeed(html: string, seedJson: string): string {
+ return replaceActiveJobSeedWithChange(html, seedJson).html;
 }
 
 /**
@@ -4504,7 +4559,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   {
    reuseInput: activeJobReuseInput,
    rewriteHtml: buildActiveReuseFragments
-    ? (html: string, context: { emitterFingerprintChanged?: boolean }) => rewriteActiveJobHtml(
+    ? (html: string, context: { emitterFingerprintChanged?: boolean }) => rewriteActiveJobHtmlWithChange(
       html,
       buildActiveReuseFragments(Boolean(context?.emitterFingerprintChanged)),
      )
@@ -5476,7 +5531,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, html),
   },
  );
  let legacyIndexHtml: string;
@@ -5550,7 +5605,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, html),
   },
  );
  let legacyTIIndexHtml: string;
@@ -15489,11 +15544,10 @@ ${staticAnalyticsHtml}
   'expired-soft-landing',
   jobsSeoProbeShapeHints(ejData),
   {
-   rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => (
-    context?.emitterFingerprintChanged
-     ? replaceJobPostingJsonLd(html, getCurrentJobPostingLd())
-     : html
-   ),
+   rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => {
+    if (!context?.emitterFingerprintChanged) return { html, changed: false };
+    return replaceJobPostingJsonLdWithChange(html, getCurrentJobPostingLd());
+   },
   },
  );
  let softLandingHtml: string;
@@ -16500,7 +16554,7 @@ ${staticAnalyticsHtml}
   previousSlugReuseInput,
   'previous-slug-legacy',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  let indexHtml: string;
@@ -16586,7 +16640,7 @@ ${staticAnalyticsHtml}
   legacyTIReuseInput,
   'previous-slug-legacy',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
@@ -16863,7 +16917,7 @@ ${staticAnalyticsHtml}
   crossLocaleActiveReuseInput,
   'cross-locale-reconciliation',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleActiveReuse)
