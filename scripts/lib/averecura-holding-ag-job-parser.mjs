@@ -32,6 +32,7 @@ export const AVERECURA_HOLDING_AG_COMPANY_NAME = 'averecura holding ag';
 export const AVERECURA_HOLDING_AG_COMPANY_DOMAIN = 'app.reflinejobs.io';
 
 const CAREER_URL = 'https://app.reflinejobs.io/3034/0108/index.html';
+const AVERECURA_TENANT_PATH = /^\/3034\/0108(?:\/|$)/u;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -41,6 +42,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isAverecuraTenantUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    const trustedHost = host === AVERECURA_HOLDING_AG_COMPANY_DOMAIN
+      || host.endsWith(`.${AVERECURA_HOLDING_AG_COMPANY_DOMAIN}`);
+    return trustedHost && AVERECURA_TENANT_PATH.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -62,7 +75,7 @@ export function isAverecuraHoldingAgJob(job) {
     key === AVERECURA_HOLDING_AG_KEY ||
     key.startsWith('averecura-holding-ag-') ||
     company.includes('averecura holding ag') ||
-    url.includes('app.reflinejobs.io')
+    isAverecuraTenantUrl(url)
   );
 }
 
@@ -70,12 +83,7 @@ export function isAverecuraHoldingAgJob(job) {
  * Validate that a URL belongs to averecura holding ag's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
-  try {
-    const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'app.reflinejobs.io' || host.endsWith('.app.reflinejobs.io');
-  } catch {
-    return false;
-  }
+  return isAverecuraTenantUrl(rawUrl);
 }
 
 /* ── Category Detection ────────────────────────────────────── */

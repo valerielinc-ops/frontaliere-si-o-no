@@ -24,8 +24,14 @@ describe('averecura holding ag crawler parser', () => {
       expect(isAverecuraHoldingAgJob({ company: 'averecura holding ag' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isAverecuraHoldingAgJob({ url: 'https://app.reflinejobs.io/jobs/123' })).toBe(true);
+    it('matches by the averecura Refline tenant path', () => {
+      expect(isAverecuraHoldingAgJob({ url: 'https://app.reflinejobs.io/3034/0108/jobs/123' })).toBe(true);
+    });
+
+    it('rejects another employer on the shared Refline host', () => {
+      const otherTenant = { company: 'Other AG', url: 'https://app.reflinejobs.io/9999/0108/job/1' };
+      expect(isAverecuraHoldingAgJob(otherTenant)).toBe(false);
+      expect(isTrustedDomain(otherTenant.url)).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
@@ -41,12 +47,16 @@ describe('averecura holding ag crawler parser', () => {
 
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
-    it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://app.reflinejobs.io/careers/job-123')).toBe(true);
+    it('trusts only the averecura tenant path on the primary host', () => {
+      expect(isTrustedDomain('https://app.reflinejobs.io/3034/0108/careers/job-123')).toBe(true);
     });
 
-    it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.app.reflinejobs.io/job/456')).toBe(true);
+    it('allows the tenant path on an app subdomain', () => {
+      expect(isTrustedDomain('https://careers.app.reflinejobs.io/3034/0108/job/456')).toBe(true);
+    });
+
+    it('rejects the shared host with another tenant path', () => {
+      expect(isTrustedDomain('https://app.reflinejobs.io/9999/0108/job/1')).toBe(false);
     });
 
     it('rejects other domains', () => {
