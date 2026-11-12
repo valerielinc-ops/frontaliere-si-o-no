@@ -114,7 +114,7 @@ describe('publication provenance through remaining listing consumers', () => {
     const root = temporaryRoot();
     try {
       mkdirSync(join(root, 'scripts/lib'), { recursive: true });
-      for (const file of ['snapshot-jobs-weekly.mjs', 'lib/job-posting-date.mjs', 'lib/job-posting-date-rollout.mjs']) {
+      for (const file of ['snapshot-jobs-weekly.mjs', 'lib/job-posting-date.mjs', 'lib/job-posting-date-rollout.mjs', 'lib/read-large-json.mjs']) {
         cpSync(join(process.cwd(), 'scripts', file), join(root, 'scripts', file));
       }
       execFileSync(process.execPath, [join(root, 'scripts/snapshot-jobs-weekly.mjs')], { encoding: 'utf8' });
