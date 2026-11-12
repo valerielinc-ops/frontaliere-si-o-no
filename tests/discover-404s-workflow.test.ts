@@ -54,8 +54,17 @@ describe('404 discovery workflows publish protected data through PRs', () => {
 
     expect(publisher).toContain('RECONCILE_COMPAT=true');
     expect(publisher).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
-    // Branch tips only: the compat path names its merge bases and never reads
-    // the history of the stable branch or of main (issue 12262).
+    // The API compare handles ordinary runs from branch tips. Only GitHub's
+    // 422 large-diff response may trigger bounded, blobless history deepening.
+    expect(publisher).toContain('compare_status=$?');
+    expect(publisher).toContain('if [ "$compare_status" -ne 0 ]; then');
+    expect(publisher).toContain('if [[ "$compare_failure" == *"422"* && "$compare_failure" == *"diff is taking too long"* ]]; then');
+    expect(publisher).toContain('COMPAT_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)');
+    expect(publisher).toContain('COMPAT_MERGE_BASE_MAX_DEEPEN=1344');
+    expect(publisher).toContain('git fetch --no-tags --filter=blob:none --deepen="$deepen" "$PUSH_URL"');
+    expect(publisher).toContain('GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right"');
+    expect(publisher).toContain('[[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]');
+    expect(publisher).toContain('if ! is_commit_sha1 "$base"; then');
     expect(publisher).toContain(
       'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
     );
