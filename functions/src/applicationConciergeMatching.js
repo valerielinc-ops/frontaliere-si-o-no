@@ -989,6 +989,16 @@ export function conciergeMatchingWork(candidates, proposedUrls = new Set(), curs
     frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
+/** Deadline retries must not be starved by rows that only have changed inputs. */
+export function prioritizeEligibilityRetryCandidates(candidates, dueUrls, limit = MAX_ELIGIBILITY_RETRIES_PER_RUN) {
+  return [...candidates].sort(([leftUrl, left], [rightUrl, right]) => {
+    const duePriority = Number(dueUrls.has(rightUrl)) - Number(dueUrls.has(leftUrl));
+    const leftRetryAt = Number(left.data()?.retryAt) || 0;
+    const rightRetryAt = Number(right.data()?.retryAt) || 0;
+    return duePriority || leftRetryAt - rightRetryAt || leftUrl.localeCompare(rightUrl);
+  }).slice(0, limit);
+}
+
 async function updateExistingProposal(db, serviceRef, ref, update, expectedStatus, nextStatus = null, fallbackOpenCount = 0) {
   return db.runTransaction(async (transaction) => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
@@ -1304,14 +1314,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const due = eligibilityRetryIsDue(value, nowForRetries, serviceExpiresAtMs);
       if (due) dueRetryUrls.add(url);
       return changedInputs || due;
-    }).sort(([leftUrl, left], [rightUrl, right]) => {
-      const leftChanged = left.data()?.jobContext !== retryJobContexts.get(leftUrl);
-      const rightChanged = right.data()?.jobContext !== retryJobContexts.get(rightUrl);
-      return Number(rightChanged) - Number(leftChanged)
-        || (Number(left.data()?.retryAt) || 0) - (Number(right.data()?.retryAt) || 0)
-        || leftUrl.localeCompare(rightUrl);
     });
-    const selectedRetryCandidates = retryCandidates.slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN);
+    const selectedRetryCandidates = prioritizeEligibilityRetryCandidates(retryCandidates, dueRetryUrls);
     const retrySourceFingerprints = new Map();
     const sourceProbeSlots = MAX_ELIGIBILITY_RETRIES_PER_RUN - selectedRetryCandidates.length;
     if (sourceProbeSlots > 0 && typeof evaluate.fingerprintFor === 'function') {

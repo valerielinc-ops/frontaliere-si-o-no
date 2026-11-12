@@ -24697,14 +24697,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-11-09T21:20:23.219Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "abteilungsleiter-in-kalte-alle-bkw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "abteilungsleiter-in-kalte-alle-bkw-ch"
-      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -24720,7 +24712,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T09:26:01.920Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-kalte-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-kalte-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-3e7b46e2ba66",
@@ -24861,14 +24861,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T21:20:23.202Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "servicekoordinator-in-hlks-alle-bkw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "servicekoordinator-in-hlks-alle-bkw-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -24884,7 +24876,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T09:26:01.914Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicekoordinator-in-hlks-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "servicekoordinator-in-hlks-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-84bb32747dee",
