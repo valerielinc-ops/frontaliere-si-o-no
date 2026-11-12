@@ -8,7 +8,7 @@ import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js'
 import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
 import { decisionAnswerFor, isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
-import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isOptionalPurpose, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
@@ -23,7 +23,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isPrivacyR
 // language now help deduce (platform-defaults-v11): the waits on a nationality question are read again.
 // v11 (2026-11-11): every address block of the candidate's own takes the same address, the one they typed in
 // another block first (platform-defaults-v12): the waits on a second address block are read again.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v11';
+// v12 (2026-11-11): the accepted application privacy notice is a policy default, not a candidate fact; existing
+// waits on that acknowledgement are read again.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v12';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -56,6 +58,26 @@ const SMALL_NUMBERS = { zero: 0, uno: 1, one: 1, un: 1, une: 1, ein: 1, eins: 1,
   six: 6, sei: 6, sechs: 6 };
 const NOTICE_MONTH_UNIT = /\b(?:months?|mesi|mese|monate?n?|mois)\b/;
 const literalAnswer = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+const NEGATIVE_CONSENT = /^(?:no|nein|non|false|0)$/;
+const affirmativeConsentOption = (option, question) => (AFFIRMATIVE_CONSENT.test(norm(option.label))
+  || AFFIRMATIVE_CONSENT.test(norm(option.value)))
+  && !hasConsentContradiction(`${option.label} ${option.value}`, question);
+const negativeConsentOption = (option, question) => NEGATIVE_CONSENT.test(norm(option.label))
+  || NEGATIVE_CONSENT.test(norm(option.value))
+  || hasConsentContradiction(`${option.label} ${option.value}`, question);
+
+function applicationPrivacyNoticeAnswerShape(question) {
+  const types = [question?.type, question?.kind, question?.inputType]
+    .map(type => String(type || '').toLowerCase()).filter(Boolean);
+  if (types.includes('checkbox')) return 'checkbox';
+  const options = optionsOf(question);
+  if (types.some(type => ['yes_no', 'boolean'].includes(type)) && options.length === 0) return 'binary';
+  if (options.length < 2 || options.length > 3) return null;
+  const affirmative = options.filter(option => affirmativeConsentOption(option, question));
+  const negative = options.filter(option => negativeConsentOption(option, question));
+  return affirmative.length === 1 && negative.length === options.length - 1 ? 'options' : null;
+}
+
 function noticeDuration(value) {
   const match = /^(\d{1,2}|[a-z]+)\s*(months?|mesi|mese|monate?n?|mois|days?|giorni|giorno|tage?n?|jours?)$/.exec(literalAnswer(value));
   if (!match) return null;
@@ -150,6 +172,14 @@ export function operationalQuestionTopic(question) {
   if (isApplicationDataProcessingConsent(consentText, question, ...privacyRepresentations, ...supplementalPrivacyLabels)) {
     return 'application_data_processing_consent';
   }
+  const privacyNoticeText = privacyRepresentations.join(' ');
+  if (privacyRepresentations.length > 0
+    && applicationPrivacyNoticeAnswerShape(question)
+    && isConsentPurpose(privacyNoticeText)
+    && !isOptionalPurpose(privacyNoticeText)
+    && !hasConsentContradiction(privacyNoticeText, question, ...privacyRepresentations)) {
+    return 'application_privacy_notice';
+  }
   const retentionText = [question?.question, question?.label, question?.applicationQuestion, question?.context,
     ...optionsOf(question).flatMap(option => [option.label, option.value])]
     .filter(value => typeof value === 'string' && value.trim()).join(' ');
@@ -218,6 +248,16 @@ function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
       if (matches.length !== 1) return null;
       value = matches[0].label;
     } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
+      value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+    } else return null;
+  } else if (topic === 'application_privacy_notice') {
+    const answerShape = applicationPrivacyNoticeAnswerShape(question);
+    if (answerShape === 'checkbox') value = 'true';
+    else if (options.length) {
+      const matches = options.filter(option => affirmativeConsentOption(option, question));
+      if (matches.length !== 1) return null;
+      value = matches[0].label;
+    } else if (answerShape === 'binary') {
       value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
     } else return null;
   } else if (topic === 'application_data_retention') {

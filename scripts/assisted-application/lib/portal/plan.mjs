@@ -2114,6 +2114,12 @@ export function guardPlan(plan, fields, candidate = null) {
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
+    // A policy default may choose a checkbox, but a consent named by its own
+    // fieldset legend keeps consent provenance when its associated label is empty.
+    const ownedConsentWithEmptyNativeLabel = ownConsent(field) && field.emptyNativeLabelOwnedLegend === true;
+    if (action.action === 'check' && action.source === 'policy_default' && ownedConsentWithEmptyNativeLabel) {
+      action = { ...action, source: 'consent' };
+    }
     if (action.action === 'check'
       && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment || policyDefaultApplicationDataProcessingConsent)
       && !ownConsent(field)) {
@@ -2139,7 +2145,8 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value, source: known.source, evidence: '' };
+      action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
+        source: known.source === 'policy_default' && ownedConsentWithEmptyNativeLabel ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

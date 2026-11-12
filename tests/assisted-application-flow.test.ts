@@ -20,6 +20,7 @@ const {
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { TRANSPORT_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
+const { operationalDefaultAnswer } = await import('../functions/src/assistedApplicationOperationalAnswers.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
 const cleanDraft = {
@@ -105,6 +106,25 @@ describe('red flags', () => {
     }
     expect(evaluateRedFlags(draft).candidate).toEqual([]);
     expect(evaluateRedFlags(draft, { portal_privacy_consent: 'Sì' }).candidate).toEqual([]);
+  });
+
+  it('does not ask the candidate to accept an application privacy notice already covered by policy', () => {
+    const privacyNotice = {
+      id: 'portal_privacy_notice', source: 'portal',
+      question: 'I have read and accept the Privacy Policy. *',
+      applicationQuestion: 'I have read and accept the Privacy Policy. *',
+      type: 'checkbox', required: true,
+    };
+    const draft = { ...cleanDraft, questions: [privacyNotice] };
+    expect(operationalDefaultAnswer(privacyNotice)).toMatchObject({ value: 'true', topic: 'application_privacy_notice' });
+    const result = transition(
+      { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [privacyNotice] },
+      { draft, nowMs: T0 },
+    );
+    expect(result.flow.state).toBe('submitting');
+    expect(result.flow.heldBy).not.toContain('question:portal_privacy_notice');
+    expect(result.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
   });
 
   it('clears a known applicant email confirmation while still waiting for an unknown date of birth', () => {
