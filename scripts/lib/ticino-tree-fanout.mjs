@@ -113,16 +113,16 @@ async function mapPathStream(section = 'ticino') {
 
 if (isInvokedDirectly(import.meta.url)) {
   await (async () => {
-    const [command, root, section = 'ticino'] = process.argv.slice(2);
+    const [command, firstArgument] = process.argv.slice(2);
     try {
       if (command === 'map-paths') {
-        await mapPathStream(section);
-      } else if (!root || !['fanout', 'unfanout'].includes(command)) {
-        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout|map-paths> [section-root] [section]');
+        await mapPathStream(firstArgument || 'ticino');
+      } else if (!firstArgument || !['fanout', 'unfanout'].includes(command)) {
+        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section]');
       } else if (command === 'fanout') {
-        fanoutTicinoTree(root);
+        fanoutTicinoTree(firstArgument);
       } else {
-        unfanoutTicinoTree(root);
+        unfanoutTicinoTree(firstArgument);
       }
     } catch (error) {
       console.error(`::error::${error instanceof Error ? error.message : String(error)}`);
