@@ -92,6 +92,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     }
   });
 
+  it('keeps the full all-locale canary manual-only', () => {
+    expect(WORKFLOW.on).not.toHaveProperty('push');
+    expect(WORKFLOW_TEXT).not.toContain('fix/issue-18066');
+  });
+
   it('pins one build id per run and compares variants against base only when asked', () => {
     // Without a shared DEPLOY_BUILD_ID each leg stamps its own Date.now(),
     // so two variants of one commit could never be byte-identical.
