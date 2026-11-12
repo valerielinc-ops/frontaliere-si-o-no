@@ -50,7 +50,11 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: StaticAdSlotHtmlOptions): 
   const cfg = AD_SLOTS[slotKey];
   const attrs = [
     `class="adsbygoogle"`,
-    `style="display:block;min-height:${cfg.placeholderMinHeight}px"`,
+    // Keep the static twin inside its declared reserve until the lifecycle
+    // observes a paid fill. Google can size a multiplex before answering;
+    // `unfill-optimized` is visible Google-owned content, but it is not a
+    // paid fill and must not release the anti-CLS cap.
+    `style="display:block;min-height:${cfg.placeholderMinHeight}px;max-height:${cfg.placeholderMinHeight}px;overflow:hidden"`,
     `data-ad-client="${AD_CLIENT}"`,
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,

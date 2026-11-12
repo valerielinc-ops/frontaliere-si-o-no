@@ -48,6 +48,7 @@ describe('static job-list AdSense ratio guard', () => {
     expect(html).toMatch(/<\/ins><\/section>$/);
     expect(html.match(/data-house/g)).toHaveLength(1);
     expect(html).not.toContain('<div');
+    expect(html).toContain('max-height:400px;overflow:hidden');
   });
 
   it('wires the guard at the shared completed-page shell boundary', () => {

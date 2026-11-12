@@ -96,6 +96,7 @@ describe('SPA lifecycle and layout owner', () => {
   await act(async () => { ins.setAttribute('data-ad-status', 'unfill-optimized'); });
   expect(wrapper.dataset.ftAdState).toBe('optimized');
   expect(wrapper.style.opacity).toBe('1');
+  expect(wrapper.style.maxHeight).toBe('336px');
   expect(eventSpy.mock.calls.some(([event]) => event === 'ad_google_optimized')).toBe(true);
   expect(eventSpy.mock.calls.some(([event]) => event === 'ad_filled')).toBe(false);
  });
@@ -173,6 +174,10 @@ describe('static serialized lifecycle', () => {
   expect(track).toHaveBeenCalledWith('event', 'ad_google_optimized', expect.objectContaining({ ad_status: 'unfill-optimized', render_path: 'static' }));
   await act(async () => { vi.advanceTimersByTime(60_000); });
   expect(slot).not.toHaveAttribute('data-ft-static-ad-collapsed');
+  expect(slot.style.maxHeight).toBe('100px');
+  await act(async () => { slot.setAttribute('data-ad-status', 'filled'); });
+  expect(slot.style.maxHeight).toBe('');
+  expect(slot.style.overflow).toBe('');
  });
  it('never includes anchor, vignette or automatic in-page slots in manual requests', async () => {
   document.body.innerHTML = '<ins id="manual" class="adsbygoogle" data-ad-slot="1"></ins><ins class="adsbygoogle" data-ad-slot="2" data-anchor-status="displayed"></ins><ins class="adsbygoogle" data-ad-slot="3" data-vignette-loaded="true"></ins><div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="4"></ins></div>';
