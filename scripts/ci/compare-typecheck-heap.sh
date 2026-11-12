@@ -8,8 +8,11 @@ set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"
 SAMPLER="$ROOT/scripts/ci/sample-mem-during.sh"
 BUILD_INFO="$ROOT/.cache/tsc/tsconfig.tsbuildinfo"
-OLD_HEAP_MB=12288
-NEW_HEAP_MB=10240
+CONTRACT="$ROOT/scripts/ci/typecheck-heap-contract.env"
+# shellcheck source=typecheck-heap-contract.env
+source "$CONTRACT"
+OLD_HEAP_MB="$TYPECHECK_HISTORICAL_HEAP_MB"
+NEW_HEAP_MB="$TYPECHECK_CURRENT_HEAP_MB"
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 

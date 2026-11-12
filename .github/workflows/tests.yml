@@ -2884,6 +2884,7 @@ jobs:
             changed="$(git diff --name-only "origin/${BASE_REF}"...HEAD -- \
               scripts/ci/check-typecheck-baseline.mjs \
               scripts/ci/compare-typecheck-heap.sh \
+              scripts/ci/typecheck-heap-contract.env \
               tests/typecheck-heap-comparison.test.ts)"
             if [ -n "$changed" ]; then
               TYPECHECK_HEAP_COMPARISON=true
@@ -2893,7 +2894,9 @@ jobs:
           if [ "$TYPECHECK_HEAP_COMPARISON" = "true" ]; then
             bash scripts/ci/compare-typecheck-heap.sh
           else
-            env NODE_OPTIONS=--max-old-space-size=10240 \
+            # shellcheck source=scripts/ci/typecheck-heap-contract.env
+            source scripts/ci/typecheck-heap-contract.env
+            env NODE_OPTIONS="--max-old-space-size=$TYPECHECK_CURRENT_HEAP_MB" \
               bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
           fi
 
