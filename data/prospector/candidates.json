@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-12T14:21:17.925Z",
+  "updatedAt": "2026-11-12T14:23:03.471Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -174481,12 +174481,12 @@
     },
     "benisa@cadempino": {
       "key": "benisa@cadempino",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-28T15:33:16.568Z",
-      "updatedAt": "2026-11-11T14:24:49.355Z",
+      "updatedAt": "2026-11-12T14:23:03.380Z",
       "name": "BENISA SA",
       "city": "Cadempino",
       "zip": "6814",
@@ -174886,7 +174886,13 @@
         }
       ],
       "promotionPr": "18150",
-      "promotionBranch": "prospector/promote-2026-11-11"
+      "promotionBranch": "prospector/promote-2026-11-11",
+      "promotedAt": "2026-11-11T22:35:59Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-12T09:37:57.024Z",
+      "firstCrawlerJobCount": 3
     },
     "benisasa.ch": {
       "key": "benisasa.ch",
@@ -899010,12 +899016,12 @@
     },
     "lip@geneve": {
       "key": "lip@geneve",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-26T04:08:56.713Z",
-      "updatedAt": "2026-11-11T14:24:49.355Z",
+      "updatedAt": "2026-11-12T14:23:03.380Z",
       "name": "LIP SUISSE",
       "city": "Genève",
       "zip": "1201",
@@ -899256,7 +899262,13 @@
         }
       ],
       "promotionPr": "18150",
-      "promotionBranch": "prospector/promote-2026-11-11"
+      "promotionBranch": "prospector/promote-2026-11-11",
+      "promotedAt": "2026-11-11T22:35:59Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-12T09:42:25.795Z",
+      "firstCrawlerJobCount": 1
     },
     "lip@st-moritz": {
       "key": "lip@st-moritz",
@@ -1148977,12 +1148989,12 @@
     },
     "proplaning@zurich": {
       "key": "proplaning@zurich",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-06T08:09:55.301Z",
-      "updatedAt": "2026-11-11T14:24:49.356Z",
+      "updatedAt": "2026-11-12T14:23:03.380Z",
       "name": "Proplaning AG",
       "city": "Zürich",
       "zip": "8005",
@@ -1149225,7 +1149237,13 @@
         }
       ],
       "promotionPr": "18150",
-      "promotionBranch": "prospector/promote-2026-11-11"
+      "promotionBranch": "prospector/promote-2026-11-11",
+      "promotedAt": "2026-11-11T22:35:59Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-12T09:56:27.479Z",
+      "firstCrawlerJobCount": 1
     },
     "propre-service-jovandic@buttes": {
       "key": "propre-service-jovandic@buttes",
@@ -1339779,7 +1339797,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-11T14:24:14.468Z",
+      "updatedAt": "2026-11-12T14:23:03.380Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1340379,7 +1340397,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-11T09:51:26.023Z",
+      "firstCrawlerOutputAt": "2026-11-12T09:38:59.690Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
