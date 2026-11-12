@@ -362,6 +362,7 @@ describe('fill extension: patterns', () => {
     for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE })) {
       expect(`${name}: ${F[name].source}/${F[name].flags}`).toBe(`${name}: ${pattern.source}/${pattern.flags}`);
     }
+    expect(F.SUBMIT_RE.test('Abschicken')).toBe(true);
   });
 
   it('recognizes a plain Bewerbung einreichen final link', () => {

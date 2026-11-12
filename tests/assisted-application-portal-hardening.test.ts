@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { birthDatePartOption, candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { applicationStage, inPageApplicationOpeners } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { CREATE_ACCOUNT_RE, authPageKind, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
 import {
@@ -43,6 +44,123 @@ import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtr
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 import { parseAltenDetailHtml } from '../scripts/lib/alten-job-parser.mjs';
 import umantisAccountStepFixture from './fixtures/umantis-recruitingapp-2761-application-new-account.json';
+
+describe('in-page application opener classification', () => {
+  const url = 'https://jobs.example.test/apply?posting=fixture';
+  const identityFields = (formId: string) => [
+    { id: `${formId}-first`, label: 'Vorname', formId },
+    { id: `${formId}-last`, label: 'Nachname', formId },
+    { id: `${formId}-email`, label: 'E-Mail', inputType: 'email', formId },
+  ];
+  const opener = (id: string, patch = {}) => ({
+    id,
+    text: 'Jetzt bewerben',
+    formId: '',
+    href: `${url}#application`,
+    ...patch,
+  });
+
+  it('ignores same-document apply openers when one applicant form owns the step controls', () => {
+    const snapshot = {
+      url,
+      text: 'Bewerbung',
+      fields: identityFields('application'),
+      buttons: [opener('open-one'), opener('open-two'), { id: 'next', text: 'Weiter', formId: 'application' }],
+    };
+
+    expect(inPageApplicationOpeners(snapshot, url)).toHaveLength(2);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'form' });
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }))
+      .toMatchObject({ submit: null, next: { text: 'Weiter' }, stage: { kind: 'form' } });
+  });
+
+  it('keeps an outside Apply action unknown beside an email-only contact form', () => {
+    for (const action of ['Submit', 'Weiter']) {
+      const snapshot = {
+        url,
+        fields: [{ id: 'contact-email', label: 'E-Mail', inputType: 'email', formId: 'contact-form' }],
+        buttons: [opener('open', { href: '#' }), { id: 'contact-action', text: action, formId: 'contact-form' }],
+      };
+      expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+      expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+      expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }))
+        .toMatchObject({ submit: null, next: null, stage: { kind: 'unknown_apply' } });
+    }
+  });
+
+  it('keeps an outside link to another document as an unknown Apply action', () => {
+    const snapshot = {
+      url,
+      fields: identityFields('application'),
+      buttons: [opener('open', { href: 'https://jobs.example.test/application/start', leavesDocument: true }),
+        { id: 'next', text: 'Weiter', formId: 'application' }],
+    };
+    expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+  });
+
+  it('keeps an opener unknown when its form has no step or submit control', () => {
+    const snapshot = { url, fields: identityFields('application'), buttons: [opener('open')] };
+    expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+  });
+
+  it('keeps openers unknown when two applicant forms have their own step controls', () => {
+    const snapshot = {
+      url,
+      fields: [...identityFields('first-form'), ...identityFields('second-form')],
+      buttons: [opener('open-one'), opener('open-two'),
+        { id: 'next-one', text: 'Weiter', formId: 'first-form' },
+        { id: 'next-two', text: 'Weiter', formId: 'second-form' }],
+    };
+    expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+  });
+
+  it('keeps a generic Apply control inside its applicant form as the current final action', () => {
+    const snapshot = {
+      url,
+      fields: [...identityFields('application'), { id: 'cv', kind: 'file', inputType: 'file', formId: 'application' }],
+      buttons: [{ id: 'apply', text: 'Jetzt bewerben', formId: 'application' }],
+    };
+    expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'form' });
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }).submit)
+      .toMatchObject({ text: 'Jetzt bewerben' });
+  });
+});
+
+describe('split birth date select options', () => {
+  it('maps day, named month, and year to options in the observed catalogue', () => {
+    const dob = '1990-05-12';
+    const day = { label: 'Geburtstag', placeholder: 'Tag', options: Array.from({ length: 31 }, (_, index) => ({ label: `${index + 1}.`, value: `${String(index + 1).padStart(2, '0')}.` })) };
+    const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+    const month = { label: 'Geburtsdatum', placeholder: 'Monat', options: monthNames.map((label, index) => ({ label, value: String(index + 1).padStart(2, '0') })) };
+    const year = { label: 'Geburtsdatum', placeholder: 'Jahr', options: Array.from({ length: 21 }, (_, index) => String(1980 + index)) };
+
+    expect(birthDatePartOption(day, dob)).toBe('12.');
+    expect(birthDatePartOption(month, dob)).toBe('Mai');
+    expect(birthDatePartOption(year, dob)).toBe('1990');
+    expect(birthDatePartOption({ ...day, options: day.options.slice(0, 11) }, dob)).toBeNull();
+  });
+
+  it('keeps a valid planned select choice when the deterministic date is not listed, and asks when neither is listed', () => {
+    const field = {
+      id: 'start-date', kind: 'select', label: 'Earliest start date', required: true,
+      options: [{ label: 'Immediately' }, { label: 'In four weeks' }],
+    };
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [
+      { question: 'Earliest start date', answer: '15.01.2027', source: 'user' },
+    ] };
+    const planned = (value: string) => guardPlan({
+      actions: [{ fieldId: field.id, action: 'select', value, source: 'answers', evidence: '' }], missingRequired: [],
+    }, [field], candidate);
+
+    expect(candidateAnswerForField(candidate, field)?.value).toBe('15.01.2027');
+    expect(planned('Immediately').actions).toMatchObject([{ fieldId: field.id, value: 'Immediately' }]);
+    expect(planned('Tomorrow')).toMatchObject({ actions: [], missingRequired: [{ fieldId: field.id }] });
+  });
+});
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {

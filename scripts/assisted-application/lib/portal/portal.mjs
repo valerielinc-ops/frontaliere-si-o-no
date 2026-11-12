@@ -28,7 +28,7 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { applicationReceipt, applicationStage, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
@@ -5609,8 +5609,12 @@ export async function acceptPrivacyStatement(page, snapshot, { targetControl = r
   return 'unavailable';
 }
 
-const registrationButton = (snapshot) => [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
-  .map((pattern) => findButton(snapshot.buttons || [], pattern, { includeDisabled: true })).find(Boolean) || null;
+const registrationButton = (snapshot) => {
+  const openers = new Set(inPageApplicationOpeners(snapshot, snapshot?.url).map(portalControlIdentity));
+  const buttons = (snapshot.buttons || []).filter((button) => !openers.has(portalControlIdentity(button)));
+  return [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
+    .map((pattern) => findButton(buttons, pattern, { includeDisabled: true })).find(Boolean) || null;
+};
 
 /**
  * Before the registration's button: the notice accepted and the button free,
@@ -7672,9 +7676,9 @@ export function pageControls(buttons, known, url, context = null) {
     applicationEvidence: learned.next || learned.submit,
   });
   const galleryButtons = galleryNavigationButtons(buttons);
-  const applicationButtons = nonApplicationSurface ? [] : galleryButtons.size
-    ? buttons.filter((button) => !galleryButtons.has(portalControlIdentity(button)))
-    : buttons;
+  const applicationOpeners = new Set(inPageApplicationOpeners(context?.snapshot, url).map(portalControlIdentity));
+  const applicationButtons = nonApplicationSurface ? [] : buttons.filter((button) =>
+    !galleryButtons.has(portalControlIdentity(button)) && !applicationOpeners.has(portalControlIdentity(button)));
   const submit = nonApplicationSurface ? null : findButton(applicationButtons, SUBMIT_RE);
   const usualNext = nonApplicationSurface ? null : findButton(applicationButtons, NEXT_RE);
   const taughtNext = nonApplicationSurface || submit || usualNext ? null : learned.next;
