@@ -9,6 +9,7 @@ import {
   buildMinimalJobInput,
   buildActiveJobPageInput,
   buildActiveJobPageReuseInput,
+  buildExpiredSoftLandingPageInput,
   createIncrementalManifestInputCache,
   IncrementalManifest,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -261,6 +262,94 @@ describe('incremental manifest input contract', () => {
       makeInput('2026-10-23T09:31:45.608Z'),
       'active-job',
     ));
+  });
+
+  it('does not invalidate expired pages when a related card heartbeat moves', () => {
+    const makeInput = (relatedCrawledAt: string) => buildExpiredSoftLandingPageInput({
+      job: {
+        id: 'expired-heartbeat-page-1',
+        slug: 'expired-heartbeat-page',
+        title: 'Expired role',
+        expiredAt: '2026-10-20T00:00:00.000Z',
+      },
+      locale: 'fr',
+      slug: 'expired-heartbeat-page',
+      relatedJobs: [{
+        id: 'related-heartbeat-2',
+        slugByLocale: { fr: 'related-role' },
+        titleByLocale: { fr: 'Related role' },
+        company: 'Company',
+        location: 'Lugano',
+        crawledAt: relatedCrawledAt,
+      }],
+      path: '/fr/trouver-emploi-tessin/expired-heartbeat-page/',
+      title: 'Expired role — Company',
+      trackingPaths: [],
+      company: 'Company',
+      location: 'Lugano',
+      canton: 'TI',
+      sector: '',
+      contract: '',
+      datePosted: '',
+      expiredAt: '2026-10-20T00:00:00.000Z',
+      gscQueries: [],
+      currentYear: 2026,
+      candidatePaths: [],
+      prosePaths: [],
+      keepProse: false,
+      action: 'full',
+      expiredPayloadJson: '{}',
+      postalCode: '',
+      hreflangHtml: '',
+      derivedFromUnhashedSource: false,
+    });
+    const before = makeInput('2026-10-22T21:26:37.571Z');
+    const after = makeInput('2026-10-23T09:31:45.608Z');
+
+    expect(before.relatedJobs).toEqual(after.relatedJobs);
+    expect(computeInputHash(before, 'expired-soft-landing')).toBe(
+      computeInputHash(after, 'expired-soft-landing'),
+    );
+  });
+
+  it('keeps the expired page heartbeat in the publish hash', () => {
+    const makeInput = (crawledAt: string) => buildExpiredSoftLandingPageInput({
+      job: {
+        id: 'expired-source-heartbeat-1',
+        slug: 'expired-source-heartbeat',
+        title: 'Expired source role',
+        expiredAt: '2026-10-20T00:00:00.000Z',
+        crawledAt,
+      },
+      locale: 'it',
+      slug: 'expired-source-heartbeat',
+      path: '/cerca-lavoro-ticino/expired-source-heartbeat/',
+      title: 'Expired source role — Company',
+      trackingPaths: [],
+      company: 'Company',
+      location: 'Lugano',
+      canton: 'TI',
+      sector: '',
+      contract: '',
+      datePosted: '',
+      expiredAt: '2026-10-20T00:00:00.000Z',
+      gscQueries: [],
+      currentYear: 2026,
+      candidatePaths: [],
+      prosePaths: [],
+      keepProse: false,
+      action: 'full',
+      expiredPayloadJson: '{}',
+      postalCode: '',
+      hreflangHtml: '',
+      derivedFromUnhashedSource: false,
+    });
+    const before = makeInput('2026-10-22T21:26:37.571Z');
+    const after = makeInput('2026-10-23T09:31:45.608Z');
+
+    expect(computeInputHash(before, 'expired-soft-landing')).not.toBe(
+      computeInputHash(after, 'expired-soft-landing'),
+    );
   });
 
   it('keeps expired soft-landing related links in the hash projection', () => {

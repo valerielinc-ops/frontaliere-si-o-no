@@ -720,8 +720,22 @@ export function buildExpiredSoftLandingPageInput({
   derivedFromUnhashedSource,
   demandIndexable = true,
 }) {
+  // Expired pages render the same related active-job cards as active pages.
+  // Those cards do not emit the related jobs' crawler heartbeat, so use the
+  // shared profile that already keeps active-page reuse stable. Keep the
+  // archived page's own digest complete: its `crawledAt` can be emitted in
+  // the expired SPA payload and JobPosting JSON-LD.
+  const minimalInput = buildMinimalJobInput(
+    job,
+    locale,
+    slug,
+    relatedJobs,
+    inputCache,
+    null,
+    ACTIVE_PAGE_REUSE_IGNORED_JOB_KEY_SET,
+  );
   return {
-    ...buildMinimalJobInput(job, locale, slug, relatedJobs, inputCache),
+    ...minimalInput,
     path,
     title,
     trackingPaths,
