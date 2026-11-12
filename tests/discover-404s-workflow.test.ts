@@ -51,20 +51,22 @@ describe('404 discovery workflows publish protected data through PRs', () => {
 
   it('reconciles pending 404 stable branches with main using the shard merge driver', () => {
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+    const compareBaseHelper = read('scripts/lib/compare-merge-base.sh');
 
     expect(publisher).toContain('RECONCILE_COMPAT=true');
     expect(publisher).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
     // The API compare handles ordinary runs from branch tips. Only GitHub's
     // 422 large-diff response may trigger bounded, blobless history deepening.
-    expect(publisher).toContain('compare_status=$?');
-    expect(publisher).toContain('if [ "$compare_status" -ne 0 ]; then');
-    expect(publisher).toContain('if [[ "$compare_failure" == *"422"* && "$compare_failure" == *"diff is taking too long"* ]]; then');
-    expect(publisher).toContain('COMPAT_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)');
-    expect(publisher).toContain('COMPAT_MERGE_BASE_MAX_DEEPEN=1344');
-    expect(publisher).toContain('git fetch --no-tags --filter=blob:none --deepen="$deepen" "$PUSH_URL"');
-    expect(publisher).toContain('GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right"');
-    expect(publisher).toContain('[[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]');
-    expect(publisher).toContain('if ! is_commit_sha1 "$base"; then');
+    expect(publisher).toContain('. "$(dirname "${BASH_SOURCE[0]}")/compare-merge-base.sh"');
+    expect(publisher).toContain('compare_merge_base "$REPOSITORY" "$left" "$right" "$PUSH_URL" "$API_TIMEOUT_SECONDS" "$label"');
+    expect(compareBaseHelper).toContain('if [ "$compare_status" -ne 0 ]; then');
+    expect(compareBaseHelper).toContain('if [[ "$compare_failure" == *"422"* && "$compare_failure" == *"diff is taking too long"* ]]; then');
+    expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)');
+    expect(compareBaseHelper).toContain('COMPARE_MERGE_BASE_MAX_DEEPEN=1344');
+    expect(compareBaseHelper).toContain('git fetch --no-tags --filter=blob:none --deepen="$deepen" "$remote_url"');
+    expect(compareBaseHelper).toContain('GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right"');
+    expect(compareBaseHelper).toContain('[[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]');
+    expect(compareBaseHelper).toContain('if ! compare_merge_base_is_sha1 "$base"; then');
     expect(publisher).toContain(
       'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
     );

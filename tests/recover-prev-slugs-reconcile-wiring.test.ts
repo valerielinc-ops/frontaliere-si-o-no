@@ -113,9 +113,14 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     const carry = steps.find((step) => step.name === 'Carry forward pending previousSlugs recovery PR');
     expect(carry?.run).toContain("branch='chore/recover-prev-slugs'");
     expect(carry?.run).toContain('git ls-remote "$remote_url"');
+    expect(carry?.run).toContain('. scripts/lib/compare-merge-base.sh');
+    expect(carry?.run).toContain('compare_merge_base "$GITHUB_REPOSITORY" "$main_sha" "$refresh_sha" "$remote_url" 60 \'previousSlugs recovery\'');
+    expect(carry?.run).not.toContain('gh api "repos/${GITHUB_REPOSITORY}/compare/');
     expect(carry?.run).toContain('scripts/lib/restore-stable-refresh-files.sh');
     expect(carry?.run).toContain('scripts/ci/reconcile-data-refresh-main.mjs');
+    expect(carry?.run).toContain('--base "$merge_base" --main "$main_sha" --refresh-base "$merge_base"');
     expect(carry?.run).toContain('--refresh-base "$merge_base"');
+    expect(carry?.run).toContain('git checkout --detach "$main_sha"');
     expect(carry?.run).toContain('Refresh snapshot is based on older main content');
     expect(carry?.run).toContain('gh pr close "$open_pr_number"');
     expect(carry?.run).toContain('git update-ref refs/recover-prev-slugs/carried-forward');

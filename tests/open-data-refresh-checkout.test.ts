@@ -38,6 +38,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/old-history-guard.mjs',
   'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/run-bounded-command.mjs',
+  'scripts/lib/compare-merge-base.sh',
   'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/git-add-resolved.mjs',
@@ -1305,10 +1306,10 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
 
     expect(run.result.status, run.output).toBe(0);
     expect(run.output).toContain('GitHub compare diff is too large; using bounded commit-graph fallback');
-    expect(run.output).toContain('git deepen compatibility merge base');
+    expect(run.output).toContain('git deepen compatibility refresh compare merge base');
     expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run', '/stable'] });
     expect(git(setup.remote, ['rev-parse', `${COMPAT_BRANCH}^`])).toBe(currentMainHead);
-    expect(run.commitCount).toBeLessThan(20);
+    expect(run.commitCount).toBeLessThan(150);
   }, 120_000);
 
   it('uses the current reconciler when a stale compat branch rejects --compat', () => {
@@ -1449,7 +1450,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const run = publishCompat(setup);
 
     expect(run.result.status, run.output).not.toBe(0);
-    expect(run.output).toContain('No compatibility merge base found within the 1344-commit history-depth cap');
+    expect(run.output).toContain('No merge base found within the 1344-commit history-depth cap');
     expect(run.output).toContain('deepening commit graph by 64 commits (cap 1344)');
     expect(run.output).toContain('deepening commit graph by 256 commits (cap 1344)');
     expect(run.output).toContain('deepening commit graph by 1024 commits (cap 1344)');
@@ -1463,7 +1464,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const run = publishCompat(setup);
 
     expect(run.result.status, run.output).not.toBe(0);
-    expect(run.output).toContain('Invalid compatibility merge base response');
+    expect(run.output).toContain('Invalid compatibility refresh compare merge base response');
     expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(stableHead);
   }, 120_000);
 

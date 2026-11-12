@@ -230,12 +230,6 @@ LS_REMOTE_TIMEOUT_SECONDS="${OPEN_DATA_REFRESH_LS_REMOTE_TIMEOUT_SECONDS:-60}"
 FETCH_TIMEOUT_SECONDS=300
 API_TIMEOUT_SECONDS=60
 GH_PR_TIMEOUT_SECONDS=60
-COMPAT_MERGE_BASE_FETCH_TIMEOUT_SECONDS=60
-# The compare API can refuse very large diffs before returning a merge base.
-# In that one case, deepen only the commit graph (no blobs) by a bounded
-# cumulative depth of 1,344 commits, then compute the same base locally.
-COMPAT_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)
-COMPAT_MERGE_BASE_MAX_DEEPEN=1344
 
 # This is the 180-second push ceiling introduced for issue 12262 / PR 12318.
 PUSH_TIMEOUT_SECONDS=180
@@ -248,70 +242,12 @@ run_bounded() {
   node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
 }
 
-is_commit_sha1() {
-  [[ "$1" =~ ^[0-9a-fA-F]{40}$ ]]
-}
-
-compat_merge_base_from_local_graph() {
-  local left="$1" right="$2" label="$3" base deepen
-  base="$(GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right" 2>/dev/null || true)"
-  if is_commit_sha1 "$base"; then
-    printf '%s\n' "$base"
-    return 0
-  fi
-
-  for deepen in "${COMPAT_MERGE_BASE_DEEPEN_STEPS[@]}"; do
-    echo "::notice::${label}: deepening commit graph by ${deepen} commits (cap ${COMPAT_MERGE_BASE_MAX_DEEPEN})" >&2
-    if ! run_bounded "$COMPAT_MERGE_BASE_FETCH_TIMEOUT_SECONDS" "git deepen compatibility merge base" \
-      git fetch --no-tags --filter=blob:none --deepen="$deepen" "$PUSH_URL" \
-      "${left}:refs/compat-merge-base/left" "${right}:refs/compat-merge-base/right"; then
-      echo "::error::Could not deepen compatibility merge base for ${label}" >&2
-      return 1
-    fi
-    base="$(GIT_NO_LAZY_FETCH=1 git merge-base "$left" "$right" 2>/dev/null || true)"
-    if is_commit_sha1 "$base"; then
-      printf '%s\n' "$base"
-      return 0
-    fi
-  done
-
-  echo "::error::No compatibility merge base found within the ${COMPAT_MERGE_BASE_MAX_DEEPEN}-commit history-depth cap for ${left}...${right}" >&2
-  return 1
-}
+. "$(dirname "${BASH_SOURCE[0]}")/compare-merge-base.sh"
 
 compat_merge_base() {
-  local left="$1" right="$2" label="$3" base compare_output compare_error compare_failure compare_status error_file
-  error_file="$(mktemp "${TMPDIR:-/tmp}/compat-merge-base.XXXXXX")" || {
-    echo "::error::Could not create a temporary file for ${label} diagnostics" >&2
-    return 1
-  }
-  if compare_output="$(run_bounded "$API_TIMEOUT_SECONDS" "$label" \
-    gh api "repos/${REPOSITORY}/compare/${left}...${right}" --jq '.merge_base_commit.sha' 2>"$error_file")"; then
-    compare_status=0
-  else
-    compare_status=$?
-  fi
-  compare_error="$(cat "$error_file" 2>/dev/null || true)"
-  rm -f "$error_file"
-  compare_failure="${compare_output}"$'\n'"${compare_error}"
-
-  if [ "$compare_status" -ne 0 ]; then
-    if [[ "$compare_failure" == *"422"* && "$compare_failure" == *"diff is taking too long"* ]]; then
-      echo "::warning::${label}: GitHub compare diff is too large; using bounded commit-graph fallback" >&2
-      base="$(compat_merge_base_from_local_graph "$left" "$right" "$label")" || return 1
-    else
-      [ -z "$compare_output" ] || printf '%s\n' "$compare_output" >&2
-      [ -z "$compare_error" ] || printf '%s\n' "$compare_error" >&2
-      echo "::error::Missing compatibility merge base for ${left}...${right} (compare failed with status ${compare_status})" >&2
-      return "$compare_status"
-    fi
-  else
-    base="$compare_output"
-  fi
-
-  if ! is_commit_sha1 "$base"; then
-    echo "::error::Invalid compatibility merge base response for ${left}...${right}" >&2
-    [ -z "$base" ] || printf '%s\n' "$base" >&2
+  local left="$1" right="$2" label="$3" base
+  if ! base="$(compare_merge_base "$REPOSITORY" "$left" "$right" "$PUSH_URL" "$API_TIMEOUT_SECONDS" "$label")"; then
+    echo "::error::Missing compatibility merge base for ${left}...${right}" >&2
     return 1
   fi
   if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${base}^{commit}" 2>/dev/null; then
