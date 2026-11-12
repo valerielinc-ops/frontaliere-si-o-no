@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medbase",
-  "assembledAt": "2026-11-12T09:23:19.169Z",
-  "runId": "43189293308",
+  "assembledAt": "2026-11-12T21:38:49.423Z",
+  "runId": "43308043281",
   "jobs": [
     {
       "id": "medbase-a355712f9f21",
@@ -35,7 +35,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Facharzt--w-m-d--fr-Dermatologie-100-_JR03952",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:11.734Z",
+      "crawledAt": "2026-11-12T21:38:41.884Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:23:11.734Z",
+      "validThrough": "2026-12-12T21:38:41.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Eglisau/Facharzt-Allgemeine-Innere-Medizin-60-80---w-m-d-_JR03532",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:11.058Z",
+      "crawledAt": "2026-11-12T21:38:41.213Z",
       "addressLocality": "Eglisau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "postalCode": "8193",
       "streetAddress": "Eglisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:11.058Z",
+      "validThrough": "2026-12-12T21:38:41.213Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -219,7 +219,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--50-100-_JR03728",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:10.387Z",
+      "crawledAt": "2026-11-12T21:38:40.535Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "postalCode": "8570",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:10.387Z",
+      "validThrough": "2026-12-12T21:38:40.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +308,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Fachrztin---Facharzt-Dermatologie--a--40-80-_JR05383",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:09.615Z",
+      "crawledAt": "2026-11-12T21:38:39.740Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:09.615Z",
+      "validThrough": "2026-12-12T21:38:39.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -393,7 +393,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-rhumatologie--f-m-d-_JR04192",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:08.952Z",
+      "crawledAt": "2026-11-12T21:38:39.077Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -443,7 +443,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:08.952Z",
+      "validThrough": "2026-12-12T21:38:39.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +478,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-dermatologie--f-m-d-_JR04191",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:08.257Z",
+      "crawledAt": "2026-11-12T21:38:38.407Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -528,7 +528,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:08.257Z",
+      "validThrough": "2026-12-12T21:38:38.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -563,7 +563,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Genve/Psychologue---Psychothrapeute-indpendante--m-f-d--50--100-_JR05146",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:07.572Z",
+      "crawledAt": "2026-11-12T21:38:37.724Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -613,7 +613,7 @@
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:07.572Z",
+      "validThrough": "2026-12-12T21:38:37.724Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -648,7 +648,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-cardiologie--f-m-d-_JR04195",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:06.899Z",
+      "crawledAt": "2026-11-12T21:38:37.014Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -698,7 +698,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:06.899Z",
+      "validThrough": "2026-12-12T21:38:37.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -733,7 +733,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Unterassistent--w-m-d--100-_JR03921",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:06.210Z",
+      "crawledAt": "2026-11-12T21:38:36.309Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:06.210Z",
+      "validThrough": "2026-12-12T21:38:36.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -815,7 +815,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Assistenzarzt--m-w-d-_JR04012",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:05.544Z",
+      "crawledAt": "2026-11-12T21:38:35.651Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -865,7 +865,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:05.544Z",
+      "validThrough": "2026-12-12T21:38:35.651Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -900,7 +900,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-Praktische-rztin---Praktischer-Arzt--a--50-100-_JR05760",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:04.883Z",
+      "crawledAt": "2026-11-12T21:38:35.008Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -950,7 +950,7 @@
       "postalCode": "3236",
       "streetAddress": "Gampelen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:04.883Z",
+      "validThrough": "2026-12-12T21:38:35.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -985,7 +985,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--50-100-_JR06115",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:04.213Z",
+      "crawledAt": "2026-11-12T21:38:34.344Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1037,7 +1037,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:04.213Z",
+      "validThrough": "2026-12-12T21:38:34.344Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1072,7 +1072,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Neuchtel/Chef-de-clinique-adjoint_JR04113",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:03.195Z",
+      "crawledAt": "2026-11-12T21:38:33.336Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1124,7 +1124,7 @@
       "postalCode": "2000",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:03.195Z",
+      "validThrough": "2026-12-12T21:38:33.336Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1159,7 +1159,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-mdecin-interne-gnrale--tous-genres--100-_JR05893",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:02.515Z",
+      "crawledAt": "2026-11-12T21:38:32.677Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1209,7 +1209,7 @@
       "postalCode": "1860",
       "streetAddress": "Aigle (MC)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:02.515Z",
+      "validThrough": "2026-12-12T21:38:32.677Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1244,7 +1244,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-cardiologie--tous-genres--80---100-_JR05894",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:23:01.836Z",
+      "crawledAt": "2026-11-12T21:38:31.997Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1294,7 +1294,7 @@
       "postalCode": "1860",
       "streetAddress": "Aigle (MC)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:01.836Z",
+      "validThrough": "2026-12-12T21:38:31.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1329,7 +1329,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Teufen/Fachrztin-Facharzt-fr-Dermatologie--a--50-60-_JR05673",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:01.079Z",
+      "crawledAt": "2026-11-12T21:38:31.327Z",
       "addressLocality": "Teufen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1379,7 +1379,7 @@
       "postalCode": "9053",
       "streetAddress": "Teufen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:01.079Z",
+      "validThrough": "2026-12-12T21:38:31.327Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1414,7 +1414,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wetzikon/Fachrztin---Facharzt-Dermatologie--a--60-100-_JR06348",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:23:00.414Z",
+      "crawledAt": "2026-11-12T21:38:30.650Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1464,7 +1464,7 @@
       "postalCode": "8620",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:23:00.414Z",
+      "validThrough": "2026-12-12T21:38:30.650Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1499,7 +1499,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Assistenzarzt--w-m-d--80-100-_JR03870",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:59.732Z",
+      "crawledAt": "2026-11-12T21:38:29.969Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1549,7 +1549,7 @@
       "postalCode": "3236",
       "streetAddress": "Gampelen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:59.732Z",
+      "validThrough": "2026-12-12T21:38:29.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1584,7 +1584,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Medizinische-Praxisassistenz--a--80-100-_JR06496",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:59.058Z",
+      "crawledAt": "2026-11-12T21:38:29.309Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1651,7 +1651,7 @@
       "postalCode": "3770",
       "streetAddress": "Zweisimmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:59.058Z",
+      "validThrough": "2026-12-12T21:38:29.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1686,7 +1686,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Fachrztin---Facharzt-Allergologie-und-klinische-Immunologie--a--40-100-_JR06605-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:58.392Z",
+      "crawledAt": "2026-11-12T21:38:28.630Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1736,7 +1736,7 @@
       "postalCode": "6010",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:58.392Z",
+      "validThrough": "2026-12-12T21:38:28.630Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1771,7 +1771,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecins-spcialistes-avec-titre-FMH--tous-genres--40---100-_JR06839",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:57.722Z",
+      "crawledAt": "2026-11-12T21:38:27.967Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1821,7 +1821,7 @@
       "postalCode": "1860",
       "streetAddress": "Aigle (MC)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:57.722Z",
+      "validThrough": "2026-12-12T21:38:27.967Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1856,7 +1856,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Mdecin-spcialiste-en-mdecin-interne-gnrale--f-m-d-_JR04269",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:56.729Z",
+      "crawledAt": "2026-11-12T21:38:26.957Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1906,7 +1906,7 @@
       "postalCode": "1630",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:56.729Z",
+      "validThrough": "2026-12-12T21:38:26.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1914,9 +1914,9 @@
       "slug": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
       "slugByLocale": {
         "it": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
-        "en": "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
+        "en": "pharmacist-a-60-80-medbase-dubendorf",
         "de": "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "fr": "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
+        "fr": "pharmacien-a-60-80-medbase-dubendorf"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -1941,7 +1941,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Fachfrau---Fachmann-Apotheke--a--60---80-_JR06924-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:56.061Z",
+      "crawledAt": "2026-11-12T21:38:26.273Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1962,8 +1962,8 @@
       "jobReqId": "JR06924",
       "previousSlugs": [
         "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "pharmacist-a-60-80-medbase-dubendorf",
-        "pharmacien-a-60-80-medbase-dubendorf"
+        "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
+        "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1971,11 +1971,11 @@
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "pharmacist-a-60-80-medbase-dubendorf"
+          "expert-specialist-pharmacy-a-60-80-medbase-dubendorf"
         ],
         "fr": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "pharmacien-a-60-80-medbase-dubendorf"
+          "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:21.452Z",
@@ -1995,7 +1995,7 @@
       "postalCode": "8600",
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:56.061Z",
+      "validThrough": "2026-12-12T21:38:26.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2030,7 +2030,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Physiotherapeut-in--a--40---60-_JR05506",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:55.393Z",
+      "crawledAt": "2026-11-12T21:38:25.613Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2082,7 +2082,7 @@
       "postalCode": "9500",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:55.393Z",
+      "validThrough": "2026-12-12T21:38:25.613Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2117,7 +2117,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a----80-100--_JR07112",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:54.717Z",
+      "crawledAt": "2026-11-12T21:38:24.953Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2167,7 +2167,7 @@
       "postalCode": "9500",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:54.717Z",
+      "validThrough": "2026-12-12T21:38:24.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2202,7 +2202,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Ddingen/Facharzt-Allgemeine-Innere-Medizin-oder-erweiterte-Grundversorgung_JR05342",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:54.034Z",
+      "crawledAt": "2026-11-12T21:38:24.287Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2252,7 +2252,7 @@
       "postalCode": "3186",
       "streetAddress": "Düdingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:54.034Z",
+      "validThrough": "2026-12-12T21:38:24.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2287,7 +2287,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Assistante-mdicale--tous-genres--100-_JR06221",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:53.346Z",
+      "crawledAt": "2026-11-12T21:38:23.619Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2334,7 +2334,7 @@
       "postalCode": "1860",
       "streetAddress": "Aigle (MC)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:53.346Z",
+      "validThrough": "2026-12-12T21:38:23.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2369,7 +2369,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Diepoldsau/Fachrztin-Arzt-Allgemeine-Innere-Medizin-oder-Praktische-rztin-Arzt--a--50-100-_JR07128-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:52.659Z",
+      "crawledAt": "2026-11-12T21:38:22.944Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2419,7 +2419,7 @@
       "postalCode": "9444",
       "streetAddress": "Diepoldsau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:52.659Z",
+      "validThrough": "2026-12-12T21:38:22.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2454,7 +2454,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Rorschach/Fachrztin-Arzt-AIM-oder-Praktische-rztin-Arzt--a--60-100-_JR07024",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:51.977Z",
+      "crawledAt": "2026-11-12T21:38:22.277Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2517,7 +2517,7 @@
       "postalCode": "9400",
       "streetAddress": "Rorschach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:51.977Z",
+      "validThrough": "2026-12-12T21:38:22.277Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2552,7 +2552,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Professional-Medical_JR04098",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:51.299Z",
+      "crawledAt": "2026-11-12T21:38:21.612Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2608,7 +2608,7 @@
       "postalCode": "8580",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:51.299Z",
+      "validThrough": "2026-12-12T21:38:21.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2643,7 +2643,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Mdecin-Chef-de-Clinique_JR07173",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:50.622Z",
+      "crawledAt": "2026-11-12T21:38:20.931Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2693,7 +2693,7 @@
       "postalCode": "1630",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:50.622Z",
+      "validThrough": "2026-12-12T21:38:20.931Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2728,7 +2728,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Medizinische-Praxisassistenz--a----60-100--_JR07310-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:49.947Z",
+      "crawledAt": "2026-11-12T21:38:20.261Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2780,7 +2780,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:49.947Z",
+      "validThrough": "2026-12-12T21:38:20.261Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2815,7 +2815,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur-Schtzenstrasse-HQ/Apotheker-in--a--50-100--schweizweit_JR06861",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:49.272Z",
+      "crawledAt": "2026-11-12T21:38:19.598Z",
       "addressLocality": "Winterthur Schützenstrasse (HQ)",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2865,7 +2865,7 @@
       "postalCode": "8001",
       "streetAddress": "Winterthur Schützenstrasse (HQ)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:49.272Z",
+      "validThrough": "2026-12-12T21:38:19.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2900,7 +2900,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Fachfrau---Fachmann-Apotheke--a--60-100--schweizweit_JR06938",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:48.530Z",
+      "crawledAt": "2026-11-12T21:38:18.905Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2964,7 +2964,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:22:48.530Z",
+      "validThrough": "2026-12-12T21:38:18.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2999,7 +2999,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Medizinische-Praxisassistenz--a--50-100--schweizweit_JR06937",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:47.840Z",
+      "crawledAt": "2026-11-12T21:38:18.238Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3063,7 +3063,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:22:47.840Z",
+      "validThrough": "2026-12-12T21:38:18.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3098,7 +3098,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Physiotherapeut-in--a--40-100--schweizweit_JR06936",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:47.149Z",
+      "crawledAt": "2026-11-12T21:38:17.567Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3162,7 +3162,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:22:47.149Z",
+      "validThrough": "2026-12-12T21:38:17.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3197,7 +3197,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Fachrztin---Facharzt-Allgemein-Innere-Medizin--a--40-100--schweizweit_JR06933",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:46.437Z",
+      "crawledAt": "2026-11-12T21:38:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3261,7 +3261,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:22:46.437Z",
+      "validThrough": "2026-12-12T21:38:16.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3296,7 +3296,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--80-100-_JR06608",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:45.743Z",
+      "crawledAt": "2026-11-12T21:38:16.206Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3346,7 +3346,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:45.743Z",
+      "validThrough": "2026-12-12T21:38:16.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3381,7 +3381,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/XMLNAME--Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80-100----Basel-Toujours_JR07365",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:45.058Z",
+      "crawledAt": "2026-11-12T21:38:15.551Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3431,7 +3431,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:45.058Z",
+      "validThrough": "2026-12-12T21:38:15.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3466,7 +3466,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Fachperson--MPA--fr-Sptdienste--a--40-60----Zrich-Permanence-HB_JR07469",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:44.384Z",
+      "crawledAt": "2026-11-12T21:38:14.882Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3516,7 +3516,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:44.384Z",
+      "validThrough": "2026-12-12T21:38:14.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3551,7 +3551,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Grand-Lancy/Apprentie-assistante-mdicale_JR06753",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:43.650Z",
+      "crawledAt": "2026-11-12T21:38:14.208Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3598,7 +3598,7 @@
       "postalCode": "1213",
       "streetAddress": "Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:43.650Z",
+      "validThrough": "2026-12-12T21:38:14.208Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3633,7 +3633,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Apprentie-assistante-mdicale--tous-genres-_JR07152",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:42.964Z",
+      "crawledAt": "2026-11-12T21:38:13.551Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3683,7 +3683,7 @@
       "postalCode": "1860",
       "streetAddress": "Aigle (MC)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:42.964Z",
+      "validThrough": "2026-12-12T21:38:13.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3692,7 +3692,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-vevey",
         "en": "apprentice-medical-assistant-all-kinds-medbase-vevey",
-        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
+        "de": "lehrlingsarzt-alle-arten-medbase-vevey",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmwzw"
       },
       "company": "Medbase",
@@ -3718,7 +3718,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Vevey/Apprentie-assistante-mdicale--tous-genres-_JR07151",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:42.290Z",
+      "crawledAt": "2026-11-12T21:38:12.875Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3739,8 +3739,7 @@
       "jobReqId": "JR07151",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
-        "lehrlingsarzt-alle-arten-medbase-vevey"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3751,7 +3750,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
         ],
         "de": [
-          "lehrlingsarzt-alle-arten-medbase-vevey"
+          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -3774,7 +3773,7 @@
       "postalCode": "1800",
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:42.290Z",
+      "validThrough": "2026-12-12T21:38:12.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3783,7 +3782,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-lausanne",
         "en": "apprentice-medical-assistant-all-kinds-medbase-lausanne",
-        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
+        "de": "lehrlingsarzt-alle-arten-medbase-lausanne",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmxs5"
       },
       "company": "Medbase",
@@ -3809,7 +3808,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Apprentie-assistante-mdicale--tous-genres-_JR07037",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:41.607Z",
+      "crawledAt": "2026-11-12T21:38:12.213Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3830,8 +3829,7 @@
       "jobReqId": "JR07037",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
-        "lehrlingsarzt-alle-arten-medbase-lausanne"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3842,7 +3840,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
         ],
         "de": [
-          "lehrlingsarzt-alle-arten-medbase-lausanne"
+          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -3865,7 +3863,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:41.607Z",
+      "validThrough": "2026-12-12T21:38:12.213Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3900,7 +3898,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Apprentie-assistante-mdicale--tous-genres--100-_JR07281",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:40.903Z",
+      "crawledAt": "2026-11-12T21:38:11.548Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3952,7 +3950,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:40.903Z",
+      "validThrough": "2026-12-12T21:38:11.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3961,7 +3959,7 @@
       "slugByLocale": {
         "it": "assistente-medico-apprendista-medbase-bulle",
         "en": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
-        "de": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
+        "de": "auszubildender-arzt-medbase-bulle",
         "fr": "apprenti-e-assistant-e-medical-e-medbase-ch"
       },
       "company": "Medbase",
@@ -3987,7 +3985,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Apprenti-e-assistant-e-mdical-e_JR06840",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:40.230Z",
+      "crawledAt": "2026-11-12T21:38:10.890Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4008,8 +4006,7 @@
       "jobReqId": "JR06840",
       "previousSlugs": [
         "apprenti-e-assistant-e-medical-e-medbase-ch",
-        "apprenti-e-assistant-e-medical-e-medbase-ch-2",
-        "auszubildender-arzt-medbase-bulle"
+        "apprenti-e-assistant-e-medical-e-medbase-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4017,7 +4014,7 @@
           "apprenti-e-assistant-e-medical-e-medbase-ch-2"
         ],
         "de": [
-          "auszubildender-arzt-medbase-bulle"
+          "apprenti-e-assistant-e-medical-e-medbase-ch-2"
         ]
       },
       "firstSeenAt": "2026-07-31T22:19:14.606Z",
@@ -4037,7 +4034,7 @@
       "postalCode": "1630",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:40.230Z",
+      "validThrough": "2026-12-12T21:38:10.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4072,7 +4069,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Facharzt-Fachrztin-Physikalische-Medizin-und-Rehabilitation-oder-Orthopdische-Chirurgie--a--80-100-_JR07527",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:39.536Z",
+      "crawledAt": "2026-11-12T21:38:10.220Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4122,7 +4119,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:39.536Z",
+      "validThrough": "2026-12-12T21:38:10.220Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4157,7 +4154,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Allschwil/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06875",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:38.856Z",
+      "crawledAt": "2026-11-12T21:38:09.540Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4209,7 +4206,7 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:38.856Z",
+      "validThrough": "2026-12-12T21:38:09.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4244,7 +4241,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Lehrstelle-2027---Med-Praxisassistentin---Med-Praxisassistent--a-_JR07224",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:38.171Z",
+      "crawledAt": "2026-11-12T21:38:08.880Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4318,7 +4315,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:38.171Z",
+      "validThrough": "2026-12-12T21:38:08.880Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4352,7 +4349,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06818",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:37.496Z",
+      "crawledAt": "2026-11-12T21:38:08.211Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4402,7 +4399,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:37.496Z",
+      "validThrough": "2026-12-12T21:38:08.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4437,7 +4434,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06751",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:36.770Z",
+      "crawledAt": "2026-11-12T21:38:07.525Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4501,7 +4498,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:22:36.770Z",
+      "validThrough": "2026-12-12T21:38:07.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4536,7 +4533,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a----Zrich-Industrie_JR06955",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:36.096Z",
+      "crawledAt": "2026-11-12T21:38:06.850Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4586,7 +4583,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:36.096Z",
+      "validThrough": "2026-12-12T21:38:06.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4621,7 +4618,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06738",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:35.401Z",
+      "crawledAt": "2026-11-12T21:38:06.171Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4684,7 +4681,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:35.401Z",
+      "validThrough": "2026-12-12T21:38:06.171Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4719,7 +4716,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06743",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:34.711Z",
+      "crawledAt": "2026-11-12T21:38:05.492Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4782,7 +4779,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:34.711Z",
+      "validThrough": "2026-12-12T21:38:05.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4792,7 +4789,7 @@
         "it": "farmacista-in-a-40-60-medbase-basel",
         "en": "pharmacist-in-a-40-60-medbase-basel",
         "de": "apotheker-in-a-40-60-medbase-ch",
-        "fr": "pharmacie-en-a-40-60-medbase-basel"
+        "fr": "pharmacien-ne-a-40-60-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -4817,7 +4814,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Apotheker-in--a--40-60-_JR06625",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:34.010Z",
+      "crawledAt": "2026-11-12T21:38:04.812Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4856,7 +4853,7 @@
         "fr": [
           "apotheker-in-a-40-60-medbase-ch",
           "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-          "pharmacien-ne-a-40-60-medbase-basel"
+          "pharmacie-en-a-40-60-medbase-basel"
         ]
       },
       "previousSlugs": [
@@ -4866,7 +4863,7 @@
         "managing-director-r-pharmacist-in-a-100-medbase-basel",
         "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
         "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-        "pharmacien-ne-a-40-60-medbase-basel"
+        "pharmacie-en-a-40-60-medbase-basel"
       ],
       "firstSeenAt": "2026-07-04T11:44:29.235Z",
       "salaryMin": 62000,
@@ -4885,7 +4882,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:34.010Z",
+      "validThrough": "2026-12-12T21:38:04.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4920,7 +4917,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz-80-100---a-_JR06894-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:33.321Z",
+      "crawledAt": "2026-11-12T21:38:04.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4972,7 +4969,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:33.321Z",
+      "validThrough": "2026-12-12T21:38:04.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5007,7 +5004,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Grand-Lancy/Mdecin-spcialiste--tous-genres--80---100-_JR07603",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:32.610Z",
+      "crawledAt": "2026-11-12T21:38:03.469Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5070,7 +5067,7 @@
       "postalCode": "1213",
       "streetAddress": "Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:32.610Z",
+      "validThrough": "2026-12-12T21:38:03.469Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5105,7 +5102,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Luzern/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--70-_JR07552",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:31.934Z",
+      "crawledAt": "2026-11-12T21:38:02.806Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5155,7 +5152,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:31.934Z",
+      "validThrough": "2026-12-12T21:38:02.806Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5190,7 +5187,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Physiotherapeut-in--a--60-100----Basel-Heuwaage_JR05946",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:31.246Z",
+      "crawledAt": "2026-11-12T21:38:02.129Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5240,7 +5237,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:31.246Z",
+      "validThrough": "2026-12-12T21:38:02.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5275,7 +5272,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Pharmaassistentin-fr-Mitarbeit-Empfang-und-Stv-Pharmaassistentin--a--40--80----Zrich-Permanence_JR07573",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:30.567Z",
+      "crawledAt": "2026-11-12T21:38:01.474Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5325,7 +5322,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:30.567Z",
+      "validThrough": "2026-12-12T21:38:01.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5360,7 +5357,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Medizinische-Praxisassistenz--a----80-100-_JR07429",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:29.873Z",
+      "crawledAt": "2026-11-12T21:38:00.796Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -5427,7 +5424,7 @@
       "postalCode": "8570",
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:29.873Z",
+      "validThrough": "2026-12-12T21:38:00.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5462,7 +5459,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Physiotherapeut-in--a--50-_JR06459",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:29.102Z",
+      "crawledAt": "2026-11-12T21:37:59.890Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -5514,7 +5511,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:29.102Z",
+      "validThrough": "2026-12-12T21:37:59.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5549,7 +5546,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kloten/Arztsekretr-in--a--80-100-_JR07610",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:28.433Z",
+      "crawledAt": "2026-11-12T21:37:59.230Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5599,7 +5596,7 @@
       "postalCode": "8302",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:28.433Z",
+      "validThrough": "2026-12-12T21:37:59.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5634,7 +5631,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Lehrstelle-2027---Fachfrau---Fachmann-Apotheke--a-_JR06876",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:27.772Z",
+      "crawledAt": "2026-11-12T21:37:58.565Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5689,7 +5686,7 @@
       "postalCode": "8600",
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:27.772Z",
+      "validThrough": "2026-12-12T21:37:58.565Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5724,7 +5721,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Fachrztin-arzt-AIM-oder-Praktische-r-rztin-Arzt--a--80-100-_JR07589-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:27.073Z",
+      "crawledAt": "2026-11-12T21:37:57.908Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5776,7 +5773,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:27.073Z",
+      "validThrough": "2026-12-12T21:37:57.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5811,7 +5808,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Luzern/Medizinische-Praxisassistenz--a--80-100-_JR07667",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:26.387Z",
+      "crawledAt": "2026-11-12T21:37:57.240Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5863,7 +5860,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:26.387Z",
+      "validThrough": "2026-12-12T21:37:57.240Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5898,7 +5895,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Leitung-Medical-Center--a--80-100-_JR07697",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:25.702Z",
+      "crawledAt": "2026-11-12T21:37:56.584Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5945,7 +5942,7 @@
       "postalCode": "3770",
       "streetAddress": "Zweisimmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:25.702Z",
+      "validThrough": "2026-12-12T21:37:56.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5980,7 +5977,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Physiotherapeut-in--a--80-100-_JR07695-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:25.032Z",
+      "crawledAt": "2026-11-12T21:37:55.932Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6047,7 +6044,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:25.032Z",
+      "validThrough": "2026-12-12T21:37:55.932Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6057,7 +6054,7 @@
         "it": "fisioterapista-in-a-40-medbase-uzwil",
         "en": "physiotherapist-in-a-40-medbase-uzwil",
         "de": "physiotherapeut-in-a-40-medbase-ch",
-        "fr": "physiotherapeute-en-a-40-medbase-uzwil"
+        "fr": "kinesitherapeute-a-40-medbase-uzwil"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -6082,7 +6079,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uzwil/Physiotherapeut-in--a--40-_JR07141",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:24.357Z",
+      "crawledAt": "2026-11-12T21:37:55.259Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6104,7 +6101,7 @@
       "previousSlugs": [
         "physiotherapeut-in-a-40-medbase-ch",
         "physiotherapeut-in-a-40-medbase-uzwil",
-        "kinesitherapeute-a-40-medbase-uzwil"
+        "physiotherapeute-en-a-40-medbase-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6116,7 +6113,7 @@
         ],
         "fr": [
           "physiotherapeut-in-a-40-medbase-uzwil",
-          "kinesitherapeute-a-40-medbase-uzwil"
+          "physiotherapeute-en-a-40-medbase-uzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:03.938Z",
@@ -6136,17 +6133,17 @@
       "postalCode": "9240",
       "streetAddress": "Uzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:24.357Z",
+      "validThrough": "2026-12-12T21:37:55.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "medbase-b5825a90149b",
       "slug": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
       "slugByLocale": {
-        "it": "assistenza-medica-a-60-80-medbase-schaffhausen",
+        "it": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
         "en": "medical-practice-assistance-a-60-80-medbase-schaffhausen",
         "de": "medizinische-praxisassistenz-a-60-80-medbase-ch",
-        "fr": "assistance-medicale-a-60-80-medbase-schaffhausen"
+        "fr": "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -6171,7 +6168,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Medizinische-Praxisassistenz--a--60-80-_JR07219",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:23.668Z",
+      "crawledAt": "2026-11-12T21:37:54.593Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -6193,19 +6190,21 @@
       "previousSlugs": [
         "medizinische-praxisassistenz-a-60-80-medbase-ch",
         "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-        "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
+        "assistenza-medica-a-60-80-medbase-schaffhausen",
+        "assistance-medicale-a-60-80-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-60-80-medbase-ch",
-          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
+          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
+          "assistenza-medica-a-60-80-medbase-schaffhausen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
         ],
         "fr": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-          "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
+          "assistance-medicale-a-60-80-medbase-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:43:57.081Z",
@@ -6225,7 +6224,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:23.668Z",
+      "validThrough": "2026-12-12T21:37:54.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6260,7 +6259,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Lehrstelle-Fachmann--frau-Apotheke-EFZ-2027--a----Zrich-Berninaplatz_JR07717",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:23.015Z",
+      "crawledAt": "2026-11-12T21:37:53.927Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6334,7 +6333,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:23.015Z",
+      "validThrough": "2026-12-12T21:37:53.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6369,7 +6368,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Fachfrau---Fachmann-Gesundheit--a--80-100-_JR07693",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:22.312Z",
+      "crawledAt": "2026-11-12T21:37:53.241Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6419,7 +6418,7 @@
       "postalCode": "3770",
       "streetAddress": "Zweisimmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:22:22.312Z",
+      "validThrough": "2026-12-13T21:37:53.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6454,7 +6453,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wattwil/Advanced-Practice-Nurse--a--50-100-_JR06019",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:21.644Z",
+      "crawledAt": "2026-11-12T21:37:52.563Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6501,14 +6500,14 @@
       "postalCode": "9630",
       "streetAddress": "Wattwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:21.644Z",
+      "validThrough": "2026-12-16T21:37:52.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "medbase-5d5a130eab24",
       "slug": "specialista-in-reumatologia-50-60-a-medbase-baden",
       "slugByLocale": {
-        "it": "riumatologia-specialistica-50-60-a-medbase-baden",
+        "it": "specialista-in-reumatologia-50-60-a-medbase-baden",
         "en": "specialist-rheumatology-50-60-a-medbase-baden",
         "de": "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
         "fr": "specialiste-en-rhumatologie-50-60-a-medbase-baden"
@@ -6536,7 +6535,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Facharzt-Endokrinologie-50-60---m-w-d-_JR04333",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:20.571Z",
+      "crawledAt": "2026-11-12T21:37:51.564Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6556,11 +6555,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04333",
       "previousSlugs": [
-        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
+        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
+        "riumatologia-specialistica-50-60-a-medbase-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
+          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
+          "riumatologia-specialistica-50-60-a-medbase-baden"
         ],
         "en": [
           "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
@@ -6586,7 +6587,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:22:20.571Z",
+      "validThrough": "2026-12-17T21:37:51.564Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6621,7 +6622,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Fachrztin---Facharzt-Allgemeine-Innere-Medizin---a--70-100-_JR07664",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:19.901Z",
+      "crawledAt": "2026-11-12T21:37:50.894Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6671,7 +6672,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:22:19.901Z",
+      "validThrough": "2026-12-17T21:37:50.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6706,7 +6707,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kloten/Fachrztin-Arzt-AIM-oder-Praktische-r-rztin-Arzt--a--80-100-_JR07756-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:19.244Z",
+      "crawledAt": "2026-11-12T21:37:50.239Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6758,7 +6759,7 @@
       "postalCode": "8302",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:22:19.244Z",
+      "validThrough": "2026-12-22T21:37:50.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6793,7 +6794,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Teufen/Medizinische-Praxisassistenz--a--80-_JR07570",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:18.567Z",
+      "crawledAt": "2026-11-12T21:37:49.581Z",
       "addressLocality": "Teufen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -6847,7 +6848,7 @@
       "postalCode": "9053",
       "streetAddress": "Teufen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:22:18.567Z",
+      "validThrough": "2026-12-22T21:37:49.581Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6882,7 +6883,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Leitung-Medical-Center--a--80-100----Zrich-Lwenstrasse_JR07782",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:17.893Z",
+      "crawledAt": "2026-11-12T21:37:48.909Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6929,7 +6930,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:22:17.893Z",
+      "validThrough": "2026-12-24T21:37:48.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6964,7 +6965,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80-100-_JR07508",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:17.218Z",
+      "crawledAt": "2026-11-12T21:37:48.222Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7020,7 +7021,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:17.218Z",
+      "validThrough": "2026-12-27T21:37:48.222Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7055,7 +7056,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wattwil/Fachperson-Medizinischer-Praxisbetrieb_JR07771-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:16.550Z",
+      "crawledAt": "2026-11-12T21:37:47.553Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7105,7 +7106,7 @@
       "postalCode": "9630",
       "streetAddress": "Wattwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:22:16.550Z",
+      "validThrough": "2026-12-27T21:37:47.553Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7140,7 +7141,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bischofszell/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-oder-Praktische-r-rztin---Arzt--a--100-_JR06139",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:15.874Z",
+      "crawledAt": "2026-11-12T21:37:46.882Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7190,7 +7191,7 @@
       "postalCode": "9220",
       "streetAddress": "Bischofszell",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:22:15.874Z",
+      "validThrough": "2026-12-28T21:37:46.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7225,7 +7226,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bischofszell/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--100-_JR05647-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:15.174Z",
+      "crawledAt": "2026-11-12T21:37:46.201Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7277,7 +7278,7 @@
       "postalCode": "9220",
       "streetAddress": "Bischofszell",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:22:15.174Z",
+      "validThrough": "2026-12-28T21:37:46.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7311,7 +7312,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Hinwil/Medizinische-Praxisassistenz--a--80-100-_JR07577",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:14.500Z",
+      "crawledAt": "2026-11-12T21:37:45.525Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7369,7 +7370,7 @@
       "postalCode": "8340",
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:22:14.500Z",
+      "validThrough": "2026-12-29T21:37:45.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7404,7 +7405,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--60-100-_JR07826",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:13.817Z",
+      "crawledAt": "2026-11-12T21:37:44.860Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -7454,7 +7455,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:22:13.817Z",
+      "validThrough": "2026-12-30T21:37:44.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7488,7 +7489,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zug/Physiotherapeut-in--a--80-100-_JR07829",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:13.109Z",
+      "crawledAt": "2026-11-12T21:37:44.201Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -7534,7 +7535,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:22:13.109Z",
+      "validThrough": "2027-01-03T21:37:44.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7569,7 +7570,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--50-100-_JR07848",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:12.429Z",
+      "crawledAt": "2026-11-12T21:37:43.538Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -7619,7 +7620,7 @@
       "postalCode": "8580",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:12.429Z",
+      "validThrough": "2027-01-04T21:37:43.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7654,7 +7655,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80-100-_JR07856",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:11.747Z",
+      "crawledAt": "2026-11-12T21:37:42.871Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7706,7 +7707,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:11.747Z",
+      "validThrough": "2027-01-04T21:37:42.871Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7741,7 +7742,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz--a--80-100----Zrich-Lwenstrasse_JR07754",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:11.072Z",
+      "crawledAt": "2026-11-12T21:37:42.200Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7791,7 +7792,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:11.072Z",
+      "validThrough": "2027-01-04T21:37:42.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7826,7 +7827,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Meiringen/Fachfrau---Fachmann-Apotheke-EFZ--a----Drogist-in-80-100-_JR07361",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:10.404Z",
+      "crawledAt": "2026-11-12T21:37:41.536Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7870,7 +7871,7 @@
       "postalCode": "3860",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:10.404Z",
+      "validThrough": "2026-12-12T21:37:41.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7904,7 +7905,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Medizinische-Praxisassistenz--a--80---100-_JR07759",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:09.740Z",
+      "crawledAt": "2026-11-12T21:37:40.867Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7970,7 +7971,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:22:09.740Z",
+      "validThrough": "2027-01-06T21:37:40.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8005,7 +8006,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Medizinische-Praxisassistenz--a-60-80-_JR07313",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:09.073Z",
+      "crawledAt": "2026-11-12T21:37:40.203Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -8059,7 +8060,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:09.073Z",
+      "validThrough": "2026-12-12T21:37:40.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8094,7 +8095,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Glattbrugg/Fachfrau---Fachmann-Apotheke--a--70-80----Glattbrugg_JR07593",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:08.399Z",
+      "crawledAt": "2026-11-12T21:37:39.534Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8145,7 +8146,7 @@
       "postalCode": "8152",
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:22:08.399Z",
+      "validThrough": "2027-01-12T21:37:39.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8179,7 +8180,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kloten/Medizinische-Praxisassistenz--a--80-100-_JR07824",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:07.722Z",
+      "crawledAt": "2026-11-12T21:37:38.865Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8233,7 +8234,7 @@
       "postalCode": "8302",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:22:07.722Z",
+      "validThrough": "2027-01-12T21:37:38.865Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8268,7 +8269,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wattwil/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80---100----Wattwil_JR07816",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:07.055Z",
+      "crawledAt": "2026-11-12T21:37:38.207Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8323,7 +8324,7 @@
       "postalCode": "9630",
       "streetAddress": "Wattwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:22:07.055Z",
+      "validThrough": "2027-01-03T21:37:38.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8357,7 +8358,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur-iMpuls-Wellcare-AG/Mitarbeiter-in--a--Content-Marketing---befristet-fr-6-Monate_JR07875",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:06.366Z",
+      "crawledAt": "2026-11-12T21:37:37.548Z",
       "addressLocality": "Winterthur iMpuls Wellcare AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8407,7 +8408,7 @@
       "postalCode": "5000",
       "streetAddress": "Winterthur iMpuls Wellcare AG",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:22:06.366Z",
+      "validThrough": "2027-01-18T21:37:37.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8442,7 +8443,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Diepoldsau/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-oder-Praktische-rztin--Arzt--a--50-90-_JR07890",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:05.710Z",
+      "crawledAt": "2026-11-12T21:37:36.883Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8494,7 +8495,7 @@
       "postalCode": "9444",
       "streetAddress": "Diepoldsau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:05.710Z",
+      "validThrough": "2027-01-19T21:37:36.883Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8529,7 +8530,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Arztsekretr-in--a--80-100----Basel-Toujours_JR07922",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:04.693Z",
+      "crawledAt": "2026-11-12T21:37:35.894Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8579,7 +8580,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:22:04.693Z",
+      "validThrough": "2027-01-19T21:37:35.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8614,7 +8615,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Arzt_JR07790",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:04.000Z",
+      "crawledAt": "2026-11-12T21:37:35.226Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8679,7 +8680,7 @@
       "postalCode": "9500",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:22:04.000Z",
+      "validThrough": "2026-12-29T21:37:35.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8714,7 +8715,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Reinach/Mitarbeiter-in--a--im-Reformbereich-50-80-_JR07899",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:03.272Z",
+      "crawledAt": "2026-11-12T21:37:34.574Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -8767,7 +8768,7 @@
       "postalCode": "4153",
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:22:03.272Z",
+      "validThrough": "2027-01-24T21:37:34.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8802,7 +8803,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Mitarbeitende-Empfang--a--60-100----Basel-Toujours_JR07924",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:02.608Z",
+      "crawledAt": "2026-11-12T21:37:33.921Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8852,7 +8853,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:22:02.608Z",
+      "validThrough": "2027-01-24T21:37:33.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8887,7 +8888,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Secrtaire-mdicale--tous-genres--80-_JR07917",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:22:01.919Z",
+      "crawledAt": "2026-11-12T21:37:33.249Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -8937,7 +8938,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:22:01.919Z",
+      "validThrough": "2027-01-24T21:37:33.249Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8971,7 +8972,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Fachfrau---Fachmann-Apotheke--a--EFZ-80-_JR07839",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:01.249Z",
+      "crawledAt": "2026-11-12T21:37:32.539Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9017,7 +9018,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:01.249Z",
+      "validThrough": "2027-01-04T21:37:32.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9051,7 +9052,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Oensingen/Fachfrau---Fachmann-Apotheke--a--EFZ-60-_JR07855",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:22:00.568Z",
+      "crawledAt": "2026-11-12T21:37:31.866Z",
       "addressLocality": "Oensingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9101,7 +9102,7 @@
       "postalCode": "4702",
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:22:00.568Z",
+      "validThrough": "2027-01-11T21:37:31.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9136,7 +9137,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/rztliche-Co-Leitung--a--80-100-_JR07938",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:59.897Z",
+      "crawledAt": "2026-11-12T21:37:31.192Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9186,7 +9187,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:21:59.897Z",
+      "validThrough": "2027-01-24T21:37:31.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9221,7 +9222,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--80-100-_JR07902",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:59.235Z",
+      "crawledAt": "2026-11-12T21:37:30.516Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9287,7 +9288,7 @@
         "checkedAt": "2026-11-09T15:42:58.574Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:21:59.235Z",
+      "validThrough": "2027-01-25T21:37:30.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9321,7 +9322,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/XMLNAME--Medizinische-Praxisassistenz--a--40-100----Zrich-HB-Permanence_JR07942-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:58.558Z",
+      "crawledAt": "2026-11-12T21:37:29.855Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9371,7 +9372,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:21:58.558Z",
+      "validThrough": "2027-01-26T21:37:29.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9406,7 +9407,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Geschftsfhrende-r-Apotheker-in--a--100-_JR07810",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:57.871Z",
+      "crawledAt": "2026-11-12T21:37:29.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9450,7 +9451,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:21:57.871Z",
+      "validThrough": "2026-12-31T21:37:29.164Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9485,7 +9486,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Fachfrau---Fachmann-Apotheke--a--60-_JR07649-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:57.194Z",
+      "crawledAt": "2026-11-12T21:37:28.492Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9567,7 +9568,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:57.194Z",
+      "validThrough": "2026-12-12T21:37:28.492Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9602,7 +9603,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Allschwil/Apotheker-in--a--80---100-_JR07726-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:56.501Z",
+      "crawledAt": "2026-11-12T21:37:27.824Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -9659,7 +9660,7 @@
       "postalCode": "4123",
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:21:56.501Z",
+      "validThrough": "2026-12-16T21:37:27.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9693,7 +9694,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wetzikon/Medizinische-Praxisassistenz--a--80-100-_JR07406",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:55.848Z",
+      "crawledAt": "2026-11-12T21:37:27.149Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9751,7 +9752,7 @@
       "postalCode": "8620",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:55.848Z",
+      "validThrough": "2026-12-12T21:37:27.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9786,7 +9787,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Fachrztin---Facharzt-fr-Allgemeine-Innere-Medizin--a--80-100-_JR07221",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:55.172Z",
+      "crawledAt": "2026-11-12T21:37:26.477Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9836,7 +9837,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:55.172Z",
+      "validThrough": "2026-12-12T21:37:26.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9871,7 +9872,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Fachfrau---Fachmann-Apotheke-EFZ--a--40---100-_JR07083",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:54.505Z",
+      "crawledAt": "2026-11-12T21:37:25.801Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9923,7 +9924,7 @@
       "postalCode": "8600",
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:54.505Z",
+      "validThrough": "2026-12-12T21:37:25.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9958,7 +9959,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Professional-Medical_JR04227",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:53.837Z",
+      "crawledAt": "2026-11-12T21:37:25.112Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -10008,7 +10009,7 @@
       "postalCode": "8500",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:21:53.837Z",
+      "validThrough": "2027-01-28T21:37:25.112Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10043,7 +10044,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Medizinische-Praxisassistenz-60-100---a----Zrich-Oerlikon_JR06884",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:53.174Z",
+      "crawledAt": "2026-11-12T21:37:24.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10093,7 +10094,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:21:53.174Z",
+      "validThrough": "2026-12-20T21:37:24.438Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10128,7 +10129,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Luzern/Spezialist-in-Physiotherapie-70-100----Luzern-Allmend_JR07960",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:52.496Z",
+      "crawledAt": "2026-11-12T21:37:23.768Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10178,7 +10179,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:21:52.496Z",
+      "validThrough": "2027-01-28T21:37:23.768Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10213,7 +10214,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Med-Praxiskoordinator-in-klinische-Richtung---Med-Praxisassistenz-60---Mi--Do--Fr----Kriens-Mattenhof_JR06908-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:51.816Z",
+      "crawledAt": "2026-11-12T21:37:23.108Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10257,7 +10258,7 @@
       "postalCode": "6010",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:21:51.816Z",
+      "validThrough": "2027-01-31T21:37:23.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10292,7 +10293,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Facharzt-Allgemeine-Innere-Medizin--w-m-d--60-100-_JR03906",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:51.135Z",
+      "crawledAt": "2026-11-12T21:37:22.432Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10344,7 +10345,7 @@
       "postalCode": "6010",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:21:51.135Z",
+      "validThrough": "2026-12-22T21:37:22.432Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10379,7 +10380,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Facharzt-Ophthalmologie--w-m-d--40----60-_JR03725",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:50.429Z",
+      "crawledAt": "2026-11-12T21:37:21.751Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10429,7 +10430,7 @@
       "postalCode": "6010",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:50.429Z",
+      "validThrough": "2026-12-12T21:37:21.751Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10464,7 +10465,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Arztsekretr-in--a--80-100----Zrich-HB-Permanence_JR07970",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:49.764Z",
+      "crawledAt": "2026-11-12T21:37:21.094Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10514,7 +10515,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:21:49.764Z",
+      "validThrough": "2027-01-31T21:37:21.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10548,7 +10549,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Medizinische-Praxisassistenz--a--80-100-_JR07944",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:49.061Z",
+      "crawledAt": "2026-11-12T21:37:20.423Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -10602,7 +10603,7 @@
       "postalCode": "8580",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:21:49.061Z",
+      "validThrough": "2027-01-31T21:37:20.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10637,7 +10638,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wittenbach/Apotheker-in--a--30-_JR07476-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:48.373Z",
+      "crawledAt": "2026-11-12T21:37:19.763Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10706,7 +10707,7 @@
       "postalCode": "9300",
       "streetAddress": "Wittenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:48.373Z",
+      "validThrough": "2026-12-12T21:37:19.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10741,7 +10742,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Jona/Fachfrau---Fachmann-Apotheke--a--80-100--_JR07964",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:47.698Z",
+      "crawledAt": "2026-11-12T21:37:19.092Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10791,7 +10792,7 @@
       "postalCode": "8645",
       "streetAddress": "Jona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:47.698Z",
+      "validThrough": "2027-02-01T21:37:19.092Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10826,7 +10827,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Biel/Fachfrau--mann-Apotheke--a--80-100-_JR07449",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:46.980Z",
+      "crawledAt": "2026-11-12T21:37:18.410Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10877,7 +10878,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:46.980Z",
+      "validThrough": "2027-02-01T21:37:18.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10911,7 +10912,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Medizinische-Praxisassistenz--a--60-100----Wil_JR07968",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:46.302Z",
+      "crawledAt": "2026-11-12T21:37:17.732Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10961,7 +10962,7 @@
       "postalCode": "9500",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:46.302Z",
+      "validThrough": "2027-02-01T21:37:17.732Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10996,7 +10997,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Affoltern-am-Albis/Geschftsfhrende-r-Apotheker-in--a--80-100-_JR07517",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:45.624Z",
+      "crawledAt": "2026-11-12T21:37:17.059Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11040,7 +11041,7 @@
       "postalCode": "8910",
       "streetAddress": "Affoltern am Albis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:45.624Z",
+      "validThrough": "2027-02-02T21:37:17.059Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11075,7 +11076,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Medizinische-Masseur-in_JR08017",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:44.947Z",
+      "crawledAt": "2026-11-12T21:37:16.394Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11125,7 +11126,7 @@
       "postalCode": "9500",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:21:44.947Z",
+      "validThrough": "2027-02-03T21:37:16.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11160,7 +11161,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Ddingen/Fachrztin---Facharzt-Kardiologie--a----50-100-_JR07215",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:44.283Z",
+      "crawledAt": "2026-11-12T21:37:15.721Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11210,7 +11211,7 @@
       "postalCode": "3186",
       "streetAddress": "Düdingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:44.283Z",
+      "validThrough": "2027-02-04T21:37:15.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11245,7 +11246,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Mdecin-cadre-permanence-mdicale--tous-genres--80---100-_JR07291",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:21:43.605Z",
+      "crawledAt": "2026-11-12T21:37:15.052Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11297,7 +11298,7 @@
       "postalCode": "1630",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:43.605Z",
+      "validThrough": "2026-12-12T21:37:15.052Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11332,7 +11333,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Reinach/Apotheker-in--a--80-100-_JR08032",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:42.946Z",
+      "crawledAt": "2026-11-12T21:37:14.345Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -11376,7 +11377,7 @@
       "postalCode": "4153",
       "streetAddress": "Reinach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:21:42.946Z",
+      "validThrough": "2027-02-07T21:37:14.345Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11411,7 +11412,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur-Springerpool/Apotheker-in-in-Springerfunktion_JR08026",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:42.282Z",
+      "crawledAt": "2026-11-12T21:37:13.674Z",
       "addressLocality": "Winterthur Springerpool",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11457,7 +11458,7 @@
       "postalCode": "8001",
       "streetAddress": "Winterthur Springerpool",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:42.282Z",
+      "validThrough": "2027-02-08T21:37:13.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11492,7 +11493,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Leitung-Medizinischer-Praxisbetrieb--Praxiskoordinator-in----a--80-100-_JR08046",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:41.588Z",
+      "crawledAt": "2026-11-12T21:37:13.018Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -11542,7 +11543,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:41.588Z",
+      "validThrough": "2027-02-08T21:37:13.018Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11577,7 +11578,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/St-Gallen/Medizinische-Praxisassistenz-80-100---a-_JR08011",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:40.887Z",
+      "crawledAt": "2026-11-12T21:37:12.364Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11627,7 +11628,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:40.887Z",
+      "validThrough": "2027-02-02T21:37:12.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11662,7 +11663,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Arztsekretr-in--a--80-100-_JR08045-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:40.242Z",
+      "crawledAt": "2026-11-12T21:37:11.687Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11698,7 +11699,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:40.242Z",
+      "validThrough": "2027-02-08T21:37:11.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11733,7 +11734,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uster/Fachfrau---Fachmann-Apotheke--a--20-_JR07135",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:39.565Z",
+      "crawledAt": "2026-11-12T21:37:11.014Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11783,7 +11784,7 @@
       "postalCode": "8610",
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:21:39.565Z",
+      "validThrough": "2026-12-12T21:37:11.014Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11818,7 +11819,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Thun/Medizinische-Praxisassistenz--a--60-100-_JR08009-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:38.865Z",
+      "crawledAt": "2026-11-12T21:37:10.338Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11868,7 +11869,7 @@
       "postalCode": "3600",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:38.865Z",
+      "validThrough": "2027-02-08T21:37:10.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11903,7 +11904,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Medizinische-r-Praxisassistent-in--a--80-100----Basel-St-Elisabethen_JR07506",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:38.171Z",
+      "crawledAt": "2026-11-12T21:37:09.660Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -11958,7 +11959,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:21:38.171Z",
+      "validThrough": "2026-12-22T21:37:09.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11992,7 +11993,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Assistante-en-pharmacie--tous-genres--80---100-_JR08031",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:21:37.451Z",
+      "crawledAt": "2026-11-12T21:37:08.998Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -12042,7 +12043,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:21:37.451Z",
+      "validThrough": "2027-02-09T21:37:08.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12076,7 +12077,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Medizinische-Praxisassistenz--a---80---100-_JR08022",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:36.736Z",
+      "crawledAt": "2026-11-12T21:37:08.279Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12126,7 +12127,7 @@
       "postalCode": "3236",
       "streetAddress": "Gampelen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:21:36.736Z",
+      "validThrough": "2027-02-09T21:37:08.279Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12161,7 +12162,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Fachfrau---Fachmann-Apotheke-EFZ--a--60---100-_JR07998",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:21:36.054Z",
+      "crawledAt": "2026-11-12T21:37:07.607Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12211,8 +12212,103 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:21:36.054Z",
+      "validThrough": "2027-02-09T21:37:07.607Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "medbase-9223ec7f4e04",
+      "slug": "medizinische-praxisassistenz-a-40-60-medbase-winterthur",
+      "slugByLocale": {
+        "de": "medizinische-praxisassistenz-a-40-60-medbase-ch",
+        "it": "medizinische-praxisassistenz-a-40-60-medbase-winterthur",
+        "en": "medizinische-praxisassistenz-a-40-60-medbase-winterthur",
+        "fr": "medizinische-praxisassistenz-a-40-60-medbase-winterthur"
+      },
+      "company": "Medbase",
+      "companyKey": "medbase",
+      "companyDomain": "medbase.ch",
+      "title": "Medizinische Praxisassistenz (a) 40% - 60%",
+      "titleByLocale": {
+        "de": "Medizinische Praxisassistenz (a) 40% - 60%",
+        "it": "Medizinische Praxisassistenz (a) 40% - 60%",
+        "en": "Medizinische Praxisassistenz (a) 40% - 60%",
+        "fr": "Medizinische Praxisassistenz (a) 40% - 60%"
+      },
+      "description": "Herzlich willkommen bei Medbase Winterthur Win4\n\nUnser modernes Zentrum Win4 steht für hervorragende Qualität in der hausärztlichen Grundversorgung.\nWir begleiten unsere Patientinnen und Patienten langfristig , ganzheitlich und auf hohem fachlichem Niveau – von der Prävention bis zur kontinuierlichen Betreuung chronischer Erkrankungen.\nNeben der Hausarztmedizin arbeiten bei uns auch Fachpersonen aus der Sportmedizin, Leistungsdiagnostik, Orthopädischen Chirurgie und Traumatologie, Physiotherapie sowie Osteopathie interprofessionell zusammen. In Zusammenarbeit mit dem Kantonsspital Winterthur profitieren unsere Patientinnen und Patienten von kurzen Wegen und einer vernetzten Versorgung .\nRund 40 Mitarbeitende gestalten gemeinsam eine qualitativ hochwertige und zukunftsorientierte Medizin. Dabei legen wir grossen Wert auf eine ausgewogene Work-Life-Balance – Teilzeitmodelle und flexible Arbeitszeiten sind bei uns möglich.\n\nDas kannst du bewegen\n\nAls MPA bist du die erste Kontaktperson für unsere Patientinnen und Patienten und sorgst für eine angenehme Praxiserfahrung. Medbase bietet dir ein dynamisch und sportliches Team, das Wert auf Qualität und Kollegialität legt.\n\n• Empfang und Betreuung von Patientinnen und Patienten, inklusive Agendaplanung und Terminkoordination\n\n• Durchführung von Laboruntersuchungen und EKGs\n\n• Assistenz bei kleinchirurgischen Eingriffen\n\n• Verwaltung und elektronische Abrechnung der Patientenakten\n\n• Sicherstellung reibungsloser Praxisabläufe\n\n• Kooperation mit dem Team bei administrativen Aufgaben\n\nWas du mitbringst\n\n• Ausbildung als Med. Praxisassistent/in EFZ\n\n• Organisationstalent und Freude an der Patientenbetreuung\n\n• Empathie und Flexibilität\n\n• Teamfähigkeit und Humor in herausfordernden Situationen\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
+      "descriptionByLocale": {
+        "de": "Herzlich willkommen bei Medbase Winterthur Win4\n\nUnser modernes Zentrum Win4 steht für hervorragende Qualität in der hausärztlichen Grundversorgung.\nWir begleiten unsere Patientinnen und Patienten langfristig , ganzheitlich und auf hohem fachlichem Niveau – von der Prävention bis zur kontinuierlichen Betreuung chronischer Erkrankungen.\nNeben der Hausarztmedizin arbeiten bei uns auch Fachpersonen aus der Sportmedizin, Leistungsdiagnostik, Orthopädischen Chirurgie und Traumatologie, Physiotherapie sowie Osteopathie interprofessionell zusammen. In Zusammenarbeit mit dem Kantonsspital Winterthur profitieren unsere Patientinnen und Patienten von kurzen Wegen und einer vernetzten Versorgung .\nRund 40 Mitarbeitende gestalten gemeinsam eine qualitativ hochwertige und zukunftsorientierte Medizin. Dabei legen wir grossen Wert auf eine ausgewogene Work-Life-Balance – Teilzeitmodelle und flexible Arbeitszeiten sind bei uns möglich.\n\nDas kannst du bewegen\n\nAls MPA bist du die erste Kontaktperson für unsere Patientinnen und Patienten und sorgst für eine angenehme Praxiserfahrung. Medbase bietet dir ein dynamisch und sportliches Team, das Wert auf Qualität und Kollegialität legt.\n\n• Empfang und Betreuung von Patientinnen und Patienten, inklusive Agendaplanung und Terminkoordination\n\n• Durchführung von Laboruntersuchungen und EKGs\n\n• Assistenz bei kleinchirurgischen Eingriffen\n\n• Verwaltung und elektronische Abrechnung der Patientenakten\n\n• Sicherstellung reibungsloser Praxisabläufe\n\n• Kooperation mit dem Team bei administrativen Aufgaben\n\nWas du mitbringst\n\n• Ausbildung als Med. Praxisassistent/in EFZ\n\n• Organisationstalent und Freude an der Patientenbetreuung\n\n• Empathie und Flexibilität\n\n• Teamfähigkeit und Humor in herausfordernden Situationen\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
+        "it": "Herzlich willkommen bei Medbase Winterthur Win4\n\nUnser modernes Zentrum Win4 steht für hervorragende Qualität in der hausärztlichen Grundversorgung.\nWir begleiten unsere Patientinnen und Patienten langfristig , ganzheitlich und auf hohem fachlichem Niveau – von der Prävention bis zur kontinuierlichen Betreuung chronischer Erkrankungen.\nNeben der Hausarztmedizin arbeiten bei uns auch Fachpersonen aus der Sportmedizin, Leistungsdiagnostik, Orthopädischen Chirurgie und Traumatologie, Physiotherapie sowie Osteopathie interprofessionell zusammen. In Zusammenarbeit mit dem Kantonsspital Winterthur profitieren unsere Patientinnen und Patienten von kurzen Wegen und einer vernetzten Versorgung .\nRund 40 Mitarbeitende gestalten gemeinsam eine qualitativ hochwertige und zukunftsorientierte Medizin. Dabei legen wir grossen Wert auf eine ausgewogene Work-Life-Balance – Teilzeitmodelle und flexible Arbeitszeiten sind bei uns möglich.\n\nDas kannst du bewegen\n\nAls MPA bist du die erste Kontaktperson für unsere Patientinnen und Patienten und sorgst für eine angenehme Praxiserfahrung. Medbase bietet dir ein dynamisch und sportliches Team, das Wert auf Qualität und Kollegialität legt.\n\n• Empfang und Betreuung von Patientinnen und Patienten, inklusive Agendaplanung und Terminkoordination\n\n• Durchführung von Laboruntersuchungen und EKGs\n\n• Assistenz bei kleinchirurgischen Eingriffen\n\n• Verwaltung und elektronische Abrechnung der Patientenakten\n\n• Sicherstellung reibungsloser Praxisabläufe\n\n• Kooperation mit dem Team bei administrativen Aufgaben\n\nWas du mitbringst\n\n• Ausbildung als Med. Praxisassistent/in EFZ\n\n• Organisationstalent und Freude an der Patientenbetreuung\n\n• Empathie und Flexibilität\n\n• Teamfähigkeit und Humor in herausfordernden Situationen\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
+        "en": "Herzlich willkommen bei Medbase Winterthur Win4\n\nUnser modernes Zentrum Win4 steht für hervorragende Qualität in der hausärztlichen Grundversorgung.\nWir begleiten unsere Patientinnen und Patienten langfristig , ganzheitlich und auf hohem fachlichem Niveau – von der Prävention bis zur kontinuierlichen Betreuung chronischer Erkrankungen.\nNeben der Hausarztmedizin arbeiten bei uns auch Fachpersonen aus der Sportmedizin, Leistungsdiagnostik, Orthopädischen Chirurgie und Traumatologie, Physiotherapie sowie Osteopathie interprofessionell zusammen. In Zusammenarbeit mit dem Kantonsspital Winterthur profitieren unsere Patientinnen und Patienten von kurzen Wegen und einer vernetzten Versorgung .\nRund 40 Mitarbeitende gestalten gemeinsam eine qualitativ hochwertige und zukunftsorientierte Medizin. Dabei legen wir grossen Wert auf eine ausgewogene Work-Life-Balance – Teilzeitmodelle und flexible Arbeitszeiten sind bei uns möglich.\n\nDas kannst du bewegen\n\nAls MPA bist du die erste Kontaktperson für unsere Patientinnen und Patienten und sorgst für eine angenehme Praxiserfahrung. Medbase bietet dir ein dynamisch und sportliches Team, das Wert auf Qualität und Kollegialität legt.\n\n• Empfang und Betreuung von Patientinnen und Patienten, inklusive Agendaplanung und Terminkoordination\n\n• Durchführung von Laboruntersuchungen und EKGs\n\n• Assistenz bei kleinchirurgischen Eingriffen\n\n• Verwaltung und elektronische Abrechnung der Patientenakten\n\n• Sicherstellung reibungsloser Praxisabläufe\n\n• Kooperation mit dem Team bei administrativen Aufgaben\n\nWas du mitbringst\n\n• Ausbildung als Med. Praxisassistent/in EFZ\n\n• Organisationstalent und Freude an der Patientenbetreuung\n\n• Empathie und Flexibilität\n\n• Teamfähigkeit und Humor in herausfordernden Situationen\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
+        "fr": "Herzlich willkommen bei Medbase Winterthur Win4\n\nUnser modernes Zentrum Win4 steht für hervorragende Qualität in der hausärztlichen Grundversorgung.\nWir begleiten unsere Patientinnen und Patienten langfristig , ganzheitlich und auf hohem fachlichem Niveau – von der Prävention bis zur kontinuierlichen Betreuung chronischer Erkrankungen.\nNeben der Hausarztmedizin arbeiten bei uns auch Fachpersonen aus der Sportmedizin, Leistungsdiagnostik, Orthopädischen Chirurgie und Traumatologie, Physiotherapie sowie Osteopathie interprofessionell zusammen. In Zusammenarbeit mit dem Kantonsspital Winterthur profitieren unsere Patientinnen und Patienten von kurzen Wegen und einer vernetzten Versorgung .\nRund 40 Mitarbeitende gestalten gemeinsam eine qualitativ hochwertige und zukunftsorientierte Medizin. Dabei legen wir grossen Wert auf eine ausgewogene Work-Life-Balance – Teilzeitmodelle und flexible Arbeitszeiten sind bei uns möglich.\n\nDas kannst du bewegen\n\nAls MPA bist du die erste Kontaktperson für unsere Patientinnen und Patienten und sorgst für eine angenehme Praxiserfahrung. Medbase bietet dir ein dynamisch und sportliches Team, das Wert auf Qualität und Kollegialität legt.\n\n• Empfang und Betreuung von Patientinnen und Patienten, inklusive Agendaplanung und Terminkoordination\n\n• Durchführung von Laboruntersuchungen und EKGs\n\n• Assistenz bei kleinchirurgischen Eingriffen\n\n• Verwaltung und elektronische Abrechnung der Patientenakten\n\n• Sicherstellung reibungsloser Praxisabläufe\n\n• Kooperation mit dem Team bei administrativen Aufgaben\n\nWas du mitbringst\n\n• Ausbildung als Med. Praxisassistent/in EFZ\n\n• Organisationstalent und Freude an der Patientenbetreuung\n\n• Empathie und Flexibilität\n\n• Teamfähigkeit und Humor in herausfordernden Situationen\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast"
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Medizinische-Praxisassistenz--a--40----60-_JR07866",
+      "source": "Medbase Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T21:37:06.925Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Farmacie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-12",
+      "postedDate": "2026-11-12",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Medizinische-Praxisassistenz--a--40----60-_JR07866",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "JR07866",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-40-60-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-40-60-medbase-ch"
+      ],
+      "salaryMin": 44100,
+      "salaryMax": 66900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44100,
+          "maxValue": 66900,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Schützenstrasse 3",
+      "postalCode": "8400",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Medbase",
+        "streetAddress": "Schützenstrasse 3",
+        "postalCode": "8400",
+        "registeredName": "Medbase AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "8400",
+        "addressLocality": "Winterthur",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-11-09T15:42:58.574Z"
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-10T21:37:06.925Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T21:37:06.925Z"
     }
   ]
 }
