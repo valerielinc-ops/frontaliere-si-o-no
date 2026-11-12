@@ -211,7 +211,7 @@ describe("jobs-fast durable state", () => {
     ).toEqual([]);
   });
 
-  it("retains a zero-page ownership transition until the route is reacquired", async () => {
+  it("returns zero-page ownership loss for sitemap cleanup and queues a later route gain", async () => {
     const db = new FakeFirestore();
     const original = job("owner-loss-and-regain", 10);
     const ownedPaths = ["/cerca-lavoro-ticino/owner-loss-and-regain/"];
@@ -223,14 +223,17 @@ describe("jobs-fast durable state", () => {
       pathsForJob: () => ownedPaths,
     });
 
-    expect(
-      await discoverFastPublishJobs([original], {
-        db,
-        now,
-        write: true,
-        pathsForJob: () => [],
-      }),
-    ).toEqual([]);
+    const lostOwnership = await discoverFastPublishJobs([original], {
+      db,
+      now,
+      write: true,
+      pathsForJob: () => [],
+    });
+    expect(lostOwnership).toHaveLength(1);
+    expect(lostOwnership[0]).toMatchObject({
+      ownershipChangePending: true,
+      previousPaths: ownedPaths,
+    });
     const pendingOwnership = [...db.documents.values()]
       .flatMap((bucket) => Object.values(bucket.pending || {}))
       .find((row) => row.id === original.stableId);
@@ -238,6 +241,11 @@ describe("jobs-fast durable state", () => {
       ownershipChangePending: true,
       paths: [],
     });
+
+    await markFastPublishJobsPublished(
+      [{ id: lostOwnership[0].id, hash: lostOwnership[0].hash, paths: [] }],
+      { db },
+    );
 
     const regained = await discoverFastPublishJobs([original], {
       db,
@@ -247,7 +255,7 @@ describe("jobs-fast durable state", () => {
     });
 
     expect(regained).toHaveLength(1);
-    expect(regained[0].previousPaths).toEqual(ownedPaths);
+    expect(regained[0].previousPaths).toEqual([]);
     expect(regained[0].hash).toBe(fastPublishJobFingerprint(original));
 
     await markFastPublishJobsPublished(

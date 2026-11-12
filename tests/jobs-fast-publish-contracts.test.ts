@@ -8,6 +8,7 @@ import {
   extractFirstPartyAssetUrls,
   hasGoogleAnalyticsRuntime,
   previousJobSitemapEntriesToRemove,
+  selectBatch,
   validateFullBuildActiveJobAlternates,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
@@ -209,6 +210,37 @@ describe("jobs fast-publish HTML asset contract", () => {
       previousNoindexPath,
       previousRemovedPath,
     ]);
+  });
+
+  it("schedules zero-page ownership losses for sitemap cleanup only", () => {
+    const stalePath = "/cerca-lavoro-ticino/previous-owner/";
+    const selected = selectBatch(
+      [
+        {
+          id: "owner-loss",
+          job: { canton: "TI" },
+          ownershipChangePending: true,
+          previousPaths: [stalePath],
+        },
+        {
+          id: "no-prior-route",
+          job: { canton: "TI" },
+          ownershipChangePending: true,
+          previousPaths: [],
+        },
+      ],
+      (job: { canton: string }) => job.canton,
+      () => 0,
+    );
+
+    expect(selected.map((candidate: { id: string }) => candidate.id)).toEqual([
+      "owner-loss",
+    ]);
+    expect(
+      previousJobSitemapEntriesToRemove([stalePath], new Set(), new Set()).map(
+        ({ route }: { route: string }) => route,
+      ),
+    ).toEqual([stalePath]);
   });
 
   it("identifies public requests so Cloudflare accepts the Node publisher", () => {

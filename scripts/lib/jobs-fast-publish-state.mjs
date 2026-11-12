@@ -222,9 +222,8 @@ export async function discoverFastPublishJobs(
         const hasCanonicalPaths = canonicalPathsById.has(record.id);
         const currentPaths = canonicalPathsById.get(record.id);
         const previous = queued[key];
-        // Keep the latest full-build ownership set pending until it is rendered.
-        // A zero-page offer cannot be rendered now, but a later route gain must
-        // not be hidden by the stale paths of its last published page.
+        // Keep the latest full-build ownership set pending until its sitemap
+        // and published-route state have been reconciled.
         const ownershipChangePending =
           hasCanonicalPaths && previous?.ownershipChangePending === true;
         const pathsChanged =
@@ -335,19 +334,9 @@ export async function discoverFastPublishJobs(
     for (const row of resultRows || []) {
       const currentJob = currentById.get(row.id);
       if (currentJob && row.hash === currentJob.hash) {
-        const currentPaths = canonicalPathsById.get(row.id);
-        // Leave a zero-page ownership marker durable; a later gain makes the
-        // marker renderable even when the old published path set is identical.
-        if (
-          row.ownershipChangePending === true &&
-          canonicalPathsById.has(row.id) &&
-          currentPaths.length === 0 &&
-          samePaths(currentPaths, row.paths)
-        ) {
-          continue;
-        }
         pending.push({
           ...currentJob,
+          ownershipChangePending: row.ownershipChangePending === true,
           previousPaths: publishedPaths(publishedRows[stateKey(row.id)]),
         });
       }

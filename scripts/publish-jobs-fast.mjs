@@ -1192,14 +1192,22 @@ async function selectLiveParitySample(
   );
 }
 
-function selectBatch(candidates, resolveJobCanton, pageCountForId) {
+export function selectBatch(candidates, resolveJobCanton, pageCountForId) {
   const selected = [];
   const cantons = new Set();
   let detailPageCount = 0;
   for (const candidate of candidates) {
     if (selected.length >= MAX_OFFERS_PER_RUN) break;
     const candidatePageCount = pageCountForId(candidate.id);
-    if (candidatePageCount < 1) continue;
+    const sitemapOnlyOwnershipChange =
+      candidatePageCount === 0 &&
+      candidate.ownershipChangePending === true &&
+      Array.isArray(candidate.previousPaths) &&
+      candidate.previousPaths.length > 0;
+    // A zero-page ownership loss still needs a batch slot: the renderer can
+    // update its affected hubs and the publisher can reconcile old sitemap
+    // paths, while the full-build allowlist protects routes another job owns.
+    if (candidatePageCount < 1 && !sitemapOnlyOwnershipChange) continue;
     const canton = resolveJobCanton(candidate.job);
     const nextCantons = new Set(cantons);
     nextCantons.add(canton);
@@ -1487,9 +1495,16 @@ export async function runJobsFastPublish({
         "]"
       );
     });
+    const sitemapOnlyCount = noPageCandidates.filter(
+      (candidate) =>
+        candidate.ownershipChangePending === true &&
+        candidate.previousPaths.length > 0,
+    ).length;
     console.log(
-      "[jobs-fast] skipped delta offers with no full-build-owned pages=" +
+      "[jobs-fast] offers with no full-build-owned pages=" +
         noPageCandidates.length +
+        " sitemap_only_cleanup=" +
+        sitemapOnlyCount +
         ": " +
         examples.join(" ") +
         (noPageCandidates.length > examples.length
@@ -1497,12 +1512,17 @@ export async function runJobsFastPublish({
           : ""),
     );
   }
-  const renderableDiscovered = discovered.filter(
-    (candidate) =>
-      (discoveredPagePlan.pagesById.get(candidate.id) || []).length > 0,
-  );
+  const publishableDiscovered = discovered.filter((candidate) => {
+    const pageCount =
+      (discoveredPagePlan.pagesById.get(candidate.id) || []).length;
+    return (
+      pageCount > 0 ||
+      (candidate.ownershipChangePending === true &&
+        candidate.previousPaths.length > 0)
+    );
+  });
   let candidates = selectBatch(
-    renderableDiscovered,
+    publishableDiscovered,
     canton.resolveJobCanton,
     (id) => (discoveredPagePlan.pagesById.get(id) || []).length,
   );
@@ -1603,6 +1623,10 @@ export async function runJobsFastPublish({
   const employerSlugs = [
     ...new Set(
       candidates
+        .filter(
+          (candidate) =>
+            (discoveredPagePlan.pagesById.get(candidate.id) || []).length > 0,
+        )
         .map(({ job }) =>
           companyProfile.canonicalCompanyProfileSlug(
             job.company || "",
@@ -1740,23 +1764,29 @@ export async function runJobsFastPublish({
           JSON.stringify([...candidate.previousPaths].sort()) !==
           JSON.stringify(currentPaths)
         ) {
-          for (const page of receipt.pages.filter(
-            (row) => row.id === candidate.id,
-          )) {
-            const live = await fetchLiveText(`${BASE_URL}${page.path}`);
-            const rendered = fs.readFileSync(
-              routeToDistFile(distDir, page.path),
-              "utf8",
-            );
-            if (live !== rendered) {
-              throw new Error(
-                `[jobs-fast] canonical route changed and full deploy has not published ${page.path}; deferring this batch`,
+          if (currentPaths.length > 0) {
+            for (const page of receipt.pages.filter(
+              (row) => row.id === candidate.id,
+            )) {
+              const live = await fetchLiveText(`${BASE_URL}${page.path}`);
+              const rendered = fs.readFileSync(
+                routeToDistFile(distDir, page.path),
+                "utf8",
               );
+              if (live !== rendered) {
+                throw new Error(
+                  `[jobs-fast] canonical route changed and full deploy has not published ${page.path}; deferring this batch`,
+                );
+              }
             }
+            console.log(
+              `[jobs-fast] canonical route already converged by full deploy id=${candidate.id}; reconciling sitemap and durable state`,
+            );
+          } else {
+            console.log(
+              `[jobs-fast] sitemap-only ownership cleanup id=${candidate.id} previous_paths=${candidate.previousPaths.length}; full-build sitemap entries remain protected`,
+            );
           }
-          console.log(
-            `[jobs-fast] canonical route already converged by full deploy id=${candidate.id}; reconciling sitemap and durable state`,
-          );
         }
       }
     }
