@@ -298,6 +298,8 @@ function containsEmail(value, email) {
   return emailPattern(email).test(value);
 }
 
+const EMAIL_LABEL_WITHOUT_ADDRESS = /(?:e-?mail(?:adresse)?|courriel|posta elettronica)\s*[:\-]?\s*$/iu;
+
 function replaceEmail(value, previous, candidate) {
   return value.replace(emailPattern(previous, true), (...matches) => `${matches[1] || ''}${candidate}`);
 }
@@ -364,6 +366,13 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
       }
     }
     if (!verifiedContactEmail) return { status: 'fallback', reason: 'candidate_email_not_in_source' };
+  } else if (Object.hasOwn(identity, 'email')
+    && paragraphs.some(({ text }) => text.includes('@') || EMAIL_LABEL_WITHOUT_ADDRESS.test(text))) {
+    // This copy preserves the uploaded layout, including its contact block.
+    // Without an intake address, do not offer a stale or unverified address
+    // from the CV (or leave its e-mail label behind); the generated template
+    // CV remains available without that row.
+    return { status: 'fallback', reason: 'candidate_email_unknown' };
   }
 
   const place = (id, original, text) => {

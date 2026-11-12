@@ -187,6 +187,15 @@ describe('in-place DOCX (phase 5)', () => {
     expect(result.patched).toContain('contact-email-1');
   });
 
+  it('falls back to the generated CV when intake has no email but the uploaded DOCX contains one', () => {
+    const result = buildInPlaceDocx(makeDocx(), tailored(), {
+      profile,
+      identity: { name: profile.fullName, email: '' },
+    });
+
+    expect(result).toEqual({ status: 'fallback', reason: 'candidate_email_unknown' });
+  });
+
   it('falls back when the candidate email appears only outside the source contact paragraph', () => {
     const candidateEmail = 'candidate@example.test';
     const body = BODY

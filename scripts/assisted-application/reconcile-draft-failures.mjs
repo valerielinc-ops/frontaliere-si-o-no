@@ -7,6 +7,8 @@ import { isUnconfirmedSubmission } from '../../functions/src/assistedApplication
 import {
   DRAFT_AUTO_RETRY_DELAY_MS,
   DRAFT_AUTO_RETRY_MAX_ATTEMPTS,
+  DRAFT_CANDIDATE_EMAIL_MISSING_CODE,
+  DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION,
   draftAutoRetryCountValue,
 } from '../../functions/src/assistedApplicationDraftRetryPolicy.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
@@ -55,6 +57,16 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
         const draftDispatch = flow.dispatch?.mode === 'draft' && Number(flow.dispatch?.round) === round;
         const attempts = draftAutoRetryCountValue(flow);
         const recoveryClockSet = Number(flow.draftAutoRetryAt) > 0;
+        let candidateEmailRecovery = false;
+        if (attempts !== null && attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS
+          && flow.draftCandidateEmailRecoveryVersion !== DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION) {
+          const failedEvents = await transaction.get(doc.ref.collection('automation_events')
+            .where('error', '==', DRAFT_CANDIDATE_EMAIL_MISSING_CODE));
+          candidateEmailRecovery = failedEvents.docs.some(eventDoc => {
+            const event = eventDoc.data() || {};
+            return event.type === 'draft_failed' && Number(event.round) === round;
+          });
+        }
         const activeOrder = order.paymentStatus === 'paid'
           && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt
           && !order.retentionPayloadPurgedAt
@@ -63,19 +75,25 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
         const noSendEvidence = !draft.sent && !draft.sentAttempt
           && !hasUncertainSend(currentSend) && !Object.values(submission).some(hasUncertainSend);
         if (!activeOrder || !failedDraft || !draftMissing || !draftDispatch || attempts === null
-          || attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS || recoveryClockSet || !noSendEvidence
+          || (attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS && !candidateEmailRecovery) || recoveryClockSet || !noSendEvidence
           || flow.postingExpiredAt) return false;
         if (apply) {
           const dueAt = nowMs + DRAFT_AUTO_RETRY_DELAY_MS;
           transaction.set(flowRef, {
-            draftAutoRetryCount: attempts,
+            // The dedicated, versioned recovery grants exactly one fresh run
+            // for existing candidate-email failures whose regular retry was
+            // already consumed. The normal state transition increments it.
+            draftAutoRetryCount: candidateEmailRecovery ? 0 : attempts,
             draftAutoRetryAt: dueAt,
-            draftRecoveryVersion: DRAFT_RECOVERY_VERSION,
+            ...(candidateEmailRecovery
+              ? { draftCandidateEmailRecoveryVersion: DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION }
+              : { draftRecoveryVersion: DRAFT_RECOVERY_VERSION }),
             updatedAt: nowMs,
           }, { merge: true });
           transaction.set(doc.ref, { automationDueAt: dueAt, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           transaction.set(doc.ref.collection('events').doc(), {
-            type: 'draft_recovery_scheduled', actor: 'system', at: nowMs, version: DRAFT_RECOVERY_VERSION,
+            type: 'draft_recovery_scheduled', actor: 'system', at: nowMs,
+            version: candidateEmailRecovery ? DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION : DRAFT_RECOVERY_VERSION,
           });
         }
         return true;
