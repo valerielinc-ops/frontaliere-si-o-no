@@ -143,17 +143,25 @@ export function activeJobSeedJson(html) {
   return match[2];
 }
 
-export function replaceActiveJobSeed(html, seedJson) {
+export function replaceActiveJobSeedWithChange(html, seedJson) {
   const source = String(html);
   const match = ACTIVE_JOB_SEED_SCRIPT_RE.exec(source);
   if (!match) throw new Error('missing window.__JOB_SEED__ script');
   const currentSeed = match[2];
+  const nextSeed = String(seedJson);
   try {
     JSON.parse(currentSeed);
-    JSON.parse(String(seedJson));
+    JSON.parse(nextSeed);
   } catch {
     throw new Error('malformed window.__JOB_SEED__ JSON');
   }
   const start = match.index ?? 0;
-  return `${source.slice(0, start)}${match[1]}${seedJson}${match[3]}${source.slice(start + match[0].length)}`;
+  return {
+    html: `${source.slice(0, start)}${match[1]}${nextSeed}${match[3]}${source.slice(start + match[0].length)}`,
+    changed: currentSeed !== nextSeed,
+  };
+}
+
+export function replaceActiveJobSeed(html, seedJson) {
+  return replaceActiveJobSeedWithChange(html, seedJson).html;
 }

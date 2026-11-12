@@ -602,10 +602,14 @@ describe('jobs SEO disk HTML reuse', () => {
         input,
         'active',
         null,
-        { rewriteHtml: (html: string) => html.replace('old-crawl', 'today-crawl') },
+        { rewriteHtml: (html: string) => ({
+          html: html.replace('old-crawl', 'today-crawl'),
+          changed: true,
+        }) },
       );
       expect(candidate).toMatchObject({ hit: true, storage: 'pack' });
       expect(candidate.html).toBe(currentHtml);
+      expect(candidate.rewrittenBytesChanged).toBe(true);
       secondReuse.finish(candidate, currentHtml);
 
       expect(secondReuse.readHtml('it', pagePath, 'active-job', inputHash, 'today-build'))

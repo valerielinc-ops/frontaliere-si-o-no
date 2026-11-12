@@ -65,7 +65,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
  activeJobSeedJson,
  replaceActiveJobPostingDates as replaceActiveJobPostingDatesForReuse,
- replaceActiveJobSeed,
+ replaceActiveJobSeedWithChange,
 } from './shared/activeJobPostingReuse.mjs';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
@@ -1387,11 +1387,13 @@ export function compareActiveJobsByStableOrder(left: unknown, right: unknown): n
   .localeCompare(String(rightRecord?.id || rightRecord?.slug || ''));
 }
 
-function replaceActiveJobReuseFragment(
+type ActiveJobHtmlRewrite = { html: string; changed: boolean };
+
+function replaceActiveJobReuseFragmentWithChange(
  html: string,
  name: string,
  replacement: string | ((current: string) => string),
-): string {
+): ActiveJobHtmlRewrite {
  const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
  const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
  const start = html.indexOf(startMarker);
@@ -1400,7 +1402,13 @@ function replaceActiveJobReuseFragment(
  if (start < 0 || end < 0) throw new Error(`missing active-page reuse markers: ${name}`);
  const current = html.slice(contentStart, end);
  const next = typeof replacement === 'function' ? replacement(current) : replacement;
- return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
+ return {
+  html: `${html.slice(0, contentStart)}${next}${html.slice(end)}`,
+  // Compare only the replaced fragment. Comparing the complete page here
+  // would recreate the O(n) scan that made cache-hit rewrites dominate the
+  // jobs SEO closeBundle phase.
+  changed: current !== next,
+ };
 }
 
 /**
@@ -1539,8 +1547,13 @@ export function shouldInvalidateActiveJobReuseWithoutJobPosting(fragment: string
  return !hasCompleteActiveJobPostingContract(fragment);
 }
 
-export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
- let rewritten = replaceActiveJobReuseFragment(
+export function rewriteActiveJobHtmlWithChange(
+ html: string,
+ fragments: ActiveJobReuseFragments,
+): ActiveJobHtmlRewrite {
+ let rewritten = html;
+ let changed = false;
+ let replacement = replaceActiveJobReuseFragmentWithChange(
   html,
   ACTIVE_JOB_REUSE_MARKERS.jobPosting,
   (current) => {
@@ -1556,22 +1569,35 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
    );
   },
  );
- rewritten = replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.heroBadges,
   fragments.heroBadges,
  );
- rewritten = replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.mobileAction,
   fragments.mobileAction,
  );
- rewritten = replaceActiveJobReuseFragment(
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ replacement = replaceActiveJobReuseFragmentWithChange(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.recentArticles,
   fragments.recentArticles,
  );
- return replaceActiveJobSeed(rewritten, fragments.jobSeed);
+ rewritten = replacement.html;
+ changed ||= replacement.changed;
+ const seed = replaceActiveJobSeedWithChange(rewritten, fragments.jobSeed);
+ return { html: seed.html, changed: changed || seed.changed };
+}
+
+export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+ return rewriteActiveJobHtmlWithChange(html, fragments).html;
 }
 
 /**
@@ -1581,8 +1607,12 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
  * article feed and the other explicitly volatile fragments cannot remain
  * stale on a bridge cache hit.
  */
-export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: string): string {
+export function rewriteActiveBridgeHtmlWithChange(
+ bridgeHtml: string,
+ canonicalHtml: string,
+): ActiveJobHtmlRewrite {
  let rewritten = bridgeHtml;
+ let changed = false;
  for (const name of Object.values(ACTIVE_JOB_REUSE_MARKERS)) {
   const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
   const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
@@ -1591,9 +1621,16 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
   const end = contentStart < 0 ? -1 : canonicalHtml.indexOf(endMarker, contentStart);
   if (contentStart < 0 || end < 0) throw new Error(`missing active-page source marker: ${name}`);
   const replacement = canonicalHtml.slice(contentStart, end);
-  rewritten = replaceActiveJobReuseFragment(rewritten, name, replacement);
+  const result = replaceActiveJobReuseFragmentWithChange(rewritten, name, replacement);
+  rewritten = result.html;
+  changed ||= result.changed;
  }
- return replaceActiveJobSeed(rewritten, activeJobSeedJson(canonicalHtml));
+ const seed = replaceActiveJobSeedWithChange(rewritten, activeJobSeedJson(canonicalHtml));
+ return { html: seed.html, changed: changed || seed.changed };
+}
+
+export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: string): string {
+ return rewriteActiveBridgeHtmlWithChange(bridgeHtml, canonicalHtml).html;
 }
 
 /**
@@ -4424,7 +4461,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   {
    reuseInput: activeJobReuseInput,
    rewriteHtml: buildActiveReuseFragments
-    ? (html: string, context: { emitterFingerprintChanged?: boolean }) => rewriteActiveJobHtml(
+    ? (html: string, context: { emitterFingerprintChanged?: boolean }) => rewriteActiveJobHtmlWithChange(
       html,
       buildActiveReuseFragments(Boolean(context?.emitterFingerprintChanged)),
      )
@@ -5395,7 +5432,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, html),
   },
  );
  let legacyIndexHtml: string;
@@ -5469,7 +5506,7 @@ ${staticAnalyticsHtml}
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, html),
   },
  );
  let legacyTIIndexHtml: string;
@@ -15291,11 +15328,10 @@ ${staticAnalyticsHtml}
   'expired-soft-landing',
   jobsSeoProbeShapeHints(ejData),
   {
-   rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => (
-    context?.emitterFingerprintChanged
-     ? replaceJobPostingJsonLd(html, getCurrentJobPostingLd())
-     : html
-   ),
+   rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => {
+    if (!context?.emitterFingerprintChanged) return { html, changed: false };
+    return { html: replaceJobPostingJsonLd(html, getCurrentJobPostingLd()), changed: true };
+   },
   },
  );
  let softLandingHtml: string;
@@ -16291,7 +16327,7 @@ ${staticAnalyticsHtml}
   previousSlugReuseInput,
   'previous-slug-legacy',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  let indexHtml: string;
@@ -16377,7 +16413,7 @@ ${staticAnalyticsHtml}
   legacyTIReuseInput,
   'previous-slug-legacy',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
@@ -16653,7 +16689,7 @@ ${staticAnalyticsHtml}
   crossLocaleActiveReuseInput,
   'cross-locale-reconciliation',
   {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
  const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleActiveReuse)
