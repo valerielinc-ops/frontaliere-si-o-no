@@ -61,6 +61,17 @@ export interface JobBoardStatsData {
  avgMid: number;
  medianMid: number;
  };
+  reportedSalaryData?: {
+   salaryRangeCount: number;
+   exactSalaryCount: number;
+   medianRangeMin: number | null;
+   medianRangeMax: number | null;
+   p10: number | null;
+   p25: number | null;
+   median: number | null;
+   p75: number | null;
+   p90: number | null;
+  };
  leaders: {
  topSalaryCompanies: JobBoardSalaryLeader[];
  topSalaryLocations: JobBoardSalaryLeader[];
