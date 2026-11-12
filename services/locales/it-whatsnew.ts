@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+  'whatsNew.v31012.title': 'Documenti di candidatura più completi',
+  'whatsNew.v31012.assisted-application.title': 'La tua email nel CV e nella lettera',
+  'whatsNew.v31012.assisted-application.desc': 'Il CV adattato e la lettera di presentazione includono ora l’indirizzo email che hai indicato per la candidatura assistita.',
   'whatsNew.v31011.title': 'Candidature assistite più affidabili',
   'whatsNew.v31011.swissEgress.title': 'Un percorso alternativo per i moduli irraggiungibili',
   'whatsNew.v31011.swissEgress.desc': 'Se il modulo di un annuncio verificato non risponde dalla rete cloud in due tentativi, la candidatura può proseguire tramite una connessione svizzera.',

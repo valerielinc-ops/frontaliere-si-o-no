@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31012.title': 'More complete application documents',
+  'whatsNew.v31012.assisted-application.title': 'Your email in your CV and cover letter',
+  'whatsNew.v31012.assisted-application.desc': 'The tailored CV and cover letter now include the email address you provided for your assisted application.',
   'whatsNew.v31011.title': 'More reliable assisted applications',
   'whatsNew.v31011.swissEgress.title': 'Another route for unreachable forms',
   'whatsNew.v31011.swissEgress.desc': 'If the form for a verified listing stays unreachable from the cloud network after two attempts, the application can continue through a Swiss connection.',
