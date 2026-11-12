@@ -2,24 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "mengele-svizzera-1961-verifica",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/mengele-svizzera-1961-verifica/",
-      "ts": "2026-05-07T09:22:46.832Z",
-      "seed": true
-    },
-    {
-      "id": "hantavirus-zurigo-crocerista-frontalieri",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/hantavirus-zurigo-crocerista-frontalieri/",
-      "ts": "2026-05-07T09:31:59.628Z",
-      "seed": true
-    },
-    {
-      "id": "cassis-cornado-crans-montana-risarcimento",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cassis-cornado-crans-montana-risarcimento/",
-      "ts": "2026-05-07T09:41:52.605Z",
-      "seed": true
-    },
-    {
       "id": "liberta-riunione-cedu-condanna-svizzera",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/liberta-riunione-cedu-condanna-svizzera/",
       "ts": "2026-05-07T09:49:42.273Z",
@@ -6231,6 +6213,57 @@
       "copyAngleIntent": "searchable",
       "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
       "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "aumento-iva-finanzia-avs",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/aumento-iva-finanzia-avs/",
+      "ts": "2026-11-12T03:56:01.609Z",
+      "fbPostId": "951226518080080_122131172637272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "regime-fiscale-rendite-elvetiche",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/regime-fiscale-rendite-elvetiche/",
+      "ts": "2026-11-12T03:56:08.426Z",
+      "fbPostId": "951226518080080_122131172661272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "eteria-gioielleria-berta-serret",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/eteria-gioielleria-berta-serret/",
+      "ts": "2026-11-12T03:56:14.492Z",
+      "fbPostId": "951226518080080_122131172691272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
     }
   ]
 }
