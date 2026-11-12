@@ -64,6 +64,7 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { SECTION_LEGACY_TI_PATH } from '../build-plugins/shared/cantonSection.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

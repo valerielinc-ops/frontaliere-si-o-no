@@ -88,8 +88,13 @@ describe('data/jobs.json readers', () => {
     'build-plugins/shared/reportJobPanel.ts',
     'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
+    'scripts/audit-related-search-candidates.mjs',
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
+    'scripts/migrate-previous-slug-winners-add-canton.mjs',
+    'scripts/migrate-slug-registry-add-canton.mjs',
+    'scripts/monitor-sector-coverage.mjs',
     'scripts/refresh-weekly-employers-top-pairs.mjs',
+    'scripts/snapshot-jobs-weekly.mjs',
     'scripts/sync-employer-contacts-to-firestore.mjs',
     // deploy prep (deploy 43171223798 died here after the build readers were fixed)
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
