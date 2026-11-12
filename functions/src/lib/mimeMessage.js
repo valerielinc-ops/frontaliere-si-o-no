@@ -8,10 +8,11 @@
  * attachment file names (RFC 2231 and RFC 2047), the first text/plain part (or
  * an HTML part converted to text),
  * safe links from HTML alternatives, and the sender-authentication verdict
- * Cloudflare writes in Authentication-Results. No dependency, so it deploys
- * with the functions.
+ * Cloudflare writes in Authentication-Results. HTML entities use the small
+ * `html-entities` runtime dependency.
  */
 
+import { decode as decodeNamedEntities } from 'html-entities';
 import { EMAIL_RE } from './emailValidation.js';
 
 const MAX_PARTS = 40;
@@ -136,22 +137,9 @@ function removeNonContentHtml(html) {
     .replace(/<(?:script|style|head|title|svg|noscript)\b[^>]*>[\s\S]*?<\/(?:script|style|head|title|svg|noscript)>/gi, ' ');
 }
 
-function decodeHtmlEntity(entity) {
-  const lower = String(entity || '').toLowerCase();
-  if (lower === 'amp') return '&';
-  if (lower === 'lt') return '<';
-  if (lower === 'gt') return '>';
-  if (lower === 'quot') return '"';
-  if (lower === 'apos') return "'";
-  if (lower === 'nbsp') return ' ';
-  const codePoint = lower.startsWith('#x') ? Number.parseInt(lower.slice(2), 16) : Number.parseInt(lower.slice(1), 10);
-  return Number.isSafeInteger(codePoint) && codePoint > 0 && codePoint <= 0x10ffff
-    ? String.fromCodePoint(codePoint)
-    : ' ';
-}
-
-function decodeHtmlEntities(value) {
-  return String(value || '').replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => decodeHtmlEntity(entity));
+/** Decode one layer of named and numeric HTML entities. Unknown entities stay intact. */
+export function decodeHtmlEntities(value) {
+  return decodeNamedEntities(String(value || ''), { level: 'html5', scope: 'strict' }).replace(/\u00a0/g, ' ');
 }
 
 /** Turn an HTML-only message into the text the classifier and the runner need. */

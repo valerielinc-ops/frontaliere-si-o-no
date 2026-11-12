@@ -6,6 +6,10 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
+vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({
+  postalPacketReadiness: vi.fn(async () => null),
+}));
+
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { buildForward, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound, runAssistedApplicationInboundForwardSweep } = await import('../functions/src/assistedApplicationInbound.js');
 const { hostKey, portalAccountStore } = await import('../scripts/assisted-application/lib/portal/account.mjs');
