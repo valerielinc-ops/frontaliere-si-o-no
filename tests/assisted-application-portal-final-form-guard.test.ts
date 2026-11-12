@@ -28,7 +28,7 @@ afterEach(() => {
 it('collects a canonical contract only after the selected submitter is linked to its native form', () => {
   const { button } = fixture();
   const result = arm(button);
-  expect(result).toMatchObject({ ok: true, buttonId: 'b1', formId: 'f1' });
+  expect(result).toMatchObject({ ok: true, buttonId: 'b1', formId: 'f1', nativeFormId: 'application' });
   expect(result.contractJson).toContain('candidate@example.test');
   expect(result.contractJson).toContain('method');
   expect(result.contractJson).not.toContain('super-secret-fixture-password');

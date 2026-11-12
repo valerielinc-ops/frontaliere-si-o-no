@@ -58,6 +58,21 @@ function gravityFormKey(value) {
   return match ? `gform_${match[1]}` : '';
 }
 
+function gravityFormIdentity(value) {
+  const source = String(value || '').trim();
+  const separator = source.indexOf('\u0000');
+  const frame = separator >= 0 ? source.slice(0, separator) : null;
+  const form = gravityFormKey(separator >= 0 ? source.slice(separator + 1) : source);
+  return form ? { form, frame } : null;
+}
+
+function sameGravityForm(one, other) {
+  const left = gravityFormIdentity(one);
+  const right = gravityFormIdentity(other);
+  return Boolean(left && right && left.form === right.form
+    && (left.frame === null || right.frame === null || left.frame === right.frame));
+}
+
 /** The same posting-bound final-review test is shared by the runner and encrypted-evidence repair. */
 export function finalReviewStageChecks(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null } = {}) {
   return {
@@ -310,14 +325,14 @@ function receiptTitleBound(text, title) {
  */
 export function gravityFormsSubmissionOutcome(snapshot, { finalSubmission } = {}) {
   const gravityForms = snapshot?.gravityForms;
-  if (finalSubmission?.clicked !== true || !String(finalSubmission?.formId || '').trim()) return null;
-  const expectedForm = gravityFormKey(finalSubmission.nativeFormId);
-  if (!expectedForm) return null;
+  if (finalSubmission?.clicked !== true) return null;
+  const expectedForm = gravityFormIdentity(finalSubmission.formId);
+  if (!expectedForm || !sameGravityForm(finalSubmission.formId, finalSubmission.nativeFormId)) return null;
   if (gravityForms?.validationError === true
-    && (gravityForms?.validationFormIds || []).some((formId) => gravityFormKey(formId) === expectedForm)) return 'validation';
-  if ((gravityForms?.formIds || []).some((formId) => gravityFormKey(formId) === expectedForm)) return null;
+    && (gravityForms?.validationFormIds || []).some((formId) => sameGravityForm(formId, finalSubmission.formId))) return 'validation';
+  if ((gravityForms?.formIds || []).some((formId) => sameGravityForm(formId, finalSubmission.formId))) return null;
   const receipt = (gravityForms?.confirmations || []).find((item) => item?.visible === true
-    && gravityFormKey(item?.formId) === expectedForm
+    && sameGravityForm(item?.formId, finalSubmission.formId)
     && GRAVITY_FORMS_RECEIPT_RE.test(String(item?.text || '')));
   return receipt ? 'confirmed' : null;
 }
@@ -334,8 +349,12 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   if (gravityFormsOutcome === 'confirmed') {
     const actual = parsed(url);
     const source = parsed(submissionUrl || applyUrl);
+    const actualJobKey = portalJobKey(url, sourceProtocol);
+    const expectedJobKey = portalJobKey(submissionUrl || applyUrl, sourceProtocol);
+    const samePostingKey = actualJobKey === expectedJobKey;
     return Boolean(actual && source && trustedPortalTransport(actual) && trustedPortalTransport(source)
       && actual.origin === source.origin && actual.pathname === source.pathname
+      && samePostingKey
       && !actual.username && !actual.password && !actual.hash && !source.username && !source.password && !source.hash);
   }
   if (!CONFIRM_RE.test(text)

@@ -198,7 +198,7 @@ describe('in-page application opener classification', () => {
 
 describe('Gravity Forms AJAX receipts', () => {
   const url = 'https://jobs.example.test/job/caregiver';
-  const finalSubmission = { clicked: true, formId: 'f12', nativeFormId: 'gform_1' };
+  const finalSubmission = { clicked: true, formId: '0\u0000gform_1', nativeFormId: 'gform_1' };
   const snapshot = {
     url,
     text: 'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist eingegangen.',
@@ -252,6 +252,37 @@ describe('Gravity Forms AJAX receipts', () => {
     const stillPresent = { ...snapshot, gravityForms: { ...snapshot.gravityForms, formIds: ['gform_1'] } };
     expect(gravityFormsSubmissionOutcome(stillPresent, { finalSubmission })).toBeNull();
     expect(applicationReceipt(stillPresent, { url, applyUrl: url, submissionUrl: url, finalSubmission })).toBe(false);
+  });
+
+  it('requires the native receipt ID to match the guarded form and frame', () => {
+    const wrongNativeForm = {
+      ...snapshot,
+      gravityForms: {
+        ...snapshot.gravityForms,
+        confirmations: [{ formId: '0\u0000gform_2', visible: true, text: 'Thank you for your application.' }],
+      },
+    };
+    const misboundSubmission = { ...finalSubmission, nativeFormId: 'gform_2' };
+    expect(gravityFormsSubmissionOutcome(wrongNativeForm, { finalSubmission: misboundSubmission })).toBeNull();
+    expect(applicationReceipt(wrongNativeForm, { url, applyUrl: url, submissionUrl: url, finalSubmission: misboundSubmission })).toBe(false);
+
+    const otherFrame = {
+      ...snapshot,
+      gravityForms: {
+        ...snapshot.gravityForms,
+        confirmations: [{ formId: '1\u0000gform_1', visible: true, text: 'Thank you for your application.' }],
+      },
+    };
+    expect(gravityFormsSubmissionOutcome(otherFrame, { finalSubmission })).toBeNull();
+  });
+
+  it('does not let a same-path Gravity Forms receipt change the posting query key', () => {
+    const otherPostingUrl = `${url}?jobid=2`;
+    expect(applicationReceipt({ ...snapshot, url: otherPostingUrl }, {
+      url: otherPostingUrl,
+      applyUrl: `${url}?jobid=1`,
+      finalSubmission,
+    })).toBe(false);
   });
 
   it('treats a Gravity Forms validation response as validation, even with confirmation copy', () => {

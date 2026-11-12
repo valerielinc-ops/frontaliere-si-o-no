@@ -7716,10 +7716,14 @@ const DONE_URL_RE = /(thank|danke|grazie|merci|success|confirmation|submitted|re
 const REVIEW_URL_RE = /(review|preview|summary|riepilogo|zusammenfassung|überprüf|ueberpruef|vérif|verif|resume|récap)/i;
 
 /** Read Gravity Forms' native validation and confirmation markers after submit. */
-function gravityFormsEvidenceInPage() {
+function gravityFormsEvidenceInPage(frameIndex = 0) {
   const normalizeFormId = (value) => {
     const match = /^(?:gform_(?:confirmation_message_|confirmation_wrapper_|wrapper_)?)(\d+)$/i.exec(String(value || '').trim());
     return match ? `gform_${match[1]}` : '';
+  };
+  const frameFormId = (value) => {
+    const formId = normalizeFormId(value);
+    return formId ? `${Number(frameIndex) || 0}\u0000${formId}` : '';
   };
   const visible = (element) => {
     try {
@@ -7730,7 +7734,7 @@ function gravityFormsEvidenceInPage() {
   };
   const formIdFor = (element) => {
     for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
-      const id = normalizeFormId(node.id);
+      const id = frameFormId(node.id);
       if (id) return id;
     }
     return '';
@@ -7741,7 +7745,7 @@ function gravityFormsEvidenceInPage() {
   const validationNodes = [...document.querySelectorAll('.gform_validation_error, .gform_validation_errors')];
   return {
     formIds: [...document.querySelectorAll('form[id^="gform_"]')]
-      .map((form) => normalizeFormId(form.id)).filter(Boolean),
+      .map((form) => frameFormId(form.id)).filter(Boolean),
     validationError: validationNodes.length > 0,
     validationFormIds: [...new Set(validationNodes.map(formIdFor).filter(Boolean))],
     confirmations: confirmationNodes.map((element) => ({
@@ -7773,7 +7777,11 @@ async function waitForOutcome(page, context = {}) {
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot) {
-      const gravityForms = await page.evaluate(gravityFormsEvidenceInPage).catch(() => null);
+      const gravityFrame = context.finalSubmission?.frame || page.mainFrame();
+      const frameIndex = Number.isSafeInteger(context.finalSubmission?.frameIndex)
+        ? context.finalSubmission.frameIndex
+        : Math.max(0, page.frames().indexOf(gravityFrame));
+      const gravityForms = await gravityFrame.evaluate(gravityFormsEvidenceInPage, frameIndex).catch(() => null);
       lastSnapshot = { ...snapshot, ...(gravityForms ? { gravityForms } : {}), text, url: page.url() };
     }
     if (gravityFormsSubmissionOutcome(lastSnapshot, { finalSubmission: context.finalSubmission }) === 'validation') {
@@ -10035,7 +10043,8 @@ export async function submitViaPortal(ctx) {
         return await handoff('portal_final_form_unbound');
       }
       const formBinding = createHash('sha256').update(armed.contractJson).digest('hex');
-      const nativeFormId = await final.locator.evaluate((button) => String((button.form || button.closest?.('form'))?.id || '')).catch(() => '');
+      const nativeFormId = String(armed.nativeFormId || '');
+      const frameIndex = Math.max(0, page.frames().indexOf(final.frame || page.mainFrame()));
       activeFinalFormGuard = { frame: final.frame, locator: final.locator, token: guardToken };
       // The native form is bound before the durable send arm. The installed
       // capture listener compares it again synchronously before portal click
@@ -10053,7 +10062,13 @@ export async function submitViaPortal(ctx) {
         return { event: { type: 'submit_failed', error: 'form_changed_before_click' }, evidence };
       }
       await clearActiveFinalFormGuard();
-      const finalSubmission = { clicked: true, formId: armed.formId, nativeFormId };
+      const finalSubmission = {
+        clicked: true,
+        formId: nativeFormId ? `${frameIndex}\u0000${nativeFormId}` : '',
+        nativeFormId,
+        frame: final.frame || page.mainFrame(),
+        frameIndex,
+      };
       const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job, finalSubmission });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);

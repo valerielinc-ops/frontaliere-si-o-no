@@ -966,6 +966,33 @@ function fakePortal() {
           });
         </script>`));
     }
+    if (route === 'GET /gravity-iframe-job') {
+      return send(page('Bewerbung: Fachperson Betreuung', `<h1>Fachperson Betreuung 80%</h1>
+        <iframe title="Application form" src="/gravity-iframe-form" style="width:100%;height:900px;border:0"></iframe>`));
+    }
+    if (route === 'GET /gravity-iframe-form') {
+      return send(page('Bewerbung', `<h1>Bewerbung</h1>
+        <button type="button" class="button gravity-iframe-opener">Jetzt bewerben</button>
+        <div id="gform_wrapper_2">
+          <form id="gform_2" method="post" action="/gravity-submit" enctype="multipart/form-data">
+            <label for="gravity-iframe-first">Vorname *</label><input id="gravity-iframe-first" name="first" required>
+            <label for="gravity-iframe-last">Nachname *</label><input id="gravity-iframe-last" name="last" required>
+            <label for="gravity-iframe-email">E-Mail *</label><input id="gravity-iframe-email" type="email" name="email" required>
+            <label for="gravity-iframe-cv">Lebenslauf *</label><input id="gravity-iframe-cv" type="file" name="cv" required>
+            <button type="submit">ABSCHICKEN</button>
+          </form>
+        </div>
+        <script>
+          document.querySelector('.gravity-iframe-opener').addEventListener('click', async (event) => {
+            event.preventDefault(); await fetch('/gravity-opener-click', { method: 'POST' });
+          });
+          document.getElementById('gform_2').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const response = await fetch('/gravity-submit', { method: 'POST', body: new FormData(event.target) });
+            if (response.ok) document.getElementById('gform_wrapper_2').innerHTML = '<div class="gform_confirmation_wrapper" id="gform_confirmation_wrapper_2"><div class="gform_confirmation_message" id="gform_confirmation_message_2">Thank you for your application. Your application has been received.</div></div>';
+          });
+        </script>`));
+    }
     if (route === 'POST /gravity-opener-click') {
       state.gravityApplication.openerClicks += 1;
       res.writeHead(204); return res.end();
@@ -1774,6 +1801,14 @@ async function main() {
           && submitted.evidence.finalOutcomes?.at(-1) === 'confirmed'
           && state.gravityApplication.submissions === 1 && state.gravityApplication.hasCv === true,
         { event: submitted.event.type, submittedPageTwoStage, outcome: submitted.evidence.finalOutcomes?.at(-1), submissions: state.gravityApplication.submissions, hasCv: state.gravityApplication.hasCv });
+      Object.assign(state.gravityApplication, { openerClicks: 0, submissions: 0, day: '', month: '', year: '', hasCv: false });
+      const iframeSubmitted = await run({ applyUrl: `${base}/gravity-iframe-job` });
+      check('same-origin Gravity Forms iframe receipt is read from the guarded form frame',
+        iframeSubmitted.event.type === 'submit_succeeded'
+          && iframeSubmitted.evidence.finalOutcomes?.at(-1) === 'confirmed'
+          && state.gravityApplication.submissions === 1 && state.gravityApplication.hasCv === true
+          && state.gravityApplication.openerClicks === 0,
+        { event: iframeSubmitted.event.type, reason: iframeSubmitted.event.reason, outcome: iframeSubmitted.evidence.finalOutcomes?.at(-1), submissions: state.gravityApplication.submissions, hasCv: state.gravityApplication.hasCv, openerUnused: state.gravityApplication.openerClicks === 0 });
     } else if (!focusRegistration) {
     // Keep this timing-sensitive portal first in the full suite; the same
     // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
