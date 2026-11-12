@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69748",
+      "sourceKey": "SH",
+      "sourceRecordId": "69748",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "9975",
+      "normalizedPlate": "SH9975",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 750,
+      "bidCount": 1,
+      "endsAt": "2026-11-11T21:00:00.000Z",
+      "closedAt": "2026-11-11T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69748",
+      "sourceFetchedAt": "2026-11-11T14:18:37.280Z",
+      "lastVerifiedAt": "2026-11-11T14:18:37.280Z",
+      "firstSeenAt": "2026-11-05T06:48:09.914Z",
+      "lastSeenAt": "2026-11-11T14:18:37.280Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "9687f34891ae"
+    }
+  ]
+}

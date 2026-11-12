@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109748",
+      "sourceKey": "TG",
+      "sourceRecordId": "109748",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "24425",
+      "normalizedPlate": "TG24425",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-11T18:00:00.000Z",
+      "closedAt": "2026-11-11T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109748",
+      "sourceFetchedAt": "2026-11-11T14:19:09.087Z",
+      "lastVerifiedAt": "2026-11-11T14:19:09.087Z",
+      "firstSeenAt": "2026-10-28T12:52:54.824Z",
+      "lastSeenAt": "2026-11-11T14:19:09.087Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "023e27a96376"
+    }
+  ]
+}
