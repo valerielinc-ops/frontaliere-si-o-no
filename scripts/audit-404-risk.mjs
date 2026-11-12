@@ -108,7 +108,11 @@
 
 import { readFile, access, mkdtemp, rm, readdir, stat } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
-import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import {
+  legacyTicinoTreeBucket,
+  sectionTreeBucket,
+  sectionUsesHashFanout,
+} from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -378,15 +382,15 @@ function treeEntryToRoute(entry, section = null, loc = null) {
   };
   let e = toPublicRoute(entry);
 
-  // Ticino section shards are physically fanned out as
+  // Hash-fanned section shards are physically fanned out as
   // `<section>/_tree/<hash-bucket>/<canonical-entry>` to keep GitHub tree
   // objects under their size limit. The Pages worker serves the canonical
   // route without `_tree/<bucket>`; counting the storage path verbatim makes
   // every fanned-out URL look absent from the served set. Keep this mapping
-  // scoped to the Ticino section shard and derive the public section prefix
+  // scoped to sections that use hash-v1 and derive the public section prefix
   // from the shared slug manifest so unrelated shards remain untouched.
-  const sectionSlug = section === 'ticino' && loc
-    ? SECTION_SLUGS.ticino?.[loc]
+  const sectionSlug = sectionUsesHashFanout(section) && loc
+    ? SECTION_SLUGS[section]?.[loc]
     : null;
   if (sectionSlug) {
     const routeRoot = loc === 'it' ? sectionSlug : `${loc}/${sectionSlug}`;
@@ -398,13 +402,11 @@ function treeEntryToRoute(entry, section = null, loc = null) {
         const bucket = bucketAndEntry.slice(0, bucketEnd);
         const canonicalEntry = bucketAndEntry.slice(bucketEnd + 1);
         const topLevelName = canonicalEntry.split('/')[0];
-        const expectedBuckets = new Set([
-          ticinoTreeBucket(topLevelName),
-          legacyTicinoTreeBucket(topLevelName),
-        ]);
+        const expectedBuckets = new Set([sectionTreeBucket(topLevelName)]);
+        if (section === 'ticino') expectedBuckets.add(legacyTicinoTreeBucket(topLevelName));
         // The router derives this exact bucket from the public first-level
-        // entry. Accept the historical first-two-character bucket while old
-        // shard trees remain published during the hash-v1 rollout; an
+        // entry. Accept the historical first-two-character bucket only while
+        // old Ticino trees remain published during the hash-v1 rollout; an
         // unrelated bucket is still a real 404 risk and must not be
         // normalized into a false-positive served route.
         if (expectedBuckets.has(bucket)) e = toPublicRoute(`${routeRoot}/${canonicalEntry}`);

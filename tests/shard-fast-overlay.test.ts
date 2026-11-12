@@ -10,7 +10,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { applyFastShardOverlay } from "../scripts/ci/shard-fast-overlay.mjs";
-import { ticinoTreePhysicalPath } from "../scripts/lib/ticino-tree-fanout.mjs";
+import { sectionTreePhysicalPath, ticinoTreePhysicalPath } from "../scripts/lib/ticino-tree-fanout.mjs";
 
 const scratch = [];
 
@@ -53,9 +53,12 @@ afterEach(() => {
 describe("append-only fast shard overlay", () => {
   it("updates only rendered routes and retains unrelated remote pages", () => {
     const sub = "cerca-lavoro-zurigo";
+    const existingPhysical = sectionTreePhysicalPath("zurigo", "existing/index.html");
+    const targetPhysical = sectionTreePhysicalPath("zurigo", "target/index.html");
+    const addedPhysical = sectionTreePhysicalPath("zurigo", "added/index.html");
     const { root, source } = makeRemote("zurigo", sub, {
-      "existing/index.html": "existing page",
-      "target/index.html": "old target",
+      [existingPhysical]: "existing page",
+      [targetPhysical]: "old target",
     });
     writeSource(source, "target/index.html", "new target");
     writeSource(source, "added/index.html", "new offer");
@@ -74,11 +77,11 @@ describe("append-only fast shard overlay", () => {
 
     expect(result.changed).toBe(true);
     expect(result.fileCount).toBe(3);
-    expect(git(root, "show", `:${sub}/existing/index.html`)).toBe(
+    expect(git(root, "show", `:${sub}/${existingPhysical}`)).toBe(
       "existing page",
     );
-    expect(git(root, "show", `:${sub}/target/index.html`)).toBe("new target");
-    expect(git(root, "show", `:${sub}/added/index.html`)).toBe("new offer");
+    expect(git(root, "show", `:${sub}/${targetPhysical}`)).toBe("new target");
+    expect(git(root, "show", `:${sub}/${addedPhysical}`)).toBe("new offer");
     expect(git(root, "show", ":.shard-filecount")).toBe("3");
     expect(git(root, "show", ":.shard-deploys")).toBe("2");
   });

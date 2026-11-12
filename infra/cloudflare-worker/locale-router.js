@@ -63,7 +63,11 @@
  */
 
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
-import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
+import {
+  legacyTicinoTreeBucket,
+  sectionTreeBucket,
+  sectionUsesHashFanout,
+} from './ticino-tree-bucket.js';
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
@@ -419,16 +423,15 @@ function matchSection(pathname) {
   return null;
 }
 
-// GitHub rejects a single tree object above 50 MiB. The Ticino section's
-// localized job root eventually acquired hundreds of thousands of direct
-// entries. Prefix buckets were still skewed (one DE tree reached 53 MB), so
-// hash the entry name into 256 stable buckets. This is storage-only: public
-// URLs remain unchanged, and the legacy prefix layout stays readable during
-// rollout and for already-published shard trees.
+// GitHub rejects a single tree object above 50 MiB. The largest localized job
+// roots eventually acquired hundreds of thousands of direct entries. Prefix
+// buckets were still skewed (one DE tree reached 53 MB), so hash the entry
+// name into 256 stable buckets. This is storage-only: public URLs remain
+// unchanged, and Ticino's legacy prefix layout stays readable during rollout.
 const SECTION_TREE_FANOUT_DIR = '_tree';
 
 function sectionShardPhysicalPaths(pathname, route) {
-  if (!route || route.section !== 'ticino') return [pathname];
+  if (!route || !sectionUsesHashFanout(route.section)) return [pathname];
   const prefix = route.prefix;
   if (pathname === prefix || pathname === `${prefix}.html` || !pathname.startsWith(`${prefix}/`)) {
     return [pathname];
@@ -447,13 +450,15 @@ function sectionShardPhysicalPaths(pathname, route) {
     // Keep malformed/partially escaped path bytes addressable through the
     // historical bucket and canonical fallbacks rather than inventing a slug.
   }
-  const physical = [ticinoTreeBucket(decodedEntry), legacyTicinoTreeBucket(decodedEntry)]
+  const buckets = [sectionTreeBucket(decodedEntry)];
+  if (route.section === 'ticino') buckets.push(legacyTicinoTreeBucket(decodedEntry));
+  const physical = buckets
     .map((bucket) => `${prefix}/${SECTION_TREE_FANOUT_DIR}/${bucket}/${entry}${suffix}`);
   return [...new Set([...physical, pathname])];
 }
 
 function sectionShardPublicPath(pathname, route) {
-  if (!route || route.section !== 'ticino') return pathname;
+  if (!route || !sectionUsesHashFanout(route.section)) return pathname;
   const physicalPrefix = `${route.prefix}/${SECTION_TREE_FANOUT_DIR}/`;
   if (!pathname.startsWith(physicalPrefix)) return pathname;
 
@@ -3231,7 +3236,7 @@ async function readStaleCopy(url, reason) {
 // Serve a request from a GitHub Pages shard origin (locale shard or a section
 // shard). Rewrites only the upstream Host to `origin` (the gray-cloud custom
 // domain reachable solely from this Worker); the public URL the user sees never
-// changes. A Ticino section route may have a physical _tree fan-out; that
+// changes. A hash-fanned section route may have a physical _tree fan-out; that
 // rewrite is reversed on origin redirects and a 404 retries the legacy
 // canonical path for race-safe rollout. Applies the full shard pipeline:
 // tiered edge cache + one retry,
@@ -3957,16 +3962,17 @@ const router = {
     // also brings other IT paths through the !match passthrough below.
     const sec = matchSection(url.pathname);
     if (sec) {
+      const layoutProbeKey = `__frontaliere_${sec.section}_tree_layout`;
       if (
-        sec.section === 'ticino'
+        sectionUsesHashFanout(sec.section)
         && (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
-        && url.searchParams.get('__frontaliere_ticino_tree_layout') === 'hash-v1'
+        && url.searchParams.get(layoutProbeKey) === 'hash-v1'
       ) {
         return new Response(null, {
           status: 204,
           headers: {
             'cache-control': 'no-store',
-            'x-frontaliere-ticino-tree-layout': 'hash-v1',
+            [`x-frontaliere-${sec.section}-tree-layout`]: 'hash-v1',
           },
         });
       }

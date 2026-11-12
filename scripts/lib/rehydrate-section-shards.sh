@@ -379,7 +379,7 @@ rehydrate_section() {
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
-      if ! ticino_tree_unfanout_stage "$section" "$tmp/$sub"; then
+      if ! section_tree_unfanout_stage "$section" "$tmp/$sub"; then
         echo "::warning::$section-$loc shard tree fan-out could not be restored to canonical paths — leaving $loc $section missing"
         trunk_replace_end "$section-$loc"
         rm -rf "$tmp"
