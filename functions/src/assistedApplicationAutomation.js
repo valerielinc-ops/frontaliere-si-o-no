@@ -88,6 +88,25 @@ const RUNNER_EVENT_TYPES = new Set([
 ]);
 const STARTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const SUPPORTED_CV_TYPES = new Set(['pdf', 'docx', 'doc']);
+const PORTAL_NETWORK_FAILURE_KINDS = new Set(['access_blocked', 'chrome_error', 'connection_failure', 'navigation_unavailable']);
+
+function portalNetworkFailureOf(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const kind = String(value.kind || '');
+  if (!PORTAL_NETWORK_FAILURE_KINDS.has(kind)) return null;
+  const rawHost = String(value.host || '').trim();
+  if (!rawHost || rawHost.length > 253) return null;
+  try {
+    const url = new URL(/^[a-z][a-z\d+.-]*:\/\//i.test(rawHost) ? rawHost : `https://${rawHost}`);
+    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password
+      || url.port || url.pathname !== '/' || url.search || url.hash) return null;
+    const host = url.hostname.toLowerCase().replace(/\.$/, '');
+    if (!/^[a-z\d.-]{1,253}$/.test(host)) return null;
+    return { host, kind };
+  } catch {
+    return null;
+  }
+}
 
 export function orderRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
@@ -999,12 +1018,14 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     }
   }
   const accountFailure = getAccountFailure(data);
+  const portalNetworkFailure = type === 'submit_handoff' ? portalNetworkFailureOf(data.portalNetworkFailure) : null;
   const event = {
     type,
     round,
     error: data.error ? String(data.error).slice(0, 120) : undefined,
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
     ...(accountFailure ? { accountFailure } : {}),
+    ...(portalNetworkFailure ? { portalNetworkFailure } : {}),
     questions: Array.isArray(data.questions) ? data.questions.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
     documents: Array.isArray(data.documents) ? data.documents.slice(0, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT) : undefined,
