@@ -13,7 +13,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
-import { dedupeLocationCandidates, evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  dedupeLocationCandidates,
+  evaluateSourceBackedSwissGeography,
+  isAllowlistedAuthoritativeNonSwissLocation,
+} from './prospector/location-evidence.mjs';
 import { loadSpec, createSpecUrlPolicy } from './prospector/spec-crawler.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
@@ -28,6 +32,21 @@ export const RECRUITINGAPP_1123_COMPANY_DOMAIN = 'recruitingapp-1123.umantis.com
 
 const CAREER_URL = 'https://recruitingapp-1123.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
 const MIN_DETAIL_WORDS = 50;
+
+// BIG & ARE publishes Austrian vacancies on the same Umantis tenant. The
+// detail page names the city, but some postings omit a country field and their
+// prose does not repeat "Österreich". Keep the source-reviewed city set
+// narrow: an unknown locality must still fail closed instead of being treated
+// as an expected foreign filter.
+const AUTHORITATIVE_NON_SWISS_LOCATIONS = new Set([
+  'feldkirch',
+  'graz',
+  'innsbruck',
+  'linz',
+  'salzburg',
+  'st polten',
+  'wien',
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -191,6 +210,20 @@ export async function fetchJobListings(runtime = {}) {
       const pageCountry = explicitSourceCountry(description);
       const decisions = rawCandidates.map((candidate) => {
         let decision = evaluateSourceBackedSwissGeography([candidate]);
+        const candidateLocation = candidate.addressLocality || candidate.location || '';
+        // A reviewed Austrian locality is authoritative foreign evidence even
+        // when this particular detail omits its country field and boilerplate.
+        if (!decision.geography
+          && !decision.explicitlyForeign
+          && isAllowlistedAuthoritativeNonSwissLocation(
+            candidateLocation,
+            AUTHORITATIVE_NON_SWISS_LOCATIONS,
+          )) {
+          decision = evaluateSourceBackedSwissGeography([{
+            ...candidate,
+            addressCountry: 'AT',
+          }]);
+        }
         // BIG's detail body explicitly identifies Austria. Apply that country
         // evidence only when the location itself is not already verifiably
         // Swiss, so a future Bern/CH vacancy cannot be erased by company prose.
