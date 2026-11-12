@@ -62,7 +62,7 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Assemble canonical jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
 
       - name: Verify company logos
         run: ./node_modules/.bin/tsx scripts/verify-company-logos.mjs

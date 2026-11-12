@@ -89,6 +89,7 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(gate).not.toContain('ENABLE_CODEX_ARTICLE_FALLBACK=0');
     expect(resolver).toContain('report_runtime_candidates()');
     expect(resolver).toContain('path_components_trusted');
+    expect(resolver).toContain('current="$(realpath "$current" 2>/dev/null || return 1)"');
     expect(resolver).toContain('node_version=');
     expect(resolver).toContain('node_archive_sha256=');
     // Il download resta bounded e usa chunk HTTP espliciti con il checksum finale.
