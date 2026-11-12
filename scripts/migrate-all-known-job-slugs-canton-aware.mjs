@@ -34,7 +34,6 @@ import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
-import { readJsonFile } from './lib/read-large-json.mjs';
 
 const JOBS_PATH = path.resolve('data/jobs.json');
 const CANTON_SLUGS_PATH = path.resolve('data/canton-url-slugs.json');
