@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-11-12T09:40:25.837Z",
-  "runId": "43191195385",
+  "assembledAt": "2026-11-12T21:46:01.934Z",
+  "runId": "43310184698",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -50,7 +50,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:40:20.084Z",
+      "crawledAt": "2026-11-12T21:45:55.661Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -83,7 +83,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:40:20.084Z",
+      "validThrough": "2026-12-12T21:45:55.661Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:40:19.514Z",
+      "crawledAt": "2026-11-12T21:45:54.845Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -161,7 +161,91 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:40:19.514Z",
+      "validThrough": "2026-12-12T21:45:54.845Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "huntsman-ade20dc7e980",
+      "slug": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
+      "slugByLocale": {
+        "it": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
+        "en": "production-technologist-s-5-teams-huntsman-corporation-monthey",
+        "de": "produktionstechnologe-n-5-teams-huntsman-corporation-monthey",
+        "fr": "technologue-s-en-production-5-equipes-huntsman-ch"
+      },
+      "company": "Huntsman Corporation",
+      "companyKey": "huntsman",
+      "companyDomain": "huntsman.com",
+      "title": "Technologue(s) en production – 5 équipes",
+      "titleByLocale": {
+        "it": "Tecnologo della produzione (s) – 5 squadre",
+        "en": "Production technologist(s) – 5 teams",
+        "de": "Produktionstechnologe(n) – 5 Teams",
+        "fr": "Technologue(s) en production – 5 équipes"
+      },
+      "description": "Job Description :\n\nTechnologue(s) en production – 5 équipes\n\nPROFIL SOUHAITE\n\n• · CFC de technologue en production chimique et pharmaceutique, CFC technique, OMA, ou équivalent\n • · Une expérience confirmée dans un environnement industriel\n • · Capacité d'adaptation, polyvalence et flexibilité\n • · Attitude proactive et positive\n • · Autonomie\n • · Esprit ouvert aux changements\n • · Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7) et en travail d'équipes\n • · Langue : français, parlé et écrit.\n\nTACHES PRINCIPALES\n\n• · Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication\n • · Montage/démontage d’installations chimiques, préparation pour intervention de maintenance\n • · Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens.\n\nLes personnes intéressées sont priées d’adresser leur dossier de candidature complet (CV, lettre de motivation, CFC, certificat de travail) en ligne.\n\nSeules les candidatures répondant aux critères requis et accompagnées d’un dossier complet seront prises en considération.\n\n*LI-DF1\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro:\n\nTecnologo della produzione (s) – 5 squadre\n\nPROFESSIONALE\n\n• · Technologist CFC nella produzione chimica e farmaceutica, CFC tecnico, OMA, o equivalente\n• · Esperienza confermata in un ambiente industriale\n• · Adaptability, versatilità e flessibilità\n• · atteggiamento attivo e positivo\n• · Autonomia\n• · Spirito aperto al cambiamento\n• · Capacità di lavorare in 5 turni (24 ore al giorno – 7 giorni alla settimana) e nel lavoro di squadra\n• · Lingua: francese, parlato e scritto.\n\nMAIN TACHS\n\n• · Guidare (computer-driven e/o automatico) impianti di produzione chimica nel rispetto degli standard di sicurezza e delle procedure di fabbricazione di Huntsman\n• · Installazione / smontaggio di impianti chimici, preparazione per interventi di manutenzione\n• · Vari compiti tecnici a supporto di agenti tecnici nel settore, meccanica elettrica e negozi di convenienza.\n\nLe persone interessate sono pregate di presentare il loro pacchetto completo di applicazione (CV, lettera di copertura, SWC, certificato di lavoro) online.\n\nSaranno prese in considerazione solo le domande che soddisfano i criteri richiesti e accompagnate da un dossier completo.\n\n*LI-DF1\n\nAffitti aggiuntivi:\n\nHuntsman Corporation è un produttore globale di prodotti chimici differenziati e speciali. L'azienda gestisce un importante sito produttivo a Monthey (Valais), in Svizzera.",
+        "en": "Job Description:\n\nProduction technologist(s) – 5 teams\n\nPROFILE\n\n• · Technologist CFC in Chemical and Pharmaceutical Production, Technical CFC, OMA, or equivalent\n• · Experience confirmed in an industrial environment\n• · Adaptability, versatility and flexibility\n• · Proactive and positive attitude\n• · Autonomy\n• · Spirit open to change\n• · Ability to work in 5 shifts (24 hours a day – 7 days a week) and in team work\n• · Language: French, spoken and written.\n\nMAIN TACHES\n\n• · Driving (computer-driven and/or automatic) chemical production facilities in compliance with Huntsman safety standards and manufacturing procedures\n• · Installation/disassembly of chemical installations, preparation for maintenance intervention\n• · Various technical tasks in support of technical officers in the sector, electrical mechanics and convenience stores.\n\nInterested persons are requested to submit their full application package (CV, cover letter, SWC, work certificate) online.\n\nOnly applications meeting the required criteria and accompanied by a complete dossier will be considered.\n\n*LI-DF1\n\nAdditional Rentals:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
+        "de": "Stellenbeschreibung:\n\nProduktionstechnologe(n) – 5 Teams\n\nPROFIL\n\n• Technologe CFC in der chemischen und pharmazeutischen Produktion, technische CFC, OMA oder gleichwertig\n• · Erfahrung bestätigt in einem industriellen Umfeld\n• · Anpassungsfähigkeit, Vielseitigkeit und Flexibilität\n• · Proaktive und positive Einstellung\n• · Autonomie\n• · Geist offen für Veränderung\n• · Fähigkeit, in 5 Schichten (24 Stunden am Tag – 7 Tage die Woche) und in Teamarbeit zu arbeiten\n• · Sprache: Französisch, gesprochen und geschrieben.\n\nHAUPTSTÄNDE\n\n• Fahren (computergesteuerte und / oder automatische) chemische Produktionsanlagen in Übereinstimmung mit Huntsman Sicherheitsstandards und Herstellungsverfahren\n• · Installation/Demontage von Chemieanlagen, Vorbereitung auf Wartungseingriffe\n• · Verschiedene technische Aufgaben zur Unterstützung von technischen Offizieren in der Branche, Elektromechanik und Convenience Stores.\n\nInteressierte werden gebeten, ihr vollständiges Bewerbungspaket (CV, Anschreiben, SWC, Arbeitszertifikat) online einzureichen.\n\nNur Anträge, die die erforderlichen Kriterien erfüllen und von einem vollständigen Dossier begleitet sind, werden berücksichtigt.\n\n*LI-DF1\n\nZusätzliche Mieten:\n\nHuntsman Corporation ist ein globaler Hersteller von differenzierten und Spezialchemikalien. Das Unternehmen betreibt einen großen Produktionsstandort in Monthey (Valais), Schweiz.",
+        "fr": "Job Description :\n\nTechnologue(s) en production – 5 équipes\n\nPROFIL SOUHAITE\n\n• · CFC de technologue en production chimique et pharmaceutique, CFC technique, OMA, ou équivalent\n• · Une expérience confirmée dans un environnement industriel\n• · Capacité d'adaptation, polyvalence et flexibilité\n• · Attitude proactive et positive\n• · Autonomie\n• · Esprit ouvert aux changements\n• · Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7) et en travail d'équipes\n• · Langue : français, parlé et écrit.\n\nTACHES PRINCIPALES\n\n• · Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication\n• · Montage/démontage d’installations chimiques, préparation pour intervention de maintenance\n• · Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens.\n\nLes personnes intéressées sont priées d’adresser leur dossier de candidature complet (CV, lettre de motivation, CFC, certificat de travail) en ligne.\n\nSeules les candidatures répondant aux critères requis et accompagnées d’un dossier complet seront prises en considération.\n\n*LI-DF1\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Monthey",
+      "canton": "VS",
+      "addressLocality": "Monthey",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Chimica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
+      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
+      "source": "Huntsman Corporation Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-12T21:45:51.185Z",
+      "jobReqId": "J-019940",
+      "previousSlugs": [
+        "technologue-s-en-production-5-equipes-huntsman-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ],
+        "en": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ],
+        "de": [
+          "technologue-s-en-production-5-equipes-huntsman-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-09T09:49:08.674Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1870",
+      "addressRegion": "VS",
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T21:45:51.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -245,91 +329,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:40:15.650Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "huntsman-ade20dc7e980",
-      "slug": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
-      "slugByLocale": {
-        "it": "tecnologo-della-produzione-s-5-squadre-huntsman-corporation-monthey",
-        "en": "production-technologist-s-5-teams-huntsman-corporation-monthey",
-        "de": "produktionstechnologe-n-5-teams-huntsman-corporation-monthey",
-        "fr": "technologue-s-en-production-5-equipes-huntsman-ch"
-      },
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Technologue(s) en production – 5 équipes",
-      "titleByLocale": {
-        "it": "Tecnologo della produzione (s) – 5 squadre",
-        "en": "Production technologist(s) – 5 teams",
-        "de": "Produktionstechnologe(n) – 5 Teams",
-        "fr": "Technologue(s) en production – 5 équipes"
-      },
-      "description": "Job Description :\n\nTechnologue(s) en production – 5 équipes\n\nPROFIL SOUHAITE\n\n• · CFC de technologue en production chimique et pharmaceutique, CFC technique, OMA, ou équivalent\n • · Une expérience confirmée dans un environnement industriel\n • · Capacité d'adaptation, polyvalence et flexibilité\n • · Attitude proactive et positive\n • · Autonomie\n • · Esprit ouvert aux changements\n • · Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7) et en travail d'équipes\n • · Langue : français, parlé et écrit.\n\nTACHES PRINCIPALES\n\n• · Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication\n • · Montage/démontage d’installations chimiques, préparation pour intervention de maintenance\n • · Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens.\n\nLes personnes intéressées sont priées d’adresser leur dossier de candidature complet (CV, lettre de motivation, CFC, certificat de travail) en ligne.\n\nSeules les candidatures répondant aux critères requis et accompagnées d’un dossier complet seront prises en considération.\n\n*LI-DF1\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro:\n\nTecnologo della produzione (s) – 5 squadre\n\nPROFESSIONALE\n\n• · Technologist CFC nella produzione chimica e farmaceutica, CFC tecnico, OMA, o equivalente\n• · Esperienza confermata in un ambiente industriale\n• · Adaptability, versatilità e flessibilità\n• · atteggiamento attivo e positivo\n• · Autonomia\n• · Spirito aperto al cambiamento\n• · Capacità di lavorare in 5 turni (24 ore al giorno – 7 giorni alla settimana) e nel lavoro di squadra\n• · Lingua: francese, parlato e scritto.\n\nMAIN TACHS\n\n• · Guidare (computer-driven e/o automatico) impianti di produzione chimica nel rispetto degli standard di sicurezza e delle procedure di fabbricazione di Huntsman\n• · Installazione / smontaggio di impianti chimici, preparazione per interventi di manutenzione\n• · Vari compiti tecnici a supporto di agenti tecnici nel settore, meccanica elettrica e negozi di convenienza.\n\nLe persone interessate sono pregate di presentare il loro pacchetto completo di applicazione (CV, lettera di copertura, SWC, certificato di lavoro) online.\n\nSaranno prese in considerazione solo le domande che soddisfano i criteri richiesti e accompagnate da un dossier completo.\n\n*LI-DF1\n\nAffitti aggiuntivi:\n\nHuntsman Corporation è un produttore globale di prodotti chimici differenziati e speciali. L'azienda gestisce un importante sito produttivo a Monthey (Valais), in Svizzera.",
-        "en": "Job Description:\n\nProduction technologist(s) – 5 teams\n\nPROFILE\n\n• · Technologist CFC in Chemical and Pharmaceutical Production, Technical CFC, OMA, or equivalent\n• · Experience confirmed in an industrial environment\n• · Adaptability, versatility and flexibility\n• · Proactive and positive attitude\n• · Autonomy\n• · Spirit open to change\n• · Ability to work in 5 shifts (24 hours a day – 7 days a week) and in team work\n• · Language: French, spoken and written.\n\nMAIN TACHES\n\n• · Driving (computer-driven and/or automatic) chemical production facilities in compliance with Huntsman safety standards and manufacturing procedures\n• · Installation/disassembly of chemical installations, preparation for maintenance intervention\n• · Various technical tasks in support of technical officers in the sector, electrical mechanics and convenience stores.\n\nInterested persons are requested to submit their full application package (CV, cover letter, SWC, work certificate) online.\n\nOnly applications meeting the required criteria and accompanied by a complete dossier will be considered.\n\n*LI-DF1\n\nAdditional Rentals:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-        "de": "Stellenbeschreibung:\n\nProduktionstechnologe(n) – 5 Teams\n\nPROFIL\n\n• Technologe CFC in der chemischen und pharmazeutischen Produktion, technische CFC, OMA oder gleichwertig\n• · Erfahrung bestätigt in einem industriellen Umfeld\n• · Anpassungsfähigkeit, Vielseitigkeit und Flexibilität\n• · Proaktive und positive Einstellung\n• · Autonomie\n• · Geist offen für Veränderung\n• · Fähigkeit, in 5 Schichten (24 Stunden am Tag – 7 Tage die Woche) und in Teamarbeit zu arbeiten\n• · Sprache: Französisch, gesprochen und geschrieben.\n\nHAUPTSTÄNDE\n\n• Fahren (computergesteuerte und / oder automatische) chemische Produktionsanlagen in Übereinstimmung mit Huntsman Sicherheitsstandards und Herstellungsverfahren\n• · Installation/Demontage von Chemieanlagen, Vorbereitung auf Wartungseingriffe\n• · Verschiedene technische Aufgaben zur Unterstützung von technischen Offizieren in der Branche, Elektromechanik und Convenience Stores.\n\nInteressierte werden gebeten, ihr vollständiges Bewerbungspaket (CV, Anschreiben, SWC, Arbeitszertifikat) online einzureichen.\n\nNur Anträge, die die erforderlichen Kriterien erfüllen und von einem vollständigen Dossier begleitet sind, werden berücksichtigt.\n\n*LI-DF1\n\nZusätzliche Mieten:\n\nHuntsman Corporation ist ein globaler Hersteller von differenzierten und Spezialchemikalien. Das Unternehmen betreibt einen großen Produktionsstandort in Monthey (Valais), Schweiz.",
-        "fr": "Job Description :\n\nTechnologue(s) en production – 5 équipes\n\nPROFIL SOUHAITE\n\n• · CFC de technologue en production chimique et pharmaceutique, CFC technique, OMA, ou équivalent\n• · Une expérience confirmée dans un environnement industriel\n• · Capacité d'adaptation, polyvalence et flexibilité\n• · Attitude proactive et positive\n• · Autonomie\n• · Esprit ouvert aux changements\n• · Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7) et en travail d'équipes\n• · Langue : français, parlé et écrit.\n\nTACHES PRINCIPALES\n\n• · Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication\n• · Montage/démontage d’installations chimiques, préparation pour intervention de maintenance\n• · Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens.\n\nLes personnes intéressées sont priées d’adresser leur dossier de candidature complet (CV, lettre de motivation, CFC, certificat de travail) en ligne.\n\nSeules les candidatures répondant aux critères requis et accompagnées d’un dossier complet seront prises en considération.\n\n*LI-DF1\n\nAdditional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06",
-      "postedDate": "2026-11-06",
-      "postingDateSource": "reported",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:40:14.595Z",
-      "jobReqId": "J-019940",
-      "previousSlugs": [
-        "technologue-s-en-production-5-equipes-huntsman-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technologue-s-en-production-5-equipes-huntsman-ch"
-        ],
-        "en": [
-          "technologue-s-en-production-5-equipes-huntsman-ch"
-        ],
-        "de": [
-          "technologue-s-en-production-5-equipes-huntsman-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:49:08.674Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1870",
-      "addressRegion": "VS",
-      "streetAddress": "Monthey",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:40:14.595Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

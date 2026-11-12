@@ -1,7 +1,7 @@
 {
   "key": "proplaning-ag",
   "label": "Proplaning AG",
-  "generatedAt": "2026-11-12T09:56:40.615Z",
+  "generatedAt": "2026-11-12T21:36:16.282Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3715,
-  "avgDurationMs": 3715,
+  "durationMs": 3712,
+  "avgDurationMs": 3712,
   "durationHistory": [
-    3715
+    3712
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "proplaning-ag-fc4ccf51f185",
-      "slug": "gesamtprojektleiter-baumanagement-w-m-d-100-basel-proplaning-ag-ch",
+      "slug": "gestione-delle-costruzioni-f-m-d-100-proplaning-ag-basel",
       "company": "Proplaning AG",
       "companyKey": "proplaning-ag",
       "companyDomain": "my.jobalino.ch",
@@ -37,7 +38,7 @@
       "url": "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d",
       "source": "Proplaning AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:56:22.124Z",
+      "crawledAt": "2026-11-12T21:35:59.049Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -55,25 +56,23 @@
       "postedDate": "2026-06-09",
       "postingDateSource": "reported",
       "applyUrl": "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-11-12T09:56:22.124Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T09:56:22.124Z",
+      "validThrough": "2026-12-12T21:35:59.049Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:56:22.124Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

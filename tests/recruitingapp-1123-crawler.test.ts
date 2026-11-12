@@ -161,6 +161,20 @@ describe('BIG & ARE Stellen crawler parser', () => {
       expect(assertCompleteRecruitingapp1123Snapshot(empty)).toBe(true);
     });
 
+    it('drops a reviewed Austrian locality when the detail omits country boilerplate', async () => {
+      const runtime = runtimeFor({
+        '/Jobs/1': listingHtml(['2533']),
+        '/Vacancies/2533/': richDetail.replace('Standort: Bern', 'Standort: Innsbruck'),
+      });
+      const empty = await fetchAllRecruitingapp1123Jobs(runtime);
+
+      expect(empty).toHaveLength(0);
+      expect(empty.discoveredCount).toBe(1);
+      expect(empty.detailCount).toBe(1);
+      expect(empty.foreignCount).toBe(1);
+      expect(assertCompleteRecruitingapp1123Snapshot(empty)).toBe(true);
+    });
+
     it('wires stable slug/history preservation in the runner', () => {
       const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-recruitingapp-1123-jobs.mjs'), 'utf8');
       expect(runner).toContain('preserveExistingSlugs: true');

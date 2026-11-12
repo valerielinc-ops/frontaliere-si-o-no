@@ -1,7 +1,7 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-11-10T21:53:00.260Z",
-  "runId": "42904472591",
+  "assembledAt": "2026-11-12T21:50:21.779Z",
+  "runId": "43310009878",
   "jobs": [
     {
       "id": "omega-33509",
@@ -34,7 +34,7 @@
       "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:52:54.669Z",
+      "crawledAt": "2026-11-12T21:50:16.685Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:52:54.669Z",
+      "validThrough": "2027-01-14T21:50:16.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33566",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:52:33.125Z",
+      "crawledAt": "2026-11-12T21:49:54.843Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:52:33.125Z",
+      "validThrough": "2027-01-21T21:49:54.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -225,7 +225,7 @@
       "url": "https://www.swatchgroup.com/de/job/33609",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:52:11.706Z",
+      "crawledAt": "2026-11-12T21:49:33.455Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:52:11.706Z",
+      "validThrough": "2027-01-25T21:49:33.455Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -321,7 +321,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33645",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:51:50.156Z",
+      "crawledAt": "2026-11-12T21:49:10.446Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:51:50.156Z",
+      "validThrough": "2027-01-28T21:49:10.446Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -417,7 +417,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33698",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:51:28.669Z",
+      "crawledAt": "2026-11-12T21:48:48.744Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -488,7 +488,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:51:28.669Z",
+      "validThrough": "2027-02-01T21:48:48.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -522,7 +522,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33741",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:51:07.229Z",
+      "crawledAt": "2026-11-12T21:48:27.020Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -586,7 +586,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:51:07.229Z",
+      "validThrough": "2027-02-03T21:48:27.020Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -620,7 +620,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33831",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-10T21:50:44.884Z",
+      "crawledAt": "2026-11-12T21:48:05.404Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -681,8 +681,106 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:50:44.884Z",
+      "validThrough": "2027-02-04T21:48:05.404Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "omega-34046",
+      "slug": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+      "slugByLocale": {
+        "fr": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+        "it": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+        "en": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+        "de": "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "APPRENTISSAGE LOGISTICIEN·NE CFC",
+      "titleByLocale": {
+        "fr": "APPRENTISSAGE LOGISTICIEN·NE CFC",
+        "it": "APPRENTISSAGE LOGISTICIEN·NE CFC",
+        "en": "APPRENTISSAGE LOGISTICIEN·NE CFC",
+        "de": "APPRENTISSAGE LOGISTICIEN·NE CFC"
+      },
+      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE LOGISTICIEN·NE CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Réceptionnez la marchandise et contrôlez les produits livrés\n\n• Vérifiez les documents de livraison et comparez avec la commande\n\n• Entreposez les produits\n\n• Effectuez les entrées et les sorties de marchandises\n\n• Procédez à des inventaires de marchandises et mettez à jour l'état des stocks\n\n## Profil\n• Scolarité obligatoire achevée et avoir entre 15 et 25 ans\n\n## Compétences requises\n• Autonomie et ingéniosité\n\n• Résistance physique\n\n• Capacité de concentration et d'organisation\n\n• Bonne mémoire\n\n• Esprit méthodique et logique\n\n• Persévérance\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand",
+      "descriptionByLocale": {
+        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE LOGISTICIEN·NE CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Réceptionnez la marchandise et contrôlez les produits livrés\n\n• Vérifiez les documents de livraison et comparez avec la commande\n\n• Entreposez les produits\n\n• Effectuez les entrées et les sorties de marchandises\n\n• Procédez à des inventaires de marchandises et mettez à jour l'état des stocks\n\n## Profil\n• Scolarité obligatoire achevée et avoir entre 15 et 25 ans\n\n## Compétences requises\n• Autonomie et ingéniosité\n\n• Résistance physique\n\n• Capacité de concentration et d'organisation\n\n• Bonne mémoire\n\n• Esprit méthodique et logique\n\n• Persévérance\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand",
+        "it": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE LOGISTICIEN·NE CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Réceptionnez la marchandise et contrôlez les produits livrés\n\n• Vérifiez les documents de livraison et comparez avec la commande\n\n• Entreposez les produits\n\n• Effectuez les entrées et les sorties de marchandises\n\n• Procédez à des inventaires de marchandises et mettez à jour l'état des stocks\n\n## Profil\n• Scolarité obligatoire achevée et avoir entre 15 et 25 ans\n\n## Compétences requises\n• Autonomie et ingéniosité\n\n• Résistance physique\n\n• Capacité de concentration et d'organisation\n\n• Bonne mémoire\n\n• Esprit méthodique et logique\n\n• Persévérance\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand",
+        "en": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE LOGISTICIEN·NE CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Réceptionnez la marchandise et contrôlez les produits livrés\n\n• Vérifiez les documents de livraison et comparez avec la commande\n\n• Entreposez les produits\n\n• Effectuez les entrées et les sorties de marchandises\n\n• Procédez à des inventaires de marchandises et mettez à jour l'état des stocks\n\n## Profil\n• Scolarité obligatoire achevée et avoir entre 15 et 25 ans\n\n## Compétences requises\n• Autonomie et ingéniosité\n\n• Résistance physique\n\n• Capacité de concentration et d'organisation\n\n• Bonne mémoire\n\n• Esprit méthodique et logique\n\n• Persévérance\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand",
+        "de": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE LOGISTICIEN·NE CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Réceptionnez la marchandise et contrôlez les produits livrés\n\n• Vérifiez les documents de livraison et comparez avec la commande\n\n• Entreposez les produits\n\n• Effectuez les entrées et les sorties de marchandises\n\n• Procédez à des inventaires de marchandises et mettez à jour l'état des stocks\n\n## Profil\n• Scolarité obligatoire achevée et avoir entre 15 et 25 ans\n\n## Compétences requises\n• Autonomie et ingéniosité\n\n• Résistance physique\n\n• Capacité de concentration et d'organisation\n\n• Bonne mémoire\n\n• Esprit méthodique et logique\n\n• Persévérance\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/fr/job/34046",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-12T21:47:43.881Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Logistica",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-11T08:44:59+01:00",
+      "postedDate": "2026-11-11T08:44:59+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-283149&langCode=fr_FR&source=swatchgroup.com",
+      "requirements": [
+        "Scolarité obligatoire achevée et avoir entre 15 et 25 ans",
+        "Autonomie et ingéniosité",
+        "Résistance physique",
+        "Capacité de concentration et d'organisation",
+        "Bonne mémoire",
+        "Esprit méthodique et logique",
+        "Persévérance",
+        "Maîtrise du français et connaissances de l'allemand"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Scolarité obligatoire achevée et avoir entre 15 et 25 ans",
+          "Autonomie et ingéniosité",
+          "Résistance physique",
+          "Capacité de concentration et d'organisation",
+          "Bonne mémoire",
+          "Esprit méthodique et logique",
+          "Persévérance",
+          "Maîtrise du français et connaissances de l'allemand"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-09T21:47:43.881Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T21:47:43.881Z"
     }
   ]
 }
