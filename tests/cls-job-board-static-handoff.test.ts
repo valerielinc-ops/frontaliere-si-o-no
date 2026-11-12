@@ -532,6 +532,14 @@ describe('static → SPA job-board geometry — #9815', () => {
     expect(hubSource).toContain("'seo-static-content job-board-static-hub job-board-static-content'");
   });
 
+  it('keeps the mobile static rail in flow for two frames during ownership release', () => {
+    expect(appSource).toContain('scheduleOwnedStaticSnapshotRemoval');
+    expect(appSource).toContain('jobBoardSnapshotShouldDelayRemoval');
+    expect(appSource).toContain('cancelPendingSnapshotReleases');
+    expect(readFileSync(resolve(ROOT, 'services/staticFallbackHandoff.ts'), 'utf-8'))
+      .toContain('let framesRemaining = 2');
+  });
+
   it('derives the static cap and centering from the hydrated job-board main contract', () => {
     const mainClass = appSource.match(/activeTab === 'job-board'\s*\?\s*'([^']+)'/)?.[1];
     const maxWidthPx = mainClass?.match(/!max-w-\[(\d+)px\]/)?.[1];

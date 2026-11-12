@@ -141,6 +141,60 @@ export function isStaticArticleReadyForTakeover(input: StaticArticleReadiness): 
  */
 export const STATIC_SNAPSHOT_OWNER_ATTR = 'data-ft-snapshot-owner';
 
+function ownedStaticSnapshotContainer(snapshot: Element): HTMLElement {
+  return snapshot.closest<HTMLElement>('.ft-rail-grid') ?? (snapshot as HTMLElement);
+}
+
+export interface StaticSnapshotReleaseSchedule {
+  requestFrame?: (callback: () => void) => number;
+  cancelFrame?: (frame: number) => void;
+}
+
+/**
+ * Keep the job-board fallback's rail footprint while the live shell settles.
+ *
+ * The mobile handoff renders the SPA copy before removing the body-level
+ * snapshot. Hiding the snapshot immediately would collapse its rail wrapper
+ * in the same commit that the live cards enter flow, so the two geometries
+ * would both contribute to field CLS. Visibility preserves the wrapper's
+ * measured flow without leaving duplicate content visible; two animation
+ * frames give the live shell a paint boundary before the old wrapper goes.
+ */
+export function scheduleOwnedStaticSnapshotRemoval(
+  snapshot: Element,
+  schedule: StaticSnapshotReleaseSchedule = {},
+): () => void {
+  const owner = ownedStaticSnapshotContainer(snapshot);
+  const previousVisibility = owner.style.visibility;
+  owner.style.visibility = 'hidden';
+  const requestFrame = schedule.requestFrame
+    ?? ((callback: () => void) => window.requestAnimationFrame(() => callback()));
+  const cancelFrame = schedule.cancelFrame
+    ?? ((frame: number) => window.cancelAnimationFrame(frame));
+  let framesRemaining = 2;
+  let frame: number | null = null;
+  let finished = false;
+
+  const release = (): void => {
+    if (finished) return;
+    if (framesRemaining > 1) {
+      framesRemaining -= 1;
+      frame = requestFrame(release);
+      return;
+    }
+    finished = true;
+    ownedStaticSnapshotContainer(snapshot).remove();
+  };
+
+  frame = requestFrame(release);
+  return () => {
+    if (finished) return;
+    finished = true;
+    if (frame !== null) cancelFrame(frame);
+    if (owner.isConnected) owner.style.visibility = previousVisibility;
+  };
+}
+
 /**
  * Take a body-owning snapshot out of the document for good, with the
  * build-time rail grid it may sit in.
@@ -151,7 +205,7 @@ export const STATIC_SNAPSHOT_OWNER_ATTR = 'data-ft-snapshot-owner';
  * find it and show it as the content of whatever page came next.
  */
 export function removeOwnedStaticSnapshot(snapshot: Element): void {
-  (snapshot.closest('.ft-rail-grid') ?? snapshot).remove();
+  ownedStaticSnapshotContainer(snapshot).remove();
 }
 
 /** How long {@link afterRootCrossfade} waits for `#root` before releasing anyway. */
