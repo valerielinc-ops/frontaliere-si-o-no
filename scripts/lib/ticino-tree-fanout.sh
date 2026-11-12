@@ -30,7 +30,10 @@ section_tree_layout() {
   if section_tree_uses_hash_fanout "$1"; then
     # shard-git-helpers.sh is adapted to the corpus and recognizes this
     # compatibility marker. Physical path mapping itself is section-neutral.
-    printf 'ticino-hash-v1'
+    case "$1" in
+      ticino|zurigo) printf '%s-hash-v1' "$1" ;;
+      *) printf 'ticino-hash-v1' ;;
+    esac
   else
     fanout_rc="$?"
     if [ "$fanout_rc" -ne 1 ]; then return "$fanout_rc"; fi

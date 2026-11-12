@@ -27,6 +27,20 @@ describe('Ticino shard tree fan-out', () => {
     expect(WORKER_FANOUT_SECTIONS).toEqual(SCRIPT_FANOUT_SECTIONS);
   });
 
+  it('keeps existing Ticino and Zurich layout markers while adapting Bern', () => {
+    const output = execFileSync(
+      'bash',
+      [
+        '-c',
+        'source "$1"; printf "%s\\n" "$(section_tree_layout ticino)" "$(section_tree_layout zurigo)" "$(section_tree_layout berna)" "$(section_tree_layout svizzera)"',
+        'section-layout-marker-test',
+        HELPER,
+      ],
+      { encoding: 'utf8' },
+    );
+    expect(output).toBe('ticino-hash-v1\nzurigo-hash-v1\nticino-hash-v1\ncanonical\n');
+  });
+
   it('is wired into the section push and disables the incompatible delta path', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
