@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   conciergeProposalDisplayCategory,
   conciergeProposalDisplayStatus,
+  getCandidateVisibleApplicationConciergeProposals,
+  getCandidateVisibleConciergeClarificationTasks,
   groupApplicationConciergeProposals,
   type ApplicationConciergeProposal,
 } from '../services/applicationConciergeService';
@@ -20,8 +22,21 @@ describe('proposal decision and actual application progress', () => {
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString() })).toBe('withdrawn');
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined' })).toBe('declined');
   });
-  it('shows a stale proposed match as needing re-verification while leaving it a proposal', () => {
-    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'proposed', eligibilityStatus: 'needs_verification' })).toBe('needs_verification');
+  it('shows a stale row as under verification, not as an acceptable proposal', () => {
+    const stale = { ...proposal, status: 'proposed', eligibilityStatus: 'needs_verification' } as ApplicationConciergeProposal;
+    expect(conciergeProposalDisplayStatus(stale)).toBe('needs_verification');
+    expect(conciergeProposalDisplayCategory(stale)).toBe('needs_verification');
+  });
+  it('shows a required answer as a clarification step, separate from verified proposals', () => {
+    const needsClarification = { ...proposal, status: 'proposed', eligibilityStatus: 'clarification_required' } as ApplicationConciergeProposal;
+    expect(conciergeProposalDisplayStatus(needsClarification)).toBe('needs_clarification');
+    expect(conciergeProposalDisplayCategory(needsClarification)).toBe('needs_clarification');
+    expect(conciergeProposalDisplayStatus({ ...needsClarification, status: 'preproposal_check' })).toBe('needs_clarification');
+  });
+  it('fails closed when a proposed row has no current eligibility result', () => {
+    const unverified = { ...proposal, status: 'proposed', eligibilityStatus: 'unverified' } as ApplicationConciergeProposal;
+    expect(conciergeProposalDisplayStatus(unverified)).toBe('needs_verification');
+    expect(conciergeProposalDisplayCategory(unverified)).toBe('needs_verification');
   });
   it('keeps confirmed sending and employer replies visible when withdrawal evidence conflicts', () => {
     const withdrawn = { ...proposal, status: 'declined', childApplicationId: 'child-test', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' };
@@ -65,9 +80,12 @@ describe('proposal decision and actual application progress', () => {
       childSubmissionStatus: 'failed',
     })).toBe('failed');
   });
-  it('groups proposals by candidate-facing progress without losing decision history', () => {
+  it('keeps preliminary checks outside proposal groups without losing decision history', () => {
     const proposals = [
-      { ...proposal, proposalId: 'proposed', status: 'proposed' },
+      { ...proposal, proposalId: 'proposed', status: 'proposed', eligibilityStatus: 'compatible' },
+      { ...proposal, proposalId: 'needs-clarification', status: 'proposed', eligibilityStatus: 'clarification_required',
+        clarificationQuestions: [{ id: 'detail', question: 'Please confirm this detail.', required: true }] },
+      { ...proposal, proposalId: 'needs-verification', status: 'proposed', eligibilityStatus: 'needs_verification' },
       { ...proposal, proposalId: 'needs-information', childApplicationId: 'child-1', childApplicationState: 'candidate_review' },
       { ...proposal, proposalId: 'accepted', childApplicationId: null },
       { ...proposal, proposalId: 'queued', childApplicationId: 'child-2', childApplicationState: 'submitting' },
@@ -89,6 +107,11 @@ describe('proposal decision and actual application progress', () => {
       'declined',
       'retracted',
     ]);
+    const visibleProposalIds = getCandidateVisibleApplicationConciergeProposals(proposals).map(({ proposalId }) => proposalId);
+    expect(visibleProposalIds).not.toContain('needs-clarification');
+    expect(visibleProposalIds).not.toContain('needs-verification');
+    expect(getCandidateVisibleConciergeClarificationTasks(proposals).map(({ proposalId }) => proposalId))
+      .toEqual(['needs-clarification']);
     expect(conciergeProposalDisplayCategory(proposals.find(({ proposalId }) => proposalId === 'submitted')!)).toBe('submitted');
   });
 });

@@ -152,6 +152,16 @@ export function conciergeProposalDecisionOpenedAt(proposal) {
   return acceptableAt > 0 && announcedAt > 0 ? Math.max(acceptableAt, announcedAt) : 0;
 }
 
+/** The platform timer needs a proven notice and no terminal provider failure. */
+export function conciergeProposalNoticeDecisionReady(service, proposal) {
+  if (!timestampMillis(proposal?.proposalNoticeSentAt)
+    || ['unknown', 'undeliverable'].includes(proposal?.proposalNoticeStatus)) return false;
+  const deliveryStatus = proposal?.proposalNoticeKey
+    ? service?.notifications?.[proposal.proposalNoticeKey]?.deliveryStatus
+    : null;
+  return !['bounced', 'complained'].includes(deliveryStatus);
+}
+
 /** The time the platform accepts an undecided proposal, or 0 when nothing is waiting on the candidate. */
 export function conciergeAutoAcceptAt(proposal) {
   if (proposal?.status !== 'proposed') return 0;

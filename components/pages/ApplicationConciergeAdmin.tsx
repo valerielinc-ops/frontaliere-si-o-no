@@ -28,9 +28,15 @@ const PROPOSAL_LABELS: Record<string, string> = { proposed: 'In attesa del candi
 // A proposal the candidate cannot accept yet waits on the platform's own re-check, not on the candidate.
 const dateTime = (value: string) => new Intl.DateTimeFormat('it-CH', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(value));
 // Owner decision 2026-11-11: the platform accepts a proposal left undecided for 12 hours.
-const proposalDecisionLabel = (proposal: { status: string; eligibilityStatus?: string | null; autoAcceptAt?: string | null; decidedBy?: string | null }) => {
-  if (proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification') return 'In verifica dalla piattaforma';
-  if (proposal.status === 'proposed' && proposal.autoAcceptAt) return `${PROPOSAL_LABELS.proposed} · accettata automaticamente alle ${dateTime(proposal.autoAcceptAt)} se non decide`;
+const proposalDecisionLabel = (proposal: { status: string; eligibilityStatus?: string | null; proposalNoticeStatus?: string | null; autoAcceptAt?: string | null; decidedBy?: string | null }) => {
+  if (proposal.status === 'proposed') {
+    if (proposal.eligibilityStatus === 'needs_verification') return 'Requisiti non confermati';
+    if (proposal.eligibilityStatus === 'clarification_required') return 'In attesa di un chiarimento del candidato';
+    if (proposal.eligibilityStatus !== 'compatible') return 'Verifica non conclusa';
+    if (proposal.proposalNoticeStatus === 'unknown') return 'Email proposta dall’esito incerto · timer sospeso';
+    if (proposal.proposalNoticeStatus === 'undeliverable') return 'Email proposta non recapitata · timer sospeso';
+    if (proposal.autoAcceptAt) return `${PROPOSAL_LABELS.proposed} · accettata automaticamente alle ${dateTime(proposal.autoAcceptAt)} se non decide`;
+  }
   if (proposal.status === 'accepted' && proposal.decidedBy === 'platform_timeout') return 'Accettata dalla piattaforma (12 ore senza decisione)';
   return PROPOSAL_LABELS[proposal.status] || proposal.status;
 };

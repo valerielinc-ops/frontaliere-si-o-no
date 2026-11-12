@@ -22,6 +22,7 @@ vi.mock('@/services/applicationConciergeService', () => ({
   openApplicationConciergeChildReview: vi.fn(), acceptApplicationConciergeProposal: vi.fn(),
   declineApplicationConciergeProposal: vi.fn(), recordApplicationConciergeConsent: vi.fn(),
   saveApplicationConciergeProfile: vi.fn(), getCandidateVisibleApplicationConciergeProposals: (rows: unknown) => rows,
+  getCandidateVisibleConciergeClarificationTasks: () => [],
   groupApplicationConciergeProposals: (rows: readonly ApplicationConciergeProposal[]): ApplicationConciergeProposalGroup[] => rows.length
     ? [{ category: 'proposed', proposals: [...rows] }]
     : [],

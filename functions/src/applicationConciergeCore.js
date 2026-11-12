@@ -17,6 +17,8 @@ import {
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { countConciergeProposalCapacity, proposalAcceptability } from './applicationConciergeProposalEligibility.js';
+export { proposalAcceptability } from './applicationConciergeProposalEligibility.js';
 import {
   CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID,
   CONCIERGE_ELIGIBILITY_VERSION,
@@ -34,6 +36,7 @@ import {
   CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT,
   conciergeAutoAcceptAt,
   conciergeAutoAcceptDue,
+  conciergeProposalNoticeDecisionReady,
   conciergeRenewalOffer,
 } from './applicationConciergeLifecyclePolicy.js';
 import { isApplicationConciergeRenewalEnabledFor } from './applicationConciergeRenewalRollout.js';
@@ -123,44 +126,6 @@ function nonnegativeRevision(value) {
   return Number.isSafeInteger(revision) && revision >= 0 ? revision : null;
 }
 
-/**
- * The one acceptability rule for a proposal. Matcher activity is service-wide,
- * while these checks are about the facts that were actually used for this
- * proposal. A queued or running matcher therefore does not invalidate a row
- * whose CV, eligibility version and relevant candidate facts still match.
- */
-export function proposalAcceptability(service, proposal, runtime = null) {
-  const currentService = mergeConciergeMatchingRuntime(service || {}, runtime);
-  const status = String(proposal?.eligibilityStatus || '');
-  const supportedStatus = ['compatible', 'clarification_required'].includes(status);
-  const dependency = proposal?.eligibilityFactsDependency;
-  const hasDependency = dependency && typeof dependency === 'object'
-    && typeof dependency.languages === 'boolean' && typeof dependency.answers === 'boolean';
-  let factsCurrent;
-  if (hasDependency) {
-    const languageRevision = nonnegativeRevision(proposal.eligibilityLanguagesRevision);
-    const answerRevision = nonnegativeRevision(proposal.eligibilityAnswersRevision);
-    factsCurrent = (!dependency.languages || (languageRevision !== null
-        && languageRevision === (nonnegativeRevision(currentService.eligibilityLanguagesRevision) ?? 0)))
-      && (!dependency.answers || (answerRevision !== null
-        && answerRevision === (nonnegativeRevision(proposal.candidateAnswersRevision) ?? 0)));
-  } else {
-    // Rows written before per-proposal dependencies retain their previous
-    // scalar revision contract until the matcher safely annotates them.
-    factsCurrent = eligibilityFactsRevision(proposal) === eligibilityFactsRevision(currentService);
-  }
-  const current = proposal?.status === 'proposed' && supportedStatus
-    && proposal?.eligibilityVersion === CONCIERGE_ELIGIBILITY_VERSION
-    && Boolean(currentService.cvStorageKey)
-    && proposal?.eligibilityCvStorageKey === currentService.cvStorageKey
-    && factsCurrent;
-  return {
-    verified: current,
-    acceptable: current && status === 'compatible',
-    eligibilityStatus: current ? status : 'needs_verification',
-  };
-}
-
 function validHttpsUrl(value) {
   try {
     return new URL(value).protocol === 'https:';
@@ -234,7 +199,9 @@ function serializeProposal(doc, service = null) {
     acceptedAt: timestampToIso(data.acceptedAt),
     declinedAt: timestampToIso(data.declinedAt),
     // The platform accepts at this time a proposal the candidate has not decided (owner decision 2026-11-11).
-    autoAcceptAt: acceptability.acceptable ? timestampToIso(conciergeAutoAcceptAt(data)) : null,
+    autoAcceptAt: acceptability.acceptable && conciergeProposalNoticeDecisionReady(service, data)
+      ? timestampToIso(conciergeAutoAcceptAt(data)) : null,
+    proposalNoticeStatus: ['sent', 'unknown', 'undeliverable'].includes(data.proposalNoticeStatus) ? data.proposalNoticeStatus : null,
     decidedBy: [CONCIERGE_DECIDED_BY_CANDIDATE, CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT].includes(data.decidedBy) ? data.decidedBy : null,
     childApplicationId: optionalString(data.childApplicationId, 200),
     childApplicationState: optionalString(data.childApplicationState, 60),
@@ -283,7 +250,8 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     acceptedPositionsCount: acceptedPositionsCount(data),
     // Proposal rows are authoritative during a matcher run; the parent count is
     // only a compatibility mirror and is refreshed once the batch completes.
-    openProposalsCount: proposals.filter(proposal => proposal.status === 'proposed').length,
+    openProposalsCount: proposals.filter(proposal => proposal.status === 'proposed'
+      && proposal.eligibilityStatus === 'compatible').length,
     maxOpenProposals: APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS,
     remainingPositions: Math.max(0, servicePositionLimit(data) - acceptedPositionsCount(data)),
     paidAt: timestampToIso(data.paidAt),
@@ -342,8 +310,17 @@ async function serializeCandidateApplicationConciergeService(doc, proposalDocs =
       };
     }
   }
+  const serialized = serializeApplicationConciergeService(doc, proposalDocs, { renewalEnabled });
+  const preProposalChecks = serialized.proposals.filter(proposal => proposal.status === 'proposed'
+    && proposal.eligibilityStatus === 'clarification_required')
+    .map(proposal => ({ ...proposal, status: 'preproposal_check' }));
   return {
-    ...serializeApplicationConciergeService(doc, proposalDocs, { renewalEnabled }),
+    ...serialized,
+    // The candidate API contract never calls an unresolved eligibility row a
+    // proposal. Only decision-ready offers and durable history stay here.
+    proposals: serialized.proposals.filter(proposal => proposal.status !== 'proposed'
+      || proposal.eligibilityStatus === 'compatible'),
+    preProposalChecks,
     candidateLanguageFacts,
   };
 }
@@ -510,15 +487,19 @@ async function saveCandidateLanguageFacts(db, serviceId, uid, body) {
   assertConciergeProcessingConsent(service);
   if (!cvKeyForService(serviceId, service.cvStorageKey)) throw new ApplicationConciergeError('cv_required', 409);
   const factsRef = ref.collection('eligibility').doc(CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID);
+  const runtimeRef = conciergeMatchingRuntimeRef(ref);
   const purgeBase = Math.max(timestampMillis(service.cvUploadedAt), timestampMillis(service.paidAt), Date.now());
   const purgeAt = new Date(purgeBase + 90 * 86400000);
   await db.runTransaction(async transaction => {
     const proposalsQuery = ref.collection('proposals').where('status', '==', 'proposed');
-    const [currentServiceSnapshot, currentFactsSnapshot, proposalsSnapshot] = await Promise.all([
+    const [currentServiceSnapshot, currentFactsSnapshot, proposalsSnapshot, runtimeSnapshot] = await Promise.all([
       transaction.get(ref), transaction.get(factsRef),
       transaction.get(proposalsQuery),
+      transaction.get(runtimeRef),
     ]);
-    const currentService = currentServiceSnapshot.data() || {};
+    const legacyService = currentServiceSnapshot.data() || {};
+    const runtime = runtimeSnapshot.data() || null;
+    const currentService = mergeConciergeMatchingRuntime(legacyService, runtime);
     assertCandidateOwns(currentService, uid);
     assertActive(currentService);
     assertConciergeProcessingConsent(currentService);
@@ -536,18 +517,28 @@ async function saveCandidateLanguageFacts(db, serviceId, uid, body) {
     });
     const caches = await Promise.all(cacheRefs.map(cacheRef => cacheRef ? transaction.get(cacheRef) : null));
     const currentLanguageRevision = nonnegativeRevision(currentService.eligibilityLanguagesRevision) ?? 0;
+    const annotatedProposals = new Map();
     for (let index = 0; index < proposedRows.length; index += 1) {
       const cached = caches[index]?.data?.() || null;
       if (!cached || !cached.requirements || typeof cached.requirements !== 'object') continue;
       const proposal = proposedRows[index].data() || {};
       const dependency = candidateFactsDependency(cached.requirements, cached, cached.result);
       const answerRevision = nonnegativeRevision(proposal.candidateAnswersRevision) ?? 0;
-      transaction.set(proposedRows[index].ref, {
+      const patch = {
         eligibilityFactsDependency: dependency,
         eligibilityLanguagesRevision: currentLanguageRevision,
         eligibilityAnswersRevision: answerRevision,
-      }, { merge: true });
+      };
+      annotatedProposals.set(proposedRows[index].id, { ...proposal, ...patch });
+      transaction.set(proposedRows[index].ref, patch, { merge: true });
     }
+    const projectedProposals = (proposalsSnapshot.docs || []).map(snapshot => annotatedProposals.get(snapshot.id) || snapshot.data() || {});
+    const nextService = {
+      ...currentService,
+      eligibilityFactsRevision: eligibilityFactsRevision(currentService) + 1,
+      eligibilityLanguagesRevision: currentLanguageRevision + 1,
+    };
+    const nextOpenProposalCount = countConciergeProposalCapacity(projectedProposals, nextService, runtime).decisionReady;
     const now = Timestamp.now();
     transaction.set(factsRef, {
       schemaVersion: APPLICATION_CONCIERGE_CANDIDATE_LANGUAGES_VERSION,
@@ -557,10 +548,13 @@ async function saveCandidateLanguageFacts(db, serviceId, uid, body) {
       languages: facts.languages,
       updatedAt: FieldValue.serverTimestamp(),
     });
+    writeConciergeMatchingRuntime(transaction, ref, runtimeRef, legacyService, runtime,
+      { matchingOpenProposalCount: nextOpenProposalCount });
     transaction.set(ref, {
       eligibilityPurgeAt: purgeAt,
       eligibilityFactsRevision: FieldValue.increment(1),
       eligibilityLanguagesRevision: FieldValue.increment(1),
+      matchingOpenProposalCount: nextOpenProposalCount,
       matchingStatus: 'queued',
       matchingError: null,
       updatedAt: FieldValue.serverTimestamp(),
@@ -707,7 +701,7 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
   const consentPatch = body.consent === true && !hasConsent
     ? { consentVersion: APPLICATION_CONCIERGE_CONSENT_VERSION, consentedAt: now }
     : {};
-  await ref.set({
+  const profilePatch = {
     applicantName: name,
     applicantEmail: email,
     applicantPhone: phone,
@@ -726,7 +720,28 @@ async function saveCandidateProfile(db, serviceId, uid, body) {
       } : {}),
     } : {}),
     updatedAt: FieldValue.serverTimestamp(),
-  }, { merge: true });
+  };
+  if (requestedKey && requestedKey !== currentKey) {
+    const runtimeRef = conciergeMatchingRuntimeRef(ref);
+    const proposalsQuery = ref.collection('proposals').where('status', '==', 'proposed');
+    await db.runTransaction(async transaction => {
+      const [currentServiceSnapshot, runtimeSnapshot, proposalsSnapshot] = await Promise.all([
+        transaction.get(ref), transaction.get(runtimeRef), transaction.get(proposalsQuery),
+      ]);
+      const legacyService = currentServiceSnapshot.data() || {};
+      const runtime = runtimeSnapshot.data() || null;
+      const currentService = mergeConciergeMatchingRuntime(legacyService, runtime);
+      assertCandidateOwns(currentService, uid);
+      assertActive(currentService);
+      const nextService = { ...currentService, cvStorageKey: requestedKey };
+      const nextOpenCount = countConciergeProposalCapacity(proposalsSnapshot.docs, nextService, runtime).decisionReady;
+      writeConciergeMatchingRuntime(transaction, ref, runtimeRef, legacyService, runtime,
+        { matchingOpenProposalCount: nextOpenCount });
+      transaction.set(ref, { ...profilePatch, matchingOpenProposalCount: nextOpenCount }, { merge: true });
+    });
+  } else {
+    await ref.set(profilePatch, { merge: true });
+  }
   const fresh = await loadService(db, serviceId);
   return serializeCandidateApplicationConciergeService(fresh.snapshot, fresh.proposals);
 }
@@ -796,8 +811,8 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   const platformTimeout = decidedBy === CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT;
   const loadedService = await loadService(db, serviceId);
   const { ref: serviceRef, snapshot: serviceSnapshot } = loadedService;
-  const fallbackOpenCount = loadedService.proposals.filter(proposal => (proposal.data() || {}).status === 'proposed').length;
   const service = serviceSnapshot.data() || {};
+  const fallbackOpenCount = countConciergeProposalCapacity(loadedService.proposals, service).decisionReady;
   assertCandidateOwns(service, uid);
   const proposalRef = proposalRefFor(db, serviceId, proposalId);
   const proposalSnapshot = await proposalRef.get();
@@ -819,6 +834,9 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
   }
   if (platformTimeout && !conciergeAutoAcceptDue(proposal, decisionNowMs)) {
     throw new ApplicationConciergeError('auto_accept_not_due', 409);
+  }
+  if (platformTimeout && !conciergeProposalNoticeDecisionReady(service, proposal)) {
+    throw new ApplicationConciergeError('proposal_notice_not_delivered', 409);
   }
   assertActive(service);
   if (acceptedPositionsCount(service) >= servicePositionLimit(service)) {
@@ -865,6 +883,9 @@ async function acceptProposal(db, serviceId, proposalId, uid, operationStartedAt
       if (!proposalAcceptability(legacyService || currentService, currentProposal, matchingRuntime).acceptable
         || currentService.cvStorageKey !== service.cvStorageKey) {
         throw new ApplicationConciergeError('proposal_requires_verification', 409);
+      }
+      if (platformTimeout && !conciergeProposalNoticeDecisionReady(legacyService || currentService, currentProposal)) {
+        throw new ApplicationConciergeError('proposal_notice_not_delivered', 409);
       }
       if (platformTimeout && !conciergeAutoAcceptDue(currentProposal, Math.max(nowMs, decisionNowMs))) {
         throw new ApplicationConciergeError('auto_accept_not_due', 409);
@@ -963,14 +984,14 @@ async function declineProposal(db, serviceId, proposalId, uid, rawReason = '') {
   if (declineReason && !CANDIDATE_DECLINE_REASONS.has(declineReason)) {
     throw new ApplicationConciergeError('invalid_decline_reason', 400);
   }
-  const existingProposals = await serviceRef.collection('proposals').get();
-  const fallbackOpenCount = (existingProposals.docs || []).filter(doc => (doc.data() || {}).status === 'proposed').length;
+  const existingProposalsQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
   await db.runTransaction(async (transaction) => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-    const [serviceSnapshot, runtimeSnapshot, proposalSnapshot] = await Promise.all([
+    const [serviceSnapshot, runtimeSnapshot, proposalSnapshot, proposalsSnapshot] = await Promise.all([
       transaction.get(serviceRef),
       transaction.get(runtimeRef),
       transaction.get(proposalRef),
+      transaction.get(existingProposalsQuery),
     ]);
     const legacyService = serviceSnapshot.exists ? serviceSnapshot.data() || {} : null;
     const runtime = runtimeSnapshot.data() || null;
@@ -980,8 +1001,12 @@ async function declineProposal(db, serviceId, proposalId, uid, rawReason = '') {
     if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
     const proposal = proposalSnapshot.data() || {};
     if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
-    const openCount = openProposalsCount(service, fallbackOpenCount);
-    const nextOpenCount = Math.max(0, openCount - 1);
+    if (!proposalAcceptability(service, proposal, runtime).acceptable) {
+      throw new ApplicationConciergeError('proposal_requires_verification', 409);
+    }
+    const capacity = countConciergeProposalCapacity(proposalsSnapshot.docs, service, runtime);
+    const wasDecisionReady = proposalAcceptability(service, proposal, runtime).acceptable;
+    const nextOpenCount = Math.max(0, capacity.decisionReady - Number(wasDecisionReady));
     const declinedAt = Timestamp.now();
     transaction.set(proposalRef, {
       status: 'declined',
@@ -1125,7 +1150,6 @@ async function createProposal(db, raw, adminEmail) {
   }
   const job = proposalJobData(raw);
   const existing = await serviceRef.collection('proposals').get();
-  const fallbackOpenCount = (existing.docs || []).filter(doc => (doc.data() || {}).status === 'proposed').length;
   if ((existing.docs || []).some((doc) => {
     const data = doc.data() || {};
     return data.jobId === job.jobId || data.jobUrl === job.jobUrl;
@@ -1161,8 +1185,9 @@ async function createProposal(db, raw, adminEmail) {
   };
   await db.runTransaction(async transaction => {
     const runtimeRef = conciergeMatchingRuntimeRef(serviceRef);
-    const [currentServiceSnapshot, currentRuntimeSnapshot, currentProposalSnapshot] = await Promise.all([
-      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(proposalRef),
+    const openProposalQuery = serviceRef.collection('proposals').where('status', '==', 'proposed');
+    const [currentServiceSnapshot, currentRuntimeSnapshot, currentProposalSnapshot, openProposalSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(runtimeRef), transaction.get(proposalRef), transaction.get(openProposalQuery),
     ]);
     const legacyCurrentService = currentServiceSnapshot.data() || {};
     const runtime = currentRuntimeSnapshot.data() || null;
@@ -1176,9 +1201,11 @@ async function createProposal(db, raw, adminEmail) {
     if (acceptedPositionsCount(currentService) >= servicePositionLimit(currentService)) {
       throw new ApplicationConciergeError('position_limit_reached', 409);
     }
-    const openCount = openProposalsCount(currentService, fallbackOpenCount);
-    if (openCount >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) throw new ApplicationConciergeError('proposal_limit_reached', 409);
-    const nextOpenCount = openCount + 1;
+    const capacity = countConciergeProposalCapacity(openProposalSnapshot.docs, currentService, runtime);
+    if (capacity.decisionReady >= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS) {
+      throw new ApplicationConciergeError('proposal_limit_reached', 409);
+    }
+    const nextOpenCount = capacity.decisionReady + 1;
     writeConciergeMatchingRuntime(transaction, serviceRef, runtimeRef, legacyCurrentService, runtime,
       { matchingOpenProposalCount: nextOpenCount });
     transaction.set(serviceRef, { matchingOpenProposalCount: nextOpenCount }, { merge: true });

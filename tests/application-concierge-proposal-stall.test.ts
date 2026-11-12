@@ -90,19 +90,20 @@ function ageStall(store: ReturnType<typeof createMemoryFirestore>, path: string,
 afterEach(() => vi.unstubAllGlobals());
 
 describe('stalled concierge proposals release their open slot', () => {
-  it('holds an omitted listing for the grace, then retracts it as uncertain and publishes a verified job', async () => {
+  it('does not let unresolved checks consume decision slots, then retracts stale checks after the grace', async () => {
     const store = fullQuotaFixture();
     stubJobIndex([freshJob]);
     const eligibility = vi.fn(async () => ({ status: 'compatible' }));
 
     const first = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
-    expect(first).toMatchObject({ status: 'complete', proposals: 0, retracted: 0 });
+    expect(first).toMatchObject({ status: 'complete', proposals: 1, retracted: 0 });
     for (let index = 1; index <= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS; index += 1) {
       expect(store.read(openPath(index))).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified',
         eligibilityStallReason: 'listing_not_ranked', eligibilityStalledAt: expect.any(Date) });
     }
     const releaseAt = Number(store.read(SERVICE_PATH)?.matchingStallReleaseAt);
     expect(releaseAt).toBeGreaterThan(Date.now() + PROPOSAL_STALL_GRACE_MS - 60_000);
+    expect(store.read(SERVICE_PATH)?.matchingOpenProposalCount).toBe(1);
     const consented = { ...store.read(SERVICE_PATH), consentedAt: new Date() };
     expect(conciergeRefreshDue(consented, Date.now())).toBe(false);
     expect(conciergeRefreshDue(consented, releaseAt)).toBe(true);
@@ -110,7 +111,7 @@ describe('stalled concierge proposals release their open slot', () => {
     // Inside the grace nothing is released, and the first stall time is kept.
     const markedAt = (store.read(openPath(1))!.eligibilityStalledAt as Date).getTime();
     await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
-    expect(openRows(store)).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS);
+    expect(openRows(store)).toHaveLength(APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS + 1);
     expect((store.read(openPath(1))!.eligibilityStalledAt as Date).getTime()).toBe(markedAt);
 
     for (let index = 1; index <= APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS; index += 1) {
