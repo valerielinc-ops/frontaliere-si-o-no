@@ -65,15 +65,43 @@ describe('traffic evidence filter release', () => {
     expect(releaseTrafficEvidenceFilter(root)).toBe(false);
   });
 
-  it('runs after related search has consumed the shared filter for the last time', () => {
-    const source = fs.readFileSync(
-      path.resolve(import.meta.dirname, '../../build-plugins/relatedSearchClustersPlugin.ts'),
-      'utf8',
-    );
-    const finalUse = source.lastIndexOf('trafficFilter.');
-    const release = source.lastIndexOf('releaseTrafficEvidenceFilter(rootDir);');
-    expect(finalUse).toBeGreaterThanOrEqual(0);
-    expect(release).toBeGreaterThan(finalUse);
-    expect(source.match(/releaseTrafficEvidenceFilter\(rootDir\);/gu)).toHaveLength(5);
+  it('releases only behind the post-walk sequential barrier, after every parallel reader', () => {
+    const read = (rel: string) => fs.readFileSync(path.resolve(import.meta.dirname, '../..', rel), 'utf8');
+    const readers = [
+      'build-plugins/jobsSeoPagesPlugin.ts',
+      'build-plugins/eventsSeoPagesPlugin.ts',
+      'build-plugins/plateAuctionsPagesPlugin.ts',
+      'build-plugins/relatedSearchClustersPlugin.ts',
+    ];
+    // Readers run as plain (parallel) closeBundle hooks: none may release the
+    // singleton itself, or a sibling still reading it would see emptied data.
+    for (const reader of readers) {
+      const source = read(reader);
+      expect(source, reader).toContain('getTrafficEvidenceFilter(');
+      expect(source, reader).not.toContain('releaseTrafficEvidenceFilter');
+    }
+
+    const postWalk = read('build-plugins/postWalkCoordinatorPlugin.ts');
+    const hook = postWalk.slice(postWalk.indexOf('closeBundle: {'));
+    expect(hook).toMatch(/^closeBundle: \{\s*order: 'post',\s*sequential: true,\s*handler: async \(\) => \{/u);
+    expect(postWalk.match(/releaseTrafficEvidenceFilter\(rootDir\);/gu)).toHaveLength(1);
+    expect(hook.indexOf('releaseTrafficEvidenceFilter(rootDir);'))
+      .toBeLessThan(hook.indexOf('const distDir'));
+
+    const config = read('vite.config.ts');
+    const barrier = config.indexOf('postWalkCoordinatorPlugin(__dirname');
+    expect(barrier).toBeGreaterThan(0);
+    for (const name of ['jobsSeoPagesPlugin', 'eventsSeoPagesPlugin', 'plateAuctionsPagesPlugin', 'relatedSearchClustersPlugin']) {
+      const at = config.indexOf(`${name}(__dirname`);
+      expect(at, name).toBeGreaterThan(0);
+      expect(at, name).toBeLessThan(barrier);
+    }
+
+    const allReaders = fs.readdirSync(path.resolve(import.meta.dirname, '../../build-plugins'))
+      .filter((file) => file.endsWith('.ts'))
+      .filter((file) => read(`build-plugins/${file}`).includes('getTrafficEvidenceFilter('))
+      .map((file) => `build-plugins/${file}`)
+      .sort();
+    expect(allReaders).toEqual([...readers].sort());
   });
 });
