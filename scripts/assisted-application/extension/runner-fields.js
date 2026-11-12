@@ -635,6 +635,16 @@ function nativeQuestionText(value, counter = null) {
     ];
     return nearby.find((text) => text && text !== label && text.length <= 300 && !GENERATED_ID_RE.test(text)) || label;
   };
+  // Preserve the narrow case where the control's associated native label is
+  // empty and its own fieldset legend supplies the readable consent text.
+  const hasEmptyNativeLabelWithOwnedLegend = (element, label) => {
+    if (element.type !== 'checkbox' || !label) return false;
+    const associatedLabels = [...(element.labels || [])];
+    if (!associatedLabels.length || associatedLabels.some(node => clean(captionText(node, element)))) return false;
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    return ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element).some(node => node.tagName === 'LEGEND'
+      && !node.contains(element) && clean(node.innerText || node.textContent) === label);
+  };
   // A heading of another step a portal keeps in the page, hidden, names nothing.
   const shown = (node) => {
     if (node.closest('[hidden], [aria-hidden="true"]')) return false;
@@ -1082,6 +1092,7 @@ function nativeQuestionText(value, counter = null) {
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
+      ...(hasEmptyNativeLabelWithOwnedLegend(element, label) ? { emptyNativeLabelOwnedLegend: true } : {}),
       ...privacyFieldMetadata(element, label),
       context: sectionContext(element),
       addressContext: ownedAddressContext(element),
