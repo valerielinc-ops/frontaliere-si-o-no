@@ -1565,6 +1565,19 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     }, 'cv')).toEqual([]);
   });
 
+  it('requires one anonymous Workday picker in the anonymous field frame', () => {
+    const page = {
+      fields: [{ id: 'file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)', frame: 1 }],
+      buttons: [],
+    };
+    const picker = (id: string, frame: number) => ({ id, text: 'sélectionner un fichier', disabled: false, frame });
+
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('first-picker', 1), picker('second-picker', 1)] }, 'cv')).toEqual([]);
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('other-frame-picker', 0)] }, 'cv')).toEqual([]);
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('same-frame-picker', 1)] }, 'cv'))
+      .toMatchObject([{ id: 'same-frame-picker', frame: 1 }]);
+  });
+
   it('keeps upload retry keys stable across redraws and shared automation ids', () => {
     const cv = {
       frame: 0,

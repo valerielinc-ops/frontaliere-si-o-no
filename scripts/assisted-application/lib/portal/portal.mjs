@@ -5878,13 +5878,23 @@ const buttonMatchesDocumentContext = (button, contextPattern) => {
   return !context || contextPattern.test(context);
 };
 
-const isAnonymousCvPickerButton = (snapshot, button) => {
-  if (!singleAnonymousFileField(snapshot) || !FILE_PICKER_ACTION_RE.test(String(button?.text || '').trim())) return false;
-  const context = buttonHasExplicitDocumentContext(button);
-  return !context || !(CV_DOCUMENT_CONTEXT_RE.test(context)
-    || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
-    || isNonCvDocumentLabel(context));
+const anonymousCvPickerCandidate = (snapshot) => {
+  const field = singleAnonymousFileField(snapshot);
+  if (!field) return null;
+  const eligible = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button?.text || '').trim())) return false;
+    const context = buttonHasExplicitDocumentContext(button);
+    return !context || !(CV_DOCUMENT_CONTEXT_RE.test(context)
+      || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
+      || isNonCvDocumentLabel(context));
+  });
+  if (eligible.length !== 1) return null;
+  const [candidate] = eligible;
+  const candidateFrame = Number.isInteger(candidate.frame) ? candidate.frame : 0;
+  return candidateFrame === fieldFrame(field) ? candidate : null;
 };
+
+const isAnonymousCvPickerButton = (snapshot, button) => anonymousCvPickerCandidate(snapshot) === button;
 
 function stableUploadTriggerDiscriminator(button) {
   if (!button || typeof button !== 'object') return '';
