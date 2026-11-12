@@ -527,13 +527,17 @@ function successFactorsModuleIdentity(url) {
   const namespace = valuesFor('career_ns');
   if (!(company.length === 1 && /^[a-z0-9][a-z0-9 _-]{0,99}$/i.test(company[0])
     && requisition.length === 1 && /^[0-9]{1,20}$/.test(requisition[0])
-    && namespace.length === 1 && namespace[0].toLowerCase() === 'job_application')) return null;
+    // Older SuccessFactors job routes omit career_ns; an explicit requisition
+    // still makes that /career URL the application module. A present value
+    // must remain the application namespace, and duplicates stay ambiguous.
+    && (namespace.length === 0
+      || (namespace.length === 1 && namespace[0].toLowerCase() === 'job_application'))) return null;
   return {
     origin: url.origin,
     path: url.pathname.replace(/\/+$/, ''),
     company: company[0].toLowerCase(),
     requisition: requisition[0],
-    namespace: namespace[0].toLowerCase(),
+    namespace: namespace[0]?.toLowerCase() || 'job_application',
   };
 }
 
