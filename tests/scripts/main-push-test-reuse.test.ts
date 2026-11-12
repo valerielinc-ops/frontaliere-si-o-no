@@ -1,3 +1,7 @@
+import { execFileSync, spawnSync } from 'node:child_process';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { delimiter, join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   decideMainPushTestReuse,
@@ -48,6 +52,116 @@ const validEvidence = () => ({
 });
 
 describe('riuso del Vitest PR sui push a main', () => {
+  it('carica i dettagli della PR prima di richiedere il conteggio file completo', () => {
+    const tempDir = mkdtempSync(join(tmpdir(), 'main-push-test-reuse-'));
+    try {
+      const pushSha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+      const pushTreeSha = execFileSync('git', ['rev-parse', `${pushSha}^{tree}`], { encoding: 'utf8' }).trim();
+      const headSha = 'b'.repeat(40);
+      const mergeAt = '2026-11-12T09:30:00Z';
+      const associatedPr = {
+        number: 42,
+        state: 'closed',
+        merged_at: mergeAt,
+        merge_commit_sha: pushSha,
+        head: { sha: headSha },
+        // GET /commits/{sha}/pulls does not return changed_files.
+        changed_files: null,
+      };
+      const detailedPr = { ...associatedPr, changed_files: 2 };
+      const files = [{ filename: 'src/example.ts' }, { filename: 'tests/example.test.ts' }];
+      const responses = {
+        [`repos/owner/repo/commits/${pushSha}/pulls`]: [associatedPr],
+        'repos/owner/repo/pulls/42': detailedPr,
+        'repos/owner/repo/pulls/42/files': files,
+        'repos/owner/repo/actions/workflows/tests.yml/runs': {
+          total_count: 1,
+          workflow_runs: [{
+            id: 99,
+            event: 'pull_request',
+            head_sha: headSha,
+            status: 'completed',
+            conclusion: 'success',
+            created_at: '2026-11-12T08:00:00Z',
+          }],
+        },
+        'repos/owner/repo/actions/runs/99/jobs': {
+          total_count: 1,
+          jobs: [{
+            id: 100,
+            name: VITEST_EXECUTION_JOB_NAME,
+            status: 'completed',
+            conclusion: 'success',
+            completed_at: '2026-11-12T09:00:00Z',
+            steps: [{
+              name: RELATED_VITEST_STEP_NAME,
+              status: 'completed',
+              conclusion: 'success',
+            }],
+          }],
+        },
+        'repos/owner/repo/check-runs/100/annotations': [[{
+          title: TESTED_MERGE_TREE_ANNOTATION_TITLE,
+          message: `tested-tree=${pushTreeSha}`,
+        }]],
+      };
+      const binDir = join(tempDir, 'bin');
+      mkdirSync(binDir);
+      const fakeGhPath = join(binDir, 'gh');
+      writeFileSync(fakeGhPath, [
+        '#!/usr/bin/env node',
+        "const { appendFileSync, readFileSync } = require('node:fs');",
+        "const endpoint = process.argv.find((arg) => arg.startsWith('repos/'));",
+        "appendFileSync(process.env.GH_ENDPOINT_LOG, `${endpoint}\\n`);",
+        "const responses = JSON.parse(readFileSync(process.env.GH_TEST_RESPONSES, 'utf8'));",
+        'if (!Object.hasOwn(responses, endpoint)) process.exit(2);',
+        'process.stdout.write(JSON.stringify(responses[endpoint]));',
+        '',
+      ].join('\n'));
+      chmodSync(fakeGhPath, 0o755);
+
+      const eventPath = join(tempDir, 'event.json');
+      const outputPath = join(tempDir, 'github-output');
+      const responsesPath = join(tempDir, 'responses.json');
+      const endpointsPath = join(tempDir, 'endpoints.log');
+      writeFileSync(eventPath, JSON.stringify({
+        before: 'a'.repeat(40),
+        after: pushSha,
+        size: 1,
+        commits: [{ id: pushSha }],
+      }));
+      writeFileSync(outputPath, '');
+      writeFileSync(responsesPath, JSON.stringify(responses));
+
+      const result = spawnSync(process.execPath, [resolve('scripts/ci/verify-main-push-test-reuse.mjs')], {
+        cwd: process.cwd(),
+        encoding: 'utf8',
+        timeout: 15_000,
+        env: {
+          ...process.env,
+          PATH: `${binDir}${delimiter}${process.env.PATH || ''}`,
+          GITHUB_REPOSITORY: 'owner/repo',
+          GITHUB_SHA: pushSha,
+          GITHUB_EVENT_PATH: eventPath,
+          GITHUB_OUTPUT: outputPath,
+          GH_TEST_RESPONSES: responsesPath,
+          GH_ENDPOINT_LOG: endpointsPath,
+        },
+      });
+
+      expect(result.error).toBeUndefined();
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Main push Vitest reuse: true');
+      expect(readFileSync(outputPath, 'utf8')).toContain('reuse=true');
+      const endpoints = readFileSync(endpointsPath, 'utf8').trim().split('\n');
+      expect(endpoints.indexOf('repos/owner/repo/pulls/42')).toBeGreaterThan(-1);
+      expect(endpoints.indexOf('repos/owner/repo/pulls/42'))
+        .toBeLessThan(endpoints.indexOf('repos/owner/repo/pulls/42/files'));
+    } finally {
+      rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+
   it('accetta soltanto un merge singolo con tree e run PR identici e verdi', () => {
     expect(decideMainPushTestReuse(validEvidence())).toEqual({
       reuse: true,
