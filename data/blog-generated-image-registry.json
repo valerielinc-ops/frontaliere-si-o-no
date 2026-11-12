@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1160,
-  "generatedAt": "2026-11-12T21:47:34.562Z",
+  "assetCount": 1161,
+  "generatedAt": "2026-11-12T23:11:15.001Z",
   "assets": [
     {
       "schema": 1,
@@ -49642,6 +49642,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic residential architecture scene; no people, text, signage, logos, or identifiable event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-tasso-ilo-terzo-trimestre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "334522bca5e049a93ebfd12fc5e26b7ac3735a2695603c40b1d8a1f25b8cbe23",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "13b2e562a2ba3f895e429744145ed2395510c7fc01648c48201005f0cb63e6be",
+      "bytes": 84464,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-12T22:40:11.731Z",
+      "verifiedAt": "2026-11-12T22:40:23.315Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tasso-ilo-terzo-trimestre.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a modern Swiss urban office scene with an upward economic data chart; no readable text, logos, signage, people, or specific event."
       }
     }
   ]

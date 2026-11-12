@@ -8726,6 +8726,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dibattito-salario-minimo-5000.title': 'Salaire minimum de 5 000 francs : le débat s’enflamme',
     'blog.article.dibattito-salario-minimo-5000.excerpt': 'Débat sur un salaire minimum de 5 000 francs pour les personnes ayant terminé leur apprentissage.',
     'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.tasso-ilo-terzo-trimestre.title': 'Le taux ILO suisse monte à 5,6 % au troisième trimestre',
+    'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Au troisième trimestre, le taux de chômage calculé selon la définition de l’Organisation internationale du travail (ILO) est monté en Suisse à 5,6 %, contre 5,1 % au cours des trois mois précédents.',
+    'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

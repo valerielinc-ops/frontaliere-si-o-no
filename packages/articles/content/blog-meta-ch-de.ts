@@ -8726,6 +8726,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dibattito-salario-minimo-5000.title': 'Mindestlohn von 5000 Franken: Die Debatte entfacht sich',
     'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debatte über einen Mindestlohn von 5000 Franken für Personen, die eine Lehre abgeschlossen haben.',
     'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.tasso-ilo-terzo-trimestre.title': 'Schweizer ILO-Quote steigt im dritten Quartal auf 5,6 %',
+    'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Im dritten Quartal stieg die nach der Definition der Internationalen Arbeitsorganisation (IAO) berechnete Arbeitslosenquote in der Schweiz von 5,1 % in den vorangegangenen drei Monaten auf 5,6 %.',
+    'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
