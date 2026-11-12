@@ -1155,6 +1155,13 @@ export default function ApplicationConciergePortal({
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
         {!pending && service.paymentStatus === 'paid' && (
           <>
+            {clarificationTasks.length > 0 && <section aria-labelledby="concierge-clarification-tasks-title" className="mb-5 rounded-2xl border border-info-border bg-info-subtle/40 p-5 shadow-stripe-sm">
+              <SectionTitle id="concierge-clarification-tasks-title" className="font-bold text-heading">{t('jobBoard.concierge.clarificationTasksTitle')}</SectionTitle>
+              <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.clarificationTasksIntro')}</p>
+              <div className="mt-3 space-y-3">
+                {clarificationTasks.map(proposal => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
+              </div>
+            </section>}
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)]">
               <section className="min-w-0 rounded-2xl border border-edge bg-surface p-5 shadow-stripe-sm" aria-labelledby="concierge-proposals-title">
                 <div className="flex items-start justify-between gap-3">
@@ -1180,14 +1187,7 @@ export default function ApplicationConciergePortal({
                 {verificationPending && <div className="mt-5"><Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.verificationPending')} /></div>}
                 {qualificationNeedsDetails && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.qualificationNeedsDetails')} /></div>}
                 <div className="mt-5">
-                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && clarificationTasks.length === 0 && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {clarificationTasks.length > 0 && <section aria-labelledby="concierge-clarification-tasks-title" className="mb-5 rounded-xl border border-info-border bg-info-subtle/40 p-4">
-                    <SectionTitle id="concierge-clarification-tasks-title" className="font-bold text-heading">{t('jobBoard.concierge.clarificationTasksTitle')}</SectionTitle>
-                    <p className="mt-1 text-sm leading-6 text-subtle">{t('jobBoard.concierge.clarificationTasksIntro')}</p>
-                    <div className="mt-3 space-y-3">
-                      {clarificationTasks.map(proposal => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} onInterest={recordInterest} t={t} />)}
-                    </div>
-                  </section>}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && !verificationPending && !qualificationNeedsDetails && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
                   {proposalGroups.length > 0 && <div className="space-y-3">
                     {proposalGroups.map(({ category, proposals: groupProposals }, index) => {
                       const labelStatus = category === 'reviewing' ? 'technical_review' : category;
