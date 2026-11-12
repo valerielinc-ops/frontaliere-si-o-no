@@ -1,8 +1,77 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-11-12T09:22:09.932Z",
-  "runId": "43188808432",
+  "assembledAt": "2026-11-12T21:36:52.054Z",
+  "runId": "43307490012",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4473?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4473?c=groupemutuel&lang=fr-FR",
+      "title": "Data Analyst Senior (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "Pour répondre aux besoins analytiques des métiers, tu les accompagnes dans la définition des KPI utiles au pilotage et à la décision En mettant l’accent sur la dataviz et l’expérience utilisateur, tu conçois des cockpits, tableaux de bord et analyses Power BI Grâce à ton expertise, tu contribues aux projets Data des programmes de transformation stratégiques de l’entreprise Avec ta compréhension des enjeux métiers, tu challenges les besoins et pilotes en autonomie la conception de solutions analytiques adaptées. Lors de workshops, présentations et formations, tu transmets tes analyses à des interlocuteurs variés, des métiers à la Direction",
+      "descriptionByLocale": {
+        "fr": "Pour répondre aux besoins analytiques des métiers, tu les accompagnes dans la définition des KPI utiles au pilotage et à la décision En mettant l’accent sur la dataviz et l’expérience utilisateur, tu conçois des cockpits, tableaux de bord et analyses Power BI Grâce à ton expertise, tu contribues aux projets Data des programmes de transformation stratégiques de l’entreprise Avec ta compréhension des enjeux métiers, tu challenges les besoins et pilotes en autonomie la conception de solutions analytiques adaptées. Lors de workshops, présentations et formations, tu transmets tes analyses à des interlocuteurs variés, des métiers à la Direction",
+        "it": "Pour répondre aux besoins analytiques des métiers, tu les accompagnes dans la définition des KPI utiles au pilotage et à la décision En mettant l’accent sur la dataviz et l’expérience utilisateur, tu conçois des cockpits, tableaux de bord et analyses Power BI Grâce à ton expertise, tu contribues aux projets Data des programmes de transformation stratégiques de l’entreprise Avec ta compréhension des enjeux métiers, tu challenges les besoins et pilotes en autonomie la conception de solutions analytiques adaptées. Lors de workshops, présentations et formations, tu transmets tes analyses à des interlocuteurs variés, des métiers à la Direction",
+        "en": "Pour répondre aux besoins analytiques des métiers, tu les accompagnes dans la définition des KPI utiles au pilotage et à la décision En mettant l’accent sur la dataviz et l’expérience utilisateur, tu conçois des cockpits, tableaux de bord et analyses Power BI Grâce à ton expertise, tu contribues aux projets Data des programmes de transformation stratégiques de l’entreprise Avec ta compréhension des enjeux métiers, tu challenges les besoins et pilotes en autonomie la conception de solutions analytiques adaptées. Lors de workshops, présentations et formations, tu transmets tes analyses à des interlocuteurs variés, des métiers à la Direction",
+        "de": "Pour répondre aux besoins analytiques des métiers, tu les accompagnes dans la définition des KPI utiles au pilotage et à la décision En mettant l’accent sur la dataviz et l’expérience utilisateur, tu conçois des cockpits, tableaux de bord et analyses Power BI Grâce à ton expertise, tu contribues aux projets Data des programmes de transformation stratégiques de l’entreprise Avec ta compréhension des enjeux métiers, tu challenges les besoins et pilotes en autonomie la conception de solutions analytiques adaptées. Lors de workshops, présentations et formations, tu transmets tes analyses à des interlocuteurs variés, des métiers à la Direction"
+      },
+      "titleByLocale": {
+        "fr": "Data Analyst Senior (h/f) 80-100%",
+        "it": "Data Analista Senior (h/f) 80-100%",
+        "en": "Data Analyst Senior (h/f) 80-100%",
+        "de": "Data Analyst Senior (h/f) 80-100%"
+      },
+      "slug": "data-analyst-senior-h-f-80-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "data-analyst-senior-h-f-80-100-groupe-mutuel",
+        "en": "data-analyst-senior-h-f-80-100-groupe-mutuel",
+        "it": "data-analyst-senior-h-f-80-100-groupe-mutuel",
+        "de": "data-analyst-senior-h-f-80-100-groupe-mutuel"
+      },
+      "category": "it",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
+      "datePosted": "2026-11-12",
+      "postedDate": "2026-11-12",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4473",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-74b3be6cf60b",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T21:36:48.082Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T21:36:48.082Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4475?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4475?c=groupemutuel&lang=fr-FR",
@@ -33,7 +102,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-aarau"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-11",
       "postedDate": "2026-11-11",
       "postingDateSource": "reported",
@@ -84,7 +153,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:22:06.117Z",
+      "validThrough": "2027-02-09T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +186,7 @@
         "fr": "negociateurs-achat-de-services-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "claims",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-11",
       "postedDate": "2026-11-11",
       "postingDateSource": "reported",
@@ -166,7 +235,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:22:06.117Z",
+      "validThrough": "2027-02-09T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +268,7 @@
         "fr": "young-insurance-professional-afa-h-f-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-06",
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
@@ -242,7 +311,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:06.117Z",
+      "validThrough": "2027-02-04T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -275,7 +344,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-06",
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
@@ -328,7 +397,7 @@
       "addressRegion": "SG",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:06.117Z",
+      "validThrough": "2027-02-04T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -361,7 +430,7 @@
         "fr": "chef-de-projet-senior-solutions-distribution-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-06",
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
@@ -410,7 +479,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:06.117Z",
+      "validThrough": "2027-02-04T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -443,7 +512,7 @@
         "fr": "developpement-de-reseaux-commandes-partenariats-et-expertise-en-matiere-de-retraite-h-f-80-100-groupe-mutuel-bern"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-06",
       "postedDate": "2026-11-06",
       "postingDateSource": "reported",
@@ -492,7 +561,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:22:06.117Z",
+      "validThrough": "2027-02-04T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -525,7 +594,7 @@
         "fr": "content-creation-chef-de-projet-h-f-80-100-groupe-mutuel"
       },
       "category": "project-management",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -574,7 +643,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:06.117Z",
+      "validThrough": "2027-02-02T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -607,7 +676,7 @@
         "fr": "relationship-manager-h-f-80-100-groupe-mutuel"
       },
       "category": "management",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -650,7 +719,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:06.117Z",
+      "validThrough": "2027-02-02T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -683,7 +752,7 @@
         "fr": "conseiller-soutien-aux-ventes-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "sales",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-04",
       "postedDate": "2026-11-04",
       "postingDateSource": "reported",
@@ -732,7 +801,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:22:06.117Z",
+      "validThrough": "2027-02-02T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -765,7 +834,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
@@ -816,7 +885,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:22:06.117Z",
+      "validThrough": "2027-02-01T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -849,7 +918,7 @@
         "fr": "charge-de-developpement-reseaux-partenariats-expertise-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
@@ -898,7 +967,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:22:06.117Z",
+      "validThrough": "2027-01-27T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -931,7 +1000,7 @@
         "fr": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
       },
       "category": "administration",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
@@ -980,7 +1049,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:22:06.117Z",
+      "validThrough": "2027-01-26T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1013,7 +1082,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
@@ -1064,7 +1133,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:22:06.117Z",
+      "validThrough": "2027-01-18T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1097,7 +1166,7 @@
         "fr": "h-f-50-consultant-en-securite-sociale-groupe-mutuel-paradiso"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
@@ -1132,7 +1201,7 @@
       "addressRegion": "TI",
       "streetAddress": "Paradiso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:22:06.117Z",
+      "validThrough": "2027-01-14T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1165,7 +1234,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-thun"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -1220,7 +1289,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:22:06.117Z",
+      "validThrough": "2027-01-13T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1253,7 +1322,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-bern"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -1308,7 +1377,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:22:06.117Z",
+      "validThrough": "2027-01-13T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1341,7 +1410,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-100-groupe-mutuel-luzern"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -1392,7 +1461,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:22:06.117Z",
+      "validThrough": "2027-01-13T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1425,7 +1494,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -1474,7 +1543,7 @@
       "addressRegion": "NE",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:22:06.117Z",
+      "validThrough": "2027-01-05T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1507,7 +1576,7 @@
         "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -1550,7 +1619,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:22:06.117Z",
+      "validThrough": "2027-01-04T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1583,7 +1652,7 @@
         "fr": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -1626,7 +1695,7 @@
       "addressRegion": "VD",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:22:06.117Z",
+      "validThrough": "2026-12-29T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1659,7 +1728,7 @@
         "fr": "apprentissage-employee-de-commerce-cfc-services-et-administration-100-groupe-mutuel-sion"
       },
       "category": "claims",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1712,7 +1781,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:22:06.117Z",
+      "validThrough": "2026-12-28T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1745,7 +1814,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1788,7 +1857,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:22:06.117Z",
+      "validThrough": "2026-12-28T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1821,7 +1890,7 @@
         "fr": "conseiller-de-precaution-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1864,7 +1933,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:22:06.117Z",
+      "validThrough": "2026-12-23T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1897,7 +1966,7 @@
         "fr": "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1948,7 +2017,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:22:06.117Z",
+      "validThrough": "2026-12-23T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1981,7 +2050,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-biel-bienne"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -2024,7 +2093,7 @@
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T09:22:06.117Z",
+      "validThrough": "2026-12-21T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2057,7 +2126,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -2105,7 +2174,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:06.117Z",
+      "validThrough": "2026-12-16T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2138,7 +2207,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -2186,7 +2255,7 @@
       "addressRegion": "JU",
       "streetAddress": "Delémont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:22:06.117Z",
+      "validThrough": "2026-12-15T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2219,7 +2288,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten"
       },
       "category": "customer-service",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -2273,83 +2342,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
-      "title": "Apprenti Opérateur en informatique (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur",
-      "descriptionByLocale": {
-        "it": "Installazione e configurazione di dispositivi (computer, stampanti, tablet, smartphone, ecc.) e sistemi operativi fanno parte del vostro ruolo, soprattutto quando si preparano nuove workstation. La manutenzione dell'hardware installato è una delle vostre responsabilità, per garantire un funzionamento ottimale e sostenibile Installare, impostare i parametri e garantire l'aggiornamento regolare delle applicazioni e del software Modificare le caratteristiche tecniche di hardware, software o rete (ad esempio aumentando la memoria o aggiungendo una scheda di rete) non ti spaventa",
-        "en": "Setting up and configuring devices (computers, printers, tablets, smartphones, etc.) and operating systems is part of your role, especially when preparing new workstations. Maintenance of installed hardware is one of your responsibilities, to ensure optimal and sustainable operation You install, set parameters and ensure regular updating of applications and software Changing the technical characteristics of hardware, software or network (e.g. increasing memory or adding a network card) does not scare you",
-        "de": "Das Einrichten und Konfigurieren von Geräten (Computer, Drucker, Tablets, Smartphones usw.) und Betriebssystemen gehört zu Ihrer Rolle, insbesondere bei der Vorbereitung neuer Workstations. Die Wartung der installierten Hardware ist eine Ihrer\n• Aufgaben, um einen optimalen und nachhaltigen Betrieb zu gewährleisten. Sie installieren, legen Parameter fest und sorgen für eine regelmäßige Aktualisierung von Anwendungen und Software Das Ändern der technischen Eigenschaften von Hardware, Software oder Netzwerk (z. B. Speichererhöhung oder Hinzufügen einer Netzwerkkarte) macht Ihnen keine Angst.",
-        "fr": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur"
-      },
-      "titleByLocale": {
-        "it": "Apprendista Operatore informatico (m/f) - 100%",
-        "en": "Computer Operator Apprentice (m/f) - 100%",
-        "de": "Auszubildender IT-Betreiber (m/w) - 100 %",
-        "fr": "Apprenti Opérateur en informatique (h/f) - 100%"
-      },
-      "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
-      "slugByLocale": {
-        "it": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
-        "en": "computer-operator-apprentice-m-f-100-groupe-mutuel-martigny",
-        "de": "apprenti-computer-operator-m-w-100-groupe-mutuel-martigny",
-        "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
-      },
-      "category": "it",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
-      "datePosted": "2026-09-01",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4341",
-      "id": "groupe-mutuel-c7d22a7adca1",
-      "previousSlugs": [
-        "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T23:08:41.806Z",
-      "salaryMin": 57000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "streetAddress": "Martigny",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2382,7 +2375,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -2425,7 +2418,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2458,7 +2451,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -2535,7 +2528,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2568,7 +2561,7 @@
         "fr": "conseiller-en-soins-m-f-60-100-groupe-mutuel-sargans"
       },
       "category": "general",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -2611,7 +2604,7 @@
       "addressRegion": "SG",
       "streetAddress": "Sargans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2644,7 +2637,7 @@
         "fr": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
       "postingDateSource": "reported",
@@ -2687,7 +2680,7 @@
       "addressRegion": "GE",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2720,7 +2713,7 @@
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "insurance",
-      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "crawledAt": "2026-11-12T21:36:48.082Z",
       "datePosted": "2026-04-16",
       "postedDate": "2026-04-16",
       "postingDateSource": "reported",
@@ -2771,42 +2764,42 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:22:06.117Z",
+      "validThrough": "2026-12-12T21:36:48.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4442?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4442?c=groupemutuel&lang=fr-FR",
-      "title": "Stagiaire MPE (h/f) - 100%",
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Opérateur en informatique (h/f) - 100%",
       "company": "Groupe Mutuel",
       "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
+      "location": "Martigny",
+      "canton": "VS",
       "country": "CH",
-      "description": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes",
+      "description": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur",
       "descriptionByLocale": {
-        "it": "Lei esercita una pratica professionale controllata in una società Il vostro senso di responsabilità, così come la vostra capacità di integrazione e autonomia sarà sviluppato durante quest'anno Si dimostra le vostre competenze e si scopre i vostri interessi e il potenziale per sviluppare il vostro piano di formazione e di carriera L'acquisizione di un vero spirito imprenditoriale completa il tuo apprendimento Mettere in pratica le tue conoscenze teoriche attraverso casi concreti consente di progredire rapidamente Impara anche a comunicare professionalmente in diversi contesti",
-        "en": "You exercise a controlled professional practice in a company Your sense of responsibility, as well as your capacity for integration and autonomy will be developed during this year You demonstrate your skills and you discover your interests and potential for developing your training and career plan The acquisition of a true entrepreneurial spirit completes your learning Putting your theoretical knowledge into practice through concrete cases allows you to progress quickly You also learn to communicate professionally in different contexts",
-        "de": "Sie üben eine kontrollierte berufliche Praxis in einem Unternehmen aus Ihr Verantwortungsbewusstsein sowie Ihre Fähigkeit zur Integration und Autonomie werden in diesem Jahr entwickelt Sie zeigen Ihre Fähigkeiten und Sie entdecken Ihre Interessen und Potenzial für die Entwicklung Ihres Trainings- und Karriereplans Der Erwerb eines echten Unternehmergeistes vervollständigt Ihr Lernen Wenn Sie Ihr theoretisches Wissen durch konkrete Fälle in die Praxis umsetzen, können Sie schnell vorankommen Sie lernen auch, professionell in verschiedenen Kontexten zu kommunizieren",
-        "fr": "Tu exerces une pratique professionnelle contrôlée dans une entreprise Ton sens des responsabilités, ainsi que tes capacités d’intégration et d’autonomie seront développé lors de cette année Tu démontres tes aptitudes et tu découvres tes intérêts et tes potentialités pour l’élaboration de ton plan de formation et de carrière L’acquisition d’un véritable esprit d’entreprise complète ton apprentissage La mise en pratique de tes connaissances théoriques à travers des cas concrets te permet de progresser rapidement Tu apprends également à communiquer de façon professionnelle dans différents contextes"
+        "it": "Installazione e configurazione di dispositivi (computer, stampanti, tablet, smartphone, ecc.) e sistemi operativi fanno parte del vostro ruolo, soprattutto quando si preparano nuove workstation. La manutenzione dell'hardware installato è una delle vostre responsabilità, per garantire un funzionamento ottimale e sostenibile Installare, impostare i parametri e garantire l'aggiornamento regolare delle applicazioni e del software Modificare le caratteristiche tecniche di hardware, software o rete (ad esempio aumentando la memoria o aggiungendo una scheda di rete) non ti spaventa",
+        "en": "Setting up and configuring devices (computers, printers, tablets, smartphones, etc.) and operating systems is part of your role, especially when preparing new workstations. Maintenance of installed hardware is one of your responsibilities, to ensure optimal and sustainable operation You install, set parameters and ensure regular updating of applications and software Changing the technical characteristics of hardware, software or network (e.g. increasing memory or adding a network card) does not scare you",
+        "de": "Das Einrichten und Konfigurieren von Geräten (Computer, Drucker, Tablets, Smartphones usw.) und Betriebssystemen gehört zu Ihrer Rolle, insbesondere bei der Vorbereitung neuer Workstations. Die Wartung der installierten Hardware ist eine Ihrer\n• Aufgaben, um einen optimalen und nachhaltigen Betrieb zu gewährleisten. Sie installieren, legen Parameter fest und sorgen für eine regelmäßige Aktualisierung von Anwendungen und Software Das Ändern der technischen Eigenschaften von Hardware, Software oder Netzwerk (z. B. Speichererhöhung oder Hinzufügen einer Netzwerkkarte) macht Ihnen keine Angst.",
+        "fr": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur"
       },
       "titleByLocale": {
-        "it": "Allenatore MPE (m/f) - 100%",
-        "en": "Trainee MPE (m/f) - 100%",
-        "de": "Trainee MPE (m/w) - 100%",
-        "fr": "Stagiaire MPE (h/f) - 100%"
+        "it": "Apprendista Operatore informatico (m/f) - 100%",
+        "en": "Computer Operator Apprentice (m/f) - 100%",
+        "de": "Auszubildender IT-Betreiber (m/w) - 100 %",
+        "fr": "Apprenti Opérateur en informatique (h/f) - 100%"
       },
-      "slug": "allenatore-mpe-m-f-100-groupe-mutuel-lausanne",
+      "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
       "slugByLocale": {
-        "it": "allenatore-mpe-m-f-100-groupe-mutuel-lausanne",
-        "en": "trainee-mpe-m-f-100-groupe-mutuel-lausanne",
-        "de": "trainee-mpe-m-w-100-groupe-mutuel-lausanne",
-        "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
+        "it": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
+        "en": "computer-operator-apprentice-m-f-100-groupe-mutuel-martigny",
+        "de": "apprenti-computer-operator-m-w-100-groupe-mutuel-martigny",
+        "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
-      "category": "general",
-      "crawledAt": "2026-11-11T09:18:06.082Z",
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
+      "category": "it",
+      "crawledAt": "2026-11-12T09:22:06.117Z",
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
       "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
@@ -2814,28 +2807,22 @@
       "experienceLevel": "ENTRY",
       "sector": "Assicurazioni / Sanità",
       "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
+        "canton": "VS",
+        "location": "Martigny"
       },
-      "jobReqId": "4442",
-      "id": "groupe-mutuel-8be522945a02",
+      "jobReqId": "4341",
+      "id": "groupe-mutuel-c7d22a7adca1",
       "previousSlugs": [
-        "stagiaire-mpe-h-f-100-groupe-mutuel"
+        "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpe-h-f-100-groupe-mutuel"
-        ],
-        "en": [
-          "stagiaire-mpe-h-f-100-groupe-mutuel"
-        ],
-        "de": [
-          "stagiaire-mpe-h-f-100-groupe-mutuel"
+          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-08-27T19:54:30.926Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
+      "firstSeenAt": "2026-09-01T23:08:41.806Z",
+      "salaryMin": 57000,
+      "salaryMax": 97000,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -2843,106 +2830,19 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
+          "minValue": 57000,
+          "maxValue": 97000,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "streetAddress": "Lausanne",
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:18:06.082Z",
+      "validThrough": "2026-12-12T09:22:06.117Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4428?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4428?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
-      "descriptionByLocale": {
-        "it": "Si consiglia in salute, vita, ricchezza e assicurazione aziendale e offrire soluzioni su misura per le esigenze del cliente Attraverso cross-selling mirato e upselling, si costruisce relazioni di fiducia e rafforzare la fedeltà del cliente L'acquisizione di nuovi clienti – sia attraverso la propria iniziativa o raccomandazioni – fa parte della vostra vita quotidiana Si organizza e conduce consultazioni, per telefono o personalmente, con impegno e sensibilità.\n• Completi con precisione ed efficienza",
-        "en": "You advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty The acquisition of new customers – be it through own initiative or recommendations – is part of your everyday life You organize and lead consultations, by phone or personally, with commitment and sensitivity.\n• Complete tasks precisely and efficiently",
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
-        "fr": "Vous conseillez en assurance santé, vie, fortune et entreprise et offrez des solutions sur mesure pour les besoins des clients. L'acquisition de nouveaux clients – que ce soit par son initiative ou ses recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des consultations, par téléphone ou personnellement, avec engagement et sensibilité.\n• Achever les tâches avec précision et efficacité"
-      },
-      "titleByLocale": {
-        "it": "Consulente assicurativo e previdenziale (m/f) 80-100%",
-        "en": "Insurance and pension advisor (m/f) 80-100 %",
-        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
-        "fr": "Conseiller en assurance et pension (h/f) 80-100 %"
-      },
-      "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-chur",
-      "slugByLocale": {
-        "it": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-chur",
-        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-chur",
-        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-chur"
-      },
-      "category": "insurance",
-      "crawledAt": "2026-11-11T09:18:06.082Z",
-      "datePosted": "2026-10-19",
-      "postedDate": "2026-10-19",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Chur"
-      },
-      "jobReqId": "4428",
-      "id": "groupe-mutuel-d6ccfafd670a",
-      "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-chur",
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-chur",
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
-        ],
-        "en": [
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
-        ],
-        "fr": [
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "salaryMin": 62000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "streetAddress": "Chur",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:18:06.082Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
