@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "liberta-riunione-cedu-condanna-svizzera",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/liberta-riunione-cedu-condanna-svizzera/",
-      "ts": "2026-05-07T09:49:42.273Z",
-      "seed": true
-    },
-    {
       "id": "galleria-italo-svizzera-enigmista",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/galleria-italo-svizzera-enigmista/",
       "ts": "2026-05-07T10:05:09.377Z",
@@ -6264,6 +6258,23 @@
       "copyAngleIntent": "both",
       "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
       "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "dibattito-salario-minimo-5000",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/dibattito-salario-minimo-5000/",
+      "ts": "2026-11-12T12:55:50.631Z",
+      "fbPostId": "951226518080080_122131206759272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Una domanda circoscritta può rendere più utile la lettura.",
+      "copyCta": "Consulta la guida."
     }
   ]
 }
