@@ -3921,9 +3921,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const finalize = async (
-  raw: ReadonlyArray<JobListing>,
-  unscopedRaw?: ReadonlyArray<JobListing>,
-  options: { deferCommit?: boolean } = {},
+ raw: ReadonlyArray<JobListing>,
+ unscopedRaw?: ReadonlyArray<JobListing>,
+  options: { deferCommit?: boolean; clearFullLoadPending?: boolean } = {},
  ): Promise<void> => {
  if (cancelled) return;
  const deduped = await normalizeJobPool(raw);
@@ -3959,6 +3959,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   registerJobSlugMap(finalJobs);
   if (normalizedFull) setUnscopedJobs(normalizedFull);
   setJobsLoading(false);
+  if (options.clearFullLoadPending) setFullLoadPending(false);
  };
  if (options.deferCommit) startTransition(commit);
  else commit();
@@ -3973,6 +3974,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // fallback to the same canton.
  const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
  let deferAuthoritativeCommit = false;
+ let fullLoadCommitQueued = false;
 
  // Wrap the whole load so `fullLoadPending` clears once the authoritative
  // index settles via ANY exit (full shard, legacy fallback, empty-legacy
@@ -4032,14 +4034,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // for the aggregator the scope IS already everywhere.
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
  await finalize(
- scopeJobsToCanton(legacyArr, targetCanton),
- isAggregate ? undefined : legacyArr,
- { deferCommit: deferAuthoritativeCommit },
+  scopeJobsToCanton(legacyArr, targetCanton),
+  isAggregate ? undefined : legacyArr,
+  { deferCommit: deferAuthoritativeCommit, clearFullLoadPending: deferAuthoritativeCommit },
  );
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  return;
  }
 
- await finalize(shardJobs as unknown as JobListing[], undefined, { deferCommit: deferAuthoritativeCommit });
+ await finalize(shardJobs as unknown as JobListing[], undefined, {
+  deferCommit: deferAuthoritativeCommit,
+  clearFullLoadPending: deferAuthoritativeCommit,
+ });
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  } catch (err: unknown) {
  // Service-level failure → try legacy path before giving up.
  console.warn('Failed to load jobs from shards:', err);
@@ -4049,10 +4056,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const legacyArr = Array.isArray(legacy) ? legacy : [];
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
  await finalize(
- scopeJobsToCanton(legacyArr, targetCanton),
- isAggregate ? undefined : legacyArr,
- { deferCommit: deferAuthoritativeCommit },
+  scopeJobsToCanton(legacyArr, targetCanton),
+  isAggregate ? undefined : legacyArr,
+  { deferCommit: deferAuthoritativeCommit, clearFullLoadPending: deferAuthoritativeCommit },
  );
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  } catch (legacyErr: unknown) {
  console.warn('Legacy locale-jobs fallback also failed:', legacyErr);
  reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');
@@ -4062,7 +4070,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  } finally {
  // Authoritative index settled (or failed) — the count is no longer
  // provisional, so search/company views can stop holding the skeleton.
- if (!cancelled) {
+ if (!cancelled && !fullLoadCommitQueued) {
   const clearFullLoadPending = (): void => setFullLoadPending(false);
   if (deferAuthoritativeCommit) startTransition(clearFullLoadPending);
   else clearFullLoadPending();

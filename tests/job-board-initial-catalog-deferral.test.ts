@@ -23,6 +23,7 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(JOB_BOARD_SOURCE).not.toContain('waitForCatalogInteraction');
     expect(JOB_BOARD_SOURCE).toContain('scheduleAfterPaintOpportunity');
     expect(JOB_BOARD_SOURCE).toContain('if (options.deferCommit) startTransition(commit)');
+    expect(JOB_BOARD_SOURCE).toContain('if (options.clearFullLoadPending) setFullLoadPending(false)');
     expect(JOB_BOARD_SOURCE).toContain('jobBoardInteractionSeenRef.current = true');
     expect(JOB_BOARD_SOURCE).toContain('if (!event.isTrusted) return;');
     expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
