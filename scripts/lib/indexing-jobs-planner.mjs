@@ -20,7 +20,8 @@
  * midnight America/Los_Angeles. The day key below is therefore the Pacific
  * date, not UTC. With 200 requests for ~32k job URLs nothing may be spent
  * twice: a URL is notified again only when its type changes (UPDATED →
- * DELETED) or the sitemap lastmod moves past the last notification.
+ * DELETED), the sitemap lastmod moves past the last notification, or the GSC
+ * monitor has kept it in the rich-result recovery queue past its cooldown.
  *
  * @module scripts/lib/indexing-jobs-planner
  */
@@ -33,6 +34,8 @@ import { DAILY_BUDGET } from './indexing-api-quota.mjs';
 
 export const LEDGER_VERSION = 1;
 export { DAILY_BUDGET };
+/** A priority URL (monitor: no Jobs rich result) is re-notified at most this often. */
+export const PRIORITY_RESUBMIT_DAYS = 3;
 /**
  * A never-notified job is "new" (top tier) while its sitemap lastmod — the
  * job's datePosted/update date — or the day the ledger first saw it in the
@@ -199,18 +202,19 @@ export function observeSitemap(ledger, entries, today) {
 }
 
 /**
- * Ordered work list. Tiers (first wins), as ratified on 2026-11-10 — Google
- * for Jobs rewards a job page that reaches it while the posting is fresh:
- *   1. new — never notified, posted (lastmod) or first seen in the sitemaps
+ * Ordered work list. Tiers (first wins):
+ *   1. priority — active URLs the GSC monitor found without a Jobs rich
+ *      result (`job-rich-missing`), re-notified at most every
+ *      PRIORITY_RESUBMIT_DAYS;
+ *   2. new — never notified, posted (lastmod) or first seen in the sitemaps
  *      within NEW_JOB_DAYS; Italian URL before its EN/DE/FR alternates;
- *   2. delete — dropped from the sitemaps after the ledger saw it there, never
+ *   3. delete — dropped from the sitemaps after the ledger saw it there, never
  *      URL_DELETED-notified (the caller still verifies 404/410/noindex);
- *   3. priority — active URLs the GSC monitor found without a Jobs rich
- *      result (`job-rich-missing`), first among the updates;
  *   4. updated — sitemap lastmod newer than the last notification;
  *   5. backlog — never notified, newest lastmod first.
- * Never planned: an URL+type already notified whose lastmod has not moved
- * (see `countDedupSkipped`), a priority URL that is not an active sitemap job.
+ * Never planned: an URL+type already notified whose lastmod has not moved,
+ * unless it is due in the rich-result recovery queue, or a priority URL that
+ * is not an active sitemap job.
  *
  * @param {object} ledger
  * @param {{today: string, max: number, priority?: string[]}} opts
@@ -226,8 +230,14 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
     out.push({ url, type, tier });
   };
   const fresh = (e) => !e.gone && !(e.n && daysBetween(e.n, today) < NOT_JOB_RECHECK_DAYS);
-  const changedSinceSent = (e) => !e.s || Boolean(e.m && e.m > e.s);
+  const priorityDue = (e) => !e.s || daysBetween(e.s, today) >= PRIORITY_RESUBMIT_DAYS;
   const entries = Object.entries(ledger.urls);
+
+  for (const url of priority) {
+    const e = ledger.urls[url];
+    if (!e || !fresh(e) || !priorityDue(e)) continue;
+    push(url, 'URL_UPDATED', 'priority');
+  }
 
   const isNew = (e) => fresh(e) && !e.s && (
     (e.m && daysBetween(e.m, today) <= NEW_JOB_DAYS)
@@ -243,11 +253,6 @@ export function planSubmissions(ledger, { today, max, priority = [] }) {
     .sort(([, a], [, b]) => String(b.gone).localeCompare(String(a.gone)))
     .forEach(([url]) => push(url, 'URL_DELETED', 'delete'));
 
-  for (const url of priority) {
-    const e = ledger.urls[url];
-    if (!e || !fresh(e) || !changedSinceSent(e)) continue;
-    push(url, 'URL_UPDATED', 'priority');
-  }
   for (const [url, e] of entries) {
     if (fresh(e) && e.s && e.m && e.m > e.s) push(url, 'URL_UPDATED', 'updated');
   }
