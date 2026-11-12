@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   HANSEISENRING_KEY,
   HANSEISENRING_COMPANY_NAME,
+  isHanseisenringExpectedDetailFilter,
   isHanseisenringJob,
   isTrustedDomain,
 } from '../scripts/lib/hanseisenring-job-parser.mjs';
@@ -56,6 +57,48 @@ describe('Hans Eisenring AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('isHanseisenringExpectedDetailFilter', () => {
+    const broadLocationContext = (location: string) => ({
+      reason: 'geography',
+      decision: { geography: null, explicitlyForeign: false, hasDeclaredLocation: true },
+      detail: { hasStructuredVacancy: true, location },
+      descriptionSufficient: true,
+    });
+
+    it('recognizes reviewed multi-area workplace labels as source filters', () => {
+      expect(isHanseisenringExpectedDetailFilter(
+        broadLocationContext('Regionen Nordwestschweiz, Zürich'),
+      )).toBe(true);
+      expect(isHanseisenringExpectedDetailFilter(
+        broadLocationContext('Regionen Aargau, Zürich, Basel, Solothurn'),
+      )).toBe(true);
+      expect(isHanseisenringExpectedDetailFilter(
+        broadLocationContext('Einsatzgebiet Ostschweiz oder Region Zürich'),
+      )).toBe(true);
+    });
+
+    it('keeps unreviewed, missing, foreign, or incomplete evidence fail-closed', () => {
+      expect(isHanseisenringExpectedDetailFilter(
+        broadLocationContext('Regionen Nordwestschweiz, Zürich und Basel'),
+      )).toBe(false);
+      expect(isHanseisenringExpectedDetailFilter(
+        broadLocationContext('Münchwilen (TG)'),
+      )).toBe(false);
+      expect(isHanseisenringExpectedDetailFilter({
+        ...broadLocationContext('Regionen Nordwestschweiz, Zürich'),
+        decision: { geography: null, explicitlyForeign: true, hasDeclaredLocation: true },
+      })).toBe(false);
+      expect(isHanseisenringExpectedDetailFilter({
+        ...broadLocationContext('Regionen Nordwestschweiz, Zürich'),
+        detail: { hasStructuredVacancy: false, location: 'Regionen Nordwestschweiz, Zürich' },
+      })).toBe(false);
+      expect(isHanseisenringExpectedDetailFilter({
+        ...broadLocationContext('Regionen Nordwestschweiz, Zürich'),
+        descriptionSufficient: false,
+      })).toBe(false);
     });
   });
 

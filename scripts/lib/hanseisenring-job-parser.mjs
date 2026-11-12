@@ -29,6 +29,13 @@ export const HANSEISENRING_COMPANY_DOMAIN = 'hanseisenring.ch';
 
 const CAREER_URL = 'https://hanseisenring.ch/unternehmen/karriere/jobportal';
 
+// These source-owned workplace labels intentionally cover more than one
+// Swiss area. They are valid Hans Eisenring vacancies, but the geography
+// contract cannot assign one canton without inventing a location. Keep this
+// exact allowlist narrow: a new or changed label must remain fail-closed until
+// it is reviewed against the source.
+const HANSEISENRING_EXPECTED_BROAD_WORKPLACE_RE = /^(?:regionen\s+nordwestschweiz,\s*zürich|regionen\s+aargau,\s*zürich,\s*basel,\s*solothurn|einsatzgebiet\s+ostschweiz\s+oder\s+region\s+zürich)$/iu;
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -37,6 +44,25 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function hanseisenringLocationEvidence(record = {}) {
+  const values = [record.location, record.addressLocality, record.addressRegion];
+  if (Array.isArray(record.locationCandidates)) {
+    for (const candidate of record.locationCandidates) {
+      if (candidate && typeof candidate === 'object') {
+        values.push(candidate.location, candidate.addressLocality, candidate.addressRegion);
+      } else {
+        values.push(candidate);
+      }
+    }
+  }
+  return values.map(normalizeSpace).filter(Boolean);
+}
+
+function hasHanseisenringExpectedBroadWorkplace(record = {}) {
+  return hanseisenringLocationEvidence(record)
+    .some((value) => HANSEISENRING_EXPECTED_BROAD_WORKPLACE_RE.test(value));
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -108,13 +134,36 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * The source publishes a small set of genuine jobs for several Swiss areas at
+ * once. The shared geography gate must keep those rows out of publication,
+ * but they are not parser failures when the detail itself is structured and
+ * its workplace is one of the reviewed broad source labels.
+ */
+export function isHanseisenringExpectedDetailFilter({
+  reason,
+  detail,
+  decision,
+  descriptionSufficient,
+} = {}) {
+  return reason === 'geography'
+    && !decision?.geography
+    && decision?.explicitlyForeign !== true
+    && decision?.hasDeclaredLocation === true
+    && detail?.hasStructuredVacancy === true
+    && descriptionSufficient === true
+    && hasHanseisenringExpectedBroadWorkplace(detail);
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings() {
   const spec = loadSpec(HANSEISENRING_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    isExpectedDetailFilter: isHanseisenringExpectedDetailFilter,
+  });
 }
 
 /**
