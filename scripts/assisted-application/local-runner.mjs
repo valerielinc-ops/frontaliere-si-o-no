@@ -656,6 +656,8 @@ export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch
   try {
     storage = safeStorageProbeResult(await checkStorageUpload({
       versionKey: dependencies?.versionKey,
+      runnerVersion: version,
+      log,
       onProbing: () => markPreflight('storage_probe_running'),
     }));
   } catch {

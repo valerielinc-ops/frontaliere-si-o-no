@@ -42,7 +42,11 @@ import {
   ensureSwissRunnerDependencies,
   needsSwissRunnerDependencyInstall,
   probeSwissRunnerStorageUpload,
+  resolveSwissRunnerCvCheckModulePath,
+  resolveSwissRunnerStorageModules,
+  SWISS_RUNNER_STORAGE_PROBE_EXHAUSTED_RETRY_DELAY_MS,
   SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS,
+  SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS,
 } from '../scripts/assisted-application/lib/swiss-runner-deps.mjs';
 
 // Opaque ids and synthetic data only: no candidate, no portal answer.
@@ -593,11 +597,14 @@ describe('local runner', () => {
     const result = await runCycle({
       ...safeRunnerPreflight,
       db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any,
-      runAgent, checkStorageUpload, log: () => {},
+      runAgent, checkStorageUpload, version: 'swiss-runner/3@fixture-commit', log: () => {},
     });
 
     expect(result).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable', leased: null });
     expect(checkStorageUpload).toHaveBeenCalledTimes(1);
+    expect(checkStorageUpload).toHaveBeenCalledWith(expect.objectContaining({
+      runnerVersion: 'swiss-runner/3@fixture-commit', log: expect.any(Function),
+    }));
     expect(runAgent).not.toHaveBeenCalled();
     expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
     expect(store.read(queuePath)).not.toHaveProperty('lease');
@@ -838,6 +845,46 @@ describe('Swiss runner private dependency trees', () => {
     }
   });
 
+  it('imports the canonical CV bucket module and probes Storage without a bucket factory', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-module-test-'));
+    const file = { save: vi.fn(async () => {}), delete: vi.fn(async () => {}) };
+    const bucket = { file: vi.fn(() => file) };
+    const getStorage = vi.fn(() => ({ bucket: vi.fn(() => bucket) }));
+    const resolveStorageModules = () => resolveSwissRunnerStorageModules({
+      importModule: async (specifier: string) => {
+        if (specifier === 'firebase-admin/app') {
+          return { getApps: () => [{}], initializeApp: vi.fn(), applicationDefault: vi.fn() };
+        }
+        if (specifier === 'firebase-admin/storage') return { getStorage };
+        return import(specifier);
+      },
+    });
+    try {
+      const cvCheckPath = resolveSwissRunnerCvCheckModulePath();
+      expect(fs.existsSync(cvCheckPath)).toBe(true);
+      expect(path.relative(process.cwd(), cvCheckPath)).toBe(path.join('functions', 'src', 'assistedApplicationCvCheck.js'));
+
+      const modules = await resolveStorageModules();
+      expect(modules.cvCheck.ASSISTED_APPLICATION_STORAGE_BUCKET).toBeTruthy();
+      const result = await probeSwissRunnerStorageUpload({
+        versionKey: 'fixture-root-lock:fixture-functions-lock',
+        runnerVersion: 'swiss-runner/3@fixture-commit',
+        stateRoot,
+        resolveStorageModules,
+        randomBytesImpl: () => Buffer.from('fixture!'),
+        uuidImpl: () => 'fixture-probe-id',
+      });
+
+      expect(result).toEqual({ eligible: true, cached: false });
+      expect(getStorage).toHaveBeenCalledTimes(1);
+      expect(getStorage.mock.results[0].value.bucket).toHaveBeenCalledWith(modules.cvCheck.ASSISTED_APPLICATION_STORAGE_BUCKET);
+      expect(file.save).toHaveBeenCalledTimes(1);
+      expect(file.delete).toHaveBeenCalledTimes(1);
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+
   it('uses the tree hash to cache a successful Storage probe and removes the diagnostic object', async () => {
     const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-test-'));
     const file = { save: vi.fn(async () => {}), delete: vi.fn(async () => {}) };
@@ -881,13 +928,65 @@ describe('Swiss runner private dependency trees', () => {
     }
   });
 
-  it('backs off and stops after bounded Storage probe failures for one dependency version', async () => {
+  it('stores only a safe error code and logs the storage failure once per runner version', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-error-test-'));
+    const logs: string[] = [];
+    const bucketFactory = vi.fn(async () => {
+      throw Object.assign(new Error('synthetic failure /private/fake/path'), { code: 'ERR_MODULE_NOT_FOUND' });
+    });
+    let currentTime = now;
+    const probe = () => probeSwissRunnerStorageUpload({
+      versionKey: 'fixture-locks', runnerVersion: 'swiss-runner/3@error-fixture', stateRoot, bucketFactory,
+      now: () => currentTime, log: line => logs.push(line),
+    });
+    try {
+      await probe();
+      const retryPath = path.join(stateRoot, 'storage-probes', fs.readdirSync(path.join(stateRoot, 'storage-probes'))
+        .find(name => name.endsWith('.retry.json'))!);
+      expect(JSON.parse(fs.readFileSync(retryPath, 'utf8'))).toMatchObject({ errorCode: 'ERR_MODULE_NOT_FOUND', attempts: 1 });
+      expect(fs.readFileSync(retryPath, 'utf8')).not.toContain('/private/fake/path');
+      expect(logs).toEqual(['swiss-runner storage probe failed version=swiss-runner/3@error-fixture error=ERR_MODULE_NOT_FOUND']);
+
+      currentTime += SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[0];
+      await probe();
+      expect(logs).toHaveLength(1);
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('starts a fresh bounded retry sequence when the runner checkout version changes', async () => {
+    const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-version-test-'));
+    const file = { save: vi.fn(async () => { throw new Error('synthetic upload failure'); }), delete: vi.fn(async () => {}) };
+    const bucketFactory = vi.fn(async () => ({ file: () => file }));
+    let currentTime = now;
+    const probe = (runnerVersion: string) => probeSwissRunnerStorageUpload({
+      versionKey: 'fixture-locks', runnerVersion, stateRoot, bucketFactory,
+      now: () => currentTime,
+    });
+    try {
+      await probe('swiss-runner/3@checkout-one');
+      currentTime += SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[0];
+      await probe('swiss-runner/3@checkout-one');
+      currentTime += SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[1];
+      await probe('swiss-runner/3@checkout-one');
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
+
+      await probe('swiss-runner/3@checkout-two');
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS + 1);
+      expect(fs.readdirSync(path.join(stateRoot, 'storage-probes')).filter(name => name.endsWith('.retry.json'))).toHaveLength(2);
+    } finally {
+      fs.rmSync(stateRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('backs off after three Storage probe failures and retries after a long cooldown', async () => {
     const stateRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'swiss-runner-storage-retry-test-'));
     const file = { save: vi.fn(async () => { throw new Error('synthetic upload failure'); }), delete: vi.fn(async () => {}) };
     const bucketFactory = vi.fn(async () => ({ file: () => file }));
     let currentTime = now;
     const probe = () => probeSwissRunnerStorageUpload({
-      versionKey: 'fixture-locks', stateRoot, bucketFactory,
+      versionKey: 'fixture-locks', runnerVersion: 'swiss-runner/3@retry-fixture', stateRoot, bucketFactory,
       randomBytesImpl: () => Buffer.from('fixture!'), uuidImpl: () => 'abc12345-def6',
       now: () => currentTime,
     });
@@ -904,10 +1003,21 @@ describe('Swiss runner private dependency trees', () => {
       await probe();
       expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
 
-      currentTime += 24 * 60 * 60_000;
+      currentTime += SWISS_RUNNER_STORAGE_PROBE_EXHAUSTED_RETRY_DELAY_MS - 1;
       expect(await probe()).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable' });
       expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
-      expect(file.save).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS);
+
+      currentTime += 1;
+      await probe();
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS + 1);
+
+      currentTime += SWISS_RUNNER_STORAGE_PROBE_RETRY_DELAYS_MS[0] - 1;
+      expect(await probe()).toMatchObject({ eligible: false, reason: 'storage_upload_unavailable' });
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS + 1);
+      currentTime += 1;
+      await probe();
+      expect(bucketFactory).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS + 2);
+      expect(file.save).toHaveBeenCalledTimes(SWISS_RUNNER_STORAGE_PROBE_MAX_ATTEMPTS + 2);
     } finally {
       fs.rmSync(stateRoot, { recursive: true, force: true });
     }
