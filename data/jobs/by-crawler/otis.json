@@ -85,12 +85,12 @@
     },
     {
       "id": "otis-5164b63732fb",
-      "slug": "servicetechniker-in-m-w-d-otis-sa-oberburen",
+      "slug": "tecnico-a-di-assistenza-m-f-d-otis-sa-oberburen",
       "slugByLocale": {
-        "it": "servicetechniker-in-m-w-d-otis-sa-oberburen",
+        "it": "tecnico-a-di-assistenza-m-f-d-otis-sa-oberburen",
         "en": "service-technician-m-f-d-otis-sa-oberburen",
         "de": "servicetechniker-in-m-w-d-otis-oberburen",
-        "fr": "servicetechniker-in-m-w-d-otis-oberburen"
+        "fr": "technicien-technicienne-de-maintenance-h-f-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -130,13 +130,18 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-11-11T21:36:48.137Z",
       "previousSlugs": [
-        "servicetechniker-in-m-w-d-otis-oberburen"
+        "servicetechniker-in-m-w-d-otis-oberburen",
+        "servicetechniker-in-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-m-w-d-otis-oberburen"
+          "servicetechniker-in-m-w-d-otis-oberburen",
+          "servicetechniker-in-m-w-d-otis-sa-oberburen"
         ],
         "en": [
+          "servicetechniker-in-m-w-d-otis-oberburen"
+        ],
+        "fr": [
           "servicetechniker-in-m-w-d-otis-oberburen"
         ]
       },

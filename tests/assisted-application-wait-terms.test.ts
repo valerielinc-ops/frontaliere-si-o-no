@@ -439,7 +439,15 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
   const anyPromise = { it: /ti rimbors(o|iamo) i/, fr: /vous rembours(e|ons) les/, de: /erstatte[nt]? (ich|wir) dir/, en: /(we|I'll) refund your/ };
 
   it('says no refund once started in the welcome e-mail of an order under the Terms of 2026-11-11', () => {
-    for (const terms of [{ consentVersion: 'assisted-application-v3', consentedAt: T0 }, { billingMode: 'application_concierge' }]) {
+    for (const terms of [
+      { consentVersion: 'assisted-application-v3', consentedAt: T0 },
+      {
+        billingMode: 'application_concierge',
+        consentVersion: 'assisted-application-v3',
+        parentServiceConsentVersion: 'application-concierge-v3',
+        consentedAt: T0,
+      },
+    ]) {
       for (const [locale, words] of Object.entries(noRefundRule)) {
         for (const automation of [true, false]) {
           for (const kind of ['intro', 'recovery'] as const) {

@@ -8720,6 +8720,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.revisione-tardoc-2027.title': 'The Federal Council approves the revision of TARDOC',
     'blog.article.revisione-tardoc-2027.excerpt': 'On November 11, 2026, in the 12.30 news broadcast, Alessio Veronelli\'s report covered the first revision of the TARDOC outpatient tariff system.',
     'blog.article.revisione-tardoc-2027.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.aumento-iva-finanzia-avs.title': 'November 29 vote: VAT increase to finance 13th AHV pension',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'On November 29, Swiss voters will vote on the increase in VAT intended to finance the 13th AVS pension.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

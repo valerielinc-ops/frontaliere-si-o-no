@@ -124,7 +124,7 @@ const CANDIDATE_COPY = {
       preheader: 'La candidatura è stata ritirata e archiviata.',
       lead: '{company} ha ritirato la posizione {job}. La candidatura non può più essere inviata ed è stata quindi ritirata: la trovi archiviata tra le tue candidature, con lo stato «Ritirata».',
       terms: 'Per i Termini (punto 6.5), quando l’annuncio viene ritirato mentre la candidatura attende documenti o risposte che solo tu puoi fornire, l’importo non è rimborsato.',
-      // Owner decision 2026-11-11: the Terms 6.5 the candidate accepted with the mandate v3 (refundEndsAtStart).
+      // Owner decision 2026-11-11: Terms 6.5 after start apply to assisted or concierge mandate v3.
       termsAfterStart: 'Per i Termini (punto 6.5), una volta avviata la preparazione della candidatura l’importo non è rimborsabile, anche quando l’annuncio viene chiuso o ritirato dal datore di lavoro.',
     },
     closed: {
@@ -686,8 +686,9 @@ export function describeTakeover({ reason, stage, attempts, portalAutoRetryAt })
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
  *   openQuestions?:number, reason?:string, price?:string, orderId:string, postalSubmission?:boolean,
- *   refundEndsAtStart?:boolean}} vars `fit` and `fitVia` as fitNoticeWording (assistedApplicationFitNotice.js)
- *   gives them; `refundEndsAtStart`: the candidate accepted the Terms 6.5 of 2026-11-11 (no refund once started)
+ *   noRefundAfterStartConsent?:boolean, refundEndsAtStart?:boolean}} vars `fit` and `fitVia` as fitNoticeWording
+ *   (assistedApplicationFitNotice.js) gives them; production uses `noRefundAfterStartConsent` for accepted terms.
+ *   `refundEndsAtStart` remains as a backwards-compatible alias for direct builder callers.
  */
 export function buildCandidateAutomationEmail(kind, vars) {
   if (kind === 'candidate_handoff' && isCaptchaHandoffReason(vars.reason)) {
@@ -746,9 +747,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
     html.push(brandChecklist(section.steps), brandButton(vars.reviewUrl, copy.openCta), brandFinePrint(esc(section.after)));
     text.push(section.steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), `${copy.openCta}: ${vars.reviewUrl}`, section.after);
   } else if (kind === 'candidate_posting_withdrawn') {
-    // The clause the candidate accepted: no refund once started (mandate v3, a concierge application), or the
-    // older exception of a round that waited for them.
-    const terms = vars.refundEndsAtStart ? section.termsAfterStart : section.terms;
+    // The clause the candidate accepted: no refund once started under assisted or concierge v3, or the older
+    // exception of a round that waited for them.
+    const terms = (vars.noRefundAfterStartConsent ?? vars.refundEndsAtStart) ? section.termsAfterStart : section.terms;
     html.push(brandFinePrint(esc(terms)));
     text.push(terms);
   } else if (!postingGone) {
@@ -786,8 +787,11 @@ export function buildCandidateAutomationEmail(kind, vars) {
  * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'|'owner_posting_expired'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
  *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number,
- *   portalAutoRetryAt?:number, refundEndsAtStart?:boolean}} vars `refundEndsAtStart`: the order is under the
- *   Terms 6.5 of 2026-11-11 (assistedApplicationConstants.js), nothing refunded once the process started
+ *   portalAutoRetryAt?:number, noRefundAfterStartConsent?:boolean, refundEndsAtStart?:boolean,
+ *   conciergeChild?:boolean}} vars
+ *   `noRefundAfterStartConsent`: the candidate accepted Terms 6.5 of 2026-11-11; `conciergeChild` has no
+ *   standalone payment, so any refund must be handled through its parent service. `refundEndsAtStart` remains as
+ *   a backwards-compatible alias for direct builder callers.
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -845,11 +849,16 @@ export function buildOwnerAutomationEmail(kind, vars) {
     subject = `[Candidatura] Annuncio chiuso durante l’attesa del candidato: ${job} — ${company}`;
     hero = 'L’annuncio risulta chiuso: solleciti sospesi';
     const lead = 'Prima di sollecitare il candidato ho controllato l’annuncio: risulta chiuso o ritirato. Il sollecito NON è partito e non ne partiranno altri, perché la candidatura non potrebbe più essere inviata; anche l’approvazione automatica dopo 12 ore è sospesa. L’ordine resta in attesa e non è stato rimborsato nulla: verifica l’annuncio e decidi dalla coda come chiuderlo.';
-    // Owner decision 2026-11-11: under the Terms the candidate accepted with the mandate v3 (or a concierge
-    // application), nothing is refunded once the process started.
-    const owed = vars.refundEndsAtStart
-      ? 'Per i Termini accettati dal candidato (punto 6.5) dopo l’avvio del processo l’importo non è rimborsabile, nemmeno se l’annuncio è stato chiuso o ritirato: non rimborsare.'
-      : 'Per i Termini (punto 6.5) un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato. Se invece era già chiuso prima che glieli chiedessimo, rimborsa dalla coda.';
+    // The candidate's accepted mandate governs the legal wording. A concierge child has no standalone payment;
+    // never direct the owner to the child-order refund button, whatever version the parent accepted.
+    const noRefundAfterStartConsent = vars.noRefundAfterStartConsent ?? vars.refundEndsAtStart;
+    const owed = vars.conciergeChild
+      ? noRefundAfterStartConsent
+        ? 'Per i Termini concierge accettati (punto 6.5), una volta avviata la preparazione l’importo non è rimborsabile, anche se l’annuncio viene chiuso o ritirato. Questa candidatura è coperta dal servizio concierge e non ha un pagamento autonomo: non usare il pulsante rimborso della candidatura; verifica il servizio padre prima di intervenire.'
+        : 'Questa candidatura è coperta dal servizio concierge e non ha un pagamento autonomo. Il mandato accettato è precedente ai Termini concierge del 2026-11-11: verifica il servizio padre e le condizioni accettate prima di intervenire; non usare il pulsante rimborso della candidatura.'
+      : noRefundAfterStartConsent
+        ? 'Per i Termini accettati dal candidato (punto 6.5) dopo l’avvio del processo l’importo non è rimborsabile, nemmeno se l’annuncio è stato chiuso o ritirato: non rimborsare.'
+        : 'Per i Termini (punto 6.5) un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato. Se invece era già chiuso prima che glieli chiedessimo, rimborsa dalla coda.';
     html.push(brandParagraph(esc(lead)), brandParagraph(esc(owed)));
     text.push(lead, owed);
     const email = clean(vars.candidateEmail, 200);

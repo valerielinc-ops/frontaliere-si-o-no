@@ -307,9 +307,9 @@ _publish_cdn_r2() {
     # loses the owned lease context under `set -u` and can skip its release.
     _r2_image_namespace_lease_exit_cleanup "$exit_status"
   }
-  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] [hard-deadline-seconds] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
-    local attempts=2 attempt=1 sync_status=0 attempt_log=""
+    local attempts=2 attempt=1 sync_status=0 attempt_log="" attempt_limit="$1" hard_deadline="${7:-0}" remaining_budget=0
     local -a copy_flags=()
     local -a stats_flags=(--stats=60s --stats-one-line --stats-log-level=NOTICE)
     local -a copy_args=(copy "$2" "$bkt/$3")
@@ -353,6 +353,17 @@ _publish_cdn_r2() {
       rm -f "$5"
     fi
     while [ "$attempt" -le "$attempts" ]; do
+      if [ "$hard_deadline" -gt 0 ]; then
+        remaining_budget=$((hard_deadline - SECONDS))
+        if [ "$remaining_budget" -le 0 ]; then
+          ok=0
+          echo "::error::[r2] total copy budget expired before attempt $attempt for $3/"
+          return 124
+        fi
+        attempt_limit="$remaining_budget"
+      else
+        attempt_limit="$1"
+      fi
       sync_status=0
       if [ -n "${5:-}" ]; then
         attempt_log="$5.attempt-$attempt"
@@ -360,7 +371,7 @@ _publish_cdn_r2() {
         # Rclone's JSON log is retained for the assets purge ledger. Tee it as
         # it is written and print only periodic stats/errors, so a long copy is
         # observable without buffering every object log until completion.
-        if _r2_image_lease_wait_timeout _r2_sync_logged_copy "$1" "$attempt_log" "${copy_args[@]}"; then
+        if _r2_image_lease_wait_timeout _r2_sync_logged_copy "$attempt_limit" "$attempt_log" "${copy_args[@]}"; then
           sync_status=0
         else
           sync_status=$?
@@ -371,7 +382,7 @@ _publish_cdn_r2() {
           cat "$attempt_log" >> "$5"
         fi
         rm -f "$attempt_log"
-      elif _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" "${copy_args[@]}"; then
+      elif _r2_image_lease_wait_timeout timeout -k 15 "$attempt_limit" "${RC[@]}" "${copy_args[@]}"; then
         sync_status=0
       else
         sync_status=$?
@@ -379,7 +390,15 @@ _publish_cdn_r2() {
 
       [ "$sync_status" -eq 0 ] && return 0
       if [ "$attempt" -lt "$attempts" ]; then
-        echo "::warning::[r2] sync of $3/ attempt $attempt/$attempts failed or exceeded its ${1}s limit (exit $sync_status) — retrying additive copy after 5s"
+        if [ "$hard_deadline" -gt 0 ]; then
+          remaining_budget=$((hard_deadline - SECONDS))
+          if [ "$remaining_budget" -le 5 ]; then
+            ok=0
+            echo "::error::[r2] total copy budget expired after attempt $attempt for $3/ (exit $sync_status)"
+            return 124
+          fi
+        fi
+        echo "::warning::[r2] sync of $3/ attempt $attempt/$attempts failed or exceeded its ${attempt_limit}s limit (exit $sync_status) — retrying additive copy after 5s"
         sleep 5
       else
         ok=0
@@ -462,6 +481,236 @@ _publish_cdn_r2() {
       return 1
     fi
     echo "[r2-og] complete manifest checkpointed (${total_files} changed file(s))"
+    rm -rf "$batch_dir"
+    return 0
+  }
+  _r2_sync_data_delta() { # <total-limit-s> <source-dir>
+    local limit="$1" source_dir="$2"
+    local manifest_key="state/data-published-manifest.json.gz"
+    local previous_gzip="$rtmp/r2-data-previous-$$.json.gz"
+    local previous_manifest="$rtmp/r2-data-previous-$$.json"
+    local changed_list="$rtmp/r2-data-changed-$$.txt"
+    local candidate="$rtmp/r2-data-candidate-$$.json"
+    local completed="$rtmp/r2-data-completed-$$.txt"
+    local published="$rtmp/r2-data-published-$$.json"
+    local compressed="$rtmp/r2-data-published-$$.json.gz"
+    local batch_dir="$rtmp/r2-data-batches-$$"
+    local read_status=0 summary mode total_files batch_index=0 checkpoint_group=0 deadline=0 remaining manifest_read_limit
+    local R2_DATA_DEADLINE_EPOCH_MS
+    local relative_path batch_file status attempt
+    local -a batch_paths=()
+    local checkpoint_every_batches=20
+
+    [ -d "$source_dir" ] || return 0
+    rm -f "$previous_gzip" "$previous_manifest" "$changed_list" "$candidate" \
+      "$completed" "$published" "$compressed"
+    mkdir -p "$batch_dir"
+    # The total budget starts before the manifest read and the full local
+    # traversal/hash, so bootstrap work cannot escape R2_TIMEOUT_DATA_S.
+    deadline=$((SECONDS + limit))
+    R2_DATA_DEADLINE_EPOCH_MS="$(node -e 'process.stdout.write(String(Date.now() + Number(process.argv[1]) * 1000))' "$limit")" || {
+      rm -rf "$batch_dir"
+      return 1
+    }
+    export R2_DATA_DEADLINE_EPOCH_MS
+    remaining=$((deadline - SECONDS))
+    if [ "$remaining" -le 0 ]; then
+      echo "::error::[r2-data] total data delta exceeded ${limit}s before reading its manifest"
+      rm -rf "$batch_dir"
+      return 124
+    fi
+    manifest_read_limit="$_t_obj"
+    if [ "$remaining" -lt "$manifest_read_limit" ]; then manifest_read_limit="$remaining"; fi
+    if _r2_image_lease_wait_timeout timeout -k 10 "$manifest_read_limit" "${RC[@]}" \
+      copyto "$bkt/$manifest_key" "$previous_gzip" --retries=1; then
+      if [ -s "$previous_gzip" ]; then
+        if ! gzip -t "$previous_gzip" 2>/dev/null \
+          || ! gzip -dc "$previous_gzip" > "$previous_manifest"; then
+          echo "::warning::[r2-data-manifest] previous manifest is invalid; using a full additive copy"
+          rm -f "$previous_manifest"
+        fi
+      fi
+    else
+      read_status=$?
+      echo "::warning::[r2-data-manifest] previous manifest read failed (exit $read_status); using a full additive copy"
+    fi
+
+    if ! summary="$(node scripts/ci/prepare-r2-data-delta.mjs \
+      "$source_dir" "$previous_manifest" "$changed_list" "$candidate")"; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+    echo "[r2-data] $summary"
+    case "$summary" in
+      mode=full\ *) mode=full ;;
+      mode=delta\ *) mode=delta ;;
+      *)
+        echo "::error::[r2-data-manifest] unexpected helper output; refusing to publish data without a verified delta"
+        rm -rf "$batch_dir"
+        return 1
+        ;;
+    esac
+
+    _r2_publish_data_manifest() { # <manifest.json>
+      local manifest_path="$1" manifest_limit="$_t_obj"
+      local compressed_path="${manifest_path%.json}.json.gz"
+      if ! gzip -n -c "$manifest_path" > "$compressed_path"; then
+        echo "::error::[r2-data-manifest] could not compress the published manifest"
+        return 1
+      fi
+      if [ "$deadline" -gt 0 ]; then
+        remaining=$((deadline - SECONDS))
+        if [ "$remaining" -le 0 ]; then
+          echo "::error::[r2-data] total data delta exceeded ${limit}s before manifest checkpoint"
+          return 124
+        fi
+        if [ "$remaining" -lt "$manifest_limit" ]; then manifest_limit="$remaining"; fi
+      fi
+      if ! _r2_image_lease_wait_timeout timeout -k 10 "$manifest_limit" "${RC[@]}" \
+        copyto "$compressed_path" "$bkt/$manifest_key" \
+        --header-upload "Content-Type: application/gzip" \
+        --header-upload "Cache-Control: no-store, max-age=0"; then
+        echo "::error::[r2-data-manifest] checkpoint write failed; the next deploy will retry the additive data delta"
+        return 1
+      fi
+      return 0
+    }
+
+    if [ "$mode" = full ]; then
+      # A first publish uses the established recursive copy. Exact-object
+      # batches are faster after the manifest has a trustworthy baseline.
+      remaining=$((deadline - SECONDS))
+      if [ "$remaining" -le 0 ]; then
+        echo "::error::[r2-data] total data delta exceeded ${limit}s before the additive bootstrap copy"
+        rm -rf "$batch_dir"
+        return 124
+      fi
+      if ! _r2_sync "$remaining" "$source_dir" data "public,max-age=600" "" no-traverse "$deadline"; then
+        rm -rf "$batch_dir"
+        return 1
+      fi
+      cat "$changed_list" > "$completed" || {
+        rm -rf "$batch_dir"
+        return 1
+      }
+      if ! node scripts/ci/prepare-r2-data-delta.mjs record-progress \
+        "$candidate" "$previous_manifest" "$changed_list" "$completed" \
+        "$published" "$source_dir" complete \
+        || ! _r2_publish_data_manifest "$published"; then
+        rm -rf "$batch_dir"
+        return 1
+      fi
+      rm -rf "$batch_dir"
+      return 0
+    fi
+
+    total_files="$(wc -l < "$changed_list" | tr -d '[:space:]')"
+    : > "$completed"
+    if [ "$total_files" -eq 0 ]; then
+      echo "[r2-data] no changed objects; reusing the published manifest"
+      rm -rf "$batch_dir"
+      return 0
+    fi
+    _r2_sync_data_batch() {
+      local count="$#" retry_status=0
+      [ "$count" -gt 0 ] || return 0
+      batch_index=$((batch_index + 1))
+      batch_file="$batch_dir/batch-$(printf '%05d' "$batch_index").txt"
+      printf '%s\n' "$@" > "$batch_file" || return 1
+      echo "[r2-data] batch ${batch_index}/$(((total_files + 999) / 1000)) start ($count files)"
+      attempt=1
+      while [ "$attempt" -le 2 ]; do
+        remaining=$((deadline - SECONDS))
+        if [ "$remaining" -le 0 ]; then
+          echo "::error::[r2-data] total data delta exceeded ${limit}s"
+          rm -f "$batch_file"
+          return 124
+        fi
+        if _r2_image_lease_wait_timeout timeout -k 15 "$remaining" "${RC[@]}" \
+          copy "$source_dir" "$bkt/data" --files-from-raw "$batch_file" --no-traverse \
+          --header-upload "Cache-Control: public,max-age=600" \
+          --stats=60s --stats-one-line --stats-log-level=NOTICE; then
+          retry_status=0
+          break
+        else
+          retry_status=$?
+        fi
+        if [ "$attempt" -eq 1 ]; then
+          remaining=$((deadline - SECONDS))
+          if [ "$remaining" -le 5 ]; then
+            rm -f "$batch_file"
+            return "$retry_status"
+          fi
+          echo "::warning::[r2-data] batch ${batch_index} attempt failed (exit $retry_status); retrying once"
+          sleep 5
+        fi
+        attempt=$((attempt + 1))
+      done
+      if [ "$retry_status" -ne 0 ]; then
+        rm -f "$batch_file"
+        return "$retry_status"
+      fi
+
+      cat "$batch_file" >> "$completed" || {
+        rm -f "$batch_file"
+        return 1
+      }
+      checkpoint_group=$((checkpoint_group + 1))
+      if [ "$checkpoint_group" -ge "$checkpoint_every_batches" ]; then
+        if ! node scripts/ci/prepare-r2-data-delta.mjs record-progress \
+          "$candidate" "$previous_manifest" "$changed_list" "$completed" \
+          "$published" "$source_dir" partial \
+          || ! _r2_publish_data_manifest "$published"; then
+          rm -f "$batch_file"
+          return 1
+        fi
+        cp "$published" "$previous_manifest" || {
+          rm -f "$batch_file"
+          echo "::error::[r2-data-manifest] could not advance the verified local checkpoint"
+          return 1
+        }
+        : > "$completed" || {
+          rm -f "$batch_file"
+          return 1
+        }
+        echo "[r2-data] checkpointed ${batch_index} batches (${checkpoint_every_batches} per manifest upload)"
+        checkpoint_group=0
+      fi
+      rm -f "$batch_file"
+      return 0
+    }
+
+    while IFS= read -r relative_path || [ -n "$relative_path" ]; do
+      [ -n "$relative_path" ] || continue
+      batch_paths+=("$relative_path")
+      if [ "${#batch_paths[@]}" -ge 1000 ]; then
+        if ! _r2_sync_data_batch "${batch_paths[@]}"; then
+          rm -rf "$batch_dir"
+          return 1
+        fi
+        batch_paths=()
+      fi
+    done < "$changed_list"
+    if [ "${#batch_paths[@]}" -gt 0 ] && ! _r2_sync_data_batch "${batch_paths[@]}"; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+
+    if ! node scripts/ci/prepare-r2-data-delta.mjs record-progress \
+      "$candidate" "$previous_manifest" "$changed_list" "$completed" \
+      "$published" "$source_dir" complete; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+    if [ -s "$completed" ] && ! _r2_publish_data_manifest "$published"; then
+      rm -rf "$batch_dir"
+      return 1
+    fi
+    if [ -s "$completed" ]; then
+      echo "[r2-data] complete manifest checkpointed (${total_files} changed file(s))"
+    else
+      echo "[r2-data] complete manifest already checkpointed (${total_files} changed file(s))"
+    fi
     rm -rf "$batch_dir"
     return 0
   }
@@ -800,9 +1049,16 @@ _publish_cdn_r2() {
   else
     _r2_sync 120 "$stage/images" images "public,max-age=86400"
   fi
-  # Data is additive; avoid listing the full existing prefix and check each
-  # current source key directly instead.
-  _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
+  # The exact-object check against all 207k data keys cost up to 18 min even
+  # when only a small subset changed. Checkpoint verified groups of 20 × 1,000
+  # changed keys in R2; a failure before the next checkpoint may replay at most
+  # 20,000 copied objects. A missing/corrupt manifest bootstraps with the
+  # additive full copy.
+  local _t_data
+  _t_data="$(_r2_timeout_s R2_TIMEOUT_DATA_S 1800)"
+  if ! _r2_sync_data_delta "$_t_data" "$stage/data"; then
+    ok=0
+  fi
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0

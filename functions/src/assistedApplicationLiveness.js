@@ -61,14 +61,13 @@ const HARD_EXPIRED_PATTERNS = [
   /(diese )?stelle (ist )?(leider )?nicht mehr (verfugbar|aktiv|ausgeschrieben|online)/i,
   /(stelle|inserat|stellenanzeige|ausschreibung) (ist |wurde )?(bereits )?(abgelaufen|geschlossen|deaktiviert|geloscht)/i,
   /bewerbungsfrist (ist )?abgelaufen/i,
-  /die stelle wurde (bereits )?besetzt/i,
+  /die stelle (?:wurde (?:bereits )?besetzt|(?:bereits )?besetzt wurde)/i,
   // A portal's own page for a posting it no longer shows (SuccessFactors, Stadt Zürich 2026-11-10: «Diese
   // Stelle kann zurzeit nicht angezeigt werden. Sie wurde entweder gelöscht, oder man kann sich nicht länger
   // darauf bewerben.»), and the same statement in the other languages: always about this posting, never a
   // sentence an open posting prints.
   // «kann nicht angezeigt werden» alone may be a passing display failure: only with its deletion or
   // no-longer-apply clause is it the closure.
-  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
   /(?:kann|konnen) sich nicht (?:mehr|langer) (?:darauf |dafur |auf diese stelle )?bewerben/i,
   /non e piu possibile (?:candidarsi|candidarti|inviare (?:la (?:tua |sua )?)?candidatura)/i,
   /(?:l')?(?:annuncio|offerta) (?:e stat[ao] )?(?:rimoss[ao]|eliminat[ao])\b/i,
@@ -76,6 +75,35 @@ const HARD_EXPIRED_PATTERNS = [
   /(?:offre|annonce) (?:a ete )?(?:supprimee|retiree)\b/i,
   /\b(?:job|position|role|posting|vacancy|opening|requisition) (?:has been|was|is now) (?:closed|removed|deleted|withdrawn)\b/i,
   /\byou can no longer apply\b/i,
+];
+const MULTI_SENTENCE_HARD_EXPIRED_PATTERNS = [
+  // SuccessFactors can state the closed status across the «not displayed» and «deleted / no longer apply» sentences.
+  /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
+];
+const CONDITIONAL_OR_TEMPORAL_CLAUSE = [
+  /\b(?:after|before|once|when|if|until|whenever|unless|while|as soon as|as long as|provided that|in case|including after)\b/i,
+  /\b(?:nachdem|sobald|wenn|falls|bis|solange)\b/i,
+  /\b(?:dopo\s+che|una\s+volta\s+che|quando|finche|fino\s+a\s+quando)\b/i,
+  /\b(?:une\s+fois(?:\s+que)?|lorsque|quand|si|apres\s+que|jusqu'a\s+ce\s+que)\b/i,
+];
+const ITALIAN_SE_CONDITIONAL = /\bse\b/i;
+const SUPPORTED_PAGE_LANGUAGES = new Set(['de', 'en', 'fr', 'it']);
+
+function normalizePageLanguage(language = '') {
+  const primary = String(language || '').trim().toLowerCase().split(/[-_]/, 1)[0];
+  return SUPPORTED_PAGE_LANGUAGES.has(primary) ? primary : '';
+}
+
+function pageLanguageFromHtml(html = '') {
+  const attributes = /<html\b([^>]*)>/i.exec(String(html || ''))?.[1] || '';
+  const match = /\blang\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`]+))/i.exec(attributes);
+  return normalizePageLanguage(match?.[1] || match?.[2] || match?.[3] || '');
+}
+const ACCESS_BLOCKED_PATTERNS = [
+  /\b(?:your\s+|the\s+)?ip(?:[\s-]?address)?\s+(?:(?:has been|is|was)\s+)?(?:blocked|denied|banned)\b/i,
+  /\b(?:il tuo\s+)?indirizzo ip\s+(?:(?:e stato|risulta|e)\s+)?(?:bloccato|negato|vietato)\b/i,
+  /\b(?:ihre\s+)?ip-adresse\s+(?:wurde|ist|wird)\s+(?:blockiert|gesperrt)\b/i,
+  /\b(?:votre\s+)?adresse ip\s+(?:a ete|est)\s+(?:bloquee|refusee)\b/i,
 ];
 
 // «The post has been filled», in the forms employers print (Stadt Zürich's own posting page, 2026-11-10:
@@ -132,6 +160,12 @@ const BOT_CHALLENGE_PATTERNS = [
   /performing security verification/i,
   /checking your browser before/i,
   /verify you are (a |not a )?human/i,
+  /verifica(?:re)? di essere (?:un )?umano/i,
+  /sicherheitsuberprufung[\s\S]{0,80}\b(?:bitte|bestatigen|fortfahren|weiter|erforderlich|mensch|roboter)\b/i,
+  /\bbitninja\b[\s\S]{0,100}\b(?:security check|security verification|verification|challenge|captcha|human)\b/i,
+  /\b(?:security check|security verification|verification|challenge|captcha|human)[\s\S]{0,100}\bbitninja\b/i,
+  /\b(?:complete|solve|enter|pass|verify|confirm|resolve)\s+(?:the\s+)?(?:captcha|recaptcha|hcaptcha|turnstile)\b/i,
+  /\b(?:captcha|recaptcha|hcaptcha|turnstile)\b[\s\S]{0,50}\b(?:challenge|required|to continue|please complete|verification required|failed)\b/i,
   /enable javascript and cookies to continue/i,
   /attention required.*cloudflare/i,
   /\bray id\b/i,
@@ -173,6 +207,44 @@ function jobIdToken(url = '') {
 const firstMatch = (patterns, text = '') => patterns.find((pattern) => pattern.test(text));
 const hasApplyControl = (controls = []) => controls.some((control) => APPLY_PATTERNS.some((pattern) => pattern.test(control)));
 
+function hasConditionalTemporalPrefix(statement, matchIndex, localeHint = '') {
+  const leadIn = statement.slice(0, matchIndex);
+  const locale = normalizePageLanguage(localeHint);
+  return CONDITIONAL_OR_TEMPORAL_CLAUSE.some((clause) => clause.test(leadIn))
+    || (locale === 'it' && ITALIAN_SE_CONDITIONAL.test(leadIn));
+}
+
+function firstUnconditionalStatementMatch(patterns, rawText = '', locale = '') {
+  if (typeof rawText !== 'string') return undefined;
+  const statements = rawText.split(/[\r\n]+|(?<=[.!?;])\s+/);
+  for (const rawStatement of statements) {
+    const statement = normalizeForMatch(rawStatement).trim();
+    if (!statement) continue;
+    for (const pattern of patterns) {
+      const match = pattern.exec(statement);
+      if (!match) continue;
+      if (hasConditionalTemporalPrefix(statement, match.index, locale)) continue;
+      return pattern;
+    }
+  }
+  return undefined;
+}
+
+function firstUnconditionalHardExpiredStatement(rawText = '', locale = '') {
+  // A hard-closure phrase in a privacy clause describes a possible later state, not this posting's current state.
+  const statementMatch = firstUnconditionalStatementMatch(HARD_EXPIRED_PATTERNS, rawText, locale);
+  if (statementMatch) return statementMatch;
+  const normalized = normalizeForMatch(rawText);
+  for (const pattern of MULTI_SENTENCE_HARD_EXPIRED_PATTERNS) {
+    const match = pattern.exec(normalized);
+    if (!match) continue;
+    const leadIn = normalized.slice(0, match.index).split(/(?<=[.!?;])\s+/).at(-1) || '';
+    if (hasConditionalTemporalPrefix(leadIn, leadIn.length, locale)) continue;
+    return pattern;
+  }
+  return undefined;
+}
+
 /**
  * The page's own sentences: its lines (htmlToText ends every block with one, innerText too), each split after
  * a full stop, with list bullets, quotes and closing punctuation trimmed. Read before the whitespace is
@@ -195,16 +267,19 @@ function filledStatement(rawText, { applyControlVisible = false } = {}) {
   return undefined;
 }
 
-export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [] } = {}) {
+/** `locale` is the posting-page language, from its explicit page metadata when available. */
+export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [], locale = '' } = {}) {
+  const pageLocale = normalizePageLanguage(locale);
   const bodyText = normalizeForMatch(rawBodyText);
   const applyControls = (Array.isArray(rawApplyControls) ? rawApplyControls : []).map(normalizeForMatch);
   if (status === 404 || status === 410) return { result: 'expired', code: 'http_gone', reason: `HTTP ${status}` };
+  if (firstUnconditionalStatementMatch(ACCESS_BLOCKED_PATTERNS, rawBodyText, pageLocale)) return { result: 'uncertain', code: 'runner_ip_blocked', reason: 'IP access blocked' };
   const botChallenge = firstMatch(BOT_CHALLENGE_PATTERNS, bodyText);
   if (botChallenge) return { result: 'uncertain', code: 'bot_challenge', reason: 'anti-bot challenge' };
   if (status === 403 || status === 429 || status === 503) return { result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}` };
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
   if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
-  const expiredBody = firstMatch(HARD_EXPIRED_PATTERNS, bodyText);
+  const expiredBody = firstUnconditionalHardExpiredStatement(rawBodyText, pageLocale);
   if (expiredBody) return { result: 'expired', code: 'expired_body', reason: `pattern matched: ${expiredBody.source}` };
   const filled = filledStatement(rawBodyText, { applyControlVisible: hasApplyControl(applyControls) });
   if (filled) return { result: 'expired', code: 'expired_body', reason: `posting filled: ${filled.source}` };
@@ -341,6 +416,7 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
           finalUrl: response.url || url,
           bodyText: htmlToText(html),
           applyControls: applyControlsFromHtml(html),
+          locale: pageLanguageFromHtml(html),
         });
       } else {
         page = { result: 'uncertain', code: 'not_public', reason: 'url not fetchable' };
