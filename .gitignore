@@ -144,6 +144,7 @@ tests/e2e/seo-visual-regression.spec.ts-snapshots/*-darwin.png
 playwright-report/
 test-results/
 .worktrees/
+.gemini/worktrees/
 data/.weather-cache/
 data/adzuna-cache/
 .audit-pages/
