@@ -62,6 +62,14 @@ function isApplicantIdentity(field) {
   return field?.inputType === 'email' || APPLICANT_IDENTITY_LABEL_RE.test(applicantIdentityLabel(field?.label));
 }
 
+function applicantIdentityKind(field) {
+  const label = applicantIdentityLabel(field?.label);
+  if (field?.inputType === 'email' || /^e-?mail\b/i.test(label)) return 'email';
+  if (/^(?:first name|given name|forename|vorname|nome)\b/i.test(label)) return 'first_name';
+  if (/^(?:last name|surname|family name|nachname|cognome)\b/i.test(label)) return 'last_name';
+  return '';
+}
+
 function applicationFormKey(control) {
   const formId = String(control?.formId || '').trim();
   return formId ? `${Number(control?.frame || 0)}\u0000${formId}` : '';
@@ -85,10 +93,20 @@ function sameDocumentFragment(href, url) {
 export function inPageApplicationOpeners(snapshot, url = snapshot?.url) {
   const buttons = Array.isArray(snapshot?.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
-  const identityForms = new Set(fields
-    .filter((field) => !field?.disabled && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase())
-      && isApplicantIdentity(field))
-    .map(applicationFormKey).filter(Boolean));
+  const identityKindsByForm = new Map();
+  for (const field of fields) {
+    if (field?.disabled || ['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase())
+      || !isApplicantIdentity(field)) continue;
+    const form = applicationFormKey(field);
+    const kind = applicantIdentityKind(field);
+    if (!form || !kind) continue;
+    if (!identityKindsByForm.has(form)) identityKindsByForm.set(form, new Set());
+    identityKindsByForm.get(form).add(kind);
+  }
+  // A single e-mail field and an adjacent Submit/Weiter control are common
+  // newsletter/contact forms, not enough evidence to hide the posting CTA.
+  const identityForms = new Set([...identityKindsByForm]
+    .filter(([, kinds]) => kinds.size >= 2).map(([form]) => form));
   const qualifyingForms = new Set(buttons
     .filter((button) => !button?.chrome && !button?.disabled && !button?.href && !button?.leavesDocument
       && (NEXT_RE.test(String(button?.text || '')) || SUBMIT_RE.test(String(button?.text || ''))))

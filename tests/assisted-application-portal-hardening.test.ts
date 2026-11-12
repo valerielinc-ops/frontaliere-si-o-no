@@ -74,6 +74,20 @@ describe('in-page application opener classification', () => {
       .toMatchObject({ submit: null, next: { text: 'Weiter' }, stage: { kind: 'form' } });
   });
 
+  it('keeps an outside Apply action unknown beside an email-only contact form', () => {
+    for (const action of ['Submit', 'Weiter']) {
+      const snapshot = {
+        url,
+        fields: [{ id: 'contact-email', label: 'E-Mail', inputType: 'email', formId: 'contact-form' }],
+        buttons: [opener('open', { href: '#' }), { id: 'contact-action', text: action, formId: 'contact-form' }],
+      };
+      expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+      expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+      expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }))
+        .toMatchObject({ submit: null, next: null, stage: { kind: 'unknown_apply' } });
+    }
+  });
+
   it('keeps an outside link to another document as an unknown Apply action', () => {
     const snapshot = {
       url,
