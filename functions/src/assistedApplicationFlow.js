@@ -1356,7 +1356,9 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
         return {
           ...persisted,
           ...reported,
-          ...(persisted.source === 'portal' || reported.source === 'portal' ? { source: 'portal' } : {}),
+          source: persisted.source === 'portal' || reported.source === 'portal'
+            ? 'portal'
+            : reported.source || persisted.source,
         };
       };
       const reportedQuestionIds = [...new Set([...rawQuestions, ...rawDetails].map((question) => {

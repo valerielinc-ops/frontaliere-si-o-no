@@ -272,6 +272,23 @@ describe('matcher-only experience questions do not hold portal submission', () =
     expect(step.flow).toMatchObject({ state: 'submitting', heldBy: [] });
     expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'non_portal_match_question', attempts: 2 }]);
   });
+
+  it('keeps persisted matcher provenance when a reported descriptor omits source', () => {
+    const draft = {
+      ...cleanDraft,
+      questions: [{ id: 'big_four_history', source: 'match', question: 'Have you worked at a Big Four firm?', type: 'text', required: true }],
+    };
+    const step = transition(
+      { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+      {
+        type: 'submit_needs_candidate',
+        questions: [{ id: 'big_four_history', question: 'Have you worked at a Big Four firm?' }],
+      },
+      { draft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({ state: 'submitting', heldBy: [] });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'non_portal_match_question', attempts: 2 }]);
+  });
 });
 
 describe('approval flow', () => {
