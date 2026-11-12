@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1159,
-  "generatedAt": "2026-11-12T16:32:03.363Z",
+  "assetCount": 1160,
+  "generatedAt": "2026-11-12T21:47:34.562Z",
   "assets": [
     {
       "schema": 1,
@@ -49599,6 +49599,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic editorial illustration of a Swiss-Italian commuter train at a small Ticino regional station; no readable text, logos, identifiable people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-tasso-vacanza-2027-ginevra",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "f219f197e7bf104476567ed8c79728e12161cfbccfef31b5ce4906b72e9fbd7c",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b78b7caca1a505e3702901cd1df78cff20e9bd3ce4c37860d317b9b4b634b3e8",
+      "bytes": 193410,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-12T21:02:02.567Z",
+      "verifiedAt": "2026-11-12T21:02:13.404Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tasso-vacanza-2027-ginevra.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic residential architecture scene; no people, text, signage, logos, or identifiable event."
       }
     }
   ]
