@@ -215,6 +215,7 @@ describe('automatic recovery after a portal fix', () => {
     if (kind === 'hard_question') store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [{ id: 'salary', question: 'Desired salary?', required: true, type: 'text' }] });
     if (['sent', 'ambiguous', 'clicked'].includes(kind)) store.docs.set(`${base}/automation/submission`, { r1: {
       state: kind === 'sent' ? 'sent' : kind === 'ambiguous' ? 'sending' : 'failed', channel: 'portal', clickedAt: now, releasedAt: now,
+      ...(kind === 'clicked' ? { confirmedNotSent: false } : {}),
     } });
     expect(await reconcilePortalCode({ db: store.db, version, apply: true, nowMs: now, isEnabled: async () => kind !== 'disabled' })).toMatchObject({ eligible: 0, queued: 0 });
     expect(store.read(base).automationDueAt).toBeNull();
@@ -227,7 +228,7 @@ describe('automatic recovery after a portal fix', () => {
     expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 1 });
     const ambiguous = fixture();
     ambiguous.docs.set(`${base}/automation/flow`, { ...ambiguous.read(`${base}/automation/flow`), heldBy: [reason] });
-    ambiguous.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now } });
+    ambiguous.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now, confirmedNotSent: false } });
     expect(await reconcilePortalCode({ ...ctx, db: ambiguous.db })).toMatchObject({ queued: 0 });
   });
 
@@ -247,6 +248,7 @@ describe('automatic recovery after a portal fix', () => {
     if (kind === 'sent_attempt') store.docs.set(draftPath, { ...store.read(draftPath), sentAttempt: { at: now } });
     if (['sent', 'ambiguous', 'clicked'].includes(kind)) store.docs.set(submissionPath, { r1: {
       state: kind === 'sent' ? 'sent' : kind === 'ambiguous' ? 'sending' : 'failed', channel: 'portal', clickedAt: now, releasedAt: now,
+      ...(kind === 'clicked' ? { confirmedNotSent: false } : {}),
     } });
     if (kind === 'other_round_sent') store.docs.set(submissionPath, { ...store.read(submissionPath), r2: { state: 'sent', channel: 'portal' } });
     if (kind === 'hard_question') store.docs.set(draftPath, { ...store.read(draftPath), questions: [{ id: 'salary', question: 'Desired salary?', required: true, type: 'text' }] });
