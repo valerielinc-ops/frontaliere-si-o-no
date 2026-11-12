@@ -496,9 +496,13 @@ function AdSenseBannerInstance({
  // CLS-safe ad container:
  // - Loading/idle: reserve space with minHeight so the layout is stable
  // (maxHeight alone doesn't work when content is 0px tall — it's just a cap)
- // - Filled/Google-optimized: natural height, fully visible
+ // - Filled: natural height, fully visible
+ // - Google-optimized: visible inside the declared reservation. This is a
+ //   Google-owned no-fill suggestion, not a paid fill, so releasing the cap
+ //   would reintroduce the pre-response 1790px multiplex shift.
  // - Collapsed: zero space, reached only while outside the viewport
- const isVisible = state === 'filled' || state === 'optimized';
+ const isPaidFill = state === 'filled';
+ const isVisible = isPaidFill || state === 'optimized';
  const isCollapsed = state === 'collapsed';
 
  // The wrapper carries `state` as AD_BANNER_STATE_ATTR: the per-page ad
@@ -526,8 +530,9 @@ function AdSenseBannerInstance({
  // answering (1790px measured live on `/`, 2026-10-24) and an `unfilled`
  // answer may follow, so an uncapped box grew 400->1790px of invisible space
  // and pushed the page down for nothing. The <ins> keeps its own size (only
- // the wrapper clips it) and the cap lifts the moment the state is `filled`.
- maxHeight: isCollapsed ? 0 : (!isVisible && placeholderMinHeight ? placeholderMinHeight : undefined),
+ // the wrapper clips it). A paid fill is the only state allowed to release
+ // the cap because its creative is the content being paid for and measured.
+ maxHeight: isCollapsed ? 0 : (!isPaidFill && placeholderMinHeight ? placeholderMinHeight : undefined),
  opacity: isVisible ? 1 : 0,
  overflow: 'hidden',
  ...(isVisible ? {} : { pointerEvents: 'none' as const }),

@@ -1078,10 +1078,12 @@ function staticAdIsTarget(el){return staticAdManual(el)&&!el.closest('[data-ft-a
 function staticAdWatch(el){
  if(!staticAdIsTarget(el))return null;
  if(staticAdWatches.has(el))return staticAdWatches.get(el);
+ if(el.style.minHeight){el.style.maxHeight=el.style.minHeight;el.style.overflow='hidden';}
  var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||staticAdPlacements[JSON.stringify([el.getAttribute('data-ad-slot'),el.getAttribute('data-ad-format'),el.getAttribute('data-ad-layout')||''])]||el.getAttribute('data-ad-slot');
  var box=el.closest('.ft-infeed-ad')||el;
  var state=observeManualAd(el,box,${AD_FILL_TIMEOUT_MS},function(next,reason){
    el.setAttribute('data-ft-static-ad-state',next);
+   if(next==='filled'&&el.style.maxHeight===el.style.minHeight){el.style.removeProperty('max-height');el.style.removeProperty('overflow');}
    if(next==='collapsed')el.setAttribute('data-ft-static-ad-collapsed','');
    else if(next==='filled'||next==='loading')el.removeAttribute('data-ft-static-ad-collapsed');
  },function(event,metrics){
