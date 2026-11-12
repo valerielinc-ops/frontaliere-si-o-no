@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+  'whatsNew.v31013.title': 'Anforderungen klarer mit dem Profil vergleichen',
+  'whatsNew.v31013.job-affinity.title': 'Kompetenzen mit der Anzeige abgleichen',
+  'whatsNew.v31013.job-affinity.desc': 'Stellenanzeigen zeigen, welche deiner eingegebenen Kompetenzen auch in den Anforderungen stehen. Ohne ausreichende Angaben wird kein Prozentwert angezeigt. Abschlüsse und Berufsjahre werden nicht bewertet.',
   'whatsNew.v31012.title': 'Vollständigere Bewerbungsunterlagen',
   'whatsNew.v31012.assisted-application.title': 'Ihre E-Mail in Lebenslauf und Bewerbungsschreiben',
   'whatsNew.v31012.assisted-application.desc': 'Der angepasste Lebenslauf und das Bewerbungsschreiben enthalten jetzt die E-Mail-Adresse, die Sie für Ihre unterstützte Bewerbung angegeben haben.',

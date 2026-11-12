@@ -11624,27 +11624,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {companyFollowCta(selectedJob, 'company_follow_button')}
  </JobDetailHeaderCard>
 
- <div className="space-y-2">
-  <JobCvFitMatcher
-   jobTitle={selectedJobTitle}
-   requirements={Array.isArray(requirements) ? requirements : []}
-   onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
-  />
-  {!isCrawlerVisitor && bilingualCvStatus !== 'ready' && (
-   <p role="status" className="text-xs text-muted">
-    {bilingualCvStatus === 'signed_out'
-     ? t('jobBoard.cvDownload.signIn')
-     : bilingualCvStatus === 'checking'
-      ? t('jobBoard.cvDownload.checking')
-      : bilingualCvStatus === 'downloading'
-       ? t('jobBoard.cvDownload.downloading')
-       : bilingualCvStatus === 'failed'
-        ? t('jobBoard.cvDownload.failed')
-        : t('jobBoard.cvDownload.unavailable')}
-   </p>
-  )}
- </div>
-
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
  ) : <>
@@ -11748,6 +11727,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  </>}
+
+ {!isCrawlerVisitor && (
+  <div className="space-y-2">
+   <JobCvFitMatcher
+    key={authUser?.uid || 'anonymous'}
+    requirements={Array.isArray(requirements) ? requirements : []}
+    userId={authUser?.uid}
+    locale={locale}
+    onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
+   />
+   {bilingualCvStatus !== 'ready' && (
+    <p role="status" className="text-xs text-muted">
+     {bilingualCvStatus === 'signed_out'
+      ? t('jobBoard.cvDownload.signIn')
+      : bilingualCvStatus === 'checking'
+       ? t('jobBoard.cvDownload.checking')
+       : bilingualCvStatus === 'downloading'
+        ? t('jobBoard.cvDownload.downloading')
+        : bilingualCvStatus === 'failed'
+         ? t('jobBoard.cvDownload.failed')
+         : t('jobBoard.cvDownload.unavailable')}
+    </p>
+   )}
+  </div>
+ )}
 
  {/* S6 — Mobile-only action block below the description. CTA + money-signal
   *   after the prose so meaty job description leads above the fold per CLAUDE.md #15.
