@@ -1,15 +1,119 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  buildFastLaneExpectedPagePlan,
   buildFastLaneRequestHeaders,
   buildFastLaneHubVisibleJobIdsByLocale,
   extractFirstPartyAssetUrls,
   hasGoogleAnalyticsRuntime,
+  validateFullBuildActiveJobAlternates,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
 
 describe("jobs fast-publish HTML asset contract", () => {
+  it("matches the full build's all-or-nothing active hreflang contract", () => {
+    const partialPages = [
+      { locale: "it", path: "/it/jobs/partial-it/" },
+      { locale: "de", path: "/de/jobs/partial-de/" },
+      { locale: "fr", path: "/fr/jobs/partial-fr/" },
+    ];
+    expect(() =>
+      validateFullBuildActiveJobAlternates(new Map(), partialPages, "it"),
+    ).not.toThrow();
+    expect(() =>
+      validateFullBuildActiveJobAlternates(
+        new Map([["en", ["https://frontaliereticino.ch/en/jobs/partial-en/"]]]),
+        partialPages,
+        "it",
+      ),
+    ).toThrow(/partial locale ownership/);
+
+    const completePages = ["it", "en", "de", "fr"].map((locale) => ({
+      locale,
+      path: `/${locale}/jobs/full-${locale}/`,
+    }));
+    const completeAlternates = new Map(
+      completePages.map((page) => [
+        page.locale,
+        [`https://frontaliereticino.ch${page.path}`],
+      ]),
+    );
+    completeAlternates.set("x-default", [
+      "https://frontaliereticino.ch/it/jobs/full-it/",
+    ]);
+    expect(() =>
+      validateFullBuildActiveJobAlternates(
+        completeAlternates,
+        completePages,
+        "it",
+      ),
+    ).not.toThrow();
+  });
+
+  it("uses the full renderer's locale ownership for partially translated offers", () => {
+    const jobs = [
+      { id: "full-build-winner", slug: "shared-route", canton: "TI" },
+      {
+        id: "partial-translation",
+        slug: "partial-role",
+        slugByLocale: {
+          it: "partial-role-it",
+          de: "partial-role-de",
+          fr: "partial-role-fr",
+          en: "shared-route",
+        },
+        canton: "TI",
+        needsRetranslation: true,
+        sourceLang: "de",
+      },
+      {
+        id: "fully-shadowed",
+        slug: "shared-route",
+        slugByLocale: {
+          it: "shared-route",
+          en: "shared-route",
+          de: "shared-route",
+          fr: "shared-route",
+        },
+        canton: "TI",
+      },
+    ];
+    const helpers = {
+      buildCanonicalJobDetailPath,
+      resolveJobCanton: (job: { canton: string }) => job.canton,
+    };
+    const plan = buildFastLaneExpectedPagePlan(
+      jobs,
+      ["partial-translation", "fully-shadowed"],
+      helpers,
+    );
+
+    expect(
+      plan.pagesById
+        .get("partial-translation")
+        ?.map((page: { locale: string }) => page.locale),
+    ).toEqual(["it", "de", "fr"]);
+    expect(plan.suppressedById.get("partial-translation")).toEqual([
+      { locale: "en", ownerId: "full-build-winner" },
+    ]);
+    expect(plan.pagesById.get("fully-shadowed")).toEqual([]);
+    expect(plan.suppressedById.get("fully-shadowed")).toEqual([
+      { locale: "it", ownerId: "full-build-winner" },
+      { locale: "en", ownerId: "full-build-winner" },
+      { locale: "de", ownerId: "full-build-winner" },
+      { locale: "fr", ownerId: "full-build-winner" },
+    ]);
+
+    const renderer = readFileSync(
+      new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),
+      "utf8",
+    );
+    expect(renderer).toContain("buildActiveJobPathOwners(");
+    expect(renderer).toContain("activeJobPathOwnerKey(");
+    expect(renderer).toContain("localizedActiveJobSlug");
+  });
+
   it("identifies public requests so Cloudflare accepts the Node publisher", () => {
     expect(buildFastLaneRequestHeaders("text/plain")).toEqual({
       accept: "text/plain",

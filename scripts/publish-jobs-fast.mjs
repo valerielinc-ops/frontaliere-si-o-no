@@ -25,6 +25,12 @@ import {
 } from "./lib/shard-writer-lease.mjs";
 import { stableJobId } from "../build-plugins/shared/stableJobId.mjs";
 import {
+  ACTIVE_JOB_PAGE_LOCALES,
+  activeJobPathOwnerKey,
+  buildActiveJobPathOwners,
+  localizedActiveJobSlug,
+} from "../build-plugins/shared/activeJobPageSelection.ts";
+import {
   isListingInventoryJob,
   normalizeListingIdentity,
 } from "../services/jobBoardInventory.ts";
@@ -35,7 +41,7 @@ import { MAX_TARGETED_FILES } from "./lib/cf-purge-limits.mjs";
 import { SECTION_ORIGIN } from "../infra/cloudflare-worker/locale-router.js";
 
 const BASE_URL = "https://frontaliereticino.ch";
-const LOCALES = ["it", "en", "de", "fr"];
+const LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 const MAX_PAGES_PER_RUN = 200;
 const MAX_OFFERS_PER_RUN = 50;
 const REQUEST_TIMEOUT_MS = 15_000;
@@ -62,10 +68,6 @@ function rootFromEnv() {
   return path.resolve(process.env.GITHUB_WORKSPACE || process.cwd());
 }
 
-function fastLaneLocalizedSlug(job, locale) {
-  return String(job?.slugByLocale?.[locale] || job?.slug || "").trim();
-}
-
 function canonicalPathsForFastLaneJob(
   job,
   { buildCanonicalJobDetailPath, resolveJobCanton },
@@ -75,10 +77,57 @@ function canonicalPathsForFastLaneJob(
     buildCanonicalJobDetailPath(
       locale,
       job,
-      fastLaneLocalizedSlug(job, locale),
+      localizedActiveJobSlug(job, locale),
       canton,
     ),
   );
+}
+
+export function buildFastLaneExpectedPagePlan(
+  jobs,
+  selectedIds,
+  { buildCanonicalJobDetailPath, resolveJobCanton },
+  pathOwners = buildActiveJobPathOwners(
+    jobs,
+    LOCALES,
+    resolveJobCanton,
+    localizedActiveJobSlug,
+  ),
+) {
+  const requestedIds = [...selectedIds].map((id) => String(id).trim());
+  const selected = new Set(requestedIds);
+  if (selected.size !== requestedIds.length || requestedIds.some((id) => !id)) {
+    throw new Error("[jobs-fast] active page plan requires unique stable IDs");
+  }
+
+  const pagesById = new Map(
+    requestedIds.map((id) => [id, []]),
+  );
+  const suppressedById = new Map(
+    requestedIds.map((id) => [id, []]),
+  );
+  for (const job of jobs) {
+    const id = stableJobId(job);
+    if (!selected.has(id)) continue;
+    const canton = resolveJobCanton(job);
+    for (const locale of LOCALES) {
+      const slug = localizedActiveJobSlug(job, locale);
+      const owner = pathOwners.get(activeJobPathOwnerKey(canton, locale, slug));
+      if (owner === job) {
+        pagesById.get(id).push({
+          id,
+          locale,
+          path: buildCanonicalJobDetailPath(locale, job, slug, canton),
+        });
+      } else {
+        suppressedById.get(id).push({
+          locale,
+          ownerId: owner ? stableJobId(owner) : null,
+        });
+      }
+    }
+  }
+  return { pagesById, suppressedById };
 }
 
 async function getLiveBuildId() {
@@ -295,43 +344,114 @@ export function extractFirstPartyAssetUrls(html) {
     .sort();
 }
 
-function checkJobPageContracts(receipt, batchIds) {
+export function validateFullBuildActiveJobAlternates(
+  alternates,
+  expectedPages,
+  locale,
+) {
+  const expectedByLocale = new Map(
+    expectedPages.map((page) => [page.locale, `${BASE_URL}${page.path}`]),
+  );
+  const completeCluster = LOCALES.every((candidateLocale) =>
+    expectedByLocale.has(candidateLocale),
+  );
+
+  if (completeCluster) {
+    for (const candidateLocale of LOCALES) {
+      const hrefs = alternates.get(candidateLocale) || [];
+      if (
+        hrefs.length !== 1 ||
+        hrefs[0] !== expectedByLocale.get(candidateLocale)
+      ) {
+        throw new Error(
+          `[jobs-fast] incomplete or duplicate hreflang set for ${locale} offer page`,
+        );
+      }
+    }
+    const xDefaults = alternates.get("x-default") || [];
+    if (
+      xDefaults.length !== 1 ||
+      xDefaults[0] !== expectedByLocale.get("it")
+    ) {
+      throw new Error(
+        `[jobs-fast] x-default is missing, duplicated, or does not point to the Italian page for ${locale} offer page`,
+      );
+    }
+  } else if ([...alternates.values()].some((hrefs) => hrefs.length > 0)) {
+    throw new Error(
+      `[jobs-fast] full build suppresses hreflang for partial locale ownership, but ${locale} page advertises alternates`,
+    );
+  }
+}
+
+function checkJobPageContracts(receipt, expectedPagePlan) {
   if (
     receipt?.schema !== RENDER_RECEIPT_SCHEMA ||
-    !Array.isArray(receipt.pages)
+    !Array.isArray(receipt.pages) ||
+    !Array.isArray(receipt.requestedIds)
   ) {
     throw new Error(
       "[jobs-fast] renderer receipt is missing or has an unknown schema",
     );
   }
-  const expected = new Set(batchIds);
+  const expectedIds = [...expectedPagePlan.pagesById.keys()].sort();
+  const requestedIds = receipt.requestedIds.map((id) => String(id)).sort();
+  if (JSON.stringify(requestedIds) !== JSON.stringify(expectedIds)) {
+    throw new Error(
+      "[jobs-fast] renderer request differs from the selected full-build page plan",
+    );
+  }
+  const expected = new Map();
+  for (const [id, pages] of expectedPagePlan.pagesById) {
+    const locales = new Set();
+    for (const page of pages) {
+      if (locales.has(page.locale)) {
+        throw new Error(
+          `[jobs-fast] full-build page plan contains duplicate locale ownership for ${id}:${page.locale}`,
+        );
+      }
+      locales.add(page.locale);
+      expected.set(`${id}:${page.locale}`, page.path);
+    }
+  }
   const pagesById = new Map();
-  const urlOwner = new Map();
+  const actualPageKeys = new Set();
+  const pathOwners = new Map();
   for (const page of receipt.pages) {
+    const id = String(page?.id || "").trim();
+    const locale = String(page?.locale || "");
+    const route = String(page?.path || "");
+    const key = `${id}:${locale}`;
     if (
-      !expected.has(page.id) ||
-      !LOCALES.includes(page.locale) ||
-      !String(page.path).endsWith("/")
+      !expected.has(key) ||
+      expected.get(key) !== route ||
+      !LOCALES.includes(locale) ||
+      !route.endsWith("/")
     ) {
       throw new Error(
-        "[jobs-fast] renderer returned an unexpected or non-canonical offer path",
+        `[jobs-fast] renderer returned a page outside the full-build active page plan (${id}:${locale})`,
       );
     }
-    const key = `${page.id}:${page.locale}`;
-    if (urlOwner.has(key))
-      throw new Error("[jobs-fast] renderer returned duplicate locale pages");
-    urlOwner.set(key, page.path);
-    if (!pagesById.has(page.id)) pagesById.set(page.id, []);
-    pagesById.get(page.id).push(page);
-  }
-  for (const id of expected) {
-    const pages = pagesById.get(id) || [];
-    if (
-      pages.length !== LOCALES.length ||
-      new Set(pages.map((page) => page.locale)).size !== LOCALES.length
-    ) {
+    if (actualPageKeys.has(key)) {
       throw new Error(
-        "[jobs-fast] each active offer must render exactly four locale pages",
+        `[jobs-fast] renderer returned duplicate locale page ${id}:${locale}`,
+      );
+    }
+    actualPageKeys.add(key);
+    const pathOwner = pathOwners.get(route);
+    if (pathOwner && pathOwner !== id) {
+      throw new Error(
+        `[jobs-fast] renderer assigned one active path to multiple offers (${route})`,
+      );
+    }
+    pathOwners.set(route, id);
+    if (!pagesById.has(id)) pagesById.set(id, []);
+    pagesById.get(id).push(page);
+  }
+  for (const [key, route] of expected) {
+    if (!actualPageKeys.has(key)) {
+      throw new Error(
+        `[jobs-fast] renderer omitted full-build-owned active page ${key} (${route})`,
       );
     }
   }
@@ -396,29 +516,14 @@ function checkJobPageContracts(receipt, batchIds) {
       ...(entry.variants || []).map((variant) => variant.loc),
     ]),
   );
-  for (const pages of pagesById.values()) {
-    const expectedAlternates = new Set(
-      pages.map((page) => `${BASE_URL}${page.path}`),
-    );
+  for (const [id, pages] of pagesById) {
+    const expectedPages = expectedPagePlan.pagesById.get(id) || [];
     for (const page of pages) {
-      const alternates = page._alternates;
-      for (const locale of LOCALES) {
-        const hrefs = alternates.get(locale) || [];
-        if (hrefs.length !== 1 || !expectedAlternates.has(hrefs[0]))
-          throw new Error(
-            `[jobs-fast] incomplete or duplicate hreflang set for ${page.locale} offer page`,
-          );
-      }
-      const xDefaults = alternates.get("x-default") || [];
-      if (
-        xDefaults.length !== 1 ||
-        xDefaults[0] !==
-          `${BASE_URL}${pages.find((candidate) => candidate.locale === "it")?.path}`
-      ) {
-        throw new Error(
-          `[jobs-fast] x-default is missing, duplicated, or does not point to the Italian page for ${page.locale} offer page`,
-        );
-      }
+      validateFullBuildActiveJobAlternates(
+        page._alternates,
+        expectedPages,
+        page.locale,
+      );
       const pageUrl = `${BASE_URL}${page.path}`;
       if (!page._noindex && !sitemapLocs.has(pageUrl)) {
         throw new Error(
@@ -887,7 +992,7 @@ export function buildFastLaneHubVisibleJobIdsByLocale(
     for (const job of jobs) {
       const id = stableJobId(job);
       if (!id || visible.has(id)) continue;
-      const slug = fastLaneLocalizedSlug(job, locale);
+      const slug = localizedActiveJobSlug(job, locale);
       if (!slug) continue;
       const path = buildCanonicalJobDetailPath(
         locale,
@@ -959,24 +1064,11 @@ async function verifyPublishedPagesAndSitemaps(
     }
     const alternates = extractAlternates(html);
     const expectedPages = pagesById.get(page.id) || [];
-    const expectedByLocale = new Map(
-      expectedPages.map((candidate) => [
-        candidate.locale,
-        `${BASE_URL}${candidate.path}`,
-      ]),
+    validateFullBuildActiveJobAlternates(
+      alternates,
+      expectedPages,
+      `live ${page.path}`,
     );
-    for (const locale of LOCALES) {
-      const hrefs = alternates.get(locale) || [];
-      if (hrefs.length !== 1 || hrefs[0] !== expectedByLocale.get(locale)) {
-        throw new Error(
-          `[jobs-fast] live hreflang ${locale} is missing, duplicated, or mismatched for ${page.path}`,
-        );
-      }
-    }
-    const xDefaults = alternates.get("x-default") || [];
-    if (xDefaults.length !== 1 || xDefaults[0] !== expectedByLocale.get("it")) {
-      throw new Error(`[jobs-fast] live x-default mismatch for ${page.path}`);
-    }
   }
 
   for (const update of receipt.hubUpdates || []) {
@@ -1016,22 +1108,44 @@ async function verifyPublishedPagesAndSitemaps(
   );
 }
 
-async function selectLiveParitySample(validJobs, pendingIds, helpers) {
+async function selectLiveParitySample(
+  validJobs,
+  pendingIds,
+  helpers,
+  pathOwners,
+) {
   const { buildCanonicalJobDetailPath, resolveJobCanton } = helpers;
   let tried = 0;
   for (const job of validJobs) {
     const id = stableJobId(job);
     if (!id || pendingIds.has(id)) continue;
     const canton = resolveJobCanton(job);
-    const pathIt = buildCanonicalJobDetailPath(
-      "it",
-      job,
-      job.slugByLocale?.it || job.slug,
-      canton,
+    const ownedLocales = LOCALES.filter(
+      (locale) =>
+        pathOwners.get(
+          activeJobPathOwnerKey(
+            canton,
+            locale,
+            localizedActiveJobSlug(job, locale),
+          ),
+        ) === job,
     );
+    if (ownedLocales.length !== LOCALES.length) continue;
     try {
-      const status = await fetchLiveStatus(`${BASE_URL}${pathIt}`);
-      if (status === 200) return { id };
+      let allLive = true;
+      for (const locale of LOCALES) {
+        const route = buildCanonicalJobDetailPath(
+          locale,
+          job,
+          localizedActiveJobSlug(job, locale),
+          canton,
+        );
+        if ((await fetchLiveStatus(BASE_URL + route)) !== 200) {
+          allLive = false;
+          break;
+        }
+      }
+      if (allLive) return { id };
     } catch {
       // The bounded scan moves to the next candidate; no partial publish follows a failed parity check.
     }
@@ -1043,22 +1157,55 @@ async function selectLiveParitySample(validJobs, pendingIds, helpers) {
   );
 }
 
-function selectBatch(candidates, resolveJobCanton) {
+function selectBatch(candidates, resolveJobCanton, pageCountForId) {
   const selected = [];
   const cantons = new Set();
+  let detailPageCount = 0;
   for (const candidate of candidates) {
     if (selected.length >= MAX_OFFERS_PER_RUN) break;
+    const candidatePageCount = pageCountForId(candidate.id);
+    if (candidatePageCount < 1) continue;
     const canton = resolveJobCanton(candidate.job);
     const nextCantons = new Set(cantons);
     nextCantons.add(canton);
     const expectedPageCount =
-      (selected.length + 1) * LOCALES.length +
+      detailPageCount +
+      candidatePageCount +
       (nextCantons.size + 1) * LOCALES.length;
     if (expectedPageCount > MAX_PAGES_PER_RUN) break;
     selected.push(candidate);
     cantons.add(canton);
+    detailPageCount += candidatePageCount;
   }
   return selected;
+}
+
+function logFullBuildPageSelection(pagePlan) {
+  const partial = [];
+  for (const [id, pages] of pagePlan.pagesById) {
+    if (pages.length === 0 || pages.length === LOCALES.length) continue;
+    const owned = new Set(pages.map((page) => page.locale));
+    const suppressed = (pagePlan.suppressedById.get(id) || [])
+      .map(({ locale, ownerId }) => locale + "->" + (ownerId || "unknown"))
+      .join(",");
+    partial.push(
+      id +
+        "[missing=" +
+        LOCALES.filter((locale) => !owned.has(locale)).join(",") +
+        ";owner=" +
+        suppressed +
+        "]",
+    );
+  }
+  if (partial.length > 0) {
+    console.log(
+      "[jobs-fast] full-build locale ownership partial offers=" +
+        partial.length +
+        ": " +
+        partial.slice(0, 20).join(" ") +
+        (partial.length > 20 ? " (+" + (partial.length - 20) + " more)" : ""),
+    );
+  }
 }
 
 async function acquireFastLaneLeases(scopes) {
@@ -1258,6 +1405,16 @@ export async function runJobsFastPublish({
     .sort(compareActiveJobsByStableOrder);
   rawJobs.length = 0;
 
+  const pagePlanHelpers = {
+    buildCanonicalJobDetailPath: jobDetailPath.buildCanonicalJobDetailPath,
+    resolveJobCanton: canton.resolveJobCanton,
+  };
+  const fullBuildPathOwners = buildActiveJobPathOwners(
+    validJobs,
+    LOCALES,
+    canton.resolveJobCanton,
+    localizedActiveJobSlug,
+  );
   const pathsForJob = (job) =>
     canonicalPathsForFastLaneJob(job, {
       buildCanonicalJobDetailPath: jobDetailPath.buildCanonicalJobDetailPath,
@@ -1270,14 +1427,57 @@ export async function runJobsFastPublish({
   const discoveredCount = discovered.length;
   const discoveredIds = new Set(discovered.map((record) => record.id));
   const pendingIds = new Set(discoveredIds);
-  let candidates = selectBatch(discovered, canton.resolveJobCanton);
+  const discoveredPagePlan = buildFastLaneExpectedPagePlan(
+    validJobs,
+    discoveredIds,
+    pagePlanHelpers,
+    fullBuildPathOwners,
+  );
+  const noPageCandidates = discovered.filter(
+    (candidate) =>
+      (discoveredPagePlan.pagesById.get(candidate.id) || []).length === 0,
+  );
+  if (noPageCandidates.length > 0) {
+    const examples = noPageCandidates.slice(0, 20).map((candidate) => {
+      const conflicts =
+        discoveredPagePlan.suppressedById.get(candidate.id) || [];
+      return (
+        candidate.id +
+        "[all locales owned by " +
+        conflicts
+          .map(({ locale, ownerId }) => locale + "->" + (ownerId || "unknown"))
+          .join(",") +
+        "]"
+      );
+    });
+    console.log(
+      "[jobs-fast] skipped delta offers with no full-build-owned pages=" +
+        noPageCandidates.length +
+        ": " +
+        examples.join(" ") +
+        (noPageCandidates.length > examples.length
+          ? " (+" + (noPageCandidates.length - examples.length) + " more)"
+          : ""),
+    );
+  }
+  const renderableDiscovered = discovered.filter(
+    (candidate) =>
+      (discoveredPagePlan.pagesById.get(candidate.id) || []).length > 0,
+  );
+  let candidates = selectBatch(
+    renderableDiscovered,
+    canton.resolveJobCanton,
+    (id) => (discoveredPagePlan.pagesById.get(id) || []).length,
+  );
   discovered.length = 0;
   let paritySample = null;
   if (dryRun) {
-    paritySample = await selectLiveParitySample(validJobs, pendingIds, {
-      buildCanonicalJobDetailPath: jobDetailPath.buildCanonicalJobDetailPath,
-      resolveJobCanton: canton.resolveJobCanton,
-    });
+    paritySample = await selectLiveParitySample(
+      validJobs,
+      pendingIds,
+      pagePlanHelpers,
+      fullBuildPathOwners,
+    );
     if (!candidates.some((candidate) => candidate.id === paritySample.id)) {
       const sampleCandidate = validJobs.find(
         (job) => stableJobId(job) === paritySample.id,
@@ -1287,13 +1487,28 @@ export async function runJobsFastPublish({
           "[jobs-fast] parity sample disappeared from the active corpus",
         );
       const sampleCanton = canton.resolveJobCanton(sampleCandidate);
+      const samplePagePlan = buildFastLaneExpectedPagePlan(
+        validJobs,
+        [paritySample.id],
+        pagePlanHelpers,
+        fullBuildPathOwners,
+      );
+      const samplePageCount =
+        samplePagePlan.pagesById.get(paritySample.id)?.length || 0;
       while (candidates.length > 0) {
         const affected = new Set(
           candidates.map((candidate) => canton.resolveJobCanton(candidate.job)),
         );
         affected.add(sampleCanton);
+        const detailPageCount = candidates.reduce(
+          (count, candidate) =>
+            count +
+            (discoveredPagePlan.pagesById.get(candidate.id) || []).length,
+          0,
+        );
         if (
-          (candidates.length + 1) * LOCALES.length +
+          detailPageCount +
+            samplePageCount +
             (affected.size + 1) * LOCALES.length <=
           MAX_PAGES_PER_RUN
         )
@@ -1318,6 +1533,22 @@ export async function runJobsFastPublish({
   }
 
   const batchIds = candidates.map((candidate) => candidate.id);
+  const expectedPagePlan = buildFastLaneExpectedPagePlan(
+    validJobs,
+    batchIds,
+    pagePlanHelpers,
+    fullBuildPathOwners,
+  );
+  logFullBuildPageSelection(expectedPagePlan);
+  const actualBatchIds = candidates
+    .filter(
+      (candidate) =>
+        !paritySample ||
+        candidate.id !== paritySample.id ||
+        discoveredIds.has(candidate.id),
+    )
+    .map((candidate) => candidate.id);
+  fullBuildPathOwners.clear();
   const liveJobsSitemapBeforeRender = await fetchLiveText(
     `${BASE_URL}/sitemap-jobs.xml`,
   );
@@ -1373,15 +1604,7 @@ export async function runJobsFastPublish({
     }).closeBundle();
 
     const receipt = JSON.parse(fs.readFileSync(receiptFile, "utf8"));
-    const actualBatchIds = candidates
-      .filter(
-        (candidate) =>
-          !paritySample ||
-          candidate.id !== paritySample.id ||
-          discoveredIds.has(candidate.id),
-      )
-      .map((candidate) => candidate.id);
-    checkJobPageContracts(receipt, batchIds);
+    checkJobPageContracts(receipt, expectedPagePlan);
     const outputPageCount =
       receipt.pages.length + (receipt.hubUpdates || []).length;
     if (outputPageCount > MAX_PAGES_PER_RUN)
@@ -1448,7 +1671,7 @@ export async function runJobsFastPublish({
         tempDir,
       );
       console.log(
-        `[jobs-fast] dry_run=true delta_candidates=${discoveredCount} selected_offers=${new Set(batchIds).size} pages=${outputPageCount} published=0 state_written=0 flag=${flagEnabled ? "on" : "off"}`,
+        `[jobs-fast] dry_run=true delta_candidates=${discoveredCount} selected_offers=${actualBatchIds.length} parity_sample=${paritySample ? 1 : 0} pages=${outputPageCount} published=0 state_written=0 flag=${flagEnabled ? "on" : "off"}`,
       );
       return {
         outcome: "dry-run-clean",
@@ -1603,7 +1826,7 @@ export async function runJobsFastPublish({
         ? Math.max(...crawlToLiveSamples)
         : "unknown";
       console.log(
-        `[jobs-fast] published offers=${stateRecords.length} detail_pages=${stateRecords.length * LOCALES.length} updated_hubs=${(receipt.hubUpdates || []).length} sitemap_files=${sitemapPayload.updates.size} total_pages=${outputPageCount} crawl_to_live_avg_ms=${averageCrawlToLiveMs} crawl_to_live_max_ms=${maxCrawlToLiveMs} crawl_timestamps=${crawlToLiveSamples.length}/${stateRecords.length} latency_ms=${Date.now() - startedAt}`,
+        `[jobs-fast] published offers=${stateRecords.length} detail_pages=${receipt.pages.length} updated_hubs=${(receipt.hubUpdates || []).length} sitemap_files=${sitemapPayload.updates.size} total_pages=${outputPageCount} crawl_to_live_avg_ms=${averageCrawlToLiveMs} crawl_to_live_max_ms=${maxCrawlToLiveMs} crawl_timestamps=${crawlToLiveSamples.length}/${stateRecords.length} latency_ms=${Date.now() - startedAt}`,
       );
       return {
         outcome: "published",
