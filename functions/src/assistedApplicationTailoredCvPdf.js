@@ -17,6 +17,7 @@
  */
 
 import { randomUUID } from 'node:crypto';
+import { candidateDocumentIdentity } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
@@ -121,9 +122,12 @@ export function tailoredCvDocumentFor({ order, draft, flow = {}, cv }) {
   const tailored = draft?.tailoredCv;
   const source = cv || tailored?.cv;
   if (tailored?.status !== 'ready' || !source) return null;
-  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  const { identity: candidate, profile } = candidateWithEdits({ order, draft, flow });
   // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
-  return tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
+  return tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), {
+    identity: candidateDocumentIdentity(candidate, order),
+    profile,
+  });
 }
 
 /**
