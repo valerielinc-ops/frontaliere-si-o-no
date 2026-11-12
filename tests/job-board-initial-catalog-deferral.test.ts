@@ -6,7 +6,7 @@ const ROOT = path.resolve(__dirname, '..');
 const JOB_BOARD_SOURCE = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf8');
 
 describe('job-board catalog loading after the first listing paint', () => {
-  it('waits for board interaction after the slim first page before fetching the canton shard', () => {
+  it('waits for board interaction below the desktop breakpoint before fetching the canton shard', () => {
     const runStart = JOB_BOARD_SOURCE.indexOf('const run = async (): Promise<void> => {');
     const runEnd = JOB_BOARD_SOURCE.indexOf('// On a seeded detail page', runStart);
     const run = JOB_BOARD_SOURCE.slice(runStart, runEnd);
@@ -21,6 +21,8 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(run).not.toContain('waitForInitialPaintOpportunity');
     expect(interactionWait).toBeGreaterThan(firstPagePaint);
     expect(cantonFetch).toBeGreaterThan(interactionWait);
+    expect(JOB_BOARD_SOURCE).toContain('deferJobBoardCatalogUntilInteraction = typeof window === \'undefined\'');
+    expect(run).toContain('if (!cancelled && deferJobBoardCatalogUntilInteraction) await waitForCatalogInteraction();');
     expect(JOB_BOARD_SOURCE).toContain('jobBoardInteractionSeenRef.current = true');
     expect(JOB_BOARD_SOURCE).toContain('if (!event.isTrusted) return;');
     expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
@@ -60,8 +62,8 @@ describe('job-board catalog loading after the first listing paint', () => {
     const readiness = JOB_BOARD_SOURCE.slice(readinessStart, readinessEnd);
 
     expect(JOB_BOARD_SOURCE).toContain('onInitialContentReady?: () => void');
-    expect(readiness).toContain('!jobBoardInteractionObserved || jobsLoading || fullLoadPending || jobs.length === 0 || resultsResolving');
-    expect(readiness).toContain('[fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
+    expect(readiness).toContain('(deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)');
+    expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
     expect(readiness).toContain('onInitialContentReady?.()');
   });
   it('releases the catalog when a filter is already active, without any board interaction', () => {
