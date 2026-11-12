@@ -120,7 +120,7 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(inputStart, reuseStart)).toContain('title: pageTitleRaw,');
   });
 
-  it('ignores changed non-rendered job metadata but keeps rendered fields covered', () => {
+  it('invalidates active-job digests for fields rendered in the seed and related projections', () => {
     const baseJob = {
       id: 'metadata-job-1',
       slug: 'metadata-role',
@@ -129,18 +129,18 @@ describe('incremental manifest input contract', () => {
     };
     const baseDigest = buildMinimalJobInput(baseJob, 'it', baseJob.slug).jobRecordDigest;
     for (const [field, value] of [
-      ['retranslationAttempts', 2],
+      ['needsRetranslation', true],
+      ['qualityScore', 91],
     ] as const) {
       const changedJob = { ...baseJob, [field]: value };
-      expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).toBe(baseDigest);
+      expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).not.toBe(baseDigest);
     }
 
-    for (const renderedChange of [
-      { ...baseJob, needsRetranslation: true },
-      { ...baseJob, qualityScore: 91 },
-    ]) {
-      expect(buildMinimalJobInput(renderedChange, 'it', renderedChange.slug).jobRecordDigest).not.toBe(baseDigest);
-    }
+    expect(buildMinimalJobInput(
+      { ...baseJob, retranslationAttempts: 2 },
+      'it',
+      baseJob.slug,
+    ).jobRecordDigest).toBe(baseDigest);
 
     for (const renderedChange of [
       { ...baseJob, salaryMin: 95_000 },
@@ -187,12 +187,8 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(previousStart, previousEnd)).toContain('sourceInputHash: canonicalReuseHash');
     expect(source).toContain('sourceInputHash: activeJobReuseHash');
     expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(');
-    // The stable hash locates the raw canonical source for fragment refresh;
-    // the bridge reuse input itself keeps the publish hash that includes
-    // crawledAt and is still independent of the alias journal.
-    expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(');
     expect(source.slice(crossInputStart, crossEnd)).toContain('sourceInputHash: baseInputHash');
-    expect(source.slice(crossInputStart, crossEnd)).not.toContain('getReuseHash(');
+    expect(source.slice(crossHashStart, crossInputStart)).not.toContain('getReuseHash(');
     expect(source).toContain('rewriteActiveBridgeHtml(bridgeHtml, cachedHtml)');
   });
 

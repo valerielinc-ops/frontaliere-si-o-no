@@ -8,6 +8,7 @@ import {
   pendingArticleSlug,
   isStaticArticleReadyForTakeover,
   removeOwnedStaticSnapshot,
+  scheduleOwnedStaticSnapshotRemoval,
   shouldKeepStaticFallbackOutsideRoot,
   shouldAdoptStaticFallbackIntoRoot,
   staticArticleFallbackRouteKey,
@@ -280,6 +281,56 @@ describe('a static article that is on the page, and one that is only stashed', (
     removeOwnedStaticSnapshot(document.querySelector('main.seo-static-content')!);
     expect(document.querySelector('main.seo-static-content')).toBeNull();
     expect(document.getElementById('root')).not.toBeNull();
+  });
+
+  it('keeps a job-board rail footprint for two frames before removing the duplicate', () => {
+    document.body.innerHTML = `
+      <div id="root"></div>
+      <div class="ft-rail-grid">
+        <main class="seo-static-content job-board-static-content"><h1>Offerte</h1></main>
+      </div>`;
+    const snapshot = document.querySelector<HTMLElement>('main.job-board-static-content')!;
+    const frames: Array<() => void> = [];
+    const cancel = scheduleOwnedStaticSnapshotRemoval(snapshot, {
+      requestFrame: (callback) => {
+        frames.push(callback);
+        return frames.length;
+      },
+      cancelFrame: () => {},
+    });
+    const rail = document.querySelector<HTMLElement>('.ft-rail-grid')!;
+
+    expect(rail.style.visibility).toBe('hidden');
+    expect(frames).toHaveLength(1);
+    frames.shift()!();
+    expect(document.querySelector('.ft-rail-grid')).toBe(rail);
+    expect(frames).toHaveLength(1);
+    frames.shift()!();
+    expect(document.querySelector('.ft-rail-grid')).toBeNull();
+
+    cancel();
+  });
+
+  it('restores the rail visibility when a pending release is cancelled', () => {
+    document.body.innerHTML = `
+      <div class="ft-rail-grid">
+        <main class="seo-static-content job-board-static-content"></main>
+      </div>`;
+    const snapshot = document.querySelector<HTMLElement>('main.job-board-static-content')!;
+    const frames: Array<() => void> = [];
+    const cancel = scheduleOwnedStaticSnapshotRemoval(snapshot, {
+      requestFrame: (callback) => {
+        frames.push(callback);
+        return frames.length;
+      },
+      cancelFrame: () => {},
+    });
+    const rail = document.querySelector<HTMLElement>('.ft-rail-grid')!;
+
+    cancel();
+    expect(rail.style.visibility).toBe('');
+    frames.shift()?.();
+    expect(document.querySelector('.ft-rail-grid')).toBe(rail);
   });
 });
 

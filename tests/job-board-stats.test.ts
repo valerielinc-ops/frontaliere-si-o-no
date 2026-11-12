@@ -324,6 +324,17 @@ describe('job-board-stats', () => {
       avgMid: 0,
       medianMid: 0,
     });
+    expect(summary.salary.reportedSalaryData).toMatchObject({
+      salaryRangeCount: 0,
+      exactSalaryCount: 0,
+      medianRangeMin: null,
+      medianRangeMax: null,
+      p10: null,
+      p25: null,
+      median: null,
+      p75: null,
+      p90: null,
+    });
   });
 
   it('does not double count the same job key twice in the same day', () => {
@@ -520,6 +531,69 @@ describe('job-board-stats', () => {
       name: 'Payroll Specialist',
       count: 2,
       avgMid: 110000,
+    });
+  });
+
+  it('calcola i percentili solo su range annuali CHF dichiarati per il Ticino', () => {
+    const currentJobs = [
+      ...[50000, 90000, 130000].map((salary, index) => job({
+        id: `reported-${index}`,
+        salaryMin: salary,
+        salaryMax: salary,
+        currency: 'CHF',
+        salarySource: 'reported',
+      })),
+      job({ id: 'estimated', salaryMin: 200000, salaryMax: 220000, currency: 'CHF', salarySource: 'estimated' }),
+      job({ id: 'unknown-source', salaryMin: 190000, salaryMax: 210000, currency: 'CHF' }),
+      job({ id: 'eur', salaryMin: 150000, salaryMax: 160000, currency: 'EUR', salarySource: 'reported' }),
+      job({ id: 'other-canton', canton: 'ZH', salaryMin: 80000, salaryMax: 100000, currency: 'CHF', salarySource: 'reported' }),
+      job({ id: 'reported-range', salaryMin: 80000, salaryMax: 100000, currency: 'CHF', salarySource: 'reported' }),
+    ];
+
+    const { summary } = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs,
+      existingHistory: { version: 1, generatedAt: '2026-03-08T18:00:00.000Z', entries: [] },
+      now: '2026-03-09T10:15:00.000+01:00',
+    });
+
+    expect(summary.salary.reportedSalaryData).toMatchObject({
+      salaryRangeCount: 4,
+      exactSalaryCount: 3,
+      medianRangeMin: 85000,
+      medianRangeMax: 95000,
+      p10: 58000,
+      p25: 70000,
+      median: 90000,
+      p75: 110000,
+      p90: 122000,
+    });
+  });
+
+  it('keeps percentiles unknown when reported ads provide ranges only', () => {
+    const { summary } = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [job({
+        id: 'reported-range-only',
+        salaryMin: 80000,
+        salaryMax: 100000,
+        currency: 'CHF',
+        salarySource: 'reported',
+      })],
+      existingHistory: { version: 1, generatedAt: '2026-03-08T18:00:00.000Z', entries: [] },
+      now: '2026-03-09T10:15:00.000+01:00',
+    });
+
+    expect(summary.salary.reportedSalaryData).toMatchObject({
+      salaryRangeCount: 1,
+      exactSalaryCount: 0,
+      medianRangeMin: 80000,
+      medianRangeMax: 100000,
+      p10: null,
+      p25: null,
+      median: null,
+      p75: null,
+      p90: null,
     });
   });
 

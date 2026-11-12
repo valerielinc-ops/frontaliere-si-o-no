@@ -44,7 +44,7 @@ import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandButton, brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { buildOrderPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
-import { addressOf, parseHeaders, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
+import { addressOf, decodeHtmlEntities, parseHeaders, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
 
 export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
@@ -278,6 +278,9 @@ const VERIFICATION_CODE_RE = /(?:\b(?:code|codice)\s+(?:confidentiel|de vérific
 // runner creates the account, before any application): never a receipt, which
 // would confirm a held submission and tell the candidate the employer has it.
 const ACCOUNT_NOTICE_RE = /(registrierungsbest[aä]tigung|registrierung (erfolgreich|best[aä]tigt|abgeschlossen)|(ihr|dein) (benutzer|bewerbungs)?(konto|profil) (wurde|ist) (erfolgreich )?(erstellt|angelegt|eingerichtet|er[öo]ffnet)|registration (confirmation|successful|complete)|(your )?(account|profile) (has been |was )?(successfully )?created|welcome to (the |our )?(career|job|talent) (portal|site|community)|conferma (di |della )?registrazione|registrazione (completata|avvenuta|confermata)|(il tuo |il suo )?(account|profilo) (è stato )?creato|confirmation d['’]inscription|inscription (confirmée|réussie)|(votre )?(compte|profil) (a été )?créé|(thanks|thank you) for (your )?(registration|registering|signing up)|(your )?registration (on|at|with|to) [^.\n]{0,60}(was|has been|is) (successful|complete|completed|confirmed)|you have (successfully )?(registered|created (an?|your) (account|profile))|(vielen )?dank f[üu]r (ihre |deine |die )?(registrierung|profilerstellung|kontoerstellung)|(du hast|sie haben) [^.\n]{0,60}(ein|ihr|dein) (benutzer|bewerbungs)?(profil|konto) (erstellt|angelegt|er[öo]ffnet)|grazie per (la tua |la sua |la )?registrazione|registrazione (è stata )?(completata|effettuata) con successo|merci (pour|de) votre inscription|votre inscription (a été |est )?(confirmée|réussie|enregistrée|validée))/i;
+const ACCOUNT_WELCOME_RE = /(?:willkommen\s+(?:beim|im|auf\s+(?:dem|unserem))\s+(?:stellen|karriere|job|bewerbungs|bewerber)portal|(?:ihr|dein) benutzername\s+(?:entspricht|lautet|ist)|(?:kennwort|passwort)[^.\n]{0,100}bei der registrierung[^.\n]{0,80}gesetzt|benvenut[oa]\s+(?:nel|sul)\s+portale\s+(?:lavoro|carriere|candidature|delle offerte|delle candidature)|(?:il )?(?:tuo|suo) nome utente\s+(?:è|corrisponde)|bienvenue sur (?:le|notre) portail (?:carrières|emploi|candidats)|votre nom d['’]utilisateur\s+(?:est|correspond)|your username is|welcome to (?:the|our)\s+[^.\n]{0,80}?(?:careers?|jobs?|recruiting|talent)\s+(?:portal|site))/i;
+const ACCOUNT_SELF_SERVICE_RE = /(?:you (?:can|may)\s+[^.\n]{0,40}(?:log in|sign in)[^.\n]{0,90}(?:complete|update|finish)[^.\n]{0,40}your profile|(?:complete|update|finish)\s+your profile[^.\n]{0,90}(?:log in|sign in)|(?:sie können|bitte melden sie sich)[^.\n]{0,50}(?:einloggen|anmelden)[^.\n]{0,100}ihr profil[^.\n]{0,40}(?:ergänz|vervollständ|aktualisier)\p{L}*|(?:ergänz|vervollständ|aktualisier)\p{L}*[^.\n]{0,40}ihr profil[^.\n]{0,100}(?:einloggen|anmelden)|(?:puoi|può|potrai)[^.\n]{0,50}accedere[^.\n]{0,100}(?:completare|aggiornare|integrare)[^.\n]{0,40}profil|(?:completare|aggiornare|integrare)[^.\n]{0,40}profil[^.\n]{0,100}accedere|(?:vous pouvez|veuillez)[^.\n]{0,50}connect\p{L}*[^.\n]{0,100}(?:compléter|mettre à jour)[^.\n]{0,40}profil|(?:compléter|mettre à jour)[^.\n]{0,40}profil[^.\n]{0,100}connect\p{L}*|(?:password|passwort|kennwort|mot de passe)[^.\n]{0,40}(?:forgot|forgotten|forget|vergessen|oubli\p{L}*|dimenticat\p{L}*)|(?:forgot|forgotten|forget|vergessen|oubli\p{L}*|dimenticat\p{L}*)[^.\n]{0,40}(?:password|passwort|kennwort|mot de passe))/iu;
+const isAccountCreatedNotice = (text) => ACCOUNT_NOTICE_RE.test(text) || ACCOUNT_WELCOME_RE.test(text);
 // SBB (2026-11-10): «Vielen Dank für die Profilerstellung … Du hast im Karriereportal ein Profil erstellt»;
 // Damiani (same day): «Thanks for your registration! … Your registration on the site was successful.»
 // The rest of an account's life cycle, as the portal itself reports it: activated, or its password changed.
@@ -289,8 +292,8 @@ const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons b
 
 /** An "acknowledgement" that only confirms a portal account is the account's own mail. */
 export function correctedCategory(category, { subject = '', text = '' } = {}) {
-  const haystack = `${subject}\n${text}`.slice(0, 20_000);
-  if (category === 'auto_acknowledgement' && ACCOUNT_NOTICE_RE.test(haystack) && !APPLICATION_RECEIVED_RE.test(haystack)) return 'verification';
+  const haystack = decodeHtmlEntities(`${subject}\n${text}`).slice(0, 20_000);
+  if (category === 'auto_acknowledgement' && isAccountCreatedNotice(haystack) && !APPLICATION_RECEIVED_RE.test(haystack)) return 'verification';
   return category;
 }
 
@@ -505,16 +508,16 @@ function categoryOfSentences(sentences, topic, body) {
   if (any(acknowledgesApplication)) return 'auto_acknowledgement';
   if (!body.length && topic.some(namesInterview)) return 'interview_invite';
   const all = sentences.join('\n');
-  if (ACCOUNT_NOTICE_RE.test(all) || ACCOUNT_ACTIVATED_RE.test(all) || PASSWORD_CHANGED_RE.test(all)) return 'verification';
+  if (isAccountCreatedNotice(all) || ACCOUNT_ACTIVATED_RE.test(all) || PASSWORD_CHANGED_RE.test(all)) return 'verification';
   return 'other';
 }
 
 /** The sender's own words with their category; a reply's subject repeats the old message. */
 function readByRules({ subject = '', text = '' }) {
-  const heading = normalizedMail(subject);
+  const heading = normalizedMail(decodeHtmlEntities(subject));
   const reply = REPLY_SUBJECT_RE.test(heading);
   const sourceText = ownMessageText(String(text || '').replace(/\r\n?/g, '\n').slice(0, 20_000));
-  const current = normalizedMail(sourceText);
+  const current = normalizedMail(decodeHtmlEntities(sourceText));
   const topic = reply ? [] : sentencesOf(heading);
   const body = sentencesOf(current);
   const sentences = [...topic, ...body];
@@ -548,17 +551,20 @@ export function postingWithdrawnByMail(message) {
  * request, which keeps its own path.
  */
 export function portalAccountNoticeKind(message, classification = {}) {
-  if (classification.category !== 'verification' || classification.needsReply === true
+  if (classification.category !== 'verification'
     || classification.interviewWhen || (classification.requestedDocuments || []).length) return '';
   const rules = readByRules(message);
   if (rules.verificationAsked) return '';
   const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  const hasGenericAccessGuidance = sentences.some((sentence) => ACCOUNT_SELF_SERVICE_RE.test(sentence));
+  const hasOtherRequestedAction = sentences.some((sentence) => asksForAction(sentence) && !ACCOUNT_SELF_SERVICE_RE.test(sentence));
+  if (classification.needsReply === true && (!hasGenericAccessGuidance || hasOtherRequestedAction)) return '';
   if (sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
     || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || acknowledgesApplication(sentence))) return '';
   const all = sentences.join('\n');
   if (PASSWORD_CHANGED_RE.test(all)) return 'password_changed';
   if (ACCOUNT_ACTIVATED_RE.test(all)) return 'activated';
-  if (ACCOUNT_NOTICE_RE.test(all)) return 'created';
+  if (isAccountCreatedNotice(all)) return 'created';
   return '';
 }
 
@@ -592,7 +598,7 @@ function automatedMessage(message) {
   if (headers.some(([key, value]) => AUTOMATED_HEADER[key]?.test(String(value || '').trim()))) return true;
   const local = /^([^@\s]+)@[^@\s]+$/.exec(singleMailboxAddress(message.from) || '')?.[1] || '';
   if (local && NO_REPLY_MAILBOX_RE.test(local)) return true;
-  const own = normalizedMail(ownMessageText(String(message.text || '').replace(/\r\n?/g, '\n').slice(0, 20_000)));
+  const own = normalizedMail(ownMessageText(decodeHtmlEntities(String(message.text || '').replace(/\r\n?/g, '\n').slice(0, 20_000))));
   return AUTOMATED_TEXT_RE.test(own) || NO_REPLY_TEXT_RE.test(own);
 }
 
@@ -1385,7 +1391,14 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // What the order records: a reminder is no answer of the employer, whatever the model read.
     const recorded = applicationReminder
       ? { ...classification, category: 'other', summaryCandidate: '', needsReply: false }
-      : classification;
+      : portalAccountNoticeHost
+        ? {
+          ...classification,
+          verificationCode: '',
+          verificationUrl: '',
+          ...(classification.needsReply === true ? { summaryCandidate: '', needsReply: false } : {}),
+        }
+        : classification;
     const to = customerEmailFor(order);
     const initialDelivery = consumedByRunner
       ? { status: 'skipped', reason: 'portal_verification', attempts: 0, lastError: null }

@@ -240,6 +240,7 @@ import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaS
 import {
   afterRootCrossfade,
   removeOwnedStaticSnapshot,
+  scheduleOwnedStaticSnapshotRemoval,
   shouldKeepStaticFallbackOutsideRoot,
   STATIC_SNAPSHOT_OWNER_ATTR,
 } from '@/services/staticFallbackHandoff';
@@ -468,15 +469,16 @@ const App: React.FC = () => {
  const jobBoardStaticFallbackNode = typeof document !== 'undefined'
    ? document.querySelector<HTMLElement>('main.seo-static-content.job-board-static-content')
    : null;
+ const jobBoardSnapshotShouldDelayRemoval = shouldKeepStaticFallbackOutsideRoot(
+   currentArticleRoute ?? { activeTab: 'calculator' },
+   'job-board',
+   true,
+   { keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot },
+ );
  const jobBoardStaticFallback = jobBoardSnapshotReadyPath !== contextualPath
    && !!jobBoardStaticFallbackNode
    && !document.getElementById('root')?.contains(jobBoardStaticFallbackNode)
-   && shouldKeepStaticFallbackOutsideRoot(
-     currentArticleRoute ?? { activeTab: 'calculator' },
-     'job-board',
-     true,
-     { keepJobBoardOutsideRoot: keepJobBoardSnapshotOutsideRoot },
-   );
+   && jobBoardSnapshotShouldDelayRemoval;
  // A static snapshot (article, or canton topic hub) still owns the body. On a
  // SPA handoff the React <main> has to mount to load and announce readiness,
  // but until then it must take no space and paint nothing: left in the flow it
@@ -621,6 +623,7 @@ const App: React.FC = () => {
  // `display:none` — observed live on /fr/.../recherche-* (static body
  // visible below the hydrated JobBoard despite the inline style being set).
  useLayoutEffect(() => {
+   const cancelPendingSnapshotReleases: Array<() => void> = [];
    const staticMains = document.querySelectorAll<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
    for (const staticMain of staticMains) {
      // A plate-auction fallback is owned by the plate-auction route only. If
@@ -656,7 +659,12 @@ const App: React.FC = () => {
      // The SPA view took over in this very commit: the snapshot that owned
      // the body goes, for good (see removeOwnedStaticSnapshot).
      if (staticMain.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR) && !staticOverlay) {
-       removeOwnedStaticSnapshot(staticMain);
+       if (staticMain.classList.contains('job-board-static-content')
+         && jobBoardSnapshotShouldDelayRemoval) {
+         cancelPendingSnapshotReleases.push(scheduleOwnedStaticSnapshotRemoval(staticMain));
+       } else {
+         removeOwnedStaticSnapshot(staticMain);
+       }
        continue;
      }
      if (staticOverlay) {
@@ -665,7 +673,10 @@ const App: React.FC = () => {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [activeTab, staticSnapshotOwnsBody, staticOverlay]);
+   return () => {
+     for (const cancel of cancelPendingSnapshotReleases) cancel();
+   };
+ }, [activeTab, jobBoardSnapshotShouldDelayRemoval, staticSnapshotOwnsBody, staticOverlay]);
 
  // Expired soft-landings use the same outside-#root contract as the other
  // static SEO pages, but keep a dedicated marker because their body is an
