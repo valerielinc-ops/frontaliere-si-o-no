@@ -95,7 +95,7 @@ Osservato 2026-06-03: 7 worktree + 38 branch locali, 33 orfani. Il cleanup ancor
 
 Senza consultazione issue-state, EC1 (branch `fix/issue-N` senza PR) risparmiava per sempre i branch orfani la cui issue era già chiusa: `fix/issue-1183`/`1189`/`1497` restarono bloccati ~12 giorni prima del fix.
 
-I worktree **Codex** (fuori dagli hook Claude) e i branch con remoto già cancellato restano **report-only** con flag `upstream-GONE` — mai auto-delete su quel caso, per non distruggere lavoro potenzialmente vivo.
+I worktree gestiti dall'app Codex sotto `$CODEX_HOME/worktrees` restano esclusi dal pruner e seguono il lifecycle dell'app. Dal 2026-11-12 i worktree repo-locali sotto `.codex/worktrees` seguono invece le stesse prove conservative di `.claude/worktrees`, `.worktrees` e `.wt`. I branch con upstream già cancellato restano report-only (`upstream-GONE`): non sono prova sufficiente per cancellare lavoro potenzialmente vivo.
 
 ## git-repo-maintenance
 

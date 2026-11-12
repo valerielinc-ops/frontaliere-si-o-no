@@ -6,7 +6,7 @@ import path from 'node:path';
 import { runIsolatedPruner } from './helpers/runIsolatedPruner';
 
 // Lo sweep lanciato nel CORPUS (stesso script del sito, cwd nel checkout del
-// corpus) su un workspace di prova con due repo e le cartelle `.wt/` della
+// corpus) su un workspace di prova con due repo e le cartelle `.wt/` e `.codex/worktrees/` della
 // root. Ogni caso viene dallo smaltimento manuale del 2026-10-02 (45 worktree,
 // 12 directory orfane, tutti già consegnati), o è il suo controcaso:
 //   • HEAD della PR MERGED solo in refs/pull/N/head (branch remoto cancellato) → via
@@ -34,6 +34,7 @@ const at = (msAgo: number) => new Date(NOW - msAgo);
 let ws = '';
 let corpus = '';
 let site = '';
+let appManagedCodexWt = '';
 let env: NodeJS.ProcessEnv = {};
 const sha: Record<string, string> = {};
 let dryRun = '';
@@ -57,6 +58,7 @@ function commit(cwd: string, msg: string, msAgo: number, files: Record<string, s
 
 const cwt = (name: string) => path.join(corpus, '.claude', 'worktrees', name);
 const rootWt = (name: string) => path.join(ws, '.wt', name);
+const rootCodexWt = (name: string) => path.join(ws, '.codex', 'worktrees', name);
 
 function age(worktreePath: string, when: Date = at(5 * DAY)): void {
   const admin = git(worktreePath, ['rev-parse', '--absolute-git-dir']);
@@ -121,6 +123,7 @@ beforeAll(() => {
     // This suite tests content proofs, not the separate three-day expiry rule.
     PRUNE_WORKTREE_EXPIRY_DAYS: '10',
   };
+  env.CODEX_HOME = path.join(ws, 'codex-home');
 
   // --- il SITO: un secondo repo del workspace ----------------------------------
   const s = cloneOf('frontaliere-si-o-no');
@@ -139,6 +142,10 @@ beforeAll(() => {
   fs.writeFileSync(path.join(corpus, 'node_modules', 'pkg', 'index.js'), 'resta\n');
   git(corpus, ['push', '-q', '-u', 'origin', 'main']);
   git(corpus, ['remote', 'set-head', 'origin', 'main']);
+  appManagedCodexWt = path.join(env.CODEX_HOME as string, 'worktrees', 'managed-main');
+  fs.mkdirSync(path.dirname(appManagedCodexWt), { recursive: true });
+  git(corpus, ['worktree', 'add', '-q', '-b', 'codex-app-managed-main', appManagedCodexWt, 'origin/main']);
+  age(appManagedCodexWt);
 
   // #70: la head esiste solo in refs/pull/70/head sull'origin (branch remoto
   // cancellato al merge). Si costruisce in un altro clone: nel corpus arriva
@@ -245,15 +252,23 @@ beforeAll(() => {
   fs.mkdirSync(path.join(ws, '.wt'), { recursive: true });
   git(site, ['worktree', 'add', '-q', '-b', 'site-live', rootWt('site-live'), 'origin/main']);
   age(rootWt('site-live'));
-  const orphan = (name: string, files: Record<string, string>) => {
-    for (const [file, content] of Object.entries(files)) write(rootWt(name), file, content);
-    ageTree(rootWt(name), at(5 * DAY));
+  const orphanAt = (dir: string, files: Record<string, string>) => {
+    for (const [file, content] of Object.entries(files)) write(dir, file, content);
+    ageTree(dir, at(5 * DAY));
   };
+  const orphan = (name: string, files: Record<string, string>) => orphanAt(rootWt(name), files);
   orphan('site-residue', { 'site.txt': 'sito\n', 'lib/a.mjs': 'export const a = 1;\n', '.DS_Store': 'x' });
   orphan('foreign', { 'site.txt': 'sito\n', 'nuovo.mjs': 'mai in git\n' });
   fs.symlinkSync(path.join(corpus, 'node_modules'), path.join(rootWt('site-residue'), 'node_modules'));
   fs.lutimesSync(path.join(rootWt('site-residue'), 'node_modules'), at(5 * DAY), at(5 * DAY));
   fs.utimesSync(rootWt('site-residue'), at(5 * DAY), at(5 * DAY));
+
+  // --- la `.codex/worktrees/` della root ----------------------------------------
+  fs.mkdirSync(path.dirname(rootCodexWt('site-live')), { recursive: true });
+  git(site, ['worktree', 'add', '-q', '-b', 'site-codex-live', rootCodexWt('site-live'), 'origin/main']);
+  age(rootCodexWt('site-live'));
+  orphanAt(rootCodexWt('site-residue'), { 'site.txt': 'sito\n', 'lib/a.mjs': 'export const a = 1;\n', '.DS_Store': 'x' });
+  orphanAt(rootCodexWt('foreign'), { 'site.txt': 'sito\n', 'nuovo.mjs': 'mai in git\n' });
 
   // --- GitHub finto ----------------------------------------------------------------
   fs.writeFileSync(env.FAKE_GH_FIXTURE as string, JSON.stringify({
@@ -351,6 +366,15 @@ describe('sweep nel corpus, su un workspace con due repo', () => {
     expect(fs.existsSync(rootWt('foreign'))).toBe(true);
     expect(dryRun).toMatch(/site-residue — nessun worktree registrato in nessun repo, 2 file identici a main di frontaliere-si-o-no/);
     expect(fs.readFileSync(path.join(corpus, 'node_modules', 'pkg', 'index.js'), 'utf8')).toBe('resta\n');
+  });
+
+  it('root .codex/worktrees/: pulisce i residui multi-repo ma lascia worktree registrati e app-managed', () => {
+    expect(fs.existsSync(rootCodexWt('site-live'))).toBe(true);
+    expect(fs.existsSync(rootCodexWt('site-residue'))).toBe(false);
+    expect(fs.existsSync(rootCodexWt('foreign'))).toBe(true);
+    expect(fs.existsSync(appManagedCodexWt)).toBe(true);
+    expect(dryRun).toMatch(/site-residue — nessun worktree registrato in nessun repo, 2 file identici a main di frontaliere-si-o-no/);
+    expect(dryRun).not.toContain(appManagedCodexWt);
   });
 
   it('lascia un tag sui commit rimossi e applica senza errori', () => {
