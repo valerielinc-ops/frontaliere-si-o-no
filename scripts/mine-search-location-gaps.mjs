@@ -45,6 +45,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifySearchTerm, matchProfession } from './lib/profession-taxonomy.mjs';
@@ -85,8 +86,7 @@ const CITY_KEYS = TI_LEGACY_CITY_HUB_KEYS; // ['lugano','mendrisio','bellinzona'
 
 function loadJobs() {
   try {
-    const raw = fs.readFileSync(JOBS_PATH, 'utf-8');
-    const parsed = JSON.parse(raw);
+    const parsed = readJsonFile(JOBS_PATH);
     const jobs = Array.isArray(parsed) ? parsed : parsed.jobs;
     if (!Array.isArray(jobs)) return [];
     console.error(`[jobs] data/jobs.json: ${jobs.length} jobs`);

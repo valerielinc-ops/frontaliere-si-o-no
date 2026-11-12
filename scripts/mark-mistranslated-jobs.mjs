@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * mark-mistranslated-jobs.mjs
@@ -353,7 +354,7 @@ function main() {
     console.log('data/jobs.json not found — run scripts/assemble-jobs-dataset.mjs first. Nothing to do.');
     return;
   }
-  const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8'));
+  const jobs = readJsonFile(jobsPath);
 
   const selection = selectMistranslatedJobs(jobs, opts);
   if (selection.throttled) {

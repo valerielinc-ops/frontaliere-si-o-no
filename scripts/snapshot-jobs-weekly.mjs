@@ -18,6 +18,7 @@
  */
 
 import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,7 +57,7 @@ function main() {
   let jobs = [];
   if (existsSync(JOBS_PATH)) {
     try {
-      const raw = JSON.parse(readFileSync(JOBS_PATH, 'utf-8'));
+      const raw = readJsonFile(JOBS_PATH);
       if (Array.isArray(raw)) jobs = raw;
     } catch (err) {
       console.warn(`[snapshot-jobs-weekly] failed to parse jobs.json: ${err?.message || err}`);

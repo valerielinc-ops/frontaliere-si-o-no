@@ -4,6 +4,7 @@
  * Usage: node scripts/clean-lis-data.mjs
  */
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -105,7 +106,7 @@ function cleanLisDescription(dirty) {
 }
 
 // ── Run cleaning ──
-const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+const allJobs = readJsonFile(DATA_JOBS);
 let cleaned = 0;
 
 for (const job of allJobs) {
@@ -148,7 +149,7 @@ if (cleaned > 0) {
 }
 
 // Verify
-const verifyJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+const verifyJobs = readJsonFile(DATA_JOBS);
 const lisJobs = verifyJobs.filter(isLisJob);
 console.log(`\n📊 Verification — ${lisJobs.length} LIS jobs after cleaning:`);
 for (const j of lisJobs) {

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * audit-job-description-locale — the measurement behind
@@ -388,7 +389,7 @@ async function main() {
   const opts = parseArgs(process.argv.slice(2));
   let jobs = null;
   try {
-    const parsed = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf8'));
+    const parsed = readJsonFile(DATA_JOBS_PATH);
     if (Array.isArray(parsed) && parsed.length > 0) jobs = parsed;
   } catch {
     jobs = null;

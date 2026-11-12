@@ -11,6 +11,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { fileURLToPath } from 'node:url';
@@ -67,7 +68,7 @@ function collectKnownSlugs() {
   // Active jobs
   const jobsPath = path.join(ROOT, 'data', 'jobs.json');
   if (fs.existsSync(jobsPath)) {
-    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+    const jobs = readJsonFile(jobsPath);
     for (const job of (Array.isArray(jobs) ? jobs : [])) {
       if (job.slug) slugs.add(job.slug);
       if (job.slugByLocale) {

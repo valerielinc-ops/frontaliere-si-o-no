@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { renderBrandJobCard } from '../functions/src/assistedApplicationEmailLayout.js';
 import { pathToFileURL } from 'node:url';
@@ -959,7 +960,7 @@ function loadJobs() {
     locationIndex: new Map(),
     cityToCanton: new Map(),
   };
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  const jobs = readJsonFile(JOBS_PATH);
   if (!Array.isArray(jobs)) return {
     inventory: [],
     recent: [],

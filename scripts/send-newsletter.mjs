@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { htmlToText } from '../functions/src/lib/mimeMessage.js';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
@@ -1500,7 +1501,7 @@ export function loadLocalJobsData({
 
   // Primary: read assembled data/jobs.json
   try {
-    jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8'));
+    jobs = readJsonFile(jobsPath);
     if (!Array.isArray(jobs)) throw new Error('data/jobs.json must contain an array');
   } catch (error) {
     primaryError = error;

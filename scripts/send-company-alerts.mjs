@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { realpathSync } from 'node:fs';
 /**
  * CompanyAlert — IMMEDIATE sender (issue #5012, phase 2 of #5151).
@@ -1316,7 +1317,7 @@ function loadJobs() {
     console.warn(`   ⚠️  ${JOBS_PATH} missing — run scripts/assemble-jobs-dataset.mjs first.`);
     return [];
   }
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  const jobs = readJsonFile(JOBS_PATH);
   return Array.isArray(jobs) ? jobs : [];
 }
 

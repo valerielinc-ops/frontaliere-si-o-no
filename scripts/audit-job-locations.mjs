@@ -77,6 +77,7 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -107,7 +108,7 @@ const limitIdx = args.indexOf('--limit');
 const limit = limitIdx !== -1 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
 /* ── Load jobs ─────────────────────────────────────────────── */
-const jobs = JSON.parse(readFileSync(join(ROOT, 'data', 'jobs.json'), 'utf8'));
+const jobs = readJsonFile(join(ROOT, 'data', 'jobs.json'));
 console.log(`\n📋 Total jobs in dataset: ${jobs.length}`);
 console.log(`   Auditing: ${Math.min(jobs.length, limit)} jobs`);
 console.log(`   Geocoding: ${enableGeocode ? 'ENABLED (slow — 1 req/sec)' : 'DISABLED (use --geocode to enable)'}\n`);

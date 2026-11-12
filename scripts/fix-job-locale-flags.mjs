@@ -8,6 +8,7 @@
  */
 
 import { readFileSync, existsSync } from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
@@ -35,7 +36,7 @@ if (!existsSync(JOBS_PATH)) {
   process.exit(1);
 }
 
-const jobs = JSON.parse(readFileSync(JOBS_PATH, 'utf-8'));
+const jobs = readJsonFile(JOBS_PATH);
 console.log(`📊 Loaded ${jobs.length} jobs from data/jobs.json`);
 
 // ── Detect mismatches ───────────────────────────────────────────────
