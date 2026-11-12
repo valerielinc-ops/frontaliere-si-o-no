@@ -213,7 +213,7 @@ async function createWorkdayTlsFixture(directory) {
 }
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], gravityApplication: { openerClicks: 0, submissions: 0, day: '', month: '', year: '' }, rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], gravityApplication: { openerClicks: 0, submissions: 0, day: '', month: '', year: '', hasCv: false }, rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   let receiptJobId = '';
   let receiptJobParam = 'jobid';
   let receiptJobSequence = 0;
@@ -923,13 +923,14 @@ function fakePortal() {
       const months = Array.from({ length: 12 }, (_, index) => `<option value="${String(index + 1).padStart(2, '0')}">${index + 1}</option>`).join('');
       const years = Array.from({ length: 31 }, (_, index) => `<option value="${1980 + index}">${1980 + index}</option>`).join('');
       return send(page('Bewerbung: Fachperson Betreuung', `<h1>Fachperson Betreuung 80%</h1>
-        <a class="gravity-opener" href="#">Jetzt bewerben</a><a class="gravity-opener" href="#">Jetzt bewerben</a>
+        <a class="button gravity-opener" href="#">Jetzt bewerben</a><a class="button gravity-opener" href="#">Jetzt bewerben</a>
         <div class="job-application-modal" id="gravity-modal" style="position:fixed;inset:5%;background:white;z-index:2">
-          <form id="gravity-form" method="post" action="/gravity-submit" enctype="multipart/form-data">
-            <label for="gravity-first">Vorname *</label><input id="gravity-first" name="first" required>
-            <label for="gravity-last">Nachname *</label><input id="gravity-last" name="last" required>
-            <label for="gravity-email">E-Mail *</label><input id="gravity-email" type="email" name="email" required>
+          <div id="gform_wrapper_1">
+          <form id="gform_1" method="post" action="/gravity-submit" enctype="multipart/form-data">
             <section id="gravity-step-one">
+              <label for="gravity-first">Vorname *</label><input id="gravity-first" name="first" required>
+              <label for="gravity-last">Nachname *</label><input id="gravity-last" name="last" required>
+              <label for="gravity-email">E-Mail *</label><input id="gravity-email" type="email" name="email" required>
               <label for="gravity-day">Geburtstag Tag</label><select id="gravity-day" name="birthDay" required><option value="">Tag</option>${days}</select>
               <label for="gravity-month">Geburtstag Monat</label><select id="gravity-month" name="birthMonth" required><option value="">Monat</option>${months}</select>
               <label for="gravity-year">Geburtstag Jahr</label><select id="gravity-year" name="birthYear" required><option value="">Jahr</option>${years}</select>
@@ -938,9 +939,11 @@ function fakePortal() {
             <section id="gravity-step-two" hidden>
               <label for="gravity-cv">Lebenslauf *</label><input id="gravity-cv" type="file" name="cv" required>
               <label for="gravity-start">Frühester Eintritt</label><input id="gravity-start" type="date" name="startDate">
+              <button type="button" id="gravity-previous">Previous</button>
               <button type="submit">Abschicken</button>
             </section>
           </form>
+          </div>
         </div>
         <script>
           for (const opener of document.querySelectorAll('.gravity-opener')) opener.addEventListener('click', async (event) => {
@@ -956,8 +959,10 @@ function fakePortal() {
             document.getElementById('gravity-step-one').hidden = true;
             document.getElementById('gravity-step-two').hidden = false;
           });
-          document.getElementById('gravity-form').addEventListener('submit', (event) => {
-            event.preventDefault(); fetch('/gravity-submit', { method: 'POST' });
+          document.getElementById('gform_1').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const response = await fetch('/gravity-submit', { method: 'POST', body: new FormData(event.target) });
+            if (response.ok) document.getElementById('gform_wrapper_1').innerHTML = '<div class="gform_confirmation_wrapper" id="gform_confirmation_wrapper_1"><div class="gform_confirmation_message" id="gform_confirmation_message_1">Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist eingegangen.</div></div>';
           });
         </script>`));
     }
@@ -973,7 +978,9 @@ function fakePortal() {
       res.writeHead(204); return res.end();
     }
     if (route === 'POST /gravity-submit') {
+      const raw = await readBody(req);
       state.gravityApplication.submissions += 1;
+      state.gravityApplication.hasCv = /filename="CV_/.test(raw);
       res.writeHead(204); return res.end();
     }
     // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
@@ -1746,7 +1753,7 @@ async function main() {
     } else if (focusUmantis) {
       await runUmantisChecks();
     } else if (focusModalApplication) {
-      Object.assign(state.gravityApplication, { openerClicks: 0, submissions: 0, day: '', month: '', year: '' });
+      Object.assign(state.gravityApplication, { openerClicks: 0, submissions: 0, day: '', month: '', year: '', hasCv: false });
       const modal = await run({ applyUrl: `${base}/gravity-modal-job`, dryRun: true });
       const dayCorrect = state.gravityApplication.day === '12.';
       const monthCorrect = state.gravityApplication.month === '05';
@@ -1755,9 +1762,18 @@ async function main() {
       const openerUnused = state.gravityApplication.openerClicks === 0;
       const submissionProtected = state.gravityApplication.submissions === 0;
       const finalControlProtected = modal.event.type === 'dry_run_ready' && modal.evidence.finalButton?.label === 'Abschicken';
-      check('non-ARIA two-page application ignores both openers, chooses the birth-date day, and protects Abschicken',
-        finalControlProtected && birthDateCorrect && openerUnused && submissionProtected,
-        { finalControlProtected, dayCorrect, monthCorrect, yearCorrect, openerUnused, submissionProtected });
+      const pageTwoStage = modal.evidence.steps.find((step) => step.step === 2)?.applicationStage?.kind;
+      check('non-ARIA two-page application ignores both openers, reaches page 2 as a form, chooses the birth-date day, and protects Abschicken',
+        finalControlProtected && pageTwoStage === 'form' && birthDateCorrect && openerUnused && submissionProtected,
+        { finalControlProtected, pageTwoStage, dayCorrect, monthCorrect, yearCorrect, openerUnused, submissionProtected });
+      Object.assign(state.gravityApplication, { openerClicks: 0, submissions: 0, day: '', month: '', year: '', hasCv: false });
+      const submitted = await run({ applyUrl: `${base}/gravity-modal-job` });
+      const submittedPageTwoStage = submitted.evidence.steps.find((step) => step.step === 2)?.applicationStage?.kind;
+      check('non-ARIA Gravity Forms AJAX confirmation follows one guarded submit and confirms the replaced form',
+        submitted.event.type === 'submit_succeeded' && submittedPageTwoStage === 'form'
+          && submitted.evidence.finalOutcomes?.at(-1) === 'confirmed'
+          && state.gravityApplication.submissions === 1 && state.gravityApplication.hasCv === true,
+        { event: submitted.event.type, submittedPageTwoStage, outcome: submitted.evidence.finalOutcomes?.at(-1), submissions: state.gravityApplication.submissions, hasCv: state.gravityApplication.hasCv });
     } else if (!focusRegistration) {
     // Keep this timing-sensitive portal first in the full suite; the same
     // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.

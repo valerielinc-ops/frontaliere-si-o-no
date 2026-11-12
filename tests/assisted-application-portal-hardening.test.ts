@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { birthDatePartOption, candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { applicationStage, inPageApplicationOpeners } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { CREATE_ACCOUNT_RE, authPageKind, isExplicitSignInNavigationLabel } from '../scripts/assisted-application/lib/portal/account.mjs';
 import {
@@ -117,6 +117,72 @@ describe('in-page application opener classification', () => {
     expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
   });
 
+  it('recognizes a later page from its CV upload when the identity fields are hidden', () => {
+    const snapshot = {
+      url,
+      text: 'Bewerbung',
+      fields: [
+        { id: 'cv', kind: 'file', inputType: 'file', label: 'Lebenslauf *', required: true, formId: 'application' },
+        { id: 'start', label: 'Frühester Eintritt', formId: 'application' },
+      ],
+      buttons: [opener('open-one'), opener('open-two'),
+        { id: 'previous', text: 'Previous', formId: 'application' },
+        { id: 'submit', text: 'ABSCHICKEN', formId: 'application' }],
+    };
+
+    expect(inPageApplicationOpeners(snapshot, url)).toHaveLength(2);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'form' });
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }).submit)
+      .toMatchObject({ text: 'ABSCHICKEN' });
+  });
+
+  it('uses a required same-form file only when the runner already proved the CV upload', () => {
+    const snapshot = {
+      url,
+      uploadedCv: true,
+      fields: [{ id: 'attachment', kind: 'file', inputType: 'file', label: 'Upload document', required: true, formId: 'application' }],
+      buttons: [opener('open-one'), opener('open-two'), { id: 'submit', text: 'Submit application', formId: 'application' }],
+    };
+
+    expect(inPageApplicationOpeners(snapshot, url)).toHaveLength(2);
+    expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'form' });
+  });
+
+  it('does not qualify generic contact attachments, cover letters, multiple CV forms, Previous-only forms, or leaving openers', () => {
+    const cv = (formId: string, label = 'CV') => ({ id: `${formId}-file`, kind: 'file', inputType: 'file', label, required: true, formId });
+    const snapshots = [
+      {
+        fields: [{ id: 'email', label: 'E-Mail', inputType: 'email', formId: 'contact' },
+          { id: 'attachment', kind: 'file', inputType: 'file', label: 'Attachment', required: true, formId: 'contact' }],
+        buttons: [opener('open-contact', { href: '#' }), { id: 'contact-submit', text: 'Submit', formId: 'contact' }],
+      },
+      {
+        fields: [cv('letter', 'Motivationsschreiben')],
+        buttons: [opener('open-letter', { href: '#' }), { id: 'letter-submit', text: 'Submit', formId: 'letter' }],
+      },
+      {
+        fields: [cv('first'), cv('second')],
+        buttons: [opener('open-one', { href: '#' }), opener('open-two', { href: '#' }),
+          { id: 'first-submit', text: 'Submit', formId: 'first' }, { id: 'second-submit', text: 'Submit', formId: 'second' }],
+      },
+      {
+        fields: [cv('previous-only')],
+        buttons: [opener('open-previous', { href: '#' }), { id: 'previous', text: 'Previous', formId: 'previous-only' }],
+      },
+      {
+        fields: [cv('leaving')],
+        buttons: [opener('open-leaving', { href: '/application/start', leavesDocument: true }),
+          { id: 'leaving-submit', text: 'Submit', formId: 'leaving' }],
+      },
+    ];
+
+    for (const scenario of snapshots) {
+      const snapshot = { url, ...scenario };
+      expect(inPageApplicationOpeners(snapshot, url)).toEqual([]);
+      expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'unknown_apply' });
+    }
+  });
+
   it('keeps a generic Apply control inside its applicant form as the current final action', () => {
     const snapshot = {
       url,
@@ -127,6 +193,79 @@ describe('in-page application opener classification', () => {
     expect(applicationStage(snapshot, { url, applyUrl: url })).toMatchObject({ kind: 'form' });
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url, { snapshot, applyUrl: url }).submit)
       .toMatchObject({ text: 'Jetzt bewerben' });
+  });
+});
+
+describe('Gravity Forms AJAX receipts', () => {
+  const url = 'https://jobs.example.test/job/caregiver';
+  const finalSubmission = { clicked: true, formId: 'f12', nativeFormId: 'gform_1' };
+  const snapshot = {
+    url,
+    text: 'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist eingegangen.',
+    fields: [],
+    buttons: [],
+    errors: [],
+    gravityForms: {
+      formIds: [],
+      validationError: false,
+      confirmations: [{ formId: 'gform_1', visible: true, text: 'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist eingegangen.' }],
+    },
+  };
+
+  it('confirms a native receipt after the guarded final click replaces the same form', () => {
+    expect(gravityFormsSubmissionOutcome(snapshot, { finalSubmission })).toBe('confirmed');
+    expect(applicationReceipt(snapshot, { url, applyUrl: url, submissionUrl: url, finalSubmission })).toBe(true);
+  });
+
+  it('recognizes explicit German, French, Italian, and English receipt copy', () => {
+    const messages = [
+      'Ihre Bewerbung ist eingegangen.',
+      'Merci pour votre candidature.',
+      'Grazie per la candidatura.',
+      'Thank you for your application.',
+    ];
+    for (const text of messages) {
+      const localized = {
+        ...snapshot,
+        text,
+        gravityForms: {
+          ...snapshot.gravityForms,
+          confirmations: [{ formId: 'gform_1', visible: true, text }],
+        },
+      };
+      expect(gravityFormsSubmissionOutcome(localized, { finalSubmission })).toBe('confirmed');
+      expect(applicationReceipt(localized, { url, applyUrl: url, submissionUrl: url, finalSubmission })).toBe(true);
+    }
+  });
+
+  it('does not confirm the same text without proof of the final click', () => {
+    expect(gravityFormsSubmissionOutcome(snapshot, {})).toBeNull();
+    expect(applicationReceipt(snapshot, { url, applyUrl: url, submissionUrl: url })).toBe(false);
+    const receiptRoute = 'https://jobs.example.test/job/thank-you';
+    const unclickedReceipt = { ...snapshot, url: receiptRoute, text: 'Fachperson Betreuung: Thank you for your application.' };
+    expect(applicationReceipt(unclickedReceipt, {
+      url: receiptRoute, applyUrl: receiptRoute, submissionUrl: receiptRoute, job: { title: 'Fachperson Betreuung' },
+    })).toBe(false);
+  });
+
+  it('does not confirm while the clicked Gravity Form is still present', () => {
+    const stillPresent = { ...snapshot, gravityForms: { ...snapshot.gravityForms, formIds: ['gform_1'] } };
+    expect(gravityFormsSubmissionOutcome(stillPresent, { finalSubmission })).toBeNull();
+    expect(applicationReceipt(stillPresent, { url, applyUrl: url, submissionUrl: url, finalSubmission })).toBe(false);
+  });
+
+  it('treats a Gravity Forms validation response as validation, even with confirmation copy', () => {
+    const validation = {
+      ...snapshot,
+      url: 'https://jobs.example.test/job/thank-you',
+      text: 'Fachperson Betreuung: Thank you for your application.',
+      gravityForms: { ...snapshot.gravityForms, formIds: ['gform_1'], validationError: true, validationFormIds: ['gform_1'] },
+    };
+    expect(gravityFormsSubmissionOutcome(validation, { finalSubmission })).toBe('validation');
+    expect(applicationReceipt(validation, {
+      url: validation.url, applyUrl: validation.url, submissionUrl: validation.url, finalSubmission,
+      job: { title: 'Fachperson Betreuung' },
+    })).toBe(false);
   });
 });
 
