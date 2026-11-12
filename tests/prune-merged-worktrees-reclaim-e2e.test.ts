@@ -239,6 +239,27 @@ exec "$PRUNE_REAL_GIT" "$@"
     expect(git(clone, ['show', `${tagFor('body-no-pr')}:.pr-body-pending.md`])).toContain('pending PR body');
   }, 120000);
 
+  it('non attiva il cooldown SessionStart quando il reclaim segnala fallimenti', () => {
+    const marker = path.join(clone, '.git', 'frontaliere-prune-session-start.json');
+    const failBin = path.join(root, 'session-start-fail-bin');
+    fs.mkdirSync(failBin);
+    fs.writeFileSync(path.join(failBin, 'git'), `#!/bin/sh
+case "$*" in
+  *snapshot-fail*commit-tree*) exit 97 ;;
+esac
+exec "$PRUNE_REAL_GIT" "$@"
+`, { mode: 0o755 });
+
+    const output = run(['--apply', '--session-start'], {
+      PRUNE_RECLAIM_MIN_FREE_BYTES: '999999999999999',
+      PATH: `${failBin}${path.delimiter}${env.PATH}`,
+      PRUNE_REAL_GIT: realGit,
+    });
+
+    expect(output).toContain('falliti/protetti in apply=1');
+    expect(fs.existsSync(marker)).toBe(false);
+  }, 120000);
+
   it('usa la lista bulk completa delle PR senza query per ogni branch', () => {
     fs.writeFileSync(ghCallsFile, '');
     run(['--reclaim']);
@@ -362,27 +383,6 @@ exec "$PRUNE_REAL_GIT" "$@"
     const indexIgnored = run(['--reclaim', '--apply']);
     expect(indexIgnored).toContain('index-fresh');
     expect(fs.existsSync(worktreePath('index-fresh'))).toBe(false);
-  }, 120000);
-
-  it('non attiva il cooldown SessionStart quando il reclaim segnala fallimenti', () => {
-    const marker = path.join(clone, '.git', 'frontaliere-prune-session-start.json');
-    const failBin = path.join(root, 'session-start-fail-bin');
-    fs.mkdirSync(failBin);
-    fs.writeFileSync(path.join(failBin, 'git'), `#!/bin/sh
-case "$*" in
-  *snapshot-fail*commit-tree*) exit 97 ;;
-esac
-exec "$PRUNE_REAL_GIT" "$@"
-`, { mode: 0o755 });
-
-    const output = run(['--apply', '--session-start'], {
-      PRUNE_RECLAIM_MIN_FREE_BYTES: '999999999999999',
-      PATH: `${failBin}${path.delimiter}${env.PATH}`,
-      PRUNE_REAL_GIT: realGit,
-    });
-
-    expect(output).toContain('falliti/protetti in apply=1');
-    expect(fs.existsSync(marker)).toBe(false);
   }, 120000);
 
   it('limita la manutenzione degli hook SessionStart a una passata ogni sei ore', () => {
