@@ -6003,7 +6003,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   // input and a generic «sélectionner un fichier» button. There is no safe
   // document word to put in the button's context, so bind that picker only to
   // the sole anonymous file field; multiple anonymous inputs stay ambiguous.
-  if (hasAnonymousCvPicker) {
+  if (hasAnonymousCvPicker && candidates.length === 0 && contextIconCandidates.length === 0) {
     for (const button of snapshot?.buttons || []) {
       if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button.text || '').trim())) continue;
       const context = buttonHasExplicitDocumentContext(button);

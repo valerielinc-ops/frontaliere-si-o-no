@@ -1485,6 +1485,13 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       ],
     };
 
+    expect(uploadButtonCandidatesFor({
+      ...page,
+      buttons: [
+        { id: 'cv-specific', text: 'Télécharger le CV', disabled: false },
+        ...page.buttons,
+      ],
+    }, 'cv').map((button) => button.id)).toEqual(['cv-specific']);
     expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'file-picker', text: 'sélectionner un fichier' });
     expect(uploadButtonCandidatesFor(page, 'cv').map((button) => button.id)).toEqual(['file-picker']);
     expect(uploadButtonCandidatesFor({
