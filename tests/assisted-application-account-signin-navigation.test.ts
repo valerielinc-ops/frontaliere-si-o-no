@@ -4,9 +4,9 @@ import { openVerifiedSignInNavigation } from '../scripts/assisted-application/li
 const HOST = 'sunrise.wd3.myworkdayjobs.com';
 const CURRENT_URL = `https://${HOST}/de/registration`;
 
-function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible = true, tagName = 'A', dataAutomationId = '', formId = '', formHasEmail = false, formHasPassword = false, cookieOverlay = false, cookieText = 'We use cookies.' }: {
+function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible = true, tagName = 'A', dataAutomationId = '', formId = '', formIdentityFields = [], formHasPassword = false, cookieOverlay = false, cookieText = 'We use cookies.' }: {
   href?: string; label: string; finalUrl?: string; currentUrl?: string; visible?: boolean; tagName?: string;
-  dataAutomationId?: string; formId?: string; formHasEmail?: boolean; formHasPassword?: boolean; cookieOverlay?: boolean; cookieText?: string;
+  dataAutomationId?: string; formId?: string; formIdentityFields?: Array<Record<string, string>>; formHasPassword?: boolean; cookieOverlay?: boolean; cookieText?: string;
 }) {
   let url = currentUrl;
   let cookieVisible = cookieOverlay;
@@ -25,7 +25,7 @@ function pageWithLink({ href, label, finalUrl, currentUrl = CURRENT_URL, visible
       href: href ?? null,
       dataAutomationId,
       formId,
-      formHasEmail,
+      formIdentityFields,
       formHasPassword,
     })),
     getAttribute: vi.fn(async (name: string) => {
@@ -126,11 +126,14 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(button.page.request.post).not.toHaveBeenCalled();
   });
 
-  it('uses the Workday signInLink button only inside the same live email and password form', async () => {
+  it('uses the Workday signInLink button with a labelled text email inside the same password form', async () => {
     const currentUrl = `https://${HOST}/en-US/AcmeCareers/job/Switzerland/Consultant_R-12345-1/apply/applyManually`;
     const workday = pageWithLink({
       label: 'Connexion', currentUrl, tagName: 'BUTTON', dataAutomationId: 'signInLink',
-      formId: 'auth-form', formHasEmail: true, formHasPassword: true,
+      formId: 'auth-form', formIdentityFields: [
+        { inputType: 'text', kind: 'text', label: 'Email Address', name: '', autocomplete: '' },
+        { inputType: 'password', kind: 'password', label: '', name: '', autocomplete: '' },
+      ], formHasPassword: true,
     });
     const snapshot = {
       dialogs: [],

@@ -7081,8 +7081,17 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
         href: element.getAttribute('href'),
         dataAutomationId: element.getAttribute('data-automation-id') || '',
         formId: form?.getAttribute('data-aa-id') || '',
-        formHasEmail: inputs.some((input) => input.type === 'email'
-          || /email/i.test(`${input.getAttribute('autocomplete') || ''} ${input.name || ''} ${input.id || ''}`)),
+        formIdentityFields: inputs.map((input) => ({
+          inputType: String(input.type || '').toLowerCase(),
+          kind: String(input.type || '').toLowerCase() === 'text' ? 'text' : String(input.type || '').toLowerCase(),
+          label: [
+            ...(input.labels ? [...input.labels].map((node) => node.innerText || node.textContent || '') : []),
+            input.getAttribute('aria-label') || '',
+            input.getAttribute('placeholder') || '',
+          ].join(' '),
+          name: input.name || '',
+          autocomplete: input.getAttribute('autocomplete') || '',
+        })),
         formHasPassword: inputs.some((input) => input.type === 'password'),
       };
     }).catch(() => null);
@@ -7108,7 +7117,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       && liveControl.dataAutomationId === 'signInLink'
       && Boolean(candidate.formId)
       && candidate.formId === liveControl.formId
-      && liveControl.formHasEmail === true
+      && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
       && liveControl.formHasPassword === true
       && explicitSignInLabel;
     if (workdayFormButton) {

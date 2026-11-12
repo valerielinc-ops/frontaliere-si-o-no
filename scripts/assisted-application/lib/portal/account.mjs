@@ -95,7 +95,11 @@ export function hasExistingAccountPrompt(snapshot = {}) {
     .flatMap((message) => message.split(/(?<=[.!?;])\s+|[\r\n]+/u).map((part) => part.trim()).filter(Boolean));
   const registrationSurface = hasRegistrationEmailField(snapshot);
   return messages.some((message) => {
-    if (EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)) return false;
+    // A concrete identity error can itself be phrased as a question by the
+    // portal (for example, “This email is already registered?”). Suppress
+    // only the generic account-navigation prompt, not an explicit conflict.
+    if (EXISTING_ACCOUNT_NAV_QUESTION_RE.test(message)
+      && !EXISTING_ACCOUNT_ERROR_RE.test(message)) return false;
     // A concrete e-mail/account error remains authoritative even when the
     // portal leaves the registration form mounted. Generic account copy on a
     // complete create form is only navigation, not proof that this candidate

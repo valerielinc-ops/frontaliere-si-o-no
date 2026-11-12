@@ -65,6 +65,10 @@ describe('portal account pages', () => {
     expect(hasExistingAccountPrompt({ text: 'Already have an account? Sign in to continue. This email is already in use.' })).toBe(true);
   });
 
+  it('recognizes a concrete existing-email error phrased as a question', () => {
+    expect(hasExistingAccountPrompt({ text: 'This email is already registered?' })).toBe(true);
+  });
+
   it.each([
     'Already have an account? Sign in to continue',
     'Jetzt anmelden',
