@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+  'whatsNew.v31013.title': 'Une comparaison plus claire avec les exigences',
+  'whatsNew.v31013.job-affinity.title': 'Comparer vos compétences à l’offre',
+  'whatsNew.v31013.job-affinity.desc': 'Les offres indiquent quelles compétences saisies figurent aussi dans les exigences. Aucun pourcentage n’est affiché quand les données sont insuffisantes ; les diplômes et les années d’expérience ne sont pas évalués.',
   'whatsNew.v31012.title': 'Des documents de candidature plus complets',
   'whatsNew.v31012.assisted-application.title': 'Votre e-mail dans le CV et la lettre',
   'whatsNew.v31012.assisted-application.desc': 'Le CV adapté et la lettre de motivation incluent désormais l’adresse e-mail que vous avez indiquée pour votre candidature assistée.',
