@@ -15,6 +15,7 @@
  */
 
 import { getLocale, type Locale } from './i18n';
+import { resilientImport } from './resilientImport';
 import { seededExpiredDocumentMatchesSlug } from './seededExpiredJob';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
@@ -1583,18 +1584,54 @@ let _blogSlugs: Record<BlogArticleId, Record<Locale, string>> | null = null;
 let _reverseBlog: Record<Locale, Record<string, BlogArticleId>> | null = null;
 let _blogDataPromise: Promise<void> | null = null;
 
+const ROUTER_LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+ return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isForwardSlugMap(value: unknown): boolean {
+ if (!isRecord(value)) return false;
+ return Object.values(value).every((entry) => (
+  isRecord(entry) && ROUTER_LOCALES.every((locale) => typeof entry[locale] === 'string')
+ ));
+}
+
+function isReverseSlugMap(value: unknown): boolean {
+ if (!isRecord(value)) return false;
+ return ROUTER_LOCALES.every((locale) => {
+  const entries = value[locale];
+  return isRecord(entries) && Object.values(entries).every((slug) => typeof slug === 'string');
+ });
+}
+
+function isBlogDataModule(value: unknown): value is {
+ BLOG_SLUGS: Record<BlogArticleId, Record<Locale, string>>;
+ REVERSE_BLOG: Record<Locale, Record<string, BlogArticleId>>;
+} {
+ if (!isRecord(value)) return false;
+ return isForwardSlugMap(value.BLOG_SLUGS) && isReverseSlugMap(value.REVERSE_BLOG);
+}
+
 /** Trigger lazy load of blog slug data. Safe to call multiple times. */
 export function preloadBlogData(): Promise<void> {
  if (_blogSlugs) return Promise.resolve();
  if (!_blogDataPromise) {
- _blogDataPromise = import('./routerBlogData').then(m => {
- _blogSlugs = m.BLOG_SLUGS;
+  const promise = resilientImport(
+   () => import('./routerBlogData'),
+   isBlogDataModule,
+  ).then(m => {
+  _blogSlugs = m.BLOG_SLUGS;
  // packages/articles/content/routerBlogData.ts (issue #4881 Fase 6) can't
  // import the real BlogArticleId literal union (confinement) — it exports
  // REVERSE_BLOG as Record<ArticleLocale, Record<string, string>>. Only this
- // module (the site) knows which ids are valid, so narrow here.
- _reverseBlog = m.REVERSE_BLOG as Record<Locale, Record<string, BlogArticleId>>;
+  // module (the site) knows which ids are valid, so narrow here.
+  _reverseBlog = m.REVERSE_BLOG as Record<Locale, Record<string, BlogArticleId>>;
  });
+  _blogDataPromise = promise;
+  promise.catch(() => {
+   if (_blogDataPromise === promise) _blogDataPromise = null;
+  });
  }
  return _blogDataPromise;
 }
@@ -1675,14 +1712,29 @@ let _swissSlugs: Record<string, Record<Locale, string>> | null = null;
 let _reverseSwiss: Record<Locale, Record<string, string>> | null = null;
 let _swissDataPromise: Promise<void> | null = null;
 
+function isSwissDataModule(value: unknown): value is {
+ SWISS_SLUGS: Record<string, Record<Locale, string>>;
+ REVERSE_SWISS: Record<Locale, Record<string, string>>;
+} {
+ if (!isRecord(value)) return false;
+ return isForwardSlugMap(value.SWISS_SLUGS) && isReverseSlugMap(value.REVERSE_SWISS);
+}
+
 /** Trigger lazy load of svizzera article slug data. Safe to call multiple times. */
 export function preloadSwissData(): Promise<void> {
  if (_swissSlugs) return Promise.resolve();
  if (!_swissDataPromise) {
- _swissDataPromise = import('./routerSwissData').then(m => {
- _swissSlugs = m.SWISS_SLUGS;
- _reverseSwiss = m.REVERSE_SWISS;
+  const promise = resilientImport(
+   () => import('./routerSwissData'),
+   isSwissDataModule,
+  ).then(m => {
+  _swissSlugs = m.SWISS_SLUGS;
+  _reverseSwiss = m.REVERSE_SWISS;
  });
+  _swissDataPromise = promise;
+  promise.catch(() => {
+   if (_swissDataPromise === promise) _swissDataPromise = null;
+  });
  }
  return _swissDataPromise;
 }

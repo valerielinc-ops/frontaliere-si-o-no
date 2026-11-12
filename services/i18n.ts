@@ -9,6 +9,7 @@ import type { ArticleSection, HistoricalArticleSection } from './articleSections
 import { articlesApiBase } from './articlesApiBase';
 import { isArticleBodyPlaceholder } from './articleBodyRecovery';
 import type { ArticleBodyApiLocale, ArticleBodyApiResult } from './articleBodyApi';
+import { resilientImport } from './resilientImport';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from './storageAvailability';
 
 type TranslationKey = string;
@@ -50,7 +51,19 @@ const localeLoading: Partial<Record<Locale, Promise<void>>> = {};
 
 // ─── Per-page chunk loaders for EN/DE/FR (same split as Italian) ─
 
-type ChunkLoader = () => Promise<{ default: Translations }>;
+type TranslationChunk = { default: Translations };
+type ChunkLoader = () => Promise<TranslationChunk>;
+
+function isTranslationChunk(value: unknown): value is TranslationChunk {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+ const translations = (value as { default?: unknown }).default;
+ if (!translations || typeof translations !== 'object' || Array.isArray(translations)) return false;
+ return Object.values(translations as Record<string, unknown>).every(entry => typeof entry === 'string');
+}
+
+function loadTranslationChunk(loader: ChunkLoader): Promise<TranslationChunk> {
+ return resilientImport(loader, isTranslationChunk);
+}
 
 // Above-the-fold critical keys for non-IT locales (tiny ~4KB, loaded first)
 const localeCriticalLoaders: Partial<Record<Locale, ChunkLoader>> = {
@@ -177,16 +190,16 @@ function isCantonSection(section: ArticleSectionName): boolean {
 
 const blogMetaLoaders: Record<HistoricalArticleSection, Record<Locale, () => Promise<{ default: Translations }>>> = {
  frontaliere: {
- it: () => import('./locales/blog-meta-it'),
- en: () => import('./locales/blog-meta-en'),
- de: () => import('./locales/blog-meta-de'),
- fr: () => import('./locales/blog-meta-fr'),
+ it: () => loadTranslationChunk(() => import('./locales/blog-meta-it')),
+ en: () => loadTranslationChunk(() => import('./locales/blog-meta-en')),
+ de: () => loadTranslationChunk(() => import('./locales/blog-meta-de')),
+ fr: () => loadTranslationChunk(() => import('./locales/blog-meta-fr')),
  },
  svizzera: {
- it: () => import('./locales/blog-meta-ch-it'),
- en: () => import('./locales/blog-meta-ch-en'),
- de: () => import('./locales/blog-meta-ch-de'),
- fr: () => import('./locales/blog-meta-ch-fr'),
+ it: () => loadTranslationChunk(() => import('./locales/blog-meta-ch-it')),
+ en: () => loadTranslationChunk(() => import('./locales/blog-meta-ch-en')),
+ de: () => loadTranslationChunk(() => import('./locales/blog-meta-ch-de')),
+ fr: () => loadTranslationChunk(() => import('./locales/blog-meta-ch-fr')),
  },
 };
 
@@ -319,7 +332,12 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
    notifyTranslationsLoaded();
   })();
   blogMetaLoadingPromises.set(key, promise);
-  await promise;
+  try {
+   await promise;
+  } catch (error) {
+   if (blogMetaLoadingPromises.get(key) === promise) blogMetaLoadingPromises.delete(key);
+   throw error;
+  }
   return;
  }
  const loaders = blogMetaLoaders[section as HistoricalArticleSection];
@@ -344,7 +362,12 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
  notifyTranslationsLoaded();
  })();
  blogMetaLoadingPromises.set(key, promise);
- await promise;
+ try {
+  await promise;
+ } catch (error) {
+  if (blogMetaLoadingPromises.get(key) === promise) blogMetaLoadingPromises.delete(key);
+  throw error;
+ }
 }
 
 /**
