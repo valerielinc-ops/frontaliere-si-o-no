@@ -6,13 +6,13 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 const base = 'assisted_applications/live_contract_fixture';
 const old = { id: 'notice', source: 'portal', question: 'Notice period', applicationQuestion: 'Notice period *', context: 'Application', type: 'text', options: [], required: true, validation: { minLength: 30 } };
 const live = { ...old, type: 'choice', options: ['1 month', '2 months', '3 months'], applicationOptions: ['1 Monat', '2 Monate', '3 Monate'], optionMap: [{ candidate: '1 month', application: '1 Monat' }, { candidate: '2 months', application: '2 Monate' }, { candidate: '3 months', application: '3 Monate' }], validation: {} };
-function fixture() {
+function fixture(submission = { r1: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: 100 } }) {
   const expected = {
     order: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
     flow: { state: 'submitting', round: 1, answers: { notice: '7 days' }, questionAnswers: { notice_period: '7 days' }, dispatch: { mode: 'submit', round: 1, sourceSha: 'a'.repeat(40) } },
     draft: { status: 'ready', round: 1, questions: [old], approval: { at: 123 }, job: { applyUrl: 'https://jobs.example.test/apply' } },
   };
-  const store = createMemoryFirestore({ [base]: expected.order, [`${base}/automation/flow`]: expected.flow, [`${base}/ai_drafts/current`]: expected.draft, [`${base}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: 100 } } });
+  const store = createMemoryFirestore({ [base]: expected.order, [`${base}/automation/flow`]: expected.flow, [`${base}/ai_drafts/current`]: expected.draft, [`${base}/automation/submission`]: submission });
   return { ...store, expected, orderRef: store.db.collection('assisted_applications').doc('live_contract_fixture') };
 }
 
@@ -169,5 +169,27 @@ describe('current runner updates a previously stored portal question contract', 
     expect(await persistLivePortalRequirements({ ...store, round: 1, event })).toBe(false);
     expect(store.read(`${base}/ai_drafts/current`)).toEqual(before);
     expect(event.questions).toEqual([live]);
+  });
+
+  it.each([
+    ['confirmed release', { state: 'failed', channel: 'portal', confirmedNotSent: true, clickedAt: 123, releasedAt: 124 }],
+    ['legacy confirmed release', { state: 'failed', channel: 'portal', clickedAt: 123, releasedAt: 124 }],
+  ])('accepts live requirements after a %s that preserves click evidence', async (_label, record) => {
+    const store = fixture({ r1: record });
+    const event = { type: 'submit_needs_candidate', questions: [live], documents: [] };
+
+    expect(await persistLivePortalRequirements({ ...store, round: 1, event })).toBe(true);
+    expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([live]);
+  });
+
+  it.each([
+    ['uncertain portal click', { state: 'sending', channel: 'portal', clickedAt: 123 }],
+    ['confirmed send', { state: 'sent', channel: 'portal' }],
+  ])('rejects live requirements when submission evidence is still blocking: %s', async (_label, record) => {
+    const store = fixture({ r1: record });
+    const event = { type: 'submit_needs_candidate', questions: [live], documents: [] };
+
+    expect(await persistLivePortalRequirements({ ...store, round: 1, event })).toBe(false);
+    expect(store.read(`${base}/ai_drafts/current`).questions).toEqual([old]);
   });
 });

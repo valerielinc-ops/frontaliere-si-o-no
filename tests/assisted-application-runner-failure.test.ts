@@ -35,7 +35,8 @@ describe('failed executor reconciliation', () => {
     { kind: 'email', record: { state: 'sending', channel: 'email', startedAt: now }, expected: 'email_ambiguous' },
     { kind: 'portal', record: { state: 'sending', channel: 'portal', clickedAt: now }, expected: 'portal_ambiguous' },
     { kind: 'portal sending before click', record: { state: 'sending', channel: 'portal', startedAt: now, clickedAt: null }, expected: 'runner_infrastructure_unavailable' },
-    { kind: 'failed after click', record: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now + 1 }, expected: 'portal_ambiguous' },
+    { kind: 'legacy released after click', record: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now + 1 }, expected: 'runner_infrastructure_unavailable' },
+    { kind: 'failed after click without no-send proof', record: { state: 'failed', channel: 'portal', clickedAt: now, confirmedNotSent: false, releasedAt: now + 1 }, expected: 'portal_ambiguous' },
     { kind: 'confirmed refusal after click', record: { state: 'failed', channel: 'portal', reason: 'portal_refused', clickedAt: now, confirmedNotSent: true, releasedAt: now + 1 }, expected: 'runner_infrastructure_unavailable' },
     { kind: 'failed before click', record: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: now + 1 }, expected: 'runner_infrastructure_unavailable' },
   ])('respects the durable $kind outcome', async ({ kind, record, expected }) => {

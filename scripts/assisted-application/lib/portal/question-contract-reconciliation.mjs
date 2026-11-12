@@ -11,6 +11,7 @@ import { portalRequirementsFromMissingRequired, preferredCvFields } from './port
 import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
+import { isUnconfirmedSubmission } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 
 // Receipt version follows the answer provenance contract independently of
 // the native proof version stored on questions.
@@ -67,8 +68,9 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
     && Number(flow.dispatch?.round) === round
     && Number(draft?.completedAt) > 0 && Number(flow.dispatch?.requestedAt) >= Number(draft.completedAt)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
-    && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
-    && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending' || record?.clickedAt)
+    && send?.state === 'failed' && send.channel === 'portal' && !isUnconfirmedSubmission(send) && Number(send.releasedAt) > 0
+    && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending'
+      || isUnconfirmedSubmission(record))
     && isFetchablePublicUrl(portalContractSourceUrl(draft))
     && (draft.questions || []).some(question => question.source === 'portal' && question.required === true
       && (ownerPortalQuestionHold(flow) || (flow.heldBy || []).includes(`question:${question.id}`)) && relaxablePortalQuestionTopic(question)

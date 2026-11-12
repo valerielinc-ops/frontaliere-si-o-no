@@ -6,7 +6,7 @@ import { PORTAL_CONTRACT_RECONCILIATION_VERSION, portalContractContextHash, port
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { operationalPortalRecoveryReady, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { operationalPortalRecoveryReady, portalQuestionHoldsDefinitelyUnsent, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
@@ -118,7 +118,7 @@ it('keeps clicked, uncertain, sent, refunded and withdrawn rounds out of recover
   const version = 'a'.repeat(64);
   expect(portalRecoveryDefinitelyUnsent({ ...unsentRecoveryContext(), version })).toBe(true);
   const variants = [
-    ['clicked', current => { current.submission.r1.clickedAt = now - 50; }],
+    ['unconfirmed click', current => { current.submission.r1.clickedAt = now - 50; current.submission.r1.confirmedNotSent = false; }],
     ['uncertain', current => { current.submission.r1.state = 'sending'; }],
     ['sent', current => { current.submission.r0 = { state: 'sent' }; }],
     ['refunded', current => { current.order.refundStatus = 'succeeded'; }],
@@ -129,6 +129,31 @@ it('keeps clicked, uncertain, sent, refunded and withdrawn rounds out of recover
     mutate(current);
     expect(portalRecoveryDefinitelyUnsent({ ...current, version })).toBe(false);
   }
+});
+
+it.each([
+  ['confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 50, releasedAt: now - 100, confirmedNotSent: true }],
+  ['legacy confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 50, releasedAt: now - 100 }],
+])('allows portal recovery after a %s with retained click evidence', (_label, record) => {
+  const context = unsentRecoveryContext();
+  context.submission.r1 = record;
+  expect(portalRecoveryDefinitelyUnsent({ ...context, version: 'a'.repeat(64) })).toBe(true);
+});
+
+it('allows a resolved portal question recovery after a confirmed released click', () => {
+  const context = {
+    order: { paymentStatus: 'paid', automationState: 'needs_candidate_action', consentVersion: 'assisted-application-v2', consentedAt: daysAgo(1) },
+    flow: { state: 'needs_candidate_action', round: 1, heldBy: ['question:q1'], portalCodeVersion: 'b'.repeat(64),
+      dispatch: { mode: 'submit', round: 1, requestedAt: now - 1_000 } },
+    draft: { status: 'ready', round: 1, completedAt: now - 2_000 },
+    submission: { r1: { state: 'failed', channel: 'portal', clickedAt: now - 100, releasedAt: now - 50, confirmedNotSent: true } },
+    version: 'a'.repeat(64), questionIds: ['q1'], approvedRound: true, retentionAllowed: true,
+  };
+
+  expect(portalQuestionHoldsDefinitelyUnsent(context)).toBe(true);
+  expect(portalQuestionHoldsDefinitelyUnsent({ ...context, submission: {
+    r1: { ...context.submission.r1, confirmedNotSent: false },
+  } })).toBe(false);
 });
 
 describe('legacy operational portal contract reconciliation', () => {
@@ -352,11 +377,20 @@ describe('legacy operational portal contract reconciliation', () => {
     if (kind === 'submitting') current.flow.state = 'submitting';
     if (kind === 'sent') current.submission.r1.state = 'sent';
     if (kind === 'sending') current.submission.r1.state = 'sending';
-    if (kind === 'clicked') current.submission.r1.clickedAt = now;
+    if (kind === 'clicked') { current.submission.r1.clickedAt = now; current.submission.r1.confirmedNotSent = false; }
     if (kind === 'sent_attempt') current.draft.sentAttempt = { at: now };
     if (kind === 'round') current.draft.round = 2;
     if (kind === 'unapproved') current.flow.dispatch.mode = 'draft';
     expect(legacyPortalContractEligible(current, now)).toBe(false);
+  });
+
+  it.each([
+    ['confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 50, releasedAt: now - 100, confirmedNotSent: true }],
+    ['legacy confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 50, releasedAt: now - 100 }],
+  ])('allows contract reconciliation after a %s with retained click evidence', (_label, record) => {
+    const current: any = context(fixture());
+    current.submission.r1 = record;
+    expect(legacyPortalContractEligible(current, now)).toBe(true);
   });
 
   it('rejects a concurrent answer or draft mutation after the public probe', async () => {

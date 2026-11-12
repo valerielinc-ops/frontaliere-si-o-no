@@ -50,7 +50,7 @@ describe('draft failures', () => {
   });
 
   it('knows which errors another run can fix', () => {
-    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded', 'portal_question_localization_unavailable']) {
+    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded', 'portal_question_localization_unavailable', 'requirement_context_changed']) {
       expect(isTransientRunError(error)).toBe(true);
     }
     // runner_timeout: the watchdog already re-dispatched the silent run.
@@ -64,6 +64,13 @@ describe('draft failures', () => {
     const retry = transition(submitting, { type: 'submit_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
     expect(retry.flow.state).toBe('submitting');
     expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+
+    const contextRetry = transition(submitting, { type: 'submit_failed', error: 'requirement_context_changed' }, { draft: cleanDraft, nowMs: T0 });
+    expect(contextRetry.flow.state).toBe('submitting');
+    expect(contextRetry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+    const contextRetryExhausted = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } },
+      { type: 'submit_failed', error: 'requirement_context_changed' }, { draft: cleanDraft, nowMs: T0 });
+    expect(contextRetryExhausted.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['requirement_context_changed'] });
 
     const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
     expect(last.flow.state).toBe('owner_takeover');

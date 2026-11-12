@@ -29,6 +29,7 @@ import {
   readEgressCountry,
   runCycle,
   systemChromeFor,
+  verifyAgentEntryPoint,
 } from '../scripts/assisted-application/local-runner.mjs';
 
 // Opaque ids and synthetic data only: no candidate, no portal answer.
@@ -68,6 +69,8 @@ function effectRunner(github: ReturnType<typeof vi.fn>, others: any[] = []) {
 function okText(text: string) {
   return async () => ({ ok: true, text: async () => text });
 }
+
+const availableEntryPoint = async () => ({ eligible: true, reason: null });
 
 describe('Swiss egress mark', () => {
   it('a regional notice marks the order with its proof, and the mark survives every later transition', () => {
@@ -316,8 +319,12 @@ describe('Swiss runner offline', () => {
     });
   });
 
-  it('no heartbeat at all, or one from a non-Swiss exit, holds as well', async () => {
-    for (const [runner, reason] of [[null, 'heartbeat_missing'], [{ at: now - 1000, eligible: false, egressCountry: 'IT' }, 'egress_not_swiss']] as const) {
+  it('no heartbeat, a non-Swiss exit, or an unavailable entry point holds the request', async () => {
+    for (const [runner, reason] of [
+      [null, 'heartbeat_missing'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'IT' }, 'egress_not_swiss'],
+      [{ at: now - 1000, eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib' }, 'entry_point_unavailable'],
+    ] as const) {
       const store = storeWith(submitting, { [queuePath]: pending, ...(runner ? { [`${LOCAL_RUNNERS_COLLECTION}/swiss-a`]: runner } : {}) });
       await runAutomationSweep({ db: store.db, runEffect: effectRunner(vi.fn()), nowMs: now } as any);
       expect(store.read(flowPath)).toMatchObject({ heldBy: ['portal:swiss_runner_offline'], swissRunnerOffline: { reason } });
@@ -342,6 +349,8 @@ describe('Swiss runner offline', () => {
     expect(swissRunnerAvailability([], now)).toMatchObject({ online: false, reason: 'heartbeat_missing' });
     expect(swissRunnerAvailability([{ at: now - SWISS_RUNNER_HEARTBEAT_STALE_MS - 1, eligible: true, egressCountry: 'CH' }], now)).toMatchObject({ reason: 'heartbeat_stale' });
     expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'DE' }], now)).toMatchObject({ reason: 'egress_not_swiss' });
+    expect(swissRunnerAvailability([{ at: now, eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib' }], now))
+      .toMatchObject({ online: false, reason: 'entry_point_unavailable' });
     expect(swissRunnerAvailability([{ at: now, eligible: true, egressCountry: 'CH' }], now)).toMatchObject({ online: true });
   });
 });
@@ -361,6 +370,49 @@ describe('local runner', () => {
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: false, egressCountry: 'IT', reason: 'egress_not_swiss', at: now });
   });
 
+  it('leaves queued work untouched when the agent entry point cannot import', async () => {
+    const store = storeWith(submitting);
+    await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
+    const runAgent = vi.fn();
+    const checkEntryPoint = vi.fn(async () => ({ eligible: false, reason: 'entry_point_unavailable:pdf-lib' }));
+    const logs: string[] = [];
+    const result = await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now,
+      fetchImpl: okText('CH') as any, runAgent, checkEntryPoint, version: 'test-entrypoint-failure', log: line => logs.push(line) });
+
+    expect(checkEntryPoint).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ eligible: false, reason: 'entry_point_unavailable:pdf-lib', leased: null });
+    expect(runAgent).not.toHaveBeenCalled();
+    expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
+    expect(store.read(queuePath)).not.toHaveProperty('lease');
+    expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({
+      eligible: false, egressCountry: 'CH', reason: 'entry_point_unavailable:pdf-lib', busy: null,
+    });
+    expect(logs).toEqual(['swiss-runner entry point unavailable version=test-entrypoint-failure reason=entry_point_unavailable:pdf-lib']);
+
+    await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now + 1,
+      fetchImpl: okText('CH') as any, runAgent, checkEntryPoint, version: 'test-entrypoint-failure', log: line => logs.push(line) });
+    expect(checkEntryPoint).toHaveBeenCalledTimes(2);
+    expect(logs).toHaveLength(1);
+    expect(store.read(queuePath)).toMatchObject({ status: 'pending' });
+  });
+
+  it('limits import failure diagnostics to the missing package name', () => {
+    const spawnSyncImpl = vi.fn(() => ({
+      error: null,
+      status: 1,
+      stdout: '',
+      stderr: "Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'pdf-lib' imported from /checkout/scripts/assisted-application/lib/docx-inplace.mjs",
+    }));
+
+    const result = verifyAgentEntryPoint({ repoRoot: '/checkout', spawnSyncImpl: spawnSyncImpl as any });
+
+    expect(result).toEqual({ eligible: false, reason: 'entry_point_unavailable:pdf-lib' });
+    expect(result.reason).not.toContain('/checkout');
+    expect(spawnSyncImpl).toHaveBeenCalledWith(process.execPath,
+      ['--input-type=module', '-e', expect.stringContaining("import('./scripts/assisted-application/agent.mjs')")],
+      expect.objectContaining({ cwd: '/checkout', timeout: 15_000 }));
+  });
+
   it('an unknown exit takes no work either', async () => {
     const failing = async () => { throw new Error('offline'); };
     expect(await readEgressCountry({ fetchImpl: failing as any })).toEqual({ country: null, source: null });
@@ -371,7 +423,7 @@ describe('local runner', () => {
     const store = storeWith(submitting);
     await enqueueLocalDispatch({ db: store.db, orderId, flow: submitting, mode: 'submit', nowMs: now });
     const runAgent = vi.fn(async (_args: any) => ({ status: 'done', exitCode: 0, code: null }));
-    const result = await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
+    const result = await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: okText('CH') as any, runAgent, checkEntryPoint: availableEntryPoint, log: () => {} });
 
     expect(runAgent).toHaveBeenCalledTimes(1);
     expect(runAgent.mock.calls[0][0]).toMatchObject({ leased: { orderId, mode: 'submit', round: 1 } });
@@ -379,7 +431,7 @@ describe('local runner', () => {
     expect(store.read(queuePath)).toMatchObject({ status: 'done', lease: null });
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: true, egressCountry: 'CH', busy: null });
     // Nothing left to run.
-    await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now + 1, fetchImpl: okText('CH') as any, runAgent, log: () => {} });
+    await runCycle({ db: store.db, runnerId: 'swiss-a', now: () => now + 1, fetchImpl: okText('CH') as any, runAgent, checkEntryPoint: availableEntryPoint, log: () => {} });
     expect(runAgent).toHaveBeenCalledTimes(1);
   });
 
@@ -504,6 +556,7 @@ describe('review: crashed leases, a failing offline transition, an exit lost mid
     const started = Date.now();
     const result = await runCycle({
       db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', 'US'), runAgent, log: () => {}, checkEveryMs: 20,
+      checkEntryPoint: availableEntryPoint,
     });
 
     expect(Date.now() - started).toBeLessThan(4000);
@@ -518,6 +571,7 @@ describe('review: crashed leases, a failing offline transition, an exit lost mid
     await enqueueLocalDispatch({ db: store.db, orderId, flow: fresh, mode: 'submit', nowMs: now });
     const result = await runCycle({
       db: store.db, runnerId: 'swiss-a', now: () => now, fetchImpl: countries('CH', null), runAgent: agentUntilStopped(150), log: () => {}, checkEveryMs: 20,
+      checkEntryPoint: availableEntryPoint,
     });
     expect(result).toMatchObject({ eligible: true, outcome: { status: 'done' }, release: { status: 'done' } });
     expect(store.read(`${LOCAL_RUNNERS_COLLECTION}/swiss-a`)).toMatchObject({ eligible: true, egressCountry: 'CH' });

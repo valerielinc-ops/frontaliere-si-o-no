@@ -62,13 +62,24 @@ export function submissionRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('automation').doc(SUBMISSION_DOC_ID);
 }
 
+/** A pre-confirmed release persisted by older portal runners before the proof field existed. */
+export function isLegacyReleasedPortalSubmission(record) {
+  return record?.state === 'failed'
+    && record.channel === 'portal'
+    && Number(record.clickedAt) > 0
+    && !Object.prototype.hasOwnProperty.call(record, 'confirmedNotSent');
+}
+
 /**
  * The submission may have reached the employer, and nothing confirmed it: a
  * portal after its final click, or an e-mail whose send started. A durable
  * release records the separate proof that the employer did not receive it.
+ * The legacy failed-portal shape without that field follows the same migration
+ * used by claim(): its click remains evidence, but no longer blocks a retry.
  */
 export function isUnconfirmedSubmission(record) {
   if (record?.state === 'failed' && record.confirmedNotSent === true) return false;
+  if (isLegacyReleasedPortalSubmission(record)) return false;
   return record?.state !== 'sent' && (Boolean(record?.clickedAt) || (record?.state === 'sending' && record.channel === 'email'));
 }
 
@@ -143,10 +154,7 @@ export function submissionGuard(db, orderId, round, { answerSourceGuard = null }
         // narrow legacy shape: an explicit portal failure with click evidence
         // and no field at all. A current `confirmedNotSent: false` remains an
         // unknown outcome and must stay locked.
-        const legacyReleasedPortal = current?.state === 'failed'
-          && current.channel === 'portal'
-          && Number(current.clickedAt) > 0
-          && !Object.prototype.hasOwnProperty.call(current, 'confirmedNotSent');
+        const legacyReleasedPortal = isLegacyReleasedPortalSubmission(current);
         if (legacyReleasedPortal) {
           current = { ...current, confirmedNotSent: true };
         }

@@ -15,7 +15,7 @@ export const DRAFT_RECOVERY_VERSION = 'draft-recovery-v1';
 
 function hasUncertainSend(record) {
   return record?.state === 'sent' || record?.state === 'sending' || record?.state === 'claimed'
-    || record?.sentAttempt || record?.clickedAt || isUnconfirmedSubmission(record);
+    || record?.sentAttempt || isUnconfirmedSubmission(record);
 }
 
 export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.now(), isEnabled = null } = {}) {

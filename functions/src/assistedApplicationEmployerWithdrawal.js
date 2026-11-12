@@ -78,9 +78,7 @@ export function sendMayHaveLeft({ draft = null, submission = {} } = {}) {
   return Object.entries(submission || {}).some(([key, record]) => {
     if (!/^r\d+$/.test(key) || !record || typeof record !== 'object') return false;
     if (record.state === 'sent') return true;
-    const legacyReleasedPortal = record.state === 'failed' && record.channel === 'portal'
-      && Number(record.clickedAt) > 0 && !Object.hasOwn(record, 'confirmedNotSent');
-    return isUnconfirmedSubmission(legacyReleasedPortal ? { ...record, confirmedNotSent: true } : record);
+    return isUnconfirmedSubmission(record);
   });
 }
 

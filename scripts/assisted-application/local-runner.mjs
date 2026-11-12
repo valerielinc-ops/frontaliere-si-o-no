@@ -8,8 +8,9 @@
  * One cycle (`--once`, what the launch agent runs every 2 minutes; `--loop` repeats it):
  *   1. reads the network exit's country (ipinfo.io, then ipapi.co). Not `CH`, or unknown: it takes no work
  *      and says why in its heartbeat (the Functions then hold the queued orders for the owner);
- *   2. writes its heartbeat, then leases at most one request in a transaction (never two runs of the same
- *      order; a request whose flow moved on is closed as stale and never runs);
+ *   2. verifies the agent entry point in a short-lived child process, then writes its heartbeat and leases
+ *      at most one request in a transaction (never two runs of the same order; a request whose flow moved
+ *      on is closed as stale and never runs);
  *   3. starts the same Codex auth broker the workflow starts (.github/actions/setup-claude-haiku-fallback/
  *      codex-auth-broker.mjs), fed this Mac's Codex login, or reuses a live one (SWISS_RUNNER_BROKER_SOCKET);
  *   4. runs scripts/assisted-application/agent.mjs with the workflow's variables (Remote Config through
@@ -40,7 +41,7 @@ import {
   writeRunnerHeartbeat,
 } from '../../functions/src/assistedApplicationSwissRunner.js';
 
-export const RUNNER_VERSION = 'swiss-runner/1';
+export const RUNNER_VERSION = 'swiss-runner/2';
 export const SWISS_COUNTRY = 'CH';
 export const EGRESS_SOURCES = Object.freeze(['https://ipinfo.io/country', 'https://ipapi.co/country/']);
 /** The workflow's `timeout-minutes: 120`. */
@@ -48,10 +49,66 @@ export const AGENT_TIMEOUT_MS = 120 * 60 * 1000;
 export const HEARTBEAT_EVERY_MS = 60 * 1000;
 export const DEFAULT_LOOP_INTERVAL_MS = 30 * 1000;
 export const SYSTEM_CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+export const ENTRY_POINT_CHECK_TIMEOUT_MS = 15_000;
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BROKER_SCRIPT = path.join(REPO_ROOT, '.github', 'actions', 'setup-claude-haiku-fallback', 'codex-auth-broker.mjs');
 const CHROME_PRELOAD = path.join(REPO_ROOT, 'scripts', 'assisted-application', 'local-runner-chrome-preload.cjs');
 const BROKER_MAX_TIMEOUT_MS = '1800000';
+const ENTRY_POINT_IMPORT = "await import('./scripts/assisted-application/agent.mjs')";
+const entryPointFailuresLogged = new Set();
+
+/** Run the same import check as the Actions workflow without exposing child output or local paths. */
+export function verifyAgentEntryPoint({ repoRoot = REPO_ROOT, timeoutMs = ENTRY_POINT_CHECK_TIMEOUT_MS, spawnSyncImpl = spawnSync } = {}) {
+  const result = spawnSyncImpl(process.execPath, ['--input-type=module', '-e', ENTRY_POINT_IMPORT], {
+    cwd: repoRoot,
+    encoding: 'utf8',
+    timeout: timeoutMs,
+    maxBuffer: 1024 * 1024,
+    windowsHide: true,
+  });
+  if (!result.error && result.status === 0) return { eligible: true, reason: null };
+  const output = `${result.stdout || ''}\n${result.stderr || ''}`;
+  const missingPackage = /Cannot find package ['"]([^'"]+)['"]/.exec(output)?.[1] || '';
+  const safePackage = /^[A-Za-z0-9@._/-]{1,50}$/.test(missingPackage) ? missingPackage : '';
+  const reason = result.error?.code === 'ETIMEDOUT'
+    ? 'entry_point_unavailable:timeout'
+    : `entry_point_unavailable${safePackage ? `:${safePackage}` : ''}`;
+  return { eligible: false, reason };
+}
+
+function safeEntryPointResult(result) {
+  const reason = String(result?.reason || '');
+  return result?.eligible === true
+    ? { eligible: true, reason: null }
+    : { eligible: false, reason: /^entry_point_unavailable(?::[A-Za-z0-9@._/-]{1,50})?$/.test(reason) ? reason : 'entry_point_unavailable' };
+}
+
+async function entryPointStatus({ repoRoot, checkEntryPoint }) {
+  let result;
+  try {
+    result = safeEntryPointResult(await checkEntryPoint({ repoRoot }));
+  } catch {
+    result = { eligible: false, reason: 'entry_point_unavailable' };
+  }
+  return result;
+}
+
+function logEntryPointFailureOnce({ version, reason, log, logDir = null }) {
+  const key = String(version || RUNNER_VERSION).slice(0, 80);
+  if (entryPointFailuresLogged.has(key)) return;
+  entryPointFailuresLogged.add(key);
+  if (logDir) {
+    const markerDir = path.join(logDir, 'entry-point-failures');
+    const marker = path.join(markerDir, createHash('sha256').update(key).digest('hex'));
+    try {
+      fs.mkdirSync(markerDir, { recursive: true, mode: 0o700 });
+      fs.writeFileSync(marker, 'logged\n', { flag: 'wx', mode: 0o600 });
+    } catch (error) {
+      if (error?.code === 'EEXIST') return;
+    }
+  }
+  log(`swiss-runner entry point unavailable version=${key} reason=${reason}`);
+}
 
 // ── Network exit ────────────────────────────────────────────────────────────
 
@@ -392,13 +449,27 @@ export async function runAgentLocally({ db, leased, startedAt, signal = null, en
  * @param {{db, runnerId:string, now?:()=>number, fetchImpl?:Function, runAgent:Function, log?:(line:string)=>void, version?:string|null, checkEveryMs?:number}} args
  *   `checkEveryMs`: how often, during a run, the heartbeat is written and the exit read again.
  */
-export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent, log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS }) {
+export async function runCycle({ db, runnerId, now = Date.now, fetchImpl = fetch, runAgent,
+  log = (line) => process.stdout.write(`${line}\n`), version = null, checkEveryMs = HEARTBEAT_EVERY_MS,
+  repoRoot = REPO_ROOT, checkEntryPoint = verifyAgentEntryPoint, entryPointFailureLogDir = null }) {
   let egress = await readEgressCountry({ fetchImpl });
   let verdict = egressVerdict(egress);
+  let entryPointFailure = null;
+  if (verdict.eligible) {
+    const entryPoint = await entryPointStatus({ repoRoot, checkEntryPoint });
+    if (!entryPoint.eligible) {
+      entryPointFailure = entryPoint.reason;
+      verdict = { eligible: false, reason: entryPoint.reason };
+    }
+  }
   const beat = (busy = null) => writeRunnerHeartbeat({
     db, runnerId, nowMs: now(), egressCountry: egress.country, eligible: verdict.eligible, reason: verdict.reason, busy, version,
   });
   await beat();
+  if (entryPointFailure) {
+    logEntryPointFailureOnce({ version, reason: entryPointFailure, log, logDir: entryPointFailureLogDir });
+    return { eligible: false, reason: entryPointFailure, leased: null };
+  }
   if (!verdict.eligible) {
     log(`swiss-runner idle: ${verdict.reason} (exit ${egress.country || 'unknown'})`);
     return { eligible: false, reason: verdict.reason, leased: null };
@@ -506,9 +577,9 @@ async function main(argv = process.argv.slice(2)) {
     const { getFirestoreDb } = await import('../lib/firestore-admin.mjs');
     const db = await getFirestoreDb();
     const runnerId = runnerIdFor({ dir });
-    const version = checkoutVersion();
     do {
-      const result = await runCycle({ db, runnerId, version, runAgent: (args) => runAgentLocally(args) });
+      const result = await runCycle({ db, runnerId, version: checkoutVersion(), entryPointFailureLogDir: dir,
+        runAgent: (args) => runAgentLocally(args) });
       if (!loop) break;
       if (!result.leased) await new Promise((resolve) => setTimeout(resolve, intervalMs));
     } while (loop);
