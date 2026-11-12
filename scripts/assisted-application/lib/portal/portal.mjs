@@ -5789,6 +5789,7 @@ export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|rés
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
 const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?file)?|select(?:\s+(?:a\s+)?file)?|upload(?:\s+(?:a\s+)?file)?|attach(?:\s+(?:a\s+)?file)?|durchsuchen|datei\s+(?:auswählen|hochladen)|parcourir|choisir(?:\s+un)?\s+fichier|sélectionner(?:\s+un)?\s+fichier|sfoglia(?:\s+file)?|scegli(?:\s+(?:un\s+)?file)?|seleziona(?:re)?\s+file|carica(?:re)?\s+file|joindre|importer)\s*[.…]*$/i;
+const ANONYMOUS_FILE_LABEL_RE = /^\(?\s*(?:unlabel(?:led|ed)|without\s+(?:a\s+)?label|no\s+label|senza\s+etichetta|sans\s+(?:étiquette|etiquette)|ohne\s+(?:beschriftung|label))\s*\)?$/iu;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
@@ -5846,6 +5847,29 @@ const buttonHasExplicitDocumentContext = (button) => [
   button?.context,
   button?.fileContext,
 ].filter(Boolean).join(' ');
+
+const anonymousFileField = (field) => {
+  if (!isFileField(field)) return false;
+  const label = String(field?.label || '').replace(/\s+/g, ' ').trim();
+  const identity = [
+    field?.label,
+    field?.name,
+    field?.domId,
+    field?.controlId,
+    field?.semanticId,
+    field?.context,
+    field?.section,
+  ].filter(Boolean).join(' ');
+  if (CV_DOCUMENT_CONTEXT_RE.test(identity)
+    || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(identity)
+    || isNonCvDocumentLabel(identity)) return false;
+  return !label || machineLabel(label) || ANONYMOUS_FILE_LABEL_RE.test(label);
+};
+
+const hasSingleAnonymousFileField = (snapshot) => {
+  const fileFields = (snapshot?.fields || []).filter(isFileField);
+  return fileFields.length === 1 && anonymousFileField(fileFields[0]);
+};
 
 const buttonMatchesDocumentContext = (button, contextPattern) => {
   const context = buttonHasExplicitDocumentContext(button);
@@ -5934,6 +5958,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
   const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
   if (!pattern || !contextPattern) return [];
+  const hasAnonymousCvPicker = kind === 'cv' && hasSingleAnonymousFileField(snapshot);
   const candidates = [];
   const candidateKeys = new Set();
   const contextIconCandidates = [];
@@ -5972,6 +5997,20 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
       contextIconCandidates.push(button);
       if (SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
         && successFactorsDocumentAssociationMatches(association, kind)) iconCandidates.push(button);
+    }
+  }
+  // Workday's French «Présentez-vous» step can expose only one anonymous file
+  // input and a generic «sélectionner un fichier» button. There is no safe
+  // document word to put in the button's context, so bind that picker only to
+  // the sole anonymous file field; multiple anonymous inputs stay ambiguous.
+  if (hasAnonymousCvPicker) {
+    for (const button of snapshot?.buttons || []) {
+      if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button.text || '').trim())) continue;
+      const context = buttonHasExplicitDocumentContext(button);
+      if (context && (CV_DOCUMENT_CONTEXT_RE.test(context)
+        || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
+        || isNonCvDocumentLabel(context))) continue;
+      add(button);
     }
   }
   // The private-use glyph is often the actual file trigger even when the
