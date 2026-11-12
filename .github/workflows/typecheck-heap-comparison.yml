@@ -1,0 +1,40 @@
+name: typecheck heap comparison
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - '.github/workflows/tests.yml'
+      - '.github/workflows/typecheck-heap-comparison.yml'
+      - 'scripts/ci/check-typecheck-baseline.mjs'
+      - 'scripts/ci/compare-typecheck-heap.sh'
+      - 'scripts/ci/typecheck-heap-contract.env'
+      - 'tests/typecheck-heap-comparison.test.ts'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: typecheck-heap-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    name: old/new typecheck on one runner
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          filter: tree:0
+
+      - name: Setup Node.js and dependencies
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Verify heap wiring and flag forms
+        run: npx vitest run tests/typecheck-heap-comparison.test.ts --reporter=dot
+
+      - name: Compare historical and current heap contracts
+        run: bash scripts/ci/compare-typecheck-heap.sh
