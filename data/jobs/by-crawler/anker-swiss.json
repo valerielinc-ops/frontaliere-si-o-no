@@ -7454,9 +7454,9 @@
       "slug": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
       "slugByLocale": {
         "it": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "en": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "de": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "fr": "pittore-100-anker-swiss-ticino-ag-ligornetto-9725c8d1"
+        "en": "painter-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
+        "de": "maler-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
+        "fr": "peintre-100-anker-swiss-ticino-ag-ligornetto-9725c8d1"
       },
       "slugDisambiguator": "9725c8d1",
       "company": "Anker Swiss Ticino AG",
@@ -7504,9 +7504,6 @@
         "it": []
       },
       "previousSlugs": [
-        "painter-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "maler-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
-        "peintre-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
         "pittore-100-anker-swiss-ticino-ag-ligornetto-c21427c1",
         "painter-100-anker-swiss-ticino-ag-ligornetto-c21427c1",
         "maler-100-anker-swiss-ticino-ag-ligornetto-c21427c1",
@@ -7517,15 +7514,12 @@
           "pittore-100-anker-swiss-ticino-ag-ligornetto-c21427c1"
         ],
         "en": [
-          "painter-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
           "painter-100-anker-swiss-ticino-ag-ligornetto-c21427c1"
         ],
         "de": [
-          "maler-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
           "maler-100-anker-swiss-ticino-ag-ligornetto-c21427c1"
         ],
         "fr": [
-          "peintre-100-anker-swiss-ticino-ag-ligornetto-9725c8d1",
           "peintre-100-anker-swiss-ticino-ag-ligornetto-c21427c1"
         ]
       },
@@ -15738,12 +15732,12 @@
     },
     {
       "id": "anker-swiss-30a6c10e0c70",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+      "slug": "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+        "it": "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+        "en": "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+        "fr": "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
       },
       "slugDisambiguator": "30a6c10e",
       "company": "Anker Swiss Ticino AG",
@@ -15791,32 +15785,30 @@
         "de": []
       },
       "previousSlugs": [
-        "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
         "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
         "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
         "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+        "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-          "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+          "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ],
         "en": [
-          "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-          "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+          "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ],
         "de": [
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
         ],
         "fr": [
-          "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-          "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+          "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ]
       },
       "salaryMin": 68500,
@@ -22237,12 +22229,12 @@
     },
     {
       "id": "anker-swiss-a9741c98f870",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
+      "slug": "copertura-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
+        "it": "copertura-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
+        "en": "roofing-100-anker-swiss-ticino-ag-erstfeld-a9741c98",
+        "fr": "toiture-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
       },
       "slugDisambiguator": "a9741c98",
       "company": "Anker Swiss Ticino AG",
@@ -22305,16 +22297,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:35:45.956Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:35:45.956Z"
+      "firstSeenAt": "2026-11-12T09:35:45.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-erstfeld-a9741c98"
+      ]
     },
     {
       "id": "anker-swiss-04b8447ca8dd",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-goldach-04b8447c",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-goldach-04b8447c",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-goldach-04b8447c",
+        "fr": "metaux-100-anker-swiss-ticino-ag-goldach-04b8447c"
       },
       "slugDisambiguator": "04b8447c",
       "company": "Anker Swiss Ticino AG",
@@ -22377,16 +22383,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:35:45.955Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:35:45.955Z"
+      "firstSeenAt": "2026-11-12T09:35:45.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-goldach-04b8447c"
+      ]
     },
     {
       "id": "anker-swiss-95bef1b66d48",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
+      "slug": "copertura-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
+        "it": "copertura-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
+        "en": "roofing-100-anker-swiss-ticino-ag-kagiswil-95bef1b6",
+        "fr": "toiture-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
       },
       "slugDisambiguator": "95bef1b6",
       "company": "Anker Swiss Ticino AG",
@@ -22449,7 +22469,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:35:45.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:35:45.954Z"
+      "firstSeenAt": "2026-11-12T09:35:45.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-kagiswil-95bef1b6"
+      ]
     },
     {
       "id": "anker-swiss-70fcd3a36dbc",

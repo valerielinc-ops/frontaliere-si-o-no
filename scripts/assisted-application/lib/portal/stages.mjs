@@ -1,5 +1,6 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
+import { isCvDocumentLabel } from './document-labels.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
@@ -41,6 +42,39 @@ const WORKDAY_HOST_RE = /(?:^|\.)myworkdayjobs\.com$/i;
 const WORKDAY_JOB_ROUTE_RE = /(?:^|\/)job\/[^/]+(?:\/[^/]+)?(?:\/apply)?\/?$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
+const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
+  String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
+  String.raw`\byour\s+application\s+(?:has\s+been\s+)?received\b`,
+  String.raw`\bapplication\s+(?:has\s+been\s+)?successfully\s+submitted\b`,
+  String.raw`\bvielen\s+dank\s+f(?:ü|ue)r\s+(?:ihre|deine)\s+bewerbung\b`,
+  String.raw`\bihre\s+bewerbung\s+ist\s+eingegangen\b`,
+  String.raw`\bbewerbung\s+(?:wurde|ist)\s+(?:erfolgreich\s+)?(?:eingereicht|übermittelt|uebermittelt|eingegangen)\b`,
+  String.raw`\bmerci\s+pour\s+votre\s+candidature\b`,
+  String.raw`\bvotre\s+candidature\s+(?:a\s+été\s+)?(?:reçue|recu|envoyée|envoyee|transmise)\b`,
+  String.raw`\bgrazie\s+per\s+la\s+candidatura\b`,
+  String.raw`\bla\s+tua\s+candidatura\s+(?:è\s+stata\s+)?(?:ricevuta|inviata|inoltrata)\b`,
+  String.raw`\babbiamo\s+ricevuto\s+la\s+tua\s+candidatura\b`,
+].join('|'), 'iu');
+
+function gravityFormKey(value) {
+  const match = /^(?:gform_(?:confirmation_message_|confirmation_wrapper_|wrapper_)?)(\d+)$/i.exec(String(value || '').trim());
+  return match ? `gform_${match[1]}` : '';
+}
+
+function gravityFormIdentity(value) {
+  const source = String(value || '').trim();
+  const separator = source.indexOf('\u0000');
+  const frame = separator >= 0 ? source.slice(0, separator) : null;
+  const form = gravityFormKey(separator >= 0 ? source.slice(separator + 1) : source);
+  return form ? { form, frame } : null;
+}
+
+function sameGravityForm(one, other) {
+  const left = gravityFormIdentity(one);
+  const right = gravityFormIdentity(other);
+  return Boolean(left && right && left.form === right.form
+    && (left.frame === null || right.frame === null || left.frame === right.frame));
+}
 
 /** The same posting-bound final-review test is shared by the runner and encrypted-evidence repair. */
 export function finalReviewStageChecks(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null } = {}) {
@@ -97,23 +131,32 @@ export function inPageApplicationOpeners(snapshot, url = snapshot?.url) {
   const buttons = Array.isArray(snapshot?.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   const identityKindsByForm = new Map();
+  const cvForms = new Set();
+  const uploadedRequiredFileForms = new Set();
   for (const field of fields) {
-    if (field?.disabled || ['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase())
-      || !isApplicantIdentity(field)) continue;
+    const inputType = String(field?.inputType || '').toLowerCase();
+    if (field?.disabled || ['hidden', 'submit', 'button', 'reset', 'image'].includes(inputType)) continue;
     const form = applicationFormKey(field);
-    const kind = applicantIdentityKind(field);
-    if (!form || !kind) continue;
-    if (!identityKindsByForm.has(form)) identityKindsByForm.set(form, new Set());
-    identityKindsByForm.get(form).add(kind);
+    if (!form) continue;
+    const isFile = field?.kind === 'file' || String(field?.inputType || '').toLowerCase() === 'file';
+    if (isFile && isCvDocumentLabel(field?.label)) cvForms.add(form);
+    if (isFile && field?.required === true && snapshot?.uploadedCv === true) uploadedRequiredFileForms.add(form);
+    if (isApplicantIdentity(field)) {
+      const kind = applicantIdentityKind(field);
+      if (!kind) continue;
+      if (!identityKindsByForm.has(form)) identityKindsByForm.set(form, new Set());
+      identityKindsByForm.get(form).add(kind);
+    }
   }
   // A single e-mail field and an adjacent Submit/Weiter control are common
   // newsletter/contact forms, not enough evidence to hide the posting CTA.
   const identityForms = new Set([...identityKindsByForm]
     .filter(([, kinds]) => kinds.size >= 2).map(([form]) => form));
+  const applicationForms = new Set([...identityForms, ...cvForms, ...uploadedRequiredFileForms]);
   const qualifyingForms = new Set(buttons
     .filter((button) => !button?.chrome && !button?.disabled && !button?.href && !button?.leavesDocument
       && (NEXT_RE.test(String(button?.text || '')) || SUBMIT_RE.test(String(button?.text || ''))))
-    .map(applicationFormKey).filter((key) => key && identityForms.has(key)));
+    .map(applicationFormKey).filter((key) => key && applicationForms.has(key)));
   if (qualifyingForms.size !== 1) return [];
   const [applicationForm] = qualifyingForms;
   const applicationFrame = Number(applicationForm.split('\u0000', 1)[0]);
@@ -296,11 +339,46 @@ function receiptTitleBound(text, title) {
   return titleBound(`${before} ${after}`, title);
 }
 
+/**
+ * A Gravity Forms confirmation is evidence only when the guarded final click
+ * belonged to that numbered form, the form has disappeared, and its native
+ * confirmation container carries receipt copy. Validation always wins.
+ */
+export function gravityFormsSubmissionOutcome(snapshot, { finalSubmission } = {}) {
+  const gravityForms = snapshot?.gravityForms;
+  if (finalSubmission?.clicked !== true) return null;
+  const expectedForm = gravityFormIdentity(finalSubmission.formId);
+  if (!expectedForm || !sameGravityForm(finalSubmission.formId, finalSubmission.nativeFormId)) return null;
+  if (gravityForms?.validationError === true
+    && (gravityForms?.validationFormIds || []).some((formId) => sameGravityForm(formId, finalSubmission.formId))) return 'validation';
+  if ((gravityForms?.formIds || []).some((formId) => sameGravityForm(formId, finalSubmission.formId))) return null;
+  const receipt = (gravityForms?.confirmations || []).find((item) => item?.visible === true
+    && sameGravityForm(item?.formId, finalSubmission.formId)
+    && GRAVITY_FORMS_RECEIPT_RE.test(String(item?.text || '')));
+  return receipt ? 'confirmed' : null;
+}
+
 /** Receipt copy must explicitly describe an application received for this posting. */
-export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
+export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, postingEntry = false, job = {}, finalSubmission } = {}) {
   const text = String(snapshot?.text || '');
-  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || NOT_SUBMITTED_APPLICATION_RE.test(text)
-    || REFUSED_RE.test(text) || !CONFIRM_RE.test(text)
+  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol)) return false;
+  const gravityFormsOutcome = gravityFormsSubmissionOutcome(snapshot, { finalSubmission });
+  const hasGravityFormsNativeSignal = snapshot.gravityForms?.validationError === true
+    || (snapshot.gravityForms?.confirmations || []).length > 0;
+  if (gravityFormsOutcome === 'validation' || (hasGravityFormsNativeSignal && gravityFormsOutcome !== 'confirmed')
+    || NOT_SUBMITTED_APPLICATION_RE.test(text) || REFUSED_RE.test(text)) return false;
+  if (gravityFormsOutcome === 'confirmed') {
+    const actual = parsed(url);
+    const source = parsed(submissionUrl || applyUrl);
+    const actualJobKey = portalJobKey(url, sourceProtocol);
+    const expectedJobKey = portalJobKey(submissionUrl || applyUrl, sourceProtocol);
+    const samePostingKey = actualJobKey === expectedJobKey;
+    return Boolean(actual && source && trustedPortalTransport(actual) && trustedPortalTransport(source)
+      && actual.origin === source.origin && actual.pathname === source.pathname
+      && samePostingKey
+      && !actual.username && !actual.password && !actual.hash && !source.username && !source.password && !source.hash);
+  }
+  if (!CONFIRM_RE.test(text)
     || PROFILE_CONTINUATION_RE.test(text) || incompleteApplication(text)
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;

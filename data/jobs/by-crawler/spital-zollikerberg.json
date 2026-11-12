@@ -342,12 +342,12 @@
     },
     {
       "id": "spital-zollikerberg-aa31cf6e11bc",
-      "slug": "stv-stationsleiterin-stv-stationsleiter-per-la-privatstation-2-spital-zollikerberg",
+      "slug": "vice-responsabile-di-reparto-vice-responsabile-di-reparto-per-il-reparto-privato-2-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg",
-        "it": "stv-stationsleiterin-stv-stationsleiter-per-la-privatstation-2-spital-zollikerberg",
-        "en": "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg",
-        "fr": "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg"
+        "it": "vice-responsabile-di-reparto-vice-responsabile-di-reparto-per-il-reparto-privato-2-spital-zollikerberg-zollikerberg",
+        "en": "deputy-ward-manager-deputy-ward-manager-for-the-private-ward-2-spital-zollikerberg-zollikerberg",
+        "fr": "responsable-adjointe-responsable-adjoint-de-l-unite-de-soins-privee-2-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -395,11 +395,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg",
+          "stv-stationsleiterin-stv-stationsleiter-per-la-privatstation-2-spital-zollikerberg"
+        ],
+        "en": [
+          "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg"
+        ],
+        "fr": [
           "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg"
+        "stv-stationsleiterin-stv-stationsleiter-fur-die-privatstation-2-spital-zollikerberg",
+        "stv-stationsleiterin-stv-stationsleiter-per-la-privatstation-2-spital-zollikerberg"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -422,12 +430,12 @@
     },
     {
       "id": "spital-zollikerberg-e4c256987138",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg",
+      "slug": "assistente-di-pratica-medica-mpa-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg"
+        "it": "assistente-di-pratica-medica-mpa-spital-zollikerberg-zollikerberg",
+        "en": "medical-practice-assistant-mpa-spital-zollikerberg-zollikerberg",
+        "fr": "assistant-a-la-pratique-medicale-amp-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -489,7 +497,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:15:34.593Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:15:34.593Z"
+      "firstSeenAt": "2026-11-12T09:15:34.593Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-6c79a59a2f5b",

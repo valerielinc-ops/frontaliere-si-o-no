@@ -32,7 +32,10 @@
       },
       "slug": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer",
       "slugByLocale": {
-        "en": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer"
+        "en": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer",
+        "it": "asset-liability-manager-finanza-tesoro-e-credito-100-m-f-d-julius-baer-zurich",
+        "de": "asset-liability-manager-finanzministerium-und-kredit-100-m-w-d-julius-baer-zurich",
+        "fr": "gestionnaire-d-actifs-et-de-passifs-finances-tresorerie-et-credit-100-h-f-d-julius-baer-zurich"
       },
       "category": "technology",
       "datePosted": "2026-11-12",
@@ -94,9 +97,12 @@
         "de": "Plattformingenieur",
         "fr": "Ingénieur plate-forme"
       },
-      "slug": "platform-engineer-julius-baer",
+      "slug": "ingegnere-della-piattaforma-julius-baer-zurich",
       "slugByLocale": {
-        "en": "platform-engineer-julius-baer"
+        "en": "platform-engineer-julius-baer",
+        "it": "ingegnere-della-piattaforma-julius-baer-zurich",
+        "de": "plattformingenieur-julius-baer-zurich",
+        "fr": "ingenieur-plate-forme-julius-baer-zurich"
       },
       "category": "technology",
       "datePosted": "2026-11-12",
@@ -129,7 +135,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-11-12T09:18:53.888Z"
+      "firstSeenAt": "2026-11-12T09:18:53.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-engineer-julius-baer"
+        ]
+      },
+      "previousSlugs": [
+        "platform-engineer-julius-baer"
+      ]
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Citrix-NetScaler-Engineer-100---f-m-d-_r-16579-2",

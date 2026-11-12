@@ -662,12 +662,12 @@
     },
     {
       "id": "pictet-3cfad35b3890",
-      "slug": "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva",
+      "slug": "specialista-della-riconciliazione-di-cassa-contratto-a-tempo-determinato-di-24-mesi-pictet-group-geneva",
       "slugByLocale": {
         "fr": "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva",
-        "it": "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva",
-        "en": "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva",
-        "de": "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva"
+        "it": "specialista-della-riconciliazione-di-cassa-contratto-a-tempo-determinato-di-24-mesi-pictet-group-geneva",
+        "en": "cashivos-victoria-pictet-group-geneva",
+        "de": "spezialist-in-fur-kassenabstimmung-befristeter-vertrag-uber-24-monate-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -731,7 +731,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T09:26:10.896Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:26:10.896Z"
+      "firstSeenAt": "2026-11-12T09:26:10.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva"
+        ],
+        "en": [
+          "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva"
+        ],
+        "de": [
+          "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "cash-reconciliation-specialist-24-months-fixed-term-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-1fbbb49f651e",

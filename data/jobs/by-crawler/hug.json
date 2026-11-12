@@ -3676,12 +3676,12 @@
     },
     {
       "id": "hug-8199d3dd13da",
-      "slug": "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie",
+      "slug": "assistente-di-ricerca-recruitment-communication-presso-l-unita-di-epidemiologia-della-popolazione-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie",
-        "it": "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie",
-        "en": "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie",
-        "de": "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie"
+        "it": "assistente-di-ricerca-recruitment-communication-presso-l-unita-di-epidemiologia-della-popolazione-80-al-100-hug-geneve",
+        "en": "research-assistant-recruitment-communication-at-the-population-epidemiology-unit-80-to-100-hug-geneve",
+        "de": "wissenschaftliche-r-forschungsassistent-in-rekrutierung-kommunikation-in-der-einheit-fur-bevolkerungsepidemiologie-80"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3745,16 +3745,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.998Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.998Z"
+      "firstSeenAt": "2026-11-12T09:24:17.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie"
+        ],
+        "de": [
+          "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-recherche-recrutement-communication-a-l-unite-d-epidemiologie"
+      ]
     },
     {
       "id": "hug-cca4a73b19c9",
-      "slug": "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve",
+      "slug": "tecnico-di-manutenzione-automatico-o-automatico-100-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve",
-        "it": "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve",
-        "en": "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve",
-        "de": "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve"
+        "it": "tecnico-di-manutenzione-automatico-o-automatico-100-hug-geneve",
+        "en": "automatic-or-automatic-maintenance-technician-100-hug-geneve",
+        "de": "automatischer-oder-automatischer-wartungstechniker-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3817,16 +3831,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.996Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.996Z"
+      "firstSeenAt": "2026-11-12T09:24:17.996Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve"
+        ],
+        "de": [
+          "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-de-maintenance-automaticien-ou-automaticienne-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-0ec055081f30",
-      "slug": "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation",
+      "slug": "infermieri-nell-unita-di-cura-intermedia-della-riabilitazione-e-dipartimento-geriatrico-60-hug-thonex",
       "slugByLocale": {
         "fr": "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation",
-        "it": "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation",
-        "en": "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation",
-        "de": "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation"
+        "it": "infermieri-nell-unita-di-cura-intermedia-della-riabilitazione-e-dipartimento-geriatrico-60-hug-thonex",
+        "en": "nurses-in-the-intermediate-care-unit-of-the-rehabilitation-and-geriatric-department-60-hug-thonex",
+        "de": "krankenschwestern-in-der-zwischenstation-der-rehabilitations-und-geriatrischen-abteilung-60-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3890,16 +3918,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.994Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.994Z"
+      "firstSeenAt": "2026-11-12T09:24:17.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation"
+        ],
+        "en": [
+          "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation"
+        ],
+        "de": [
+          "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-ou-infirmieres-a-l-unite-de-soins-intermediaires-du-departement-de-readaptation"
+      ]
     },
     {
       "id": "hug-f130d390037d",
-      "slug": "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d",
+      "slug": "professore-o-professore-associato-chief-medical-officer-o-capo-del-servizio-addictologia-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d",
-        "it": "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d",
-        "en": "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d",
-        "de": "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d"
+        "it": "professore-o-professore-associato-chief-medical-officer-o-capo-del-servizio-addictologia-100-hug-chene-bourg",
+        "en": "professor-or-associate-professor-chief-medical-officer-or-chief-of-the-addictology-service-100-hug-chene-bourg",
+        "de": "professor-oder-associate-professor-chief-medical-officer-oder-chief-des-addictology-service-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3962,16 +4004,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.990Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.990Z"
+      "firstSeenAt": "2026-11-12T09:24:17.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d"
+        ],
+        "en": [
+          "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d"
+        ],
+        "de": [
+          "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d"
+        ]
+      },
+      "previousSlugs": [
+        "professeur-ou-professeure-ordinaire-ou-associee-medecin-chef-ou-cheffe-du-service-d"
+      ]
     },
     {
       "id": "hug-a445c210c2b6",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-collonge-bellerive",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-collonge-bellerive",
+        "en": "head-of-clinic-with-or-without-specialty-title-80-to-100-hug-collonge-bellerive",
+        "de": "klinikleiter-mit-oder-ohne-fachbezeichnung-80-bis-100-hug-collonge-bellerive"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4034,16 +4090,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.977Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.977Z"
+      "firstSeenAt": "2026-11-12T09:24:17.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+      ]
     },
     {
       "id": "hug-31f219bb524f",
-      "slug": "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve",
+      "slug": "maternita-e-responsabile-programmazione-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "fr": "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve",
-        "it": "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve",
-        "en": "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve",
-        "de": "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve"
+        "it": "maternita-e-responsabile-programmazione-pediatrica-100-hug-geneve",
+        "en": "maternity-and-pediatric-programming-manager-100-hug-geneve",
+        "de": "mutterschaft-und-kinderprogrammierung-manager-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4106,16 +4176,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.965Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.965Z"
+      "firstSeenAt": "2026-11-12T09:24:17.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve"
+        ],
+        "en": [
+          "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve"
+        ],
+        "de": [
+          "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-programmation-a-la-maternite-et-a-la-pediatrie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-b92815507693",
-      "slug": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
+      "slug": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "it": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "en": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "de": "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        "it": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
+        "en": "contracted-project-management-internship-100-hug-geneve",
+        "de": "projektmanagement-praktikum-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4177,16 +4261,30 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.962Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "en": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "de": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-767033d2d1ff",
-      "slug": "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve",
+      "slug": "medico-interno-in-medicina-nucleare-e-imaging-molecolare-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve",
-        "it": "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve",
-        "en": "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve",
-        "de": "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve"
+        "it": "medico-interno-in-medicina-nucleare-e-imaging-molecolare-100-hug-geneve",
+        "en": "internal-physician-in-nuclear-medicine-and-molecular-imaging-100-hug-geneve",
+        "de": "innerer-arzt-in-der-nuklearmedizin-und-molekularen-bildgebung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4249,7 +4347,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:17.958Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:24:17.958Z"
+      "firstSeenAt": "2026-11-12T09:24:17.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-medecine-nucleaire-et-imagerie-moleculaire-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-88b82271169b",
