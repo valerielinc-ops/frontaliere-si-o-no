@@ -171,9 +171,62 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Unconditional job: admitted code events must always produce a real verdict.
+  # Eccezione site-only: sui push di merge a main, il preflight prova a
+  # riusare il Vitest costoso gia' verde sulla PR soltanto se commit, tree,
+  # run e step richiesto coincidono esattamente. Evidenza assente o ambigua
+  # lascia partire il job completo. Il gate node:test del corpus resta intatto:
+  # pr-autorebase continua a usarlo come segnale di salute indipendente.
+  verify-main-push:
+    name: verify main push Vitest reuse
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: read
+    outputs:
+      reuse: ${{ steps.verify.outputs.reuse }}
+      verified: ${{ steps.verify.outcome == 'success' }}
+    steps:
+      - name: Checkout reuse verifier only
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/ci/lib/constants.mjs
+            /scripts/ci/lib/main-push-test-reuse.mjs
+            /scripts/ci/verify-main-push-test-reuse.mjs
+      - name: Verify exact PR Vitest evidence
+        id: verify
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/ci/verify-main-push-test-reuse.mjs
+
+  # Required job: admitted PR/merge-queue events always produce a real verdict;
+  # a main push may skip it only after the exact PR evidence passes preflight.
   vitest:
     name: vitest (unit + integration)
+    needs: verify-main-push
+    # `verify-main-push` e' skipped su PR, merge queue e workflow_dispatch:
+    # always() consente a quei percorsi di produrre il loro verdetto normale.
+    # Solo un push a main con riuso verificato salta il job costoso.
+    if: >-
+      ${{
+        always() &&
+        !cancelled() &&
+        (
+          github.event_name != 'push' ||
+          needs.verify-main-push.result != 'success' ||
+          needs.verify-main-push.outputs.verified != 'true' ||
+          needs.verify-main-push.outputs.reuse != 'true'
+        )
+      }}
     runs-on: ubuntu-latest
     # Letti dal job `post-review` (vedi `Decide post-review follow-up`).
     outputs:
@@ -1555,6 +1608,7 @@ jobs:
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
       - uses: actions/checkout@v7
+        id: event_tree_checkout
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         with:
           # Only the event ref is checked out. Body recovery re-runs an
@@ -1568,6 +1622,17 @@ jobs:
           # generated data, public assets and the article corpus. `tree:0`
           # omits only historical tree objects; checkout still materializes
           # every path at the tested HEAD.
+
+      # The PR workflow checks out refs/pull/<n>/merge, not pull_request.head.sha.
+      # Publish that checked-out tree as a check-run annotation so the later
+      # main-push preflight can prove it is reusing the exact tree Vitest saw.
+      - name: Record tested merge tree for main health signal
+        if: ${{ github.event_name == 'pull_request' && steps.event_tree_checkout.outcome == 'success' && !cancelled() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tested_tree=$(git rev-parse 'HEAD^{tree}')
+          echo "::notice title=CI tested merge tree::tested-tree=${tested_tree}"
 
       - name: Guard — storia precedente alla riscrittura
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}

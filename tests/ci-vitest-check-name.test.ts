@@ -23,6 +23,7 @@ import {
 
 const ROOT = resolve(import.meta.dirname, '..');
 const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'utf-8');
+const TESTS_WORKFLOW = YAML.parse(TESTS_YML);
 const COLLISION_YML = readFileSync(resolve(ROOT, '.github/workflows/pr-collision-detector.yml'), 'utf-8');
 const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().startsWith('#')).join('\n');
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
@@ -316,8 +317,10 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 /**
  * Contratto single-job post de-sharding (#2882): il percorso pesante di
  * tests.yml esegue UN solo job required che contiene anche l’esecuzione —
- * non esiste più un job `vitest-shard:` con matrice. Il vecchio companion body-only aveva
- * un check distinto e non contiene la suite. `VITEST_SHARD_NAME_RE` e
+ * non esiste più un job `vitest-shard:` con matrice. Il preflight site-only su
+ * push a main verifica evidenza esistente e non esegue test. Il vecchio
+ * companion body-only aveva un check distinto e non contiene la suite.
+ * `VITEST_SHARD_NAME_RE` e
  * `vitestVerdictIsTransientCancellation` RESTANO in scripts/ci/lib (dormienti):
  * senza check-run shard l'heal ritorna `false`, che è il comportamento CORRETTO
  * nel nuovo mondo — un vitest=failure sull'HEAD è sempre un fail reale, mai un
@@ -374,7 +377,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   const nextJob = vitestTail.slice(1).search(/^ {2}[A-Za-z0-9_-]+:$/m);
   const vitestBody = nextJob === -1 ? vitestTail : vitestTail.slice(0, nextJob + 1);
 
-  // DUE job, e la seconda meta' e' tornata fuori DELIBERATAMENTE il 2026-08-26.
+  // Il preflight di main non produce il check required e non esegue test.
+  // `vitest` resta l'unico job che produce il verdetto richiesto.
   // `collision` porta un lock `concurrency` GLOBALE — il detector scrive la
   // label `collision-risk` su TUTTE le PR aperte, non solo sulla propria — e le
   // concurrency di GitHub esistono solo a livello job/workflow, mai di step.
@@ -385,7 +389,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // lock copre solo i sei step di chiamate API che lo richiedono davvero.
   // `contract` e `typecheck` restano nel job che produce il check-run gating.
   // UN job pesante, di nuovo, ma per una ragione DIVERSA da quella di #6555;
-  // nessun companion metadata produce un secondo check.
+  // il preflight site-only e' leggero e nessun companion metadata produce un
+  // secondo check required.
   // Il detector di collisioni e' uscito del tutto da questo workflow il
   // 2026-08-26: e' uno SWEEPER repo-wide (ricalcola le label di tutte le PR
   // aperte da dati vivi) e uno sweeper va su `schedule`, non su
@@ -393,10 +398,18 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
   // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
   // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
-  it('tests.yml ha un solo job required e nessun lock di job', () => {
+  it('tests.yml mantiene un solo job required e nessun lock di job', () => {
     // `post-review` (autorebase + opt-in auto-merge) gira DOPO il required,
     // non produce il check del ruleset e non puo' colorare la run.
-    expect(jobKeys).toEqual(['vitest', 'post-review']);
+    expect(jobKeys).toEqual(['verify-main-push', 'vitest', 'post-review']);
+    expect(TESTS_WORKFLOW.jobs.vitest.name).toBe(VITEST_CHECK_NAME);
+    expect(TESTS_WORKFLOW.jobs.vitest.needs).toBe('verify-main-push');
+    expect(TESTS_WORKFLOW.jobs['verify-main-push'].name).toBe('verify main push Vitest reuse');
+    expect(TESTS_WORKFLOW.jobs['verify-main-push'].outputs.verified)
+      .toContain("steps.verify.outcome == 'success'");
+    expect(TESTS_WORKFLOW.jobs['verify-main-push'].steps.some(
+      (step: any) => /run-related-tests|vitest run/.test(step?.run ?? ''),
+    )).toBe(false);
     expect(
       /^ {4}concurrency:/m.test(jobsBody),
       'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +
@@ -637,9 +650,30 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/github\.event\.pull_request\.head\.sha/);
   });
 
-  it('lancia la suite sui push diretti a main', () => {
+  it('salta Vitest sui push a main solo con evidenza esatta gia verde sulla PR', () => {
     const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
     expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml deve avere un trigger push su main').toBe(true);
+    expect(TESTS_WORKFLOW.jobs['verify-main-push'].if).toContain("github.ref == 'refs/heads/main'");
+    expect(TESTS_WORKFLOW.jobs['verify-main-push']['timeout-minutes']).toBe(3);
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain('always()');
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain('!cancelled()');
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain("github.event_name != 'push'");
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain("needs.verify-main-push.result != 'success'");
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain("needs.verify-main-push.outputs.verified != 'true'");
+    expect(TESTS_WORKFLOW.jobs.vitest.if).toContain("needs.verify-main-push.outputs.reuse != 'true'");
+    expect(TESTS_WORKFLOW.jobs['verify-main-push'].permissions).toEqual({
+      actions: 'read',
+      checks: 'read',
+      contents: 'read',
+      'pull-requests': 'read',
+    });
+    const testedTreeStep = TESTS_WORKFLOW.jobs.vitest.steps.find(
+      (step: any) => step?.name === 'Record tested merge tree for main health signal',
+    );
+    expect(testedTreeStep?.if).toContain("github.event_name == 'pull_request'");
+    expect(testedTreeStep?.if).toContain("steps.event_tree_checkout.outcome == 'success'");
+    expect(testedTreeStep?.run).toContain("git rev-parse 'HEAD^{tree}'");
+    expect(testedTreeStep?.run).toContain('CI tested merge tree');
   });
 
   it('mantiene i trigger PR, push main e merge queue', () => {
