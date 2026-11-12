@@ -8723,6 +8723,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aumento-iva-finanzia-avs.title': 'Vote du 29 novembre : hausse de la TVA pour financer la 13e rente AVS',
     'blog.article.aumento-iva-finanzia-avs.excerpt': 'Le 29 novembre, les électeurs suisses se prononceront sur la hausse de la TVA destinée à financer la 13e rente AVS.',
     'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.dibattito-salario-minimo-5000.title': 'Salaire minimum de 5 000 francs : le débat s’enflamme',
+    'blog.article.dibattito-salario-minimo-5000.excerpt': 'Débat sur un salaire minimum de 5 000 francs pour les personnes ayant terminé leur apprentissage.',
+    'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

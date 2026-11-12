@@ -2930,6 +2930,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'regime-fiscale-rendite-elvetiche': { it: 'regime-fiscale-rendite-elvetiche', en: 'swiss-pensions-substitute-taxation', de: 'schweizer-renten-ersatzbesteuerung', fr: 'pensions-suisses-imposition-substitutive' },
  'revisione-tardoc-2027': { it: 'revisione-tardoc-2027', en: 'tardoc-revision-2027', de: 'tardoc-revision-2027', fr: 'revision-tardoc-2027' },
  'aumento-iva-finanzia-avs': { it: 'aumento-iva-finanzia-avs', en: 'vat-increase-funds-avs', de: 'iva-erhoehung-finanziert-avs', fr: 'augmentation-tva-finance-avs' },
+ 'dibattito-salario-minimo-5000': { it: 'dibattito-salario-minimo-5000', en: 'minimum-wage-debate-5000', de: 'mindestlohn-debatte-5000', fr: 'debat-salaire-minimum-5000' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
