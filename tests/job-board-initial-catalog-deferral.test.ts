@@ -50,7 +50,8 @@ describe('job-board catalog loading after the first listing paint', () => {
     expect(note.indexOf('scheduleAfterPaintOpportunity')).toBeLessThan(
       note.indexOf('setJobBoardInteractionObserved(true)'),
     );
-    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: 1000 })');
+    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: idleTimeoutMs })');
+    expect(JOB_BOARD_SOURCE).toContain('scheduleAfterPaintOpportunity(finish, INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS)');
     expect(JOB_BOARD_SOURCE).not.toContain('catalogInteractionReadyRef.current');
   });
 
@@ -60,13 +61,13 @@ describe('job-board catalog loading after the first listing paint', () => {
 
   it('keeps the external static page until non-empty listing results are renderable', () => {
     const readinessStart = JOB_BOARD_SOURCE.indexOf('const initialContentReadyRef = useRef(false)');
-    const readinessEnd = JOB_BOARD_SOURCE.indexOf('const loadingCardCount = isUnfilteredListing', readinessStart);
+    const readinessEnd = JOB_BOARD_SOURCE.indexOf('// The canonical unfiltered TI/aggregate listing', readinessStart);
     const readiness = JOB_BOARD_SOURCE.slice(readinessStart, readinessEnd);
 
     expect(JOB_BOARD_SOURCE).toContain('onInitialContentReady?: () => void');
     expect(readiness).toContain('(deferJobBoardCatalogUntilInteraction && !jobBoardInteractionObserved)');
-    expect(readiness).toContain('(fullLoadPending && !isCanonicalFirstPageListing)');
-    expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, isCanonicalFirstPageListing, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
+    expect(readiness).toContain('|| fullLoadPending');
+    expect(readiness).toContain('[deferJobBoardCatalogUntilInteraction, fullLoadPending, jobBoardInteractionObserved, jobs.length, jobsLoading, onInitialContentReady, resultsResolving]');
     expect(readiness).toContain('onInitialContentReady?.()');
   });
   it('releases the catalog when a filter is already active, without any board interaction', () => {
