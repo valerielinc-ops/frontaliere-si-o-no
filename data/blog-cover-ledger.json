@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1151,
+      "5": 1155,
       "6": 5062
     },
-    "publishedCovers": 7894,
+    "publishedCovers": 7898,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217772,6 +217772,138 @@
         "provider": "openai-codex",
         "assetId": "article-dibattito-salario-minimo-5000",
         "imageUrl": "/images/blog/article-dibattito-salario-minimo-5000.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bienne-corrieri-salariati-2026": {
+      "cover": "/images/blog/article-bienne-corrieri-salariati-2026.webp",
+      "hash": "bc5672ed1a22e72adbae15be1ca7487abef684a6215bbd1d61677cb526c3443c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "bienne-corrieri-salariati-2026",
+          "category": "novita",
+          "date": "2026-11-12T04:56:56.824Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bienne-corrieri-salariati-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bienne-corrieri-salariati-2026",
+        "imageUrl": "/images/blog/article-bienne-corrieri-salariati-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-imprese-neuchateloise-rischio-supply-chain": {
+      "cover": "/images/blog/article-imprese-neuchateloise-rischio-supply-chain.webp",
+      "hash": "cebdd4a1e4a45dc4fca91a2122a9a0005a8c2c45a41eacc380e9a6e5b62c8fda",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "imprese-neuchateloise-rischio-supply-chain",
+          "category": "novita",
+          "date": "2026-11-12T10:41:49.182Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-imprese-neuchateloise-rischio-supply-chain.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-imprese-neuchateloise-rischio-supply-chain",
+        "imageUrl": "/images/blog/article-imprese-neuchateloise-rischio-supply-chain.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ospedale-giura-solidita-finanziaria": {
+      "cover": "/images/blog/article-ospedale-giura-solidita-finanziaria.webp",
+      "hash": "52c77f23056cbe32f00b4242caab902d9c3dee920f3f3ac6c92a5c23d9c15da5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "ospedale-giura-solidita-finanziaria",
+          "category": "novita",
+          "date": "2026-11-12T04:54:59.665Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ospedale-giura-solidita-finanziaria.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ospedale-giura-solidita-finanziaria",
+        "imageUrl": "/images/blog/article-ospedale-giura-solidita-finanziaria.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-quattro-temi-puntata-vaud": {
+      "cover": "/images/blog/article-quattro-temi-puntata-vaud.webp",
+      "hash": "901b9c4362fc63756f773eecd99b7c03fcf2512c3b44100bcd09e579f55b1999",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "quattro-temi-puntata-vaud",
+          "category": "fiscale",
+          "date": "2026-11-12T04:48:16.848Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-quattro-temi-puntata-vaud.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-quattro-temi-puntata-vaud",
+        "imageUrl": "/images/blog/article-quattro-temi-puntata-vaud.webp",
         "evidence": "generated-engine-record"
       }
     }
