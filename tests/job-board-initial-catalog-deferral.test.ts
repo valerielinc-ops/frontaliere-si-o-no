@@ -6,21 +6,23 @@ const ROOT = path.resolve(__dirname, '..');
 const JOB_BOARD_SOURCE = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf8');
 
 describe('job-board catalog loading after the first listing paint', () => {
-  it('waits for board interaction after the slim first page before fetching the canton shard', () => {
+  it('schedules the authoritative shard after the first-page paint, independently of interaction', () => {
     const runStart = JOB_BOARD_SOURCE.indexOf('const run = async (): Promise<void> => {');
     const runEnd = JOB_BOARD_SOURCE.indexOf('// On a seeded detail page', runStart);
     const run = JOB_BOARD_SOURCE.slice(runStart, runEnd);
     const firstPagePaint = run.indexOf('await finalize(scopeJobsToCanton(firstPage, targetCanton))');
-    const interactionWait = run.indexOf('await waitForCatalogInteraction()');
+    const backgroundWait = run.indexOf('await waitForCatalogBackground()');
     const cantonFetch = run.indexOf('await fetchJobsForCanton(targetCanton, locale)');
 
     expect(runStart).toBeGreaterThanOrEqual(0);
     expect(runEnd).toBeGreaterThan(runStart);
     expect(run).toContain('if (firstPage && !cancelled)');
     expect(firstPagePaint).toBeGreaterThanOrEqual(0);
-    expect(run).not.toContain('waitForInitialPaintOpportunity');
-    expect(interactionWait).toBeGreaterThan(firstPagePaint);
-    expect(cantonFetch).toBeGreaterThan(interactionWait);
+    expect(backgroundWait).toBeGreaterThan(firstPagePaint);
+    expect(cantonFetch).toBeGreaterThan(backgroundWait);
+    expect(JOB_BOARD_SOURCE).not.toContain('waitForCatalogInteraction');
+    expect(JOB_BOARD_SOURCE).toContain('scheduleAfterPaintOpportunity');
+    expect(JOB_BOARD_SOURCE).toContain('if (options.deferCommit) startTransition(commit)');
     expect(JOB_BOARD_SOURCE).toContain('jobBoardInteractionSeenRef.current = true');
     expect(JOB_BOARD_SOURCE).toContain('if (!event.isTrusted) return;');
     expect(JOB_BOARD_SOURCE).toContain("'pointerdown', 'touchstart', 'keydown', 'wheel', 'touchmove', 'scroll', 'focusin'");
@@ -40,14 +42,12 @@ describe('job-board catalog loading after the first listing paint', () => {
 
     expect(noteStart).toBeGreaterThanOrEqual(0);
     expect(noteEnd).toBeGreaterThan(noteStart);
-    expect(note).toContain('scheduleAfterInteractionPaint');
-    expect(note).toContain('catalogInteractionReadyRef.current = true');
+    expect(note).toContain('scheduleAfterPaintOpportunity');
     expect(note).toContain('setJobBoardInteractionObserved(true)');
-    expect(note.indexOf('scheduleAfterInteractionPaint')).toBeLessThan(
+    expect(note.indexOf('scheduleAfterPaintOpportunity')).toBeLessThan(
       note.indexOf('setJobBoardInteractionObserved(true)'),
     );
-    expect(JOB_BOARD_SOURCE).toContain('requestIdleCallback(run, { timeout: 1000 })');
-    expect(JOB_BOARD_SOURCE).toContain('catalogInteractionReadyRef.current');
+    expect(JOB_BOARD_SOURCE).not.toContain('catalogInteractionReadyRef.current');
   });
 
   it('shows a resolving state when a filter needs the full catalog', () => {
