@@ -174,6 +174,19 @@ describe('in-place DOCX (phase 5)', () => {
     expect(result.skipped).toEqual([{ id: 'r0-l0', reason: 'date' }, { id: 'r0-l1', reason: 'contact' }]);
   });
 
+  it('replaces the uploaded CV email with the candidate intake email in the in-place Word copy', () => {
+    const candidateEmail = 'candidate@example.test';
+    const result = buildInPlaceDocx(makeDocx(), tailored(), {
+      profile,
+      identity: { name: profile.fullName, email: candidateEmail },
+    });
+    expect(result.status).toBe('ready');
+    const after = texts(result.docx);
+    expect(after[1]).toBe(`${candidateEmail} · Como`);
+    expect(after.join('\n')).not.toContain(profile.email);
+    expect(result.patched).toContain('contact-email-1');
+  });
+
   it('follows the candidate’s choices: their CV’s line stays, their own words go in', () => {
     const result = buildInPlaceDocx(makeDocx(), tailored(), {
       profile,

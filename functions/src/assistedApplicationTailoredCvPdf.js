@@ -171,7 +171,9 @@ export async function rebuildInPlaceDocx({ bucket, order, draft, flow = {} }) {
   if (!reconsider || !inplace.verifiedKey || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
   const [[base], [verified]] = await Promise.all([bucket.file(inplace.baseKey).download(), bucket.file(inplace.verifiedKey).download()]);
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: cvChoicesOf(draft, flow) });
+  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, {
+    profile, identity: candidateDocumentIdentity(identity, order), choices: cvChoicesOf(draft, flow),
+  });
   const verifiedXml = documentXmlOf(Buffer.from(verified));
   const same = built.status === 'ready' && Boolean(verifiedXml) && documentXmlOf(built.docx) === verifiedXml;
   return same
