@@ -39,7 +39,7 @@
 import http from 'node:http';
 import { URL } from 'node:url';
 import crypto from 'node:crypto';
-import { classifyLinkedInMemberAuthCallback } from './lib/linkedin-member-auth-callback.mjs';
+import { classifyOAuthCallback } from './lib/oauth-callback-state.mjs';
 
 const CLIENT_ID = process.env.LINKEDIN_MEMBER_CLIENT_ID || '78ikswckn74d2t';
 const CLIENT_SECRET = process.env.LINKEDIN_MEMBER_CLIENT_SECRET || '';
@@ -121,7 +121,7 @@ async function main() {
         res.writeHead(404).end('not the callback path');
         return;
       }
-      const callback = classifyLinkedInMemberAuthCallback(
+      const callback = classifyOAuthCallback(
         {
           code: reqUrl.searchParams.get('code'),
           error: reqUrl.searchParams.get('error'),
