@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1155,
+      "5": 1156,
       "6": 5062
     },
-    "publishedCovers": 7898,
+    "publishedCovers": 7899,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -217904,6 +217904,39 @@
         "provider": "openai-codex",
         "assetId": "article-quattro-temi-puntata-vaud",
         "imageUrl": "/images/blog/article-quattro-temi-puntata-vaud.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-juko-supporto-aumento-corpo-polizia": {
+      "cover": "/images/blog/article-juko-supporto-aumento-corpo-polizia.webp",
+      "hash": "ea88c7c49781468716b85889722ccb4a054d821ee1318aa232c852e2e11757cd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "juko-supporto-aumento-corpo-polizia",
+          "category": "novita",
+          "date": "2026-11-12T12:38:57.405Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-juko-supporto-aumento-corpo-polizia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1794,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-juko-supporto-aumento-corpo-polizia",
+        "imageUrl": "/images/blog/article-juko-supporto-aumento-corpo-polizia.webp",
         "evidence": "generated-engine-record"
       }
     }
