@@ -2,6 +2,8 @@
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 // Tiene il checkout BASE (non-worktree) di questo repo allineato a origin/main.
+// Il workspace puo' indicare esplicitamente il checkout da controllare quando
+// lo script viene eseguito dal worktree hooks-main.
 // Pensato per girare in CODA a prune-merged-worktrees.mjs nello stesso hook
 // SessionStart: riusa il fetch che quello ha già fatto, quindi qui non c'è
 // nessun fetch/lock di rete — solo un merge --ff-only locale, single-flight
@@ -27,8 +29,8 @@ import { realpathSync } from 'node:fs';
 // non tocchiamo nulla. Il merge è SOLO --ff-only: se main locale e origin/main
 // sono divergenti non fa niente, mai un merge/rebase che riscrive storia.
 //
-// Self-locating via import.meta.url (stesso pattern di sibling-check-gate.mjs)
-// e non da cwd: è esattamente la classe di bug per cui questo script esiste.
+// Il worktree che contiene questo script resta la sorgente; la destinazione
+// esplicita deve essere il checkout principale dello stesso repository.
 
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -38,11 +40,13 @@ import { fileURLToPath } from 'node:url';
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const configuredTarget = process.env.FRONTALIERE_SYNC_MAIN_CHECKOUT_TARGET?.trim();
+const TARGET_REPO = configuredTarget ? path.resolve(configuredTarget) : REPO;
 
-function git(args) {
+function git(args, cwd = REPO) {
   try {
     return execFileSync('git', args, {
-      cwd: REPO,
+      cwd,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
@@ -51,20 +55,34 @@ function git(args) {
   }
 }
 
+function commonGitDir(repo) {
+  const commonDir = git(['rev-parse', '--git-common-dir'], repo);
+  return commonDir ? path.resolve(repo, commonDir) : null;
+}
+
 export function shouldSync({ branch, dirty }) {
   return branch === 'main' && dirty !== null && dirty.length === 0;
 }
 
 function run() {
-  if (!existsSync(path.join(REPO, '.git'))) return;
-  const gitCommonDir = git(['rev-parse', '--git-common-dir']);
-  const lockPath = path.resolve(REPO, gitCommonDir || '.git', 'frontaliere-sync-main-checkout.lock');
+  if (!existsSync(path.join(REPO, '.git')) || !existsSync(path.join(TARGET_REPO, '.git'))) return;
+
+  const sourceCommonDir = commonGitDir(REPO);
+  const targetCommonDir = commonGitDir(TARGET_REPO);
+  const targetGitDir = git(['rev-parse', '--git-dir'], TARGET_REPO);
+  if (!sourceCommonDir || sourceCommonDir !== targetCommonDir || !targetGitDir) return;
+
+  // Non seguire un env var verso un altro worktree: il target deve essere il
+  // checkout base, il cui git-dir coincide con il common-dir.
+  if (path.resolve(TARGET_REPO, targetGitDir) !== targetCommonDir) return;
+
+  const lockPath = path.join(targetCommonDir, 'frontaliere-sync-main-checkout.lock');
 
   withSingleFlightLock(lockPath, () => {
-    const branch = git(['symbolic-ref', '--quiet', '--short', 'HEAD']);
-    const dirty = git(['status', '--porcelain']);
+    const branch = git(['symbolic-ref', '--quiet', '--short', 'HEAD'], TARGET_REPO);
+    const dirty = git(['status', '--porcelain'], TARGET_REPO);
     if (!shouldSync({ branch, dirty })) return;
-    git(['merge', '--ff-only', 'origin/main', '--quiet']);
+    git(['merge', '--ff-only', 'origin/main', '--quiet'], TARGET_REPO);
   });
 }
 
