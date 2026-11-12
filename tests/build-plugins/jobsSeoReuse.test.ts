@@ -411,18 +411,24 @@ describe('jobs SEO disk HTML reuse', () => {
     )).toThrow('missing JobPosting JSON-LD field: crawledAt');
   });
 
-  it('fails closed when the current job has no crawledAt to publish', () => {
+  it('removes a stale cached crawledAt when the current job has no heartbeat', () => {
     const fragment = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
-    expect(() => replaceActiveJobPostingDates(
+    const rewritten = replaceActiveJobPostingDates(
       fragment,
       '2026-10-20T08:00:00.000Z',
       '2026-12-21T08:00:00.000Z',
       null,
-    )).toThrow('current JobPosting crawledAt unavailable');
+    );
+    const jsonLd = rewritten.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+    expect(JSON.parse(jsonLd ?? '')).not.toHaveProperty('crawledAt');
+    expect(JSON.parse(jsonLd ?? '')).toMatchObject({
+      datePosted: '2026-10-20T08:00:00.000Z',
+      validThrough: '2026-12-21T08:00:00.000Z',
+    });
   });
 
   it('keeps related-job order and the reuse digest stable across crawl heartbeats', () => {
@@ -482,13 +488,13 @@ describe('jobs SEO disk HTML reuse', () => {
   it('refreshes a cached active bridge from the current canonical bytes', () => {
     const marker = (name: string, value: string) =>
       `<!-- jobs-seo-reuse:${name}:start -->${value}<!-- jobs-seo-reuse:${name}:end -->`;
-    const previousCanonical = '<html><head></head><body>'
+    const previousCanonical = '<html><head><script>window.__JOB_SEED__={"slug":"legacy"};</script></head><body>'
       + marker('job-posting', 'old-date')
       + marker('hero-badges', 'old-badges')
       + marker('mobile-action', 'old-action')
       + marker('recent-articles', 'old-feed')
       + '</body></html>';
-    const currentCanonical = '<html><head></head><body>'
+    const currentCanonical = '<html><head><script>window.__JOB_SEED__={"slug":"canonical"};</script></head><body>'
       + marker('job-posting', 'current-date')
       + marker('hero-badges', 'current-badges')
       + marker('mobile-action', 'current-action')

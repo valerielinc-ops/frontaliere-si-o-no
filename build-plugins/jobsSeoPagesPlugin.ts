@@ -1412,7 +1412,7 @@ export function replaceActiveJobPostingDates(
   /(<script\b[^>]*type=(['"])application\/ld\+json\2[^>]*>)([\s\S]*?)(<\/script\s*>)/i,
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
- if (jobPostingDescription === undefined) {
+ if (jobPostingDescription === undefined && crawledAt !== null) {
   let script = scriptMatch[0];
   const fields: Array<[string, string]> = [
    ['datePosted', datePosted],
@@ -1467,7 +1467,11 @@ export function replaceActiveJobPostingDates(
  }
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.
- if (crawledAt !== undefined) {
+ if (crawledAt === null) {
+  // Match the fresh renderer: an absent source heartbeat omits the optional
+  // JSON-LD property instead of invalidating an otherwise reusable page.
+  delete record.crawledAt;
+ } else if (crawledAt !== undefined) {
   if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
   if (!Object.prototype.hasOwnProperty.call(record, 'crawledAt')) {
    throw new Error('missing JobPosting JSON-LD field: crawledAt');
@@ -1648,7 +1652,34 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
   const replacement = canonicalHtml.slice(contentStart, end);
   rewritten = replaceActiveJobReuseFragment(rewritten, name, replacement);
  }
- return rewritten;
+ return replaceActiveJobSeed(rewritten, activeJobSeedJson(canonicalHtml));
+}
+
+const ACTIVE_JOB_SEED_SCRIPT_RE = /(<script\b[^>]*>\s*window\.__JOB_SEED__\s*=\s*)([\s\S]*?)(;\s*<\/script\s*>)/i;
+
+function activeJobSeedJson(html: string): string {
+ const match = String(html).match(ACTIVE_JOB_SEED_SCRIPT_RE);
+ if (!match) throw new Error('missing window.__JOB_SEED__ script');
+ try {
+  JSON.parse(match[2]);
+ } catch {
+  throw new Error('malformed window.__JOB_SEED__ JSON');
+ }
+ return match[2];
+}
+
+function replaceActiveJobSeed(html: string, seedJson: string): string {
+ const source = String(html);
+ const match = ACTIVE_JOB_SEED_SCRIPT_RE.exec(source);
+ if (!match) throw new Error('missing window.__JOB_SEED__ script');
+ try {
+  JSON.parse(match[2]);
+  JSON.parse(seedJson);
+ } catch {
+  throw new Error('malformed window.__JOB_SEED__ JSON');
+ }
+ const start = match.index ?? 0;
+ return `${source.slice(0, start)}${match[1]}${seedJson}${match[3]}${source.slice(start + match[0].length)}`;
 }
 
 /**

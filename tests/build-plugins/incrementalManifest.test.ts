@@ -120,7 +120,7 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(inputStart, reuseStart)).toContain('title: pageTitleRaw,');
   });
 
-  it('ignores changed non-rendered job metadata but keeps rendered fields covered', () => {
+  it('invalidates active-job digests for fields rendered in the seed and related projections', () => {
     const baseJob = {
       id: 'metadata-job-1',
       slug: 'metadata-role',
@@ -131,11 +131,16 @@ describe('incremental manifest input contract', () => {
     for (const [field, value] of [
       ['needsRetranslation', true],
       ['qualityScore', 91],
-      ['retranslationAttempts', 2],
     ] as const) {
       const changedJob = { ...baseJob, [field]: value };
-      expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).toBe(baseDigest);
+      expect(buildMinimalJobInput(changedJob, 'it', changedJob.slug).jobRecordDigest).not.toBe(baseDigest);
     }
+
+    expect(buildMinimalJobInput(
+      { ...baseJob, retranslationAttempts: 2 },
+      'it',
+      baseJob.slug,
+    ).jobRecordDigest).toBe(baseDigest);
 
     for (const renderedChange of [
       { ...baseJob, salaryMin: 95_000 },
@@ -308,7 +313,7 @@ describe('incremental manifest input contract', () => {
   });
 
   it('bumps the digest contract when the reuse input shape changes', () => {
-    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@9');
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@10');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {

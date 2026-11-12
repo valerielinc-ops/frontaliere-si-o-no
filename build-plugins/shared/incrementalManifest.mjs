@@ -46,7 +46,10 @@ export const SOURCE_VERSION = 'input@1';
 // job-digest@9: expired soft landings can emit a locale-cluster hreflang block
 // selected by the mutable path-claim registry. That exact block is now part of
 // the page input, so old manifests must not be treated as current.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@9';
+// job-digest@10: active-job seeds and related-job projections render
+// `qualityScore` and `needsRetranslation`; changes to either must invalidate
+// cached HTML.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@10';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -106,8 +109,6 @@ export const LEGACY_OPTIONAL_KINDS = new Set([
 // changes the related-job projections; keeping the fields in every selected
 // record digest would also invalidate otherwise identical job HTML.
 const NON_RENDERED_JOB_KEYS = new Set([
-  'needsRetranslation',
-  'qualityScore',
   'retranslationAttempts',
   // Alias history is used to enumerate previous-slug/cross-locale bridge
   // paths, but is not read when rendering any individual page. The active,
