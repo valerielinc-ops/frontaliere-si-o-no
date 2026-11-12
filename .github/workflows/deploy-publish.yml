@@ -1350,7 +1350,12 @@ jobs:
 
       - name: Finalize deferred same-run hreflang graph
         if: steps.locale-source-hreflang-state.outputs.state == 'pending'
-        timeout-minutes: 30
+        # Full-corpus reciprocal pass over ~1.85 M pages: fr took 29m40 in
+        # publish run 43237316438 and both fr and de hit the old 30-minute cap
+        # in 43277796125 (#18252 removed the in-heap prepass cache). The job
+        # keeps its 285-minute budget; this only stops a healthy pass from
+        # being killed at the boundary.
+        timeout-minutes: 60
         run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests
 
       - name: Refresh expired archive evidence after Hreflang finalization
