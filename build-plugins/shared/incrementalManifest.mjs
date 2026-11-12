@@ -522,6 +522,9 @@ export function buildMinimalJobInput(
   relatedJobIgnoredKeys = null,
   sourceJobIgnoredKeys = null,
 ) {
+  // Callers may provide separate projections for related records and the
+  // source record. Each ignored field must be absent from that consumer's
+  // emitted HTML; callers that still emit it must keep the default digest.
   // Bridge page records may carry a page-local id/slug or other route fields.
   // Keep those fields in the page input below, but always derive the job
   // identity/version/digest from the canonical source record when supplied.
