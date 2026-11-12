@@ -19,6 +19,7 @@ import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
+import { withRegisteredCandidateEmail } from './assistedApplicationDocumentIdentity.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { answerContractRequiredDetails } from './assistedApplicationAnswerConfirmation.js';
 import { answerConfirmationSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
@@ -452,7 +453,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
   // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
   if (flowSnapshot.data()?.state === 'submitted') throw new AutomationAdminError('draft_submitted', 409);
-  const order = orderSnapshot.data() || {};
+  const order = await withRegisteredCandidateEmail(orderSnapshot.data() || {});
   const letterRaw = cleanBlock(raw.coverLetterText, 8000);
   const emailSubject = clean(raw.emailSubject, 300);
   const emailBody = cleanBlock(raw.emailBody, 8000);
@@ -615,7 +616,7 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
         if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
       }
-      const order = orderSnapshot.data() || {};
+      const order = await withRegisteredCandidateEmail(orderSnapshot.data() || {});
       const communicationLocale = await resolveAnswerCommunicationLocale({ db, order }) || 'it';
       const flow = flowSnapshot.data() || {};
       const orderAnswerContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
