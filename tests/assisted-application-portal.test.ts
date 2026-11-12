@@ -1320,6 +1320,71 @@ describe('legacy portal sections', () => {
   });
 });
 
+describe('Workday anonymous file picker', () => {
+  it('uploads Swarovski’s already-mounted anonymous file field behind the French picker', async () => {
+    let selected = false;
+    const listeners = new Map<string, (value: any) => void>();
+    const request = {
+      method: () => 'POST',
+      headers: () => ({ 'content-type': 'multipart/form-data' }),
+    };
+    const fileInput = {
+      evaluate: vi.fn(async () => (selected ? ['candidate-cv.pdf'] : [])),
+      setInputFiles: vi.fn(async () => {
+        selected = true;
+        listeners.get('request')?.(request);
+        listeners.get('response')?.({ request: () => request, status: () => 200 });
+        listeners.get('requestfinished')?.(request);
+      }),
+    };
+    const picker = {
+      isVisible: vi.fn(async () => true),
+      click: vi.fn(async () => {}),
+    };
+    const snapshot = {
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/introduceYourself',
+      fields: [
+        { id: 'first-name', kind: 'text', inputType: 'text', label: 'Prénom(s)*', required: true },
+        { id: 'file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)' },
+      ],
+      buttons: [{ id: 'file-picker', text: 'sélectionner un fichier', disabled: false }],
+      captcha: false,
+      passwordVisible: false,
+      errors: [],
+      text: 'La page Présentez-vous est chargée',
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async (read: unknown) => read === markOptionalAutofillDeclineInPage ? false : snapshot),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[data-aa-id="file-input"]') return { first: () => fileInput };
+        if (selector === '[data-aa-id="file-picker"]') return { first: () => picker };
+        return { count: vi.fn(async () => 0), first: () => ({}) };
+      }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      on: vi.fn((event: string, listener: (value: any) => void) => listeners.set(event, listener)),
+      off: vi.fn((event: string) => listeners.delete(event)),
+      locator: vi.fn((selector: string) => {
+        if (selector === '.group_head') return { count: vi.fn(async () => 0) };
+        if (selector === '[role="alert"]:visible') return { allInnerTexts: vi.fn(async () => []) };
+        return { count: vi.fn(async () => 0) };
+      }),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(picker.click).not.toHaveBeenCalled();
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf', { timeout: 30_000 });
+  });
+});
+
 describe('portal plan guard (career-ops apply rules in code)', () => {
   it('recognises French ATS upload controls and maps nationality aliases to the portal catalogue', () => {
     expect(CV_UPLOAD_RE.test('Charger un CV')).toBe(true);
@@ -1498,6 +1563,19 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       ...page,
       fields: [...page.fields, { id: 'second-file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)' }],
     }, 'cv')).toEqual([]);
+  });
+
+  it('requires one anonymous Workday picker in the anonymous field frame', () => {
+    const page = {
+      fields: [{ id: 'file-input', kind: 'file', inputType: 'file', label: '(senza etichetta)', frame: 1 }],
+      buttons: [],
+    };
+    const picker = (id: string, frame: number) => ({ id, text: 'sélectionner un fichier', disabled: false, frame });
+
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('first-picker', 1), picker('second-picker', 1)] }, 'cv')).toEqual([]);
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('other-frame-picker', 0)] }, 'cv')).toEqual([]);
+    expect(uploadButtonCandidatesFor({ ...page, buttons: [picker('same-frame-picker', 1)] }, 'cv'))
+      .toMatchObject([{ id: 'same-frame-picker', frame: 1 }]);
   });
 
   it('keeps upload retry keys stable across redraws and shared automation ids', () => {

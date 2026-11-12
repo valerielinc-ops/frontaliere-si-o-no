@@ -14,6 +14,15 @@ if (!repoRootArg || !branch) {
 }
 
 const repoRoot = realpathSync(repoRootArg);
+try {
+  execFileSync('git', ['check-ref-format', `refs/heads/${branch}`], {
+    stdio: 'ignore',
+  });
+} catch {
+  console.error(`ref remoto non valido: ${branch}`);
+  process.exit(64);
+}
+
 let commonDir;
 try {
   const raw = execFileSync('git', ['-C', repoRoot, 'rev-parse', '--git-common-dir'], {
@@ -22,14 +31,21 @@ try {
   }).trim();
   commonDir = realpathSync(resolve(repoRoot, raw));
 } catch {
-  console.error('ℹ️  fetch saltato: directory Git comune non verificabile; uso il ref locale disponibile.');
-  process.exit(0);
+  console.error('directory Git comune non verificabile; rifiuto di creare un worktree da un ref forse obsoleto.');
+  process.exit(69);
 }
 
 const lockPath = join(commonDir, 'frontaliere-prune-fetch.lock');
 const result = withSingleFlightLock(lockPath, () => {
   try {
-    execFileSync('git', ['-C', repoRoot, 'fetch', '--quiet', 'origin', branch], {
+    execFileSync('git', [
+      '-C', repoRoot,
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      'origin',
+      `+refs/heads/${branch}:refs/remotes/origin/${branch}`,
+    ], {
       stdio: 'ignore',
       timeout: 25 * 60 * 1000,
       killSignal: 'SIGTERM',
@@ -41,7 +57,9 @@ const result = withSingleFlightLock(lockPath, () => {
 });
 
 if (!result.acquired) {
-  console.error(`ℹ️  fetch saltato: un'altra istanza tiene ${lockPath}; uso il ref origin/${branch} locale.`);
+  console.error(`fetch concorrente in corso (${lockPath}); riprova dopo il suo completamento, senza usare il ref locale.`);
+  process.exit(75);
 } else if (!result.value) {
-  console.error(`⚠️  fetch origin/${branch} non riuscito; uso il ref locale disponibile.`);
+  console.error(`fetch origin/${branch} non riuscito; rifiuto di creare un worktree da un ref forse obsoleto.`);
+  process.exit(1);
 }

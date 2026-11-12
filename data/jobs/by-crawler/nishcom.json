@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nishcom",
-  "assembledAt": "2026-11-12T09:20:03.633Z",
-  "runId": "43188166041",
+  "assembledAt": "2026-11-12T21:17:48.997Z",
+  "runId": "43306773476",
   "jobs": [
     {
       "id": "nishcom-ac69438708d7",
@@ -34,7 +34,7 @@
       "url": "https://nishcom.jobs.personio.de/job/2844123?language=de",
       "source": "nishcom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:19:58.541Z",
+      "crawledAt": "2026-11-12T21:17:43.795Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:19:58.541Z",
+      "validThrough": "2027-01-13T21:17:43.795Z",
       "validThroughSource": "last-observed-window"
     }
   ]
