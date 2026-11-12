@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, retrySparseCheckout, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -3363,6 +3363,11 @@ describe('cross-repo crawler execution artifacts', () => {
         if: "steps.site_checkout_primary.outcome == 'failure'",
       });
       expect(retryPreparation.run).toContain('retrySparseCheckout() {');
+      expect(retryPreparation.run).toContain('cleanWorkspaceBeforeRetry() {');
+      expect(retryPreparation.run).toContain(
+        'find "$workspace" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +',
+      );
+      expect(retryPreparation.run).toContain('cleanWorkspaceBeforeRetry');
       expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
       expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
       expect(retryPreparation.run).toContain(
@@ -3436,6 +3441,23 @@ describe('cross-repo crawler execution artifacts', () => {
       }
     }
   }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('pulisce i residui quando il primo checkout ha rimosso .git', () => {
+    const { prepare } = retrySparseCheckout({
+      sourceCheckout: { uses: 'actions/checkout@v7' },
+      checkout: {},
+    });
+    const noGitBranch = prepare.run.indexOf('if [ ! -e "$workspace/.git" ]; then');
+    const cleanupCall = prepare.run.indexOf('cleanWorkspaceBeforeRetry\n', noGitBranch);
+    const emptyWorkspaceMessage = prepare.run.indexOf(
+      'No partial Git metadata found; starting the retry from an empty workspace',
+      cleanupCall,
+    );
+
+    expect(noGitBranch).toBeGreaterThanOrEqual(0);
+    expect(cleanupCall).toBeGreaterThan(noGitBranch);
+    expect(emptyWorkspaceMessage).toBeGreaterThan(cleanupCall);
+  });
 
   it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
     const { contract, outDir } = generateArtifacts();
@@ -4507,10 +4529,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With compact waiter and the safe incomplete-metadata retry, size is
-    // 479039 bytes (<= 480000 budget).
+    // With compact waiter, safe incomplete-metadata retry, and empty-workspace
+    // cleanup, size is 479504 bytes (<= 480000 budget).
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(479039);
+    expect(bytes).toBe(479504);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
