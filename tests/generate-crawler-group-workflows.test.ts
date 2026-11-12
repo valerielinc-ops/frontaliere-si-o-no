@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerResultShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, preserveSourceCommitVerification, retrySparseCheckout, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -3363,6 +3363,11 @@ describe('cross-repo crawler execution artifacts', () => {
         if: "steps.site_checkout_primary.outcome == 'failure'",
       });
       expect(retryPreparation.run).toContain('retrySparseCheckout() {');
+      expect(retryPreparation.run).toContain('cleanWorkspaceBeforeRetry() {');
+      expect(retryPreparation.run).toContain(
+        'find "$workspace" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +',
+      );
+      expect(retryPreparation.run).toContain('cleanWorkspaceBeforeRetry');
       expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
       expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
       expect(retryPreparation.run).toContain(
@@ -3436,6 +3441,24 @@ describe('cross-repo crawler execution artifacts', () => {
       }
     }
   }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('pulisce i residui quando il primo checkout ha rimosso .git', () => {
+    const { prepare } = retrySparseCheckout({
+      sourceCheckout: { uses: 'actions/checkout@v7' },
+      checkout: {},
+    });
+    const workspace = path.join(tmp, 'workspace-without-git');
+    fs.mkdirSync(path.join(workspace, 'stale-directory'), { recursive: true });
+    fs.writeFileSync(path.join(workspace, '.stale-file'), 'left by the failed checkout\n');
+    fs.writeFileSync(path.join(workspace, 'stale-directory', 'nested.txt'), 'stale\n');
+
+    execFileSync('bash', ['-c', prepare.run], {
+      env: { ...process.env, GITHUB_WORKSPACE: workspace },
+      stdio: 'pipe',
+    });
+
+    expect(fs.readdirSync(workspace)).toEqual([]);
+  });
 
   it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
     const { contract, outDir } = generateArtifacts();
