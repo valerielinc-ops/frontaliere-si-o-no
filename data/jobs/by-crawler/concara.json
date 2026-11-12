@@ -3892,11 +3892,11 @@
     },
     {
       "id": "concara-39351e07ef2e",
-      "slug": "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern",
+      "slug": "addetto-a-alla-cucina-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern",
-        "en": "kitchen-staff-member-60-100-concara-domicil-spitex-bern-bern",
         "de": "mitarbeiter-in-kuche-60-100-concara-bern",
+        "it": "addetto-a-alla-cucina-60-100-concara-domicil-spitex-bern-bern",
+        "en": "kitchen-staff-member-60-100-concara-domicil-spitex-bern-bern",
         "fr": "employe-e-en-cuisine-60-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
@@ -3944,7 +3944,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-60-100-concara-bern"
+          "mitarbeiter-in-kuche-60-100-concara-bern",
+          "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern"
         ],
         "en": [
           "mitarbeiter-in-kuche-60-100-concara-bern"
@@ -3954,7 +3955,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kuche-60-100-concara-bern"
+        "mitarbeiter-in-kuche-60-100-concara-bern",
+        "collaboratore-trice-kuche-60-100-concara-domicil-spitex-bern"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,
