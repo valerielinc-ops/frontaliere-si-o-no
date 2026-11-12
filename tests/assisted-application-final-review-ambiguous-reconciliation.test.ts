@@ -6,6 +6,7 @@ import { isFinalOcrControlLabel, reconcileFinalReviewAmbiguous } from '../script
 import { decideFinalReviewAmbiguousReconciliation } from '../scripts/assisted-application/lib/final-review-ambiguous-reconciliation.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { advancedToFinalReview } from '../scripts/assisted-application/lib/portal/final-review.mjs';
+import { SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { encryptJson } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const applyUrl = 'https://careers.example/Careers/ApplicationMethods?jobId=42';
@@ -40,6 +41,13 @@ describe('shared final-review predicate', () => {
   it('recognizes standalone German final controls in saved OCR evidence', () => {
     expect(isFinalOcrControlLabel('Abschicken')).toBe(true);
     expect(isFinalOcrControlLabel('Weiter')).toBe(false);
+    expect(isFinalOcrControlLabel('Abschicken!')).toBe(false);
+    expect(SUBMIT_RE.test('Abschicken!')).toBe(false);
+  });
+
+  it('keeps duplicate OCR rows from changing final-review control presence', () => {
+    const duplicateRows = { ...reviewSnapshot, buttons: [...reviewSnapshot.buttons, { ...reviewSnapshot.buttons[0] }] };
+    expect(advancedToFinalReview(duplicateRows, { url: finalUrl, submissionUrl, applyUrl })).toBe(true);
   });
 
   it('accepts a bound review page that asks for another active final submit', () => {
