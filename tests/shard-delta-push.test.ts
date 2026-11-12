@@ -286,6 +286,7 @@ function runPush(
     curlStub,
     [
       '#!/bin/sh',
+      // Keep the fail-closed layout probes local; this fixture must not depend on the live Worker.
       'case "$*" in',
       '  *__frontaliere_ticino_tree_layout=hash-v1*)',
       '    printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: %s\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
