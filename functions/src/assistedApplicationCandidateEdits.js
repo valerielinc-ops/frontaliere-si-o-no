@@ -388,10 +388,13 @@ function compatibleAnswerQuestionIdentity(record, question) {
   const current = candidateAnswerHistoryIdentity(question);
   const contextsCompatible = ['context', 'section', 'autocomplete'].every(field =>
     !record[field] || !current[field] || record[field] === current[field]);
+  const languageContractsConflict = /^language_[a-z0-9]+_(?:any|written|oral)_(?:threshold_[abc][12]|proficiency|ability)$/.test(record.candidateKey || '')
+    && /^language_[a-z0-9]+_(?:any|written|oral)_(?:threshold_[abc][12]|proficiency|ability)$/.test(current.candidateKey || '')
+    && record.candidateKey !== current.candidateKey;
   const semanticMatch = Boolean(record.semanticKey && current.semanticKey && record.semanticKey === current.semanticKey);
   const textMatch = Boolean(record.questionText && current.questionText && record.questionText === current.questionText && contextsCompatible);
   const candidateKeyMatch = Boolean(record.candidateKey && current.candidateKey && record.candidateKey === current.candidateKey && contextsCompatible);
-  return contextsCompatible && (semanticMatch || textMatch || candidateKeyMatch);
+  return contextsCompatible && !languageContractsConflict && (semanticMatch || textMatch || candidateKeyMatch);
 }
 
 function candidateAnswerHistoryRecordForQuestionId(question, history) {
@@ -457,8 +460,9 @@ export function candidateQuestionAnswerKey(question) {
   const languageCodes = hasBoundedTextIdentity ? [] : languageCodesIn(text);
   if (!hasBoundedTextIdentity && !context && !section && !autocomplete && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
-    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
-    const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
+    const normalizedContract = normalizeQuestionValue([text, identityQuestion?.why].filter(Boolean).join(' '));
+    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalizedContract)?.[1] || '';
+    const modality = LANGUAGE_MODALITY_RE.test(normalizedContract) ? 'written' : LANGUAGE_ORAL_RE.test(normalizedContract) ? 'oral' : 'any';
     const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
     const levelField = kind === 'proficiency' && ['text', 'choice'].includes(identityQuestion?.type || 'text')
       && !optionValues(identityQuestion).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
@@ -493,6 +497,11 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || !hasQuestionAnswer(result[question.id])) continue;
     const saved = candidateAnswerHistoryRecordForQuestionId(question, history);
+    // A same-id value without candidate-history provenance is already attached
+    // to this field. Keep it literal for candidate review and existing
+    // projections; only a recorded candidate answer can be invalidated as a
+    // stale answer after the field's contract changes.
+    if (saved === undefined) continue;
     if (saved === null || (saved && (saved.status !== 'answered'
       || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
       || !compatibleAnswerQuestionIdentity(saved, question)))) {
@@ -511,9 +520,11 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     const key = candidateQuestionAnswerKey(question);
     const value = result[question?.id];
     if (!key || !hasQuestionAnswer(value)) continue;
+    const current = answerForCurrentQuestion(value, question, nowMs);
+    if (current === undefined) continue;
     const previous = currentValues.get(key);
-    if (!previous) currentValues.set(key, { value, comparable: answerValueKey(value) });
-    else if (previous.comparable !== answerValueKey(value)) conflicts.add(key);
+    if (!previous) currentValues.set(key, { value: current, comparable: answerValueKey(current) });
+    else if (previous.comparable !== answerValueKey(current)) conflicts.add(key);
   }
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || hasQuestionAnswer(result[question.id])) continue;
