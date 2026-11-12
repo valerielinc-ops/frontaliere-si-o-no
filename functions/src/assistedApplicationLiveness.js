@@ -80,19 +80,25 @@ const MULTI_SENTENCE_HARD_EXPIRED_PATTERNS = [
   // SuccessFactors can state the closed status across the «not displayed» and «deleted / no longer apply» sentences.
   /diese stelle kann (?:zurzeit|derzeit|momentan|leider) nicht (?:mehr )?angezeigt werden[\s\S]{0,200}?(?:geloscht|nicht (?:mehr|langer) (?:darauf |dafur )?bewerben)/i,
 ];
-const COMMON_CONDITIONAL_OR_TEMPORAL_CLAUSE = [
+const CONDITIONAL_OR_TEMPORAL_CLAUSE = [
   /\b(?:after|before|once|when|if|until|whenever|unless|while|as soon as|as long as|provided that|in case|including after)\b/i,
+  /\b(?:nachdem|sobald|wenn|falls|bis|solange)\b/i,
+  /\b(?:dopo\s+che|una\s+volta\s+che|quando|finche|fino\s+a\s+quando)\b/i,
+  /\b(?:une\s+fois(?:\s+que)?|lorsque|quand|si|apres\s+que|jusqu'a\s+ce\s+que)\b/i,
 ];
-const LOCALE_CONDITIONAL_OR_TEMPORAL_CLAUSE = {
-  de: [/\b(?:nachdem|sobald|wenn|falls|bis|solange)\b/i],
-  it: [/\b(?:dopo\s+che|una\s+volta\s+che|quando|se|finche|fino\s+a\s+quando)\b/i],
-  fr: [/\b(?:une\s+fois(?:\s+que)?|lorsque|quand|si|apres\s+que|jusqu'a\s+ce\s+que)\b/i],
-};
-const LOCALE_CUES = [
-  ['fr', /\b(?:cette|offre|annonce|poste|candidature|postuler|n'est|lorsque|apres|une\s+fois|si\s+(?:la|le|l'|une|un|des|les))\b/i],
-  ['it', /\b(?:questa|questo|offerta|annuncio|posizione|candidatura|candidarsi|lavoro|selezione|finche|dopo|se\s+(?:la|il|l'|una|un|questo|questa))\b/i],
-  ['de', /\b(?:diese|stelle|bewerbung|bewerbungsfrist|geloscht|nachdem|sobald|besetzt|solange)\b/i],
-];
+const ITALIAN_SE_CONDITIONAL = /\bse\b/i;
+const SUPPORTED_PAGE_LANGUAGES = new Set(['de', 'en', 'fr', 'it']);
+
+function normalizePageLanguage(language = '') {
+  const primary = String(language || '').trim().toLowerCase().split(/[-_]/, 1)[0];
+  return SUPPORTED_PAGE_LANGUAGES.has(primary) ? primary : '';
+}
+
+function pageLanguageFromHtml(html = '') {
+  const attributes = /<html\b([^>]*)>/i.exec(String(html || ''))?.[1] || '';
+  const match = /\blang\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'<>`]+))/i.exec(attributes);
+  return normalizePageLanguage(match?.[1] || match?.[2] || match?.[3] || '');
+}
 const ACCESS_BLOCKED_PATTERNS = [
   /\b(?:your\s+|the\s+)?ip(?:[\s-]?address)?\s+(?:(?:has been|is|was)\s+)?(?:blocked|denied|banned)\b/i,
   /\b(?:il tuo\s+)?indirizzo ip\s+(?:(?:e stato|risulta|e)\s+)?(?:bloccato|negato|vietato)\b/i,
@@ -200,17 +206,11 @@ function jobIdToken(url = '') {
 const firstMatch = (patterns, text = '') => patterns.find((pattern) => pattern.test(text));
 const hasApplyControl = (controls = []) => controls.some((control) => APPLY_PATTERNS.some((pattern) => pattern.test(control)));
 
-function statementLocale(statement, localeHint = '') {
-  const hintedLocale = String(localeHint || '').toLowerCase().split(/[-_]/)[0];
-  if (LOCALE_CONDITIONAL_OR_TEMPORAL_CLAUSE[hintedLocale]) return hintedLocale;
-  return LOCALE_CUES.find(([, pattern]) => pattern.test(statement))?.[0] || '';
-}
-
 function hasConditionalTemporalPrefix(statement, matchIndex, localeHint = '') {
   const leadIn = statement.slice(0, matchIndex);
-  const locale = statementLocale(statement, localeHint);
-  return [...COMMON_CONDITIONAL_OR_TEMPORAL_CLAUSE, ...(LOCALE_CONDITIONAL_OR_TEMPORAL_CLAUSE[locale] || [])]
-    .some((clause) => clause.test(leadIn));
+  const locale = normalizePageLanguage(localeHint);
+  return CONDITIONAL_OR_TEMPORAL_CLAUSE.some((clause) => clause.test(leadIn))
+    || (locale === 'it' && ITALIAN_SE_CONDITIONAL.test(leadIn));
 }
 
 function firstUnconditionalStatementMatch(patterns, rawText = '', locale = '') {
@@ -266,17 +266,19 @@ function filledStatement(rawText, { applyControlVisible = false } = {}) {
   return undefined;
 }
 
+/** `locale` is the posting-page language, from its explicit page metadata when available. */
 export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '', bodyText: rawBodyText = '', applyControls: rawApplyControls = [], locale = '' } = {}) {
+  const pageLocale = normalizePageLanguage(locale);
   const bodyText = normalizeForMatch(rawBodyText);
   const applyControls = (Array.isArray(rawApplyControls) ? rawApplyControls : []).map(normalizeForMatch);
   if (status === 404 || status === 410) return { result: 'expired', code: 'http_gone', reason: `HTTP ${status}` };
-  if (firstUnconditionalStatementMatch(ACCESS_BLOCKED_PATTERNS, rawBodyText, locale)) return { result: 'uncertain', code: 'runner_ip_blocked', reason: 'IP access blocked' };
+  if (firstUnconditionalStatementMatch(ACCESS_BLOCKED_PATTERNS, rawBodyText, pageLocale)) return { result: 'uncertain', code: 'runner_ip_blocked', reason: 'IP access blocked' };
   const botChallenge = firstMatch(BOT_CHALLENGE_PATTERNS, bodyText);
   if (botChallenge) return { result: 'uncertain', code: 'bot_challenge', reason: 'anti-bot challenge' };
   if (status === 403 || status === 429 || status === 503) return { result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}` };
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
   if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
-  const expiredBody = firstUnconditionalHardExpiredStatement(rawBodyText, locale);
+  const expiredBody = firstUnconditionalHardExpiredStatement(rawBodyText, pageLocale);
   if (expiredBody) return { result: 'expired', code: 'expired_body', reason: `pattern matched: ${expiredBody.source}` };
   const filled = filledStatement(rawBodyText, { applyControlVisible: hasApplyControl(applyControls) });
   if (filled) return { result: 'expired', code: 'expired_body', reason: `posting filled: ${filled.source}` };
@@ -413,6 +415,7 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
           finalUrl: response.url || url,
           bodyText: htmlToText(html),
           applyControls: applyControlsFromHtml(html),
+          locale: pageLanguageFromHtml(html),
         });
       } else {
         page = { result: 'uncertain', code: 'not_public', reason: 'url not fetchable' };

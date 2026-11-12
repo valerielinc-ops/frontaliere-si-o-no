@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import * as portal from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
+import { checkPostingLiveness, classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 
 // SuccessFactors, Stadt Zürich (career2.successfactors.eu, run 42818412495, 2026-11-10): the account was
 // created and the privacy statement accepted, then /portalcareer said the posting could no longer be applied
@@ -208,15 +208,16 @@ describe('a posting that closes behind the registration', () => {
     expect(ipBlocked).toMatchObject({ result: 'uncertain', code: 'runner_ip_blocked' });
     expect(initialPortalHandoffReason({ liveness: ipBlocked })).toBe('application_region_unsupported');
 
-    const unavailable = classifyLiveness({ status: 503, bodyText: '' });
-    expect(unavailable).toMatchObject({ result: 'uncertain', code: 'access_blocked' });
-    expect(initialPortalHandoffReason({ liveness: unavailable })).toBeNull();
+    for (const status of [403, 429, 503]) {
+      const unavailable = classifyLiveness({ status, bodyText: '' });
+      expect(unavailable).toMatchObject({ result: 'uncertain', code: 'access_blocked' });
+      expect(initialPortalHandoffReason({ liveness: unavailable })).toBeNull();
+    }
     expect(initialPortalHandoffReason({ liveness: { code: 'bot_challenge' } })).toBe('captcha');
   });
 
   it.each([
     '<label for="application">Application details</label><input id="application" name="application" type="text">',
-    '<label for="password">Password</label><input id="password" name="password" type="password">',
     '<label for="attachment">Curriculum Vitae</label><input id="attachment" name="attachment" type="file">',
   ])('does not reclassify a still-interactive form as closed (%s)', async (field) => {
     const landing = `<main><p>Die Stelle wurde leider bereits besetzt.</p><form>${field}<button type="submit">Weiter</button></form></main>`;
@@ -224,11 +225,35 @@ describe('a posting that closes behind the registration', () => {
     expect(result.event.type).not.toBe('posting_closed');
   }, 45_000);
 
-  it('still recognizes a closure when only a non-application search field is present', async () => {
-    const landing = '<main><p>This job is no longer available.</p><form><label for="query">Search jobs</label><input id="query" name="query" type="search"><button type="submit">Search</button></form></main>';
+  it.each([
+    '<label for="query">Search jobs</label><input id="query" name="query" type="search"><button type="submit">Search</button>',
+    '<label for="query">Search applications</label><input id="query" name="query" type="search"><button type="submit">Search</button>',
+    '<label for="password">Password</label><input id="password" name="password" type="password">',
+    '<label for="email">Email</label><input id="email" name="email" type="email">',
+  ])('still recognizes a closure when only a non-application field is present (%s)', async (field) => {
+    const landing = `<main><p>This job is no longer available.</p><form>${field}</form></main>`;
     const { result } = await run(landing);
     expect(result.event).toMatchObject({ type: 'posting_closed', reason: 'expired_body' });
   }, 45_000);
+
+  it('uses an explicit fetched page language and caller page language for Italian «se»', async () => {
+    const url = 'https://jobs.example.test/posting/42';
+    const html = `<!doctype html><html lang="fr-CH"><body><p>Cette offre se trouve ici et cette offre n'est plus disponible.</p></body></html>`;
+    const result = await checkPostingLiveness({
+      order: { jobUrl: url },
+      posting: { postingUrl: url },
+      fetchImpl: async () => new Response(html, { status: 200, headers: { 'content-type': 'text/html' } }),
+      resolve: async () => [{ address: '93.184.216.34' }],
+    });
+    expect(result.page).toMatchObject({ result: 'expired', code: 'expired_body' });
+
+    expect(classifyLiveness({
+      status: 200,
+      locale: 'it-CH',
+      bodyText: 'Se la posizione è stata coperta, conserviamo i dati.',
+      applyControls: ['Apply'],
+    })).toMatchObject({ result: 'active', code: 'apply_control_visible' });
+  });
 
   it('does not let the Italian conditional token suppress a French hard closure', () => {
     expect(classifyLiveness({

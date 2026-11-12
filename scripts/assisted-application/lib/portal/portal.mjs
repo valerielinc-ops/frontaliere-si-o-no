@@ -1898,9 +1898,9 @@ export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '',
 }
 
 /**
- * An anti-bot interstitial or denied runner IP is not evidence that the
- * application belongs to a different posting. Challenges take the CAPTCHA
- * handoff; a denied IP takes the existing egress recovery lane.
+ * An anti-bot interstitial or a body-confirmed runner IP block is not evidence
+ * that the application belongs to a different posting. Challenges take the
+ * CAPTCHA handoff; only the confirmed IP block takes the egress recovery lane.
  */
 export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
   if (liveness?.code === 'runner_ip_blocked') return 'application_region_unsupported';
@@ -8474,12 +8474,12 @@ function isApplicationOwnedPortalField(field) {
     field?.section,
     field?.applicationQuestion,
   ].filter(Boolean).join(' ');
-  const explicitApplicationField = APPLICATION_CONTROL_RE.test(fieldText)
+  if (field?.search === true || String(field?.inputType || '').toLowerCase() === 'search') return false;
+  if (PORTAL_AUTH_FIELD_RE.test(fieldText)) return false;
+  return APPLICATION_CONTROL_RE.test(fieldText)
     || isCvFileField(field)
     || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(fieldText)
     || (isFileField(field) && field.required === true);
-  if (explicitApplicationField) return true;
-  return !PORTAL_AUTH_FIELD_RE.test(fieldText) && APPLICATION_IDENTITY_FIELD_RE.test(fieldText);
 }
 
 export async function submitViaPortal(ctx) {
@@ -8540,8 +8540,7 @@ export async function submitViaPortal(ctx) {
     if (CLOSURE_RECHECK_STOPS.has(reason) && page) {
       const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
       const formFields = Array.isArray(currentSnapshot?.fields) ? currentSnapshot.fields : [];
-      const applicationFormVisible = currentSnapshot?.passwordVisible === true
-        || formFields.some(isApplicationOwnedPortalField);
+      const applicationFormVisible = formFields.some(isApplicationOwnedPortalField);
       if (!applicationFormVisible) {
         const applyControls = [
           ...(currentSnapshot?.buttons || []).map((button) => button.text || button.label || ''),
