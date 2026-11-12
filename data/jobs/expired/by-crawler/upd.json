@@ -1063,8 +1063,9 @@
       "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-e79f1388",
       "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-1c5e1c65",
       "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-9f1fd06f",
+      "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-c95a5296",
       "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen",
-      "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-c95a5296"
+      "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-762ac759"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1156,6 +1157,7 @@
         "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-1c5e1c65",
         "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-9f1fd06f",
         "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-c95a5296",
+        "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen-762ac759",
         "medical-secretary-medical-secretary-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "fr": [
@@ -3019,8 +3021,9 @@
       "teamleitung-textilmanagement-upd-munsingen-4d2ce9d8",
       "teamleitung-textilmanagement-upd-munsingen-a954caf8",
       "teamleitung-textilmanagement-upd-munsingen-1dca8546",
+      "teamleitung-textilmanagement-upd-munsingen-77f013d7",
       "teamleitung-textilmanagement-upd-munsingen",
-      "teamleitung-textilmanagement-upd-munsingen-77f013d7"
+      "teamleitung-textilmanagement-upd-munsingen-bbf1a02a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3082,6 +3085,7 @@
         "teamleitung-textilmanagement-upd-munsingen-a954caf8",
         "teamleitung-textilmanagement-upd-munsingen-1dca8546",
         "teamleitung-textilmanagement-upd-munsingen-77f013d7",
+        "teamleitung-textilmanagement-upd-munsingen-bbf1a02a",
         "teamleitung-textilmanagement-upd-munsingen"
       ],
       "en": [
@@ -3143,6 +3147,7 @@
         "teamleitung-textilmanagement-upd-munsingen-a954caf8",
         "teamleitung-textilmanagement-upd-munsingen-1dca8546",
         "teamleitung-textilmanagement-upd-munsingen-77f013d7",
+        "teamleitung-textilmanagement-upd-munsingen-bbf1a02a",
         "teamleitung-textilmanagement-upd-munsingen"
       ],
       "fr": [
@@ -3204,6 +3209,7 @@
         "teamleitung-textilmanagement-upd-munsingen-a954caf8",
         "teamleitung-textilmanagement-upd-munsingen-1dca8546",
         "teamleitung-textilmanagement-upd-munsingen-77f013d7",
+        "teamleitung-textilmanagement-upd-munsingen-bbf1a02a",
         "teamleitung-textilmanagement-upd-munsingen"
       ],
       "de": [
@@ -3234,6 +3240,7 @@
         "teamleitung-textilmanagement-upd-munsingen-11e2a1ae",
         "teamleitung-textilmanagement-upd-munsingen-551dbf67",
         "teamleitung-textilmanagement-upd-munsingen-413daca7",
+        "teamleitung-textilmanagement-upd-munsingen-e174eaa3",
         "teamleitung-textilmanagement-upd-munsingen"
       ]
     },
@@ -4488,16 +4495,14 @@
     "slugByLocale": {
       "it": "medico-senior-medico-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
       "en": "senior-physician-senior-physician-forensics-universitare-psychiatrische-dienste-bern-upd-bern",
-      "de": "oberarztin-oberarzt-forensik-upd-bern",
+      "de": "oberarztin-oberarzt-forensik-upd-bern-319b7cce",
       "fr": "medecin-principal-medecin-principal-medico-legal-universitare-psychiatrische-dienste-bern-upd-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-12T13:32:48.580Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-forensik-upd-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-forensik-upd-bern-319b7cce",
         "oberarztin-oberarzt-forensik-upd-bern"
       ],
       "en": [
@@ -4505,6 +4510,9 @@
       ],
       "fr": [
         "oberarztin-oberarzt-forensik-upd-bern"
+      ],
+      "de": [
+        "oberarztin-oberarzt-forensik-upd-bern-319b7cce"
       ]
     },
     "postalCode": "3004",
@@ -4514,7 +4522,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/390c697f-f6c1-4494-92eb-cd41c5aafd2c",
-    "firstSeenAt": "2026-09-29T21:25:33.540Z"
+    "firstSeenAt": "2026-09-29T21:25:33.540Z",
+    "previousSlugs": [
+      "oberarztin-oberarzt-forensik-upd-bern"
+    ]
   },
   {
     "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
