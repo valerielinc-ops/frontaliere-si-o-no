@@ -6,11 +6,51 @@ import {
   buildFastLaneHubVisibleJobIdsByLocale,
   extractFirstPartyAssetUrls,
   hasGoogleAnalyticsRuntime,
+  validateFullBuildActiveJobAlternates,
 } from "../scripts/publish-jobs-fast.mjs";
 import { filterFastLaneHubInventory } from "../build-plugins/shared/fastLaneHubInventory";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
 
 describe("jobs fast-publish HTML asset contract", () => {
+  it("matches the full build's all-or-nothing active hreflang contract", () => {
+    const partialPages = [
+      { locale: "it", path: "/it/jobs/partial-it/" },
+      { locale: "de", path: "/de/jobs/partial-de/" },
+      { locale: "fr", path: "/fr/jobs/partial-fr/" },
+    ];
+    expect(() =>
+      validateFullBuildActiveJobAlternates(new Map(), partialPages, "it"),
+    ).not.toThrow();
+    expect(() =>
+      validateFullBuildActiveJobAlternates(
+        new Map([["en", ["https://frontaliereticino.ch/en/jobs/partial-en/"]]]),
+        partialPages,
+        "it",
+      ),
+    ).toThrow(/partial locale ownership/);
+
+    const completePages = ["it", "en", "de", "fr"].map((locale) => ({
+      locale,
+      path: `/${locale}/jobs/full-${locale}/`,
+    }));
+    const completeAlternates = new Map(
+      completePages.map((page) => [
+        page.locale,
+        [`https://frontaliereticino.ch${page.path}`],
+      ]),
+    );
+    completeAlternates.set("x-default", [
+      "https://frontaliereticino.ch/it/jobs/full-it/",
+    ]);
+    expect(() =>
+      validateFullBuildActiveJobAlternates(
+        completeAlternates,
+        completePages,
+        "it",
+      ),
+    ).not.toThrow();
+  });
+
   it("uses the full renderer's locale ownership for partially translated offers", () => {
     const jobs = [
       { id: "full-build-winner", slug: "shared-route", canton: "TI" },

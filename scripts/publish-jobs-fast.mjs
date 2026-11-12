@@ -344,6 +344,46 @@ export function extractFirstPartyAssetUrls(html) {
     .sort();
 }
 
+export function validateFullBuildActiveJobAlternates(
+  alternates,
+  expectedPages,
+  locale,
+) {
+  const expectedByLocale = new Map(
+    expectedPages.map((page) => [page.locale, `${BASE_URL}${page.path}`]),
+  );
+  const completeCluster = LOCALES.every((candidateLocale) =>
+    expectedByLocale.has(candidateLocale),
+  );
+
+  if (completeCluster) {
+    for (const candidateLocale of LOCALES) {
+      const hrefs = alternates.get(candidateLocale) || [];
+      if (
+        hrefs.length !== 1 ||
+        hrefs[0] !== expectedByLocale.get(candidateLocale)
+      ) {
+        throw new Error(
+          `[jobs-fast] incomplete or duplicate hreflang set for ${locale} offer page`,
+        );
+      }
+    }
+    const xDefaults = alternates.get("x-default") || [];
+    if (
+      xDefaults.length !== 1 ||
+      xDefaults[0] !== expectedByLocale.get("it")
+    ) {
+      throw new Error(
+        `[jobs-fast] x-default is missing, duplicated, or does not point to the Italian page for ${locale} offer page`,
+      );
+    }
+  } else if ([...alternates.values()].some((hrefs) => hrefs.length > 0)) {
+    throw new Error(
+      `[jobs-fast] full build suppresses hreflang for partial locale ownership, but ${locale} page advertises alternates`,
+    );
+  }
+}
+
 function checkJobPageContracts(receipt, expectedPagePlan) {
   if (
     receipt?.schema !== RENDER_RECEIPT_SCHEMA ||
@@ -478,33 +518,12 @@ function checkJobPageContracts(receipt, expectedPagePlan) {
   );
   for (const [id, pages] of pagesById) {
     const expectedPages = expectedPagePlan.pagesById.get(id) || [];
-    const expectedByLocale = new Map(
-      expectedPages.map((page) => [page.locale, `${BASE_URL}${page.path}`]),
-    );
-    const completeCluster = LOCALES.every((locale) =>
-      expectedByLocale.has(locale),
-    );
     for (const page of pages) {
-      const alternates = page._alternates;
-      if (completeCluster) {
-        for (const locale of LOCALES) {
-          const hrefs = alternates.get(locale) || [];
-          if (hrefs.length !== 1 || hrefs[0] !== expectedByLocale.get(locale))
-            throw new Error(
-              `[jobs-fast] incomplete or duplicate hreflang set for ${page.locale} offer page`,
-            );
-        }
-        const xDefaults = alternates.get("x-default") || [];
-        if (xDefaults.length !== 1 || xDefaults[0] !== expectedByLocale.get("it")) {
-          throw new Error(
-            `[jobs-fast] x-default is missing, duplicated, or does not point to the Italian page for ${page.locale} offer page`,
-          );
-        }
-      } else if ([...alternates.values()].some((hrefs) => hrefs.length > 0)) {
-        throw new Error(
-          `[jobs-fast] full build suppresses hreflang for partial locale ownership, but ${page.locale} page advertises alternates`,
-        );
-      }
+      validateFullBuildActiveJobAlternates(
+        page._alternates,
+        expectedPages,
+        page.locale,
+      );
       const pageUrl = `${BASE_URL}${page.path}`;
       if (!page._noindex && !sitemapLocs.has(pageUrl)) {
         throw new Error(
@@ -1045,24 +1064,11 @@ async function verifyPublishedPagesAndSitemaps(
     }
     const alternates = extractAlternates(html);
     const expectedPages = pagesById.get(page.id) || [];
-    const expectedByLocale = new Map(
-      expectedPages.map((candidate) => [
-        candidate.locale,
-        `${BASE_URL}${candidate.path}`,
-      ]),
+    validateFullBuildActiveJobAlternates(
+      alternates,
+      expectedPages,
+      `live ${page.path}`,
     );
-    for (const locale of LOCALES) {
-      const hrefs = alternates.get(locale) || [];
-      if (hrefs.length !== 1 || hrefs[0] !== expectedByLocale.get(locale)) {
-        throw new Error(
-          `[jobs-fast] live hreflang ${locale} is missing, duplicated, or mismatched for ${page.path}`,
-        );
-      }
-    }
-    const xDefaults = alternates.get("x-default") || [];
-    if (xDefaults.length !== 1 || xDefaults[0] !== expectedByLocale.get("it")) {
-      throw new Error(`[jobs-fast] live x-default mismatch for ${page.path}`);
-    }
   }
 
   for (const update of receipt.hubUpdates || []) {
