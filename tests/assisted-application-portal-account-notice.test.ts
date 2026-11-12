@@ -6,9 +6,15 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
+// The inbound path does not exercise packet generation; keep its test isolated from the unrelated PDF implementation.
+vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({
+  postalPacketReadiness: vi.fn(async () => null),
+}));
+
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { handleAssistedApplicationInbound, portalAccountNoticeKind, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { portalAccountForNotice } = await import('../functions/src/assistedApplicationPortalSites.js');
+const { decodeHtmlEntities } = await import('../functions/src/lib/mimeMessage.js');
 
 // A portal's own account mail (the federal SuccessFactors tenant, 2026-11-10:
 // «Ihr Bewerbungskonto wurde erfolgreich erstellt», a sign-in link on the
@@ -20,6 +26,20 @@ const SECRET = 'worker-secret';
 const HOST = 'career74.sapsf.eu';
 const LINK = `https://${HOST}/career?career_company=examplefed&lang=de_DE&company=examplefed&site=&loginFlowRequired=true&_s.crb=synthetic`;
 const CREATED = `Guten Tag\n\nVielen Dank für Ihr Interesse an einer Stelle beim Bund. Ihr Bewerbungskonto wurde erfolgreich erstellt. Hier ${LINK} können Sie Bewerbungen erfassen und jeweils den aktuellen Stand einsehen.\n\nWir freuen uns auf Ihre Bewerbungsunterlagen.\n\nFreundliche Grüsse\n\nBundesverwaltung\n\nDies ist eine automatisch generierte E-Mail, bitte antworten Sie nicht darauf.`;
+const CITY_PORTAL_WELCOME = `Guten Tag Test Person
+
+ Willkommen beim Stellenportal der Stadt M&uuml;sterstadt.
+
+ Sie k&ouml;nnen sich jederzeit in unser Stellenportal einloggen, um Ihr Profil zu erg&auml;nzen oder sich auf offene Stellen zu bewerben.
+
+ Ihr Benutzername entspricht Ihrer E-Mail-Adresse und lautet: candidate@example.test.
+Das Kennwort haben Sie sich bei der Registrierung selbst gesetzt. Sollten Sie das Kennwort neu setzen wollen oder Ihr Kennwort vergessen haben, klicken Sie im Portal auf &laquo;Haben Sie Ihr Kennwort vergessen?&raquo;.
+
+ Freundliche Gr&uuml;sse
+
+ Stadt M&uuml;sterstadt
+
+ Dies ist eine automatisch generierte Nachricht, bitte antworten Sie nicht an diese E-Mail-Adresse.`;
 
 const cf = () => {
   const rules = new Map<string, string>();
@@ -111,6 +131,80 @@ describe('a portal account notice for the order’s own account', () => {
     expect(inbox).toMatchObject({ portalAccountNoticeHost: HOST, portalAccountNotice: kind, forwarded: { status: 'skipped', reason: 'portal_account_notice' } });
     expect(sendCascade).not.toHaveBeenCalled();
   });
+
+  it('decodes the delayed German portal welcome and keeps it visible without forwarding it', async () => {
+    const { store, alias } = await setup();
+    const { processed, inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw: mail({ subject: 'Willkommen beim Stellenportal', text: CITY_PORTAL_WELCOME }),
+      answer: modelAnswer({ verificationUrl: '', needsReply: true, summaryCandidate: 'Accedi al portale.' }),
+    });
+
+    expect(processed).toMatchObject({ category: 'verification', forwarded: 'skipped' });
+    expect(inbox).toMatchObject({
+      status: 'processed', classifiedBy: 'codex', category: 'verification',
+      verificationCode: '', verificationUrl: '', needsReply: false, summaryCandidate: '',
+      correlationStatus: 'unknown', portalAccountNotice: 'created', portalAccountNoticeHost: HOST,
+      forwarded: { status: 'skipped', reason: 'portal_account_notice' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('does not treat a password-reset link in a welcome as account verification', async () => {
+    const { store, alias } = await setup();
+    const resetLink = `https://${HOST}/career/forgot-password`;
+    const text = `${CITY_PORTAL_WELCOME}\n\nPasswort vergessen? ${resetLink}`;
+    const { inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw: mail({ subject: 'Willkommen', text }),
+      answer: modelAnswer({ verificationUrl: resetLink, needsReply: true }),
+    });
+
+    expect(inbox).toMatchObject({
+      category: 'verification', verificationCode: '', verificationUrl: '', needsReply: false, summaryCandidate: '',
+      portalAccountNotice: 'created', correlationStatus: 'unknown',
+      forwarded: { status: 'skipped', reason: 'portal_account_notice' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ['Italian', 'Benvenuta nel portale delle candidature. Il tuo nome utente è candidate@example.test.'],
+    ['French', "Bienvenue sur notre portail carrières. Votre nom d'utilisateur correspond à candidate@example.test."],
+    ['English', 'Welcome to our city recruiting portal. Your username is candidate@example.test.'],
+  ])('recognizes a %s welcome notice and never forwards it', async (_language, text) => {
+    const { store, alias } = await setup();
+    const answer = modelAnswer({ verificationUrl: '' });
+    expect(portalAccountNoticeKind({ subject: 'Portal account', text }, answer)).toBe('created');
+
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Portal account', text }), answer });
+    expect(inbox).toMatchObject({ portalAccountNotice: 'created', correlationStatus: 'unknown', forwarded: { status: 'skipped', reason: 'portal_account_notice' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ['named umlaut', 'ge&auml;ndert'],
+    ['decimal numeric umlaut', 'ge&#228;ndert'],
+    ['hexadecimal numeric umlaut', 'ge&#xE4;ndert'],
+  ])('decodes %s in the shared rule input', (_form, word) => {
+    expect(portalAccountNoticeKind({ subject: 'Konto', text: `Ihr Passwort wurde ${word}.` }, modelAnswer({ verificationUrl: '' }))).toBe('password_changed');
+  });
+
+  it('decodes one layer of named and numeric entities and leaves unknown entities intact', () => {
+    expect(decodeHtmlEntities('&uuml; &ouml; &auml; &laquo; &raquo; &nbsp; &amp; &#228; &#xE4; &unknown; &amp;uuml; ?copy=1&notin=2'))
+      .toBe('ü ö ä « »   & ä ä &unknown; &uuml; ?copy=1&notin=2');
+  });
+
+  it('keeps a recognized account notice from being forwarded for a withdrawn order', async () => {
+    const { store, alias } = await setup();
+    await store.db.collection('assisted_applications').doc(ORDER).set({ submissionStatus: 'withdrawn' }, { merge: true });
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer({ verificationUrl: '' }) });
+
+    expect(inbox).toMatchObject({ portalAccountNotice: 'created', forwarded: { status: 'skipped', reason: 'portal_account_notice' } });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
 });
 
 describe('what still reaches the candidate', () => {
@@ -139,6 +233,42 @@ describe('what still reaches the candidate', () => {
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ text }), answer: modelAnswer(overrides) });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
     expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('forwards the welcome when it also asks the candidate to verify an e-mail address', async () => {
+    const { store, alias } = await setup();
+    const text = `${CITY_PORTAL_WELCOME}\n\nBitte bestätigen Sie Ihre E-Mail-Adresse über den folgenden Link.`;
+    expect(portalAccountNoticeKind({ subject: 'Willkommen', text }, modelAnswer({ verificationUrl: '' }))).toBe('');
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Willkommen', text }), answer: modelAnswer({ verificationUrl: '' }) });
+
+    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'sent' } });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('forwards the welcome when it also invites the candidate to an interview', async () => {
+    const { store, alias } = await setup();
+    const text = `${CITY_PORTAL_WELCOME}\n\nGerne laden wir Sie zu einem Vorstellungsgespräch ein.`;
+    expect(portalAccountNoticeKind({ subject: 'Willkommen', text }, modelAnswer({ verificationUrl: '' }))).toBe('');
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Willkommen', text }), answer: modelAnswer({ verificationUrl: '' }) });
+
+    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'sent' } });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('routes a welcome that also confirms an application through the receipt path', async () => {
+    const { store, alias } = await setup();
+    const text = `${CITY_PORTAL_WELCOME}\n\nWir haben Ihre Bewerbung erhalten.`;
+    const receipt = modelAnswer({ category: 'auto_acknowledgement', verificationUrl: '' });
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Willkommen und Bewerbungseingang', text }), answer: receipt });
+
+    expect(inbox).toMatchObject({
+      category: 'auto_acknowledgement', automaticApplicationReceipt: true, correlationStatus: 'verified',
+      forwarded: { status: 'skipped', reason: 'application_receipt' },
+    });
+    expect(inbox.portalAccountNotice).toBeUndefined();
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('when the model reads it as something else than an account mail', async () => {
