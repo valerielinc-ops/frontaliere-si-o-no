@@ -91,6 +91,24 @@ describe('application stage ownership', () => {
   });
 
   it.each([
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2',
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2/apply',
+  ])('accepts Swarovski Workday one-segment job routes: %s', (workdayApplyUrl) => {
+    const start = { id: 'start', text: 'Démarrer', frame: 0, disabled: false };
+    const snapshot = {
+      url: workdayApplyUrl,
+      fields: [],
+      buttons: [
+        { text: 'Postuler', frame: 0, disabled: false },
+        start,
+      ],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: workdayApplyUrl, job: { title: 'Sales Consultant' } }))
+      .toMatchObject({ kind: 'application_start', control: start });
+  });
+
+  it.each([
     ['a non-Workday host', 'https://careers.example/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
     ['a non-start label', 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
   ])('keeps the generic Apply guard for %s', (_case, url) => {

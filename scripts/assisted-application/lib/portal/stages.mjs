@@ -38,7 +38,7 @@ const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 const WORKDAY_HOST_RE = /(?:^|\.)myworkdayjobs\.com$/i;
-const WORKDAY_JOB_ROUTE_RE = /(?:^|\/)job\/[^/]+\/[^/]+(?:\/apply)?\/?$/i;
+const WORKDAY_JOB_ROUTE_RE = /(?:^|\/)job\/[^/]+(?:\/[^/]+)?(?:\/apply)?\/?$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 
