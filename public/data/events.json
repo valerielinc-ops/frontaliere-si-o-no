@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T06:43:56.240Z",
+  "generatedAt": "2026-11-12T08:49:19.375Z",
   "totalEvents": 16849,
   "events": [
     {
@@ -439136,7 +439136,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento ricorrente è dedicato alla lettura e si svolge presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna. È rivolto a chi desidera condividere le proprie preferenze e confrontarsi su libri di generi diversi.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente è dedicato alla lettura e si svolge presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna. È rivolto a chi desidera condividere le proprie preferenze e confrontarsi su libri di generi diversi.",
+        "en": "This recurring reading event takes place at the Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne. It is intended for people who enjoy sharing their reading preferences and discussing books from different genres.",
+        "de": "Die wiederkehrende Veranstaltung rund um das Lesen findet in den Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne statt. Sie richtet sich an Menschen, die ihre Lesevorlieben austauschen und Bücher verschiedener Genres besprechen möchten.",
+        "fr": "Ce rendez-vous récurrent consacré à la lecture se tient aux Bibliothèques de la Ville de Lausanne – La Sallaz, à Lausanne. Il s’adresse aux personnes qui souhaitent partager leurs préférences et échanger sur des livres de genres variés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64882",
@@ -451560,6 +451568,7 @@
       "startTime": "19:00",
       "category": "teatro",
       "region": "Bellinzonese",
+      "venue": "Cinema Teatro",
       "comune": "Bellinzona",
       "comuneMatch": "exact",
       "canton": "TI",
@@ -451567,6 +451576,11 @@
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
       "crawledAt": "2026-11-11T12:58:14.199Z",
+      "address": {
+        "street": "Piazza Governo 11",
+        "postalCode": "6500",
+        "locality": "Bellinzona"
+      },
       "titleByLocale": {
         "it": "Nem al Variété 2026",
         "en": "Nem at the Variété 2026",
@@ -451579,15 +451593,7 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex",
-      "description": "A Bellinzona, «Nem al Variété 2026» propone una serata di varietà che unisce spettacolo, magia, musica, giochi e cabaret. Artisti, attori e musicisti si esibiscono sul palco.",
-      "descriptionByLocale": {
-        "it": "A Bellinzona, «Nem al Variété 2026» propone una serata di varietà che unisce spettacolo, magia, musica, giochi e cabaret. Artisti, attori e musicisti si esibiscono sul palco.",
-        "en": "In Bellinzona, «Nem al Variété 2026» brings together performance, magic, music, games and cabaret in a variety show. Artists, actors and musicians appear on stage.",
-        "de": "In Bellinzona vereint «Nem al Variété 2026» in einer Varietéshow Darbietungen, Zauberei, Musik, Spiele und Kabarett. Auf der Bühne treten Künstler, Schauspieler und Musiker auf.",
-        "fr": "À Bellinzone, «Nem al Variété 2026» propose une soirée de variétés mêlant spectacle, magie, musique, jeux et cabaret. Des artistes, des comédiens et des musiciens se produisent sur scène."
-      },
-      "descriptionRewriteValidated": true
+      "imageProvider": "openai-codex"
     },
     {
       "id": "ge-agenda:non-demande-non-acces-penser-non-recours-lutte-contre-violences-genre",
@@ -491619,7 +491625,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro-conferenza a Ginevra con Cécile Desaunay esamina i bisogni della società e il loro rapporto con gli stili di vita e i consumi. Si interroga su come potrebbero cambiare il modo di vivere e le abitudini di consumo in futuro.",
+      "descriptionByLocale": {
+        "it": "L’incontro-conferenza a Ginevra con Cécile Desaunay esamina i bisogni della società e il loro rapporto con gli stili di vita e i consumi. Si interroga su come potrebbero cambiare il modo di vivere e le abitudini di consumo in futuro.",
+        "en": "This conference-meeting in Geneva with Cécile Desaunay examines society’s needs and their relationship to lifestyles and consumption. It considers how ways of living and consuming might change in the future.",
+        "de": "Die Konferenzveranstaltung in Genf mit Cécile Desaunay befasst sich mit den Bedürfnissen der Gesellschaft sowie mit Lebensweisen und Konsum. Im Mittelpunkt steht die Frage, wie sich das Leben und der Konsum in Zukunft entwickeln könnten.",
+        "fr": "Cette conférence-rencontre à Genève avec Cécile Desaunay porte sur les besoins de la société et leur lien avec les modes de vie et la consommation. Elle examine ce que pourraient devenir les façons de vivre et de consommer à l’avenir."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:seniors-informer-former-forum-citoyen-pratiques-funeraires",

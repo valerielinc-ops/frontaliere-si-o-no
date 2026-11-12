@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-12T07:28:53.772Z",
+  "generatedAt": "2026-11-12T08:47:18.644Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -17673,6 +17673,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-09T15:38:59.714Z"
+    },
+    "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir::c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2": {
+      "id": "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir",
+      "sourceDescriptionHash": "c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2",
+      "description": "L’incontro-conferenza a Ginevra con Cécile Desaunay esamina i bisogni della società e il loro rapporto con gli stili di vita e i consumi. Si interroga su come potrebbero cambiare il modo di vivere e le abitudini di consumo in futuro.",
+      "descriptionByLocale": {
+        "it": "L’incontro-conferenza a Ginevra con Cécile Desaunay esamina i bisogni della società e il loro rapporto con gli stili di vita e i consumi. Si interroga su come potrebbero cambiare il modo di vivere e le abitudini di consumo in futuro.",
+        "en": "This conference-meeting in Geneva with Cécile Desaunay examines society’s needs and their relationship to lifestyles and consumption. It considers how ways of living and consuming might change in the future.",
+        "de": "Die Konferenzveranstaltung in Genf mit Cécile Desaunay befasst sich mit den Bedürfnissen der Gesellschaft sowie mit Lebensweisen und Konsum. Im Mittelpunkt steht die Frage, wie sich das Leben und der Konsum in Zukunft entwickeln könnten.",
+        "fr": "Cette conférence-rencontre à Genève avec Cécile Desaunay porte sur les besoins de la société et leur lien avec les modes de vie et la consommation. Elle examine ce que pourraient devenir les façons de vivre et de consommer à l’avenir."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-12T08:31:27.799Z"
     },
     "ge-agenda:semaine-climat-conference-cecile-desaunay::c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2": {
       "id": "ge-agenda:semaine-climat-conference-cecile-desaunay",
@@ -41263,6 +41277,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T06:29:31.042Z"
+    },
+    "guidle:AjX8P7g::9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9": {
+      "id": "guidle:AjX8P7g",
+      "sourceDescriptionHash": "9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9",
+      "description": "Questo appuntamento ricorrente è dedicato alla lettura e si svolge presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna. È rivolto a chi desidera condividere le proprie preferenze e confrontarsi su libri di generi diversi.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente è dedicato alla lettura e si svolge presso le Bibliothèques de la Ville de Lausanne – La Sallaz, a Losanna. È rivolto a chi desidera condividere le proprie preferenze e confrontarsi su libri di generi diversi.",
+        "en": "This recurring reading event takes place at the Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne. It is intended for people who enjoy sharing their reading preferences and discussing books from different genres.",
+        "de": "Die wiederkehrende Veranstaltung rund um das Lesen findet in den Bibliothèques de la Ville de Lausanne – La Sallaz in Lausanne statt. Sie richtet sich an Menschen, die ihre Lesevorlieben austauschen und Bücher verschiedener Genres besprechen möchten.",
+        "fr": "Ce rendez-vous récurrent consacré à la lecture se tient aux Bibliothèques de la Ville de Lausanne – La Sallaz, à Lausanne. Il s’adresse aux personnes qui souhaitent partager leurs préférences et échanger sur des livres de genres variés."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-12T08:31:01.262Z"
     },
     "guidle:AJx9DNN::9b96aed829f6304645fbe0de1c784ff34ee07fd12411e4ebda6ac425fdc79d5c": {
       "id": "guidle:AJx9DNN",
@@ -186999,8 +187027,8 @@
       "id": "fr-agenda:berufs-info-metiers-2026-a-la-decouverte-de-plus-de-60-professions",
       "sourceDescriptionHash": "deb81bdce5737671a471441e70df3b6d07a24066971b2fd5a3a5b021cead28f7",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:22:43.080Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:23:23.539Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187098,8 +187126,8 @@
       "id": "fr-agenda:vernissage-de-la-sculpture-disabelle-krieg-femme-detendue",
       "sourceDescriptionHash": "22129fa44dc006c0ae4eafd9ae0e3987f9dafede3d11bf6d297ee879ba653b77",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:56:08.026Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:36:05.399Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187314,8 +187342,8 @@
       "id": "ge-agenda:fete-hiver",
       "sourceDescriptionHash": "a4a441586c696a041d23b5844fa62d9a88951724418656fa0de1485071bdcd18",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:55:03.296Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:34:53.749Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -187625,15 +187653,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir::c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2": {
-      "id": "ge-agenda:semaine-climat-conference-cecile-desaunay-maison-avenir",
-      "sourceDescriptionHash": "c0aa0b2d6c3565ffe27b59f07fb3962973ef3a4c723fb3f1412136b16a470ff2",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:30:04.531Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:seniors-informer-former-decouvrons-nature-ensemble::f168e94f0015714dd864a58eb5115ef317ba48e7615a55273621bb0f07e9edcf": {
       "id": "ge-agenda:seniors-informer-former-decouvrons-nature-ensemble",
       "sourceDescriptionHash": "f168e94f0015714dd864a58eb5115ef317ba48e7615a55273621bb0f07e9edcf",
@@ -187899,8 +187918,8 @@
       "id": "guidle:A4bgNcf",
       "sourceDescriptionHash": "ff92145cc42164f88a3df732a876e61406cbdcadf63fc739c94428caf1776cd5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:19:46.842Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:21:31.038Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188295,8 +188314,8 @@
       "id": "guidle:Ad7hbUw",
       "sourceDescriptionHash": "87a71fe6b393337d7fb5baa0485a905d76cc9e9abeb6c64cbaa5bfb69f5ba9b7",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:58:10.467Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:41:34.956Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188564,9 +188583,9 @@
     "guidle:AGmMqZW::68897959b2b85ca4d623f7f6cbc8e8edae6a8ed1cf48d15b4c4eaeac5a9a77aa": {
       "id": "guidle:AGmMqZW",
       "sourceDescriptionHash": "68897959b2b85ca4d623f7f6cbc8e8edae6a8ed1cf48d15b4c4eaeac5a9a77aa",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:48:36.598Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:28:29.554Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188583,8 +188602,8 @@
       "id": "guidle:AgQBDsK",
       "sourceDescriptionHash": "f14d118844c0caa88d79348fde4f232c22caf809d1f2e81f029c0d79a9e51165",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:21:00.702Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:22:23.937Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -188765,15 +188784,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:38:00.945Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AjX8P7g::9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9": {
-      "id": "guidle:AjX8P7g",
-      "sourceDescriptionHash": "9fd2582569c9c324f9fad1486787b5e51e2a82465f20fd339b1823e33a1de2e9",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:41:22.712Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189096,8 +189106,8 @@
       "id": "guidle:AnB8BEB",
       "sourceDescriptionHash": "a9e6e13c40d12d9659e062c1622991c4aa54b80b65d2d5f5e8ca6b7be45a967b",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:31:37.784Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:27:36.650Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189645,8 +189655,8 @@
       "id": "guidle:AukNdbc",
       "sourceDescriptionHash": "aeed9a52368be1b3e15d5fa6a8f9b813da570b5e8ada5669f27259e41b431c12",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:31:58.851Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:22:46.436Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190185,8 +190195,8 @@
       "id": "lu-stadt-agenda:7626907",
       "sourceDescriptionHash": "a0168a71c79587286171e4c54dd16a3d780ac2ff06ea259ac52140f421a766a9",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:21:17.582Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:22:07.637Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190212,8 +190222,8 @@
       "id": "lu-stadt-agenda:7794205",
       "sourceDescriptionHash": "8f9bc51297d513d2a9e5e9b834bb35d8588a21e393d27e1c54c9f09c2d679c01",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:27:30.835Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:28:31.096Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -191283,8 +191293,8 @@
       "id": "myswitzerland:3719bf071bab4f0187303002d96d2226",
       "sourceDescriptionHash": "d8fd9a975f589c904da5a412132894410364d9d1f63f0ef5d967acf8a51cebb3",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:25:46.156Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:27:05.140Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195810,8 +195820,8 @@
       "id": "tio-agenda:64792",
       "sourceDescriptionHash": "88078b4593367db0c778336c95a3c53f70833a72aeb4278abf0d53edc2ffe444",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:59:03.905Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:42:48.317Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195819,8 +195829,8 @@
       "id": "tio-agenda:64872",
       "sourceDescriptionHash": "a33c8467a19925f87f824cad593f585d98bf52f4a17d200fc2bd7d3c69f4aa25",
       "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:29:02.250Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:30:23.289Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195828,8 +195838,8 @@
       "id": "tio-agenda:64908",
       "sourceDescriptionHash": "fb20eccbef594b1ed4e100781784855556e0e103087872ef553385c806e77048",
       "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:22:39.398Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:24:04.299Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195837,8 +195847,8 @@
       "id": "tio-agenda:64914",
       "sourceDescriptionHash": "ff7215d3123cd28961ed8ce54bfe8e8bd1c363d85c60fc99caba6592ba0ca7ed",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:47:31.431Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:38:59.317Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195846,8 +195856,8 @@
       "id": "tio-agenda:64922",
       "sourceDescriptionHash": "cb898d5caeabf51e184f12e3fff105e957d540cbb1674b7fa723dabb471fd95f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:27:19.877Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:29:03.967Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195855,8 +195865,8 @@
       "id": "tio-agenda:64923",
       "sourceDescriptionHash": "e20b10fefdfe866386e822de37020ec35759eef7f37aa185505d7e24c29b6b60",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:20:06.865Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:21:05.050Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195864,17 +195874,17 @@
       "id": "tio-agenda:64925",
       "sourceDescriptionHash": "c658ed1e7fc99f5b88e2697d2e1affb83bfd7bec247516b0435e43d2e60a533d",
       "code": "promotional-language",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:45:55.959Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:37:29.018Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64931::65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8": {
       "id": "tio-agenda:64931",
       "sourceDescriptionHash": "65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:35:28.689Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:24:59.592Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195891,35 +195901,35 @@
       "id": "tio-agenda:64939",
       "sourceDescriptionHash": "9bf27418a50aa865284080ec08a098f5b54697408fe4583b1e6c95e2d9aac07d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:30:44.943Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:21:47.721Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64946::9404e3069400f700fe6d40bfac810433dd77519a9a5d2756a8c29d0966057f45": {
       "id": "tio-agenda:64946",
       "sourceDescriptionHash": "9404e3069400f700fe6d40bfac810433dd77519a9a5d2756a8c29d0966057f45",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:28:37.625Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:20:31.006Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64957::b8c5e39ec8fde26e59bb53bbe20e2ce4be7862c8c62933bab4cbe4149b39a498": {
       "id": "tio-agenda:64957",
       "sourceDescriptionHash": "b8c5e39ec8fde26e59bb53bbe20e2ce4be7862c8c62933bab4cbe4149b39a498",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:23:34.768Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:24:13.977Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64958::16d330dd428c4f57f50fea0046665558edb463515f0ba7dab4b4ee91e48146ea": {
       "id": "tio-agenda:64958",
       "sourceDescriptionHash": "16d330dd428c4f57f50fea0046665558edb463515f0ba7dab4b4ee91e48146ea",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:42:24.031Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:21:08.367Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195927,17 +195937,17 @@
       "id": "tio-agenda:64966",
       "sourceDescriptionHash": "11594a60ff61f87297fb1e9352f9147707db798b99ad7988f9864c9160d12438",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:39:22.478Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:30:40.043Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64973::30c6f5aefd97bc0e07e7559c9dcff21922c8f1bc5d1048403d037dacf0c955ba": {
       "id": "tio-agenda:64973",
       "sourceDescriptionHash": "30c6f5aefd97bc0e07e7559c9dcff21922c8f1bc5d1048403d037dacf0c955ba",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-12T05:50:07.758Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-12T08:29:41.580Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
