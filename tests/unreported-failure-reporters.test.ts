@@ -81,6 +81,27 @@ describe('workflow failure reporting stays coupled to the central scanner contra
     expect(steps[0].with['workflow-file']).toBe('.github/workflows/social-copy-pack.yml');
   });
 
+  it('reports every needs-human sweep job after its log is complete', () => {
+    const source = parse('.github/workflows/needs-human-sweep.yml');
+    const job = source.jobs['report-failure'];
+    const steps = reporterSteps(job);
+    const byJob = new Map<string, any>(steps.map((step: any) => [step.with['log-from-job'], step]));
+
+    expect(job.needs).toEqual(['prepass', 'failure_verdicts', 'sweep']);
+    expect(String(job.if)).toContain("needs.prepass.result == 'failure'");
+    expect(String(job.if)).toContain("needs.failure_verdicts.result == 'failure'");
+    expect(String(job.if)).toContain("needs.sweep.result == 'failure'");
+    expect(job.permissions).toEqual({ contents: 'read', issues: 'write', actions: 'read' });
+    for (const failedJob of ['prepass', 'failure_verdicts', 'sweep']) {
+      const step = byJob.get(failedJob);
+      expect(step, failedJob).toBeTruthy();
+      expect(step.with.title).toBe('CI Failure: ${{ github.workflow }}');
+      expect(step.with['closed-by']).toBe('close-recovered-failure-issues');
+      expect(step.with['workflow-file']).toBe('.github/workflows/needs-human-sweep.yml');
+      expect(String(step.if)).toContain(`needs.${failedJob}.result == 'failure'`);
+    }
+  });
+
   it('reports caller-level failures from deploy, reusable validators and side effects', () => {
     const source = parse('.github/workflows/deploy-publish.yml');
     const job = source.jobs['report-failure'];
