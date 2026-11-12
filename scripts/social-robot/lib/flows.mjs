@@ -525,6 +525,9 @@ export async function typeCaption(page, editor, caption, { human, clear = false,
     } catch {
       throw new RobotError('selector-missing', 'the TikTok caption editor could not be filled', { step: 'caption' });
     }
+    if (/(?:^|\s)#[\p{L}\p{N}_]+$/u.test(String(caption))) {
+      await page.keyboard.press('Escape');
+    }
   } else {
     await clickChecked(page, editor, { step, snap, platform, label: 'caption editor' });
     if (clear) {
