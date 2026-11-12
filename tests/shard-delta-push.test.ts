@@ -286,9 +286,13 @@ function runPush(
     curlStub,
     [
       '#!/bin/sh',
+      // Keep the fail-closed layout probes local; this fixture must not depend on the live Worker.
       'case "$*" in',
       '  *__frontaliere_ticino_tree_layout=hash-v1*)',
       '    printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: %s\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '    ;;',
+      '  *__frontaliere_zurigo_tree_layout=hash-v1*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-zurigo-tree-layout: %s\\n" "${ZURIGO_TEST_TREE_LAYOUT:-hash-v1}"',
       '    ;;',
       '  *)',
       `    exec ${JSON.stringify(realCurl)} "$@"`,
@@ -734,10 +738,12 @@ describe('delta push degli shard', () => {
   it('full-rewrite produce lo stesso tree e manifest del delta ordinario', () => {
     const ordinary = createScenario('section-full-rewrite-ordinary');
     const fast = createScenario('section-full-rewrite-fast');
+    // Hash-fanned sections intentionally force full overlay; keep this generic
+    // delta-vs-rewrite contract on the canonical section layout.
     const sectionTarget = {
       script: PUSH_SECTION,
-      args: (current: Scenario) => ['zurigo', 'it', current.dist],
-      deployKey: 'SHARD_ZURIGO_IT_DEPLOY_KEY',
+      args: (current: Scenario) => ['svizzera', 'it', current.dist],
+      deployKey: 'SHARD_SVIZZERA_IT_DEPLOY_KEY',
       label: 'section-full-rewrite',
     };
     const initial = {
@@ -757,12 +763,12 @@ describe('delta push degli shard', () => {
       'assets/extra': '<html>extra v2</html>',
     };
     const writeVersion = (scenario: Scenario, files: Record<string, string>, version: string) => {
-      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', files);
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', files);
       writeManifest(
         scenario,
         Object.keys(files).filter((file) => file.startsWith('jobs/')),
         version,
-        'cerca-lavoro-zurigo',
+        'cerca-lavoro-svizzera',
         false,
         [],
         { locale: 'it' },
@@ -790,11 +796,11 @@ describe('delta push degli shard', () => {
       expect(fastResult.output).toContain('full-rewrite=1');
       expect(treeSha(fast.remote)).toBe(treeSha(ordinary.remote));
       expect(treeFiles(fast.remote)).toContain('.operator-note');
-      expect(treeFiles(fast.remote)).toContain('cerca-lavoro-zurigo/jobs/f/index.html');
-      expect(treeFiles(fast.remote)).not.toContain('cerca-lavoro-zurigo/jobs/e/index.html');
+      expect(treeFiles(fast.remote)).toContain('cerca-lavoro-svizzera/jobs/f/index.html');
+      expect(treeFiles(fast.remote)).not.toContain('cerca-lavoro-svizzera/jobs/e/index.html');
       expect(blobSha(fast.remote, '.deploy-manifest/v1/it.jsonl'))
         .toBe(blobSha(ordinary.remote, '.deploy-manifest/v1/it.jsonl'));
-      assertContent(fast.remote, 'cerca-lavoro-zurigo/jobs/a/index.html', '<html>A v2</html>');
+      assertContent(fast.remote, 'cerca-lavoro-svizzera/jobs/a/index.html', '<html>A v2</html>');
     } finally {
       rmSync(ordinary.root, { recursive: true, force: true });
       rmSync(fast.root, { recursive: true, force: true });
@@ -803,10 +809,11 @@ describe('delta push degli shard', () => {
 
   it('mantiene privati i checkpoint e riprende i chunk prima di promuovere main', () => {
     const scenario = createScenario('section-resumable-delta');
+    // Resumable delta is not addressable through the physical hash fan-out.
     const sectionTarget = {
       script: PUSH_SECTION,
-      args: (current: Scenario) => ['zurigo', 'it', current.dist],
-      deployKey: 'SHARD_ZURIGO_IT_DEPLOY_KEY',
+      args: (current: Scenario) => ['svizzera', 'it', current.dist],
+      deployKey: 'SHARD_SVIZZERA_IT_DEPLOY_KEY',
       label: 'section-resumable',
     };
     const resumeSettings = {
@@ -815,21 +822,21 @@ describe('delta push degli shard', () => {
     };
     const hook = join(scenario.remote, 'hooks', 'pre-receive');
     try {
-      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', {
         'jobs/a': '<html>A v1</html>',
         'jobs/b': '<html>B v1</html>',
         'jobs/c': '<html>C v1</html>',
       });
-      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v1', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v1', 'cerca-lavoro-svizzera', false, [], { locale: 'it' });
       expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
       const base = git(['-C', scenario.remote, 'rev-parse', 'main']);
-      const checkpointRef = `refs/heads/shard-resume/zurigo-it-${base}`;
+      const checkpointRef = `refs/heads/shard-resume/svizzera-it-${base}`;
 
       writeFileSync(hook, [
         '#!/bin/sh',
         'while read old new ref; do',
         '  case "$ref" in',
-        '    refs/heads/shard-resume/zurigo-it-*)',
+        '    refs/heads/shard-resume/svizzera-it-*)',
         '      message="$(git show -s --format=%B "$new")"',
         '      case "$message" in *"checkpoint 3/"*) echo "test interruption after two checkpoints" >&2; exit 1 ;; esac',
         '      ;;',
@@ -838,19 +845,19 @@ describe('delta push degli shard', () => {
         'exit 0',
         '',
       ].join('\n'), { mode: 0o755 });
-      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', {
         'jobs/a': '<html>A v2</html>',
         'jobs/b': '<html>B v2</html>',
         'jobs/c': '<html>C v2</html>',
       });
-      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v2', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v2', 'cerca-lavoro-svizzera', false, [], { locale: 'it' });
 
       const interrupted = runPush(scenario, 'delta', resumeSettings, sectionTarget);
       expect(interrupted.status).not.toBe(0);
       expect(interrupted.output).toContain('checkpoint 2/');
       expect(interrupted.output).toContain('main remains unchanged');
       expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).toBe(base);
-      expect(git(['-C', scenario.remote, 'show', `${checkpointRef}:cerca-lavoro-zurigo/jobs/a/index.html`])).toBe('<html>A v2</html>');
+      expect(git(['-C', scenario.remote, 'show', `${checkpointRef}:cerca-lavoro-svizzera/jobs/a/index.html`])).toBe('<html>A v2</html>');
 
       writeFileSync(hook, '#!/bin/sh\nexit 0\n', { mode: 0o755 });
       const resumed = runPush(scenario, 'delta', resumeSettings, sectionTarget);
@@ -862,8 +869,8 @@ describe('delta push degli shard', () => {
       expect(resumed.output).not.toContain('checkpoint 2/3 paths=');
       expect(resumed.output).toContain('complete tree promoted; hidden checkpoint removed');
       expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).not.toBe(base);
-      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/a/index.html'])).toBe('<html>A v2</html>');
-      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/c/index.html'])).toBe('<html>C v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-svizzera/jobs/a/index.html'])).toBe('<html>A v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-svizzera/jobs/c/index.html'])).toBe('<html>C v2</html>');
       const checkpoint = spawnSync('git', ['-C', scenario.remote, 'show-ref', '--verify', '--quiet', checkpointRef], { encoding: 'utf8' });
       expect(checkpoint.status).not.toBe(0);
     } finally {
@@ -873,10 +880,11 @@ describe('delta push degli shard', () => {
 
   it('ricostruisce da main quando cambia il piano ordinato dei checkpoint a target invariato', () => {
     const scenario = createScenario('section-resumable-plan-change');
+    // Resumable delta is not addressable through the physical hash fan-out.
     const sectionTarget = {
       script: PUSH_SECTION,
-      args: (current: Scenario) => ['zurigo', 'it', current.dist],
-      deployKey: 'SHARD_ZURIGO_IT_DEPLOY_KEY',
+      args: (current: Scenario) => ['svizzera', 'it', current.dist],
+      deployKey: 'SHARD_SVIZZERA_IT_DEPLOY_KEY',
       label: 'section-resumable-plan-change',
     };
     const hook = join(scenario.remote, 'hooks', 'pre-receive');
@@ -885,21 +893,21 @@ describe('delta push degli shard', () => {
       SHARD_DELTA_CHECKPOINT_FILES: '3',
     };
     try {
-      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', {
         'jobs/a': '<html>A v1</html>',
         'jobs/b': '<html>B v1</html>',
         'jobs/c': '<html>C v1</html>',
       });
-      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v1', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v1', 'cerca-lavoro-svizzera', false, [], { locale: 'it' });
       expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
       const base = git(['-C', scenario.remote, 'rev-parse', 'main']);
-      const checkpointRef = `refs/heads/shard-resume/zurigo-it-${base}`;
+      const checkpointRef = `refs/heads/shard-resume/svizzera-it-${base}`;
 
       writeFileSync(hook, [
         '#!/bin/sh',
         'while read old new ref; do',
         '  case "$ref" in',
-        '    refs/heads/shard-resume/zurigo-it-*)',
+        '    refs/heads/shard-resume/svizzera-it-*)',
         '      message="$(git show -s --format=%B "$new")"',
         '      case "$message" in *"checkpoint 2/2"*) echo "test interruption after first checkpoint" >&2; exit 1 ;; esac',
         '      ;;',
@@ -908,12 +916,12 @@ describe('delta push degli shard', () => {
         'exit 0',
         '',
       ].join('\n'), { mode: 0o755 });
-      writeSectionItPayload(scenario, 'cerca-lavoro-zurigo', {
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', {
         'jobs/a': '<html>A v2</html>',
         'jobs/b': '<html>B v2</html>',
         'jobs/c': '<html>C v2</html>',
       });
-      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v2', 'cerca-lavoro-zurigo', false, [], { locale: 'it' });
+      writeManifest(scenario, ['jobs/a', 'jobs/b', 'jobs/c'], 'v2', 'cerca-lavoro-svizzera', false, [], { locale: 'it' });
 
       const interrupted = runPush(scenario, 'delta', target, sectionTarget);
       expect(interrupted.status).not.toBe(0);
@@ -930,9 +938,9 @@ describe('delta push degli shard', () => {
       expect(resumed.output).toContain('rebuilding checkpoint progress from main');
       expect(resumed.output).not.toContain('already 1/2 chunks');
       expect(resumed.output).toContain('complete tree promoted; hidden checkpoint removed');
-      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/a/index.html'])).toBe('<html>A v2</html>');
-      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/b/index.html'])).toBe('<html>B v2</html>');
-      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-zurigo/jobs/c/index.html'])).toBe('<html>C v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-svizzera/jobs/a/index.html'])).toBe('<html>A v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-svizzera/jobs/b/index.html'])).toBe('<html>B v2</html>');
+      expect(git(['-C', scenario.remote, 'show', 'main:cerca-lavoro-svizzera/jobs/c/index.html'])).toBe('<html>C v2</html>');
       const checkpoint = spawnSync('git', ['-C', scenario.remote, 'show-ref', '--verify', '--quiet', checkpointRef], { encoding: 'utf8' });
       expect(checkpoint.status).not.toBe(0);
     } finally {

@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { expiredArchiveCdnInvariantSha256 } from '../lib/expired-archive-html-invariant.mjs';
+import { sectionTreeLayout } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 export const SHARD_MANIFEST_VERSION = 2;
 export const SHARD_VALIDATOR_VERSION = 'publisher-shard-content-v2';
@@ -114,12 +115,12 @@ export function createSectionManifest({
   tarPath = '',
   pageManifestPath = '',
   evidenceManifestPath = '',
-  sourcePathLayout = section === 'ticino' ? 'ticino-hash-v1' : 'canonical',
+  sourcePathLayout = sectionTreeLayout(section),
 }) {
   if (!LOCALES.has(locale)) throw new Error(`unsupported locale ${JSON.stringify(locale)}`);
   if (!SHA_RE.test(String(sourceSha ?? '').toLowerCase())) throw new Error('source SHA must be a 40-character commit SHA');
   if (!fs.statSync(root).isDirectory()) throw new Error(`shard root is not a directory: ${root}`);
-  const expectedLayout = section === 'ticino' ? 'ticino-hash-v1' : 'canonical';
+  const expectedLayout = sectionTreeLayout(section);
   if (sourcePathLayout !== expectedLayout) {
     throw new Error(`${section} sourcePathLayout must be ${expectedLayout}, received ${sourcePathLayout}`);
   }

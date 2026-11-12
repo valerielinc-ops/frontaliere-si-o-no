@@ -5,10 +5,10 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
-import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { sectionTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral fan-out helper has no separate declarations.
-import { ticinoTreePhysicalPath } from '../scripts/lib/ticino-tree-fanout.mjs';
+import { sectionTreePhysicalPath, ticinoTreePhysicalPath } from '../scripts/lib/ticino-tree-fanout.mjs';
 
 const HELPER = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh');
 const TOOL = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.mjs');
@@ -18,13 +18,13 @@ describe('Ticino shard tree fan-out', () => {
   it('is wired into the section push and disables the incompatible delta path', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
-    expect(script).toContain('if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" != full ]');
+    expect(script).toContain('if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]');
     expect(script).toContain('skipping advisory delta verifier');
-    expect(script).toContain('ticino_tree_require_worker_layout "$sub"');
-    expect(script.indexOf('ticino_tree_require_worker_layout "$sub"')).toBeLessThan(
+    expect(script).toContain('section_tree_require_worker_layout "$section" "$sub"');
+    expect(script.indexOf('section_tree_require_worker_layout "$section" "$sub"')).toBeLessThan(
       script.indexOf('# ── Stage subtree + offload'),
     );
-    expect(script).toContain('ticino_tree_fanout_stage "$section" "$stage/$sub"');
+    expect(script).toContain('section_tree_fanout_stage "$section" "$stage/$sub"');
   });
 
   it('moves first-level entries into shared hash buckets and keeps the root index', () => {
@@ -62,6 +62,10 @@ describe('Ticino shard tree fan-out', () => {
     expect(ticinoTreePhysicalPath('zz-flat.html')).toBe(
       `_tree/${ticinoTreeBucket('zz-flat.html')}/zz-flat.html`,
     );
+    expect(sectionTreePhysicalPath('zurigo', 'new-offer/index.html')).toBe(
+      `_tree/${sectionTreeBucket('new-offer')}/new-offer/index.html`,
+    );
+    expect(sectionTreePhysicalPath('svizzera', 'new-offer/index.html')).toBe('new-offer/index.html');
   });
 
   it('maps NUL-delimited path records through the CLI', () => {
@@ -72,6 +76,12 @@ describe('Ticino shard tree fan-out', () => {
       'index.html',
       `_tree/${ticinoTreeBucket('Ir-Job-123')}/Ir-Job-123/index.html`,
       `_tree/${ticinoTreeBucket('zz-flat.html')}/zz-flat.html`,
+    ]);
+
+    const zurigoInput = Buffer.from(['new-offer/index.html', ''].join('\0'));
+    const zurigoOutput = execFileSync(process.execPath, [TOOL, 'map-paths', 'zurigo'], { input: zurigoInput });
+    expect(zurigoOutput.toString('utf8').split('\0').filter(Boolean)).toEqual([
+      `_tree/${sectionTreeBucket('new-offer')}/new-offer/index.html`,
     ]);
   });
 
@@ -92,7 +102,27 @@ describe('Ticino shard tree fan-out', () => {
     expect(projectedEntries * 282).toBeLessThan(50 * 1024 * 1024);
   });
 
-  it('leaves non-Ticino section trees untouched', () => {
+  it('fans out the Zurich section tree with the same physical layout', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'zurigo-tree-fanout-'));
+    const root = join(temp, 'section');
+    try {
+      mkdirSync(root, { recursive: true });
+      writeFileSync(join(root, 'index.html'), 'section');
+      mkdirSync(join(root, 'entry'), { recursive: true });
+      writeFileSync(join(root, 'entry', 'index.html'), 'page');
+      execFileSync(
+        'bash',
+        ['-c', 'source "$1" && section_tree_fanout_stage zurigo "$2"', 'fanout-test', HELPER, root],
+        { stdio: 'pipe' },
+      );
+      expect(readFileSync(join(root, 'index.html'), 'utf8')).toBe('section');
+      expect(readFileSync(join(root, '_tree', sectionTreeBucket('entry'), 'entry', 'index.html'), 'utf8')).toBe('page');
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('leaves non-hash section trees untouched', () => {
     const temp = mkdtempSync(join(tmpdir(), 'non-ticino-tree-'));
     const root = join(temp, 'section');
     try {

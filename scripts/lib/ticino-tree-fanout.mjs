@@ -2,28 +2,36 @@
 import { once } from 'node:events';
 import { mkdirSync, readdirSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { ticinoTreeBucket } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
+import {
+  sectionTreeBucket,
+  sectionUsesHashFanout,
+} from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
-export function ticinoTreePhysicalPath(relativePath) {
+export function sectionTreePhysicalPath(section, relativePath) {
+  if (!sectionUsesHashFanout(section)) return relativePath;
   if (relativePath === 'index.html') return relativePath;
   const separator = relativePath.indexOf('/');
   const entry = separator === -1 ? relativePath : relativePath.slice(0, separator);
   if (!entry || entry === 'index.html') return relativePath;
   const suffix = separator === -1 ? '' : relativePath.slice(separator);
-  return `_tree/${ticinoTreeBucket(entry)}/${entry}${suffix}`;
+  return `_tree/${sectionTreeBucket(entry)}/${entry}${suffix}`;
 }
 
-export function fanoutTicinoTree(root) {
+export function ticinoTreePhysicalPath(relativePath) {
+  return sectionTreePhysicalPath('ticino', relativePath);
+}
+
+export function fanoutSectionTree(root) {
   const fanoutRoot = join(root, '_tree');
   const names = readdirSync(root);
-  if (names.includes('_tree')) throw new Error(`Ticino fan-out destination already exists: ${fanoutRoot}`);
+  if (names.includes('_tree')) throw new Error(`Section fan-out destination already exists: ${fanoutRoot}`);
   mkdirSync(fanoutRoot);
 
   const createdBuckets = new Set();
   for (const name of names) {
     if (name === 'index.html') continue;
-    const bucketName = ticinoTreeBucket(name);
+    const bucketName = sectionTreeBucket(name);
     const bucket = join(fanoutRoot, bucketName);
     if (!createdBuckets.has(bucketName)) {
       mkdirSync(bucket);
@@ -33,7 +41,11 @@ export function fanoutTicinoTree(root) {
   }
 }
 
-export function unfanoutTicinoTree(root) {
+export function fanoutTicinoTree(root) {
+  return fanoutSectionTree(root);
+}
+
+export function unfanoutSectionTree(root) {
   const fanoutRoot = join(root, '_tree');
   let buckets;
   try {
@@ -45,11 +57,11 @@ export function unfanoutTicinoTree(root) {
 
   const rootEntries = new Set(readdirSync(root));
   for (const bucket of buckets) {
-    if (!bucket.isDirectory()) throw new Error(`Unexpected entry in Ticino fan-out: ${join(fanoutRoot, bucket.name)}`);
+    if (!bucket.isDirectory()) throw new Error(`Unexpected entry in section fan-out: ${join(fanoutRoot, bucket.name)}`);
     const bucketPath = join(fanoutRoot, bucket.name);
     for (const name of readdirSync(bucketPath)) {
       const target = join(root, name);
-      if (rootEntries.has(name)) throw new Error(`Ticino unfan-out would overwrite an existing entry: ${target}`);
+      if (rootEntries.has(name)) throw new Error(`Section unfan-out would overwrite an existing entry: ${target}`);
       renameSync(join(bucketPath, name), target);
       rootEntries.add(name);
     }
@@ -58,12 +70,16 @@ export function unfanoutTicinoTree(root) {
   rmdirSync(fanoutRoot);
 }
 
+export function unfanoutTicinoTree(root) {
+  return unfanoutSectionTree(root);
+}
+
 async function writeStdout(chunk) {
   if (process.stdout.write(chunk)) return;
   await once(process.stdout, 'drain');
 }
 
-async function mapPathStream() {
+async function mapPathStream(section = 'ticino') {
   let pending = Buffer.alloc(0);
 
   for await (const chunk of process.stdin) {
@@ -84,29 +100,29 @@ async function mapPathStream() {
         : Buffer.concat([pending, input.subarray(start, separator)]);
       pending = Buffer.alloc(0);
       if (record.length > 0) {
-        await writeStdout(`${ticinoTreePhysicalPath(record.toString('utf8'))}\0`);
+        await writeStdout(`${sectionTreePhysicalPath(section, record.toString('utf8'))}\0`);
       }
       start = separator + 1;
     }
   }
 
   if (pending.length > 0) {
-    await writeStdout(`${ticinoTreePhysicalPath(pending.toString('utf8'))}\0`);
+    await writeStdout(`${sectionTreePhysicalPath(section, pending.toString('utf8'))}\0`);
   }
 }
 
 if (isInvokedDirectly(import.meta.url)) {
   await (async () => {
-    const [command, root] = process.argv.slice(2);
+    const [command, firstArgument] = process.argv.slice(2);
     try {
       if (command === 'map-paths') {
-        await mapPathStream();
-      } else if (!root || !['fanout', 'unfanout'].includes(command)) {
-        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout|map-paths> [section-root]');
+        await mapPathStream(firstArgument || 'ticino');
+      } else if (!firstArgument || !['fanout', 'unfanout'].includes(command)) {
+        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section]');
       } else if (command === 'fanout') {
-        fanoutTicinoTree(root);
+        fanoutTicinoTree(firstArgument);
       } else {
-        unfanoutTicinoTree(root);
+        unfanoutTicinoTree(firstArgument);
       }
     } catch (error) {
       console.error(`::error::${error instanceof Error ? error.message : String(error)}`);

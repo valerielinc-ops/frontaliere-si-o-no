@@ -500,6 +500,35 @@ describe('publisher fast provenance gate', () => {
     })).toThrow('missing uploaded artifact digest');
   });
 
+  it('requires the Zurich hash layout in section receipts', () => {
+    const root = tempRoot();
+    const pageRoot = path.join(root, 'de', 'jobs-in-zurich');
+    fs.mkdirSync(pageRoot, { recursive: true });
+    fs.writeFileSync(path.join(pageRoot, 'index.html'), '<html></html>');
+
+    expect(() => createSectionManifest({
+      root: pageRoot,
+      prefix: 'de/jobs-in-zurich',
+      locale: 'de',
+      section: 'zurigo',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: SOURCE_RUN_ID,
+      sourcePathLayout: 'canonical',
+    })).toThrow('zurigo sourcePathLayout must be zurigo-hash-v1');
+
+    const manifest = createSectionManifest({
+      root: pageRoot,
+      prefix: 'de/jobs-in-zurich',
+      locale: 'de',
+      section: 'zurigo',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: SOURCE_RUN_ID,
+    });
+    expect(manifest.sourcePathLayout).toBe('zurigo-hash-v1');
+  });
+
   it('binds the EN Ticino shard receipt to the source SHA and published artifact digest', () => {
     const base = fixture();
     const pageManifest = base.pageManifests[1];

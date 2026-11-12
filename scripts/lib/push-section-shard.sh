@@ -139,20 +139,19 @@ case "$loc" in
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
 
-# The Ticino section has enough first-level entries for its Git tree object to
-# exceed GitHub's hard 50 MiB limit. Delta mode cannot describe the physical
-# _tree fan-out, so always use the full overlay for this section. The source
-# build and all integrity/shrink guards remain unchanged.
-if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" = delta ]; then
-  echo "::notice::ticino-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
+# Hash-fanned section trees have a storage-only _tree layer. Delta mode cannot
+# describe that physical rewrite, so always use the full overlay for them. The
+# source build and all integrity/shrink guards remain unchanged.
+if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]; then
+  echo "::notice::$section-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
   SHARD_PUSH_MODE=full
 fi
-if [ "$section" = ticino ] && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
+if section_tree_uses_hash_fanout "$section" && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
   # SHARD_PUSH_VERIFY is advisory delta-vs-full comparison plumbing. Its plan
   # is path-based and cannot represent the physical fan-out without materializing
   # the entire no-checkout verifier index; the real full push still runs all
   # source-count, shrink, integrity and remote-push guards below.
-  echo "::notice::ticino-$loc shard: skipping advisory delta verifier because the physical _tree fan-out is not delta-addressable"
+  echo "::notice::$section-$loc shard: skipping advisory delta verifier because the physical _tree fan-out is not delta-addressable"
   SHARD_PUSH_VERIFY=0
 fi
 
@@ -229,8 +228,7 @@ shard_phase() {
 push_section_shard() {
   local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token source_path_layout
   local private_tmp previous_tmpdir
-  source_path_layout=canonical
-  if [ "$section" = ticino ]; then source_path_layout=ticino-hash-v1; fi
+  source_path_layout="$(section_tree_layout "$section")"
   _shard_phase_t="$SECONDS"
   SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc"
   : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
@@ -252,7 +250,7 @@ push_section_shard() {
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
   fi
 
-  if [ "$section" = ticino ] && ! ticino_tree_require_worker_layout "$sub"; then
+  if section_tree_uses_hash_fanout "$section" && ! section_tree_require_worker_layout "$section" "$sub"; then
     return 1
   fi
 
@@ -606,8 +604,8 @@ push_section_shard() {
       mkdir -p "$stage/$(dirname "$sub")"
       cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
       shard_phase overlay-copy
-      if ! ticino_tree_fanout_stage "$section" "$stage/$sub"; then
-        echo "::error::$section-$loc shard: unable to fan out the physical Ticino tree" >&2
+      if ! section_tree_fanout_stage "$section" "$stage/$sub"; then
+        echo "::error::$section-$loc shard: unable to fan out the physical section tree" >&2
         exit 1
       fi
       shard_phase tree-fanout
