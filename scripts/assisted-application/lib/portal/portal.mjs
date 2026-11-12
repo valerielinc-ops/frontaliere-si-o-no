@@ -5455,6 +5455,17 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   // session (SBB: «Bewerbung abschicken», «Abmelden», one visible field, which
   // the generic reading leaves `unconfirmed`). That page is the answer.
   if (outcome === 'unconfirmed' && signedInApplicationSurface(after)) outcome = 'accepted';
+  // The federal SuccessFactors tenant can redirect a verified code to the
+  // source-proven `/portalcareer` shell before its UI5 controls are readable.
+  // The same posting-bound route proof used by the application guard is
+  // sufficient continuation evidence here; an unbound or generic empty page
+  // must remain unconfirmed.
+  if ((outcome === 'unconfirmed' || outcome === 'pending')
+    && isSuccessFactorsPortalCareerContinuation({
+      applyUrl: page.url(),
+      postingUrl: ctx?.postingUrl || ctx?.postingRouteProof?.postingUrl,
+      postingRouteProof: ctx?.postingRouteProof,
+    })) outcome = 'accepted';
   // The page may never settle on something the runner can read, while the
   // portal itself mails that the account now exists (the federal tenant's
   // «Ihr Bewerbungskonto wurde erfolgreich erstellt», bound to this host by the

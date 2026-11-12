@@ -115,6 +115,28 @@ describe('the answer to an accepted SuccessFactors code', () => {
     expect(accounts.mark).not.toHaveBeenCalled();
   });
 
+  it('accepts the source-proven portalcareer continuation before its UI5 controls draw', async () => {
+    const { page, snapshot } = portal(() => drawing);
+    const accounts = accountsWith(null);
+    const postingUrl = 'https://jobs.example.test/job/example-role/1/';
+    const result = await verifyAccount({
+      page: page as any,
+      host,
+      sinceMs: 0,
+      ctx: {
+        accounts,
+        postingUrl,
+        postingRouteProof: { via: 'successfactors', applyUrl: url, postingUrl },
+      } as any,
+      snapshot: snapshot() as any,
+    });
+
+    expect(result).toMatchObject({ reopen: true });
+    expect(result).not.toHaveProperty('handoff');
+    expect(accounts.mark).toHaveBeenCalledWith(host, { verifiedAt: expect.any(Number) });
+    expect(accounts.waitForAccountNotice).not.toHaveBeenCalled();
+  });
+
   it('answers a page that never reads again with a bounded handoff, not an uncaught rejection', async () => {
     const started = Date.now();
     const { page, snapshot } = portal(() => { throw new Error('Execution context was destroyed'); });
