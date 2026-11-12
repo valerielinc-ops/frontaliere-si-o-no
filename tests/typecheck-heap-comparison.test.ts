@@ -64,6 +64,7 @@ describe('typecheck heap comparison contract (#18199)', () => {
       '.github/workflows/typecheck-heap-comparison.yml',
       'scripts/ci/check-typecheck-baseline.mjs',
       'scripts/ci/compare-typecheck-heap.sh',
+      'scripts/ci/sample-mem-during.sh',
       'scripts/ci/typecheck-heap-contract.env',
       'tests/typecheck-heap-comparison.test.ts',
     ]) {
