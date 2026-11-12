@@ -69,10 +69,9 @@ describe('large JSON reader', () => {
   });
 });
 
-// data/jobs.json crossed V8's 512 MB string limit on 2026-11-12 (prep of deploy
-// 43161331030 died in build-employer-profiles with ERR_STRING_TOO_LONG). Several
-// build readers swallow parse errors and return [], so a whole-file read would
-// silently empty their pages. Every reader of the corpus goes through readJsonFile.
+// data/jobs.json crossed V8's 512 MB string limit on 2026-11-12. Build and prep
+// readers that swallow parse errors can silently emit empty data, so every
+// reader of the assembled corpus in these paths goes through readJsonFile.
 describe('data/jobs.json readers', () => {
   const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
   const readers = [
@@ -89,6 +88,8 @@ describe('data/jobs.json readers', () => {
     'build-plugins/shared/reportJobPanel.ts',
     'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
+    'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
+    'scripts/refresh-weekly-employers-top-pairs.mjs',
     'scripts/sync-employer-contacts-to-firestore.mjs',
     // deploy prep (deploy 43171223798 died here after the build readers were fixed)
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
