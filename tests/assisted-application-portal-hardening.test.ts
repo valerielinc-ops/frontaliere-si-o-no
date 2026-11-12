@@ -1668,8 +1668,56 @@ describe('portal: identity on an exact posting route without a heading', () => {
   it('binds a full UUID posting segment and rejects a different UUID', () => {
     const uuid = '01234567-89ab-cdef-0123-456789abcdef';
     const otherUuid = 'fedcba98-7654-3210-fedc-ba9876543210';
-    const addressedPosting = `https://jobs.example.test/jobs/${uuid}/details/`;
+    const addressedPosting = `https://jobs.example.test/jobs/${uuid}`;
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${uuid}/apply`, addressedPosting)).toBe(true);
     expect(applicationEntryCarriesPostingId(`https://apply.example.test/${otherUuid}/apply`, addressedPosting)).toBe(false);
+  });
+
+  it('does not bind an ATS link to a tenant UUID when the posting route has a later requisition UUID', () => {
+    const tenantUuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUuid = '11111111-2222-3333-4444-555555555555';
+    const otherPostingUuid = '66666666-7777-8888-9999-aaaaaaaaaaaa';
+    const postingUrl = `https://jobs.example.test/${tenantUuid}/${postingUuid}`;
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/apply/${tenantUuid}/${otherPostingUuid}`,
+      postingUrl,
+    )).toBe(false);
+    expect(applicationEntryCarriesPostingId(`https://ats.example.test/apply/${postingUuid}`, postingUrl)).toBe(true);
+  });
+
+  it('fails closed when a posting or its apply link has more than 128 route segments', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const deepPath = Array.from({ length: 129 }, (_, index) => `route${index}`).join('/');
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/apply/${uuid}`,
+      `https://jobs.example.test/${deepPath}/${uuid}`,
+    )).toBe(false);
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/${deepPath}/${uuid}`,
+      `https://jobs.example.test/${uuid}`,
+    )).toBe(false);
+  });
+
+  it('ignores oversized vacancy context before constructing label-matching expressions', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUrl = `https://jobs.example.test/jobs/${uuid}`;
+    const entry = {
+      text: 'Applica ora',
+      href: 'https://apply.example.test/apply',
+      vacancyContext: `Grand Hotel Esempio Concierge Host (m/w/d)${' extra'.repeat(120)} Applica ora`,
+      frame: 0,
+    };
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [],
+      links: [entry],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Concierge Host (m/w/d)',
+      job: { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
   });
 });

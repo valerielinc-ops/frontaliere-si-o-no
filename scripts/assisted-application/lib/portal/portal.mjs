@@ -1662,11 +1662,18 @@ function applicationEntryBelongsToPosting(control, {
     && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
 }
 
+const MAX_APPLICATION_ENTRY_CONTEXT_LENGTH = 700;
+
 function applicationEntryContextText(control) {
-  let text = String(control?.vacancyContext || '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const rawContext = String(control?.vacancyContext || '');
+  if (rawContext.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
+  let text = rawContext.normalize('NFKC').replace(/\s+/g, ' ').trim();
+  if (text.length > MAX_APPLICATION_ENTRY_CONTEXT_LENGTH) return '';
   const ownLabels = [control?.text, control?.label, control?.ariaLabel, control?.title]
-    .map((value) => String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim())
-    .filter(Boolean)
+    .map((value) => String(value || ''))
+    .filter((value) => value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
+    .map((value) => value.normalize('NFKC').replace(/\s+/g, ' ').trim())
+    .filter((value) => value && value.length <= MAX_APPLICATION_ENTRY_CONTEXT_LENGTH)
     .sort((left, right) => right.length - left.length);
   for (const label of ownLabels) {
     const pattern = new RegExp(`(^|[^\\p{L}\\p{N}])(${escapeRegex(label)})(?=$|[^\\p{L}\\p{N}])`, 'giu');
@@ -3876,28 +3883,51 @@ async function postingDocumentHostMatch(snapshot, ctx = {}, pageUrl = '') {
 
 /**
  * The posting's own id in its address: the number its last path segment ends
- * with («…-lugano-f-m-2779», «/stellen/2779»), a whole UUID segment, or its
- * posting-id parameter.
+ * with («…-lugano-f-m-2779», «/stellen/2779»), the final path segment when it
+ * is a whole UUID, or its posting-id parameter.
  */
+const MAX_POSTING_ID_URL_LENGTH = 16_384;
+const MAX_POSTING_ID_PATH_LENGTH = 8_192;
+const MAX_POSTING_ID_PATH_SEGMENTS = 128;
+
+function boundedPostingIdPathSegments(pathname) {
+  const path = String(pathname || '');
+  if (path.length > MAX_POSTING_ID_PATH_LENGTH) return null;
+  let count = 0;
+  let insideSegment = false;
+  for (const character of path) {
+    if (character === '/') {
+      insideSegment = false;
+    } else if (!insideSegment) {
+      count += 1;
+      if (count > MAX_POSTING_ID_PATH_SEGMENTS) return null;
+      insideSegment = true;
+    }
+  }
+  return path.split('/').filter(Boolean);
+}
+
 function postingAddressIds(postingUrl) {
   const ids = new Set();
   try {
-    const url = new URL(String(postingUrl || ''));
-    const segments = url.pathname.replace(/\/+$/, '').split('/').filter(Boolean).map((segment) => {
-      try {
-        return decodeURIComponent(segment);
-      } catch {
-        return segment;
-      }
-    });
-    const last = segments[segments.length - 1] || '';
-    for (const segment of segments) {
-      if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(segment)) ids.add(segment.toLowerCase());
-    }
-    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
-    if (tail) ids.add(tail);
+    const address = String(postingUrl || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return ids;
+    const url = new URL(address);
     const key = portalJobKey(url.href);
     if (key) ids.add(key);
+    const segments = boundedPostingIdPathSegments(url.pathname);
+    if (!segments) return ids;
+    const lastSegment = segments[segments.length - 1] || '';
+    const last = (() => {
+      try {
+        return decodeURIComponent(lastSegment);
+      } catch {
+        return lastSegment;
+      }
+    })();
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last)) ids.add(last.toLowerCase());
+    const tail = /(?:^|[-_])(\d{3,12})(?:\.[a-z0-9]{2,5})?$/i.exec(last)?.[1];
+    if (tail) ids.add(tail);
   } catch {
     // No address, no id.
   }
@@ -3915,9 +3945,13 @@ export function applicationEntryCarriesPostingId(href, postingUrl) {
   const ids = postingAddressIds(postingUrl);
   if (!ids.size) return false;
   try {
-    const url = new URL(String(href || ''));
+    const address = String(href || '');
+    if (!address || address.length > MAX_POSTING_ID_URL_LENGTH) return false;
+    const url = new URL(address);
     if (url.protocol !== 'https:' || url.username || url.password) return false;
-    const segments = url.pathname.split('/').filter(Boolean).map((segment) => decodeURIComponent(segment));
+    const rawSegments = boundedPostingIdPathSegments(url.pathname);
+    if (!rawSegments) return false;
+    const segments = rawSegments.map((segment) => decodeURIComponent(segment));
     return [...segments, ...url.searchParams.values()].some((value) => ids.has(String(value).toLowerCase()));
   } catch {
     return false;
