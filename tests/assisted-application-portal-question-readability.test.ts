@@ -1645,7 +1645,7 @@ it('marks the original locale unknown when localization fails and never invents 
 });
 
 const placeholder = { id: 'unreadable', source: 'portal', question: PORTAL_QUESTION_PLACEHOLDERS.it, applicationQuestion: '', required: true, type: 'text' };
-const hard = { id: 'experience', source: 'match', question: 'Describe your international shipping experience', required: true, type: 'text' };
+const hard = { id: 'experience', source: 'portal', question: 'Describe your international shipping experience', required: true, type: 'text' };
 const draft = { status: 'ready', round: 1, job: { source: 'job_detail' }, channel: { type: 'portal' }, questions: [placeholder] };
 const approved = { state: 'needs_candidate_action', round: 1, heldBy: ['question:unreadable'], dispatch: { mode: 'submit', round: 1, attempts: 1 } };
 

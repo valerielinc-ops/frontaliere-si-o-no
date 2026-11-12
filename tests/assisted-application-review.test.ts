@@ -310,6 +310,36 @@ describe('candidate review API', () => {
     expect(body.can.approve).toBe(true);
   });
 
+  it('reuses the same passport question after its generated id and semantic key change, with the old option contract only', async () => {
+    const first = {
+      id: 'passport_prompt_old', source: 'portal', question: 'Do you hold a Swiss/EU/EFTA passport?',
+      applicationQuestion: 'Do you hold a Swiss/EU/EFTA passport?', semanticKey: 'generated-key-old',
+      type: 'choice', options: ['Yes', 'No'], required: true,
+    };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [first],
+    }));
+    expect(await postAnswers({ [first.id]: 'Yes' })).toMatchObject({ status: 200, body: { ok: true } });
+
+    const regenerated = { ...first, id: 'passport_prompt_new', semanticKey: 'generated-key-new' };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [regenerated],
+    }));
+    const reused = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(reused.body.answers).toEqual({ [regenerated.id]: 'Yes' });
+
+    const incompatible = { ...regenerated, options: ['EU/EFTA passport', 'Swiss passport', 'Other'] };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
+      questions: [incompatible],
+    }));
+    const rejected = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(rejected.body.answers[incompatible.id]).toBe('');
+    expect(rejected.body.can.approve).toBe(false);
+  });
+
   it('uses the validated order answer projection for the displayed edit contract', async () => {
     const first = { id: 'notice_period', question: 'Qual è il tuo periodo di preavviso?', type: 'text', required: true };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({

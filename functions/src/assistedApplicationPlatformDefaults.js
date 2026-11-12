@@ -39,8 +39,10 @@
  *
  * What no rule here covers goes to the decision engine (assistedApplicationDecisionAnswers.js).
  *
- * The work permit, the passport (Swiss / EU-EFTA / other) and the nationality
- * are asked at CV upload instead (order.candidateFacts). So are, since
+ * Work permit, passport class (Swiss / EU-EFTA / other) and nationality are
+ * collected at CV upload (order.candidateFacts). For older orders the class
+ * also follows a known nationality from the CV; an explicit passport upload
+ * wins and an unknown nationality stays unknown. Also, since
  * 2026-11-10, two legal facts: an entry in the criminal record and one in the
  * debt-enforcement or bankruptcy register. Since 2026-11-11 the criminal record
  * is a platform rule (no conviction, owner decision), which only the
@@ -91,7 +93,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // v12 (2026-11-11): every address block of the candidate's own (a second extraction of the same form, a postal or
 // correspondence address, a second step with the same fields) receives the same address, and the one the candidate
 // typed in another block of the order wins over the platform's (candidateAddressTopics, withCandidateAddress).
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v12';
+// v13 (2026-11-12): a known nationality establishes the Swiss, EU/EFTA or other passport class for screening
+// questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v13';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -419,7 +423,10 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const statedCodes = statedNationality ? [...nationalityCodes(statedNationality)] : [];
   const statedCode = statedNationality ? nationalityOf(statedNationality)?.code || countryCodeOf(statedNationality)
     || (statedCodes.includes('CH') ? 'CH' : statedCodes[0] || '') : '';
-  const passport = passportOf({ passport: uploaded.passport, permitStatus, nationality: statedNationality });
+  const passport = passportOf({ passport: uploaded.passport, nationality });
+  const passportSource = !passport ? ''
+    : CANDIDATE_PASSPORTS.includes(uploaded.passport) || statedNationality ? 'candidate'
+      : declared ? 'cv' : deduced ? 'deduced' : '';
   // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
   // with a level of its own.
   const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
@@ -473,6 +480,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     nationalityCodes: statedNationality ? statedCodes : declared ? declared.codes : deduced ? [deduced.code] : [],
     nationalitySignals: declared ? ['cv_declaration'] : deduced ? deduced.signals : [],
     passport,
+    passportSource,
     // The candidate's own answers at CV upload, '' when the order predates them (owner decision 2026-11-10).
     criminalRecord: legalRecordAnswer(uploaded.criminalRecord),
     debtRecord: legalRecordAnswer(uploaded.debtRecord),
@@ -873,11 +881,21 @@ export function sanitizeCandidateFacts(value) {
 }
 
 /**
- * The passport a candidate holds: only their answer at CV upload (owner decision 2026-11-09). A permit or a
- * nationality is not a passport; without the upload answer it stays unknown and is asked.
+ * The passport class used by screening forms: an explicit upload answer wins; otherwise a known nationality
+ * (including one declared or deduced from the CV) gives the Swiss, EU/EFTA or other catalog option. A permit
+ * never establishes citizenship. Unknown or unrecognized nationality stays unknown and is asked.
  */
-export function passportOf({ passport = '' } = {}) {
-  return CANDIDATE_PASSPORTS.includes(passport) ? passport : '';
+export function passportOf({ passport = '', nationality = '' } = {}) {
+  if (CANDIDATE_PASSPORTS.includes(passport)) return passport;
+  const countryCode = countryCodeOf(nationality);
+  const codes = new Set([...nationalityCodes(nationality), ...(countryCode ? [countryCode] : [])]);
+  if (codes.has('CH')) return 'swiss';
+  if ([...codes].some((item) => {
+    const group = nationalityOf(nationalityLabelOf(item, 'en'))?.group;
+    return group === 'eu' || group === 'efta';
+  })) return 'eu_efta';
+  if (codes.size) return 'other';
+  return '';
 }
 
 /** Facts that need no candidate: dates, consents, availabilities. */
@@ -1306,7 +1324,7 @@ function classifyPlatformSubject(question) {
   if ((isPermitField(raw) && asksHeldStatus(raw)) || permitOptions >= 2) return 'work_permit';
   if (/\bdocumento d identita\b|\bidentity document\b|\bausweis\w*\b|\bpiece d identite\b/.test(text) && permitOptions) return 'work_permit';
   if (isNationalityField(raw) && !/\b(?:passaport\w*|passport|passeport|reisepass)\b/.test(text)) return 'nationality';
-  if (/\b(?:passaport\w*|passport|passeport|reisepass)\b/.test(text) && !/\b(?:numero|number|nummer|scadenza|expir\w*|ablauf)\b/.test(text)) {
+  if (/\b(?:passaport\w*|passport\w*|passeport\w*|reisepass\w*)\b/.test(text) && !/\b(?:numero|number|nummer|scadenza|expir\w*|ablauf)\b/.test(text)) {
     if (!isBinary(question)) return 'passport_type';
     const swiss = /\b(?:svizzer\w*|swiss|schweiz\w*|suisse)\b/.test(text);
     const euEfta = /\b(?:ue|eu|efta|aels|aele|europe\w*|europa\w*)\b/.test(text);
@@ -1660,8 +1678,9 @@ function swissArmyValue(question, facts, lang) {
   // A fact for a candidate who said they are not Swiss: a nationality deduced from the CV is no such statement.
   // The CV's own declaration ('cv') is the candidate's statement; a dual one carries Swiss first.
   const nationality = facts?.nationalitySource === 'deduced' ? '' : nationalityOf(facts?.nationality)?.code || facts?.nationalityCode || '';
-  const swiss = facts?.passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
-  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(facts?.passport));
+  const passport = facts?.passportSource === 'deduced' ? '' : facts?.passport;
+  const swiss = passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
+  const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(passport));
   return knownForeign ? noValue(question, lang) : '';
 }
 

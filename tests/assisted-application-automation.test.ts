@@ -425,6 +425,7 @@ describe('applying events', () => {
       id: runnerQuestionId,
     }], portalQuestionKey);
     expect(runnerQuestionDetails[0]).toMatchObject({
+      source: 'portal',
       question: 'Qual è la tua regione di provenienza?',
       applicationQuestion: 'Welche Region ist dein Herkunftskanton?',
     });
@@ -442,6 +443,17 @@ describe('applying events', () => {
       flow: { state: 'submitting', dispatch: { mode: 'submit', attempts: 2, reason: 'existing_candidate_answers' } },
     });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
+  it('keeps portal versus matcher provenance in bounded question descriptors', () => {
+    const [portal, matcher, untrusted] = questionDetailsForEvent([
+      { id: 'portal_q', source: 'portal', question: 'Do you hold a passport?', type: 'text' },
+      { id: 'match_q', source: 'match', question: 'Describe your experience.', type: 'text' },
+      { id: 'other_q', source: 'owner', question: 'Internal note', type: 'text' },
+    ]);
+    expect(portal.source).toBe('portal');
+    expect(matcher.source).toBe('match');
+    expect(untrusted.source).toBeUndefined();
   });
 
   it('preserves semantic identity when the ATS option catalogue exceeds the event descriptor limit', () => {
