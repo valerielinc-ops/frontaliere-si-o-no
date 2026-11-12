@@ -172,11 +172,11 @@
     },
     {
       "id": "crr-suva-sion-3f33c060cfb1",
-      "slug": "stagiaire-mp-e-crr-suva-sion-sion",
+      "slug": "addestramento-mp-e-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "stagiaire-mp-e-crr-suva-sion-sion",
-        "it": "stagiaire-mp-e-crr-suva-sion-sion",
-        "en": "stagiaire-mp-e-crr-suva-sion-sion",
+        "it": "addestramento-mp-e-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "mp-e-trainee-clinique-romande-de-readaptation-crr-suva-sion",
         "de": "stagiaire-mp-e-crr-suva-sion-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
@@ -239,16 +239,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:26:51.105Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:26:51.105Z"
+      "firstSeenAt": "2026-11-12T09:26:51.105Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mp-e-crr-suva-sion-sion"
+        ],
+        "en": [
+          "stagiaire-mp-e-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mp-e-crr-suva-sion-sion"
+      ]
     },
     {
       "id": "crr-suva-sion-90f7b1317b3e",
-      "slug": "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-clinique-romande-de-readaptation-crr-suva-sion",
+      "slug": "apprendistato-manager-di-ospitalita-e-gestione-cfc-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion",
-        "it": "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-clinique-romande-de-readaptation-crr-suva-sion",
-        "en": "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion",
-        "de": "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion"
+        "it": "apprendistato-manager-di-ospitalita-e-gestione-cfc-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "apprenticeship-manager-of-hospitality-and-stewardship-cfc-clinique-romande-de-readaptation-crr-suva-sion",
+        "de": "ausbildungsleiterin-fur-hospitality-und-stewardship-cfc-clinique-romande-de-readaptation-crr-suva-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -295,11 +306,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion",
+          "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-clinique-romande-de-readaptation-crr-suva-sion"
+        ],
+        "en": [
+          "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion"
+        ],
+        "de": [
           "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion"
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-crr-suva-sion-sion",
+        "apprenti-e-gestionnaire-en-hotellerie-intendance-cfc-clinique-romande-de-readaptation-crr-suva-sion"
       ],
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -322,12 +341,12 @@
     },
     {
       "id": "crr-suva-sion-65098bc91794",
-      "slug": "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion",
+      "slug": "apprendista-early-ortopedist-cfc-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
         "fr": "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion",
-        "it": "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion",
-        "en": "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion",
-        "de": "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion"
+        "it": "apprendista-early-ortopedist-cfc-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "apprentice-early-orthopedist-cfc-clinique-romande-de-readaptation-crr-suva-sion",
+        "de": "auszubildender-fruher-orthopade-cfc-clinique-romande-de-readaptation-crr-suva-sion"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -389,16 +408,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:26:50.092Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:26:50.092Z"
+      "firstSeenAt": "2026-11-12T09:26:50.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion"
+        ],
+        "en": [
+          "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion"
+        ],
+        "de": [
+          "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-bottier-ere-orthopediste-cfc-crr-suva-sion-sion"
+      ]
     },
     {
       "id": "crr-suva-sion-6dedf67d2c82",
-      "slug": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva",
+      "slug": "apprendistato-community-care-and-health-assistant-chs-cfc-doppio-percorso-misto-clinique-romande-de-readaptation-crr",
       "slugByLocale": {
         "fr": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva",
-        "it": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva",
-        "en": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva",
-        "de": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva"
+        "it": "apprendistato-community-care-and-health-assistant-chs-cfc-doppio-percorso-misto-clinique-romande-de-readaptation-crr",
+        "en": "apprenticeship-community-care-and-health-assistant-chs-cfc-mixed-dual-route-clinique-romande-de-readaptation-crr-suva",
+        "de": "lernende-r-assistent-in-fur-pflege-und-gemeinschaftsgesundheit-assc-efz-gemischter-dualer-ausbildungsweg-clinique"
       },
       "company": "Clinique romande de réadaptation (CRR Suva)",
       "companyKey": "crr-suva-sion",
@@ -461,7 +494,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:26:49.580Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:26:49.580Z"
+      "firstSeenAt": "2026-11-12T09:26:49.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva"
+        ],
+        "en": [
+          "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva"
+        ],
+        "de": [
+          "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-assistant-e-en-soins-et-sante-communautaire-assc-cfc-voie-duale-mixte-crr-suva"
+      ]
     }
   ]
 }

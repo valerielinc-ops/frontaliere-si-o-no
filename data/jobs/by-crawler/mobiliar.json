@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-f61e2b2fedac",
-      "slug": "collaboratore-trice-kundendienst-m-w-d-die-mobiliar-basel",
+      "slug": "addetto-a-al-servizio-clienti-m-f-d-die-mobiliar-basel",
       "slugByLocale": {
         "de": "mitarbeiter-kundendienst-w-m-d-mobiliar-ch",
-        "it": "collaboratore-trice-kundendienst-m-w-d-die-mobiliar-basel",
-        "en": "mitarbeiter-kundendienst-w-m-d-die-mobiliar-basel",
-        "fr": "mitarbeiter-kundendienst-w-m-d-die-mobiliar-basel"
+        "it": "addetto-a-al-servizio-clienti-m-f-d-die-mobiliar-basel",
+        "en": "customer-service-m-f-d-die-mobiliar-basel",
+        "fr": "service-client-h-f-d-die-mobiliar-basel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -58,11 +58,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kundendienst-w-m-d-mobiliar-ch"
+          "mitarbeiter-kundendienst-w-m-d-mobiliar-ch",
+          "collaboratore-trice-kundendienst-m-w-d-die-mobiliar-basel"
+        ],
+        "en": [
+          "mitarbeiter-kundendienst-w-m-d-die-mobiliar-basel"
+        ],
+        "fr": [
+          "mitarbeiter-kundendienst-w-m-d-die-mobiliar-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kundendienst-w-m-d-mobiliar-ch"
+        "mitarbeiter-kundendienst-w-m-d-mobiliar-ch",
+        "collaboratore-trice-kundendienst-m-w-d-die-mobiliar-basel",
+        "mitarbeiter-kundendienst-w-m-d-die-mobiliar-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6769,9 +6778,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6835,17 +6844,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

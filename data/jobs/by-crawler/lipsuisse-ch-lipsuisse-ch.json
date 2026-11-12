@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "lipsuisse-ch-lipsuisse-ch-15d58340f84d",
-      "slug": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
+      "slug": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
       "slugByLocale": {
         "fr": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
-        "it": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
-        "en": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
-        "de": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        "it": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
+        "en": "drafter-project-manager-in-metal-construction-lip-suisse-geneve",
+        "de": "zeichner-projektleiter-im-metallbau-lip-suisse-geneve"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch-lipsuisse-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:42:18.968Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:42:18.968Z"
+      "firstSeenAt": "2026-11-12T09:42:18.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ],
+        "en": [
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+      ]
     }
   ]
 }

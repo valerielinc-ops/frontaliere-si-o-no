@@ -352,12 +352,12 @@
     },
     {
       "id": "caritas-schweiz-9d8a49d4a0d0",
-      "slug": "koordination-freiwilligenarbeit-e-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
+      "slug": "coordinamento-del-volontariato-e-del-tempo-libero-80-100-m-f-d-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
-        "it": "koordination-freiwilligenarbeit-e-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
-        "en": "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
-        "fr": "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
+        "it": "coordinamento-del-volontariato-e-del-tempo-libero-80-100-m-f-d-caritas-schweiz-zurich",
+        "en": "coordination-of-volunteer-work-and-leisure-80-100-m-f-d-caritas-schweiz-zurich",
+        "fr": "coordination-du-travail-benevole-et-des-loisirs-80-100-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -408,11 +408,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
+          "koordination-freiwilligenarbeit-e-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
+        ],
+        "fr": [
           "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
         ]
       },
       "previousSlugs": [
-        "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
+        "koordination-freiwilligenarbeit-und-freizeit-80-100-m-w-d-caritas-schweiz-zurich",
+        "koordination-freiwilligenarbeit-e-freizeit-80-100-m-w-d-caritas-schweiz-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,

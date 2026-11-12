@@ -17060,12 +17060,12 @@
     },
     {
       "id": "jumbo-d7c5090a-376",
-      "slug": "lagerist-in-jumbo-winterthur",
+      "slug": "magazziniere-a-jumbo-winterthur",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-winterthur",
-        "it": "lagerist-in-jumbo-winterthur",
-        "en": "lagerist-in-jumbo-winterthur",
-        "fr": "lagerist-in-jumbo-winterthur"
+        "it": "magazziniere-a-jumbo-winterthur",
+        "en": "warehouse-clerk-jumbo-winterthur",
+        "fr": "magasinier-ere-jumbo-winterthur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17140,7 +17140,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:20:44.110Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:20:44.110Z"
+      "firstSeenAt": "2026-11-12T09:20:44.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerist-in-jumbo-winterthur"
+        ],
+        "en": [
+          "lagerist-in-jumbo-winterthur"
+        ],
+        "fr": [
+          "lagerist-in-jumbo-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "lagerist-in-jumbo-winterthur"
+      ]
     },
     {
       "id": "jumbo-a98202fe-8cb",

@@ -87,12 +87,12 @@
     },
     {
       "id": "rheinmetall-air-defence-ce330d9c4d07",
-      "slug": "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "acquirente-gruppo-prodotto-metal-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "acquirente-gruppo-prodotto-metal-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "product-group-buyer-metal-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "groupe-de-produits-acheteur-metal-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -155,7 +155,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:37:40.135Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:37:40.135Z"
+      "firstSeenAt": "2026-11-12T09:37:40.135Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "warengruppeneinkaufer-metall-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-96213c44495c",

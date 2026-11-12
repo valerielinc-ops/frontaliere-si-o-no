@@ -12537,12 +12537,12 @@
     },
     {
       "id": "med-ipersonal-bc325a3d49b4",
-      "slug": "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh",
+      "slug": "camion-driver-uso-ipersonal-ag-wetzikon-zh-zh",
       "slugByLocale": {
         "de": "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh",
-        "it": "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh",
-        "en": "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh",
-        "fr": "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh"
+        "it": "camion-driver-uso-ipersonal-ag-wetzikon-zh-zh",
+        "en": "truck-driver-euse-ipersonal-ag-wetzikon-zh-zh",
+        "fr": "conducteur-utilisateur-de-camion-ipersonal-ag-wetzikon-zh-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12600,7 +12600,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:39:41.871Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T09:41:39.416Z"
+      "firstSeenAt": "2026-11-11T09:41:39.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh"
+        ],
+        "en": [
+          "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh"
+        ],
+        "fr": [
+          "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-euse-ipersonal-ag-wetzikon-zh-zh"
+      ]
     },
     {
       "id": "med-ipersonal-864c82fe6df2",

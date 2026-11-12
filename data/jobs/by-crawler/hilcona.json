@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-1705b6438560",
-      "slug": "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell",
+      "slug": "meccanico-business-100-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "betriebsmechaniker-betriebsmechanikerin-100-hilcona-zell",
-        "it": "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell",
-        "en": "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell"
+        "it": "meccanico-business-100-bell-schweiz-ag-zell",
+        "en": "business-mechanic-business-mechanic-100-bell-schweiz-ag-zell",
+        "fr": "mecanicien-d-affaires-mecanicien-d-affaires-100-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -52,11 +52,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-betriebsmechanikerin-100-hilcona-zell"
+          "betriebsmechaniker-betriebsmechanikerin-100-hilcona-zell",
+          "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-betriebsmechanikerin-100-hilcona-zell"
+        "betriebsmechaniker-betriebsmechanikerin-100-hilcona-zell",
+        "betriebsmechaniker-betriebsmechanikerin-100-bell-schweiz-ag-zell"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
