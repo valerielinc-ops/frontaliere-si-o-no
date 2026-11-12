@@ -1,7 +1,7 @@
 {
   "crawlerKey": "data-unit-ag",
-  "assembledAt": "2026-11-11T21:43:33.214Z",
-  "runId": "43103359344",
+  "assembledAt": "2026-11-12T09:38:17.406Z",
+  "runId": "43191512000",
   "jobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
@@ -34,7 +34,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:43:12.042Z",
+      "crawledAt": "2026-11-12T09:38:00.391Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:12.042Z",
+      "validThrough": "2027-02-09T09:38:00.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:43:12.041Z",
+      "crawledAt": "2026-11-12T09:38:00.389Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:12.041Z",
+      "validThrough": "2027-02-09T09:38:00.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:43:12.036Z",
+      "crawledAt": "2026-11-12T09:38:00.380Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:12.036Z",
+      "validThrough": "2027-02-09T09:38:00.380Z",
       "validThroughSource": "last-observed-window"
     }
   ]

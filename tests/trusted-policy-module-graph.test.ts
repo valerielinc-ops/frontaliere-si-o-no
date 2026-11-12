@@ -158,7 +158,9 @@ describe('ogni step che decide la review usa il CLI trusted', () => {
   });
 
   it('il CLI trusted è risolto prima del checkout', () => {
-    const steps = stepsOf() as { id?: string; uses?: string }[];
+    // Il checkout sparse del preflight su main non esegue codice PR né usa il
+    // CLI trusted della review. L'ordine di sicurezza vale nel job required.
+    const steps = workflow.jobs.vitest.steps as { id?: string; uses?: string }[];
     const trusted = steps.findIndex((step) => step.id === 'trusted_gh');
     const checkout = steps.findIndex((step) => String(step.uses ?? '').startsWith('actions/checkout'));
     expect(trusted).toBeGreaterThan(-1);

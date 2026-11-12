@@ -48,7 +48,7 @@ START=$(date +%s)
 # Il fetch della base: senza, `origin/main` puo' essere di giorni fa e il
 # worktree nasce vecchio senza dirlo.
 case "$BASE" in
-  origin/*) git fetch --quiet origin "${BASE#origin/}" 2>/dev/null || true ;;
+  origin/*) node "$REPO_ROOT/scripts/dev/fetch-origin-main.mjs" "$REPO_ROOT" "${BASE#origin/}" ;;
 esac
 
 # --no-checkout e' obbligatorio: senza, git scrive l'albero pieno PRIMA che si

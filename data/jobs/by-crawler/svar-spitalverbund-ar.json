@@ -1,7 +1,7 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-11-11T21:20:34.676Z",
-  "runId": "43100749217",
+  "assembledAt": "2026-11-12T09:21:02.162Z",
+  "runId": "43188808432",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-918652206c1f",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/svar/job/details/4095898",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:28.943Z",
+      "crawledAt": "2026-11-12T09:20:54.818Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T21:20:28.943Z",
+      "validThrough": "2027-01-01T09:20:54.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097404",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:28.353Z",
+      "crawledAt": "2026-11-12T09:20:54.192Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:20:28.353Z",
+      "validThrough": "2027-02-03T09:20:54.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097120",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:27.800Z",
+      "crawledAt": "2026-11-12T09:20:53.576Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -257,7 +257,588 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:20:27.800Z",
+      "validThrough": "2027-02-03T09:20:53.576Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-053f62b7c00e",
+      "slug": "operatore-trice-sociosanitario-a-afc-o-assistente-di-studio-medico-mpa-per-reparto-di-degenza-con-focus-sulla-medicina",
+      "slugByLocale": {
+        "it": "operatore-trice-sociosanitario-a-afc-o-assistente-di-studio-medico-mpa-per-reparto-di-degenza-con-focus-sulla-medicina",
+        "en": "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+        "de": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
+        "fr": "sante-efz-ou-mpa-pour-station-lit-avec-accent-sur-la-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)",
+      "titleByLocale": {
+        "it": "Operatore/trice sociosanitario/a AFC o assistente di studio medico MPA per reparto di degenza con focus sulla medicina interna (m/f/d)",
+        "en": "Health EFZ or MPA for bed station with focus on internal medicine (m/f/d)",
+        "de": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)",
+        "fr": "Santé EFZ ou MPA pour station lit avec accent sur la médecine interne (h/f/d)"
+      },
+      "description": "Ihre Aufgaben\n• Ganzheitliche und individuelle Pflege und Betreuung von interdisziplinären Patientinnen und Patienten in enger Zusammenarbeit mit dem Dipl. Pflegepersonal\n• Sicherstellung einer hohen Pflege- und Dienstleistungsqualität im Sinne unseres Leitbildes\n• Fachliche Beratung und Betreuung der Angehörigen\n• Laufende Dokumentation des Pflegeprozesses\n• Administrativ anfallende Aufgaben\n\nIhr Profil\n• Sie haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ, als Fachmann Gesundheit EFZ\n• Alternativ haben Sie eine Ausbildung als Med. Praxisassistentin EFZ\n• Erste Berufserfahrung im Spitalumfeld sehr wünschenswert, dies ist aber keine zwingende Voraussetzung\n• Interesse an der Pflege von interdisziplinären Patientinnen und Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Aufgestellte und teamorientierte Grundhaltung\n• Sie sind eine kommunikative und offene Persönlichkeit, die den Patienten in den Mittelpunkt stellt\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Cura olistica e individuale e supporto di pazienti interdisciplinari in stretta collaborazione con il Dipl. Personale infermieristico\n• Garantire un'alta qualità della cura e del servizio in linea con la nostra dichiarazione di missione\n• Consulenza tecnica e supporto per i parenti\n• Documentazione in corso del processo di cura\n• Attività amministrative\n\nIl tuo profilo\n• Hai completato la formazione come specialista Health EFZ, come specialista Health EFZ\n• In alternativa, hai una formazione come Med. Assistente di pratica EFZ\n• Prima esperienza professionale in ambiente ospedaliero molto desiderabile, ma questo non è un requisito obbligatorio\n• Interessato alla cura dei pazienti interdisciplinari\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Attuazione fondata e orientata al team\n• Sei una personalità comunicativa e aperta che si concentra sul paziente\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
+        "en": "Their tasks\n• Holistic and individual care and support of interdisciplinary patients in close cooperation with the Dipl. Nursing staff\n• Ensuring a high quality of care and service in line with our mission statement\n• Technical advice and support for relatives\n• Ongoing documentation of the care process\n• Administrative tasks\n\nYour profile\n• You have completed training as a specialist Health EFZ, as a specialist Health EFZ\n• Alternatively, you have an education as a Med. Practice assistant EFZ\n• First professional experience in the hospital environment very desirable, but this is not a mandatory requirement\n• Interested in the care of interdisciplinary patients\n• Very good knowledge of German in word and writing\n• Established and team-oriented attitude\n• You are a communicative and open personality that focuses on the patient\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
+        "de": "Ihre Aufgaben\n• Ganzheitliche und individuelle Pflege und Betreuung von interdisziplinären Patientinnen und Patienten in enger Zusammenarbeit mit dem Dipl. Pflegepersonal\n• Sicherstellung einer hohen Pflege- und Dienstleistungsqualität im Sinne unseres Leitbildes\n• Fachliche Beratung und Betreuung der Angehörigen\n• Laufende Dokumentation des Pflegeprozesses\n• Administrativ anfallende Aufgaben\n\nIhr Profil\n• Sie haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ, als Fachmann Gesundheit EFZ\n• Alternativ haben Sie eine Ausbildung als Med. Praxisassistentin EFZ\n• Erste Berufserfahrung im Spitalumfeld sehr wünschenswert, dies ist aber keine zwingende Voraussetzung\n• Interesse an der Pflege von interdisziplinären Patientinnen und Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Aufgestellte und teamorientierte Grundhaltung\n• Sie sind eine kommunikative und offene Persönlichkeit, die den Patienten in den Mittelpunkt stellt\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+        "fr": "Leurs tâches\n• Soins holistiques et individuels et soutien des patients interdisciplinaires en étroite collaboration avec le Dipl. Personnel infirmier\n• Assurer une haute qualité de soins et de services conformément à notre énoncé de mission\n• Conseils techniques et soutien à la famille\n• Documentation continue du processus de soins\n• Tâches administratives\n\nVotre profil\n• Vous avez suivi une formation en tant que spécialiste de la santé EFZ, en tant que spécialiste de la santé EFZ\n• Sinon, vous avez une éducation comme Med. Assistant à la pratique EFZ\n• Première expérience professionnelle dans l'environnement hospitalier très souhaitable, mais ce n'est pas une exigence obligatoire\n• Intéressé par les soins aux patients interdisciplinaires\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Une attitude établie et axée sur l'équipe\n• Vous êtes une personnalité communicative et ouverte qui se concentre sur le patient\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
+      },
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4097375",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:52.963Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4097375",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4097375",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
+        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
+          "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:13:16.187Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:20:52.963Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-300a8f84cab8",
+      "slug": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-emergency-care-specialist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-specialiste-des-soins-d-urgence-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson Notfallpflege",
+      "titleByLocale": {
+        "it": "Dipl. Specialista di assistenza di emergenza",
+        "en": "Dipl. Emergency care specialist",
+        "de": "Dipl. Pflegefachperson Notfallpflege",
+        "fr": "Dipl. Spécialiste des soins d'urgence"
+      },
+      "description": "Ihre Aufgaben\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sie haben idealerweise Kenntnisse in einer Notfallabteilung, dies ist aber nicht zwingend\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Cura e cura dei pazienti acuti in situazioni complesse e imprevedibili\n• Chiudere la cooperazione intra-e interdisciplinare con tutte le persone coinvolte nel trattamento\n• Partecipazione e attuazione di misure preventive, terapeutiche e diagnostiche\n• Documentazione di manutenzione elettronica\n\nIl tuo profilo\n• Hai una laurea di successo come Dipl. Infermiera, come dipl. Infermieristica professionale a livello HF o FH o sono salute e infermieri, salute e infermieri\n• Idealmente avete conoscenza in un reparto di emergenza, ma questo non è obbligatorio\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
+        "en": "Their tasks\n• Care and care of acute patients in unstable, complex and unpredictable situations\n• Close intra- and interdisciplinary cooperation with all persons involved in the treatment\n• Participation and implementation of preventive, therapeutic and diagnostic measures\n• Electronic maintenance documentation\n\nYour profile\n• You have a successful degree as a Dipl. Nurse, as a dipl. Nursing professional at level HF or FH or are health and nurses, health and nurses\n• You ideally have knowledge in an emergency department, but this is not mandatory\n• Very good knowledge of German in word and writing\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
+        "de": "Ihre Aufgaben\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sie haben idealerweise Kenntnisse in einer Notfallabteilung, dies ist aber nicht zwingend\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+        "fr": "Leurs tâches\n• Soins et soins aux patients aigus dans des situations instables, complexes et imprévisibles\n• Coopération intra et interdisciplinaire étroite avec toutes les personnes impliquées dans le traitement\n• Participation et mise en œuvre de mesures préventives, thérapeutiques et diagnostiques\n• Documentation électronique de maintenance\n\nVotre profil\n• Vous avez un diplôme réussi en tant que Dipl. Infirmière. Professionnels des soins infirmiers au niveau HF ou FH ou sont en santé et infirmiers, en santé et infirmiers\n• Idéalement, vous avez des connaissances dans un service d'urgence, mais ce n'est pas obligatoire\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4097379",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:52.347Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4097379",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4097379",
+      "previousSlugs": [
+        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-11-05T09:17:33.262Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T09:20:52.347Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-39ff62498fcd",
+      "slug": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "intern-nursing-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "stagiaire-en-soins-infirmiers-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Praktikant/in Pflege (m,w,d)",
+      "titleByLocale": {
+        "it": "Tirocinante infermieristico (m,f,d)",
+        "en": "Intern Nursing (m,f,d)",
+        "de": "Praktikant/in Pflege (m,w,d)",
+        "fr": "Stagiaire en soins infirmiers (m,w,d)"
+      },
+      "description": "Deine Aufgaben\n• Mithilfe bei der Begleitung und Unterstützung von Patientinnen und Patienten sowie deren Angehörigen\n• Mithilfe bei der Dokumentation von Patientendaten\n• Mitarbeit bei der Sicherstellung von Hygienestandards und Infektionsschutz\n• Reinigung und Desinfektion nach den hausinternen Hygiene- und Desinfektionsplänen von Mobiliar und Pflegeutensilien\n• Zimmer für Eintritt vorbereiten und Mobiliar bei Austritt nach hausinternen Vorgaben reinigen\n• Botengänge für die Station; Küchenbestellung; Wäschebestellung\n\nDeshalb wollen wir Dich\n• Du trittst freundlich auf, zeigst Empathie und Geduld und arbeitest gerne im Team.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Grundlegende Computerkenntnisse sind von Vorteil.\n• Du bist bereit, gemäss Dienstplan im Schichtbetrieb und an Wochenenden zu arbeiten.\n• Du bist körperlich belastbar und übernimmst Verantwortung für deine Aufgaben.\n\nZusätzlich profitierst du von\n\nEintritt: 01. August 2027",
+      "descriptionByLocale": {
+        "it": "I tuoi compiti\n• Assistenza nei pazienti che accompagnano e sostengono e nei loro parenti\n• Assistenza nella documentazione dei dati dei pazienti\n• Cooperazione nel garantire norme igieniche e tutela delle infezioni\n• Pulizia e disinfezione secondo i piani di igiene e disinfezione interni di mobili e utensili per la cura\n• Preparare camere per l'ammissione e mobili puliti quando si parte secondo le specifiche interne\n• supplenti per la stazione; ordinazione cucina; Ordinazione lavanderia\n\nPer questo ti vogliamo\n• Si esegue amichevole, mostrare empatia e pazienza e godere di lavorare in una squadra.\n• Avete una buona conoscenza del tedesco nelle parole e nella scrittura. Le competenze informatiche di base sono vantaggiose.\n• Siete pronti a lavorare secondo il programma in turni e nei fine settimana.\n• Siete fisicamente resilienti e assumete la responsabilità per i vostri compiti.\n\nInoltre, si beneficia di\n\nIngresso: 01. agosto 2027",
+        "en": "Your tasks\n• Assistance in accompanying and supporting patients and their relatives\n• Assistance in the documentation of patient data\n• Cooperation in ensuring hygiene standards and infection protection\n• Cleaning and disinfection according to the in-house hygiene and disinfection plans of furniture and care utensils\n• Prepare rooms for admission and clean furniture when leaving according to in-house specifications\n• alternates for the station; kitchen ordering; Ordering laundry\n\nThis is why we want you\n• You perform friendly, show empathy and patience and enjoy working in a team.\n• You have good knowledge of German in words and writing. Basic computer skills are beneficial.\n• You are ready to work according to the schedule in shifts and on weekends.\n• You are physically resilient and take responsibility for your tasks.\n\nIn addition, you benefit from\n\nAdmission: 01. August 2027",
+        "de": "Deine Aufgaben\n• Mithilfe bei der Begleitung und Unterstützung von Patientinnen und Patienten sowie deren Angehörigen\n• Mithilfe bei der Dokumentation von Patientendaten\n• Mitarbeit bei der Sicherstellung von Hygienestandards und Infektionsschutz\n• Reinigung und Desinfektion nach den hausinternen Hygiene- und Desinfektionsplänen von Mobiliar und Pflegeutensilien\n• Zimmer für Eintritt vorbereiten und Mobiliar bei Austritt nach hausinternen Vorgaben reinigen\n• Botengänge für die Station; Küchenbestellung; Wäschebestellung\n\nDeshalb wollen wir Dich\n• Du trittst freundlich auf, zeigst Empathie und Geduld und arbeitest gerne im Team.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Grundlegende Computerkenntnisse sind von Vorteil.\n• Du bist bereit, gemäss Dienstplan im Schichtbetrieb und an Wochenenden zu arbeiten.\n• Du bist körperlich belastbar und übernimmst Verantwortung für deine Aufgaben.\n\nZusätzlich profitierst du von\n\nEintritt: 01. August 2027",
+        "fr": "Vos tâches\n• Assistance pour accompagner et soutenir les patients et leurs proches\n• Aide à la documentation des données du patient\n• Coopération pour garantir les normes d'hygiène et la protection contre les infections\n• Nettoyage et désinfection selon les plans d'hygiène et de désinfection internes des meubles et des ustensiles de soins\n• Préparer les chambres pour l'admission et le mobilier propre en partant selon les spécifications internes\n• alterne pour la gare; commande de cuisine; commande de blanchisserie\n\nC'est pourquoi nous te voulons\n• Vous faites preuve d'amitié, d'empathie et de patience et aimez travailler en équipe.\n• Vous avez une bonne connaissance de l'allemand en mots et en écriture. Les compétences informatiques de base sont bénéfiques.\n• Vous êtes prêt à travailler selon l'horaire en équipes et le week-end.\n• Vous êtes physiquement résistant et prenez la responsabilité de vos tâches.\n\nEn outre, vous bénéficiez\n\nEntrée: 01. Août 2027"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4097731",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:51.687Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4097731",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4097731",
+      "previousSlugs": [
+        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-11-10T09:23:46.108Z",
+      "salaryMin": 72000,
+      "salaryMax": 101000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 101000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T09:20:51.687Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-9a564fcdf3e4",
+      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
+      "titleByLocale": {
+        "it": "Medico senior / Medicina interna generale (m/f/d)",
+        "en": "Senior physician / Senior physician General Internal Medicine (m/f/d)",
+        "de": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
+        "fr": "Médecin supérieur / Médecin supérieur Général Médecine interne (h/f/d)"
+      },
+      "description": "Deine Aufgaben\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nDein Profil\n• Sie sind eine engagierte Persönlichkeit mit hoher Sozialkompetenz\n• Sie haben mehrjährige klinische Erfahrung und Freude an der interdisziplinären Zusammenarbeit\n• Sie haben Interesse an Ultraschallmedizin und möchten den Fähigkeitsausweis Sonografie erwerben\n• Sie führen den Facharzttitel für Allgemeine Innere Medizin oder stehen vor Abschluss\n\nZusätzlich profitierst Du von\n\nEintritt: 01. Dezember 2026",
+      "descriptionByLocale": {
+        "it": "I tuoi compiti\n• Sei responsabile della cura del paziente completa e di alta qualità\n• Prenderai il controllo della gestione professionale e del personale dei nostri medici assistenti\n• Partecipano al servizio medico e organizzano ulteriori eventi educativi\n\nIl tuo profilo\n• Sei una personalità impegnata con alte capacità sociali\n• Hai diversi anni di esperienza clinica e goditi la cooperazione interdisciplinare\n• Sei interessato alla medicina ecografica e vorresti acquistare il certificato di sonografia\n• Lei ha il titolo di specialista per la medicina interna generale o sta per laurearsi\n\nInoltre, si beneficia di\n\nIngresso: 01. dicembre 2026",
+        "en": "Your tasks\n• You are responsible for comprehensive and high-quality patient care\n• You will take over the professional and personnel management of our assistant doctors\n• They participate in the medical service and organise further education events\n\nYour profile\n• You are a committed personality with high social skills\n• You have several years of clinical experience and enjoy the interdisciplinary cooperation\n• You are interested in ultrasound medicine and would like to acquire the sonography certificate\n• You hold the title of specialist for general internal medicine or are about to graduate\n\nIn addition, you benefit from\n\nAdmission: 01. December 2026",
+        "de": "Deine Aufgaben\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nDein Profil\n• Sie sind eine engagierte Persönlichkeit mit hoher Sozialkompetenz\n• Sie haben mehrjährige klinische Erfahrung und Freude an der interdisziplinären Zusammenarbeit\n• Sie haben Interesse an Ultraschallmedizin und möchten den Fähigkeitsausweis Sonografie erwerben\n• Sie führen den Facharzttitel für Allgemeine Innere Medizin oder stehen vor Abschluss\n\nZusätzlich profitierst Du von\n\nEintritt: 01. Dezember 2026",
+        "fr": "Vos tâches\n• Vous êtes responsable des soins complets et de haute qualité\n• Vous prendrez en charge la gestion professionnelle et du personnel de nos médecins adjoints\n• Ils participent au service médical et organisent des manifestations de formation continue\n\nVotre profil\n• Vous êtes une personnalité engagée avec de hautes compétences sociales\n• Vous avez plusieurs années d'expérience clinique et profitez de la coopération interdisciplinaire\n• Vous êtes intéressé par la médecine à ultrasons et souhaitez acquérir le certificat de sonographie\n• Vous êtes titulaire du titre de spécialiste en médecine interne générale ou vous êtes sur le point d'obtenir votre diplôme\n\nEn outre, vous bénéficiez\n\nEntrée : 01 décembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4095245",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:51.028Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4095245",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4095245",
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:33:11.778Z",
+      "salaryMin": 109000,
+      "salaryMax": 152500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 152500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-12T09:20:51.028Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-2f5c053e8a29",
+      "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82",
+      "slugByLocale": {
+        "it": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82",
+        "en": "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation",
+      "titleByLocale": {
+        "it": "Dipl. Specialista di cura HF/FH stazione di letto interdisciplinare",
+        "en": "Dipl. Care specialist HF/FH interdisciplinary bed station",
+        "de": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation",
+        "fr": "Dipl. Spécialiste des soins HF/FH poste de lit interdisciplinaire"
+      },
+      "description": "Deine Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDein Profil\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nZusätzlich profitierst Du von\n\nEintritt: 11. November 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Cura e cura professionale e competente dei pazienti sulla stazione interdisciplinare del letto\n• Applicazione indipendente del processo di cura e trattamento nella cooperazione interdisciplinare\n• Siete guidati dai concetti di cura e trattamento dell'associazione ospedaliera e contribuire alle vostre competenze per lo sviluppo di nuovi standard.\n• Documentazione elettronica e pianificazione della cura\n• Essi partecipano al sostegno pratico degli studenti nelle varie fasi di formazione\n\nIl tuo profilo\n• Allenamento completato come Dipl. Specialista infermieristico HF/FH o Dipl. Infermieristica professionale HF/FH o salute e infermiera, salute e infermiera\n• Esperienza nell'applicazione del processo di cura in diverse situazioni di cura\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
+        "en": "Their tasks\n• Professional and competent care and care of patients on the interdisciplinary bed station\n• Independent implementation of the care and treatment process in interdisciplinary cooperation\n• You are guided by the hospital association’s nursing and treatment concepts and contribute your skills to the development of new standards.\n• Electronic documentation and planning of care\n• They participate in the practical support of learners in the various stages of training\n\nYour profile\n• Completed training as a Dipl. Nursing specialist HF/FH or Dipl. Nursing professional HF/FH or health and nurse, health and nurse\n• Experience in applying the care process in different care situations\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n• Very good knowledge of German in word and writing\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
+        "de": "Deine Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDein Profil\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nZusätzlich profitierst Du von\n\nEintritt: 11. November 2026",
+        "fr": "Leurs tâches\n• Soins professionnels et compétents des patients à la station de lit interdisciplinaire\n• Mise en œuvre indépendante du processus de soins et de traitement dans le cadre de la coopération interdisciplinaire\n• Vous êtes guidé par l'association hospitalière, les concepts de soins infirmiers et de traitement et contribuez à l'élaboration de nouvelles normes.\n• Documentation électronique et planification des soins\n• Ils participent au soutien pratique des apprenants aux différentes étapes de la formation.\n\nVotre profil\n• La formation terminée en tant que dipl. Spécialiste des soins infirmiers HF/FH ou Dipl. Soins infirmiers professionnels HF/FH ou santé et infirmière, santé et infirmière\n• Expérience dans l'application du processus de soins dans différentes situations de soins\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4099831",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:50.406Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4099831",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4099831",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
+        "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
+          "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-11-05T09:17:32.465Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-03T09:20:50.406Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-6373312177bf",
+      "slug": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %",
+      "titleByLocale": {
+        "it": "Infermiere SSS dipl. per la guardia notturna 50-100%",
+        "en": "Dipl. Nurse HF for the Night Watch 50-100 %",
+        "de": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %",
+        "fr": "Dipl. Infirmière HF pour la garde de nuit 50-100 %"
+      },
+      "description": "Ihre Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Innere Medizin\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder Sie sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger idealerweise mit Schweizer Anerkennung\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Infermieristica e cura per i pazienti interdisciplinari con un focus sulla medicina interna\n• Partecipazione a visite mediche\n• Documentazione di manutenzione elettronica\n• Contributo ad una cooperazione apprezzativa, rispettosa, interdisciplinare e interprofessionale\n• Partecipazione attiva a progetti, gruppi di lavoro e processi di cambiamento\n• Essi partecipano al sostegno pratico degli studenti nelle varie fasi di formazione\n\nIl tuo profilo\n• Hai una laurea di successo come Dipl. Infermiera, come dipl. Infermieristica professionale a livello HF o FH o sei una salute e infermiera, salute e infermiera idealmente con il riconoscimento svizzero\n• Molto buona conoscenza del tedesco in parola e la scrittura è obbligatoria per questo lavoro\n• L'esperienza nel campo acuto è auspicabile ma non un prerequisito\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
+        "en": "Their tasks\n• Nursing and caring for interdisciplinary patients with a focus on internal medicine\n• Participation in medical visits\n• Electronic maintenance documentation\n• Contribution to an appreciative, respectful, interdisciplinary and interprofessional cooperation\n• Active participation in projects, working groups and change processes\n• They participate in the practical support of learners in the various stages of training\n\nYour profile\n• You have a successful degree as a Dipl. Nurse, as a dipl. Nursing professional at HF or FH level or you are a health and nurse, health and nurse ideally with Swiss recognition\n• Very good knowledge of German in word and writing is mandatory for this job\n• Experience in the acute field is desirable but not a prerequisite\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
+        "de": "Ihre Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Innere Medizin\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder Sie sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger idealerweise mit Schweizer Anerkennung\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
+        "fr": "Leurs tâches\n• Soins infirmiers et soins aux patients interdisciplinaires en mettant l'accent sur la médecine interne\n• Participation aux visites médicales\n• Documentation électronique de maintenance\n• Contribution à une coopération reconnaissante, respectueuse, interdisciplinaire et interprofessionnelle\n• Participation active aux projets, aux groupes de travail et aux processus de changement\n• Ils participent au soutien pratique des apprenants aux différentes étapes de la formation.\n\nVotre profil\n• Vous avez un diplôme réussi en tant que Dipl. Infirmière. Professionnels de la santé au niveau HF ou FH ou vous êtes une infirmière, une infirmière et une infirmière idéalement avec la reconnaissance suisse\n• Une très bonne connaissance de l'allemand dans la parole et l'écriture est obligatoire pour ce travail\n• L'expérience dans le domaine aigu est souhaitable mais pas une condition préalable\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4099655",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:49.792Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4099655",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4099655",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+          "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:13:12.775Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:20:49.792Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "svar-spitalverbund-ar-b967a4cf43fd",
+      "slug": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+      "slugByLocale": {
+        "de": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+        "en": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "teamleitung-hamodialyse-m-w-d-svar-spitalverbund-ar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Teamleitung Hämodialyse (m/w/d)",
+      "titleByLocale": {
+        "de": "Teamleitung Hämodialyse (m/w/d)",
+        "it": "Teamleitung Hämodialyse (m/w/d)",
+        "en": "Teamleitung Hämodialyse (m/w/d)",
+        "fr": "Teamleitung Hämodialyse (m/w/d)"
+      },
+      "description": "Deine Aufgaben\n• Fachliche und personelle Führung sowie gezielte Weiterentwicklung des Dialyse Teams\n• Organisation und Koordination der Dialysestation inklusive Personaleinsatzplanung\n• Sicherstellung einer qualitativ hochwertigen, sicheren und patientenorientierten Versorgung\n• Aktive Mitarbeit im klinischen Alltag sowie Durchführung anspruchsvoller dialysespezifischer Behandlungen und Shuntpunktionen\n• Fachkompetente Betreuung von Patientinnen und Patienten mit Hämodialyse, Peritonealdialyse sowie nach Nierentransplantationen\n• Förderung der interdisziplinären Zusammenarbeit sowie kontinuierliche Weiterentwicklung von Prozessen und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH, bei ausländischem Diplom mit schweizerischer Anerkennung\n• Mehrjährige Berufserfahrung in der Hämodialyse und fundierte dialysespezifische Fachkenntnisse\n• Führungserfahrung, idealerweise in einer vergleichbaren Funktion im Gesundheitswesen\n• Ausgeprägte Führungs- und Sozialkompetenz sowie Freude an der Entwicklung von Mitarbeitenden\n• Organisationsstärke, Verantwortungsbewusstsein und selbständige Arbeitsweise\n• Hohe Patientenorientierung sowie Freude an einer konstruktiven interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitierst Du von\n\nEintritt: 14. Oktober 2026",
+      "descriptionByLocale": {
+        "de": "Deine Aufgaben\n• Fachliche und personelle Führung sowie gezielte Weiterentwicklung des Dialyse Teams\n• Organisation und Koordination der Dialysestation inklusive Personaleinsatzplanung\n• Sicherstellung einer qualitativ hochwertigen, sicheren und patientenorientierten Versorgung\n• Aktive Mitarbeit im klinischen Alltag sowie Durchführung anspruchsvoller dialysespezifischer Behandlungen und Shuntpunktionen\n• Fachkompetente Betreuung von Patientinnen und Patienten mit Hämodialyse, Peritonealdialyse sowie nach Nierentransplantationen\n• Förderung der interdisziplinären Zusammenarbeit sowie kontinuierliche Weiterentwicklung von Prozessen und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH, bei ausländischem Diplom mit schweizerischer Anerkennung\n• Mehrjährige Berufserfahrung in der Hämodialyse und fundierte dialysespezifische Fachkenntnisse\n• Führungserfahrung, idealerweise in einer vergleichbaren Funktion im Gesundheitswesen\n• Ausgeprägte Führungs- und Sozialkompetenz sowie Freude an der Entwicklung von Mitarbeitenden\n• Organisationsstärke, Verantwortungsbewusstsein und selbständige Arbeitsweise\n• Hohe Patientenorientierung sowie Freude an einer konstruktiven interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitierst Du von\n\nEintritt: 14. Oktober 2026",
+        "it": "Deine Aufgaben\n• Fachliche und personelle Führung sowie gezielte Weiterentwicklung des Dialyse Teams\n• Organisation und Koordination der Dialysestation inklusive Personaleinsatzplanung\n• Sicherstellung einer qualitativ hochwertigen, sicheren und patientenorientierten Versorgung\n• Aktive Mitarbeit im klinischen Alltag sowie Durchführung anspruchsvoller dialysespezifischer Behandlungen und Shuntpunktionen\n• Fachkompetente Betreuung von Patientinnen und Patienten mit Hämodialyse, Peritonealdialyse sowie nach Nierentransplantationen\n• Förderung der interdisziplinären Zusammenarbeit sowie kontinuierliche Weiterentwicklung von Prozessen und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH, bei ausländischem Diplom mit schweizerischer Anerkennung\n• Mehrjährige Berufserfahrung in der Hämodialyse und fundierte dialysespezifische Fachkenntnisse\n• Führungserfahrung, idealerweise in einer vergleichbaren Funktion im Gesundheitswesen\n• Ausgeprägte Führungs- und Sozialkompetenz sowie Freude an der Entwicklung von Mitarbeitenden\n• Organisationsstärke, Verantwortungsbewusstsein und selbständige Arbeitsweise\n• Hohe Patientenorientierung sowie Freude an einer konstruktiven interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitierst Du von\n\nEintritt: 14. Oktober 2026",
+        "en": "Deine Aufgaben\n• Fachliche und personelle Führung sowie gezielte Weiterentwicklung des Dialyse Teams\n• Organisation und Koordination der Dialysestation inklusive Personaleinsatzplanung\n• Sicherstellung einer qualitativ hochwertigen, sicheren und patientenorientierten Versorgung\n• Aktive Mitarbeit im klinischen Alltag sowie Durchführung anspruchsvoller dialysespezifischer Behandlungen und Shuntpunktionen\n• Fachkompetente Betreuung von Patientinnen und Patienten mit Hämodialyse, Peritonealdialyse sowie nach Nierentransplantationen\n• Förderung der interdisziplinären Zusammenarbeit sowie kontinuierliche Weiterentwicklung von Prozessen und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH, bei ausländischem Diplom mit schweizerischer Anerkennung\n• Mehrjährige Berufserfahrung in der Hämodialyse und fundierte dialysespezifische Fachkenntnisse\n• Führungserfahrung, idealerweise in einer vergleichbaren Funktion im Gesundheitswesen\n• Ausgeprägte Führungs- und Sozialkompetenz sowie Freude an der Entwicklung von Mitarbeitenden\n• Organisationsstärke, Verantwortungsbewusstsein und selbständige Arbeitsweise\n• Hohe Patientenorientierung sowie Freude an einer konstruktiven interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitierst Du von\n\nEintritt: 14. Oktober 2026",
+        "fr": "Deine Aufgaben\n• Fachliche und personelle Führung sowie gezielte Weiterentwicklung des Dialyse Teams\n• Organisation und Koordination der Dialysestation inklusive Personaleinsatzplanung\n• Sicherstellung einer qualitativ hochwertigen, sicheren und patientenorientierten Versorgung\n• Aktive Mitarbeit im klinischen Alltag sowie Durchführung anspruchsvoller dialysespezifischer Behandlungen und Shuntpunktionen\n• Fachkompetente Betreuung von Patientinnen und Patienten mit Hämodialyse, Peritonealdialyse sowie nach Nierentransplantationen\n• Förderung der interdisziplinären Zusammenarbeit sowie kontinuierliche Weiterentwicklung von Prozessen und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF oder FH, bei ausländischem Diplom mit schweizerischer Anerkennung\n• Mehrjährige Berufserfahrung in der Hämodialyse und fundierte dialysespezifische Fachkenntnisse\n• Führungserfahrung, idealerweise in einer vergleichbaren Funktion im Gesundheitswesen\n• Ausgeprägte Führungs- und Sozialkompetenz sowie Freude an der Entwicklung von Mitarbeitenden\n• Organisationsstärke, Verantwortungsbewusstsein und selbständige Arbeitsweise\n• Hohe Patientenorientierung sowie Freude an einer konstruktiven interdisziplinären Zusammenarbeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitierst Du von\n\nEintritt: 14. Oktober 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4099804",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-12T09:20:49.030Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4099804",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4099804",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T09:20:49.030Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -343,516 +924,8 @@
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:20:27.249Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-053f62b7c00e",
-      "slug": "operatore-trice-sociosanitario-a-afc-o-assistente-di-studio-medico-mpa-per-reparto-di-degenza-con-focus-sulla-medicina",
-      "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-afc-o-assistente-di-studio-medico-mpa-per-reparto-di-degenza-con-focus-sulla-medicina",
-        "en": "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
-        "de": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
-        "fr": "sante-efz-ou-mpa-pour-station-lit-avec-accent-sur-la-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)",
-      "titleByLocale": {
-        "it": "Operatore/trice sociosanitario/a AFC o assistente di studio medico MPA per reparto di degenza con focus sulla medicina interna (m/f/d)",
-        "en": "Health EFZ or MPA for bed station with focus on internal medicine (m/f/d)",
-        "de": "Fachfrau/Fachmann Gesundheit EFZ oder MPA für Bettenstation mit Fokus auf Innere Medizin (m/w/d)",
-        "fr": "Santé EFZ ou MPA pour station lit avec accent sur la médecine interne (h/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Ganzheitliche und individuelle Pflege und Betreuung von interdisziplinären Patientinnen und Patienten in enger Zusammenarbeit mit dem Dipl. Pflegepersonal\n• Sicherstellung einer hohen Pflege- und Dienstleistungsqualität im Sinne unseres Leitbildes\n• Fachliche Beratung und Betreuung der Angehörigen\n• Laufende Dokumentation des Pflegeprozesses\n• Administrativ anfallende Aufgaben\n\nIhr Profil\n• Sie haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ, als Fachmann Gesundheit EFZ\n• Alternativ haben Sie eine Ausbildung als Med. Praxisassistentin EFZ\n• Erste Berufserfahrung im Spitalumfeld sehr wünschenswert, dies ist aber keine zwingende Voraussetzung\n• Interesse an der Pflege von interdisziplinären Patientinnen und Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Aufgestellte und teamorientierte Grundhaltung\n• Sie sind eine kommunikative und offene Persönlichkeit, die den Patienten in den Mittelpunkt stellt\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Cura olistica e individuale e supporto di pazienti interdisciplinari in stretta collaborazione con il Dipl. Personale infermieristico\n• Garantire un'alta qualità della cura e del servizio in linea con la nostra dichiarazione di missione\n• Consulenza tecnica e supporto per i parenti\n• Documentazione in corso del processo di cura\n• Attività amministrative\n\nIl tuo profilo\n• Hai completato la formazione come specialista Health EFZ, come specialista Health EFZ\n• In alternativa, hai una formazione come Med. Assistente di pratica EFZ\n• Prima esperienza professionale in ambiente ospedaliero molto desiderabile, ma questo non è un requisito obbligatorio\n• Interessato alla cura dei pazienti interdisciplinari\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Attuazione fondata e orientata al team\n• Sei una personalità comunicativa e aperta che si concentra sul paziente\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
-        "en": "Their tasks\n• Holistic and individual care and support of interdisciplinary patients in close cooperation with the Dipl. Nursing staff\n• Ensuring a high quality of care and service in line with our mission statement\n• Technical advice and support for relatives\n• Ongoing documentation of the care process\n• Administrative tasks\n\nYour profile\n• You have completed training as a specialist Health EFZ, as a specialist Health EFZ\n• Alternatively, you have an education as a Med. Practice assistant EFZ\n• First professional experience in the hospital environment very desirable, but this is not a mandatory requirement\n• Interested in the care of interdisciplinary patients\n• Very good knowledge of German in word and writing\n• Established and team-oriented attitude\n• You are a communicative and open personality that focuses on the patient\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
-        "de": "Ihre Aufgaben\n• Ganzheitliche und individuelle Pflege und Betreuung von interdisziplinären Patientinnen und Patienten in enger Zusammenarbeit mit dem Dipl. Pflegepersonal\n• Sicherstellung einer hohen Pflege- und Dienstleistungsqualität im Sinne unseres Leitbildes\n• Fachliche Beratung und Betreuung der Angehörigen\n• Laufende Dokumentation des Pflegeprozesses\n• Administrativ anfallende Aufgaben\n\nIhr Profil\n• Sie haben eine abgeschlossene Ausbildung als Fachfrau Gesundheit EFZ, als Fachmann Gesundheit EFZ\n• Alternativ haben Sie eine Ausbildung als Med. Praxisassistentin EFZ\n• Erste Berufserfahrung im Spitalumfeld sehr wünschenswert, dies ist aber keine zwingende Voraussetzung\n• Interesse an der Pflege von interdisziplinären Patientinnen und Patienten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Aufgestellte und teamorientierte Grundhaltung\n• Sie sind eine kommunikative und offene Persönlichkeit, die den Patienten in den Mittelpunkt stellt\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-        "fr": "Leurs tâches\n• Soins holistiques et individuels et soutien des patients interdisciplinaires en étroite collaboration avec le Dipl. Personnel infirmier\n• Assurer une haute qualité de soins et de services conformément à notre énoncé de mission\n• Conseils techniques et soutien à la famille\n• Documentation continue du processus de soins\n• Tâches administratives\n\nVotre profil\n• Vous avez suivi une formation en tant que spécialiste de la santé EFZ, en tant que spécialiste de la santé EFZ\n• Sinon, vous avez une éducation comme Med. Assistant à la pratique EFZ\n• Première expérience professionnelle dans l'environnement hospitalier très souhaitable, mais ce n'est pas une exigence obligatoire\n• Intéressé par les soins aux patients interdisciplinaires\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Une attitude établie et axée sur l'équipe\n• Vous êtes une personnalité communicative et ouverte qui se concentre sur le patient\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
-      },
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4097375",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:26.698Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4097375",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4097375",
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
-        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
-          "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T09:13:16.187Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:20:26.698Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-300a8f84cab8",
-      "slug": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-specialista-di-assistenza-di-emergenza-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-emergency-care-specialist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-specialiste-des-soins-d-urgence-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson Notfallpflege",
-      "titleByLocale": {
-        "it": "Dipl. Specialista di assistenza di emergenza",
-        "en": "Dipl. Emergency care specialist",
-        "de": "Dipl. Pflegefachperson Notfallpflege",
-        "fr": "Dipl. Spécialiste des soins d'urgence"
-      },
-      "description": "Ihre Aufgaben\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sie haben idealerweise Kenntnisse in einer Notfallabteilung, dies ist aber nicht zwingend\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Cura e cura dei pazienti acuti in situazioni complesse e imprevedibili\n• Chiudere la cooperazione intra-e interdisciplinare con tutte le persone coinvolte nel trattamento\n• Partecipazione e attuazione di misure preventive, terapeutiche e diagnostiche\n• Documentazione di manutenzione elettronica\n\nIl tuo profilo\n• Hai una laurea di successo come Dipl. Infermiera, come dipl. Infermieristica professionale a livello HF o FH o sono salute e infermieri, salute e infermieri\n• Idealmente avete conoscenza in un reparto di emergenza, ma questo non è obbligatorio\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
-        "en": "Their tasks\n• Care and care of acute patients in unstable, complex and unpredictable situations\n• Close intra- and interdisciplinary cooperation with all persons involved in the treatment\n• Participation and implementation of preventive, therapeutic and diagnostic measures\n• Electronic maintenance documentation\n\nYour profile\n• You have a successful degree as a Dipl. Nurse, as a dipl. Nursing professional at level HF or FH or are health and nurses, health and nurses\n• You ideally have knowledge in an emergency department, but this is not mandatory\n• Very good knowledge of German in word and writing\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
-        "de": "Ihre Aufgaben\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sie haben idealerweise Kenntnisse in einer Notfallabteilung, dies ist aber nicht zwingend\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-        "fr": "Leurs tâches\n• Soins et soins aux patients aigus dans des situations instables, complexes et imprévisibles\n• Coopération intra et interdisciplinaire étroite avec toutes les personnes impliquées dans le traitement\n• Participation et mise en œuvre de mesures préventives, thérapeutiques et diagnostiques\n• Documentation électronique de maintenance\n\nVotre profil\n• Vous avez un diplôme réussi en tant que Dipl. Infirmière. Professionnels des soins infirmiers au niveau HF ou FH ou sont en santé et infirmiers, en santé et infirmiers\n• Idéalement, vous avez des connaissances dans un service d'urgence, mais ce n'est pas obligatoire\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4097379",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:26.086Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4097379",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4097379",
-      "previousSlugs": [
-        "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
-        ],
-        "en": [
-          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-notfallpflege-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T09:17:33.262Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:20:26.086Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-39ff62498fcd",
-      "slug": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "tirocinante-infermieristico-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "intern-nursing-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "stagiaire-en-soins-infirmiers-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Praktikant/in Pflege (m,w,d)",
-      "titleByLocale": {
-        "it": "Tirocinante infermieristico (m,f,d)",
-        "en": "Intern Nursing (m,f,d)",
-        "de": "Praktikant/in Pflege (m,w,d)",
-        "fr": "Stagiaire en soins infirmiers (m,w,d)"
-      },
-      "description": "Deine Aufgaben\n• Mithilfe bei der Begleitung und Unterstützung von Patientinnen und Patienten sowie deren Angehörigen\n• Mithilfe bei der Dokumentation von Patientendaten\n• Mitarbeit bei der Sicherstellung von Hygienestandards und Infektionsschutz\n• Reinigung und Desinfektion nach den hausinternen Hygiene- und Desinfektionsplänen von Mobiliar und Pflegeutensilien\n• Zimmer für Eintritt vorbereiten und Mobiliar bei Austritt nach hausinternen Vorgaben reinigen\n• Botengänge für die Station; Küchenbestellung; Wäschebestellung\n\nDeshalb wollen wir Dich\n• Du trittst freundlich auf, zeigst Empathie und Geduld und arbeitest gerne im Team.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Grundlegende Computerkenntnisse sind von Vorteil.\n• Du bist bereit, gemäss Dienstplan im Schichtbetrieb und an Wochenenden zu arbeiten.\n• Du bist körperlich belastbar und übernimmst Verantwortung für deine Aufgaben.\n\nZusätzlich profitierst du von\n\nEintritt: 01. August 2027",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n• Assistenza nei pazienti che accompagnano e sostengono e nei loro parenti\n• Assistenza nella documentazione dei dati dei pazienti\n• Cooperazione nel garantire norme igieniche e tutela delle infezioni\n• Pulizia e disinfezione secondo i piani di igiene e disinfezione interni di mobili e utensili per la cura\n• Preparare camere per l'ammissione e mobili puliti quando si parte secondo le specifiche interne\n• supplenti per la stazione; ordinazione cucina; Ordinazione lavanderia\n\nPer questo ti vogliamo\n• Si esegue amichevole, mostrare empatia e pazienza e godere di lavorare in una squadra.\n• Avete una buona conoscenza del tedesco nelle parole e nella scrittura. Le competenze informatiche di base sono vantaggiose.\n• Siete pronti a lavorare secondo il programma in turni e nei fine settimana.\n• Siete fisicamente resilienti e assumete la responsabilità per i vostri compiti.\n\nInoltre, si beneficia di\n\nIngresso: 01. agosto 2027",
-        "en": "Your tasks\n• Assistance in accompanying and supporting patients and their relatives\n• Assistance in the documentation of patient data\n• Cooperation in ensuring hygiene standards and infection protection\n• Cleaning and disinfection according to the in-house hygiene and disinfection plans of furniture and care utensils\n• Prepare rooms for admission and clean furniture when leaving according to in-house specifications\n• alternates for the station; kitchen ordering; Ordering laundry\n\nThis is why we want you\n• You perform friendly, show empathy and patience and enjoy working in a team.\n• You have good knowledge of German in words and writing. Basic computer skills are beneficial.\n• You are ready to work according to the schedule in shifts and on weekends.\n• You are physically resilient and take responsibility for your tasks.\n\nIn addition, you benefit from\n\nAdmission: 01. August 2027",
-        "de": "Deine Aufgaben\n• Mithilfe bei der Begleitung und Unterstützung von Patientinnen und Patienten sowie deren Angehörigen\n• Mithilfe bei der Dokumentation von Patientendaten\n• Mitarbeit bei der Sicherstellung von Hygienestandards und Infektionsschutz\n• Reinigung und Desinfektion nach den hausinternen Hygiene- und Desinfektionsplänen von Mobiliar und Pflegeutensilien\n• Zimmer für Eintritt vorbereiten und Mobiliar bei Austritt nach hausinternen Vorgaben reinigen\n• Botengänge für die Station; Küchenbestellung; Wäschebestellung\n\nDeshalb wollen wir Dich\n• Du trittst freundlich auf, zeigst Empathie und Geduld und arbeitest gerne im Team.\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift. Grundlegende Computerkenntnisse sind von Vorteil.\n• Du bist bereit, gemäss Dienstplan im Schichtbetrieb und an Wochenenden zu arbeiten.\n• Du bist körperlich belastbar und übernimmst Verantwortung für deine Aufgaben.\n\nZusätzlich profitierst du von\n\nEintritt: 01. August 2027",
-        "fr": "Vos tâches\n• Assistance pour accompagner et soutenir les patients et leurs proches\n• Aide à la documentation des données du patient\n• Coopération pour garantir les normes d'hygiène et la protection contre les infections\n• Nettoyage et désinfection selon les plans d'hygiène et de désinfection internes des meubles et des ustensiles de soins\n• Préparer les chambres pour l'admission et le mobilier propre en partant selon les spécifications internes\n• alterne pour la gare; commande de cuisine; commande de blanchisserie\n\nC'est pourquoi nous te voulons\n• Vous faites preuve d'amitié, d'empathie et de patience et aimez travailler en équipe.\n• Vous avez une bonne connaissance de l'allemand en mots et en écriture. Les compétences informatiques de base sont bénéfiques.\n• Vous êtes prêt à travailler selon l'horaire en équipes et le week-end.\n• Vous êtes physiquement résistant et prenez la responsabilité de vos tâches.\n\nEn outre, vous bénéficiez\n\nEntrée: 01. Août 2027"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4097731",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:25.532Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4097731",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4097731",
-      "previousSlugs": [
-        "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "en": [
-          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "praktikant-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-11-10T09:23:46.108Z",
-      "salaryMin": 72000,
-      "salaryMax": 101000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 101000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:20:25.532Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-9a564fcdf3e4",
-      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
-      "titleByLocale": {
-        "it": "Medico senior / Medicina interna generale (m/f/d)",
-        "en": "Senior physician / Senior physician General Internal Medicine (m/f/d)",
-        "de": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
-        "fr": "Médecin supérieur / Médecin supérieur Général Médecine interne (h/f/d)"
-      },
-      "description": "Deine Aufgaben\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nDein Profil\n• Sie sind eine engagierte Persönlichkeit mit hoher Sozialkompetenz\n• Sie haben mehrjährige klinische Erfahrung und Freude an der interdisziplinären Zusammenarbeit\n• Sie haben Interesse an Ultraschallmedizin und möchten den Fähigkeitsausweis Sonografie erwerben\n• Sie führen den Facharzttitel für Allgemeine Innere Medizin oder stehen vor Abschluss\n\nZusätzlich profitierst Du von\n\nEintritt: 01. Dezember 2026",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n• Sei responsabile della cura del paziente completa e di alta qualità\n• Prenderai il controllo della gestione professionale e del personale dei nostri medici assistenti\n• Partecipano al servizio medico e organizzano ulteriori eventi educativi\n\nIl tuo profilo\n• Sei una personalità impegnata con alte capacità sociali\n• Hai diversi anni di esperienza clinica e goditi la cooperazione interdisciplinare\n• Sei interessato alla medicina ecografica e vorresti acquistare il certificato di sonografia\n• Lei ha il titolo di specialista per la medicina interna generale o sta per laurearsi\n\nInoltre, si beneficia di\n\nIngresso: 01. dicembre 2026",
-        "en": "Your tasks\n• You are responsible for comprehensive and high-quality patient care\n• You will take over the professional and personnel management of our assistant doctors\n• They participate in the medical service and organise further education events\n\nYour profile\n• You are a committed personality with high social skills\n• You have several years of clinical experience and enjoy the interdisciplinary cooperation\n• You are interested in ultrasound medicine and would like to acquire the sonography certificate\n• You hold the title of specialist for general internal medicine or are about to graduate\n\nIn addition, you benefit from\n\nAdmission: 01. December 2026",
-        "de": "Deine Aufgaben\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nDein Profil\n• Sie sind eine engagierte Persönlichkeit mit hoher Sozialkompetenz\n• Sie haben mehrjährige klinische Erfahrung und Freude an der interdisziplinären Zusammenarbeit\n• Sie haben Interesse an Ultraschallmedizin und möchten den Fähigkeitsausweis Sonografie erwerben\n• Sie führen den Facharzttitel für Allgemeine Innere Medizin oder stehen vor Abschluss\n\nZusätzlich profitierst Du von\n\nEintritt: 01. Dezember 2026",
-        "fr": "Vos tâches\n• Vous êtes responsable des soins complets et de haute qualité\n• Vous prendrez en charge la gestion professionnelle et du personnel de nos médecins adjoints\n• Ils participent au service médical et organisent des manifestations de formation continue\n\nVotre profil\n• Vous êtes une personnalité engagée avec de hautes compétences sociales\n• Vous avez plusieurs années d'expérience clinique et profitez de la coopération interdisciplinaire\n• Vous êtes intéressé par la médecine à ultrasons et souhaitez acquérir le certificat de sonographie\n• Vous êtes titulaire du titre de spécialiste en médecine interne générale ou vous êtes sur le point d'obtenir votre diplôme\n\nEn outre, vous bénéficiez\n\nEntrée : 01 décembre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4095245",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:24.946Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4095245",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4095245",
-      "previousSlugs": [
-        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "en": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:33:11.778Z",
-      "salaryMin": 109000,
-      "salaryMax": 152500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 152500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:20:24.946Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-2f5c053e8a29",
-      "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82",
-      "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau-8d400bfe82",
-        "en": "dipl-care-specialist-hf-fh-interdisciplinary-bed-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-specialiste-des-soins-hf-fh-poste-de-lit-interdisciplinaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation",
-      "titleByLocale": {
-        "it": "Dipl. Specialista di cura HF/FH stazione di letto interdisciplinare",
-        "en": "Dipl. Care specialist HF/FH interdisciplinary bed station",
-        "de": "Dipl. Pflegefachperson HF/FH interdisziplinäre Bettenstation",
-        "fr": "Dipl. Spécialiste des soins HF/FH poste de lit interdisciplinaire"
-      },
-      "description": "Deine Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDein Profil\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nZusätzlich profitierst Du von\n\nEintritt: 11. November 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Cura e cura professionale e competente dei pazienti sulla stazione interdisciplinare del letto\n• Applicazione indipendente del processo di cura e trattamento nella cooperazione interdisciplinare\n• Siete guidati dai concetti di cura e trattamento dell'associazione ospedaliera e contribuire alle vostre competenze per lo sviluppo di nuovi standard.\n• Documentazione elettronica e pianificazione della cura\n• Essi partecipano al sostegno pratico degli studenti nelle varie fasi di formazione\n\nIl tuo profilo\n• Allenamento completato come Dipl. Specialista infermieristico HF/FH o Dipl. Infermieristica professionale HF/FH o salute e infermiera, salute e infermiera\n• Esperienza nell'applicazione del processo di cura in diverse situazioni di cura\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
-        "en": "Their tasks\n• Professional and competent care and care of patients on the interdisciplinary bed station\n• Independent implementation of the care and treatment process in interdisciplinary cooperation\n• You are guided by the hospital association’s nursing and treatment concepts and contribute your skills to the development of new standards.\n• Electronic documentation and planning of care\n• They participate in the practical support of learners in the various stages of training\n\nYour profile\n• Completed training as a Dipl. Nursing specialist HF/FH or Dipl. Nursing professional HF/FH or health and nurse, health and nurse\n• Experience in applying the care process in different care situations\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n• Very good knowledge of German in word and writing\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
-        "de": "Deine Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDein Profil\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nZusätzlich profitierst Du von\n\nEintritt: 11. November 2026",
-        "fr": "Leurs tâches\n• Soins professionnels et compétents des patients à la station de lit interdisciplinaire\n• Mise en œuvre indépendante du processus de soins et de traitement dans le cadre de la coopération interdisciplinaire\n• Vous êtes guidé par l'association hospitalière, les concepts de soins infirmiers et de traitement et contribuez à l'élaboration de nouvelles normes.\n• Documentation électronique et planification des soins\n• Ils participent au soutien pratique des apprenants aux différentes étapes de la formation.\n\nVotre profil\n• La formation terminée en tant que dipl. Spécialiste des soins infirmiers HF/FH ou Dipl. Soins infirmiers professionnels HF/FH ou santé et infirmière, santé et infirmière\n• Expérience dans l'application du processus de soins dans différentes situations de soins\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4099831",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:24.390Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4099831",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4099831",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-        "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-bettenstation-svar-spitalverbund-ar-herisau",
-          "dipl-specialista-di-cura-hf-fh-stazione-di-letto-interdisciplinare-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T09:17:32.465Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:20:24.390Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "svar-spitalverbund-ar-6373312177bf",
-      "slug": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "infermiere-sss-dipl-per-la-guardia-notturna-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %",
-      "titleByLocale": {
-        "it": "Infermiere SSS dipl. per la guardia notturna 50-100%",
-        "en": "Dipl. Nurse HF for the Night Watch 50-100 %",
-        "de": "Dipl. Pflegefachperson HF für die Nachtwache 50-100 %",
-        "fr": "Dipl. Infirmière HF pour la garde de nuit 50-100 %"
-      },
-      "description": "Ihre Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Innere Medizin\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder Sie sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger idealerweise mit Schweizer Anerkennung\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Infermieristica e cura per i pazienti interdisciplinari con un focus sulla medicina interna\n• Partecipazione a visite mediche\n• Documentazione di manutenzione elettronica\n• Contributo ad una cooperazione apprezzativa, rispettosa, interdisciplinare e interprofessionale\n• Partecipazione attiva a progetti, gruppi di lavoro e processi di cambiamento\n• Essi partecipano al sostegno pratico degli studenti nelle varie fasi di formazione\n\nIl tuo profilo\n• Hai una laurea di successo come Dipl. Infermiera, come dipl. Infermieristica professionale a livello HF o FH o sei una salute e infermiera, salute e infermiera idealmente con il riconoscimento svizzero\n• Molto buona conoscenza del tedesco in parola e la scrittura è obbligatoria per questo lavoro\n• L'esperienza nel campo acuto è auspicabile ma non un prerequisito\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 07. Ottobre 2026",
-        "en": "Their tasks\n• Nursing and caring for interdisciplinary patients with a focus on internal medicine\n• Participation in medical visits\n• Electronic maintenance documentation\n• Contribution to an appreciative, respectful, interdisciplinary and interprofessional cooperation\n• Active participation in projects, working groups and change processes\n• They participate in the practical support of learners in the various stages of training\n\nYour profile\n• You have a successful degree as a Dipl. Nurse, as a dipl. Nursing professional at HF or FH level or you are a health and nurse, health and nurse ideally with Swiss recognition\n• Very good knowledge of German in word and writing is mandatory for this job\n• Experience in the acute field is desirable but not a prerequisite\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 07. October 2026",
-        "de": "Ihre Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Innere Medizin\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nIhr Profil\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder Sie sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger idealerweise mit Schweizer Anerkennung\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 07. Oktober 2026",
-        "fr": "Leurs tâches\n• Soins infirmiers et soins aux patients interdisciplinaires en mettant l'accent sur la médecine interne\n• Participation aux visites médicales\n• Documentation électronique de maintenance\n• Contribution à une coopération reconnaissante, respectueuse, interdisciplinaire et interprofessionnelle\n• Participation active aux projets, aux groupes de travail et aux processus de changement\n• Ils participent au soutien pratique des apprenants aux différentes étapes de la formation.\n\nVotre profil\n• Vous avez un diplôme réussi en tant que Dipl. Infirmière. Professionnels de la santé au niveau HF ou FH ou vous êtes une infirmière, une infirmière et une infirmière idéalement avec la reconnaissance suisse\n• Une très bonne connaissance de l'allemand dans la parole et l'écriture est obligatoire pour ce travail\n• L'expérience dans le domaine aigu est souhaitable mais pas une condition préalable\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de manière sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 07. Octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4099655",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:20:23.720Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4099655",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4099655",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
-          "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T09:13:12.775Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Herisau",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:20:23.720Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

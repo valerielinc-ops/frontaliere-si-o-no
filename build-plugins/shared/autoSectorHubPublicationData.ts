@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import np from 'node:path';
+import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 import type {
   SectorHubJobLike,
   SectorHubPublication,
@@ -127,7 +128,7 @@ export function readAutoSectorHubInventory(rootDir: string): AutoSectorHubInvent
   const jobsFile = np.join(rootDir, 'data', 'jobs.json');
   let jobs: AutoSectorJob[] = [];
   if (fs.existsSync(jobsFile)) {
-    const raw: unknown = JSON.parse(fs.readFileSync(jobsFile, 'utf-8'));
+    const raw: unknown = readJsonFile(jobsFile);
     if (!Array.isArray(raw)) throw new Error('data/jobs.json must contain an array.');
     jobs = raw
       .filter((job): job is AutoSectorJob => Boolean(job && typeof job === 'object'))

@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-11-11T21:22:56.420Z",
+  "generatedAt": "2026-11-12T09:20:59.545Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8251,
-  "avgDurationMs": 8251,
+  "durationMs": 8751,
+  "avgDurationMs": 8751,
   "durationHistory": [
-    8251
+    8751
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kiabi-6e3ced3ef32a",
-      "slug": "conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-fribourg",
+      "slug": "consulente-di-moda-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-suisse-fribourg",
       "company": "Kiabi Suisse",
       "companyKey": "kiabi",
       "companyDomain": "kiabi.com",
@@ -34,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:22:46.429Z",
+      "crawledAt": "2026-11-12T09:20:48.552Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -53,24 +54,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
       "jobReqId": "744000161105332",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-11T21:22:46.429Z",
       "salaryMin": 62000,
       "salaryMax": 94800,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:22:46.429Z",
+      "validThrough": "2027-02-10T09:20:48.552Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:22:46.429Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:22:46.431Z",
+      "crawledAt": "2026-11-12T09:20:48.555Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -109,7 +108,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:22:46.431Z",
+      "validThrough": "2026-12-12T09:20:48.555Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -120,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

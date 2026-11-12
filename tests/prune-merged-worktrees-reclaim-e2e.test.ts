@@ -23,6 +23,7 @@ let env: NodeJS.ProcessEnv = {};
 let mainHead = '';
 let corruptHead = '';
 let realGit = '';
+let ghCallsFile = '';
 
 function git(cwd: string, args: string[], extraEnv: NodeJS.ProcessEnv = {}): string {
   return execFileSync(env.PRUNE_REAL_GIT || 'git', args, {
@@ -52,14 +53,20 @@ function worktreePath(name: string): string {
 function age(name: string, when = new Date(Date.now() - 3 * HOUR)): void {
   const worktree = worktreePath(name);
   const admin = git(worktree, ['rev-parse', '--absolute-git-dir']);
-  for (const file of [path.join(admin, 'HEAD'), path.join(admin, 'logs', 'HEAD'), worktree]) {
+  for (const file of [path.join(admin, 'HEAD'), path.join(admin, 'logs', 'HEAD')]) {
     if (fs.existsSync(file)) fs.utimesSync(file, when, when);
   }
-  for (const file of fs.readdirSync(worktree, { withFileTypes: true })) {
-    if (file.name === '.git') continue;
-    const full = path.join(worktree, file.name);
-    if (fs.existsSync(full) && !fs.lstatSync(full).isDirectory()) fs.utimesSync(full, when, when);
-  }
+  const ageTree = (directory: string, isRoot = false): void => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      if (isRoot && entry.name === '.git') continue;
+      const full = path.join(directory, entry.name);
+      const stat = fs.lstatSync(full);
+      if (stat.isDirectory()) ageTree(full);
+      fs.utimesSync(full, when, when);
+    }
+  };
+  ageTree(worktree, true);
+  fs.utimesSync(worktree, when, when);
 }
 
 function addBranchWorktree(name: string): string {
@@ -99,6 +106,7 @@ beforeAll(() => {
     GIT_COMMITTER_EMAIL: 'fixture@example.invalid',
     FAKE_LSOF_CWDS: '',
   };
+  ghCallsFile = path.join(root, 'gh-calls.log');
 
   origin = path.join(root, 'origin.git');
   execFileSync('git', ['init', '-q', '--bare', '--initial-branch', 'main', origin], { env });
@@ -147,8 +155,11 @@ beforeAll(() => {
   fs.writeFileSync(path.join(bin, 'gh'), `#!/usr/bin/env node
 const fs = require('fs');
 const args = process.argv.slice(2);
+if (process.env.FAKE_GH_CALLS && args[0] === 'pr' && args[1] === 'list') {
+  fs.appendFileSync(process.env.FAKE_GH_CALLS, JSON.stringify(args) + '\\n');
+}
 const fixture = JSON.parse(fs.readFileSync(process.env.FAKE_GH_FIXTURE, 'utf8'));
-const out = (value) => { process.stdout.write(typeof value === 'string' ? value : JSON.stringify(value)); process.exit(0); };
+const out = (value) => { fs.writeSync(1, typeof value === 'string' ? value : JSON.stringify(value)); process.exit(0); };
 if (args[0] === '--version') out('gh version reclaim-fixture\\n');
 if (args[0] === 'pr' && args[1] === 'list') {
   if (args.includes('--head')) out([]);
@@ -161,6 +172,7 @@ if [ -n "$FAKE_LSOF_CWDS" ]; then printf 'p1\\nn%s\\n' "$FAKE_LSOF_CWDS"; fi
 exit 0
 `, { mode: 0o755 });
   env.FAKE_GH_FIXTURE = path.join(root, 'gh-fixture.json');
+  env.FAKE_GH_CALLS = ghCallsFile;
   env.FAKE_LSOF_CWDS = path.join(worktreePath('active'), 'scripts');
   void aheadBranch;
 });
@@ -217,12 +229,108 @@ exec "$PRUNE_REAL_GIT" "$@"
     expect(git(clone, ['show', `${tagFor('body-no-pr')}:.pr-body-pending.md`])).toContain('pending PR body');
   }, 120000);
 
+  it('usa la lista bulk completa delle PR senza query per ogni branch', () => {
+    fs.writeFileSync(ghCallsFile, '');
+    run(['--reclaim']);
+    const calls = fs.readFileSync(ghCallsFile, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line));
+    expect(calls).toHaveLength(2);
+    expect(calls.some((args: string[]) => args.includes('--head'))).toBe(false);
+  });
+
+  it('usa la lista open completa quando lo storico supera il limite e salva i body locali', () => {
+    const branch = addBranchWorktree('history-capped');
+    write(worktreePath('history-capped'), '.pr-body-pending.md', 'pending body with truncated PR history\n');
+    age('history-capped');
+
+    const fixturePath = path.join(root, 'gh-fixture.json');
+    const fixture = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
+    const previousAll = fixture.all;
+    fixture.open = [];
+    fixture.all = Array.from({ length: 1000 }, (_, index) => ({
+      number: index + 1,
+      state: 'CLOSED',
+      baseRefName: 'main',
+      headRefName: `historical-${index}`,
+      headRefOid: `deadbeef${index}`,
+    }));
+    fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+
+    try {
+      const preview = run(['--reclaim', '--only', branch]);
+      expect(preview).toContain('gh=open-ok/all-truncated');
+      expect(preview).toContain('nessuna PR aperta; storico PR non completo');
+      expect(preview).toContain('snapshot prima della rimozione');
+
+      const applied = run(['--reclaim', '--apply', '--only', branch]);
+      expect(applied).toContain('report finale: worktree rimossi=1');
+      expect(fs.existsSync(worktreePath('history-capped'))).toBe(false);
+      expect(refExists('refs/heads/reclaim-history-capped')).toBe(true);
+      expect(refExists(`refs/tags/${tagFor('history-capped')}`)).toBe(true);
+      expect(git(clone, ['show', `${tagFor('history-capped')}:.pr-body-pending.md`]))
+        .toContain('pending body with truncated PR history');
+    } finally {
+      fixture.all = previousAll;
+      fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+      if (fs.existsSync(worktreePath('history-capped'))) {
+        git(clone, ['worktree', 'remove', '--force', worktreePath('history-capped')]);
+      }
+    }
+  });
+
+  it('protegge una PR aperta prima della classificazione del filesystem', () => {
+    const branch = addBranchWorktree('open-pr');
+    fs.mkdirSync(path.join(worktreePath('open-pr'), 'node_modules'));
+    age('open-pr');
+    const fixturePath = path.join(root, 'gh-fixture.json');
+    const fixture = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
+    fixture.open = [{
+      number: 991,
+      state: 'OPEN',
+      baseRefName: 'main',
+      headRefName: branch,
+      headRefOid: git(worktreePath('open-pr'), ['rev-parse', 'HEAD']),
+    }];
+    fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+
+    try {
+      const output = run(['--reclaim']);
+      expect(output).toContain('PR aperta — KEEP, lavoro vivo');
+      expect(output).not.toContain('node_modules è una directory reale');
+    } finally {
+      fixture.open = [];
+      fs.writeFileSync(fixturePath, JSON.stringify(fixture));
+      git(clone, ['worktree', 'remove', '--force', worktreePath('open-pr')]);
+    }
+  });
+
+  it('protegge una modifica recente in una sottodirectory prima di hashare il worktree', () => {
+    addBranchWorktree('recent-nested');
+    write(worktreePath('recent-nested'), 'src/deep/change.ts', 'recent user work\n');
+    age('recent-nested');
+    const editedFile = path.join(worktreePath('recent-nested'), 'src/deep/change.ts');
+    const recent = new Date();
+    fs.utimesSync(editedFile, recent, recent);
+
+    const output = run(['--reclaim']);
+    expect(output).toContain('recent-nested');
+    expect(output).toContain('attività recente');
+    expect(fs.existsSync(worktreePath('recent-nested'))).toBe(true);
+  });
+
   it('attiva il recupero sotto soglia e consente una soglia routine più lunga', () => {
     const autoBranch = addBranchWorktree('automatic');
     write(worktreePath('automatic'), 'real.txt', 'automatic recovery\n');
     age('automatic');
+    const packDir = path.join(clone, '.git', 'objects', 'pack');
+    fs.mkdirSync(packDir, { recursive: true });
+    const stalePack = path.join(packDir, 'tmp_pack_reclaim_fixture');
+    fs.writeFileSync(stalePack, Buffer.alloc(1024));
+    const staleAt = new Date(Date.now() - 2 * HOUR);
+    fs.utimesSync(stalePack, staleAt, staleAt);
     const automatic = run(['--apply'], { PRUNE_RECLAIM_MIN_FREE_BYTES: '999999999999999' });
     expect(automatic).toContain('trigger automatico');
+    expect(automatic).toContain('rimossi 1 residui temporanei di fetch');
+    expect(fs.existsSync(stalePack)).toBe(false);
     expect(fs.existsSync(worktreePath('automatic'))).toBe(false);
     expect(refExists(`refs/heads/${autoBranch}`)).toBe(true);
     expect(refExists(`refs/tags/${tagFor('automatic')}`)).toBe(true);

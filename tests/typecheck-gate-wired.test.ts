@@ -90,10 +90,12 @@ describe('typecheck gate wiring (#5540)', () => {
   // #5590 mergiata con `contract` = failure. Il guard resta, ma fissa
   // l'invariante nuova, che è più forte: il gate deve stare DENTRO l'unico
   // check-run che governa il merge.
-  it('tests.yml espone solo il job che esegue tutti i cancelli', () => {
+  it('tests.yml ha un preflight leggero e un solo job che esegue i cancelli', () => {
     // `post-review` gira dopo il required (autorebase + opt-in auto-merge) e
     // non esegue nessun cancello.
-    expect(topLevelJobKeys(workflow)).toEqual(['vitest', 'post-review']);
+    expect(topLevelJobKeys(workflow)).toEqual(['verify-main-push', 'vitest', 'post-review']);
+    const preflight = workflow.slice(workflow.indexOf('\n  verify-main-push:'), workflow.indexOf('\n  vitest:'));
+    expect(preflight).not.toMatch(/typecheck:gate|run-related-tests|vitest run/);
     expect(workflow.slice(workflow.indexOf('\n  post-review:'))).not.toMatch(/typecheck:gate|run-related-tests/);
     expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
   });

@@ -146,6 +146,7 @@ describe('job OG cache prewarm and deferred publication', () => {
     const prewarm = fs.readFileSync(PREWARM_WORKFLOW, 'utf8');
     const deploy = fs.readFileSync(DEPLOY_WORKFLOW, 'utf8');
     expect(prewarm).toContain('build-plugins/shared/jobOgImageVersion.mjs');
+    expect(prewarm).toContain('workflows:\n      - Deploy to GitHub Pages\n    types: [completed]');
     expect(prewarm).toContain('og-jobs-${{ runner.os }}-${{ needs.prepare.outputs.version }}-');
     expect(prewarm).toContain('-prewarm-${{ github.run_id }}');
     expect(prewarm).toContain('include-hidden-files: true');
@@ -159,6 +160,8 @@ describe('job OG cache prewarm and deferred publication', () => {
     const saveJob = prewarm.slice(prewarm.indexOf('  save-cache:'));
     expect(saveJob).toContain("needs.render.result == 'skipped'");
     expect(saveJob).toContain("needs.prepare.result == 'success'");
+    expect(prewarm).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(prewarm).not.toContain("github.event.workflow_run.conclusion != 'cancelled'");
     expect(saveJob).toContain("if: needs.prepare.outputs.has_missing == 'true'\n        uses: actions/download-artifact@v8");
   });
 

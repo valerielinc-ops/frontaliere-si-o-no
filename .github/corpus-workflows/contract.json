@@ -4,19 +4,19 @@
   "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "a073f4d27f40169ee14058bdabd212aa7710cbd4",
-  "sourceCommitVerified": true,
+  "sourceCommit": "634dbacd043a0968bb9a82b9a37cf6942c89df71",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
     "sourceRef": "main",
-    "sourceCommit": "a073f4d27f40169ee14058bdabd212aa7710cbd4"
+    "sourceCommit": "634dbacd043a0968bb9a82b9a37cf6942c89df71"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
   "crawlerCount": 701,
   "crawlerRosterCardinality": {
-    "sourceCommit": "a073f4d27f40169ee14058bdabd212aa7710cbd4",
+    "sourceCommit": "634dbacd043a0968bb9a82b9a37cf6942c89df71",
     "groupCount": 25,
     "artifactCount": 26,
     "crawlerCount": 701
@@ -24,7 +24,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:bfb203f2c71dc7a4261694ee687feae88f8470b691a3bbe1fdd20af406c672b1",
+    "rosterDigest": "sha256:404e97da9ef6c3b20ed927ed3c6d7a612cfc78153592713d392714ddd95ea775",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1369,8 +1369,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "70adb064d83461ec65a300bb25154b7213fa9183e8e5cf484107e7b023d880e3",
-      "artifactSha256": "9cd81f73928aa9e77e7330f0b6713c64d37c1e11b9f1ce3974b60174e1406d09",
+      "sourceSha256": "7b2574dc538a60be7514cc93a686962860f8403c5bd25341e83a550fd4bd1ccf",
+      "artifactSha256": "c9f0ddf2f913994761e7dc33680332df4ff0add256a65066eaec3d4f3963c248",
       "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
       "members": [
         "tertianum",
@@ -1402,7 +1402,8 @@
         "amina-bank",
         "opus-personal",
         "rohrer-gartenbau-und-hauswartungen",
-        "wokin"
+        "wokin",
+        "protectas"
       ]
     },
     {
@@ -1647,11 +1648,10 @@
     {
       "file": "crawler-group-25.yml",
       "sourceLogic": "crawler-group-25-logic.yml",
-      "sourceSha256": "5451af0a9dfaf7a783e05b079cc250c8f4cd51ac097c3f1b5d454f2ce6157286",
-      "artifactSha256": "41aa5dd305de20a6cfda2699f81cae72ee04a88c08e9ccd3e3a9db89ec82e9e2",
+      "sourceSha256": "a0b218fc6d0edeca91d69f096bafc70ea250c5a3226b6153be357e1d059df366",
+      "artifactSha256": "174c52ddfff6cb91e6b59d3a17f31d4555e1fe0157b57404edc529734e6a42f6",
       "generatorSha256": "175458fe7f71ec922d25390ef66ed384232a2c858b2485221f84b6e987a34efb",
       "members": [
-        "protectas",
         "locarno-film-festival"
       ]
     },

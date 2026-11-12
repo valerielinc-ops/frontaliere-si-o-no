@@ -19,11 +19,17 @@
  * 2 worker ~560 s contro ~1.144 s a 1; 3 e 4 worker un altro 15-20% ma non in
  * modo coerente fra i giri e rallentando `tsc` fino a 257 s. Resta 2.
  *
+ * Il limite seriale introdotto a 300 file dopo il run 43014097848 proteggeva
+ * dal picco di memoria mentre TSC girava accanto a Vitest. Da #18121 il
+ * workflow avvia TSC solo dopo Vitest e dopo il drain dei gate detached. Tenerlo
+ * a 1 lasciava quindi una selezione da 1.724 file in serie per 2.688 s (run
+ * 43113127909) senza la contesa che aveva motivato il limite: le selezioni
+ * related grandi restano a 2 worker, come quelle da 100 a 299 file.
+ *
  * Questi valori arrivano davvero a Vitest solo attraverso vitestChildEnv (sotto):
  * prima del 2026-09-30 la variabile ereditata li annullava tutti a 1.
  */
 const LARGE_RELATED_TEST_COUNT = 100;
-const VERY_LARGE_RELATED_TEST_COUNT = 300;
 const LARGE_RELATED_WORKERS = '2';
 
 export function selectMaxWorkers({
@@ -33,16 +39,6 @@ export function selectMaxWorkers({
   relatedTestCount = 0,
 }) {
   if (usedFullFallback && maxWorkersFallback) return maxWorkersFallback;
-  // Run 43014097848 selected 359 related files: two Vitest workers beside the
-  // independent typecheck exhausted its 8 GB heap and left 1.3 GB available.
-  // Keep exceptionally large related graphs serial until that profile is
-  // measured with sufficient typecheck headroom.
-  if (!usedFullFallback
-    && maxWorkers === '1'
-    && Number.isInteger(relatedTestCount)
-    && relatedTestCount >= VERY_LARGE_RELATED_TEST_COUNT) {
-    return maxWorkers;
-  }
   if (!usedFullFallback
     && maxWorkers === '1'
     && Number.isInteger(relatedTestCount)

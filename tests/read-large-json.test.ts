@@ -69,10 +69,9 @@ describe('large JSON reader', () => {
   });
 });
 
-// data/jobs.json crossed V8's 512 MB string limit on 2026-11-12 (prep of deploy
-// 43161331030 died in build-employer-profiles with ERR_STRING_TOO_LONG). Several
-// build readers swallow parse errors and return [], so a whole-file read would
-// silently empty their pages. Every reader of the corpus goes through readJsonFile.
+// data/jobs.json crossed V8's 512 MB string limit on 2026-11-12. Build and prep
+// readers that swallow parse errors can silently emit empty data, so every
+// reader of the assembled corpus in these paths goes through readJsonFile.
 describe('data/jobs.json readers', () => {
   const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
   const readers = [
@@ -89,6 +88,13 @@ describe('data/jobs.json readers', () => {
     'build-plugins/shared/reportJobPanel.ts',
     'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
+    'scripts/audit-related-search-candidates.mjs',
+    'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
+    'scripts/migrate-previous-slug-winners-add-canton.mjs',
+    'scripts/migrate-slug-registry-add-canton.mjs',
+    'scripts/monitor-sector-coverage.mjs',
+    'scripts/refresh-weekly-employers-top-pairs.mjs',
+    'scripts/snapshot-jobs-weekly.mjs',
     'scripts/sync-employer-contacts-to-firestore.mjs',
     // deploy prep (deploy 43171223798 died here after the build readers were fixed)
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
@@ -100,6 +106,27 @@ describe('data/jobs.json readers', () => {
     'scripts/send-job-alerts.mjs',
   ];
   const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|JOBS_PATH|DATA_JOBS|DATA_JOBS_PATH|EXPIRED_JOBS_PATH|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
+
+  // Deploy 43181176266 died in localeJobsSplitPlugin (`dataJobsPath`), a name
+  // the per-file list above did not know. Scan every build plugin instead:
+  // any JSON.parse of a whole jobs/expired-jobs file is a build-breaker once
+  // the corpus crosses 512 MB, or silently empties pages where errors are caught.
+  it('no build plugin parses a whole jobs or expired-jobs file', () => {
+    const offenders: string[] = [];
+    const walk = (dir: string) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const abs = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(abs);
+        else if (/\.(ts|mjs|js)$/.test(entry.name)) {
+          const src = fs.readFileSync(abs, 'utf8');
+          const rx = /JSON\.parse\(\s*(?:fs\.)?readFileSync\(\s*([^,()]*(?:[Jj]obs(?:Path|File|_PATH|JSON)?|[Ee]xpired[A-Za-z]*Path)[^,()]*|[^()]*'data\/(?:expired-)?jobs\.json'\))\s*,/g;
+          for (const m of src.matchAll(rx)) offenders.push(`${path.relative(root, abs)}: ${m[1]}`);
+        }
+      }
+    };
+    walk(path.join(root, 'build-plugins'));
+    expect(offenders).toEqual([]);
+  });
 
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
     const src = fs.readFileSync(path.join(root, rel), 'utf8');

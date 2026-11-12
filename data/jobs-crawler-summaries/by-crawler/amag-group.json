@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-11-11T21:21:29.316Z",
+  "generatedAt": "2026-11-12T09:33:07.001Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 144549,
-  "avgDurationMs": 144549,
+  "durationMs": 150927,
+  "avgDurationMs": 150927,
   "durationHistory": [
-    144549
+    150927
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -183,7 +183,7 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -227,7 +227,7 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-11T21:21:18.048Z",
+      "crawledAt": "2026-11-12T09:32:54.326Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -283,5 +283,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

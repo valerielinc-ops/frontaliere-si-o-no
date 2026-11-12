@@ -1,7 +1,7 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-11-11T21:36:23.944Z",
+  "generatedAt": "2026-11-12T09:37:14.231Z",
   "total": 5,
   "discovered": 16,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6987,
-  "avgDurationMs": 6987,
+  "durationMs": 8247,
+  "avgDurationMs": 8247,
   "durationHistory": [
-    6987
+    8247
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15856",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:36:07.999Z",
+      "crawledAt": "2026-11-12T09:36:55.384Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -60,7 +60,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:07.999Z",
+      "validThrough": "2027-02-08T09:36:55.384Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15882",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:36:07.317Z",
+      "crawledAt": "2026-11-12T09:36:54.694Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -105,7 +105,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:07.317Z",
+      "validThrough": "2027-02-08T09:36:54.694Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15881",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:36:06.652Z",
+      "crawledAt": "2026-11-12T09:36:53.955Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -150,7 +150,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:06.652Z",
+      "validThrough": "2027-02-08T09:36:53.955Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15884",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:36:05.967Z",
+      "crawledAt": "2026-11-12T09:36:53.268Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -195,7 +195,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:05.967Z",
+      "validThrough": "2027-02-08T09:36:53.268Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15883",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-11T21:36:05.271Z",
+      "crawledAt": "2026-11-12T09:36:52.582Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -240,7 +240,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:05.271Z",
+      "validThrough": "2027-02-08T09:36:52.582Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -251,5 +251,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

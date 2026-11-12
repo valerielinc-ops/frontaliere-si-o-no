@@ -14,6 +14,7 @@ import {
   inspectOldHistory,
   OLD_HISTORY_FIRST_CHANGED_COMMIT,
   proveHeadAddsNoOldHistory,
+  refreshOriginBranch,
 } from '../scripts/lib/old-history-guard.mjs';
 import * as oldHistoryGuard from '../scripts/lib/old-history-guard.mjs';
 
@@ -222,6 +223,17 @@ describe('old-history-guard', () => {
 
   afterAll(() => {
     rmSync(repo, { recursive: true, force: true });
+  });
+
+  it('serializza i fetch del guard con il lock condiviso del repository', () => {
+    const fetchLock = join(realpathSync(join(repo, '.git')), 'frontaliere-prune-fetch.lock');
+    writeFileSync(fetchLock, JSON.stringify({ pid: process.pid, startedAt: Date.now() }));
+    try {
+      expect(() => refreshOriginBranch({ cwd: repo })).toThrow(/altro fetch Git è già in corso/);
+      expect(readFileSync(fetchLock, 'utf8')).toContain(String(process.pid));
+    } finally {
+      rmSync(fetchLock, { force: true });
+    }
   });
 
   it('blocca una PR la cui head conserva la storia precedente dopo la riscrittura', () => {

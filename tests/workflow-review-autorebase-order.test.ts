@@ -57,7 +57,11 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toBeGreaterThanOrEqual(0);
     expect(autorebase).toBeGreaterThan(reviewGate);
     expect(pullRequestTypes).not.toContain('labeled');
-    expect(workflowJobs.vitest?.if).toBeUndefined();
+    expect(workflowJobs.vitest?.if).toContain('always()');
+    expect(workflowJobs.vitest?.if).toContain('!cancelled()');
+    expect(workflowJobs.vitest?.if).toContain("github.event_name != 'push'");
+    expect(workflowJobs.vitest?.if).toContain("needs.verify-main-push.outputs.verified != 'true'");
+    expect(workflowJobs.vitest?.if).toContain("needs.verify-main-push.outputs.reuse != 'true'");
 
     // La decisione e' presa dal job required (step `post_review`) con le
     // STESSE condizioni di prima; il job `post-review` la esegue dopo.

@@ -49,9 +49,16 @@ describe('cathedral canton-aware dedup (Phase 8a)', () => {
     // cross-canton 21-DE-file collision returns and the Phase 3 band-aid
     // becomes needed again.
     const src = fs.readFileSync(PLUGIN_PATH, 'utf8');
-    // Match: const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
-    const rx = /__activeJobKey\s*=\s*`\$\{jobCanton\}:\$\{locale\}:\$\{perLocaleSlug\[locale\]\}`/;
-    expect(rx.test(src), 'Expected dedup key `${jobCanton}:${locale}:${perLocaleSlug[locale]}` not found in jobsSeoPagesPlugin.ts').toBe(true);
+    // The key is built by the shared owner-key helper (#18237) so the fast
+    // publish lane claims exactly the same tuples:
+    //   const __activeJobKey = activeJobPathOwnerKey(jobCanton, locale, perLocaleSlug[locale]);
+    const rx = /__activeJobKey\s*=\s*activeJobPathOwnerKey\(\s*jobCanton\s*,\s*locale\s*,\s*perLocaleSlug\[locale\]\s*\)/;
+    expect(rx.test(src), 'Expected dedup key activeJobPathOwnerKey(jobCanton, locale, perLocaleSlug[locale]) not found in jobsSeoPagesPlugin.ts').toBe(true);
+    // ...and the helper must keep the canton segment in the key.
+    const helperSrc = fs.readFileSync(path.resolve(__dirname, '../../build-plugins/shared/activeJobPageSelection.ts'), 'utf8');
+    expect(helperSrc, 'activeJobPathOwnerKey must return `${canton}:${locale}:${slug}`').toMatch(
+      /export function activeJobPathOwnerKey\([\s\S]*?\)\s*:\s*string\s*\{\s*return `\$\{canton\}:\$\{locale\}:\$\{slug\}`;/,
+    );
 
     // The old (locale, slug)-only key must NOT appear anywhere as the
     // active-job dedup key (catches a partial revert).
