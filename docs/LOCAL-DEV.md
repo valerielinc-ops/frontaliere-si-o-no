@@ -209,6 +209,16 @@ scripts/dev/fast-worktree.sh <name> [--base origin/main] [--add <path>]...
 Measured 2026-08-19: **214MB / 6'978 files in 2 seconds**, against
 6.7GB / 41'707 files for the full worktree — 31× less disk.
 
+The local pruner also covers repo/workspace-local `.codex/worktrees` paths.
+Codex app-managed worktrees under `$CODEX_HOME/worktrees` (default
+`~/.codex/worktrees`) remain owned by Codex and are skipped.
+
+Checkout time depends on which blobs the clone already has. On 2026-11-12 a
+`blob:none` partial clone materialized a 700MB / 13'892-file sparse worktree
+in 391 seconds while Git fetched missing promised objects. This is not a reason
+to start a second checkout; inspect the existing fetch and add only needed paths
+with `git sparse-checkout add`.
+
 The excluded paths come from `scripts/ci/checkout-buckets.json` — the *same*
 table the CI workflows exclude (`docs/REPO-WEIGHT-STRATEGY.md#sparse-checkout-in-ci-2026-08-19`).
 One source of truth: regenerate that table and both sides follow.
