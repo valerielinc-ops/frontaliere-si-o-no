@@ -57,6 +57,25 @@ describe('parseYoustyApprenticeshipHtml', () => {
     }]);
   });
 
+  it('preserves structural line breaks in a native workplace address', () => {
+    const parsed = parseYoustyApprenticeshipHtml(`
+      <noscript>
+        <h2>Lehrstellenbeschreibung</h2>
+        <div><p>Eine ausführliche Beschreibung für interessierte Lernende.</p></div>
+        <h2>Arbeitsort</h2>
+        <div>Bahnhofstrasse 1<br>8000 Zürich</div>
+      </noscript>
+    `);
+
+    expect(parsed.locationCandidates).toEqual([{
+      location: '8000 Zürich',
+      addressLocality: 'Zürich',
+      addressCountry: 'CH',
+      postalCode: '8000',
+      streetAddress: 'Bahnhofstrasse 1',
+    }]);
+  });
+
   it('does not treat postal-looking application-shell text as vacancy geography', () => {
     const parsed = parseYoustyApprenticeshipHtml(`
       <div>Grund 2, 6234 Triengen</div>

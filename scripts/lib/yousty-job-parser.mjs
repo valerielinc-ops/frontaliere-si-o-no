@@ -407,7 +407,7 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   if (workplaceHeading) {
     let current = workplaceHeading.nextElementSibling;
     while (current && String(current.tagName || '').toLowerCase() !== 'h2') {
-      const value = normalizeSpace(current.textContent || '');
+      const value = htmlToTextBlock(current);
       if (value) {
         workplace = value;
         break;
@@ -420,14 +420,17 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   // 2026, but still renders the vacancy-specific Swiss address below its
   // localized workplace heading. Keep this source-native boundary: a random
   // postal-looking string elsewhere in the application shell is not evidence.
-  const address = /^(?:(.+?),\s*)?(\d{4})\s+(.+)$/.exec(workplace);
+  const address = /^(?:(.+?)(?:,\s*|\n+))?(\d{4})\s+(.+)$/s.exec(workplace);
+  const postalCode = address?.[2] || '';
+  const addressLocality = normalizeSpace(address?.[3] || '');
+  const streetAddress = normalizeSpace(address?.[1] || '');
   const locationCandidates = address
     ? [{
-      location: `${address[2]} ${address[3]}`,
-      addressLocality: address[3],
+      location: `${postalCode} ${addressLocality}`,
+      addressLocality,
       addressCountry: 'CH',
-      postalCode: address[2],
-      ...(address[1] ? { streetAddress: address[1] } : {}),
+      postalCode,
+      ...(streetAddress ? { streetAddress } : {}),
     }]
     : [];
 

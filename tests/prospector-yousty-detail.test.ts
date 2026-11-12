@@ -40,6 +40,58 @@ describe('Yousty Prospector detail extraction', () => {
     expect(detail.location).toBe('6234 Triengen');
   });
 
+  it('clears generic chrome location evidence when the native workplace is absent', () => {
+    const detail = extractRuntimeDetailFields(
+      { platform: 'yousty.ch' },
+      `
+        <html>
+          <body>
+            <div class="company-address">Limmatstrasse 21, 8005 Zürich</div>
+            <noscript>
+              <h2>Lehrstellenbeschreibung</h2>
+              <div><p>Eine abwechslungsreiche Lehrstelle mit einer ausführlichen Beschreibung für interessierte Lernende.</p></div>
+              <h2>Dein Arbeitsort</h2>
+              <div>Keine feste Zuordnung</div>
+            </noscript>
+          </body>
+        </html>
+      `,
+      PROFILE_URL,
+    );
+
+    expect(detail.locationCandidates).toEqual([]);
+    expect(detail.location).toBe('');
+    expect(detail.addressLocality).toBe('');
+    expect(detail.addressRegion).toBe('');
+    expect(detail.addressCountry).toBe('');
+    expect(detail.country).toBe('');
+    expect(detail.postalCode).toBe('');
+    expect(detail.streetAddress).toBe('');
+  });
+
+  it('keeps the native Yousty address ahead of a configured generic location label', () => {
+    const detail = extractRuntimeDetailFields(
+      { platform: 'yousty.ch', detailLocationLabel: 'Dein Arbeitsort' },
+      `
+        <noscript>
+          <h2>Lehrstellenbeschreibung</h2>
+          <div><p>Eine abwechslungsreiche Lehrstelle mit einer ausführlichen Beschreibung für interessierte Lernende.</p></div>
+          <h2>Dein Arbeitsort</h2>
+          <p>Bahnhofstrasse 1, 8000 Zürich</p>
+        </noscript>
+      `,
+      PROFILE_URL,
+    );
+
+    expect(detail.location).toBe('8000 Zürich');
+    expect(detail.locationCandidates).toEqual([expect.objectContaining({
+      postalCode: '8000',
+      streetAddress: 'Bahnhofstrasse 1',
+    })]);
+    expect(detail.postalCode).toBe('8000');
+    expect(detail.streetAddress).toBe('Bahnhofstrasse 1');
+  });
+
   it('does not apply Yousty noscript semantics to another platform', () => {
     const detail = extractRuntimeDetailFields(
       { platform: 'example.test' },

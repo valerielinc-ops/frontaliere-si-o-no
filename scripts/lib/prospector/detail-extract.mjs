@@ -143,21 +143,27 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     if (isSufficientVacancyDescription(yousty.description)) {
       detail.description = yousty.description;
     }
-    if (yousty.locationCandidates.length) {
-      const [candidate] = yousty.locationCandidates;
-      detail.locationCandidates = yousty.locationCandidates;
-      detail.location = candidate.location;
-      detail.addressLocality = candidate.addressLocality || '';
-      detail.addressCountry = candidate.addressCountry || '';
-      detail.country = candidate.addressCountry || '';
-      detail.postalCode = candidate.postalCode || '';
-      detail.streetAddress = candidate.streetAddress || '';
-    }
+    // The Yousty parser is source-scoped to the vacancy's native workplace
+    // block. Its empty result is authoritative too: page-wide chrome must not
+    // become source-backed geography just because the native block is absent.
+    detail.locationCandidates = yousty.locationCandidates;
+    const [candidate] = yousty.locationCandidates;
+    detail.location = candidate?.location || '';
+    detail.addressLocality = candidate?.addressLocality || '';
+    detail.addressRegion = candidate?.addressRegion || '';
+    detail.addressCountry = candidate?.addressCountry || '';
+    detail.country = candidate?.addressCountry || '';
+    detail.postalCode = candidate?.postalCode || '';
+    detail.streetAddress = candidate?.streetAddress || '';
     if (yousty.applyUrl) detail.applyUrl = yousty.applyUrl;
   }
   const pdfApplyUrl = sourcePdfApplyUrl(html, spec);
   if (pdfApplyUrl) detail.applyUrl = pdfApplyUrl;
-  const labelledLocation = extractLabelledDetailValue(html, spec?.detailLocationLabel);
+  // Yousty's parser owns the source-scoped workplace result, including an
+  // empty result, so generic label extraction cannot repopulate or overwrite it.
+  const labelledLocation = spec?.platform === 'yousty.ch'
+    ? ''
+    : extractLabelledDetailValue(html, spec?.detailLocationLabel);
   if (labelledLocation) {
     // The named source heading describes the vacancy's workplace. Replace the
     // page-wide address candidates so a company address in JSON-LD/footer
