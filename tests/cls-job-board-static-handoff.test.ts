@@ -88,9 +88,9 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     const paintBootstrap = readFileSync(resolve(ROOT, 'services/initialPaintBootstrap.ts'), 'utf-8');
     const paintGate = entry.indexOf('await waitForInitialPaintOpportunity({');
     expect(paintGate).toBeGreaterThanOrEqual(0);
-    expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
+    expect(entry).toContain('waitForContentfulPaint: homeCritical || hasPreRenderedPaintContent()');
     expect(entry).toContain('main.seo-static-content, main.cluster-seo-prose');
-    expect(entry).not.toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
+    expect(entry).toContain('const homeCritical = isHomeCriticalPath(window.location.pathname);');
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
     expect(entry).toContain('main.seo-static-content.job-board-static-content');
     expect(entry).toContain('main.seo-static-content[data-sector-hub]');
