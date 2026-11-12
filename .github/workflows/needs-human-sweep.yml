@@ -400,3 +400,84 @@ jobs:
           fi
           echo "::error::needs-human-sweep: nessun marker SWEEP_OUTCOME della run $RUN_ID → non-delivery (action=$ACTION_OUTCOME). Il prossimo run settimanale (o un dispatch manuale) recupera: lo sweep è idempotente."
           exit 1
+
+  # Keep failure reporting outside the producer jobs so the Jobs API can serve
+  # their completed logs to the diagnostic action. The sweep has three
+  # independent failure surfaces: a broken pre-pass, an unreadable closer
+  # verdict, or a Codex run that did not deliver its SWEEP_OUTCOME marker.
+  report-failure:
+    needs: [prepass, failure_verdicts, sweep]
+    if: >-
+      ${{ always() &&
+          (needs.prepass.result == 'failure' ||
+           needs.failure_verdicts.result == 'failure' ||
+           needs.sweep.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            scripts/cathedral-seo-gates-check.mjs
+            .github/actions/report-failure/
+            .github/workflows/needs-human-sweep.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Report pre-pass failure
+        if: always() && needs.prepass.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: prepass
+          workflow-file: .github/workflows/needs-human-sweep.yml
+          context: >-
+            Il pre-pass deterministico non ha potuto rimettere nel ciclo le issue
+            tecniche; lo sweep agentico dipendente non è una prova di recupero.
+
+      - name: Report closer-verdict failure
+        if: always() && needs.failure_verdicts.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: failure_verdicts
+          workflow-file: .github/workflows/needs-human-sweep.yml
+          context: >-
+            Il closer zero-Claude non ha prodotto un file di verdetti leggibile;
+            le issue di failure devono restare intatte senza un oracolo verificato.
+
+      - name: Report sweep failure
+        if: always() && needs.sweep.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: sweep
+          workflow-file: .github/workflows/needs-human-sweep.yml
+          context: >-
+            Lo sweep non ha consegnato il marker SWEEP_OUTCOME della run; il
+            prossimo giro deve riprovare senza considerare il backlog drenato.
