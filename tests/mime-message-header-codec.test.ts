@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decodeEncodedWords, parseMimeMessage, singleMailboxAddress } from '../functions/src/lib/mimeMessage.js';
+import { decodeEncodedWords, htmlToText, parseMimeMessage, singleMailboxAddress } from '../functions/src/lib/mimeMessage.js';
 
 function base64Word(value: string, charset = 'UTF-8') {
   return `=?${charset}?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
@@ -132,6 +132,11 @@ describe('RFC 2047 MIME header codec', () => {
     expect(parsed.text).not.toContain('javascript:');
     expect(parsed.text).not.toContain('http://');
     expect(parsed.text).toContain('Unsafe link');
+  });
+
+  it('decodes named HTML5 entities in body text without rewriting semicolonless URL parameters', () => {
+    expect(htmlToText('<p>Willkommen in Z&uuml;rich &amp; Winterthur. https://employer.example/?copy=1&amp;notin=2</p>'))
+      .toBe('Willkommen in Zürich & Winterthur. https://employer.example/?copy=1&notin=2');
   });
 
   it('accepts exactly one mailbox and rejects malformed or multiple Reply-To destinations', () => {

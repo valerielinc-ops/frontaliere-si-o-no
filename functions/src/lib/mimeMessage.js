@@ -154,7 +154,7 @@ export function htmlToText(html, { safeLinksOnly = false } = {}) {
     })
     .replace(/<(?:br\s*\/?>|\/(?:p|div|li|tr|h[1-6]|td|th|section|article|table|ul|ol))\s*>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => decodeHtmlEntity(entity))
+    .replace(/&(?:#x[\da-f]+|#\d+|[a-z][a-z0-9]+);/gi, (entity) => decodeHtmlEntities(entity))
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/[ \t]{2,}/g, ' ')
