@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-11-11T21:26:55.259Z",
+  "generatedAt": "2026-11-12T09:29:45.181Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2859,
-  "avgDurationMs": 2859,
+  "durationMs": 3914,
+  "avgDurationMs": 3914,
   "durationHistory": [
-    2859
+    3914
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-27T21:26:38.088Z",
+      "validThrough": "2026-12-28T09:29:21.127Z",
       "id": "artisa-group-602dc2ab62a9",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,7 +53,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:26:38.088Z",
+      "crawledAt": "2026-11-12T09:29:21.127Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-06T21:26:38.088Z",
+      "validThrough": "2027-01-06T09:29:21.127Z",
       "id": "artisa-group-ce53cb93ea60",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "firstSeenAt": "2026-10-07T21:40:39.703Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:26:38.088Z",
+      "crawledAt": "2026-11-12T09:29:21.127Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }

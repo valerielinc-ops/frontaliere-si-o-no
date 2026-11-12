@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-11-11T21:26:13.542Z",
-  "runId": "43101806913",
+  "assembledAt": "2026-11-12T09:27:56.536Z",
+  "runId": "43189930472",
   "jobs": [
     {
       "id": "selecta-b92530adfcbe",
@@ -10,7 +10,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:05.532Z",
+      "crawledAt": "2026-11-12T09:27:44.406Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "Tessin",
@@ -63,8 +63,7 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin",
-        "technicien-de-service-m-w-d-selecta-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +75,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "technicien-de-service-m-w-d-selecta-tessin"
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -94,7 +93,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:05.532Z",
+      "validThrough": "2026-12-12T09:27:44.406Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +127,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:05.399Z",
+      "crawledAt": "2026-11-12T09:27:44.231Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "Zürich / Aargau",
@@ -182,17 +181,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:05.399Z",
+      "validThrough": "2026-12-12T09:27:44.231Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -216,7 +215,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:05.266Z",
+      "crawledAt": "2026-11-12T09:27:44.057Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "Wallis",
@@ -245,19 +244,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -275,7 +275,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:05.266Z",
+      "validThrough": "2026-12-12T09:27:44.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -309,7 +309,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:05.130Z",
+      "crawledAt": "2026-11-12T09:27:43.885Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Reinach BL / Kirchberg BE",
@@ -358,7 +358,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:26:05.130Z",
+      "validThrough": "2026-12-15T09:27:43.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -392,7 +392,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.992Z",
+      "crawledAt": "2026-11-12T09:27:43.713Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -444,7 +444,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:26:04.992Z",
+      "validThrough": "2026-12-15T09:27:43.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +478,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.857Z",
+      "crawledAt": "2026-11-12T09:27:43.506Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "Wädenswil bis Glarus",
@@ -527,7 +527,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.857Z",
+      "validThrough": "2026-12-12T09:27:43.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -561,7 +561,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.723Z",
+      "crawledAt": "2026-11-12T09:27:43.331Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "Dübendorf / Volketswil / Pfäffikon",
@@ -610,7 +610,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.723Z",
+      "validThrough": "2026-12-12T09:27:43.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -644,7 +644,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.588Z",
+      "crawledAt": "2026-11-12T09:27:43.158Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -693,7 +693,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.588Z",
+      "validThrough": "2026-12-12T09:27:43.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -727,7 +727,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.451Z",
+      "crawledAt": "2026-11-12T09:27:42.987Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -776,7 +776,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.451Z",
+      "validThrough": "2026-12-12T09:27:42.987Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -810,7 +810,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.318Z",
+      "crawledAt": "2026-11-12T09:27:42.815Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -867,7 +867,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.318Z",
+      "validThrough": "2026-12-12T09:27:42.815Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.183Z",
+      "crawledAt": "2026-11-12T09:27:42.643Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "Sargans / Landquart",
@@ -950,7 +950,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.183Z",
+      "validThrough": "2026-12-12T09:27:42.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -984,7 +984,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:04.040Z",
+      "crawledAt": "2026-11-12T09:27:42.459Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "primär Spiez",
@@ -1033,7 +1033,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:04.040Z",
+      "validThrough": "2026-12-12T09:27:42.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1067,7 +1067,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.905Z",
+      "crawledAt": "2026-11-12T09:27:42.286Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "Wolhusen / Luzern",
@@ -1116,7 +1116,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:03.905Z",
+      "validThrough": "2026-12-12T09:27:42.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1150,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.767Z",
+      "crawledAt": "2026-11-12T09:27:42.114Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "Oberwallis und Berner Oberland",
@@ -1205,7 +1205,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:26:03.767Z",
+      "validThrough": "2027-01-14T09:27:42.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1239,7 +1239,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.632Z",
+      "crawledAt": "2026-11-12T09:27:41.940Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1294,7 +1294,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:03.632Z",
+      "validThrough": "2026-12-12T09:27:41.940Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1328,7 +1328,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.494Z",
+      "crawledAt": "2026-11-12T09:27:41.764Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1377,7 +1377,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:03.494Z",
+      "validThrough": "2026-12-12T09:27:41.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1411,7 +1411,7 @@
       "url": "https://careers.selecta.ch/Job/4638",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.353Z",
+      "crawledAt": "2026-11-12T09:27:41.580Z",
       "addressLocality": "Bern - Betreuung der Kantine im Bundeshaus",
       "addressRegion": "BE",
       "streetAddress": "Bern - Betreuung der Kantine im Bundeshaus",
@@ -1466,7 +1466,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:26:03.353Z",
+      "validThrough": "2027-01-26T09:27:41.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1500,7 +1500,7 @@
       "url": "https://careers.selecta.ch/Job/4595",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-11T21:26:03.209Z",
+      "crawledAt": "2026-11-12T09:27:41.399Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -1555,7 +1555,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T21:26:03.209Z",
+      "validThrough": "2026-12-12T09:27:41.399Z",
       "validThroughSource": "last-observed-window"
     }
   ]
