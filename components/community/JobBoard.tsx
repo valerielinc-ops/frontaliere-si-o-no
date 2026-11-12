@@ -1010,8 +1010,14 @@ function yieldToMainThread(): Promise<void> {
  });
 }
 
-/** Keep the first full-catalog work out of the input task that requests it. */
-function scheduleAfterInteractionPaint(callback: () => void): () => void {
+/**
+ * Keep background catalog work after a paint opportunity.
+ *
+ * The scheduler is intentionally independent from reader input: a first tap
+ * must not be the event that starts the full-catalog fetch and its React
+ * commit. The same boundary is also used for the static-snapshot handoff.
+ */
+function scheduleAfterPaintOpportunity(callback: () => void): () => void {
  if (typeof window === 'undefined') {
   callback();
   return () => {};
@@ -2843,17 +2849,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   || shouldWaitForJobBoardLcp(window.innerWidth);
  const jobBoardInteractionSeenRef = useRef(false);
  const catalogInteractionGestureRef = useRef(false);
- const catalogInteractionWaitersRef = useRef(new Set<() => void>());
- const catalogInteractionReadyRef = useRef(false);
  const catalogInteractionReleaseCancelRef = useRef<(() => void) | null>(null);
  const noteJobBoardInteraction = useCallback(() => {
   if (jobBoardInteractionSeenRef.current) return;
   jobBoardInteractionSeenRef.current = true;
-  catalogInteractionReleaseCancelRef.current = scheduleAfterInteractionPaint(() => {
+  catalogInteractionReleaseCancelRef.current = scheduleAfterPaintOpportunity(() => {
    catalogInteractionReleaseCancelRef.current = null;
-   catalogInteractionReadyRef.current = true;
    setJobBoardInteractionObserved(true);
-   for (const resume of [...catalogInteractionWaitersRef.current]) resume();
   });
  }, []);
  useEffect(() => () => {
@@ -3855,27 +3857,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  */
  useEffect(() => {
  let cancelled = false;
- let cancelCatalogInteractionWait: (() => void) | null = null;
+ let cancelCatalogBackgroundWait: (() => void) | null = null;
  // Fresh load for this locale/canton → the authoritative index is pending again.
  setFullLoadPending(true);
 
- const waitForCatalogInteraction = (): Promise<void> => new Promise((resolve) => {
-  // `seen` records intent; only `ready` means the input has crossed a paint
-  // boundary and the full catalog may safely start.
-  if (catalogInteractionReadyRef.current) {
-   resolve();
-   return;
-  }
+ const waitForCatalogBackground = (): Promise<void> => new Promise((resolve) => {
   let settled = false;
+  let cancelScheduled: (() => void) | null = null;
   const finish = (): void => {
    if (settled) return;
    settled = true;
-   catalogInteractionWaitersRef.current.delete(finish);
-   if (cancelCatalogInteractionWait === finish) cancelCatalogInteractionWait = null;
+   cancelScheduled = null;
+   cancelCatalogBackgroundWait = null;
    resolve();
   };
-  cancelCatalogInteractionWait = finish;
-  catalogInteractionWaitersRef.current.add(finish);
+  cancelScheduled = scheduleAfterPaintOpportunity(finish);
+  cancelCatalogBackgroundWait = () => {
+   cancelScheduled?.();
+   finish();
+  };
  });
 
  /**
@@ -3922,7 +3922,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- const finalize = async (raw: ReadonlyArray<JobListing>, unscopedRaw?: ReadonlyArray<JobListing>): Promise<void> => {
+ const finalize = async (
+  raw: ReadonlyArray<JobListing>,
+  unscopedRaw?: ReadonlyArray<JobListing>,
+  options: { deferCommit?: boolean; clearFullLoadPending?: boolean } = {},
+ ): Promise<void> => {
  if (cancelled) return;
  const deduped = await normalizeJobPool(raw);
  if (cancelled) return;
@@ -3939,20 +3943,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // `selectedJob` and flash JobOrphanView at the jobsLoading===false boundary.
  let finalJobs: JobListing[] = reEnriched;
  if (seededJob?.id && !reEnriched.some((j) => j.id === seededJob.id)) {
- const d = resolvedJobDetail.get(seededJob.id);
- finalJobs = [d ? { ...seededJob, ...d } : seededJob, ...reEnriched];
+  const d = resolvedJobDetail.get(seededJob.id);
+  finalJobs = [d ? { ...seededJob, ...d } : seededJob, ...reEnriched];
  }
- setJobs(finalJobs);
- registerJobSlugMap(finalJobs);
  // Capture the unscoped pool for cross-canton fallback when canton-scoped
  // searches return zero. Same normalize+dedupe so cross-canton matches share
  // the JobListing shape downstream consumers expect.
+ let normalizedFull: JobListing[] | null = null;
  if (unscopedRaw && unscopedRaw.length > 0) {
- const normalizedFull = await normalizeJobPool(unscopedRaw);
- if (cancelled) return;
- setUnscopedJobs(normalizedFull);
+ normalizedFull = await normalizeJobPool(unscopedRaw);
+  if (cancelled) return;
  }
- setJobsLoading(false);
+ if (options.deferCommit) await yieldToMainThread();
+ if (cancelled) return;
+ const commit = (): void => {
+  setJobs(finalJobs);
+  registerJobSlugMap(finalJobs);
+  if (normalizedFull) setUnscopedJobs(normalizedFull);
+  setJobsLoading(false);
+  if (options.clearFullLoadPending) setFullLoadPending(false);
+ };
+ if (options.deferCommit) startTransition(commit);
+ else commit();
  };
 
  const run = async (): Promise<void> => {
@@ -3963,6 +3975,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Hoisted above try/catch so the catch block can scope its legacy
  // fallback to the same canton.
  const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
+ let deferAuthoritativeCommit = false;
+ let fullLoadCommitQueued = false;
 
  // Wrap the whole load so `fullLoadPending` clears once the authoritative
  // index settles via ANY exit (full shard, legacy fallback, empty-legacy
@@ -3970,9 +3984,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  // First-page fast paint (#2580): on listing routes (no build-time seed),
  // fetch the tiny first-page slim asset first and paint page-1 cards before
- // the full index lands. The authoritative shard waits for a board interaction
- // before supplying the complete corpus only on the sub-desktop LCP path.
- // filter/pagination corpus. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
+ // the full index lands. The authoritative shard continues in a background
+ // post-paint window, independent of a board interaction, so the first gesture
+ // never starts the full-catalog work. A miss (asset 404 / parse) leaves `jobsLoading` true and takes the
  // existing full-index path immediately. Skipped for canton-scoped pages other than TI because the
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
@@ -3994,7 +4008,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firstPage = await loadFirstPageSlim();
  if (firstPage && !cancelled) {
  await finalize(scopeJobsToCanton(firstPage, targetCanton));
- if (!cancelled && deferJobBoardCatalogUntilInteraction) await waitForCatalogInteraction();
+ if (!cancelled) {
+  deferAuthoritativeCommit = true;
+  await waitForCatalogBackground();
+ }
  }
  }
  if (cancelled) return;
@@ -4019,13 +4036,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // for the aggregator the scope IS already everywhere.
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
  await finalize(
- scopeJobsToCanton(legacyArr, targetCanton),
- isAggregate ? undefined : legacyArr,
+  scopeJobsToCanton(legacyArr, targetCanton),
+  isAggregate ? undefined : legacyArr,
+  { deferCommit: deferAuthoritativeCommit, clearFullLoadPending: deferAuthoritativeCommit },
  );
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  return;
  }
 
- await finalize(shardJobs as unknown as JobListing[]);
+ await finalize(shardJobs as unknown as JobListing[], undefined, {
+  deferCommit: deferAuthoritativeCommit,
+  clearFullLoadPending: deferAuthoritativeCommit,
+ });
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  } catch (err: unknown) {
  // Service-level failure → try legacy path before giving up.
  console.warn('Failed to load jobs from shards:', err);
@@ -4035,9 +4058,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const legacyArr = Array.isArray(legacy) ? legacy : [];
  const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
  await finalize(
- scopeJobsToCanton(legacyArr, targetCanton),
- isAggregate ? undefined : legacyArr,
+  scopeJobsToCanton(legacyArr, targetCanton),
+  isAggregate ? undefined : legacyArr,
+  { deferCommit: deferAuthoritativeCommit, clearFullLoadPending: deferAuthoritativeCommit },
  );
+ fullLoadCommitQueued = deferAuthoritativeCommit;
  } catch (legacyErr: unknown) {
  console.warn('Legacy locale-jobs fallback also failed:', legacyErr);
  reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');
@@ -4047,7 +4072,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  } finally {
  // Authoritative index settled (or failed) — the count is no longer
  // provisional, so search/company views can stop holding the skeleton.
- if (!cancelled) setFullLoadPending(false);
+ if (!cancelled && !fullLoadCommitQueued) {
+  const clearFullLoadPending = (): void => setFullLoadPending(false);
+  if (deferAuthoritativeCommit) startTransition(clearFullLoadPending);
+  else clearFullLoadPending();
+ }
  }
  };
 
@@ -4073,9 +4102,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  void run();
  return () => {
  cancelled = true;
-  cancelCatalogInteractionWait?.();
+  cancelCatalogBackgroundWait?.();
  };
- }, [deferJobBoardCatalogUntilInteraction, locale, initialFilterCanton]);
+ }, [locale, initialFilterCanton]);
 
  const categories: { value: JobCategory | 'all'; labelKey: string }[] = [
  { value: 'all', labelKey: 'jobBoard.filter.all' },
