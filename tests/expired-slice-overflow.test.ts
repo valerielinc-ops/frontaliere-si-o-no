@@ -18,6 +18,32 @@ describe('expired slice overflow', () => {
     expect(source).toMatch(/finally\s*\{\s*\/\/[^\n]*\n\s*expiredSliceOverflow\?\.close\(\);/);
     expect(source).not.toContain('sliceAugmentCapped');
   });
+  it('releases in-memory and slice-backed aliases after their last tracked reader', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const aliasesByRow = source.indexOf('const progressiveExpiredAliasesByRow =');
+    const readersByRow = source.indexOf('const progressiveExpiredReadersByRow =', aliasesByRow);
+    const lastReaderRelease = source.indexOf(
+      'if (remainingReaders <= 0) releaseExpiredSweepArchiveRow(archiveRow);',
+      readersByRow,
+    );
+    const edgeSkipRelease = source.indexOf(
+      'releaseExpiredSweepSlug(slug, expiredSlugIndex);',
+      lastReaderRelease,
+    );
+    const normalRelease = source.indexOf(
+      'releaseExpiredSweepSlug(slug, expiredSlugIndex);',
+      edgeSkipRelease + 1,
+    );
+    const crossLocalePass = source.indexOf('/* ── Cross-locale reconciliation for expired jobs');
+
+    expect(aliasesByRow).toBeGreaterThan(-1);
+    expect(readersByRow).toBeGreaterThan(aliasesByRow);
+    expect(source).toContain('expiredBySlug.delete(alias)');
+    expect(lastReaderRelease).toBeGreaterThan(readersByRow);
+    expect(edgeSkipRelease).toBeGreaterThan(lastReaderRelease);
+    expect(normalRelease).toBeGreaterThan(edgeSkipRelease);
+    expect(normalRelease).toBeLessThan(crossLocalePass);
+  });
   it('accepts a lazy emitted-slug membership lookup with the same result as a Set', () => {
     const jobs = [{ slug: 'master', previousSlugs: ['wanted', 'not-emitted'] }];
     const emitted = new Set(['master', 'wanted']);

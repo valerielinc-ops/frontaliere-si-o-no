@@ -36,6 +36,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'JOBS_SEO_HTML_GC_INTERVAL_MB',
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_NATIVE_ROUTE_INDEX',
+      'JOBS_SEO_PROGRESSIVE_RELEASE',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_PROBE',
       'JOBS_SEO_REUSE_PROBE_MAX',
@@ -66,6 +67,12 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
         { name: 'baseline', env: { JOBS_SEO_NATIVE_ROUTE_INDEX: 'legacy' } },
         { name: 'candidate', env: {} },
       ]);
+    expect(parseVariants(
+      'base=JOBS_SEO_PROGRESSIVE_RELEASE=0\nprogressive=JOBS_SEO_PROGRESSIVE_RELEASE=1',
+    )).toEqual([
+      { name: 'base', env: { JOBS_SEO_PROGRESSIVE_RELEASE: '0' } },
+      { name: 'progressive', env: { JOBS_SEO_PROGRESSIVE_RELEASE: '1' } },
+    ]);
   });
 
   it('declares variants as a multiline string input and keeps monolith comparison opt-in', () => {
