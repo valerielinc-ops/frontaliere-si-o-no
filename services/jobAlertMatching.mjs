@@ -968,8 +968,6 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
-  const jobIndexByJob = new WeakMap();
-  let jobCount = 0;
   const entry = (job, locale) => {
     let byLocale = byJob.get(job);
     if (!byLocale) {
@@ -979,15 +977,8 @@ export function createJobFeatureStore() {
     const key = locale || '';
     let found = byLocale.get(key);
     if (!found) {
-      let jobIndex = jobIndexByJob.get(job);
-      if (jobIndex === undefined) {
-        jobIndex = jobCount++;
-        jobIndexByJob.set(job, jobIndex);
-      }
       const features = jobMatchFeatures(job, locale);
-      // The index is stable for the lifetime of this store. Batch-local memo
-      // bitmaps may therefore be discarded without recomputing job features.
-      found = { features, index: jobIndex, jobIndex, locHaystack: null, searchHaystack: null };
+      found = { features, locHaystack: null, searchHaystack: null };
       byLocale.set(key, found);
     }
     return found;
@@ -1015,17 +1006,51 @@ export function createJobFeatureStore() {
  * full audience.
  */
 export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
+  const byJob = new WeakMap();
+  const jobIndexByJob = new WeakMap();
+  let jobCount = 0;
   /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
   const descriptionMemos = new Map();
-  /** @type {Map<string, {keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
+  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
   const spaces = new Map();
   const spaceFor = (key) => {
     let space = spaces.get(key);
     if (!space) {
-      space = { keywordMemos: new Map(), searchMemos: new Map() };
+      space = { size: 0, keywordMemos: new Map(), searchMemos: new Map() };
       spaces.set(key, space);
     }
     return space;
+  };
+  const entry = (job, locale) => {
+    let byLocale = byJob.get(job);
+    if (!byLocale) {
+      byLocale = new Map();
+      byJob.set(job, byLocale);
+    }
+    const key = locale || '';
+    let found = byLocale.get(key);
+    if (!found) {
+      const featureEntry = featureStore.entry(job, locale);
+      const space = spaceFor(key);
+      let jobIndex = jobIndexByJob.get(job);
+      if (jobIndex === undefined) {
+        jobIndex = jobCount++;
+        jobIndexByJob.set(job, jobIndex);
+      }
+      // Bitmap indexes are dense and local to this cache. The underlying
+      // feature values (including lazy job-only haystacks) remain run-scoped.
+      found = {
+        features: featureEntry.features,
+        index: space.size++,
+        jobIndex,
+        get locHaystack() { return featureEntry.locHaystack; },
+        set locHaystack(value) { featureEntry.locHaystack = value; },
+        get searchHaystack() { return featureEntry.searchHaystack; },
+        set searchHaystack(value) { featureEntry.searchHaystack = value; },
+      };
+      byLocale.set(key, found);
+    }
+    return found;
   };
   return {
     get(job, locale) {
@@ -1036,7 +1061,7 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
      * `locale` — its features, its index in that locale's keyword bitmaps and
      * its lazily normalized location haystack.
      */
-    entry: featureStore.entry,
+    entry,
     /**
      * Internal to {@link createAlertScorer}: `(entry) => fullText.includes(keyword)`
      * for `locale`, memoised as described on {@link memoKeywordInFullText}.

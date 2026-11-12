@@ -425,10 +425,37 @@ describe('matching cost per alert (#9314)', () => {
     jobs.forEach((job, index) => {
       expect(scoreJobForAlert(job, profile, 'en', firstBatchCache)).toBe(expectedScores[index]);
       expect(scoreJobForAlert(job, profile, 'en', secondBatchCache)).toBe(expectedScores[index]);
-      expect(entries.first[index]).toBe(entries.second.find((entry) => entry.features === entries.first[index].features));
-      expect(entries.first[index].index).toBe(entries.second.find((entry) => entry.features === entries.first[index].features)?.index);
+      const secondEntry = entries.second.find((entry) => entry.features === entries.first[index].features);
+      expect(secondEntry).toBeDefined();
+      expect(secondEntry?.features).toBe(entries.first[index].features);
+      expect(entries.first[index].index).toBe(index);
+      expect(secondEntry?.index).toBe(jobs.length - 1 - index);
     });
     expect(counts.normalizations).toBe(oneBatchCost);
+  });
+
+  it('keeps bitmap indexes dense after the shared feature store has seen many jobs', () => {
+    const store = createJobFeatureStore();
+    const priorJobs = Array.from({ length: 2049 }, (_, index) => ({
+      id: `prior-${index}`,
+      title: `Engineer ${index}`,
+      description: `Prior role ${index}`,
+      location: 'Lugano',
+      canton: 'TI',
+    }));
+    priorJobs.forEach((job) => store.get(job, 'en'));
+
+    const cache = createJobFeatureCache(store);
+    const targetJobs = [
+      { id: 'target-engineer', title: 'Engineer', description: 'Software role', location: 'Lugano', canton: 'TI' },
+      { id: 'target-nurse', title: 'Nurse', description: 'Care role', location: 'Lugano', canton: 'TI' },
+    ];
+    const entries = targetJobs.map((job) => cache.entry(job, 'en'));
+    const engineerKeyword = cache.keywordTest('en', 'engineer');
+
+    expect(entries.map((entry) => [entry.index, entry.jobIndex])).toEqual([[0, 0], [1, 1]]);
+    expect(engineerKeyword(entries[0])).toBe(true);
+    expect(engineerKeyword(entries[1])).toBe(false);
   });
 
   it('parses each inventory timestamp once for the run, not once per alert', () => {
