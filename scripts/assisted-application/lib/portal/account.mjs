@@ -19,13 +19,18 @@
  * it and Firestore holds only its AES-GCM envelope under the run key.
  */
 
-import { randomBytes } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
+import { aliasLocalPart } from '../../../../functions/src/assistedApplicationAlias.js';
 import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount, PORTAL_ACCOUNT_NOTICES_CONFIRMING } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
 const VERIFICATION_POLL_MS = 10_000;
+export const PASSWORD_RESET_TIMEOUT_MS = 10 * 60 * 1000;
+const RECOVERY_WINDOW_MS = 24 * 60 * 60 * 1000;
+const RECOVERY_BACKOFF_MS = [15 * 60 * 1000, 2 * 60 * 60 * 1000];
+const RECOVERY_ACTIVATION_LOOKBACK_MS = 15 * 60 * 1000;
 // The federal SuccessFactors tenant mailed «Ihr Bewerbungskonto wurde
 // erfolgreich erstellt» 25 s after its code (2026-11-10).
 export const ACCOUNT_NOTICE_TIMEOUT_MS = 2 * 60 * 1000;
@@ -424,7 +429,16 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       }
       const { password } = decryptJson(entry.passwordEnc, key);
       mask(password);
-      return { email: entry.email, password, createdAt: entry.createdAt || null, verifiedAt: entry.verifiedAt || null, status: entry.status || null };
+      return {
+        email: entry.email,
+        password,
+        createdAt: entry.createdAt || null,
+        verifiedAt: entry.verifiedAt || null,
+        status: entry.status || null,
+        ...(Number.isFinite(Number(entry.recoveryRequestedAt)) ? { recoveryRequestedAt: Number(entry.recoveryRequestedAt) } : {}),
+        ...(entry.recoveryRequestId ? { recoveryRequestId: String(entry.recoveryRequestId) } : {}),
+        ...(entry.recoveryApplicationCheckRequired === true ? { recoveryApplicationCheckRequired: true } : {}),
+      };
     },
     /** Before the "create account" click: `pending` until the portal confirms it. */
     async save(host, { email, password }) {
@@ -457,6 +471,189 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
           lastSignInAt: null,
         },
       }, { merge: true });
+    },
+    /** Store a fresh credential before a password-reset request can leave the browser. */
+    async beginRecovery(host, { email, password }) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const normalizedEmail = String(email || '').trim().toLowerCase();
+      if (!normalizedHost || !aliasLocalPart(normalizedEmail) || !password) return { status: 'rejected' };
+      mask(password);
+      const entryKey = hostKey(normalizedHost);
+      let result = { status: 'missing' };
+      await db.runTransaction(async (transaction) => {
+        const accounts = (await transaction.get(ref)).data() || {};
+        const current = accounts[entryKey];
+        const allowedStatuses = new Set(['exists_unknown_password', 'created', 'pending', 'unanswered', 'recovering', 'recovery_rejected']);
+        if (!current || String(current.host || '').toLowerCase() !== normalizedHost || !allowedStatuses.has(current.status)) {
+          result = { status: 'missing' };
+          return;
+        }
+        const now = nowMs();
+        const requests = (Array.isArray(current.recoveryRequestTimes) ? current.recoveryRequestTimes : [])
+          .map(Number).filter((at) => Number.isFinite(at) && at > now - RECOVERY_WINDOW_MS);
+        if (current.status === 'recovering' && Number(current.recoveryRequestedAt) > now - RECOVERY_BACKOFF_MS[0]) {
+          result = { status: 'in_progress', requestedAt: Number(current.recoveryRequestedAt) || 0 };
+          return;
+        }
+        if (requests.length >= 2) {
+          result = { status: 'rate_limited' };
+          return;
+        }
+        const nextAllowedAt = Number(current.recoveryNextAllowedAt) || 0;
+        if (now < nextAllowedAt) {
+          result = { status: 'cooldown', retryAt: nextAllowedAt };
+          return;
+        }
+        const requestId = randomUUID();
+        const attempt = requests.length + 1;
+        transaction.set(ref, {
+          [entryKey]: {
+            ...current,
+            host: normalizedHost,
+            email: normalizedEmail,
+            passwordEnc: encryptJson({ password }, key),
+            status: 'recovering',
+            verifiedAt: null,
+            recoveryPrevious: current.status === 'recovering' && current.recoveryPrevious
+              ? current.recoveryPrevious : {
+              email: current.email || null,
+              passwordEnc: current.passwordEnc || null,
+              status: current.status,
+              createdAt: current.createdAt || null,
+              verifiedAt: current.verifiedAt || null,
+              recoveryApplicationCheckRequired: current.recoveryApplicationCheckRequired === true,
+              },
+            recoveryApplicationCheckRequired: true,
+            recoveryRequestTimes: [...requests, now],
+            recoveryRequestedAt: now,
+            recoveryRequestId: requestId,
+            recoveryRequestAttempt: attempt,
+            recoveryNextAllowedAt: now + RECOVERY_BACKOFF_MS[Math.min(attempt - 1, RECOVERY_BACKOFF_MS.length - 1)],
+            recoveryFailure: null,
+          },
+        }, { merge: true });
+        result = { status: 'started', requestId, requestedAt: now, attempt };
+      });
+      return result;
+    },
+    /** Restore/clear the staged credential after a definite no-click or portal refusal. */
+    async abortRecovery(host, { requestSubmitted = false, reason = '' } = {}) {
+      const entryKey = hostKey(host);
+      let result = false;
+      await db.runTransaction(async (transaction) => {
+        const accounts = (await transaction.get(ref)).data() || {};
+        const current = accounts[entryKey];
+        if (!current || current.status !== 'recovering') return;
+        const previous = current.recoveryPrevious && typeof current.recoveryPrevious === 'object'
+          ? current.recoveryPrevious : null;
+        const requestAt = Number(current.recoveryRequestedAt);
+        const requestTimes = (Array.isArray(current.recoveryRequestTimes) ? current.recoveryRequestTimes : [])
+          .map(Number).filter((at) => Number.isFinite(at) && (requestSubmitted || at !== requestAt));
+        transaction.set(ref, {
+          [entryKey]: {
+            ...current,
+            ...(previous ? {
+              email: previous.email || null,
+              passwordEnc: previous.passwordEnc || null,
+              status: previous.status || 'exists_unknown_password',
+              createdAt: previous.createdAt || null,
+              verifiedAt: previous.verifiedAt || null,
+            } : { email: null, passwordEnc: null, status: 'exists_unknown_password', verifiedAt: null }),
+            recoveryPrevious: null,
+            recoveryRequestTimes: requestTimes,
+            recoveryRequestedAt: null,
+            recoveryRequestId: null,
+            recoveryRequestAttempt: null,
+            recoveryNextAllowedAt: requestSubmitted ? current.recoveryNextAllowedAt : null,
+            recoveryFailure: requestSubmitted ? String(reason || 'rejected').slice(0, 40) : null,
+            recoveryFailedAt: requestSubmitted ? nowMs() : null,
+            recoveryApplicationCheckRequired: requestSubmitted || previous?.recoveryApplicationCheckRequired === true,
+          },
+        }, { merge: true });
+        result = true;
+      });
+      return result;
+    },
+    /** Make the reset credential the pending account credential after the portal accepts it. */
+    async completeRecovery(host) {
+      const entryKey = hostKey(host);
+      let result = false;
+      await db.runTransaction(async (transaction) => {
+        const accounts = (await transaction.get(ref)).data() || {};
+        const current = accounts[entryKey];
+        if (!current || current.status !== 'recovering' || !current.passwordEnc) return;
+        transaction.set(ref, {
+          [entryKey]: {
+            ...current,
+            status: 'pending',
+            verifiedAt: null,
+            recoveryCompletedAt: nowMs(),
+            recoveryPrevious: null,
+            recoveryFailure: null,
+          },
+        }, { merge: true });
+        result = true;
+      });
+      return result;
+    },
+    /** Only the authenticated inbound claimant for this exact reset request can supply a link. */
+    async waitForPasswordReset({ host, sinceMs, timeoutMs = PASSWORD_RESET_TIMEOUT_MS }) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const since = Number(sinceMs);
+      if (!normalizedHost || !Number.isFinite(since)) return null;
+      const deadline = nowMs() + timeoutMs;
+      while (nowMs() < deadline) {
+        const account = (await ref.get()).data()?.[hostKey(normalizedHost)];
+        if (account?.status !== 'recovering' || Number(account.recoveryRequestedAt) !== since) return null;
+        const snapshot = await inbox.where('receivedAt', '>=', since).get();
+        for (const doc of snapshot.docs) {
+          const message = doc.data();
+          if (String(message.passwordResetHost || '').toLowerCase() !== normalizedHost
+            || message.passwordResetRequestId !== account.recoveryRequestId) continue;
+          const receivedAt = Number(message.receivedAt);
+          if (!Number.isFinite(receivedAt) || receivedAt <= since) continue;
+          let url = '';
+          try {
+            url = decryptJson(message.passwordResetLinkEnc, key)?.url || '';
+          } catch {
+            url = '';
+          }
+          url = exactPortalVerificationUrl(url, normalizedHost);
+          if (!url) continue;
+          mask(url);
+          return { url, messageId: doc.id, receivedAt };
+        }
+        await sleep(VERIFICATION_POLL_MS);
+      }
+      return null;
+    },
+    /** One-shot reuse of a fresh exact-host activation link from the recovery window. */
+    async recoveryActivation({ host, sinceMs }) {
+      const normalizedHost = String(host || '').toLowerCase();
+      const requestedAt = Number(sinceMs);
+      if (!normalizedHost || !Number.isFinite(requestedAt)) return null;
+      const snapshot = await inbox.where('receivedAt', '>=', requestedAt - RECOVERY_ACTIVATION_LOOKBACK_MS).get();
+      for (const doc of snapshot.docs) {
+        const message = doc.data();
+        if (message.category !== 'verification') continue;
+        const receivedAt = Number(message.receivedAt);
+        if (!Number.isFinite(receivedAt) || receivedAt < requestedAt - RECOVERY_ACTIVATION_LOOKBACK_MS) continue;
+        const claimedAfterRequest = String(message.portalVerificationHost || '').toLowerCase() === normalizedHost
+          && receivedAt > requestedAt;
+        const oldAuthenticatedMessage = receivedAt <= requestedAt
+          && message.senderAuthenticated === true
+          && String(message.sourceVerificationLinkHost || '').toLowerCase() === normalizedHost;
+        if (!claimedAfterRequest && !oldAuthenticatedMessage) continue;
+        let candidateUrl = message.verificationUrl;
+        if (oldAuthenticatedMessage && message.sourceVerificationLinkEnc) {
+          try { candidateUrl = decryptJson(message.sourceVerificationLinkEnc, key)?.url || ''; } catch { candidateUrl = ''; }
+        }
+        const url = exactPortalVerificationUrl(candidateUrl, normalizedHost);
+        if (!url) continue;
+        mask(url);
+        return { url, messageId: doc.id, receivedAt };
+      }
+      return null;
     },
     async mark(host, patch) {
       const current = (await ref.get()).data()?.[hostKey(host)];

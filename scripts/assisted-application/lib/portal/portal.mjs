@@ -52,6 +52,7 @@ import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
+import { aliasLocalPart } from '../../../../functions/src/assistedApplicationAlias.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
@@ -67,6 +68,13 @@ export const WAVE1_CHANNELS = new Set([
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
+const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
+const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|invia|continua|reimposta password)$/i;
+const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
+const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
+const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
+const APPLICATION_HISTORY_RE = /(?:my applications|mes candidatures|mes demandes de candidature|meine bewerbungen|le mie candidature|i miei invii)/iu;
+const EMPTY_APPLICATION_HISTORY_RE = /(?:no applications(?: yet| found| to show)?|no submitted applications|you (?:have not|haven't) applied|aucune candidature|aucune demande de candidature|aucune application|vous n'avez pas de candidatures|keine bewerbungen|noch keine bewerbungen|keine bewerbungen vorhanden|nessuna candidatura|non hai ancora presentato la candidatura)/iu;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
 export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, isIdentityEmailCaption, addressContextContract } = globalThis.AssistedApplyControls;
@@ -5420,10 +5428,20 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
     ? await ctx.accounts.verificationMessageIds()
     : [];
+  const account = typeof ctx.accounts.load === 'function' ? await ctx.accounts.load(host).catch(() => null) : null;
+  if (typeof account?.recoveryRequestedAt === 'number' && Number.isFinite(account.recoveryRequestedAt)) {
+    sinceMs = Math.max(Number(sinceMs) || 0, account.recoveryRequestedAt + 1);
+  }
+  let verification = Number(account?.recoveryRequestedAt) > 0
+    && typeof ctx.accounts.recoveryActivation === 'function'
+    ? await ctx.accounts.recoveryActivation({ host, sinceMs: Number(account.recoveryRequestedAt) })
+    : null;
   const requestedAt = Date.now();
   let resendRequested = false;
   try {
-    if (await clickFirst(page, current, [RESEND_VERIFICATION_RE])) {
+    // Use only a recovery-window activation link already bound to this exact
+    // account; otherwise ask the portal to send a fresh verification.
+    if (!verification && await clickFirst(page, current, [RESEND_VERIFICATION_RE])) {
       await settle(page);
       current = await extractFields(page);
       sinceMs = requestedAt;
@@ -5433,7 +5451,7 @@ export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     // A portal may remove the resend control while processing the request;
     // the existing message is still a valid fallback for this run.
   }
-  const verification = await ctx.accounts.waitForVerification({
+  if (!verification) verification = await ctx.accounts.waitForVerification({
     host,
     sinceMs,
     ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
@@ -7173,18 +7191,250 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
   return false;
 }
 
+/** Open a reset route only from the live email+password form that owns the control. */
+export async function openVerifiedPasswordResetNavigation(page, snapshot) {
+  if (snapshot?.dialogs?.length || authPageKind(snapshot) !== 'sign_in') return false;
+  const candidates = [...(snapshot?.links || []), ...(snapshot?.buttons || [])]
+    .filter((control) => !control.dialog
+      && (FORGOT_PASSWORD_RE.test([control.text, control.label, control.title, control.ariaLabel].join(' '))
+        || control.dataAutomationId === 'forgotPasswordLink'));
+  for (const candidate of candidates) {
+    const id = String(candidate.id || '');
+    if (!/^[\w-]{1,80}$/.test(id) || !candidate.formId) continue;
+    const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
+    const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+    if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function'
+      || !await locator.isVisible().catch(() => false)) continue;
+    const live = await locator.evaluate((element) => {
+      const form = element.form || element.closest('form');
+      const inputs = form ? [...form.querySelectorAll('input')] : [];
+      const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((labelId) => element.ownerDocument.getElementById(labelId)?.innerText || '').join(' ');
+      return {
+        tagName: String(element.tagName || '').toUpperCase(),
+        href: element.getAttribute('href'),
+        text: element.innerText || element.textContent || '',
+        ariaLabel: element.getAttribute('aria-label') || '',
+        title: element.getAttribute('title') || '',
+        labelledBy,
+        dataAutomationId: element.getAttribute('data-automation-id') || '',
+        disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
+        formId: form?.getAttribute('data-aa-id') || '',
+        formIdentityFields: inputs.map((input) => ({
+          inputType: String(input.type || '').toLowerCase(),
+          kind: String(input.type || '').toLowerCase() === 'text' ? 'text' : String(input.type || '').toLowerCase(),
+          label: [
+            ...(input.labels ? [...input.labels].map((node) => node.innerText || node.textContent || '') : []),
+            input.getAttribute('aria-label') || '',
+            input.getAttribute('placeholder') || '',
+          ].join(' '),
+          name: input.name || '',
+          autocomplete: input.getAttribute('autocomplete') || '',
+        })),
+        formHasPassword: inputs.some((input) => input.type === 'password'),
+      };
+    }).catch(() => null);
+    const label = [live?.text, live?.ariaLabel, live?.title, live?.labelledBy].join(' ');
+    const explicit = FORGOT_PASSWORD_RE.test(label) || live?.dataAutomationId === 'forgotPasswordLink';
+    if (!explicit || live?.disabled || candidate.disabled === true
+      || live.formId !== String(candidate.formId)
+      || !loginFields({ fields: live.formIdentityFields || [] }).email || live.formHasPassword !== true) continue;
+    let current;
+    try { current = new URL(frame.url()); } catch { continue; }
+    if (current.protocol !== 'https:' || current.username || current.password) continue;
+    if (live.tagName === 'BUTTON') {
+      if (candidate.dataAutomationId !== 'forgotPasswordLink'
+        && live.dataAutomationId !== 'forgotPasswordLink' && !FORGOT_PASSWORD_RE.test(label)) continue;
+      return locator.click({ timeout: 6_000 }).then(() => true, () => false);
+    }
+    if (live.tagName !== 'A' || !FORGOT_PASSWORD_RE.test(label)) continue;
+    let target;
+    try { target = new URL(live.href, current); } catch { continue; }
+    if (target.protocol !== 'https:' || target.username || target.password || target.hostname !== current.hostname) continue;
+    try {
+      await frame.goto(target.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      const final = new URL(frame.url());
+      return final.protocol === 'https:' && !final.username && !final.password && final.hostname === current.hostname;
+    } catch {
+      return false;
+    }
+  }
+  return false;
+}
+
+function passwordResetEmailField(snapshot) {
+  const candidates = (snapshot?.fields || []).filter((field) => field.inputType === 'email'
+    || /(?:e-?mail|mailadresse)/i.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function resetPasswordFields(snapshot) {
+  const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
+  if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
+  const labels = fields.map((field) => `${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`);
+  const confirmation = labels.findIndex((label) => /(?:confirm|repeat|re-?enter|again|bestätigen|wiederholen|confirmer|ripeti)/i.test(label));
+  const newPassword = labels.findIndex((label) => /(?:new|neue|nouveau|nuova|password|passwort|mot de passe)/i.test(label));
+  if (confirmation < 0 || newPassword < 0 || confirmation === newPassword) return null;
+  return { password: fields[newPassword], confirmation: fields[confirmation], formId: String(fields[0].formId) };
+}
+
+function accountApplicationDuplicate(snapshot) {
+  const text = [snapshot?.title, snapshot?.heading, snapshot?.text,
+    ...(snapshot?.headings || []).map((heading) => typeof heading === 'string' ? heading : heading?.text || heading?.label || '')]
+    .filter(Boolean).join('\n').normalize('NFKC');
+  if (ALREADY_APPLIED_RE.test(text)) return { status: 'already_applied', matchedBy: 'portal_confirmation' };
+  if (APPLICATION_HISTORY_RE.test(text)) {
+    if (EMPTY_APPLICATION_HISTORY_RE.test(text)) return { status: 'no_application_found', matchedBy: 'empty_application_list' };
+    return { status: 'uncertain_application_history', matchedBy: 'application_list' };
+  }
+  return null;
+}
+
+function isApplicationHistoryPage(snapshot) {
+  const headings = [snapshot?.title, snapshot?.heading,
+    ...(snapshot?.headings || []).map((heading) => typeof heading === 'string' ? heading : heading?.text || heading?.label || '')]
+    .filter(Boolean).join('\n');
+  return APPLICATION_HISTORY_RE.test(headings);
+}
+
+function exactHttpsPortalHostUrl(value, host) {
+  try {
+    const target = new URL(String(value || ''));
+    return target.protocol === 'https:' && !target.username && !target.password
+      && target.hostname.toLowerCase() === String(host || '').toLowerCase() ? target.href : '';
+  } catch {
+    return '';
+  }
+}
+
+async function recoverAccountPassword({ page, snapshot, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts }) {
+  const orderEmail = String(ctx.candidate?.identity?.email || '').trim().toLowerCase();
+  const email = String(account?.email || orderEmail).trim().toLowerCase();
+  if (!orderEmail || email !== orderEmail || !aliasLocalPart(email) || usesOtpAccountCreation(host) || ctx.dryRun
+    || typeof ctx.accounts.beginRecovery !== 'function'
+    || typeof ctx.accounts.waitForPasswordReset !== 'function') {
+    return accountHandoff('account', 'account_exists', accountStageFor(snapshot));
+  }
+  if (recoveryAttempts.has(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  recoveryAttempts.add(host);
+  let requestAt = Number(account?.recoveryRequestedAt) || 0;
+  let resetMessage = null;
+  const existingRequestActive = account?.status === 'recovering' && requestAt > 0
+    && Date.now() - requestAt < 15 * 60 * 1000 && Boolean(account.password);
+  if (existingRequestActive) {
+    resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
+  } else {
+    if (authPageKind(snapshot) === 'create') {
+      if (!await openVerifiedSignInNavigation(page, snapshot)) {
+        return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+      }
+      snapshot = await awaitAuthView(page, snapshot);
+    }
+    if (authPageKind(snapshot) !== 'sign_in' || !await openVerifiedPasswordResetNavigation(page, snapshot)) {
+      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    }
+    const requestForm = await awaitAuthView(page, snapshot);
+    const emailField = passwordResetEmailField(requestForm);
+    if (!emailField) return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    await applyActions(page, requestForm.fields, [{ fieldId: emailField.id, action: 'fill', value: email }], {});
+    const ready = await extractFields(page, NAVIGATION);
+    const readyEmail = passwordResetEmailField(ready);
+    if (!readyEmail || String(readyEmail.value || '').trim().toLowerCase() !== email) {
+      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    }
+    const password = newPortalPassword({ portal: host });
+    typedSecrets?.add(password);
+    const begun = await ctx.accounts.beginRecovery(host, { email, password });
+    if (begun?.status !== 'started') {
+      const failure = begun?.status === 'in_progress' || begun?.status === 'cooldown' || begun?.status === 'rate_limited'
+        ? 'account_recovery_timeout' : 'account_recovery_rejected';
+      return accountHandoff(failure, failure, 'login');
+    }
+    requestAt = Number(begun.requestedAt) || Date.now();
+    const sendRequest = findButton(ready.buttons || [], PASSWORD_RESET_REQUEST_RE);
+    if (!sendRequest || String(sendRequest.formId || '') !== String(readyEmail.formId || '')) {
+      await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
+      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    }
+    try {
+      diagnostics?.beforeClick('account');
+      if (!await clickButton(page, sendRequest)) {
+        await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
+        return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+      }
+      diagnostics?.afterClick();
+    } catch {
+      await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
+      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    }
+    resetMessage = await ctx.accounts.waitForPasswordReset({ host, sinceMs: requestAt });
+  }
+  const resetUrl = exactHttpsPortalHostUrl(resetMessage?.url, host);
+  if (!resetUrl) {
+    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  }
+  await page.goto(resetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  await settle(page);
+  let resetView = await extractFields(page, NAVIGATION);
+  const pageUrl = new URL(page.url());
+  const resetFields = resetPasswordFields(resetView);
+  const resetContext = /(?:reset|change|update).{0,30}(?:password|passwort)|(?:password|passwort).{0,30}(?:reset|change|update)|mot de passe.{0,30}(?:réinitial|reinitial|chang)|password.{0,30}(?:reimpost|cambi)/i
+    .test(`${pageUrl.pathname} ${resetView.title || ''} ${resetView.heading || ''} ${resetView.text || ''}`);
+  if (pageUrl.protocol !== 'https:' || pageUrl.hostname !== host || !resetContext || !resetFields) {
+    return accountHandoff(PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
+      ? 'account_recovery_rejected' : 'account_recovery_timeout',
+    PASSWORD_RESET_REFUSED_RE.test(resetView.errors?.join(' ') || resetView.text || '')
+      ? 'account_recovery_rejected' : 'account_recovery_timeout', 'login');
+  }
+  const staged = (await ctx.accounts.load(host))?.password || account?.password || '';
+  if (!staged) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  typedSecrets?.add(staged);
+  await applyActions(page, resetView.fields, [
+    { fieldId: resetFields.password.id, action: 'fill', value: staged },
+    { fieldId: resetFields.confirmation.id, action: 'fill', value: staged },
+  ], {});
+  resetView = await extractFields(page, NAVIGATION);
+  const filled = resetPasswordFields(resetView);
+  if (!filled || !filled.password.value || !filled.confirmation.value) {
+    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  }
+  const confirm = (resetView.buttons || []).find((button) => String(button.formId || '') === filled.formId
+    && PASSWORD_RESET_CONFIRM_RE.test(String(button.text || button.label || '')) && button.disabled !== true);
+  if (!confirm || !await clickButton(page, confirm)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  const afterReset = await awaitAuthOutcome(page, 'create', resetView.errors || [], resetView.fields);
+  const resetRejected = PASSWORD_RESET_REFUSED_RE.test([afterReset.text, ...(afterReset.errors || [])].join(' '));
+  if (resetRejected) {
+    await ctx.accounts.abortRecovery(host, { requestSubmitted: true, reason: 'reset_rejected' });
+    return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+  }
+  if (authPageKind(afterReset) !== 'sign_in') {
+    return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  }
+  if (!await ctx.accounts.completeRecovery(host)) return accountHandoff('account_recovery_timeout', 'account_recovery_timeout', 'login');
+  const signedIn = await handleAuth({
+    page,
+    snapshot: afterReset,
+    ctx,
+    diagnostics,
+    typedSecrets,
+    registrationRestarts,
+    recoveryAttempts,
+  });
+  return { ...signedIn, accountRecovered: true };
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null, registrationRestarts = new Set() }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false, typedSecrets = null, registrationRestarts = new Set(), recoveryAttempts = new Set() }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
   if (account?.status === 'exists_unknown_password') {
-    return accountHandoff('account', 'account_exists', accountStageFor(snapshot));
+    return recoverAccountPassword({ page, snapshot, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts });
   }
 
   // The federal portal can show its create form even when the alias already
@@ -7251,7 +7501,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       registrationRestarts.add(host);
       const registration = await awaitAuthView(page, snapshot);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
-      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets, registrationRestarts });
+      return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts });
     }
   }
 
@@ -7302,12 +7552,20 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (authPageKind(after) === 'sign_in') {
       // A registration the portal never answered (status `unanswered`): the account was not created after
       // all. It is created now, once; any other account that cannot sign in is the owner's to look at.
+      if ((account.status !== 'unanswered' || recreated) && !recoveryAttempts.has(host)
+        && !account.verifiedAt && !usesOtpAccountCreation(host)
+        && String(account.email || ctx.candidate?.identity?.email || '').trim().toLowerCase()
+          === String(ctx.candidate?.identity?.email || '').trim().toLowerCase()
+        && aliasLocalPart(ctx.candidate?.identity?.email || '')) {
+        const recovered = await recoverAccountPassword({ page, snapshot: after, ctx, host, account, diagnostics, typedSecrets, registrationRestarts, recoveryAttempts });
+        return { ...recovered, pressed };
+      }
       if (account.status !== 'unanswered' || recreated) return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
       await ctx.accounts.discard(host, 'never_created');
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
-      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets, registrationRestarts });
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true, typedSecrets, registrationRestarts, recoveryAttempts });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
     // later sign-in that fails is then no reason to create it again. A successful saved-credential login also
@@ -8823,6 +9081,9 @@ export async function submitViaPortal(ctx) {
   // Pages where the run kept the CV an earlier run of the order left in the application's document slot.
   const keptCvUrls = new Set();
   const cvFileNames = documentPaths(ctx.files, 'cv').map((file) => path.basename(file));
+  let accountRecoveryUsed = false;
+  let recoveryMarkerUnreadable = false;
+  let recoveredApplicationHistoryChecked = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
     // SuccessFactors, Stadt Zürich (run 42818412495): account created, then /portalcareer said «Diese Stelle
@@ -8874,6 +9135,102 @@ export async function submitViaPortal(ctx) {
     }
     const failure = serializeAccountFailure(metadata.accountFailure);
     return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}) }, evidence };
+  };
+  const holdRecoveredDuplicateApplication = async (view) => {
+    if (!accountRecoveryUsed && typeof ctx.accounts?.load === 'function') {
+      try {
+        const host = new URL(page.url()).hostname;
+        const storedAccount = await ctx.accounts.load(host);
+        if (storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
+      } catch {
+        accountRecoveryUsed = true;
+        recoveryMarkerUnreadable = true;
+      }
+    }
+    if (!accountRecoveryUsed) return null;
+    // Reset or account verification can return to an authentication form
+    // before Workday has established the candidate session. Let the normal
+    // sign-in path finish first; history must be read from the account itself.
+    if (authPageKind(view) !== 'none' || codeField(view)) return null;
+    if (recoveryMarkerUnreadable) {
+      evidence.accountRecovery = { applicationCheck: {
+        status: 'uncertain_application_history', matchedBy: 'recovery_state_unreadable',
+      } };
+      return handoff('account_application_history_uncertain');
+    }
+    const visibleFinding = accountApplicationDuplicate(view);
+    if (visibleFinding?.status === 'already_applied') {
+      evidence.accountRecovery = { applicationCheck: visibleFinding };
+      return handoff('account_application_already_applied');
+    }
+    if (recoveredApplicationHistoryChecked) return null;
+
+    let historyView = view;
+    const currentUrl = page.url();
+    let current;
+    try { current = new URL(currentUrl); } catch { current = null; }
+    if (!current || current.protocol !== 'https:' || current.username || current.password) {
+      const finding = { status: 'uncertain_application_history', matchedBy: 'untrusted_current_route' };
+      evidence.accountRecovery = { applicationCheck: finding };
+      return handoff('account_application_history_uncertain');
+    }
+
+    if (!isApplicationHistoryPage(view)) {
+      const historyLink = (view?.links || []).find((link) => APPLICATION_HISTORY_RE.test(
+        `${link?.text || ''} ${link?.label || ''} ${link?.ariaLabel || ''} ${link?.title || ''}`,
+      ) && Number(link?.frame || 0) === 0 && typeof link?.href === 'string'
+        && /^[\w-]{1,80}$/.test(String(link.id || '')));
+      let historyTarget = null;
+      try {
+        if (historyLink) historyTarget = new URL(historyLink.href, current);
+      } catch {
+        historyTarget = null;
+      }
+      if (!historyTarget || historyTarget.protocol !== 'https:' || historyTarget.origin !== current.origin
+        || historyTarget.username || historyTarget.password) {
+        const finding = { status: 'uncertain_application_history', matchedBy: 'history_unavailable' };
+        evidence.accountRecovery = { applicationCheck: finding };
+        return handoff('account_application_history_uncertain');
+      }
+      try {
+        await page.goto(historyTarget.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        historyView = await extractFields(page, NAVIGATION);
+      } catch {
+        const finding = { status: 'uncertain_application_history', matchedBy: 'history_unreadable' };
+        evidence.accountRecovery = { applicationCheck: finding };
+        return handoff('account_application_history_uncertain');
+      }
+    }
+
+    const finding = accountApplicationDuplicate(historyView);
+    if (finding?.status === 'already_applied') {
+      evidence.accountRecovery = { applicationCheck: finding };
+      return handoff('account_application_already_applied');
+    }
+    if (finding?.status !== 'no_application_found') {
+      evidence.accountRecovery = { applicationCheck: finding || {
+        status: 'uncertain_application_history', matchedBy: 'history_unreadable',
+      } };
+      return handoff('account_application_history_uncertain');
+    }
+
+    recoveredApplicationHistoryChecked = true;
+    if (page.url() !== currentUrl) {
+      try {
+        await page.goto(currentUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        Object.assign(view, await extractFields(page, NAVIGATION));
+      } catch {
+        recoveredApplicationHistoryChecked = false;
+        evidence.accountRecovery = { applicationCheck: {
+          status: 'uncertain_application_history', matchedBy: 'return_to_posting_failed',
+        } };
+        return handoff('account_application_history_uncertain');
+      }
+    }
+    evidence.accountRecovery = { applicationCheck: finding };
+    return null;
   };
   // What each portal taught earlier runs (level 2), read once per host.
   const knowledge = new Map();
@@ -9156,6 +9513,7 @@ export async function submitViaPortal(ctx) {
     let reviewAdvances = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
+    const recoveryAttempts = new Set();
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
@@ -9427,7 +9785,7 @@ export async function submitViaPortal(ctx) {
       if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
         return { status: agent.status };
       }
-      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
+      const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
       return { status: agent.status, auth };
     };
 
@@ -9542,8 +9900,12 @@ export async function submitViaPortal(ctx) {
         let auth;
         let agentRecovery = null;
         const authHost = new URL(page.url()).hostname;
+        const storedAccount = typeof ctx.accounts?.load === 'function'
+          ? await ctx.accounts.load(authHost).catch(() => null)
+          : null;
+        if (storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
         try {
-          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts });
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
           // A technical stop of the account page (AUTH_AGENT_RECOVERABLE_STOPS) gets the agentic
           // fallback once per page and stop before the owner does: the agent fills fields only,
           // then the deterministic path runs again on a stable re-read. Its own outcome stands
@@ -9598,6 +9960,7 @@ export async function submitViaPortal(ctx) {
           evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
         }
+        if (auth.accountRecovered || storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
         snapshot = auth.snapshot;
         // The page a sign-in lands on may be the portal's «refresh the page» (see REFRESH_ASKED_RE): loaded
         // again here, before it is taken for a home page and left for the posting.
@@ -9606,6 +9969,8 @@ export async function submitViaPortal(ctx) {
           evidence.steps.at(-1).refreshed = true;
           snapshot = signedInPage;
         }
+        const duplicateAfterRecovery = await holdRecoveredDuplicateApplication(snapshot);
+        if (duplicateAfterRecovery) return duplicateAfterRecovery;
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
@@ -9628,6 +9993,8 @@ export async function submitViaPortal(ctx) {
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
+        const duplicateAfterReopen = await holdRecoveredDuplicateApplication(snapshot);
+        if (duplicateAfterReopen) return duplicateAfterReopen;
         // The auth step ended in the candidate's own session on the job's form
         // (Damiani: a registration without OTP lands in /portalcareer): the
         // account is usable. Left unverified, the next run restarted its
@@ -10136,6 +10503,8 @@ export async function submitViaPortal(ctx) {
         }
         return await handoff('portal_needs_candidate');
       }
+      const duplicateBeforeFinal = await holdRecoveredDuplicateApplication(after);
+      if (duplicateBeforeFinal) return duplicateBeforeFinal;
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.

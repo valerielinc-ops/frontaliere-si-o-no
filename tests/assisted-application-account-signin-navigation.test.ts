@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { openVerifiedSignInNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { openVerifiedPasswordResetNavigation, openVerifiedSignInNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const HOST = 'sunrise.wd3.myworkdayjobs.com';
 const CURRENT_URL = `https://${HOST}/de/registration`;
@@ -157,6 +157,39 @@ describe('verified sign-in navigation from an existing-account registration page
     await expect(openVerifiedSignInNavigation(header.page as any, {
       dialogs: [], fields: snapshot.fields,
       buttons: [{ id: 'auth-link', frame: 0, text: 'Sign In', dataAutomationId: 'utilityButtonSignIn' }],
+      links: [],
+    } as any)).resolves.toBe(false);
+    expect(header.locator.click).not.toHaveBeenCalled();
+    expect(header.frame.goto).not.toHaveBeenCalled();
+  });
+
+  it('opens forgot-password only from the same live email and password form', async () => {
+    const currentUrl = `https://${HOST}/en-US/AcmeCareers/job/Switzerland/Consultant_R-12345-1/apply/applyManually`;
+    const forgot = pageWithLink({
+      label: 'Forgot Password?', currentUrl, tagName: 'BUTTON', dataAutomationId: 'forgotPasswordLink',
+      formId: 'auth-form', formIdentityFields: [
+        { inputType: 'text', kind: 'text', label: 'Email Address', name: '', autocomplete: '' },
+        { inputType: 'password', kind: 'password', label: '', name: '', autocomplete: '' },
+      ], formHasPassword: true,
+    });
+    const snapshot = {
+      dialogs: [],
+      fields: [
+        { id: 'email', inputType: 'email', frame: 0, formId: 'auth-form' },
+        { id: 'password', inputType: 'password', frame: 0, formId: 'auth-form' },
+      ],
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Forgot Password?', formId: 'auth-form', dataAutomationId: 'forgotPasswordLink' }],
+      links: [],
+    };
+
+    await expect(openVerifiedPasswordResetNavigation(forgot.page as any, snapshot as any)).resolves.toBe(true);
+    expect(forgot.locator.click).toHaveBeenCalledOnce();
+    expect(forgot.frame.goto).not.toHaveBeenCalled();
+
+    const header = pageWithLink({ label: 'Forgot Password?', currentUrl, tagName: 'BUTTON', dataAutomationId: 'forgotPasswordLink' });
+    await expect(openVerifiedPasswordResetNavigation(header.page as any, {
+      dialogs: [], fields: snapshot.fields,
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Forgot Password?', dataAutomationId: 'forgotPasswordLink' }],
       links: [],
     } as any)).resolves.toBe(false);
     expect(header.locator.click).not.toHaveBeenCalled();

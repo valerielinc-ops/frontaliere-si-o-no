@@ -259,7 +259,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
+  const workday = { accounts: new Map(), verifiedAccounts: new Set(), resetEmails: [], resetLinksClaimed: 0, resetLinkSent: false, recoveryUsed: false, historyUnavailable: false, activationResends: 0, activationLinksClaimed: 0, alreadyApplied: false, silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -463,6 +463,8 @@ function fakePortal() {
       ${buttonSignIn
         ? `<button id="swap" type="button" data-automation-id="signInLink">${initialView === 'create' ? 'Sign In' : 'Create Account'}</button>`
         : `<a id="swap" href="${initialView === 'create' ? '/wd/sign-in' : '/wd/apply'}">${initialView === 'create' ? 'Sign In' : 'Create Account'}</a>`}
+      <button id="forgot" type="button" data-automation-id="forgotPasswordLink" style="${initialView === 'sign_in' ? '' : 'display:none'}">Forgot Password?</button>
+      <button id="activation" type="button" style="display:none">Resend verification email</button>
     </form>
     <script>
       let view = '${initialView}';
@@ -479,9 +481,13 @@ function fakePortal() {
         if (el('swap').tagName === 'A') el('swap').href = next === 'create' ? '/wd/sign-in' : '/wd/apply';
         el('again').style.display = next === 'create' ? '' : 'none';
         el('p2').required = next === 'create';
+        el('forgot').style.display = next === 'sign_in' ? '' : 'none';
+        el('activation').style.display = next === 'sign_in' && /verify/i.test(notice || '') ? '' : 'none';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
       show(view);
+      el('forgot').onclick = () => { window.location.href = '/wd/password-reset-request'; };
+      el('activation').onclick = () => { fetch('/wd/activation-resend', { method: 'POST' }); };
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       if (${buttonSignIn ? 'true' : 'false'}) el('swap').onclick = () => show(view === 'create' ? 'sign_in' : 'create');
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
@@ -506,11 +512,23 @@ function fakePortal() {
           const answer = await (await fetch(view === 'create' ? '/wd/register' : '/wd/login', { method: 'POST', body })).json();
           if (answer.silent) return;
           if (view === 'create') show(answer.ok ? 'sign_in' : 'create', answer.message);
-          else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '/wd/form'; }, 1200); }
+      else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '${workday.recoveryUsed ? '/wd/home' : '/wd/form'}'; }, 1200); }
           else show('sign_in', answer.message);
         }, 1500);
       };
     </script></main></body></html>`;
+  const workdayPasswordRequestPage = () => page('Forgot Password', `<h1>Forgot Password</h1>
+    <form method="post" action="/wd/password-reset-request">
+      <label for="reset-email">Email Address</label><input id="reset-email" type="email" name="email" required>
+      <button type="submit">Reset Password</button>
+    </form>`);
+  const workdayResetPasswordPage = () => page('Reset Password', `<h1>Reset Password</h1>
+    <form method="post" action="/wd/password-reset">
+      <input type="hidden" name="email" value="${ALIAS}">
+      <label for="new-password">New Password</label><input id="new-password" type="password" name="password" autocomplete="new-password" required>
+      <label for="confirm-password">Confirm New Password</label><input id="confirm-password" type="password" name="confirm" autocomplete="new-password" required>
+      <button type="submit">Save New Password</button>
+    </form>`);
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(bindLocalReceiptTargets(html)); };
@@ -705,8 +723,57 @@ function fakePortal() {
         ? redirect('/wd/form')
         : send(workdayAccountPage('create', { buttonSignIn: true }));
     }
+    if (route === 'GET /wd/password-reset-request') return send(workdayPasswordRequestPage());
+    if (route === 'POST /wd/password-reset-request') {
+      const body = new URLSearchParams(await readBody(req));
+      const email = String(body.get('email') || '').toLowerCase();
+      workday.resetEmails.push(email);
+      workday.resetLinkSent = workday.accounts.has(email);
+      return send(page('Check Your Email', '<h1>If an account exists, password reset instructions were sent.</h1>'));
+    }
+    if (route === 'GET /wd/password-reset') {
+      return workday.resetLinkSent && url.searchParams.get('token') === 'synthetic-reset-token'
+        ? send(workdayResetPasswordPage())
+        : send(page('Reset link expired', '<h1>This reset link has expired.</h1>'));
+    }
+    if (route === 'POST /wd/password-reset') {
+      const body = new URLSearchParams(await readBody(req));
+      const email = String(body.get('email') || '').toLowerCase();
+      const password = String(body.get('password') || '');
+      if (!workday.resetLinkSent || !workday.accounts.has(email) || password !== body.get('confirm')) {
+        return send(page('Reset Password', '<h1>The reset could not be completed.</h1>'));
+      }
+      workday.accounts.set(email, password);
+      workday.resetLinkSent = false;
+      workday.recoveryUsed = true;
+      return redirect('/wd/sign-in');
+    }
+    if (route === 'POST /wd/activation-resend') {
+      workday.activationResends += 1;
+      res.writeHead(204);
+      return res.end();
+    }
+    if (route === 'GET /wd/activate') {
+      if (url.searchParams.get('token') !== 'synthetic-activation' || workday.activationResends < 1) {
+        return send(page('Activation link expired', '<h1>This activation link has expired.</h1>'));
+      }
+      workday.verifiedAccounts.add(ALIAS);
+      return redirect('/wd/sign-in');
+    }
+    if (route === 'GET /wd/home') {
+      if (!state.sessions.has(sessionOf(req))) return redirect('/wd/sign-in');
+      return send(page('Candidate Home', workday.historyUnavailable
+        ? '<h1>Candidate Home</h1>'
+        : '<h1>Candidate Home</h1><a href="/wd/my-applications">My Applications</a>'));
+    }
+    if (route === 'GET /wd/my-applications') {
+      if (!state.sessions.has(sessionOf(req))) return redirect('/wd/sign-in');
+      return workday.alreadyApplied
+        ? send(page('My Applications', '<h1>My Applications</h1><p>You have already applied to Consultant_R-12345-1.</p>'))
+        : send(page('My Applications', '<h1>My Applications</h1><p>You have no applications yet.</p>'));
+    }
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
-    if (route === 'GET /wd/sign-in') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage('sign_in'));
+    if (route === 'GET /wd/sign-in') return state.sessions.has(sessionOf(req)) ? redirect(workday.recoveryUsed ? '/wd/home' : '/wd/form') : send(workdayAccountPage('sign_in'));
     // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
     // anew for that country a moment later, as other elements («Address Line 1» becomes «Street Name»): what
     // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
@@ -718,6 +785,7 @@ function fakePortal() {
     // earlier run uploaded is listed with its «Delete» button.
     if (route === 'GET /wd/form') {
       if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
+      if (workday.alreadyApplied) return send(page('My Applications', '<h1>My Applications</h1><p>You have already applied to Consultant_R-12345-1.</p>'));
       if (workday.resumed && !workday.refusedOnce.has(sessionOf(req))) {
         workday.refusedOnce.add(sessionOf(req));
         return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
@@ -841,6 +909,7 @@ function fakePortal() {
       const many = (name) => [...raw.matchAll(new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`, 'g'))].map((match) => match[1]);
       workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept'), experience: many('experience'), education: many('education') });
       state.applications.push({ hasCv: /filename="CV_/.test(raw), cvFiles: (raw.match(/filename="CV_/g) || []).length, first: part('first') });
+      if (workday.recoveryUsed) workday.alreadyApplied = true;
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'POST /wd/upload') {
@@ -884,10 +953,14 @@ function fakePortal() {
         if (workday.silent) return json({ silent: true });
         if (workday.accounts.has(body.get('email'))) return json({ ok: false, message: 'An account already exists for this email address.' });
         workday.accounts.set(body.get('email'), body.get('password'));
+        workday.verifiedAccounts.add(body.get('email'));
         return json({ ok: true, message: 'Your account has been created.' });
       }
       workday.logins += 1;
       if (workday.accounts.get(body.get('email')) !== body.get('password')) return json({ ok: false, message: 'Invalid Username/Password' });
+      if (!workday.verifiedAccounts.has(body.get('email'))) {
+        return json({ ok: false, message: 'Please verify your email address to activate your account.' });
+      }
       const sid = Math.random().toString(36).slice(2);
       state.sessions.add(sid);
       return json({ ok: true }, { 'set-cookie': `sid=${sid}; Path=/` });
@@ -1362,7 +1435,35 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     async recordExistingUnknownPassword(hostname) {
       saved.set(hostname, { email: null, password: null, createdAt: Date.now(), verifiedAt: null, status: 'exists_unknown_password' });
     },
-    async waitForVerification() { return null; },
+    async beginRecovery(hostname, { email, password }) {
+      const requestId = `synthetic-reset-${workday.resetEmails.length + 1}`;
+      const current = saved.get(hostname) || {};
+      saved.set(hostname, {
+        ...current, email, password, status: 'recovering', verifiedAt: null,
+        recoveryRequestedAt: Date.now(), recoveryRequestId: requestId,
+        recoveryApplicationCheckRequired: true,
+      });
+      return { status: 'started', requestId, requestedAt: Date.now(), attempt: 1 };
+    },
+    async waitForPasswordReset() {
+      if (workday.resetLinksClaimed >= workday.resetEmails.length || !workday.resetEmails.length) return null;
+      workday.resetLinksClaimed += 1;
+      return { url: `${tenantBase}/wd/password-reset?token=synthetic-reset-token`, messageId: 'synthetic-reset' };
+    },
+    async completeRecovery(hostname) {
+      const current = saved.get(hostname);
+      if (!current?.password) return false;
+      saved.set(hostname, { ...current, status: 'pending', verifiedAt: null, recoveryCompletedAt: Date.now() });
+      return true;
+    },
+    async abortRecovery() { return true; },
+    async recoveryActivation() { return null; },
+    async verificationMessageIds() { return []; },
+    async waitForVerification() {
+      if (workday.activationLinksClaimed >= workday.activationResends || !workday.activationResends) return null;
+      workday.activationLinksClaimed += 1;
+      return { url: `${tenantBase}/wd/activate?token=synthetic-activation`, messageId: 'synthetic-activation' };
+    },
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
@@ -1589,6 +1690,22 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     && workday.headerSignIns === 0,
     { event: { type: tenantSuccess.event.type, reason: tenantSuccess.event.reason || null }, requests: workday.tenantRequests.slice(-3) });
 
+  workday.alreadyApplied = false;
+  workday.recoveryUsed = false;
+  workday.accounts.set(ALIAS, 'synthetic-current-password');
+  workday.verifiedAccounts.add(ALIAS);
+  workday.resetEmails.length = 0;
+  saved.set(tenantHost, {
+    email: ALIAS, password: 'synthetic-stale-password', status: 'created', verifiedAt: Date.now(),
+  });
+  state.sessions.clear();
+  const trustedLoginFailure = await runTenantWorkday();
+  check('Workday: a failed sign-in for a previously verified account is handed off without resetting its password',
+    trustedLoginFailure.event.type === 'submit_handoff'
+    && trustedLoginFailure.event.reason === 'account_sign_in_failed'
+    && workday.resetEmails.length === 0
+    && state.applications.length === tenantApplicationsBefore + 1);
+
   saved.delete(tenantHost);
   state.sessions.clear();
   const duplicateRegistrationBefore = workday.registrations;
@@ -1606,11 +1723,101 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
     && state.applications.length === applicationsBeforeDuplicate);
   state.sessions.clear();
   const duplicateRetry = await runTenantWorkday();
-  check('Workday: a recorded unknown-password account does not trigger another registration attempt',
-    duplicateRetry.event.type === 'submit_handoff'
-    && duplicateRetry.event.accountFailure?.code === 'account_exists'
+  check('Workday: a recorded unknown-password account recovers by one reset request without re-registering',
+    duplicateRetry.event.type === 'submit_succeeded'
+    && workday.resetEmails.length === 1
     && workday.registrations === duplicateRegistrationBefore + 1
-    && state.applications.length === applicationsBeforeDuplicate);
+    && state.applications.length === applicationsBeforeDuplicate + 1);
+
+  const tenantRecoveryHost = new URL(tenantBase).hostname;
+  workday.accounts.set(ALIAS, 'synthetic-unknown-old-password');
+  workday.verifiedAccounts.delete(ALIAS);
+  workday.resetEmails.length = 0;
+  workday.resetLinksClaimed = 0;
+  workday.resetLinkSent = false;
+  workday.activationResends = 0;
+  workday.activationLinksClaimed = 0;
+  workday.alreadyApplied = false;
+  saved.set(tenantRecoveryHost, {
+    email: null, password: null, createdAt: null, verifiedAt: null, status: 'exists_unknown_password',
+  });
+  state.sessions.clear();
+  const applicationsBeforeRecovery = state.applications.length;
+  const recoveredUnactivated = await runTenantWorkday();
+  check('Workday: an unactivated existing alias account resets, signs in, resends activation, and applies once',
+    recoveredUnactivated.event.type === 'submit_succeeded'
+    && workday.resetEmails.length === 1
+    && workday.resetEmails[0] === ALIAS
+    && workday.activationResends === 1
+    && workday.registrations === duplicateRegistrationBefore + 1
+    && state.applications.length === applicationsBeforeRecovery + 1
+    && saved.get(tenantRecoveryHost)?.status === 'created'
+    && saved.get(tenantRecoveryHost)?.recoveryApplicationCheckRequired === true,
+    stopContext(recoveredUnactivated));
+  const applicationsAfterRecovery = state.applications.length;
+  state.sessions.clear();
+  const recoveredRetry = await runTenantWorkday();
+  check('Workday: later retries recheck history and never duplicate a recovered application',
+    recoveredRetry.event.type === 'submit_handoff'
+    && recoveredRetry.event.reason === 'account_application_already_applied'
+    && workday.resetEmails.length === 1
+    && state.applications.length === applicationsAfterRecovery,
+    stopContext(recoveredRetry));
+
+  workday.accounts.set(ALIAS, 'synthetic-unknown-old-password');
+  workday.verifiedAccounts.delete(ALIAS);
+  workday.resetEmails.length = 0;
+  workday.resetLinksClaimed = 0;
+  workday.resetLinkSent = false;
+  workday.activationResends = 0;
+  workday.activationLinksClaimed = 0;
+  saved.set(tenantRecoveryHost, {
+    email: null, password: null, createdAt: null, verifiedAt: null, status: 'exists_unknown_password',
+  });
+  state.sessions.clear();
+  workday.alreadyApplied = true;
+  const applicationsBeforeAlreadyApplied = state.applications.length;
+  const alreadyApplied = await runTenantWorkday();
+  check('Workday: a recovered account with an existing application history is held before final send',
+    alreadyApplied.event.type === 'submit_handoff'
+    && alreadyApplied.event.reason === 'account_application_already_applied'
+    && alreadyApplied.evidence.accountRecovery?.applicationCheck?.status === 'already_applied'
+    && workday.resetEmails.length === 1
+    && workday.activationResends === 1
+    && state.applications.length === applicationsBeforeAlreadyApplied,
+    stopContext(alreadyApplied));
+
+  workday.alreadyApplied = false;
+  workday.historyUnavailable = true;
+  workday.accounts.set(ALIAS, 'synthetic-unknown-old-password');
+  workday.verifiedAccounts.delete(ALIAS);
+  workday.resetEmails.length = 0;
+  workday.resetLinksClaimed = 0;
+  workday.resetLinkSent = false;
+  workday.recoveryUsed = false;
+  workday.activationResends = 0;
+  workday.activationLinksClaimed = 0;
+  saved.set(tenantRecoveryHost, {
+    email: null, password: null, createdAt: null, verifiedAt: null, status: 'exists_unknown_password',
+  });
+  state.sessions.clear();
+  const applicationsBeforeUncertainHistory = state.applications.length;
+  const uncertainHistory = await runTenantWorkday();
+  check('Workday: recovery does not send when application history cannot be verified',
+    uncertainHistory.event.type === 'submit_handoff'
+    && uncertainHistory.event.reason === 'account_application_history_uncertain'
+    && uncertainHistory.evidence.accountRecovery?.applicationCheck?.status === 'uncertain_application_history'
+    && workday.resetEmails.length === 1
+    && state.applications.length === applicationsBeforeUncertainHistory
+    && saved.get(tenantRecoveryHost)?.recoveryApplicationCheckRequired === true);
+  state.sessions.clear();
+  const repeatedUncertainHistory = await runTenantWorkday();
+  check('Workday: a retry keeps the duplicate guard after uncertain history and does not reset or send again',
+    repeatedUncertainHistory.event.type === 'submit_handoff'
+    && repeatedUncertainHistory.event.reason === 'account_application_history_uncertain'
+    && workday.resetEmails.length === 1
+    && state.applications.length === applicationsBeforeUncertainHistory);
+  workday.historyUnavailable = false;
 }
 
 async function hiddenFutureStepFileCheck({ executablePath, check }) {
