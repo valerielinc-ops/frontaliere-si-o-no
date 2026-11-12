@@ -2931,6 +2931,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'revisione-tardoc-2027': { it: 'revisione-tardoc-2027', en: 'tardoc-revision-2027', de: 'tardoc-revision-2027', fr: 'revision-tardoc-2027' },
  'aumento-iva-finanzia-avs': { it: 'aumento-iva-finanzia-avs', en: 'vat-increase-funds-avs', de: 'iva-erhoehung-finanziert-avs', fr: 'augmentation-tva-finance-avs' },
  'dibattito-salario-minimo-5000': { it: 'dibattito-salario-minimo-5000', en: 'minimum-wage-debate-5000', de: 'mindestlohn-debatte-5000', fr: 'debat-salaire-minimum-5000' },
+ 'tasso-ilo-terzo-trimestre': { it: 'tasso-ilo-terzo-trimestre', en: 'ilo-rate-third-quarter', de: 'ilo-rate-drittquartal', fr: 'taux-ilo-troisieme-trimestre' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

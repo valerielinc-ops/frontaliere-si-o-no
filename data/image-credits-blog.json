@@ -95988,6 +95988,80 @@
           "notes": "Generic synthetic residential architecture scene; no people, text, signage, logos, or identifiable event."
         }
       }
+    },
+    "generated:article-tasso-ilo-terzo-trimestre": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-12T22:40:11.731Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-12",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-tasso-ilo-terzo-trimestre",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "334522bca5e049a93ebfd12fc5e26b7ac3735a2695603c40b1d8a1f25b8cbe23",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "13b2e562a2ba3f895e429744145ed2395510c7fc01648c48201005f0cb63e6be",
+        "bytes": 84464,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-12T22:40:11.731Z",
+        "verifiedAt": "2026-11-12T22:40:23.315Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-tasso-ilo-terzo-trimestre.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a modern Swiss urban office scene with an upward economic data chart; no readable text, logos, signage, people, or specific event."
+        }
+      }
     }
   },
   "covers": {
@@ -105268,397 +105342,397 @@
     "bollettino-frontaliere-2026-08-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-09": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-08-31": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-07": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-12": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-19": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-20": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-21": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-22": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-23": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-24": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-25": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-26": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-27": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-28": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-29": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-09-30": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-01": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-02": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-03": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-04": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-05": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-06": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-08": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-10": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-11": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-13": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-14": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-15": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-16": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-17": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollettino-frontaliere-2026-10-18": {
       "evidence": "inferred",
       "provider": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "status": "no-credit"
     },
     "bollini-rossi-traffico-san-gottardo-2026": {
@@ -137519,6 +137593,10 @@
     },
     "article-tasso-vacanza-2027-ginevra": {
       "file": "generated:article-tasso-vacanza-2027-ginevra",
+      "modified": "resized"
+    },
+    "article-tasso-ilo-terzo-trimestre": {
+      "file": "generated:article-tasso-ilo-terzo-trimestre",
       "modified": "resized"
     }
   }
