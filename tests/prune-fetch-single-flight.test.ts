@@ -219,11 +219,13 @@ describe('accoppiamento timeout fetch ↔ scadenza lock', () => {
       path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs'),
       'utf8',
     );
-    expect(fastWorktree).toContain('fetch-origin-main.mjs');
+    expect(fastWorktree).toContain('node "$SCRIPT_ROOT/scripts/dev/fetch-origin-main.mjs"');
     expect(fetchHelper).toContain('withSingleFlightLock');
     expect(fetchHelper).toContain('frontaliere-prune-fetch.lock');
+    expect(fetchHelper).toContain("'--no-tags'");
     expect(fetchHelper).toContain("killSignal: 'SIGTERM'");
     expect(fetchHelper).toContain('25 * 60 * 1000');
+    expect(fastWorktree).toContain('git -C "$SCRIPT_ROOT" worktree list --porcelain');
   });
 
   it('non avvia un secondo fetch quando il lock condiviso è già vivo', () => {
@@ -235,9 +237,31 @@ describe('accoppiamento timeout fetch ↔ scadenza lock', () => {
 
     const helper = path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs');
     const result = spawnSync(process.execPath, [helper, repo, 'main'], { encoding: 'utf8' });
-    expect(result.status).toBe(0);
-    expect(result.stderr).toContain('fetch saltato');
+    expect(result.status).toBe(75);
+    expect(result.stderr).toContain('fetch concorrente in corso');
+    expect(result.stderr).toContain('senza usare il ref locale');
     expect(fs.existsSync(lock)).toBe(true);
+  });
+
+  it('rifiuta il ref locale se il fetch fallisce', () => {
+    const repo = tmpDir();
+    execFileSync('git', ['init', '-q', repo]);
+
+    const helper = path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs');
+    const result = spawnSync(process.execPath, [helper, repo, 'main'], { encoding: 'utf8' });
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('fetch origin/main non riuscito');
+    expect(result.stderr).toContain('rifiuto di creare un worktree');
+  });
+
+  it('rifiuta un nome di branch non valido prima del fetch', () => {
+    const repo = tmpDir();
+    execFileSync('git', ['init', '-q', repo]);
+
+    const helper = path.join(__dirname, '..', 'scripts', 'dev', 'fetch-origin-main.mjs');
+    const result = spawnSync(process.execPath, [helper, repo, 'main:other'], { encoding: 'utf8' });
+    expect(result.status).toBe(64);
+    expect(result.stderr).toContain('ref remoto non valido');
   });
 });
 
