@@ -2872,9 +2872,9 @@
     },
     {
       "id": "concordia-13e6f0f15806",
-      "slug": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
+      "slug": "specialista-delle-prestazioni-per-la-verifica-delle-prestazioni-presso-il-service-center-di-zurigo-100-concordia-zurich",
       "slugByLocale": {
-        "it": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
+        "it": "specialista-delle-prestazioni-per-la-verifica-delle-prestazioni-presso-il-service-center-di-zurigo-100-concordia-zurich",
         "en": "performance-specialist-performance-testing-at-service-center-zurich-100-concordia-zurich",
         "de": "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich",
         "fr": "specialiste-des-performances-en-cours-d-evaluation-des-performances-au-service-center-de-zurich-100-concordia-zurich"
@@ -2938,13 +2938,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:19:48.591Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leistungsspezialist-in-leistungsprufung-im-service-center-zurich-100-concordia-zurich"
+      ]
     },
     {
       "id": "concordia-88db0cc6934f",
-      "slug": "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
+      "slug": "responsabile-del-team-per-il-controllo-delle-prestazioni-e-la-verifica-dell-efficienza-economica-bvm-80-100-concordia",
       "slugByLocale": {
-        "it": "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
+        "it": "responsabile-del-team-per-il-controllo-delle-prestazioni-e-la-verifica-dell-efficienza-economica-bvm-80-100-concordia",
         "en": "team-leader-performance-controlling-and-performance-audit-bvm-80-100-concordia-luzern",
         "de": "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
         "fr": "chef-d-equipe-dans-le-controle-de-la-performance-et-l-audit-de-la-rentabilite-bvm-80-100-concordia-luzern"
@@ -2993,11 +3001,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
+        "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
+        "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
+          "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern"
         ],
         "en": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia"

@@ -8083,7 +8083,7 @@
     },
     {
       "id": "company-knjuk0",
-      "slug": "mitarbeteiter-in-vendita-administration-e-kundendienst-coop-city-st-gallen-knjuk0",
+      "slug": "collaboratore-trice-vendite-amministrazione-e-servizio-clienti-coop-genossenschaft-st-gallen",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeteiter:in Verkauf, Administration und Kundendienst",
       "location": "St. Gallen",
@@ -8126,7 +8126,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "mitarbeteiter-in-vendita-administration-e-kundendienst-coop-city-st-gallen-knjuk0",
+        "it": "collaboratore-trice-vendite-amministrazione-e-servizio-clienti-coop-genossenschaft-st-gallen",
         "en": "sales-administration-and-customer-service-associate-coop-genossenschaft-st-gallen",
         "de": "mitarbeteiter-in-verkauf-administration-und-kundendienst-coop-city-st-gallen-knjuk0",
         "fr": "collaborateur-dans-la-vente-l-administration-et-le-service-apres-vente-coop-genossenschaft-st-gallen"
@@ -8160,7 +8160,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeteiter-in-verkauf-administration-und-kundendienst-coop-city-st-gallen"
+          "mitarbeteiter-in-verkauf-administration-und-kundendienst-coop-city-st-gallen",
+          "mitarbeteiter-in-vendita-administration-e-kundendienst-coop-city-st-gallen-knjuk0"
         ],
         "en": [
           "mitarbeteiter-in-sales-administration-und-kundendienst-coop-city-st-gallen-knjuk0"
@@ -8172,7 +8173,8 @@
       "previousSlugs": [
         "mitarbeteiter-in-sales-administration-und-kundendienst-coop-city-st-gallen-knjuk0",
         "mitarbeteiter-in-vente-administration-und-kundendienst-coop-city-st-gallen-knjuk0",
-        "mitarbeteiter-in-verkauf-administration-und-kundendienst-coop-city-st-gallen"
+        "mitarbeteiter-in-verkauf-administration-und-kundendienst-coop-city-st-gallen",
+        "mitarbeteiter-in-vendita-administration-e-kundendienst-coop-city-st-gallen-knjuk0"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -9325,7 +9327,7 @@
     },
     {
       "id": "company-82lav7",
-      "slug": "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh",
+      "slug": "addetto-a-alla-vendita-food-con-responsabilita-giornaliera-coop-genossenschaft-lutzelfluh",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food mit Tagesverantwortung",
       "location": "Lützelflüh",
@@ -9368,7 +9370,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-con-tagesverantwortung-coop-lutzelfluh-82lav7",
+        "it": "addetto-a-alla-vendita-food-con-responsabilita-giornaliera-coop-genossenschaft-lutzelfluh",
         "en": "seller-food-with-daily-responsibility-coop-genossenschaft-lutzelfluh-af7828",
         "de": "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh-82lav7",
         "fr": "vendeur-alimentation-avec-responsabilite-quotidienne-coop-genossenschaft-lutzelfluh"
@@ -9408,10 +9410,16 @@
         ],
         "fr": [
           "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh-82lav7"
+        ],
+        "it": [
+          "verkaufer-in-food-con-tagesverantwortung-coop-lutzelfluh-82lav7",
+          "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh-82lav7"
+        "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh-82lav7",
+        "verkaufer-in-food-con-tagesverantwortung-coop-lutzelfluh-82lav7",
+        "verkaufer-in-food-mit-tagesverantwortung-coop-lutzelfluh"
       ]
     },
     {

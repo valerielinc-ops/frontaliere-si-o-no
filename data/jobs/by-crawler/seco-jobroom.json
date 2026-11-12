@@ -66577,10 +66577,10 @@
     },
     {
       "id": "seco-jobroom-12495ab5-fc26-4f62-82b0-7e90248cd673",
-      "slug": "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5",
+      "slug": "addetto-a-alle-pulizie-30-ecole-professionnelle-commerciale-et-artisanale-de-sion-epca-sion-12495ab5",
       "slugByLocale": {
-        "it": "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5",
-        "en": "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5",
+        "it": "addetto-a-alle-pulizie-30-ecole-professionnelle-commerciale-et-artisanale-de-sion-epca-sion-12495ab5",
+        "en": "cleaning-employee-30-ecole-professionnelle-commerciale-et-artisanale-de-sion-epca-sion-12495ab5",
         "de": "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5",
         "fr": "emplois-de-reseau-30-ecole-professionnelle-commerciale-et-artisanale-de-sion-epca-sion-12495ab5"
       },
@@ -66646,7 +66646,18 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T09:38:17.292Z"
+      "translationHoldReleasedAt": "2026-11-12T17:58:10.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5"
+        ],
+        "en": [
+          "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-nettoyage-30-ecole-professionnelle-commerciale-et-artisanale-de-12495ab5"
+      ]
     },
     {
       "id": "seco-jobroom-12d54d9a-c568-4d07-964c-6016c1f3d1f1",
@@ -72552,7 +72563,7 @@
       "slug": "chef-de-rang-ristorante-fiorentina-locarno-9b03f1b9",
       "slugByLocale": {
         "it": "chef-de-rang-ristorante-fiorentina-locarno-9b03f1b9",
-        "en": "chef-de-rang-ristorante-fiorentina-locarno-9b03f1b9",
+        "en": "station-waiter-ristorante-fiorentina-locarno-9b03f1b9",
         "de": "chef-de-rang-ristorante-fiorentina-locarno-9b03f1b9",
         "fr": "chef-de-rang-ristorante-fiorentina-locarno-9b03f1b9"
       },
@@ -176782,7 +176793,7 @@
         "it": "conto-chiave-e-responsabile-dello-sviluppo-del-mercato-bilingue-fr-de-100-albedis-sion-b9dee9bc",
         "en": "key-account-market-development-manager-bilingue-fr-de-100-albedis-sion-b9dee9bc",
         "de": "key-account-market-development-manager-bilingue-fr-de-100-albedis-sion-b9dee9bc",
-        "fr": "key-account-market-development-manager-bilingue-fr-de-100-albedis-sion-b9dee9bc"
+        "fr": "responsable-grands-comptes-et-developpement-marche-bilingue-fr-de-100-albedis-sion-b9dee9bc"
       },
       "slugDisambiguator": "b9dee9bc",
       "company": "Albedis",
@@ -176834,6 +176845,9 @@
       "previousSlugsByLocale": {
         "it": [
           "key-account-market-development-manager-bilingue-fr-de-100-albedis-sion-b9dee9bc"
+        ],
+        "fr": [
+          "key-account-market-development-manager-bilingue-fr-de-100-albedis-sion-b9dee9bc"
         ]
       },
       "needsRetranslation": true,
@@ -176854,8 +176868,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T09:38:17.292Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "translationHoldReleasedAt": "2026-11-12T17:58:10.552Z"
     },
     {
       "id": "seco-jobroom-9b68a3f7-8a9c-4ceb-bc69-5856c34a69dc",
@@ -203917,9 +203931,9 @@
     },
     {
       "id": "seco-jobroom-9fca0f94-d2c1-49b2-afa7-fab4bea7fc4e",
-      "slug": "spezialist-in-netzwirtschaft-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94",
+      "slug": "specialista-in-economia-di-rete-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94",
       "slugByLocale": {
-        "it": "spezialist-in-netzwirtschaft-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94",
+        "it": "specialista-in-economia-di-rete-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94",
         "en": "network-regulatory-accounting-specialist-80-100-repower-ag-landquart-9fca0f94",
         "de": "spezialist-in-netzwirtschaft-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94",
         "fr": "specialiste-en-economie-de-reseau-et-comptabilite-reglementaire-80-100-repower-ag-landquart-9fca0f94"
@@ -203986,8 +204000,16 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T09:38:17.292Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "translationHoldReleasedAt": "2026-11-12T17:58:10.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-netzwirtschaft-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-netzwirtschaft-regulatory-accounting-80-100-repower-ag-landquart-9fca0f94"
+      ]
     },
     {
       "id": "seco-jobroom-b4511e58-1c41-46ea-849b-c92b0ed1922d",
@@ -204082,8 +204104,8 @@
       "streetAddress": "Via Crusch 8",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T09:38:17.292Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "translationHoldReleasedAt": "2026-11-12T17:58:10.552Z"
     },
     {
       "id": "seco-jobroom-cf2f0494-fc52-49fb-bb20-fa2d5365375f",

@@ -3867,9 +3867,9 @@
     },
     {
       "id": "srg-ssr-783b2c576a8e",
-      "slug": "praktikant-in-news-inland-srg-ssr-zurich",
+      "slug": "tirocinante-news-nazionali-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "praktikant-in-news-inland-srg-ssr-zurich",
+        "it": "tirocinante-news-nazionali-srg-ssr-zurich",
         "en": "intern-news-domestic-srg-ssr-zurich",
         "de": "praktikant-in-news-inland-srg-ssr-zurich",
         "fr": "praktikant-in-news-inland-srg-ssr-zurich"
@@ -3950,7 +3950,15 @@
       "addressRegion": "ZH",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:18:09.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-news-inland-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-news-inland-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-66e43c127286",

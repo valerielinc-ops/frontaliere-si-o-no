@@ -17724,10 +17724,10 @@
     },
     {
       "id": "jumbo-d9f34990-1a6",
-      "slug": "verkaufsberater-in-garten-jumbo-laupen-2",
+      "slug": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "it": "verkaufsberater-in-garten-jumbo-laupen-2",
+        "it": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
         "en": "garden-sales-consultant-jumbo-laupen-146621",
         "fr": "conseiller-de-vente-dans-le-jardin-jumbo-laupen-146621"
       },
@@ -17805,14 +17805,22 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-12T09:20:44.105Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-laupen-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen-2"
+      ]
     },
     {
       "id": "jumbo-bb730da8-f7e",
-      "slug": "verkaufsberater-in-garten-jumbo-laupen-01fade3d89",
+      "slug": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen-78b9ab",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "it": "verkaufsberater-in-garten-jumbo-laupen-01fade3d89",
+        "it": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen-78b9ab",
         "en": "garden-sales-consultant-jumbo-laupen",
         "fr": "conseiller-de-vente-dans-le-jardin-jumbo-laupen"
       },
@@ -17875,11 +17883,13 @@
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen"
+        "verkaufsberater-in-garten-jumbo-laupen",
+        "verkaufsberater-in-garten-jumbo-laupen-01fade3d89"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garten-jumbo-laupen"
+          "verkaufsberater-in-garten-jumbo-laupen",
+          "verkaufsberater-in-garten-jumbo-laupen-01fade3d89"
         ],
         "en": [
           "verkaufsberater-in-garten-jumbo-laupen"
