@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-11-11T21:18:50.941Z",
+  "generatedAt": "2026-11-12T09:25:39.267Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -13,10 +13,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5991,
-  "avgDurationMs": 5991,
+  "durationMs": 6126,
+  "avgDurationMs": 6126,
   "durationHistory": [
-    5991
+    6126
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,7 +43,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-30T21:18:34.629Z",
+      "validThrough": "2026-12-30T09:25:20.886Z",
       "id": "a-group-b849e7fb9f65",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -55,7 +55,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:18:34.629Z",
+      "crawledAt": "2026-11-12T09:25:20.886Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -88,7 +88,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-30T21:18:34.629Z",
+      "validThrough": "2026-12-30T09:25:20.886Z",
       "id": "a-group-cf1b4e6d7133",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -100,7 +100,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:18:34.629Z",
+      "crawledAt": "2026-11-12T09:25:20.886Z",
       "crawledAtSource": "slice-writer",
       "needsRetranslation": true,
       "_qualityScore": 97,
@@ -137,7 +137,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-11T21:18:34.629Z",
+      "validThrough": "2026-12-12T09:25:20.886Z",
       "id": "a-group-3ed7b9973902",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -149,7 +149,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:18:34.629Z",
+      "crawledAt": "2026-11-12T09:25:20.886Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-30T21:18:34.629Z",
+      "validThrough": "2026-12-30T09:25:20.886Z",
       "id": "a-group-f6cc88ac0649",
       "needsRetranslation": true,
       "salaryMin": 69500,
@@ -195,7 +195,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:18:34.629Z",
+      "crawledAt": "2026-11-12T09:25:20.886Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -228,7 +228,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-11T21:18:34.629Z",
+      "validThrough": "2026-12-12T09:25:20.886Z",
       "id": "a-group-555f4c55dbc7",
       "salaryMin": 73000,
       "salaryMax": 121500,
@@ -240,7 +240,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-11T21:18:34.629Z",
+      "crawledAt": "2026-11-12T09:25:20.886Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -251,5 +251,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
 }
