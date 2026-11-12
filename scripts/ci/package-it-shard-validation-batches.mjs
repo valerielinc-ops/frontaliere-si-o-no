@@ -6,6 +6,19 @@ import { realpathSync } from 'node:fs';
 import { validateItShardGroupPlan } from './it-shard-group-plan.mjs';
 import { sectionBatch } from './shard-content-manifest.mjs';
 
+// The section tars add up to most of the runner disk: copying them into the
+// batch dirs doubled that and died with ENOSPC on publish run 43237316438.
+// A hard link adds no bytes and leaves the source tar in place for later steps;
+// only a cross-device layout falls back to a copy.
+export function linkOrCopy(source, target) {
+  try {
+    fs.linkSync(source, target);
+  } catch (error) {
+    if (error?.code !== 'EXDEV' && error?.code !== 'EPERM') throw error;
+    fs.copyFileSync(source, target);
+  }
+}
+
 export function packageItShardValidationBatches({ planFile, tarDir, outDir }) {
   const plan = JSON.parse(fs.readFileSync(planFile, 'utf8'));
   const verdict = validateItShardGroupPlan(plan);
@@ -26,7 +39,7 @@ export function packageItShardValidationBatches({ planFile, tarDir, outDir }) {
   for (const [batch, files] of batches) {
     const dir = path.join(outDir, String(batch));
     fs.mkdirSync(dir, { recursive: true });
-    for (const file of files) fs.copyFileSync(file, path.join(dir, path.basename(file)));
+    for (const file of files) linkOrCopy(file, path.join(dir, path.basename(file)));
   }
   const summary = Object.fromEntries([...batches].map(([batch, files]) => [batch, files.map((file) => path.basename(file))]));
   console.log(JSON.stringify(summary));

@@ -189,6 +189,42 @@ describe('IT section shard group plan', () => {
     }
   });
 
+  it('hard-links the section tars into batch dirs instead of copying them (ENOSPC, run 43237316438)', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-validation-batches-link-'));
+    const tarDir = path.join(temp, 'tars');
+    const outDir = path.join(temp, 'out');
+    fs.mkdirSync(tarDir, { recursive: true });
+    const tar = path.join(tarDir, 'ticino-dist-it.tar');
+    fs.writeFileSync(tar, 'tar-bytes');
+    const planFile = path.join(temp, 'plan.json');
+    fs.writeFileSync(planFile, JSON.stringify({
+      schemaVersion: 1,
+      kind: 'it-shard-push-group-plan',
+      sourceRunId: '12345',
+      sourceSha: 'a'.repeat(40),
+      buildId: '98765',
+      requiredSections: ['ticino'],
+      groups: IT_SHARD_GROUP_IDS.map((id) => ({
+        id,
+        sections: id === 'small-1' ? ['ticino'] : [],
+        files: id === 'small-1' ? 1 : 0,
+      })),
+    }));
+
+    try {
+      const summary = packageItShardValidationBatches({ planFile, tarDir, outDir });
+      const batch = Object.entries(summary).find(([, files]) => (files as string[]).includes('ticino-dist-it.tar'))?.[0];
+      expect(batch).toBeDefined();
+      const linked = path.join(outDir, String(batch), 'ticino-dist-it.tar');
+      expect(fs.readFileSync(linked, 'utf8')).toBe('tar-bytes');
+      // Same inode: no extra bytes on the runner disk, and the source tar stays.
+      expect(fs.statSync(linked).ino).toBe(fs.statSync(tar).ino);
+      expect(fs.existsSync(tar)).toBe(true);
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('fails final assembly when jq cannot read the required section set', () => {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'it-shard-assembly-jq-failure-'));
     const runnerTemp = path.join(temp, 'runner');
