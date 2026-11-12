@@ -108,7 +108,7 @@ describe('typecheck heap comparison contract (#18199)', () => {
         { encoding: 'utf8', timeout: 5000 },
       );
       expect(result.status).toBe(2);
-      expect(result.stderr).toContain('non apribile in lettura/scrittura');
+      expect(result.stderr).toContain('richiede accesso privilegiato per il reset');
     } finally {
       fs.rmSync(cgroupDir, { recursive: true, force: true });
     }
