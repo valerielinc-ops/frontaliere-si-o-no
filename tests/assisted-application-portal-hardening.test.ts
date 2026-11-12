@@ -10,7 +10,9 @@ import {
   isNonCvDocumentLabel,
   applicationEntryControls,
   formPostingMatch,
+  hasVacancySpecificPostingEvidence,
   hasApplicationSurface,
+  applicationEntryCarriesPostingId,
   initialPortalHandoffReason,
   namesAnotherEmployer,
   pageControls,
@@ -818,6 +820,69 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }, 'umantis')).toBe(false);
   });
 
+  // Bank Cler, 8BhQom09 run 42990198426 (2026-11-11): the order's channel is the employer's career site, whose
+  // Apply opens the bank's Umantis tenant; its Application/New form asks for the login e-mail and a new password
+  // with the application, has technical field names (form_dataNN) and asks for «Zeugnisse/Diplome», not a cover
+  // letter. The runner took it for a sign-in page and stopped with portal:account (no_create_button).
+  // Rebuilt from the form's captions: no candidate data.
+  it('recognizes an Umantis account/application step reached from the employer site, with certificates instead of a letter', () => {
+    const field = (id: string, kind: string, label: string, extra: Record<string, unknown> = {}) => ({
+      id, kind, inputType: kind === 'textarea' ? 'textarea' : kind, name: `form_data${id}`, label, form: 0,
+      context: 'Ruolo di esempio (f/m) - Bewerbung', ...extra,
+    });
+    const snapshot = {
+      url: 'https://recruitingapp-1234.umantis.com/Vacancies/567/Application/New/1',
+      text: 'Ruolo di esempio (f/m) - Bewerbung\nLogin\nKlicke auf Login, wenn du dein Profil bereits früher online hinterlegt hast.',
+      passwordVisible: true,
+      fields: [
+        field('6', 'file', 'Foto'),
+        field('8', 'text', 'Vorname', { required: true }),
+        field('9', 'text', 'Nachname', { required: true }),
+        field('10', 'text', 'Geburtsdatum'),
+        field('12', 'text', 'E-Mail-Adresse/Login', { required: true }),
+        field('15', 'text', 'Passwort', { inputType: 'password', autocomplete: 'off', required: true }),
+        field('18', 'text', 'Strasse', { required: true }),
+        field('19', 'text', 'Hausnummer', { required: true }),
+        field('20', 'text', 'PLZ', { required: true }),
+        field('21', 'text', 'Ort', { required: true }),
+        field('22', 'select', 'Land', { required: true }),
+        field('23', 'text', 'Mobiltelefon', { required: true }),
+        field('28', 'file', 'Lebenslauf', { required: true }),
+        field('29', 'file', 'Zeugnisse/Diplome', { required: true }),
+        field('30', 'file', 'Weitere Unterlagen'),
+        field('38', 'textarea', 'Anmerkungen zur Bewerbung'),
+      ],
+      buttons: [{ text: 'Weiter' }],
+      links: [{ text: 'Login' }],
+    };
+
+    expect(authPageKind(snapshot)).toBe('sign_in');
+    expect(sendsApplication(snapshot)).toBe(false);
+    expect(ownAccountForm(snapshot, 'employer_site')).toBe(true);
+    expect(ownAccountForm(snapshot, 'umantis')).toBe(true);
+    // Another channel, or none, keeps its own rules.
+    expect(ownAccountForm(snapshot)).toBe(false);
+    expect(ownAccountForm(snapshot, 'successfactors')).toBe(false);
+    // Only the Umantis application route, over https.
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('recruitingapp-1234.umantis.com', 'careers.example.org') }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('/Application/New/1', '/Login') }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({ ...snapshot, url: snapshot.url.replace('https:', 'http:') }, 'employer_site')).toBe(false);
+    // A sign-in password is never a new account's.
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.map(item => item.label === 'Passwort' ? { ...item, label: 'Aktuelles Passwort' } : item),
+    }, 'employer_site')).toBe(false);
+    // The applicant's details are read from the caption, not hidden by the technical name beside it.
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(item => !['Geburtsdatum', 'PLZ'].includes(item.label)),
+    }, 'employer_site')).toBe(false);
+    expect(ownAccountForm({
+      ...snapshot,
+      fields: snapshot.fields.filter(item => item.label !== 'Geburtsdatum'),
+    }, 'employer_site')).toBe(true);
+  });
+
   it('recognizes the live EOC Umantis profile step without street or country fields', () => {
     const snapshot = {
       url: 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4',
@@ -1541,5 +1606,137 @@ describe('translated historical answer identity', () => {
       portalQuestions: [question], draft: { portalAnswers: { answers: [{ answerId: 'portal_english_fluency_old', question: 'English fluency?', answer: 'Professional' }] } } });
     expect(candidate.portalQuestionsAnswered).toEqual([expect.objectContaining({ answerId: 'portal_english_fluency_old', answer: 'Professional' })]);
     expect(candidateAnswerForField(candidate, { label: question.question, kind: 'select', options: question.options.map(label => ({ label })) })).toEqual({ value: 'Professional', source: 'answers' });
+  });
+});
+
+describe('portal: identity on an exact posting route without a heading', () => {
+  const job = { company: 'Azienda Esempio SA', title: 'Project Manager' };
+  const postingUrl = 'https://jobs.example.test/jobs/01234567-89ab-cdef-0123-456789abcdef/details/';
+  const route = { pageUrl: postingUrl, postingUrl };
+  const pageText = `open navigation\n${job.company}\nDescrizione del ruolo\n${job.title}`;
+
+  it('uses the matching document title when the route has no h1 and ignores leading navigation chrome', () => {
+    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: job.title })).toBe(false);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, pageTitle: job.title, uniqueApplicationEntryProven: true,
+    })).toBe(true);
+  });
+
+  it.each([
+    'open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content',
+    'Zum Hauptinhalt springen', 'Salta al contenuto', 'Aller au contenu',
+  ])
+  ('does not treat the «%s» row as an employer title candidate', (navigationLabel) => {
+    const pageText = `${navigationLabel}
+${job.company}
+${job.title}`;
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, uniqueApplicationEntryProven: true,
+    })).toBe(true);
+  });
+
+  it('rejects a different document title, another h1, and another employer in the page text', () => {
+    expect(hasVacancySpecificPostingEvidence(pageText, job, { ...route, pageTitle: 'Office Coordinator' })).toBe(false);
+    expect(hasVacancySpecificPostingEvidence(pageText, job, {
+      ...route, pageTitle: job.title, pageHeading: 'Office Coordinator',
+    })).toBe(false);
+    const otherEmployerJob = { company: 'Grand Hotel Esempio', title: 'Concierge' };
+    expect(hasVacancySpecificPostingEvidence('open navigation\nCONCIERGE | HOTEL SPLENDIDE', otherEmployerJob, {
+      ...route, pageTitle: otherEmployerJob.title,
+    })).toBe(false);
+  });
+
+  it('recognizes only standalone Italian application labels', () => {
+    for (const label of ['Applica', 'Applica ora', 'Applica adesso', 'Applica subito']) {
+      expect(startsApplication(label)).toBe(true);
+    }
+    expect(startsApplication('Si applica il CCL')).toBe(false);
+  });
+
+  it('does not read an Italian application label in the vacancy card as another employer', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUrl = `https://jobs.example.test/jobs/${uuid}/details/`;
+    const entry = {
+      text: 'Applica ora',
+      href: `https://apply.example.test/${uuid}/apply`,
+      vacancyContext: 'Grand Hotel Esempio Concierge Host (m/w/d) Applica ora',
+      frame: 0,
+    };
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [],
+      links: [entry],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Concierge Host (m/w/d)',
+      job: { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([entry]);
+  });
+
+  it('binds a full UUID posting segment and rejects a different UUID', () => {
+    const uuid = '11111111-2222-3333-4444-555555555555';
+    const otherUuid = 'fedcba98-7654-3210-fedc-ba9876543210';
+    const addressedPosting = `https://jobs.example.test/jobs/${uuid}`;
+    expect(applicationEntryCarriesPostingId(`https://apply.example.test/${uuid}/apply`, addressedPosting)).toBe(true);
+    expect(applicationEntryCarriesPostingId(`https://apply.example.test/${otherUuid}/apply`, addressedPosting)).toBe(false);
+    expect(applicationEntryCarriesPostingId('https://apply.example.test/555555555555/apply', addressedPosting)).toBe(false);
+  });
+
+  it('normalizes explicit posting ids before matching apply-link ids', () => {
+    expect(applicationEntryCarriesPostingId(
+      'https://ats.example.test/apply/?postingid=AbC',
+      'https://jobs.example.test/role/?postingid=AbC',
+    )).toBe(true);
+  });
+
+  it('does not bind an ATS link to a tenant UUID when the posting route has a later requisition UUID', () => {
+    const tenantUuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUuid = '11111111-2222-3333-4444-555555555555';
+    const otherPostingUuid = '66666666-7777-8888-9999-aaaaaaaaaaaa';
+    const postingUrl = `https://jobs.example.test/${tenantUuid}/${postingUuid}`;
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/apply/${tenantUuid}/${otherPostingUuid}`,
+      postingUrl,
+    )).toBe(false);
+    expect(applicationEntryCarriesPostingId(`https://ats.example.test/apply/${postingUuid}`, postingUrl)).toBe(true);
+  });
+
+  it('fails closed when a posting or its apply link has more than 128 route segments', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const deepPath = Array.from({ length: 129 }, (_, index) => `route${index}`).join('/');
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/apply/${uuid}`,
+      `https://jobs.example.test/${deepPath}/${uuid}`,
+    )).toBe(false);
+    expect(applicationEntryCarriesPostingId(
+      `https://ats.example.test/${deepPath}/${uuid}`,
+      `https://jobs.example.test/${uuid}`,
+    )).toBe(false);
+  });
+
+  it('ignores oversized vacancy context before constructing label-matching expressions', () => {
+    const uuid = '01234567-89ab-cdef-0123-456789abcdef';
+    const postingUrl = `https://jobs.example.test/jobs/${uuid}`;
+    const entry = {
+      text: 'Applica ora',
+      href: 'https://apply.example.test/apply',
+      vacancyContext: `Grand Hotel Esempio Concierge Host (m/w/d)${' extra'.repeat(120)} Applica ora`,
+      frame: 0,
+    };
+    expect(applicationEntryControls({
+      url: postingUrl,
+      fields: [],
+      buttons: [],
+      links: [entry],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Concierge Host (m/w/d)',
+      job: { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
   });
 });

@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+  'whatsNew.v31011.title': 'Zuverlässigere unterstützte Bewerbungen',
+  'whatsNew.v31011.swissEgress.title': 'Ein anderer Weg für unerreichbare Formulare',
+  'whatsNew.v31011.swissEgress.desc': 'Bleibt das Formular einer bestätigten Stelle nach zwei Versuchen aus dem Cloud-Netz unerreichbar, kann die Bewerbung über eine Schweizer Verbindung fortgesetzt werden.',
   'whatsNew.v31010.title': 'Klarere Motive für die Arbeit in der Schweiz',
   'whatsNew.v31010.houseAds.title': 'Ein passendes Motiv für jeden Platz',
   'whatsNew.v31010.houseAds.desc': 'Wenn eine bezahlte Anzeige den Platz nicht ausfüllt, kann dort eine Werbung für unseren Schweizer Stellensuchservice erscheinen. Bilder und kurze Texte passen sich an Smartphone und Desktop an; verschiedene Varianten lassen sich vergleichen.',

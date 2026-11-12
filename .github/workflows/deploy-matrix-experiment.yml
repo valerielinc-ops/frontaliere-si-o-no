@@ -10,9 +10,8 @@
 # leaves BUILD_LOCALE unset, measuring the proposed single-process four-locale
 # build on the production-sized runner.
 #
-# SAFETY: normal use is manual (workflow_dispatch); the temporary push trigger
-# below is restricted to the issue-fix branch that needs this pre-merge
-# measurement. It NEVER pushes to the production shard repos
+# SAFETY: this workflow is manual (workflow_dispatch) only. It NEVER pushes to
+# the production shard repos
 # (frontaliere-{en,de,fr}/cdn) and NEVER touches GitHub Pages — it builds,
 # validates, reports timing, and discards the output. The live deploy.yml is
 # completely untouched.
@@ -61,9 +60,6 @@
 name: Deploy Matrix Experiment (per-locale, no deploy)
 
 on:
-  push:
-    branches:
-      - fix/issue-18066
   workflow_dispatch:
     inputs:
       locales:
@@ -233,11 +229,6 @@ jobs:
           VARIANTS_INPUT: ${{ inputs.variants }}
         run: |
           set -euo pipefail
-          if [[ "${GITHUB_EVENT_NAME:-}" == 'push' && "${GITHUB_REF_NAME:-}" == 'fix/issue-18066' ]]; then
-            export LOCALES_INPUT='it,en,de,fr'
-            export ALL_LOCALES_INPUT='true'
-            export VARIANTS_INPUT=$'baseline=JOBS_SEO_HTML_GC_INTERVAL_MB=1024\ncandidate=JOBS_SEO_HTML_GC_INTERVAL_MB=512'
-          fi
           JSON="$(node scripts/ci/matrix-experiment-variants.mjs)"
           echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
           node --input-type=module -e '
@@ -660,6 +651,8 @@ jobs:
       - name: Fingerprint jobs SEO renderer for HTML cache
         if: env.JOBS_SEO_REUSE == '1'
         id: jobs-seo-html-fingerprint
+        env:
+          JOBS_SEO_HTML_CACHE_LOCALE: ${{ matrix.locale }}
         shell: bash
         run: node scripts/ci/jobs-seo-html-cache-fingerprint.mjs >> "$GITHUB_OUTPUT"
 
@@ -679,7 +672,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: .cache/incremental-html
-          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+          key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}
 
       - name: Document chained cache restores
         if: always()

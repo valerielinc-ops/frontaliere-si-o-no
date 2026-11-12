@@ -1,7 +1,8 @@
 /** Retry only a definite infrastructure failure, never an uncertain send or a hard rejection. */
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 
-const NAVIGATION_FAILURE = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_(?:RESET|CLOSED|REFUSED|TIMED_OUT)|ERR_(?:ADDRESS_UNREACHABLE|NETWORK_ACCESS_DENIED|NETWORK_CHANGED|INTERNET_DISCONNECTED|TIMED_OUT)|\b(?:ENETUNREACH|EHOSTUNREACH|ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT)\b|page\.goto:[\s\S]*?Timeout/i;
+const CHROME_ERROR_PAGE = /(?:^|[\s"'(])chrome-error:\/\//i;
+const NAVIGATION_FAILURE = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_[A-Z0-9_]+|ERR_(?:ADDRESS_UNREACHABLE|NETWORK_ACCESS_DENIED|NETWORK_CHANGED|INTERNET_DISCONNECTED|TIMED_OUT)|\b(?:ENETUNREACH|EHOSTUNREACH|ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT)\b|page\.goto:[\s\S]*?Timeout/i;
 const PERMANENT_EMAIL_FAILURE = /invalid.{0,25}(?:recipient|email|address)|(?:recipient|address).{0,25}(?:invalid|suppressed|blocked)|suppression|complaint|hard.bounce/i;
 const TRANSIENT_EMAIL_FAILURE = /(?:maileroo|resend)\s+(?:408|425|429|5\d\d)\b|quota exhausted|cooling down|not configured|no (?:email )?providers configured/i;
 
@@ -11,12 +12,20 @@ export function emailInfrastructureFailure(failure) {
   return !PERMANENT_EMAIL_FAILURE.test(error) && TRANSIENT_EMAIL_FAILURE.test(error);
 }
 
-export function navigationInfrastructureFailure(error) {
-  const text = [error?.message, error?.code, error?.cause?.message, error?.cause?.code, error]
+function navigationDiagnosticText(error) {
+  return [error?.message, error?.code, error?.cause?.message, error?.cause?.code, error]
     .filter(value => value != null)
     .map(String)
     .join(' ');
-  return NAVIGATION_FAILURE.test(text);
+}
+
+export function chromeErrorPageFailure(error) {
+  return CHROME_ERROR_PAGE.test(navigationDiagnosticText(error));
+}
+
+export function navigationInfrastructureFailure(error) {
+  const text = navigationDiagnosticText(error);
+  return CHROME_ERROR_PAGE.test(text) || NAVIGATION_FAILURE.test(text);
 }
 
 /** Legacy normalization also requires the caller to verify payment and approval. */

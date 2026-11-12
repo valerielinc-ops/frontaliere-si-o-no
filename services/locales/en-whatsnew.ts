@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31011.title': 'More reliable assisted applications',
+  'whatsNew.v31011.swissEgress.title': 'Another route for unreachable forms',
+  'whatsNew.v31011.swissEgress.desc': 'If the form for a verified listing stays unreachable from the cloud network after two attempts, the application can continue through a Swiss connection.',
   'whatsNew.v31010.title': 'Clearer creatives for working in Switzerland',
   'whatsNew.v31010.houseAds.title': 'A format for each available space',
   'whatsNew.v31010.houseAds.desc': 'When a paid ad does not fill its space, a promotion for our job-search service may appear. Images and copy adapt to mobile and desktop, with variants that help compare results.',

@@ -30,6 +30,15 @@ const openPosting = (sentence: string) => `<main><h1>Sachbearbeiterin / Sachbear
 <a href="/apply" class="btn">Jetzt bewerben</a></main>`;
 
 describe('a posting whose post has been filled', () => {
+  it('recognizes the standalone Italian apply label without treating ordinary prose as a control', () => {
+    expect(classifyLiveness({ status: 200, bodyText: padding('Contenuto'), applyControls: ['Applica'] }))
+      .toMatchObject({ result: 'active', code: 'apply_control_visible' });
+    expect(classifyLiveness({ status: 200, bodyText: padding('Contenuto'), applyControls: ['Applica ora'] }))
+      .toMatchObject({ result: 'active', code: 'apply_control_visible' });
+    expect(classifyLiveness({ status: 200, bodyText: padding('Contenuto'), applyControls: ['Si applica il CCL'] }))
+      .toMatchObject({ result: 'uncertain', code: 'no_apply_control' });
+  });
+
   it('reads Stadt Zürich\'s filled posting page as a certain closure', () => {
     const page = pageOf(STZH_FILLED);
     expect(page).toMatchObject({ result: 'expired', code: 'expired_body' });

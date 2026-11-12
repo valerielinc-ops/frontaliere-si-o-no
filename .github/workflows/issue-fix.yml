@@ -1441,8 +1441,9 @@ jobs:
           # rimedio. Con checkout v6+ (qui v7) l'header sta in un file incluso via
           # `includeIf.gitdir:…`, che un `git config --unset-all …extraheader` non
           # vede: lo helper toglie entrambe le forme e fallisce se ne resta una.
-          # Qui l'albero è ancora il checkout di main (prima del lane Codex), quindi
-          # lo helper versionato è codice fidato.
+          # Il resume può però avere materializzato un checkpoint nato prima dello
+          # helper: non eseguire codice dal branch stale. Verifica e leggi la copia
+          # fidata da origin/main, già disponibile nel checkout fetch-depth=0.
           #
           # L'identità di push resta la App ogni volta che il token esiste: serve a far
           # ri-triggerare i workflow a valle (`<app>[bot]` ≠ `github-actions[bot]`), ed è
@@ -1457,7 +1458,11 @@ jobs:
           # `github_token` alimenta gli helper provider-neutral dell'action: non è una
           # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
-            bash scripts/lib/clear-checkout-git-credentials.sh
+            if ! git cat-file -e origin/main:scripts/lib/clear-checkout-git-credentials.sh 2>/dev/null; then
+              echo "::error::helper credenziali non disponibile su origin/main: impossibile configurare il push in modo sicuro" >&2
+              exit 1
+            fi
+            git show origin/main:scripts/lib/clear-checkout-git-credentials.sh | bash
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
             if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
               echo "push identity: GitHub App (scope workflows CONFERMATO dalla risposta API)"

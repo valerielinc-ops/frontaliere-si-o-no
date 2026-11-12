@@ -13709,6 +13709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumenti-stipendi-frontalieri-2027.title': 'Gehälter von Grenzgängern 2027: Nominale Steigerung um 1 % laut UBS',
     'blog.article.aumenti-stipendi-frontalieri-2027.excerpt': 'Für 2027 wird erwartet, dass die Löhne der Grenzgänger in der Schweiz nominal um 1 % steigen werden.',
     'blog.article.aumenti-stipendi-frontalieri-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.como-rinnovo-illuminazione-varese.title': 'Como erneuert die Beleuchtung der Viale Varese – Projekt im Wert von 80mila euro',
+    'blog.article.como-rinnovo-illuminazione-varese.excerpt': 'Die Stadtverwaltung von Como hat das Projekt zur Erneuerung der öffentlichen Beleuchtung entlang zweier Abschnitte der Viale Varese offiziell gestartet.',
+    'blog.article.como-rinnovo-illuminazione-varese.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

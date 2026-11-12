@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T19:07:46.529Z",
+  "generatedAt": "2026-11-12T06:07:18.880Z",
   "totalEvents": 16849,
   "events": [
     {
@@ -392616,6 +392616,13 @@
         "@type": "Organization",
         "name": "d'Wärchi Kreativatelier"
       },
+      "previousRoutes": [
+        {
+          "canton": "NW",
+          "comune": "Stans",
+          "slug": "dwarchi-offenes-atelier-mittwochnachmittag-2026-11-11-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-famiglia-bambini-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-famiglia-bambini-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -443269,7 +443276,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Locarno, l’appuntamento presenta una selezione di fotografie di Sergio Luban. Il vernissage si svolge nella sala conferenze del palazzo SES e comprende un’introduzione al lavoro dell’autore.",
+      "descriptionByLocale": {
+        "it": "A Locarno, l’appuntamento presenta una selezione di fotografie di Sergio Luban. Il vernissage si svolge nella sala conferenze del palazzo SES e comprende un’introduzione al lavoro dell’autore.",
+        "en": "This event in Locarno presents a selection of photographs by Sergio Luban. The vernissage takes place in the conference room of the SES building and includes an introduction to the artist’s work.",
+        "de": "Die Veranstaltung in Locarno zeigt eine Auswahl fotografischer Arbeiten von Sergio Luban. Die Vernissage findet im Konferenzsaal des SES-Gebäudes statt und umfasst eine Einführung in das Werk des Künstlers.",
+        "fr": "Ce rendez-vous à Locarno présente une sélection de photographies de Sergio Luban. Le vernissage a lieu dans la salle de conférence du bâtiment SES et comprend une présentation du travail de l’artiste."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ABLbQpS",
@@ -451570,7 +451585,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento teatrale si svolge al Cinema Teatro di Bellinzona ed è dedicato a una serata di varietà. Il programma combina spettacolo, magia, musica, giochi e cabaret, con la partecipazione di artisti, attori e musicisti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento teatrale si svolge al Cinema Teatro di Bellinzona ed è dedicato a una serata di varietà. Il programma combina spettacolo, magia, musica, giochi e cabaret, con la partecipazione di artisti, attori e musicisti.",
+        "en": "This theatre event takes place at Cinema Teatro in Bellinzona and follows a variety-show format. Its programme brings together performance, magic, music, games and cabaret, with artists, actors and musicians appearing on stage.",
+        "de": "Die Theaterveranstaltung findet im Cinema Teatro in Bellinzona statt und ist als Varietéabend angelegt. Auf dem Programm stehen Darbietungen, Magie, Musik, Spiele und Kabarett; zudem treten Künstler, Schauspieler und Musiker auf.",
+        "fr": "Ce rendez-vous théâtral se tient au Cinema Teatro de Bellinzone et adopte le format d’une soirée de variétés. Le programme réunit spectacle, magie, musique, jeux et cabaret, avec des artistes, des comédiens et des musiciens sur scène."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:non-demande-non-acces-penser-non-recours-lutte-contre-violences-genre",
@@ -486521,7 +486544,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È una conferenza-incontro con Yamina Saheb presso Uni Dufour, a Ginevra. L’appuntamento tratta la sobrietà come una questione di civiltà.",
+      "descriptionByLocale": {
+        "it": "È una conferenza-incontro con Yamina Saheb presso Uni Dufour, a Ginevra. L’appuntamento tratta la sobrietà come una questione di civiltà.",
+        "en": "This conference and discussion with Yamina Saheb takes place at Uni Dufour in Geneva. It explores sobriety as a matter of civilisation.",
+        "de": "Die Veranstaltung ist eine Konferenz mit Yamina Saheb im Uni Dufour in Genf. Sie behandelt Genügsamkeit als eine Frage der Zivilisation.",
+        "fr": "Cette conférence-rencontre avec Yamina Saheb se tient à Uni Dufour, à Genève. Elle aborde la sobriété comme une question de civilisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1Pu9pK",
@@ -501801,7 +501832,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento collega la danza all’esperienza della malattia di Parkinson. L’evento ricorrente si svolge al Théâtre Sévelin 36, nel cantone VD.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento collega la danza all’esperienza della malattia di Parkinson. L’evento ricorrente si svolge al Théâtre Sévelin 36, nel cantone VD.",
+        "en": "The event connects dance with the experience of Parkinson’s disease. This recurring event takes place at Théâtre Sévelin 36 in the canton of Vaud.",
+        "de": "Die Veranstaltung verbindet Tanz mit der Erfahrung der Parkinson-Krankheit. Das wiederkehrende Angebot findet im Théâtre Sévelin 36 im Kanton VD statt.",
+        "fr": "Le rendez-vous met en relation la danse et l’expérience de la maladie de Parkinson. Cet événement récurrent se déroule au Théâtre Sévelin 36, dans le canton de Vaud."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A9tHwL5",
@@ -522517,7 +522556,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone il ridoppiaggio improvvisato di dialoghi tratti da film, serie televisive e pubblicità. La serata fa parte di una seconda stagione e si svolge presso la Salle centrale de la Madeleine, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone il ridoppiaggio improvvisato di dialoghi tratti da film, serie televisive e pubblicità. La serata fa parte di una seconda stagione e si svolge presso la Salle centrale de la Madeleine, nel cantone di Ginevra.",
+        "en": "This event features improvised redubbing of dialogue from films, television series and advertisements. It is part of a second season and takes place at Salle centrale de la Madeleine in the canton of Geneva.",
+        "de": "Die Veranstaltung widmet sich dem improvisierten Neusprechen von Dialogen aus Filmen, Fernsehserien und Werbespots. Sie gehört zu einer zweiten Staffel und findet in der Salle centrale de la Madeleine im Kanton Genf statt.",
+        "fr": "Ce rendez-vous repose sur le doublage improvisé de dialogues provenant de films, de séries télévisées et de publicités. Il s’inscrit dans une deuxième saison et se tient à la Salle centrale de la Madeleine, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:10e8bb5dd23f4515b27f7b7d62f21884",
@@ -524072,7 +524119,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento offre la possibilità di sperimentare il lavoro con l’argilla in modo libero e spontaneo. Si svolge ogni primo giovedì del mese al Living Museum Lichtensteig di Lichtensteig, nel canton San Gallo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento offre la possibilità di sperimentare il lavoro con l’argilla in modo libero e spontaneo. Si svolge ogni primo giovedì del mese al Living Museum Lichtensteig di Lichtensteig, nel canton San Gallo.",
+        "en": "The event is an opportunity to try working with clay in an informal, spontaneous way. It takes place on the first Thursday of each month at the Living Museum Lichtensteig in Lichtensteig, in the canton of St. Gallen.",
+        "de": "Bei der Veranstaltung kann das Arbeiten mit Ton ungezwungen ausprobiert werden. Sie findet jeweils am ersten Donnerstag des Monats im Living Museum Lichtensteig in Lichtensteig statt.",
+        "fr": "Ce rendez-vous permet d’essayer le travail de l’argile dans un cadre libre et spontané. Il a lieu le premier jeudi de chaque mois au Living Museum Lichtensteig, à Lichtensteig, dans le canton de Saint-Gall."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvTL6QQ",
@@ -558279,7 +558334,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento inaugura la stagione presso la pista di ghiaccio di Gryon. BLUES SPIRIT è indicato come interprete dell’evento.",
+      "descriptionByLocale": {
+        "it": "L’evento inaugura la stagione presso la pista di ghiaccio di Gryon. BLUES SPIRIT è indicato come interprete dell’evento.",
+        "en": "The event opens the season at the ice rink in Gryon. BLUES SPIRIT is listed as the performer.",
+        "de": "Die Veranstaltung eröffnet die Saison in der Eishalle von Gryon. BLUES SPIRIT ist als auftretender Act aufgeführt.",
+        "fr": "L’événement marque l’ouverture de la saison à la patinoire de Gryon. BLUES SPIRIT est indiqué comme interprète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f5553dc81da849ee8bc8982178f715c1",
@@ -624304,7 +624367,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento ricorrente a Disentis è dedicato al barbecue. Comprende specialità di carne.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente a Disentis è dedicato al barbecue. Comprende specialità di carne.",
+        "en": "This recurring event in Disentis takes the form of a barbecue evening. It features meat specialties.",
+        "de": "Die wiederkehrende Veranstaltung in Disentis ist als BBQ-Abend gestaltet. Angeboten werden Fleischspezialitäten.",
+        "fr": "Ce rendez-vous récurrent à Disentis prend la forme d’une soirée barbecue. Il comprend des spécialités de viande."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d3576af77c8f463aa6d33d8998d15330",
@@ -714949,7 +715020,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wangen-Brüttisellen; cantone: ZH; categoria: Event; data: 2027-05-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Wangen-Brüttisellen; cantone: ZH; categoria: Event; data: 2027-05-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Wangen-Brüttisellen; canton: ZH; category: Event; date: 2027-05-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Wangen-Brüttisellen; kanton: ZH; kategorie: Event; datum: 2027-05-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Wangen-Brüttisellen; canton: ZH; catégorie: Event; date: 2027-05-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ApUSrhn",

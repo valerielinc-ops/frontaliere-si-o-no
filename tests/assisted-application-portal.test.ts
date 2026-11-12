@@ -4,6 +4,7 @@ import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -563,6 +564,94 @@ describe('portal link clicks', () => {
     expect(await clickPortalLink(page, link, { context })).toBe(popup);
     expect(order).toEqual(['watch', 'href', 'click']);
     expect(context.waitForEvent).toHaveBeenCalledWith('page', { timeout: 60_000 });
+  });
+
+  // ECAM, CVRDEqJ3 run 42990206160 (2026-11-11): «Inviate la vostra candidatura» opens the DocuWare form in a
+  // new window; that host accepts no connection from the GitHub runner's country, so no window ever arrived and
+  // the runner read the career page again as the form (posting_mismatch). Rebuilt without the employer's pages.
+  describe('a link that opens another window and leaves none', () => {
+    const CAREER = 'https://www.ente-esempio.ch/lavora-con-noi/';
+    const FORM = 'https://forms.ente-esempio.ch/Forms/candidatura-online?orgID=1';
+    const blankLink = (attributes: Record<string, string | null>) => ({
+      getAttribute: vi.fn(async (name: string) => attributes[name] ?? null),
+      click: vi.fn(async () => {}),
+    });
+    const neverOpens = () => ({ waitForEvent: vi.fn(() => new Promise(() => {})) });
+
+    it('opens its address in the page, where an address that does not answer fails as a navigation', async () => {
+      vi.useFakeTimers();
+      try {
+        const link = blankLink({ href: FORM, target: '_blank' });
+        const timeout = new Error('page.goto: Timeout 60000ms exceeded.');
+        const page = { url: () => CAREER, goto: vi.fn(async () => { throw timeout; }) };
+        const clicked = clickPortalLink(page, link, { context: neverOpens() });
+        const outcome = expect(clicked).rejects.toBe(timeout);
+        await vi.advanceTimersByTimeAsync(6_000);
+        await outcome;
+        expect(page.goto).toHaveBeenCalledWith(FORM, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        // The run's stop is then the transport hold, not a posting mismatch (submit.mjs navigationHandoffFor).
+        expect(navigationInfrastructureFailure(timeout)).toBe(true);
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('loads a slow address in the page when its window is late', async () => {
+      vi.useFakeTimers();
+      try {
+        let current = CAREER;
+        const link = blankLink({ href: '/Forms/apply', target: 'applicationWindow' });
+        const page = { url: () => current, goto: vi.fn(async (url: string) => { current = url; }) };
+        const clicked = clickPortalLink(page, link, { context: neverOpens() });
+        await vi.advanceTimersByTimeAsync(6_000);
+        expect(await clicked).toBeNull();
+        expect(page.goto).toHaveBeenCalledWith('https://www.ente-esempio.ch/Forms/apply', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        expect(page.url()).toBe('https://www.ente-esempio.ch/Forms/apply');
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('leaves a same-window link, a page that moved and a link without an address where they are', async () => {
+      vi.useFakeTimers();
+      try {
+        const cases = [
+          // A same-window link that opened a dialog: nothing to reopen.
+          { link: blankLink({ href: FORM, target: null }), page: { url: () => CAREER, goto: vi.fn() } },
+          { link: blankLink({ href: FORM, target: '_self' }), page: { url: () => CAREER, goto: vi.fn() } },
+          { link: blankLink({ href: FORM, target: '_top' }), page: { url: () => CAREER, goto: vi.fn() } },
+          // A script, a fragment, mail: no address to open.
+          { link: blankLink({ href: 'javascript:void(0)', target: '_blank' }), page: { url: () => CAREER, goto: vi.fn() } },
+          { link: blankLink({ href: '#apply', target: '_blank' }), page: { url: () => CAREER, goto: vi.fn() } },
+          { link: blankLink({ href: 'mailto:jobs@example.org', target: '_blank' }), page: { url: () => CAREER, goto: vi.fn() } },
+        ];
+        for (const { link, page } of cases) {
+          const clicked = clickPortalLink(page, link, { context: neverOpens() });
+          await vi.advanceTimersByTimeAsync(6_000);
+          expect(await clicked).toBeNull();
+          expect(page.goto).not.toHaveBeenCalled();
+        }
+        // The page itself moved after the click (the portal navigated it): it is not opened again.
+        let current = CAREER;
+        const moving = blankLink({ href: FORM, target: '_blank' });
+        moving.click.mockImplementation(async () => { current = FORM; });
+        const page = { url: () => current, goto: vi.fn() };
+        const clicked = clickPortalLink(page, moving, { context: neverOpens() });
+        await vi.advanceTimersByTimeAsync(6_000);
+        expect(await clicked).toBeNull();
+        expect(page.goto).not.toHaveBeenCalled();
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('returns the window when it arrives, without opening the address again', async () => {
+      const popup = { url: () => FORM };
+      const link = blankLink({ href: FORM, target: '_blank' });
+      const page = { url: () => CAREER, goto: vi.fn() };
+      expect(await clickPortalLink(page, link, { context: { waitForEvent: vi.fn(async () => popup) } })).toBe(popup);
+      expect(page.goto).not.toHaveBeenCalled();
+    });
   });
 });
 
@@ -2077,9 +2166,9 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', source: 'consent', value: '' },
+      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
     ]);
-    // What the page holds after the action counts: a dropdown set to its prompt, a required box unticked.
+    // A policy-defaultable privacy notice stays checked despite an opposing plan action; a prompt value stays blank and an optional newsletter may be cleared.
     const projected = guardPlan({
       actions: [
         { fieldId: 'p1', action: 'select', source: 'profile', value: 'Select One' },
@@ -2093,7 +2182,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'p3', kind: 'checkbox', label: 'Newsletter', required: false, checked: true },
     ], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(projected.actions).toEqual([{ fieldId: 'p3', action: 'uncheck', source: 'consent', value: '' }]);
-    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1', 'p2']);
+    expect(projected.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
     expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
     expect(holdsValue({ kind: 'text', value: '-- Seleziona --' })).toBe(false);
@@ -2101,7 +2190,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
+  it('uses policy defaults for application privacy acknowledgments and keeps marketing/fact questions', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2113,13 +2202,15 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       // server rejects the application until this agreement is checked.
       { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
     ];
-    // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
+    // umantis, 2026-10-03: the planner skipped the application privacy box; code must answer it without asking the candidate.
     const guarded = guardPlan({
       actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
-    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent'], ['c6', 'consent']]);
-    // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
+    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([
+      ['c1', 'policy_default'], ['c4', 'policy_default'], ['c5', 'policy_default'], ['c6', 'policy_default'],
+    ]);
+    // Marketing and a checkbox that also declares a candidate fact remain questions.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
     expect(ownConsent(fields[3])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);

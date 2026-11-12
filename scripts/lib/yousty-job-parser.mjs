@@ -375,7 +375,7 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
   }
 
   if (!noscriptHtml) {
-    return { description: '', applyUrl };
+    return { description: '', applyUrl, locationCandidates: [] };
   }
 
   const body = JSDOM.fragment(noscriptHtml);
@@ -398,8 +398,45 @@ export function parseYoustyApprenticeshipHtml(html, profileUrl = '') {
     description = chunks.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
   }
 
+  const workplaceHeading = Array.from(body.querySelectorAll('h2')).find((heading) =>
+    /(arbeitsort|lieu de travail|place de travail|luogo di lavoro|posto di lavoro)/i.test(
+      normalizeSpace(heading.textContent || '')
+    )
+  );
+  let workplace = '';
+  if (workplaceHeading) {
+    let current = workplaceHeading.nextElementSibling;
+    while (current && String(current.tagName || '').toLowerCase() !== 'h2') {
+      const value = htmlToTextBlock(current);
+      if (value) {
+        workplace = value;
+        break;
+      }
+      current = current.nextElementSibling;
+    }
+  }
+
+  // Yousty removed JobPosting JSON-LD from apprenticeship details in November
+  // 2026, but still renders the vacancy-specific Swiss address below its
+  // localized workplace heading. Keep this source-native boundary: a random
+  // postal-looking string elsewhere in the application shell is not evidence.
+  const address = /^(?:(.+?)(?:,\s*|\n+))?(\d{4})\s+(.+)$/s.exec(workplace);
+  const postalCode = address?.[2] || '';
+  const addressLocality = normalizeSpace(address?.[3] || '');
+  const streetAddress = normalizeSpace(address?.[1] || '');
+  const locationCandidates = address
+    ? [{
+      location: `${postalCode} ${addressLocality}`,
+      addressLocality,
+      addressCountry: 'CH',
+      postalCode,
+      ...(streetAddress ? { streetAddress } : {}),
+    }]
+    : [];
+
   return {
     description,
     applyUrl,
+    locationCandidates,
   };
 }

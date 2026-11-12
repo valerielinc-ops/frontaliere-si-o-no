@@ -104,7 +104,7 @@ jobs:
         if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off'
         uses: ./.github/actions/assemble-jobs-cache-key
         with:
-          args: --no-summaries
+          args: --active-only --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
@@ -117,7 +117,7 @@ jobs:
       - name: Assemble jobs dataset
         id: assemble
         if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off'
-        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
 
       - name: Save assemble-jobs cache
         if: env.INSTAGRAM_DAILY_SLOT_OVERRIDE != 'skip' && env.ONLY != 'article' && env.ONLY != 'border' && env.SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED == 'true' && env.SOCIAL_ROBOT_PUBLISHING_MODE != 'off' && steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'

@@ -34,7 +34,7 @@
 import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
-import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
@@ -47,6 +47,7 @@ import {
   requiresSwissEgress,
   swissEgressMark,
 } from './assistedApplicationSwissRunner.js';
+import { chromeErrorPageFailure, navigationInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
@@ -67,6 +68,29 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// Expedited dispatch for unpredicted ATS screening questions: 4 hours operator escalation
+// instead of 5 days of silent wait, preventing job posting expiration in Switzerland.
+export const URGENT_FIELD_DISPATCH_TIMEOUT_MS = 4 * 60 * 60 * 1000;
+
+/**
+ * Holds unexpected ATS fields for bounded operator review before owner escalation.
+ * The four-hour deadline uses epoch milliseconds so the normal automation sweep can deliver it.
+ * @param {object} flow
+ * @param {object} event
+ * @param {number} [nowMs]
+ * @returns {object}
+ */
+export function handleUnresolvedAtsQuestions(flow, event, nowMs = Date.now()) {
+  return {
+    ...flow,
+    state: 'operator_expedited_review',
+    heldReason: 'unpredicted_ats_field',
+    heldBy: ['unpredicted_ats_field'],
+    pendingFields: Array.isArray(event?.missingFields) ? event.missingFields.slice(0, 20) : [],
+    portalAutoRetryAt: null,
+    deadlineAt: nowMs + URGENT_FIELD_DISPATCH_TIMEOUT_MS,
+  };
+}
 // Retry clocks live in assistedApplicationPortalRetryPolicy.js. Unsupported
 // portal pages have a bounded repair window; definite infrastructure outages
 // stay in the normal queue with a capped delay until the posting closes.
@@ -115,6 +139,7 @@ export const FLOW_STATES = Object.freeze([
   'candidate_review',
   'regenerating',
   'submitting',
+  'operator_expedited_review',
   'needs_candidate_action',
   'candidate_handoff',
   'submitted',
@@ -254,8 +279,123 @@ function portalRecoveryMatchAnswerIds(flow) {
     .filter(id => typeof id === 'string' && id.length > 0 && id.length <= 160))].slice(0, 80);
 }
 
+const SWISS_NETWORK_FAILURE_KINDS = new Set(['access_blocked', 'chrome_error', 'connection_failure', 'navigation_unavailable']);
+
+function portalHost(value) {
+  const raw = typeof value === 'string'
+    ? value.trim()
+    : value && typeof value === 'object' && typeof value.origin === 'string'
+      ? `${value.origin}${typeof value.path === 'string' ? value.path : '/'}`
+      : '';
+  if (!raw) return null;
+  try {
+    const url = new URL(/^[a-z][a-z\d+.-]*:\/\//i.test(raw) ? raw : `https://${raw}`);
+    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) return null;
+    const host = url.hostname.toLowerCase().replace(/\.$/, '');
+    return /^[a-z\d.-]{1,253}$/.test(host) ? host : null;
+  } catch {
+    return null;
+  }
+}
+
+function verifiedPortalHost(draft) {
+  const contract = draft?.portalContract;
+  if (contract?.postingMatch !== 'match') return null;
+  const observedFormHost = contract.form?.observed === true ? portalHost(contract.currentUrl) : null;
+  return observedFormHost || portalHost(contract.applyUrl) || portalHost(contract.currentUrl);
+}
+
+function portalNetworkFailureKind(event) {
+  const explicit = String(event?.portalNetworkFailure?.kind || '');
+  if (SWISS_NETWORK_FAILURE_KINDS.has(explicit)) return explicit;
+  const reason = String(event?.reason || '');
+  const diagnostic = [reason, event?.error?.message, event?.error?.code, event?.error, event?.code]
+    .filter(Boolean).map(String).join(' ');
+  if (reason === 'access_blocked') return 'access_blocked';
+  if (chromeErrorPageFailure(diagnostic)) return 'chrome_error';
+  if (reason === 'navigation_unavailable') return 'navigation_unavailable';
+  return navigationInfrastructureFailure(diagnostic) ? 'connection_failure' : null;
+}
+
+function swissEgressNetworkFailures(flow) {
+  if (!Array.isArray(flow?.swissEgressNetworkFailures)) return [];
+  const seen = new Set();
+  const records = [];
+  for (const record of flow.swissEgressNetworkFailures) {
+    const host = portalHost(record?.host);
+    const round = Number(record?.round);
+    const requestedAt = Number(record?.requestedAt);
+    const at = Number(record?.at);
+    const kind = String(record?.kind || '');
+    if (!record || typeof record !== 'object' || !host
+      || !Number.isSafeInteger(round) || round <= 0
+      || !Number.isSafeInteger(requestedAt) || requestedAt <= 0
+      || !Number.isSafeInteger(at) || at <= 0
+      || !SWISS_NETWORK_FAILURE_KINDS.has(kind)) continue;
+    const dispatchKey = `${round}:${requestedAt}`;
+    if (seen.has(dispatchKey)) continue;
+    seen.add(dispatchKey);
+    records.push({ host, round, requestedAt, kind, at });
+  }
+  return records.slice(-8);
+}
+
+function verifiedNetworkFailureObservation(flow, event, draft, nowMs) {
+  const round = Number(flow?.round) || 1;
+  const dispatch = flow?.dispatch;
+  const eventRound = Number(event?.round);
+  const dispatchRound = dispatch?.round == null ? round : Number(dispatch.round);
+  if (flow?.state !== 'submitting' || !roundWasSent(flow, round) || dispatch?.mode !== 'submit'
+    || !Number.isSafeInteger(eventRound) || eventRound !== round || dispatchRound !== round
+    || Number(draft?.round) !== round || draft?.status !== 'ready') return null;
+  const kind = portalNetworkFailureKind(event);
+  const verifiedHost = verifiedPortalHost(draft);
+  if (!kind || !verifiedHost) return null;
+  const rawHost = event?.portalNetworkFailure?.host;
+  const eventHost = rawHost == null || !String(rawHost).trim() ? verifiedHost : portalHost(rawHost);
+  if (!eventHost || eventHost !== verifiedHost) return null;
+  const requestedAt = Number(dispatch.requestedAt);
+  if (!Number.isSafeInteger(requestedAt) || requestedAt <= 0) return null;
+  return { host: verifiedHost, round, requestedAt, kind, at: nowMs };
+}
+
+function transportAutoRetryCountValue(flow) {
+  const raw = flow?.transportAutoRetryCount;
+  if (raw === undefined) return 0;
+  if (typeof raw === 'number') return Number.isSafeInteger(raw) && raw >= 0 ? raw : null;
+  if (typeof raw !== 'string') return null;
+  const text = raw.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const attempts = Number(text);
+  return Number.isSafeInteger(attempts) ? attempts : null;
+}
+
+function scheduleSwissNetworkRetry(next, flow, nowMs) {
+  const infrastructureHold = isInfrastructureRetryHold(next);
+  const delays = infrastructureHold ? TRANSPORT_AUTO_RETRY_DELAYS_MS : PORTAL_RETRY_DELAYS;
+  const attempts = infrastructureHold ? transportAutoRetryCountValue(flow) : portalAutoRetryCountValue(flow);
+  if (attempts === null) return;
+  const retryLimit = delays.length;
+  const oneShotRetryLimit = retryLimit + (infrastructureHold ? 0 : 1);
+  if (attempts < retryLimit) {
+    if (Number(next.portalAutoRetryAt) > 0) return;
+    const delay = delays[attempts];
+    if (delay) next.portalAutoRetryAt = nowMs + delay;
+    return;
+  }
+  // Use the counter for the active retry lane. Older portal flows may include
+  // the original submit in their count; transport counters count retries only.
+  if (attempts > oneShotRetryLimit
+    || flow?.portalRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION
+    || flow?.portalExhaustedRecoveryVersion === SWISS_EGRESS_NETWORK_RECOVERY_VERSION) return;
+  next.portalRecoveryVersion = SWISS_EGRESS_NETWORK_RECOVERY_VERSION;
+  next.portalExhaustedRecoveryVersion = SWISS_EGRESS_NETWORK_RECOVERY_VERSION;
+  next.portalAutoRetryAt = nowMs;
+}
+
 /** Current flow with every field present; transitions overwrite only what changes. */
 function base(flow) {
+  const networkFailures = swissEgressNetworkFailures(flow);
   return {
     state: flow?.state || 'drafting',
     round: Number(flow?.round) || 1,
@@ -265,6 +405,8 @@ function base(flow) {
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
     heldSince: Number(flow?.heldSince) || null,
     heldNudges: Number(flow?.heldNudges) || 0,
+    ...(typeof flow?.heldReason === 'string' ? { heldReason: flow.heldReason } : {}),
+    ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
@@ -334,6 +476,8 @@ function base(flow) {
     dispatchRecoveryCount: dispatchRecoveryCountValue(flow) ?? -1,
     portalCodeVersion: portalCodeVersion(flow?.portalCodeVersion),
     portalRecoveryVersion: portalCodeVersion(flow?.portalRecoveryVersion),
+    ...(flow?.portalFinalReviewAmbiguousRecoveryVersion === PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION
+      ? { portalFinalReviewAmbiguousRecoveryVersion: PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION } : {}),
     ...(portalRecoveryMatchAnswerIds(flow).length && Number.isSafeInteger(Number(flow?.portalRecoveryMatchAnswerRound))
       && Number(flow.portalRecoveryMatchAnswerRound) > 0
       ? { portalRecoveryMatchAnswerIds: portalRecoveryMatchAnswerIds(flow),
@@ -341,6 +485,7 @@ function base(flow) {
     ...(portalCodeVersion(flow?.portalExhaustedRecoveryVersion)
       ? { portalExhaustedRecoveryVersion: portalCodeVersion(flow.portalExhaustedRecoveryVersion) } : {}),
     transportAutoRetryCount: Number(flow?.transportAutoRetryCount) || 0,
+    ...(networkFailures.length ? { swissEgressNetworkFailures: networkFailures } : {}),
     factRepairAttempts: Number(flow?.factRepairAttempts) || 0,
   };
 }
@@ -798,6 +943,15 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       }
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      if (state === 'operator_expedited_review' && deadline && nowMs >= deadline) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['unpredicted_ats_field'];
+        next.heldSince = current.heldSince || nowMs;
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit' }];
+        break;
+      }
       // The ad closed while the candidate is awaited (the caller looks before it reminds them:
       // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
       // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
@@ -937,6 +1091,21 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // retry CAPTCHA challenges.
       if (state !== 'submitting') return ignore('not_submitting');
       effects = [portalTakeover(next, current, event, nowMs)].filter(Boolean);
+      const networkFailure = verifiedNetworkFailureObservation(flow, event, draft, nowMs);
+      if (networkFailure && !requiresSwissEgress(current)) {
+        const prior = swissEgressNetworkFailures(flow);
+        const duplicateDispatch = prior.some(record => record.round === networkFailure.round
+          && record.requestedAt === networkFailure.requestedAt);
+        if (!duplicateDispatch) {
+          const recorded = [...prior, networkFailure].slice(-8);
+          next.swissEgressNetworkFailures = recorded;
+          const sameVerifiedHost = recorded.filter(record => record.host === networkFailure.host);
+          if (sameVerifiedHost.length >= 2) {
+            next.egress = swissEgressMark({ round: current.round, nowMs, source: 'repeated_network_failure', reason: 'repeated_network_failure' });
+            scheduleSwissNetworkRetry(next, flow, nowMs);
+          }
+        }
+      }
       // The portal geolocates the runner's IP: from now on this order leaves from the Swiss runner
       // (owner decision 2026-11-11), and its retries never go back to GitHub's network.
       if (event.reason === REGION_UNSUPPORTED_REASON && !requiresSwissEgress(current)) {
@@ -996,7 +1165,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       const infrastructure = isInfrastructureRetryHold(current);
       const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
       if (!infrastructure && attempts >= autoRetryDelaysForFlow(current).length
-        && !portalExhaustedRecoveryPending(current)) return ignore('portal_retry_limit');
+        && !portalExhaustedRecoveryPending(current) && !portalFinalReviewAmbiguousRecoveryPending(current)) return ignore('portal_retry_limit');
       if (!Number.isSafeInteger(attempts) || attempts < 0) return ignore('invalid_retry_count');
       next[infrastructure ? 'transportAutoRetryCount' : 'portalAutoRetryCount'] = attempts + 1;
       next.portalAutoRetryAt = null;
@@ -1208,9 +1377,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // The review page is generated from the draft, not from the runner
       // event. If a live requirement was not persisted into that draft, a
       // candidate-action e-mail would open a page with nothing to answer.
-      // Fail closed into the bounded owner recovery path instead.
+      // Unpredicted fields wait for bounded operator escalation; a candidate
+      // is never asked to approve a field the review page cannot show.
       if (!candidateRequestMatchesDraft(flags, unresolvedQuestions, eventDocuments)) {
-        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        const visibleQuestions = new Set((flags.candidate || []).map(String));
+        const unpredictedFields = unresolvedQuestions
+          .filter((id) => !visibleQuestions.has(id))
+          .map((id) => detailsById.get(id) || { id });
+        if (unpredictedFields.length) {
+          Object.assign(next, handleUnresolvedAtsQuestions(next, { missingFields: unpredictedFields }, nowMs));
+        } else {
+          effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
+        }
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && unresolvedQuestions.length === 0;

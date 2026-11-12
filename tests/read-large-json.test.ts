@@ -68,3 +68,35 @@ describe('large JSON reader', () => {
     expect(() => parseLargeJsonArray([input])).toThrow();
   });
 });
+
+// data/jobs.json crossed V8's 512 MB string limit on 2026-11-12 (prep of deploy
+// 43161331030 died in build-employer-profiles with ERR_STRING_TOO_LONG). Several
+// build readers swallow parse errors and return [], so a whole-file read would
+// silently empty their pages. Every reader of the corpus goes through readJsonFile.
+describe('data/jobs.json readers', () => {
+  const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+  const readers = [
+    'build-plugins/careerJobsAggregate.ts',
+    'build-plugins/cityJobsAggregate.ts',
+    'build-plugins/jobMarketSnapshotPlugin.ts',
+    'build-plugins/jobRecencyPagesPlugin.ts',
+    'build-plugins/jobSectorPagesPlugin.ts',
+    'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/nursingJobsAggregate.ts',
+    'build-plugins/professionJobsAggregate.ts',
+    'build-plugins/relatedSearchClustersPlugin.ts',
+    'build-plugins/shared/loadDataJson.ts',
+    'build-plugins/shared/reportJobPanel.ts',
+    'build-plugins/staticPagesPlugin.ts',
+    'scripts/build-employer-profiles.mjs',
+    'scripts/sync-employer-contacts-to-firestore.mjs',
+  ];
+  const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
+
+  it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
+    const src = fs.readFileSync(path.join(root, rel), 'utf8');
+    expect(src).toMatch(/import \{ readJsonFile \} from '(\.\.?\/)+(scripts\/)?lib\/read-large-json\.mjs';/);
+    expect(src).toMatch(/readJsonFile\(/);
+    expect(src).not.toMatch(wholeFileRead);
+  });
+});

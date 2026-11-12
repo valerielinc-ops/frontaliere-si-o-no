@@ -1,4 +1,5 @@
 import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -62,6 +63,11 @@ import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath 
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
 import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import {
+ activeJobSeedJson,
+ replaceActiveJobPostingDates as replaceActiveJobPostingDatesForReuse,
+ replaceActiveJobSeed,
+} from './shared/activeJobPostingReuse.mjs';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
@@ -70,6 +76,7 @@ import { minifyHtml } from './shared/htmlMinify';
 import {
  hasCachedOrEmittedHtml,
  hasCollectorWrittenHtml,
+ readEmittedHtml,
  readCachedOrEmittedHtml,
  releaseDiskBackedHtmlCache,
  releaseFlushedHtmlCacheChunk,
@@ -93,6 +100,12 @@ import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scr
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import {
+ activeJobPathOwnerKey,
+ buildActiveJobPathOwners,
+ localizedActiveJobSlug,
+ ACTIVE_JOB_PAGE_LOCALES,
+} from './shared/activeJobPageSelection';
 import { archivedJobOgImageUrl, versionedJobOgImageUrl } from './shared/jobOgImageVersion.mjs';
 import { createJobOgLogoFingerprintResolver } from './shared/jobOgLogoFingerprint.mjs';
 import { selectJobOgPhoto } from './shared/jobPhotoClassification';
@@ -421,7 +434,7 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 // if they come from one implementation. Imported above with the other shared
 // helpers; the emitted format is unchanged.
 
-export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+export const JOB_SEO_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 
 type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
@@ -1326,6 +1339,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 export type ActiveJobReuseFragments = {
+ jobSeed: string;
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
  /** The source deadline; null when the listing states none. */
@@ -1337,6 +1351,19 @@ export type ActiveJobReuseFragments = {
  mobileAction: string;
  recentArticles: string;
 };
+
+/** Keep the active page seed aligned with the canonical route, including on
+ * legacy-slug bridge pages. Both a full render and an HTML-cache rewrite must
+ * expose the same slug that the SPA uses to resolve the selected job. */
+export function buildCanonicalLocaleJobSeed(
+ job: Parameters<typeof buildSlimSeed>[0],
+ locale: string,
+ canonicalSlug: string,
+): ReturnType<typeof buildSlimSeed> {
+ const seed = buildSlimSeed(job, locale);
+ seed.slug = canonicalSlug;
+ return seed;
+}
 
 /**
  * Return the stable ordering timestamp used by the active-job corpus.
@@ -1402,90 +1429,14 @@ export function replaceActiveJobPostingDates(
  crawledAt?: string | null,
  jobPostingDescription?: string,
 ): string {
- // An active page never loses a mandatory date on a cache hit: a missing or
- // malformed deadline is a broken input, so fail closed and let reuse re-render.
- if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
- if (!validThrough || Number.isNaN(new Date(validThrough).getTime())) {
-  throw new Error('active JobPosting validThrough unavailable or invalid');
- }
- const scriptMatch = fragment.match(
-  /(<script\b[^>]*type=(['"])application\/ld\+json\2[^>]*>)([\s\S]*?)(<\/script\s*>)/i,
+ return replaceActiveJobPostingDatesForReuse(
+  fragment,
+  datePosted,
+  validThrough,
+  crawledAt,
+  jobPostingDescription,
+  inlineScriptJson,
  );
- if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
- if (jobPostingDescription === undefined) {
-  let script = scriptMatch[0];
-  const fields: Array<[string, string]> = [
-   ['datePosted', datePosted],
-   ['validThrough', validThrough],
-  ];
-  if (crawledAt !== undefined) {
-   if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
-   fields.push(['crawledAt', crawledAt]);
-  }
-  for (const [field, value] of fields) {
-   const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)(?:"[^"]*"|null)`);
-   if (fieldPattern.test(script)) {
-    script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
-    continue;
-   }
-   if (field === 'validThrough') {
-    const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
-    if (datePostedPattern.test(script)) {
-     script = script.replace(
-      datePostedPattern,
-      `$1${JSON.stringify(datePosted)},"validThrough":${JSON.stringify(value)}`,
-     );
-     continue;
-    }
-   }
-   throw new Error(`missing JobPosting JSON-LD field: ${field}`);
-  }
-  const scriptStart = scriptMatch.index ?? 0;
-  return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
-   scriptStart + scriptMatch[0].length,
-  )}`;
- }
- let parsed: unknown;
- try {
-  parsed = JSON.parse(scriptMatch[3] || '');
- } catch {
-  throw new Error('malformed JobPosting JSON-LD fragment');
- }
- const records = collectJobPostingRecords(parsed);
- if (records.length !== 1) throw new Error('expected one JobPosting JSON-LD record');
- const record = records[0];
- if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) {
-  throw new Error('missing JobPosting JSON-LD field: datePosted');
- }
- record.datePosted = datePosted;
- if (Object.prototype.hasOwnProperty.call(record, 'validThrough')) {
-  record.validThrough = validThrough;
- } else {
-  // A cached fragment without the field meets a source that now states a
-  // deadline: add it in place. Other missing fields still fail closed.
-  record.validThrough = validThrough;
- }
- // Keep the third field optional for legacy callers/tests. The production
- // active-page rewrite supplies the current crawler heartbeat when available.
- if (crawledAt !== undefined) {
-  if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
-  if (!Object.prototype.hasOwnProperty.call(record, 'crawledAt')) {
-   throw new Error('missing JobPosting JSON-LD field: crawledAt');
-  }
-  record.crawledAt = crawledAt;
- }
- if (jobPostingDescription !== undefined) {
-  if (!Object.prototype.hasOwnProperty.call(record, 'description') || typeof record.description !== 'string') {
-   throw new Error('missing JobPosting JSON-LD field: description');
-  }
-  record.description = jobPostingDescription;
- }
- const openTag = scriptMatch[1];
- const script = `${openTag}${inlineScriptJson(parsed)}${scriptMatch[4]}`;
- const scriptStart = scriptMatch.index ?? 0;
- return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
-  scriptStart + scriptMatch[0].length,
- )}`;
 }
 
 function containsJobPostingType(value: unknown): boolean {
@@ -1622,11 +1573,12 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
   ACTIVE_JOB_REUSE_MARKERS.mobileAction,
   fragments.mobileAction,
  );
- return replaceActiveJobReuseFragment(
+ rewritten = replaceActiveJobReuseFragment(
   rewritten,
   ACTIVE_JOB_REUSE_MARKERS.recentArticles,
   fragments.recentArticles,
  );
+ return replaceActiveJobSeed(rewritten, fragments.jobSeed);
 }
 
 /**
@@ -1648,7 +1600,7 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
   const replacement = canonicalHtml.slice(contentStart, end);
   rewritten = replaceActiveJobReuseFragment(rewritten, name, replacement);
  }
- return rewritten;
+ return replaceActiveJobSeed(rewritten, activeJobSeedJson(canonicalHtml));
 }
 
 /**
@@ -2793,28 +2745,11 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  resolveJobsSeoPagesFlushed();
  return;
  }
- let jobsRaw: any = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+ let jobsRaw: any = readJsonFile(jobsPath);
  let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
  jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
- const slugify = (input: string) => String(input || '')
- .toLowerCase()
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, '-')
- .replace(/^-+|-+$/g, '')
- .slice(0, 200);
  const localeList = JOB_SEO_LOCALES;
- const localizedSlug = (job: any, locale: 'it' | 'en' | 'de' | 'fr') => {
- // 1. Explicit per-locale slug (from AI-translated crawlers)
- const explicit = String(job?.slugByLocale?.[locale] || '').trim();
- if (explicit) return explicit;
- // 2. Canonical slug from data (set by all crawlers, including custom ones)
- const canonical = String(job?.slug || '').trim();
- if (canonical) return canonical;
- // 3. Compute from localized title + company + location (last-resort fallback)
- const localizedTitle = String(job?.titleByLocale?.[locale] || job?.title || '');
- return slugify(`${localizedTitle}-${job?.company || ''}-${job?.location || ''}`) || slugify(localizedTitle);
- };
+ const localizedSlug = localizedActiveJobSlug;
 
  // Fixture-data guard — drop test/dev seed records (e.g. "Fixture Corp SA")
  // before they enter the validJobs pipeline. Without this, a local jobs.json
@@ -3815,7 +3750,12 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
  const renderedActiveJobPaths = new Set<string>();
- const activeJobPathOwners = new Map<string, unknown>();
+ const activeJobPathOwners = buildActiveJobPathOwners(
+  validJobs,
+  localeList,
+  (job) => sharedResolveJobCanton(job as { canton?: string; location?: string }),
+  localizedSlug,
+ );
  // Keep an independent population count for the coverage sidecar. It mirrors
  // only the active emitter's ownership rule (first `(canton, locale, slug)`
  // wins), before any HTML is written, so a skipped active loop cannot make an
@@ -3824,10 +3764,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   for (const locale of localeList) {
-   const key = `${jobCanton}:${locale}:${localizedSlug(job, locale)}`;
-   if (!activeJobPathOwners.has(key)) {
-    activeJobPathOwners.set(key, job);
-   }
+   const key = activeJobPathOwnerKey(jobCanton, locale, localizedSlug(job, locale));
    if (shouldEmitLocale(locale)
        && (activeJobIds === null || activeJobIds.has(stableJobId(job)))
        && activeJobPathOwners.get(key) === job) {
@@ -4327,7 +4264,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // surviving pages advertise the skipped variant as a 404 target.
  const activeJobEligibleLocales = new Set(
  localeList.filter((candidateLocale) =>
- activeJobPathOwners.get(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`) === job,
+    activeJobPathOwners.get(
+     activeJobPathOwnerKey(jobCanton, candidateLocale, perLocaleSlug[candidateLocale]),
+    ) === job,
  ),
  );
  const hreflangHtml = buildLocaleAlternateBlock({
@@ -4343,7 +4282,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // already won this path; emitting again would only register a
  // collision in dist/.write-collisions.json without changing the
  // bytes on disk (Map last-add-wins inside the WriteCollector).
- const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
+ const __activeJobKey = activeJobPathOwnerKey(jobCanton, locale, perLocaleSlug[locale]);
  if (activeJobPathOwners.get(__activeJobKey) !== job || renderedActiveJobPaths.has(__activeJobKey)) {
  consumeCanonicalFallbackUse(job, locale);
  recordEmit('active-job', __tActiveJob);
@@ -4431,6 +4370,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    jobsSeoReuseBuildNow,
   );
    return {
+   jobSeed: inlineScriptJson(buildCanonicalLocaleJobSeed(job, locale, perLocaleSlug[locale])),
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
@@ -4977,8 +4917,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // seed must match that, not the legacy URL slug. Shape is identical to a
  // jobs-<locale>-index.json entry (shared buildSlimSeed). `<` is escaped so a
  // title/company containing it cannot break out of the inline <script>.
- const __jobSeed = buildSlimSeed(job, locale);
- __jobSeed.slug = perLocaleSlug[locale];
+ const __jobSeed = buildCanonicalLocaleJobSeed(job, locale, perLocaleSlug[locale]);
  const seedScript = `<script>window.__JOB_SEED__=${inlineScriptJson(__jobSeed)};</script>`;
  // Individual job descriptions vary widely in length (604/25,386 jobs have
  // <50-word descriptions) -- unlike the fixed-prose hub/guide pages below
@@ -16218,19 +16157,18 @@ ${staticAnalyticsHtml}
   `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForBridge)}/${currentSlug}`
    .replace(/\/+/g, '/'),
  );
- // The former `jobHtmlCache.get` lookup is now disk-backed after the active
- // marker; the fallback map preserves the old result only when no file exists.
- const cachedHtml = readCachedOrEmittedHtml(
-  jobHtmlCache,
-  `${locale}:${currentSlug}`,
-  distDir,
-  canonicalPathForReuse,
- );
- if (!cachedHtml) continue;
  const canonicalReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
   canonicalPathForReuse,
   'active-job',
  ) ?? null;
+ const canonicalCacheKey = jobsSeoHtmlCacheKey(locale, canonicalPathForReuse);
+ // The dist copy is already minified and has lost the source markers used to
+ // refresh active fragments on a bridge cache hit. Prefer the in-build raw
+ // page, then the raw reuse-pack entry; disk remains the fresh-render fallback.
+ const cachedHtml = jobHtmlCache.get(canonicalCacheKey)
+  ?? jobsSeoReuse?.readHtml(locale, canonicalPathForReuse, 'active-job', canonicalReuseHash, STATIC_PAGE_BUILD_ID)
+  ?? readEmittedHtml(distDir, canonicalPathForReuse);
+ if (!cachedHtml) continue;
 
  // Locale-specific previous slugs + legacy (unknown locale → all locales)
  const prevSlugsForLocale = [
@@ -16587,22 +16525,21 @@ ${staticAnalyticsHtml}
   `${localePrefix[baseLocale]}/${buildCantonAwareSection(baseLocale, jobCantonForCrossLocale)}/${baseSlug}`
    .replace(/\/+/g, '/'),
  );
- // This bridge reads the canonical page back from disk after the active HTML
- // cache has been released. It therefore cannot use the active reuse hash:
- // that key deliberately omits `crawledAt`, while the copied JobPosting JSON-LD
- // still emits it. Use the publish hash so a source heartbeat that changes
- // emitted bytes invalidates this alias page too.
+ // Bridge validity uses the publish hash because `crawledAt` affects copied
+ // JobPosting bytes. The separate stable reuse hash locates the raw canonical
+ // source, whose markers are required by the bridge-fragment refresh.
  const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
   baseCanonicalPath,
   'active-job',
  ) ?? null;
- const crossLocaleCacheKey = jobsSeoHtmlCacheKey(baseLocale, baseCanonicalPath);
- const cachedHtml = readCachedOrEmittedHtml(
-  jobHtmlCache,
-  crossLocaleCacheKey,
-  distDir,
+ const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(
   baseCanonicalPath,
- );
+  'active-job',
+ ) ?? null;
+ const crossLocaleCacheKey = jobsSeoHtmlCacheKey(baseLocale, baseCanonicalPath);
+ const cachedHtml = jobHtmlCache.get(crossLocaleCacheKey)
+  ?? jobsSeoReuse?.readHtml(baseLocale, baseCanonicalPath, 'active-job', baseReuseHash, STATIC_PAGE_BUILD_ID)
+  ?? readEmittedHtml(distDir, baseCanonicalPath);
  // Eviction all'ultimo lettore (vedi il refcount pre-pass sopra): la cache
  // scende progressivamente DURANTE il loop invece di restare piatta fino al
  // clear() in coda. Il decremento avviene anche su cache-miss, perche' il

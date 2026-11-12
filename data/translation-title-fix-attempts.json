@@ -9252,10 +9252,10 @@
       "lastAttemptAt": "2026-10-13T20:33:46.750Z"
     },
     "sunrise-sede-ticino-465617e3b32b|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:31.649Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:07.101Z",
       "source": "41bb43703838",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "swiss-re-c22176470f39|en|it": {
       "attempts": 1,
@@ -9881,16 +9881,16 @@
       "rung": "codex"
     },
     "mcdonald-s-switzerland-859049e0bebf|fr|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-03T15:45:45.520Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:29.247Z",
       "source": "5d285367ec5d",
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-859049e0bebf|fr|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-03T15:45:40.393Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:31.798Z",
       "source": "5d285367ec5d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "mcdonald-s-switzerland-6b257021fa06|fr|en": {
       "attempts": 4,
@@ -29887,8 +29887,10 @@
       "lastAttemptAt": "2026-10-08T19:18:21.917Z"
     },
     "emil-frey-ff4b14fd44fe|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-08T19:18:21.917Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:02:03.053Z",
+      "source": "4f71d26ab683",
+      "rung": "myMemory"
     },
     "zkb-3512259d64ed|de|en": {
       "attempts": 2,
@@ -38517,11 +38519,15 @@
     },
     "posta-svizzera-centro-regionale-a580e7f121f8|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-04T23:19:47.631Z"
+      "lastAttemptAt": "2026-11-12T01:02:32.665Z",
+      "source": "41c904618814",
+      "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-a580e7f121f8|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-04T23:19:48.951Z"
+      "lastAttemptAt": "2026-11-12T01:02:33.867Z",
+      "source": "41c904618814",
+      "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-4eed4f5e5528|de|en": {
       "attempts": 1,
@@ -40212,8 +40218,8 @@
       "rung": "azure"
     },
     "mcdonald-s-switzerland-898ad0ee39bb|fr|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-04T00:31:36.264Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:29.247Z",
       "source": "5d285367ec5d",
       "rung": "unserved"
     },
@@ -41863,15 +41869,21 @@
     },
     "emmi-bde29e2d3b43|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-05T08:04:54.985Z"
+      "lastAttemptAt": "2026-11-12T01:02:34.647Z",
+      "source": "b09798902087",
+      "rung": "myMemory"
     },
     "emmi-bde29e2d3b43|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-05T08:04:56.251Z"
+      "lastAttemptAt": "2026-11-12T01:02:35.571Z",
+      "source": "b09798902087",
+      "rung": "myMemory"
     },
     "emmi-bde29e2d3b43|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-05T08:04:57.125Z"
+      "lastAttemptAt": "2026-11-12T01:02:36.426Z",
+      "source": "b09798902087",
+      "rung": "myMemory"
     },
     "emmi-42bc108884ca|de|en": {
       "attempts": 1,
@@ -44686,16 +44698,16 @@
       "lastAttemptAt": "2026-10-05T12:02:35.845Z"
     },
     "mcdonald-s-switzerland-b49289703ae9|fr|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-03T15:45:45.520Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:29.247Z",
       "source": "5d285367ec5d",
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-b49289703ae9|fr|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-03T15:45:40.393Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:31.798Z",
       "source": "5d285367ec5d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-nb3dvw|de|en": {
       "attempts": 1,
@@ -65704,10 +65716,10 @@
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-b521c2367e5d|fr|de": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-05T08:39:25.763Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-12T01:02:06.174Z",
       "source": "5d285367ec5d",
-      "rung": "azure"
+      "rung": "mozhiDdg"
     },
     "mcdonald-s-switzerland-6b257021fa06|fr|de": {
       "attempts": 4,
@@ -84934,8 +84946,8 @@
       "lastAttemptAt": "2026-10-06T19:13:28.469Z"
     },
     "axa-svizzera-0e735a4fbb5b|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:40:02.890Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:48:41.887Z",
       "source": "cf16177c158e",
       "rung": "myMemory"
     },
@@ -171699,8 +171711,8 @@
       "source": "81218cf34797"
     },
     "posta-svizzera-centro-regionale-9371c781658b|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:22.832Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:44.388Z",
       "source": "ce9860fa771e",
       "rung": "myMemory"
     },
@@ -214563,8 +214575,9 @@
     },
     "ksml-1b86b5079e22|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-20T06:14:13.694Z",
-      "source": "15ece55b693a"
+      "lastAttemptAt": "2026-11-12T01:02:04.333Z",
+      "source": "7268cf59e5ae",
+      "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-d54fedfa6d53|de|en": {
       "attempts": 3,
@@ -218355,10 +218368,10 @@
       "source": "d75d0eb95efe"
     },
     "company-l4u562|it|de": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-11-05T08:40:00.058Z",
-      "source": "5f3002c9895b",
-      "rung": "codex"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:02:37.476Z",
+      "source": "6fc9fd8d0ffe",
+      "rung": "myMemory"
     },
     "kanton-zuerich-a8978e0ef92a|de|en": {
       "attempts": 5,
@@ -218367,16 +218380,16 @@
       "rung": "unserved"
     },
     "company-l4u562|it|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-11-05T08:40:04.490Z",
-      "source": "5f3002c9895b",
-      "rung": "codex"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:02:38.579Z",
+      "source": "6fc9fd8d0ffe",
+      "rung": "myMemory"
     },
     "company-l4u562|it|fr": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-11-05T08:40:08.200Z",
-      "source": "5f3002c9895b",
-      "rung": "codex"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:02:40.297Z",
+      "source": "6fc9fd8d0ffe",
+      "rung": "myMemory"
     },
     "stellenpartner-d0b9ceff4b11|de|fr": {
       "attempts": 1,
@@ -220443,8 +220456,9 @@
     },
     "ksml-77dae20d66cf|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-21T06:47:56.366Z",
-      "source": "591a1202471d"
+      "lastAttemptAt": "2026-11-12T01:02:40.898Z",
+      "source": "c6d06f18cc22",
+      "rung": "myMemory"
     },
     "hoch-health-eebe16b67b65|de|it": {
       "attempts": 1,
@@ -225020,10 +225034,10 @@
       "source": "933fb0b5ad12"
     },
     "ikea-1311866a5854|de|fr": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-04T00:31:41.525Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:42.912Z",
       "source": "61eea99a5a6a",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "cordenpharma-bdd536bdce38|de|fr": {
       "attempts": 1,
@@ -225041,10 +225055,10 @@
       "source": "c96b88f13e8b"
     },
     "ikea-1311866a5854|de|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-04T00:32:05.427Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:43.456Z",
       "source": "61eea99a5a6a",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "cordenpharma-bdd536bdce38|de|it": {
       "attempts": 1,
@@ -225102,10 +225116,10 @@
       "source": "933fb0b5ad12"
     },
     "ikea-1311866a5854|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-04T00:31:43.287Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-12T01:02:41.447Z",
       "source": "61eea99a5a6a",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "cordenpharma-bdd536bdce38|de|en": {
       "attempts": 1,
@@ -234542,8 +234556,9 @@
     },
     "company-7fzn9f|fr|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-24T05:58:46.662Z",
-      "source": "cecc992b47d1"
+      "lastAttemptAt": "2026-11-12T01:02:56.989Z",
+      "source": "e93928e59612",
+      "rung": "myMemory"
     },
     "kanton-zuerich-dd259167127f|de|en": {
       "attempts": 1,
@@ -255370,20 +255385,22 @@
       "source": "b4d7f07068c4"
     },
     "axa-svizzera-ca61cfbbdb8d|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-28T10:30:44.956Z",
-      "source": "b89652ac7c1c"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:46.037Z",
+      "source": "b89652ac7c1c",
+      "rung": "myMemory"
     },
     "axa-svizzera-e0e42bc3cbbf|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-30T14:58:42.709Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-12T01:02:48.823Z",
       "source": "804a8b9b9d6f",
-      "rung": "deepl"
+      "rung": "myMemory"
     },
     "axa-svizzera-ca61cfbbdb8d|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-28T10:30:49.753Z",
-      "source": "b89652ac7c1c"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:46.883Z",
+      "source": "b89652ac7c1c",
+      "rung": "myMemory"
     },
     "vontobel-dadfb039ac59|en|de": {
       "attempts": 1,
@@ -255401,15 +255418,16 @@
       "source": "b4d7f07068c4"
     },
     "axa-svizzera-ca61cfbbdb8d|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-28T10:30:50.167Z",
-      "source": "b89652ac7c1c"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:44.923Z",
+      "source": "b89652ac7c1c",
+      "rung": "myMemory"
     },
     "axa-svizzera-e0e42bc3cbbf|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-30T14:58:43.059Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-12T01:02:47.567Z",
       "source": "804a8b9b9d6f",
-      "rung": "deepl"
+      "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-d7e314942132|de|en": {
       "attempts": 2,
@@ -294458,21 +294476,21 @@
     },
     "seco-jobroom-a6ff2a39-2e33-46ce-9522-c7602a8e7c63|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-11-01T08:56:18.612Z",
-      "source": "5f670c6d1f3b",
-      "rung": "codex"
+      "lastAttemptAt": "2026-11-12T01:02:49.631Z",
+      "source": "c97f9278b431",
+      "rung": "myMemory"
     },
     "seco-jobroom-a6ff2a39-2e33-46ce-9522-c7602a8e7c63|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-11-01T08:56:18.613Z",
-      "source": "5f670c6d1f3b",
-      "rung": "codex"
+      "lastAttemptAt": "2026-11-12T01:02:50.584Z",
+      "source": "c97f9278b431",
+      "rung": "myMemory"
     },
     "seco-jobroom-a6ff2a39-2e33-46ce-9522-c7602a8e7c63|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-11-01T08:56:18.613Z",
-      "source": "5f670c6d1f3b",
-      "rung": "googleCloud"
+      "lastAttemptAt": "2026-11-12T01:03:02.608Z",
+      "source": "c97f9278b431",
+      "rung": "mozhiYandex"
     },
     "seco-jobroom-a86331cb-85ea-4bf5-aa29-7572b318305f|de|en": {
       "attempts": 1,
@@ -329827,14 +329845,14 @@
       "rung": "codex"
     },
     "equans-25fcfb026662|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:40:14.983Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:48:47.349Z",
       "source": "7a93c8566403",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "swisscom-sede-ticino-f384a0657a00|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:22.124Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:05.218Z",
       "source": "af36a345e304",
       "rung": "unserved"
     },
@@ -329899,10 +329917,10 @@
       "rung": "codex"
     },
     "the-living-circle-d54792b42d36|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:27.624Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:06.234Z",
       "source": "3eaf159295d7",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "lonza-a04b36fb3642|en|de": {
       "attempts": 1,
@@ -329935,8 +329953,8 @@
       "rung": "codex"
     },
     "suva-d488a1565598|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:29.175Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:08.967Z",
       "source": "91b6594b8be1",
       "rung": "myMemory"
     },
@@ -329983,8 +330001,8 @@
       "rung": "codex"
     },
     "suva-d488a1565598|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:28.502Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:07.845Z",
       "source": "91b6594b8be1",
       "rung": "myMemory"
     },
@@ -330043,16 +330061,16 @@
       "rung": "codex"
     },
     "valora-aef96a4c64ac|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:39.061Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:18.508Z",
       "source": "88ef7558d72d",
       "rung": "unserved"
     },
     "valora-75fed9a1c1f4|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:38.980Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:09.999Z",
       "source": "663cad1477f8",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "ukbb-46d386542120|de|it": {
       "attempts": 1,
@@ -330181,8 +330199,8 @@
       "rung": "myMemory"
     },
     "hirslanden-5c39aed55407|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:48.998Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:19.226Z",
       "source": "d2a776fa3207",
       "rung": "unserved"
     },
@@ -330397,8 +330415,8 @@
       "rung": "myMemory"
     },
     "seco-jobroom-4fc53423-a7c4-4242-8d4c-97234567d12d|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:40.780Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:19.349Z",
       "source": "af225d9daad5",
       "rung": "myMemory"
     },
@@ -330421,8 +330439,8 @@
       "rung": "codex"
     },
     "seco-jobroom-7a21a24f-6b87-4e0a-a734-812767a33d17|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:41.468Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:20.122Z",
       "source": "d1c4c0e4e9f1",
       "rung": "myMemory"
     },
@@ -330583,10 +330601,10 @@
       "rung": "myMemory"
     },
     "seco-jobroom-12d54d9a-c568-4d07-964c-6016c1f3d1f1|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:53.827Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:21.260Z",
       "source": "f18cf9b08492",
-      "rung": "mozhiDdg"
+      "rung": "myMemory"
     },
     "seco-jobroom-6f01819a-6c45-4eb3-8945-f6ab0bfcc6de|de|it": {
       "attempts": 1,
@@ -330643,10 +330661,10 @@
       "rung": "codex"
     },
     "seco-jobroom-1e8adcac-cc48-4dcb-8696-d344b3a261e4|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:54.951Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:22.353Z",
       "source": "d73918886ae3",
-      "rung": "mozhiDdg"
+      "rung": "myMemory"
     },
     "seco-jobroom-c256a4c0-ce9a-42c9-a87b-5b82d77b970b|de|it": {
       "attempts": 1,
@@ -330673,10 +330691,10 @@
       "rung": "mozhiGoogle"
     },
     "seco-jobroom-6ab9aa80-a14d-465b-9d26-4f30f5cead13|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:50.653Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:25.330Z",
       "source": "c10dc498697c",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "seco-jobroom-1a3054d9-9760-4abc-bd8d-4c64dfcd0c18|it|fr": {
       "attempts": 1,
@@ -330697,8 +330715,8 @@
       "rung": "mozhiGoogle"
     },
     "seco-jobroom-f0ca5381-c782-4397-b098-a1f9a1ae6773|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:55.616Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:32.892Z",
       "source": "16ada32dbf5d",
       "rung": "unserved"
     },
@@ -330709,10 +330727,10 @@
       "rung": "mozhiYandex"
     },
     "seco-jobroom-727144b3-6dfa-4d1b-9ab7-56aaebd73828|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:53:01.512Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:24.296Z",
       "source": "7c787d49bb42",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "seco-jobroom-99396054-ff5e-4ca8-b6cd-3431ca59c50f|de|en": {
       "attempts": 1,
@@ -330721,8 +330739,8 @@
       "rung": "codex"
     },
     "stadt-luzern-87dc52c20410|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:57.657Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:26.176Z",
       "source": "2c785fe24d40",
       "rung": "myMemory"
     },
@@ -330757,8 +330775,8 @@
       "rung": "mozhiYandex"
     },
     "stadt-luzern-87dc52c20410|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:58.681Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:27.389Z",
       "source": "2c785fe24d40",
       "rung": "myMemory"
     },
@@ -330841,8 +330859,8 @@
       "rung": "codex"
     },
     "stadt-luzern-87dc52c20410|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-07T18:52:59.545Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-11T20:49:28.294Z",
       "source": "2c785fe24d40",
       "rung": "myMemory"
     },
@@ -352663,8 +352681,8 @@
       "rung": "myMemory"
     },
     "medbase-00696c709605|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:21.063Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:42.723Z",
       "source": "c1c78467947d",
       "rung": "myMemory"
     },
@@ -352711,20 +352729,20 @@
       "rung": "myMemory"
     },
     "spital-davos-f40a5f070608|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:21.910Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:43.414Z",
       "source": "6a1b791a7915",
       "rung": "myMemory"
     },
     "hoch-health-0128a6ec047f|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:24.077Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:45.374Z",
       "source": "a595991420e9",
       "rung": "myMemory"
     },
     "hoch-health-0128a6ec047f|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:25.226Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:46.709Z",
       "source": "a595991420e9",
       "rung": "myMemory"
     },
@@ -352753,8 +352771,8 @@
       "rung": "myMemory"
     },
     "jumbo-a98202fe-8cb|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:27.826Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:48.323Z",
       "source": "92f3a02f9673",
       "rung": "myMemory"
     },
@@ -352873,14 +352891,14 @@
       "rung": "mozhiGoogle"
     },
     "usz-79fc8d4ccd30|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:39.558Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:50.338Z",
       "source": "e61a5a9b6dcb",
       "rung": "myMemory"
     },
     "usz-79fc8d4ccd30|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:40.493Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:51.379Z",
       "source": "e61a5a9b6dcb",
       "rung": "myMemory"
     },
@@ -352897,8 +352915,8 @@
       "rung": "myMemory"
     },
     "jumbo-15733e0f-120|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:41.359Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:52.284Z",
       "source": "65ab4dcd0aab",
       "rung": "myMemory"
     },
@@ -352915,16 +352933,16 @@
       "rung": "myMemory"
     },
     "yellowshark-acc247b97817|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:42.421Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:53.238Z",
       "source": "d905ddd64cce",
       "rung": "myMemory"
     },
     "yellowshark-9ab23e3b6ade|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:47.102Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:49.346Z",
       "source": "9288292928db",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-475ee3024da9|de|it": {
       "attempts": 1,
@@ -352945,8 +352963,8 @@
       "rung": "myMemory"
     },
     "jumbo-df3e4e78-f73|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:45.464Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:54.237Z",
       "source": "ff658df3c9ce",
       "rung": "myMemory"
     },
@@ -352963,8 +352981,8 @@
       "rung": "myMemory"
     },
     "jumbo-29fb1e8f-e7a|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:46.349Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:48:55.282Z",
       "source": "35468b835b42",
       "rung": "myMemory"
     },
@@ -353017,8 +353035,8 @@
       "rung": "myMemory"
     },
     "yellowshark-f429cc919814|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:23:55.771Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:06.848Z",
       "source": "b262810efc2f",
       "rung": "mozhiYandex"
     },
@@ -353077,8 +353095,8 @@
       "rung": "myMemory"
     },
     "roche-fbd159586474|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:38.774Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:29.360Z",
       "source": "e5e857ccf0db",
       "rung": "myMemory"
     },
@@ -353119,8 +353137,8 @@
       "rung": "myMemory"
     },
     "usz-452a04348c52|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:42.427Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:31.481Z",
       "source": "c108dd237273",
       "rung": "myMemory"
     },
@@ -353149,22 +353167,22 @@
       "rung": "myMemory"
     },
     "usz-dc269535a3da|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:43.035Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:32.235Z",
       "source": "03c25db35743",
       "rung": "myMemory"
     },
     "bkw-ccca0693f464|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:44.084Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:33.113Z",
       "source": "339129add1f7",
       "rung": "myMemory"
     },
     "the-living-circle-9ebb0c2294ee|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:49.888Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:30.154Z",
       "source": "2ad99a342051",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "suva-3e6dbb917f25|de|en": {
       "attempts": 1,
@@ -353179,8 +353197,8 @@
       "rung": "myMemory"
     },
     "suva-3e6dbb917f25|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:45.027Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:34.217Z",
       "source": "db67657e35ad",
       "rung": "myMemory"
     },
@@ -353197,8 +353215,8 @@
       "rung": "myMemory"
     },
     "suva-98c7ec118fb3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:46.040Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:35.063Z",
       "source": "e9b87830ec35",
       "rung": "myMemory"
     },
@@ -353221,8 +353239,8 @@
       "rung": "myMemory"
     },
     "stadt-chur-cda675f86851|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:46.999Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:36.149Z",
       "source": "c226c56d8a05",
       "rung": "myMemory"
     },
@@ -353299,14 +353317,14 @@
       "rung": "myMemory"
     },
     "coopers-bcb969470fc2|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:48.257Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:37.341Z",
       "source": "af2e2c39726c",
       "rung": "myMemory"
     },
     "coopers-bcb969470fc2|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:48.976Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:38.097Z",
       "source": "af2e2c39726c",
       "rung": "myMemory"
     },
@@ -353365,8 +353383,8 @@
       "rung": "myMemory"
     },
     "company-39m14g|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:50.056Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:39.198Z",
       "source": "48be7ca88842",
       "rung": "myMemory"
     },
@@ -353383,8 +353401,8 @@
       "rung": "myMemory"
     },
     "manor-0c5958329898|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:51.386Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:40.302Z",
       "source": "e3c411056aad",
       "rung": "myMemory"
     },
@@ -353437,8 +353455,8 @@
       "rung": "myMemory"
     },
     "manor-acf2a51210ea|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:52.273Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:42.252Z",
       "source": "e068514e82cc",
       "rung": "myMemory"
     },
@@ -353509,8 +353527,8 @@
       "rung": "myMemory"
     },
     "manor-9fe695aa5c43|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:53.104Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:41.369Z",
       "source": "f1bd67ffe521",
       "rung": "myMemory"
     },
@@ -353527,8 +353545,8 @@
       "rung": "myMemory"
     },
     "manor-e8f808238570|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:54.218Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:43.309Z",
       "source": "14534b174375",
       "rung": "myMemory"
     },
@@ -353551,14 +353569,14 @@
       "rung": "myMemory"
     },
     "seco-jobroom-16f5cc61-83dc-4b8f-aa4d-68afc0fa01f1|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:55.686Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:44.168Z",
       "source": "56b45c88498d",
       "rung": "myMemory"
     },
     "seco-jobroom-b0ee0072-a322-49fe-b558-e5b6e901746b|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:26:57.093Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:46.145Z",
       "source": "2a66de6702c9",
       "rung": "myMemory"
     },
@@ -353569,8 +353587,8 @@
       "rung": "myMemory"
     },
     "seco-jobroom-3f7a5701-4df8-461d-8cff-3a3b2c84c0db|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:04.648Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:52.215Z",
       "source": "3973664b81a4",
       "rung": "unserved"
     },
@@ -353587,8 +353605,8 @@
       "rung": "myMemory"
     },
     "unidistance-ch-9003edea65ec|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:06.334Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:47.148Z",
       "source": "18d97eee9e08",
       "rung": "myMemory"
     },
@@ -353611,8 +353629,8 @@
       "rung": "myMemory"
     },
     "unidistance-ch-3978e03b3ee2|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:07.310Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:48.125Z",
       "source": "d843e5d65acb",
       "rung": "myMemory"
     },
@@ -353719,8 +353737,8 @@
       "rung": "myMemory"
     },
     "kanton-aargau-89297d1eb253|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:09.256Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:49.262Z",
       "source": "dcf3e9e6de92",
       "rung": "myMemory"
     },
@@ -354175,20 +354193,20 @@
       "rung": "myMemory"
     },
     "otis-5164b63732fb|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:11.360Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:53.059Z",
       "source": "4b1b2a16d8e2",
       "rung": "myMemory"
     },
     "otis-5164b63732fb|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:12.139Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:53.828Z",
       "source": "4b1b2a16d8e2",
       "rung": "myMemory"
     },
     "nestle-1455504933|en|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:19.341Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:57.515Z",
       "source": "6bc04b690f49",
       "rung": "unserved"
     },
@@ -354265,14 +354283,14 @@
       "rung": "myMemory"
     },
     "eth-zurich-a1f23d713dc0|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:13.626Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:55.287Z",
       "source": "e16ab8f0127b",
       "rung": "myMemory"
     },
     "eth-zurich-a1f23d713dc0|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:14.402Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:56.448Z",
       "source": "e16ab8f0127b",
       "rung": "myMemory"
     },
@@ -354283,20 +354301,20 @@
       "rung": "myMemory"
     },
     "eth-zurich-8499df302fe9|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:15.731Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:57.528Z",
       "source": "1dcb10cbdc61",
       "rung": "myMemory"
     },
     "eth-zurich-8499df302fe9|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:16.759Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:58.212Z",
       "source": "1dcb10cbdc61",
       "rung": "myMemory"
     },
     "reha-bellikon-fab746cf5ba1|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:17.227Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:26.629Z",
       "source": "021cbb15ee68",
       "rung": "myMemory"
     },
@@ -354571,20 +354589,20 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-fc5be9f9656b|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:18.336Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:49:59.256Z",
       "source": "dca4b8565e89",
       "rung": "myMemory"
     },
     "stadt-zuerich-fc5be9f9656b|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:19.607Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:00.416Z",
       "source": "dca4b8565e89",
       "rung": "myMemory"
     },
     "stadt-zuerich-fc5be9f9656b|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:20.451Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:01.216Z",
       "source": "dca4b8565e89",
       "rung": "myMemory"
     },
@@ -354667,20 +354685,20 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-a532259d9bab|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:21.239Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:02.217Z",
       "source": "0c29251c2859",
       "rung": "myMemory"
     },
     "stadt-zuerich-a532259d9bab|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:22.515Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:03.407Z",
       "source": "0c29251c2859",
       "rung": "myMemory"
     },
     "stadt-zuerich-a532259d9bab|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:23.358Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:04.188Z",
       "source": "0c29251c2859",
       "rung": "myMemory"
     },
@@ -354847,20 +354865,20 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-4d77d13a1e3d|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:24.204Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:05.094Z",
       "source": "ca1aba8278ca",
       "rung": "myMemory"
     },
     "stadt-zuerich-4d77d13a1e3d|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:25.437Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:06.317Z",
       "source": "ca1aba8278ca",
       "rung": "myMemory"
     },
     "stadt-zuerich-4d77d13a1e3d|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:26.233Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:07.155Z",
       "source": "ca1aba8278ca",
       "rung": "myMemory"
     },
@@ -355219,20 +355237,20 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-c9199997e6e3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:27.307Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:08.461Z",
       "source": "2697f73006dc",
       "rung": "myMemory"
     },
     "stadt-zuerich-c9199997e6e3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:28.642Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:09.685Z",
       "source": "2697f73006dc",
       "rung": "myMemory"
     },
     "stadt-zuerich-c9199997e6e3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:29.421Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:10.496Z",
       "source": "2697f73006dc",
       "rung": "myMemory"
     },
@@ -355327,20 +355345,20 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-822d50313c55|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:30.238Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:11.118Z",
       "source": "d781b62da9a5",
       "rung": "myMemory"
     },
     "stadt-zuerich-822d50313c55|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:31.490Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:12.438Z",
       "source": "d781b62da9a5",
       "rung": "myMemory"
     },
     "stadt-zuerich-822d50313c55|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:32.337Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:13.276Z",
       "source": "d781b62da9a5",
       "rung": "myMemory"
     },
@@ -355363,14 +355381,14 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-f16edfb117e2|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:34.494Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:15.251Z",
       "source": "ab9b2aa2075a",
       "rung": "myMemory"
     },
     "stadt-zuerich-f16edfb117e2|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:40.913Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:22.986Z",
       "source": "ab9b2aa2075a",
       "rung": "unserved"
     },
@@ -355381,8 +355399,8 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-f16edfb117e2|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:44.828Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:23.720Z",
       "source": "ab9b2aa2075a",
       "rung": "unserved"
     },
@@ -355459,10 +355477,10 @@
       "rung": "myMemory"
     },
     "yellowshark-3640da7fe692|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:51.459Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:23.994Z",
       "source": "060ee3c76f72",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-d1ef3c45dfa8|de|it": {
       "attempts": 1,
@@ -355489,10 +355507,10 @@
       "rung": "myMemory"
     },
     "yellowshark-07a9b75e2dfa|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:27:52.610Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:24.920Z",
       "source": "ef80e4b9634a",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-c92b9eaf24f7|de|it": {
       "attempts": 1,
@@ -355585,10 +355603,10 @@
       "rung": "myMemory"
     },
     "yellowshark-601ffb90d19b|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T18:28:14.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-11T20:50:25.690Z",
       "source": "f01282e484f2",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "emil-frey-73f1ca4c2089|de|fr": {
       "attempts": 1,
@@ -356395,14 +356413,14 @@
       "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-920cbad95801|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-10T01:58:08.637Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:01.072Z",
       "source": "ce9860fa771e",
       "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-920cbad95801|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-10T01:58:09.876Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:02.326Z",
       "source": "ce9860fa771e",
       "rung": "myMemory"
     },
@@ -364261,8 +364279,8 @@
       "rung": "myMemory"
     },
     "okjob-eeb512917bac|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-11T02:05:27.859Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:52.133Z",
       "source": "16ada32dbf5d",
       "rung": "myMemory"
     },
@@ -364297,8 +364315,8 @@
       "rung": "myMemory"
     },
     "okjob-eeb512917bac|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-11T02:05:34.528Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-12T01:02:55.655Z",
       "source": "16ada32dbf5d",
       "rung": "mozhiGoogle"
     },
@@ -370577,6 +370595,2034 @@
       "lastAttemptAt": "2026-11-11T16:30:23.297Z",
       "source": "1bb4833ffe60",
       "rung": "unserved"
+    },
+    "emmi-333e55410cc8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:10.901Z",
+      "source": "643f71d08df5",
+      "rung": "myMemory"
+    },
+    "bms-building-6e632d4e889d|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:10.905Z",
+      "source": "4d4e223ecc0a",
+      "rung": "myMemory"
+    },
+    "emmi-333e55410cc8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:11.807Z",
+      "source": "643f71d08df5",
+      "rung": "myMemory"
+    },
+    "emmi-333e55410cc8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:12.568Z",
+      "source": "643f71d08df5",
+      "rung": "myMemory"
+    },
+    "company-1ljf4r|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:13.671Z",
+      "source": "0f9378c748e8",
+      "rung": "myMemory"
+    },
+    "emmi-d0ea5852d832|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:14.742Z",
+      "source": "64c9d7aab549",
+      "rung": "myMemory"
+    },
+    "emmi-d0ea5852d832|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:16.180Z",
+      "source": "64c9d7aab549",
+      "rung": "myMemory"
+    },
+    "emmi-d0ea5852d832|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:17.186Z",
+      "source": "64c9d7aab549",
+      "rung": "myMemory"
+    },
+    "zfv-unternehmungen-d59e0f5985a0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:17.572Z",
+      "source": "fbb3a8b0c016",
+      "rung": "myMemory"
+    },
+    "zfv-unternehmungen-d59e0f5985a0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:18.838Z",
+      "source": "fbb3a8b0c016",
+      "rung": "myMemory"
+    },
+    "zfv-unternehmungen-d59e0f5985a0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:19.631Z",
+      "source": "fbb3a8b0c016",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-ed1c3d5686f8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:20.586Z",
+      "source": "0efa2c88ab38",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-ed1c3d5686f8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:21.896Z",
+      "source": "0efa2c88ab38",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-ed1c3d5686f8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:22.905Z",
+      "source": "0efa2c88ab38",
+      "rung": "myMemory"
+    },
+    "ksgl-36c6c321cdd1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:23.672Z",
+      "source": "c74d7f150ab1",
+      "rung": "myMemory"
+    },
+    "company-eah3x8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:24.767Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "company-eah3x8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:25.892Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "company-eah3x8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:26.906Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-61d157e7dad9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:27.587Z",
+      "source": "8a3ead394161",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-61d157e7dad9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:28.842Z",
+      "source": "8a3ead394161",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-61d157e7dad9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:29.749Z",
+      "source": "8a3ead394161",
+      "rung": "myMemory"
+    },
+    "concordia-6556e902ca93|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:30.605Z",
+      "source": "412b43101406",
+      "rung": "myMemory"
+    },
+    "concordia-6556e902ca93|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:32.336Z",
+      "source": "412b43101406",
+      "rung": "myMemory"
+    },
+    "concordia-6556e902ca93|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:33.077Z",
+      "source": "412b43101406",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-7378945a2576|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:33.489Z",
+      "source": "d2fe1f1b44e9",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-7378945a2576|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:34.680Z",
+      "source": "d2fe1f1b44e9",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-7378945a2576|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:35.539Z",
+      "source": "d2fe1f1b44e9",
+      "rung": "myMemory"
+    },
+    "equans-9979c86c8fad|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:36.534Z",
+      "source": "5ea78835d9db",
+      "rung": "myMemory"
+    },
+    "equans-9979c86c8fad|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:37.507Z",
+      "source": "5ea78835d9db",
+      "rung": "myMemory"
+    },
+    "emil-frey-ff4b14fd44fe|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:38.502Z",
+      "source": "4f71d26ab683",
+      "rung": "myMemory"
+    },
+    "emil-frey-ff4b14fd44fe|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:39.747Z",
+      "source": "4f71d26ab683",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-411054acc613|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:40.574Z",
+      "source": "e613fd915531",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-411054acc613|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:41.896Z",
+      "source": "e613fd915531",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-411054acc613|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:42.662Z",
+      "source": "e613fd915531",
+      "rung": "myMemory"
+    },
+    "equans-c9836340abc0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:43.925Z",
+      "source": "9b0907b0561f",
+      "rung": "myMemory"
+    },
+    "equans-c9836340abc0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:44.766Z",
+      "source": "9b0907b0561f",
+      "rung": "myMemory"
+    },
+    "equans-c9836340abc0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:45.526Z",
+      "source": "9b0907b0561f",
+      "rung": "myMemory"
+    },
+    "ipw-8fbe17347cd5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:46.508Z",
+      "source": "afc068084b9b",
+      "rung": "myMemory"
+    },
+    "ipw-8fbe17347cd5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:47.715Z",
+      "source": "afc068084b9b",
+      "rung": "myMemory"
+    },
+    "ipw-8fbe17347cd5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:48.733Z",
+      "source": "afc068084b9b",
+      "rung": "myMemory"
+    },
+    "company-g8b56j|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:49.566Z",
+      "source": "b84c7355ad2d",
+      "rung": "myMemory"
+    },
+    "company-g8b56j|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:50.796Z",
+      "source": "b84c7355ad2d",
+      "rung": "myMemory"
+    },
+    "company-g8b56j|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:51.686Z",
+      "source": "b84c7355ad2d",
+      "rung": "myMemory"
+    },
+    "company-nk18bs|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:52.169Z",
+      "source": "5546cafe7421",
+      "rung": "myMemory"
+    },
+    "company-nk18bs|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:53.699Z",
+      "source": "5546cafe7421",
+      "rung": "myMemory"
+    },
+    "ksml-77dae20d66cf|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:54.637Z",
+      "source": "c6d06f18cc22",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-e658515c20be|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:55.536Z",
+      "source": "ffff5bfe48c7",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-e658515c20be|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:56.793Z",
+      "source": "ffff5bfe48c7",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-e658515c20be|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:57.536Z",
+      "source": "ffff5bfe48c7",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-b69fa12b-0529-4527-9e25-7a692b76c5c9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:58.679Z",
+      "source": "4b7ca244343f",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-ff857ecb-bf1a-4e90-b297-a7dd8c16c3f6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:56:58.680Z",
+      "source": "4b7ca244343f",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-b69fa12b-0529-4527-9e25-7a692b76c5c9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:00.149Z",
+      "source": "4b7ca244343f",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-ff857ecb-bf1a-4e90-b297-a7dd8c16c3f6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:00.149Z",
+      "source": "4b7ca244343f",
+      "rung": "myMemory"
+    },
+    "c-and-a-schweiz-05a1abde8422|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:01.279Z",
+      "source": "d71c09439df6",
+      "rung": "myMemory"
+    },
+    "c-and-a-schweiz-05a1abde8422|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:02.266Z",
+      "source": "d71c09439df6",
+      "rung": "myMemory"
+    },
+    "c-and-a-schweiz-05a1abde8422|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:02.965Z",
+      "source": "d71c09439df6",
+      "rung": "myMemory"
+    },
+    "srg-ssr-beb67cbf9678|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:03.924Z",
+      "source": "6b2dbefab18a",
+      "rung": "myMemory"
+    },
+    "srg-ssr-beb67cbf9678|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:05.335Z",
+      "source": "6b2dbefab18a",
+      "rung": "myMemory"
+    },
+    "srg-ssr-beb67cbf9678|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:06.054Z",
+      "source": "6b2dbefab18a",
+      "rung": "myMemory"
+    },
+    "srg-ssr-4291ba7212f3|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:06.820Z",
+      "source": "7e2280202984",
+      "rung": "myMemory"
+    },
+    "szb-chb-f89ce135a435|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:08.108Z",
+      "source": "c352f0804bdd",
+      "rung": "myMemory"
+    },
+    "szb-chb-f89ce135a435|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:09.132Z",
+      "source": "c352f0804bdd",
+      "rung": "myMemory"
+    },
+    "szb-chb-f89ce135a435|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:09.912Z",
+      "source": "c352f0804bdd",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9c34198c1b40|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:12.875Z",
+      "source": "89d4862624e5",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9c34198c1b40|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:14.063Z",
+      "source": "89d4862624e5",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9c34198c1b40|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:14.162Z",
+      "source": "89d4862624e5",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9602f2a607e8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:14.758Z",
+      "source": "b8ceafb3d6b6",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9602f2a607e8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:15.936Z",
+      "source": "b8ceafb3d6b6",
+      "rung": "myMemory"
+    },
+    "kanton-basel-landschaft-9602f2a607e8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:16.718Z",
+      "source": "b8ceafb3d6b6",
+      "rung": "myMemory"
+    },
+    "ubs-3660759f9372|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:17.785Z",
+      "source": "331cb48ee1fa",
+      "rung": "myMemory"
+    },
+    "ikea-569eefa5610d|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:19.809Z",
+      "source": "68b6a787deae",
+      "rung": "myMemory"
+    },
+    "ikea-569eefa5610d|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:20.061Z",
+      "source": "68b6a787deae",
+      "rung": "myMemory"
+    },
+    "usz-dff01734c712|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:20.893Z",
+      "source": "40659e0816ba",
+      "rung": "myMemory"
+    },
+    "usz-dff01734c712|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:22.275Z",
+      "source": "40659e0816ba",
+      "rung": "myMemory"
+    },
+    "usz-dff01734c712|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:23.023Z",
+      "source": "40659e0816ba",
+      "rung": "myMemory"
+    },
+    "usz-60d86f2c97db|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:24.002Z",
+      "source": "cfe1b09db65a",
+      "rung": "myMemory"
+    },
+    "usz-cf43f7b1dbfd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:24.742Z",
+      "source": "af767d0b9d95",
+      "rung": "myMemory"
+    },
+    "usz-455bebd9a0c0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:25.687Z",
+      "source": "cb88fc566394",
+      "rung": "myMemory"
+    },
+    "usz-455bebd9a0c0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:26.957Z",
+      "source": "cb88fc566394",
+      "rung": "myMemory"
+    },
+    "usz-455bebd9a0c0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:27.778Z",
+      "source": "cb88fc566394",
+      "rung": "myMemory"
+    },
+    "soh-solothurner-spitaeler-ef0808af9b49|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:28.767Z",
+      "source": "2e3464a4d8be",
+      "rung": "myMemory"
+    },
+    "medtronic-01e83d0ff4c4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:30.728Z",
+      "source": "b2e355135123",
+      "rung": "myMemory"
+    },
+    "uzh-730801146441|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:31.242Z",
+      "source": "a6946201910f",
+      "rung": "myMemory"
+    },
+    "uzh-730801146441|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:32.144Z",
+      "source": "a6946201910f",
+      "rung": "myMemory"
+    },
+    "uzh-730801146441|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:32.934Z",
+      "source": "a6946201910f",
+      "rung": "myMemory"
+    },
+    "medimeo-02f01eba32cd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:33.820Z",
+      "source": "54894c61fc91",
+      "rung": "myMemory"
+    },
+    "medimeo-5d87fb689f81|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:34.721Z",
+      "source": "36248a619509",
+      "rung": "myMemory"
+    },
+    "luks-00e0cfbfd333|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:35.749Z",
+      "source": "7b590a891195",
+      "rung": "myMemory"
+    },
+    "spitex-ch-8dbfc2b16541|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:36.653Z",
+      "source": "36dbea24c916",
+      "rung": "myMemory"
+    },
+    "spitex-ch-8dbfc2b16541|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:37.963Z",
+      "source": "36dbea24c916",
+      "rung": "myMemory"
+    },
+    "spitex-ch-8dbfc2b16541|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:38.759Z",
+      "source": "36dbea24c916",
+      "rung": "myMemory"
+    },
+    "spitex-ch-15f960bafb88|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:39.754Z",
+      "source": "5209bc726413",
+      "rung": "myMemory"
+    },
+    "klinik-im-hasel-5840838b59a6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:40.736Z",
+      "source": "9087e994b335",
+      "rung": "myMemory"
+    },
+    "klinik-im-hasel-5840838b59a6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:41.898Z",
+      "source": "9087e994b335",
+      "rung": "myMemory"
+    },
+    "klinik-im-hasel-5840838b59a6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:42.744Z",
+      "source": "9087e994b335",
+      "rung": "myMemory"
+    },
+    "jsafrasarasin-60838f2092bb|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:43.906Z",
+      "source": "115bef257f0e",
+      "rung": "myMemory"
+    },
+    "bms-building-fa6c7d1ee29d|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:45.571Z",
+      "source": "f43ee5a5af2b",
+      "rung": "myMemory"
+    },
+    "zurzach-care-a02c7f43f5bc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:46.021Z",
+      "source": "d5d02f8a58fd",
+      "rung": "myMemory"
+    },
+    "volg-fenaco-03c0c6b12116|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:46.708Z",
+      "source": "a41eaf21da44",
+      "rung": "myMemory"
+    },
+    "volg-fenaco-f8ecb2f33de2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:47.805Z",
+      "source": "487266db01f2",
+      "rung": "myMemory"
+    },
+    "agroscope-b232e94993cc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:48.644Z",
+      "source": "4fa5498f8231",
+      "rung": "myMemory"
+    },
+    "agroscope-b232e94993cc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:49.900Z",
+      "source": "4fa5498f8231",
+      "rung": "myMemory"
+    },
+    "agroscope-b232e94993cc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:50.787Z",
+      "source": "4fa5498f8231",
+      "rung": "myMemory"
+    },
+    "helvetia-1f487844303b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:51.808Z",
+      "source": "ab533f6af785",
+      "rung": "myMemory"
+    },
+    "vista-c0ec66811c8c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:52.790Z",
+      "source": "ff41c3f873ed",
+      "rung": "myMemory"
+    },
+    "vista-c0ec66811c8c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:53.968Z",
+      "source": "ff41c3f873ed",
+      "rung": "myMemory"
+    },
+    "vista-c0ec66811c8c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:54.824Z",
+      "source": "ff41c3f873ed",
+      "rung": "myMemory"
+    },
+    "trafigura-da440ccc13a3|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:56.075Z",
+      "source": "437df73f7262",
+      "rung": "myMemory"
+    },
+    "emil-frey-3d98af40d4db|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:57.004Z",
+      "source": "cf657ed62667",
+      "rung": "myMemory"
+    },
+    "emil-frey-3d98af40d4db|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:57.963Z",
+      "source": "cf657ed62667",
+      "rung": "myMemory"
+    },
+    "emil-frey-3d98af40d4db|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:57:58.678Z",
+      "source": "cf657ed62667",
+      "rung": "myMemory"
+    },
+    "mobiliar-46acb9290d8f|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:00.427Z",
+      "source": "d52ef87abae7",
+      "rung": "myMemory"
+    },
+    "mobiliar-3cc2152839c1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:00.731Z",
+      "source": "ffa2e98743e6",
+      "rung": "myMemory"
+    },
+    "totalenergies-646f414f6897|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:02.188Z",
+      "source": "40b07ed5a90d",
+      "rung": "myMemory"
+    },
+    "hopital-du-valais-66ea9310d240|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:02.732Z",
+      "source": "12299c6068e6",
+      "rung": "myMemory"
+    },
+    "hopital-du-valais-66ea9310d240|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:03.997Z",
+      "source": "12299c6068e6",
+      "rung": "myMemory"
+    },
+    "hopital-du-valais-66ea9310d240|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:04.757Z",
+      "source": "12299c6068e6",
+      "rung": "myMemory"
+    },
+    "ksa-72a4561aee04|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:05.941Z",
+      "source": "4a6ce18f6e66",
+      "rung": "myMemory"
+    },
+    "ksa-72a4561aee04|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:06.664Z",
+      "source": "4a6ce18f6e66",
+      "rung": "myMemory"
+    },
+    "belimo-e1748adacf75|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:07.905Z",
+      "source": "479eda7db955",
+      "rung": "myMemory"
+    },
+    "belimo-e1748adacf75|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:09.121Z",
+      "source": "479eda7db955",
+      "rung": "myMemory"
+    },
+    "belimo-e1748adacf75|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:10.332Z",
+      "source": "479eda7db955",
+      "rung": "myMemory"
+    },
+    "schindler-54e3f3780ea3|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:10.822Z",
+      "source": "c8f35f38561e",
+      "rung": "myMemory"
+    },
+    "schindler-54e3f3780ea3|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:12.008Z",
+      "source": "c8f35f38561e",
+      "rung": "myMemory"
+    },
+    "schindler-54e3f3780ea3|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:12.774Z",
+      "source": "c8f35f38561e",
+      "rung": "myMemory"
+    },
+    "google-switzerland-b2742d614df0|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:14.052Z",
+      "source": "70dc64de82f8",
+      "rung": "myMemory"
+    },
+    "google-switzerland-b2742d614df0|en|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:15.185Z",
+      "source": "70dc64de82f8",
+      "rung": "myMemory"
+    },
+    "google-switzerland-b2742d614df0|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:16.175Z",
+      "source": "70dc64de82f8",
+      "rung": "myMemory"
+    },
+    "axpo-group-ddf0dde6504b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:16.827Z",
+      "source": "11683bc96084",
+      "rung": "myMemory"
+    },
+    "axpo-group-ddf0dde6504b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:18.308Z",
+      "source": "11683bc96084",
+      "rung": "myMemory"
+    },
+    "axpo-group-ddf0dde6504b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:18.931Z",
+      "source": "11683bc96084",
+      "rung": "myMemory"
+    },
+    "jumbo-8b0c7611-2f0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:19.796Z",
+      "source": "fcbaad71617e",
+      "rung": "myMemory"
+    },
+    "jumbo-8b0c7611-2f0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:21.111Z",
+      "source": "fcbaad71617e",
+      "rung": "myMemory"
+    },
+    "jumbo-8b0c7611-2f0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:21.918Z",
+      "source": "fcbaad71617e",
+      "rung": "myMemory"
+    },
+    "jumbo-7cd03b86-28c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:22.681Z",
+      "source": "266e1d24e509",
+      "rung": "myMemory"
+    },
+    "jumbo-7cd03b86-28c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:23.942Z",
+      "source": "266e1d24e509",
+      "rung": "myMemory"
+    },
+    "jumbo-7cd03b86-28c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:24.710Z",
+      "source": "266e1d24e509",
+      "rung": "myMemory"
+    },
+    "jumbo-053a355a-71a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:25.600Z",
+      "source": "9cc94fff4a27",
+      "rung": "myMemory"
+    },
+    "jumbo-053a355a-71a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:26.877Z",
+      "source": "9cc94fff4a27",
+      "rung": "myMemory"
+    },
+    "jumbo-053a355a-71a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:27.634Z",
+      "source": "9cc94fff4a27",
+      "rung": "myMemory"
+    },
+    "concara-95eab73b3294|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:28.867Z",
+      "source": "b5902c5b163b",
+      "rung": "myMemory"
+    },
+    "concara-39351e07ef2e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:29.720Z",
+      "source": "43cbfc5e19af",
+      "rung": "myMemory"
+    },
+    "concara-39351e07ef2e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:31.048Z",
+      "source": "43cbfc5e19af",
+      "rung": "myMemory"
+    },
+    "concara-39351e07ef2e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:31.739Z",
+      "source": "43cbfc5e19af",
+      "rung": "myMemory"
+    },
+    "paraplegie-60ff435d7a5b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:32.659Z",
+      "source": "85bee1c7dee0",
+      "rung": "myMemory"
+    },
+    "paraplegie-60ff435d7a5b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:33.911Z",
+      "source": "85bee1c7dee0",
+      "rung": "myMemory"
+    },
+    "paraplegie-60ff435d7a5b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:34.786Z",
+      "source": "85bee1c7dee0",
+      "rung": "myMemory"
+    },
+    "paraplegie-9cb6d9edc6f0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:35.626Z",
+      "source": "d22e5ff1cbec",
+      "rung": "myMemory"
+    },
+    "paraplegie-9cb6d9edc6f0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:36.905Z",
+      "source": "d22e5ff1cbec",
+      "rung": "myMemory"
+    },
+    "paraplegie-9cb6d9edc6f0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:37.714Z",
+      "source": "d22e5ff1cbec",
+      "rung": "myMemory"
+    },
+    "bethesda-spital-f617709621ed|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:38.673Z",
+      "source": "e4b5f841da01",
+      "rung": "myMemory"
+    },
+    "bethesda-spital-f617709621ed|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:39.997Z",
+      "source": "e4b5f841da01",
+      "rung": "myMemory"
+    },
+    "bethesda-spital-f617709621ed|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:40.770Z",
+      "source": "e4b5f841da01",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-2fb324488735|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:41.771Z",
+      "source": "1539db26fb9c",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-2fb324488735|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:43.098Z",
+      "source": "1539db26fb9c",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-2fb324488735|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:44.249Z",
+      "source": "1539db26fb9c",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-a9c6a7ebc570|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:44.732Z",
+      "source": "51579cfeffc8",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-a9c6a7ebc570|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:45.995Z",
+      "source": "51579cfeffc8",
+      "rung": "myMemory"
+    },
+    "kanton-st-gallen-a9c6a7ebc570|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:46.709Z",
+      "source": "51579cfeffc8",
+      "rung": "myMemory"
+    },
+    "raiffeisen-0cff3ff0c8e8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:47.657Z",
+      "source": "d8e653cdbb65",
+      "rung": "myMemory"
+    },
+    "raiffeisen-c51161e35d1c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:48.843Z",
+      "source": "045c34b29f93",
+      "rung": "myMemory"
+    },
+    "swiss-life-297f25d20232|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:49.814Z",
+      "source": "6471572eb9a5",
+      "rung": "myMemory"
+    },
+    "swiss-life-297f25d20232|en|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:50.968Z",
+      "source": "6471572eb9a5",
+      "rung": "myMemory"
+    },
+    "swiss-life-297f25d20232|en|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:51.826Z",
+      "source": "6471572eb9a5",
+      "rung": "myMemory"
+    },
+    "medbase-9fc26db1367a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:52.677Z",
+      "source": "c6d4d572ee85",
+      "rung": "myMemory"
+    },
+    "ete-46bf37cba9a7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:54.816Z",
+      "source": "519c448222d0",
+      "rung": "myMemory"
+    },
+    "seiro-8c6d90b3b8e6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:55.738Z",
+      "source": "083c2c70963e",
+      "rung": "myMemory"
+    },
+    "seiro-489a9b782410|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:56.799Z",
+      "source": "26a295bd17ae",
+      "rung": "myMemory"
+    },
+    "coopers-61429c7e83ea|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:57.632Z",
+      "source": "520f86d24110",
+      "rung": "myMemory"
+    },
+    "coopers-61429c7e83ea|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:58.896Z",
+      "source": "520f86d24110",
+      "rung": "myMemory"
+    },
+    "coopers-61429c7e83ea|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:58:59.716Z",
+      "source": "520f86d24110",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-bc422a120b38|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:00.751Z",
+      "source": "f9f820c83562",
+      "rung": "myMemory"
+    },
+    "emmi-ccd5a62250ed|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:17.205Z",
+      "source": "ebcb74630607",
+      "rung": "unserved"
+    },
+    "vz-vermoegenszentrum-5a90af56f49f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:18.293Z",
+      "source": "b3193286c052",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-6435d7cfb20e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:19.179Z",
+      "source": "0fb2cbaee5ae",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-6435d7cfb20e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:20.252Z",
+      "source": "0fb2cbaee5ae",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-6435d7cfb20e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:21.005Z",
+      "source": "0fb2cbaee5ae",
+      "rung": "myMemory"
+    },
+    "vz-vermoegenszentrum-5a90af56f49f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:23.935Z",
+      "source": "b3193286c052",
+      "rung": "unserved"
+    },
+    "coopers-6916059d04b5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:24.856Z",
+      "source": "71c791d1fe3f",
+      "rung": "myMemory"
+    },
+    "thermo-fisher-scientific-650b6d5668cf|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:25.614Z",
+      "source": "1aba1bb43d27",
+      "rung": "myMemory"
+    },
+    "burkhalter-group-593b1a40c21d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:26.666Z",
+      "source": "6039b413fa8a",
+      "rung": "myMemory"
+    },
+    "burkhalter-group-593b1a40c21d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:27.958Z",
+      "source": "6039b413fa8a",
+      "rung": "myMemory"
+    },
+    "burkhalter-group-593b1a40c21d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:28.981Z",
+      "source": "6039b413fa8a",
+      "rung": "myMemory"
+    },
+    "coopers-6916059d04b5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:29.399Z",
+      "source": "71c791d1fe3f",
+      "rung": "unserved"
+    },
+    "apleona-schweiz-ag-6282558849e2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:29.763Z",
+      "source": "4d935d3d91c2",
+      "rung": "myMemory"
+    },
+    "apleona-schweiz-ag-6282558849e2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:30.987Z",
+      "source": "4d935d3d91c2",
+      "rung": "myMemory"
+    },
+    "apleona-schweiz-ag-6282558849e2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:31.783Z",
+      "source": "4d935d3d91c2",
+      "rung": "myMemory"
+    },
+    "zfv-unternehmungen-32985f8a8005|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:32.954Z",
+      "source": "445bb1d403cd",
+      "rung": "myMemory"
+    },
+    "tertianum-fdb9b7e7e328|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:33.648Z",
+      "source": "8d099bd64c8e",
+      "rung": "myMemory"
+    },
+    "tertianum-fdb9b7e7e328|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:35.024Z",
+      "source": "8d099bd64c8e",
+      "rung": "myMemory"
+    },
+    "tertianum-fdb9b7e7e328|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:35.877Z",
+      "source": "8d099bd64c8e",
+      "rung": "myMemory"
+    },
+    "buergenstock-hotels-ae04dacbda64|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:36.837Z",
+      "source": "7858c969a91e",
+      "rung": "myMemory"
+    },
+    "spital-nidwalden-67ed3f7ebc1e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:37.705Z",
+      "source": "4b8419618ccd",
+      "rung": "myMemory"
+    },
+    "spital-nidwalden-67ed3f7ebc1e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:38.850Z",
+      "source": "4b8419618ccd",
+      "rung": "myMemory"
+    },
+    "spital-nidwalden-67ed3f7ebc1e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:39.660Z",
+      "source": "4b8419618ccd",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-29fb55620660|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:40.670Z",
+      "source": "56a11e6a30d4",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-29fb55620660|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:41.845Z",
+      "source": "56a11e6a30d4",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-29fb55620660|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:42.668Z",
+      "source": "56a11e6a30d4",
+      "rung": "myMemory"
+    },
+    "davos-klosters-bergbahnen-4ebcfb661afd|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:43.641Z",
+      "source": "122962c2fa0b",
+      "rung": "myMemory"
+    },
+    "davos-klosters-bergbahnen-4ebcfb661afd|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:44.774Z",
+      "source": "122962c2fa0b",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-ffce18a10daf|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:45.778Z",
+      "source": "f4021edcc0ef",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-6580264e8e6a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:46.688Z",
+      "source": "8408b80da411",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-6580264e8e6a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:47.993Z",
+      "source": "8408b80da411",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-6580264e8e6a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:49.015Z",
+      "source": "8408b80da411",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-807fe15cea1e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:49.649Z",
+      "source": "f1a7d927d55e",
+      "rung": "myMemory"
+    },
+    "georg-fischer-f99834ac4f27|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:51.020Z",
+      "source": "5b9d14b5ec25",
+      "rung": "myMemory"
+    },
+    "georg-fischer-f99834ac4f27|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:51.721Z",
+      "source": "5b9d14b5ec25",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-e9fa1501590d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:52.748Z",
+      "source": "cfa372b360ad",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-e9fa1501590d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:53.951Z",
+      "source": "cfa372b360ad",
+      "rung": "myMemory"
+    },
+    "kanton-zuerich-e9fa1501590d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:54.740Z",
+      "source": "cfa372b360ad",
+      "rung": "myMemory"
+    },
+    "csd-engineers-25f1d097f6db|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:55.852Z",
+      "source": "556c4d1ef683",
+      "rung": "myMemory"
+    },
+    "csd-engineers-25f1d097f6db|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:57.060Z",
+      "source": "556c4d1ef683",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-e6203be808e4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:57.909Z",
+      "source": "2204fcf3e243",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-b3215463782b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:58.602Z",
+      "source": "23433251faab",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-397376fb4754|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T00:59:59.599Z",
+      "source": "a8cd6abd7ff5",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-397376fb4754|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:00.760Z",
+      "source": "a8cd6abd7ff5",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-8566ece48a21|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:01.614Z",
+      "source": "5c44b74ddb60",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-8566ece48a21|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:02.784Z",
+      "source": "5c44b74ddb60",
+      "rung": "myMemory"
+    },
+    "posta-svizzera-centro-regionale-8566ece48a21|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:03.567Z",
+      "source": "5c44b74ddb60",
+      "rung": "myMemory"
+    },
+    "pantr-ch-96b2c4b4c553|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:04.573Z",
+      "source": "726370a40283",
+      "rung": "myMemory"
+    },
+    "pantr-ch-96b2c4b4c553|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:05.839Z",
+      "source": "726370a40283",
+      "rung": "myMemory"
+    },
+    "pantr-ch-96b2c4b4c553|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:06.580Z",
+      "source": "726370a40283",
+      "rung": "myMemory"
+    },
+    "bachtelen-b2eaae7af892|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:07.736Z",
+      "source": "d0ee864d2fdc",
+      "rung": "myMemory"
+    },
+    "bachtelen-b2eaae7af892|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:09.102Z",
+      "source": "d0ee864d2fdc",
+      "rung": "myMemory"
+    },
+    "bachtelen-b2eaae7af892|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:10.152Z",
+      "source": "d0ee864d2fdc",
+      "rung": "myMemory"
+    },
+    "bachtelen-ffa645df5fc5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:10.729Z",
+      "source": "527fe95e6d3b",
+      "rung": "myMemory"
+    },
+    "bachtelen-ffa645df5fc5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:11.888Z",
+      "source": "527fe95e6d3b",
+      "rung": "myMemory"
+    },
+    "bachtelen-ffa645df5fc5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:12.632Z",
+      "source": "527fe95e6d3b",
+      "rung": "myMemory"
+    },
+    "manor-7a925c488b84|it|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:13.693Z",
+      "source": "60de0ed72060",
+      "rung": "myMemory"
+    },
+    "manor-7a925c488b84|it|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:15.531Z",
+      "source": "60de0ed72060",
+      "rung": "myMemory"
+    },
+    "manor-7a925c488b84|it|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:16.623Z",
+      "source": "60de0ed72060",
+      "rung": "myMemory"
+    },
+    "manor-86fea6849795|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:16.739Z",
+      "source": "a3fdcef6d294",
+      "rung": "myMemory"
+    },
+    "manor-86fea6849795|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:17.905Z",
+      "source": "a3fdcef6d294",
+      "rung": "myMemory"
+    },
+    "manor-86fea6849795|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:18.833Z",
+      "source": "a3fdcef6d294",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-1009ac8d-f3bc-49df-bad3-c5b531e2e7eb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:19.666Z",
+      "source": "6e4057b0d461",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-1009ac8d-f3bc-49df-bad3-c5b531e2e7eb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:20.901Z",
+      "source": "6e4057b0d461",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-1009ac8d-f3bc-49df-bad3-c5b531e2e7eb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:21.788Z",
+      "source": "6e4057b0d461",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-274e6d0a-5663-4007-879d-ea2a9384dfce|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:22.529Z",
+      "source": "0426e7b32ad6",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-274e6d0a-5663-4007-879d-ea2a9384dfce|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:23.794Z",
+      "source": "0426e7b32ad6",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-274e6d0a-5663-4007-879d-ea2a9384dfce|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:24.656Z",
+      "source": "0426e7b32ad6",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-2b386fb9-0f90-4b36-8e86-b01cecc0177e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:25.705Z",
+      "source": "c72b5ba326d1",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-33254599-5ba9-4186-ba54-9eacb90c5cc9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:26.749Z",
+      "source": "771ea2c0f72d",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-33254599-5ba9-4186-ba54-9eacb90c5cc9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:28.288Z",
+      "source": "771ea2c0f72d",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-33254599-5ba9-4186-ba54-9eacb90c5cc9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:29.282Z",
+      "source": "771ea2c0f72d",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-3853c578-9b00-4a8f-b929-0af52bd0e53a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:29.627Z",
+      "source": "279604bdf2fc",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-3853c578-9b00-4a8f-b929-0af52bd0e53a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:30.983Z",
+      "source": "279604bdf2fc",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-3853c578-9b00-4a8f-b929-0af52bd0e53a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:31.709Z",
+      "source": "279604bdf2fc",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-529f2037-6124-4a75-a328-f37a1b95d8f0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:32.661Z",
+      "source": "e9052728db93",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-6452ed6e-c95c-49dc-b18a-ab7f25b54b45|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:33.564Z",
+      "source": "f45804af5177",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-6452ed6e-c95c-49dc-b18a-ab7f25b54b45|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:35.008Z",
+      "source": "f45804af5177",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-6452ed6e-c95c-49dc-b18a-ab7f25b54b45|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:35.659Z",
+      "source": "f45804af5177",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-80539c77-915d-410e-9d5f-3e6ede9028f4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:36.754Z",
+      "source": "4884a768726c",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-82b5deef-82e2-47bd-995c-533a1957b783|it|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:38.125Z",
+      "source": "df844cb226a7",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-83585cb2-17a8-46d6-8411-c194986a3238|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:38.649Z",
+      "source": "a5bbe9801b77",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-b72f7801-bf4d-4485-968a-9b7a4157f32c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:39.659Z",
+      "source": "0b39e147b5cf",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-b72f7801-bf4d-4485-968a-9b7a4157f32c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:40.795Z",
+      "source": "0b39e147b5cf",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-b72f7801-bf4d-4485-968a-9b7a4157f32c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:41.626Z",
+      "source": "0b39e147b5cf",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-d1a9d139-55f7-4d24-8f94-8a504064ed3c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:42.569Z",
+      "source": "73b05b71eb0c",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-d1a9d139-55f7-4d24-8f94-8a504064ed3c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:43.860Z",
+      "source": "73b05b71eb0c",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-d1a9d139-55f7-4d24-8f94-8a504064ed3c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:44.616Z",
+      "source": "73b05b71eb0c",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-f300c98c-5125-4cba-a416-636926b2273a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:45.630Z",
+      "source": "d22caddf15ef",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-f300c98c-5125-4cba-a416-636926b2273a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:46.591Z",
+      "source": "d22caddf15ef",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-f3639713-4f9a-4898-a053-d98004605f4e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:47.551Z",
+      "source": "3299b47f57ba",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-16f9bca3-1b8d-49df-9232-93e96541d1bf|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:48.728Z",
+      "source": "af467e223290",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-16f9bca3-1b8d-49df-9232-93e96541d1bf|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:49.845Z",
+      "source": "af467e223290",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-7b13ecad-13c0-4c6a-b42f-cfba3a5b0b0d|fr|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:51.810Z",
+      "source": "32d4a55e9747",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-f0c8dd0f-da9a-4514-a196-7a05c16f8dff|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:53.219Z",
+      "source": "3fcd456a4ab7",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-c032c53f-89f0-47f7-a6bd-36b17e5a013d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:54.319Z",
+      "source": "5a83fe1bc250",
+      "rung": "myMemory"
+    },
+    "company-g9p3n8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:54.979Z",
+      "source": "fac483b27fd7",
+      "rung": "myMemory"
+    },
+    "company-256090|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:56.046Z",
+      "source": "78f859c5f0da",
+      "rung": "myMemory"
+    },
+    "stadler-rail-167dce81fb74|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:57.031Z",
+      "source": "5e9bffc97b88",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-7b13ecad-13c0-4c6a-b42f-cfba3a5b0b0d|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:57.665Z",
+      "source": "32d4a55e9747",
+      "rung": "mozhiGoogle"
+    },
+    "stadler-rail-167dce81fb74|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:58.352Z",
+      "source": "5e9bffc97b88",
+      "rung": "myMemory"
+    },
+    "stadler-rail-167dce81fb74|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:00:59.332Z",
+      "source": "5e9bffc97b88",
+      "rung": "myMemory"
+    },
+    "stadler-rail-039706d86084|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:00.206Z",
+      "source": "7d2a46137a5c",
+      "rung": "myMemory"
+    },
+    "company-wvsxgp|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:00.996Z",
+      "source": "f3421ad0d15b",
+      "rung": "myMemory"
+    },
+    "company-wvsxgp|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:02.332Z",
+      "source": "f3421ad0d15b",
+      "rung": "myMemory"
+    },
+    "company-wvsxgp|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:03.092Z",
+      "source": "f3421ad0d15b",
+      "rung": "myMemory"
+    },
+    "company-o1wcri|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:03.969Z",
+      "source": "1f566772b14b",
+      "rung": "myMemory"
+    },
+    "company-o1wcri|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:05.190Z",
+      "source": "1f566772b14b",
+      "rung": "myMemory"
+    },
+    "company-45bo0k|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:05.191Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "company-45bo0k|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:05.191Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "company-45bo0k|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:05.191Z",
+      "source": "461d0e49ccf5",
+      "rung": "myMemory"
+    },
+    "company-o1wcri|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:06.057Z",
+      "source": "1f566772b14b",
+      "rung": "myMemory"
+    },
+    "company-te6tvv|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:07.834Z",
+      "source": "afa65ce52031",
+      "rung": "myMemory"
+    },
+    "company-czf1v6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:08.364Z",
+      "source": "4d3cd6cf1d15",
+      "rung": "myMemory"
+    },
+    "company-czf1v6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:09.440Z",
+      "source": "4d3cd6cf1d15",
+      "rung": "myMemory"
+    },
+    "company-czf1v6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:10.337Z",
+      "source": "4d3cd6cf1d15",
+      "rung": "myMemory"
+    },
+    "company-40upnv|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:11.534Z",
+      "source": "6191b0c3c9ef",
+      "rung": "myMemory"
+    },
+    "company-oiz2p8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:12.206Z",
+      "source": "1b1a75b2ef74",
+      "rung": "myMemory"
+    },
+    "company-oiz2p8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:13.315Z",
+      "source": "1b1a75b2ef74",
+      "rung": "myMemory"
+    },
+    "company-oiz2p8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:14.339Z",
+      "source": "1b1a75b2ef74",
+      "rung": "myMemory"
+    },
+    "axa-svizzera-1005f50dcbdc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:15.034Z",
+      "source": "e2f878f94c9e",
+      "rung": "myMemory"
+    },
+    "axa-svizzera-1005f50dcbdc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:16.227Z",
+      "source": "e2f878f94c9e",
+      "rung": "myMemory"
+    },
+    "axa-svizzera-1005f50dcbdc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:17.051Z",
+      "source": "e2f878f94c9e",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-95e9d907ba15|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:17.919Z",
+      "source": "d090f84e1695",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-95e9d907ba15|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:19.123Z",
+      "source": "d090f84e1695",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-95e9d907ba15|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:19.995Z",
+      "source": "d090f84e1695",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-c12671af9f2c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:20.975Z",
+      "source": "920d833c921f",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-c12671af9f2c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:22.138Z",
+      "source": "920d833c921f",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-c12671af9f2c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:23.019Z",
+      "source": "920d833c921f",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-15b4aea6d18a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:24.156Z",
+      "source": "aa6f79f1625a",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-15b4aea6d18a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:25.320Z",
+      "source": "aa6f79f1625a",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-15b4aea6d18a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:26.460Z",
+      "source": "aa6f79f1625a",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9f9da85f69bc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:27.559Z",
+      "source": "fd4b2cfdd4da",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9f9da85f69bc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:28.367Z",
+      "source": "fd4b2cfdd4da",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9f9da85f69bc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:29.083Z",
+      "source": "fd4b2cfdd4da",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-26f46710d206|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:29.994Z",
+      "source": "06450467a5f5",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-26f46710d206|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:31.262Z",
+      "source": "06450467a5f5",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-26f46710d206|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:32.030Z",
+      "source": "06450467a5f5",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-2aa77d0be4fc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:32.925Z",
+      "source": "30daecd73daa",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-2aa77d0be4fc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:34.292Z",
+      "source": "30daecd73daa",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-2aa77d0be4fc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:34.916Z",
+      "source": "30daecd73daa",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9d907c6fdcd1|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:35.974Z",
+      "source": "e4b4847a53ae",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9d907c6fdcd1|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:37.188Z",
+      "source": "e4b4847a53ae",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-9d907c6fdcd1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:38.024Z",
+      "source": "e4b4847a53ae",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-64ae4e506e0c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:39.105Z",
+      "source": "255f721347c8",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-64ae4e506e0c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:40.292Z",
+      "source": "255f721347c8",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-64ae4e506e0c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:41.095Z",
+      "source": "255f721347c8",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-b1aafd382559|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:41.976Z",
+      "source": "b1704e9c846b",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-b1aafd382559|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:43.220Z",
+      "source": "b1704e9c846b",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-b1aafd382559|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:44.068Z",
+      "source": "b1704e9c846b",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-bec636daec14|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:44.891Z",
+      "source": "cddc200a34ad",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-bec636daec14|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:46.136Z",
+      "source": "cddc200a34ad",
+      "rung": "myMemory"
+    },
+    "confederazione-ticino-bec636daec14|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:47.264Z",
+      "source": "cddc200a34ad",
+      "rung": "myMemory"
+    },
+    "physioswiss-4412f033982e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:48.159Z",
+      "source": "0da92dfec5af",
+      "rung": "myMemory"
+    },
+    "physioswiss-0c007d880273|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:49.016Z",
+      "source": "8f95c28856c4",
+      "rung": "myMemory"
+    },
+    "physioswiss-0c007d880273|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:50.431Z",
+      "source": "8f95c28856c4",
+      "rung": "myMemory"
+    },
+    "physioswiss-0c007d880273|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:51.471Z",
+      "source": "8f95c28856c4",
+      "rung": "myMemory"
+    },
+    "physioswiss-29729474db91|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:52.220Z",
+      "source": "ca822bc7c05a",
+      "rung": "myMemory"
+    },
+    "physioswiss-29729474db91|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:53.692Z",
+      "source": "ca822bc7c05a",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-b6ae877b67b9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:53.912Z",
+      "source": "7ab492508de8",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-b6ae877b67b9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:55.192Z",
+      "source": "7ab492508de8",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-b6ae877b67b9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:56.030Z",
+      "source": "7ab492508de8",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-556b0c2a5a5d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:56.982Z",
+      "source": "91db6e18b977",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-556b0c2a5a5d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:58.344Z",
+      "source": "91db6e18b977",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-556b0c2a5a5d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:01:59.424Z",
+      "source": "91db6e18b977",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-54df97a3b97a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-12T01:02:00.245Z",
+      "source": "d580e226d0b2",
+      "rung": "myMemory"
     }
   }
 }

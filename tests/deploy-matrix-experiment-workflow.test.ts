@@ -92,6 +92,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     }
   });
 
+  it('keeps the full all-locale canary manual-only', () => {
+    expect(WORKFLOW.on).not.toHaveProperty('push');
+    expect(WORKFLOW_TEXT).not.toContain('fix/issue-18066');
+  });
+
   it('pins one build id per run and compares variants against base only when asked', () => {
     // Without a shared DEPLOY_BUILD_ID each leg stamps its own Date.now(),
     // so two variants of one commit could never be byte-identical.
@@ -124,6 +129,18 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(String(restore?.run)).toContain('webcam replay manifest missing after prepared snapshot restore');
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
+  });
+
+  it('restores the previous jobs SEO renderer cache for output-probed variants', () => {
+    const steps = WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>;
+    const fingerprint = steps.find((step) => step.id === 'jobs-seo-html-fingerprint');
+    const restore = steps.find((step) => step.id === 'jobs-seo-html-cache');
+    const save = steps.find((step) => step.name === 'Save chained jobs SEO HTML cache');
+
+    expect(fingerprint.env.JOBS_SEO_HTML_CACHE_LOCALE).toBe('${{ matrix.locale }}');
+    expect(restore.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint');
+    expect(restore.with).not.toHaveProperty('restore-keys');
+    expect(save.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
   });
 
   it('writes only namespaced chained caches and uses an experiment-only concurrency group', () => {
@@ -378,7 +395,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     );
     expect(html?.uses).toBe('actions/cache/restore@v6');
     expect(html?.with?.key).toBe(
-      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}",
+      "jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.restore_fingerprint }}",
     );
     expect(steps.indexOf(benchHtml!)).toBeLessThan(steps.indexOf(html!));
     expect(extract?.if).toBe('always()');

@@ -9,7 +9,7 @@
  * under the reserved height instead of App.tsx collapsing it from outside.
  * Bare canton and Switzerland-wide listings keep their external
  * `.job-board-static-content` main outside the root until the first real
- * result set is ready.
+ * result set is ready on the sub-desktop LCP path.
  *
  * Legacy generic hub fallbacks can also emit the static hub sub-nav
  * `nav.seo-hub-subnav` as a BODY-DIRECT sibling BETWEEN `#root` and the
@@ -28,6 +28,11 @@ import type { AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 
 export type StaticFallbackKind = 'article' | 'canton-topic' | 'job-board' | 'generic';
+
+export interface StaticFallbackOwnershipOptions {
+  /** Keep the bare job-board snapshot outside #root for the sub-desktop LCP handoff. */
+  keepJobBoardOutsideRoot?: boolean;
+}
 
 /** Return the unresolved article identity carried by a route, if any. */
 export function pendingArticleSlug(route: AppRoute): { section: ArticleSection; slug: string } | null {
@@ -80,11 +85,14 @@ export function shouldKeepStaticFallbackOutsideRoot(
   route: AppRoute,
   kind: StaticFallbackKind,
   fallbackPresent: boolean,
+  options: StaticFallbackOwnershipOptions = {},
 ): boolean {
   if (!fallbackPresent) return false;
   if (kind === 'article') return isArticleDetailRoute(route);
   if (kind === 'canton-topic') return route.activeTab === 'blog' && !!route.cantonTopic && !route.staticOverlay;
-  if (kind === 'job-board') return isBareJobBoardRootRoute(route);
+  if (kind === 'job-board') {
+    return isBareJobBoardRootRoute(route) && options.keepJobBoardOutsideRoot !== false;
+  }
   return false;
 }
 
@@ -200,10 +208,11 @@ export function shouldAdoptStaticFallbackIntoRoot(
   hasPlateAuctionFallback: boolean,
   kind: StaticFallbackKind = 'generic',
   fallbackPresent = false,
+  options: StaticFallbackOwnershipOptions = {},
 ): boolean {
   return !route.staticOverlay
     && !hasPlateAuctionFallback
-    && !shouldKeepStaticFallbackOutsideRoot(route, kind, fallbackPresent);
+    && !shouldKeepStaticFallbackOutsideRoot(route, kind, fallbackPresent, options);
 }
 
 /**

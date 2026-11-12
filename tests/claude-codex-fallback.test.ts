@@ -1014,12 +1014,36 @@ describe('copertura workflow diretti', () => {
 
   function hostResolverSource() {
     const action = readFileSync(resolve(repoRoot, '.github/actions/claude-codex-fallback/action.yml'), 'utf8');
-    const start = action.indexOf('        trusted_roots=()');
-    const end = action.indexOf('        sha256_file()', start);
+    const document = YAML.parse(action) as { runs?: { steps?: Array<{ id?: string; run?: string }> } };
+    const resolver = document.runs?.steps?.find((step) => step.id === 'trusted_node')?.run ?? '';
+    const start = resolver.indexOf('find_trusted_tool() {');
+    const end = resolver.indexOf('sha256_file() {', start);
     expect(start).toBeGreaterThan(0);
     expect(end).toBeGreaterThan(start);
-    return action.slice(start, end).split('\n').map((line) => line.slice(8)).join('\n');
+    const trustedPath = resolve(repoRoot, '.github/actions/setup-claude-haiku-fallback/trusted-path.sh');
+    const shellQuote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
+    return [
+      'stat_cmd=/usr/bin/stat; [ -x "$stat_cmd" ] || stat_cmd=/bin/stat',
+      'readlink_cmd=/usr/bin/readlink; [ -x "$readlink_cmd" ] || readlink_cmd=/bin/readlink',
+      'realpath_cmd=/usr/bin/realpath; [ -x "$realpath_cmd" ] || realpath_cmd=/bin/realpath',
+      `realpath() { "$NODE_TEST" -e 'process.stdout.write(require("node:fs").realpathSync(process.argv[1]))' "$@"; }`,
+      `source ${shellQuote(trustedPath)}`,
+      'TRUSTED_PATH_OWNER_POLICY=root',
+      'workspace_root=/unused/workspace; action_path=/unused/action; runner_temp=/unused/temp',
+      'temporary_root=; trusted_roots=(/usr)',
+      resolver.slice(start, end),
+    ].join('\n');
   }
+
+  it('attesta il bootstrap stat prima di invocare i resolver del toolchain', () => {
+    const action = YAML.parse(readFileSync(resolve(repoRoot, '.github/actions/claude-codex-fallback/action.yml'), 'utf8')) as {
+      runs?: { steps?: Array<{ id?: string; run?: string }> };
+    };
+    const resolver = action.runs?.steps?.find((step) => step.id === 'trusted_node')?.run ?? '';
+    expect(resolver).toContain('bootstrap_path_components_trusted "$bootstrap_tool"');
+    expect(resolver.indexOf('bootstrap_path_components_trusted "$bootstrap_tool"'))
+      .toBeLessThan(resolver.indexOf('workspace_root="$(realpath "$workspace_root")"'));
+  });
 
   it('rifiuta shim gh/git nel PATH e trova i binari di sistema', () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-host-trust-'));
@@ -1032,9 +1056,6 @@ describe('copertura workflow diretti', () => {
     try {
       const output = execFileSync('/bin/bash', ['-c', [
         'set -euo pipefail',
-        `realpath() { "$NODE_TEST" -e 'process.stdout.write(require("node:fs").realpathSync(process.argv[1]))' "$@"; }`,
-        'tr_cmd=/usr/bin/tr',
-        'workspace_root=/unused/workspace; action_path=/unused/action; runner_temp=/unused/temp',
         hostResolverSource(),
         'for tool in gh git; do',
         '  selected="$(find_trusted_tool "$tool" || true)"',
@@ -1054,7 +1075,6 @@ describe('copertura workflow diretti', () => {
     const source = hostResolverSource();
     const run = (mode: string, owner: string) => spawnSync('/bin/bash', ['-c', [
       'set -euo pipefail',
-      `realpath() { "$NODE_TEST" -e 'process.stdout.write(require("node:fs").realpathSync(process.argv[1]))' "$@"; }`,
       source,
       'stat_mode() { printf "%s" "$FIXTURE_MODE"; }',
       'stat_owner() { printf "%s" "$FIXTURE_OWNER"; }',

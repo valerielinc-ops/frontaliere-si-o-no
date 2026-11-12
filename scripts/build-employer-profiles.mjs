@@ -33,6 +33,7 @@ import { realpathSync } from 'node:fs';
  *   node scripts/build-employer-profiles.mjs --stats   # print summary only
  */
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { reportedSalarySummary } from '../build-plugins/shared/realSalaryMedian.ts';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -67,7 +68,9 @@ function loadJobs() {
     .map((x) => path.join(ROOT, x))
     .find(fs.existsSync);
   if (!p) throw new Error('jobs.json not found — run scripts/assemble-jobs-dataset.mjs first.');
-  const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+  // data/jobs.json can exceed V8's 512 MB string limit: readJsonFile parses it
+  // item by item past that size instead of failing with ERR_STRING_TOO_LONG.
+  const raw = readJsonFile(p);
   return Array.isArray(raw) ? raw : raw.jobs || [];
 }
 

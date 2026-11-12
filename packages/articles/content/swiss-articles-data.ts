@@ -30325,6 +30325,26 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aumento-iva-finanzia-avs',
+    category: 'pensione',
+    date: '2026-11-11T22:42:42.125Z',
+    image: '/images/blog/article-aumento-iva-finanzia-avs.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'dibattito-salario-minimo-5000',
+    category: 'novita',
+    date: '2026-11-12T04:07:34.153Z',
+    image: '/images/blog/article-dibattito-salario-minimo-5000.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -1082,6 +1082,17 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
   });
 
+  it('keeps an Italian apply link ahead of the field snapshot budget', () => {
+    const navigation = Array.from({ length: 60 }, (_, index) => `<button type="button">Action ${index}</button>`).join('');
+    const { window, read } = runnerPage(`${navigation}<a class="btn" href="/apply">Applica ora</a>`, 'https://jobs.example.ch/posting/example');
+    expect(read().buttons.map((button: any) => button.text)).toContain('Applica ora');
+    window.close();
+
+    const ordinary = runnerPage(`${navigation}<a class="btn" href="/apply">Si applica il CCL</a>`, 'https://jobs.example.ch/posting/example');
+    expect(ordinary.read().buttons.map((button: any) => button.text)).not.toContain('Si applica il CCL');
+    ordinary.window.close();
+  });
+
   it('does not divert ordinary application copy or hidden challenge templates to captcha', () => {
     const { read } = runnerPage('<form><label>Name<input name="name" required></label><p>Our help text says checking your browser can take a moment.</p><div id="challenge-stage" hidden></div></form>', 'https://jobs.example.ch/apply');
     expect(read().captcha).toBe(false);

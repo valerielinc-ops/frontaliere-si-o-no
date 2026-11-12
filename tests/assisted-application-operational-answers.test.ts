@@ -164,6 +164,55 @@ describe('scope, languages and actual field options', () => {
   });
 
   it.each([
+    ['en', 'I have read and accept the Privacy Policy. *'],
+    ['it', 'Ho letto e accetto l’informativa sulla privacy. *'],
+    ['de', 'Ich habe die Datenschutzerklärung gelesen und akzeptiert. *'],
+    ['fr', 'J’ai lu et j’accepte la politique de confidentialité. *'],
+  ])('defaults an accepted application privacy notice in %s', (_locale, label) => {
+    const question = { id: `privacy_notice_${_locale}`, question: label, label, applicationQuestion: label, type: 'checkbox', required: true };
+    expect(operationalQuestionTopic(question)).toBe('application_privacy_notice');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'true', topic: 'application_privacy_notice' });
+  });
+
+  it('selects the only affirmative yes/no option and leaves other privacy controls unanswered', () => {
+    const binary = {
+      question: 'I have read and accept the Privacy Policy.', type: 'choice',
+      options: ['Yes, I accept', 'No, I do not accept'],
+    };
+    expect(operationalDefaultAnswer(binary)).toMatchObject({ value: 'Yes, I accept', topic: 'application_privacy_notice' });
+    expect(operationalQuestionTopic({ ...binary, options: ['Yes, I accept', 'No, I do not accept', 'Ask me later'] })).toBeNull();
+    expect(operationalQuestionTopic({ ...binary, type: 'yes_no', options: ['Yes, I accept', 'No, I do not accept', 'Ask me later'] })).toBeNull();
+    expect(operationalDefaultAnswer({ ...binary, type: 'text', options: [] })).toBeNull();
+  });
+
+  it('does not turn combined marketing or candidate-fact statements into an application privacy default', () => {
+    const marketing = {
+      question: 'I have read and accept the Privacy Policy for marketing and newsletters.',
+      type: 'checkbox', required: true,
+    };
+    const workPermit = {
+      question: 'I have read and accept the Privacy Policy and confirm I have a work permit.',
+      type: 'checkbox', required: true,
+    };
+    expect(operationalQuestionTopic(marketing)).not.toBe('application_privacy_notice');
+    expect(operationalDefaultAnswer(marketing)).toBeNull();
+    expect(operationalQuestionTopic(workPermit)).toBeNull();
+    expect(operationalDefaultAnswer(workPermit)).toBeNull();
+    expect(operationalDefaultAnswer({
+      question: 'Do you consent to receive our marketing newsletter?', type: 'yes_no', options: ['Yes', 'No'],
+    })).toMatchObject({ value: 'No', topic: 'platform:marketing_opt_in' });
+  });
+
+  it('does not infer a privacy label from unreadable question context', () => {
+    const question = {
+      id: 'privacy_context_only', question: '', label: '', applicationQuestion: '',
+      context: 'I have read and accept the Privacy Policy.', type: 'checkbox', required: true,
+    };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+  });
+
+  it.each([
     ['it', 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.'],
     ['de', 'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.'],
     ['en', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'],

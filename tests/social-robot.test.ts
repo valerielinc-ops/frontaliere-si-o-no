@@ -49,6 +49,7 @@ import {
   hasVisibleDialogLoading,
   resolveTikTokMusicVariant,
   RobotError,
+  typeCaption,
   waitForDialogControl,
   findTikTokPublishedPost,
 } from '../scripts/social-robot/lib/flows.mjs';
@@ -70,6 +71,33 @@ describe('Instagram image upload accept guard', () => {
     expect(acceptsInstagramImageUpload('image/jpeg,image/png,image/heic')).toBe(true);
     expect(acceptsInstagramImageUpload('image/*')).toBe(true);
     expect(acceptsInstagramImageUpload('application/pdf')).toBe(false);
+  });
+});
+
+describe('TikTok caption editor', () => {
+  const caption = 'Una domanda concreta per seguire il punto\n\nLe offerte di lavoro più cliccate dai frontalieri.';
+
+  it('fills the complete caption in one editor operation and checks the result', async () => {
+    let value = 'job-2026-11-10.mp4';
+    const fill = vi.fn(async (next: string) => { value = next; });
+    const innerText = vi.fn(async () => value);
+
+    await typeCaption({} as never, { fill, innerText } as never, caption, { platform: 'tiktok' });
+
+    expect(fill).toHaveBeenCalledTimes(1);
+    expect(fill).toHaveBeenCalledWith(caption);
+    expect(innerText).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails closed if TikTok changes characters after filling the caption', async () => {
+    let value = '';
+    const editor = {
+      fill: vi.fn(async (next: string) => { value = next.replace('Le offerte', 'ferte'); }),
+      innerText: async () => value,
+    };
+
+    await expect(typeCaption({} as never, editor as never, caption, { platform: 'tiktok' }))
+      .rejects.toMatchObject({ errorClass: 'selector-missing', step: 'caption' });
   });
 });
 

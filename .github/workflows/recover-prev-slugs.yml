@@ -218,6 +218,7 @@ jobs:
           run_bounded() {
             node scripts/lib/run-bounded-command.mjs --timeout-seconds "$1" --label "$2" -- "${@:3}"
           }
+          . scripts/lib/compare-merge-base.sh
           branch='chore/recover-prev-slugs'
           title='chore(data): recover lost previousSlugs'
           [ -n "$GH_TOKEN" ] || {
@@ -268,12 +269,10 @@ jobs:
           fi
           main_sha="$(git rev-parse --verify 'refs/remotes/origin/main^{commit}')"
           refresh_sha="$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
-          merge_base="$(run_bounded 60 'gh api previousSlugs recovery merge base' \
-            gh api "repos/${GITHUB_REPOSITORY}/compare/${main_sha}...${refresh_sha}" --jq '.merge_base_commit.sha')"
-          [ -n "$merge_base" ] && [ "$merge_base" != null ] || {
-            echo "::error::GitHub did not return a merge base for the pending previousSlugs recovery PR"
+          if ! merge_base="$(compare_merge_base "$GITHUB_REPOSITORY" "$main_sha" "$refresh_sha" "$remote_url" 60 'previousSlugs recovery')"; then
+            echo "::error::Unable to resolve a valid merge base for the pending previousSlugs recovery PR"
             exit 1
-          }
+          fi
           if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${merge_base}^{commit}" 2>/dev/null; then
             run_bounded 300 'git fetch previousSlugs recovery merge base' \
               git fetch --no-tags --depth=1 "$remote_url" "$merge_base" >/dev/null 2>&1 || {

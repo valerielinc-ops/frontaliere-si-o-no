@@ -35,9 +35,10 @@ import {
 import { CF_ANALYTICS_MAX_ROWS } from '../scripts/lib/cf-analytics.mjs';
 
 describe('classifySurface — the split that was missing', () => {
-  it('separates the three origins that shared one label', () => {
+  it('separates the four origins that shared one label', () => {
     expect(classifySurface({ host: 'cdn.frontaliereticino.ch', path: '/assets/it-core.js' })).toBe('cdn-r2');
     expect(classifySurface({ host: 'frontaliereticino.ch', path: '/de/jobs-im-jura/x/' })).toBe('worker-shard');
+    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/api/public-config/' })).toBe('worker-public-config');
     expect(classifySurface({ host: 'frontaliereticino.ch', path: '/commit-hash.txt' })).toBe('apex-pages');
   });
 
@@ -82,6 +83,7 @@ describe('classifySurface — the split that was missing', () => {
     expect(classifyCfErrorUrl('gh-default-agenti.frontaliereticino.ch/github/webhook')).toBe('github-webhook-default-agenti');
     expect(classifyCfErrorUrl('gh-nanako.frontaliereticino.ch/github/webhook')).toBe('github-webhook-nanako');
     expect(classifyCfErrorUrl('frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/')).toBe('worker-shard');
+    expect(classifyCfErrorUrl('frontaliereticino.ch/api/public-config/')).toBe('worker-public-config');
   });
 
   it('classifies the new nanako agents webhook host as its own tunnel surface', () => {
@@ -95,6 +97,7 @@ describe('classifySurface — the split that was missing', () => {
     // If this ever flips silently, the "could serve_stale have helped" metric starts lying.
     expect(SURFACES['cdn-r2'].serveStale).toBe(true);
     expect(SURFACES['worker-shard'].serveStale).toBe(false);
+    expect(SURFACES['worker-public-config'].serveStale).toBe(false);
     expect(SURFACES['apex-pages'].serveStale).toBe(false);
   });
 });

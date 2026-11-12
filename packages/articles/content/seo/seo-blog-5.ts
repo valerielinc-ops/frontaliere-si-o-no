@@ -114658,7 +114658,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     title: 'Stipendi frontalieri 2027: aumento nominale 1% secondo UBS',
     description: 'Stima UBS 2027: aumento nominale 1% e reale 0,2% per i frontalieri. Dettagli settoriali e date contratti stagionali.',
     keywords: 'frontalieri, stipendi 2027, UBS, aumento salariale, inflazione, Ticino',
-    ogTitle: 'Stipendi frontalieri 2027: aumento nominale 1%',
+    ogTitle: 'Stipendi frontalieri 2027: aumento nominale 1% secondo UBS',
     ogDescription: 'L\'indagine UBS prevede un aumento nominale dell\'1% per i frontalieri nel 2027. La crescita reale è dello 0,2% a causa dell\'inflazione dello 0,8%.',
     canonicalPath: '/articoli-frontaliere/aumenti-stipendi-frontalieri-2027/',
     structuredData: {
@@ -114689,6 +114689,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-frontalieri-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-como-rinnovo-illuminazione-varese': {
+    title: 'Como rinnova illuminazione viale Varese progetto 80mila euro',
+    description: 'Il Comune di Como rinnova l\'illuminazione su due tratti di viale Varese con un progetto da 80mila euro, inclusa copertura di 50mila euro da fondi frontalieri.',
+    keywords: 'Como, viale Varese, illuminazione, fondi frontalieri, progetto 80mila euro, Comune di Como, primavera 2027',
+    ogTitle: 'Como rinnova illuminazione viale Varese progetto 80mila euro',
+    ogDescription: 'Il Comune di Como ha approvato il progetto da 80mila euro per il rinnovo dell\'illuminazione su due tratti di viale Varese, con 50mila euro coperti da fondi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/como-rinnovo-illuminazione-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como rinnova illuminazione viale Varese progetto 80mila euro",
+      "description": "Il Comune di Como rinnova l'illuminazione su due tratti di viale Varese con un progetto da 80mila euro, inclusa copertura di 50mila euro da fondi frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-como-rinnovo-illuminazione-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-11T21:48:04+00:00",
+      "dateModified": "2026-11-11T21:48:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-rinnovo-illuminazione-varese/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

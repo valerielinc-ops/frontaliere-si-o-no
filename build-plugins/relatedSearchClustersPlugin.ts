@@ -1,4 +1,5 @@
 import { localizedJobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { CALC_HREF } from './shared/calcHref';
@@ -883,7 +884,7 @@ function loadJobs(rootDir: string): RawJob[] {
     return [];
   }
   try {
-    const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown;
+    const raw = readJsonFile(jobsPath) as unknown;
     return Array.isArray(raw) ? (raw as RawJob[]) : [];
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse jobs.json:', err);
