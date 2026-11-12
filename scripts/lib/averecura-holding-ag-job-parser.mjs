@@ -32,7 +32,7 @@ export const AVERECURA_HOLDING_AG_COMPANY_NAME = 'averecura holding ag';
 export const AVERECURA_HOLDING_AG_COMPANY_DOMAIN = 'app.reflinejobs.io';
 
 const CAREER_URL = 'https://app.reflinejobs.io/3034/0108/index.html';
-const AVERECURA_TENANT_PATH = /^\/3034\/0108(?:\/|$)/u;
+const AVERECURA_TENANT_PATH = '/3034/0108';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -46,11 +46,13 @@ function normalizeSpace(s = '') {
 
 function isAverecuraTenantUrl(rawUrl = '') {
   try {
-    const url = new URL(rawUrl);
+    const url = new URL(String(rawUrl || '').trim());
     const host = url.hostname.toLowerCase();
     const trustedHost = host === AVERECURA_HOLDING_AG_COMPANY_DOMAIN
-      || host.endsWith(`.${AVERECURA_HOLDING_AG_COMPANY_DOMAIN}`);
-    return trustedHost && AVERECURA_TENANT_PATH.test(url.pathname);
+      || host.endsWith('.' + AVERECURA_HOLDING_AG_COMPANY_DOMAIN);
+    const isTenantPath = url.pathname === AVERECURA_TENANT_PATH
+      || url.pathname.startsWith(AVERECURA_TENANT_PATH + '/');
+    return trustedHost && isTenantPath;
   } catch {
     return false;
   }

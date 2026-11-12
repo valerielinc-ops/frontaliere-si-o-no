@@ -59,6 +59,9 @@ describe('averecura holding ag crawler parser', () => {
       expect(isTrustedDomain('https://app.reflinejobs.io/9999/0108/job/1')).toBe(false);
     });
 
+    it('rejects a lookalike tenant path', () => {
+      expect(isTrustedDomain('https://app.reflinejobs.io/3034/01080/job/456')).toBe(false);
+    });
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -105,7 +108,7 @@ describe('averecura holding ag crawler parser', () => {
       descriptionByLocale: { de: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://app.reflinejobs.io/jobs/test',
+     url: 'https://app.reflinejobs.io/3034/0108/jobs/test',
       source: 'averecura holding ag Dedicated Parser',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
