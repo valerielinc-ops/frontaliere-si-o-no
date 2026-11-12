@@ -10,16 +10,30 @@ TICINO_TREE_FANOUT_TOOL="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/tic
 # predates the hash-bucket router would otherwise keep requesting canonical
 # paths and turn every migrated page into a 404.
 section_tree_uses_hash_fanout() {
-  case "$1" in
-    ticino|zurigo) return 0 ;;
-    *) return 1 ;;
+  local result
+  if ! result="$(node "$TICINO_TREE_FANOUT_TOOL" is-fanned "$1")"; then
+    echo "::error::unable to classify the tree layout for section $1" >&2
+    return 2
+  fi
+  case "$result" in
+    true) return 0 ;;
+    false) return 1 ;;
+    *)
+      echo "::error::tree layout classifier returned an invalid result for section $1" >&2
+      return 2
+      ;;
   esac
 }
 
 section_tree_layout() {
+  local fanout_rc
   if section_tree_uses_hash_fanout "$1"; then
-    printf '%s-hash-v1' "$1"
+    # shard-git-helpers.sh is adapted to the corpus and recognizes this
+    # compatibility marker. Physical path mapping itself is section-neutral.
+    printf 'ticino-hash-v1'
   else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -ne 1 ]; then return "$fanout_rc"; fi
     printf 'canonical'
   fi
 }
@@ -27,12 +41,16 @@ section_tree_layout() {
 section_tree_require_worker_layout() {
   local section_name="$1"
   local section_sub="$2"
-  local probe_key="__frontaliere_${section_name}_tree_layout"
-  local header_name="x-frontaliere-${section_name}-tree-layout"
-  local probe_url="https://frontaliereticino.ch/${section_sub}/?${probe_key}=hash-v1"
-  local headers curl_rc attempt
+  local probe_url="https://frontaliereticino.ch/${section_sub}/?__frontaliere_section_tree_layout=hash-v1&section=${section_name}"
+  local headers curl_rc attempt fanout_rc
 
-  section_tree_uses_hash_fanout "$section_name" || return 0
+  if section_tree_uses_hash_fanout "$section_name"; then
+    :
+  else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -eq 1 ]; then return 0; fi
+    return "$fanout_rc"
+  fi
 
   # A timeout is not evidence that the active Worker lacks hash-v1 routing.
   # Retry only transport failures, with a bounded budget; HTTP responses still
@@ -40,10 +58,19 @@ section_tree_require_worker_layout() {
   # failure remains fail-closed before the hashed tree is published.
   for attempt in 1 2 3; do
     if headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
-      if printf '%s\n' "$headers" | tr -d '\r' | grep -Eiq "^${header_name}:[[:space:]]*hash-v1[[:space:]]*$"; then
+      if printf '%s\n' "$headers" | tr -d '\r' \
+          | grep -Eiq '^x-frontaliere-section-tree-layout:[[:space:]]*hash-v1[[:space:]]*$' \
+          && printf '%s\n' "$headers" | tr -d '\r' \
+            | grep -Eiq "^x-frontaliere-section:[[:space:]]*${section_name}[[:space:]]*$"; then
         return 0
       fi
-      echo "::error::active Worker does not advertise ${section_name} hash-v1 routing for $section_sub; refusing to publish hashed paths" >&2
+      # Accept the section-specific response during the generic-probe rollout;
+      # the next Worker deployment advertises both headers.
+      if printf '%s\n' "$headers" | tr -d '\r' \
+          | grep -Eiq "^x-frontaliere-${section_name}-tree-layout:[[:space:]]*hash-v1[[:space:]]*$"; then
+        return 0
+      fi
+      echo "::error::active Worker does not advertise hash-v1 routing for section $section_name at $section_sub; refusing to publish hashed paths" >&2
       return 1
     else
       curl_rc="$?"
@@ -69,8 +96,15 @@ section_tree_require_worker_layout() {
 section_tree_fanout_stage() {
   local section_name="$1"
   local root="$2"
+  local fanout_rc
 
-  section_tree_uses_hash_fanout "$section_name" || return 0
+  if section_tree_uses_hash_fanout "$section_name"; then
+    :
+  else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -eq 1 ]; then return 0; fi
+    return "$fanout_rc"
+  fi
   if [ ! -d "$root" ]; then
     echo "::error::$section_name fan-out root is not a directory: $root" >&2
     return 1
@@ -87,8 +121,15 @@ section_tree_fanout_stage() {
 section_tree_unfanout_stage() {
   local section_name="$1"
   local root="$2"
+  local fanout_rc
 
-  section_tree_uses_hash_fanout "$section_name" || return 0
+  if section_tree_uses_hash_fanout "$section_name"; then
+    :
+  else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -eq 1 ]; then return 0; fi
+    return "$fanout_rc"
+  fi
   node "$TICINO_TREE_FANOUT_TOOL" unfanout "$root"
 }
 

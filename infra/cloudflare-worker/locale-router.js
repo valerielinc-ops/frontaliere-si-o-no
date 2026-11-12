@@ -64,10 +64,12 @@
 
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import {
+  SECTION_TREE_FANOUT_SECTIONS,
   legacyTicinoTreeBucket,
   sectionTreeBucket,
   sectionUsesHashFanout,
 } from './ticino-tree-bucket.js';
+export { SECTION_TREE_FANOUT_SECTIONS };
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
@@ -3963,17 +3965,23 @@ const router = {
     const sec = matchSection(url.pathname);
     if (sec) {
       const layoutProbeKey = `__frontaliere_${sec.section}_tree_layout`;
+      const genericLayoutProbe = (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
+        && url.searchParams.get('__frontaliere_section_tree_layout') === 'hash-v1'
+        && url.searchParams.get('section') === sec.section;
       if (
         sectionUsesHashFanout(sec.section)
         && (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
-        && url.searchParams.get(layoutProbeKey) === 'hash-v1'
+        && (genericLayoutProbe || url.searchParams.get(layoutProbeKey) === 'hash-v1')
       ) {
+        const headers = {
+          'cache-control': 'no-store',
+          'x-frontaliere-section-tree-layout': 'hash-v1',
+          'x-frontaliere-section': sec.section,
+          [`x-frontaliere-${sec.section}-tree-layout`]: 'hash-v1',
+        };
         return new Response(null, {
           status: 204,
-          headers: {
-            'cache-control': 'no-store',
-            [`x-frontaliere-${sec.section}-tree-layout`]: 'hash-v1',
-          },
+          headers,
         });
       }
       return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx, sec);

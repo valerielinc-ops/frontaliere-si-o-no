@@ -434,6 +434,9 @@ const CRAWLER_TARGET_TIMEOUT_MAX_MINUTES = CRAWLER_WORKER_WATCHDOG_MAX_MINUTES -
 // group wall-clock comfortably below the 340-minute job budget. Groups 15 and
 // 16 are explicitly placed in a three-body resource lane: this is a concurrency
 // split, not a quarantine, and every member remains scheduled and attributable.
+// Groups 15 and 16 have a fixed 30-member roster contract in addition to their
+// three-worker resource lane. New members must be placed in another group so
+// their measured lane budget remains the one this contract covers.
 // Group 24 is the roster-sensitive exception: its current 30 members all use
 // the 74-minute fallback watchdog, so eight slots bound the worst case to four
 // waves (296 minutes) instead of five waves (370 minutes) at seven slots.
@@ -442,6 +445,10 @@ export const CRAWLER_GROUP_PARALLEL_CAPS = Object.freeze({
   15: 3,
   16: 3,
   24: 8,
+});
+export const CRAWLER_GROUP_ROSTER_CAPS = Object.freeze({
+  15: 30,
+  16: 30,
 });
 
 export function crawlerGroupMaxParallel(groupIndex) {
@@ -626,7 +633,12 @@ function assignmentsDoc(memberSlugsByGroup) {
  * only: tolerating the duplicate would emit the same crawler twice in one job,
  * i.e. two concurrent `git commit` racers on the same data file.
  */
-export function assignGroupsStable(crawlers, pinnedGroups, medianMs, { reservedGroupIndexes = [] } = {}) {
+export function assignGroupsStable(
+  crawlers,
+  pinnedGroups,
+  medianMs,
+  { reservedGroupIndexes = [], groupMemberCaps = {} } = {},
+) {
   const bySlug = new Map(crawlers.map((c) => [c.slug, c]));
   const groupCount = pinnedGroups.length;
   const memberSlugsByGroup = Array.from({ length: groupCount }, () => []);
@@ -667,9 +679,13 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs, { reservedG
   // group 24 was simply the smallest one, and anicura/fisba/protectas were
   // placed into it by this very rule.
   const reserved = new Set(reservedGroupIndexes);
-  const isReserved = (i) =>
-    reserved.has(i) || (memberSlugsByGroup[i].length === 1 &&
-    (bySlug.get(memberSlugsByGroup[i][0])?.durationMs ?? 0) > medianMs * OUTLIER_MEDIAN_MULTIPLE);
+  const isReserved = (i) => {
+    const memberCap = groupMemberCaps[i];
+    const atMemberCap = Number.isSafeInteger(memberCap) && memberCap >= 0
+      && memberSlugsByGroup[i].length >= memberCap;
+    return reserved.has(i) || atMemberCap || (memberSlugsByGroup[i].length === 1 &&
+      (bySlug.get(memberSlugsByGroup[i][0])?.durationMs ?? 0) > medianMs * OUTLIER_MEDIAN_MULTIPLE);
+  };
 
   const wallClockOf = (i) =>
     memberSlugsByGroup[i].reduce((max, slug) => Math.max(max, bySlug.get(slug)?.durationMs ?? 0), 0);
@@ -4256,7 +4272,12 @@ export function generate({
     crawlers,
     pinned,
     medianMs,
-    { reservedGroupIndexes: quarantineIndex >= 0 ? [quarantineIndex] : [] },
+    {
+      reservedGroupIndexes: quarantineIndex >= 0 ? [quarantineIndex] : [],
+      groupMemberCaps: Object.fromEntries(
+        Object.entries(CRAWLER_GROUP_ROSTER_CAPS).map(([group, cap]) => [Number(group) - 1, cap]),
+      ),
+    },
   );
   assertQuarantineMembership(quarantine, assignments, new Set(crawlers.map((c) => c.slug)));
 

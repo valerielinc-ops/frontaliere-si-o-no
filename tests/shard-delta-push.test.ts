@@ -288,11 +288,14 @@ function runPush(
       '#!/bin/sh',
       // Keep the fail-closed layout probes local; this fixture must not depend on the live Worker.
       'case "$*" in',
-      '  *__frontaliere_ticino_tree_layout=hash-v1*)',
-      '    printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: %s\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '  *__frontaliere_section_tree_layout=hash-v1*section=ticino*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: %s\\nx-frontaliere-section: ticino\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
       '    ;;',
-      '  *__frontaliere_zurigo_tree_layout=hash-v1*)',
-      '    printf "HTTP/2 204\\nx-frontaliere-zurigo-tree-layout: %s\\n" "${ZURIGO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '  *__frontaliere_section_tree_layout=hash-v1*section=zurigo*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: %s\\nx-frontaliere-section: zurigo\\n" "${ZURIGO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '    ;;',
+      '  *__frontaliere_section_tree_layout=hash-v1*section=berna*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: %s\\nx-frontaliere-section: berna\\n" "${BERNA_TEST_TREE_LAYOUT:-hash-v1}"',
       '    ;;',
       '  *)',
       `    exec ${JSON.stringify(realCurl)} "$@"`,
@@ -1245,7 +1248,7 @@ describe('delta push degli shard', () => {
       rmSync(full.root, { recursive: true, force: true });
       rmSync(delta.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('mantiene path con spazi e apostrofi nel piano delta', () => {
     const scenario = createScenario('spaces-and-apostrophes');

@@ -1,10 +1,10 @@
 // Shared by the shard publisher and locale-router Worker. Keep this module
 // runtime-neutral: Wrangler bundles it, and Node uses the identical mapping.
 const utf8Encoder = new TextEncoder();
-const HASH_FANOUT_SECTIONS = Object.freeze(['ticino', 'zurigo']);
+export const SECTION_TREE_FANOUT_SECTIONS = Object.freeze(['ticino', 'zurigo', 'berna']);
 
 export function sectionUsesHashFanout(section) {
-  return HASH_FANOUT_SECTIONS.includes(section);
+  return SECTION_TREE_FANOUT_SECTIONS.includes(section);
 }
 
 export function sectionTreeLayout(section) {
