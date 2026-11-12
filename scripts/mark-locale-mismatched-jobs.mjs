@@ -26,6 +26,7 @@
  * stall it exists to clear.
  */
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
@@ -38,7 +39,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-const jobs = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+const jobs = readJsonFile(DATA_JOBS_PATH);
 let flagged = 0;
 const flaggedSlugs = new Set();
 let slugless = 0;

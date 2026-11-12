@@ -45,6 +45,7 @@
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import {
   companyLogoKeyForJob,
@@ -211,7 +212,7 @@ function loadJobs() {
     return [];
   }
   try {
-    const raw = JSON.parse(readFileSync(JOBS_PATH, 'utf-8'));
+    const raw = readJsonFile(JOBS_PATH);
     if (Array.isArray(raw)) return raw;
     if (raw && Array.isArray(raw.jobs)) return raw.jobs;
     return [];

@@ -168,6 +168,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
   it('uses manifest-indexed receipts and supports explicit full scans', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
+    expect(workflow.on.workflow_call.inputs.it_shard_artifact_run_id).toBeTruthy();
     const steps = workflow.jobs.audit.steps;
     const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator');
     expect(indexValidatorCheckout.uses).toBe('actions/checkout@v7');
@@ -183,7 +184,9 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
         with: {
           pattern: `section-page-manifest-${locale}-*`,
           path: '${{ runner.temp }}/publisher-audit-manifests/sections',
-          'run-id': '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
+          'run-id': locale === 'it'
+            ? '${{ inputs.it_shard_artifact_run_id || inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_IT }}'
+            : '${{ inputs.shard_artifact_run_id || env.SHARD_ARTIFACT_RUN_ID_' + upperLocale + ' }}',
           'merge-multiple': true,
         },
       });
@@ -217,6 +220,10 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const fetchPages = workflow.jobs.audit.steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
     expect(fetchPages.with['run-id']).toBe('${{ inputs.shard_artifact_run_id || inputs.deploy_run_id }}');
     expect(fetchPages.with['run-id']).not.toContain('SHARD_ARTIFACT_RUN_ID_IT');
+    const rehydrate = workflow.jobs.audit.steps.find((step: any) => (
+      step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
+    ));
+    expect(rehydrate.env.SHARD_ARTIFACT_RUN_ID_IT).toContain('inputs.it_shard_artifact_run_id');
   });
 
   it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
@@ -325,11 +332,18 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(selector).toContain('select(.name == "deploy")');
     expect(selector).toContain('publisher_deploy_conclusion');
     expect(selector).toContain('[ "$publisher_deploy_conclusion" != \'success\' ]');
-    expect(selector).toContain('complete=true');
-    expect(selector).toContain('has_name "$source_names" "$name" || complete=false');
-    expect(selector).toContain('has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || complete=false');
-    expect(selector).toContain('has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || complete=false');
-    expect(selector).toContain('if [ "$complete" = true ]; then');
+    expect(selector).toContain('source_complete=true');
+    expect(selector).toContain('publisher_complete=true');
+    expect(selector).toContain('source_it_complete=true');
+    expect(selector).toContain('publisher_it_complete=true');
+    expect(selector).toContain('has_name "$source_names" "$name" || source_it_complete=false');
+    expect(selector).toContain('has_name "$publisher_names" "$name" || publisher_it_complete=false');
+    expect(selector).toContain('it_shard_artifact_run_id');
+    expect(selector).toContain('"sitemaps-$source_id"');
+    expect(selector).toContain('"sitemaps-$publisher_id"');
+    expect(selector).toContain('has_name "$publisher_names" "locale-dist-$locale-$publisher_id" || publisher_complete=false');
+    expect(selector).toContain('has_name "$publisher_names" "section-page-manifest-$locale-$publisher_id" || publisher_complete=false');
+    expect(selector).toContain('if [ "$source_complete" != true ] || [ "$publisher_complete" != true ]; then');
     expect(selector).toContain('No publisher run with a successful deploy job has a complete, unexpired source and shard artifact set.');
     expect(selector).toMatch(/echo '::error::No publisher run with a successful deploy job[\s\S]*?exit 1/);
   });

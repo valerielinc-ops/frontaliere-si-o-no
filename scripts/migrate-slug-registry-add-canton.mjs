@@ -3,6 +3,7 @@
 // Source of truth: data/jobs.json (job.canton or inferred from job.location via city → canton).
 // Fallback: 'TI' (preserves legacy behavior for entries we can't resolve).
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 
 const REG_PATH = path.resolve('data/slug-registry.json');
@@ -10,7 +11,7 @@ const JOBS_PATH = path.resolve('data/jobs.json');
 const MUNI_PATH = path.resolve('data/canton-municipalities.json');
 
 const registry = JSON.parse(fs.readFileSync(REG_PATH, 'utf8'));
-const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+const jobs = readJsonFile(JOBS_PATH);
 const muni = JSON.parse(fs.readFileSync(MUNI_PATH, 'utf8'));
 
 // Build slug → canton map from current jobs.json

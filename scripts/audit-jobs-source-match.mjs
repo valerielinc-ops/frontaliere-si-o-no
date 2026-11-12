@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
@@ -89,7 +90,7 @@ function clampInt(value, min, max, fallback) {
 }
 
 function readJobs() {
-  return JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  return readJsonFile(JOBS_PATH);
 }
 
 function normalizeSpace(value = '') {

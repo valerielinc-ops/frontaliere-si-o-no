@@ -12,6 +12,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -49,7 +50,7 @@ function main() {
 
   let jobs;
   try {
-    jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    jobs = readJsonFile(DATA_JOBS);
   } catch (err) {
     console.error(`❌ Failed to parse ${DATA_JOBS}: ${err.message}`);
     process.exit(1);

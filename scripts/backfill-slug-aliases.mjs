@@ -13,6 +13,7 @@
  * Run: node scripts/backfill-slug-aliases.mjs
  */
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -98,7 +99,7 @@ function loadJobs() {
 
   // Fallback to assembled jobs.json
   if (fs.existsSync(DATA_JOBS)) {
-    const assembled = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf8'));
+    const assembled = readJsonFile(DATA_JOBS);
     const assembledJobs = Array.isArray(assembled) ? assembled : [];
     for (const job of assembledJobs) jobs.push(job);
     console.log(`Loaded ${jobs.length} jobs from assembled jobs.json.`);

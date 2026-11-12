@@ -16,6 +16,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
@@ -44,7 +45,7 @@ const STRESS_MODE = process.argv.includes('--stress');
 
 function loadJobs() {
   try {
-    return JSON.parse(fs.readFileSync(DATA_JOBS, 'utf8'));
+    return readJsonFile(DATA_JOBS);
   } catch {
     return [];
   }

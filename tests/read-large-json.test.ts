@@ -90,8 +90,16 @@ describe('data/jobs.json readers', () => {
     'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
     'scripts/sync-employer-contacts-to-firestore.mjs',
+    // deploy prep (deploy 43171223798 died here after the build readers were fixed)
+    'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
+    'scripts/migrate-slug-registry-add-canton.mjs',
+    'scripts/migrate-previous-slug-winners-add-canton.mjs',
+    'scripts/refresh-weekly-employers-top-pairs.mjs',
+    'scripts/cleanup-jobs.mjs',
+    'scripts/ci/prepare-job-og-cache-prewarm.ts',
+    'scripts/send-job-alerts.mjs',
   ];
-  const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
+  const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|JOBS_PATH|DATA_JOBS|DATA_JOBS_PATH|EXPIRED_JOBS_PATH|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
 
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
     const src = fs.readFileSync(path.join(root, rel), 'utf8');

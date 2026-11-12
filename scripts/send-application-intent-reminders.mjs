@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { jobDisplayTitle } from './lib/job-title-identity.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -95,7 +96,7 @@ export function __setJobsForTest(jobs) {
 }
 
 function loadJobsById() {
-  const jobs = _jobsForTest || JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = _jobsForTest || readJsonFile(JOBS_PATH);
   return new Map(jobs.map((job) => [job.id, job]));
 }
 

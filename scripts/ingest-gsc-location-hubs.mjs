@@ -30,6 +30,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import cantonSlugFile from '../data/canton-url-slugs.json' with { type: 'json' };
@@ -173,7 +174,7 @@ function main() {
     return;
   }
 
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  const jobs = readJsonFile(JOBS_PATH);
   const locIdx = buildLocationIndex(jobs);
   console.log(`Loaded ${jobs.length} jobs, ${locIdx.size} distinct location slugs.`);
 

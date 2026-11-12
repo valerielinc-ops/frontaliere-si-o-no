@@ -21,6 +21,7 @@
  * nothing rather than failing the run — the network sources still carry it.
  */
 import fs from 'node:fs';
+import { readJsonFile } from '../../read-large-json.mjs';
 import path from 'node:path';
 import { DATA_ROOT, ROOT } from './../config.mjs';
 import { registrableDomain, normalizeHost, sameOrg } from './../registrable.mjs';
@@ -46,7 +47,7 @@ function readJobs(dataRoot) {
   } catch { /* slices not materialised */ }
   if (jobs.length) return jobs;
   try {
-    const raw = JSON.parse(fs.readFileSync(path.join(dataRoot, 'jobs.json'), 'utf8'));
+    const raw = readJsonFile(path.join(dataRoot, 'jobs.json'));
     return Array.isArray(raw) ? raw : raw?.jobs || [];
   } catch {
     return [];

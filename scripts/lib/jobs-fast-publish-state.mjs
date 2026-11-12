@@ -97,6 +97,18 @@ function publishedPaths(value) {
     : [];
 }
 
+function samePaths(left, right) {
+  const normalize = (paths) =>
+    [
+      ...new Set(
+        Array.isArray(paths)
+          ? paths.filter((path) => typeof path === "string")
+          : [],
+      ),
+    ].sort();
+  return JSON.stringify(normalize(left)) === JSON.stringify(normalize(right));
+}
+
 async function bootstrapCutoff(db, now, bootstrapDays, write) {
   const meta = db.collection(COLLECTION).doc(META_ID);
   const suggested = now - bootstrapDays * 86_400_000;
@@ -170,7 +182,6 @@ export async function discoverFastPublishJobs(
       const paths = pathsForJob(job);
       if (
         !Array.isArray(paths) ||
-        paths.length === 0 ||
         paths.some(
           (path) =>
             typeof path !== "string" ||
@@ -208,7 +219,21 @@ export async function discoverFastPublishJobs(
       }
       for (const [key, record] of current) {
         const previousHash = publishedHash(published[key]);
-        if (previousHash === record.hash) {
+        const hasCanonicalPaths = canonicalPathsById.has(record.id);
+        const currentPaths = canonicalPathsById.get(record.id);
+        const previous = queued[key];
+        // Keep the latest full-build ownership set pending until its sitemap
+        // and published-route state have been reconciled.
+        const ownershipChangePending =
+          hasCanonicalPaths && previous?.ownershipChangePending === true;
+        const pathsChanged =
+          hasCanonicalPaths &&
+          !samePaths(currentPaths, publishedPaths(published[key]));
+        if (
+          previousHash === record.hash &&
+          !pathsChanged &&
+          !ownershipChangePending
+        ) {
           if (queued[key]) {
             delete queued[key];
             changed = true;
@@ -234,16 +259,21 @@ export async function discoverFastPublishJobs(
           changed ||= write || hadQueued;
           continue;
         }
-        const previous = queued[key];
         const next = {
           id: record.id,
           hash: record.hash,
           observedAtMs: record.observedAtMs,
         };
+        if (hasCanonicalPaths && (pathsChanged || ownershipChangePending)) {
+          next.paths = currentPaths;
+          next.ownershipChangePending = true;
+        }
         if (
           !previous ||
           previous.hash !== next.hash ||
-          previous.observedAtMs !== next.observedAtMs
+          previous.observedAtMs !== next.observedAtMs ||
+          previous.ownershipChangePending !== next.ownershipChangePending ||
+          (next.ownershipChangePending && !samePaths(previous.paths, next.paths))
         ) {
           queued[key] = next;
           changed = true;
@@ -270,15 +300,34 @@ export async function discoverFastPublishJobs(
         if (!current.has(key)) delete queued[key];
       for (const [key, record] of current) {
         const previousHash = publishedHash(published[key]);
-        if (previousHash === record.hash) delete queued[key];
+        const hasCanonicalPaths = canonicalPathsById.has(record.id);
+        const currentPaths = canonicalPathsById.get(record.id);
+        const previous = queued[key];
+        const ownershipChangePending =
+          hasCanonicalPaths && previous?.ownershipChangePending === true;
+        const pathsChanged =
+          hasCanonicalPaths &&
+          !samePaths(currentPaths, publishedPaths(published[key]));
+        if (
+          previousHash === record.hash &&
+          !pathsChanged &&
+          !ownershipChangePending
+        )
+          delete queued[key];
         else if (previousHash === "" && record.observedAtMs < cutoff)
           delete queued[key];
-        else
-          queued[key] = {
+        else {
+          const next = {
             id: record.id,
             hash: record.hash,
             observedAtMs: record.observedAtMs,
           };
+          if (hasCanonicalPaths && (pathsChanged || ownershipChangePending)) {
+            next.paths = currentPaths;
+            next.ownershipChangePending = true;
+          }
+          queued[key] = next;
+        }
       }
       resultRows = Object.values(queued);
     }
@@ -287,6 +336,7 @@ export async function discoverFastPublishJobs(
       if (currentJob && row.hash === currentJob.hash) {
         pending.push({
           ...currentJob,
+          ownershipChangePending: row.ownershipChangePending === true,
           previousPaths: publishedPaths(publishedRows[stateKey(row.id)]),
         });
       }
@@ -336,6 +386,12 @@ export async function markFastPublishJobsPublished(records, { db } = {}) {
       const pending = { ...(data.pending || {}) };
       for (const row of rows) {
         if (pending[row.key]?.hash !== row.hash) continue;
+        if (
+          pending[row.key]?.ownershipChangePending === true &&
+          !samePaths(pending[row.key].paths, row.paths)
+        ) {
+          continue;
+        }
         published[row.key] = {
           hash: row.hash,
           paths: row.paths,

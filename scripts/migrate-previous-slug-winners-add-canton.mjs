@@ -24,6 +24,7 @@
 // the registry key MUST include canton — two jobs in different cantons can
 // legitimately share the same oldSlug now and they emit at DIFFERENT URLs.
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 
@@ -45,7 +46,7 @@ if (!fs.existsSync(MUNI_PATH)) {
 }
 
 const winners = JSON.parse(fs.readFileSync(WINNERS_PATH, 'utf8'));
-const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+const jobs = readJsonFile(JOBS_PATH);
 const muni = JSON.parse(fs.readFileSync(MUNI_PATH, 'utf8'));
 
 // Build identifier → job map. The plugin uses

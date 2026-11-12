@@ -29,6 +29,7 @@
  */
 
 import fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
@@ -285,7 +286,7 @@ function main() {
     return;
   }
 
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
+  const jobs = readJsonFile(JOBS_PATH);
   const expiredArr = fs.existsSync(EXPIRED_PATH)
     ? (() => { const e = JSON.parse(fs.readFileSync(EXPIRED_PATH, 'utf-8')); return Array.isArray(e) ? e : (e.jobs || e.entries || []); })()
     : [];
