@@ -48,7 +48,6 @@ import {
   MANIFEST_LOCALES,
   applyHreflangDecision,
   classifyHreflangPage,
-  clusterKeyOf,
   decideHreflangBlock,
   localeOfPath,
   parseHreflangManifest,
@@ -57,36 +56,7 @@ import {
 
 const SKIP_DIRS = new Set(['assets', 'data', 'images']);
 export const HREFLANG_REWRITE_BATCH_SIZE = 64;
-const HREFLANG_PREPASS_CACHE_VERSION = 2;
-
-function internHreflangMemberSet(page, memberSetIds, memberSets) {
-  const members = page.members.map(({ hreflang, href, path: memberPath }) => [hreflang, href, memberPath]);
-  const signature = JSON.stringify(members);
-  let id = memberSetIds.get(signature);
-  if (id === undefined) {
-    id = memberSets.length;
-    memberSetIds.set(signature, id);
-    memberSets.push({
-      clusterKey: page.clusterKey,
-      members: page.members,
-    });
-  }
-  return id;
-}
-
-function materializeCachedHreflangPage(item, memberSets) {
-  const memberSet = memberSets[item.memberSetId];
-  if (!memberSet) throw new Error(`hreflang member set ${item.memberSetId} is unavailable`);
-  return {
-    path: item.urlPath,
-    eligible: item.eligible,
-    reason: item.reason,
-    hasHreflang: true,
-    members: memberSet.members,
-    xDefault: item.xDefaultPresent ? { path: item.xDefaultPath, href: '' } : null,
-    clusterKey: memberSet.clusterKey,
-  };
-}
+const HREFLANG_PREPASS_CACHE_VERSION = 1;
 
 export function ownedLocalesFromEnv(raw = process.env.BUILD_LOCALE) {
   const wanted = String(raw || '')
@@ -121,7 +91,6 @@ async function writePrepassCache(cachePath, {
   pagesScanned,
   pagesByReason,
   withHreflang,
-  memberSets,
   manifestCounts,
 }) {
   const target = path.resolve(cachePath);
@@ -138,30 +107,13 @@ async function writePrepassCache(cachePath, {
       pagesScanned,
       pagesByReason,
       recordCount: withHreflang.length,
-      memberSetCount: memberSets.length,
       manifestCounts,
     };
     output.write(`${JSON.stringify(header)}\n`);
-    for (let id = 0; id < memberSets.length; id++) {
-      const memberSet = memberSets[id];
-      const record = {
-        kind: 'members',
-        id,
-        clusterKey: memberSet.clusterKey,
-        members: memberSet.members.map(({ hreflang, href, path: memberPath }) => [hreflang, href, memberPath]),
-      };
-      if (!output.write(`${JSON.stringify(record)}\n`)) await once(output, 'drain');
-    }
     for (const item of withHreflang) {
       const record = {
-        kind: 'page',
         file: path.relative(distDir, item.file),
         urlPath: item.urlPath,
-        eligible: item.eligible,
-        reason: item.reason,
-        memberSetId: item.memberSetId,
-        xDefaultPresent: item.xDefaultPresent,
-        xDefaultPath: item.xDefaultPath,
       };
       if (!output.write(`${JSON.stringify(record)}\n`)) await once(output, 'drain');
     }
@@ -199,10 +151,8 @@ async function readPrepassCache(cachePath, {
 
   const input = fs.createReadStream(cachePath, { encoding: 'utf-8' });
   const lines = createInterface({ input, crlfDelay: Infinity });
-  const memberSets = [];
   const withHreflang = [];
   let header = null;
-  let readingPages = false;
 
   for await (const line of lines) {
     if (!line) continue;
@@ -217,37 +167,9 @@ async function readPrepassCache(cachePath, {
       header = record;
       continue;
     }
-    if (record.kind === 'members') {
-      if (readingPages || !Number.isSafeInteger(record.id) || record.id !== memberSets.length
-        || typeof record.clusterKey !== 'string' || !Array.isArray(record.members)) {
-        throw new Error('invalid hreflang prepass member-set record');
-      }
-      const members = [];
-      for (const member of record.members) {
-        if (!Array.isArray(member) || member.length !== 3
-          || typeof member[0] !== 'string' || typeof member[1] !== 'string'
-          || !(typeof member[2] === 'string' || member[2] === null)) {
-          throw new Error('invalid hreflang prepass member');
-        }
-        members.push({ hreflang: member[0], href: member[1], path: member[2] });
-      }
-      const expectedClusterKey = members.length > 0 ? clusterKeyOf(members) : '';
-      if (record.clusterKey !== expectedClusterKey) {
-        throw new Error('hreflang prepass member-set cluster key mismatch');
-      }
-      memberSets.push({ clusterKey: record.clusterKey, members });
-      continue;
+    if (typeof record.file !== 'string' || typeof record.urlPath !== 'string') {
+      throw new Error('invalid hreflang prepass cache record');
     }
-    if (record.kind !== 'page' || typeof record.file !== 'string' || typeof record.urlPath !== 'string'
-      || typeof record.eligible !== 'boolean' || typeof record.reason !== 'string'
-      || !Number.isSafeInteger(record.memberSetId) || record.memberSetId < 0
-      || typeof record.xDefaultPresent !== 'boolean'
-      || !(typeof record.xDefaultPath === 'string' || record.xDefaultPath === null)
-      || (record.xDefaultPresent === false && record.xDefaultPath !== null)
-      || !memberSets[record.memberSetId]) {
-      throw new Error('invalid hreflang prepass page record');
-    }
-    readingPages = true;
     const file = path.resolve(root, record.file);
     if (file === root || !file.startsWith(`${root}${path.sep}`)) {
       throw new Error(`hreflang prepass path escapes dist: ${record.file}`);
@@ -255,15 +177,7 @@ async function readPrepassCache(cachePath, {
     if (!owned.has(localeOfPath(record.urlPath))) {
       throw new Error(`hreflang prepass contains an unowned locale path: ${record.urlPath}`);
     }
-    withHreflang.push({
-      file,
-      urlPath: record.urlPath,
-      eligible: record.eligible,
-      reason: record.reason,
-      memberSetId: record.memberSetId,
-      xDefaultPresent: record.xDefaultPresent,
-      xDefaultPath: record.xDefaultPath,
-    });
+    withHreflang.push({ file, urlPath: record.urlPath });
   }
 
   if (
@@ -274,8 +188,6 @@ async function readPrepassCache(cachePath, {
     || !Number.isSafeInteger(header.pagesScanned)
     || !Number.isSafeInteger(header.recordCount)
     || header.recordCount !== withHreflang.length
-    || !Number.isSafeInteger(header.memberSetCount)
-    || header.memberSetCount !== memberSets.length
     || !header.pagesByReason
     || typeof header.pagesByReason !== 'object'
     || Array.isArray(header.pagesByReason)
@@ -293,7 +205,6 @@ async function readPrepassCache(cachePath, {
     pagesScanned: header.pagesScanned,
     pagesByReason: header.pagesByReason,
     withHreflang,
-    memberSets,
   };
 }
 
@@ -386,14 +297,13 @@ export async function runHreflangIndexManifest({
   let current = new Map(MANIFEST_LOCALES.map((l) => [l, new Map()]));
   let pagesByReason = {};
   let withHreflang = [];
-  let memberSets = [];
   let pagesScanned = 0;
   let prepassCache = 'unused';
   const readFailures = [];
 
   if (reusePrepassCachePath) {
     try {
-      ({ current, pagesScanned, pagesByReason, withHreflang, memberSets } = await readPrepassCache(reusePrepassCachePath, {
+      ({ current, pagesScanned, pagesByReason, withHreflang } = await readPrepassCache(reusePrepassCachePath, {
         distDir,
         manifestDir,
         ownedLocales,
@@ -428,12 +338,7 @@ export async function runHreflangIndexManifest({
 
     // ── Pass 1: classify every owned page from its head ───────────────────
     // Only what the decision needs survives the pass: the manifest entry of
-    // an eligible page and compact interned decision data for pages carrying
-    // hreflang. The same member set is shared by all translated pages in a
-    // reciprocal cluster, so pass 2 does not retain one member object graph
-    // per URL.
-    const memberSetIds = new Map();
-    memberSets = [];
+    // an eligible page and the PATH of a page carrying hreflang.
     await mapPool(files, concurrency, async (item) => {
       const head = await readHeadOrAll(item.file);
       if (head === null) {
@@ -445,17 +350,7 @@ export async function runHreflangIndexManifest({
       if (page.eligible && primaryByPath.get(item.urlPath) === item) {
         current.get(localeOfPath(page.path)).set(item.urlPath, page.clusterKey);
       }
-      if (page.hasHreflang) {
-        const memberSetId = internHreflangMemberSet(page, memberSetIds, memberSets);
-        withHreflang.push({
-          ...item,
-          eligible: page.eligible,
-          reason: page.reason,
-          memberSetId,
-          xDefaultPresent: page.xDefault !== null,
-          xDefaultPath: page.xDefault?.path ?? null,
-        });
-      }
+      if (page.hasHreflang) withHreflang.push(item);
     });
     if (readFailures.length > 0) {
       throw new Error(`${readFailures.length} HTML file(s) unreadable, first: ${readFailures[0]}`);
@@ -504,7 +399,12 @@ export async function runHreflangIndexManifest({
   const changes = [];
   if (!manifestOnly) {
     await mapPool(withHreflang, concurrency, async (item) => {
-      const page = materializeCachedHreflangPage(item, memberSets);
+      const head = await readHeadOrAll(item.file);
+      if (head === null) {
+        readFailures.push(item.file);
+        return;
+      }
+      const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
       const decision = decideHreflangBlock(page, lookup);
       bump(blocksByDecision, `${decision.action}:${decision.reason}`);
       for (const reason of decision.unknown) bump(unknownMembers, reason);
@@ -596,7 +496,6 @@ export async function runHreflangIndexManifest({
         pagesScanned,
         pagesByReason,
         withHreflang,
-        memberSets,
         manifestCounts,
       });
       prepassCache = 'written';
@@ -615,8 +514,6 @@ export async function runHreflangIndexManifest({
     pagesByReason,
     pagesWithHreflang: withHreflang.length,
     prepassCache,
-    prepassClassificationsReused: prepassCache === 'reused' ? withHreflang.length : 0,
-    prepassMemberSets: memberSets.length,
     blocksByDecision,
     unknownMembers,
     manifestSources,
