@@ -20,6 +20,7 @@ export interface ApplicationConciergeProposal {
   declinedAt?: string | null;
   /** When the platform accepts this undecided proposal for the candidate (owner decision 2026-11-11). */
   autoAcceptAt?: string | null;
+  proposalNoticeStatus?: 'sent' | 'unknown' | 'undeliverable' | string | null;
   decidedBy?: 'candidate' | 'platform_timeout' | null;
   childApplicationId?: string | null;
   childApplicationState?: string | null;
@@ -37,8 +38,14 @@ export interface ApplicationConciergeProposal {
   source?: string | null;
 }
 
+export type ApplicationConciergePreProposalCheck = Omit<ApplicationConciergeProposal, 'status'> & {
+  status: 'preproposal_check';
+};
+
 export type ApplicationConciergeProposalCategory =
   | 'proposed'
+  | 'needs_clarification'
+  | 'needs_verification'
   | 'needs_information'
   | 'accepted'
   | 'queued'
@@ -95,6 +102,8 @@ export interface ApplicationConciergeService {
   matchingCompletedAt?: string | null;
   matchingError?: string | null;
   proposals: ApplicationConciergeProposal[];
+  /** Preliminary eligibility questions; these rows are not offers the candidate can accept. */
+  preProposalChecks?: ApplicationConciergePreProposalCheck[];
   candidateLanguageFacts?: {
     confirmedAt: string | null;
     listComplete: boolean;
@@ -128,9 +137,19 @@ export interface ApplicationConciergePaidReceiptEmail {
 export function getCandidateVisibleApplicationConciergeProposals(
   proposals: readonly ApplicationConciergeProposal[],
 ): ApplicationConciergeProposal[] {
-  // Retractions are part of the candidate's application history. Keep them
-  // visible and give them their own category instead of silently removing them.
-  return [...proposals];
+  // An unverified row is not an offer. Keep only decision-ready proposals and
+  // the candidate's durable application/decision history in this collection.
+  return proposals.filter(proposal => proposal.status !== 'preproposal_check'
+    && (proposal.status !== 'proposed' || proposal.eligibilityStatus === 'compatible'));
+}
+
+/** Candidate facts may be needed to check a possible match before it becomes an offer. */
+export function getCandidateVisibleConciergeClarificationTasks(
+  proposals: readonly ApplicationConciergeProposal[],
+): ApplicationConciergeProposal[] {
+  return proposals.filter(proposal => ['proposed', 'preproposal_check'].includes(proposal.status)
+    && proposal.eligibilityStatus === 'clarification_required'
+    && (proposal.clarificationQuestions || []).some(question => question.required));
 }
 
 /** The decision to accept a proposal is separate from the progress of its application. */
@@ -142,7 +161,11 @@ export function conciergeProposalDisplayStatus(proposal: ApplicationConciergePro
     if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
   }
   if (proposal.withdrawnAt || (proposal.status === 'accepted' && state === 'withdrawn')) return 'withdrawn';
-  if (proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification') return 'needs_verification';
+  if (proposal.status === 'proposed') {
+    if (proposal.eligibilityStatus === 'clarification_required') return 'needs_clarification';
+    if (proposal.eligibilityStatus !== 'compatible') return 'needs_verification';
+  }
+  if (proposal.status === 'preproposal_check') return 'needs_clarification';
   if (proposal.status !== 'accepted') {
     switch (proposal.status) {
       case 'proposed': return 'proposed';
@@ -167,6 +190,8 @@ export function conciergeProposalDisplayStatus(proposal: ApplicationConciergePro
 
 const PROPOSAL_CATEGORY_ORDER: readonly ApplicationConciergeProposalCategory[] = [
   'needs_information',
+  'needs_clarification',
+  'needs_verification',
   'proposed',
   'accepted',
   'queued',
@@ -187,13 +212,14 @@ export function conciergeProposalDisplayCategory(proposal: ApplicationConciergeP
     case 'needs_information':
     case 'needs_answers':
     case 'needs_review': return 'needs_information';
+    case 'needs_clarification': return 'needs_clarification';
+    case 'needs_verification': return 'needs_verification';
     case 'queued':
     case 'sending':
     case 'retry_scheduled': return 'queued';
     case 'preparing':
     case 'accepted': return 'accepted';
     case 'technical_review': return 'reviewing';
-    case 'needs_verification':
     case 'proposed': return 'proposed';
     case 'declined': return 'declined';
     case 'retracted': return 'retracted';
@@ -211,6 +237,8 @@ export function groupApplicationConciergeProposals(
 ): ApplicationConciergeProposalGroup[] {
   const grouped = new Map<ApplicationConciergeProposalCategory, ApplicationConciergeProposal[]>();
   for (const proposal of proposals) {
+    if (proposal.status === 'preproposal_check'
+      || proposal.status === 'proposed' && proposal.eligibilityStatus !== 'compatible') continue;
     const category = conciergeProposalDisplayCategory(proposal);
     const group = grouped.get(category) || [];
     group.push(proposal);

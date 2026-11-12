@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { APPLICATION_CONCIERGE_MAX_OPEN_PROPOSALS } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
 import { eligibilityRetryRef } from '../functions/src/applicationConciergeEligibilityRetry.js';
 
 vi.mock('firebase-admin/firestore', () => {
@@ -863,15 +864,24 @@ describe('application concierge proposal retention', () => {
 
   it('keeps the open-proposal cap atomic across concurrent triggers and deduplicates a repeated listing', async () => {
     const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, { ...store.read(PROPOSAL_PATH)!,
+      eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION, eligibilityCvStorageKey: CV_KEY, eligibilityFactsRevision: 0 });
     const secondOpenPath = `${SERVICE_PATH}/proposals/proposal-open-2`;
-    store.docs.set(secondOpenPath, { status: 'proposed', jobId: 'existing-2', jobUrl: 'https://jobs.example.test/existing-2' });
+    store.docs.set(secondOpenPath, {
+      status: 'proposed', jobId: 'existing-2', jobUrl: 'https://jobs.example.test/existing-2',
+      eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      eligibilityCvStorageKey: CV_KEY, eligibilityFactsRevision: 0,
+    });
     store.docs.set(SERVICE_PATH, { ...store.read(SERVICE_PATH)!, matchingOpenProposalCount: 2 });
     serializeTransactions(store);
     const firstJob = { id: 'job-new-1', url: 'https://jobs.example.test/new-1', title: 'IT Manager SAP', company: 'Example AG' };
     const secondJob = { id: 'job-new-2', url: 'https://jobs.example.test/new-2', title: 'IT Manager SAP', company: 'Example AG' };
+    const existingFirstJob = { id: 'job-1', url: JOB_URL, title: 'IT Manager SAP', company: 'Example AG' };
+    const existingSecondJob = { id: 'existing-2', url: 'https://jobs.example.test/existing-2', title: 'IT Manager SAP', company: 'Example AG' };
     vi.stubGlobal('fetch', vi.fn(async (input: string) => ({
       ok: true,
-      json: async () => String(input).endsWith('/first') ? [firstJob] : [secondJob],
+      json: async () => String(input).endsWith('/first') ? [firstJob, existingFirstJob, existingSecondJob]
+        : [secondJob, existingFirstJob, existingSecondJob],
     })));
     const eligibility = vi.fn(async () => ({ status: 'compatible' }));
 
