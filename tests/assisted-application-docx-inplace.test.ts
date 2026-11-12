@@ -403,6 +403,7 @@ const SECRET = 'i'.repeat(40);
 const T0 = Date.UTC(2026, 9, 2, 10, 0, 0);
 const ORDER = 'order_INPLACE1';
 const BASE = `assisted_applications/${ORDER}`;
+const APPLICANT_EMAIL = 'candidate@example.test';
 
 describe('the third CV on the review page and at submission', () => {
   let store: ReturnType<typeof createMemoryFirestore>;
@@ -415,11 +416,11 @@ describe('the third CV on the review page and at submission', () => {
   beforeEach(() => {
     bucket = fakeBucket();
     const base = makeDocx();
-    const first = buildInPlaceDocx(base, tailored(), { profile, identity: { name: profile.fullName, email: 'candidate@example.test' } });
+    const first = buildInPlaceDocx(base, tailored(), { profile, identity: { name: profile.fullName, email: APPLICANT_EMAIL } });
     bucket.files.set(`assisted-application-uploads/${ORDER}/1-cv.docx`, base);
     bucket.files.set(`assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, first.docx);
     store = createMemoryFirestore({
-      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi', applicantEmail: 'candidate@example.test', cvStorageKey: `assisted-application-uploads/${ORDER}/1-cv.docx` },
+      [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Sviluppatore', companyName: 'Esempio Fintech SA', locale: 'it', applicantName: 'Marco Bianchi', applicantEmail: APPLICANT_EMAIL, cvStorageKey: `assisted-application-uploads/${ORDER}/1-cv.docx` },
       [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
       [`${BASE}/ai_drafts/current`]: {
         status: 'ready', round: 1, language: 'it', profile, job: { title: 'Sviluppatore' }, factSources: { text: CV_TEXT },
@@ -442,7 +443,10 @@ describe('the third CV on the review page and at submission', () => {
     expect(cvChoiceOf(draft, flow)).toBe('inplace');
     const sent = await chooseCv({ draft, flow, bucket, cvBuffer: Buffer.from('x'), cvType: 'docx' });
     expect(sent).toMatchObject({ cvType: 'docx', cvSent: 'inplace' });
-    expect(texts(sent.cvBuffer)).toContain('Portale B2B in React e Node.js usato da 400 clienti');
+    const sentText = texts(sent.cvBuffer).join('\n');
+    expect(sentText).toContain(APPLICANT_EMAIL);
+    expect(sentText).toContain('Portale B2B in React e Node.js usato da 400 clienti');
+    expect(sentText).not.toContain(profile.email);
   });
 
   it('refuses the third choice when the draft has none, and reads a stale choice as the tailored CV', async () => {
