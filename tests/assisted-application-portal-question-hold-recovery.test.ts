@@ -82,7 +82,7 @@ describe('portal question holds after a portal fix', () => {
 
   it('never resumes a submission that was clicked or is still in flight', async () => {
     for (const submission of [
-      { r1: { state: 'failed', channel: 'portal', releasedAt: now - 1000, clickedAt: now - 2000 } },
+      { r1: { state: 'failed', channel: 'portal', releasedAt: now - 1000, clickedAt: now - 2000, confirmedNotSent: false } },
       { r1: { state: 'failed', channel: 'portal', releasedAt: now - 1000 }, r0: { state: 'sending', channel: 'portal' } },
       { r1: { state: 'sent', channel: 'portal' } },
     ]) {

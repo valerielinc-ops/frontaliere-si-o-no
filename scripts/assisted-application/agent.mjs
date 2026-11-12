@@ -287,6 +287,7 @@ async function main() {
       && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
       if (!await persistLivePortalRequirements({ db, orderRef, expected: { order, flow: flowSnapshot.data() || {}, draft: submitDraft }, round, event })) {
         summary(`mode=${mode} round=${round} skipped: requirement context changed`);
+        await report({ type: 'submit_failed', error: 'requirement_context_changed' });
         return;
       }
       const details = questionDetailsForEvent(event.questionDetails, portalQuestionKey);

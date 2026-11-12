@@ -124,8 +124,8 @@ describe('source-version recovery of positively identified operational portal qu
     if (kind === 'attempt') draft.sentAttempt = { at: now };
     store.docs.set(`${base}/automation/flow`, flow);
     store.docs.set(`${base}/ai_drafts/current`, draft);
-    if (kind === 'click') store.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now } });
-    if (kind === 'old_click') store.docs.set(`${base}/automation/submission`, { ...store.read(`${base}/automation/submission`), r0: { state: 'failed', channel: 'portal', clickedAt: now - 2000 } });
+    if (kind === 'click') store.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now, confirmedNotSent: false } });
+    if (kind === 'old_click') store.docs.set(`${base}/automation/submission`, { ...store.read(`${base}/automation/submission`), r0: { state: 'failed', channel: 'portal', clickedAt: now - 2000, confirmedNotSent: false } });
     if (kind === 'sent') store.docs.set(`${base}/automation/submission`, { r1: { state: 'sent', channel: 'portal', sentAt: now } });
     if (kind === 'withdrawn') store.docs.set(base, { ...store.read(base), withdrawnAt: now });
     if (kind === 'no_consent') store.docs.set(base, { ...store.read(base), consentVersion: 'unknown' });

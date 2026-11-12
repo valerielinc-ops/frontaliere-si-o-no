@@ -10,6 +10,7 @@ import { isDeepStrictEqual } from 'node:util';
 import { dedupePortalQuestions, portalQuestionKey } from './portal.mjs';
 import { mergeRequiredDocuments, requiredDocumentLabelKey, requiredDocumentsOf } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { privacySemanticIdentifierFields } from '../../../../functions/src/lib/applicationConsent.js';
+import { isUnconfirmedSubmission } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 
 const label = question => String(question?.applicationQuestion || question?.question || '').replace(/\s*\*\s*$/, '').trim().replace(/\s+/g, ' ');
 const PROVENANCE_KEYS = ['portalNativeContract', 'originalNativeContract', 'ownConsentText', 'ownConsentQuestionLabels',
@@ -115,7 +116,8 @@ export async function persistLivePortalRequirements({ db, orderRef, expected, ro
       || ['sent', 'submitted', 'withdrawn', 'refunded'].includes(order?.submissionStatus)
       || Number(draft?.round) !== round || draft?.status !== 'ready'
       || draft?.sent || draft?.sentAttempt || Object.entries(submission).some(([key, value]) => /^r\d+$/.test(key)
-        && (value?.clickedAt || value?.state === 'sent' || (value?.state === 'sending' && value?.channel === 'email')))) return false;
+        && (value?.state === 'sent' || isUnconfirmedSubmission(value)
+          || (value?.state === 'sending' && value?.channel === 'email')))) return false;
     if (Object.keys(patch).length) tx.set(draftRef, patch, { merge: true });
     return true;
   });

@@ -24,10 +24,10 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
-    && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
+    && send?.state === 'failed' && send.channel === 'portal' && !isUnconfirmedSubmission(send) && Number(send.releasedAt) > 0
     && !Object.values(submission).some(record => record?.state === 'sent' || isUnconfirmedSubmission(record))
     && (flow.heldBy[0] !== 'portal:portal_needs_candidate'
-      || !Object.values(submission).some(record => record?.clickedAt || record?.state === 'sending'));
+      || !Object.values(submission).some(record => record?.state === 'sending' || isUnconfirmedSubmission(record)));
 }
 
 /** A portal email-confirmation hold can resume only when the exact identity answer is known. */
@@ -58,8 +58,8 @@ export function portalQuestionHoldsDefinitelyUnsent({ order, flow, draft, submis
     && !flow.postingExpiredAt && flow.dispatch?.mode === 'submit' && Number(flow.dispatch.round) === round
     && Number(draft?.completedAt) > 0 && Number(flow.dispatch.requestedAt) >= Number(draft.completedAt)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt
-    && send?.state === 'failed' && send.channel === 'portal' && !send.clickedAt && Number(send.releasedAt) > 0
-    && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending' || record?.clickedAt
+    && send?.state === 'failed' && send.channel === 'portal' && !isUnconfirmedSubmission(send) && Number(send.releasedAt) > 0
+    && !Object.values(submission).some(record => record?.state === 'sent' || record?.state === 'sending'
       || isUnconfirmedSubmission(record));
 }
 

@@ -34,7 +34,7 @@ export function legacyTransportHoldReason({ flow, submission = {}, draft }) {
   const records = Object.values(submission || {});
   if (records.some(record => record?.state === 'sent' || isUnconfirmedSubmission(record))) return null;
   const record = submission[`r${Number(flow?.round) || 1}`];
-  if (record?.state !== 'failed' || record.clickedAt || !(Number(record.releasedAt) > 0)) return null;
+  if (record?.state !== 'failed' || isUnconfirmedSubmission(record) || !(Number(record.releasedAt) > 0)) return null;
   const holds = flow.heldBy || [];
   if (holds.length !== 1) return null;
   if (holds[0] === 'email_failed' && record.channel === 'email' && record.reason === 'email_failed') return 'email_provider_unavailable';

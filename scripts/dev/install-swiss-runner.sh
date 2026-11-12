@@ -46,6 +46,24 @@ log() {
   printf '%s %s\n' "$(/bin/date -u '+%Y-%m-%dT%H:%M:%SZ')" "$*" >>"$log_file"
 }
 
+verify_agent_entry_point() {
+  output=$(cd "$site" && node --input-type=module -e "await import('./scripts/assisted-application/agent.mjs')" 2>&1)
+  status=$?
+  if [ "$status" -eq 0 ]; then
+    echo '✔ assisted-application agent entry point is available'
+    return 0
+  fi
+  missing_module=$(printf '%s\n' "$output" | /usr/bin/sed -n "s/.*Cannot find package '\([^']*\)'.*/\1/p" | /usr/bin/head -n 1)
+  if [ -n "$missing_module" ]; then
+    echo "⚠ assisted-application agent entry point unavailable: $missing_module"
+  else
+    echo '⚠ assisted-application agent entry point unavailable'
+  fi
+  echo '  The runner will leave requests queued until its dependencies are available.'
+  echo '  From the main site checkout, run: npm install && npm --prefix functions install'
+  return 0
+}
+
 trim_log() {
   [ -f "$log_file" ] || return 0
   lines=$(/usr/bin/wc -l <"$log_file")
@@ -161,6 +179,7 @@ cmd_install() {
   /bin/launchctl bootout "gui/$uid/$label" >/dev/null 2>&1 || true
   /bin/launchctl bootstrap "gui/$uid" "$plist" || { echo "✖ launchctl bootstrap failed for $plist" >&2; return 1; }
   /bin/launchctl enable "gui/$uid/$label" >/dev/null 2>&1 || true
+  verify_agent_entry_point
   echo "✔ $label installed: checkout $site, every ${interval}s, log $log_file${headed:+, headed}"
 }
 

@@ -81,6 +81,17 @@ describe('automatic recovery after a failed draft run', () => {
       .toMatchObject({ eligible: 0, queued: 0 });
   });
 
+  it.each([
+    ['confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 10, confirmedNotSent: true, releasedAt: now - 1 }],
+    ['legacy confirmed release', { state: 'failed', channel: 'portal', clickedAt: now - 10, releasedAt: now - 1 }],
+  ])('allows draft recovery after a %s with retained click evidence', async (_label, record) => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/submission`, { r1: record });
+
+    expect(await reconcileDraftFailures({ db: store.db, nowMs: now, apply: true, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 1, queued: 1 });
+  });
+
   it('fails closed on a malformed persisted retry count', async () => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), draftAutoRetryCount: ' ' });

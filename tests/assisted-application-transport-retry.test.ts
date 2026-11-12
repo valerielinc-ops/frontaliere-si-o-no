@@ -206,14 +206,15 @@ describe('legacy recovery is general, idempotent and only repairs the query cloc
     const flow = { state: 'owner_takeover', round: 1, heldBy: ['page.goto: net::ERR_NAME_NOT_RESOLVED'] };
     const record = { state: 'failed', channel: 'portal', reason: 'error: page.goto: net::ERR_NAME_NOT_RESOLVED', releasedAt: now - 1000, clickedAt: null };
     expect(legacyTransportHoldReason({ flow, submission: { r1: record }, draft })).toBe('navigation_unavailable');
-    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBeNull();
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBe('navigation_unavailable');
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000, confirmedNotSent: false } }, draft })).toBeNull();
   });
 
   it('requeues a regional-notice hold only when its pre-form claim was released as not sent', () => {
     const flow = { state: 'owner_takeover', round: 1, heldBy: ['portal:application_region_unsupported'] };
     const record = { state: 'failed', channel: 'portal', reason: 'application_region_unsupported', releasedAt: now - 1000, clickedAt: null, confirmedNotSent: true };
     expect(legacyTransportHoldReason({ flow, submission: { r1: record }, draft })).toBe('application_region_unsupported');
-    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBeNull();
+    expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, clickedAt: now - 2000 } }, draft })).toBe('application_region_unsupported');
     expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, confirmedNotSent: false } }, draft })).toBeNull();
     expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, state: 'sending' } }, draft })).toBeNull();
     expect(legacyTransportHoldReason({ flow: { ...flow, technicalRecoveryVersion: 'transport-recovery-v1' }, submission: { r1: record }, draft })).toBeNull();
