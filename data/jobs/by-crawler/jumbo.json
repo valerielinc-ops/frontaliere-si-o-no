@@ -16423,10 +16423,10 @@
     },
     {
       "id": "jumbo-15733e0f-120",
-      "slug": "verkaufsberater-in-garden-jumbo-volketswil",
+      "slug": "consulente-di-vendita-garden-jumbo-volketswil",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-volketswil",
-        "it": "verkaufsberater-in-garden-jumbo-volketswil",
+        "it": "consulente-di-vendita-garden-jumbo-volketswil",
         "en": "garden-sales-consultant-jumbo-volketswil",
         "fr": "conseiller-de-vente-a-garden-jumbo-volketswil"
       },
@@ -16504,7 +16504,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-05T21:22:42.251Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-volketswil"
+      ]
     },
     {
       "id": "jumbo-5dde1e2e-753",
@@ -17061,10 +17069,10 @@
     },
     {
       "id": "jumbo-29fb1e8f-e7a",
-      "slug": "verkaufsberater-in-deco-jumbo-winterthur",
+      "slug": "consulente-di-vendita-deco-jumbo-winterthur",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-winterthur",
-        "it": "verkaufsberater-in-deco-jumbo-winterthur",
+        "it": "consulente-di-vendita-deco-jumbo-winterthur",
         "en": "deco-sales-consultant-jumbo-winterthur",
         "fr": "conseiller-de-vente-in-deco-jumbo-winterthur"
       },
@@ -17142,14 +17150,22 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-07T21:22:42.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-winterthur"
+      ]
     },
     {
       "id": "jumbo-a98202fe-8cb",
-      "slug": "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden",
+      "slug": "consulente-di-vendita-alla-cassa-nei-servizi-jumbo-unterentfelden",
       "slugByLocale": {
         "de": "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
-        "it": "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden",
+        "it": "consulente-di-vendita-alla-cassa-nei-servizi-jumbo-unterentfelden",
         "en": "sales-consultant-cashier-services-jumbo-unterentfelden",
         "fr": "consultants-en-vente-en-caisse-enregistreuse-services-jumbo-unterentfelden"
       },
@@ -17212,11 +17228,13 @@
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+        "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
+        "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
+          "verkaufsberater-in-kasse-services-jumbo-unterentfelden",
+          "consulenti-di-vendita-in-cassa-servizi-jumbo-unterentfelden"
         ],
         "en": [
           "verkaufsberater-in-kasse-services-jumbo-unterentfelden"
@@ -17245,10 +17263,10 @@
     },
     {
       "id": "jumbo-df3e4e78-f73",
-      "slug": "verkaufsberater-in-jumbo-jumbo-murten",
+      "slug": "consulente-di-vendita-jumbo-jumbo-murten",
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-jumbo-murten",
-        "it": "verkaufsberater-in-jumbo-jumbo-murten",
+        "it": "consulente-di-vendita-jumbo-jumbo-murten",
         "en": "sales-consultant-jumbo-jumbo-murten",
         "fr": "conseiller-de-vente-a-jumbo-jumbo-murten"
       },
@@ -17326,7 +17344,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-06T21:22:42.247Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-jumbo-jumbo-murten"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-jumbo-murten"
+      ]
     },
     {
       "id": "jumbo-d28d2430-3c0",

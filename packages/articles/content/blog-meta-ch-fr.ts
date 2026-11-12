@@ -8720,6 +8720,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.revisione-tardoc-2027.title': 'Le Conseil fédéral approuve la révision du TARDOC',
     'blog.article.revisione-tardoc-2027.excerpt': 'Le 11 novembre 2026, dans le journal radiophonique de 12.30, le reportage d’Alessio Veronelli a rendu compte de la première révision du système tarifaire ambulatoire TARDOC.',
     'blog.article.revisione-tardoc-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.aumento-iva-finanzia-avs.title': 'Vote du 29 novembre : hausse de la TVA pour financer la 13e rente AVS',
+    'blog.article.aumento-iva-finanzia-avs.excerpt': 'Le 29 novembre, les électeurs suisses se prononceront sur la hausse de la TVA destinée à financer la 13e rente AVS.',
+    'blog.article.aumento-iva-finanzia-avs.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

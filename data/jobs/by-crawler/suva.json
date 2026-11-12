@@ -88,9 +88,9 @@
     },
     {
       "id": "suva-3e6dbb917f25",
-      "slug": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
+      "slug": "specialista-nella-gestione-dei-casi-80-100-suva-wetzikon-zurich-8620-schweiz",
       "slugByLocale": {
-        "it": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
+        "it": "specialista-nella-gestione-dei-casi-80-100-suva-wetzikon-zurich-8620-schweiz",
         "en": "case-management-specialist-80-100-suva-wetzikon-zurich-8620-schweiz",
         "de": "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz",
         "fr": "specialiste-en-gestion-de-cas-80-100-suva-wetzikon-zurich-8620-schweiz"
@@ -154,7 +154,15 @@
       "streetAddress": "Wetzikon, Zürich 8620 Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:25:54.960Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-fallfuhrung-80-100-suva-wetzikon-zurich-8620-schweiz"
+      ]
     },
     {
       "id": "suva-f25776ba72d9",
@@ -329,9 +337,9 @@
     },
     {
       "id": "suva-98c7ec118fb3",
-      "slug": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
+      "slug": "medico-a-assicurativo-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
       "slugByLocale": {
-        "it": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
+        "it": "medico-a-assicurativo-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "en": "insurance-physician-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "de": "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz",
         "fr": "medecin-d-assurance-a-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
@@ -395,7 +403,15 @@
       "streetAddress": "Bern, Bern 3008 Schweiz Luzern, Luzern 6004 Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:25:49.502Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsmediziner-in-80-suva-bern-bern-3008-schweiz-luzern-luzern-6004-schweiz"
+      ]
     },
     {
       "id": "suva-3a510b5e7bf8",
