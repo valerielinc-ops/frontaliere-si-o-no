@@ -43,6 +43,7 @@ import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, requiredPortalConsentAffirmed, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { withRegisteredCandidateEmail } from './assistedApplicationDocumentIdentity.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, loadRunnerAnswerContext, orderQuestionAnswerContext, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
@@ -563,7 +564,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   };
 }
 
-async function loadAll(db, orderId) {
+async function loadAll(db, orderId, { documentEmail = false } = {}) {
   const [orderSnapshot, flowSnapshot, draftSnapshot, submissionSnapshot] = await Promise.all([
     orderRefFor(db, orderId).get(),
     flowRefFor(db, orderId).get(),
@@ -571,8 +572,9 @@ async function loadAll(db, orderId) {
     submissionRefFor(db, orderId).get(),
   ]);
   if (!orderSnapshot.exists || !flowSnapshot.exists) throw new ReviewError('not_found', 404);
+  const storedOrder = orderSnapshot.data() || {};
   return {
-    order: orderSnapshot.data() || {},
+    order: documentEmail ? await withRegisteredCandidateEmail(storedOrder) : storedOrder,
     flow: flowSnapshot.data() || {},
     draft: draftSnapshot.exists ? draftSnapshot.data() || null : null,
     submission: submissionSnapshot.data() || {},
@@ -920,7 +922,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       // Editable Word copies and the protected paper packet are built only for this signed page.
       if (req.query?.file !== undefined) {
         if (kind !== 'review') throw new ReviewError('not_found', 404);
-        const { order, flow, draft } = await loadAll(deps.db, orderId);
+        const { order, flow, draft } = await loadAll(deps.db, orderId, { documentEmail: true });
         const requestedFile = String(req.query.file);
         if (requestedFile === POSTAL_PACKET_FILE) {
           if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
@@ -1034,7 +1036,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       });
       return { status: 200, noStore: true, body: { ok: true, ...check } };
     }
-    const { order, flow, draft } = await loadAll(deps.db, orderId);
+    const { order, flow, draft } = await loadAll(deps.db, orderId, { documentEmail: true });
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
     if (action === 'withdraw') {
