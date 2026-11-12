@@ -335,9 +335,23 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
   if (!html || !verifiedSourceUrl || !Number.isFinite(Date.parse(checkedAt))) return null;
 
   const { document } = new JSDOM(html).window;
-  const form = [...document.querySelectorAll('form')].find((candidate) => (
-    candidate.querySelector('input, select, textarea')
-  ));
+  const source = new URL(verifiedSourceUrl);
+  const sourcePath = source.pathname.replace(/\/+$/, '');
+  // NCore's public job-application form lives in #hiddenForm, is named
+  // "form", and posts back to that exact jobposition route. Do not infer the
+  // application form from page order: job pages may also contain login,
+  // newsletter, or other unrelated forms.
+  const form = [...document.querySelectorAll('#hiddenForm form[name="form"][action]')].find((candidate) => {
+    let action;
+    try {
+      action = new URL(candidate.getAttribute('action'), verifiedSourceUrl);
+    } catch {
+      return false;
+    }
+    return action.protocol === 'https:'
+      && action.hostname.toLowerCase() === NCORE_HOST
+      && action.pathname.replace(/\/+$/, '') === sourcePath;
+  });
   if (!form) return null;
 
   const fields = [];
@@ -346,7 +360,7 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
   for (const control of controls) {
     const tag = control.tagName.toLowerCase();
     const type = tag === 'input' ? String(control.getAttribute('type') || 'text').toLowerCase() : tag;
-    if (['hidden', 'submit', 'button', 'reset', 'image'].includes(type)) continue;
+    if (['hidden', 'submit', 'button', 'reset', 'image', 'password'].includes(type)) continue;
     if (control.closest('[hidden], [aria-hidden="true"]')) continue;
 
     const id = control.getAttribute('id') || '';

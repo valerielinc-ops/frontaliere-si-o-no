@@ -91,7 +91,16 @@ const FIXTURE_DETAIL_PAGE = `
 const FIXTURE_NCORE_APPLICATION_PAGE = `
 <!DOCTYPE html><html><body>
   <h2>Inoltra ora la candidatura</h2>
-  <form method="post">
+  <form name="login" action="/account/login">
+    <label for="account-password">Password</label>
+    <input id="account-password" name="password" type="password" autocomplete="current-password">
+  </form>
+  <form name="newsletter" action="/newsletter">
+    <label for="newsletter-email">Email newsletter</label>
+    <input id="newsletter-email" name="email" type="email">
+  </form>
+  <div id="hiddenForm">
+  <form name="form" class="form-horizontal" action="/jobposition/808005/cmc-senior-specialist/sintetica" method="post">
     <label for="first-name">Nome <span>*</span></label>
     <input id="first-name" name="first_name" type="text" required value="value-must-not-be-captured">
     <label for="last-name">Cognome *</label>
@@ -104,6 +113,7 @@ const FIXTURE_NCORE_APPLICATION_PAGE = `
     <label for="remember"><input id="remember" name="remember" type="checkbox"> Ricordami</label>
     <input type="hidden" name="csrf" value="not-a-question">
   </form>
+  </div>
 </body></html>
 `;
 
@@ -291,12 +301,12 @@ describe('parseNcoreApplicationForm', () => {
     expect(JSON.stringify(snapshot)).not.toContain('csrf');
   });
 
-  it('rejects a source URL outside the NCore job route and pages without a form', () => {
+  it('rejects unverified forms and pages without the NCore application form marker', () => {
     expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
       sourceUrl: 'https://evil.example/jobposition/808005/cmc/sintetica',
       checkedAt,
     })).toBeNull();
-    expect(parseNcoreApplicationForm('<html><body><p>No application form</p></body></html>', {
+    expect(parseNcoreApplicationForm('<html><body><form name="login"><label>Password<input type="password"></label></form><form><label>Email<input type="email"></label></form></body></html>', {
       sourceUrl,
       checkedAt,
     })).toBeNull();
