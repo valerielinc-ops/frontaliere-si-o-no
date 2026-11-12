@@ -181,22 +181,16 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     expect(findLsjsonReadingMimeType('# "${RC[@]}" lsjson -R in a comment')).toEqual([]);
   });
 
-  it('bounds the data-prefix delta against the observed backlog budget', () => {
-    const source = read('scripts/lib/deploy-it-pages-prep.sh');
-    expect(source).toContain('_t_data="$(_r2_timeout_s R2_TIMEOUT_DATA_S 1800)"');
-    expect(source).toContain('_r2_sync_data_delta "$_t_data" "$stage/data"');
-    const delta = source.slice(source.indexOf('_r2_sync_data_delta()'), source.indexOf('_r2_with_image_namespace_leases()', source.indexOf('_r2_sync_data_delta()')));
-    expect(delta.indexOf('deadline=$((SECONDS + limit))')).toBeGreaterThanOrEqual(0);
-    expect(delta.indexOf('deadline=$((SECONDS + limit))')).toBeLessThan(delta.indexOf('node scripts/ci/prepare-r2-data-delta.mjs'));
-    expect(delta).toContain('export R2_DATA_DEADLINE_EPOCH_MS');
-    expect(read('scripts/ci/prepare-r2-data-delta.mjs')).toContain(
-      'R2_DATA_DEADLINE_EPOCH_MS must be a positive epoch-millisecond integer',
-    );
-    expect(delta).toContain('_r2_sync "$remaining" "$source_dir" data "public,max-age=600" "" no-traverse "$deadline"');
-    expect(source).toContain('[hard-deadline-seconds]');
-    expect(source).toContain('--files-from-raw "$batch_file" --no-traverse');
-    expect(source).toContain('local checkpoint_every_batches=20');
-    expect(source).toContain('state/data-published-manifest.json.gz');
+  it('the data/ sync budget holds a backlog push, not only a routine one', () => {
+    // Run 37237201212, first green deploy after 30 h of hung runs: data/ took
+    // 1,622 s (31,627 changed files). Below that, the early push and the full
+    // prep's retry both stop short, the marker is withheld and
+    // step_drop_assets fails the deploy.
+    const m = read('scripts/lib/deploy-it-pages-prep.sh').match(/^\s*_r2_sync (\d+) "\$stage\/data"/m);
+    expect(m, '_r2_sync <limit> "$stage/data" not found').toBeTruthy();
+    expect(Number(m![1])).toBeGreaterThanOrEqual(1622);
+    expect(read('scripts/lib/deploy-it-pages-prep.sh'))
+      .toContain('_r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse');
   });
 
   it('the og/ sync keeps a bounded budget for the observed slow R2 prefix', () => {
@@ -218,7 +212,7 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
   it('early OG batches and logged copies stay inside the image-lease timeout wrapper', () => {
     const source = read('scripts/lib/deploy-it-pages-prep.sh');
     expect(source).toContain(
-      '_r2_image_lease_wait_timeout _r2_sync_logged_copy "$attempt_limit" "$attempt_log" "${copy_args[@]}"',
+      '_r2_image_lease_wait_timeout _r2_sync_logged_copy "$1" "$attempt_log" "${copy_args[@]}"',
     );
     expect(source).toContain(
       '_r2_image_lease_wait_timeout timeout -k 15 "$limit" "${RC[@]}" copy "$source_dir" "$bkt/og"',
