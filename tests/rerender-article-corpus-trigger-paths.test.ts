@@ -26,6 +26,7 @@ import YAML from 'yaml';
 const ROOT = process.cwd();
 const WORKFLOW = '.github/workflows/rerender-article-corpus.yml';
 const HUB_WORKFLOW = '.github/workflows/rerender-article-hubs.yml';
+const PUBLISH_WORKFLOW = '.github/workflows/deploy-publish.yml';
 const DRIVER = 'scripts/rerender-article-corpus.mjs';
 const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
 const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
@@ -305,27 +306,35 @@ describe('rerender-article-hubs deployment ordering', () => {
   const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
   const plan = workflow?.jobs?.plan;
   const compute = plan?.steps?.find((step: { id?: string }) => step.id === 'compute');
+  const publisher = YAML.parse(fs.readFileSync(path.join(ROOT, PUBLISH_WORKFLOW), 'utf8'));
+  const watchdog = publisher?.jobs?.['runtime-watchdog'];
+  const dispatch = watchdog?.steps?.find(
+    (step: { name?: string }) => step.name === 'Dispatch article hub rerender after validated publish',
+  );
 
   it('waits for a successful full deploy before a code-triggered fan-out', () => {
-    expect(workflow?.on?.workflow_run?.workflows).toContain('Hydrated article parity');
-    expect(workflow?.on?.workflow_run?.workflows).toContain('Deploy to GitHub Pages');
-    expect(workflow?.on?.workflow_run?.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+    expect(workflow?.on?.workflow_run?.workflows).toEqual(['Hydrated article parity']);
+    expect(workflow?.on?.workflow_dispatch?.inputs?.published_deploy_head_sha?.type).toBe('string');
 
     const condition = String(plan?.if ?? '');
     expect(condition).toContain("github.event_name != 'push'");
-    expect(String(compute?.run ?? '')).toContain('[ "${{ github.event.workflow_run.name }}" = "Deploy to GitHub Pages" ]');
     expect(plan?.outputs?.deferred).toBe('${{ steps.compute.outputs.deferred }}');
     expect(String(workflow?.jobs?.rerender?.if ?? '')).toContain("needs.plan.outputs.deferred != 'true'");
-    expect(condition).toContain("github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)'");
-    expect(condition).toContain("github.event.workflow_run.conclusion == 'success'");
     expect(condition).toContain("github.event.workflow_run.name == 'Hydrated article parity'");
     expect(condition).toContain("github.event.workflow_run.conclusion == 'failure'");
+    expect(dispatch?.if).toContain("needs.publish.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-dist.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-live.result == 'success'");
+    expect(String(dispatch?.run ?? '')).toContain('gh workflow run rerender-article-hubs.yml');
+    expect(String(dispatch?.run ?? '')).toContain('-f dry_run=false');
+    expect(dispatch?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.source_sha }}');
+    expect(String(dispatch?.run ?? '')).toContain('-f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"');
   });
 
   it('defers a deploy completion that no longer represents the current main tip', () => {
     const run = String(compute?.run ?? '');
     expect(compute?.env?.GH_TOKEN).toBe('${{ github.token }}');
-    expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ github.event.workflow_run.head_sha }}');
+    expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.published_deploy_head_sha }}');
     expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
     expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
     expect(run).toContain("echo 'deferred=true' >> \"$GITHUB_OUTPUT\"");

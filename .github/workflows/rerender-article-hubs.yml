@@ -120,15 +120,15 @@ on:
   # independent served-bytes observer for exactly that gap. A failed
   # non-manual parity run must therefore replay this existing locked writer;
   # waiting for the six-hour safety schedule leaves React dropping the new
-  # card in the meantime. A successful full deploy is the safe publication
-  # point for code-triggered rerenders because it has repaired the CDN shell.
+  # card in the meantime.
+  #
+  # A successful full deploy dispatches this workflow explicitly. Do not add
+  # the publisher to workflow_run: this repository's publisher is itself
+  # started with GITHUB_TOKEN, so its completion is not a reliable downstream
+  # workflow_run signal. The explicit dispatch is the safe publication point
+  # because it happens after the CDN shell is repaired.
   workflow_run:
-    workflows:
-      - "Hydrated article parity"
-      # Keep the pre-rename spelling while an in-flight deploy can still emit
-      # its completion event with the old workflow name.
-      - "Deploy to GitHub Pages"
-      - "Publish to GitHub Pages (deploy + validate)"
+    workflows: ["Hydrated article parity"]
     types: [completed]
 
   # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
@@ -164,6 +164,11 @@ on:
         type: string
         required: false
         default: ''
+      published_deploy_head_sha:
+        description: 'SHA of the validated full deploy that dispatched this rerender'
+        type: string
+        required: false
+        default: ''
 
 permissions:
   # The sitemap enters main through a stable PR so the required Vitest check
@@ -184,23 +189,20 @@ jobs:
     # A push only records that work is needed; the full deploy publishes the
     # shell assets that the writer is allowed to reference. A manual
     # forced-failure probe is an observability test, not permission to publish.
-    # Parity failures use the existing bounded recovery path, while a
-    # successful full deploy is the code-change publication point.
+    # Parity failures use the existing bounded recovery path, while the
+    # successful full deploy dispatches this workflow explicitly.
     if: >-
       github.event_name != 'push' &&
       (
         github.event_name != 'workflow_run' ||
         (
-          (github.event.workflow_run.name == 'Hydrated article parity' &&
-           github.event.workflow_run.conclusion == 'failure' &&
-           github.event.workflow_run.event != 'workflow_dispatch') ||
-          (github.event.workflow_run.name == 'Publish to GitHub Pages (deploy + validate)' &&
-           github.event.workflow_run.conclusion == 'success' &&
-           github.event.workflow_run.head_branch == 'main')
+          github.event.workflow_run.name == 'Hydrated article parity' &&
+          github.event.workflow_run.conclusion == 'failure' &&
+          github.event.workflow_run.event != 'workflow_dispatch'
         )
       )
-    # Which sections run as separate matrix jobs. A publisher dispatch,
-    # successful full deploy or schedule means both: the renderers and the
+    # Which sections run as separate matrix jobs. A publisher or deploy
+    # dispatch, parity recovery or schedule means both: the renderers and the
     # corpus they read are shared, so either kind of change affects the two
     # sections identically. A manual dispatch honours the operator's choice.
     # The overlay pins the published API manifest commit inside the render.
@@ -212,14 +214,11 @@ jobs:
       - id: compute
         env:
           GH_TOKEN: ${{ github.token }}
-          PUBLISHED_DEPLOY_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          PUBLISHED_DEPLOY_HEAD_SHA: ${{ inputs.published_deploy_head_sha }}
           INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
-          if [ "${{ github.event_name }}" = "workflow_run" ] && {
-               [ "${{ github.event.workflow_run.name }}" = "Deploy to GitHub Pages" ] ||
-               [ "${{ github.event.workflow_run.name }}" = "Publish to GitHub Pages (deploy + validate)" ];
-             }; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${PUBLISHED_DEPLOY_HEAD_SHA:-}" ]; then
             # A queued deploy may complete after a newer push has reached main.
             # Do not replay its old source against the newer renderer: wait for
             # the deploy run whose head is still the current main tip.
