@@ -3467,8 +3467,9 @@ function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
  * a fetch or sparse materialization fails.  The retry must restore that
  * temporary state before the action gets a second chance; otherwise the
  * action's own `clean` only observes the half-written checkout.  If the
- * partial repository cannot be proven resettable, the retry is skipped and
- * the caller's fail-closed step ends the job.
+ * partial repository has no HEAD, discard it only when its metadata is the
+ * workspace's own `.git` directory; external or symlinked metadata remains
+ * fail-closed.
  */
 export function retrySparseCheckout({
   primaryId = 'site_checkout_primary',
@@ -3518,8 +3519,13 @@ export function retrySparseCheckout({
       '    unlink "$lock_file"',
       '  done',
       '  if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then',
-      '    echo "::error::Sparse checkout retry found partial Git metadata without a valid HEAD; refusing to reuse the workspace" >&2',
-      '    return 1',
+      '    if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
+      '      echo "::error::Sparse checkout retry found unsafe incomplete Git metadata; refusing to remove it" >&2',
+      '      return 1',
+      '    fi',
+      '    rm -rf -- "$workspace/.git"',
+      '    echo "Discarded incomplete Git metadata; the retry will initialize a clean sparse checkout"',
+      '    return 0',
       '  fi',
       '  git -C "$workspace" reset --hard HEAD',
       '  git -C "$workspace" clean -ffdx',

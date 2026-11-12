@@ -3365,6 +3365,16 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain('retrySparseCheckout() {');
       expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
       expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
+      expect(retryPreparation.run).toContain(
+        'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
+      );
+      expect(retryPreparation.run).toContain('rm -rf -- "$workspace/.git"');
+      expect(retryPreparation.run).toContain(
+        'Discarded incomplete Git metadata; the retry will initialize a clean sparse checkout',
+      );
+      expect(retryPreparation.run).not.toContain(
+        'Sparse checkout retry found partial Git metadata without a valid HEAD; refusing to reuse the workspace',
+      );
       expect(retryPreparation.run).toContain('The second actions/checkout invocation replaces the sparse patterns atomically.');
       expect(retryPreparation.run).not.toContain('sparse-checkout disable');
 
