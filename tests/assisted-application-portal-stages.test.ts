@@ -56,6 +56,86 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, url: slashReceiptUrl }, { applyUrl, job })).toBe(true);
   });
 
+  it('advances through Swarovski Workday’s fieldless French start screen instead of treating Postuler as final', () => {
+    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant-m-w-d-Mendrisio-Outlet_123';
+    const start = { id: 'start', text: 'Démarrer', frame: 0, disabled: false };
+    const workdaySnapshot = {
+      url: workdayApplyUrl,
+      text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet',
+      fields: [],
+      buttons: [
+        { text: 'Lire tout le message sur la confidentialité', chrome: true },
+        { text: 'Refuser', chrome: true },
+        { text: 'Accepter les cookies', chrome: true },
+        { text: 'Connexion', chrome: true },
+        { text: 'Visite Swarovski.com', chrome: true },
+        { text: 'Rechercher des emplois', chrome: true },
+        { text: 'Présentez-vous', chrome: true },
+        { text: 'Postuler', frame: 0, disabled: false },
+        { text: 'Play video Créer un monde de merveilles', chrome: true },
+        { text: 'En savoir plus', chrome: true },
+        start,
+      ],
+    };
+    const workdayJob = { title: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet' };
+
+    expect(applicationStage(workdaySnapshot, { applyUrl: workdayApplyUrl, job: workdayJob }))
+      .toMatchObject({ kind: 'application_start', control: start });
+    const result = pageControls(workdaySnapshot.buttons, known, workdayApplyUrl, {
+      snapshot: workdaySnapshot,
+      applyUrl: workdayApplyUrl,
+      job: workdayJob,
+    });
+    expect(result.submit).toBeNull();
+    expect(result.next).toBe(start);
+  });
+
+  it.each([
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2',
+    'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Sales-Consultant--m-w-d--2/apply',
+  ])('accepts Swarovski Workday one-segment job routes: %s', (workdayApplyUrl) => {
+    const start = { id: 'start', text: 'Démarrer', frame: 0, disabled: false };
+    const snapshot = {
+      url: workdayApplyUrl,
+      fields: [],
+      buttons: [
+        { text: 'Postuler', frame: 0, disabled: false },
+        start,
+      ],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: workdayApplyUrl, job: { title: 'Sales Consultant' } }))
+      .toMatchObject({ kind: 'application_start', control: start });
+  });
+
+  it.each([
+    ['a non-Workday host', 'https://careers.example/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
+    ['a non-start label', 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
+  ])('keeps the generic Apply guard for %s', (_case, url) => {
+    const buttons = [
+      { text: 'Postuler', frame: 0, disabled: false },
+      { text: _case === 'a non-start label' ? 'Démarrer la vidéo' : 'Démarrer', frame: 0, disabled: false },
+    ];
+    const snapshot = { url, text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet', fields: [], buttons };
+    expect(applicationStage(snapshot, { applyUrl: url, job: { title: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet' } }).kind)
+      .toBe('unknown_apply');
+  });
+
+  it('does not bypass the field guard when Workday exposes a start label beside form controls', () => {
+    const workdayApplyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123';
+    const snapshot = {
+      url: workdayApplyUrl,
+      text: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet',
+      fields: [{ kind: 'text', inputType: 'email', label: 'E-mail', formId: 'application', frame: 0 }],
+      buttons: [
+        { text: 'Postuler', formId: 'application', frame: 0, disabled: false },
+        { text: 'Démarrer', frame: 0, disabled: false },
+      ],
+    };
+    expect(applicationStage(snapshot, { applyUrl: workdayApplyUrl, job: { title: 'Seasonal Sales Consultant (m/w/d) Mendrisio Outlet' } }).kind)
+      .toBe('unknown_apply');
+  });
+
   it('recognizes Helsana receipt copy after the verified SuccessFactors route redirects to root', () => {
     const helsanaApplyUrl = 'https://careers.helsana.ch/talentcommunity/apply/970403401/?locale=de_DE';
     const helsanaRoot = {
