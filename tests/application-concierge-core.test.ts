@@ -60,6 +60,18 @@ const mocks = vi.hoisted(() => {
           .map(([key, data]) => makeDocRef(key));
         return { docs };
       },
+      where(field: string, _operator: string, value: unknown) {
+        return {
+          async get() {
+            const prefix = normalized + '/';
+            const docs = [...documents.entries()]
+              .filter(([key, data]) => key.startsWith(prefix) && !key.slice(prefix.length).includes('/')
+                && (data as any)[field] === value)
+              .map(([key, data]) => ({ id: key.split('/').at(-1), ref: makeDocRef(key), exists: true, data: () => data }));
+            return { docs };
+          },
+        };
+      },
     };
   }
 
@@ -189,13 +201,19 @@ vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
 
 vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   CONCIERGE_ELIGIBILITY_VERSION: 'full-posting-requirements-v4-source-citations-v1',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS: 'unresolved',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON: 'eligibility_unresolved',
   CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID: 'candidate-language-facts',
   candidateAnswersDocumentId: (cacheId: string) => `candidate-answers-${String(cacheId || '').slice(0, 60)}`,
+  candidateFactsDependency: (requirements: any, cached: any = null, result: any = null) => ({
+    languages: Array.isArray(requirements?.languageRequirements) && requirements.languageRequirements.length > 0,
+    answers: Boolean(cached?.candidateAnswerQuestionSetHash || result?.questions?.some((question: any) => question?.required === true)),
+  }),
   eligibilityHash: (value: string) => String(value).length.toString(16),
   prepareConciergeEligibility: vi.fn(),
 }));
 vi.mock('../functions/src/assistedApplicationReviewToken.js', async (original) => ({ ...await original<typeof import('../functions/src/assistedApplicationReviewToken.js')>(), getReviewTokenSecret: vi.fn(async () => 'test-review-secret-for-candidate-access-123456') }));
-const { handleApplicationConcierge, handleManageApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
+const { handleApplicationConcierge, handleManageApplicationConcierge, proposalAcceptability } = await import('../functions/src/applicationConciergeCore.js');
 const { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility } = await import('../functions/src/applicationConciergeEligibility.js');
 
 function seedService() {
@@ -552,7 +570,7 @@ describe('application concierge candidate API', () => {
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
   });
 
-  it.each(['queued', 'running', 'failed', 'needs_review'])('keeps a proposal visible but blocks acceptance while matching is %s', async (matchingStatus) => {
+  it.each(['queued', 'running', 'failed', 'needs_review'])('keeps a verified proposal acceptable while matching is %s', async (matchingStatus) => {
     const service = mocks.documents.get('application_concierge_services/service-1')!;
     service.matchingStatus = matchingStatus;
 
@@ -562,7 +580,7 @@ describe('application concierge candidate API', () => {
       get: () => 'Bearer candidate-token',
     });
     expect((listed.body as any).service.proposals[0]).toMatchObject({
-      status: 'proposed', eligibilityStatus: 'needs_verification',
+      status: 'proposed', eligibilityStatus: 'compatible',
     });
 
     const accepted = await handleApplicationConcierge({
@@ -570,10 +588,10 @@ describe('application concierge candidate API', () => {
       body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
       get: () => 'Bearer candidate-token',
     });
-    expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
-    expect(mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')).toMatchObject({ status: 'proposed' });
-    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
-    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+    expect(accepted).toMatchObject({ status: 200, body: { childApplicationId: 'child-1' } });
+    expect(mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')).toMatchObject({ status: 'accepted' });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/child-1'))).toBe(true);
   });
 
   it('rejects an acceptance when the service CV changes while the proposal CV is being copied', async () => {
@@ -609,6 +627,25 @@ describe('application concierge candidate API', () => {
     expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
     expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('keeps a proposal acceptable when a changed candidate fact was not used for that proposal', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    const proposal = mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!;
+    service.eligibilityFactsRevision = 1;
+    service.eligibilityLanguagesRevision = 1;
+    service.matchingStatus = 'queued';
+    proposal.eligibilityFactsRevision = 0;
+    proposal.eligibilityFactsDependency = { languages: false, answers: false };
+
+    const listed = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token' });
+    const accepted = await handleApplicationConcierge({ method: 'POST', body: {
+      serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1',
+    }, get: () => 'Bearer candidate-token' });
+
+    expect((listed.body as any).service.proposals[0]).toMatchObject({ status: 'proposed', eligibilityStatus: 'compatible' });
+    expect(accepted).toMatchObject({ status: 200, body: { childApplicationId: 'child-1' } });
   });
 
   it('does not create a child application for a declined proposal', async () => {
@@ -651,6 +688,40 @@ describe('application concierge candidate API', () => {
       eligibilityFactsRevision: 1, matchingStatus: 'queued',
     });
     expect(mocks.documents.get('application_concierge_services/service-1/eligibility/candidate-answers')).toBeUndefined();
+  });
+
+  it('migrates legacy proposals to per-proposal language dependencies before changing language facts', async () => {
+    const servicePath = 'application_concierge_services/service-1';
+    const languageProposalPath = `${servicePath}/proposals/language-dependent`;
+    const independentProposalPath = `${servicePath}/proposals/independent`;
+    const languageCacheId = `job-${'b'.repeat(32)}`;
+    const independentCacheId = `job-${'c'.repeat(32)}`;
+    const cv = 'application-concierge-uploads/service-1/cv.pdf';
+    for (const [path, cacheId] of [[languageProposalPath, languageCacheId], [independentProposalPath, independentCacheId]]) {
+      mocks.documents.set(path, { status: 'proposed', eligibilityStatus: 'compatible',
+        eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION, eligibilityCvStorageKey: cv,
+        eligibilityFactsRevision: 0, eligibilityCacheId: cacheId });
+    }
+    mocks.documents.set(`${servicePath}/eligibility/${languageCacheId}`, {
+      requirements: { requirements: [], languageRequirements: [{ languageCode: 'de', minimumLevel: 'B1' }] },
+      result: { status: 'compatible' },
+    });
+    mocks.documents.set(`${servicePath}/eligibility/${independentCacheId}`, {
+      requirements: { requirements: [], languageRequirements: [] }, result: { status: 'compatible' },
+    });
+
+    await handleApplicationConcierge({ method: 'POST', body: {
+      serviceId: 'service-1', action: 'saveCandidateLanguageFacts', listComplete: true,
+      languages: [{ languageCode: 'it', level: 'native' }],
+    }, get: () => 'Bearer candidate-token' });
+
+    const service = mocks.documents.get(servicePath)!;
+    const languageProposal = mocks.documents.get(languageProposalPath)!;
+    const independentProposal = mocks.documents.get(independentProposalPath)!;
+    expect(languageProposal.eligibilityFactsDependency).toEqual({ languages: true, answers: false });
+    expect(independentProposal.eligibilityFactsDependency).toEqual({ languages: false, answers: false });
+    expect(proposalAcceptability(service, languageProposal).verified).toBe(false);
+    expect(proposalAcceptability(service, independentProposal)).toMatchObject({ verified: true, acceptable: true });
   });
 
   it('records proposal interest and typed answers without starting a child until a fresh compatible check and acceptance', async () => {
@@ -701,7 +772,18 @@ describe('application concierge candidate API', () => {
     });
     expect(answerDoc?.confirmedAt).toBeInstanceOf(Date);
     expect(mocks.documents.get(proposalPath)).toMatchObject({ candidateInterestStatus: 'interested' });
-    expect(mocks.documents.get(servicePath)).toMatchObject({ eligibilityFactsRevision: 1, matchingStatus: 'queued' });
+    expect(mocks.documents.get(servicePath)).not.toHaveProperty('eligibilityFactsRevision');
+    expect(mocks.documents.get(servicePath)).toMatchObject({ matchingFeedbackRevision: 1, matchingStatus: 'queued' });
+    expect(mocks.documents.get(proposalPath)).toMatchObject({
+      eligibilityFactsDependency: { languages: true, answers: true },
+      eligibilityAnswersRevision: 0, candidateAnswersRevision: 1,
+    });
+    const siblingProposal = {
+      status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      eligibilityCvStorageKey: 'application-concierge-uploads/service-1/cv.pdf',
+      eligibilityFactsDependency: { languages: false, answers: false },
+    };
+    expect(proposalAcceptability(mocks.documents.get(servicePath)!, siblingProposal)).toMatchObject({ verified: true, acceptable: true });
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
 
     const blockedAcceptance = await handleApplicationConcierge({ method: 'POST', body: {
@@ -711,7 +793,7 @@ describe('application concierge candidate API', () => {
     expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
 
     mocks.documents.get(servicePath)!.matchingStatus = 'complete';
-    mocks.documents.get(proposalPath)!.eligibilityFactsRevision = 1;
+    mocks.documents.get(proposalPath)!.eligibilityAnswersRevision = 1;
     mocks.documents.get(proposalPath)!.eligibilityStatus = 'compatible';
     const accepted = await handleApplicationConcierge({ method: 'POST', body: {
       serviceId: 'service-1', proposalId: 'proposal-1', action: 'acceptProposal',

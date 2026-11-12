@@ -21,8 +21,9 @@ import {
   timestampMillis,
 } from './applicationConciergeConstants.js';
 import { conciergeAutoAcceptDue, conciergeProposalDecisionOpenedAt } from './applicationConciergeLifecyclePolicy.js';
-import { autoAcceptApplicationConciergeProposal } from './applicationConciergeCore.js';
+import { autoAcceptApplicationConciergeProposal, proposalAcceptability } from './applicationConciergeCore.js';
 import { checkPostingLiveness, postingSaysClosed } from './assistedApplicationLiveness.js';
+import { conciergeMatchingRuntimeRef, mergeConciergeMatchingRuntime } from './applicationConciergeRuntime.js';
 
 // 10 attempts × (one ad look of at most 10 s + one acceptance) stay well inside the tick's 540 s, which the
 // lifecycle sweep and the material-copy cleanup share; at 4 ticks an hour the backlog drains at 40 an hour.
@@ -98,8 +99,12 @@ export async function runConciergeAutoAcceptSweep({
     const service = serviceDoc.data() || {};
     if (!serviceIsActive(service, nowMs)) continue;
     summary.services += 1;
+    const runtimeSnapshot = await conciergeMatchingRuntimeRef(serviceDoc.ref).get();
+    const runtime = runtimeSnapshot.data() || null;
+    const currentService = mergeConciergeMatchingRuntime(service, runtime);
     const proposals = await serviceDoc.ref.collection('proposals').where('status', '==', 'proposed').get();
     const due = (proposals.docs || [])
+      .filter(doc => proposalAcceptability(currentService, doc.data() || {}, runtime).acceptable)
       .filter(doc => conciergeAutoAcceptDue(doc.data() || {}, nowMs))
       .sort((left, right) => conciergeProposalDecisionOpenedAt(left.data()) - conciergeProposalDecisionOpenedAt(right.data())
         || String(left.id).localeCompare(String(right.id)));
@@ -107,13 +112,9 @@ export async function runConciergeAutoAcceptSweep({
     summary.due += due.length;
     const blocked = serviceBlockReason(service, nowMs);
     if (blocked) { skip(blocked, due.length); continue; }
-    // Only a compatible proposal has an accept button; one still being verified or clarified waits on the
-    // platform, and must not hold back the service's other proposals. The other checks are service-wide.
-    const acceptable = due.filter(doc => (doc.data() || {}).eligibilityStatus === 'compatible');
-    for (const doc of due) {
-      if (!acceptable.includes(doc)) skip(`eligibility_${String((doc.data() || {}).eligibilityStatus || 'unknown').slice(0, 40)}`);
-    }
-    let handled = due.length - acceptable.length;
+    // Eligibility is rechecked per proposal before the clock is even read.
+    const acceptable = due;
+    let handled = 0;
     for (const proposalDoc of acceptable) {
       const proposal = proposalDoc.data() || {};
       if (postingHeld(proposal, nowMs)) { handled += 1; skip('posting_closed'); continue; }

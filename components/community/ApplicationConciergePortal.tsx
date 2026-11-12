@@ -1468,6 +1468,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
       <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline', declineReason || undefined)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
     </div>}
     {proposed && displayStatus === 'needs_verification' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityNeedsVerification')}</p>}
+    {proposal.status === 'retracted' && proposal.eligibilityUnresolved && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityUnresolved')}</p>}
     {proposed && proposal.eligibilityStatus === 'compatible' && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
     {autoAcceptDate && <p className="mt-2 text-xs text-subtle">{autoAcceptDate.getTime() > Date.now()
       ? t('jobBoard.concierge.autoAcceptAt', {

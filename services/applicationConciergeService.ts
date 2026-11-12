@@ -30,6 +30,7 @@ export interface ApplicationConciergeProposal {
   childSendState?: string | null;
   childRetryScheduled?: boolean;
   withdrawnAt?: string | null;
+  eligibilityUnresolved?: boolean;
   matchScore?: number | null;
   matchReasons?: string[];
   matchedAt?: string | null;

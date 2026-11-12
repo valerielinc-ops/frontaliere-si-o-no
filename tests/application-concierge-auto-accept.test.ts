@@ -140,8 +140,14 @@ vi.mock('../functions/src/applicationConciergeRenewalRollout.js', () => ({ isApp
 vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({ ASSISTED_APPLICATION_STORAGE_BUCKET: 'test-bucket' }));
 vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({
   CONCIERGE_ELIGIBILITY_VERSION: 'eligibility-test-v1',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS: 'unresolved',
+  CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON: 'eligibility_unresolved',
   CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID: 'candidate-language-facts',
   candidateAnswersDocumentId: (cacheId: string) => `candidate-answers-${String(cacheId || '').slice(0, 60)}`,
+  candidateFactsDependency: (requirements: any, cached: any = null, result: any = null) => ({
+    languages: Array.isArray(requirements?.languageRequirements) && requirements.languageRequirements.length > 0,
+    answers: Boolean(cached?.candidateAnswerQuestionSetHash || result?.questions?.some((question: any) => question?.required === true)),
+  }),
   eligibilityHash: (value: string) => String(value).length.toString(16),
   prepareConciergeEligibility: vi.fn(),
 }));
@@ -175,6 +181,7 @@ function seedService(serviceId = 'service-1', patch: Record<string, unknown> = {
 }
 
 function seedProposal(serviceId: string, proposalId: string, ageMs: number, patch: Record<string, unknown> = {}) {
+  const openedAt = new Date(Date.now() - ageMs);
   mocks.documents.set(`${SERVICES}/${serviceId}/proposals/${proposalId}`, {
     jobId: `job-${proposalId}`,
     jobUrl: `https://jobs.example.test/${proposalId}`,
@@ -187,8 +194,10 @@ function seedProposal(serviceId: string, proposalId: string, ageMs: number, patc
     eligibilityStatus: 'compatible',
     eligibilityVersion: 'eligibility-test-v1',
     eligibilityCvStorageKey: `application-concierge-uploads/${serviceId}/cv.pdf`,
-    proposedAt: new Date(Date.now() - ageMs),
-    createdAt: new Date(Date.now() - ageMs),
+    proposedAt: openedAt,
+    createdAt: openedAt,
+    eligibilityAcceptableSince: openedAt,
+    proposalNoticeSentAt: openedAt,
     ...patch,
   });
 }
@@ -301,7 +310,12 @@ describe('platform acceptance of an undecided concierge proposal', () => {
     expect(await autoAcceptApplicationConciergeProposal({ db: mocks.firestore as any, serviceId: 'service-1', proposalId: 'proposal-1' }))
       .toEqual({ accepted: false, reason: 'auto_accept_not_due' });
     // A retracted proposal offered again opens a new window.
-    seedProposal('service-1', 'proposal-2', 30 * HOUR, { reactivatedAt: new Date(Date.now() - HOUR) });
+    const reactivatedAt = new Date(Date.now() - HOUR);
+    seedProposal('service-1', 'proposal-2', 30 * HOUR, {
+      reactivatedAt,
+      eligibilityAcceptableSince: reactivatedAt,
+      proposalNoticeSentAt: reactivatedAt,
+    });
     expect((await sweep()).due).toBe(0);
     expect(children()).toHaveLength(0);
   });
@@ -340,11 +354,13 @@ describe('platform acceptance of an undecided concierge proposal', () => {
     expect(proposal('service-1', 'newer')).toMatchObject({ status: 'proposed' });
   });
 
-  it('leaves a proposal still being verified to the platform without holding back a compatible one', async () => {
+  it('does not check or attempt an unacceptable proposal and still accepts a compatible one', async () => {
     seedProposal('service-1', 'unverified', 40 * HOUR, { eligibilityStatus: 'unverified' });
     seedProposal('service-1', 'compatible', 13 * HOUR);
-    const summary = await sweep();
-    expect(summary).toMatchObject({ due: 2, attempted: 1, accepted: 1, deferred: 0, skipped: { eligibility_unverified: 1 } });
+    const postingClosed = vi.fn(async () => false);
+    const summary = await sweep({ postingClosed });
+    expect(summary).toMatchObject({ due: 1, attempted: 1, accepted: 1, deferred: 0 });
+    expect(postingClosed).toHaveBeenCalledTimes(1);
     expect(proposal('service-1', 'unverified')).toMatchObject({ status: 'proposed' });
     expect(proposal('service-1', 'compatible')).toMatchObject({ status: 'accepted', decidedBy: 'platform_timeout' });
   });
@@ -360,5 +376,39 @@ describe('platform acceptance of an undecided concierge proposal', () => {
     await sweep();
     const after = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
     expect(after.body.service.proposals[0]).toMatchObject({ status: 'accepted', autoAcceptAt: null, decidedBy: 'platform_timeout' });
+  });
+
+  it.each(['queued', 'running', 'failed', 'needs_review'])('accepts a verified proposal while the service matcher is %s', async matchingStatus => {
+    seedService('service-1', { matchingStatus });
+    seedProposal('service-1', 'proposal-1', 13 * HOUR);
+    const summary = await sweep();
+    expect(summary).toMatchObject({ due: 1, attempted: 1, accepted: 1 });
+    expect(proposal('service-1', 'proposal-1')).toMatchObject({ status: 'accepted', decidedBy: 'platform_timeout' });
+  });
+
+  it('invalidates only a proposal whose recorded candidate-fact dependency changed', async () => {
+    seedService('service-1', { eligibilityFactsRevision: 1, eligibilityLanguagesRevision: 1, matchingStatus: 'queued' });
+    seedProposal('service-1', 'independent', 13 * HOUR, {
+      eligibilityFactsRevision: 0,
+      eligibilityFactsDependency: { languages: false, answers: false },
+    });
+    seedProposal('service-1', 'language-dependent', 20 * HOUR, {
+      eligibilityFactsRevision: 0,
+      eligibilityFactsDependency: { languages: true, answers: false },
+      eligibilityLanguagesRevision: 0,
+      eligibilityAnswersRevision: 0,
+    });
+    const summary = await sweep();
+    expect(summary).toMatchObject({ due: 1, attempted: 1, accepted: 1 });
+    expect(proposal('service-1', 'independent')).toMatchObject({ status: 'accepted' });
+    expect(proposal('service-1', 'language-dependent')).toMatchObject({ status: 'proposed' });
+  });
+
+  it('does not start the 12-hour timer until the announcement is proven', async () => {
+    seedProposal('service-1', 'proposal-1', 30 * HOUR, { proposalNoticeSentAt: null });
+    const listed = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(listed.body.service.proposals[0]).toMatchObject({ status: 'proposed', autoAcceptAt: null });
+    const summary = await sweep();
+    expect(summary).toMatchObject({ due: 0, attempted: 0, accepted: 0 });
   });
 });

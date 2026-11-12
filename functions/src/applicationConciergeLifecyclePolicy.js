@@ -139,16 +139,17 @@ export function conciergeRenewalOffer(service, nowMs = Date.now()) {
 }
 
 // Owner decision 2026-11-11: a proposal the candidate has not decided within 12 hours is accepted by the
-// platform, and its application leaves with the platform's answers. The clock starts when the proposal is put
-// in front of the candidate: its proposal time, or the time it was offered again after a retraction.
+// platform, and its application leaves with the platform's answers. The clock starts only after the proposal
+// is acceptable and its announcement email has been accepted by a provider. Either missing timestamp pauses it.
 export const CONCIERGE_AUTO_ACCEPT_MS = 12 * 60 * 60 * 1000;
 export const CONCIERGE_DECIDED_BY_CANDIDATE = 'candidate';
 export const CONCIERGE_DECIDED_BY_PLATFORM_TIMEOUT = 'platform_timeout';
 
-/** When the candidate's decision window opened, or 0 when the proposal carries no usable time. */
+/** When both eligibility and announcement are proven, or 0 while either is unknown. */
 export function conciergeProposalDecisionOpenedAt(proposal) {
-  const proposedAt = timestampMillis(proposal?.proposedAt) || timestampMillis(proposal?.createdAt);
-  return Math.max(proposedAt, timestampMillis(proposal?.reactivatedAt));
+  const acceptableAt = timestampMillis(proposal?.eligibilityAcceptableSince);
+  const announcedAt = timestampMillis(proposal?.proposalNoticeSentAt);
+  return acceptableAt > 0 && announcedAt > 0 ? Math.max(acceptableAt, announcedAt) : 0;
 }
 
 /** The time the platform accepts an undecided proposal, or 0 when nothing is waiting on the candidate. */

@@ -22,6 +22,8 @@ import { SOURCE_CITATIONS_VERSION, sourceCitations, candidateConfirmedEvidenceSo
 import { answerConciergeClarifications, conciergePlatformFacts, conciergePlatformInputs, platformAnswerInputs, platformAnswersView } from './applicationConciergePlatformAnswers.js';
 
 export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v7-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS = 'unresolved';
+export const CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON = 'eligibility_unresolved';
 export const CONCIERGE_CANDIDATE_LANGUAGE_FACTS_DOC_ID = 'candidate-language-facts';
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 export const candidateAnswersDocumentId = cacheId => `candidate-answers-${String(cacheId || '').slice(0, 60)}`;
@@ -209,7 +211,7 @@ function questionsNeedCandidateFacts(requirements) {
       isLanguageAbilityQuestion(`${item?.requirement || ''} ${item?.quote || ''}`)));
 }
 
-function candidateFactsDependency(requirements, cached = null, result = null) {
+export function candidateFactsDependency(requirements, cached = null, result = null) {
   const questions = Array.isArray(result?.questions) ? result.questions
     : Array.isArray(cached?.result?.questions) ? cached.result.questions : [];
   return {
@@ -273,7 +275,13 @@ async function evaluateConciergePosting({ job, profile, languageFacts = null, an
   }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   if (result.status === 'clarification_required' && !(Array.isArray(result.questions) && result.questions.some(question => question?.required === true))) {
-    return { status: 'unverified', reason: 'clarification_questions_missing', gaps: [], postingHash, requirements, match, posting };
+    const answeredByCandidate = typedAnswerRecord?.provenance === 'candidate_confirmed'
+      && Array.isArray(typedAnswerRecord.answers) && typedAnswerRecord.answers.length > 0;
+    return {
+      status: answeredByCandidate ? CONCIERGE_ELIGIBILITY_UNRESOLVED_STATUS : 'unverified',
+      reason: answeredByCandidate ? CONCIERGE_ELIGIBILITY_UNRESOLVED_REASON : 'clarification_questions_missing',
+      gaps: [], postingHash, requirements, match, posting,
+    };
   }
   return { ...result, postingHash, requirements, match, posting };
 }
