@@ -230,6 +230,7 @@ describe('a posting that closes behind the registration', () => {
     '<label for="query">Search applications</label><input id="query" name="query" type="search"><button type="submit">Search</button>',
     '<label for="password">Password</label><input id="password" name="password" type="password">',
     '<label for="email">Email</label><input id="email" name="email" type="email">',
+    '<section><h2>Application portal</h2><label for="username">Username</label><input id="username" name="username" type="text"></section>',
   ])('still recognizes a closure when only a non-application field is present (%s)', async (field) => {
     const landing = `<main><p>This job is no longer available.</p><form>${field}</form></main>`;
     const { result } = await run(landing);
