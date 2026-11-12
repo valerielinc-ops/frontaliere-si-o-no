@@ -22,6 +22,7 @@ vi.mock('../functions/src/assistedApplicationAnswerEvidence.js', async (importOr
 
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken: mintToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { reconcileReviewQuestions } = await import('../scripts/assisted-application/reconcile-review-questions.mjs');
 // The module's JSDoc documents the options only; the call takes the whole input object.
 const mintReviewToken = mintToken as unknown as (input: Record<string, unknown>) => string;
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
@@ -107,6 +108,40 @@ describe('review page save: contract and concurrency', () => {
     const ledger = store.read('user_cv_profiles/candidate-save-test') || {};
     expect(Object.keys(ledger.applicationQuestionAnswers || {}).some(key => key.startsWith('order_local_'))).toBe(false);
     expect(Object.keys(ledger.applicationQuestionAnswerEvidence || {}).some(key => key.startsWith('order_local_'))).toBe(false);
+  });
+
+  it('keeps candidate answers through the candidate_answers transition and a changed-id reconciliation', async () => {
+    const passport = { id: 'portal_passport_before', question: 'Do you hold a Swiss/EU/EFTA passport?',
+      applicationQuestion: 'Do you hold a Swiss/EU/EFTA passport?', why: 'Portal question', type: 'yes_no',
+      options: ['Yes', 'No'], required: true, source: 'portal', addressContext: unownedPortalQuestion.addressContext };
+    const passportType = { id: 'portal_passport_type_before', question: 'Type of valid passport',
+      applicationQuestion: 'Type of valid passport', why: 'Portal question', type: 'choice',
+      options: ['Swiss passport', 'EU/EFTA passport', 'Other'], required: true, source: 'portal',
+      addressContext: unownedPortalQuestion.addressContext };
+    const currentPassport = { ...passport, id: 'portal_passport_after', type: 'choice', options: ['Yes', 'No', 'Not sure'] };
+    const currentPassportType = { ...passportType, id: 'portal_passport_type_after',
+      options: ['Swiss passport', 'EU/EFTA passport', 'Residence permit', 'Other'] };
+    expect(candidateQuestionAnswerKey(passport)).toBe('');
+    expect(candidateQuestionAnswerKey(passportType)).toBe('');
+    seed([passport, passportType]);
+    const shown = await load();
+    expect(await save(shown, { [passport.id]: 'Yes', [passportType.id]: 'EU/EFTA passport' }))
+      .toMatchObject({ status: 200, body: { ok: true } });
+    const savedFlow = store.read(FLOW);
+    expect(savedFlow.candidateAnswerHistory).toHaveLength(2);
+    // Simulate a prior hold still naming the old ATS ids while the reconciler reads the refreshed draft.
+    await flowRef().set({ heldBy: [`question:${passport.id}`, `question:${passportType.id}`] }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current')
+      .set({ questions: [currentPassport, currentPassportType] }, { merge: true });
+
+    const report = await reconcileReviewQuestions({ db: store.db, apply: true, nowMs: T0 + 10_000 });
+    expect(report.orders[0]).toMatchObject({ stillOpen: [] });
+    expect(store.read(FLOW).candidateAnswerHistory).toEqual(savedFlow.candidateAnswerHistory);
+    const refreshed = await load();
+    expect(refreshed.answers).toMatchObject({
+      [currentPassport.id]: 'Yes',
+      [currentPassportType.id]: 'EU/EFTA passport',
+    });
   });
 
   it('saves after a technical write between the page load and the save', async () => {

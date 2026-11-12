@@ -167,6 +167,13 @@ describe('what the candidate typed in one block', () => {
     expect(candidateAnswerForField(candidate, live)?.value).toBe('7');
   });
 
+  it('does not copy a candidate answer into a twin field that rejects it', () => {
+    const questions = [...firstBlock, { ...secondBlock[0], validation: { maxLength: 4 } }];
+    const projected = candidateAnswersForQuestions(questions, { portal_strasse_1: 'Musterweg' });
+    expect(projected.portal_strasse_1).toBe('Musterweg');
+    expect(projected).not.toHaveProperty('portal_strasse_2');
+  });
+
   it('is asked once when neither block can be answered, and reaches the twin once given', () => {
     const draft = draftWith([...firstBlock, ...secondBlock], '');
     const shown = questionsForCandidate(draft.questions, draft.profile, {}, {}, draft);

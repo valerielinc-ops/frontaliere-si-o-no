@@ -34,8 +34,9 @@ import {
   splitName,
 } from './assistedApplicationAiDraftCore.js';
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
+import { minDateFor, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 import { isoDateOf } from './lib/cvPeriod.js';
-import { permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.js';
+import { asksHeldStatus, isPermitField, permitLabel, permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
@@ -90,6 +91,15 @@ function optionValues(question) {
   return (Array.isArray(question?.options) ? question.options : [])
     .flatMap((option) => typeof option === 'string' ? [option] : [option?.label, option?.value])
     .map(normalizeQuestionValue).filter(Boolean);
+}
+
+function currentOptionDescriptors(question) {
+  return (Array.isArray(question?.options) ? question.options : []).flatMap(option => {
+    const aliases = (typeof option === 'string' ? [option] : [option?.label, option?.value])
+      .map(value => String(value ?? '').trim()).filter(Boolean);
+    if (!aliases.length) return [];
+    return [{ answer: String(typeof option === 'string' ? option : option?.label ?? option?.value).trim(), aliases }];
+  });
 }
 
 // «I don't know»: shared with the platform facts (lib/unknownAnswer.js), which cannot import this module.
@@ -171,8 +181,17 @@ function answerValueKey(value) {
   return Array.isArray(value) ? value.map(normalizeQuestionValue).sort().join('|') : normalizeQuestionValue(value);
 }
 
-function answerFitsQuestion(value, question) {
-  if (candidateQuestionFact(question) && (!candidateAnswerFact(question, value) || !validateAnswer(value, question, { todayIso: new Date().toISOString().slice(0, 10) }).ok)) return false;
+const CANDIDATE_ANSWER_HISTORY_LIMIT = 120;
+const CANDIDATE_ANSWER_HISTORY_VALUE_LIMIT = 500;
+const CATALOG_ANSWER_QUESTION_TYPES = new Set(['choice', 'select', 'radio', 'dropdown', 'combobox', 'multi_choice']);
+const DRIVING_LICENCE_QUESTION_RE = /\b(?:driv(?:e|ing|er(?:['’]s)?)|license to drive|licence to drive|f[uü]hrerschein|fahrausweis|f[uü]hrerausweis|permis de conduire|patent[ae] di guida|patente(?: di guida)?)\b/i;
+const HISTORY_COMPATIBLE_QUESTION_TYPES = new Set([
+  'checkbox|yes_no', 'choice|radio', 'choice|select', 'choice|text', 'choice|yes_no', 'number|text',
+  'radio|select', 'radio|text', 'select|text', 'text|textarea',
+]);
+
+function answerFitsQuestion(value, question, nowMs = Date.now()) {
+  if (candidateQuestionFact(question) && (!candidateAnswerFact(question, value) || !validateAnswer(value, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok)) return false;
   if (isPreferredWorkloadQuestion(question?.question)) {
     const text = String(value ?? '').trim();
     if (!/^\d{1,3}(?:[.,]\d{1,2})?\s*%?$/.test(text)) return false;
@@ -186,6 +205,219 @@ function answerFitsQuestion(value, question) {
   const values = Array.isArray(value) ? value : [value];
   const normalized = values.map(normalizeQuestionValue).filter(Boolean);
   return normalized.length > 0 && normalized.every((answer) => options.includes(answer));
+}
+
+function binaryOptionAnswer(value, question) {
+  if (String(question?.type || '').trim().toLowerCase() !== 'yes_no') return undefined;
+  const normalized = normalizeQuestionValue(value);
+  const positiveValues = new Set(['true', 'yes', 'si', 'ja', 'oui', '1']);
+  const negativeValues = new Set(['false', 'no', 'nein', 'non', '0']);
+  const polarity = positiveValues.has(normalized) ? 'positive' : negativeValues.has(normalized) ? 'negative' : '';
+  if (!polarity) return undefined;
+  const descriptors = currentOptionDescriptors(question);
+  const positiveAliases = new Set(['yes', 'si', 'ja', 'oui', 'true', '1']);
+  const negativeAliases = new Set(['no', 'nein', 'non', 'false', '0']);
+  const positive = descriptors.filter(option => option.aliases.some(alias => positiveAliases.has(normalizeQuestionValue(alias))));
+  const negative = descriptors.filter(option => option.aliases.some(alias => negativeAliases.has(normalizeQuestionValue(alias))));
+  if (positive.length !== 1 || negative.length !== 1 || positive[0] === negative[0]) return undefined;
+  return polarity === 'positive' ? positive[0].answer : negative[0].answer;
+}
+
+function permitOptionAnswer(value, question) {
+  const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
+    .filter(Boolean).join(' ');
+  if (DRIVING_LICENCE_QUESTION_RE.test(wording) || !isPermitField(wording) || !asksHeldStatus(wording)) return undefined;
+  const status = permitStatusOf(value);
+  if (!status) return undefined;
+  const matches = currentOptionDescriptors(question).filter(option => permitStatusOf(option.answer) === status);
+  return matches.length === 1 ? matches[0].answer : undefined;
+}
+
+function answerForCurrentQuestion(value, question, nowMs = Date.now()) {
+  const candidateFactAnswer = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, value) : null;
+  const permitMapped = permitOptionAnswer(candidateFactAnswer ?? value, question);
+  const binaryMapped = binaryOptionAnswer(permitMapped ?? candidateFactAnswer ?? value, question);
+  const currentValue = binaryMapped ?? permitMapped ?? candidateFactAnswer ?? value;
+  if (!answerFitsQuestion(currentValue, question, nowMs)) return undefined;
+  const options = currentOptionDescriptors(question);
+  const values = Array.isArray(currentValue) ? currentValue : [currentValue];
+  const type = String(question?.type || '').trim().toLowerCase();
+  if (CATALOG_ANSWER_QUESTION_TYPES.has(type) && !options.length) return undefined;
+  if (['yes_no', 'checkbox'].includes(type) && !options.length) {
+    const binaryValues = new Set(['yes', 'no', 'si', 'ja', 'nein', 'oui', 'non', 'true', 'false', '1', '0']);
+    if (!values.every(answer => binaryValues.has(normalizeQuestionValue(answer)))) return undefined;
+  }
+  const mappedValues = values.map(answer => {
+    if (!options.length) return answer;
+    const normalized = normalizeQuestionValue(answer);
+    const matches = options.filter(option => option.aliases.some(alias => normalizeQuestionValue(alias) === normalized));
+    return matches.length === 1 ? matches[0].answer : undefined;
+  });
+  if (mappedValues.some(answer => answer === undefined)) return undefined;
+  const todayIso = zurichToday(nowMs);
+  const identityQuestion = questionForAnswerIdentity(question);
+  const currentMinDate = minDateFor({ ...question, question: identityQuestion?.question || question?.question }, nowMs);
+  const minDates = [
+    currentMinDate,
+    question?.minDate === 'today' || question?.validation?.minDate === 'today' ? todayIso : '',
+    /^\d{4}-\d{2}-\d{2}$/.test(String(question?.minDate || '')) ? String(question.minDate) : '',
+  ].filter(Boolean);
+  const validationQuestion = {
+    ...question,
+    ...(minDates.length ? { minDate: minDates.sort().at(-1) } : {}),
+    ...(question?.type === 'choice' && options.length ? { options: options.map(option => option.answer) } : {}),
+  };
+  const validatedValues = type === 'number' && isPreferredWorkloadQuestion(question?.question)
+    ? mappedValues.map(answer => String(Number(String(answer).replace('%', '').trim().replace(',', '.'))))
+    : mappedValues;
+  if (!validatedValues.every(answer => validateAnswer(String(answer ?? ''), validationQuestion, { todayIso }).ok)) return undefined;
+  return Array.isArray(currentValue) ? validatedValues : validatedValues[0];
+}
+
+function candidateAnswerHistoryIdentity(question) {
+  const identityQuestion = questionForAnswerIdentity(question);
+  const rawText = String(identityQuestion?.question || '').trim();
+  const semanticKey = normalizeQuestionValue(question?.semanticKey || question?.portalKey || '').slice(0, 160);
+  return {
+    semanticKey,
+    questionText: rawText ? questionTextIdentity(identityQuestion, rawText).slice(0, 520) : '',
+    context: questionContextKey(identityQuestion?.context).slice(0, 240),
+    section: normalizeQuestionValue(identityQuestion?.section).slice(0, 240),
+    autocomplete: normalizeQuestionValue(identityQuestion?.autocomplete).slice(0, 240),
+    candidateKey: candidateQuestionAnswerKey(question).slice(0, 180),
+    questionType: String(question?.type || '').trim().toLowerCase().slice(0, 40),
+  };
+}
+
+function candidateAnswerHistoryValue(value) {
+  if (typeof value === 'string') return value.length <= CANDIDATE_ANSWER_HISTORY_VALUE_LIMIT ? value : null;
+  if (typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)) return value;
+  if (!Array.isArray(value) || value.length > 40) return null;
+  const items = value.map(item => typeof item === 'string' && item.length <= 500
+    ? item : typeof item === 'boolean' || typeof item === 'number' && Number.isFinite(item) ? item : null);
+  return items.every(item => item !== null) && items.reduce((total, item) => total + String(item).length, 0) <= 1000 ? items : null;
+}
+
+/** A bounded, order-local ledger of values the candidate explicitly saved on a reviewed question. */
+export function candidateAnswerHistoryState(history) {
+  if (!Array.isArray(history)) return [];
+  return history.slice(-CANDIDATE_ANSWER_HISTORY_LIMIT).flatMap(record => {
+    if (!record || typeof record !== 'object' || Array.isArray(record) || record.source !== 'candidate') return [];
+    const id = String(record.id || '').trim().slice(0, 160);
+    const round = Number(record.round);
+    const confirmedAt = Number(record.confirmedAt);
+    const status = ['answered', 'cleared', 'unknown'].includes(record.status) ? record.status : '';
+    const answer = candidateAnswerHistoryValue(record.answer);
+    if (!id || !Number.isInteger(round) || round < 1 || !Number.isFinite(confirmedAt) || confirmedAt <= 0
+      || !status || answer === null) return [];
+    return [{
+      id,
+      semanticKey: String(record.semanticKey || '').slice(0, 160),
+      questionText: String(record.questionText || '').slice(0, 520),
+      context: String(record.context || '').slice(0, 240),
+      section: String(record.section || '').slice(0, 240),
+      autocomplete: String(record.autocomplete || '').slice(0, 240),
+      candidateKey: String(record.candidateKey || '').slice(0, 180),
+      questionType: String(record.questionType || '').slice(0, 40),
+      answer,
+      status,
+      round,
+      confirmedAt,
+      source: 'candidate',
+    }];
+  });
+}
+
+/** Merge concurrent writes without dropping a distinct answer or an explicit clear. */
+export function mergeCandidateAnswerHistory(previous = [], next = []) {
+  const merged = new Map();
+  for (const record of [...candidateAnswerHistoryState(previous), ...candidateAnswerHistoryState(next)]) {
+    const identity = JSON.stringify([record.id, record.round, record.semanticKey, record.questionText, record.context,
+      record.section, record.autocomplete, record.candidateKey, record.questionType, record.status, answerValueKey(record.answer)]);
+    const current = merged.get(identity);
+    if (!current || record.confirmedAt >= current.confirmedAt) merged.set(identity, record);
+  }
+  return [...merged.values()].sort((left, right) => left.confirmedAt - right.confirmedAt).slice(-CANDIDATE_ANSWER_HISTORY_LIMIT);
+}
+
+/** Capture candidate-confirmed answers without placing their values in audit events or shared profiles. */
+export function rememberCandidateAnswerHistory({ previous = [], questions = [], changed = {}, round, confirmedAt, actor = 'candidate' } = {}) {
+  const history = candidateAnswerHistoryState(previous);
+  if (actor !== 'candidate' || !Number.isInteger(Number(round)) || Number(round) < 1
+    || !Number.isFinite(Number(confirmedAt)) || Number(confirmedAt) <= 0
+    || !changed || typeof changed !== 'object' || Array.isArray(changed)) return history;
+  const byId = new Map((Array.isArray(questions) ? questions : []).map(question => [String(question?.id || ''), question]));
+  for (const [id, rawAnswer] of Object.entries(changed)) {
+    const question = byId.get(id);
+    if (!question || !id || id.length > 160) continue;
+    const answer = candidateAnswerHistoryValue(rawAnswer);
+    if (answer === null) continue;
+    const identity = candidateAnswerHistoryIdentity(question);
+    if (!identity.semanticKey && !identity.questionText && !identity.candidateKey) continue;
+    const status = isUnknownAnswer(answer) ? 'unknown' : hasQuestionAnswer(answer) ? 'answered' : 'cleared';
+    const sameEntry = history.findIndex(record => record.id === id && record.round === Number(round)
+      && record.semanticKey === identity.semanticKey && record.questionText === identity.questionText
+      && record.context === identity.context && record.section === identity.section && record.autocomplete === identity.autocomplete
+      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType && record.status === status
+      && answerValueKey(record.answer) === answerValueKey(answer));
+    const latestForId = history.filter(record => record.id === id).reduce((latest, record) => Math.max(latest, record.confirmedAt), 0);
+    const sameCandidateEntry = record => record.round === Number(round)
+      && record.semanticKey === identity.semanticKey && record.questionText === identity.questionText
+      && record.context === identity.context && record.section === identity.section && record.autocomplete === identity.autocomplete
+      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType && record.status === status
+      && answerValueKey(record.answer) === answerValueKey(answer);
+    const latestHasConflict = history.some(record => record.id === id && record.confirmedAt === latestForId && !sameCandidateEntry(record));
+    const sameEntryIsLatest = sameEntry >= 0 && history[sameEntry].confirmedAt === latestForId && !latestHasConflict;
+    const recordedAt = latestForId >= Number(confirmedAt)
+      ? latestForId + (sameEntryIsLatest ? 0 : 1) : Number(confirmedAt);
+    const next = { id, ...identity, answer, status, round: Number(round), confirmedAt: recordedAt, source: 'candidate' };
+    if (sameEntry >= 0) history[sameEntry] = next;
+    else history.push(next);
+  }
+  return mergeCandidateAnswerHistory([], history);
+}
+
+function compatibleAnswerQuestionTypes(previous, current) {
+  const oldType = String(previous || '').trim().toLowerCase();
+  const newType = String(current || '').trim().toLowerCase();
+  if (!oldType || !newType) return false;
+  return oldType === newType || HISTORY_COMPATIBLE_QUESTION_TYPES.has([oldType, newType].sort().join('|'));
+}
+
+function compatibleAnswerQuestionIdentity(record, question) {
+  const current = candidateAnswerHistoryIdentity(question);
+  const contextsCompatible = ['context', 'section', 'autocomplete'].every(field =>
+    !record[field] || !current[field] || record[field] === current[field]);
+  const semanticMatch = Boolean(record.semanticKey && current.semanticKey && record.semanticKey === current.semanticKey);
+  const textMatch = Boolean(record.questionText && current.questionText && record.questionText === current.questionText && contextsCompatible);
+  const candidateKeyMatch = Boolean(record.candidateKey && current.candidateKey && record.candidateKey === current.candidateKey && contextsCompatible);
+  return contextsCompatible && (semanticMatch || textMatch || candidateKeyMatch);
+}
+
+function candidateAnswerHistoryRecordForQuestionId(question, history) {
+  const id = String(question?.id || '').trim();
+  const matches = candidateAnswerHistoryState(history).filter(record => record.id === id);
+  if (!matches.length) return undefined;
+  const latestAt = Math.max(...matches.map(record => record.confirmedAt));
+  const latest = matches.filter(record => record.confirmedAt === latestAt);
+  const values = new Set(latest.map(record => JSON.stringify([record.status, answerValueKey(record.answer), record.semanticKey,
+    record.questionText, record.context, record.section, record.autocomplete, record.candidateKey, record.questionType])));
+  return values.size === 1 ? latest.at(-1) : null;
+}
+
+function candidateHistoryAnswerForQuestion(question, history, nowMs) {
+  const matches = candidateAnswerHistoryState(history).filter(record => compatibleAnswerQuestionIdentity(record, question));
+  if (!matches.length) return undefined;
+  const latestAt = Math.max(...matches.map(record => record.confirmedAt));
+  const latest = matches.filter(record => record.confirmedAt === latestAt);
+  const values = new Set(latest.map(record => `${record.status}:${answerValueKey(record.answer)}`));
+  if (values.size !== 1) return undefined;
+  const record = latest.at(-1);
+  const currentAnswer = answerForCurrentQuestion(record.answer, question, nowMs);
+  if (record.status !== 'answered' || !hasQuestionAnswer(record.answer)
+    || !compatibleAnswerQuestionTypes(record.questionType, question?.type)
+    || currentAnswer === undefined) return undefined;
+  return currentAnswer;
 }
 
 /** A percentage preference is portable; employer requirements and shift availability are not. */
@@ -243,16 +475,35 @@ export function candidateQuestionAnswerKey(question) {
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 
-/** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */
-export function candidateAnswersForQuestions(questions, answers = {}, memory = {}) {
+/** Reuse candidate answers only when their topic is unambiguous and the value fits the current contract. */
+export function candidateAnswersForQuestions(questions, answers = {}, memory = {}, history = [], nowMs = Date.now()) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
   const unknownKeys = new Set();
+  const unknownQuestionIds = new Set();
   for (const question of Array.isArray(questions) ? questions : []) {
     if (isUnknownAnswer(result[question?.id])) {
       const key = candidateQuestionAnswerKey(question);
       if (key) unknownKeys.add(key);
+      unknownQuestionIds.add(question.id);
       delete result[question.id];
     }
+  }
+  // A value saved under this id can outlive a portal's changed options or validation contract.
+  // Keep the stored source and candidate ledger intact, but do not let a stale value satisfy today's field.
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id || !hasQuestionAnswer(result[question.id])) continue;
+    const saved = candidateAnswerHistoryRecordForQuestionId(question, history);
+    if (saved === null || (saved && (saved.status !== 'answered'
+      || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
+      || !compatibleAnswerQuestionIdentity(saved, question)))) {
+      delete result[question.id];
+      continue;
+    }
+    const current = answerForCurrentQuestion(result[question.id], question, nowMs);
+    if (current === undefined && question?.requiresAffirmativeConsent === true
+      && hasQuestionAnswer(result[question.id]) && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
+    if (current === undefined) delete result[question.id];
+    else result[question.id] = current;
   }
   const currentValues = new Map();
   const conflicts = new Set();
@@ -272,13 +523,22 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
     const recorded = currentValues.get(key)?.value ?? remembered;
     const source = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, recorded) : recorded;
-    if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) {
+    if (hasQuestionAnswer(source)) {
+      const current = answerForCurrentQuestion(source, question, nowMs);
+      if (current === undefined) continue;
       result[question.id] = key === WORKLOAD_PREFERENCE_KEY && question.type === 'number'
-        ? String(Number(String(source).replace('%', '').trim().replace(',', '.')))
-        : source;
+        ? String(Number(String(current).replace('%', '').trim().replace(',', '.')))
+        : current;
     }
   }
-  return withTwinAddressAnswers(Array.isArray(questions) ? questions : [], answers, memory, result, unknownKeys);
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id || hasQuestionAnswer(result[question.id]) || unknownQuestionIds.has(question.id)) continue;
+    const key = candidateQuestionAnswerKey(question);
+    if (key && unknownKeys.has(key)) continue;
+    const historical = candidateHistoryAnswerForQuestion(question, history, nowMs);
+    if (historical !== undefined) result[question.id] = historical;
+  }
+  return withTwinAddressAnswers(Array.isArray(questions) ? questions : [], answers, memory, result, unknownKeys, nowMs);
 }
 
 /**
@@ -288,7 +548,7 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
  * per field: two different ones stay the candidate's to reconcile. A field they cleared, marked unknown or
  * emptied in the ledger stays theirs, and another party's address never takes it.
  */
-function withTwinAddressAnswers(questions, answers, memory, result, unknownKeys) {
+function withTwinAddressAnswers(questions, answers, memory, result, unknownKeys, nowMs) {
   const topics = candidateAddressTopics(questions);
   if (!topics.size) return result;
   const given = new Map();
@@ -306,7 +566,8 @@ function withTwinAddressAnswers(questions, answers, memory, result, unknownKeys)
     const key = candidateQuestionAnswerKey(question);
     if (key && (unknownKeys.has(key) || (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(memory[key])))) continue;
     const [value] = given.get(topic).values();
-    if (answerFitsQuestion(value, question)) result[question.id] = value;
+    const current = answerForCurrentQuestion(value, question, nowMs);
+    if (current !== undefined) result[question.id] = current;
   }
   return result;
 }
@@ -355,8 +616,8 @@ export function requiredPortalConsentAffirmed(question, value) {
 }
 
 /** Remove questions established by the CV and duplicate semantic requests, retaining required status. */
-export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null) {
-  const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
+export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null, history = [], nowMs = Date.now()) {
+  const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory, history, nowMs);
   const candidates = (Array.isArray(questions) ? questions : []).filter((question) =>
     questionNeedsCandidateAnswer(question, profile, draft)
       && !(isIdentityEmailConfirmationQuestion(question) && hasQuestionAnswer(projectedAnswers[question?.id])))
@@ -598,7 +859,7 @@ function splitLanguages(text) {
  * are written from those, and neither says whom the candidate married.
  * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object, personal:{salutation:string, civilStatus:string}}}
  */
-export function candidateWithEdits({ order, draft, flow, locale: requestedLocale }) {
+export function candidateWithEdits({ order, draft, flow, locale: requestedLocale, nowMs = Date.now() }) {
   const overrides = storedOverrides(flow?.formOverrides);
   const base = candidateIdentity(order, draft?.profile);
   const names = splitName(base.name);
@@ -643,7 +904,8 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // Asked at CV upload (owner decision 2026-11-09): the candidate's own word, below a correction of theirs.
   const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   if (!has(overrides, 'nationality') && !clean(profile.nationality, 80) && clean(uploaded.nationality, 80)) profile.nationality = clean(uploaded.nationality, 80);
-  const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {});
+  const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {},
+    flow?.candidateAnswerHistory || [], nowMs);
   // A required portal can repeat the applicant's identity e-mail as a
   // confirmation field. It is already known from the order/alias; use that
   // value in the same answer projection as the portal planner and keep it out

@@ -9,8 +9,9 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
 import { CANDIDATE_REVIEW_MS, evaluateRedFlags, transition } from '../functions/src/assistedApplicationFlow.js';
-import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, rememberCandidateAnswerHistory } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
 import { releasesWait } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
 import {
@@ -312,6 +313,178 @@ describe('a personal fact absent from the CV stays with the candidate', () => {
     expect(reviewQuestionPlan({ order, flow, draft: { ...draftOf([emergency]), round: 2 } })).toBeNull();
     expect(reviewQuestionPlan({ order: { ...order, paymentStatus: 'pending' }, flow, draft })).toBeNull();
     expect(reviewQuestionPlan({ order, flow: { ...flow, state: 'submitting' }, draft })).toBeNull();
+  });
+});
+
+describe('candidate answers survive question reconciliation', () => {
+  const previousQuestion = { id: 'passport_before', question: 'Do you hold a Swiss/EU/EFTA passport?',
+    applicationQuestion: 'Do you hold a Swiss/EU/EFTA passport?', type: 'yes_no', options: ['Yes', 'No'], required: true, source: 'portal' };
+  const changedQuestion = { ...previousQuestion, id: 'passport_after', type: 'choice', options: ['Yes', 'No', 'Not sure'] };
+  const incompatibleQuestion = { ...changedQuestion, id: 'passport_incompatible', options: ['Swiss passport', 'Other'] };
+  const answer = 'Yes';
+  const history = () => rememberCandidateAnswerHistory({ questions: [previousQuestion], changed: { [previousQuestion.id]: answer },
+    round: 1, confirmedAt: now, actor: 'candidate' });
+
+  it('reapplies a saved answer to the same question after its id and compatible field type change', () => {
+    const candidateAnswerHistory = history();
+    expect(candidateAnswersForQuestions([changedQuestion], {}, {}, candidateAnswerHistory, now)[changedQuestion.id]).toBe(answer);
+    expect(evaluateRedFlags(draftOf([changedQuestion]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory }, order).candidate).toEqual([]);
+  });
+
+  it('maps a normalized catalog match to the current option label', () => {
+    const candidateAnswerHistory = history();
+    const changedCatalog = { ...changedQuestion, options: ['YES', 'NO', 'NOT SURE'] };
+    expect(candidateAnswersForQuestions([changedCatalog], {}, {}, candidateAnswerHistory, now)[changedCatalog.id]).toBe('YES');
+  });
+
+  it('keeps a value in the ledger and leaves the question open when the new option catalog rejects it', () => {
+    const candidateAnswerHistory = history();
+    const projected = candidateAnswersForQuestions([incompatibleQuestion], {}, {}, candidateAnswerHistory, now);
+    expect(projected).not.toHaveProperty(incompatibleQuestion.id);
+    expect(candidateAnswerHistoryState(candidateAnswerHistory)).toEqual(candidateAnswerHistory);
+    expect(evaluateRedFlags(draftOf([incompatibleQuestion]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory }, order).candidate).toEqual([incompatibleQuestion.id]);
+  });
+
+  it('keeps a catalog answer in history when the current catalog is missing', () => {
+    const previousChoice = { id: 'permit_before', question: 'Which permit do you hold?', type: 'choice',
+      options: ['Permit G', 'Permit B'], required: true, source: 'portal' };
+    const historyWithChoice = rememberCandidateAnswerHistory({ questions: [previousChoice],
+      changed: { [previousChoice.id]: 'Permit G' }, round: 1, confirmedAt: now, actor: 'candidate' });
+    const currentChoice = { ...previousChoice, id: 'permit_after', options: [] };
+    expect(candidateAnswersForQuestions([currentChoice], {}, {}, historyWithChoice, now)).not.toHaveProperty(currentChoice.id);
+    expect(candidateAnswerHistoryState(historyWithChoice)).toEqual(historyWithChoice);
+    expect(evaluateRedFlags(draftOf([currentChoice]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory: historyWithChoice }, order).candidate).toEqual([currentChoice.id]);
+  });
+
+  it('reapplies a boolean checkbox answer that has no option catalog', () => {
+    const previousCheckbox = { id: 'consent_before', question: 'Confirm the statement?', type: 'checkbox', options: [], required: true, source: 'portal' };
+    const historyWithCheckbox = rememberCandidateAnswerHistory({ questions: [previousCheckbox],
+      changed: { [previousCheckbox.id]: true }, round: 1, confirmedAt: now, actor: 'candidate' });
+    const currentCheckbox = { ...previousCheckbox, id: 'consent_after' };
+    expect(candidateAnswersForQuestions([currentCheckbox], {}, {}, historyWithCheckbox, now)[currentCheckbox.id]).toBe(true);
+  });
+
+  it('maps a saved checkbox answer to one current yes/no option pair', () => {
+    const previousCheckbox = { id: 'consent_before', question: 'Confirm the statement?', type: 'checkbox', options: [], required: true, source: 'portal' };
+    const historyWithCheckbox = rememberCandidateAnswerHistory({ questions: [previousCheckbox],
+      changed: { [previousCheckbox.id]: true }, round: 1, confirmedAt: now, actor: 'candidate' });
+    const currentBinary = { ...previousCheckbox, id: 'consent_after', type: 'yes_no', options: ['Yes', 'No'] };
+    expect(candidateAnswersForQuestions([currentBinary], {}, {}, historyWithCheckbox, now)[currentBinary.id]).toBe('Yes');
+  });
+
+  it('maps a stated permit code to exactly one option in the current permit catalog', () => {
+    const permit = { id: 'permit_before', question: 'Permesso?', type: 'choice', options: permitOptions('it'), required: false, source: 'portal' };
+    const selected = permit.options.find((option: string) => option.includes('permesso G'));
+    expect(candidateAnswersForQuestions([permit], { [permit.id]: 'G' })[permit.id]).toBe(selected);
+  });
+
+  it('does not map a work-permit code into a driving-licence question', () => {
+    const drivingLicence = { id: 'licence_before', question: 'Do you hold a permit to drive?', type: 'choice',
+      options: permitOptions('it'), required: true, source: 'portal' };
+    expect(candidateAnswersForQuestions([drivingLicence], { [drivingLicence.id]: 'G' }))
+      .not.toHaveProperty(drivingLicence.id);
+  });
+
+  it.each([['textarea', 'text'], ['text', 'textarea']])('reuses the same answer when the field changes from %s to %s', (previousType, currentType) => {
+    const previous = { id: 'details_before', question: 'Describe your experience with customer support?',
+      type: previousType, options: [], required: true, source: 'portal' };
+    const saved = 'I documented requests and resolved customer issues.';
+    const historyWithAnswer = rememberCandidateAnswerHistory({ questions: [previous],
+      changed: { [previous.id]: saved }, round: 1, confirmedAt: now, actor: 'candidate' });
+    const current = { ...previous, id: 'details_after', type: currentType };
+    expect(candidateAnswersForQuestions([current], {}, {}, historyWithAnswer, now)[current.id]).toBe(saved);
+  });
+
+  it('does not let an invalid same-id value bypass the current option catalog', () => {
+    const candidateAnswerHistory = history();
+    const sameIdIncompatibleQuestion = { ...previousQuestion, options: ['Swiss passport', 'Other'] };
+    const directAnswers = { [previousQuestion.id]: answer };
+    const projected = candidateAnswersForQuestions([sameIdIncompatibleQuestion], directAnswers, {}, candidateAnswerHistory, now);
+    expect(projected).not.toHaveProperty(sameIdIncompatibleQuestion.id);
+    expect(candidateAnswerHistoryState(candidateAnswerHistory)).toEqual(candidateAnswerHistory);
+    expect(evaluateRedFlags(draftOf([sameIdIncompatibleQuestion]), directAnswers, {}, {}, { state: 'candidate_review', round: 1,
+      answers: directAnswers, candidateAnswerHistory }, order).candidate).toEqual([sameIdIncompatibleQuestion.id]);
+  });
+
+  it('does not restore a same-id date rejected by the new minimum from semantic memory', () => {
+    const dateQuestion = { id: 'start_date_before', question: 'When can you start?', type: 'date', options: [], required: true, source: 'portal' };
+    const dateAnswer = '2026-11-20';
+    const changedContract = { ...dateQuestion, minDate: '2026-12-01' };
+    const key = candidateQuestionAnswerKey(dateQuestion);
+    const projected = candidateAnswersForQuestions([changedContract], { [dateQuestion.id]: dateAnswer }, { [key]: dateAnswer }, {}, now);
+    expect(projected).not.toHaveProperty(dateQuestion.id);
+  });
+
+  it('does not reapply yesterday\'s start date when today\'s Zurich minimum is derived', () => {
+    const previousStartDate = { id: 'start_date_before', question: 'From which date can you start working?',
+      type: 'date', options: [], required: true, source: 'portal' };
+    const historyWithDate = rememberCandidateAnswerHistory({ questions: [previousStartDate],
+      changed: { [previousStartDate.id]: '2026-09-29' }, round: 1, confirmedAt: now - 1, actor: 'candidate' });
+    const currentStartDate = { ...previousStartDate, id: 'start_date_after' };
+    expect(candidateAnswersForQuestions([currentStartDate], {}, {}, historyWithDate, now)).not.toHaveProperty(currentStartDate.id);
+  });
+
+  it('keeps a date answer in history when a start-date question changes to free text', () => {
+    const previousStartDate = { id: 'start_date_before', question: 'From which date can you start working?',
+      type: 'date', options: [], required: true, source: 'portal' };
+    const historyWithDate = rememberCandidateAnswerHistory({ questions: [previousStartDate],
+      changed: { [previousStartDate.id]: '2026-12-15' }, round: 1, confirmedAt: now - 1, actor: 'candidate' });
+    const currentStartDate = { ...previousStartDate, id: 'start_date_after', type: 'text' };
+    expect(candidateAnswersForQuestions([currentStartDate], {}, {}, historyWithDate, now)).not.toHaveProperty(currentStartDate.id);
+    expect(candidateAnswerHistoryState(historyWithDate)).toEqual(historyWithDate);
+    expect(evaluateRedFlags(draftOf([currentStartDate]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory: historyWithDate }, order).candidate).toEqual([currentStartDate.id]);
+  });
+
+  it('does not let a same-id direct date answer bypass a changed text contract', () => {
+    const previousStartDate = { id: 'start_date_before', question: 'From which date can you start working?',
+      type: 'date', options: [], required: true, source: 'portal' };
+    const dateAnswer = '2026-09-29';
+    const historyWithDate = rememberCandidateAnswerHistory({ questions: [previousStartDate],
+      changed: { [previousStartDate.id]: dateAnswer }, round: 1, confirmedAt: now - 1, actor: 'candidate' });
+    const currentStartDate = { ...previousStartDate, type: 'text' };
+    const directAnswers = { [currentStartDate.id]: dateAnswer };
+    expect(candidateAnswersForQuestions([currentStartDate], directAnswers, {}, historyWithDate, now))
+      .not.toHaveProperty(currentStartDate.id);
+    expect(candidateAnswerHistoryState(historyWithDate)).toEqual(historyWithDate);
+    expect(evaluateRedFlags(draftOf([currentStartDate]), directAnswers, {}, {}, { state: 'candidate_review', round: 1,
+      answers: directAnswers, candidateAnswerHistory: historyWithDate }, order).candidate).toEqual([currentStartDate.id]);
+  });
+
+  it('does not apply a same-id answer when the portal reuses that id for a different question', () => {
+    const previousQuestion = { id: 'shared_question_id', question: 'How many years of experience do you have?',
+      type: 'text', options: [], required: true, source: 'portal' };
+    const historyWithAnswer = rememberCandidateAnswerHistory({ questions: [previousQuestion],
+      changed: { [previousQuestion.id]: '3' }, round: 1, confirmedAt: now - 1, actor: 'candidate' });
+    const currentQuestion = { ...previousQuestion, question: 'How many employees did you supervise?' };
+    const directAnswers = { [currentQuestion.id]: '3' };
+    expect(candidateAnswersForQuestions([currentQuestion], directAnswers, {}, historyWithAnswer, now))
+      .not.toHaveProperty(currentQuestion.id);
+    expect(candidateAnswerHistoryState(historyWithAnswer)).toEqual(historyWithAnswer);
+    expect(evaluateRedFlags(draftOf([currentQuestion]), directAnswers, {}, {}, { state: 'candidate_review', round: 1,
+      answers: directAnswers, candidateAnswerHistory: historyWithAnswer }, order).candidate).toEqual([currentQuestion.id]);
+  });
+
+  it('preserves every candidate answer before and after a reconciliation tick', async () => {
+    const base = 'assisted_applications/candidate_answer_history_reconcile';
+    const candidateAnswerHistory = history();
+    const previousFlow = { ...heldFlow([`question:${previousQuestion.id}`]), answers: { [previousQuestion.id]: answer },
+      questionAnswers: { previous_answer_key: answer }, candidateAnswerHistory };
+    const store = seed(base, previousFlow, draftOf([changedQuestion]));
+    const before = {
+      answers: structuredClone(previousFlow.answers), questionAnswers: structuredClone(previousFlow.questionAnswers),
+      candidateAnswerHistory: structuredClone(previousFlow.candidateAnswerHistory),
+    };
+    const report = await reconcileReviewQuestions({ db: store.db, nowMs: now, apply: true });
+    const afterFlow = store.read(`${base}/automation/flow`);
+    const tick = transition(previousFlow, { type: 'tick' }, { order, draft: draftOf([changedQuestion]), nowMs: now });
+    expect(report.orders[0]).toMatchObject({ stillOpen: [] });
+    expect(tick.flow).toMatchObject(before);
+    expect(afterFlow).toMatchObject(before);
+    expect(candidateWithEdits({ order, draft: draftOf([changedQuestion]), flow: afterFlow }).answers[changedQuestion.id]).toBe(answer);
   });
 });
 

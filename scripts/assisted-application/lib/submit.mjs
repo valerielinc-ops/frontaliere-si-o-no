@@ -150,8 +150,9 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
 }
 
 /** Open required questions block the submission, whatever the channel. */
-export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, order = {} } = {}) {
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: { answers, questionAnswers } });
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, candidateAnswerHistory = [], order = {} } = {}) {
+  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft,
+    flow: { answers, questionAnswers, candidateAnswerHistory } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   return questions.filter((question) => {
@@ -380,7 +381,8 @@ export async function submitApplication(ctx) {
   // stopped before the live field context was available. Let the runner read
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
-  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers, order });
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers,
+    candidateAnswerHistory: submitFlow?.candidateAnswerHistory, order });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
   if (open.length || missingDocuments.length) {
     // Keep the legacy id list for the flow and add the bounded descriptor so

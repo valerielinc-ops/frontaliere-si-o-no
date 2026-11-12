@@ -52,6 +52,7 @@ import { chromeErrorPageFailure, navigationInfrastructureFailure } from './assis
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
+  candidateAnswerHistoryState,
   candidateQuestionAnswerKey,
   candidateWithEdits,
   ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
@@ -410,6 +411,12 @@ function base(flow) {
     ...(Array.isArray(flow?.pendingFields) ? { pendingFields: flow.pendingFields.slice(0, 20) } : {}),
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
+    ...(flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers)
+      ? { answers: { ...flow.answers } }
+      : {}),
+    ...(Array.isArray(flow?.candidateAnswerHistory)
+      ? { candidateAnswerHistory: candidateAnswerHistoryState(flow.candidateAnswerHistory) }
+      : {}),
     shownRounds: roundsShown(flow),
     // The Swiss-egress mark is permanent (assistedApplicationSwissRunner.js): every later run of the order
     // leaves from the Swiss runner.
@@ -781,15 +788,21 @@ function portalAnswerForQuestion(question, draft) {
   return fallback;
 }
 
-function knownAnswerForQuestion(question, { draft, answers, questionAnswers, facts = null }) {
-  if (hasAnswer(answers?.[question.id])) return answers[question.id];
-  const projected = candidateAnswersForQuestions(draft?.questions || [], answers, questionAnswers);
+function knownAnswerForQuestion(question, { draft, answers, questionAnswers, candidateAnswerHistory = [], facts = null }) {
+  const draftQuestions = Array.isArray(draft?.questions) ? draft.questions : [];
+  const currentQuestions = draftQuestions.some(current => current?.id === question?.id)
+    ? draftQuestions.map(current => current?.id === question?.id ? question : current)
+    : [...draftQuestions, question];
+  const projected = candidateAnswersForQuestions(currentQuestions, answers, questionAnswers, candidateAnswerHistory);
   if (hasAnswer(projected?.[question.id])) return projected[question.id];
   const portalAnswer = portalAnswerForQuestion(question, draft);
-  if (hasAnswer(portalAnswer)) return portalAnswer;
+  if (hasAnswer(portalAnswer)) {
+    const portalProjection = candidateAnswersForQuestions([question], { [question.id]: portalAnswer }, {}, candidateAnswerHistory);
+    if (hasAnswer(portalProjection[question.id])) return portalProjection[question.id];
+  }
   const key = candidateQuestionAnswerKey(question);
   if (!key) return operationalDefaultAnswer(question, { facts })?.value;
-  const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
+  const remembered = candidateAnswersForQuestions([question], {}, questionAnswers, candidateAnswerHistory);
   if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
   for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
     if (candidateQuestionAnswerKey(current) !== key) continue;
@@ -1403,6 +1416,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
           draft,
           answers,
           questionAnswers: flow?.questionAnswers || {},
+          candidateAnswerHistory: flow?.candidateAnswerHistory || [],
           facts: platformFacts,
         }));
       });

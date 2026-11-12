@@ -2,7 +2,7 @@ import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
 import { createHash, randomBytes } from 'node:crypto';
 import { candidateAnswerFact } from './lib/candidateAnswerFacts.js';
-import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, candidateAnswersForQuestions, candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -629,10 +629,13 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs })
     : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {},
       questionAnswerConfirmationHashes: {}, questionAnswerSources: {} };
+  const candidateAnswerHistory = orderRetained ? candidateAnswerHistoryState(flow?.candidateAnswerHistory) : [];
+  const historyAnswers = candidateAnswersForQuestions(Array.isArray(draft?.questions) ? draft.questions : [], orderContext.answers, {},
+    candidateAnswerHistory, nowMs);
   // Both projections are restricted to the confirmed writer contract. An
   // unmarked legacy flow can still be inspected for recovery, but must not
   // become fill-kit input or candidate evidence.
-  return { retained: orderRetained, communicationLocale, flow: { ...flow, answers: orderContext.answers,
+  return { retained: orderRetained, communicationLocale, flow: { ...flow, answers: historyAnswers, candidateAnswerHistory,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,
