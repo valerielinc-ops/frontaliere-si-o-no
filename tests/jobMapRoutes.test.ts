@@ -22,4 +22,12 @@ describe('buildSwissCityMapHref', () => {
       jobBoardCity: 'zurich',
     }, 'de'));
   });
+
+  it('falls back when a locality has no canonical city hub', () => {
+    expect(buildSwissCityMapHref('ZH', 'Not a Zurich municipality', 'de')).toBeNull();
+  });
+
+  it('does not infer a canton when the canton code is empty', () => {
+    expect(buildSwissCityMapHref('', 'Zürich', 'de')).toBeNull();
+  });
 });
