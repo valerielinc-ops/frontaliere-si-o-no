@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   historyBlobOidsFromRevList,
   historyBlobPrefetchArgs,
+  historyBlobPrefetchInput,
   historySinceArgs,
 } from '../scripts/ci/prefetch-history-blobs.mjs';
 
@@ -42,14 +43,15 @@ describe('prefetch-history-blobs', () => {
     const remote = 'https://github.com/owner/repo.git';
     const oids = ['a'.repeat(40), 'b'.repeat(40)];
 
-    expect(historyBlobPrefetchArgs(oids, remote)).toEqual([
+    expect(historyBlobPrefetchArgs(remote)).toEqual([
       'fetch',
       '--keep',
       '--no-progress',
       '--no-tags',
       '--no-write-fetch-head',
+      '--stdin',
       remote,
-      ...oids,
     ]);
+    expect(historyBlobPrefetchInput(oids)).toBe(`${oids.join('\n')}\n`);
   });
 });
