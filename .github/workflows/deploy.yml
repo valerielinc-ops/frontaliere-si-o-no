@@ -1616,6 +1616,7 @@ jobs:
           fi
 
       - name: Save jobs SEO HTML cache
+        id: jobs-seo-html-save
         if: success() && env.JOBS_SEO_REUSE == '1' && steps.jobs-seo-html-content.outputs.has_files == 'true' && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
         timeout-minutes: 30
         continue-on-error: true
@@ -1630,6 +1631,7 @@ jobs:
       # stores renderer output, not the published artifact, so the barrier and
       # post-rewrite validation remain mandatory on the next publish.
       - name: Save jobs SEO HTML cache after hreflang barrier failure
+        id: jobs-seo-html-barrier-save
         if: >-
           ${{ always() &&
               matrix.locale == 'it' &&
@@ -1646,6 +1648,121 @@ jobs:
         with:
           path: .cache/incremental-html
           key: jobs-seo-html-${{ matrix.locale }}-${{ hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) }}-${{ steps.jobs-seo-html-fingerprint.outputs.fingerprint }}
+
+      # Read-only evidence for the opt-in HTML cache. The build already logs
+      # one [jobs-seo-reuse] row per page block; join those rows with the
+      # Actions restore/save outcomes so a later deploy can distinguish a
+      # cache miss from an inactive path. A missing signal stays unknown and
+      # this observer can never block publication.
+      - name: Observe Jobs SEO HTML cache hit and wall-clock
+        id: jobs-seo-cache-hit-observer
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          JOBS_SEO_CACHE_ENABLED: ${{ env.JOBS_SEO_REUSE == '1' && 'true' || 'false' }}
+          JOBS_SEO_CACHE_HIT: ${{ steps.jobs-seo-html-cache.outputs.cache-hit }}
+          JOBS_SEO_CACHE_PRIMARY_KEY: ${{ steps.jobs-seo-html-cache.outputs.cache-primary-key }}
+          JOBS_SEO_CACHE_MATCHED_KEY: ${{ steps.jobs-seo-html-cache.outputs.cache-matched-key }}
+          JOBS_SEO_CACHE_RESTORE_OUTCOME: ${{ steps.jobs-seo-html-cache.outcome }}
+          JOBS_SEO_CACHE_SAVE_OUTCOME: ${{ steps.jobs-seo-html-save.outcome }}
+          JOBS_SEO_CACHE_BARRIER_SAVE_OUTCOME: ${{ steps.jobs-seo-html-barrier-save.outcome }}
+          JOBS_SEO_BUILD_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+          JOBS_SEO_CACHE_LOCALE: ${{ matrix.locale }}
+        run: |
+          set -euo pipefail
+
+          jobsSeoCacheHit() {
+            case "${JOBS_SEO_CACHE_ENABLED}:${JOBS_SEO_CACHE_HIT:-}" in
+              true:true) printf 'hit' ;;
+              true:false) printf 'miss' ;;
+              *) printf 'unknown' ;;
+            esac
+          }
+
+          stepOutcome() {
+            case "${1:-}" in
+              success|failure|cancelled|skipped) printf '%s' "$1" ;;
+              *) printf 'unknown' ;;
+            esac
+          }
+
+          keyOrUnknown() {
+            if [ -n "${1:-}" ]; then printf '%s' "$1"; else printf 'unknown'; fi
+          }
+
+          cache_state="$(jobsSeoCacheHit)"
+          primary_key="$(keyOrUnknown "${JOBS_SEO_CACHE_PRIMARY_KEY:-}")"
+          matched_key="$(keyOrUnknown "${JOBS_SEO_CACHE_MATCHED_KEY:-}")"
+          restore_outcome="$(stepOutcome "${JOBS_SEO_CACHE_RESTORE_OUTCOME:-}")"
+          save_outcome="$(stepOutcome "${JOBS_SEO_CACHE_SAVE_OUTCOME:-}")"
+          barrier_save_outcome="$(stepOutcome "${JOBS_SEO_CACHE_BARRIER_SAVE_OUTCOME:-}")"
+
+          reused_pages='unknown'
+          rendered_pages='unknown'
+          reuse_wall_ms='unknown'
+          if [ -s /tmp/build.log ]; then
+            reuse_stats="$(awk '
+              function numeric(value) {
+                return value ~ /^[0-9]+([.][0-9]+)?$/;
+              }
+              /^\[jobs-seo-reuse\] block=/ {
+                rows += 1;
+                reused = rendered = wall = "";
+                for (i = 1; i <= NF; i += 1) {
+                  if ($i ~ /^reused=[0-9]+$/) reused = substr($i, index($i, "=") + 1);
+                  else if ($i ~ /^rendered=[0-9]+$/) rendered = substr($i, index($i, "=") + 1);
+                  else if ($i ~ /^wall_ms=[0-9]+([.][0-9]+)?$/) wall = substr($i, index($i, "=") + 1);
+                }
+                if (!numeric(reused) || !numeric(rendered) || !numeric(wall)) {
+                  invalid = 1;
+                  next;
+                }
+                reused_total += reused;
+                rendered_total += rendered;
+                wall_total += wall;
+              }
+              END {
+                if (rows == 0 || invalid) print "unknown";
+                else printf "reused_pages=%d rendered_pages=%d reuse_wall_ms=%.1f", reused_total, rendered_total, wall_total;
+              }
+            ' /tmp/build.log)"
+            if [ "$reuse_stats" != 'unknown' ]; then
+              for stat in $reuse_stats; do
+                case "$stat" in
+                  reused_pages=*) reused_pages="${stat#*=}" ;;
+                  rendered_pages=*) rendered_pages="${stat#*=}" ;;
+                  reuse_wall_ms=*) reuse_wall_ms="${stat#*=}" ;;
+                esac
+              done
+            fi
+          fi
+
+          build_wall_seconds="${JOBS_SEO_BUILD_WALL_SECONDS:-}"
+          if [[ ! "$build_wall_seconds" =~ ^[0-9]+$ ]]; then build_wall_seconds='unknown'; fi
+
+          {
+            echo '### Jobs SEO HTML cache observer'
+            echo
+            echo '| locale | opt-in | status | key | matched-key | pages reused | reuse wall (ms) | build wall (s) | restore | save | barrier save |'
+            echo '|---|---|---|---|---|---:|---:|---:|---|---|---|'
+            printf '| `%s` | `%s` | `%s` | `%s` | `%s` | `%s` | `%s` | `%s` | `%s` | `%s` | `%s` |\n' \
+              "$JOBS_SEO_CACHE_LOCALE" "$JOBS_SEO_CACHE_ENABLED" "$cache_state" \
+              "$primary_key" "$matched_key" "$reused_pages" "$reuse_wall_ms" \
+              "$build_wall_seconds" "$restore_outcome" "$save_outcome" "$barrier_save_outcome"
+            echo
+            echo 'Missing restore, reuse, or timing data is reported as `unknown`; the observer is advisory and does not alter the deploy path.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          {
+            echo "status=$cache_state"
+            echo "reused_pages=$reused_pages"
+            echo "rendered_pages=$rendered_pages"
+            echo "reuse_wall_ms=$reuse_wall_ms"
+            echo "build_wall_seconds=$build_wall_seconds"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "[jobsSeoCacheHit] locale=$JOBS_SEO_CACHE_LOCALE status=$cache_state matched_key=$matched_key reused_pages=$reused_pages reuse_wall_ms=$reuse_wall_ms build_wall_seconds=$build_wall_seconds restore=$restore_outcome save=$save_outcome barrier_save=$barrier_save_outcome"
 
       # IT's publishing tail runs in deploy-publish.yml. Hand off a root
       # tar without live section subtrees plus six balanced section source
