@@ -233,6 +233,62 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
     : payloads.get(path.basename(sitePath));
 }
 
+function normalizeOwnedTransportEntry(entry, destination) {
+  const convergentAdapted = isConvergentAdaptedTransportEntry(entry, entry.sitePath);
+  const canonicalIdentical = entry.mode === 'identical' && hasValidTransportManifestKeys(entry);
+  if (entry.path !== destination || (!canonicalIdentical && !convergentAdapted)) {
+    throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
+  }
+
+  const normalized = structuredClone(entry);
+  if (convergentAdapted) {
+    normalized.mode = 'identical';
+    delete normalized.reason;
+  }
+  return normalized;
+}
+
+function comparableOwnedTransportEntry(entry) {
+  const comparable = structuredClone(entry);
+  // Baselines are the owned, deliberately mutable part of a transport entry.
+  delete comparable.baseline;
+  return canonicalJson(comparable);
+}
+
+/**
+ * `files` is a set of mappings even though the manifest stores it as an array.
+ * A clean merge or a re-attestation can leave the same owned mapping twice.
+ * Collapse only equivalent entries; an unknown field or conflicting mapping
+ * remains fail-closed instead of being silently selected.
+ */
+function normalizeTransportManifestEntries(entries, mappings, { dropLegacy = false } = {}) {
+  if (entries === undefined) return [];
+  if (!Array.isArray(entries)) throw new Error('crawler loop-sync manifest files must be an array');
+
+  const normalized = [];
+  const seen = new Map();
+  for (const entry of entries) {
+    const destination = mappings.get(entry.sitePath);
+    if (!destination) {
+      normalized.push(entry);
+      continue;
+    }
+    if (dropLegacy && isLegacyObserverTransportEntry(entry, destination)) continue;
+
+    const candidate = normalizeOwnedTransportEntry(entry, destination);
+    const previous = seen.get(candidate.sitePath);
+    if (previous) {
+      if (comparableOwnedTransportEntry(previous) !== comparableOwnedTransportEntry(candidate)) {
+        throw new Error(`conflicting duplicate crawler transport mapping: ${candidate.sitePath}`);
+      }
+      continue;
+    }
+    seen.set(candidate.sitePath, candidate);
+    normalized.push(candidate);
+  }
+  return normalized;
+}
+
 function compareManifestEntries(left, right) {
   const leftKey = `${String(left?.path ?? '')}\u0000${String(left?.sitePath ?? '')}`;
   const rightKey = `${String(right?.path ?? '')}\u0000${String(right?.sitePath ?? '')}`;
@@ -277,15 +333,20 @@ export function assertCrawlerManifestDelta({
     ]),
   ];
   const mappings = expectedMappings(discoveredWorkflowFiles);
+  const normalizedCurrentManifest = structuredClone(currentManifest);
+  normalizedCurrentManifest.files = normalizeTransportManifestEntries(
+    normalizedCurrentManifest.files,
+    mappings,
+  );
+  expected.files = (expected.files ?? []).filter((entry) => (
+    !isLegacyObserverTransportEntry(entry, mappings.get(entry.sitePath))
+  ));
   const currentOwned = new Map();
-  for (const entry of currentManifest.files ?? []) {
+  for (const entry of normalizedCurrentManifest.files ?? []) {
     if (!mappings.has(entry.sitePath)) continue;
     if (currentOwned.has(entry.sitePath)) throw new Error(`duplicate owned crawler manifest entry: ${entry.sitePath}`);
     currentOwned.set(entry.sitePath, entry);
   }
-  expected.files = (expected.files ?? []).filter((entry) => (
-    !isLegacyObserverTransportEntry(entry, mappings.get(entry.sitePath))
-  ));
   for (const [sitePath, destination] of mappings) {
     const current = currentOwned.get(sitePath);
     if (!current || current.path !== destination || current.mode !== 'identical' ||
@@ -310,12 +371,17 @@ export function assertCrawlerManifestDelta({
     const isWatchdogEntry = (entry) => entry.path === WATCHDOG_RUNTIME_PATH
       && entry.mode === 'corpus-only' && entry.baseline?.site === null;
     const baseEntry = (expected.files ?? []).find(isWatchdogEntry);
-    const currentEntry = (currentManifest.files ?? []).find(isWatchdogEntry);
+    const currentEntry = (normalizedCurrentManifest.files ?? []).find(isWatchdogEntry);
     if (baseEntry && currentEntry?.baseline.corpus === watchdogRuntimeDigest) {
       baseEntry.baseline.corpus = watchdogRuntimeDigest;
     }
   }
-  if (canonicalManifestJson(currentManifest) !== canonicalManifestJson(expected)) {
+  // Validate every required current mapping before normalizing the baseline.
+  // A historical, non-convergent adapted entry in the baseline must remain
+  // visible to the ownership check; normalizing it first would replace the
+  // contract error with an unrelated duplicate/mapping error.
+  expected.files = normalizeTransportManifestEntries(expected.files, mappings);
+  if (canonicalManifestJson(normalizedCurrentManifest) !== canonicalManifestJson(expected)) {
     throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
   }
 }
@@ -375,22 +441,12 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   const observed = new Set();
   const date = alignedAt ?? new Date().toISOString().slice(0, 10);
   const normalizedFiles = [];
-  for (const entry of manifest.files ?? []) {
+  const manifestFiles = normalizeTransportManifestEntries(manifest.files, mappings, { dropLegacy: true });
+  for (const entry of manifestFiles) {
     const destination = mappings.get(entry.sitePath);
     if (!destination) {
       normalizedFiles.push(entry);
       continue;
-    }
-    const convergentAdapted = isConvergentAdaptedTransportEntry(entry, entry.sitePath);
-    const canonicalIdentical = entry.mode === 'identical' && hasValidTransportManifestKeys(entry);
-    if (isLegacyObserverTransportEntry(entry, destination)) continue;
-    if (entry.path !== destination || (!canonicalIdentical && !convergentAdapted) ||
-        observed.has(entry.sitePath)) {
-      throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
-    }
-    if (convergentAdapted) {
-      entry.mode = 'identical';
-      delete entry.reason;
     }
     observed.add(entry.sitePath);
     normalizedFiles.push(entry);
