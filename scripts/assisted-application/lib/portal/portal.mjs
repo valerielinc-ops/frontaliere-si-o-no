@@ -2004,7 +2004,17 @@ function isSuccessFactorsCustomPostingRoute(snapshot = {}, context = {}) {
 
 function successFactorsCustomPostingControlBelongs(control, snapshot, context = {}) {
   const href = String(control?.href || '').trim();
-  if (!href) return true;
+  if (!href) {
+    const localContext = [control?.vacancyContext, control?.section, control?.context]
+      .filter(Boolean)
+      .join(' ')
+      .trim();
+    const job = context.job || {};
+    return Boolean(localContext && job.title
+      && titleMatches(localContext, job.title)
+      && postingMatch(localContext, job, context.postingUrl) === 'match'
+      && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
+  }
   if (samePortalRoute(href, snapshot.url, snapshot.url)
     || samePortalRoute(href, context.postingUrl, context.postingUrl)) return true;
   if (isVerifiedPostingEntry({
@@ -2031,7 +2041,8 @@ function successFactorsCustomPostingEntries(snapshot, context) {
   if (!candidates.length) return [];
   const ownedCandidates = candidates.filter((control) => successFactorsCustomPostingControlBelongs(control, snapshot, context));
   if (!ownedCandidates.length) return [];
-  if (new Set(ownedCandidates.map(applicationEntryLabel)).size !== 1) return [];
+  if (new Set(ownedCandidates.map(applicationEntryLabel)
+    .map((label) => label.replace(/(?:\s*[»›]+)+$/u, '').trim())).size !== 1) return [];
   // The same posting can repeat one direct CTA at the top and bottom. They
   // name one action, so use the first visible occurrence and never click both.
   return ownedCandidates.slice(0, 1);

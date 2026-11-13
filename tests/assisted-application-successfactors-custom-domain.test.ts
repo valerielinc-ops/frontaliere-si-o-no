@@ -24,8 +24,9 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
     ['Italian', 'Candidati »»'],
     ['English', 'Apply »»'],
   ])('selects one duplicated %s Apply entry and ignores site chrome', (_locale, label) => {
-    const top = { id: 'apply-top', text: label, chrome: true };
-    const bottom = { id: 'apply-bottom', text: label, chrome: true };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
+    const top = { id: 'apply-top', text: label, vacancyContext, chrome: true };
+    const bottom = { id: 'apply-bottom', text: label, vacancyContext, chrome: true };
     const controls = [
       { id: 'search', text: 'Rechercher les offres', chrome: true },
       { id: 'reset', text: 'Réinitialiser', chrome: true },
@@ -44,16 +45,16 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
   it('binds a custom-domain posting through the SuccessFactors requisition route proof', () => {
     expect(isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof })).toBe(true);
     expect(applicationEntryControls(postingSnapshot([
-      { id: 'apply', text: 'Postuler »»', chrome: true },
+      { id: 'apply', text: 'Postuler »»', vacancyContext: 'Fictional Employer GmbH Customer Success Manager', chrome: true },
     ]), context)).toHaveLength(1);
     expect(applicationEntryControls(postingSnapshot([
-      { id: 'apply', text: 'Postuler »»', chrome: true },
+      { id: 'apply', text: 'Postuler »»', vacancyContext: 'Fictional Employer GmbH Customer Success Manager', chrome: true },
     ], { url: postingUrl.replace('990021', '990022') }), context)).toEqual([]);
   });
 
   it('also requires the selected title or employer when no resolver route proof exists', () => {
     const noRouteProof = { applyUrl, postingUrl, job };
-    const apply = { id: 'apply', text: 'Postuler »»', chrome: true };
+    const apply = { id: 'apply', text: 'Postuler »»', vacancyContext: 'Fictional Employer GmbH Customer Success Manager', chrome: true };
     expect(applicationEntryControls(postingSnapshot([apply]), noRouteProof)).toEqual([apply]);
     expect(applicationEntryControls(postingSnapshot([apply], {
       text: 'Another Employer\nOffice Coordinator',
@@ -62,7 +63,7 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
   });
 
   it('still recognizes the matched posting when the employer header exposes search fields', () => {
-    const apply = { id: 'apply', text: 'Postuler »»', chrome: true };
+    const apply = { id: 'apply', text: 'Postuler »»', vacancyContext: 'Fictional Employer GmbH Customer Success Manager', chrome: true };
     const snapshot = postingSnapshot([apply], {
       fields: [{ id: 'job-search', kind: 'text', inputType: 'text', label: 'Rechercher les offres' }],
     });
@@ -130,5 +131,29 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
       chrome: true,
     };
     expect(applicationEntryControls(postingSnapshot([bound, unrelated]), context)).toEqual([bound]);
+  });
+
+  it('requires local posting context for href-less Apply controls', () => {
+    const unrelated = {
+      id: 'related-job-apply',
+      text: 'Postuler »»',
+      vacancyContext: 'Other Employer GmbH\nOffice Coordinator',
+      chrome: true,
+    };
+    const current = {
+      id: 'current-job-apply',
+      text: 'Postuler »»',
+      vacancyContext: 'Fictional Employer GmbH\nCustomer Success Manager',
+      chrome: true,
+    };
+    expect(applicationEntryControls(postingSnapshot([unrelated, current]), context)).toEqual([current]);
+  });
+
+  it('canonicalizes supported arrow punctuation when deduplicating owned CTAs', () => {
+    const arrowVariants = [
+      { id: 'apply-double-angle', text: 'Postuler »»', href: applyUrl, chrome: true },
+      { id: 'apply-single-angle', text: 'Postuler ›', href: applyUrl, chrome: true },
+    ];
+    expect(applicationEntryControls(postingSnapshot(arrowVariants), context)).toEqual([arrowVariants[0]]);
   });
 });
