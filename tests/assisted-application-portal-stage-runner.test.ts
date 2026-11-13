@@ -42,6 +42,9 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     evaluate: async (fn: Function) => {
       const source = String(fn);
       if (source.includes('navigator.userAgent')) return 'Chrome';
+      if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
+        return state.snapshot.title ? [state.snapshot.title] : [];
+      }
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
