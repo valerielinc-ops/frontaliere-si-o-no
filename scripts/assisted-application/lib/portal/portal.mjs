@@ -4628,9 +4628,15 @@ export function formPostingMatch(formText, job = {}, {
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
+  const umantisPostingPair = isUmantisPostingEntry({
+    applyUrl: formApplicationUrl,
+    postingUrl,
+    postingRouteProof,
+  });
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
-  const boundUmantisApplicationInText = postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl);
+    && umantisPostingPair;
+  const boundUmantisApplicationInText = postingMatched && postingEntry
+    && isUmantisApplicationRoute(formApplicationUrl) && umantisPostingPair;
   const trustedUmantisApplication = boundUmantisApplication || boundUmantisApplicationInText;
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
