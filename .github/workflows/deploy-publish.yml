@@ -606,7 +606,6 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
-          R2_TIMEOUT_OG_S: '900'
         run: |
           started_at="$(date +%s)"
           set +e
@@ -631,6 +630,7 @@ jobs:
       - name: Observe IT early CDN push budget (advisory)
         id: cdn-early-push-budget-observed
         if: always()
+        continue-on-error: true
         env:
           EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
           EARLY_STARTED_AT: ${{ steps.cdn-push-early.outputs.started_at }}

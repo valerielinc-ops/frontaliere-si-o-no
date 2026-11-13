@@ -226,8 +226,9 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(early?.['timeout-minutes']).toBe(45);
     expect(retry?.if).toBe("steps.cdn-push-early.outcome == 'failure'");
     expect(retry?.run).toContain('duration_s=');
-    expect(retry?.env?.R2_TIMEOUT_OG_S).toBe('900');
+    expect(retry?.env?.R2_TIMEOUT_OG_S).toBeUndefined();
     expect(observer?.if).toBe('always()');
+    expect(observer?.['continue-on-error']).toBe(true);
     expect(observer?.run).toContain('cdnEarlyPushBudgetObserved()');
     expect(observer?.run).toContain('GITHUB_STEP_SUMMARY');
     expect(observer?.env?.R2_TIMEOUT_OG_S).toContain("'900'");
