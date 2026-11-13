@@ -129,15 +129,12 @@ jobs:
           args: --stats
       - name: Cache assemble-jobs output
         if: steps.assemble_cache_key.outputs.key != ''
-        # Identico a tests.yml e deploy.yml: cache content-addressable sotto
-        # .cache/assemble-jobs, il fingerprint interno dello script garantisce
-        # che la cascata restore-keys non possa riesumare un jobs.json stale.
+        # Identico a tests.yml e deploy.yml: ripristina solo lo snapshot con
+        # hash completo e manifest compatibile.
         uses: actions/cache@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
 
       - name: Assemble data/jobs.json
         # `tests/job-locale-consistency.test.ts` è l'unico dei sette a leggere
