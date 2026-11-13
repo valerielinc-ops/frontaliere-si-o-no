@@ -99,6 +99,70 @@ function parsePreviousPack(raw, now = new Date()) {
   return validatePersistedSocialCopyPack(raw, { now: previousTime });
 }
 
+const EDITORIAL_PILLAR_FIELDS = Object.freeze(['id', 'name', 'audienceNeed']);
+const EDITORIAL_ANGLE_FIELDS = Object.freeze(['id', 'pillarId', 'audienceNeed', 'angle', 'intent']);
+
+function stableEditorialContract(pack) {
+  const plan = pack?.editorialPlan;
+  if (!plan || !Array.isArray(plan.pillars) || !plan.angles || typeof plan.angles !== 'object') return null;
+  const project = (item, fields) => Object.fromEntries(fields.map((field) => [field, item?.[field] ?? null]));
+  const sortById = (left, right) => String(left.id).localeCompare(String(right.id));
+  return {
+    pillars: plan.pillars.map((pillar) => project(pillar, EDITORIAL_PILLAR_FIELDS)).sort(sortById),
+    angles: Object.fromEntries(Object.entries(plan.angles).sort(([left], [right]) => left.localeCompare(right)).map(([channel, slots]) => [
+      channel,
+      Object.fromEntries(Object.entries(slots || {}).sort(([left], [right]) => left.localeCompare(right)).map(([slot, angles]) => [
+        slot,
+        Array.isArray(angles)
+          ? angles.map((angle) => project(angle, EDITORIAL_ANGLE_FIELDS)).sort(sortById)
+          : null,
+      ])),
+    ])),
+  };
+}
+
+/**
+ * Observe whether a validated free-provider pack preserves the current Italian
+ * editorial rubric. Hooks and CTAs are intentionally excluded: they refresh
+ * weekly, while pillars and angle definitions are the stable treatment contract.
+ *
+ * @returns {{provider: string, status: 'match'|'mismatch'|'unavailable', baseline: string, stablePillars: number, stableAngles: number, mismatches: string[]}}
+ */
+export function fallbackPackEditorialParity() {
+  const [pack, currentRubric] = arguments;
+  const validatedPack = validatePersistedSocialCopyPack(pack, { now: pack?.generatedAt });
+  const provider = validatedPack.generationProvider;
+  const expected = stableEditorialContract(currentRubric);
+  const actual = stableEditorialContract(validatedPack);
+  if (!expected || !actual) {
+    return {
+      provider,
+      status: 'unavailable',
+      baseline: 'current-pack-editorial-plan',
+      stablePillars: actual?.pillars.length || 0,
+      stableAngles: actual
+        ? Object.values(actual.angles).flatMap((slots) => Object.values(slots)).filter(Array.isArray).reduce((total, angles) => total + angles.length, 0)
+        : 0,
+      mismatches: [],
+    };
+  }
+
+  const stablePillars = actual.pillars.length;
+  const stableAngles = Object.values(actual.angles)
+    .flatMap((slots) => Object.values(slots))
+    .filter(Array.isArray)
+    .reduce((total, angles) => total + angles.length, 0);
+  const matches = JSON.stringify(expected) === JSON.stringify(actual);
+  return {
+    provider,
+    status: matches ? 'match' : 'mismatch',
+    baseline: 'current-pack-editorial-plan',
+    stablePillars,
+    stableAngles,
+    mismatches: matches ? [] : ['editorialPlan'],
+  };
+}
+
 export function selectAvailableFreeModels({ candidates = FREE_SOCIAL_COPY_MODEL_CANDIDATES, providerOf = getProvider, available = isModelAvailable } = {}) {
   const providers = new Set();
   return candidates.filter((candidate) => {
@@ -171,7 +235,7 @@ function parsePackResponse(response, { provider, generatedAt, previousPack }) {
   }
   const normalized = normalizeSocialCopyPack(raw, { generatedAt, generationProvider: provider });
   if (previousPack) assertSocialCopyTreatmentContinuity(previousPack, normalized);
-  return raw;
+  return { raw, normalized };
 }
 
 function statusFromError(error) {
@@ -229,8 +293,10 @@ function markNoPack({ env, stdout, reason, attempted = [], failures = [] }) {
   writeWorkflowOutput(env, {
     pack_generated: 'false', provider: 'none', reason,
     attempt_failures: summary,
+    editorial_parity: 'not-evaluated',
+    editorial_parity_provider: 'none',
   });
-  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\nattempt_failures=${summary}\n`);
+  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\nattempt_failures=${summary}\neditorial_parity=not-evaluated\neditorial_parity_provider=none\n`);
   return { packGenerated: false, provider: null, reason, attempted, failures };
 }
 
@@ -312,9 +378,11 @@ export async function run({
       continue;
     }
 
-    let raw;
+    let parsed;
+    let editorialParity;
     try {
-      raw = parsePackResponse(response, { provider: candidate.provider, generatedAt, previousPack });
+      parsed = parsePackResponse(response, { provider: candidate.provider, generatedAt, previousPack });
+      editorialParity = fallbackPackEditorialParity(parsed.normalized, previousPack);
     } catch (error) {
       const category = classifySocialCopyFallbackFailure(error, 'validation');
       failures.push({ provider: candidate.provider, phase: 'validation', category });
@@ -323,7 +391,7 @@ export async function run({
     }
 
     try {
-      writeFileSync(responsePath, JSON.stringify(raw, null, 2) + '\n', { mode: 0o600 });
+      writeFileSync(responsePath, JSON.stringify(parsed.raw, null, 2) + '\n', { mode: 0o600 });
     } catch (error) {
       const category = classifySocialCopyFallbackFailure(error, 'output');
       failures.push({ provider: candidate.provider, phase: 'output', category });
@@ -334,9 +402,11 @@ export async function run({
     writeWorkflowOutput(env, {
       pack_generated: 'true', provider: candidate.provider, reason: 'generated',
       attempt_failures: summary,
+      editorial_parity: editorialParity.status,
+      editorial_parity_provider: editorialParity.provider,
     });
-    stdout.write(`pack_generated=true\nprovider=${candidate.provider}\nattempt_failures=${summary}\n`);
-    return { packGenerated: true, provider: candidate.provider, attempted, failures };
+    stdout.write(`pack_generated=true\nprovider=${candidate.provider}\nattempt_failures=${summary}\neditorial_parity=${editorialParity.status}\neditorial_parity_provider=${editorialParity.provider}\n`);
+    return { packGenerated: true, provider: candidate.provider, attempted, failures, editorialParity };
   }
   return markNoPack({ env, stdout, reason: 'all-free-models-failed', attempted, failures });
 }
