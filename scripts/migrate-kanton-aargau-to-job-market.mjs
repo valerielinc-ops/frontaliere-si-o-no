@@ -34,6 +34,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { archiveRemovedJobsToSlice, localeRouteKeys } from './lib/expired-jobs-archive.mjs';
+import { listExpiredSliceFiles, readExpiredSliceRows } from './lib/expired-slice-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -53,8 +54,8 @@ export function archiveUmantisEraJobs(jobs, expiredDir) {
   const retired = jobs.filter(isUmantisEraAargauJob);
   const kept = jobs.filter((job) => !isUmantisEraAargauJob(job));
   const archived = retired.length ? archiveRemovedJobsToSlice(retired, KEY, { dir: expiredDir }) : 0;
-  const file = path.join(expiredDir, `${KEY}.json`);
-  const entries = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
+  // Monolith + shards (scripts/lib/expired-slice-store.mjs).
+  const entries = readExpiredSliceRows(KEY, { dir: expiredDir });
   const before = new Set(retired.flatMap((job) => [...localeRouteKeys(job)]));
   const after = new Set(entries.flatMap((job) => [...localeRouteKeys(job)]));
   const lost = [...before].filter((route) => !after.has(route));
@@ -79,8 +80,9 @@ function main() {
   let dir = expiredDir;
   if (!apply) {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aargau-switch-'));
-    const existing = path.join(expiredDir, `${KEY}.json`);
-    if (fs.existsSync(existing)) fs.copyFileSync(existing, path.join(dir, `${KEY}.json`));
+    for (const existing of listExpiredSliceFiles(KEY, { dir: expiredDir })) {
+      fs.copyFileSync(existing.path, path.join(dir, existing.name));
+    }
   }
   const result = archiveUmantisEraJobs(jobs, dir);
   console.log(JSON.stringify({ active: jobs.length, kept: result.kept.length, archived: result.archived, routesBefore: result.routesBefore, routesAfter: result.routesAfter }));

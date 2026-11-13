@@ -114,6 +114,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { readExpiredSliceRows } from './lib/expired-slice-store.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
@@ -2920,11 +2921,9 @@ function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJ
     // exists but cannot be read must not reach archiveRemovedJobsToSlice,
     // whose own reader starts from `[]` on a parse error and would rewrite
     // the slice with only this run's rows.
-    const expiredSlicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
-    const existingArchive = fs.existsSync(expiredSlicePath) ? readJsonFile(expiredSlicePath) : [];
-    if (!Array.isArray(existingArchive)) {
-      throw new Error(`existing archive ${path.basename(expiredSlicePath)} is not an array`);
-    }
+    // Monolith + `<key>.shard-NNN.json` (expired-slice-store.mjs); throws on
+    // an unreadable or non-array file.
+    const existingArchive = readExpiredSliceRows(crawlerKey, { dir: EXPIRED_SLICES_DIR });
     const archivedWithTitle = new Set(
       existingArchive
         .filter((entry) => entry?.slug && hasArchivedTitle(entry))
@@ -3256,7 +3255,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
   const existingPostingEvidence = new Map();
-  const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
+  let expiredSlice;
+  try {
+    expiredSlice = readExpiredSliceRows(crawlerKey, { dir: EXPIRED_SLICES_DIR });
+  } catch {
+    expiredSlice = [];
+  }
   const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
     existingJobs: priorJobs || [],
     archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],

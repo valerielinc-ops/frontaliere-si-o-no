@@ -43,6 +43,7 @@ import {
   isSafeSourceGeographyPrune,
   pairedExpiredSlicePath,
 } from '../lib/crawler-slice-integrity.mjs';
+import { expiredSliceKeyOf, expiredSliceNamesForKey } from '../lib/expired-slice-names.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
@@ -120,9 +121,43 @@ function isSafeCrawlerSliceRewriteAtRefs(beforeSha, afterSha, file) {
   // same push. Its URL proof stays in the writer's runner, but the move itself
   // is visible here: reverting only the active half re-creates duplicates
   // that break assembly (#9876). Anything not archived stays a violation.
-  const expiredAfterRaw = blobAt(afterSha, expiredFile);
+  const expiredAfterRaw = expiredArchiveRawAt(afterSha, expiredFile);
   return expiredAfterRaw !== null
     && isProvenArchiveMovePrune(file, previousRaw, nextRaw, expiredAfterRaw);
+}
+
+/**
+ * The paired archive at `ref` as ONE JSON array: the monolith plus every
+ * `<key>.shard-NNN.json` (scripts/lib/expired-slice-store.mjs). A crawler
+ * whose monolith stopped growing archives its removals into the open shard,
+ * so the monolith alone would not prove the move.
+ */
+function expiredArchiveRawAt(ref, expiredFile) {
+  const dir = expiredFile.slice(0, expiredFile.lastIndexOf('/'));
+  const key = expiredSliceKeyOf(expiredFile);
+  let names = [];
+  try {
+    names = git(['ls-tree', '--name-only', `${ref}:${dir}`]).split('\n').filter(Boolean);
+  } catch {
+    return blobAt(ref, expiredFile);
+  }
+  const files = expiredSliceNamesForKey(names, key);
+  // No shard listed: the paired monolith alone, exactly as before the store.
+  if (files.length <= 1) return blobAt(ref, expiredFile);
+  const rows = [];
+  for (const name of files) {
+    const raw = blobAt(ref, `${dir}/${name}`);
+    if (raw === null) return null;
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return null;
+    }
+    if (!Array.isArray(parsed)) return null;
+    rows.push(...parsed);
+  }
+  return JSON.stringify(rows);
 }
 
 export function main() {

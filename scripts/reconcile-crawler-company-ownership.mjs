@@ -29,6 +29,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { deleteExpiredSlice, readExpiredSliceShards, writeExpiredSliceRows } from './lib/expired-slice-store.mjs';
 // Route identity and history transfer now live with the archive WRITERS, which
 // need the same two primitives to stop emitting duplicate routes in the first
 // place. Re-exported here because this module is their historical home and the
@@ -101,15 +102,36 @@ function readSlice(key) {
   return readSliceFrom(SLICES_DIR, key);
 }
 
+/**
+ * A crawler's whole expired archive — monolith + `<key>.shard-NNN.json`
+ * (scripts/lib/expired-slice-store.mjs) — or null when it has no file.
+ */
 function readExpiredSlice(key) {
-  return readSliceFrom(EXPIRED_SLICES_DIR, key);
+  const shards = readExpiredSliceShards(key, { dir: EXPIRED_SLICES_DIR });
+  if (shards.length === 0) return null;
+  return { key, expired: true, shards, jobs: shards.flatMap((shard) => shard.rows) };
 }
 
 let activeRollbackJournal = null;
 
 function writeSlice(slice) {
+  if (slice.expired) {
+    writeExpiredSliceRows(slice.key, slice.jobs, {
+      dir: EXPIRED_SLICES_DIR,
+      existing: slice.shards,
+      onBeforeWrite: (file) => activeRollbackJournal?.capture(file),
+    });
+    return;
+  }
   activeRollbackJournal?.capture(slice.file);
   writeJsonAtomic(slice.file, withJobs(slice.payload, slice.jobs));
+}
+
+function deleteExpiredSliceIfPresent(key) {
+  return deleteExpiredSlice(key, {
+    dir: EXPIRED_SLICES_DIR,
+    onBeforeDelete: (file) => activeRollbackJournal?.capture(file),
+  }).length > 0;
 }
 
 function deleteSliceIfPresent(dir, key) {
@@ -650,7 +672,7 @@ function reconcile({ apply = false } = {}) {
         if (persisted.jobs.some((job) => job.companyKey !== item.canonical)) {
           throw new Error(`${item.retired}->${item.canonical}: non-canonical companyKey remained after archive write`);
         }
-        if (retiredExpired && !deleteSliceIfPresent(EXPIRED_SLICES_DIR, item.retired)) {
+        if (retiredExpired && !deleteExpiredSliceIfPresent(item.retired)) {
           throw new Error(`${item.retired}->${item.canonical}: retired expired slice was not deleted after merge`);
         }
       }
