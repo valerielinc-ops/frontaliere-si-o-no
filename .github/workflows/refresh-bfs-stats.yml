@@ -161,8 +161,9 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # Il dispatch che genera davvero l'articolo di annuncio (#5341), verso il
-      # CORPUS. Gate: `new_quarter != ''`, cioè solo sulla transizione di trimestre —
+      # La sonda canonica del corpus deve precedere il dispatch che genera davvero
+      # l'articolo di annuncio (#5341). Gate: `new_quarter != ''`, cioè solo sulla
+      # transizione di trimestre —
       # `refresh-bfs-stats.mjs` popola quell'output unicamente quando il trimestre
       # letto dal CSV differisce da quello in Firestore. Senza quel gate ogni run
       # (2/giorno) genererebbe un articolo.
@@ -171,13 +172,26 @@ jobs:
       # interpolata da Actions: il segreto non finisce mai nella command line
       # espansa né nel log del workflow.
       #
+      # La sonda è fail-open: se il ledger/API non sono leggibili, il dispatch
+      # resta autorizzato e il segnale editoriale non viene perso.
+      - name: Probe the corpus for an existing announcement article
+        id: article_probe
+        if: steps.refresh.outputs.new_quarter != ''
+        continue-on-error: true
+        env:
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+        run: node scripts/ci/bfs-announcement-article-exists.mjs
+
+      # Il dispatch che genera davvero l'articolo di annuncio va al CORPUS e
+      # parte solo quando la sonda canonica non ha provato che l'articolo esiste.
+      #
       # `continue-on-error` perché il lavoro che conta — la riscrittura di Firestore,
       # cioè i valori che gli utenti vedono su /statistiche/ — è già stato fatto dallo
       # step precedente. Un dispatch fallito non deve far diventare rosso un refresh
       # riuscito; deve però essere RUMOROSO, ed è il compito dello step subito dopo.
       - name: Dispatch announcement article to the corpus (new quarter only)
         id: dispatch
-        if: steps.refresh.outputs.new_quarter != ''
+        if: steps.refresh.outputs.new_quarter != '' && steps.article_probe.outputs.exists != 'true'
         continue-on-error: true
         env:
           NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
@@ -255,7 +269,7 @@ jobs:
       # guardato da tests/monitor-issue-dedup.test.ts): un titolo che si muove coi
       # dati non ritrova mai la sua issue canonica e ne conia una nuova ogni volta.
       - name: Report a failed corpus dispatch (never silent)
-        if: steps.refresh.outputs.new_quarter != '' && steps.dispatch.outcome != 'success'
+        if: steps.refresh.outputs.new_quarter != '' && steps.dispatch.outcome == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -308,14 +322,6 @@ jobs:
       # JSON rotto) da' `exists=false` e lo step successivo parte lo stesso.
       # Un segnale ridondante costa una issue che si dedupa da sola; un segnale
       # soppresso perde l'annuncio di un trimestre in silenzio.
-      - name: Probe the corpus for an existing announcement article
-        id: article_probe
-        if: steps.refresh.outputs.new_quarter != ''
-        continue-on-error: true
-        env:
-          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
-        run: node scripts/ci/bfs-announcement-article-exists.mjs
-
       # Segnale editoriale, complementare al dispatch qui sopra: il dispatch avvia la
       # generazione, questa issue traccia il trimestre e SOPRAVVIVE a un run fallito,
       # cosa che un dispatch fire-and-forget non fa. Era `gh workflow run

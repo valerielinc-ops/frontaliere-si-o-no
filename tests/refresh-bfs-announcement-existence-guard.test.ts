@@ -33,19 +33,24 @@ import {
 
 const WORKFLOW = new URL('../.github/workflows/refresh-bfs-stats.yml', import.meta.url);
 const PROBE = new URL('../scripts/ci/bfs-announcement-article-exists.mjs', import.meta.url);
+const REFRESH_SCRIPT = new URL('../scripts/refresh-bfs-stats.mjs', import.meta.url);
 
 type Step = { name?: string; id?: string; if?: string; env?: Record<string, string>; run?: string };
 
 let steps: Step[];
 let probeStep: Step;
+let dispatchStep: Step;
 let signalStep: Step;
 let probeSource: string;
+let refreshSource: string;
 
 beforeAll(() => {
   steps = parse(readFileSync(WORKFLOW, 'utf8')).jobs.refresh.steps as Step[];
   probeStep = steps.find((s) => s.id === 'article_probe')!;
+  dispatchStep = steps.find((s) => s.id === 'dispatch')!;
   signalStep = steps.find((s) => s.name?.startsWith('Raise editorial signal for the new quarter'))!;
   probeSource = readFileSync(PROBE, 'utf8');
+  refreshSource = readFileSync(REFRESH_SCRIPT, 'utf8');
 });
 
 describe('la sonda di esistenza dell articolo e cablata', () => {
@@ -67,13 +72,29 @@ describe('la sonda di esistenza dell articolo e cablata', () => {
     expect(signalStep.if).toContain("steps.article_probe.outputs.exists != 'true'");
   });
 
-  it('la sonda gira PRIMA dello step che condiziona', () => {
+  it('la sonda gira PRIMA del dispatch e del segnale editoriale', () => {
     // Un `if` che legge l'output di uno step successivo e' sempre falso in
-    // silenzio: la guardia sembrerebbe cablata e non guarderebbe niente.
+    // silenzio: la guardia sembrerebbe cablata e il dispatch partirebbe prima
+    // della prova canonica.
     const probeIdx = steps.findIndex((s) => s.id === 'article_probe');
+    const dispatchIdx = steps.findIndex((s) => s === dispatchStep);
     const signalIdx = steps.findIndex((s) => s === signalStep);
     expect(probeIdx).toBeGreaterThanOrEqual(0);
+    expect(probeIdx).toBeLessThan(dispatchIdx);
     expect(probeIdx).toBeLessThan(signalIdx);
+    expect(dispatchStep.if).toContain("steps.refresh.outputs.new_quarter != ''");
+    expect(dispatchStep.if).toContain("steps.article_probe.outputs.exists != 'true'");
+  });
+
+  it('il report considera fallito solo un dispatch realmente tentato', () => {
+    const reportStep = steps.find((s) => s.name === 'Report a failed corpus dispatch (never silent)')!;
+    expect(reportStep.if).toBe("steps.refresh.outputs.new_quarter != '' && steps.dispatch.outcome == 'failure'");
+  });
+
+  it('il refresh non legge il ledger locale: l idempotenza appartiene alla sonda canonica', () => {
+    expect(refreshSource).not.toContain('articleAlreadyPublished');
+    expect(refreshSource).not.toContain('data/article-source-urls.json');
+    expect(refreshSource).toContain("emitOutput('new_quarter', latestQuarter)");
   });
 
   it('la soppressione e visibile nel job summary, mai silenziosa', () => {
