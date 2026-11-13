@@ -71,8 +71,9 @@ const CANONICAL_TRANSPORT_MANIFEST_KEYS = 'baseline,mode,path,sitePath';
 const IDENTICAL_CONTRACT_WITH_REASON_KEYS = 'baseline,mode,path,reason,sitePath';
 const HISTORICAL_ADAPTATION_METADATA_KEYS =
   'adaptationIssue,baseline,mode,path,reason,sitePath';
+const ADAPTATION_ISSUE_ONLY_KEYS = 'adaptationIssue,baseline,mode,path,sitePath';
 const CORPUS_ADAPTATION_ISSUE_RE =
-  /^https:\/\/github\.com\/nanakokyobashi-rgb\/frontaliere-articles\/(?:issues|pull)\/\d+$/u;
+  /^https:\/\/github\.com\/(?:nanakokyobashi-rgb\/frontaliere-articles|valerielinc-ops\/frontaliere-si-o-no)\/(?:issues|pull)\/\d+\/?$/u;
 const COUPLING_SNAPSHOT_SITE_PATH =
   '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs';
 
@@ -109,6 +110,13 @@ function hasValidTransportManifestKeys(entry) {
       && keys === HISTORICAL_ADAPTATION_METADATA_KEYS
       && typeof entry.reason === 'string'
       && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)) return true;
+  // A corpus-side reconciliation can retain the issue reference after it has
+  // dropped the prose reason. Keep that legacy form limited to the two
+  // convergent crawler mappings and to a repository-owned issue or PR URL.
+  if (CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(entry.sitePath)
+      && entry.mode === 'identical'
+      && keys === ADAPTATION_ISSUE_ONLY_KEYS
+      && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)) return true;
   return entry.sitePath === COUPLING_SNAPSHOT_SITE_PATH
     && keys === 'baseline,couplingSnapshot,mode,path,sitePath'
     && hasValidCouplingSnapshot(entry.couplingSnapshot);
@@ -136,16 +144,18 @@ function isLegacyObserverTransportEntry(entry, destination) {
 }
 
 function isConvergentAdaptedTransportEntry(entry, sitePath) {
-  return CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
-    && entry?.mode === 'adapted'
-    && typeof entry?.reason === 'string'
-    && (
-      Object.keys(entry).sort().join(',') === 'baseline,mode,path,reason,sitePath'
-      || (
-        Object.keys(entry).sort().join(',') === HISTORICAL_ADAPTATION_METADATA_KEYS
-        && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)
-      )
-    );
+  if (!CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
+      || entry?.mode !== 'adapted') return false;
+  const keys = Object.keys(entry).sort().join(',');
+  if (keys === 'baseline,mode,path,reason,sitePath') {
+    return typeof entry.reason === 'string';
+  }
+  if (keys === HISTORICAL_ADAPTATION_METADATA_KEYS) {
+    return typeof entry.reason === 'string'
+      && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
+  }
+  return keys === ADAPTATION_ISSUE_ONLY_KEYS
+    && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
 }
 
 function sha16(content) {
