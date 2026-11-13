@@ -1176,7 +1176,7 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {}, platformFacts = null }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {}, platformFacts = null, suppressedQuestionIds = [], suppressedAnswerContracts = [] }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -1185,7 +1185,21 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // 2026-11-10, platformCandidateFacts `permitStatusSource: 'deduced'`): never over an answer of theirs.
   const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit)
     || (platformFacts?.permitStatusSource === 'deduced' && !String(answers.work_permit ?? '').trim() ? permitStatusOf(platformFacts.permitStatus) : '');
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
+  const suppressedQuestionIdSet = new Set(Array.isArray(suppressedQuestionIds) ? suppressedQuestionIds : []);
+  const suppressedAnswersById = new Map((Array.isArray(suppressedAnswerContracts) ? suppressedAnswerContracts : [])
+    .filter(contract => typeof contract?.id === 'string').map(contract => [contract.id, contract]));
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources, suppressedQuestionIdSet);
+  const suppressedQuestionContracts = portalQuestions.filter(question => suppressedQuestionIdSet.has(question?.id)).map(question => ({
+    id: String(question.id),
+    labels: [...new Set([question.applicationQuestion, question.portalQuestion, question.question]
+      .filter(value => typeof value === 'string' && value.trim()).map(value => value.trim().slice(0, 520)))],
+    topic: questionTopic(question.applicationQuestion || question.question, question.context || '', question),
+    status: suppressedAnswersById.get(question.id)?.status || 'unknown',
+    ...(suppressedAnswersById.get(question.id)?.status === 'answered'
+      && Object.hasOwn(suppressedAnswersById.get(question.id), 'answer')
+      ? { answer: suppressedAnswersById.get(question.id).answer } : {}),
+    allowLiveMapping: suppressedAnswersById.get(question.id)?.allowLiveMapping === true,
+  }));
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const resolved = resolveResidenceAddress(profile.address, profile.location);
@@ -1269,6 +1283,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       civilStatus: personal?.civilStatus || facts?.civilStatusLabel || '',
     },
     platformFacts: facts,
+    suppressedQuestionContracts,
     // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
     // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
     // «Svizzera» or «Schweiz» never backs a nationality answer.
@@ -1340,9 +1355,9 @@ const accountRegistrationSnapshot = (snapshot) => ({
   fields: (snapshot?.fields || []).map(accountRegistrationField),
 });
 
-function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}, suppressedQuestionIds = new Set()) {
   const attestedIds = new Set(currentAnswerIds);
-  const items = questions.map((question) => {
+  const items = questions.filter(question => !suppressedQuestionIds.has(question?.id)).map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
     const mapped = portalAnswerForApplication(question, projected);
@@ -1369,7 +1384,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+    .filter((question) => question?.id && (suppressedQuestionIds.has(question.id) || String(answers[question.id] ?? '').trim()
       || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
     .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
@@ -1400,10 +1415,11 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null, suppressedQuestionIds = [] } = {}) {
   const out = {};
+  const suppressed = new Set(Array.isArray(suppressedQuestionIds) ? suppressedQuestionIds : []);
   for (const question of questions) {
-    if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
+    if (question?.source !== 'portal' || !question.required || suppressed.has(question.id) || String(answers?.[question.id] ?? '').trim()) continue;
     const options = (Array.isArray(question.applicationOptions) && question.applicationOptions.length
       ? question.applicationOptions
       : Array.isArray(question.options) ? question.options : [])

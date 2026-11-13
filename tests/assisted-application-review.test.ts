@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
-import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -430,6 +430,8 @@ describe('candidate review API', () => {
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [changedWhy] }));
     expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
       .toEqual({ german_skill_level: '' });
+    expect(candidateAnswerHistoryState(store.read(`${BASE}/automation/flow`)?.candidateAnswerHistory))
+      .toContainEqual(expect.objectContaining({ id: 'german_level', answer: 'B1', status: 'answered' }));
   });
 
   it('counts the new versions left from the drafts the candidate was shown, not from the round\'s number', async () => {

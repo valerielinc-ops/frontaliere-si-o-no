@@ -2,9 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
   candidateAnswersForQuestions,
+  candidateAnswerHistoryState,
+  candidateAnswerProjectionDiagnostics,
   candidateQuestionAnswerKey,
   questionsForCandidate,
   rememberCandidateQuestionAnswers,
+  rememberCandidateAnswerHistory,
   factSourcesNow,
   fieldView,
   formAnswersWithEdits,
@@ -14,6 +17,7 @@ import {
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
 import { sanitizeProfile } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 const LETTER = [
   'Gentili Signore e Signori,',
@@ -203,6 +207,27 @@ describe('candidate edits', () => {
       applicationQuestion: 'Do you hold a valid Swiss work permit?',
     };
     expect(candidateAnswersForQuestions([differentQuestion], {}, memory)).not.toHaveProperty(differentQuestion.id);
+  });
+
+  it('keeps an incompatible saved answer in history and suppresses a platform default', () => {
+    const nowMs = Date.now();
+    const original = { id: 'notice', question: 'Attuale periodo di preavviso', why: 'Dichiara il preavviso attuale.',
+      type: 'choice', options: ['7 giorni', '3 mesi'], required: true };
+    const current = { ...original, options: ['3 mesi'] };
+    const history = rememberCandidateAnswerHistory({ questions: [original], changed: { notice: '7 giorni' },
+      round: 1, confirmedAt: nowMs });
+
+    const diagnostics = candidateAnswerProjectionDiagnostics([current], { history, nowMs });
+    expect(diagnostics.incompatibleQuestionIds).toEqual(['notice']);
+    expect(candidateAnswersForQuestions([current], {}, {}, history, nowMs)).not.toHaveProperty('notice');
+    expect(candidateAnswersForQuestions([current], {}, { [candidateQuestionAnswerKey(current)]: '3 mesi' }, history, nowMs))
+      .not.toHaveProperty('notice');
+    const form = withOperationalQuestionAnswers([current], {}, {
+      locale: 'it', suppressDefaultQuestionIds: diagnostics.suppressDefaultQuestionIds,
+    });
+    expect(form.answers).not.toHaveProperty('notice');
+    expect(form.defaults).not.toHaveProperty('notice');
+    expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'notice', answer: '7 giorni', status: 'answered' }]);
   });
 
   it('does not replace an explicit unknown multi-choice answer from memory', () => {

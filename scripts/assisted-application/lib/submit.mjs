@@ -152,10 +152,14 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
 
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, candidateAnswerHistory = [], order = {} } = {}) {
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft,
+  const { profile, answers: candidateAnswers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft,
     flow: { answers, questionAnswers, candidateAnswerHistory } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
-  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, {
+    locale: platformFacts?.locale, facts: platformFacts,
+    suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds, candidateAnswerSuppressedQuestionContracts,
+  }).answers;
   const unsupportedDirectAnswers = candidateAnswersForQuestions(questions, answers, questionAnswers, candidateAnswerHistory);
   for (const question of questions) {
     if (Object.hasOwn(answers || {}, question.id)
@@ -346,9 +350,12 @@ export async function submitApplication(ctx) {
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
     platformFacts: initialEdited.platformFacts,
+    suppressedQuestionIds: initialEdited.candidateAnswerDefaultSuppressionIds,
+    suppressedAnswerContracts: initialEdited.candidateAnswerSuppressedQuestionContracts,
   });
   const autoAnswerSources = Object.create(null);
-  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers,
+    sources: autoAnswerSources, suppressedQuestionIds: initialEdited.candidateAnswerDefaultSuppressionIds });
   const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
   const submitFlow = Object.keys(mergedAnswers).length
@@ -357,7 +364,10 @@ export async function submitApplication(ctx) {
   const candidateRequestRound = Number(submitFlow?.candidateRequestTelemetry?.rounds) || 0;
   const answers = submitFlow.answers || {};
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
-  const emailBody = operationalEmailBody(draft, edited.answers, { facts: edited.platformFacts });
+  const emailBody = operationalEmailBody(draft, edited.answers, {
+    facts: edited.platformFacts, suppressDefaultQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts: edited.candidateAnswerSuppressedQuestionContracts,
+  });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
@@ -719,7 +729,9 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts,
+          suppressedQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+          suppressedAnswerContracts: edited.candidateAnswerSuppressedQuestionContracts }),
         knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
         // The CV's text, for the decision engine's evidence on experience questions in the run (decision-answers.mjs).
         cvText: draft.factSources?.text || '',
