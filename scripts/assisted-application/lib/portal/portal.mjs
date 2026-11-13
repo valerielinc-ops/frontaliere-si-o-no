@@ -4361,7 +4361,7 @@ function titleWordsOnly(line, title) {
   // Every other word is a different role or an employer («Senior …», «… bei X»).
   return seen.length > 0 && candidates.some(candidate => {
     const wanted = new Set(normalizeWords(normalizeFormRoleTitle(candidate)).split(' ').filter(Boolean));
-    return seen.every(word => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+    return seen.every(word => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || EMPLOYER_KIND_WORDS.has(word));
   });
 }
 
@@ -4371,14 +4371,15 @@ function titleWordsOnly(line, title) {
 const FORM_HEADING_VOCABULARY = new Set([
   ...FORM_VOCABULARY,
   ...FILLER_WORDS,
-  'personal', 'information', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
+  'personal', 'information', 'informationen', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
   'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
   'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
   'hear', 'about', 'us', 'current', 'employee', 'worked', 'before', 'agree', 'privacy', 'policy', 'statement',
   'title', 'user', 'language', 'data', 'release', 'settings', 'contact', 'relationship', 'company', 'home', 'save', 'continue',
   'next', 'apply', 'absenden', 'bezeichnung', 'angebot', 'suchbegriffe', 'vorname', 'nachname', 'kennwort', 'lebenslauf',
-  'motivationsschreiben', 'zeugnisse', 'diplome', 'dokument', 'hinzufügen', 'öffnet', 'dialogfeld', 'persönlichen',
+  'motivationsschreiben', 'zeugnisse', 'diplome', 'dokument', 'dokumente', 'hinzufügen', 'öffnet', 'dialogfeld', 'persönlichen',
   'stellenspezifische', 'bewerbungsprofil', 'anzeigen', 'sprache', 'speichern', 'bewerben', 'avanti', 'weiter', 'suchen',
+  'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
@@ -4412,13 +4413,16 @@ export function formPostingMatch(formText, job = {}, {
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
   const roleHeading = formRoleHeadingStatus(formText, job);
+  const formApplicationUrl = isUmantisApplicationRoute(pageUrl)
+    ? pageUrl
+    : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
-  if (isUmantisApplicationRoute(pageUrl) && hasConflictingUmantisVacancyRoute(pageUrl, [postingUrl])) return 'mismatch';
+  if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
@@ -4428,6 +4432,13 @@ export function formPostingMatch(formText, job = {}, {
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
     && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
   if (boundUmantisApplication) {
+    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    return 'match';
+  }
+  // Some snapshots carry the Umantis Application/New URL only in the extracted
+  // form text. A verified posting entry still binds that route even when the
+  // caller did not separately pass pageUrl.
+  if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
   }
@@ -4450,14 +4461,14 @@ export function formPostingMatch(formText, job = {}, {
   if (successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
-  if (direct === 'match' || roleHeading === 'match') return 'match';
+  if (direct === 'match' || (roleHeading === 'match' && (postingMatched || postingEntry || applicationEntry))) return 'match';
   // A verified SuccessFactors module is a bound application surface even when
   // its account page contains no requisition or role text of its own.
   if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
   // A generic form reached through a posting's verified entry stays unknown:
   // its provenance lets the runner continue, while its own text proves no
   // company, role or requisition. Without that entry proof, preserve mismatch.
-  if (postingMatched || postingEntry || applicationEntry) return 'unknown';
+  if (postingEntry || applicationEntry) return 'unknown';
   return direct;
 }
 

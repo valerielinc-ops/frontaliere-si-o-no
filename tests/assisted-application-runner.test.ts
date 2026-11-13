@@ -336,6 +336,9 @@ describe('draft mode', () => {
           applyChannel: { formUrl, emailAddress: null },
         },
       }), { status: 200, headers: { 'content-type': 'application/json' } });
+      if (url === jobUrl) return new Response('<html><body><a href="https://apply.acme.example/native/789">Apply</a></body></html>', {
+        status: 200, headers: { 'content-type': 'text/html' },
+      });
       if (url === externalUrl) return new Response('<html><body><a href="https://apply.acme.example/discovered">Jetzt bewerben</a></body></html>', {
         status: 200, headers: { 'content-type': 'text/html' },
       });
