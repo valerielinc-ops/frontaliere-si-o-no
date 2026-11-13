@@ -69,6 +69,10 @@ export const CORPUS_OBSERVER_FILES = [
 
 const CANONICAL_TRANSPORT_MANIFEST_KEYS = 'baseline,mode,path,sitePath';
 const IDENTICAL_CONTRACT_WITH_REASON_KEYS = 'baseline,mode,path,reason,sitePath';
+const HISTORICAL_ADAPTATION_METADATA_KEYS =
+  'adaptationIssue,baseline,mode,path,reason,sitePath';
+const CORPUS_ADAPTATION_ISSUE_RE =
+  /^https:\/\/github\.com\/nanakokyobashi-rgb\/frontaliere-articles\/(?:issues|pull)\/\d+$/u;
 const COUPLING_SNAPSHOT_SITE_PATH =
   '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs';
 
@@ -96,6 +100,15 @@ function hasValidTransportManifestKeys(entry) {
       && entry.mode === 'identical'
       && keys === IDENTICAL_CONTRACT_WITH_REASON_KEYS
       && typeof entry.reason === 'string') return true;
+  // The corpus records the issue that justified a temporary adaptation. The
+  // two convergent crawler entries may retain that history when already
+  // `identical`; keep the exception scoped to the corpus repository and the
+  // explicitly convergent paths below.
+  if (CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(entry.sitePath)
+      && entry.mode === 'identical'
+      && keys === HISTORICAL_ADAPTATION_METADATA_KEYS
+      && typeof entry.reason === 'string'
+      && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)) return true;
   return entry.sitePath === COUPLING_SNAPSHOT_SITE_PATH
     && keys === 'baseline,couplingSnapshot,mode,path,sitePath'
     && hasValidCouplingSnapshot(entry.couplingSnapshot);
@@ -126,7 +139,13 @@ function isConvergentAdaptedTransportEntry(entry, sitePath) {
   return CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
     && entry?.mode === 'adapted'
     && typeof entry?.reason === 'string'
-    && Object.keys(entry).sort().join(',') === 'baseline,mode,path,reason,sitePath';
+    && (
+      Object.keys(entry).sort().join(',') === 'baseline,mode,path,reason,sitePath'
+      || (
+        Object.keys(entry).sort().join(',') === HISTORICAL_ADAPTATION_METADATA_KEYS
+        && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)
+      )
+    );
 }
 
 function sha16(content) {
@@ -244,6 +263,7 @@ function normalizeOwnedTransportEntry(entry, destination) {
   if (convergentAdapted) {
     normalized.mode = 'identical';
     delete normalized.reason;
+    delete normalized.adaptationIssue;
   }
   return normalized;
 }
