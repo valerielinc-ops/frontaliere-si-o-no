@@ -21,6 +21,15 @@ const EVENT_PREFIX = 'candidate-email-document-recovery';
 const SEND_STATES = new Set(['sent', 'sending', 'claimed']);
 const CLAIM_TTL_MS = 10 * 60 * 1000;
 
+function hasSubmitDispatchEvidence(dispatch, round) {
+  if (dispatch?.mode !== 'submit') return false;
+  const dispatchRound = dispatch.round;
+  // A submit dispatch with a missing or invalid round may already have reached
+  // the employer. Treat it as evidence so recovery cannot rewrite its files.
+  if (dispatchRound == null || !Number.isSafeInteger(dispatchRound) || dispatchRound <= 0) return true;
+  return !Number.isSafeInteger(round) || round <= 0 || dispatchRound === round;
+}
+
 function hasSendEvidence({ flow, draft, submission, round }) {
   const current = submission?.[`r${round}`] || {};
   return SEND_STATES.has(current.state)
@@ -30,8 +39,7 @@ function hasSendEvidence({ flow, draft, submission, round }) {
     || draft?.sentAttempt
     || ['submitting', 'submitted', 'withdrawn'].includes(flow?.state)
     || flow?.submittedVia === 'postal'
-    || (flow?.dispatch?.mode === 'submit'
-      && (flow.dispatch.round == null || Number(flow.dispatch.round) === round));
+    || hasSubmitDispatchEvidence(flow?.dispatch, round);
 }
 
 function eligibleState({ flow, draft, submission, nowMs = Date.now(), checkRecoveryClock = true, checkAttemptLimit = true }) {

@@ -199,7 +199,7 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
   it.each([
     ['Cloud Functions', DEPLOY_WORKFLOW_PATH],
     ['Firestore/Storage rules', RULES_DEPLOY_WORKFLOW_PATH],
-  ])('retries the %s checkout once before deploy logic', (label, workflowPath) => {
+  ])('retries the %s sparse checkout once before deploy logic', (label, workflowPath) => {
     const workflow = parse(fs.readFileSync(workflowPath, 'utf8')) as any;
     const job = Object.values(workflow.jobs)[0] as any;
     const steps = job.steps as Array<Record<string, any>>;
@@ -214,8 +214,11 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       'continue-on-error': true,
     });
     if (label === 'Cloud Functions') {
-      expect(primary?.with?.['sparse-checkout']).toBeUndefined();
-      expect(primary?.with?.['sparse-checkout-cone-mode']).toBeUndefined();
+      const profile = String(primary?.with?.['sparse-checkout']);
+      expect(profile).toContain('/*');
+      expect(profile).toContain('!/public/images/');
+      expect(profile).toContain('!/data/jobs/');
+      expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);
     } else {
       expect(String(primary?.with?.['sparse-checkout'])).toContain('/*');
       expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);

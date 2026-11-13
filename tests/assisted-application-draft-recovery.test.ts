@@ -260,6 +260,34 @@ describe('contact-only recovery of a draft generated without candidate email', (
     expect(store.files).toEqual(beforeFiles);
   });
 
+  it('does not render documents when a submit dispatch round is malformed', async () => {
+    const store = documentFixture();
+    const flowPath = `${orderPath}/automation/flow`;
+    const draftPath = `${orderPath}/ai_drafts/current`;
+    store.docs.set(flowPath, {
+      ...store.read(flowPath), round: 1, dispatch: { mode: 'submit', round: 'unknown' },
+    });
+    store.docs.set(draftPath, { ...store.read(draftPath), round: 1 });
+    const auth = { getUser: async () => ({ email: 'account@example.test', emailVerified: true }) };
+    let letterRenderCount = 0;
+    let cvRenderCount = 0;
+    const trackedRenderLetter = async (input: any) => {
+      letterRenderCount++;
+      return renderLetter(input);
+    };
+    const trackedRenderCv = async (input: any) => {
+      cvRenderCount++;
+      return renderCv(input);
+    };
+
+    expect(await recoverCandidateDocumentEmail({
+      db: store.db, bucket: store.bucket, auth, orderId, nowMs: now,
+      renderLetter: trackedRenderLetter, renderCv: trackedRenderCv,
+    })).toMatchObject({ status: 'ineligible', reason: 'send_evidence' });
+    expect(letterRenderCount).toBe(0);
+    expect(cvRenderCount).toBe(0);
+  });
+
   it('leaves a ready in-place CV unchanged when the new DOCX cannot be page-verified and records a safe audit event', async () => {
     const store = documentFixture();
     const path = `${orderPath}/ai_drafts/current`;
