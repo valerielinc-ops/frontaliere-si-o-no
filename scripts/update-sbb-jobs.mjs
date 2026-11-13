@@ -261,36 +261,84 @@ async function fetchPage(url, timeoutMs = 15000, accept = 'application/json') {
   }
 }
 
+function extractSbbAemJsonBody(body = '') {
+  const text = String(body || '').trim();
+  if (!text) return null;
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    return null;
+  }
+
+  if (Array.isArray(parsed)) return text;
+
+  // Jina's JSON response is an envelope; only unwrap the known data.content
+  // field and verify that it identifies this SBB AEM URL.
+  // Do not reinterpret arbitrary objects or prose as a job feed.
+  const data = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+    ? parsed.data
+    : null;
+  if (!data || typeof data !== 'object' || Array.isArray(data) || typeof data.content !== 'string') {
+    return null;
+  }
+  if (typeof data.url !== 'string' || !data.url.trim()) return null;
+  try {
+    const sourceUrl = new URL(data.url);
+    const expectedUrl = new URL(SBB_API_URL);
+    if (sourceUrl.href !== expectedUrl.href) return null;
+  } catch {
+    return null;
+  }
+
+  const content = data.content.trim();
+  try {
+    const contentJson = JSON.parse(content);
+    return Array.isArray(contentJson) ? JSON.stringify(contentJson) : null;
+  } catch {
+    return null;
+  }
+}
+
+function validateSbbAemJinaBody(body = '') {
+  if (extractSbbAemJsonBody(body)) return null;
+  const reason = detectJinaErrorBody(body);
+  return reason || 'body was not a JSON array or a recognized Jina SBB AEM envelope';
+}
+
 /**
  * Rescue the public AEM JSON feed when the CI egress IP is rejected.
  *
  * `fetchPage()` deliberately keeps the normal direct request cheap. A 403 on
  * this public source is an egress/WAF failure, not an authoritative empty
- * snapshot, so retry the same endpoint from Jina's clean-IP pool and request
- * the raw body (`text`) instead of Jina's HTML/markdown rendering.
+ * snapshot, so retry the same endpoint from Jina's clean-IP pool. Jina's
+ * `Accept: application/json` response is an envelope whose `data.content`
+ * contains the source body; unwrap only that known SBB AEM contract.
  */
 async function fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
   const directBody = await fetchPageImpl(SBB_API_URL, timeoutMs);
   if (directBody) return directBody;
 
   console.warn('⚠️ Direct SBB AEM discovery was unavailable — retrying via Jina clean-IP proxy...');
-  const response = await fetchJinaImpl(SBB_API_URL, { timeoutMs, format: 'text' });
+  const response = await fetchJinaImpl(SBB_API_URL, {
+    timeoutMs,
+    format: 'text',
+    accept: 'application/json',
+    validateBody: validateSbbAemJinaBody,
+  });
   if (!response?.ok) {
     console.warn(`⚠️ Jina proxy returned HTTP ${response?.status ?? 'unknown'} for SBB AEM discovery.`);
     return null;
   }
 
   const body = await response.text();
-  try {
-    JSON.parse(body);
-    return body;
-  } catch (err) {
-    const reason = detectJinaErrorBody(body);
-    console.warn(
-      `⚠️ Jina-proxied SBB AEM discovery body was not valid JSON${reason ? ` (${reason})` : ''}: ${err.message}`,
-    );
-    return null;
-  }
+  const sourceBody = extractSbbAemJsonBody(body);
+  if (sourceBody) return sourceBody;
+
+  const reason = validateSbbAemJinaBody(body);
+  console.warn(`⚠️ Jina-proxied SBB AEM discovery body was not valid JSON${reason ? ` (${reason})` : ''}.`);
+  return null;
 }
 
 function decodeHtmlHref(value = '') {
