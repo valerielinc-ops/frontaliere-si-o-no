@@ -2,8 +2,8 @@
 // paginated listing reads the SAME rule — page 11+ `noindex,follow`, no page
 // 2+ in a sitemap. The emitters below are closures thousands of lines long
 // (jobsSeoPagesPlugin is ~13k) that no test runs end to end, so this observer
-// pins the adoption at source level: each one imports the policy, and each
-// sitemap push of a paginated page goes through `isPaginationSitemapEligible`.
+// pins the adoption at source level: each one imports the policy, and Jobs'
+// sitemap writes go through the policy-owned append helper.
 // Behavioural coverage of the families that DO have a cheap render lives in
 // pagination-index-policy, company-archive-pagination, plate-auction-pages,
 // events-pagination-policy and topic-cluster-hubs.
@@ -32,11 +32,11 @@ describe('pagination policy adoption (P1)', () => {
 
   it('jobs: every paginated-listing sitemap push is gated, and page 11+ ships noindex', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
-    const pushes = src.match(/^.*paginationSitemapEntries\.push\(.*$/gm) ?? [];
-    expect(pushes.length).toBeGreaterThan(0);
-    for (const line of pushes) expect(line).toMatch(/if \(isPaginationSitemapEligible\(pageNum\)\) paginationSitemapEntries\.push\(/);
+    const helperCalls = src.match(/pushPaginationSitemapEntry\(\s*paginationSitemapEntries,\s*pageNum,/g) ?? [];
+    expect(helperCalls).toHaveLength(2);
+    expect(src).not.toContain('paginationSitemapEntries.push(');
     // One robots override per paginated-listing render (TI + other cantons).
-    expect(src.match(/\.\.\.\(isPaginationNoindex\(pageNum\) \? \{ robots: 'noindex,follow' \} : \{\}\)/g)?.length).toBe(2);
+    expect(src.match(/!\s*isPaginationNoindex\(pageNum\)/g)?.length).toBe(2);
   });
 
   it('fuel: the index sitemap only takes page 1 and the index renderer reads the robots policy', () => {
