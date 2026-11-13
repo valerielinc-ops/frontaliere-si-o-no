@@ -117,7 +117,7 @@ function permitFromQuote(value, quote) {
 
 const PASSPORT_WORDS = /\b(?:passaport\w*|passport\w*|passeport\w*|reisepass\w*|pass)\b/i;
 const PASSPORT_UNKNOWN = /\b(?:i (?:do not|don't) know|i am not sure|i'm not sure|not sure|unknown|no idea|non so|non lo so|non conosco|non sono sicur\w*|weiss nicht|weiß nicht|ich weiss nicht|ich weiß nicht|nicht sicher|keine ahnung|je ne sais pas|je ne connais pas|je ne suis pas s[uû]r\w*|aucune idee|pas s[uû]r\w*)\b/i;
-const PASSPORT_ABSENT = /\b(?:no (?:valid )?passport|i (?:do not|don't) have (?:a )?passport|i have no (?:valid )?passport|non ho (?:un )?passaporto|senza (?:un )?passaporto|kein(?:en )?(?:gultig\w* )?reisepass|ich habe keinen pass|je n'ai pas de passeport|je n ai pas de passeport|pas de passeport|aucun passeport)\b/i;
+const PASSPORT_ABSENT = /\b(?:no (?:valid )?passport|i (?:do not|don't) (?:have|hold) (?:(?:a|any|valid) )?(?:passport|one)|i have no (?:valid )?(?:passport|one)|non ho (?:un )?passaporto|senza (?:un )?passaporto|kein(?:en )?(?:g[uü]ltig\w* )?reisepass|ich habe keinen pass|je n'ai pas de passeport|je n ai pas de passeport|pas de passeport|aucun passeport)\b/i;
 
 /** The nationalities a passage names, read one to three words at a time. */
 function nationalitiesIn(quote) {
@@ -145,7 +145,9 @@ function passportFromQuote(value, quote) {
 
 function passportUnknownFromQuote(quote) {
   const text = fold(quote);
-  return PASSPORT_WORDS.test(text) && (PASSPORT_UNKNOWN.test(text) || PASSPORT_ABSENT.test(text));
+  // The model returns a quote for this specific field. Candidates often answer only «I don't know» or
+  // «I don't have one», with the passport context supplied by the question rather than repeated in the quote.
+  return PASSPORT_UNKNOWN.test(text) || PASSPORT_ABSENT.test(text);
 }
 
 function nationalityFromQuote(value, quote, locale) {
