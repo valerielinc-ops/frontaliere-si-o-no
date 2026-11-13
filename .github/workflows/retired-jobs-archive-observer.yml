@@ -81,13 +81,17 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Multi-line body passed through the environment and quoted once, so
+          # it reaches github-issue-creator.mjs intact.
+          ISSUE_DESCRIPTION: |
+            ## Job URLs left the active set without a titled expired record
+            The build serves them as noindex «Offerta non verificata» stubs.
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the crawlers listed in the run summary.
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
-            --description "## Job URLs left the active set without a titled expired record
-          The build serves them as noindex «Offerta non verificata» stubs.
-          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the crawlers listed in the run summary." \
+            --description "$ISSUE_DESCRIPTION" \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"

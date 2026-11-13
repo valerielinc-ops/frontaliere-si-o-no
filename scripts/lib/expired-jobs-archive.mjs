@@ -39,6 +39,7 @@ import {
   buildStableJobIdentity,
 } from './job-identity.mjs';
 import { isHeldFromPublication } from './translation-publication-hold.mjs';
+import { assertByteSizeCeiling } from './assert-file-size-ceiling.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -521,6 +522,28 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * @returns {number} added count
  */
 /**
+ * Refuse an expired slice that would cross the push-safety ceiling
+ * (scripts/lib/assert-file-size-ceiling.mjs, 90 MB for these slices) BEFORE it
+ * is written: a slice over GitHub's 100 MB limit otherwise fails only as a
+ * rejected push, after the crawler run that grew it. Measured on the bytes
+ * writeJsonAtomic would write for this array.
+ *
+ * @param {string} slicePath
+ * @param {object[]} entries
+ */
+export function assertExpiredSliceSize(slicePath, entries) {
+  let bytes;
+  try {
+    bytes = Buffer.byteLength(`${JSON.stringify(entries, null, 2)}\n`, 'utf8');
+  } catch (error) {
+    // Past V8's string limit the slice is far over any ceiling.
+    if (error instanceof RangeError) bytes = Number.MAX_SAFE_INTEGER;
+    else throw error;
+  }
+  assertByteSizeCeiling(slicePath, bytes);
+}
+
+/**
  * Read a crawler's expired slice (read-only; missing or corrupt → `[]`).
  *
  * @param {string} crawlerKey
@@ -615,6 +638,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     || collapsed.repairedRoutes > 0
     || routeRepair.changed > 0;
   if (!needsArchiveWrite && !routeChanged) return 0;
+  assertExpiredSliceSize(slicePath, archived);
   writeJsonAtomic(slicePath, archived);
   return added;
 }

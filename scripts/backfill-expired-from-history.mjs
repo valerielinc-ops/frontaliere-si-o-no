@@ -39,6 +39,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
+  assertExpiredSliceSize,
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
@@ -370,6 +371,7 @@ function processSlice(sliceFile) {
   ).entries;
   if (!DRY_RUN) {
     fs.mkdirSync(EXPIRED_DIR, { recursive: true });
+    assertExpiredSliceSize(expiredPath, archived);
     writeJsonAtomic(expiredPath, archived);
   }
   return {

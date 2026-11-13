@@ -87,3 +87,89 @@ describe('measureRetiredArchiveCoverage()', () => {
     expect(result.retiredUnarchived).toEqual([]);
   });
 });
+
+// ── CLI on a real (temporary) git history ─────────────────────────────────
+// The observer reads slices from git revisions. A slice whose root is neither
+// an array nor {jobs: [...]} is malformed, and counting it as empty would
+// pass exactly the data the observer cannot judge (review 5884475292).
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { afterAll, beforeAll } from 'vitest';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const SCRIPT = 'scripts/ci/check-retired-jobs-archived.mjs';
+let repo = '';
+
+function copyClosure(rel: string, seen = new Set<string>()) {
+  if (seen.has(rel)) return;
+  seen.add(rel);
+  const src = path.join(REPO_ROOT, rel);
+  const text = fs.readFileSync(src, 'utf8');
+  fs.mkdirSync(path.dirname(path.join(repo, rel)), { recursive: true });
+  fs.writeFileSync(path.join(repo, rel), text);
+  for (const match of text.matchAll(/(?:import|export)\s[^;]*?from\s+['"](\.[^'"]+)['"]/g)) {
+    copyClosure(path.relative(REPO_ROOT, path.resolve(path.dirname(src), match[1])), seen);
+  }
+}
+
+function git(...args: string[]) {
+  const result = spawnSync('git', args, { cwd: repo, encoding: 'utf8' });
+  if (result.status !== 0) throw new Error(`git ${args.join(' ')}: ${result.stderr}`);
+  return result.stdout.trim();
+}
+
+function commitSlices(active: unknown, expired: unknown, message: string) {
+  fs.mkdirSync(path.join(repo, 'data/jobs/by-crawler'), { recursive: true });
+  fs.mkdirSync(path.join(repo, 'data/jobs/expired/by-crawler'), { recursive: true });
+  fs.writeFileSync(path.join(repo, 'data/jobs/by-crawler/acme.json'), JSON.stringify(active));
+  fs.writeFileSync(path.join(repo, 'data/jobs/expired/by-crawler/acme.json'), JSON.stringify(expired));
+  git('add', '-A');
+  git('commit', '-q', '--allow-empty', '-m', message);
+  return git('rev-parse', 'HEAD');
+}
+
+function observe(base: string, head: string) {
+  return spawnSync(process.execPath, [SCRIPT, '--base', base, '--head', head], { cwd: repo, encoding: 'utf8' });
+}
+
+beforeAll(() => {
+  repo = fs.mkdtempSync(path.join(os.tmpdir(), 'retired-observer-'));
+  git('init', '-q', '--initial-branch=main');
+  git('config', 'user.name', 'Test Runner');
+  git('config', 'user.email', 'test@example.invalid');
+  copyClosure(SCRIPT);
+  fs.writeFileSync(path.join(repo, 'package.json'), JSON.stringify({ type: 'module' }));
+});
+
+afterAll(() => {
+  if (repo) fs.rmSync(repo, { recursive: true, force: true });
+});
+
+describe('check-retired-jobs-archived CLI', () => {
+  it('exits 0 when the retired posting is archived with its title', () => {
+    const base = commitSlices({ jobs: [job('kept'), job('gone')] }, [], 'base');
+    const head = commitSlices({ jobs: [job('kept')] }, [job('gone')], 'archived');
+    const result = observe(base, head);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('retired WITHOUT an archive record with title: 0');
+  });
+
+  it('exits 1 when a retired posting has no archive record', () => {
+    const base = commitSlices({ jobs: [job('kept'), job('gone')] }, [], 'base again');
+    const head = commitSlices({ jobs: [job('kept')] }, [], 'dropped');
+    const result = observe(base, head);
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain('retired acme: gone');
+  });
+
+  it('fails closed (exit 2, "cannot read") on a slice with an unsupported root', () => {
+    const base = commitSlices({ jobs: [job('kept')] }, [], 'valid');
+    const head = commitSlices({ unexpected: [] }, [], 'malformed');
+    const result = observe(base, head);
+    expect(result.status).toBe(2);
+    expect(result.stderr).toMatch(/cannot read acme\.json .*unsupported slice root/);
+  });
+});

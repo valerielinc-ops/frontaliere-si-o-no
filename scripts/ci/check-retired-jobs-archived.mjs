@@ -202,9 +202,24 @@ function createBlobReader() {
     buffer = Buffer.concat([buffer, chunk]);
     drain();
   });
+  // An EOF or a failure of `git cat-file --batch` must reach every pending
+  // read() at once; otherwise the run waits for the workflow timeout.
+  let failure = null;
+  const failAll = (error) => {
+    failure = failure || error;
+    while (waiting.length > 0) waiting.shift().reject(failure);
+  };
+  child.on('error', (error) => failAll(new Error(`git cat-file --batch failed: ${error.message}`)));
+  child.stdout.on('end', () => failAll(new Error('git cat-file --batch closed its output before answering')));
+  child.on('exit', (code, signal) => failAll(new Error(`git cat-file --batch exited (${signal || code})`)));
+  child.stdin.on('error', (error) => failAll(new Error(`git cat-file --batch stdin: ${error.message}`)));
   return {
     read(oid) {
       return new Promise((resolve, reject) => {
+        if (failure) {
+          reject(failure);
+          return;
+        }
         waiting.push({ resolve, reject });
         child.stdin.write(`${oid}\n`);
       });
@@ -233,8 +248,11 @@ function rowsOf(bytes) {
   }
   const parsed = JSON.parse(bytes.toString('utf8'));
   if (Array.isArray(parsed)) return parsed;
-  if (parsed && Array.isArray(parsed.jobs)) return parsed.jobs;
-  return [];
+  if (parsed && typeof parsed === 'object' && Array.isArray(parsed.jobs)) return parsed.jobs;
+  // Any other root is a malformed slice, not an empty one: counting it as
+  // empty would let the observer pass on exactly the data it cannot judge.
+  const shape = parsed === null ? 'null' : Array.isArray(parsed) ? 'array' : typeof parsed;
+  throw new Error(`unsupported slice root (${shape}${shape === 'object' ? ` with keys ${Object.keys(parsed).slice(0, 5).join(',') || 'none'}` : ''}); expected an array or {jobs: [...]}`);
 }
 
 /** Keep only the fields the measurement reads: slices weigh ~2 GB per revision. */

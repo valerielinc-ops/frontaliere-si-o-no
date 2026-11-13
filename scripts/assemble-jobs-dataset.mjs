@@ -2939,6 +2939,10 @@ function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJ
     );
     return archived;
   } catch (err) {
+    // A slice past the push-safety ceiling must stop the run with its own
+    // message (assert-file-size-ceiling.mjs), not surface later as a push
+    // GitHub rejects.
+    if (err?.code === 'FILE_SIZE_CEILING') throw err;
     console.error(
       `  ❌ ${crawlerKey}: ${retired.length} retired row(s) NOT archived (${err?.message || err}) — `
         + 'their URLs will be served as unverified stubs until backfill-expired-from-history runs.',
