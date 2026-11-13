@@ -283,6 +283,14 @@ function isLegacyPermitAnswer(question, value) {
     && !DRIVING_LICENCE_QUESTION_RE.test(wording) && !permitStatusOf(value);
 }
 
+function isDirectAnswerInvalidForCurrentContract(question, value, nowMs) {
+  if (String(question?.type || '').trim().toLowerCase() === 'date'
+    && answerForCurrentQuestion(value, question, nowMs) === undefined) return true;
+  const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
+    .filter(Boolean).join(' ');
+  return DRIVING_LICENCE_QUESTION_RE.test(wording) && Boolean(permitStatusOf(value));
+}
+
 function candidateAnswerHistoryIdentity(question) {
   const identityQuestion = questionForAnswerIdentity(question);
   const rawText = String(identityQuestion?.question || '').trim();
@@ -506,12 +514,14 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || !hasQuestionAnswer(result[question.id])) continue;
     const saved = candidateAnswerHistoryRecordForQuestionId(question, history);
-    if (saved === undefined) {
-      const current = answerForCurrentQuestion(result[question.id], question, nowMs);
-      if (current !== undefined) result[question.id] = current;
-      else if (question?.requiresAffirmativeConsent === true
-        && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
-      else if (!isLegacyPermitAnswer(question, result[question.id])) delete result[question.id];
+    const hasMatchingCandidateHistory = saved && saved.status === 'answered'
+      && answerValueKey(saved.answer) === answerValueKey(result[question.id]);
+    if (saved === undefined || (saved && !hasMatchingCandidateHistory)) {
+      if (isDirectAnswerInvalidForCurrentContract(question, result[question.id], nowMs)) delete result[question.id];
+      else if (saved === undefined) {
+        const current = answerForCurrentQuestion(result[question.id], question, nowMs);
+        if (current !== undefined) result[question.id] = current;
+      }
       continue;
     }
     if (saved === null || (saved && (saved.status !== 'answered'
