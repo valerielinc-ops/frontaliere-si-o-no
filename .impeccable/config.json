@@ -77,6 +77,51 @@
         ],
         "createdAt": "2026-11-09T06:36:26.267Z",
         "reason": "False positive: this is a regex that reads generated <img> markup in a test; it adds no image element or empty src to the site."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "design/jobgate-v6-variants.html"
+        ],
+        "createdAt": "2026-11-13T13:50:39.336Z",
+        "reason": "Agent: DESIGN.md mandates Inter for body and controls in this intentional visual test board."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "files": [
+          "design/jobgate-v6-variants.html"
+        ],
+        "createdAt": "2026-11-13T13:50:39.729Z",
+        "reason": "Agent: DESIGN.md mandates Space Grotesk for display and headings in this intentional visual test board."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "grotesk\",ui-sans-serif,system-ui,sans-serif",
+        "files": [
+          "design/jobgate-v6-variants.html"
+        ],
+        "createdAt": "2026-11-13T13:50:40.119Z",
+        "reason": "Agent: the preview uses documented Space Grotesk; detector tokenizes the family name incorrectly."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(203, 213, 225)",
+        "files": [
+          "design/jobgate-v6-variants.html"
+        ],
+        "createdAt": "2026-11-13T13:50:40.524Z",
+        "reason": "Agent: documented admin-rail muted color in DESIGN.md, used intentionally by the V6-13 Navy Companion preview."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(167, 139, 250)",
+        "files": [
+          "design/jobgate-v6-variants.html"
+        ],
+        "createdAt": "2026-11-13T13:50:40.923Z",
+        "reason": "Agent: documented admin accent color in DESIGN.md, used intentionally by the V6-13 Navy Companion preview."
       }
     ]
   },

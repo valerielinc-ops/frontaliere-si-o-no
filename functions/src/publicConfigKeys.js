@@ -39,10 +39,14 @@ export const PUBLIC_CONFIG_KEYS = [
   'JOBGATE_EXPERIMENT_ARMS',
   'JOBGATE_EXPERIMENT_ENABLED',
   'JOBGATE_EXPERIMENT_FORCE',
-  // New isolated jobgate-v5 controls. STARTED_AT is server-only metadata.
+  // Cached v5 clients remain pinned to the promoted tinted treatment.
   'JOBGATE_V5_EXPERIMENT_ARMS',
   'JOBGATE_V5_EXPERIMENT_ENABLED',
   'JOBGATE_V5_EXPERIMENT_FORCE',
+  // New isolated jobgate-v6 controls. STARTED_AT is server-only metadata.
+  'JOBGATE_V6_EXPERIMENT_ARMS',
+  'JOBGATE_V6_EXPERIMENT_ENABLED',
+  'JOBGATE_V6_EXPERIMENT_FORCE',
   'KILL_ASSISTED_APPLICATION_REWARDED_AD',
   'KILL_FUEL_DAILY_LINKS',
   'KILL_HEALTH_PREMIUMS_LINKS',
