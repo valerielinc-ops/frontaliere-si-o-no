@@ -279,7 +279,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
     const sourceSha = String(source.head_sha);
     const publisher = {
       id: 5001,
-      name: 'Publish to GitHub Pages (deploy + validate)',
+      name: `Publish Pages build 4001 @ ${sourceSha}`,
       path: '.github/workflows/deploy-publish.yml',
       event: 'workflow_dispatch',
       status: 'completed',
@@ -310,7 +310,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
       runId: '5001',
       pinnedRun: {
         id: 5001,
-        name: 'Publish to GitHub Pages (deploy + validate)',
+        name: `Publish Pages build 4001 @ ${sourceSha}`,
         path: '.github/workflows/deploy-publish.yml',
         event: 'workflow_dispatch',
         status: 'completed',
@@ -337,7 +337,7 @@ describe('fetch-pages-artifact: elenco delle run con finestra created', () => {
       runId: '5001',
       pinnedRun: {
         id: 5001,
-        name: 'Publish to GitHub Pages (deploy + validate)',
+        name: `Publish Pages build 4001 @ ${sourceSha}`,
         path: '.github/workflows/deploy-publish.yml',
         event: 'workflow_dispatch',
         status: 'completed',
