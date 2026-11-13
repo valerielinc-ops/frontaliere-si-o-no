@@ -516,6 +516,7 @@ describe('portal runner self-correction', () => {
 
   it.each([
     'Andare all’annuncio esterno',
+    '• ANDARE ALL’ANNUNCIO ESTERNO',
     'Zum externen Stellenangebot',
     'Aller à l’offre externe',
     'Go to external job posting',
@@ -565,6 +566,8 @@ describe('portal runner self-correction', () => {
       ...shell.buttons,
       { text: 'Apply', href: 'https://other.example.test/jobs/other/', disabled: false },
     ] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...shell, buttons: shell.buttons.map((button) => button.text === 'Andare all’annuncio esterno'
+      ? { ...button, text: 'Non andare all’annuncio esterno' } : button) }, context)).toEqual([]);
   });
 
   it.each(['Bewerbung absenden', 'Weiter'])('keeps a fieldless detail-shaped application with a disabled %s control', (text) => {
