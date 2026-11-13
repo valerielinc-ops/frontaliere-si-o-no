@@ -42,6 +42,7 @@ const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
 const APPLICATION_DIVERSION_RE = /\b(?:talent\s*pool|introduce\s+yourself|unsolicited\s+application|spontaneous\s+application|general\s+application|job\s*alert|create\s+(?:a\s+)?job\s*alert|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|talentpool|job[- ]?abo|stellenalarm|jobbenachrichtigung|présentez[- ]vous|présentez-vous|candidature\s+spontanée|candidature\s+spontanee|candidature\s+libre|alerte\s+(?:emploi|offre)|créer\s+une\s+alerte|creer\s+une\s+alerte|presentati|candidatura\s+spontanea|candidatura\s+libera|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\b/iu;
+const APPLICATION_DIVERSION_COPY_RE = /\b(?:talent\s*pool|unsolicited\s+application|spontaneous\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|talentpool|candidature\s+spontanée|candidature\s+spontanee|candidature\s+libre|candidatura\s+spontanea|candidatura\s+libera|autocandidatura)\b/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -249,10 +250,14 @@ export function isApplicationRegionUnsupported(text = '') {
 
 /** A diversion cue for the navigation agent; it is never a submission stop by itself. */
 export function applicationDiversionHint(snapshot = {}) {
+  const title = String(snapshot?.title || '');
   const labels = [...(snapshot?.buttons || []), ...(snapshot?.links || [])]
     .map(item => `${item?.text || ''} ${item?.label || ''} ${item?.ariaLabel || ''} ${item?.title || ''}`);
-  const surface = [snapshot?.title, snapshot?.text, ...labels].filter(Boolean).join('\n');
-  return APPLICATION_DIVERSION_RE.test(surface) ? 'talent_pool_or_job_alert' : '';
+  const titleCue = APPLICATION_DIVERSION_RE.test(title);
+  const controlCue = labels.some(label => APPLICATION_DIVERSION_RE.test(label)
+    && !/\b(?:job\s*alert|create\s+(?:a\s+)?job\s*alert|job[- ]?abo|stellenalarm|jobbenachrichtigung|alerte\s+(?:emploi|offre)|avviso\s+(?:di\s+)?lavoro)\b/iu.test(label));
+  const explicitCopy = APPLICATION_DIVERSION_COPY_RE.test(String(snapshot?.text || ''));
+  return titleCue || controlCue || explicitCopy ? 'talent_pool_or_job_alert' : '';
 }
 
 /** The directory containing a route, treating a canonical trailing slash as decoration. */

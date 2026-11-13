@@ -10395,8 +10395,14 @@ export async function submitViaPortal(ctx) {
               applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingRouteProof: ctx.postingRouteProof,
               job: ctx.job, allowSingleExternalApplicationEntry: postingVacancyMatched,
             }).length === 1;
+          // A posting page often carries a site search or newsletter field in
+          // its header/footer. Those are not evidence that the application
+          // entry opened an already-live form; only candidate-owned fields
+          // should block the selected posting's Apply control.
+          const hasCandidateField = (targetSnapshot.fields || []).some(field =>
+            !field.disabled && !field.chrome && !['hidden', 'submit', 'button'].includes(field.inputType));
           return (targetMatchesPosting || targetEntryBound)
-            && !(targetSnapshot.fields || []).some(field => !field.disabled && !['hidden', 'submit', 'button'].includes(field.inputType))
+            && !hasCandidateField
             && !targetStage.prefinal
             && (targetEntryBound || !['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(targetStage.kind));
         };

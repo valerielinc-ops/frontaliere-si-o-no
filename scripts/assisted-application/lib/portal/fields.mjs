@@ -604,7 +604,24 @@ function nativeQuestionText(value, counter = null) {
       || hasRequiredControlSignal(element, label)) return false;
     return true;
   };
+  const SITE_MARKETING_FIELD_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie)\b/iu;
+  const isSiteMarketingField = (element) => {
+    if (!inSiteChrome(element) || hasRequiredControlSignal(element)) return false;
+    const form = element.form || element.closest('form');
+    const surface = [
+      form?.id,
+      form?.className,
+      form?.getAttribute('aria-label'),
+      form?.innerText || form?.textContent,
+      element.getAttribute('name'),
+      element.id,
+      element.getAttribute('placeholder'),
+      labelFor(element),
+    ].filter(Boolean).join(' ');
+    return SITE_MARKETING_FIELD_RE.test(surface);
+  };
   const isSiteChromeControl = (element) => isSiteLanguageControl(element)
+    || isSiteMarketingField(element)
     || (inSiteChrome(element) && !isApplicationOwnedControl(element));
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
@@ -1120,6 +1137,7 @@ function nativeQuestionText(value, counter = null) {
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',
+      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     };
     if (tag === 'select') {
       field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));

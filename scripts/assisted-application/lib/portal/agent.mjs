@@ -78,7 +78,7 @@ const ACTION_TIMEOUT_MS = 6000;
 const REF_RE = /^(f\d+)?e\d+$/;
 const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace']);
 // A button with one of these words may send the application: only the runner presses it.
-export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)/i;
+export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|apply|bewerb|candida|postul)/i;
 // Some legacy portals use a form submit for an intermediate action, such as
 // adding an uploaded resume to the application before the real Next button
 // (Talentsoft/RHB: «Hinzufügen»). Keep those actions available to the agent,
@@ -596,6 +596,15 @@ async function describe(locator) {
       return field.type === 'password' || /\b(?:otp|one[- ]time(?:\s+(?:password|passcode|code))?|verification code|confirmation code|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|bestätigungs(?:code|passwort)|verifizierungscode|einmal(?:passwort|kennwort|code))\b/iu.test(identity);
     }));
     const href = control.tagName === 'A' ? control.getAttribute('href') || '' : '';
+    const context = [...new Set([
+      control.closest('form')?.innerText || control.closest('form')?.textContent,
+      control.closest('[role="dialog"], [aria-modal="true"]')?.innerText
+        || control.closest('[role="dialog"], [aria-modal="true"]')?.textContent,
+      control.closest('[role="banner"], header, footer')?.innerText
+        || control.closest('[role="banner"], header, footer')?.textContent,
+    ].filter(Boolean))].join(' ').replace(/\s+/g, ' ').trim().slice(0, 500);
+    const chrome = Boolean(control.closest('header, nav, footer, [role="banner"], [role="contentinfo"]'))
+      && !control.closest('main, [role="main"], form, [role="form"], dialog, [role="dialog"], [aria-modal="true"]');
     // The associated labels (<label for>, a wrapping <label>, aria-labelledby): a checkbox
     // whose only name is an external «I accept» label is still the account's privacy control.
     const labelledBy = (control.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
@@ -619,6 +628,8 @@ async function describe(locator) {
       editable: element.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea, [contenteditable="true"], [role="textbox"], [role="combobox"], [role="searchbox"], [role="spinbutton"]'),
       inList: Boolean(element.closest('[role="combobox"], [role="listbox"], [role="option"], [role="menu"], [role="grid"], [aria-autocomplete]')) || element.matches('[aria-autocomplete], [aria-haspopup]'),
       inForm: Boolean(form || control.closest('[role="form"]')),
+      context,
+      chrome,
       href,
       submits,
       authForm,
@@ -628,7 +639,11 @@ async function describe(locator) {
 }
 
 /** Why the action must not run on this element; final application clicks remain runner-owned. */
-const FINAL_SEND_VERB_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm)/i;
+const FINAL_SEND_VERB_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina)/i;
+const CONFIRMATION_RE = /\b(?:confirm|conferm|bestätig)\w*\b/iu;
+const PREFERENCE_SURFACE_RE = /\b(?:cookie|consent|privacy|preference|settings?|account|profile|konto|profil|impostazioni|preferenze|confidentialité|paramètres?)\b/iu;
+const isPreferenceConfirmation = (info = {}) => CONFIRMATION_RE.test(String(info.name || ''))
+  && (info.chrome === true || PREFERENCE_SURFACE_RE.test(`${info.name || ''} ${info.labelName || ''} ${info.context || ''}`));
 const NAVIGATIONAL_APPLICATION_RE = /^(?:apply(?:\s+(?:now|for this job|for this role|with (?:an )?account))?|postuler(?:\s+(?:maintenant|manuellement|à cette (?:offre|annonce)|à ce poste))?|(?:jetzt\s+)?bewerben(?:\s+(?:sie sich(?: jetzt)?|für diese stelle|auf diese stelle))?|candidati(?:\s+(?:ora|per questa posizione))?|applica(?:\s+(?:ora|per questa offerta))?|postul(?:ar|er)(?:\s+(?:ahora|a esta oferta))?|start(?:\s+(?:the\s+)?application))\W*$/iu;
 
 export function refusal(action, info, { reservedButtons = [], navigationEnabled = true, allowApplicationEntry = false } = {}) {
@@ -662,6 +677,7 @@ export function refusal(action, info, { reservedButtons = [], navigationEnabled 
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
   if (info.button && (action.action === 'click' || action.action === 'press')) {
     if (info.submits && (info.authForm || ACCOUNT_SUBMIT_RE.test(info.name))) return 'account_action_reserved';
+    const preferenceConfirmation = isPreferenceConfirmation(info);
     const intermediateSubmit = info.submits
       && INTERMEDIATE_SUBMIT_RE.test(info.name)
       && !APPLICATION_ACTION_RE.test(info.name);
@@ -671,10 +687,10 @@ export function refusal(action, info, { reservedButtons = [], navigationEnabled 
       && !info.inForm && applicationVerb && !FINAL_SEND_VERB_RE.test(info.name);
     const navigationEntry = navigationEnabled && allowApplicationEntry && !info.inForm
       && NAVIGATIONAL_APPLICATION_RE.test(info.name) && !FINAL_SEND_VERB_RE.test(info.name);
-    const finalAction = FINAL_SEND_VERB_RE.test(info.name)
+    const finalAction = !preferenceConfirmation && (FINAL_SEND_VERB_RE.test(info.name)
       || (applicationVerb && !applicationLink && !navigationEntry)
-      || ((FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) && !navigationEntry && (info.inForm || info.submits));
-    if ((!advance && info.submits && !intermediateSubmit && !navigationEntry && !applicationLink) || (!advance && finalAction)) return 'final_submit_reserved';
+      || ((FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) && !navigationEntry && (info.inForm || info.submits)));
+    if ((!advance && info.submits && !intermediateSubmit && !navigationEntry && !applicationLink && !preferenceConfirmation) || (!advance && finalAction)) return 'final_submit_reserved';
     if (!navigationEnabled && (advance || info.leaves)) return advance ? 'navigation_reserved' : 'link_reserved';
   }
   // The caller's own reserved controls (the account page: create account, sign in, privacy statement),

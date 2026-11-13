@@ -252,6 +252,22 @@ it('blocks a final-looking div onclick control during agent turns', () => {
   releaseAgentFinalClickLockInPage('agent-lock', dom.window);
 });
 
+it('allows a cookie preference confirmation while the navigation agent is active', () => {
+  const { dom } = fixture('<div role="dialog"><p>Cookie preferences</p><button id="confirm" type="button">Confirm selection</button></div>');
+  const control = dom.window.document.querySelector('#confirm') as HTMLButtonElement;
+  const clicked = vi.fn();
+  control.addEventListener('click', clicked);
+  installFinalFormGuardCaptureInPage(dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', dom.window);
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  control.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(false);
+  expect(clicked).toHaveBeenCalledOnce();
+  releaseAgentFinalClickLockInPage('agent-lock', dom.window);
+});
+
 it('allows only an explicitly authorized application entry outside a form', () => {
   const { dom } = fixture('<button id="entry" onclick="window.entries++">Apply for this job</button><form><button id="final" onclick="window.sent = true">Apply</button></form>');
   const entry = dom.window.document.querySelector('#entry') as HTMLButtonElement;

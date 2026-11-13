@@ -1049,6 +1049,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     // it must be available before the runner presses the separate «Weiter».
     expect(refusal({ action: 'click' }, { ...button, name: 'Hinzufügen', submits: true })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Add application', submits: true })).toBe('final_submit_reserved');
+    expect(refusal({ action: 'click' }, {
+      ...button, name: 'Confirm selection', submits: true, context: 'Cookie preferences', chrome: true,
+    })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Confirm and apply', submits: true, inForm: true })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Continua' })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Informativa', leaves: true })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Continua' }, { navigationEnabled: false })).toBe('navigation_reserved');

@@ -34,6 +34,13 @@ describe('application stage ownership', () => {
     expect(applicationDiversionHint({ title: 'Apply for Payroll Specialist', text: 'Continue your application.' })).toBe('');
   });
 
+  it('does not treat ordinary application copy containing Introduce yourself as a diversion', () => {
+    expect(applicationDiversionHint({
+      title: 'Payroll Specialist application',
+      text: 'Payroll Specialist application\nIntroduce yourself\nSubmit application',
+    })).toBe('');
+  });
+
   it('recognizes a spontaneous-application warning in page text as a hint', () => {
     expect(applicationDiversionHint({ text: 'Candidature spontanée: présentez-vous à notre équipe.' })).toBe('talent_pool_or_job_alert');
   });

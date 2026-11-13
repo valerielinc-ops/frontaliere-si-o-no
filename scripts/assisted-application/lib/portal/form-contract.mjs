@@ -21,7 +21,7 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
     const control = target?.closest?.('button, a, input[type="submit"], input[type="button"], [role="button"], [role="link"], [onclick]') || target;
     const name = String(control?.getAttribute?.('aria-label') || control?.getAttribute?.('title')
       || control?.value || control?.innerText || control?.textContent || '').replace(/\s+/gu, ' ').trim();
-    const sendVerb = /\b(?:submit|send|senden|absenden|abschicken|abschlie(?:ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm)\b/iu.test(name);
+    const sendVerb = /\b(?:submit|send|senden|absenden|abschicken|abschlie(?:ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina)\b/iu.test(name);
     const applicationVerb = /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(name);
     const allowedEntries = view.__frontaliereAgentAllowedEntryClicks;
     const isAllowedEntry = allowedEntries?.has(control) && !control.closest?.('form, [role="form"]')
@@ -52,7 +52,7 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
     const name = String(submitter?.getAttribute?.('aria-label') || submitter?.getAttribute?.('title')
       || submitter?.value || submitter?.innerText || submitter?.textContent || '').replace(/\s+/gu, ' ').trim();
     const finalSubmit = !submitter
-      || /\b(?:submit|send|senden|absenden|abschicken|abschlie(?:ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)\w*\b/iu.test(name);
+      || /\b(?:submit|send|senden|absenden|abschicken|abschlie(?:ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|apply|bewerb|candida|postul)\w*\b/iu.test(name);
     if (!finalSubmit) return;
     event.preventDefault();
     event.stopPropagation();

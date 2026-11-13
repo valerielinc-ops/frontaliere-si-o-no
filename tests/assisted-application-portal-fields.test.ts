@@ -2117,6 +2117,15 @@ describe('portal field extraction', () => {
     expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
   });
 
+  it('marks an optional newsletter field in site chrome as non-application', () => {
+    const page = extract(`
+      <footer><form id="newsletter-signup" aria-label="Newsletter">
+        <label for="newsletter-email">Email</label><input id="newsletter-email" type="email" name="email">
+      </form></footer>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ label: 'Email', inputType: 'email', chrome: true })]);
+  });
+
   it('keeps required application fields and submit controls nested in site chrome', () => {
     const page = extract(`
       <header>
