@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 import { installHouseAds } from '../services/houseAdRuntime';
 import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from '../services/houseAdCreative';
 import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../functions/src/houseAdAttribution.js';
+import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
 
 let dom: JSDOM;
 let w: any;
@@ -16,7 +17,9 @@ function frame(state: string, placement = 'article-inline') {
 }
 function blockerOnlyFrame(placement = 'article-atf') {
   const el = w.document.createElement('div'); el.dataset.house = placement;
-  el.dataset.ftHouseBlockerOnly = 'true'; el.dataset.ftHouseHeight = '220';
+  el.dataset.ftHouseBlockerOnly = 'true'; el.dataset.ftHouseHeight = String(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT);
+  const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = '';
+  el.append(google);
   w.document.body.append(el); return el;
 }
 async function start(allowed = () => true) {
@@ -165,7 +168,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(empty.host.querySelector('a')).not.toBeNull();
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'adblock_detected' }));
   });
-  it('renders a blocker-only article anchor after a confirmed blocker signal without a Google slot', async () => {
+  it('renders a blocker-only article anchor after a confirmed blocker signal with a static Google marker', async () => {
     const anchor = blockerOnlyFrame();
     await start();
     expect(anchor.querySelector('[data-ft-house-host] a')).toBeNull();
@@ -178,6 +181,19 @@ describe('per-slot first-party creative delivery', () => {
     expect(anchor.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
       fallback_reason: 'adblock_detected', placement: 'article-atf', format: 'rectangle',
+    }));
+  });
+  it('renders the article creative on first paint when the blocker is already confirmed', async () => {
+    const anchor = blockerOnlyFrame();
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    await start();
+
+    expect(anchor.querySelector('[data-ft-house-google]')).not.toBeNull();
+    expect(anchor.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(anchor.style.getPropertyValue('--ft-house-height')).toBe(`${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}px`);
+    expect(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT).toBe(220);
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
+      fallback_reason: 'adblock_detected', placement: 'article-atf',
     }));
   });
   it.each([
