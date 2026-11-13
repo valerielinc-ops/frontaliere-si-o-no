@@ -25,7 +25,8 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits,
+  questionsForCandidate, requiredPortalConsentAffirmed, validatedCandidateAnswerForQuestion } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -155,6 +156,14 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
     flow: { answers, questionAnswers, candidateAnswerHistory } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const unsupportedDirectAnswers = candidateAnswersForQuestions(questions, answers, questionAnswers, candidateAnswerHistory);
+  for (const question of questions) {
+    if (Object.hasOwn(answers || {}, question.id)
+      && (!Object.hasOwn(unsupportedDirectAnswers, question.id)
+        || validatedCandidateAnswerForQuestion(unsupportedDirectAnswers[question.id], question) === undefined)) {
+      delete projected[question.id];
+    }
+  }
   return questions.filter((question) => {
     const answer = projected?.[question.id];
     const unresolvedConsent = !requiredPortalConsentAffirmed(question, answer);

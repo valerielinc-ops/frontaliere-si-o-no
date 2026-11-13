@@ -52,6 +52,7 @@ import { chromeErrorPageFailure, navigationInfrastructureFailure } from './assis
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
+  validatedCandidateAnswerForQuestion,
   candidateAnswerHistoryState,
   candidateQuestionAnswerKey,
   candidateWithEdits,
@@ -794,19 +795,30 @@ function knownAnswerForQuestion(question, { draft, answers, questionAnswers, can
     ? draftQuestions.map(current => current?.id === question?.id ? question : current)
     : [...draftQuestions, question];
   const projected = candidateAnswersForQuestions(currentQuestions, answers, questionAnswers, candidateAnswerHistory);
-  if (hasAnswer(projected?.[question.id])) return projected[question.id];
+  const key = candidateQuestionAnswerKey(question);
+  const invalidDirectInGroup = currentQuestions.some(current => {
+    const sameGroup = key ? candidateQuestionAnswerKey(current) === key : current?.id === question?.id;
+    if (!sameGroup || !Object.hasOwn(answers || {}, current?.id)) return false;
+    return !Object.hasOwn(projected, current.id)
+      || validatedCandidateAnswerForQuestion(projected[current.id], current) === undefined;
+  });
+  if (invalidDirectInGroup) return undefined;
+  if (hasAnswer(projected?.[question.id])
+    && validatedCandidateAnswerForQuestion(projected[question.id], question) !== undefined) return projected[question.id];
   const portalAnswer = portalAnswerForQuestion(question, draft);
   if (hasAnswer(portalAnswer)) {
     const portalProjection = candidateAnswersForQuestions([question], { [question.id]: portalAnswer }, {}, candidateAnswerHistory);
-    if (hasAnswer(portalProjection[question.id])) return portalProjection[question.id];
+    if (!hasAnswer(portalProjection[question.id])
+      || validatedCandidateAnswerForQuestion(portalProjection[question.id], question) === undefined) return undefined;
+    return portalProjection[question.id];
   }
-  const key = candidateQuestionAnswerKey(question);
   if (!key) return operationalDefaultAnswer(question, { facts })?.value;
   const remembered = candidateAnswersForQuestions([question], {}, questionAnswers, candidateAnswerHistory);
   if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
   for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
     if (candidateQuestionAnswerKey(current) !== key) continue;
-    if (hasAnswer(projected?.[current.id])) return projected[current.id];
+    if (hasAnswer(projected?.[current.id])
+      && validatedCandidateAnswerForQuestion(projected[current.id], current) !== undefined) return projected[current.id];
   }
   return operationalDefaultAnswer(question, { facts })?.value;
 }

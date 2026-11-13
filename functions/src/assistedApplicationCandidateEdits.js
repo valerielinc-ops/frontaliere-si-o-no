@@ -3,6 +3,7 @@ import { addressContextContract } from './lib/addressContextContract.js';
 import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
 import { hasPortalQuestionEvidence, portalQuestionText, readablePortalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
+import { isPreferredWorkloadQuestion, WORKLOAD_PREFERENCE_KEY } from './lib/workloadQuestion.js';
 /**
  * What the candidate may change on the review page before approving (owner
  * decision 2026-09-30): the cover letter, the e-mail to the employer (only
@@ -43,6 +44,9 @@ import { isIdentityEmailConfirmation } from './lib/identityEmail.js';
 import { candidateAddressStatements, candidateAddressTopics, candidateStatementsOf, ownedAddressTwinFields, platformCandidateFacts, platformSalutationGender, withCandidateAddress } from './assistedApplicationPlatformDefaults.js';
 import { isMatcherExperienceQuestion, verifiedCvAnswers } from './assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from './assistedApplicationDecisionAnswers.js';
+import { operationalAnswerForOption } from './assistedApplicationOperationalAnswers.js';
+
+export { isPreferredWorkloadQuestion } from './lib/workloadQuestion.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -50,7 +54,6 @@ const QUESTION_OPTION_DESCRIPTOR_LIMIT = 40;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
 const LANGUAGE_MODALITY_RE = /\b(?:written|schriftlich|ecrit|écrit|scritto|scritta)\b/i;
 const LANGUAGE_ORAL_RE = /\b(?:oral|spoken|muendlich|mündlich|parlato|parlata|parle|parlé)\b/i;
-const HARD_WORKLOAD_CONSTRAINT = /\b(?:if|when|provided|falls|wenn|sofern|se|si|qualora|presso|pour|chez|hours?|stunden?|heures?|ore|days?|giorni|tage|jours|weekends?|overtime|shifts?|schicht\w*|horaire\w*|night|turni|notturn|fine settimana|attuale|attualmente|current|currently|aktuell\w*|derzeit|actuel\w*|(?:un)?availab\w*|requir\w*|obbligat\w*|richiest\w*|richied\w*|requisit\w*|erforder\w*|verlang\w*|pflicht\w*|obligatoire|requis\w*|exig\w*|necessit\w*|min(?:imum)?|max(?:imum)?|minimo|massimo|almeno|mindestens|maximal|au moins|au plus|must(?: be)?|at least|at most|less than|more than|no less than|not less than|no more than|up to|down to|fino a(?:l{1,2}[aeio]?)?|bis zu|jusqu a|muss(?:en)?|wenigstens|mehr als|weniger als|deve|devono|non meno di|non piu di|al massimo|doit|doivent|moins de|plus de)\b/;
 
 function normalizeQuestionValue(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
@@ -234,10 +237,11 @@ function permitOptionAnswer(value, question) {
 }
 
 function answerForCurrentQuestion(value, question, nowMs = Date.now()) {
-  const candidateFactAnswer = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, value) : null;
-  const permitMapped = permitOptionAnswer(candidateFactAnswer ?? value, question);
-  const binaryMapped = binaryOptionAnswer(permitMapped ?? candidateFactAnswer ?? value, question);
-  const currentValue = binaryMapped ?? permitMapped ?? candidateFactAnswer ?? value;
+  const operationalMapped = operationalAnswerForOption(question, value);
+  const candidateFactAnswer = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, operationalMapped ?? value) : null;
+  const permitMapped = permitOptionAnswer(candidateFactAnswer ?? operationalMapped ?? value, question);
+  const binaryMapped = binaryOptionAnswer(permitMapped ?? candidateFactAnswer ?? operationalMapped ?? value, question);
+  const currentValue = binaryMapped ?? permitMapped ?? candidateFactAnswer ?? operationalMapped ?? value;
   if (!answerFitsQuestion(currentValue, question, nowMs)) return undefined;
   const options = currentOptionDescriptors(question);
   const values = Array.isArray(currentValue) ? currentValue : [currentValue];
@@ -274,6 +278,11 @@ function answerForCurrentQuestion(value, question, nowMs = Date.now()) {
   return Array.isArray(currentValue) ? validatedValues : validatedValues[0];
 }
 
+/** Strict execution check; direct same-id answers remain visible to review, but may not satisfy a live field. */
+export function validatedCandidateAnswerForQuestion(value, question, nowMs = Date.now()) {
+  return answerForCurrentQuestion(value, question, nowMs);
+}
+
 function isLegacyPermitAnswer(question, value) {
   if (typeof value !== 'string' || value.length > CANDIDATE_ANSWER_HISTORY_VALUE_LIMIT) return false;
   const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
@@ -285,6 +294,9 @@ function isLegacyPermitAnswer(question, value) {
 
 function isDirectAnswerInvalidForCurrentContract(question, value, nowMs) {
   if (String(question?.type || '').trim().toLowerCase() === 'date'
+    && answerForCurrentQuestion(value, question, nowMs) === undefined) return true;
+  const type = String(question?.type || '').trim().toLowerCase();
+  if (CATALOG_ANSWER_QUESTION_TYPES.has(type) && optionValues(question).length > 0
     && answerForCurrentQuestion(value, question, nowMs) === undefined) return true;
   const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
     .filter(Boolean).join(' ');
@@ -414,7 +426,7 @@ function compatibleAnswerQuestionIdentity(record, question) {
   return contextsCompatible && !languageContractsConflict && (semanticMatch || textMatch || candidateKeyMatch);
 }
 
-function candidateAnswerHistoryRecordForQuestionId(question, history) {
+export function candidateAnswerHistoryRecordForQuestionId(question, history) {
   const id = String(question?.id || '').trim();
   const matches = candidateAnswerHistoryState(history).filter(record => record.id === id);
   if (!matches.length) return undefined;
@@ -440,15 +452,6 @@ function candidateHistoryAnswerForQuestion(question, history, nowMs) {
   return currentAnswer;
 }
 
-/** A percentage preference is portable; employer requirements and shift availability are not. */
-export function isPreferredWorkloadQuestion(value) {
-  const text = normalizeQuestionValue(value);
-  if (!text || HARD_WORKLOAD_CONSTRAINT.test(text)) return false;
-  const workload = /\b(?:workload|pensum|arbeitspensum|beschaftigungsgrad|grado di occupazione|grado d impiego|grado di impiego|carico di lavoro|percentuale di lavoro|percentuale lavorativa|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);
-  return workload;
-}
-
-const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 /** Only this writer version marks the per-order semantic map as candidate/owner confirmed. */
 export const ORDER_QUESTION_ANSWER_EVIDENCE_VERSION = 'order-confirmed-question-answers-v3';
 
@@ -516,22 +519,38 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     const saved = candidateAnswerHistoryRecordForQuestionId(question, history);
     const hasMatchingCandidateHistory = saved && saved.status === 'answered'
       && answerValueKey(saved.answer) === answerValueKey(result[question.id]);
+    if (saved && saved.status !== 'answered') {
+      const key = candidateQuestionAnswerKey(question);
+      if (key) unknownKeys.add(key);
+      unknownQuestionIds.add(question.id);
+      delete result[question.id];
+      continue;
+    }
     if (saved === undefined || (saved && !hasMatchingCandidateHistory)) {
-      if (isDirectAnswerInvalidForCurrentContract(question, result[question.id], nowMs)) delete result[question.id];
-      else if (saved === undefined) {
-        const current = answerForCurrentQuestion(result[question.id], question, nowMs);
-        if (current !== undefined) result[question.id] = current;
+      const current = answerForCurrentQuestion(result[question.id], question, nowMs);
+      if (current !== undefined) result[question.id] = current;
+      else if (!isLegacyPermitAnswer(question, result[question.id])
+        && isDirectAnswerInvalidForCurrentContract(question, result[question.id], nowMs)) {
+        const key = candidateQuestionAnswerKey(question);
+        if (key) unknownKeys.add(key);
+        unknownQuestionIds.add(question.id);
+        delete result[question.id];
       }
+      // A direct same-id answer outside a non-catalogue validation can remain visible for review.
+      // Execution paths call validatedCandidateAnswerForQuestion before treating it as complete.
       continue;
     }
     if (saved === null || (saved && (saved.status !== 'answered'
       || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
       || !compatibleAnswerQuestionIdentity(saved, question)))) {
+      const key = candidateQuestionAnswerKey(question);
+      if (key) unknownKeys.add(key);
+      unknownQuestionIds.add(question.id);
       delete result[question.id];
       continue;
     }
     const current = answerForCurrentQuestion(result[question.id], question, nowMs);
-    if (current === undefined && question?.requiresAffirmativeConsent === true
+    if (current !== undefined && question?.requiresAffirmativeConsent === true
       && hasQuestionAnswer(result[question.id]) && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
     if (current !== undefined) result[question.id] = current;
     else if (!isLegacyPermitAnswer(question, result[question.id])) delete result[question.id];
