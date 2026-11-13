@@ -110402,6 +110402,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-congedo-parentale-riuscita': {
+    title: 'Riuscita iniziativa congedo parentale 18 settimane',
+    description: 'L\'iniziativa per un congedo parentale di 18 settimane è riuscita con 111\'151 firme valide su 112\'529 depositate il 30 settembre.',
+    keywords: 'congedo parentale, iniziativa svizzera, 18 settimane, Costituzione, firme valide',
+    ogTitle: 'Riuscita iniziativa congedo parentale 18 settimane',
+    ogDescription: 'L\'iniziativa popolare per un congedo parentale di 18 settimane è ufficialmente riuscita con 111\'151 firme valide su 112\'529 depositate il 30 settembre. Obiettivo: modificare la Costituzione.',
+    canonicalPath: '/articoli-svizzera/iniziativa-congedo-parentale-riuscita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riuscita iniziativa congedo parentale 18 settimane",
+      "description": "L'iniziativa per un congedo parentale di 18 settimane è riuscita con 111'151 firme valide su 112'529 depositate il 30 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-congedo-parentale-riuscita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-13T06:03:39+00:00",
+      "dateModified": "2026-11-13T06:03:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-congedo-parentale-riuscita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
