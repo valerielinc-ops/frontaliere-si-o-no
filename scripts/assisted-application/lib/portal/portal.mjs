@@ -4350,7 +4350,9 @@ function normalizeFormRoleTitle(value) {
     .replace(/\(?\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)?/giu, ' ')
     .replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*)?$/iu, ' ')
+    .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
+    .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
+    .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
     .replace(/\s+/g, ' ').trim();
 }
 function titleWordsOnly(line, title) {
@@ -4363,24 +4365,40 @@ function titleWordsOnly(line, title) {
   });
 }
 
+// Form chrome and field labels are not role evidence. Keep this separate from
+// FORM_VOCABULARY: the latter is also used by the employer-conflict detector,
+// while this list only decides whether a line is a plausible form heading.
+const FORM_HEADING_VOCABULARY = new Set([
+  ...FORM_VOCABULARY,
+  ...FILLER_WORDS,
+  'personal', 'information', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
+  'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
+  'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
+  'hear', 'about', 'us', 'current', 'employee', 'worked', 'before', 'agree', 'privacy', 'policy', 'statement',
+  'title', 'user', 'language', 'data', 'release', 'settings', 'contact', 'relationship', 'company', 'home', 'save', 'continue',
+  'next', 'apply', 'absenden', 'bezeichnung', 'angebot', 'suchbegriffe', 'vorname', 'nachname', 'kennwort', 'lebenslauf',
+  'motivationsschreiben', 'zeugnisse', 'diplome', 'dokument', 'hinzufügen', 'öffnet', 'dialogfeld', 'persönlichen',
+  'stellenspezifische', 'bewerbungsprofil', 'anzeigen', 'sprache', 'speichern', 'bewerben', 'avanti', 'weiter', 'suchen',
+  'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
+  'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
+].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
+
 function formRoleHeadingStatus(formText, job = {}) {
-  const line = String(formText || '').split(/\r?\n/).map(value => value.trim())
-    .find(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)) || '';
-  const heading = normalizeFormRoleTitle(line);
   const candidates = jobTitleCandidates(job);
-  if (!heading || !candidates.length) return 'unknown';
-  if (titleWordsOnly(heading, candidates)) return 'match';
+  if (!candidates.length) return 'unknown';
+  const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+  const headings = lines.filter(value => !/^https?:\/\//iu.test(value)).map(normalizeFormRoleTitle).filter(Boolean);
+  if (headings.some(heading => titleWordsOnly(heading, candidates))) return 'match';
   const neutral = new Set([
-    ...FORM_VOCABULARY,
+    ...FORM_HEADING_VOCABULARY,
     ...TITLE_GENDER_MARKERS,
-    ...FILLER_WORDS,
     ...candidates.flatMap(title => nameWords(title)),
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
-  const roleWords = normalizeWords(heading).split(' ').filter(Boolean)
-    .filter(word => !neutral.has(word) && !/^\d+$/.test(word));
-  return roleWords.length ? 'mismatch' : 'unknown';
+  return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
+    .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
 }
 
 export function formPostingMatch(formText, job = {}, {
@@ -4421,12 +4439,21 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
+  // Talentsoft tenants may expose the employer under a localized name in the
+  // form title (Rhätische Bahn) while the order stores the legal name and its
+  // short host alias (Ferrovia Retica (RhB)). The alias plus the matching role
+  // is stronger evidence than the localized title line being unfamiliar.
+  const talentSoftAliasForm = direct === 'match' && talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  if (talentSoftAliasForm) return 'match';
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
   if (direct === 'match' || roleHeading === 'match') return 'match';
+  // A verified SuccessFactors module is a bound application surface even when
+  // its account page contains no requisition or role text of its own.
+  if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
   // A generic form reached through a posting's verified entry stays unknown:
   // its provenance lets the runner continue, while its own text proves no
   // company, role or requisition. Without that entry proof, preserve mismatch.

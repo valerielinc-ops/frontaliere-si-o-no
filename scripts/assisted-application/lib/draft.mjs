@@ -171,7 +171,14 @@ export async function buildDraft(ctx) {
   maskValues(personalValuesOf(order));
 
   const posting = await fetchJobPosting(order, { fetchImpl, maxPostingChars: MAX_SOURCE_CHARS, resolve: ctx.resolve });
-  const liveness = await checkPostingLiveness({ order, posting, fetchImpl, resolve: ctx.resolve });
+  // Job-Room may publish both a canonical listing and a separate external
+  // advertisement. When its API already selected a native form URL, liveness
+  // must remain bound to the published listing rather than probing the
+  // external fallback as if it were the source posting.
+  const livenessPosting = posting.publishedPostingUrl
+    ? { ...posting, postingUrl: posting.publishedPostingUrl }
+    : posting;
+  const liveness = await checkPostingLiveness({ order, posting: livenessPosting, fetchImpl, resolve: ctx.resolve });
   log('liveness', liveness.page?.result || 'n/a', liveness.page?.code || '', liveness.closed ? 'CLOSED' : '');
   if (liveness.closed) throw new DraftAbort('posting_closed', `posting_closed:${liveness.page?.code || 'dataset'}`);
   const postingText = posting.text || `${order.jobTitle || ''} — ${order.companyName || ''}`;
