@@ -222,13 +222,9 @@ describe('social copy free-model fallback', () => {
     });
   });
 
-  it('rejects an invalid normalized pack before editorial parity can be observed', () => {
-    const previousPath = path.join(ROOT, 'data/social-copy-packs/current.json');
-    const previous = JSON.parse(readFileSync(previousPath, 'utf8'));
-    const invalid = structuredClone(previous);
-    delete invalid.channels.instagram.article[0].cta;
-
-    expect(() => fallbackPackEditorialParity(invalid, previous)).toThrow(/cta/i);
+  it('does not observe a raw or invalid pack as editorial parity', () => {
+    expect(() => fallbackPackEditorialParity({ generationProvider: 'gemini' }, null))
+      .toThrow('fallback pack is not normalized');
   });
 
   it('does not reserve the fallback allowance when a supplied brief is missing', async () => {

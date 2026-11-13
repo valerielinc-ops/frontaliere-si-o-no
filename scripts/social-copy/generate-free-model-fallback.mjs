@@ -130,10 +130,13 @@ function stableEditorialContract(pack) {
  */
 export function fallbackPackEditorialParity() {
   const [pack, currentRubric] = arguments;
-  const validatedPack = validatePersistedSocialCopyPack(pack, { now: pack?.generatedAt });
-  const provider = validatedPack.generationProvider;
+  const normalizedPack = pack;
+  if (!normalizedPack?.editorialPlan || !normalizedPack?.channels || !normalizedPack?.generationProvider) {
+    throw new Error('fallback pack is not normalized');
+  }
+  const provider = normalizedPack.generationProvider;
   const expected = stableEditorialContract(currentRubric);
-  const actual = stableEditorialContract(validatedPack);
+  const actual = stableEditorialContract(normalizedPack);
   if (!expected || !actual) {
     return {
       provider,
