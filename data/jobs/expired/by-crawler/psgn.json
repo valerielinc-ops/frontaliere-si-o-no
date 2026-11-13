@@ -431,6 +431,12 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T21:15:36.152Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
+      "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
+      "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-0d884e95",
+      "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers-12ab14fd"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers-49af82a6",
@@ -462,13 +468,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/6dde600d-0b4d-4bcb-8669-de0b9df99957",
-    "firstSeenAt": "2026-11-05T21:15:15.819Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
-      "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
-      "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-0d884e95",
-      "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers-12ab14fd"
-    ]
+    "firstSeenAt": "2026-11-05T21:15:15.819Z"
   },
   {
     "slug": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-ad6137",

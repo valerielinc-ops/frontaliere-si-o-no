@@ -3242,7 +3242,8 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T21:35:35.314Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-a180b8651936",
@@ -3413,7 +3414,8 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T21:35:34.252Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-f325b026a67c",
