@@ -998,6 +998,20 @@ function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
   return unique.length === 1 ? unique[0] : '';
 }
 
+/** Keep the passport class shared by platform decisions and all forms of the same question. */
+export function withVerifiedPassportAnswers(facts = {}, { questions = [], decisionAnswers = {}, candidatePassportAnswers = [] } = {}) {
+  const current = facts && typeof facts === 'object' ? facts : {};
+  if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
+    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, current.permitStatus));
+    const unique = [...new Set(values.filter(Boolean))];
+    return { ...current, passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+  }
+  if (current.passportSource === 'candidate' || current.passportSource === 'nationality'
+    || CANDIDATE_PASSPORTS.includes(current.passport)) return current;
+  const passport = decisionPassportAnswers(questions, decisionAnswers, current.permitStatus);
+  return passport ? { ...current, passport, passportSource: 'deduced' } : current;
+}
+
 function passportFactOf({ uploaded, nationality, nationalityCode, permitStatus, questions, decisionAnswers, candidatePassportAnswers, passportOverride }) {
   if (passportOverride?.provided) {
     return { passport: passportClassFromText(passportOverride.value), passportSource: 'candidate' };

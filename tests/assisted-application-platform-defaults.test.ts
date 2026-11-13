@@ -261,6 +261,16 @@ describe('questions the platform answers (labels from the census)', () => {
     }).platformFacts;
     expect(unknown).toMatchObject({ passport: '', passportSource: '' });
     expect(platformDefaultAnswer(type, unknown, { locale: 'en' })).toBeNull();
+
+    const modelChosenType = { ...type, options: ['Swiss', 'EU/EFTA', 'Other'], platformDecision: {
+      decision: 'answer', shape: 'choice', value: 'Other', principle: 'plausible_deduction', reason: 'Plausible from the CV.',
+    } };
+    const unknownModelType = candidateWithEdits({
+      order: { orderId: 'synthetic-unknown-type', applicantName: 'Candidato Prova' },
+      draft: { ...draft, questions: [modelChosenType] }, flow: {}, locale: 'en',
+    }).platformFacts;
+    expect(unknownModelType).toMatchObject({ passport: '', passportSource: '', decisionAnswers: {} });
+    expect(platformDefaultAnswer(modelChosenType, unknownModelType, { locale: 'en' })).toBeNull();
   });
 
   it('maps a verified EU/EFTA decision to the localized passport answer and the matching live option', () => {

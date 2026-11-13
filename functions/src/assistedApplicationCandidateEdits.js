@@ -1314,9 +1314,12 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   });
   // A candidate's passport declaration has priority over a platform decision, including an explicit blank.
   // Keep the deterministic rules available so every other passport form receives the same candidate fact.
-  if (passportOverride.provided || (has(uploaded, 'passport') && typeof uploaded.passport === 'string') || candidatePassportAnswers.length) {
-    for (const question of draft?.questions || []) {
-      if (question?.id && platformQuestionTopic(question)?.startsWith('passport_')) delete decisionAnswers[question.id];
+  const candidatePassportDeclared = passportOverride.provided
+    || (has(uploaded, 'passport') && typeof uploaded.passport === 'string') || candidatePassportAnswers.length > 0;
+  for (const question of draft?.questions || []) {
+    const topic = platformQuestionTopic(question);
+    if (question?.id && (topic === 'passport_type' || (candidatePassportDeclared && topic?.startsWith('passport_')))) {
+      delete decisionAnswers[question.id];
     }
   }
   const platformFacts = withCandidateAddress(platformCandidateFacts({
